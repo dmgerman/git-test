@@ -128,8 +128,6 @@ r_int
 id|size
 comma
 id|offset
-comma
-id|val
 suffix:semicolon
 r_int
 id|i

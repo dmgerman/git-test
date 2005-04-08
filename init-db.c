@@ -31,8 +31,6 @@ r_int
 id|len
 comma
 id|i
-comma
-id|fd
 suffix:semicolon
 r_if
 c_cond
@@ -101,6 +99,7 @@ id|st.st_mode
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
 id|fprintf
 c_func

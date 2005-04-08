@@ -512,8 +512,6 @@ id|stat
 id|st
 suffix:semicolon
 r_int
-id|i
-comma
 id|fd
 comma
 id|ret
@@ -1013,8 +1011,6 @@ id|sha1
 )paren
 suffix:semicolon
 r_int
-id|i
-comma
 id|fd
 suffix:semicolon
 id|fd
@@ -1350,6 +1346,11 @@ c_func
 l_string|&quot;open failed&quot;
 )paren
 suffix:semicolon
+id|size
+op_assign
+l_int|0
+suffix:semicolon
+singleline_comment|// avoid gcc warning
 id|map
 op_assign
 (paren

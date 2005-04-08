@@ -443,9 +443,6 @@ id|argv
 )paren
 (brace
 r_int
-id|fd
-suffix:semicolon
-r_int
 r_char
 id|sha1
 (braket

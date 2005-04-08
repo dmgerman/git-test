@@ -269,6 +269,9 @@ op_star
 )paren
 suffix:semicolon
 )brace
+r_return
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|add_cache_entry
 r_static
@@ -1329,6 +1332,9 @@ c_func
 (paren
 l_string|&quot;.dircache/index.lock&quot;
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 eof

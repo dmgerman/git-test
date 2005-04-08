@@ -323,10 +323,6 @@ id|changed
 suffix:semicolon
 r_int
 r_int
-id|mode
-suffix:semicolon
-r_int
-r_int
 id|size
 suffix:semicolon
 r_char

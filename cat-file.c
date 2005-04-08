@@ -35,9 +35,6 @@ r_int
 r_int
 id|size
 suffix:semicolon
-r_int
-id|fd
-suffix:semicolon
 r_if
 c_cond
 (paren
