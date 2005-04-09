@@ -1555,10 +1555,6 @@ id|st
 )paren
 )paren
 (brace
-id|map
-op_assign
-l_int|NULL
-suffix:semicolon
 id|size
 op_assign
 id|st.st_size
@@ -1571,7 +1567,7 @@ r_if
 c_cond
 (paren
 id|size
-OG
+op_ge
 r_sizeof
 (paren
 r_struct

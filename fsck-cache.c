@@ -141,6 +141,9 @@ id|file_sha1
 )paren
 suffix:semicolon
 )brace
+r_return
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|fsck_commit
 r_static
@@ -282,6 +285,9 @@ l_int|1
 suffix:semicolon
 multiline_comment|/* &quot;parent &quot; + &lt;hex sha1&gt; + &squot;&bslash;n&squot; */
 )brace
+r_return
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|fsck_entry
 r_static
