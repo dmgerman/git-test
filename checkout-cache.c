@@ -38,6 +38,12 @@ suffix:semicolon
 r_int
 id|wrote
 suffix:semicolon
+r_char
+id|type
+(braket
+l_int|20
+)braket
+suffix:semicolon
 r_new
 op_assign
 id|read_sha1_file
@@ -45,7 +51,7 @@ c_func
 (paren
 id|ce-&gt;sha1
 comma
-l_string|&quot;blob&quot;
+id|type
 comma
 op_amp
 id|size
@@ -56,6 +62,14 @@ c_cond
 (paren
 op_logical_neg
 r_new
+op_logical_or
+id|strcmp
+c_func
+(paren
+id|type
+comma
+l_string|&quot;blob&quot;
+)paren
 )paren
 (brace
 id|fprintf
