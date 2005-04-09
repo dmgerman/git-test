@@ -1426,7 +1426,6 @@ id|changed
 suffix:semicolon
 )brace
 DECL|function|cache_name_compare
-r_static
 r_int
 id|cache_name_compare
 c_func
