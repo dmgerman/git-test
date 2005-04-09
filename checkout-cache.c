@@ -63,7 +63,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;checkout-cache: unable to read sha1 file of %s (%s)&quot;
+l_string|&quot;checkout-cache: unable to read sha1 file of %s (%s)&bslash;n&quot;
 comma
 id|ce-&gt;name
 comma
@@ -107,7 +107,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;checkout-cache: unable to create %s (%s)&quot;
+l_string|&quot;checkout-cache: unable to create %s (%s)&bslash;n&quot;
 comma
 id|ce-&gt;name
 comma
@@ -167,7 +167,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;checkout-cache: unable to write %s&quot;
+l_string|&quot;checkout-cache: unable to write %s&bslash;n&quot;
 comma
 id|ce-&gt;name
 )paren
@@ -228,15 +228,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|changed
-)paren
-r_return
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
+op_logical_and
 op_logical_neg
 id|quiet
 )paren
@@ -245,13 +238,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;checkout-cache: %s already exists&quot;
+l_string|&quot;checkout-cache: %s already exists&bslash;n&quot;
 comma
 id|ce-&gt;name
 )paren
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 )brace
@@ -309,7 +302,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;checkout-cache: %s is not in the cache&quot;
+l_string|&quot;checkout-cache: %s is not in the cache&bslash;n&quot;
 comma
 id|name
 )paren
@@ -422,7 +415,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Invalid cache&quot;
+l_string|&quot;Invalid cache&bslash;n&quot;
 )paren
 suffix:semicolon
 m_exit
