@@ -103,6 +103,10 @@ comma
 l_char|&squot; &squot;
 )paren
 suffix:semicolon
+r_int
+r_int
+id|mode
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -114,6 +118,19 @@ l_int|20
 op_logical_or
 op_logical_neg
 id|path
+op_logical_or
+id|sscanf
+c_func
+(paren
+id|data
+comma
+l_string|&quot;%o&quot;
+comma
+op_amp
+id|mode
+)paren
+op_ne
+l_int|1
 )paren
 r_return
 l_int|1
@@ -135,6 +152,15 @@ c_func
 (paren
 id|sha1
 comma
+id|S_ISDIR
+c_func
+(paren
+id|mode
+)paren
+ques
+c_cond
+l_string|&quot;tree&quot;
+suffix:colon
 l_string|&quot;blob&quot;
 comma
 id|file_sha1
