@@ -166,6 +166,9 @@ id|size
 )paren
 (brace
 r_int
+id|parents
+suffix:semicolon
+r_int
 r_char
 id|tree_sha1
 (braket
@@ -232,6 +235,10 @@ op_plus
 l_int|1
 suffix:semicolon
 multiline_comment|/* &quot;tree &quot; + &lt;hex sha1&gt; + &squot;&bslash;n&squot; */
+id|parents
+op_assign
+l_int|0
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -284,7 +291,28 @@ op_plus
 l_int|1
 suffix:semicolon
 multiline_comment|/* &quot;parent &quot; + &lt;hex sha1&gt; + &squot;&bslash;n&squot; */
+id|parents
+op_increment
+suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|parents
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;root: %s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
