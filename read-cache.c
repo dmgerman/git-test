@@ -322,6 +322,7 @@ op_star
 id|sha1_file_name
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -579,6 +580,7 @@ op_star
 id|map_sha1_file
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -930,6 +932,7 @@ op_star
 id|read_sha1_file
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -1198,6 +1201,7 @@ r_int
 id|write_sha1_buffer
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
