@@ -299,22 +299,6 @@ comma
 id|subdir_sha1
 )paren
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Wrote %d entries from subdirectory &squot;%.*s&squot;&bslash;n&quot;
-comma
-id|subdir_written
-comma
-id|dirname
-op_minus
-id|pathname
-comma
-id|pathname
-)paren
-suffix:semicolon
 id|nr
 op_add_assign
 id|subdir_written

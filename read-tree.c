@@ -119,6 +119,8 @@ id|add_cache_entry
 c_func
 (paren
 id|ce
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
