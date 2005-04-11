@@ -557,6 +557,7 @@ l_int|0
 comma
 r_sizeof
 (paren
+op_star
 id|s
 )paren
 )paren
