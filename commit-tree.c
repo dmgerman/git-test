@@ -743,7 +743,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;COMMITTER_NAME&quot;
+l_string|&quot;AUTHOR_NAME&quot;
 )paren
 ques
 c_cond
@@ -755,7 +755,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;COMMITTER_EMAIL&quot;
+l_string|&quot;AUTHOR_EMAIL&quot;
 )paren
 ques
 c_cond
@@ -767,7 +767,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;COMMITTER_DATE&quot;
+l_string|&quot;AUTHOR_DATE&quot;
 )paren
 ques
 c_cond

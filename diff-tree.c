@@ -1261,7 +1261,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;-R&quot;
+l_string|&quot;-r&quot;
 )paren
 )paren
 (brace
