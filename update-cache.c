@@ -602,6 +602,10 @@ r_struct
 id|cache_entry
 op_star
 id|ce
+comma
+r_int
+r_int
+id|expected_size
 )paren
 (brace
 r_int
@@ -666,7 +670,7 @@ c_cond
 (paren
 id|size
 op_eq
-id|ce-&gt;st_size
+id|expected_size
 op_logical_and
 op_logical_neg
 id|strcmp
@@ -773,17 +777,13 @@ id|changed
 r_return
 id|ce
 suffix:semicolon
-multiline_comment|/*&n;&t; * If the length has changed, there&squot;s no point in trying&n;&t; * to refresh the entry - it&squot;s not going to match&n;&t; */
+multiline_comment|/*&n;&t; * If the mode has changed, there&squot;s no point in trying&n;&t; * to refresh the entry - it&squot;s not going to match&n;&t; */
 r_if
 c_cond
 (paren
 id|changed
 op_amp
-(paren
-id|DATA_CHANGED
-op_or
 id|MODE_CHANGED
-)paren
 )paren
 r_return
 l_int|NULL
@@ -795,6 +795,8 @@ id|compare_data
 c_func
 (paren
 id|ce
+comma
+id|st.st_size
 )paren
 )paren
 r_return
@@ -834,6 +836,10 @@ comma
 op_amp
 id|st
 )paren
+suffix:semicolon
+id|updated-&gt;st_size
+op_assign
+id|st.st_size
 suffix:semicolon
 r_return
 id|updated
