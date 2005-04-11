@@ -99,7 +99,7 @@ c_func
 (paren
 id|buf
 comma
-l_int|0700
+l_int|0755
 )paren
 suffix:semicolon
 )brace

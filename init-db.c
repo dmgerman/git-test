@@ -40,7 +40,7 @@ c_func
 (paren
 l_string|&quot;.dircache&quot;
 comma
-l_int|0700
+l_int|0755
 )paren
 OL
 l_int|0
@@ -141,7 +141,7 @@ c_func
 (paren
 id|sha1_dir
 comma
-l_int|0700
+l_int|0755
 )paren
 OL
 l_int|0
@@ -223,7 +223,7 @@ c_func
 (paren
 id|path
 comma
-l_int|0700
+l_int|0755
 )paren
 OL
 l_int|0
