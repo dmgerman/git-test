@@ -402,6 +402,34 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|variable|remove_lock
+r_static
+r_int
+id|remove_lock
+op_assign
+l_int|0
+suffix:semicolon
+DECL|function|remove_lock_file
+r_static
+r_void
+id|remove_lock_file
+c_func
+(paren
+r_void
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|remove_lock
+)paren
+id|unlink
+c_func
+(paren
+l_string|&quot;.dircache/index.lock&quot;
+)paren
+suffix:semicolon
+)brace
 DECL|function|main
 r_int
 id|main
@@ -457,6 +485,16 @@ c_func
 l_string|&quot;unable to create new cachefile&quot;
 )paren
 suffix:semicolon
+id|atexit
+c_func
+(paren
+id|remove_lock_file
+)paren
+suffix:semicolon
+id|remove_lock
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -501,19 +539,12 @@ c_cond
 (paren
 id|active_cache
 )paren
-(brace
-id|fprintf
+id|usage
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;read-tree: cannot merge old cache on top of new&bslash;n&quot;
+l_string|&quot;read-tree: cannot merge old cache on top of new&quot;
 )paren
 suffix:semicolon
-r_goto
-id|out
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -524,19 +555,12 @@ c_func
 OL
 l_int|0
 )paren
-(brace
-id|fprintf
+id|usage
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;read-tree: corrupt directory cache&bslash;n&quot;
+l_string|&quot;read-tree: corrupt directory cache&quot;
 )paren
 suffix:semicolon
-r_goto
-id|out
-suffix:semicolon
-)brace
 r_continue
 suffix:semicolon
 )brace
@@ -553,19 +577,12 @@ id|sha1
 OL
 l_int|0
 )paren
-(brace
-id|fprintf
+id|usage
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;read-tree [-m] &lt;sha1&gt;&bslash;n&quot;
+l_string|&quot;read-tree [-m] &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
-r_goto
-id|out
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -581,26 +598,18 @@ l_int|0
 OL
 l_int|0
 )paren
-(brace
-id|fprintf
+id|usage
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;failed to unpack tree object %s&bslash;n&quot;
+l_string|&quot;failed to unpack tree object %s&quot;
 comma
 id|arg
 )paren
 suffix:semicolon
-r_goto
-id|out
-suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
 (paren
-op_logical_neg
 id|write_cache
 c_func
 (paren
@@ -610,8 +619,7 @@ id|active_cache
 comma
 id|active_nr
 )paren
-op_logical_and
-op_logical_neg
+op_logical_or
 id|rename
 c_func
 (paren
@@ -620,21 +628,18 @@ comma
 l_string|&quot;.dircache/index&quot;
 )paren
 )paren
-r_return
-l_int|0
-suffix:semicolon
-id|out
-suffix:colon
-id|unlink
+id|usage
 c_func
 (paren
-l_string|&quot;.dircache/index.lock&quot;
+l_string|&quot;unable to write new index file&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
+id|remove_lock
+op_assign
+l_int|0
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 eof
