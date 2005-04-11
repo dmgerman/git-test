@@ -2110,7 +2110,7 @@ op_assign
 id|open
 c_func
 (paren
-l_string|&quot;.dircache/index&quot;
+l_string|&quot;.git/index&quot;
 comma
 id|O_RDONLY
 )paren

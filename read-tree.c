@@ -426,7 +426,7 @@ id|remove_lock
 id|unlink
 c_func
 (paren
-l_string|&quot;.dircache/index.lock&quot;
+l_string|&quot;.git/index.lock&quot;
 )paren
 suffix:semicolon
 )brace
@@ -461,7 +461,7 @@ op_assign
 id|open
 c_func
 (paren
-l_string|&quot;.dircache/index.lock&quot;
+l_string|&quot;.git/index.lock&quot;
 comma
 id|O_RDWR
 op_or
@@ -623,9 +623,9 @@ op_logical_or
 id|rename
 c_func
 (paren
-l_string|&quot;.dircache/index.lock&quot;
+l_string|&quot;.git/index.lock&quot;
 comma
-l_string|&quot;.dircache/index&quot;
+l_string|&quot;.git/index&quot;
 )paren
 )paren
 id|usage

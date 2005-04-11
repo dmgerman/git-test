@@ -38,7 +38,7 @@ c_cond
 id|mkdir
 c_func
 (paren
-l_string|&quot;.dircache&quot;
+l_string|&quot;.git&quot;
 comma
 l_int|0755
 )paren
@@ -49,7 +49,7 @@ l_int|0
 id|perror
 c_func
 (paren
-l_string|&quot;unable to create .dircache&quot;
+l_string|&quot;unable to create .git directory&quot;
 )paren
 suffix:semicolon
 m_exit

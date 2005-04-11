@@ -920,7 +920,7 @@ r_new
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * We fundamentally don&squot;t like some paths: we don&squot;t want&n; * dot or dot-dot anywhere, and in fact, we don&squot;t even want&n; * any other dot-files (.dircache or anything else). They&n; * are hidden, for chist sake.&n; *&n; * Also, we don&squot;t want double slashes or slashes at the&n; * end that can make pathnames ambiguous. &n; */
+multiline_comment|/*&n; * We fundamentally don&squot;t like some paths: we don&squot;t want&n; * dot or dot-dot anywhere, and in fact, we don&squot;t even want&n; * any other dot-files (.git or anything else). They&n; * are hidden, for chist sake.&n; *&n; * Also, we don&squot;t want double slashes or slashes at the&n; * end that can make pathnames ambiguous. &n; */
 DECL|function|verify_path
 r_static
 r_int
@@ -1023,7 +1023,7 @@ id|remove_lock
 id|unlink
 c_func
 (paren
-l_string|&quot;.dircache/index.lock&quot;
+l_string|&quot;.git/index.lock&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1058,7 +1058,7 @@ op_assign
 id|open
 c_func
 (paren
-l_string|&quot;.dircache/index.lock&quot;
+l_string|&quot;.git/index.lock&quot;
 comma
 id|O_RDWR
 op_or
@@ -1298,9 +1298,9 @@ op_logical_or
 id|rename
 c_func
 (paren
-l_string|&quot;.dircache/index.lock&quot;
+l_string|&quot;.git/index.lock&quot;
 comma
-l_string|&quot;.dircache/index&quot;
+l_string|&quot;.git/index&quot;
 )paren
 )paren
 id|usage
