@@ -320,6 +320,22 @@ id|n-&gt;parent
 )paren
 )paren
 suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;missing %s: %s referenced by %s&bslash;n&quot;
+comma
+id|n-&gt;tag
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|n-&gt;needs
+)paren
+comma
+id|hex
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/* Tell the user about things not referenced.. */
 r_for
