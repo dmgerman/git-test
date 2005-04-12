@@ -1060,18 +1060,18 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%x %s&quot;
-comma
-id|marked
-c_func
-(paren
-id|rev
-)paren
+l_string|&quot;%s:%d&quot;
 comma
 id|sha1_to_hex
 c_func
 (paren
 id|rev-&gt;sha1
+)paren
+comma
+id|marked
+c_func
+(paren
+id|rev
 )paren
 )paren
 suffix:semicolon
@@ -1088,12 +1088,18 @@ id|p
 id|printf
 c_func
 (paren
-l_string|&quot; %s&quot;
+l_string|&quot; %s:%d&quot;
 comma
 id|sha1_to_hex
 c_func
 (paren
 id|p-&gt;parent-&gt;sha1
+)paren
+comma
+id|marked
+c_func
+(paren
+id|p-&gt;parent
 )paren
 )paren
 suffix:semicolon
