@@ -734,6 +734,9 @@ id|SEEN
 r_void
 op_star
 id|buffer
+comma
+op_star
+id|bufptr
 suffix:semicolon
 r_int
 r_int
@@ -757,6 +760,8 @@ op_or_assign
 id|SEEN
 suffix:semicolon
 id|buffer
+op_assign
+id|bufptr
 op_assign
 id|read_sha1_file
 c_func
@@ -786,7 +791,7 @@ l_string|&quot;commit&quot;
 r_return
 l_int|1
 suffix:semicolon
-id|buffer
+id|bufptr
 op_add_assign
 l_int|46
 suffix:semicolon
@@ -798,7 +803,7 @@ op_logical_neg
 id|memcmp
 c_func
 (paren
-id|buffer
+id|bufptr
 comma
 l_string|&quot;parent &quot;
 comma
@@ -809,7 +814,7 @@ op_logical_neg
 id|get_sha1_hex
 c_func
 (paren
-id|buffer
+id|bufptr
 op_plus
 l_int|7
 comma
@@ -831,7 +836,7 @@ c_func
 id|parent
 )paren
 suffix:semicolon
-id|buffer
+id|bufptr
 op_add_assign
 l_int|48
 suffix:semicolon
@@ -842,7 +847,7 @@ op_assign
 id|parse_commit_date
 c_func
 (paren
-id|buffer
+id|bufptr
 )paren
 suffix:semicolon
 id|free
