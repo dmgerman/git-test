@@ -223,18 +223,8 @@ c_cond
 op_logical_neg
 id|changed
 )paren
-(brace
-id|printf
-c_func
-(paren
-l_string|&quot;%s: ok&bslash;n&quot;
-comma
-id|ce-&gt;name
-)paren
-suffix:semicolon
 r_continue
 suffix:semicolon
-)brace
 id|printf
 c_func
 (paren
