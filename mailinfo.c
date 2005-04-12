@@ -4,6 +4,7 @@ macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
 DECL|variable|cmitmsg
+DECL|variable|filelist
 DECL|variable|patchfile
 r_static
 id|FILE
@@ -12,6 +13,9 @@ id|cmitmsg
 comma
 op_star
 id|patchfile
+comma
+op_star
+id|filelist
 suffix:semicolon
 DECL|variable|line
 r_static
@@ -908,6 +912,7 @@ l_char|&squot;&bslash;n&squot;
 suffix:colon
 r_break
 suffix:semicolon
+multiline_comment|/* patch tends to special-case these things.. */
 r_case
 l_char|&squot;~&squot;
 suffix:colon
@@ -952,10 +957,12 @@ id|len
 )paren
 r_return
 suffix:semicolon
-id|printf
+id|fprintf
 c_func
 (paren
-l_string|&quot;filename: %.*s&bslash;n&quot;
+id|filelist
+comma
+l_string|&quot;%.*s&bslash;n&quot;
 comma
 id|len
 comma
@@ -1312,7 +1319,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;mailinfo msg-file path-file &lt; email&bslash;n&quot;
+l_string|&quot;mailinfo msg-file path-file filelist-file &lt; email&bslash;n&quot;
 )paren
 suffix:semicolon
 m_exit
@@ -1340,7 +1347,7 @@ c_cond
 (paren
 id|argc
 op_ne
-l_int|3
+l_int|4
 )paren
 id|usage
 c_func
@@ -1408,6 +1415,41 @@ c_func
 id|argv
 (braket
 l_int|2
+)braket
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|1
+)paren
+suffix:semicolon
+)brace
+id|filelist
+op_assign
+id|fopen
+c_func
+(paren
+id|argv
+(braket
+l_int|3
+)braket
+comma
+l_string|&quot;w&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|filelist
+)paren
+(brace
+id|perror
+c_func
+(paren
+id|argv
+(braket
+l_int|3
 )braket
 )paren
 suffix:semicolon
