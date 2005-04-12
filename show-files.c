@@ -146,7 +146,7 @@ op_assign
 id|name
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Read a directory tree. We currently ignore anything but&n; * directories and regular files. That&squot;s because git doesn&squot;t&n; * handle them at all yet. Maybe that will change some day.&n; *&n; * Also, we currently ignore all names starting with a dot.&n; * That likely will not change. &n; */
+multiline_comment|/*&n; * Read a directory tree. We currently ignore anything but&n; * directories and regular files. That&squot;s because git doesn&squot;t&n; * handle them at all yet. Maybe that will change some day.&n; *&n; * Also, we currently ignore all names starting with a dot.&n; * That likely will not change.&n; */
 DECL|function|read_directory
 r_static
 r_void

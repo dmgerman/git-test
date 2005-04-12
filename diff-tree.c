@@ -749,7 +749,7 @@ id|mode2
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * If the filemode has changed to/from a directory from/to a regular&n;&t; * file, we need to consider it a remove and an add. &n;&t; */
+multiline_comment|/*&n;&t; * If the filemode has changed to/from a directory from/to a regular&n;&t; * file, we need to consider it a remove and an add.&n;&t; */
 r_if
 c_cond
 (paren

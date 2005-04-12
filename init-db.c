@@ -112,7 +112,7 @@ id|sha1_dir
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * The default case is to have a DB per managed directory. &n;&t; */
+multiline_comment|/*&n;&t; * The default case is to have a DB per managed directory.&n;&t; */
 id|sha1_dir
 op_assign
 id|DEFAULT_DB_ENVIRONMENT
