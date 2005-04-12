@@ -762,7 +762,7 @@ suffix:semicolon
 id|usage
 c_func
 (paren
-l_string|&quot;show-files (--[cached|deleted|others|ignoded])*&quot;
+l_string|&quot;show-files (--[cached|deleted|others|ignored])*&quot;
 )paren
 suffix:semicolon
 )brace
