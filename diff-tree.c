@@ -535,11 +535,22 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s%o %s %s%s%c&quot;
+l_string|&quot;%s%o&bslash;t%s&bslash;t%s&bslash;t%s%s%c&quot;
 comma
 id|prefix
 comma
 id|mode
+comma
+id|S_ISDIR
+c_func
+(paren
+id|mode
+)paren
+ques
+c_cond
+l_string|&quot;tree&quot;
+suffix:colon
+l_string|&quot;blob&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -860,11 +871,22 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;*%o-&gt;%o %s-&gt;%s %s%s%c&quot;
+l_string|&quot;*%o-&gt;%o&bslash;t%s&bslash;t%s-&gt;%s&bslash;t%s%s%c&quot;
 comma
 id|mode1
 comma
 id|mode2
+comma
+id|S_ISDIR
+c_func
+(paren
+id|mode1
+)paren
+ques
+c_cond
+l_string|&quot;tree&quot;
+suffix:colon
+l_string|&quot;blob&quot;
 comma
 id|old_sha1_hex
 comma
