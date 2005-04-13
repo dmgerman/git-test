@@ -163,9 +163,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;+++ %s&bslash;n&quot;
-comma
-id|ce-&gt;name
+l_string|&quot;+++ /dev/null&bslash;n&quot;
 )paren
 suffix:semicolon
 id|p
