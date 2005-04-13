@@ -472,6 +472,16 @@ id|p
 op_assign
 id|rev-&gt;parent
 suffix:semicolon
+multiline_comment|/* If we&squot;ve been here already, don&squot;t bother */
+r_if
+c_cond
+(paren
+id|rev-&gt;flags
+op_amp
+id|REACHABLE
+)paren
+r_return
+suffix:semicolon
 id|rev-&gt;flags
 op_or_assign
 id|REACHABLE
