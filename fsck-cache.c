@@ -1219,18 +1219,14 @@ op_logical_neg
 id|dir
 )paren
 (brace
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;missing sha1 directory &squot;%s&squot;&quot;
 comma
 id|path
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 r_while

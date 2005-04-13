@@ -519,10 +519,10 @@ id|entries
 op_le
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
-l_string|&quot;no cache contents to write&quot;
+l_string|&quot;write-tree: no cache contents to write&quot;
 )paren
 suffix:semicolon
 r_if
@@ -544,7 +544,7 @@ id|sha1
 op_ne
 id|entries
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;write-tree: internal error&quot;

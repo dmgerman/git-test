@@ -1089,7 +1089,7 @@ id|newfd
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;unable to create new cachefile&quot;
@@ -1119,7 +1119,7 @@ id|entries
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;cache corrupted&quot;
@@ -1241,7 +1241,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;unknown option %s&quot;
@@ -1286,7 +1286,7 @@ c_func
 id|path
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;Unable to add %s to database&quot;
@@ -1316,7 +1316,7 @@ comma
 l_string|&quot;.git/index&quot;
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;Unable to write new cachefile&quot;

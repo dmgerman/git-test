@@ -479,7 +479,7 @@ id|newfd
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;unable to create new cachefile&quot;
@@ -539,7 +539,7 @@ c_cond
 (paren
 id|active_cache
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;read-tree: cannot merge old cache on top of new&quot;
@@ -555,7 +555,7 @@ c_func
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;read-tree: corrupt directory cache&quot;
@@ -598,7 +598,7 @@ l_int|0
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;failed to unpack tree object %s&quot;
@@ -628,7 +628,7 @@ comma
 l_string|&quot;.git/index&quot;
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;unable to write new index file&quot;

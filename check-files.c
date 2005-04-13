@@ -53,7 +53,7 @@ id|errno
 op_ne
 id|ENOENT
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;%s: %s&quot;
@@ -92,7 +92,7 @@ id|pos
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;preparing to update existing file &squot;%s&squot; not in cache&quot;
@@ -121,7 +121,7 @@ id|st
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;fstat(%s): %s&quot;
@@ -151,7 +151,7 @@ c_cond
 (paren
 id|changed
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;preparing to update file &squot;%s&squot; not uptodate in cache&quot;

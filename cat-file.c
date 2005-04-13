@@ -56,7 +56,7 @@ id|sha1
 id|usage
 c_func
 (paren
-l_string|&quot;cat-file: cat-file [-t | tagname] &lt;sha1&gt;&quot;
+l_string|&quot;cat-file [-t | tagname] &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
 id|buf
@@ -78,13 +78,10 @@ c_cond
 op_logical_neg
 id|buf
 )paren
-(brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cat-file %s: bad file&bslash;n&quot;
+l_string|&quot;cat-file %s: bad file&quot;
 comma
 id|argv
 (braket
@@ -92,12 +89,6 @@ l_int|2
 )braket
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -153,12 +144,10 @@ l_int|1
 )paren
 )paren
 (brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cat-file %s: bad tag&bslash;n&quot;
+l_string|&quot;cat-file %s: bad tag&quot;
 comma
 id|argv
 (braket
@@ -166,12 +155,6 @@ l_int|2
 )braket
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-multiline_comment|/* bad tag */
 )brace
 r_while
 c_loop
@@ -221,12 +204,10 @@ id|EPIPE
 )paren
 r_break
 suffix:semicolon
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cat-file: %s&bslash;n&quot;
+l_string|&quot;cat-file: %s&quot;
 comma
 id|strerror
 c_func
@@ -235,12 +216,8 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
 )brace
+r_else
 r_if
 c_cond
 (paren
@@ -248,17 +225,10 @@ op_logical_neg
 id|ret
 )paren
 (brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;cat-file: disk full?&quot;
-)paren
-suffix:semicolon
-m_exit
-(paren
-l_int|1
 )paren
 suffix:semicolon
 )brace

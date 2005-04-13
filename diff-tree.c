@@ -80,7 +80,7 @@ id|size
 OL
 id|len
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;corrupt tree file&quot;
@@ -187,7 +187,7 @@ id|modep
 op_ne
 l_int|1
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;corrupt tree file&quot;
@@ -493,7 +493,7 @@ comma
 l_string|&quot;tree&quot;
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;corrupt tree sha %s&quot;
@@ -1048,7 +1048,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;diff-tree: internal error&quot;
@@ -1132,10 +1132,16 @@ comma
 l_string|&quot;tree&quot;
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
-l_string|&quot;unable to read source tree&quot;
+l_string|&quot;unable to read source tree (%s)&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|old
+)paren
 )paren
 suffix:semicolon
 id|tree2
@@ -1165,10 +1171,16 @@ comma
 l_string|&quot;tree&quot;
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
-l_string|&quot;unable to read destination tree&quot;
+l_string|&quot;unable to read destination tree (%s)&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+r_new
+)paren
 )paren
 suffix:semicolon
 id|retval

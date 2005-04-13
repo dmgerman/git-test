@@ -668,7 +668,7 @@ c_cond
 op_logical_neg
 id|pw
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;You don&squot;t exist. Go away!&quot;

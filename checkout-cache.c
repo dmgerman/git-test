@@ -256,12 +256,11 @@ l_string|&quot;blob&quot;
 )paren
 )paren
 (brace
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;checkout-cache: unable to read sha1 file of %s (%s)&bslash;n&quot;
+l_string|&quot;checkout-cache: unable to read sha1 file of %s (%s)&quot;
 comma
 id|ce-&gt;name
 comma
@@ -271,9 +270,6 @@ c_func
 id|ce-&gt;sha1
 )paren
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 id|fd
@@ -294,12 +290,17 @@ OL
 l_int|0
 )paren
 (brace
-id|fprintf
+id|free
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;checkout-cache: unable to create %s (%s)&bslash;n&quot;
+r_new
+)paren
+suffix:semicolon
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;checkout-cache: unable to create %s (%s)&quot;
 comma
 id|ce-&gt;name
 comma
@@ -309,15 +310,6 @@ c_func
 id|errno
 )paren
 )paren
-suffix:semicolon
-id|free
-c_func
-(paren
-r_new
-)paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 id|wrote
@@ -348,24 +340,20 @@ r_if
 c_cond
 (paren
 id|wrote
-op_eq
+op_ne
 id|size
 )paren
 r_return
-l_int|0
-suffix:semicolon
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;checkout-cache: unable to write %s&bslash;n&quot;
+l_string|&quot;checkout-cache: unable to write %s&quot;
 comma
 id|ce-&gt;name
 )paren
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|checkout_entry
@@ -609,17 +597,10 @@ OL
 l_int|0
 )paren
 (brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Invalid cache&bslash;n&quot;
-)paren
-suffix:semicolon
-m_exit
-(paren
-l_int|1
+l_string|&quot;invalid cache&quot;
 )paren
 suffix:semicolon
 )brace

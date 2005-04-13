@@ -45,7 +45,7 @@ c_cond
 op_logical_neg
 id|buffer
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;unable to read sha1 file&quot;
@@ -62,7 +62,7 @@ comma
 l_string|&quot;tree&quot;
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;expected a &squot;tree&squot; node&quot;
@@ -139,7 +139,7 @@ id|mode
 op_ne
 l_int|1
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;corrupt &squot;tree&squot; file&quot;
@@ -279,7 +279,7 @@ id|sha1
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;list failed&quot;

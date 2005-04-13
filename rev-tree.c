@@ -897,7 +897,7 @@ c_cond
 op_logical_neg
 id|file
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;bad revtree cache file (%s)&quot;
