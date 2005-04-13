@@ -1442,6 +1442,7 @@ id|changed
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/* nsec seems unreliable - not all filesystems support it, so&n;&t; * as long as it is in the inode cache you get right nsec&n;&t; * but after it gets flushed, you get zero nsec. */
 r_if
 c_cond
 (paren
@@ -1452,6 +1453,7 @@ r_int
 r_int
 )paren
 id|st-&gt;st_mtim.tv_sec
+macro_line|#ifdef NSEC
 op_logical_or
 id|ce-&gt;mtime.nsec
 op_ne
@@ -1460,6 +1462,7 @@ r_int
 r_int
 )paren
 id|st-&gt;st_mtim.tv_nsec
+macro_line|#endif
 )paren
 id|changed
 op_or_assign
@@ -1475,6 +1478,7 @@ r_int
 r_int
 )paren
 id|st-&gt;st_ctim.tv_sec
+macro_line|#ifdef NSEC
 op_logical_or
 id|ce-&gt;ctime.nsec
 op_ne
@@ -1483,6 +1487,7 @@ r_int
 r_int
 )paren
 id|st-&gt;st_ctim.tv_nsec
+macro_line|#endif
 )paren
 id|changed
 op_or_assign
