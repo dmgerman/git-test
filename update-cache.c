@@ -299,18 +299,22 @@ id|ce-&gt;ctime.sec
 op_assign
 id|st-&gt;st_ctime
 suffix:semicolon
+macro_line|#ifdef NSEC
 id|ce-&gt;ctime.nsec
 op_assign
 id|st-&gt;st_ctim.tv_nsec
 suffix:semicolon
+macro_line|#endif
 id|ce-&gt;mtime.sec
 op_assign
 id|st-&gt;st_mtime
 suffix:semicolon
+macro_line|#ifdef NSEC
 id|ce-&gt;mtime.nsec
 op_assign
 id|st-&gt;st_mtim.tv_nsec
 suffix:semicolon
+macro_line|#endif
 id|ce-&gt;st_dev
 op_assign
 id|st-&gt;st_dev
