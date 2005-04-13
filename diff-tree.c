@@ -1287,7 +1287,7 @@ suffix:semicolon
 id|usage
 c_func
 (paren
-l_string|&quot;diff-tree [-R] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
+l_string|&quot;diff-tree [-r] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
 )paren
 suffix:semicolon
 )brace
