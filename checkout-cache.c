@@ -278,6 +278,17 @@ l_string|&quot;blob&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+r_new
+)paren
+id|free
+c_func
+(paren
+r_new
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
