@@ -403,6 +403,12 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|buffer
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
