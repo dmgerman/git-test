@@ -6,6 +6,13 @@ id|recursive
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|line_termination
+r_static
+r_int
+id|line_termination
+op_assign
+l_char|&squot;&bslash;n&squot;
+suffix:semicolon
 r_static
 r_int
 id|diff_tree_sha1
@@ -562,7 +569,7 @@ id|base
 comma
 id|path
 comma
-l_int|0
+id|line_termination
 )paren
 suffix:semicolon
 )brace
@@ -900,7 +907,7 @@ id|base
 comma
 id|path1
 comma
-l_int|0
+id|line_termination
 )paren
 suffix:semicolon
 r_return
@@ -1306,10 +1313,30 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-z&quot;
+)paren
+)paren
+(brace
+id|line_termination
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|usage
 c_func
 (paren
-l_string|&quot;diff-tree [-r] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
+l_string|&quot;diff-tree [-r] [-z] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
 )paren
 suffix:semicolon
 )brace
