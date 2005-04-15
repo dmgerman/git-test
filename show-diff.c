@@ -486,7 +486,11 @@ c_func
 (paren
 l_string|&quot;%.*s:  &quot;
 comma
-id|ce-&gt;namelen
+id|ce_namelen
+c_func
+(paren
+id|ce
+)paren
 comma
 id|ce-&gt;name
 )paren

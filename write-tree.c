@@ -209,7 +209,11 @@ suffix:semicolon
 r_int
 id|pathlen
 op_assign
-id|ce-&gt;namelen
+id|ce_namelen
+c_func
+(paren
+id|ce
+)paren
 comma
 id|entrylen
 suffix:semicolon
@@ -248,7 +252,11 @@ id|ce-&gt;sha1
 suffix:semicolon
 id|mode
 op_assign
-id|ce-&gt;st_mode
+id|ntohl
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
 suffix:semicolon
 multiline_comment|/* Do we have _further_ subdirectories? */
 id|filename

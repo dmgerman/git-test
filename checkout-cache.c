@@ -279,7 +279,11 @@ c_func
 (paren
 id|ce-&gt;name
 comma
-id|ce-&gt;st_mode
+id|ntohl
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
 )paren
 suffix:semicolon
 r_if
