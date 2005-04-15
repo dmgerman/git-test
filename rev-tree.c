@@ -1,5 +1,7 @@
 DECL|macro|_XOPEN_SOURCE
 mdefine_line|#define _XOPEN_SOURCE /* glibc2 needs this */
+DECL|macro|_BSD_SOURCE
+mdefine_line|#define _BSD_SOURCE /* for tm.tm_gmtoff */
 macro_line|#include &lt;time.h&gt;
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
@@ -58,6 +60,8 @@ id|formats
 )braket
 op_assign
 (brace
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;%c&quot;
 comma
 l_string|&quot;%a %b %d %T %y&quot;
@@ -104,6 +108,8 @@ op_increment
 )paren
 op_ne
 l_char|&squot;&bslash;n&squot;
+op_logical_and
+id|c
 )paren
 op_star
 id|p
@@ -216,6 +222,10 @@ op_star
 id|buf
 )paren
 (brace
+r_int
+r_int
+id|time
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -270,12 +280,34 @@ l_char|&squot;&gt;&squot;
 )paren
 multiline_comment|/* nada */
 suffix:semicolon
-r_return
+id|time
+op_assign
+id|strtoul
+c_func
+(paren
+id|buf
+comma
+l_int|NULL
+comma
+l_int|10
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|time
+)paren
+id|time
+op_assign
 id|parse_time
 c_func
 (paren
 id|buf
 )paren
+suffix:semicolon
+r_return
+id|time
 suffix:semicolon
 )brace
 DECL|function|parse_commit
