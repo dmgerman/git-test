@@ -527,7 +527,7 @@ c_func
 id|st.st_mode
 )paren
 suffix:semicolon
-id|ce-&gt;ce_namelen
+id|ce-&gt;ce_flags
 op_assign
 id|htons
 c_func
@@ -1222,7 +1222,7 @@ comma
 id|len
 )paren
 suffix:semicolon
-id|ce-&gt;ce_namelen
+id|ce-&gt;ce_flags
 op_assign
 id|htons
 c_func

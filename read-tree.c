@@ -78,7 +78,7 @@ c_func
 id|mode
 )paren
 suffix:semicolon
-id|ce-&gt;ce_namelen
+id|ce-&gt;ce_flags
 op_assign
 id|htons
 c_func
