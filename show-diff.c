@@ -528,13 +528,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%.*s:  &quot;
-comma
-id|ce_namelen
-c_func
-(paren
-id|ce
-)paren
+l_string|&quot;%s:  &quot;
 comma
 id|ce-&gt;name
 )paren
