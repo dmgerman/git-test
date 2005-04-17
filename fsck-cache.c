@@ -72,7 +72,9 @@ id|REACHABLE
 id|printf
 c_func
 (paren
-l_string|&quot;unreachable %s&bslash;n&quot;
+l_string|&quot;unreachable %s %s&bslash;n&quot;
+comma
+id|rev-&gt;tag
 comma
 id|sha1_to_hex
 c_func
@@ -102,7 +104,9 @@ suffix:colon
 id|printf
 c_func
 (paren
-l_string|&quot;bad %s&bslash;n&quot;
+l_string|&quot;bad %s %s&bslash;n&quot;
+comma
+id|rev-&gt;tag
 comma
 id|sha1_to_hex
 c_func
@@ -119,7 +123,9 @@ suffix:colon
 id|printf
 c_func
 (paren
-l_string|&quot;missing %s&bslash;n&quot;
+l_string|&quot;missing %s, %s&bslash;n&quot;
+comma
+id|rev-&gt;tag
 comma
 id|sha1_to_hex
 c_func
@@ -136,7 +142,9 @@ suffix:colon
 id|printf
 c_func
 (paren
-l_string|&quot;dangling %s&bslash;n&quot;
+l_string|&quot;dangling %s %s&bslash;n&quot;
+comma
+id|rev-&gt;tag
 comma
 id|sha1_to_hex
 c_func
@@ -164,12 +172,17 @@ comma
 r_const
 r_char
 op_star
-id|tag
+id|ptag
 comma
 r_int
 r_char
 op_star
 id|child
+comma
+r_const
+r_char
+op_star
+id|ctag
 )paren
 (brace
 r_struct
@@ -184,9 +197,13 @@ id|lookup_rev
 c_func
 (paren
 id|parent
+comma
+id|ptag
 )paren
 comma
 id|child
+comma
+id|ctag
 )paren
 suffix:semicolon
 id|child_rev-&gt;flags
@@ -205,6 +222,7 @@ r_char
 op_star
 id|sha1
 comma
+r_const
 r_char
 op_star
 id|tag
@@ -219,6 +237,8 @@ id|lookup_rev
 c_func
 (paren
 id|sha1
+comma
+id|tag
 )paren
 suffix:semicolon
 id|rev-&gt;flags
@@ -375,6 +395,10 @@ c_func
 (paren
 id|sha1
 comma
+l_string|&quot;tree&quot;
+comma
+id|file_sha1
+comma
 id|S_ISDIR
 c_func
 (paren
@@ -385,8 +409,6 @@ c_cond
 l_string|&quot;tree&quot;
 suffix:colon
 l_string|&quot;blob&quot;
-comma
-id|file_sha1
 )paren
 suffix:semicolon
 )brace
@@ -470,9 +492,11 @@ c_func
 (paren
 id|sha1
 comma
-l_string|&quot;tree&quot;
+l_string|&quot;commit&quot;
 comma
 id|tree_sha1
+comma
+l_string|&quot;tree&quot;
 )paren
 suffix:semicolon
 id|data
@@ -529,6 +553,8 @@ comma
 l_string|&quot;commit&quot;
 comma
 id|parent_sha1
+comma
+l_string|&quot;commit&quot;
 )paren
 suffix:semicolon
 id|data
@@ -1141,6 +1167,8 @@ id|lookup_rev
 c_func
 (paren
 id|head_sha1
+comma
+l_string|&quot;commit&quot;
 )paren
 comma
 id|REACHABLE

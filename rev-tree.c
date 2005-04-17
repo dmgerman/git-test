@@ -162,6 +162,8 @@ id|lookup_rev
 c_func
 (paren
 id|sha1
+comma
+l_string|&quot;commit&quot;
 )paren
 suffix:semicolon
 id|rev-&gt;flags
@@ -221,6 +223,8 @@ c_func
 id|rev
 comma
 id|parent
+comma
+l_string|&quot;commit&quot;
 )paren
 suffix:semicolon
 )brace
@@ -508,6 +512,8 @@ id|sha1
 (braket
 id|i
 )braket
+comma
+l_string|&quot;commit&quot;
 )paren
 comma
 l_int|1
