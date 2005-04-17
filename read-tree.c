@@ -79,7 +79,7 @@ id|size
 suffix:semicolon
 id|ce-&gt;ce_mode
 op_assign
-id|htonl
+id|create_ce_mode
 c_func
 (paren
 id|mode

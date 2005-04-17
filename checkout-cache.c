@@ -122,6 +122,21 @@ id|mode
 (brace
 r_int
 id|fd
+suffix:semicolon
+id|mode
+op_assign
+(paren
+id|mode
+op_amp
+l_int|0100
+)paren
+ques
+c_cond
+l_int|777
+suffix:colon
+l_int|666
+suffix:semicolon
+id|fd
 op_assign
 id|open
 c_func
@@ -134,7 +149,7 @@ id|O_TRUNC
 op_or
 id|O_CREAT
 comma
-l_int|0600
+id|mode
 )paren
 suffix:semicolon
 r_if
@@ -172,7 +187,7 @@ id|O_TRUNC
 op_or
 id|O_CREAT
 comma
-l_int|0600
+id|mode
 )paren
 suffix:semicolon
 )brace
@@ -438,6 +453,13 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * We unlink the old file, to get the new one with the&n;&t;&t; * right permissions (including umask, which is nasty&n;&t;&t; * to emulate by hand - much easier to let the system&n;&t;&t; * just do the right thing)&n;&t;&t; */
+id|unlink
+c_func
+(paren
+id|ce-&gt;name
+)paren
+suffix:semicolon
 )brace
 r_return
 id|write_entry

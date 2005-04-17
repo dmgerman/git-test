@@ -1677,14 +1677,19 @@ id|changed
 op_or_assign
 id|OWNER_CHANGED
 suffix:semicolon
+multiline_comment|/* We consider only the owner x bit to be relevant for &quot;mode changes&quot; */
 r_if
 c_cond
 (paren
-id|ce-&gt;ce_mode
-op_ne
-id|htonl
+l_int|0100
+op_amp
+(paren
+id|ntohs
 c_func
 (paren
+id|ce-&gt;ce_mode
+)paren
+op_xor
 id|st-&gt;st_mode
 )paren
 )paren

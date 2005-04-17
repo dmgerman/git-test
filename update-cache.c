@@ -521,7 +521,7 @@ id|st
 suffix:semicolon
 id|ce-&gt;ce_mode
 op_assign
-id|htonl
+id|create_ce_mode
 c_func
 (paren
 id|st.st_mode
@@ -1232,7 +1232,7 @@ id|len
 suffix:semicolon
 id|ce-&gt;ce_mode
 op_assign
-id|htonl
+id|create_ce_mode
 c_func
 (paren
 id|mode
