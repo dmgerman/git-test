@@ -1142,6 +1142,8 @@ c_func
 (paren
 id|head_sha1
 )paren
+comma
+id|REACHABLE
 )paren
 suffix:semicolon
 id|heads
