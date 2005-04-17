@@ -807,7 +807,7 @@ l_int|20
 suffix:semicolon
 r_void
 op_star
-r_new
+id|old
 suffix:semicolon
 r_if
 c_cond
@@ -980,7 +980,7 @@ id|silent
 )paren
 r_continue
 suffix:semicolon
-r_new
+id|old
 op_assign
 id|read_sha1_file
 c_func
@@ -998,7 +998,7 @@ c_func
 (paren
 id|ce-&gt;name
 comma
-r_new
+id|old
 comma
 id|size
 )paren
@@ -1006,7 +1006,7 @@ suffix:semicolon
 id|free
 c_func
 (paren
-r_new
+id|old
 )paren
 suffix:semicolon
 )brace
