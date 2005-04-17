@@ -501,7 +501,7 @@ r_char
 op_star
 id|show_diff_usage
 op_assign
-l_string|&quot;show-diff [-s] [-q] [-z] [paths...]&quot;
+l_string|&quot;show-diff [-q] [-s] [-z] [paths...]&quot;
 suffix:semicolon
 DECL|function|matches_pathspec
 r_static
@@ -722,12 +722,10 @@ comma
 l_string|&quot;-z&quot;
 )paren
 )paren
-(brace
 id|machine_readable
 op_assign
 l_int|1
 suffix:semicolon
-)brace
 r_else
 id|usage
 c_func
