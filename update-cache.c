@@ -19,18 +19,10 @@ r_int
 id|index_fd
 c_func
 (paren
-r_const
+r_int
 r_char
 op_star
-id|path
-comma
-r_int
-id|namelen
-comma
-r_struct
-id|cache_entry
-op_star
-id|ce
+id|sha1
 comma
 r_int
 id|fd
@@ -53,8 +45,6 @@ suffix:semicolon
 r_int
 id|max_out_bytes
 op_assign
-id|namelen
-op_plus
 id|size
 op_plus
 l_int|200
@@ -76,8 +66,6 @@ op_assign
 id|malloc
 c_func
 (paren
-id|namelen
-op_plus
 l_int|200
 )paren
 suffix:semicolon
@@ -259,7 +247,7 @@ suffix:semicolon
 id|SHA1_Final
 c_func
 (paren
-id|ce-&gt;sha1
+id|sha1
 comma
 op_amp
 id|c
@@ -269,7 +257,7 @@ r_return
 id|write_sha1_buffer
 c_func
 (paren
-id|ce-&gt;sha1
+id|sha1
 comma
 id|out
 comma
@@ -541,11 +529,7 @@ c_cond
 id|index_fd
 c_func
 (paren
-id|path
-comma
-id|namelen
-comma
-id|ce
+id|ce-&gt;sha1
 comma
 id|fd
 comma
@@ -1113,14 +1097,6 @@ l_int|1
 r_return
 l_int|1
 suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;got mode %o&bslash;n&quot;
-comma
-id|mode
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1135,18 +1111,6 @@ id|sha1
 r_return
 l_int|1
 suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;got sha1 %s&bslash;n&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|sha1
-)paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1159,14 +1123,6 @@ id|arg3
 )paren
 r_return
 l_int|1
-suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;got path %s&bslash;n&quot;
-comma
-id|arg3
-)paren
 suffix:semicolon
 id|len
 op_assign
