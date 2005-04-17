@@ -1684,7 +1684,7 @@ c_cond
 l_int|0100
 op_amp
 (paren
-id|ntohs
+id|ntohl
 c_func
 (paren
 id|ce-&gt;ce_mode
