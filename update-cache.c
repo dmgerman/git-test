@@ -1212,6 +1212,7 @@ id|active_cache_changed
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/* You can NOT just free active_cache[i] here, since it&n;&t;&t; * might not be necessarily malloc()ed but can also come&n;&t;&t; * from mmap(). */
 id|active_cache
 (braket
 id|i
