@@ -389,6 +389,11 @@ op_star
 id|dst
 op_assign
 id|p
+comma
+op_star
+id|src
+op_assign
+id|p
 suffix:semicolon
 r_for
 c_loop
@@ -400,9 +405,9 @@ suffix:semicolon
 id|c
 op_assign
 op_star
-id|p
+id|src
 suffix:semicolon
-id|p
+id|src
 op_increment
 suffix:semicolon
 r_switch
