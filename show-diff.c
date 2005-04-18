@@ -16,6 +16,22 @@ id|diff_opts
 op_assign
 l_string|&quot;-p -u&quot;
 suffix:semicolon
+DECL|variable|diff_arg_forward
+r_static
+r_char
+op_star
+id|diff_arg_forward
+op_assign
+l_string|&quot; - &squot;%s&squot;&quot;
+suffix:semicolon
+DECL|variable|diff_arg_reverse
+r_static
+r_char
+op_star
+id|diff_arg_reverse
+op_assign
+l_string|&quot; &squot;%s&squot; -&quot;
+suffix:semicolon
 DECL|function|prepare_diff_cmd
 r_static
 r_void
@@ -208,15 +224,11 @@ r_int
 r_int
 r_int
 id|old_size
+comma
+r_int
+id|reverse
 )paren
 (brace
-r_static
-r_char
-op_star
-id|diff_arg
-op_assign
-l_string|&quot; - &squot;%s&squot;&quot;
-suffix:semicolon
 id|FILE
 op_star
 id|f
@@ -249,6 +261,17 @@ id|label
 )paren
 suffix:colon
 id|name_sq
+suffix:semicolon
+r_char
+op_star
+id|diff_arg
+op_assign
+id|reverse
+ques
+c_cond
+id|diff_arg_reverse
+suffix:colon
+id|diff_arg_forward
 suffix:semicolon
 r_int
 id|cmd_size
@@ -425,6 +448,9 @@ r_struct
 id|cache_entry
 op_star
 id|ce
+comma
+r_int
+id|reverse
 )paren
 (brace
 r_char
@@ -490,6 +516,8 @@ comma
 id|old
 comma
 id|size
+comma
+id|reverse
 )paren
 suffix:semicolon
 )brace
@@ -636,6 +664,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|reverse
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|entries
 op_assign
 id|read_cache
@@ -664,6 +697,26 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;-R&quot;
+)paren
+)paren
+id|reverse
+op_assign
+l_int|1
+suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -968,6 +1021,8 @@ id|show_diff_empty
 c_func
 (paren
 id|ce
+comma
+id|reverse
 )paren
 suffix:semicolon
 )brace
@@ -1085,6 +1140,8 @@ comma
 id|old
 comma
 id|size
+comma
+id|reverse
 )paren
 suffix:semicolon
 id|free
