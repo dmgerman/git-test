@@ -43,13 +43,13 @@ r_char
 op_star
 id|cp
 suffix:semicolon
-multiline_comment|/* count single quote characters */
+multiline_comment|/* count bytes needed to store the quoted string. */
 r_for
 c_loop
 (paren
 id|cnt
 op_assign
-l_int|0
+l_int|1
 comma
 id|cp
 op_assign
