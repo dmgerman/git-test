@@ -2229,9 +2229,6 @@ id|ok_to_add
 op_assign
 l_int|1
 suffix:semicolon
-id|active_nr
-op_decrement
-suffix:semicolon
 r_if
 c_cond
 (paren
