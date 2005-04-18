@@ -592,6 +592,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|checkout_entry
 c_func
 (paren
