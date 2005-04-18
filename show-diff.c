@@ -6,7 +6,7 @@ r_char
 op_star
 id|diff_cmd
 op_assign
-l_string|&quot;diff -L &squot;%s&squot; -u -N  - &squot;%s&squot;&quot;
+l_string|&quot;diff -L &squot;a/%s&squot; -L &squot;b/%s&squot; -p -u - &squot;%s&squot;&quot;
 suffix:semicolon
 multiline_comment|/* Help to copy the thing properly quoted for the shell safety.&n; * any single quote is replaced with &squot;&bslash;&squot;&squot;, and the caller is&n; * expected to enclose the result within a single quote pair.&n; *&n; * E.g.&n; *  original     sq_expand     result&n; *  name     ==&gt; name      ==&gt; &squot;name&squot;&n; *  a b      ==&gt; a b       ==&gt; &squot;a b&squot;&n; *  a&squot;b      ==&gt; a&squot;&bslash;&squot;&squot;b    ==&gt; &squot;a&squot;&bslash;&squot;&squot;b&squot;&n; *&n; * NOTE! The returned memory belongs to this function so&n; * do not free it.&n; */
 DECL|function|sq_expand
@@ -214,6 +214,8 @@ c_func
 (paren
 id|label_sq
 )paren
+op_star
+l_int|2
 op_plus
 id|strlen
 c_func
@@ -245,6 +247,8 @@ comma
 id|cmd_size
 comma
 id|diff_cmd
+comma
+id|label_sq
 comma
 id|label_sq
 comma
