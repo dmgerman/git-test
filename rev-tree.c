@@ -148,6 +148,13 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|obj-&gt;object.parsed
+)paren
+r_return
+suffix:semicolon
 id|parse_commit
 c_func
 (paren
