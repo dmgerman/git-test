@@ -89,8 +89,6 @@ comma
 op_amp
 id|st
 )paren
-OL
-l_int|0
 op_logical_and
 id|S_ISDIR
 c_func
