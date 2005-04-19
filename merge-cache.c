@@ -20,6 +20,11 @@ id|arguments
 l_int|8
 )braket
 suffix:semicolon
+DECL|variable|err
+r_static
+r_int
+id|err
+suffix:semicolon
 DECL|function|run_program
 r_static
 r_void
@@ -145,11 +150,8 @@ c_func
 id|status
 )paren
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;merge program failed&quot;
-)paren
+id|err
+op_increment
 suffix:semicolon
 )brace
 DECL|function|merge_entry
@@ -642,6 +644,17 @@ id|arg
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|err
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;merge program failed&quot;
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
