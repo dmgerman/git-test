@@ -17,12 +17,6 @@ id|argv
 r_char
 op_star
 id|sha1_dir
-op_assign
-id|getenv
-c_func
-(paren
-id|DB_ENVIRONMENT
-)paren
 comma
 op_star
 id|path
