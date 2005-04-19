@@ -76,7 +76,9 @@ id|REACHABLE
 id|printf
 c_func
 (paren
-l_string|&quot;unreachable %s&bslash;n&quot;
+l_string|&quot;unreachable %s %s&bslash;n&quot;
+comma
+id|obj-&gt;type
 comma
 id|sha1_to_hex
 c_func
