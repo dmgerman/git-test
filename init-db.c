@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+multiline_comment|/*&n; * If you want to, you can share the DB area with any number of branches.&n; * That has advantages: you can save space by sharing all the SHA1 objects.&n; * On the other hand, it might just make lookup slower and messier. You&n; * be the judge.  The default case is to have one DB per managed directory.&n; */
 DECL|function|main
 r_int
 id|main
@@ -52,7 +53,6 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * If you want to, you can share the DB area with any number of branches.&n;&t; * That has advantages: you can save space by sharing all the SHA1 objects.&n;&t; * On the other hand, it might just make lookup slower and messier. You&n;&t; * be the judge.&n;&t; */
 id|sha1_dir
 op_assign
 id|getenv
@@ -104,7 +104,6 @@ id|sha1_dir
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * The default case is to have a DB per managed directory.&n;&t; */
 id|sha1_dir
 op_assign
 id|DEFAULT_DB_ENVIRONMENT
