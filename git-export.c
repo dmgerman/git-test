@@ -101,7 +101,11 @@ c_func
 (paren
 id|cmdline
 comma
-l_string|&quot;git diff %s %s&quot;
+l_string|&quot;diff-tree -r -z %s %s | xargs -0 gitdiff-do %s %s&quot;
+comma
+id|against
+comma
+id|hex
 comma
 id|against
 comma
