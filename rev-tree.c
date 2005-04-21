@@ -259,12 +259,10 @@ c_func
 (paren
 id|argv
 (braket
-l_int|2
+op_increment
+id|i
 )braket
 )paren
-suffix:semicolon
-id|i
-op_increment
 suffix:semicolon
 r_continue
 suffix:semicolon

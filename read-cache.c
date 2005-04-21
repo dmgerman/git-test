@@ -86,6 +86,7 @@ c_func
 (paren
 id|st-&gt;st_mtim.tv_nsec
 )paren
+)paren
 id|changed
 op_or_assign
 id|MTIME_CHANGED
@@ -99,6 +100,7 @@ id|htonl
 c_func
 (paren
 id|st-&gt;st_ctim.tv_nsec
+)paren
 )paren
 id|changed
 op_or_assign
