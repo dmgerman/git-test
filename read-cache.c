@@ -1003,7 +1003,10 @@ op_assign
 id|open
 c_func
 (paren
-l_string|&quot;.git/index&quot;
+id|get_index_file
+c_func
+(paren
+)paren
 comma
 id|O_RDONLY
 )paren
