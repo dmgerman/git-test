@@ -1222,6 +1222,14 @@ r_return
 id|retval
 suffix:semicolon
 )brace
+DECL|variable|diff_tree_usage
+r_static
+r_char
+op_star
+id|diff_tree_usage
+op_assign
+l_string|&quot;diff-tree [-r] [-z] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -1314,7 +1322,7 @@ suffix:semicolon
 id|usage
 c_func
 (paren
-l_string|&quot;diff-tree [-r] [-z] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
+id|diff_tree_usage
 )paren
 suffix:semicolon
 )brace
@@ -1350,7 +1358,7 @@ r_new
 id|usage
 c_func
 (paren
-l_string|&quot;diff-tree &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
+id|diff_tree_usage
 )paren
 suffix:semicolon
 r_return

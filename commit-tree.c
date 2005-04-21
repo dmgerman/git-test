@@ -1291,9 +1291,17 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Having more than two parents may be strange, but hey, there&squot;s&n; * no conceptual reason why the file format couldn&squot;t accept multi-way&n; * merges. It might be the &quot;union&quot; of several packages, for example.&n; *&n; * I don&squot;t really expect that to happen, but this is here to make&n; * it clear that _conceptually_ it&squot;s ok..&n; */
+multiline_comment|/*&n; * Having more than two parents is not strange at all, and this is&n; * how multi-way merges are represented.&n; */
 DECL|macro|MAXPARENT
 mdefine_line|#define MAXPARENT (16)
+DECL|variable|commit_tree_usage
+r_static
+r_char
+op_star
+id|commit_tree_usage
+op_assign
+l_string|&quot;commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -1429,7 +1437,7 @@ l_int|0
 id|usage
 c_func
 (paren
-l_string|&quot;commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
+id|commit_tree_usage
 )paren
 suffix:semicolon
 id|check_valid
@@ -1507,7 +1515,7 @@ id|parents
 id|usage
 c_func
 (paren
-l_string|&quot;commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
+id|commit_tree_usage
 )paren
 suffix:semicolon
 id|check_valid

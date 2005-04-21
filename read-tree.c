@@ -1043,6 +1043,14 @@ op_decrement
 suffix:semicolon
 )brace
 )brace
+DECL|variable|read_tree_usage
+r_static
+r_char
+op_star
+id|read_tree_usage
+op_assign
+l_string|&quot;read-tree (&lt;sha&gt; | -m &lt;sha1&gt; [&lt;sha2&gt; &lt;sha3&gt;])&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -1161,7 +1169,7 @@ c_cond
 (paren
 id|stage
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;-m needs to come first&quot;
@@ -1199,7 +1207,7 @@ id|i
 )braket
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
 l_string|&quot;you need to resolve your current index first&quot;
@@ -1233,7 +1241,7 @@ l_int|0
 id|usage
 c_func
 (paren
-l_string|&quot;read-tree [-m] &lt;sha1&gt;&quot;
+id|read_tree_usage
 )paren
 suffix:semicolon
 r_if
@@ -1246,7 +1254,7 @@ l_int|3
 id|usage
 c_func
 (paren
-l_string|&quot;can&squot;t merge more than two trees&quot;
+id|read_tree_usage
 )paren
 suffix:semicolon
 r_if

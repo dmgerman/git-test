@@ -1449,6 +1449,14 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|variable|diff_cache_usage
+r_static
+r_char
+op_star
+id|diff_cache_usage
+op_assign
+l_string|&quot;diff-cache [-r] [-z] [--cached] &lt;tree sha1&gt;&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -1569,7 +1577,7 @@ suffix:semicolon
 id|usage
 c_func
 (paren
-l_string|&quot;diff-cache [-r] [-z] &lt;tree sha1&gt;&quot;
+id|diff_cache_usage
 )paren
 suffix:semicolon
 )brace
@@ -1594,7 +1602,7 @@ id|tree_sha1
 id|usage
 c_func
 (paren
-l_string|&quot;diff-cache [-r] [-z] &lt;tree sha1&gt;&quot;
+id|diff_cache_usage
 )paren
 suffix:semicolon
 id|tree
