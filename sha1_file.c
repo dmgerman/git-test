@@ -1014,6 +1014,7 @@ id|was_commit
 op_assign
 l_int|0
 suffix:semicolon
+r_int
 r_char
 id|tree_sha1
 (braket
@@ -1107,6 +1108,7 @@ id|buffer
 )paren
 suffix:semicolon
 r_return
+l_int|NULL
 suffix:semicolon
 )brace
 op_star
