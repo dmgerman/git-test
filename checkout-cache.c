@@ -1,4 +1,5 @@
 multiline_comment|/*&n; * Check-out files from the &quot;current cache directory&quot;&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; *&n; * Careful: order of argument flags does matter. For example,&n; *&n; *&t;checkout-cache -a -f file.c&n; *&n; * Will first check out all files listed in the cache (but not&n; * overwrite any old ones), and then force-checkout &quot;file.c&quot; a&n; * second time (ie that one _will_ overwrite any old contents&n; * with the same filename).&n; *&n; * Also, just doing &quot;checkout-cache&quot; does nothing. You probably&n; * meant &quot;checkout-cache -a&quot;. And if you want to force it, you&n; * want &quot;checkout-cache -f -a&quot;.&n; *&n; * Intuitiveness is not the goal here. Repeatability is. The&n; * reason for the &quot;no arguments means no work&quot; thing is that&n; * from scripts you are supposed to be able to do things like&n; *&n; *&t;find . -name &squot;*.h&squot; -print0 | xargs -0 checkout-cache -f --&n; *&n; * which will force all existing *.h files to be replaced with&n; * their cached copies. If an empty command line implied &quot;all&quot;,&n; * then this would force-refresh everything in the cache, which&n; * was not the point.&n; *&n; * Oh, and the &quot;--&quot; is just a good idea when you know the rest&n; * will be filenames. Just so that you wouldn&squot;t have a filename&n; * of &quot;-a&quot; causing problems (not possible in the above example,&n; * but get used to it in scripting!).&n; */
+macro_line|#include &lt;sys/param.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|force
 DECL|variable|quiet
@@ -206,6 +207,11 @@ r_struct
 id|cache_entry
 op_star
 id|ce
+comma
+r_const
+r_char
+op_star
+id|path
 )paren
 (brace
 r_int
@@ -262,7 +268,7 @@ c_func
 (paren
 l_string|&quot;checkout-cache: unable to read sha1 file of %s (%s)&quot;
 comma
-id|ce-&gt;name
+id|path
 comma
 id|sha1_to_hex
 c_func
@@ -277,7 +283,7 @@ op_assign
 id|create_file
 c_func
 (paren
-id|ce-&gt;name
+id|path
 comma
 id|ntohl
 c_func
@@ -306,7 +312,7 @@ c_func
 (paren
 l_string|&quot;checkout-cache: unable to create %s (%s)&quot;
 comma
-id|ce-&gt;name
+id|path
 comma
 id|strerror
 c_func
@@ -353,7 +359,7 @@ c_func
 (paren
 l_string|&quot;checkout-cache: unable to write %s&quot;
 comma
-id|ce-&gt;name
+id|path
 )paren
 suffix:semicolon
 r_return
@@ -370,11 +376,54 @@ r_struct
 id|cache_entry
 op_star
 id|ce
+comma
+r_const
+r_char
+op_star
+id|base_dir
 )paren
 (brace
 r_struct
 id|stat
 id|st
+suffix:semicolon
+r_static
+r_char
+id|path
+(braket
+id|MAXPATHLEN
+op_plus
+l_int|1
+)braket
+suffix:semicolon
+r_int
+id|len
+op_assign
+id|strlen
+c_func
+(paren
+id|base_dir
+)paren
+suffix:semicolon
+id|memcpy
+c_func
+(paren
+id|path
+comma
+id|base_dir
+comma
+id|len
+)paren
+suffix:semicolon
+id|strcpy
+c_func
+(paren
+id|path
+op_plus
+id|len
+comma
+id|ce-&gt;name
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -383,7 +432,7 @@ op_logical_neg
 id|stat
 c_func
 (paren
-id|ce-&gt;name
+id|path
 comma
 op_amp
 id|st
@@ -431,7 +480,7 @@ id|stderr
 comma
 l_string|&quot;checkout-cache: %s already exists&bslash;n&quot;
 comma
-id|ce-&gt;name
+id|path
 )paren
 suffix:semicolon
 r_return
@@ -442,7 +491,7 @@ multiline_comment|/*&n;&t;&t; * We unlink the old file, to get the new one with 
 id|unlink
 c_func
 (paren
-id|ce-&gt;name
+id|path
 )paren
 suffix:semicolon
 )brace
@@ -451,6 +500,8 @@ id|write_entry
 c_func
 (paren
 id|ce
+comma
+id|path
 )paren
 suffix:semicolon
 )brace
@@ -464,6 +515,11 @@ r_const
 r_char
 op_star
 id|name
+comma
+r_const
+r_char
+op_star
+id|base_dir
 )paren
 (brace
 r_int
@@ -549,6 +605,8 @@ id|active_cache
 (braket
 id|pos
 )braket
+comma
+id|base_dir
 )paren
 suffix:semicolon
 )brace
@@ -558,7 +616,10 @@ r_int
 id|checkout_all
 c_func
 (paren
-r_void
+r_const
+r_char
+op_star
+id|base_dir
 )paren
 (brace
 r_int
@@ -607,6 +668,8 @@ id|checkout_entry
 c_func
 (paren
 id|ce
+comma
+id|base_dir
 )paren
 OL
 l_int|0
@@ -639,6 +702,13 @@ comma
 id|force_filename
 op_assign
 l_int|0
+suffix:semicolon
+r_const
+r_char
+op_star
+id|base_dir
+op_assign
+l_string|&quot;&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -706,6 +776,7 @@ l_string|&quot;-a&quot;
 id|checkout_all
 c_func
 (paren
+id|base_dir
 )paren
 suffix:semicolon
 r_continue
@@ -771,11 +842,37 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--prefix=&quot;
+comma
+l_int|9
+)paren
+)paren
+(brace
+id|base_dir
+op_assign
+id|arg
+op_plus
+l_int|9
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 )brace
 id|checkout_file
 c_func
 (paren
 id|arg
+comma
+id|base_dir
 )paren
 suffix:semicolon
 )brace
