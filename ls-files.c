@@ -51,6 +51,42 @@ id|line_terminator
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
+DECL|variable|tag_cached
+r_static
+r_const
+r_char
+op_star
+id|tag_cached
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+DECL|variable|tag_unmerged
+r_static
+r_const
+r_char
+op_star
+id|tag_unmerged
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+DECL|variable|tag_removed
+r_static
+r_const
+r_char
+op_star
+id|tag_removed
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+DECL|variable|tag_other
+r_static
+r_const
+r_char
+op_star
+id|tag_other
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
 DECL|variable|nr_excludes
 r_static
 r_int
@@ -915,7 +951,9 @@ op_increment
 id|printf
 c_func
 (paren
-l_string|&quot;%s%c&quot;
+l_string|&quot;%s%s%c&quot;
+comma
+id|tag_other
 comma
 id|dir
 (braket
@@ -995,7 +1033,18 @@ id|show_stage
 id|printf
 c_func
 (paren
-l_string|&quot;%s%c&quot;
+l_string|&quot;%s%s%c&quot;
+comma
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+ques
+c_cond
+id|tag_unmerged
+suffix:colon
+id|tag_cached
 comma
 id|ce-&gt;name
 comma
@@ -1006,8 +1055,18 @@ r_else
 id|printf
 c_func
 (paren
-multiline_comment|/* &quot;%06o %s %d %10d %s%c&quot;, */
-l_string|&quot;%06o %s %d %s%c&quot;
+l_string|&quot;%s%06o %s %d %s%c&quot;
+comma
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+ques
+c_cond
+id|tag_unmerged
+suffix:colon
+id|tag_cached
 comma
 id|ntohl
 c_func
@@ -1027,7 +1086,6 @@ c_func
 id|ce
 )paren
 comma
-multiline_comment|/* ntohl(ce-&gt;ce_size), */
 id|ce-&gt;name
 comma
 id|line_terminator
@@ -1101,7 +1159,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s%c&quot;
+l_string|&quot;%s%s%c&quot;
+comma
+id|tag_removed
 comma
 id|ce-&gt;name
 comma
@@ -1118,7 +1178,7 @@ r_char
 op_star
 id|ls_files_usage
 op_assign
-l_string|&quot;ls-files [-z] (--[cached|deleted|others|stage|unmerged])* &quot;
+l_string|&quot;ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged])* &quot;
 l_string|&quot;[ --ignored [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;) ]&quot;
 suffix:semicolon
 DECL|function|main
@@ -1178,6 +1238,37 @@ l_string|&quot;-z&quot;
 id|line_terminator
 op_assign
 l_int|0
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-t&quot;
+)paren
+)paren
+(brace
+id|tag_cached
+op_assign
+l_string|&quot;H &quot;
+suffix:semicolon
+id|tag_unmerged
+op_assign
+l_string|&quot;M &quot;
+suffix:semicolon
+id|tag_removed
+op_assign
+l_string|&quot;R &quot;
+suffix:semicolon
+id|tag_other
+op_assign
+l_string|&quot;? &quot;
 suffix:semicolon
 )brace
 r_else
@@ -1343,7 +1434,7 @@ l_string|&quot;--unmerged&quot;
 )paren
 )paren
 (brace
-singleline_comment|// There&squot;s no point in showing unmerged unless you also show the stage information
+multiline_comment|/* There&squot;s no point in showing unmerged unless&n;&t;&t;&t; * you also show the stage information.&n;&t;&t;&t; */
 id|show_stage
 op_assign
 l_int|1
