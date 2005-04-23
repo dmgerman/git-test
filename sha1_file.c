@@ -9,6 +9,23 @@ id|sha1_file_directory
 op_assign
 l_int|NULL
 suffix:semicolon
+macro_line|#ifndef O_NOATIME
+macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
+DECL|macro|O_NOATIME
+mdefine_line|#define O_NOATIME 01000000
+macro_line|#else
+DECL|macro|O_NOATIME
+mdefine_line|#define O_NOATIME 0
+macro_line|#endif
+macro_line|#endif
+DECL|variable|sha1_file_open_flag
+r_static
+r_int
+r_int
+id|sha1_file_open_flag
+op_assign
+id|O_NOATIME
+suffix:semicolon
 DECL|function|hexval
 r_static
 r_int
@@ -568,7 +585,46 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_struct
+id|stat
+id|st
+suffix:semicolon
+r_void
+op_star
+id|map
+suffix:semicolon
 r_int
+id|fd
+suffix:semicolon
+id|fd
+op_assign
+id|open
+c_func
+(paren
+id|filename
+comma
+id|O_RDONLY
+op_or
+id|sha1_file_open_flag
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|fd
+OL
+l_int|0
+)paren
+(brace
+multiline_comment|/* See if it works without O_NOATIME */
+r_switch
+c_cond
+(paren
+id|sha1_file_open_flag
+)paren
+(brace
+r_default
+suffix:colon
 id|fd
 op_assign
 id|open
@@ -579,22 +635,19 @@ comma
 id|O_RDONLY
 )paren
 suffix:semicolon
-r_struct
-id|stat
-id|st
-suffix:semicolon
-r_void
-op_star
-id|map
-suffix:semicolon
 r_if
 c_cond
 (paren
 id|fd
-OL
+op_ge
 l_int|0
 )paren
-(brace
+r_break
+suffix:semicolon
+multiline_comment|/* Fallthrough */
+r_case
+l_int|0
+suffix:colon
 id|perror
 c_func
 (paren
@@ -603,6 +656,12 @@ id|filename
 suffix:semicolon
 r_return
 l_int|NULL
+suffix:semicolon
+)brace
+multiline_comment|/* If it failed once, it will probably fail again. Stop using O_NOATIME */
+id|sha1_file_open_flag
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 r_if
