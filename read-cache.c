@@ -421,7 +421,6 @@ suffix:semicolon
 )brace
 multiline_comment|/* Remove entry, return true if there are more entries to go.. */
 DECL|function|remove_entry_at
-r_static
 r_int
 id|remove_entry_at
 c_func
@@ -543,7 +542,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|same_name
-r_static
 r_int
 id|same_name
 c_func
