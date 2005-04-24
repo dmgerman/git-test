@@ -835,6 +835,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|ret
+OL
+id|Z_OK
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|sscanf
 c_func
 (paren
