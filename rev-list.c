@@ -106,6 +106,8 @@ c_func
 (paren
 op_amp
 id|list
+comma
+l_int|0x1
 )paren
 suffix:semicolon
 id|printf

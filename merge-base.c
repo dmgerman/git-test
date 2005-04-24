@@ -39,28 +39,6 @@ c_cond
 (paren
 id|item-&gt;object.flags
 op_amp
-id|this_mark
-)paren
-(brace
-multiline_comment|/*&n;&t;&t;  printf(&quot;%d already seen %s %x&bslash;n&quot;,&n;&t;&t;  this_mark&n;&t;&t;  sha1_to_hex(posn-&gt;parent-&gt;sha1),&n;&t;&t;  posn-&gt;parent-&gt;flags);&n;&t;&t;*/
-multiline_comment|/* do nothing; this indicates that this side&n;&t;&t; * split and reformed, and we only need to&n;&t;&t; * mark it once.&n;&t;&t; */
-op_star
-id|list_p
-op_assign
-(paren
-op_star
-id|list_p
-)paren
-op_member_access_from_pointer
-id|next
-suffix:semicolon
-)brace
-r_else
-r_if
-c_cond
-(paren
-id|item-&gt;object.flags
-op_amp
 id|other_mark
 )paren
 (brace
@@ -70,16 +48,13 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/*&n;&t;&t;  printf(&quot;%d based on %s&bslash;n&quot;,&n;&t;&t;  this_mark,&n;&t;&t;  sha1_to_hex(posn-&gt;parent-&gt;sha1));&n;&t;&t;*/
 id|pop_most_recent_commit
 c_func
 (paren
 id|list_p
-)paren
-suffix:semicolon
-id|item-&gt;object.flags
-op_or_assign
+comma
 id|this_mark
+)paren
 suffix:semicolon
 )brace
 r_return
@@ -127,6 +102,10 @@ op_amp
 id|rev1list
 )paren
 suffix:semicolon
+id|rev1-&gt;object.flags
+op_or_assign
+l_int|0x1
+suffix:semicolon
 id|commit_list_insert
 c_func
 (paren
@@ -135,6 +114,10 @@ comma
 op_amp
 id|rev2list
 )paren
+suffix:semicolon
+id|rev2-&gt;object.flags
+op_or_assign
+l_int|0x2
 suffix:semicolon
 id|parse_commit
 c_func
