@@ -948,6 +948,8 @@ l_string|&quot;PDT&quot;
 comma
 l_string|&quot;PST&quot;
 comma
+l_string|&quot;CEST&quot;
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -1310,18 +1312,6 @@ comma
 id|date
 comma
 id|datelen
-)paren
-suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;new format date &squot;%.*s&squot;?&bslash;n&quot;
-comma
-id|datelen
-op_minus
-l_int|1
-comma
-id|date
 )paren
 suffix:semicolon
 r_return
