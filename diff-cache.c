@@ -334,7 +334,7 @@ l_int|1
 id|show_file
 c_func
 (paren
-l_string|&quot;-&quot;
+l_string|&quot;+&quot;
 comma
 id|ce
 )paren
