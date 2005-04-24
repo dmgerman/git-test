@@ -877,6 +877,11 @@ op_amp
 id|entry-&gt;item.blob-&gt;object
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|obj
+)paren
 id|add_ref
 c_func
 (paren

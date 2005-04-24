@@ -343,6 +343,11 @@ c_func
 id|parent
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|item-&gt;tree
+)paren
 id|add_ref
 c_func
 (paren
@@ -395,6 +400,12 @@ c_func
 id|parent
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|new_parent
+)paren
+(brace
 id|commit_list_insert
 c_func
 (paren
@@ -414,6 +425,7 @@ op_amp
 id|new_parent-&gt;object
 )paren
 suffix:semicolon
+)brace
 id|bufptr
 op_add_assign
 l_int|48
