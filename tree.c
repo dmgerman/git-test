@@ -539,6 +539,10 @@ op_amp
 id|ret-&gt;object
 )paren
 suffix:semicolon
+id|ret-&gt;object.type
+op_assign
+id|tree_type
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
@@ -625,10 +629,6 @@ suffix:semicolon
 id|item-&gt;object.parsed
 op_assign
 l_int|1
-suffix:semicolon
-id|item-&gt;object.type
-op_assign
-id|tree_type
 suffix:semicolon
 id|buffer
 op_assign

@@ -79,6 +79,10 @@ op_amp
 id|ret-&gt;object
 )paren
 suffix:semicolon
+id|ret-&gt;object.type
+op_assign
+id|commit_type
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
@@ -322,10 +326,6 @@ c_func
 id|item-&gt;object.sha1
 )paren
 )paren
-suffix:semicolon
-id|item-&gt;object.type
-op_assign
-id|commit_type
 suffix:semicolon
 id|get_sha1_hex
 c_func
