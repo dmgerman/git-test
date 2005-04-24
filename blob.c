@@ -82,10 +82,6 @@ id|ret-&gt;object.type
 op_assign
 id|blob_type
 suffix:semicolon
-id|ret-&gt;object.parsed
-op_assign
-l_int|1
-suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
