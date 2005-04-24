@@ -275,6 +275,24 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|commit-&gt;date
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;bad commit date in %s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
