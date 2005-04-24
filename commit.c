@@ -90,8 +90,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|obj-&gt;parsed
-op_logical_and
 id|obj-&gt;type
 op_ne
 id|commit_type
