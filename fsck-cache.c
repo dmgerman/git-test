@@ -6,6 +6,13 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 DECL|macro|REACHABLE
 mdefine_line|#define REACHABLE 0x0001
+DECL|variable|show_root
+r_static
+r_int
+id|show_root
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|show_tags
 r_static
 r_int
@@ -269,6 +276,8 @@ c_cond
 (paren
 op_logical_neg
 id|commit-&gt;parents
+op_logical_and
+id|show_root
 )paren
 id|printf
 c_func
@@ -1160,6 +1169,26 @@ l_string|&quot;--tags&quot;
 )paren
 (brace
 id|show_tags
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--root&quot;
+)paren
+)paren
+(brace
+id|show_root
 op_assign
 l_int|1
 suffix:semicolon
