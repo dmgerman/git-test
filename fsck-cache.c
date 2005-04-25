@@ -368,6 +368,12 @@ id|object
 l_int|20
 )braket
 suffix:semicolon
+r_char
+id|object_hex
+(braket
+l_int|60
+)braket
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -521,10 +527,22 @@ c_func
 l_string|&quot;tag &bslash;n&quot;
 )paren
 suffix:semicolon
+id|strcpy
+c_func
+(paren
+id|object_hex
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|object
+)paren
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;tagged %.*s %s (%.*s)&bslash;n&quot;
+l_string|&quot;tagged %.*s %s (%.*s) in %s&bslash;n&quot;
 comma
 id|typelen
 comma
@@ -532,17 +550,19 @@ id|type_line
 op_plus
 l_int|5
 comma
-id|sha1_to_hex
-c_func
-(paren
-id|object
-)paren
+id|object_hex
 comma
 id|taglen
 comma
 id|tag_line
 op_plus
 l_int|4
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
 )paren
 suffix:semicolon
 r_return
