@@ -1219,6 +1219,7 @@ op_star
 id|buf
 comma
 r_int
+r_int
 id|len
 comma
 r_const
@@ -1275,7 +1276,7 @@ c_func
 (paren
 id|hdr
 comma
-l_string|&quot;%s %d&quot;
+l_string|&quot;%s %lu&quot;
 comma
 id|type
 comma
