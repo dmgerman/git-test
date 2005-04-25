@@ -1221,6 +1221,11 @@ comma
 r_int
 id|len
 comma
+r_const
+r_char
+op_star
+id|type
+comma
 r_int
 r_char
 op_star
@@ -1251,8 +1256,33 @@ r_char
 op_star
 id|filename
 suffix:semicolon
+r_char
+id|hdr
+(braket
+l_int|50
+)braket
+suffix:semicolon
 r_int
 id|fd
+comma
+id|hdrlen
+suffix:semicolon
+multiline_comment|/* Generate the header */
+id|hdrlen
+op_assign
+id|sprintf
+c_func
+(paren
+id|hdr
+comma
+l_string|&quot;%s %d&quot;
+comma
+id|type
+comma
+id|len
+)paren
+op_plus
+l_int|1
 suffix:semicolon
 multiline_comment|/* Sha1.. */
 id|SHA1_Init
@@ -1260,6 +1290,17 @@ c_func
 (paren
 op_amp
 id|c
+)paren
+suffix:semicolon
+id|SHA1_Update
+c_func
+(paren
+op_amp
+id|c
+comma
+id|hdr
+comma
+id|hdrlen
 )paren
 suffix:semicolon
 id|SHA1_Update
@@ -1377,6 +1418,8 @@ op_amp
 id|stream
 comma
 id|len
+op_plus
+id|hdrlen
 )paren
 suffix:semicolon
 id|compressed
@@ -1388,14 +1431,6 @@ id|size
 )paren
 suffix:semicolon
 multiline_comment|/* Compress it */
-id|stream.next_in
-op_assign
-id|buf
-suffix:semicolon
-id|stream.avail_in
-op_assign
-id|len
-suffix:semicolon
 id|stream.next_out
 op_assign
 id|compressed
@@ -1403,6 +1438,39 @@ suffix:semicolon
 id|stream.avail_out
 op_assign
 id|size
+suffix:semicolon
+multiline_comment|/* First header.. */
+id|stream.next_in
+op_assign
+id|hdr
+suffix:semicolon
+id|stream.avail_in
+op_assign
+id|hdrlen
+suffix:semicolon
+r_while
+c_loop
+(paren
+id|deflate
+c_func
+(paren
+op_amp
+id|stream
+comma
+l_int|0
+)paren
+op_eq
+id|Z_OK
+)paren
+multiline_comment|/* nothing */
+multiline_comment|/* Then the data itself.. */
+id|stream.next_in
+op_assign
+id|buf
+suffix:semicolon
+id|stream.avail_in
+op_assign
+id|len
 suffix:semicolon
 r_while
 c_loop
