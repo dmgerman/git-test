@@ -1,4 +1,5 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
+macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;update-cache *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
@@ -1409,6 +1410,22 @@ id|lockfile_name
 )paren
 suffix:semicolon
 )brace
+DECL|function|remove_lock_file_on_signal
+r_static
+r_void
+id|remove_lock_file_on_signal
+c_func
+(paren
+r_int
+id|signo
+)paren
+(brace
+id|remove_lock_file
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
 DECL|function|main
 r_int
 id|main
@@ -1496,6 +1513,14 @@ id|die
 c_func
 (paren
 l_string|&quot;unable to create new cachefile&quot;
+)paren
+suffix:semicolon
+id|signal
+c_func
+(paren
+id|SIGINT
+comma
+id|remove_lock_file_on_signal
 )paren
 suffix:semicolon
 id|atexit
