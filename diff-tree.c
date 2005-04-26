@@ -270,7 +270,7 @@ r_char
 op_star
 id|newbase
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|baselen
@@ -1685,7 +1685,7 @@ l_int|3
 suffix:semicolon
 id|pathlens
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|nr_paths

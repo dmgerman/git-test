@@ -120,7 +120,7 @@ id|dir_alloc
 suffix:semicolon
 id|dir
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|dir
@@ -137,7 +137,7 @@ suffix:semicolon
 )brace
 id|name
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|len

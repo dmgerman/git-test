@@ -345,7 +345,7 @@ id|fwrite_sha1_file
 suffix:semicolon
 id|url
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|strlen

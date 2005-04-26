@@ -107,7 +107,7 @@ l_int|8192
 suffix:semicolon
 id|buffer
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size
@@ -317,7 +317,7 @@ l_int|100
 suffix:semicolon
 id|buffer
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|buffer

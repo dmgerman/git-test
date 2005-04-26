@@ -117,7 +117,7 @@ id|sha1_dir
 suffix:semicolon
 id|path
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|len

@@ -128,7 +128,7 @@ r_void
 op_star
 id|out
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|max_out_bytes
@@ -138,7 +138,7 @@ r_void
 op_star
 id|metadata
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 l_int|200
@@ -565,7 +565,7 @@ id|namelen
 suffix:semicolon
 id|ce
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size
@@ -960,7 +960,7 @@ id|ce
 suffix:semicolon
 id|updated
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size
@@ -1318,7 +1318,7 @@ id|len
 suffix:semicolon
 id|ce
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size

@@ -29,7 +29,7 @@ r_char
 op_star
 id|buf
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|BLOCKING
@@ -175,7 +175,7 @@ l_int|32767
 suffix:semicolon
 id|buf
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|buf

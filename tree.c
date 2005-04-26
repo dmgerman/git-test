@@ -67,7 +67,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size
@@ -280,7 +280,7 @@ r_char
 op_star
 id|newbase
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|baselen
@@ -506,7 +506,7 @@ id|tree
 op_star
 id|ret
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof
@@ -773,7 +773,7 @@ l_int|1
 suffix:semicolon
 id|entry
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof

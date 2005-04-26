@@ -1,6 +1,7 @@
 macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;cache.h&quot;
 DECL|function|strbuf_init
 r_void
 id|strbuf_init
@@ -86,7 +87,7 @@ l_int|16
 suffix:semicolon
 id|sb-&gt;buf
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|sb-&gt;buf

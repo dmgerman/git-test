@@ -46,7 +46,7 @@ id|commit
 op_star
 id|ret
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof
@@ -471,7 +471,7 @@ id|commit_list
 op_star
 id|new_list
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof

@@ -81,7 +81,7 @@ id|entry
 op_star
 r_new
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof
@@ -404,7 +404,7 @@ r_char
 op_star
 r_new
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size
@@ -1298,7 +1298,7 @@ r_char
 op_star
 r_new
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size
@@ -1615,7 +1615,7 @@ id|sha1
 suffix:semicolon
 id|buffer
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size

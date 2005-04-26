@@ -253,7 +253,7 @@ id|obj_allocs
 suffix:semicolon
 id|objs
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|objs
@@ -371,7 +371,7 @@ l_int|1
 suffix:semicolon
 id|p
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof

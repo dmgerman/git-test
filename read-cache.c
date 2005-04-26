@@ -722,7 +722,7 @@ id|active_alloc
 suffix:semicolon
 id|active_cache
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|active_cache
