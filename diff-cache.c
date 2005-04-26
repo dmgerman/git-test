@@ -421,7 +421,7 @@ c_func
 id|ce
 )paren
 )paren
-r_break
+r_continue
 suffix:semicolon
 id|printf
 c_func
