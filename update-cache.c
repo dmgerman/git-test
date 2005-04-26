@@ -280,7 +280,19 @@ id|path
 suffix:semicolon
 )brace
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;open(&bslash;&quot;%s&bslash;&quot;): %s&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
 suffix:semicolon
 )brace
 id|namelen
