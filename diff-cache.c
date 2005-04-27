@@ -426,9 +426,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s: unmerged&bslash;n&quot;
+l_string|&quot;U %s%c&quot;
 comma
 id|ce-&gt;name
+comma
+id|line_termination
 )paren
 suffix:semicolon
 r_while
