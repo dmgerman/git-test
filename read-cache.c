@@ -1091,6 +1091,8 @@ comma
 id|size
 comma
 id|PROT_READ
+op_or
+id|PROT_WRITE
 comma
 id|MAP_PRIVATE
 comma
