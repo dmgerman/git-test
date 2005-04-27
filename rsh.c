@@ -1,5 +1,6 @@
 macro_line|#include &quot;rsh.h&quot;
 macro_line|#include &lt;string.h&gt;
+macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;sys/socket.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|macro|COMMAND_SIZE
