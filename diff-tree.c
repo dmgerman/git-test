@@ -1689,6 +1689,8 @@ l_string|&quot;-p&quot;
 )paren
 )paren
 (brace
+id|recursive
+op_assign
 id|generate_patch
 op_assign
 l_int|1
