@@ -238,6 +238,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|macro|PLEASE_WARN
+mdefine_line|#define PLEASE_WARN -1
+DECL|macro|WARNED_OURSELVES
+mdefine_line|#define WARNED_OURSELVES -2
 DECL|function|parse_diff_tree_output
 r_static
 r_int
@@ -282,6 +286,24 @@ id|cp
 op_increment
 )paren
 (brace
+r_case
+l_char|&squot;U&squot;
+suffix:colon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;warning: unmerged path %s&bslash;n&quot;
+comma
+id|cp
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+r_return
+id|WARNED_OURSELVES
+suffix:semicolon
 r_case
 l_char|&squot;+&squot;
 suffix:colon
@@ -328,7 +350,7 @@ suffix:semicolon
 r_default
 suffix:colon
 r_return
-l_int|1
+id|PLEASE_WARN
 suffix:semicolon
 )brace
 multiline_comment|/* This is for &squot;*&squot; entries */
@@ -408,7 +430,7 @@ l_int|2
 )paren
 )paren
 r_return
-l_int|1
+id|PLEASE_WARN
 suffix:semicolon
 id|cp
 op_add_assign
@@ -470,7 +492,7 @@ l_int|6
 )paren
 )paren
 r_return
-l_int|1
+id|PLEASE_WARN
 suffix:semicolon
 id|cp
 op_add_assign
@@ -488,7 +510,7 @@ id|old-&gt;u.sha1
 )paren
 )paren
 r_return
-l_int|1
+id|PLEASE_WARN
 suffix:semicolon
 id|cp
 op_add_assign
@@ -508,7 +530,7 @@ l_int|2
 )paren
 )paren
 r_return
-l_int|1
+id|PLEASE_WARN
 suffix:semicolon
 id|cp
 op_add_assign
@@ -528,7 +550,7 @@ id|u.sha1
 )paren
 )paren
 r_return
-l_int|1
+id|PLEASE_WARN
 suffix:semicolon
 id|cp
 op_add_assign
@@ -544,7 +566,7 @@ op_ne
 l_char|&squot;&bslash;t&squot;
 )paren
 r_return
-l_int|1
+id|PLEASE_WARN
 suffix:semicolon
 id|strcpy
 c_func
@@ -676,6 +698,9 @@ c_loop
 l_int|1
 )paren
 (brace
+r_int
+id|status
+suffix:semicolon
 r_struct
 id|diff_spec
 id|old
@@ -706,9 +731,8 @@ id|sb.eof
 )paren
 r_break
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|status
+op_assign
 id|parse_diff_tree_output
 c_func
 (paren
@@ -722,8 +746,20 @@ r_new
 comma
 id|path
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|status
+op_eq
+id|PLEASE_WARN
+)paren
 id|fprintf
 c_func
 (paren
