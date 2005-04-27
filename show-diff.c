@@ -426,12 +426,14 @@ id|ce
 )paren
 )paren
 (brace
-id|show_file
+id|printf
 c_func
 (paren
-l_string|&quot;U&quot;
+l_string|&quot;U %s%c&quot;
 comma
-id|ce
+id|ce-&gt;name
+comma
+id|line_termination
 )paren
 suffix:semicolon
 r_while
