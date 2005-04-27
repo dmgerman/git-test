@@ -289,13 +289,9 @@ op_increment
 r_case
 l_char|&squot;U&squot;
 suffix:colon
-id|fprintf
+id|diff_unmerge
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: unmerged path %s&bslash;n&quot;
-comma
 id|cp
 op_plus
 l_int|1
