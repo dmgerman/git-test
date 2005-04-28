@@ -222,7 +222,7 @@ suffix:semicolon
 )brace
 DECL|function|show_new_file
 r_static
-r_int
+r_void
 id|show_new_file
 c_func
 (paren
@@ -260,7 +260,6 @@ OL
 l_int|0
 )paren
 r_return
-l_int|1
 suffix:semicolon
 id|show_file
 c_func
