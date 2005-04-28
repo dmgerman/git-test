@@ -474,7 +474,7 @@ comma
 id|MAXSIZE
 )paren
 suffix:semicolon
-singleline_comment|// Verify it for some basic sanity: it needs to start with &quot;object &lt;sha1&gt;&bslash;ntag &quot;
+singleline_comment|// Verify it for some basic sanity: it needs to start with &quot;object &lt;sha1&gt;&bslash;ntype &quot;
 r_if
 c_cond
 (paren

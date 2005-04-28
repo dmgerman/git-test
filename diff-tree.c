@@ -1495,10 +1495,12 @@ id|retval
 suffix:semicolon
 id|tree1
 op_assign
-id|read_tree_with_tree_or_commit_sha1
+id|read_object_with_reference
 c_func
 (paren
 id|old
+comma
+l_string|&quot;tree&quot;
 comma
 op_amp
 id|size1
@@ -1526,10 +1528,12 @@ id|old
 suffix:semicolon
 id|tree2
 op_assign
-id|read_tree_with_tree_or_commit_sha1
+id|read_object_with_reference
 c_func
 (paren
 r_new
+comma
+l_string|&quot;tree&quot;
 comma
 op_amp
 id|size2

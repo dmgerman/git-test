@@ -875,10 +875,12 @@ c_func
 suffix:semicolon
 id|tree
 op_assign
-id|read_tree_with_tree_or_commit_sha1
+id|read_object_with_reference
 c_func
 (paren
 id|tree_sha1
+comma
+l_string|&quot;tree&quot;
 comma
 op_amp
 id|size
