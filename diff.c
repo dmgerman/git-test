@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * Copyright (C) 2005 Junio C Hamano&n; */
 macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;sys/wait.h&gt;
+macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 DECL|variable|diff_opts
@@ -678,6 +679,7 @@ id|one-&gt;file_valid
 (brace
 id|not_a_valid_file
 suffix:colon
+multiline_comment|/* A &squot;-&squot; entry produces this for file-2, and&n;&t;&t; * a &squot;+&squot; entry produces this for file-1.&n;&t;&t; */
 id|temp-&gt;name
 op_assign
 l_string|&quot;/dev/null&quot;
@@ -790,7 +792,11 @@ c_func
 (paren
 id|temp-&gt;hex
 comma
-l_string|&quot;.&quot;
+id|sha1_to_hex
+c_func
+(paren
+id|null_sha1
+)paren
 )paren
 suffix:semicolon
 id|sprintf
@@ -1033,6 +1039,22 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
+DECL|function|remove_tempfile_on_signal
+r_static
+r_void
+id|remove_tempfile_on_signal
+c_func
+(paren
+r_int
+id|signo
+)paren
+(brace
+id|remove_tempfile
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* An external diff command takes:&n; *&n; * diff-cmd name infile1 infile1-sha1 infile1-mode &bslash;&n; *               infile2 infile2-sha1 infile2-mode.&n; *&n; */
 DECL|function|run_external_diff
 r_void
@@ -1062,9 +1084,10 @@ id|temp
 op_assign
 id|diff_temp
 suffix:semicolon
-r_int
+id|pid_t
 id|pid
-comma
+suffix:semicolon
+r_int
 id|status
 suffix:semicolon
 r_static
@@ -1157,6 +1180,14 @@ id|remove_tempfile
 )paren
 suffix:semicolon
 )brace
+id|signal
+c_func
+(paren
+id|SIGINT
+comma
+id|remove_tempfile_on_signal
+)paren
+suffix:semicolon
 )brace
 id|fflush
 c_func
@@ -1336,12 +1367,20 @@ c_func
 id|status
 )paren
 )paren
+(brace
+multiline_comment|/* We do not check the exit status because typically&n;&t;&t; * diff exits non-zero if files are different, and&n;&t;&t; * we are not interested in knowing that.  We *knew*&n;&t;&t; * they are different and that&squot;s why we ran diff&n;&t;&t; * in the first place!  However if it dies by a signal,&n;&t;&t; * we stop processing immediately.&n;&t;&t; */
+id|remove_tempfile
+c_func
+(paren
+)paren
+suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;diff program failed&quot;
+l_string|&quot;external diff died unexpectedly.&bslash;n&quot;
 )paren
 suffix:semicolon
+)brace
 id|remove_tempfile
 c_func
 (paren
