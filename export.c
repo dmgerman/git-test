@@ -101,7 +101,7 @@ c_func
 (paren
 id|cmdline
 comma
-l_string|&quot;diff-tree -p %s %s&quot;
+l_string|&quot;git-diff-tree -p %s %s&quot;
 comma
 id|against
 comma
