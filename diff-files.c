@@ -1,14 +1,14 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
-DECL|variable|show_diff_usage
+DECL|variable|diff_files_usage
 r_static
 r_const
 r_char
 op_star
-id|show_diff_usage
+id|diff_files_usage
 op_assign
-l_string|&quot;show-diff [-p] [-q] [-r] [-z] [paths...]&quot;
+l_string|&quot;diff-files [-p] [-q] [-r] [-z] [paths...]&quot;
 suffix:semicolon
 DECL|variable|generate_patch
 r_static
@@ -481,7 +481,7 @@ r_else
 id|usage
 c_func
 (paren
-id|show_diff_usage
+id|diff_files_usage
 )paren
 suffix:semicolon
 id|argv

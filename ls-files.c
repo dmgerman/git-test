@@ -1111,14 +1111,14 @@ suffix:semicolon
 )brace
 )brace
 )brace
-DECL|variable|show_files_usage
+DECL|variable|ls_files_usage
 r_static
 r_const
 r_char
 op_star
-id|show_files_usage
+id|ls_files_usage
 op_assign
-l_string|&quot;show-files [-z] (--[cached|deleted|others|stage|unmerged])* &quot;
+l_string|&quot;ls-files [-z] (--[cached|deleted|others|stage|unmerged])* &quot;
 l_string|&quot;[ --ignored [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;) ]&quot;
 suffix:semicolon
 DECL|function|main
@@ -1469,7 +1469,7 @@ r_else
 id|usage
 c_func
 (paren
-id|show_files_usage
+id|ls_files_usage
 )paren
 suffix:semicolon
 )brace
