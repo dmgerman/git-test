@@ -265,7 +265,7 @@ c_cond
 id|socketpair
 c_func
 (paren
-id|AF_LOCAL
+id|AF_UNIX
 comma
 id|SOCK_STREAM
 comma
