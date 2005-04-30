@@ -1324,9 +1324,13 @@ id|tm.tm_mday
 op_assign
 l_int|1
 suffix:semicolon
+id|tm.tm_isdst
+op_assign
+l_int|1
+suffix:semicolon
 id|offset
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 r_for
 c_loop
@@ -1459,6 +1463,7 @@ op_add_assign
 id|match
 suffix:semicolon
 )brace
+multiline_comment|/* mktime uses local timezone */
 id|then
 op_assign
 id|my_mktime
@@ -1468,7 +1473,27 @@ op_amp
 id|tm
 )paren
 suffix:semicolon
-multiline_comment|/* mktime uses local timezone */
+r_if
+c_cond
+(paren
+id|offset
+op_eq
+l_int|1
+)paren
+id|offset
+op_assign
+(paren
+id|then
+id|mktime
+c_func
+(paren
+op_amp
+id|tm
+)paren
+)paren
+op_div
+l_int|60
+suffix:semicolon
 r_if
 c_cond
 (paren
