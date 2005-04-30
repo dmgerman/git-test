@@ -221,6 +221,10 @@ DECL|member|offset
 r_int
 id|offset
 suffix:semicolon
+DECL|member|dst
+r_int
+id|dst
+suffix:semicolon
 DECL|variable|timezone_names
 )brace
 id|timezone_names
@@ -232,6 +236,9 @@ op_assign
 l_string|&quot;IDLW&quot;
 comma
 l_int|12
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* International Date Line West */
@@ -239,6 +246,9 @@ multiline_comment|/* International Date Line West */
 l_string|&quot;NT&quot;
 comma
 l_int|11
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Nome */
@@ -246,6 +256,9 @@ multiline_comment|/* Nome */
 l_string|&quot;CAT&quot;
 comma
 l_int|10
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Central Alaska */
@@ -253,41 +266,59 @@ multiline_comment|/* Central Alaska */
 l_string|&quot;HST&quot;
 comma
 l_int|10
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Hawaii Standard */
 (brace
 l_string|&quot;HDT&quot;
 comma
-l_int|9
+l_int|10
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Hawaii Daylight */
 (brace
-l_string|&quot;YDT&quot;
-comma
-l_int|8
-)brace
-comma
-multiline_comment|/* Yukon Daylight */
-(brace
 l_string|&quot;YST&quot;
 comma
 l_int|9
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Yukon Standard */
 (brace
+l_string|&quot;YDT&quot;
+comma
+l_int|9
+comma
+l_int|1
+comma
+)brace
+comma
+multiline_comment|/* Yukon Daylight */
+(brace
 l_string|&quot;PST&quot;
 comma
 l_int|8
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Pacific Standard */
 (brace
 l_string|&quot;PDT&quot;
 comma
-l_int|7
+l_int|8
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Pacific Daylight */
@@ -295,13 +326,19 @@ multiline_comment|/* Pacific Daylight */
 l_string|&quot;MST&quot;
 comma
 l_int|7
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Mountain Standard */
 (brace
 l_string|&quot;MDT&quot;
 comma
-l_int|6
+l_int|7
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Mountain Daylight */
@@ -309,13 +346,19 @@ multiline_comment|/* Mountain Daylight */
 l_string|&quot;CST&quot;
 comma
 l_int|6
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Central Standard */
 (brace
 l_string|&quot;CDT&quot;
 comma
-l_int|5
+l_int|6
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Central Daylight */
@@ -323,13 +366,19 @@ multiline_comment|/* Central Daylight */
 l_string|&quot;EST&quot;
 comma
 l_int|5
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Eastern Standard */
 (brace
 l_string|&quot;EDT&quot;
 comma
-l_int|4
+l_int|5
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Eastern Daylight */
@@ -337,13 +386,19 @@ multiline_comment|/* Eastern Daylight */
 l_string|&quot;AST&quot;
 comma
 l_int|3
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Atlantic Standard */
 (brace
 l_string|&quot;ADT&quot;
 comma
-l_int|2
+l_int|3
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Atlantic Daylight */
@@ -351,6 +406,9 @@ multiline_comment|/* Atlantic Daylight */
 l_string|&quot;WAT&quot;
 comma
 l_int|1
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* West Africa */
@@ -358,6 +416,9 @@ multiline_comment|/* West Africa */
 l_string|&quot;GMT&quot;
 comma
 l_int|0
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Greenwich Mean */
@@ -365,6 +426,9 @@ multiline_comment|/* Greenwich Mean */
 l_string|&quot;UTC&quot;
 comma
 l_int|0
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Universal (Coordinated) */
@@ -372,6 +436,9 @@ multiline_comment|/* Universal (Coordinated) */
 l_string|&quot;WET&quot;
 comma
 l_int|0
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Western European */
@@ -379,6 +446,9 @@ multiline_comment|/* Western European */
 l_string|&quot;BST&quot;
 comma
 l_int|0
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* British Summer */
@@ -387,6 +457,9 @@ l_string|&quot;CET&quot;
 comma
 op_plus
 l_int|1
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Central European */
@@ -395,6 +468,9 @@ l_string|&quot;MET&quot;
 comma
 op_plus
 l_int|1
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Middle European */
@@ -403,6 +479,9 @@ l_string|&quot;MEWT&quot;
 comma
 op_plus
 l_int|1
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Middle European Winter */
@@ -410,7 +489,10 @@ multiline_comment|/* Middle European Winter */
 l_string|&quot;MEST&quot;
 comma
 op_plus
-l_int|2
+l_int|1
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Middle European Summer */
@@ -418,7 +500,10 @@ multiline_comment|/* Middle European Summer */
 l_string|&quot;CEST&quot;
 comma
 op_plus
-l_int|2
+l_int|1
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Central European Summer */
@@ -427,6 +512,9 @@ l_string|&quot;MESZ&quot;
 comma
 op_plus
 l_int|1
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Middle European Summer */
@@ -435,6 +523,9 @@ l_string|&quot;FWT&quot;
 comma
 op_plus
 l_int|1
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* French Winter */
@@ -442,7 +533,10 @@ multiline_comment|/* French Winter */
 l_string|&quot;FST&quot;
 comma
 op_plus
-l_int|2
+l_int|1
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* French Summer */
@@ -451,6 +545,9 @@ l_string|&quot;EET&quot;
 comma
 op_plus
 l_int|2
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Eastern Europe, USSR Zone 1 */
@@ -459,6 +556,9 @@ l_string|&quot;WAST&quot;
 comma
 op_plus
 l_int|7
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* West Australian Standard */
@@ -466,7 +566,10 @@ multiline_comment|/* West Australian Standard */
 l_string|&quot;WADT&quot;
 comma
 op_plus
-l_int|8
+l_int|7
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* West Australian Daylight */
@@ -475,6 +578,9 @@ l_string|&quot;CCT&quot;
 comma
 op_plus
 l_int|8
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* China Coast, USSR Zone 7 */
@@ -483,6 +589,9 @@ l_string|&quot;JST&quot;
 comma
 op_plus
 l_int|9
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Japan Standard, USSR Zone 8 */
@@ -491,6 +600,9 @@ l_string|&quot;EAST&quot;
 comma
 op_plus
 l_int|10
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Eastern Australian Standard */
@@ -498,7 +610,10 @@ multiline_comment|/* Eastern Australian Standard */
 l_string|&quot;EADT&quot;
 comma
 op_plus
-l_int|11
+l_int|10
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* Eastern Australian Daylight */
@@ -507,6 +622,9 @@ l_string|&quot;GST&quot;
 comma
 op_plus
 l_int|10
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* Guam Standard, USSR Zone 9 */
@@ -515,6 +633,9 @@ l_string|&quot;NZT&quot;
 comma
 op_plus
 l_int|11
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* New Zealand */
@@ -523,6 +644,9 @@ l_string|&quot;NZST&quot;
 comma
 op_plus
 l_int|11
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* New Zealand Standard */
@@ -530,7 +654,10 @@ multiline_comment|/* New Zealand Standard */
 l_string|&quot;NZDT&quot;
 comma
 op_plus
-l_int|12
+l_int|11
+comma
+l_int|1
+comma
 )brace
 comma
 multiline_comment|/* New Zealand Daylight */
@@ -539,6 +666,9 @@ l_string|&quot;IDLE&quot;
 comma
 op_plus
 l_int|12
+comma
+l_int|0
+comma
 )brace
 comma
 multiline_comment|/* International Date Line East */
@@ -795,17 +925,32 @@ op_ge
 l_int|3
 )paren
 (brace
-op_star
-id|offset
+r_int
+id|off
 op_assign
-l_int|60
-op_star
 id|timezone_names
 (braket
 id|i
 )braket
 dot
 id|offset
+suffix:semicolon
+multiline_comment|/* This is bogus, but we like summer */
+id|off
+op_add_assign
+id|timezone_names
+(braket
+id|i
+)braket
+dot
+id|dst
+suffix:semicolon
+op_star
+id|offset
+op_assign
+l_int|60
+op_star
+id|off
 suffix:semicolon
 r_return
 id|match
