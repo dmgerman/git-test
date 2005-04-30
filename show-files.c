@@ -663,7 +663,11 @@ suffix:semicolon
 r_switch
 c_cond
 (paren
-id|de-&gt;d_type
+id|DTYPE
+c_func
+(paren
+id|de
+)paren
 )paren
 (brace
 r_struct
