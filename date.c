@@ -1156,6 +1156,8 @@ id|strtoul
 c_func
 (paren
 id|end
+op_plus
+l_int|1
 comma
 op_amp
 id|end
@@ -1173,6 +1175,18 @@ l_int|1900
 id|num3
 op_sub_assign
 l_int|1900
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|num3
+OL
+l_int|38
+)paren
+id|num3
+op_add_assign
+l_int|100
 suffix:semicolon
 id|tm-&gt;tm_year
 op_assign
