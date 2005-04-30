@@ -1,9 +1,3 @@
-DECL|macro|_XOPEN_SOURCE
-mdefine_line|#define _XOPEN_SOURCE /* glibc2 needs this */
-DECL|macro|_BSD_SOURCE
-mdefine_line|#define _BSD_SOURCE /* for tm.tm_gmtoff */
-macro_line|#include &lt;time.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 multiline_comment|/*&n; * revision.h leaves the low 16 bits of the &quot;flags&quot; field of the&n; * revision data structure unused. We use it for a &quot;reachable from&n; * this commit &lt;N&gt;&quot; bitmask.&n; */
