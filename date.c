@@ -552,6 +552,17 @@ comma
 comma
 multiline_comment|/* Eastern Europe, USSR Zone 1 */
 (brace
+l_string|&quot;EEST&quot;
+comma
+op_plus
+l_int|2
+comma
+l_int|1
+comma
+)brace
+comma
+multiline_comment|/* Eastern European Daylight */
+(brace
 l_string|&quot;WAST&quot;
 comma
 op_plus
@@ -945,6 +956,15 @@ id|i
 dot
 id|dst
 suffix:semicolon
+multiline_comment|/* Only use the tz name offset if we don&squot;t have anything better */
+r_if
+c_cond
+(paren
+op_star
+id|offset
+op_eq
+l_int|1
+)paren
 op_star
 id|offset
 op_assign
