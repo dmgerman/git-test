@@ -1473,6 +1473,8 @@ id|tm
 suffix:semicolon
 r_int
 id|offset
+comma
+id|sign
 suffix:semicolon
 id|time_t
 id|then
@@ -1688,6 +1690,27 @@ id|offset
 op_star
 l_int|60
 suffix:semicolon
+id|sign
+op_assign
+l_char|&squot;+&squot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|offset
+OL
+l_int|0
+)paren
+(brace
+id|offset
+op_assign
+id|offset
+suffix:semicolon
+id|sign
+op_assign
+l_char|&squot;-&squot;
+suffix:semicolon
+)brace
 id|snprintf
 c_func
 (paren
@@ -1695,9 +1718,11 @@ id|result
 comma
 id|maxlen
 comma
-l_string|&quot;%lu %+03d%02d&quot;
+l_string|&quot;%lu %c%02d%02d&quot;
 comma
 id|then
+comma
+id|sign
 comma
 id|offset
 op_div
