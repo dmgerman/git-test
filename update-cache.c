@@ -503,6 +503,10 @@ c_cond
 id|errno
 op_eq
 id|ENOENT
+op_logical_or
+id|errno
+op_eq
+id|ENOTDIR
 )paren
 (brace
 r_if
