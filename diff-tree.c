@@ -1736,7 +1736,7 @@ id|argc
 OL
 l_int|3
 op_logical_or
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|argv
@@ -1747,7 +1747,7 @@ comma
 id|old
 )paren
 op_logical_or
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|argv

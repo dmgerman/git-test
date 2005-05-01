@@ -301,7 +301,7 @@ id|argc
 op_ne
 l_int|3
 op_logical_or
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|argv
@@ -312,7 +312,7 @@ comma
 id|rev1key
 )paren
 op_logical_or
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|argv

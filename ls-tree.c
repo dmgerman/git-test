@@ -517,7 +517,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|argv

@@ -894,7 +894,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|arg

@@ -608,7 +608,7 @@ comma
 l_string|&quot;-p&quot;
 )paren
 op_logical_or
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|b

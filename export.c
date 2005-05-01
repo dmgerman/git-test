@@ -346,7 +346,7 @@ id|argc
 template_param
 l_int|4
 op_logical_or
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|argv
@@ -362,7 +362,7 @@ id|argc
 op_eq
 l_int|3
 op_logical_and
-id|get_sha1_hex
+id|get_sha1
 c_func
 (paren
 id|argv
