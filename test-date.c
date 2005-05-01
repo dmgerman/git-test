@@ -83,7 +83,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s -&gt; %s -&gt; %s&bslash;n&quot;
+l_string|&quot;%s -&gt; %s -&gt; %s&quot;
 comma
 id|argv
 (braket
