@@ -3,9 +3,9 @@ macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
-DECL|variable|cmitmsg
-DECL|variable|filelist
 DECL|variable|patchfile
+DECL|variable|filelist
+DECL|variable|cmitmsg
 r_static
 id|FILE
 op_star
@@ -21,6 +21,14 @@ DECL|variable|line
 r_static
 r_char
 id|line
+(braket
+l_int|1000
+)braket
+suffix:semicolon
+DECL|variable|date
+r_static
+r_char
+id|date
 (braket
 l_int|1000
 )braket
@@ -370,6 +378,26 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|function|handle_date
+r_static
+r_void
+id|handle_date
+c_func
+(paren
+r_char
+op_star
+id|line
+)paren
+(brace
+id|strcpy
+c_func
+(paren
+id|date
+comma
+id|line
+)paren
+suffix:semicolon
+)brace
 DECL|function|handle_subject
 r_static
 r_void
@@ -497,6 +525,45 @@ c_func
 (paren
 id|line
 comma
+l_string|&quot;Date:&quot;
+comma
+l_int|5
+)paren
+op_logical_and
+id|isspace
+c_func
+(paren
+id|line
+(braket
+l_int|5
+)braket
+)paren
+)paren
+(brace
+id|handle_date
+c_func
+(paren
+id|line
+op_plus
+l_int|6
+)paren
+suffix:semicolon
+id|cont
+op_assign
+l_int|0
+suffix:semicolon
+r_return
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|line
+comma
 l_string|&quot;Subject:&quot;
 comma
 l_int|8
@@ -552,7 +619,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;I don&squot;t do &squot;From:&squot; line continuations&bslash;n&quot;
+l_string|&quot;I don&squot;t do &squot;Date:&squot; or &squot;From:&squot; line continuations&bslash;n&quot;
 )paren
 suffix:semicolon
 r_break
@@ -998,6 +1065,12 @@ suffix:semicolon
 id|cleanup_space
 c_func
 (paren
+id|date
+)paren
+suffix:semicolon
+id|cleanup_space
+c_func
+(paren
 id|email
 )paren
 suffix:semicolon
@@ -1010,13 +1083,15 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;Author: %s&bslash;nEmail: %s&bslash;nSubject: %s&bslash;n&bslash;n&quot;
+l_string|&quot;Author: %s&bslash;nEmail: %s&bslash;nSubject: %s&bslash;nDate: %s&bslash;n&bslash;n&quot;
 comma
 id|name
 comma
 id|email
 comma
 id|sub
+comma
+id|date
 )paren
 suffix:semicolon
 id|FILE
