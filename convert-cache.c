@@ -608,8 +608,13 @@ l_string|&quot;%o %.*s&quot;
 comma
 id|S_IFDIR
 comma
+(paren
+r_int
+)paren
+(paren
 id|slash
 id|path
+)paren
 comma
 id|path
 )paren
