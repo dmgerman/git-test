@@ -55,7 +55,7 @@ c_func
 (paren
 id|cmdline
 comma
-l_string|&quot;cat-file commit %s&quot;
+l_string|&quot;git-cat-file commit %s&quot;
 comma
 id|hex
 )paren

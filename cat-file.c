@@ -56,7 +56,7 @@ id|sha1
 id|usage
 c_func
 (paren
-l_string|&quot;cat-file [-t | tagname] &lt;sha1&gt;&quot;
+l_string|&quot;git-cat-file [-t | tagname] &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -148,7 +148,7 @@ id|buf
 id|die
 c_func
 (paren
-l_string|&quot;cat-file %s: bad file&quot;
+l_string|&quot;git-cat-file %s: bad file&quot;
 comma
 id|argv
 (braket
@@ -207,7 +207,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;cat-file: %s&quot;
+l_string|&quot;git-cat-file: %s&quot;
 comma
 id|strerror
 c_func
@@ -228,7 +228,7 @@ id|ret
 id|die
 c_func
 (paren
-l_string|&quot;cat-file: disk full?&quot;
+l_string|&quot;git-cat-file: disk full?&quot;
 )paren
 suffix:semicolon
 )brace
