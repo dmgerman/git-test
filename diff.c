@@ -428,9 +428,9 @@ op_assign
 id|i
 ques
 c_cond
-l_string|&quot;l/&quot;
+l_string|&quot;b/&quot;
 suffix:colon
-l_string|&quot;k/&quot;
+l_string|&quot;a/&quot;
 suffix:semicolon
 id|path1
 (braket
