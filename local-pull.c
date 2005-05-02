@@ -1,3 +1,4 @@
+multiline_comment|/*&n; * Copyright (C) 2005 Junio C Hamano&n; */
 macro_line|#include &lt;fcntl.h&gt;
 macro_line|#include &lt;unistd.h&gt;
 macro_line|#include &lt;string.h&gt;
@@ -20,6 +21,13 @@ r_int
 id|use_symlink
 op_assign
 l_int|0
+suffix:semicolon
+DECL|variable|use_filecopy
+r_static
+r_int
+id|use_filecopy
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|verbose
 r_static
@@ -111,21 +119,6 @@ c_func
 (paren
 id|sha1
 )paren
-suffix:semicolon
-r_int
-id|ifd
-comma
-id|ofd
-comma
-id|status
-suffix:semicolon
-r_struct
-id|stat
-id|st
-suffix:semicolon
-r_void
-op_star
-id|map
 suffix:semicolon
 r_if
 c_cond
@@ -262,6 +255,27 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|use_filecopy
+)paren
+(brace
+r_int
+id|ifd
+comma
+id|ofd
+comma
+id|status
+suffix:semicolon
+r_struct
+id|stat
+id|st
+suffix:semicolon
+r_void
+op_star
+id|map
+suffix:semicolon
 id|ifd
 op_assign
 id|open
@@ -447,6 +461,20 @@ r_return
 id|status
 suffix:semicolon
 )brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;No copy method was provided to copy %s.&bslash;n&quot;
+comma
+id|hex
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 DECL|variable|local_pull_usage
 r_static
 r_const
@@ -454,8 +482,9 @@ r_char
 op_star
 id|local_pull_usage
 op_assign
-l_string|&quot;git-local-pull [-c] [-t] [-a] [-l] [-s] [-v] commit-id path&quot;
+l_string|&quot;git-local-pull [-c] [-t] [-a] [-l] [-s] [-n] [-v] commit-id path&quot;
 suffix:semicolon
+multiline_comment|/* &n; * By default we only use file copy.&n; * If -l is specified, a hard link is attempted.&n; * If -s is specified, then a symlink is attempted.&n; * If -n is _not_ specified, then a regular file-to-file copy is done.&n; */
 DECL|function|main
 r_int
 id|main
@@ -595,6 +624,24 @@ l_char|&squot;s&squot;
 id|use_symlink
 op_assign
 l_int|1
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|argv
+(braket
+id|arg
+)braket
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;n&squot;
+)paren
+id|use_filecopy
+op_assign
+l_int|0
 suffix:semicolon
 r_else
 r_if
