@@ -811,24 +811,6 @@ id|entry-&gt;next
 op_assign
 l_int|NULL
 suffix:semicolon
-multiline_comment|/* Warn about trees that don&squot;t do the recursive thing.. */
-r_if
-c_cond
-(paren
-id|strchr
-c_func
-(paren
-id|path
-comma
-l_char|&squot;/&squot;
-)paren
-)paren
-(brace
-id|item-&gt;has_full_path
-op_assign
-l_int|1
-suffix:semicolon
-)brace
 id|bufptr
 op_add_assign
 id|len
