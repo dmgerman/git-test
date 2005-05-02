@@ -995,7 +995,7 @@ suffix:semicolon
 )brace
 DECL|function|refresh_cache
 r_static
-r_void
+r_int
 id|refresh_cache
 c_func
 (paren
@@ -1004,6 +1004,11 @@ r_void
 (brace
 r_int
 id|i
+suffix:semicolon
+r_int
+id|has_errors
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -1052,6 +1057,10 @@ l_string|&quot;%s: needs merge&bslash;n&quot;
 comma
 id|ce-&gt;name
 )paren
+suffix:semicolon
+id|has_errors
+op_assign
+l_int|1
 suffix:semicolon
 r_while
 c_loop
@@ -1119,6 +1128,7 @@ op_eq
 id|ENOENT
 )paren
 )paren
+(brace
 id|printf
 c_func
 (paren
@@ -1127,6 +1137,11 @@ comma
 id|ce-&gt;name
 )paren
 suffix:semicolon
+id|has_errors
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_continue
 suffix:semicolon
 )brace
@@ -1138,6 +1153,9 @@ op_assign
 r_new
 suffix:semicolon
 )brace
+r_return
+id|has_errors
+suffix:semicolon
 )brace
 multiline_comment|/*&n; * We fundamentally don&squot;t like some paths: we don&squot;t want&n; * dot or dot-dot anywhere, and in fact, we don&squot;t even want&n; * any other dot-files (.git or anything else). They&n; * are hidden, for chist sake.&n; *&n; * Also, we don&squot;t want double slashes or slashes at the&n; * end that can make pathnames ambiguous.&n; */
 DECL|function|verify_path
@@ -1450,6 +1468,10 @@ comma
 id|newfd
 comma
 id|entries
+comma
+id|has_errors
+op_assign
+l_int|0
 suffix:semicolon
 r_int
 id|allow_options
@@ -1665,6 +1687,8 @@ l_string|&quot;--refresh&quot;
 )paren
 )paren
 (brace
+id|has_errors
+op_or_assign
 id|refresh_cache
 c_func
 (paren
@@ -1839,7 +1863,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-l_int|0
+id|has_errors
 suffix:semicolon
 )brace
 eof
