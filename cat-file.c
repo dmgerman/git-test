@@ -113,6 +113,9 @@ id|size
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
+id|size
+op_increment
+suffix:semicolon
 )brace
 )brace
 r_else
