@@ -144,7 +144,7 @@ c_func
 (paren
 l_string|&quot;              to %7s %s&bslash;n&quot;
 comma
-id|obj-&gt;type
+id|refs-&gt;item-&gt;type
 comma
 id|sha1_to_hex
 c_func
