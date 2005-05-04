@@ -205,7 +205,11 @@ r_if
 c_cond
 (paren
 id|use_link
-op_logical_and
+)paren
+(brace
+r_if
+c_cond
+(paren
 op_logical_neg
 id|link
 c_func
@@ -219,7 +223,7 @@ id|dest_filename
 id|say
 c_func
 (paren
-l_string|&quot;Hardlinked %s.&bslash;n&quot;
+l_string|&quot;link %s&bslash;n&quot;
 comma
 id|hex
 )paren
@@ -227,6 +231,30 @@ suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
+)brace
+multiline_comment|/* If we got ENOENT there is no point continuing. */
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|ENOENT
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;does not exist %s&bslash;n&quot;
+comma
+id|filename
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -246,7 +274,7 @@ id|dest_filename
 id|say
 c_func
 (paren
-l_string|&quot;Symlinked %s.&bslash;n&quot;
+l_string|&quot;symlink %s&bslash;n&quot;
 comma
 id|hex
 )paren
@@ -316,7 +344,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Cannot open %s&bslash;n&quot;
+l_string|&quot;cannot open %s&bslash;n&quot;
 comma
 id|filename
 )paren
@@ -368,7 +396,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Cannot mmap %s&bslash;n&quot;
+l_string|&quot;cannot mmap %s&bslash;n&quot;
 comma
 id|filename
 )paren
@@ -441,7 +469,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Cannot write %s (%ld bytes)&bslash;n&quot;
+l_string|&quot;cannot write %s (%ld bytes)&bslash;n&quot;
 comma
 id|dest_filename
 comma
@@ -452,7 +480,7 @@ r_else
 id|say
 c_func
 (paren
-l_string|&quot;Copied %s.&bslash;n&quot;
+l_string|&quot;copy %s&bslash;n&quot;
 comma
 id|hex
 )paren
@@ -466,7 +494,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;No copy method was provided to copy %s.&bslash;n&quot;
+l_string|&quot;failed to copy %s with given copy methods.&bslash;n&quot;
 comma
 id|hex
 )paren
