@@ -312,6 +312,13 @@ comma
 id|commit_type
 )paren
 )paren
+(brace
+id|free
+c_func
+(paren
+id|buffer
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -325,6 +332,7 @@ id|item-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
+)brace
 id|get_sha1_hex
 c_func
 (paren

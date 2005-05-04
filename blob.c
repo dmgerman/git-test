@@ -190,6 +190,12 @@ id|item-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|buffer
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
