@@ -288,8 +288,9 @@ r_char
 op_star
 id|diff_arg
 op_assign
-l_string|&quot;&squot;%s&squot; &squot;%s&squot;&quot;
+l_string|&quot;&squot;%s&squot; &squot;%s&squot;||:&quot;
 suffix:semicolon
+multiline_comment|/* &quot;||:&quot; is to return 0 */
 r_const
 r_char
 op_star
@@ -1408,18 +1409,33 @@ c_func
 (paren
 id|status
 )paren
+op_logical_or
+id|WEXITSTATUS
+c_func
+(paren
+id|status
+)paren
 )paren
 (brace
-multiline_comment|/* We do not check the exit status because typically&n;&t;&t; * diff exits non-zero if files are different, and&n;&t;&t; * we are not interested in knowing that.  We *knew*&n;&t;&t; * they are different and that&squot;s why we ran diff&n;&t;&t; * in the first place!  However if it dies by a signal,&n;&t;&t; * we stop processing immediately.&n;&t;&t; */
+multiline_comment|/* Earlier we did not check the exit status because&n;&t;&t; * diff exits non-zero if files are different, and&n;&t;&t; * we are not interested in knowing that.  It was a&n;&t;&t; * mistake which made it harder to quit a diff-*&n;&t;&t; * session that uses the git-apply-patch-script as&n;&t;&t; * the GIT_EXTERNAL_DIFF.  A custom GIT_EXTERNAL_DIFF&n;&t;&t; * should also exit non-zero only when it wants to&n;&t;&t; * abort the entire diff-* session.&n;&t;&t; */
 id|remove_tempfile
 c_func
 (paren
 )paren
 suffix:semicolon
-id|die
+id|fprintf
 c_func
 (paren
-l_string|&quot;external diff died unexpectedly.&bslash;n&quot;
+id|stderr
+comma
+l_string|&quot;external diff died, stopping at %s.&bslash;n&quot;
+comma
+id|name
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|1
 )paren
 suffix:semicolon
 )brace
