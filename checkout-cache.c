@@ -409,6 +409,12 @@ id|size
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
+id|create_directories
+c_func
+(paren
+id|path
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
