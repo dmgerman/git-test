@@ -1087,7 +1087,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|stat
+id|lstat
 c_func
 (paren
 id|ce-&gt;name

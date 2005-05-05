@@ -110,10 +110,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fstat
+id|lstat
 c_func
 (paren
-id|fd
+id|path
 comma
 op_amp
 id|st
@@ -124,7 +124,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;fstat(%s): %s&quot;
+l_string|&quot;lstat(%s): %s&quot;
 comma
 id|path
 comma
