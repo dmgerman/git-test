@@ -213,7 +213,7 @@ comma
 op_amp
 id|fd_out
 comma
-l_string|&quot;rpush&quot;
+l_string|&quot;git-rpush&quot;
 comma
 id|url
 comma
