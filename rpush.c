@@ -311,7 +311,7 @@ comma
 op_amp
 id|fd_out
 comma
-l_string|&quot;rpull&quot;
+l_string|&quot;git-rpull&quot;
 comma
 id|url
 comma
