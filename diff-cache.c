@@ -322,6 +322,9 @@ r_struct
 id|cache_entry
 op_star
 r_new
+comma
+r_int
+id|report_missing
 )paren
 (brace
 r_int
@@ -360,6 +363,11 @@ OL
 l_int|0
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|report_missing
+)paren
 id|show_file
 c_func
 (paren
@@ -569,6 +577,8 @@ l_int|1
 )braket
 comma
 id|ce
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_break
@@ -599,7 +609,30 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-multiline_comment|/* Otherwise we fall through to the &quot;unmerged&quot; case */
+multiline_comment|/* We come here with ce pointing at stage 1&n;&t;&t;&t; * (original tree) and ac[1] pointing at stage&n;&t;&t;&t; * 3 (unmerged).  show-modified with&n;&t;&t;&t; * report-mising set to false does not say the&n;&t;&t;&t; * file is deleted but reports true if work&n;&t;&t;&t; * tree does not have it, in which case we&n;&t;&t;&t; * fall through to report the unmerged state.&n;&t;&t;&t; * Otherwise, we show the differences between&n;&t;&t;&t; * the original tree and the work tree.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cached_only
+op_logical_and
+op_logical_neg
+id|show_modified
+c_func
+(paren
+id|ce
+comma
+id|ac
+(braket
+l_int|1
+)braket
+comma
+l_int|0
+)paren
+)paren
+r_break
+suffix:semicolon
+multiline_comment|/* fallthru */
 r_case
 l_int|3
 suffix:colon
