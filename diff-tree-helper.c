@@ -205,7 +205,7 @@ c_func
 (paren
 id|cp
 comma
-id|one-&gt;u.sha1
+id|one-&gt;blob_sha1
 )paren
 )paren
 r_return
@@ -520,7 +520,7 @@ c_func
 (paren
 id|cp
 comma
-id|old.u.sha1
+id|old.blob_sha1
 )paren
 )paren
 r_return
@@ -560,7 +560,7 @@ id|cp
 comma
 r_new
 dot
-id|u.sha1
+id|blob_sha1
 )paren
 )paren
 r_return
