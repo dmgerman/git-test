@@ -1597,7 +1597,7 @@ r_char
 op_star
 id|diff_tree_usage
 op_assign
-l_string|&quot;diff-tree [-r] [-z] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
+l_string|&quot;diff-tree [-p] [-r] [-z] &lt;tree sha1&gt; &lt;tree sha1&gt;&quot;
 suffix:semicolon
 DECL|function|main
 r_int
