@@ -1,14 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; *&n; * This handles basic git sha1 object files - packing, unpacking,&n; * creation etc.&n; */
 macro_line|#include &lt;stdarg.h&gt;
 macro_line|#include &quot;cache.h&quot;
-DECL|variable|sha1_file_directory
-r_const
-r_char
-op_star
-id|sha1_file_directory
-op_assign
-l_int|NULL
-suffix:semicolon
 macro_line|#ifndef O_NOATIME
 macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
 DECL|macro|O_NOATIME
