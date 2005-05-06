@@ -12,6 +12,7 @@ l_int|NULL
 suffix:semicolon
 DECL|variable|active_nr
 DECL|variable|active_alloc
+DECL|variable|active_cache_changed
 r_int
 r_int
 id|active_nr
@@ -19,6 +20,10 @@ op_assign
 l_int|0
 comma
 id|active_alloc
+op_assign
+l_int|0
+comma
+id|active_cache_changed
 op_assign
 l_int|0
 suffix:semicolon
@@ -494,6 +499,10 @@ r_int
 id|pos
 )paren
 (brace
+id|active_cache_changed
+op_assign
+l_int|1
+suffix:semicolon
 id|active_nr
 op_decrement
 suffix:semicolon
@@ -692,6 +701,10 @@ op_ge
 l_int|0
 )paren
 (brace
+id|active_cache_changed
+op_assign
+l_int|1
+suffix:semicolon
 id|active_cache
 (braket
 id|pos
@@ -845,6 +858,10 @@ id|pos
 )braket
 op_assign
 id|ce
+suffix:semicolon
+id|active_cache_changed
+op_assign
+l_int|1
 suffix:semicolon
 r_return
 l_int|0
