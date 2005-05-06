@@ -217,10 +217,6 @@ suffix:semicolon
 r_int
 id|fd
 suffix:semicolon
-r_int
-r_int
-id|len
-suffix:semicolon
 r_char
 op_star
 id|target
