@@ -624,7 +624,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|stat
+id|lstat
 c_func
 (paren
 id|ce-&gt;name
