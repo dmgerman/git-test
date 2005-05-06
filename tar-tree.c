@@ -1007,6 +1007,9 @@ comma
 r_int
 r_int
 comma
+r_void
+op_star
+comma
 r_int
 r_int
 )paren
@@ -1026,6 +1029,10 @@ comma
 r_int
 id|is_dir
 comma
+r_int
+r_int
+id|flags
+comma
 r_const
 r_char
 op_star
@@ -1044,6 +1051,14 @@ comma
 r_int
 r_int
 id|namelen
+comma
+r_void
+op_star
+id|content
+comma
+r_int
+r_int
+id|contentsize
 )paren
 (brace
 r_char
@@ -1095,6 +1110,8 @@ comma
 id|headerfilename
 comma
 l_int|0100600
+comma
+l_int|NULL
 comma
 id|size
 )paren
@@ -1192,6 +1209,8 @@ l_string|&quot;pax_global_header&quot;
 comma
 l_int|0100600
 comma
+l_int|NULL
+comma
 id|size
 )paren
 suffix:semicolon
@@ -1258,6 +1277,10 @@ comma
 r_int
 r_int
 id|mode
+comma
+r_void
+op_star
+id|buffer
 comma
 r_int
 r_int
@@ -1399,6 +1422,8 @@ c_func
 id|mode
 )paren
 comma
+l_int|0
+comma
 id|basepath
 comma
 id|prefix
@@ -1406,6 +1431,10 @@ comma
 id|path
 comma
 id|namelen
+comma
+id|buffer
+comma
+id|size
 )paren
 suffix:semicolon
 id|header
@@ -1879,6 +1908,8 @@ id|path
 comma
 id|mode
 comma
+id|eltbuf
+comma
 id|eltsize
 )paren
 suffix:semicolon
@@ -2312,6 +2343,8 @@ comma
 id|basedir
 comma
 l_int|040755
+comma
+l_int|NULL
 comma
 l_int|0
 )paren
