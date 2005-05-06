@@ -394,7 +394,6 @@ comma
 id|url
 )paren
 suffix:semicolon
-multiline_comment|/*printf(&quot;Getting %s&bslash;n&quot;, hex);*/
 r_if
 c_cond
 (paren
@@ -493,6 +492,14 @@ id|hex
 )paren
 suffix:semicolon
 )brace
+id|pull_say
+c_func
+(paren
+l_string|&quot;got %s&bslash;n&quot;
+comma
+id|hex
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -609,6 +616,26 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|argv
+(braket
+id|arg
+)braket
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;v&squot;
+)paren
+(brace
+id|get_verbosely
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 id|arg
 op_increment
 suffix:semicolon
@@ -626,7 +653,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;http-pull [-c] [-t] [-a] commit-id url&quot;
+l_string|&quot;git-http-pull [-c] [-t] [-a] [-v] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return

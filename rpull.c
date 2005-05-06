@@ -29,6 +29,9 @@ op_star
 id|sha1
 )paren
 (brace
+r_int
+id|ret
+suffix:semicolon
 id|write
 c_func
 (paren
@@ -39,7 +42,8 @@ comma
 l_int|20
 )paren
 suffix:semicolon
-r_return
+id|ret
+op_assign
 id|write_sha1_from_fd
 c_func
 (paren
@@ -47,6 +51,27 @@ id|sha1
 comma
 id|fd_in
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ret
+)paren
+id|pull_say
+c_func
+(paren
+l_string|&quot;got %s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|main
@@ -161,6 +186,26 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|argv
+(braket
+id|arg
+)braket
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;v&squot;
+)paren
+(brace
+id|get_verbosely
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 id|arg
 op_increment
 suffix:semicolon
@@ -178,7 +223,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;rpull [-c] [-t] [-a] commit-id url&quot;
+l_string|&quot;git-rpull [-c] [-t] [-a] [-v] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return
