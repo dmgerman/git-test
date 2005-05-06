@@ -4,6 +4,16 @@ DECL|macro|RECORDSIZE
 mdefine_line|#define RECORDSIZE&t;(512)
 DECL|macro|BLOCKSIZE
 mdefine_line|#define BLOCKSIZE&t;(RECORDSIZE * 20)
+DECL|macro|TYPEFLAG_AUTO
+mdefine_line|#define TYPEFLAG_AUTO&t;&t;&squot;&bslash;0&squot;
+DECL|macro|TYPEFLAG_REG
+mdefine_line|#define TYPEFLAG_REG&t;&t;&squot;0&squot;
+DECL|macro|TYPEFLAG_DIR
+mdefine_line|#define TYPEFLAG_DIR&t;&t;&squot;5&squot;
+DECL|macro|TYPEFLAG_GLOBAL_HEADER
+mdefine_line|#define TYPEFLAG_GLOBAL_HEADER&t;&squot;g&squot;
+DECL|macro|TYPEFLAG_EXT_HEADER
+mdefine_line|#define TYPEFLAG_EXT_HEADER&t;&squot;x&squot;
 DECL|variable|tar_tree_usage
 r_static
 r_const
@@ -947,7 +957,7 @@ c_func
 (paren
 l_int|NULL
 comma
-l_char|&squot;x&squot;
+id|TYPEFLAG_EXT_HEADER
 comma
 l_int|NULL
 comma
@@ -1036,7 +1046,7 @@ c_func
 (paren
 l_int|NULL
 comma
-l_char|&squot;g&squot;
+id|TYPEFLAG_GLOBAL_HEADER
 comma
 l_int|NULL
 comma
@@ -1044,7 +1054,7 @@ l_int|NULL
 comma
 l_string|&quot;pax_global_header&quot;
 comma
-l_int|0
+l_int|0100600
 comma
 l_int|52
 )paren
@@ -1164,6 +1174,33 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|typeflag
+op_eq
+id|TYPEFLAG_AUTO
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|S_ISDIR
+c_func
+(paren
+id|mode
+)paren
+)paren
+id|typeflag
+op_assign
+id|TYPEFLAG_DIR
+suffix:semicolon
+r_else
+id|typeflag
+op_assign
+id|TYPEFLAG_REG
+suffix:semicolon
+)brace
 id|namelen
 op_assign
 id|path_len
@@ -1720,16 +1757,7 @@ c_func
 (paren
 id|sha1
 comma
-id|S_ISDIR
-c_func
-(paren
-id|mode
-)paren
-ques
-c_cond
-l_char|&squot;5&squot;
-suffix:colon
-l_char|&squot;0&squot;
+id|TYPEFLAG_AUTO
 comma
 id|basedir
 comma
@@ -2163,7 +2191,7 @@ c_func
 (paren
 l_string|&quot;0&quot;
 comma
-l_char|&squot;5&squot;
+id|TYPEFLAG_DIR
 comma
 l_int|NULL
 comma
