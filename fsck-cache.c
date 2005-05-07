@@ -1422,15 +1422,10 @@ suffix:semicolon
 )brace
 id|sha1_dir
 op_assign
-id|getenv
+id|get_object_directory
 c_func
 (paren
-id|DB_ENVIRONMENT
 )paren
-ques
-c_cond
-suffix:colon
-id|DEFAULT_DB_ENVIRONMENT
 suffix:semicolon
 r_for
 c_loop
