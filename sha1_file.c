@@ -2322,6 +2322,12 @@ c_func
 id|fd
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|compressed
+)paren
+suffix:semicolon
 id|ret
 op_assign
 id|link
