@@ -767,7 +767,7 @@ r_char
 op_star
 id|diff_cache_usage
 op_assign
-l_string|&quot;diff-cache [-r] [-z] [-p] [-i] [--cached] &lt;tree sha1&gt;&quot;
+l_string|&quot;git-diff-cache [-p] [-r] [-z] [-m] [--cached] &lt;tree sha1&gt;&quot;
 suffix:semicolon
 DECL|function|main
 r_int
