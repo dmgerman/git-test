@@ -3,6 +3,7 @@ macro_line|#include &lt;fcntl.h&gt;
 macro_line|#include &lt;unistd.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
+macro_line|#include &lt;limits.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &lt;errno.h&gt;
