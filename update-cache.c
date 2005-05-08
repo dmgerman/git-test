@@ -1813,7 +1813,16 @@ op_plus
 l_int|3
 op_ge
 id|argc
-op_logical_or
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;update-cache: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|add_cacheinfo
 c_func
 (paren
@@ -1842,7 +1851,14 @@ l_int|3
 id|die
 c_func
 (paren
-l_string|&quot;update-cache: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
+l_string|&quot;update-cache: --cacheinfo cannot add %s&quot;
+comma
+id|argv
+(braket
+id|i
+op_plus
+l_int|3
+)braket
 )paren
 suffix:semicolon
 id|i
