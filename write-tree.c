@@ -121,7 +121,13 @@ id|nr
 op_assign
 l_int|0
 suffix:semicolon
-r_do
+r_while
+c_loop
+(paren
+id|nr
+OL
+id|maxentries
+)paren
 (brace
 r_struct
 id|cache_entry
@@ -372,14 +378,6 @@ id|nr
 op_increment
 suffix:semicolon
 )brace
-r_while
-c_loop
-(paren
-id|nr
-OL
-id|maxentries
-)paren
-suffix:semicolon
 id|write_sha1_file
 c_func
 (paren
@@ -440,13 +438,13 @@ r_if
 c_cond
 (paren
 id|entries
-op_le
+OL
 l_int|0
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;write-tree: no cache contents to write&quot;
+l_string|&quot;write-tree: error reading cache&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Verify that the tree is merged */
