@@ -764,9 +764,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|ep
-op_eq
-l_int|0
 )paren
 r_break
 suffix:semicolon
