@@ -143,7 +143,7 @@ c_func
 (paren
 id|ce
 comma
-l_int|1
+id|ADD_CACHE_OK_TO_ADD
 )paren
 suffix:semicolon
 )brace
