@@ -700,6 +700,7 @@ DECL|variable|alt_odb
 op_star
 id|alt_odb
 suffix:semicolon
+multiline_comment|/*&n; * Prepare alternate object database registry.&n; * alt_odb points at an array of struct alternate_object_database.&n; * This array is terminated with an element that has both its base&n; * and name set to NULL.  alt_odb[n] comes from n&squot;th non-empty&n; * element from colon separated $SHA1_FILE_DIRECTORIES environment&n; * variable, and its base points at a statically allocated buffer&n; * that contains &quot;/the/directory/corresponding/to/.git/objects/...&quot;,&n; * while its name points just after the slash at the end of&n; * &quot;.git/objects/&quot; in the example above, and has enough space to hold&n; * 40-byte hex SHA1, an extra slash for the first level indirection,&n; * and the terminating NUL.&n; * This function allocates the alt_odb array and all the strings&n; * pointed by base fields of the array elements with one xmalloc();&n; * the string pool immediately follows the array.&n; */
 DECL|function|prepare_alt_odb
 r_static
 r_void
@@ -715,10 +716,6 @@ comma
 id|totlen
 comma
 id|i
-suffix:semicolon
-r_void
-op_star
-id|buf
 suffix:semicolon
 r_const
 r_char
@@ -749,6 +746,7 @@ c_cond
 suffix:colon
 l_string|&quot;&quot;
 suffix:semicolon
+multiline_comment|/* The first pass counts how large an area to allocate to&n;&t; * hold the entire alt_odb structure, including array of&n;&t; * structs and path buffers for them.  The second pass fills&n;&t; * the structure and prepares the path buffers for use by&n;&t; * fill_sha1_path().&n;&t; */
 r_for
 c_loop
 (paren
@@ -929,8 +927,6 @@ id|pass
 r_break
 suffix:semicolon
 id|alt_odb
-op_assign
-id|buf
 op_assign
 id|xmalloc
 c_func
