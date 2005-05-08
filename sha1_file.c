@@ -1805,6 +1805,7 @@ op_eq
 id|Z_OK
 )paren
 multiline_comment|/* nothing */
+suffix:semicolon
 multiline_comment|/* Then the data itself.. */
 id|stream.next_in
 op_assign
