@@ -1,3 +1,4 @@
+multiline_comment|/*&n; * Copyright (c) 2005 Rene Scharfe&n; */
 macro_line|#include &lt;time.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|macro|RECORDSIZE
