@@ -430,11 +430,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;cannot write %s (%ld bytes)&bslash;n&quot;
+l_string|&quot;cannot write %s&bslash;n&quot;
 comma
 id|dest_filename
-comma
-id|st.st_size
 )paren
 suffix:semicolon
 r_else
