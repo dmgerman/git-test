@@ -163,9 +163,11 @@ id|command
 comma
 id|COMMAND_SIZE
 comma
-l_string|&quot;cd /%s; SHA1_FILE_DIRECTORY=objects %s&quot;
+l_string|&quot;cd /%s; %s=objects %s&quot;
 comma
 id|path
+comma
+id|DB_ENVIRONMENT
 comma
 id|remote_prog
 )paren

@@ -7,6 +7,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 DECL|variable|diff_opts
 r_static
+r_const
 r_char
 op_star
 id|diff_opts
@@ -25,6 +26,7 @@ r_void
 )paren
 (brace
 r_static
+r_const
 r_char
 op_star
 id|external_diff_cmd
@@ -49,7 +51,7 @@ multiline_comment|/*&n;&t; * Default values above are meant to match the&n;&t; *
 r_if
 c_cond
 (paren
-id|getenv
+id|gitenv
 c_func
 (paren
 l_string|&quot;GIT_EXTERNAL_DIFF&quot;
@@ -57,7 +59,7 @@ l_string|&quot;GIT_EXTERNAL_DIFF&quot;
 )paren
 id|external_diff_cmd
 op_assign
-id|getenv
+id|gitenv
 c_func
 (paren
 l_string|&quot;GIT_EXTERNAL_DIFF&quot;
@@ -66,7 +68,7 @@ suffix:semicolon
 multiline_comment|/* In case external diff fails... */
 id|diff_opts
 op_assign
-id|getenv
+id|gitenv
 c_func
 (paren
 l_string|&quot;GIT_DIFF_OPTS&quot;

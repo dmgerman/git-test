@@ -5,6 +5,7 @@ r_void
 id|safe_create_dir
 c_func
 (paren
+r_const
 r_char
 op_star
 id|dir
@@ -61,10 +62,12 @@ op_star
 id|argv
 )paren
 (brace
+r_const
 r_char
 op_star
 id|sha1_dir
-comma
+suffix:semicolon
+r_char
 op_star
 id|path
 suffix:semicolon
@@ -81,7 +84,7 @@ l_string|&quot;.git&quot;
 suffix:semicolon
 id|sha1_dir
 op_assign
-id|getenv
+id|gitenv
 c_func
 (paren
 id|DB_ENVIRONMENT

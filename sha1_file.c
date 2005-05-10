@@ -564,7 +564,7 @@ l_int|0xf
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * NOTE! This returns a statically allocated buffer, so you have to be&n; * careful about using it. Do a &quot;strdup()&quot; if you need to save the&n; * filename.&n; *&n; * Also note that this returns the location for creating.  Reading&n; * SHA1 file can happen from any alternate directory listed in the&n; * SHA1_FILE_DIRECTORIES environment variable if it is not found in&n; * the primary object database.&n; */
+multiline_comment|/*&n; * NOTE! This returns a statically allocated buffer, so you have to be&n; * careful about using it. Do a &quot;strdup()&quot; if you need to save the&n; * filename.&n; *&n; * Also note that this returns the location for creating.  Reading&n; * SHA1 file can happen from any alternate directory listed in the&n; * DB_ENVIRONMENT environment variable if it is not found in&n; * the primary object database.&n; */
 DECL|function|sha1_file_name
 r_char
 op_star
@@ -593,6 +593,7 @@ op_logical_neg
 id|base
 )paren
 (brace
+r_const
 r_char
 op_star
 id|sha1_file_directory
@@ -700,7 +701,7 @@ DECL|variable|alt_odb
 op_star
 id|alt_odb
 suffix:semicolon
-multiline_comment|/*&n; * Prepare alternate object database registry.&n; * alt_odb points at an array of struct alternate_object_database.&n; * This array is terminated with an element that has both its base&n; * and name set to NULL.  alt_odb[n] comes from n&squot;th non-empty&n; * element from colon separated $SHA1_FILE_DIRECTORIES environment&n; * variable, and its base points at a statically allocated buffer&n; * that contains &quot;/the/directory/corresponding/to/.git/objects/...&quot;,&n; * while its name points just after the slash at the end of&n; * &quot;.git/objects/&quot; in the example above, and has enough space to hold&n; * 40-byte hex SHA1, an extra slash for the first level indirection,&n; * and the terminating NUL.&n; * This function allocates the alt_odb array and all the strings&n; * pointed by base fields of the array elements with one xmalloc();&n; * the string pool immediately follows the array.&n; */
+multiline_comment|/*&n; * Prepare alternate object database registry.&n; * alt_odb points at an array of struct alternate_object_database.&n; * This array is terminated with an element that has both its base&n; * and name set to NULL.  alt_odb[n] comes from n&squot;th non-empty&n; * element from colon separated ALTERNATE_DB_ENVIRONMENT environment&n; * variable, and its base points at a statically allocated buffer&n; * that contains &quot;/the/directory/corresponding/to/.git/objects/...&quot;,&n; * while its name points just after the slash at the end of&n; * &quot;.git/objects/&quot; in the example above, and has enough space to hold&n; * 40-byte hex SHA1, an extra slash for the first level indirection,&n; * and the terminating NUL.&n; * This function allocates the alt_odb array and all the strings&n; * pointed by base fields of the array elements with one xmalloc();&n; * the string pool immediately follows the array.&n; */
 DECL|function|prepare_alt_odb
 r_static
 r_void
@@ -736,7 +737,7 @@ r_char
 op_star
 id|alt
 op_assign
-id|getenv
+id|gitenv
 c_func
 (paren
 id|ALTERNATE_DB_ENVIRONMENT
