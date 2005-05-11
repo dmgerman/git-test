@@ -3,6 +3,7 @@ macro_line|#include &lt;fcntl.h&gt;
 macro_line|#include &lt;unistd.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
+macro_line|#include &lt;limits.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &lt;errno.h&gt;
@@ -429,11 +430,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;cannot write %s (%ld bytes)&bslash;n&quot;
+l_string|&quot;cannot write %s&bslash;n&quot;
 comma
 id|dest_filename
-comma
-id|st.st_size
 )paren
 suffix:semicolon
 r_else

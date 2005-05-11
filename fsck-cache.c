@@ -226,6 +226,10 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n; * The entries in a tree are ordered in the _path_ order,&n; * which means that a directory entry is ordered by adding&n; * a slash to the end of it.&n; *&n; * So a directory called &quot;a&quot; is ordered _after_ a file&n; * called &quot;a.c&quot;, because &quot;a/&quot; sorts after &quot;a.c&quot;.&n; */
+DECL|macro|TREE_UNORDERED
+mdefine_line|#define TREE_UNORDERED (-1)
+DECL|macro|TREE_HAS_DUPS
+mdefine_line|#define TREE_HAS_DUPS  (-2)
 DECL|function|verify_ordered
 r_static
 r_int
@@ -312,7 +316,7 @@ OG
 l_int|0
 )paren
 r_return
-l_int|1
+id|TREE_UNORDERED
 suffix:semicolon
 multiline_comment|/*&n;&t; * Ok, the first &lt;len&gt; characters are the same.&n;&t; * Now we need to order the next one, but turn&n;&t; * a &squot;&bslash;0&squot; into a &squot;/&squot; for a directory entry.&n;&t; */
 id|c1
@@ -328,6 +332,19 @@ id|b-&gt;name
 (braket
 id|len
 )braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|c1
+op_logical_and
+op_logical_neg
+id|c2
+)paren
+multiline_comment|/*&n;&t;&t; * git-write-tree used to write out a nonsense tree that has&n;&t;&t; * entries with the same name, one blob and one tree.  Make&n;&t;&t; * sure we do not have duplicate entries.&n;&t;&t; */
+r_return
+id|TREE_HAS_DUPS
 suffix:semicolon
 r_if
 c_cond
@@ -361,7 +378,7 @@ ques
 c_cond
 l_int|0
 suffix:colon
-l_int|1
+id|TREE_UNORDERED
 suffix:semicolon
 )brace
 DECL|function|fsck_tree
@@ -480,7 +497,7 @@ c_cond
 id|last
 )paren
 (brace
-r_if
+r_switch
 c_cond
 (paren
 id|verify_ordered
@@ -490,10 +507,11 @@ id|last
 comma
 id|entry
 )paren
-OL
-l_int|0
 )paren
 (brace
+r_case
+id|TREE_UNORDERED
+suffix:colon
 id|fprintf
 c_func
 (paren
@@ -510,6 +528,32 @@ id|item-&gt;object.sha1
 suffix:semicolon
 r_return
 l_int|1
+suffix:semicolon
+r_case
+id|TREE_HAS_DUPS
+suffix:colon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;tree %s has duplicate entries for &squot;%s&squot;&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|item-&gt;object.sha1
+)paren
+comma
+id|entry-&gt;name
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+r_default
+suffix:colon
+r_break
 suffix:semicolon
 )brace
 )brace
@@ -1422,15 +1466,10 @@ suffix:semicolon
 )brace
 id|sha1_dir
 op_assign
-id|getenv
+id|get_object_directory
 c_func
 (paren
-id|DB_ENVIRONMENT
 )paren
-ques
-c_cond
-suffix:colon
-id|DEFAULT_DB_ENVIRONMENT
 suffix:semicolon
 r_for
 c_loop

@@ -108,6 +108,12 @@ l_int|0755
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
 )brace
 DECL|function|create_file
 r_static
