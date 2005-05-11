@@ -27,6 +27,9 @@ r_int
 r_int
 id|size
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 id|buffer
 op_assign
 id|read_object_with_reference
@@ -51,7 +54,8 @@ id|buffer
 r_return
 l_int|1
 suffix:semicolon
-r_return
+id|ret
+op_assign
 id|read_tree
 c_func
 (paren
@@ -61,6 +65,15 @@ id|size
 comma
 id|stage
 )paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|buffer
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|variable|lockfile_name
