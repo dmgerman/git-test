@@ -570,7 +570,7 @@ op_assign
 id|name
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Read a directory tree. We currently ignore anything but&n; * directories and regular files. That&squot;s because git doesn&squot;t&n; * handle them at all yet. Maybe that will change some day.&n; *&n; * Also, we currently ignore all names starting with a dot.&n; * That likely will not change.&n; */
+multiline_comment|/*&n; * Read a directory tree. We currently ignore anything but&n; * directories, regular files and symlinks. That&squot;s because git&n; * doesn&squot;t handle them at all yet. Maybe that will change some&n; * day.&n; *&n; * Also, we currently ignore all names starting with a dot.&n; * That likely will not change.&n; */
 DECL|function|read_directory
 r_static
 r_void
@@ -739,6 +739,12 @@ c_func
 (paren
 id|st.st_mode
 )paren
+op_logical_or
+id|S_ISLNK
+c_func
+(paren
+id|st.st_mode
+)paren
 )paren
 r_break
 suffix:semicolon
@@ -790,6 +796,9 @@ r_continue
 suffix:semicolon
 r_case
 id|DT_REG
+suffix:colon
+r_case
+id|DT_LNK
 suffix:colon
 r_break
 suffix:semicolon
