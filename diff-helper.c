@@ -240,10 +240,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|parse_diff_tree_output
+DECL|function|parse_diff_raw_output
 r_static
 r_int
-id|parse_diff_tree_output
+id|parse_diff_raw_output
 c_func
 (paren
 r_const
@@ -651,14 +651,14 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|variable|diff_tree_helper_usage
+DECL|variable|diff_helper_usage
 r_static
 r_const
 r_char
 op_star
-id|diff_tree_helper_usage
+id|diff_helper_usage
 op_assign
-l_string|&quot;diff-tree-helper [-R] [-z] paths...&quot;
+l_string|&quot;git-diff-helper [-R] [-z] paths...&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -753,7 +753,7 @@ r_else
 id|usage
 c_func
 (paren
-id|diff_tree_helper_usage
+id|diff_helper_usage
 )paren
 suffix:semicolon
 id|ac
@@ -793,7 +793,7 @@ r_break
 suffix:semicolon
 id|status
 op_assign
-id|parse_diff_tree_output
+id|parse_diff_raw_output
 c_func
 (paren
 id|sb.buf
