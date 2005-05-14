@@ -282,6 +282,13 @@ suffix:semicolon
 r_const
 r_char
 op_star
+id|git_prefix
+op_assign
+l_string|&quot;# mode: &quot;
+suffix:semicolon
+r_const
+r_char
+op_star
 id|diff_cmd
 op_assign
 l_string|&quot;diff -L&squot;%s%s&squot; -L&squot;%s%s&squot;&quot;
@@ -583,9 +590,9 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;Created: %s (mode:%s)&bslash;n&quot;
+l_string|&quot;%s. %s %s&bslash;n&quot;
 comma
-id|name
+id|git_prefix
 comma
 id|temp
 (braket
@@ -593,6 +600,8 @@ l_int|1
 )braket
 dot
 id|mode
+comma
+id|name
 )paren
 suffix:semicolon
 r_else
@@ -611,12 +620,22 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;Deleted: %s&bslash;n&quot;
+l_string|&quot;%s%s . %s&bslash;n&quot;
+comma
+id|git_prefix
+comma
+id|temp
+(braket
+l_int|0
+)braket
+dot
+id|mode
 comma
 id|name
 )paren
 suffix:semicolon
 r_else
+(brace
 r_if
 c_cond
 (paren
@@ -638,13 +657,12 @@ dot
 id|mode
 )paren
 )paren
-(brace
 id|printf
 c_func
 (paren
-l_string|&quot;Mode changed: %s (%s-&gt;%s)&bslash;n&quot;
+l_string|&quot;%s%s %s %s&bslash;n&quot;
 comma
-id|name
+id|git_prefix
 comma
 id|temp
 (braket
@@ -659,9 +677,10 @@ l_int|1
 )braket
 dot
 id|mode
+comma
+id|name
 )paren
 suffix:semicolon
-multiline_comment|/* Be careful.  We do not want to diff between&n;&t;&t; * symlink and a file.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -675,14 +694,6 @@ l_int|0
 dot
 id|mode
 comma
-l_string|&quot;120&quot;
-comma
-l_int|3
-)paren
-op_ne
-id|strncmp
-c_func
-(paren
 id|temp
 (braket
 l_int|1
@@ -690,11 +701,10 @@ l_int|1
 dot
 id|mode
 comma
-l_string|&quot;120&quot;
-comma
 l_int|3
 )paren
 )paren
+multiline_comment|/* we do not run diff between different kind&n;&t;&t;&t; * of objects.&n;&t;&t;&t; */
 m_exit
 (paren
 l_int|0
