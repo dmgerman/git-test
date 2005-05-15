@@ -137,7 +137,7 @@ id|errno
 suffix:semicolon
 id|changed
 op_assign
-id|cache_match_stat
+id|ce_match_stat
 c_func
 (paren
 id|ce

@@ -27,9 +27,9 @@ id|active_cache_changed
 op_assign
 l_int|0
 suffix:semicolon
-DECL|function|cache_match_stat
+DECL|function|ce_match_stat
 r_int
-id|cache_match_stat
+id|ce_match_stat
 c_func
 (paren
 r_struct

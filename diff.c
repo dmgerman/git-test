@@ -833,7 +833,7 @@ c_func
 id|st.st_mode
 )paren
 op_logical_or
-id|cache_match_stat
+id|ce_match_stat
 c_func
 (paren
 id|ce
