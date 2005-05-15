@@ -490,9 +490,9 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* Remove entry, return true if there are more entries to go.. */
-DECL|function|remove_entry_at
+DECL|function|remove_cache_entry_at
 r_int
-id|remove_entry_at
+id|remove_cache_entry_at
 c_func
 (paren
 r_int
@@ -605,7 +605,7 @@ comma
 id|path
 )paren
 )paren
-id|remove_entry_at
+id|remove_cache_entry_at
 c_func
 (paren
 id|pos
@@ -615,9 +615,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|same_name
+DECL|function|ce_same_name
 r_int
-id|same_name
+id|ce_same_name
 c_func
 (paren
 r_struct
@@ -835,7 +835,7 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|remove_entry_at
+id|remove_cache_entry_at
 c_func
 (paren
 id|pos
@@ -970,7 +970,7 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|remove_entry_at
+id|remove_cache_entry_at
 c_func
 (paren
 id|pos
@@ -1087,7 +1087,7 @@ l_int|0
 r_while
 c_loop
 (paren
-id|same_name
+id|ce_same_name
 c_func
 (paren
 id|active_cache
@@ -1107,7 +1107,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|remove_entry_at
+id|remove_cache_entry_at
 c_func
 (paren
 id|pos

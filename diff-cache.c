@@ -526,7 +526,7 @@ OG
 l_int|1
 )paren
 op_logical_and
-id|same_name
+id|ce_same_name
 c_func
 (paren
 id|ce
@@ -684,7 +684,7 @@ c_loop
 (paren
 id|entries
 op_logical_and
-id|same_name
+id|ce_same_name
 c_func
 (paren
 id|ce
