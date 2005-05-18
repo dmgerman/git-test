@@ -249,11 +249,13 @@ r_int
 id|mode
 comma
 r_const
+r_int
 r_char
 op_star
 id|old_sha1
 comma
 r_const
+r_int
 r_char
 op_star
 id|sha1
@@ -342,6 +344,7 @@ id|argv
 (brace
 r_static
 r_const
+r_int
 r_char
 id|null_sha1
 (braket

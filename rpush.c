@@ -21,6 +21,7 @@ r_int
 id|posn
 suffix:semicolon
 r_char
+r_int
 id|sha1
 (braket
 l_int|20

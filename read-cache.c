@@ -1689,6 +1689,7 @@ DECL|macro|WRITE_BUFFER_SIZE
 mdefine_line|#define WRITE_BUFFER_SIZE 8192
 DECL|variable|write_buffer
 r_static
+r_int
 r_char
 id|write_buffer
 (braket

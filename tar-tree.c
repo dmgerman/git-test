@@ -994,6 +994,7 @@ id|write_header
 c_func
 (paren
 r_const
+r_int
 r_char
 op_star
 comma
@@ -1245,6 +1246,7 @@ id|write_global_extended_header
 c_func
 (paren
 r_const
+r_int
 r_char
 op_star
 id|sha1
@@ -1326,6 +1328,7 @@ id|write_header
 c_func
 (paren
 r_const
+r_int
 r_char
 op_star
 id|sha1

@@ -86,7 +86,6 @@ op_star
 id|buffer
 comma
 r_const
-r_int
 r_char
 op_star
 id|type

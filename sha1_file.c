@@ -1600,6 +1600,7 @@ id|buffer
 l_int|8192
 )braket
 suffix:semicolon
+r_int
 r_char
 op_star
 id|buf
@@ -1629,6 +1630,11 @@ id|mapsize
 suffix:semicolon
 id|stream.next_out
 op_assign
+(paren
+r_int
+r_char
+op_star
+)paren
 id|buffer
 suffix:semicolon
 id|stream.avail_out
@@ -1869,7 +1875,6 @@ op_star
 id|sha1
 comma
 r_const
-r_int
 r_char
 op_star
 id|required_type
@@ -2090,7 +2095,7 @@ r_int
 id|write_sha1_file
 c_func
 (paren
-r_char
+r_void
 op_star
 id|buf
 comma
@@ -2112,6 +2117,7 @@ id|returnsha1
 r_int
 id|size
 suffix:semicolon
+r_int
 r_char
 op_star
 id|compressed
@@ -2140,6 +2146,7 @@ id|tmpfile
 id|PATH_MAX
 )braket
 suffix:semicolon
+r_int
 r_char
 id|hdr
 (braket
@@ -2159,6 +2166,10 @@ op_assign
 id|sprintf
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|hdr
 comma
 l_string|&quot;%s %lu&quot;
@@ -2626,12 +2637,14 @@ id|real_sha1
 l_int|20
 )braket
 suffix:semicolon
+r_int
 r_char
 id|buf
 (braket
 l_int|4096
 )braket
 suffix:semicolon
+r_int
 r_char
 id|discard
 (braket

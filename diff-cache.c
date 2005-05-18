@@ -338,7 +338,6 @@ r_char
 op_star
 id|sha1
 suffix:semicolon
-r_int
 r_char
 id|old_sha1_hex
 (braket

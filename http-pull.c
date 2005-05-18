@@ -62,6 +62,7 @@ op_star
 id|data
 )paren
 (brace
+r_int
 r_char
 id|expn
 (braket
@@ -214,6 +215,7 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_int
 r_char
 id|real_sha1
 (braket
