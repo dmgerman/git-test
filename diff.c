@@ -266,7 +266,12 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|name_a
+comma
+r_const
+r_char
+op_star
+id|name_b
 comma
 r_struct
 id|diff_tempfile
@@ -322,16 +327,35 @@ r_const
 r_char
 op_star
 id|name_sq
-op_assign
-id|sq_expand
-c_func
-(paren
-id|name
-)paren
+(braket
+l_int|2
+)braket
 suffix:semicolon
 r_char
 op_star
 id|cmd
+suffix:semicolon
+id|name_sq
+(braket
+l_int|0
+)braket
+op_assign
+id|sq_expand
+c_func
+(paren
+id|name_a
+)paren
+suffix:semicolon
+id|name_sq
+(braket
+l_int|1
+)braket
+op_assign
+id|sq_expand
+c_func
+(paren
+id|name_b
+)paren
 suffix:semicolon
 multiline_comment|/* diff_cmd and diff_arg have 6 %s in total which makes&n;&t; * the sum of these strings 12 bytes larger than required.&n;&t; * we use 2 spaces around diff-opts, and we need to count&n;&t; * terminating NUL, so we subtract 9 here.&n;&t; */
 r_int
@@ -442,6 +466,9 @@ id|i
 )braket
 op_assign
 id|name_sq
+(braket
+id|i
+)braket
 suffix:semicolon
 )brace
 id|cmd_size
@@ -573,9 +600,9 @@ c_func
 (paren
 l_string|&quot;diff --git a/%s b/%s&bslash;n&quot;
 comma
-id|name
+id|name_a
 comma
-id|name
+id|name_b
 )paren
 suffix:semicolon
 r_if
@@ -683,6 +710,35 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|strcmp
+c_func
+(paren
+id|name_a
+comma
+id|name_b
+)paren
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;rename old %s&bslash;n&quot;
+comma
+id|name_a
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;rename new %s&bslash;n&quot;
+comma
+id|name_b
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|strncmp
 c_func
 (paren
@@ -764,7 +820,7 @@ id|pos
 comma
 id|len
 suffix:semicolon
-multiline_comment|/* We do not read the cache ourselves here, because the&n;&t; * benchmark with my previous version that always reads cache&n;&t; * shows that it makes things worse for diff-tree comparing&n;&t; * two linux-2.6 kernel trees in an already checked out work&n;&t; * tree.  This is because most diff-tree comparison deals with&n;&t; * only a small number of files, while reading the cache is&n;&t; * expensive for a large project, and its cost outweighs the&n;&t; * savings we get by not inflating the object to a temporary&n;&t; * file.  Practically, this code only helps when we are used&n;&t; * by diff-cache --cached, which does read the cache before&n;&t; * calling us.&n;&t; */
+multiline_comment|/* We do not read the cache ourselves here, because the&n;&t; * benchmark with my previous version that always reads cache&n;&t; * shows that it makes things worse for diff-tree comparing&n;&t; * two linux-2.6 kernel trees in an already checked out work&n;&t; * tree.  This is because most diff-tree comparisons deal with&n;&t; * only a small number of files, while reading the cache is&n;&t; * expensive for a large project, and its cost outweighs the&n;&t; * savings we get by not inflating the object to a temporary&n;&t; * file.  Practically, this code only helps when we are used&n;&t; * by diff-cache --cached, which does read the cache before&n;&t; * calling us.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1467,6 +1523,11 @@ r_char
 op_star
 id|name
 comma
+r_const
+r_char
+op_star
+id|other
+comma
 r_struct
 id|diff_spec
 op_star
@@ -1522,6 +1583,10 @@ suffix:semicolon
 id|prepare_temp_file
 c_func
 (paren
+id|other
+ques
+c_cond
+suffix:colon
 id|name
 comma
 op_amp
@@ -1633,9 +1698,13 @@ c_func
 (paren
 )paren
 suffix:semicolon
+multiline_comment|/* not passing rename patch to external ones */
 r_if
 c_cond
 (paren
+op_logical_neg
+id|other
+op_logical_and
 id|pgm
 )paren
 (brace
@@ -1725,6 +1794,12 @@ id|two
 id|builtin_diff
 c_func
 (paren
+id|name
+comma
+id|other
+ques
+c_cond
+suffix:colon
 id|name
 comma
 id|temp
@@ -1964,6 +2039,8 @@ id|concatpath
 suffix:colon
 id|base
 comma
+l_int|NULL
+comma
 id|one
 comma
 id|two
@@ -2130,6 +2207,8 @@ id|concatpath
 suffix:colon
 id|base
 comma
+l_int|NULL
+comma
 op_amp
 id|spec
 (braket
@@ -2159,6 +2238,8 @@ id|run_external_diff
 c_func
 (paren
 id|path
+comma
+l_int|NULL
 comma
 l_int|NULL
 comma
