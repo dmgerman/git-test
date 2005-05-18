@@ -282,13 +282,6 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|git_prefix
-op_assign
-l_string|&quot;# mode: &quot;
-suffix:semicolon
-r_const
-r_char
-op_star
 id|diff_cmd
 op_assign
 l_string|&quot;diff -L&squot;%s%s&squot; -L&squot;%s%s&squot;&quot;
@@ -575,6 +568,16 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;diff --git a/%s b/%s&bslash;n&quot;
+comma
+id|name
+comma
+id|name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -590,9 +593,7 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;%s. %s %s&bslash;n&quot;
-comma
-id|git_prefix
+l_string|&quot;new file mode %s&bslash;n&quot;
 comma
 id|temp
 (braket
@@ -600,8 +601,6 @@ l_int|1
 )braket
 dot
 id|mode
-comma
-id|name
 )paren
 suffix:semicolon
 r_else
@@ -620,9 +619,7 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;%s%s . %s&bslash;n&quot;
-comma
-id|git_prefix
+l_string|&quot;deleted file mode %s&bslash;n&quot;
 comma
 id|temp
 (braket
@@ -630,8 +627,6 @@ l_int|0
 )braket
 dot
 id|mode
-comma
-id|name
 )paren
 suffix:semicolon
 r_else
@@ -657,12 +652,11 @@ dot
 id|mode
 )paren
 )paren
+(brace
 id|printf
 c_func
 (paren
-l_string|&quot;%s%s %s %s&bslash;n&quot;
-comma
-id|git_prefix
+l_string|&quot;old mode %s&bslash;n&quot;
 comma
 id|temp
 (braket
@@ -670,6 +664,12 @@ l_int|0
 )braket
 dot
 id|mode
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;new mode %s&bslash;n&quot;
 comma
 id|temp
 (braket
@@ -677,10 +677,9 @@ l_int|1
 )braket
 dot
 id|mode
-comma
-id|name
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
