@@ -254,7 +254,7 @@ suffix:semicolon
 id|minutes
 op_assign
 (paren
-id|tz
+id|minutes
 op_div
 l_int|100
 )paren
@@ -262,7 +262,7 @@ op_star
 l_int|60
 op_plus
 (paren
-id|tz
+id|minutes
 op_mod
 l_int|100
 )paren
@@ -281,6 +281,7 @@ suffix:semicolon
 id|t
 op_assign
 id|time
+op_plus
 id|minutes
 op_star
 l_int|60
