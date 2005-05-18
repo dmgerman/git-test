@@ -333,7 +333,7 @@ suffix:semicolon
 )brace
 id|rev1
 op_assign
-id|lookup_commit
+id|lookup_commit_reference
 c_func
 (paren
 id|rev1key
@@ -341,7 +341,7 @@ id|rev1key
 suffix:semicolon
 id|rev2
 op_assign
-id|lookup_commit
+id|lookup_commit_reference
 c_func
 (paren
 id|rev2key
