@@ -204,17 +204,6 @@ id|ch
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|sb-&gt;len
-op_eq
-l_int|0
-)paren
-id|sb-&gt;eof
-op_assign
-l_int|1
-suffix:semicolon
 id|strbuf_end
 c_func
 (paren
