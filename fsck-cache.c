@@ -1969,12 +1969,10 @@ id|arg
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * If we&squot;ve been asked to do reachability without any explicit&n;&t; * head information, do the default ones from .git/refs. We also&n;&t; * consider the index file in this case (ie this implies --cache).&n;&t; */
+multiline_comment|/*&n;&t; * If we&squot;ve not been gived any explicit head information, do the&n;&t; * default ones from .git/refs. We also consider the index file&n;&t; * in this case (ie this implies --cache).&n;&t; */
 r_if
 c_cond
 (paren
-id|show_unreachable
-op_logical_and
 op_logical_neg
 id|heads
 )paren
