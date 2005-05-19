@@ -296,14 +296,14 @@ id|sha1_valid
 suffix:colon
 l_int|1
 suffix:semicolon
-multiline_comment|/* if true, use blob_sha1 and trust mode;&n;&t;&t;&t;&t;  * however with a NULL SHA1, read them&n;&t;&t;&t;&t;  * from the file system.&n;&t;&t;&t;&t;  * if false, use the name and read mode from&n;&t;&t;&t;&t;  * the filesystem.&n;&t;&t;&t;&t;  */
+multiline_comment|/* if true, use blob_sha1 and trust mode;&n;&t;&t;&t;&t;  * if false, use the name and read from&n;&t;&t;&t;&t;  * the filesystem.&n;&t;&t;&t;&t;  */
 DECL|member|file_valid
 r_int
 id|file_valid
 suffix:colon
 l_int|1
 suffix:semicolon
-multiline_comment|/* if false the file does not even exist */
+multiline_comment|/* if false the file does not exist */
 )brace
 suffix:semicolon
 DECL|function|builtin_diff
@@ -2561,6 +2561,10 @@ op_or
 id|SHOULD_MUNMAP
 )paren
 suffix:semicolon
+id|s-&gt;data
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|flush_remaining_diff
 r_static
@@ -3025,7 +3029,7 @@ id|diff_score
 op_star
 id|mx
 suffix:semicolon
-multiline_comment|/* We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; */
+multiline_comment|/* We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; *&n;&t; * With the current callers, we should not have already&n;&t; * matched entries at this point, but it is nonetheless&n;&t; * checked for sanity.&n;&t; */
 r_for
 c_loop
 (paren
@@ -3040,6 +3044,15 @@ op_assign
 id|dst-&gt;next
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|dst-&gt;flags
+op_amp
+id|MATCHED
+)paren
+r_continue
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -3054,6 +3067,15 @@ op_assign
 id|src-&gt;next
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|src-&gt;flags
+op_amp
+id|MATCHED
+)paren
+r_continue
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3289,6 +3311,7 @@ comma
 id|score_compare
 )paren
 suffix:semicolon
+macro_line|#if 0
 r_for
 c_loop
 (paren
@@ -3341,7 +3364,27 @@ id|MATCHED
 )paren
 r_continue
 suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;**score ** %d %s %s&bslash;n&quot;
+comma
+id|mx
+(braket
+id|c
+)braket
+dot
+id|score
+comma
+id|src-&gt;path
+comma
+id|dst-&gt;path
+)paren
+suffix:semicolon
 )brace
+macro_line|#endif
 r_for
 c_loop
 (paren
@@ -3417,6 +3460,12 @@ id|dst
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|mx
+)paren
+suffix:semicolon
 id|exit_path
 suffix:colon
 id|flush_remaining_diff
