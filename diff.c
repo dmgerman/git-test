@@ -332,6 +332,8 @@ r_int
 id|i
 comma
 id|next_at
+comma
+id|cmd_size
 suffix:semicolon
 r_const
 r_char
@@ -407,7 +409,6 @@ id|name_b
 )paren
 suffix:semicolon
 multiline_comment|/* diff_cmd and diff_arg have 6 %s in total which makes&n;&t; * the sum of these strings 12 bytes larger than required.&n;&t; * we use 2 spaces around diff-opts, and we need to count&n;&t; * terminating NUL, so we subtract 9 here.&n;&t; */
-r_int
 id|cmd_size
 op_assign
 (paren
