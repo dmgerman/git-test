@@ -201,7 +201,7 @@ id|active_nr
 id|die
 c_func
 (paren
-l_string|&quot;merge-cache: %s not in the cache&quot;
+l_string|&quot;git-merge-cache: %s not in the cache&quot;
 comma
 id|path
 )paren
@@ -401,7 +401,7 @@ id|found
 id|die
 c_func
 (paren
-l_string|&quot;merge-cache: %s not in the cache&quot;
+l_string|&quot;git-merge-cache: %s not in the cache&quot;
 comma
 id|path
 )paren
@@ -555,7 +555,7 @@ l_int|3
 id|usage
 c_func
 (paren
-l_string|&quot;merge-cache [-o] &lt;merge-program&gt; (-a | &lt;filename&gt;*)&quot;
+l_string|&quot;git-merge-cache [-o] &lt;merge-program&gt; (-a | &lt;filename&gt;*)&quot;
 )paren
 suffix:semicolon
 id|read_cache
@@ -676,7 +676,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;merge-cache: unknown option %s&quot;
+l_string|&quot;git-merge-cache: unknown option %s&quot;
 comma
 id|arg
 )paren

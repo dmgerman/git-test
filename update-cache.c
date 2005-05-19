@@ -1,6 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
-multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;update-cache *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
+multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git-update-cache *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 DECL|variable|allow_remove
 DECL|variable|allow_replace
@@ -770,7 +770,7 @@ r_return
 id|match
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * &quot;refresh&quot; does not calculate a new sha1 file or bring the&n; * cache up-to-date for mode/content changes. But what it&n; * _does_ do is to &quot;re-match&quot; the stat information of a file&n; * with the cache, so that you can refresh the cache for a&n; * file that hasn&squot;t been changed but where the stat entry is&n; * out of date.&n; *&n; * For example, you&squot;d want to do this after doing a &quot;read-tree&quot;,&n; * to link up the stat cache details with the proper files.&n; */
+multiline_comment|/*&n; * &quot;refresh&quot; does not calculate a new sha1 file or bring the&n; * cache up-to-date for mode/content changes. But what it&n; * _does_ do is to &quot;re-match&quot; the stat information of a file&n; * with the cache, so that you can refresh the cache for a&n; * file that hasn&squot;t been changed but where the stat entry is&n; * out of date.&n; *&n; * For example, you&squot;d want to do this after doing a &quot;git-read-tree&quot;,&n; * to link up the stat cache details with the proper files.&n; */
 DECL|function|refresh_entry
 r_static
 r_struct
@@ -1641,7 +1641,7 @@ id|argc
 id|die
 c_func
 (paren
-l_string|&quot;update-cache: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
+l_string|&quot;git-update-cache: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1675,7 +1675,7 @@ l_int|3
 id|die
 c_func
 (paren
-l_string|&quot;update-cache: --cacheinfo cannot add %s&quot;
+l_string|&quot;git-update-cache: --cacheinfo cannot add %s&quot;
 comma
 id|argv
 (braket
@@ -1717,7 +1717,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;update-cache: --force-remove &lt;path&gt;&quot;
+l_string|&quot;git-update-cache: --force-remove &lt;path&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1737,7 +1737,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;update-cache: --force-remove cannot remove %s&quot;
+l_string|&quot;git-update-cache: --force-remove cannot remove %s&quot;
 comma
 id|argv
 (braket

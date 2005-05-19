@@ -197,7 +197,7 @@ id|parents-&gt;next
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * Usage: rev-tree [--edges] [--cache &lt;cache-file&gt;] &lt;commit-id&gt; [&lt;commit-id2&gt;]&n; *&n; * The cache-file can be quite important for big trees. This is an&n; * expensive operation if you have to walk the whole chain of&n; * parents in a tree with a long revision history.&n; */
+multiline_comment|/*&n; * Usage: git-rev-tree [--edges] [--cache &lt;cache-file&gt;] &lt;commit-id&gt; [&lt;commit-id2&gt;]&n; *&n; * The cache-file can be quite important for big trees. This is an&n; * expensive operation if you have to walk the whole chain of&n; * parents in a tree with a long revision history.&n; */
 DECL|function|main
 r_int
 id|main
@@ -343,7 +343,7 @@ id|nr
 id|usage
 c_func
 (paren
-l_string|&quot;rev-tree [--edges] [--cache &lt;cache-file&gt;] &lt;commit-id&gt; [&lt;commit-id&gt;]&quot;
+l_string|&quot;git-rev-tree [--edges] [--cache &lt;cache-file&gt;] &lt;commit-id&gt; [&lt;commit-id&gt;]&quot;
 )paren
 suffix:semicolon
 id|process_commit

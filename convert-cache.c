@@ -1784,7 +1784,7 @@ id|sha1
 id|usage
 c_func
 (paren
-l_string|&quot;convert-cache &lt;sha1&gt;&quot;
+l_string|&quot;git-convert-cache &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
 id|entry

@@ -444,7 +444,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;write-tree: error reading cache&quot;
+l_string|&quot;git-write-tree: error reading cache&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Verify that the tree is merged */
@@ -536,7 +536,7 @@ id|funny
 id|die
 c_func
 (paren
-l_string|&quot;write-tree: not able to write tree&quot;
+l_string|&quot;git-write-tree: not able to write tree&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Also verify that the cache does not have path and path/file&n;&t; * at the same time.  At this point we know the cache has only&n;&t; * stage 0 entries.&n;&t; */
@@ -669,7 +669,7 @@ id|funny
 id|die
 c_func
 (paren
-l_string|&quot;write-tree: not able to write tree&quot;
+l_string|&quot;git-write-tree: not able to write tree&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Ok, write it out */
@@ -695,7 +695,7 @@ id|entries
 id|die
 c_func
 (paren
-l_string|&quot;write-tree: internal error&quot;
+l_string|&quot;git-write-tree: internal error&quot;
 )paren
 suffix:semicolon
 id|printf

@@ -69,7 +69,7 @@ l_int|0
 id|perror
 c_func
 (paren
-l_string|&quot;rpush: read &quot;
+l_string|&quot;git-rpush: read &quot;
 )paren
 suffix:semicolon
 r_return
@@ -120,7 +120,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;rpush: could not find %s&bslash;n&quot;
+l_string|&quot;git-rpush: could not find %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -173,7 +173,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;rpush: write closed&quot;
+l_string|&quot;git-rpush: write closed&quot;
 )paren
 suffix:semicolon
 )brace
@@ -182,7 +182,7 @@ r_else
 id|perror
 c_func
 (paren
-l_string|&quot;rpush: write &quot;
+l_string|&quot;git-rpush: write &quot;
 )paren
 suffix:semicolon
 )brace
@@ -277,7 +277,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;rpush [-c] [-t] [-a] commit-id url&quot;
+l_string|&quot;git-rpush [-c] [-t] [-a] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return

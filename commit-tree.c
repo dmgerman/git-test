@@ -415,7 +415,7 @@ r_char
 op_star
 id|commit_tree_usage
 op_assign
-l_string|&quot;commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
+l_string|&quot;git-commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
 suffix:semicolon
 DECL|function|main
 r_int

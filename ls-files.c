@@ -1499,7 +1499,7 @@ r_char
 op_star
 id|ls_files_usage
 op_assign
-l_string|&quot;ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed])* &quot;
+l_string|&quot;git-ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed])* &quot;
 l_string|&quot;[ --ignored [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;) ]&quot;
 suffix:semicolon
 DECL|function|main

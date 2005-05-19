@@ -28,7 +28,7 @@ r_char
 op_star
 id|tar_tree_usage
 op_assign
-l_string|&quot;tar-tree &lt;key&gt; [basedir]&quot;
+l_string|&quot;git-tar-tree &lt;key&gt; [basedir]&quot;
 suffix:semicolon
 DECL|variable|block
 r_static
@@ -143,7 +143,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;tar-tree: %s&quot;
+l_string|&quot;git-tar-tree: %s&quot;
 comma
 id|strerror
 c_func
@@ -164,7 +164,7 @@ id|ret
 id|die
 c_func
 (paren
-l_string|&quot;tar-tree: disk full?&quot;
+l_string|&quot;git-tar-tree: disk full?&quot;
 )paren
 suffix:semicolon
 )brace

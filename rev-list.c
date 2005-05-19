@@ -188,7 +188,7 @@ id|sha1
 id|usage
 c_func
 (paren
-l_string|&quot;usage: rev-list [OPTION] commit-id&bslash;n&quot;
+l_string|&quot;usage: git-rev-list [OPTION] commit-id&bslash;n&quot;
 l_string|&quot;  --max-count=nr&bslash;n&quot;
 l_string|&quot;  --max-age=epoch&bslash;n&quot;
 l_string|&quot;  --min-age=epoch&bslash;n&quot;

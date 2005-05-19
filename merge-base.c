@@ -327,7 +327,7 @@ id|rev2key
 id|usage
 c_func
 (paren
-l_string|&quot;merge-base &lt;commit-id&gt; &lt;commit-id&gt;&quot;
+l_string|&quot;git-merge-base &lt;commit-id&gt; &lt;commit-id&gt;&quot;
 )paren
 suffix:semicolon
 )brace

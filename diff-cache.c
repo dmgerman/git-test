@@ -848,7 +848,7 @@ l_string|&quot;-r&quot;
 )paren
 )paren
 (brace
-multiline_comment|/* We accept the -r flag just to look like diff-tree */
+multiline_comment|/* We accept the -r flag just to look like git-diff-tree */
 r_continue
 suffix:semicolon
 )brace

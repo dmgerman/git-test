@@ -1622,7 +1622,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;diff-tree: internal error&quot;
+l_string|&quot;git-diff-tree: internal error&quot;
 )paren
 suffix:semicolon
 )brace
@@ -2605,7 +2605,7 @@ r_char
 op_star
 id|diff_tree_usage
 op_assign
-l_string|&quot;diff-tree [-p] [-r] [-z] [--stdin] [-M] [-m] [-s] [-v] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
+l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-m] [-s] [-v] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
 suffix:semicolon
 DECL|function|main
 r_int

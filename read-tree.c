@@ -627,7 +627,7 @@ r_char
 op_star
 id|read_tree_usage
 op_assign
-l_string|&quot;read-tree (&lt;sha&gt; | -m &lt;sha1&gt; [&lt;sha2&gt; &lt;sha3&gt;])&quot;
+l_string|&quot;git-read-tree (&lt;sha&gt; | -m &lt;sha1&gt; [&lt;sha2&gt; &lt;sha3&gt;])&quot;
 suffix:semicolon
 DECL|function|main
 r_int

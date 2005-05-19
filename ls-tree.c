@@ -419,7 +419,7 @@ r_char
 op_star
 id|ls_tree_usage
 op_assign
-l_string|&quot;ls-tree [-r] [-z] &lt;key&gt;&quot;
+l_string|&quot;git-ls-tree [-r] [-z] &lt;key&gt;&quot;
 suffix:semicolon
 DECL|function|main
 r_int

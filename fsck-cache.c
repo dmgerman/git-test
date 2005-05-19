@@ -573,7 +573,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;warning: fsck-cache: tree %s &quot;
+l_string|&quot;warning: git-fsck-cache: tree %s &quot;
 l_string|&quot;has full pathnames in it&bslash;n&quot;
 comma
 id|sha1_to_hex
@@ -1811,7 +1811,7 @@ l_char|&squot;-&squot;
 id|usage
 c_func
 (paren
-l_string|&quot;fsck-cache [--tags] [[--unreachable] [--cache] &lt;head-sha1&gt;*]&quot;
+l_string|&quot;git-fsck-cache [--tags] [[--unreachable] [--cache] &lt;head-sha1&gt;*]&quot;
 )paren
 suffix:semicolon
 )brace

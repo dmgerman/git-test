@@ -8,7 +8,7 @@ r_char
 op_star
 id|diff_files_usage
 op_assign
-l_string|&quot;diff-files [-p] [-q] [-r] [-z] [-M] [paths...]&quot;
+l_string|&quot;git-diff-files [-p] [-q] [-r] [-z] [-M] [paths...]&quot;
 suffix:semicolon
 DECL|variable|generate_patch
 r_static

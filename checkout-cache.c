@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Check-out files from the &quot;current cache directory&quot;&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; *&n; * Careful: order of argument flags does matter. For example,&n; *&n; *&t;checkout-cache -a -f file.c&n; *&n; * Will first check out all files listed in the cache (but not&n; * overwrite any old ones), and then force-checkout &quot;file.c&quot; a&n; * second time (ie that one _will_ overwrite any old contents&n; * with the same filename).&n; *&n; * Also, just doing &quot;checkout-cache&quot; does nothing. You probably&n; * meant &quot;checkout-cache -a&quot;. And if you want to force it, you&n; * want &quot;checkout-cache -f -a&quot;.&n; *&n; * Intuitiveness is not the goal here. Repeatability is. The&n; * reason for the &quot;no arguments means no work&quot; thing is that&n; * from scripts you are supposed to be able to do things like&n; *&n; *&t;find . -name &squot;*.h&squot; -print0 | xargs -0 checkout-cache -f --&n; *&n; * which will force all existing *.h files to be replaced with&n; * their cached copies. If an empty command line implied &quot;all&quot;,&n; * then this would force-refresh everything in the cache, which&n; * was not the point.&n; *&n; * Oh, and the &quot;--&quot; is just a good idea when you know the rest&n; * will be filenames. Just so that you wouldn&squot;t have a filename&n; * of &quot;-a&quot; causing problems (not possible in the above example,&n; * but get used to it in scripting!).&n; */
+multiline_comment|/*&n; * Check-out files from the &quot;current cache directory&quot;&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; *&n; * Careful: order of argument flags does matter. For example,&n; *&n; *&t;git-checkout-cache -a -f file.c&n; *&n; * Will first check out all files listed in the cache (but not&n; * overwrite any old ones), and then force-checkout &quot;file.c&quot; a&n; * second time (ie that one _will_ overwrite any old contents&n; * with the same filename).&n; *&n; * Also, just doing &quot;git-checkout-cache&quot; does nothing. You probably&n; * meant &quot;git-checkout-cache -a&quot;. And if you want to force it, you&n; * want &quot;git-checkout-cache -f -a&quot;.&n; *&n; * Intuitiveness is not the goal here. Repeatability is. The&n; * reason for the &quot;no arguments means no work&quot; thing is that&n; * from scripts you are supposed to be able to do things like&n; *&n; *&t;find . -name &squot;*.h&squot; -print0 | xargs -0 git-checkout-cache -f --&n; *&n; * which will force all existing *.h files to be replaced with&n; * their cached copies. If an empty command line implied &quot;all&quot;,&n; * then this would force-refresh everything in the cache, which&n; * was not the point.&n; *&n; * Oh, and the &quot;--&quot; is just a good idea when you know the rest&n; * will be filenames. Just so that you wouldn&squot;t have a filename&n; * of &quot;-a&quot; causing problems (not possible in the above example,&n; * but get used to it in scripting!).&n; */
 macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;dirent.h&gt;
 macro_line|#include &quot;cache.h&quot;
@@ -603,7 +603,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;checkout-cache: unable to read sha1 file of %s (%s)&quot;
+l_string|&quot;git-checkout-cache: unable to read sha1 file of %s (%s)&quot;
 comma
 id|path
 comma
@@ -662,7 +662,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;checkout-cache: unable to create file %s (%s)&quot;
+l_string|&quot;git-checkout-cache: unable to create file %s (%s)&quot;
 comma
 id|path
 comma
@@ -709,7 +709,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;checkout-cache: unable to write file %s&quot;
+l_string|&quot;git-checkout-cache: unable to write file %s&quot;
 comma
 id|path
 )paren
@@ -764,7 +764,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;checkout-cache: unable to create symlink %s (%s)&quot;
+l_string|&quot;git-checkout-cache: unable to create symlink %s (%s)&quot;
 comma
 id|path
 comma
@@ -796,7 +796,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;checkout-cache: unknown file mode for %s&quot;
+l_string|&quot;git-checkout-cache: unknown file mode for %s&quot;
 comma
 id|path
 )paren
@@ -947,7 +947,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;checkout-cache: %s already exists&bslash;n&quot;
+l_string|&quot;git-checkout-cache: %s already exists&bslash;n&quot;
 comma
 id|path
 )paren
@@ -1040,7 +1040,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;checkout-cache: %s is %s.&bslash;n&quot;
+l_string|&quot;git-checkout-cache: %s is %s.&bslash;n&quot;
 comma
 id|name
 comma
