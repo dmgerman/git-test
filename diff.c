@@ -3341,25 +3341,6 @@ id|MATCHED
 )paren
 r_continue
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;**score ** %d %s %s&bslash;n&quot;
-comma
-id|mx
-(braket
-id|c
-)braket
-dot
-id|score
-comma
-id|src-&gt;path
-comma
-id|dst-&gt;path
-)paren
-suffix:semicolon
 )brace
 r_for
 c_loop
