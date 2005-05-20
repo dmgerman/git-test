@@ -1323,7 +1323,7 @@ suffix:semicolon
 )brace
 DECL|function|read_sha1_reference
 r_static
-r_void
+r_int
 id|read_sha1_reference
 c_func
 (paren
@@ -1372,6 +1372,7 @@ OL
 l_int|0
 )paren
 r_return
+l_int|1
 suffix:semicolon
 id|len
 op_assign
@@ -1402,6 +1403,7 @@ OL
 l_int|40
 )paren
 r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -1417,6 +1419,7 @@ OL
 l_int|0
 )paren
 r_return
+l_int|1
 suffix:semicolon
 id|obj
 op_assign
@@ -1424,6 +1427,23 @@ id|lookup_object
 c_func
 (paren
 id|sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|obj
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;%s: invalid sha1 pointer %.40s&quot;
+comma
+id|path
+comma
+id|hexname
 )paren
 suffix:semicolon
 id|obj-&gt;used
@@ -1437,6 +1457,9 @@ id|obj
 comma
 id|REACHABLE
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|find_file_objects
