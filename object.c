@@ -4,6 +4,7 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;delta.h&quot;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 DECL|variable|objs
@@ -491,6 +492,9 @@ c_cond
 id|map
 )paren
 (brace
+r_int
+id|is_delta
+suffix:semicolon
 r_struct
 id|object
 op_star
@@ -540,9 +544,23 @@ id|buffer
 r_return
 l_int|NULL
 suffix:semicolon
+id|is_delta
+op_assign
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|type
+comma
+l_string|&quot;delta&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|is_delta
+op_logical_and
 id|check_sha1_signature
 c_func
 (paren
@@ -569,6 +587,44 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_delta
+)paren
+(brace
+r_struct
+id|delta
+op_star
+id|delta
+op_assign
+id|lookup_delta
+c_func
+(paren
+id|sha1
+)paren
+suffix:semicolon
+id|parse_delta_buffer
+c_func
+(paren
+id|delta
+comma
+id|buffer
+comma
+id|size
+)paren
+suffix:semicolon
+id|obj
+op_assign
+(paren
+r_struct
+id|object
+op_star
+)paren
+id|delta
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren

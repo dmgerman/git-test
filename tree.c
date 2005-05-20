@@ -565,6 +565,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|obj-&gt;type
+)paren
+id|obj-&gt;type
+op_assign
+id|tree_type
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|obj-&gt;type
 op_ne
 id|tree_type

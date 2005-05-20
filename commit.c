@@ -205,6 +205,16 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|obj-&gt;type
+)paren
+id|obj-&gt;type
+op_assign
+id|commit_type
+suffix:semicolon
 r_return
 id|check_commit
 c_func
