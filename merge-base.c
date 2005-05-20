@@ -62,6 +62,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|common_ancestor
+r_static
 r_struct
 id|commit
 op_star

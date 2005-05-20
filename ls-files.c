@@ -932,6 +932,7 @@ r_void
 id|show_killed_files
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int

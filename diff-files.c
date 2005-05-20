@@ -517,7 +517,7 @@ suffix:colon
 id|line_termination
 )paren
 comma
-l_int|0
+l_int|NULL
 comma
 l_int|0
 )paren

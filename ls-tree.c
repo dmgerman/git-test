@@ -1,12 +1,14 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|line_termination
+r_static
 r_int
 id|line_termination
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 DECL|variable|recursive
+r_static
 r_int
 id|recursive
 op_assign
@@ -375,7 +377,7 @@ comma
 op_amp
 id|size
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

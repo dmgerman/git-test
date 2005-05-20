@@ -116,6 +116,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|process_commit
+r_static
 r_void
 id|process_commit
 c_func

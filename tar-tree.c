@@ -2162,6 +2162,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* get commit time from committer line of commit object */
 DECL|function|commit_time
+r_static
 id|time_t
 id|commit_time
 c_func

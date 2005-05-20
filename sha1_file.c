@@ -170,6 +170,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|get_sha1_file
+r_static
 r_int
 id|get_sha1_file
 c_func
@@ -902,7 +903,7 @@ r_char
 op_star
 id|op
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_const
 r_char
@@ -1133,7 +1134,7 @@ id|i
 dot
 id|name
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|op
 op_assign

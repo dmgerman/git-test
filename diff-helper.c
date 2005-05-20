@@ -531,7 +531,7 @@ id|new_sha1
 comma
 id|path
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_break

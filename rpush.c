@@ -3,6 +3,7 @@ macro_line|#include &quot;rsh.h&quot;
 macro_line|#include &lt;sys/socket.h&gt;
 macro_line|#include &lt;errno.h&gt;
 DECL|function|service
+r_static
 r_void
 id|service
 c_func

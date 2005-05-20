@@ -42,7 +42,7 @@ comma
 op_amp
 id|size
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

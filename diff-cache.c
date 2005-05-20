@@ -953,7 +953,7 @@ suffix:colon
 id|line_termination
 )paren
 comma
-l_int|0
+l_int|NULL
 comma
 l_int|0
 )paren
@@ -975,7 +975,7 @@ comma
 op_amp
 id|size
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

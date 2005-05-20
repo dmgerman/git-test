@@ -4,6 +4,7 @@ macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &lt;time.h&gt;
+macro_line|#include &quot;cache.h&quot;
 DECL|function|my_mktime
 r_static
 id|time_t

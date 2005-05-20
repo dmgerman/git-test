@@ -15,7 +15,7 @@ id|sb
 (brace
 id|sb-&gt;buf
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|sb-&gt;eof
 op_assign

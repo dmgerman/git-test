@@ -1397,6 +1397,7 @@ id|option
 suffix:semicolon
 )brace
 DECL|variable|cache_file
+r_static
 r_struct
 id|cache_file
 id|cache_file

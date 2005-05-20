@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 multiline_comment|/*&n; * Show one commit&n; */
 DECL|function|show_commit
+r_static
 r_void
 id|show_commit
 c_func
@@ -124,6 +125,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Show all unseen commits, depth-first&n; */
 DECL|function|show_unseen
+r_static
 r_void
 id|show_unseen
 c_func
@@ -181,6 +183,7 @@ id|top
 suffix:semicolon
 )brace
 DECL|function|export
+r_static
 r_void
 id|export
 c_func
@@ -227,6 +230,7 @@ id|top
 suffix:semicolon
 )brace
 DECL|function|get_commit
+r_static
 r_struct
 id|commit
 op_star

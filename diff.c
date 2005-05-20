@@ -2033,7 +2033,7 @@ suffix:semicolon
 op_star
 id|arg
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|execvp
 c_func
@@ -2563,7 +2563,7 @@ id|SHOULD_MUNMAP
 suffix:semicolon
 id|s-&gt;data
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|flush_remaining_diff
@@ -2739,6 +2739,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|estimate_similarity
+r_static
 r_int
 id|estimate_similarity
 c_func
