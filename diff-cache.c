@@ -51,11 +51,12 @@ l_int|0
 suffix:semicolon
 DECL|variable|pickaxe
 r_static
+r_const
 r_char
 op_star
 id|pickaxe
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 multiline_comment|/* A file entry went away or appeared */
 DECL|function|show_file

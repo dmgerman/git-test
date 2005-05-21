@@ -2655,6 +2655,7 @@ comma
 r_int
 id|minimum_score_
 comma
+r_const
 r_char
 op_star
 id|pickaxe_
