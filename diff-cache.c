@@ -397,6 +397,10 @@ id|old-&gt;sha1
 comma
 l_int|20
 )paren
+op_logical_and
+id|detect_rename
+OL
+l_int|2
 )paren
 r_return
 l_int|0

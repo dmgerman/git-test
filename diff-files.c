@@ -775,6 +775,10 @@ c_cond
 (paren
 op_logical_neg
 id|changed
+op_logical_and
+id|detect_rename
+OL
+l_int|2
 )paren
 r_continue
 suffix:semicolon
