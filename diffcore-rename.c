@@ -257,6 +257,8 @@ suffix:semicolon
 r_int
 r_int
 id|delta_size
+comma
+id|base_size
 suffix:semicolon
 r_int
 id|score
@@ -282,23 +284,32 @@ id|dst-&gt;size
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/* We would not consider rename followed by more than&n;&t; * minimum_score/MAX_SCORE edits; that is, delta_size must be smaller&n;&t; * than (src-&gt;size + dst-&gt;size)/2 * minimum_score/MAX_SCORE,&n;&t; * which means...&n;&t; */
-r_if
-c_cond
+id|base_size
+op_assign
 (paren
 (paren
 id|src-&gt;size
-op_plus
+OL
 id|dst-&gt;size
 )paren
+ques
+c_cond
+id|src-&gt;size
+suffix:colon
+id|dst-&gt;size
+)paren
+suffix:semicolon
+multiline_comment|/* We would not consider edits that change the file size so&n;&t; * drastically.  delta_size must be smaller than&n;&t; * minimum_score/MAX_SCORE * min(src-&gt;size, dst-&gt;size).&n;&t; * Note that base_size == 0 case is handled here already&n;&t; * and the final score computation below would not have a&n;&t; * divide-by-zero issue.&n;&t; */
+r_if
+c_cond
+(paren
+id|base_size
 op_star
 id|minimum_score
 OL
 id|delta_size
 op_star
 id|MAX_SCORE
-op_star
-l_int|2
 )paren
 r_return
 l_int|0
@@ -320,29 +331,23 @@ op_amp
 id|delta_size
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * We currently punt here, but we may later end up parsing the&n;&t; * delta to really assess the extent of damage.  A big consecutive&n;&t; * remove would produce small delta_size that affects quite a&n;&t; * big portion of the file.&n;&t; */
 id|free
 c_func
 (paren
 id|delta
 )paren
 suffix:semicolon
-multiline_comment|/* This &quot;delta&quot; is really xdiff with adler32 and all the&n;&t; * overheads but it is a quick and dirty approximation.&n;&t; *&n;&t; * Now we will give some score to it.  100% edit gets&n;&t; * 0 points and 0% edit gets MAX_SCORE points.  That is, every&n;&t; * 1/MAX_SCORE edit gets 1 point penalty.  The amount of penalty is:&n;&t; *&n;&t; * (delta_size * 2 / (src-&gt;size + dst-&gt;size)) * MAX_SCORE&n;&t; *&n;&t; */
+multiline_comment|/*&n;&t; * Now we will give some score to it.  100% edit gets 0 points&n;&t; * and 0% edit gets MAX_SCORE points.&n;&t; */
 id|score
 op_assign
 id|MAX_SCORE
-op_minus
 (paren
 id|MAX_SCORE
 op_star
-l_int|2
-op_star
 id|delta_size
 op_div
-(paren
-id|src-&gt;size
-op_plus
-id|dst-&gt;size
-)paren
+id|base_size
 )paren
 suffix:semicolon
 r_if
@@ -1443,8 +1448,9 @@ id|score
 OL
 id|minimum_score
 )paren
-r_continue
+r_break
 suffix:semicolon
+multiline_comment|/* there is not any more diffs applicable. */
 id|record_rename_pair
 c_func
 (paren
