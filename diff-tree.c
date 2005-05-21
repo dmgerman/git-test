@@ -2539,10 +2539,20 @@ id|header
 op_logical_and
 id|verbose_header
 )paren
+(brace
 id|header_prefix
 op_assign
 l_string|&quot;&bslash;ndiff-tree &quot;
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Don&squot;t print multiple merge entries if we&n;&t;&t;&t; * don&squot;t print the diffs.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|silent
+)paren
+r_break
+suffix:semicolon
+)brace
 id|offset
 op_add_assign
 l_int|48
