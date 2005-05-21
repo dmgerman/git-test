@@ -399,7 +399,7 @@ id|score
 (brace
 multiline_comment|/* The rank is used to sort the final output, because there&n;&t; * are certain dependencies.&n;&t; *&n;&t; *  - rank #0 depends on deleted ones.&n;&t; *  - rank #1 depends on kept files before they are modified.&n;&t; *  - rank #2 depends on kept files after they are modified;&n;&t; *    currently not used.&n;&t; *&n;&t; * Therefore, the final output order should be:&n;&t; *&n;&t; *  1. rank #0 rename/copy diffs.&n;&t; *  2. deletions in the original.&n;&t; *  3. rank #1 rename/copy diffs.&n;&t; *  4. additions and modifications in the original.&n;&t; *  5. rank #2 rename/copy diffs; currently not used.&n;&t; *&n;&t; * To achieve this sort order, we give xform_work the number&n;&t; * above.&n;&t; */
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|dp
 op_assign
@@ -512,7 +512,7 @@ c_func
 (paren
 r_const
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 comma
@@ -630,7 +630,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 op_assign
@@ -673,7 +673,7 @@ id|b_
 (brace
 r_const
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|a
 op_assign
@@ -681,7 +681,7 @@ op_star
 (paren
 r_const
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 op_star
 )paren
@@ -689,7 +689,7 @@ id|a_
 suffix:semicolon
 r_const
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|b
 op_assign
@@ -697,7 +697,7 @@ op_star
 (paren
 r_const
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 op_star
 )paren
@@ -813,7 +813,7 @@ id|q-&gt;nr
 )paren
 (brace
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 op_assign
@@ -962,7 +962,6 @@ op_assign
 op_amp
 id|stay
 suffix:semicolon
-multiline_comment|/* NEEDSWORK:&n;&t; * (1) make sure we properly ignore but pass trees.&n;&t; *&n;&t; * (2) make sure we do right thing on the same path deleted&n;&t; *     and created in the same patch.&n;&t; */
 r_for
 c_loop
 (paren
@@ -979,7 +978,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 op_assign
@@ -1499,7 +1498,7 @@ id|outq
 suffix:semicolon
 id|flush_rest
 suffix:colon
-multiline_comment|/* At this point, we have found some renames and copies and they&n;&t; * are kept in outq.  The original list is still in *q.&n;&t; *&n;&t; * Scan the original list and move them into the outq; we will sort&n;&t; * outq and swap it into the queue supplied to pass that to&n;&t; * downstream, so we assign the sort keys in this loop.&n;&t; *&n;&t; * See comments at the top of record_rename_pair for numbers used&n;&t; * to assign xfrm_work.&n;&t; *&n;&t; * Note that we have not annotated the diff_file_pair with any comment&n;&t; * so there is nothing other than p to free.&n;&t; */
+multiline_comment|/* At this point, we have found some renames and copies and they&n;&t; * are kept in outq.  The original list is still in *q.&n;&t; *&n;&t; * Scan the original list and move them into the outq; we will sort&n;&t; * outq and swap it into the queue supplied to pass that to&n;&t; * downstream, so we assign the sort keys in this loop.&n;&t; *&n;&t; * See comments at the top of record_rename_pair for numbers used&n;&t; * to assign xfrm_work.&n;&t; *&n;&t; * Note that we have not annotated the diff_filepair with any comment&n;&t; * so there is nothing other than p to free.&n;&t; */
 r_for
 c_loop
 (paren
@@ -1516,7 +1515,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|dp
 comma
@@ -1687,7 +1686,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 op_assign
@@ -1770,7 +1769,7 @@ id|p-&gt;two-&gt;path
 (brace
 multiline_comment|/* rename or copy */
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|dp
 op_assign

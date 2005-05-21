@@ -24,6 +24,14 @@ id|generate_patch
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|pickaxe
+r_static
+r_char
+op_star
+id|pickaxe
+op_assign
+l_int|0
+suffix:semicolon
 DECL|function|parse_oneside_change
 r_static
 r_int
@@ -612,7 +620,7 @@ r_char
 op_star
 id|diff_helper_usage
 op_assign
-l_string|&quot;git-diff-helper [-z] [-R] [-M] [-C] paths...&quot;
+l_string|&quot;git-diff-helper [-z] [-R] [-M] [-C] [-S&lt;string&gt;] paths...&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -785,6 +793,31 @@ l_int|1
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+id|av
+(braket
+l_int|1
+)braket
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;S&squot;
+)paren
+(brace
+id|pickaxe
+op_assign
+id|av
+(braket
+l_int|1
+)braket
+op_plus
+l_int|2
+suffix:semicolon
+)brace
+r_else
 id|usage
 c_func
 (paren
@@ -805,6 +838,8 @@ c_func
 id|detect_rename
 comma
 id|diff_score_opt
+comma
+id|pickaxe
 comma
 id|reverse
 comma

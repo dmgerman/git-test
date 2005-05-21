@@ -59,6 +59,13 @@ r_static
 r_int
 id|speccnt
 suffix:semicolon
+DECL|variable|pickaxe
+r_static
+r_const
+r_char
+op_star
+id|pickaxe
+suffix:semicolon
 DECL|variable|minimum_score
 r_static
 r_int
@@ -2648,6 +2655,10 @@ comma
 r_int
 id|minimum_score_
 comma
+r_char
+op_star
+id|pickaxe_
+comma
 r_int
 id|reverse_diff_
 comma
@@ -2692,6 +2703,10 @@ c_cond
 suffix:colon
 id|DEFAULT_MINIMUM_SCORE
 suffix:semicolon
+id|pickaxe
+op_assign
+id|pickaxe_
+suffix:semicolon
 )brace
 DECL|variable|queued_diff
 r_static
@@ -2701,7 +2716,7 @@ id|queued_diff
 suffix:semicolon
 DECL|function|diff_queue
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|diff_queue
 c_func
@@ -2723,7 +2738,7 @@ id|two
 )paren
 (brace
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|dp
 op_assign
@@ -2833,7 +2848,7 @@ id|diff_flush_raw
 c_func
 (paren
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 )paren
@@ -2977,7 +2992,7 @@ id|diff_flush_patch
 c_func
 (paren
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 )paren
@@ -3069,7 +3084,7 @@ op_star
 id|two
 )paren
 (brace
-multiline_comment|/* This function is written stricter than necessary to support&n;&t; * the currently implemented transformers, but the idea is to&n;&t; * let transformers to produce diff_file_pairs any way they want,&n;&t; * and filter and clean them up here before producing the output.&n;&t; */
+multiline_comment|/* This function is written stricter than necessary to support&n;&t; * the currently implemented transformers, but the idea is to&n;&t; * let transformers to produce diff_filepairs any way they want,&n;&t; * and filter and clean them up here before producing the output.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3160,7 +3175,7 @@ id|diff_flush_one
 c_func
 (paren
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 )paren
@@ -3233,6 +3248,19 @@ comma
 id|minimum_score
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|pickaxe
+)paren
+id|diff_pickaxe
+c_func
+(paren
+id|q
+comma
+id|pickaxe
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -3272,7 +3300,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|diff_file_pair
+id|diff_filepair
 op_star
 id|p
 op_assign

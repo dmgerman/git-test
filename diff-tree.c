@@ -78,6 +78,14 @@ id|diff_score_opt
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|pickaxe
+r_static
+r_char
+op_star
+id|pickaxe
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|header
 r_static
 r_const
@@ -1703,6 +1711,8 @@ id|detect_rename
 comma
 id|diff_score_opt
 comma
+id|pickaxe
+comma
 id|reverse_diff
 comma
 (paren
@@ -1775,6 +1785,8 @@ c_func
 id|detect_rename
 comma
 id|diff_score_opt
+comma
+id|pickaxe
 comma
 id|reverse_diff
 comma
@@ -2663,7 +2675,7 @@ r_char
 op_star
 id|diff_tree_usage
 op_assign
-l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-C] [-R] [-m] [-s] [-v] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
+l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-C] [-R] [-S&lt;string&gt;] [-m] [-s] [-v] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -2850,6 +2862,30 @@ op_assign
 id|generate_patch
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-S&quot;
+comma
+l_int|2
+)paren
+)paren
+(brace
+id|pickaxe
+op_assign
+id|arg
+op_plus
+l_int|2
 suffix:semicolon
 r_continue
 suffix:semicolon

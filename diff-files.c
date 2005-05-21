@@ -8,7 +8,7 @@ r_char
 op_star
 id|diff_files_usage
 op_assign
-l_string|&quot;git-diff-files [-p] [-q] [-r] [-z] [-M] [-C] [-R] [paths...]&quot;
+l_string|&quot;git-diff-files [-p] [-q] [-r] [-z] [-M] [-C] [-R] [-S&lt;string&gt;] [paths...]&quot;
 suffix:semicolon
 DECL|variable|generate_patch
 r_static
@@ -42,6 +42,14 @@ DECL|variable|diff_score_opt
 r_static
 r_int
 id|diff_score_opt
+op_assign
+l_int|0
+suffix:semicolon
+DECL|variable|pickaxe
+r_static
+r_char
+op_star
+id|pickaxe
 op_assign
 l_int|0
 suffix:semicolon
@@ -432,6 +440,31 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;-S&quot;
+)paren
+)paren
+id|pickaxe
+op_assign
+id|argv
+(braket
+l_int|1
+)braket
+op_plus
+l_int|2
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
 id|strncmp
 c_func
 (paren
@@ -544,6 +577,8 @@ c_func
 id|detect_rename
 comma
 id|diff_score_opt
+comma
+id|pickaxe
 comma
 id|reverse_diff
 comma
