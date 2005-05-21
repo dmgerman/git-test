@@ -2060,7 +2060,7 @@ r_static
 r_char
 id|this_header
 (braket
-l_int|1000
+l_int|16384
 )braket
 suffix:semicolon
 r_int
@@ -2126,6 +2126,7 @@ id|linelen
 )paren
 r_break
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * We want some slop for indentation and a possible&n;&t;&t;&t; * final &quot;...&quot;. Thus the &quot;+ 20&quot;.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2133,15 +2134,33 @@ id|offset
 op_plus
 id|linelen
 op_plus
-l_int|10
+l_int|20
 OG
 r_sizeof
 (paren
 id|this_header
 )paren
 )paren
+(brace
+id|memcpy
+c_func
+(paren
+id|this_header
+op_plus
+id|offset
+comma
+l_string|&quot;    ...&bslash;n&quot;
+comma
+l_int|8
+)paren
+suffix:semicolon
+id|offset
+op_add_assign
+l_int|8
+suffix:semicolon
 r_break
 suffix:semicolon
+)brace
 id|msg
 op_add_assign
 id|linelen
@@ -2231,6 +2250,34 @@ op_plus
 l_int|4
 suffix:semicolon
 )brace
+multiline_comment|/* Make sure there is an EOLN */
+r_if
+c_cond
+(paren
+id|this_header
+(braket
+id|offset
+op_minus
+l_int|1
+)braket
+op_ne
+l_char|&squot;&bslash;n&squot;
+)paren
+id|this_header
+(braket
+id|offset
+op_increment
+)braket
+op_assign
+l_char|&squot;&bslash;n&squot;
+suffix:semicolon
+multiline_comment|/* Add _another_ EOLN if we are doing diff output */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|silent
+)paren
 id|this_header
 (braket
 id|offset
