@@ -472,7 +472,11 @@ id|one
 comma
 id|s-&gt;path
 comma
-id|s-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|s
+)paren
 ques
 c_cond
 l_string|&quot;valid&quot;
@@ -832,7 +836,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;two-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;two
+)paren
 )paren
 r_continue
 suffix:semicolon
@@ -999,13 +1007,21 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;one-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;one
+)paren
 )paren
 r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;two-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;two
+)paren
 )paren
 r_continue
 suffix:semicolon
@@ -1025,7 +1041,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;two-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;two
+)paren
 )paren
 id|diff_rename_pool_add
 c_func
@@ -1540,13 +1560,21 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;one-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;one
+)paren
 )paren
 (brace
 r_if
 c_cond
 (paren
-id|p-&gt;two-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;two
+)paren
 )paren
 (brace
 multiline_comment|/* creation */
@@ -1575,7 +1603,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;two-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;two
+)paren
 )paren
 (brace
 multiline_comment|/* deletion */
@@ -1708,7 +1740,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;one-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;one
+)paren
 )paren
 (brace
 multiline_comment|/* created */
@@ -1738,7 +1774,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p-&gt;two-&gt;file_valid
+id|DIFF_FILE_VALID
+c_func
+(paren
+id|p-&gt;two
+)paren
 )paren
 (brace
 multiline_comment|/* deleted */
