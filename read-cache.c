@@ -59,7 +59,7 @@ c_func
 id|st-&gt;st_mtime
 )paren
 suffix:semicolon
-macro_line|#ifdef NSEC
+macro_line|#ifdef USE_NSEC
 id|ce-&gt;ce_ctime.nsec
 op_assign
 id|htonl
@@ -255,7 +255,7 @@ id|changed
 op_or_assign
 id|CTIME_CHANGED
 suffix:semicolon
-macro_line|#ifdef NSEC
+macro_line|#ifdef USE_NSEC
 multiline_comment|/*&n;&t; * nsec seems unreliable - not all filesystems support it, so&n;&t; * as long as it is in the inode cache you get right nsec&n;&t; * but after it gets flushed, you get zero nsec.&n;&t; */
 r_if
 c_cond
@@ -314,14 +314,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ce-&gt;ce_dev
-op_ne
-id|htonl
-c_func
-(paren
-id|st-&gt;st_dev
-)paren
-op_logical_or
 id|ce-&gt;ce_ino
 op_ne
 id|htonl
@@ -334,6 +326,24 @@ id|changed
 op_or_assign
 id|INODE_CHANGED
 suffix:semicolon
+macro_line|#ifdef USE_STDEV
+multiline_comment|/*&n;&t; * st_dev breaks on network filesystems where different&n;&t; * clients will have different views of what &quot;device&quot;&n;&t; * the filesystem is on&n;&t; */
+r_if
+c_cond
+(paren
+id|ce-&gt;ce_dev
+op_ne
+id|htonl
+c_func
+(paren
+id|st-&gt;st_dev
+)paren
+)paren
+id|changed
+op_or_assign
+id|INODE_CHANGED
+suffix:semicolon
+macro_line|#endif
 r_if
 c_cond
 (paren
