@@ -898,7 +898,7 @@ l_int|0
 suffix:semicolon
 id|spec-&gt;data
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|spec-&gt;mode
 op_assign
@@ -1443,7 +1443,7 @@ l_int|0
 suffix:semicolon
 id|s-&gt;data
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|prep_temp_blob
@@ -2286,7 +2286,7 @@ suffix:semicolon
 op_star
 id|arg
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|execvp
 c_func
@@ -2538,7 +2538,7 @@ id|two
 suffix:semicolon
 id|dp-&gt;xfrm_msg
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|dp-&gt;orig_order
 op_assign

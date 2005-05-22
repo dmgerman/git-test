@@ -1656,6 +1656,7 @@ r_int
 id|call_diff_flush
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if
