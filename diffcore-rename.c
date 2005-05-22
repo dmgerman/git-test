@@ -935,6 +935,16 @@ id|dst_cnt
 comma
 id|src_cnt
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|minimum_score
+)paren
+id|minimum_score
+op_assign
+id|DEFAULT_MINIMUM_SCORE
+suffix:semicolon
 id|outq.queue
 op_assign
 l_int|NULL
