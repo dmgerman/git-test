@@ -865,11 +865,6 @@ r_void
 id|diff_detect_rename
 c_func
 (paren
-r_struct
-id|diff_queue_struct
-op_star
-id|q
-comma
 r_int
 id|detect_rename
 comma
@@ -877,6 +872,14 @@ r_int
 id|minimum_score
 )paren
 (brace
+r_struct
+id|diff_queue_struct
+op_star
+id|q
+op_assign
+op_amp
+id|diff_queued_diff
+suffix:semicolon
 r_struct
 id|diff_queue_struct
 id|outq
