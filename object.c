@@ -5,8 +5,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;delta.h&quot;
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;string.h&gt;
 DECL|variable|objs
 r_struct
 id|object

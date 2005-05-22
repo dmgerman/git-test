@@ -1,11 +1,5 @@
-macro_line|#include &lt;fcntl.h&gt;
-macro_line|#include &lt;unistd.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
-macro_line|#include &lt;errno.h&gt;
-macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &quot;pull.h&quot;
 macro_line|#include &lt;curl/curl.h&gt;
 macro_line|#include &lt;curl/easy.h&gt;

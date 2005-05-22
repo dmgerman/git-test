@@ -1,8 +1,6 @@
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;limits.h&gt;
 DECL|variable|commit_type
 r_const
 r_char

@@ -5,7 +5,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;string.h&gt;
 multiline_comment|/* the delta object definition (it can alias any other object) */
 DECL|struct|delta
 r_struct
