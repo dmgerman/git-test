@@ -299,13 +299,17 @@ suffix:colon
 id|dst-&gt;size
 )paren
 suffix:semicolon
-multiline_comment|/* We would not consider edits that change the file size so&n;&t; * drastically.  delta_size must be smaller than&n;&t; * minimum_score/MAX_SCORE * min(src-&gt;size, dst-&gt;size).&n;&t; * Note that base_size == 0 case is handled here already&n;&t; * and the final score computation below would not have a&n;&t; * divide-by-zero issue.&n;&t; */
+multiline_comment|/* We would not consider edits that change the file size so&n;&t; * drastically.  delta_size must be smaller than&n;&t; * (MAX_SCORE-minimum_score)/MAX_SCORE * min(src-&gt;size, dst-&gt;size).&n;&t; * Note that base_size == 0 case is handled here already&n;&t; * and the final score computation below would not have a&n;&t; * divide-by-zero issue.&n;&t; */
 r_if
 c_cond
 (paren
 id|base_size
 op_star
+(paren
+id|MAX_SCORE
+op_minus
 id|minimum_score
+)paren
 OL
 id|delta_size
 op_star
