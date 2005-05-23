@@ -257,6 +257,13 @@ r_else
 r_if
 c_cond
 (paren
+op_logical_neg
+id|diff_unmodified_pair
+c_func
+(paren
+id|p
+)paren
+op_logical_and
 id|contains
 c_func
 (paren
