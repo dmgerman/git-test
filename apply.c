@@ -1566,7 +1566,7 @@ id|old_mode
 op_assign
 id|new_mode
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 id|def_name
 op_assign
