@@ -742,11 +742,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s%c&quot;
+l_string|&quot;%s&bslash;n&quot;
 comma
 id|sb1.buf
-comma
-id|line_termination
 )paren
 suffix:semicolon
 )brace
