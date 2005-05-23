@@ -1682,7 +1682,6 @@ c_cond
 (paren
 id|pickaxe
 )paren
-(brace
 id|diffcore_pickaxe
 c_func
 (paren
@@ -1709,7 +1708,6 @@ suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
