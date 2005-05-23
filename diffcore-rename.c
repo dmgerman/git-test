@@ -74,7 +74,7 @@ id|s-&gt;mode
 )paren
 r_return
 suffix:semicolon
-multiline_comment|/* rename/copy patch for tree does not make sense. */
+multiline_comment|/* no trees, please */
 r_if
 c_cond
 (paren
@@ -262,6 +262,27 @@ id|base_size
 suffix:semicolon
 r_int
 id|score
+suffix:semicolon
+multiline_comment|/* We deal only with regular files.  Symlink renames are handled&n;&t; * only when they are exact matches --- in other words, no edits&n;&t; * after renaming.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISREG
+c_func
+(paren
+id|src-&gt;mode
+)paren
+op_logical_or
+op_logical_neg
+id|S_ISREG
+c_func
+(paren
+id|dst-&gt;mode
+)paren
+)paren
+r_return
+l_int|0
 suffix:semicolon
 id|delta_size
 op_assign
@@ -1166,7 +1187,7 @@ id|p-&gt;two
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* ignore nonsense */
+multiline_comment|/* unmerged */
 r_else
 id|diff_rename_pool_add
 c_func
@@ -1708,17 +1729,7 @@ id|p-&gt;one
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|DIFF_FILE_VALID
-c_func
-(paren
-id|p-&gt;two
-)paren
-)paren
-(brace
-multiline_comment|/* creation */
+multiline_comment|/* creation or unmerged entries */
 id|dp
 op_assign
 id|diff_queue
@@ -1736,8 +1747,6 @@ id|dp-&gt;xfrm_work
 op_assign
 l_int|4
 suffix:semicolon
-)brace
-multiline_comment|/* otherwise it is a nonsense; just ignore it */
 )brace
 r_else
 r_if
@@ -1888,7 +1897,7 @@ id|p-&gt;one
 )paren
 )paren
 (brace
-multiline_comment|/* created */
+multiline_comment|/* created or unmerged */
 r_if
 c_cond
 (paren
@@ -2104,7 +2113,7 @@ comma
 id|p-&gt;two
 )paren
 suffix:semicolon
-id|free
+id|diff_free_filepair
 c_func
 (paren
 id|p
