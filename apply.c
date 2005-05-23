@@ -1134,7 +1134,11 @@ id|len
 op_le
 l_int|0
 )paren
-r_break
+id|die
+c_func
+(paren
+l_string|&quot;corrupt patch&quot;
+)paren
 suffix:semicolon
 id|printf
 c_func
