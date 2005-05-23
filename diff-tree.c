@@ -1702,6 +1702,8 @@ id|diff_flush
 c_func
 (paren
 id|DIFF_FORMAT_NO_OUTPUT
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_return
@@ -1829,6 +1831,8 @@ id|diff_flush
 c_func
 (paren
 id|diff_output_format
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_return

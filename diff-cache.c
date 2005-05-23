@@ -1125,6 +1125,8 @@ id|diff_flush
 c_func
 (paren
 id|diff_output_format
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_return
