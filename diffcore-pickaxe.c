@@ -293,7 +293,7 @@ id|onum
 op_eq
 id|outq.nr
 )paren
-id|diff_free_filepair
+id|free
 c_func
 (paren
 id|p

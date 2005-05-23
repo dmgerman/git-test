@@ -306,7 +306,7 @@ id|p
 )paren
 suffix:semicolon
 r_else
-id|diff_free_filepair
+id|free
 c_func
 (paren
 id|p
