@@ -375,6 +375,12 @@ id|c
 r_case
 l_char|&squot;$&squot;
 suffix:colon
+r_case
+l_char|&squot;&bslash;&bslash;&squot;
+suffix:colon
+r_case
+l_char|&squot;`&squot;
+suffix:colon
 id|putchar
 c_func
 (paren
@@ -458,6 +464,14 @@ id|printf
 c_func
 (paren
 l_string|&quot;echo $commit &gt; .git/refs/heads/&squot;%s&squot;&bslash;n&quot;
+comma
+id|dst_branch
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;echo &squot;Committed (to %s):&squot; ; cat .cmitmsg; echo&bslash;n&quot;
 comma
 id|dst_branch
 )paren
