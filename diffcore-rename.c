@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;delta.h&quot;
+macro_line|#include &quot;count-delta.h&quot;
 multiline_comment|/* Table of rename/copy destinations */
 DECL|struct|diff_rename_dst
 r_static
@@ -721,12 +722,47 @@ op_amp
 id|delta_size
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * We currently punt here, but we may later end up parsing the&n;&t; * delta to really assess the extent of damage.  A big consecutive&n;&t; * remove would produce small delta_size that affects quite a&n;&t; * big portion of the file.&n;&t; */
+multiline_comment|/* A delta that has a lot of literal additions would have&n;&t; * big delta_size no matter what else it does.&n;&t; */
+r_if
+c_cond
+(paren
+id|minimum_score
+OL
+id|MAX_SCORE
+op_star
+id|delta_size
+op_div
+id|base_size
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* Estimate the edit size by interpreting delta. */
+id|delta_size
+op_assign
+id|count_delta
+c_func
+(paren
+id|delta
+comma
+id|delta_size
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
 id|delta
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|delta_size
+op_eq
+id|UINT_MAX
+)paren
+r_return
+l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * Now we will give some score to it.  100% edit gets 0 points&n;&t; * and 0% edit gets MAX_SCORE points.&n;&t; */
 id|score
