@@ -1,13 +1,6 @@
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
-DECL|variable|silent
-r_static
-r_int
-id|silent
-op_assign
-l_int|0
-suffix:semicolon
 DECL|variable|show_root_diff
 r_static
 r_int
@@ -511,13 +504,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|silent
-)paren
-r_return
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|recursive
 op_logical_and
 id|S_ISDIR
@@ -931,14 +917,6 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|silent
-)paren
-r_return
-l_int|0
-suffix:semicolon
 id|diff_change
 c_func
 (paren
@@ -2387,12 +2365,6 @@ op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 multiline_comment|/* Add _another_ EOLN if we are doing diff output */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|silent
-)paren
 id|this_header
 (braket
 id|offset
@@ -2659,13 +2631,6 @@ op_assign
 l_string|&quot;&bslash;ndiff-tree &quot;
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * Don&squot;t print multiple merge entries if we&n;&t;&t;&t; * don&squot;t print the diffs.&n;&t;&t;&t; */
-r_if
-c_cond
-(paren
-id|silent
-)paren
-r_break
-suffix:semicolon
 )brace
 id|offset
 op_add_assign
@@ -3179,9 +3144,9 @@ l_string|&quot;-s&quot;
 )paren
 )paren
 (brace
-id|silent
+id|diff_output_format
 op_assign
-l_int|1
+id|DIFF_FORMAT_NO_OUTPUT
 suffix:semicolon
 r_continue
 suffix:semicolon
