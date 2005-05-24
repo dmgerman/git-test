@@ -243,7 +243,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;git-read-tree -m HEAD&bslash;n&quot;
+l_string|&quot;git-read-tree -m HEAD || exit 1&bslash;n&quot;
 )paren
 suffix:semicolon
 id|printf
@@ -274,6 +274,11 @@ l_string|&quot;&quot;
 suffix:colon
 l_string|&quot;-p HEAD&quot;
 suffix:semicolon
+r_const
+r_char
+op_star
+id|dst_branch
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -296,10 +301,32 @@ comma
 id|cmit_parent
 )paren
 suffix:semicolon
+id|dst_branch
+op_assign
+id|branch
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|dst_branch
+comma
+l_string|&quot;HEAD&quot;
+)paren
+)paren
+id|dst_branch
+op_assign
+l_string|&quot;master&quot;
+suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;echo $commit &gt; .git/HEAD&bslash;n&quot;
+l_string|&quot;echo $commit &gt; .git/refs/heads/&squot;%s&squot;&bslash;n&quot;
+comma
+id|dst_branch
 )paren
 suffix:semicolon
 op_star
@@ -638,7 +665,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;co -p -r%s &squot;%s&squot; &gt; &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;co -q -p -r%s &squot;%s&squot; &gt; &squot;%s&squot;&bslash;n&quot;
 comma
 id|version
 comma
