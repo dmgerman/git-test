@@ -427,7 +427,7 @@ r_int
 id|score
 )paren
 (brace
-multiline_comment|/*&n;&t; * These ranks are used to sort the final output, because there&n;&t; * are certain dependencies:&n;&t; *&n;&t; *  1. rename/copy that depends on deleted ones.&n;&t; *  2. deletions in the original.&n;&t; *  3. rename/copy that depends on the pre-edit image of kept files.&n;&t; *  4. additions, modifications and no-modifications in the original.&n;&t; *  5. rename/copy that depends on the post-edit image of kept files&n;&t; *     (note that we currently do not detect such rename/copy).&n;&t; *&n;&t; * The downstream diffcore transformers are free to reorder&n;&t; * the entries as long as they keep file pairs that has the&n;&t; * same p-&gt;one-&gt;path in earlier rename_rank to appear before&n;&t; * later ones.  This ordering is used by the diff_flush()&n;&t; * logic to tell renames from copies, and also used by the&n;&t; * diffcore_prune() logic to omit unnecessary&n;&t; * &quot;no-modification&quot; entries.&n;&t; *&n;&t; * To the final output routine, and in the diff-raw format&n;&t; * output, a rename/copy that is based on a path that has a&n;&t; * later entry that shares the same p-&gt;one-&gt;path and is not a&n;&t; * deletion is a copy.  Otherwise it is a rename.&n;&t; */
+multiline_comment|/*&n;&t; * These ranks are used to sort the final output, because there&n;&t; * are certain dependencies:&n;&t; *&n;&t; *  1. rename/copy that depends on deleted ones.&n;&t; *  2. deletions in the original.&n;&t; *  3. rename/copy that depends on the pre-edit image of kept files.&n;&t; *  4. additions, modifications and no-modifications in the original.&n;&t; *  5. rename/copy that depends on the post-edit image of kept files&n;&t; *     (note that we currently do not detect such rename/copy).&n;&t; *&n;&t; * The downstream diffcore transformers are free to reorder&n;&t; * the entries as long as they keep file pairs that has the&n;&t; * same p-&gt;one-&gt;path in earlier rename_rank to appear before&n;&t; * later ones.&n;&t; *&n;&t; * To the final output routine, and in the diff-raw format&n;&t; * output, a rename/copy that is based on a path that has a&n;&t; * later entry that shares the same p-&gt;one-&gt;path and is not a&n;&t; * deletion is a copy.  Otherwise it is a rename.&n;&t; */
 r_struct
 id|diff_filepair
 op_star
@@ -1135,7 +1135,7 @@ r_goto
 id|cleanup
 suffix:semicolon
 multiline_comment|/* nothing to do */
-multiline_comment|/* We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; *&n;&t; * With the current callers, we should not have already&n;&t; * matched entries at this point, but it is nonetheless&n;&t; * checked for sanity.&n;&t; */
+multiline_comment|/* We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; */
 r_for
 c_loop
 (paren
@@ -1151,21 +1151,6 @@ id|i
 op_increment
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|created.s
-(braket
-id|i
-)braket
-op_member_access_from_pointer
-id|xfrm_flags
-op_amp
-id|RENAME_DST_MATCHED
-)paren
-r_continue
-suffix:semicolon
-multiline_comment|/* we have matched exactly already */
 r_for
 c_loop
 (paren
@@ -1819,16 +1804,6 @@ id|p-&gt;two
 )paren
 (brace
 multiline_comment|/* deleted */
-r_if
-c_cond
-(paren
-id|p-&gt;one-&gt;xfrm_flags
-op_amp
-id|RENAME_SRC_GONE
-)paren
-suffix:semicolon
-multiline_comment|/* rename/copy deleted it already */
-r_else
 id|diff_queue
 c_func
 (paren
@@ -1872,29 +1847,6 @@ suffix:semicolon
 id|dp-&gt;score
 op_assign
 id|p-&gt;score
-suffix:semicolon
-multiline_comment|/* if we have a later entry that is a rename/copy&n;&t;&t;&t; * that depends on p-&gt;one, then we copy here.&n;&t;&t;&t; * otherwise we rename it.&n;&t;&t;&t; */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|diff_needs_to_stay
-c_func
-(paren
-op_amp
-id|outq
-comma
-id|i
-op_plus
-l_int|1
-comma
-id|p-&gt;one
-)paren
-)paren
-multiline_comment|/* this is the last one, so mark it as gone.&n;&t;&t;&t;&t; */
-id|p-&gt;one-&gt;xfrm_flags
-op_or_assign
-id|RENAME_SRC_GONE
 suffix:semicolon
 )brace
 r_else

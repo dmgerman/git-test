@@ -1672,11 +1672,6 @@ comma
 id|diff_score_opt
 )paren
 suffix:semicolon
-id|diffcore_prune
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
