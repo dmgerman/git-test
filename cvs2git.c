@@ -178,7 +178,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;export GIT_COMMITTER_DATE=&squot;%s&squot;&bslash;n&quot;
+l_string|&quot;export GIT_COMMITTER_DATE=&squot;+0000 %s&squot;&bslash;n&quot;
 comma
 id|date
 )paren
@@ -202,7 +202,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;export GIT_AUTHOR_DATE=&squot;%s&squot;&bslash;n&quot;
+l_string|&quot;export GIT_AUTHOR_DATE=&squot;+0000 %s&squot;&bslash;n&quot;
 comma
 id|date
 )paren
