@@ -81,7 +81,12 @@ op_increment
 r_int
 id|len
 op_assign
-id|s-&gt;len
+id|s
+(braket
+id|i
+)braket
+dot
+id|len
 suffix:semicolon
 r_if
 c_cond
@@ -90,7 +95,12 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-id|s-&gt;spec
+id|s
+(braket
+id|i
+)braket
+dot
+id|spec
 comma
 id|name
 comma
