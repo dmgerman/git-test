@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Copyright (C) 2005 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;diffcore.h&quot; /* just for MAX_SCORE */
 DECL|variable|pickaxe
 r_static
 r_const
@@ -444,6 +445,14 @@ comma
 op_amp
 id|score
 )paren
+suffix:semicolon
+id|score
+op_assign
+id|score
+op_star
+id|MAX_SCORE
+op_div
+l_int|100
 suffix:semicolon
 r_if
 c_cond
