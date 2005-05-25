@@ -3461,6 +3461,7 @@ id|p-&gt;status
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/* undecided */
 r_if
 c_cond
 (paren
@@ -3509,7 +3510,11 @@ id|two
 )paren
 )paren
 (brace
-multiline_comment|/* Deletion record should be omitted if there&n;&t;&t;&t; * is another entry that is a rename or a copy&n;&t;&t;&t; * and it uses this one as the source.  Then we&n;&t;&t;&t; * can say the other one is a rename.&n;&t;&t;&t; */
+multiline_comment|/* Deletion record should be omitted if there&n;&t;&t;&t; * are rename/copy entries using this one as&n;&t;&t;&t; * the source.  Then we can say one of them&n;&t;&t;&t; * is a rename and the rest are copies.&n;&t;&t;&t; */
+id|p-&gt;status
+op_assign
+l_char|&squot;D&squot;
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -3552,24 +3557,31 @@ comma
 id|pp-&gt;two-&gt;path
 )paren
 )paren
+(brace
+id|p-&gt;status
+op_assign
+l_char|&squot;X&squot;
+suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+)brace
+)brace
+r_else
 r_if
 c_cond
 (paren
-id|j
-OL
-id|q-&gt;nr
+id|DIFF_PAIR_TYPE_CHANGED
+c_func
+(paren
+id|p
 )paren
-r_continue
-suffix:semicolon
-multiline_comment|/* has rename/copy */
+)paren
 id|p-&gt;status
 op_assign
-l_char|&squot;D&squot;
+l_char|&squot;T&squot;
 suffix:semicolon
-)brace
+multiline_comment|/* from this point on, we are dealing with a pair&n;&t;&t; * whose both sides are valid and of the same type, i.e.&n;&t;&t; * either in-place edit or rename/copy edit.&n;&t;&t; */
 r_else
 r_if
 c_cond
@@ -3583,7 +3595,7 @@ id|p-&gt;two-&gt;path
 )paren
 )paren
 (brace
-multiline_comment|/* See if there is somebody else anywhere that&n;&t;&t;&t; * will keep the path (either modified or&n;&t;&t;&t; * unmodified).  If so, we have to be a copy,&n;&t;&t;&t; * not a rename.  In addition, if there is&n;&t;&t;&t; * some other rename or copy that comes later&n;&t;&t;&t; * than us that uses the same source, we&n;&t;&t;&t; * cannot be a rename either.&n;&t;&t;&t; */
+multiline_comment|/* See if there is somebody else anywhere that&n;&t;&t;&t; * will keep the path (either modified or&n;&t;&t;&t; * unmodified).  If so, we have to be a copy,&n;&t;&t;&t; * not a rename.  In addition, if there is&n;&t;&t;&t; * some other rename or copy that comes later&n;&t;&t;&t; * than us that uses the same source, we&n;&t;&t;&t; * have to be a copy, not a rename.&n;&t;&t;&t; */
 r_for
 c_loop
 (paren
@@ -3701,13 +3713,11 @@ op_assign
 l_char|&squot;M&squot;
 suffix:semicolon
 r_else
-(brace
-multiline_comment|/* we do not need this one */
+multiline_comment|/* this is a &quot;no-change&quot; entry */
 id|p-&gt;status
 op_assign
-l_int|0
+l_char|&squot;X&squot;
 suffix:semicolon
-)brace
 )brace
 id|diff_debug_queue
 c_func
@@ -3804,11 +3814,22 @@ c_cond
 (paren
 id|p-&gt;status
 op_eq
+l_char|&squot;X&squot;
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|p-&gt;status
+op_eq
 l_int|0
 )paren
-id|p-&gt;status
-op_assign
-l_char|&squot;?&squot;
+id|die
+c_func
+(paren
+l_string|&quot;internal error in diff-resolve-rename-copy&quot;
+)paren
 suffix:semicolon
 r_switch
 c_cond
