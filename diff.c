@@ -3806,7 +3806,9 @@ id|p-&gt;status
 op_eq
 l_int|0
 )paren
-r_continue
+id|p-&gt;status
+op_assign
+l_char|&squot;?&squot;
 suffix:semicolon
 r_switch
 c_cond
