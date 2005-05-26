@@ -1410,7 +1410,7 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%s%06o %s %d %s%c&quot;
+l_string|&quot;%s%06o %s %d&bslash;t%s%c&quot;
 comma
 id|ce_stage
 c_func

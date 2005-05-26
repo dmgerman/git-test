@@ -546,7 +546,7 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;%06o&bslash;t%s&bslash;t%s&bslash;t&quot;
+l_string|&quot;%06o %s %s&bslash;t&quot;
 comma
 id|mode
 comma
