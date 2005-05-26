@@ -891,7 +891,7 @@ id|cmdate
 id|parse_date
 c_func
 (paren
-id|audate
+id|cmdate
 comma
 id|realdate
 comma
