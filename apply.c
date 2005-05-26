@@ -1652,6 +1652,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|second
+(braket
+id|len
+)braket
+op_eq
+l_char|&squot;&bslash;n&squot;
+op_logical_and
 op_logical_neg
 id|memcmp
 c_func
