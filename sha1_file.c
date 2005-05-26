@@ -1707,6 +1707,8 @@ op_assign
 id|xmalloc
 c_func
 (paren
+l_int|1
+op_plus
 op_star
 id|size
 )paren
@@ -1771,6 +1773,14 @@ id|Z_OK
 multiline_comment|/* nothing */
 suffix:semicolon
 )brace
+id|buf
+(braket
+op_star
+id|size
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 id|inflateEnd
 c_func
 (paren
