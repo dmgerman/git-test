@@ -1713,17 +1713,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|nr_paths
-)paren
-id|diffcore_pathspec
-c_func
-(paren
-id|paths
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|header
 )paren
 (brace
