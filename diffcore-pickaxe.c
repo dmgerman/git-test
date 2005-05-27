@@ -300,7 +300,7 @@ id|onum
 op_eq
 id|outq.nr
 )paren
-id|free
+id|diff_free_filepair
 c_func
 (paren
 id|p
