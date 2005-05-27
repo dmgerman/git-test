@@ -42,6 +42,8 @@ id|diff_populate_filespec
 c_func
 (paren
 id|one
+comma
+l_int|0
 )paren
 )paren
 r_return
