@@ -318,16 +318,6 @@ c_cond
 id|matches_pathspec
 c_func
 (paren
-id|p-&gt;one-&gt;path
-comma
-id|spec
-comma
-id|speccnt
-)paren
-op_logical_or
-id|matches_pathspec
-c_func
-(paren
 id|p-&gt;two-&gt;path
 comma
 id|spec
