@@ -2656,6 +2656,10 @@ id|dp-&gt;score
 op_assign
 l_int|0
 suffix:semicolon
+id|dp-&gt;source_stays
+op_assign
+l_int|0
+suffix:semicolon
 id|diff_q
 c_func
 (paren
@@ -3429,7 +3433,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;score %d, status %c&bslash;n&quot;
+l_string|&quot;score %d, status %c source_stays %d&bslash;n&quot;
 comma
 id|p-&gt;score
 comma
@@ -3438,6 +3442,8 @@ ques
 c_cond
 suffix:colon
 l_char|&squot;?&squot;
+comma
+id|p-&gt;source_stays
 )paren
 suffix:semicolon
 )brace
@@ -3551,7 +3557,6 @@ op_assign
 op_amp
 id|diff_queued_diff
 suffix:semicolon
-multiline_comment|/* This should not depend on the ordering of things. */
 id|diff_debug_queue
 c_func
 (paren
@@ -3608,11 +3613,7 @@ op_logical_neg
 id|DIFF_FILE_VALID
 c_func
 (paren
-(paren
-id|p
-)paren
-op_member_access_from_pointer
-id|one
+id|p-&gt;one
 )paren
 )paren
 id|p-&gt;status
@@ -3627,19 +3628,11 @@ op_logical_neg
 id|DIFF_FILE_VALID
 c_func
 (paren
-(paren
-id|p
-)paren
-op_member_access_from_pointer
-id|two
+id|p-&gt;two
 )paren
 )paren
 (brace
-multiline_comment|/* Deletion record should be omitted if there&n;&t;&t;&t; * are rename/copy entries using this one as&n;&t;&t;&t; * the source.  Then we can say one of them&n;&t;&t;&t; * is a rename and the rest are copies.&n;&t;&t;&t; */
-id|p-&gt;status
-op_assign
-l_char|&squot;D&squot;
-suffix:semicolon
+multiline_comment|/* Deleted entry may have been picked up by&n;&t;&t;&t; * another rename-copy entry.  So we scan the&n;&t;&t;&t; * queue and if we find one that uses us as the&n;&t;&t;&t; * source we do not say delete for this entry.&n;&t;&t;&t; */
 r_for
 c_loop
 (paren
@@ -3669,20 +3662,15 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|pp-&gt;one-&gt;path
-comma
 id|p-&gt;one-&gt;path
+comma
+id|pp-&gt;one-&gt;path
 )paren
 op_logical_and
-id|strcmp
-c_func
-(paren
-id|pp-&gt;one-&gt;path
-comma
-id|pp-&gt;two-&gt;path
-)paren
+id|pp-&gt;score
 )paren
 (brace
+multiline_comment|/* rename/copy are always valid&n;&t;&t;&t;&t;&t; * so we do not say DIFF_FILE_VALID()&n;&t;&t;&t;&t;&t; * on pp-&gt;one and pp-&gt;two.&n;&t;&t;&t;&t;&t; */
 id|p-&gt;status
 op_assign
 l_char|&squot;X&squot;
@@ -3691,6 +3679,16 @@ r_break
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|p-&gt;status
+)paren
+id|p-&gt;status
+op_assign
+l_char|&squot;D&squot;
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -3711,22 +3709,31 @@ r_else
 r_if
 c_cond
 (paren
-id|strcmp
-c_func
-(paren
-id|p-&gt;one-&gt;path
-comma
-id|p-&gt;two-&gt;path
-)paren
+id|p-&gt;score
 )paren
 (brace
-multiline_comment|/* See if there is somebody else anywhere that&n;&t;&t;&t; * will keep the path (either modified or&n;&t;&t;&t; * unmodified).  If so, we have to be a copy,&n;&t;&t;&t; * not a rename.  In addition, if there is&n;&t;&t;&t; * some other rename or copy that comes later&n;&t;&t;&t; * than us that uses the same source, we&n;&t;&t;&t; * have to be a copy, not a rename.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|p-&gt;source_stays
+)paren
+(brace
+id|p-&gt;status
+op_assign
+l_char|&squot;C&squot;
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+multiline_comment|/* See if there is some other filepair that&n;&t;&t;&t; * copies from the same source as us.  If so&n;&t;&t;&t; * we are a copy.  Otherwise we are a rename.&n;&t;&t;&t; */
 r_for
 c_loop
 (paren
 id|j
 op_assign
-l_int|0
+id|i
+op_plus
+l_int|1
 suffix:semicolon
 id|j
 OL
@@ -3756,57 +3763,23 @@ id|p-&gt;one-&gt;path
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* not us */
 r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
-c_func
-(paren
-id|pp-&gt;one-&gt;path
-comma
-id|pp-&gt;two-&gt;path
+id|pp-&gt;score
 )paren
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|DIFF_FILE_VALID
-c_func
-(paren
-id|pp-&gt;two
-)paren
-)paren
-(brace
-multiline_comment|/* non-delete */
-id|p-&gt;status
-op_assign
-l_char|&squot;C&squot;
-suffix:semicolon
-r_break
-suffix:semicolon
-)brace
 r_continue
 suffix:semicolon
-)brace
-multiline_comment|/* pp is a rename/copy ... */
-r_if
-c_cond
-(paren
-id|i
-OL
-id|j
-)paren
-(brace
-multiline_comment|/* ... and comes later than us */
+multiline_comment|/* not a rename/copy */
+multiline_comment|/* pp is a rename/copy from the same source */
 id|p-&gt;status
 op_assign
 l_char|&squot;C&squot;
 suffix:semicolon
 r_break
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -3842,10 +3815,12 @@ op_assign
 l_char|&squot;M&squot;
 suffix:semicolon
 r_else
-multiline_comment|/* this is a &quot;no-change&quot; entry */
-id|p-&gt;status
-op_assign
-l_char|&squot;X&squot;
+multiline_comment|/* this is a &quot;no-change&quot; entry.&n;&t;&t;&t; * should not happen anymore.&n;&t;&t;&t; * p-&gt;status = &squot;X&squot;;&n;&t;&t;&t; */
+id|die
+c_func
+(paren
+l_string|&quot;internal error in diffcore: unmodified entry remains&quot;
+)paren
 suffix:semicolon
 )brace
 id|diff_debug_queue

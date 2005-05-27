@@ -247,6 +247,7 @@ id|first
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* Table of rename/copy src files */
 DECL|struct|diff_rename_src
 r_static
 r_struct
@@ -258,9 +259,9 @@ id|diff_filespec
 op_star
 id|one
 suffix:semicolon
-DECL|member|src_used
+DECL|member|src_stays
 r_int
-id|src_used
+id|src_stays
 suffix:colon
 l_int|1
 suffix:semicolon
@@ -277,12 +278,12 @@ id|rename_src_nr
 comma
 id|rename_src_alloc
 suffix:semicolon
-DECL|function|locate_rename_src
+DECL|function|register_rename_src
 r_static
 r_struct
 id|diff_rename_src
 op_star
-id|locate_rename_src
+id|register_rename_src
 c_func
 (paren
 r_struct
@@ -291,7 +292,7 @@ op_star
 id|one
 comma
 r_int
-id|insert_ok
+id|src_stays
 )paren
 (brace
 r_int
@@ -381,16 +382,6 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/* not found */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|insert_ok
-)paren
-r_return
-l_int|NULL
-suffix:semicolon
 multiline_comment|/* insert to make it at &quot;first&quot; */
 r_if
 c_cond
@@ -475,9 +466,9 @@ id|rename_src
 id|first
 )braket
 dot
-id|src_used
+id|src_stays
 op_assign
-l_int|0
+id|src_stays
 suffix:semicolon
 r_return
 op_amp
@@ -925,15 +916,20 @@ suffix:semicolon
 id|dp-&gt;score
 op_assign
 id|score
+ques
+c_cond
+suffix:colon
+l_int|1
 suffix:semicolon
+multiline_comment|/* make sure it is at least 1 */
+id|dp-&gt;source_stays
+op_assign
 id|rename_src
 (braket
 id|src_index
 )braket
 dot
-id|src_used
-op_assign
-l_int|1
+id|src_stays
 suffix:semicolon
 id|rename_dst
 (braket
@@ -945,7 +941,7 @@ op_assign
 id|dp
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * We sort the rename similarity matrix with the score, in descending&n; * order (more similar first).&n; */
+multiline_comment|/*&n; * We sort the rename similarity matrix with the score, in descending&n; * order (the most similar first).&n; */
 DECL|function|score_compare
 r_static
 r_int
@@ -1239,24 +1235,23 @@ c_func
 id|p-&gt;two
 )paren
 )paren
-id|locate_rename_src
+id|register_rename_src
 c_func
 (paren
 id|p-&gt;one
 comma
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 r_else
 r_if
 c_cond
 (paren
-l_int|1
-OL
 id|detect_rename
+op_eq
+id|DIFF_DETECT_COPY
 )paren
-multiline_comment|/* find copy, too */
-id|locate_rename_src
+id|register_rename_src
 c_func
 (paren
 id|p-&gt;one
@@ -1381,7 +1376,7 @@ op_eq
 id|rename_dst_nr
 )paren
 r_goto
-id|flush_rest
+id|cleanup
 suffix:semicolon
 id|num_create
 op_assign
@@ -1598,7 +1593,7 @@ id|minimum_score
 )paren
 r_break
 suffix:semicolon
-multiline_comment|/* there is not any more diffs applicable. */
+multiline_comment|/* there is no more usable pair. */
 id|record_rename_pair
 c_func
 (paren
@@ -1643,9 +1638,9 @@ op_amp
 id|renq
 )paren
 suffix:semicolon
-id|flush_rest
+id|cleanup
 suffix:colon
-multiline_comment|/* At this point, we have found some renames and copies and they&n;&t; * are kept in renq.  The original list is still in *q.&n;&t; *&n;&t; * Scan the original list and move them into the outq; we will sort&n;&t; * outq and swap it into the queue supplied to pass that to&n;&t; * downstream, so we assign the sort keys in this loop.&n;&t; *&n;&t; * See comments at the top of record_rename_pair for numbers used&n;&t; * to assign rename_rank.&n;&t; */
+multiline_comment|/* At this point, we have found some renames and copies and they&n;&t; * are kept in renq.  The original list is still in *q.&n;&t; */
 id|outq.queue
 op_assign
 l_int|NULL
@@ -1682,19 +1677,6 @@ id|i
 )braket
 suffix:semicolon
 r_struct
-id|diff_rename_src
-op_star
-id|src
-op_assign
-id|locate_rename_src
-c_func
-(paren
-id|p-&gt;one
-comma
-l_int|0
-)paren
-suffix:semicolon
-r_struct
 id|diff_rename_dst
 op_star
 id|dst
@@ -1727,7 +1709,7 @@ c_cond
 id|dst-&gt;pair
 )paren
 (brace
-multiline_comment|/* renq has rename/copy already to produce&n;&t;&t;&t;&t; * this file, so we do not emit the creation&n;&t;&t;&t;&t; * record in the output.&n;&t;&t;&t;&t; */
+multiline_comment|/* renq has rename/copy to produce&n;&t;&t;&t;&t; * this file already, so we do not&n;&t;&t;&t;&t; * emit the creation record in the&n;&t;&t;&t;&t; * output.&n;&t;&t;&t;&t; */
 id|diff_q
 c_func
 (paren
@@ -1765,7 +1747,7 @@ c_func
 id|p
 )paren
 )paren
-multiline_comment|/* all the other cases need to be recorded as is */
+multiline_comment|/* all the usual ones need to be kept */
 id|diff_q
 c_func
 (paren
@@ -1776,30 +1758,11 @@ id|p
 )paren
 suffix:semicolon
 r_else
-(brace
-multiline_comment|/* unmodified pair needs to be recorded only if&n;&t;&t;&t; * it is used as the source of rename/copy&n;&t;&t;&t; */
-r_if
-c_cond
-(paren
-id|src
-op_logical_and
-id|src-&gt;src_used
-)paren
-id|diff_q
-c_func
-(paren
-op_amp
-id|outq
-comma
-id|p
-)paren
-suffix:semicolon
-r_else
+multiline_comment|/* no need to keep unmodified pairs */
 id|pair_to_free
 op_assign
 id|p
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -1846,8 +1809,6 @@ comma
 id|q
 )paren
 suffix:semicolon
-id|cleanup
-suffix:colon
 id|free
 c_func
 (paren
