@@ -999,6 +999,9 @@ comma
 l_char|&squot;/&squot;
 )paren
 suffix:semicolon
+r_int
+id|len
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1013,6 +1016,11 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* first cut it at slash */
+id|len
+op_assign
+id|ep
+id|pathbuf
+suffix:semicolon
 id|pos
 op_assign
 id|cache_name_pos
@@ -1026,9 +1034,7 @@ c_func
 id|create_ce_flags
 c_func
 (paren
-id|ep
-op_minus
-id|cp
+id|len
 comma
 id|stage
 )paren
