@@ -57,10 +57,10 @@ id|detect_rename
 op_assign
 l_int|0
 suffix:semicolon
-DECL|variable|reverse_diff
+DECL|variable|diff_setup_opt
 r_static
 r_int
-id|reverse_diff
+id|diff_setup_opt
 op_assign
 l_int|0
 suffix:semicolon
@@ -1652,7 +1652,7 @@ r_void
 id|diff_setup
 c_func
 (paren
-id|reverse_diff
+id|diff_setup_opt
 )paren
 suffix:semicolon
 )brace
@@ -2949,9 +2949,9 @@ l_string|&quot;-R&quot;
 )paren
 )paren
 (brace
-id|reverse_diff
-op_assign
-l_int|1
+id|diff_setup_opt
+op_or_assign
+id|DIFF_SETUP_REVERSE
 suffix:semicolon
 r_continue
 suffix:semicolon
