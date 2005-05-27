@@ -589,10 +589,6 @@ DECL|member|score
 r_int
 id|score
 suffix:semicolon
-DECL|member|rank
-r_int
-id|rank
-suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|estimate_similarity
