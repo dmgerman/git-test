@@ -4382,6 +4382,10 @@ suffix:semicolon
 id|dp-&gt;score
 op_assign
 id|score
+op_star
+id|MAX_SCORE
+op_div
+l_int|100
 suffix:semicolon
 id|dp-&gt;status
 op_assign
