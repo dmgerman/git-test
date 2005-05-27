@@ -743,12 +743,10 @@ id|xfrm_msg
 l_int|0
 )braket
 )paren
-id|fputs
+id|puts
 c_func
 (paren
 id|xfrm_msg
-comma
-id|stdout
 )paren
 suffix:semicolon
 r_if
@@ -3140,7 +3138,7 @@ id|msg_
 comma
 l_string|&quot;similarity index %d%%&bslash;n&quot;
 l_string|&quot;copy from %s&bslash;n&quot;
-l_string|&quot;copy to %s&bslash;n&quot;
+l_string|&quot;copy to %s&quot;
 comma
 (paren
 r_int
@@ -3176,7 +3174,7 @@ id|msg_
 comma
 l_string|&quot;similarity index %d%%&bslash;n&quot;
 l_string|&quot;rename old %s&bslash;n&quot;
-l_string|&quot;rename new %s&bslash;n&quot;
+l_string|&quot;rename new %s&quot;
 comma
 (paren
 r_int
