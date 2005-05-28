@@ -338,7 +338,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|strncmp
 c_func
 (paren
 id|argv
@@ -347,6 +347,8 @@ l_int|1
 )braket
 comma
 l_string|&quot;-S&quot;
+comma
+l_int|2
 )paren
 )paren
 id|pickaxe

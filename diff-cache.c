@@ -961,12 +961,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|strncmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;-S&quot;
+comma
+l_int|2
 )paren
 )paren
 (brace
