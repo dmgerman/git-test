@@ -2,7 +2,6 @@ multiline_comment|/*&n; * Copyright (C) 2005 Junio C Hamano&n; * The delta-parsi
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;limits.h&gt;
-macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;count-delta.h&quot;
 DECL|function|get_hdr_size
 r_static
