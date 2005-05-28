@@ -368,6 +368,19 @@ r_return
 id|UINT_MAX
 suffix:semicolon
 multiline_comment|/* delete size is what was _not_ copied from source.&n;&t; * edit size is that and literal additions.&n;&t; */
+r_if
+c_cond
+(paren
+id|src_size
+op_plus
+id|added_literal
+OL
+id|copied_from_source
+)paren
+multiline_comment|/* we ended up overcounting and underflowed */
+r_return
+l_int|0
+suffix:semicolon
 r_return
 (paren
 id|src_size
