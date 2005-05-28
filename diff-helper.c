@@ -60,6 +60,11 @@ r_struct
 id|strbuf
 id|sb
 suffix:semicolon
+r_const
+r_char
+op_star
+id|garbage_flush_format
+suffix:semicolon
 id|strbuf_init
 c_func
 (paren
@@ -163,6 +168,19 @@ id|av
 op_increment
 suffix:semicolon
 )brace
+id|garbage_flush_format
+op_assign
+(paren
+id|line_termination
+op_eq
+l_int|0
+)paren
+ques
+c_cond
+l_string|&quot;%s&quot;
+suffix:colon
+l_string|&quot;%s&bslash;n&quot;
+suffix:semicolon
 multiline_comment|/* the remaining parameters are paths patterns */
 id|diff_setup
 c_func
@@ -730,7 +748,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s&bslash;n&quot;
+id|garbage_flush_format
 comma
 id|sb.buf
 )paren
