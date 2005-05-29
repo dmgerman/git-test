@@ -474,11 +474,14 @@ id|status
 op_eq
 l_char|&squot;C&squot;
 )paren
-(brace
 id|two_paths
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/* pick up score if exists */
+r_if
+c_cond
+(paren
 id|sscanf
 c_func
 (paren
@@ -489,13 +492,13 @@ comma
 op_amp
 id|score
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|line_termination
+op_ne
+l_int|1
 )paren
-(brace
+id|score
+op_assign
+l_int|0
+suffix:semicolon
 id|cp
 op_assign
 id|strchr
@@ -514,8 +517,6 @@ id|cp
 )paren
 r_break
 suffix:semicolon
-)brace
-)brace
 r_if
 c_cond
 (paren
