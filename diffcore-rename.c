@@ -974,12 +974,7 @@ suffix:semicolon
 id|dp-&gt;score
 op_assign
 id|score
-ques
-c_cond
-suffix:colon
-l_int|1
 suffix:semicolon
-multiline_comment|/* make sure it is at least 1 */
 id|dp-&gt;source_stays
 op_assign
 id|rename_src

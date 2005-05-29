@@ -4035,7 +4035,11 @@ comma
 id|pp-&gt;one-&gt;path
 )paren
 op_logical_and
-id|pp-&gt;score
+id|DIFF_PAIR_RENAME
+c_func
+(paren
+id|pp
+)paren
 )paren
 (brace
 multiline_comment|/* rename/copy are always valid&n;&t;&t;&t;&t;&t; * so we do not say DIFF_FILE_VALID()&n;&t;&t;&t;&t;&t; * on pp-&gt;one and pp-&gt;two.&n;&t;&t;&t;&t;&t; */
@@ -4077,7 +4081,11 @@ r_else
 r_if
 c_cond
 (paren
-id|p-&gt;score
+id|DIFF_PAIR_RENAME
+c_func
+(paren
+id|p
+)paren
 )paren
 (brace
 r_if
@@ -4136,7 +4144,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|pp-&gt;score
+id|DIFF_PAIR_RENAME
+c_func
+(paren
+id|pp
+)paren
 )paren
 r_continue
 suffix:semicolon
