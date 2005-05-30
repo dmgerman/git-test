@@ -2115,6 +2115,7 @@ id|one-&gt;sha1
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/* Even though we may sometimes borrow the&n;&t;&t;&t; * contents from the work tree, we always want&n;&t;&t;&t; * one-&gt;mode.  mode is trustworthy even when&n;&t;&t;&t; * !(one-&gt;sha1_valid), as long as&n;&t;&t;&t; * DIFF_FILE_VALID(one).&n;&t;&t;&t; */
 id|sprintf
 c_func
 (paren
@@ -2122,13 +2123,7 @@ id|temp-&gt;mode
 comma
 l_string|&quot;%06o&quot;
 comma
-id|S_IFREG
-op_or
-id|ce_permissions
-c_func
-(paren
-id|st.st_mode
-)paren
+id|one-&gt;mode
 )paren
 suffix:semicolon
 )brace
