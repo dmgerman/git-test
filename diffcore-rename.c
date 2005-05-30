@@ -1074,12 +1074,19 @@ l_int|1
 )braket
 op_ne
 l_char|&squot;C&squot;
+op_logical_and
+id|opt
+(braket
+l_int|1
+)braket
+op_ne
+l_char|&squot;B&squot;
 )paren
 )paren
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* that is not a -M nor -C option */
+multiline_comment|/* that is not a -M, -C nor -B option */
 id|diglen
 op_assign
 id|strspn
@@ -1208,7 +1215,7 @@ id|minimum_score
 )paren
 id|minimum_score
 op_assign
-id|DEFAULT_MINIMUM_SCORE
+id|DEFAULT_RENAME_SCORE
 suffix:semicolon
 id|renq.queue
 op_assign
@@ -1819,7 +1826,46 @@ id|p-&gt;two
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t; * Deletion&n;&t;&t;&t; *&n;&t;&t;&t; * We would output this delete record if renq&n;&t;&t;&t; * does not have a rename/copy to move&n;&t;&t;&t; * p-&gt;one-&gt;path out.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * Deletion&n;&t;&t;&t; *&n;&t;&t;&t; * We would output this delete record if:&n;&t;&t;&t; *&n;&t;&t;&t; * (1) this is a broken delete and the counterpart&n;&t;&t;&t; *     broken create remains in the output; or&n;&t;&t;&t; * (2) this is not a broken delete, and renq does&n;&t;&t;&t; *     not have a rename/copy to move p-&gt;one-&gt;path&n;&t;&t;&t; *     out.&n;&t;&t;&t; *&n;&t;&t;&t; * Otherwise, the counterpart broken create&n;&t;&t;&t; * has been turned into a rename-edit; or&n;&t;&t;&t; * delete did not have a matching create to&n;&t;&t;&t; * begin with.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|DIFF_PAIR_BROKEN
+c_func
+(paren
+id|p
+)paren
+)paren
+(brace
+multiline_comment|/* broken delete */
+r_struct
+id|diff_rename_dst
+op_star
+id|dst
+op_assign
+id|locate_rename_dst
+c_func
+(paren
+id|p-&gt;one
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|dst
+op_logical_and
+id|dst-&gt;pair
+)paren
+multiline_comment|/* counterpart is now rename/copy */
+id|pair_to_free
+op_assign
+id|p
+suffix:semicolon
+)brace
+r_else
+(brace
 r_for
 c_loop
 (paren
@@ -1865,6 +1911,7 @@ id|pair_to_free
 op_assign
 id|p
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
