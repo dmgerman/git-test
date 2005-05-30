@@ -1491,6 +1491,27 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|function|gitdiff_dissimilarity
+r_static
+r_int
+id|gitdiff_dissimilarity
+c_func
+(paren
+r_const
+r_char
+op_star
+id|line
+comma
+r_struct
+id|patch
+op_star
+id|patch
+)paren
+(brace
+r_return
+l_int|0
+suffix:semicolon
+)brace
 multiline_comment|/*&n; * This is normal for a diff that doesn&squot;t change anything: we&squot;ll fall through&n; * into the next diff. Tell the parser to break out.&n; */
 DECL|function|gitdiff_unrecognized
 r_static
@@ -1921,6 +1942,12 @@ comma
 l_string|&quot;similarity index &quot;
 comma
 id|gitdiff_similarity
+)brace
+comma
+(brace
+l_string|&quot;dissimilarity index &quot;
+comma
+id|gitdiff_dissimilarity
 )brace
 comma
 (brace
