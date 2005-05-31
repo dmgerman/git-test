@@ -431,12 +431,10 @@ l_int|9
 )paren
 suffix:semicolon
 )brace
-DECL|macro|TERM_EXIST
-mdefine_line|#define TERM_EXIST&t;1
 DECL|macro|TERM_SPACE
-mdefine_line|#define TERM_SPACE&t;2
+mdefine_line|#define TERM_SPACE&t;1
 DECL|macro|TERM_TAB
-mdefine_line|#define TERM_TAB&t;4
+mdefine_line|#define TERM_TAB&t;2
 DECL|function|name_terminate
 r_static
 r_int
@@ -490,25 +488,6 @@ id|TERM_TAB
 )paren
 )paren
 r_return
-l_int|0
-suffix:semicolon
-multiline_comment|/*&n;&t; * Do we want an existing name? Return false and&n;&t; * continue if it&squot;s not there.&n;&t; */
-r_if
-c_cond
-(paren
-id|terminate
-op_amp
-id|TERM_EXIST
-)paren
-r_return
-id|cache_name_pos
-c_func
-(paren
-id|name
-comma
-id|namelen
-)paren
-op_ge
 l_int|0
 suffix:semicolon
 r_return
@@ -832,8 +811,6 @@ l_int|NULL
 comma
 id|p_value
 comma
-id|TERM_EXIST
-op_or
 id|TERM_SPACE
 op_or
 id|TERM_TAB
@@ -857,8 +834,6 @@ l_int|NULL
 comma
 id|p_value
 comma
-id|TERM_EXIST
-op_or
 id|TERM_SPACE
 op_or
 id|TERM_TAB
@@ -875,8 +850,6 @@ id|name
 comma
 id|p_value
 comma
-id|TERM_EXIST
-op_or
 id|TERM_SPACE
 op_or
 id|TERM_TAB
