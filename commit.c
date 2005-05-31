@@ -621,7 +621,9 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|commit_list_insert
-r_void
+r_struct
+id|commit_list
+op_star
 id|commit_list_insert
 c_func
 (paren
@@ -664,6 +666,9 @@ suffix:semicolon
 op_star
 id|list_p
 op_assign
+id|new_list
+suffix:semicolon
+r_return
 id|new_list
 suffix:semicolon
 )brace
