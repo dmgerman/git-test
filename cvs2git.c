@@ -334,6 +334,10 @@ r_char
 op_star
 id|dst_branch
 suffix:semicolon
+r_char
+op_star
+id|space
+suffix:semicolon
 r_int
 id|i
 suffix:semicolon
@@ -474,6 +478,45 @@ c_func
 l_string|&quot;echo $commit &gt; .git/refs/heads/&squot;%s&squot;&bslash;n&quot;
 comma
 id|dst_branch
+)paren
+suffix:semicolon
+id|space
+op_assign
+id|strchr
+c_func
+(paren
+id|tag
+comma
+l_char|&squot; &squot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|space
+)paren
+op_star
+id|space
+op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|strcmp
+c_func
+(paren
+id|tag
+comma
+l_string|&quot;(none)&quot;
+)paren
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;echo $commit &gt; .git/refs/tags/&squot;%s&squot;&bslash;n&quot;
+comma
+id|tag
 )paren
 suffix:semicolon
 id|printf
