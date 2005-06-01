@@ -305,6 +305,10 @@ comma
 l_char|&squot; &squot;
 )paren
 suffix:semicolon
+r_int
+r_int
+id|mode
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -324,7 +328,8 @@ id|tree
 comma
 l_string|&quot;%o&quot;
 comma
-id|modep
+op_amp
+id|mode
 )paren
 op_ne
 l_int|1
@@ -341,6 +346,15 @@ op_assign
 id|path
 op_plus
 l_int|1
+suffix:semicolon
+op_star
+id|modep
+op_assign
+id|DIFF_FILE_CANON_MODE
+c_func
+(paren
+id|mode
+)paren
 suffix:semicolon
 r_return
 id|sha1

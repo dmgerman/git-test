@@ -4279,13 +4279,21 @@ op_assign
 l_char|&squot;M&squot;
 suffix:semicolon
 r_else
-multiline_comment|/* this is a &quot;no-change&quot; entry.&n;&t;&t;&t; * should not happen anymore.&n;&t;&t;&t; * p-&gt;status = &squot;X&squot;;&n;&t;&t;&t; */
-id|die
+(brace
+multiline_comment|/* This is a &quot;no-change&quot; entry and should not&n;&t;&t;&t; * happen anymore, but prepare for broken callers.&n;&t;&t;&t; */
+id|error
 c_func
 (paren
-l_string|&quot;internal error in diffcore: unmodified entry remains&quot;
+l_string|&quot;feeding unmodified %s to diffcore&quot;
+comma
+id|p-&gt;one-&gt;path
 )paren
 suffix:semicolon
+id|p-&gt;status
+op_assign
+l_char|&squot;X&squot;
+suffix:semicolon
+)brace
 )brace
 id|diff_debug_queue
 c_func
