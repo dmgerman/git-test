@@ -164,6 +164,26 @@ id|arg
 l_int|1
 )braket
 op_eq
+l_char|&squot;d&squot;
+)paren
+(brace
+id|get_delta
+op_assign
+l_int|0
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|argv
+(braket
+id|arg
+)braket
+(braket
+l_int|1
+)braket
+op_eq
 l_char|&squot;a&squot;
 )paren
 (brace
@@ -217,7 +237,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-rpull [-c] [-t] [-a] [-v] commit-id url&quot;
+l_string|&quot;git-rpull [-c] [-t] [-a] [-v] [-d] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return

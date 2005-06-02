@@ -462,7 +462,7 @@ r_char
 op_star
 id|local_pull_usage
 op_assign
-l_string|&quot;git-local-pull [-c] [-t] [-a] [-l] [-s] [-n] [-v] commit-id path&quot;
+l_string|&quot;git-local-pull [-c] [-t] [-a] [-l] [-s] [-n] [-v] [-d] commit-id path&quot;
 suffix:semicolon
 multiline_comment|/* &n; * By default we only use file copy.&n; * If -l is specified, a hard link is attempted.&n; * If -s is specified, then a symlink is attempted.&n; * If -n is _not_ specified, then a regular file-to-file copy is done.&n; */
 DECL|function|main
@@ -540,6 +540,24 @@ l_char|&squot;c&squot;
 id|get_history
 op_assign
 l_int|1
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|argv
+(braket
+id|arg
+)braket
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;d&squot;
+)paren
+id|get_delta
+op_assign
+l_int|0
 suffix:semicolon
 r_else
 r_if
