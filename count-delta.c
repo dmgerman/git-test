@@ -89,9 +89,8 @@ r_return
 id|size
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * NOTE.  We do not _interpret_ delta fully.  As an approximation, we&n; * just count the number of bytes that are copied from the source, and&n; * the number of literal data bytes that are inserted.  Number of&n; * bytes that are _not_ copied from the source is deletion, and number&n; * of inserted literal bytes are addition, so sum of them is what we&n; * return.  xdelta can express an edit that copies data inside of the&n; * destination which originally came from the source.  We do not count&n; * that in the following routine, so we are undercounting the source&n; * material that remains in the final output that way.&n; */
+multiline_comment|/*&n; * NOTE.  We do not _interpret_ delta fully.  As an approximation, we&n; * just count the number of bytes that are copied from the source, and&n; * the number of literal data bytes that are inserted.&n; *&n; * Number of bytes that are _not_ copied from the source is deletion,&n; * and number of inserted literal bytes are addition, so sum of them&n; * is the extent of damage.  xdelta can express an edit that copies&n; * data inside of the destination which originally came from the&n; * source.  We do not count that in the following routine, so we are&n; * undercounting the source material that remains in the final output&n; * that way.&n; */
 DECL|function|count_delta
-r_int
 r_int
 id|count_delta
 c_func
@@ -103,6 +102,16 @@ comma
 r_int
 r_int
 id|delta_size
+comma
+r_int
+r_int
+op_star
+id|src_copied
+comma
+r_int
+r_int
+op_star
+id|literal_added
 )paren
 (brace
 r_int
@@ -141,7 +150,7 @@ OL
 l_int|6
 )paren
 r_return
-id|UINT_MAX
+l_int|1
 suffix:semicolon
 id|data
 op_assign
@@ -365,29 +374,21 @@ op_ne
 id|dst_size
 )paren
 r_return
-id|UINT_MAX
+l_int|1
 suffix:semicolon
 multiline_comment|/* delete size is what was _not_ copied from source.&n;&t; * edit size is that and literal additions.&n;&t; */
-r_if
-c_cond
-(paren
-id|src_size
-op_plus
-id|added_literal
-OL
+op_star
+id|src_copied
+op_assign
 id|copied_from_source
-)paren
-multiline_comment|/* we ended up overcounting and underflowed */
-r_return
-l_int|0
+suffix:semicolon
+op_star
+id|literal_added
+op_assign
+id|added_literal
 suffix:semicolon
 r_return
-(paren
-id|src_size
-id|copied_from_source
-)paren
-op_plus
-id|added_literal
+l_int|0
 suffix:semicolon
 )brace
 eof
