@@ -2471,7 +2471,7 @@ r_char
 op_star
 id|diff_tree_usage
 op_assign
-l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-C] [-R] [-S&lt;string&gt;] [-m] [-s] [-v] [-t] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
+l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-C] [-R] [-S&lt;string&gt;] [-O&lt;orderfile&gt;] [-m] [-s] [-v] [-t] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
 suffix:semicolon
 DECL|function|main
 r_int
