@@ -277,8 +277,8 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
 (paren
 id|offset
 )paren
