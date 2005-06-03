@@ -27,6 +27,7 @@ r_int
 id|find_object
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -130,6 +131,7 @@ op_star
 id|lookup_object
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -167,6 +169,7 @@ r_void
 id|created_object
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -461,6 +464,7 @@ op_star
 id|parse_object
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star

@@ -23,6 +23,7 @@ id|object
 op_star
 id|obj
 comma
+r_const
 r_int
 r_char
 op_star
@@ -71,6 +72,7 @@ op_star
 id|lookup_commit_reference
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -134,6 +136,7 @@ op_star
 id|lookup_commit
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
