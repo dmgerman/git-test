@@ -4800,9 +4800,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-l_int|0
-op_le
 id|break_opt
+op_ne
+l_int|1
 )paren
 id|diffcore_break
 c_func
@@ -4826,9 +4826,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-l_int|0
-op_le
 id|break_opt
+op_ne
+l_int|1
 )paren
 id|diffcore_merge_broken
 c_func
