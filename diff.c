@@ -1174,6 +1174,9 @@ op_star
 id|sha1
 comma
 r_int
+id|find_only
+comma
+r_int
 r_int
 id|size
 )paren
@@ -1205,6 +1208,8 @@ id|first
 )paren
 (brace
 r_int
+id|cmp
+comma
 id|next
 op_assign
 (paren
@@ -1222,7 +1227,6 @@ id|sha1_size_cache
 id|next
 )braket
 suffix:semicolon
-r_int
 id|cmp
 op_assign
 id|memcmp
@@ -1270,9 +1274,7 @@ multiline_comment|/* not found */
 r_if
 c_cond
 (paren
-id|size
-op_eq
-id|UINT_MAX
+id|find_only
 )paren
 r_return
 l_int|NULL
@@ -1671,7 +1673,9 @@ c_func
 (paren
 id|s-&gt;sha1
 comma
-id|UINT_MAX
+l_int|1
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -1705,6 +1709,8 @@ id|locate_size_cache
 c_func
 (paren
 id|s-&gt;sha1
+comma
+l_int|0
 comma
 id|s-&gt;size
 )paren
