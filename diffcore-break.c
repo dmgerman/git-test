@@ -98,28 +98,6 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* error but caught downstream */
-id|delta_size
-op_assign
-(paren
-(paren
-id|src-&gt;size
-OL
-id|dst-&gt;size
-)paren
-ques
-c_cond
-(paren
-id|dst-&gt;size
-id|src-&gt;size
-)paren
-suffix:colon
-(paren
-id|src-&gt;size
-id|dst-&gt;size
-)paren
-)paren
-suffix:semicolon
-multiline_comment|/* Notice that we use max of src and dst as the base size,&n;&t; * unlike rename similarity detection.  This is so that we do&n;&t; * not mistake a large addition as a complete rewrite.&n;&t; */
 id|base_size
 op_assign
 (paren
@@ -130,9 +108,9 @@ id|dst-&gt;size
 )paren
 ques
 c_cond
-id|dst-&gt;size
-suffix:colon
 id|src-&gt;size
+suffix:colon
+id|dst-&gt;size
 )paren
 suffix:semicolon
 id|delta
@@ -196,12 +174,10 @@ id|src-&gt;size
 op_le
 id|src_copied
 )paren
-id|delta_size
-op_assign
-l_int|0
 suffix:semicolon
-multiline_comment|/* avoid wrapping around */
+multiline_comment|/* all copied, nothing removed */
 r_else
+(brace
 id|delta_size
 op_assign
 id|src-&gt;size
@@ -216,6 +192,7 @@ id|MAX_SCORE
 op_div
 id|src-&gt;size
 suffix:semicolon
+)brace
 multiline_comment|/* Extent of damage, which counts both inserts and&n;&t; * deletes.&n;&t; */
 r_if
 c_cond
@@ -422,6 +399,10 @@ comma
 op_amp
 id|score
 )paren
+op_logical_and
+id|MINIMUM_BREAK_SIZE
+op_le
+id|p-&gt;one-&gt;size
 )paren
 (brace
 multiline_comment|/* Split this into delete and create */
@@ -442,17 +423,9 @@ multiline_comment|/* Set score to 0 for the pair that&n;&t;&t;&t;&t; * needs to 
 r_if
 c_cond
 (paren
-(paren
 id|score
 OL
 id|merge_score
-)paren
-op_logical_or
-(paren
-id|p-&gt;one-&gt;size
-OL
-id|MINIMUM_BREAK_SIZE
-)paren
 )paren
 id|score
 op_assign
