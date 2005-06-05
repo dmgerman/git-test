@@ -1661,7 +1661,7 @@ suffix:semicolon
 )brace
 DECL|function|find_file_objects
 r_static
-r_void
+r_int
 id|find_file_objects
 c_func
 (paren
@@ -1760,6 +1760,7 @@ OL
 l_int|0
 )paren
 r_return
+l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * Recurse into directories&n;&t; */
 r_if
@@ -1772,6 +1773,11 @@ id|st.st_mode
 )paren
 )paren
 (brace
+r_int
+id|count
+op_assign
+l_int|0
+suffix:semicolon
 id|DIR
 op_star
 id|dir
@@ -1821,6 +1827,8 @@ l_char|&squot;.&squot;
 )paren
 r_continue
 suffix:semicolon
+id|count
+op_add_assign
 id|find_file_objects
 c_func
 (paren
@@ -1838,6 +1846,7 @@ id|dir
 suffix:semicolon
 )brace
 r_return
+id|count
 suffix:semicolon
 )brace
 r_if
@@ -1849,16 +1858,18 @@ c_func
 id|st.st_mode
 )paren
 )paren
-(brace
+r_return
 id|read_sha1_reference
 c_func
 (paren
 id|path
 )paren
+op_eq
+l_int|0
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
-)brace
 )brace
 DECL|function|get_default_heads
 r_static
@@ -1883,12 +1894,27 @@ c_cond
 suffix:colon
 id|DEFAULT_GIT_DIR_ENVIRONMENT
 suffix:semicolon
+r_int
+id|count
+op_assign
 id|find_file_objects
 c_func
 (paren
 id|git_dir
 comma
 l_string|&quot;refs&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|count
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;No default references&quot;
 )paren
 suffix:semicolon
 )brace
