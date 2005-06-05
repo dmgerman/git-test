@@ -608,6 +608,28 @@ r_else
 r_if
 c_cond
 (paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+id|arg
+)braket
+comma
+l_string|&quot;--recover&quot;
+)paren
+)paren
+(brace
+id|get_delta
+op_assign
+l_int|2
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 id|argv
 (braket
 id|arg
@@ -669,7 +691,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-http-pull [-c] [-t] [-a] [-d] [-v] commit-id url&quot;
+l_string|&quot;git-http-pull [-c] [-t] [-a] [-d] [-v] [--recover] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return
