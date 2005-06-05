@@ -5815,6 +5815,18 @@ op_star
 id|list
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|list
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;No changes&quot;
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
