@@ -1937,6 +1937,18 @@ id|gitdiff_renamedst
 )brace
 comma
 (brace
+l_string|&quot;rename from &quot;
+comma
+id|gitdiff_renamesrc
+)brace
+comma
+(brace
+l_string|&quot;rename to &quot;
+comma
+id|gitdiff_renamedst
+)brace
+comma
+(brace
 l_string|&quot;similarity index &quot;
 comma
 id|gitdiff_similarity

@@ -3899,8 +3899,8 @@ c_func
 id|msg_
 comma
 l_string|&quot;similarity index %d%%&bslash;n&quot;
-l_string|&quot;rename old %s&bslash;n&quot;
-l_string|&quot;rename new %s&quot;
+l_string|&quot;rename from %s&bslash;n&quot;
+l_string|&quot;rename to %s&quot;
 comma
 (paren
 r_int
