@@ -1925,13 +1925,13 @@ id|gitdiff_copydst
 )brace
 comma
 (brace
-l_string|&quot;rename from &quot;
+l_string|&quot;rename old &quot;
 comma
 id|gitdiff_renamesrc
 )brace
 comma
 (brace
-l_string|&quot;rename to &quot;
+l_string|&quot;rename new &quot;
 comma
 id|gitdiff_renamedst
 )brace
@@ -2633,7 +2633,9 @@ id|patch-&gt;new_name
 id|die
 c_func
 (paren
-l_string|&quot;git diff header lacks filename information&quot;
+l_string|&quot;git diff header lacks filename information (line %d)&quot;
+comma
+id|linenr
 )paren
 suffix:semicolon
 op_star
