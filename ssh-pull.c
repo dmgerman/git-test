@@ -400,7 +400,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-rpull [-c] [-t] [-a] [-v] [-d] [--recover] commit-id url&quot;
+l_string|&quot;git-ssh-pull [-c] [-t] [-a] [-v] [-d] [--recover] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return
@@ -435,7 +435,7 @@ comma
 op_amp
 id|fd_out
 comma
-l_string|&quot;git-rpush&quot;
+l_string|&quot;git-ssh-push&quot;
 comma
 id|url
 comma
