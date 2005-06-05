@@ -122,6 +122,14 @@ id|header_prefix
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
+DECL|variable|commit_format
+r_static
+r_enum
+id|cmit_fmt
+id|commit_format
+op_assign
+id|CMIT_FMT_RAW
+suffix:semicolon
 singleline_comment|// What paths are we interested in?
 DECL|variable|nr_paths
 r_static
@@ -2008,6 +2016,8 @@ op_add_assign
 id|pretty_print_commit
 c_func
 (paren
+id|commit_format
+comma
 id|msg
 comma
 id|len
