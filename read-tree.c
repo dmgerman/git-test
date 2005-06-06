@@ -523,7 +523,7 @@ c_cond
 (paren
 id|nr
 OG
-l_int|2
+l_int|1
 op_logical_and
 (paren
 id|result
