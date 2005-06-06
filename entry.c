@@ -789,7 +789,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|state-&gt;update
+id|state-&gt;refresh_cache
 )paren
 (brace
 r_struct
