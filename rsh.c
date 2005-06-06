@@ -163,11 +163,11 @@ id|command
 comma
 id|COMMAND_SIZE
 comma
-l_string|&quot;cd /%s; %s=objects %s&quot;
+l_string|&quot;%s=&squot;/%s&squot; %s&quot;
+comma
+id|GIT_DIR_ENVIRONMENT
 comma
 id|path
-comma
-id|DB_ENVIRONMENT
 comma
 id|remote_prog
 )paren
