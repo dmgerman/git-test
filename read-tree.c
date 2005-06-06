@@ -535,12 +535,12 @@ id|ce
 comma
 id|src
 (braket
-l_int|1
+l_int|0
 )braket
 comma
 id|src
 (braket
-l_int|2
+l_int|1
 )braket
 )paren
 )paren
@@ -593,7 +593,7 @@ c_func
 (paren
 id|src
 (braket
-l_int|1
+l_int|0
 )braket
 )paren
 suffix:semicolon
@@ -602,7 +602,7 @@ c_func
 (paren
 id|src
 (braket
-l_int|2
+l_int|1
 )braket
 )paren
 suffix:semicolon
