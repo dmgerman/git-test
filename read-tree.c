@@ -1245,7 +1245,7 @@ r_char
 op_star
 id|read_tree_usage
 op_assign
-l_string|&quot;git-read-tree (&lt;sha&gt; | -m &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
+l_string|&quot;git-read-tree (&lt;sha&gt; | -m [-u] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
 suffix:semicolon
 DECL|variable|cache_file
 r_static
@@ -1491,6 +1491,20 @@ id|stage
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|update
+op_logical_and
+op_logical_neg
+id|merge
+)paren
+id|usage
+c_func
+(paren
+id|read_tree_usage
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
