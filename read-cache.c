@@ -683,7 +683,7 @@ id|namelen
 comma
 id|ce-&gt;name
 comma
-id|htons
+id|ntohs
 c_func
 (paren
 id|ce-&gt;ce_flags
@@ -1028,7 +1028,7 @@ c_func
 (paren
 id|pathbuf
 comma
-id|htons
+id|ntohs
 c_func
 (paren
 id|create_ce_flags
@@ -1117,7 +1117,7 @@ c_func
 (paren
 id|path
 comma
-id|htons
+id|ntohs
 c_func
 (paren
 id|create_ce_flags
@@ -1274,7 +1274,7 @@ c_func
 (paren
 id|ce-&gt;name
 comma
-id|htons
+id|ntohs
 c_func
 (paren
 id|ce-&gt;ce_flags
@@ -1398,7 +1398,7 @@ c_func
 (paren
 id|ce-&gt;name
 comma
-id|htons
+id|ntohs
 c_func
 (paren
 id|ce-&gt;ce_flags
