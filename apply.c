@@ -2909,6 +2909,12 @@ op_ne
 op_logical_neg
 id|newlines
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|newlines
+)paren
 r_return
 id|error
 c_func
@@ -2916,6 +2922,17 @@ c_func
 l_string|&quot;deleted file still has contents&quot;
 )paren
 suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;** warning: file %s becomes empty but is not deleted&bslash;n&quot;
+comma
+id|patch-&gt;new_name
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* Parse the thing.. */
 id|line
 op_add_assign
