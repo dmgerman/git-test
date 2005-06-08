@@ -973,12 +973,6 @@ r_if
 c_cond
 (paren
 id|item-&gt;object.util
-op_logical_or
-(paren
-id|item-&gt;object.flags
-op_amp
-id|UNINTERESTING
-)paren
 )paren
 (brace
 id|die
@@ -1401,15 +1395,6 @@ id|commit_list
 op_star
 id|next
 suffix:semicolon
-id|commit_list_insert
-c_func
-(paren
-id|head
-comma
-op_amp
-id|pending
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1752,6 +1737,10 @@ id|flags
 op_amp
 id|UNINTERESTING
 suffix:semicolon
+id|commit-&gt;object.flags
+op_or_assign
+id|UNINTERESTING
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1763,10 +1752,6 @@ op_logical_neg
 id|visited
 )paren
 (brace
-id|commit-&gt;object.flags
-op_or_assign
-id|UNINTERESTING
-suffix:semicolon
 r_return
 suffix:semicolon
 singleline_comment|// we only need to recurse if
