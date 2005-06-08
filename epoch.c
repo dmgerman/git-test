@@ -1,9 +1,7 @@
 multiline_comment|/*&n; * Copyright (c) 2005, Jon Seymour&n; *&n; * For more information about epoch theory on which this module is based,&n; * refer to http://blackcubes.dyndns.org/epoch/. That web page defines&n; * terms such as &quot;epoch&quot; and &quot;minimal, non-linear epoch&quot; and provides rationales&n; * for some of the algorithms used here.&n; *&n; */
 macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;openssl/bn.h&gt;&t;&t;
-singleline_comment|// provides arbitrary precision integers
-singleline_comment|// required to accurately represent fractional 
-singleline_comment|//mass
+multiline_comment|/* Provides arbitrary precision integers required to accurately represent&n; * fractional mass: */
+macro_line|#include &lt;openssl/bn.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;epoch.h&quot;
@@ -810,7 +808,7 @@ id|commit-&gt;object.util
 id|die
 c_func
 (paren
-l_string|&quot;multiple attempts to initialize mass counter for %s&bslash;n&quot;
+l_string|&quot;multiple attempts to initialize mass counter for %s&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -861,43 +859,7 @@ id|counter
 )paren
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Finds the base commit of a list of commits.
-singleline_comment|//
-singleline_comment|// One property of the commit being searched for is that every commit reachable 
-singleline_comment|// from the base commit is reachable from the commits in the starting list only 
-singleline_comment|// via paths that include the base commit.
-singleline_comment|//
-singleline_comment|// This algorithm uses a conservation of mass approach to find the base commit.
-singleline_comment|//
-singleline_comment|// We start by injecting one unit of mass into the graph at each
-singleline_comment|// of the commits in the starting list. Injecting mass into a commit
-singleline_comment|// is achieved by adding to its pending mass counter and, if it is not already
-singleline_comment|// enqueued, enqueuing the commit in a list of pending commits, in latest 
-singleline_comment|// commit date first order.
-singleline_comment|//
-singleline_comment|// The algorithm then preceeds to visit each commit in the pending queue.
-singleline_comment|// Upon each visit, the pending mass is added to the mass already seen for that 
-singleline_comment|// commit and then divided into N equal portions, where N is the number of 
-singleline_comment|// parents of the commit being visited. The divided portions are then injected 
-singleline_comment|// into each of the parents.
-singleline_comment|//
-singleline_comment|// The algorithm continues until we discover a commit which has seen all the
-singleline_comment|// mass originally injected or until we run out of things to do. 
-singleline_comment|//
-singleline_comment|// If we find a commit that has seen all the original mass, we have found
-singleline_comment|// the common base of all the commits in the starting list. 
-singleline_comment|//
-singleline_comment|// The algorithm does _not_ depend on accurate timestamps for correct operation.
-singleline_comment|// However, reasonably sane (e.g. non-random) timestamps are required in order 
-singleline_comment|// to prevent an exponential performance characteristic. The occasional 
-singleline_comment|// timestamp inaccuracy will not dramatically affect performance but may 
-singleline_comment|// result in more nodes being processed than strictly necessary.
-singleline_comment|//
-singleline_comment|// This procedure sets *boundary to the address of the base commit. It returns 
-singleline_comment|// non-zero if, and only if, there was a problem parsing one of the 
-singleline_comment|// commits discovered during the traversal.
-singleline_comment|//
+multiline_comment|/*&n; * Finds the base commit of a list of commits.&n; *&n; * One property of the commit being searched for is that every commit reachable&n; * from the base commit is reachable from the commits in the starting list only&n; * via paths that include the base commit.&n; *&n; * This algorithm uses a conservation of mass approach to find the base commit.&n; *&n; * We start by injecting one unit of mass into the graph at each&n; * of the commits in the starting list. Injecting mass into a commit&n; * is achieved by adding to its pending mass counter and, if it is not already&n; * enqueued, enqueuing the commit in a list of pending commits, in latest&n; * commit date first order.&n; *&n; * The algorithm then preceeds to visit each commit in the pending queue.&n; * Upon each visit, the pending mass is added to the mass already seen for that&n; * commit and then divided into N equal portions, where N is the number of&n; * parents of the commit being visited. The divided portions are then injected&n; * into each of the parents.&n; *&n; * The algorithm continues until we discover a commit which has seen all the&n; * mass originally injected or until we run out of things to do.&n; *&n; * If we find a commit that has seen all the original mass, we have found&n; * the common base of all the commits in the starting list.&n; *&n; * The algorithm does _not_ depend on accurate timestamps for correct operation.&n; * However, reasonably sane (e.g. non-random) timestamps are required in order&n; * to prevent an exponential performance characteristic. The occasional&n; * timestamp inaccuracy will not dramatically affect performance but may&n; * result in more nodes being processed than strictly necessary.&n; *&n; * This procedure sets *boundary to the address of the base commit. It returns&n; * non-zero if, and only if, there was a problem parsing one of the&n; * commits discovered during the traversal.&n; */
 DECL|function|find_base_for_list
 r_static
 r_int
@@ -935,11 +897,6 @@ id|pending
 op_assign
 l_int|NULL
 suffix:semicolon
-op_star
-id|boundary
-op_assign
-l_int|NULL
-suffix:semicolon
 r_struct
 id|fraction
 id|injected
@@ -950,6 +907,11 @@ c_func
 op_amp
 id|injected
 )paren
+suffix:semicolon
+op_star
+id|boundary
+op_assign
+l_int|NULL
 suffix:semicolon
 r_for
 c_loop
@@ -978,7 +940,7 @@ id|item-&gt;object.util
 id|die
 c_func
 (paren
-l_string|&quot;%s:%d:%s: logic error: this should not have happened - commit %s&bslash;n&quot;
+l_string|&quot;%s:%d:%s: logic error: this should not have happened - commit %s&quot;
 comma
 id|__FILE__
 comma
@@ -1076,6 +1038,9 @@ op_star
 )paren
 id|latest-&gt;object.util
 suffix:semicolon
+r_int
+id|num_parents
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1104,7 +1069,6 @@ op_amp
 id|latest_node-&gt;pending
 )paren
 suffix:semicolon
-r_int
 id|num_parents
 op_assign
 id|count_parents
@@ -1232,7 +1196,6 @@ c_func
 )paren
 )paren
 )paren
-(brace
 id|insert_by_date
 c_func
 (paren
@@ -1242,7 +1205,6 @@ comma
 id|parent
 )paren
 suffix:semicolon
-)brace
 id|add
 c_func
 (paren
@@ -1280,13 +1242,11 @@ op_amp
 id|injected
 )paren
 )paren
-(brace
 op_star
 id|boundary
 op_assign
 id|latest
 suffix:semicolon
-)brace
 id|copy
 c_func
 (paren
@@ -1356,10 +1316,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Finds the base of an minimal, non-linear epoch, headed at head, by
-singleline_comment|// applying the find_base_for_list to a list consisting of the parents
-singleline_comment|//
+multiline_comment|/*&n; * Finds the base of an minimal, non-linear epoch, headed at head, by&n; * applying the find_base_for_list to a list consisting of the parents&n; */
 DECL|function|find_base
 r_static
 r_int
@@ -1439,14 +1396,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// This procedure traverses to the boundary of the first epoch in the epoch
-singleline_comment|// sequence of the epoch headed at head_of_epoch. This is either the end of
-singleline_comment|// the maximal linear epoch or the base of a minimal non-linear epoch.
-singleline_comment|//
-singleline_comment|// The queue of pending nodes is sorted in reverse date order and each node
-singleline_comment|// is currently in the queue at most once.
-singleline_comment|//
+multiline_comment|/*&n; * This procedure traverses to the boundary of the first epoch in the epoch&n; * sequence of the epoch headed at head_of_epoch. This is either the end of&n; * the maximal linear epoch or the base of a minimal non-linear epoch.&n; *&n; * The queue of pending nodes is sorted in reverse date order and each node&n; * is currently in the queue at most once.&n; */
 DECL|function|find_next_epoch_boundary
 r_static
 r_int
@@ -1501,8 +1451,7 @@ id|item
 )paren
 )paren
 (brace
-singleline_comment|// we are at the start of a maximimal linear epoch .. traverse to the end
-singleline_comment|// traverse to the end of a maximal linear epoch
+multiline_comment|/*&n;&t;&t; * We are at the start of a maximimal linear epoch.&n;&t;&t; * Traverse to the end.&n;&t;&t; */
 r_while
 c_loop
 (paren
@@ -1537,8 +1486,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-singleline_comment|// otherwise, we are at the start of a minimal, non-linear
-singleline_comment|// epoch - find the common base of all parents.
+multiline_comment|/*&n;&t;&t; * Otherwise, we are at the start of a minimal, non-linear&n;&t;&t; * epoch - find the common base of all parents.&n;&t;&t; */
 id|ret
 op_assign
 id|find_base
@@ -1554,9 +1502,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Returns non-zero if parent is known to be a parent of child.
-singleline_comment|//
+multiline_comment|/*&n; * Returns non-zero if parent is known to be a parent of child.&n; */
 DECL|function|is_parent_of
 r_static
 r_int
@@ -1618,11 +1564,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Pushes an item onto the merge order stack. If the top of the stack is
-singleline_comment|// marked as being a possible &quot;break&quot;, we check to see whether it actually
-singleline_comment|// is a break.
-singleline_comment|//
+multiline_comment|/*&n; * Pushes an item onto the merge order stack. If the top of the stack is&n; * marked as being a possible &quot;break&quot;, we check to see whether it actually&n; * is a break.&n; */
 DECL|function|push_onto_merge_order_stack
 r_static
 r_void
@@ -1689,15 +1631,7 @@ id|stack
 )paren
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Marks all interesting, visited commits reachable from this commit
-singleline_comment|// as uninteresting. We stop recursing when we reach the epoch boundary,
-singleline_comment|// an unvisited node or a node that has already been marking uninteresting.
-singleline_comment|// This doesn&squot;t actually mark all ancestors between the start node and the
-singleline_comment|// epoch boundary uninteresting, but does ensure that they will 
-singleline_comment|// eventually be marked uninteresting when the main sort_first_epoch 
-singleline_comment|// traversal eventually reaches them. 
-singleline_comment|//
+multiline_comment|/*&n; * Marks all interesting, visited commits reachable from this commit&n; * as uninteresting. We stop recursing when we reach the epoch boundary,&n; * an unvisited node or a node that has already been marking uninteresting.&n; *&n; * This doesn&squot;t actually mark all ancestors between the start node and the&n; * epoch boundary uninteresting, but does ensure that they will eventually&n; * be marked uninteresting when the main sort_first_epoch() traversal&n; * eventually reaches them.&n; */
 DECL|function|mark_ancestors_uninteresting
 r_static
 r_void
@@ -1737,10 +1671,16 @@ id|flags
 op_amp
 id|UNINTERESTING
 suffix:semicolon
+r_struct
+id|commit_list
+op_star
+id|next
+suffix:semicolon
 id|commit-&gt;object.flags
 op_or_assign
 id|UNINTERESTING
 suffix:semicolon
+multiline_comment|/*&n;&t; * We only need to recurse if&n;&t; *      we are not on the boundary and&n;&t; *      we have not already been marked uninteresting and&n;&t; *      we have already been visited.&n;&t; *&n;&t; * The main sort_first_epoch traverse will mark unreachable&n;&t; * all uninteresting, unvisited parents as they are visited&n;&t; * so there is no need to duplicate that traversal here.&n;&t; *&n;&t; * Similarly, if we are already marked uninteresting&n;&t; * then either all ancestors have already been marked&n;&t; * uninteresting or will be once the sort_first_epoch&n;&t; * traverse reaches them.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1751,29 +1691,7 @@ op_logical_or
 op_logical_neg
 id|visited
 )paren
-(brace
 r_return
-suffix:semicolon
-singleline_comment|// we only need to recurse if
-singleline_comment|//      we are not on the boundary, and,
-singleline_comment|//      we have not already been marked uninteresting, and,
-singleline_comment|//      we have already been visited.
-singleline_comment|//
-singleline_comment|// the main sort_first_epoch traverse will 
-singleline_comment|// mark unreachable all uninteresting, unvisited parents 
-singleline_comment|// as they are visited so there is no need to duplicate
-singleline_comment|// that traversal here.
-singleline_comment|//
-singleline_comment|// similarly, if we are already marked uninteresting
-singleline_comment|// then either all ancestors have already been marked
-singleline_comment|// uninteresting or will be once the sort_first_epoch
-singleline_comment|// traverse reaches them.
-singleline_comment|//
-)brace
-r_struct
-id|commit_list
-op_star
-id|next
 suffix:semicolon
 r_for
 c_loop
@@ -1795,10 +1713,7 @@ id|next-&gt;item
 )paren
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Sorts the nodes of the first epoch of the epoch sequence of the epoch headed at head
-singleline_comment|// into merge order.
-singleline_comment|//
+multiline_comment|/*&n; * Sorts the nodes of the first epoch of the epoch sequence of the epoch headed at head&n; * into merge order.&n; */
 DECL|function|sort_first_epoch
 r_static
 r_void
@@ -1833,12 +1748,7 @@ id|head-&gt;object.flags
 op_or_assign
 id|VISITED
 suffix:semicolon
-singleline_comment|//
-singleline_comment|// parse_commit builds the parent list in reverse order with respect to the order of
-singleline_comment|// the git-commit-tree arguments.
-singleline_comment|//
-singleline_comment|// so we need to reverse this list to output the oldest (or most &quot;local&quot;) commits last.
-singleline_comment|//
+multiline_comment|/*&n;&t; * parse_commit() builds the parent list in reverse order with respect&n;&t; * to the order of the git-commit-tree arguments. So we need to reverse&n;&t; * this list to output the oldest (or most &quot;local&quot;) commits last.&n;&t; */
 r_for
 c_loop
 (paren
@@ -1861,14 +1771,7 @@ op_amp
 id|reversed_parents
 )paren
 suffix:semicolon
-singleline_comment|//
-singleline_comment|// todo: by sorting the parents in a different order, we can alter the 
-singleline_comment|// merge order to show contemporaneous changes in parallel branches
-singleline_comment|// occurring after &quot;local&quot; changes. This is useful for a developer
-singleline_comment|// when a developer wants to see all changes that were incorporated
-singleline_comment|// into the same merge as her own changes occur after her own
-singleline_comment|// changes.
-singleline_comment|//
+multiline_comment|/*&n;&t; * TODO: By sorting the parents in a different order, we can alter the&n;&t; * merge order to show contemporaneous changes in parallel branches&n;&t; * occurring after &quot;local&quot; changes. This is useful for a developer&n;&t; * when a developer wants to see all changes that were incorporated&n;&t; * into the same merge as her own changes occur after her own&n;&t; * changes.&n;&t; */
 r_while
 c_loop
 (paren
@@ -1895,12 +1798,7 @@ op_amp
 id|UNINTERESTING
 )paren
 (brace
-singleline_comment|// propagates the uninteresting bit to
-singleline_comment|// all parents. if we have already visited
-singleline_comment|// this parent, then the uninteresting bit
-singleline_comment|// will be propagated to each reachable 
-singleline_comment|// commit that is still not marked uninteresting
-singleline_comment|// and won&squot;t otherwise be reached.
+multiline_comment|/*&n;&t;&t;&t; * Propagates the uninteresting bit to all parents.&n;&t;&t;&t; * if we have already visited this parent, then&n;&t;&t;&t; * the uninteresting bit will be propagated to each&n;&t;&t;&t; * reachable commit that is still not marked&n;&t;&t;&t; * uninteresting and won&squot;t otherwise be reached.&n;&t;&t;&t; */
 id|mark_ancestors_uninteresting
 c_func
 (paren
@@ -1937,7 +1835,7 @@ id|stack
 id|die
 c_func
 (paren
-l_string|&quot;something else is on the stack - %s&bslash;n&quot;
+l_string|&quot;something else is on the stack - %s&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -1981,15 +1879,7 @@ c_cond
 id|reversed_parents
 )paren
 (brace
-singleline_comment|//
-singleline_comment|// this indicates a possible discontinuity
-singleline_comment|// it may not be be actual discontinuity if
-singleline_comment|// the head of parent N happens to be the tail
-singleline_comment|// of parent N+1
-singleline_comment|//
-singleline_comment|// the next push onto the stack will resolve the 
-singleline_comment|// question
-singleline_comment|//
+multiline_comment|/*&n;&t;&t;&t;&t;&t; * This indicates a possible&n;&t;&t;&t;&t;&t; * discontinuity it may not be be&n;&t;&t;&t;&t;&t; * actual discontinuity if the head&n;&t;&t;&t;&t;&t; * of parent N happens to be the tail&n;&t;&t;&t;&t;&t; * of parent N+1.&n;&t;&t;&t;&t;&t; *&n;&t;&t;&t;&t;&t; * The next push onto the stack will&n;&t;&t;&t;&t;&t; * resolve the question.&n;&t;&t;&t;&t;&t; */
 (paren
 op_star
 id|stack
@@ -2012,13 +1902,7 @@ id|head
 )paren
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Emit the contents of the stack. 
-singleline_comment|//
-singleline_comment|// The stack is freed and replaced by NULL.
-singleline_comment|//
-singleline_comment|// Sets the return value to STOP if no further output should be generated.
-singleline_comment|//
+multiline_comment|/*&n; * Emit the contents of the stack.&n; *&n; * The stack is freed and replaced by NULL.&n; *&n; * Sets the return value to STOP if no further output should be generated.&n; */
 DECL|function|emit_stack
 r_static
 r_int
@@ -2080,7 +1964,6 @@ c_cond
 op_star
 id|stack
 )paren
-(brace
 id|action
 op_assign
 (paren
@@ -2091,7 +1974,6 @@ id|emitter
 id|next
 )paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -2132,13 +2014,7 @@ suffix:colon
 id|CONTINUE
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Sorts an arbitrary epoch into merge order by sorting each epoch
-singleline_comment|// of its epoch sequence into order.
-singleline_comment|//
-singleline_comment|// Note: this algorithm currently leaves traces of its execution in the
-singleline_comment|// object flags of nodes it discovers. This should probably be fixed.
-singleline_comment|//
+multiline_comment|/*&n; * Sorts an arbitrary epoch into merge order by sorting each epoch&n; * of its epoch sequence into order.&n; *&n; * Note: this algorithm currently leaves traces of its execution in the&n; * object flags of nodes it discovers. This should probably be fixed.&n; */
 DECL|function|sort_in_merge_order
 r_static
 r_int
@@ -2203,10 +2079,6 @@ id|base
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
-(paren
-(paren
 id|ret
 op_assign
 id|find_next_epoch_boundary
@@ -2217,7 +2089,11 @@ comma
 op_amp
 id|base
 )paren
-)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
 )paren
 r_return
 id|ret
@@ -2231,12 +2107,10 @@ c_cond
 (paren
 id|base
 )paren
-(brace
 id|base-&gt;object.flags
 op_or_assign
 id|BOUNDARY
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -2378,12 +2252,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-singleline_comment|//
-singleline_comment|// Sorts the nodes reachable from a starting list in merge order, we 
-singleline_comment|// first find the base for the starting list and then sort all nodes in this 
-singleline_comment|// subgraph using the sort_first_epoch algorithm. Once we have reached the base
-singleline_comment|// we can continue sorting using sort_in_merge_order.
-singleline_comment|//
+multiline_comment|/*&n; * Sorts the nodes reachable from a starting list in merge order, we&n; * first find the base for the starting list and then sort all nodes&n; * in this subgraph using the sort_first_epoch algorithm. Once we have&n; * reached the base we can continue sorting using sort_in_merge_order.&n; */
 DECL|function|sort_list_in_merge_order
 r_int
 id|sort_list_in_merge_order
@@ -2506,8 +2375,7 @@ op_logical_neg
 id|reversed-&gt;next
 )paren
 (brace
-singleline_comment|// if there is only one element in the list, we can sort it using 
-singleline_comment|// sort_in_merge_order.
+multiline_comment|/*&n;&t;&t; * If there is only one element in the list, we can sort it&n;&t;&t; * using sort_in_merge_order.&n;&t;&t; */
 id|base
 op_assign
 id|reversed-&gt;item
@@ -2515,11 +2383,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-singleline_comment|// otherwise, we search for the base of the list
-r_if
-c_cond
-(paren
-(paren
+multiline_comment|/*&n;&t;&t; * Otherwise, we search for the base of the list.&n;&t;&t; */
 id|ret
 op_assign
 id|find_base_for_list
@@ -2530,7 +2394,11 @@ comma
 op_amp
 id|base
 )paren
-)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
 )paren
 r_return
 id|ret
@@ -2540,12 +2408,10 @@ c_cond
 (paren
 id|base
 )paren
-(brace
 id|base-&gt;object.flags
 op_or_assign
 id|BOUNDARY
 suffix:semicolon
-)brace
 r_while
 c_loop
 (paren
@@ -2572,16 +2438,7 @@ c_cond
 id|reversed
 )paren
 (brace
-singleline_comment|//
-singleline_comment|// if we have more commits to push, then the
-singleline_comment|// first push for the next parent may (or may not)
-singleline_comment|// represent a discontinuity with respect to the
-singleline_comment|// parent currently on the top of the stack.
-singleline_comment|//
-singleline_comment|// mark it for checking here, and check it
-singleline_comment|// with the next push...see sort_first_epoch for
-singleline_comment|// more details.
-singleline_comment|//
+multiline_comment|/*&n;&t;&t;&t;&t; * If we have more commits to push, then the&n;&t;&t;&t;&t; * first push for the next parent may (or may&n;&t;&t;&t;&t; * not) represent a discontinuity with respect&n;&t;&t;&t;&t; * to the parent currently on the top of&n;&t;&t;&t;&t; * the stack.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * Mark it for checking here, and check it&n;&t;&t;&t;&t; * with the next push. See sort_first_epoch()&n;&t;&t;&t;&t; * for more details.&n;&t;&t;&t;&t; */
 id|stack-&gt;item-&gt;object.flags
 op_or_assign
 id|DISCONTINUITY
