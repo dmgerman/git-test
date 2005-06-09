@@ -2262,6 +2262,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|ce-&gt;ce_mode
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|ce_write
 c_func
 (paren
