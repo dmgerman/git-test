@@ -3314,6 +3314,10 @@ id|dp-&gt;score
 op_assign
 l_int|0
 suffix:semicolon
+id|dp-&gt;status
+op_assign
+l_int|0
+suffix:semicolon
 id|dp-&gt;source_stays
 op_assign
 l_int|0
