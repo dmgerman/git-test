@@ -2628,8 +2628,8 @@ r_if
 c_cond
 (paren
 id|git_hdr_len
-OL
-l_int|0
+op_le
+id|len
 )paren
 r_continue
 suffix:semicolon
