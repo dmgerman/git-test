@@ -2796,6 +2796,10 @@ c_cond
 op_logical_neg
 id|pgm
 op_logical_and
+id|one
+op_logical_and
+id|two
+op_logical_and
 id|DIFF_FILE_VALID
 c_func
 (paren
