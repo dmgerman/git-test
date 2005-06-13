@@ -4623,7 +4623,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;%s: %s&bslash;n&quot;
+l_string|&quot;%s: %s&quot;
+comma
+id|old_name
 comma
 id|strerror
 c_func
