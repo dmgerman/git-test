@@ -3069,6 +3069,10 @@ id|verbose_header
 op_assign
 l_int|1
 suffix:semicolon
+id|header_prefix
+op_assign
+l_string|&quot;diff-tree &quot;
+suffix:semicolon
 id|commit_format
 op_assign
 id|get_commit_format
