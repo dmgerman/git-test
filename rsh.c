@@ -137,6 +137,19 @@ comma
 l_char|&squot;:&squot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|path
+)paren
+op_star
+(paren
+id|path
+op_increment
+)paren
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -155,15 +168,7 @@ id|url
 )paren
 suffix:semicolon
 )brace
-op_star
-(paren
-id|path
-op_increment
-)paren
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
-multiline_comment|/* ssh &lt;host&gt; &squot;cd /&lt;path&gt;; stdio-pull &lt;arg...&gt; &lt;commit-id&gt;&squot; */
+multiline_comment|/* ssh &lt;host&gt; &squot;cd &lt;path&gt;; stdio-pull &lt;arg...&gt; &lt;commit-id&gt;&squot; */
 id|snprintf
 c_func
 (paren
@@ -171,7 +176,7 @@ id|command
 comma
 id|COMMAND_SIZE
 comma
-l_string|&quot;%s=&squot;/%s&squot; %s&quot;
+l_string|&quot;%s=&squot;%s&squot; %s&quot;
 comma
 id|GIT_DIR_ENVIRONMENT
 comma
