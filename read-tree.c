@@ -2366,6 +2366,8 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
 multiline_comment|/* &quot;-m&quot; stands for &quot;merge&quot;, meaning we start in stage 1 */
 r_if
