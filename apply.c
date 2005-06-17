@@ -2642,6 +2642,13 @@ op_logical_and
 op_logical_neg
 id|patch-&gt;new_name
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|patch-&gt;def_name
+)paren
 id|die
 c_func
 (paren
@@ -2650,6 +2657,13 @@ comma
 id|linenr
 )paren
 suffix:semicolon
+id|patch-&gt;old_name
+op_assign
+id|patch-&gt;new_name
+op_assign
+id|patch-&gt;def_name
+suffix:semicolon
+)brace
 op_star
 id|hdrsize
 op_assign
