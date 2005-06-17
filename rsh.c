@@ -185,6 +185,11 @@ comma
 id|remote_prog
 )paren
 suffix:semicolon
+op_star
+id|path
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
 id|posn
 op_assign
 id|command
