@@ -11,7 +11,7 @@ id|verbose
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n; * This is a really stupid program that takes cvsps output, and&n; * generates a a long _shell_script_ that will create the GIT archive&n; * from it. &n; *&n; * You&squot;ve been warned. I told you it was stupid.&n; *&n; * NOTE NOTE NOTE! In order to do branches correctly, this needs&n; * the fixed cvsps that has the &quot;Ancestor branch&quot; tag output.&n; * Hopefully David Mansfield will update his distribution soon&n; * enough (he&squot;s the one who wrote the patch, so at least we don&squot;t&n; * have to figt maintainer issues ;)&n; *&n; * Usage:&n; *&n; *&t;TZ=UTC cvsps -A |&n; *&t;&t;cvs2git --cvsroot=[root] --module=[module] &gt; script&n; *&n; * Creates a shell script that will generate the .git archive of&n; * the names CVS repository.&n; *&n; * IMPORTANT NOTE ABOUT &quot;cvsps&quot;! This requires version 2.1 or better,&n; * and the &quot;TZ=UTC&quot; and the &quot;-A&quot; flag is required for sane results!&n; */
+multiline_comment|/*&n; * This is a really stupid program that takes cvsps output, and&n; * generates a a long _shell_script_ that will create the GIT archive&n; * from it. &n; *&n; * You&squot;ve been warned. I told you it was stupid.&n; *&n; * NOTE NOTE NOTE! In order to do branches correctly, this needs&n; * the fixed cvsps that has the &quot;Ancestor branch&quot; tag output.&n; * Hopefully David Mansfield will update his distribution soon&n; * enough (he&squot;s the one who wrote the patch, so at least we don&squot;t&n; * have to figt maintainer issues ;)&n; *&n; * Usage:&n; *&n; *&t;TZ=UTC cvsps -A |&n; *&t;&t;git-cvs2git --cvsroot=[root] --module=[module] &gt; script&n; *&n; * Creates a shell script that will generate the .git archive of&n; * the names CVS repository.&n; *&n; *&t;TZ=UTC cvsps -s 1234- -A |&n; *&t;&t;git-cvs2git -u --cvsroot=[root] --module=[module] &gt; script&n; *&n; * Creates a shell script that will update the .git archive with&n; * CVS changes from patchset 1234 until the last one.&n; *&n; * IMPORTANT NOTE ABOUT &quot;cvsps&quot;! This requires version 2.1 or better,&n; * and the &quot;TZ=UTC&quot; and the &quot;-A&quot; flag is required for sane results!&n; */
 DECL|enum|state
 r_enum
 id|state
@@ -945,6 +945,26 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-u&quot;
+)paren
+)paren
+(brace
+id|initial_commit
+op_assign
+l_int|0
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -984,6 +1004,12 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|initial_commit
+)paren
+(brace
 id|printf
 c_func
 (paren
@@ -1014,6 +1040,7 @@ c_func
 l_string|&quot;ln -sf refs/heads/master .git/HEAD&bslash;n&quot;
 )paren
 suffix:semicolon
+)brace
 r_while
 c_loop
 (paren
