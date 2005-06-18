@@ -714,7 +714,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;cvs -q -d %s checkout -r%s -p &squot;%s/%s&squot; &gt; &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;cvs -q -d %s checkout -d .git-tmp -r%s &squot;%s/%s&squot;&bslash;n&quot;
 comma
 id|cvsroot
 comma
@@ -723,8 +723,29 @@ comma
 id|cvsmodule
 comma
 id|name
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;mv -f .git-tmp/%s %s&bslash;n&quot;
+comma
+id|dir
+ques
+c_cond
+id|dir
+op_plus
+l_int|1
+suffix:colon
+id|name
 comma
 id|name
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;rm -rf .git-tmp&bslash;n&quot;
 )paren
 suffix:semicolon
 id|printf
