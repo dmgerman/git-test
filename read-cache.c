@@ -999,18 +999,6 @@ l_char|&squot;/&squot;
 )paren
 r_continue
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;conflict: %s %s&bslash;n&quot;
-comma
-id|ce-&gt;name
-comma
-id|p-&gt;name
-)paren
-suffix:semicolon
 id|retval
 op_assign
 l_int|1
