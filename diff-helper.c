@@ -96,7 +96,7 @@ r_char
 op_star
 id|diff_helper_usage
 op_assign
-l_string|&quot;git-diff-helper [-z] [-S&lt;string&gt;] [-O&lt;orderfile&gt;] paths...&quot;
+l_string|&quot;git-diff-helper [-z] [-O&lt;orderfile&gt;] [-S&lt;string&gt;] [--pickaxe-all] [&lt;path&gt;...]&quot;
 suffix:semicolon
 DECL|function|main
 r_int
