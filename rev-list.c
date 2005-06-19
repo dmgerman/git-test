@@ -618,7 +618,7 @@ suffix:semicolon
 )brace
 DECL|function|clear_distance
 r_static
-r_int
+r_void
 id|clear_distance
 c_func
 (paren
