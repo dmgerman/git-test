@@ -560,6 +560,9 @@ op_star
 id|d
 op_assign
 id|pp
+comma
+op_star
+id|dp
 suffix:semicolon
 r_if
 c_cond
@@ -644,6 +647,8 @@ c_func
 l_string|&quot;internal error in merge #4&quot;
 )paren
 suffix:semicolon
+id|dp
+op_assign
 id|diff_queue
 c_func
 (paren
@@ -653,6 +658,10 @@ id|d-&gt;one
 comma
 id|c-&gt;two
 )paren
+suffix:semicolon
+id|dp-&gt;score
+op_assign
+id|p-&gt;score
 suffix:semicolon
 id|diff_free_filespec_data
 c_func
@@ -754,10 +763,6 @@ c_cond
 (paren
 id|p-&gt;broken_pair
 op_logical_and
-id|p-&gt;score
-op_eq
-l_int|0
-op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -800,10 +805,6 @@ r_if
 c_cond
 (paren
 id|pp-&gt;broken_pair
-op_logical_and
-id|p-&gt;score
-op_eq
-l_int|0
 op_logical_and
 op_logical_neg
 id|strcmp
