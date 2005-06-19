@@ -1295,8 +1295,6 @@ id|size
 r_if
 c_cond
 (paren
-id|find_copies_harder
-op_logical_or
 id|interesting
 c_func
 (paren
@@ -1735,12 +1733,7 @@ r_void
 id|diffcore_std
 c_func
 (paren
-id|find_copies_harder
-ques
-c_cond
-id|paths
-suffix:colon
-l_int|0
+l_int|NULL
 comma
 id|detect_rename
 comma
@@ -2505,7 +2498,7 @@ r_char
 op_star
 id|diff_tree_usage
 op_assign
-l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-C] [-R] [-S&lt;string&gt;] [-O&lt;orderfile&gt;] [-m] [-s] [-v] [--pretty] [-t] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
+l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-m] [-s] [-v] [--pretty] [-t] [-R] [-B] [-M] [-C] [--find-copies-header] [-O&lt;orderfile&gt;] [-S&lt;string&gt;] [--pickaxe-all] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
 suffix:semicolon
 DECL|function|get_commit_format
 r_static

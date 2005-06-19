@@ -15,6 +15,13 @@ id|detect_rename
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|find_copies_harder
+r_static
+r_int
+id|find_copies_harder
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|diff_setup_opt
 r_static
 r_int
@@ -76,7 +83,7 @@ r_char
 op_star
 id|diff_stages_usage
 op_assign
-l_string|&quot;git-diff-stages [-p] [-r] [-z] [-M] [-C] [-R] [-S&lt;string&gt;] [-O&lt;orderfile&gt;] &lt;stage1&gt; &lt;stage2&gt; [&lt;path&gt;...]&quot;
+l_string|&quot;git-diff-stages [-p] [-r] [-z] [-R] [-B] [-M] [-C] [--find-copies-harder] [-O&lt;orderfile&gt;] [-S&lt;string&gt;] [--pickaxe-all] &lt;stage1&gt; &lt;stage2&gt; [&lt;path&gt;...]&quot;
 suffix:semicolon
 DECL|function|diff_stages
 r_static
@@ -312,6 +319,8 @@ id|one-&gt;ce_mode
 op_ne
 id|two-&gt;ce_mode
 )paren
+op_logical_or
+id|find_copies_harder
 )paren
 id|diff_change
 c_func
@@ -555,6 +564,23 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--find-copies-harder&quot;
+)paren
+)paren
+id|find_copies_harder
+op_assign
+l_int|1
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;-z&quot;
 )paren
 )paren
@@ -733,6 +759,12 @@ id|stage2
 op_le
 l_int|3
 )paren
+op_logical_or
+id|find_copies_harder
+op_logical_and
+id|detect_rename
+op_ne
+id|DIFF_DETECT_COPY
 )paren
 id|usage
 c_func
