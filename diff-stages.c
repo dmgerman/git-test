@@ -760,11 +760,13 @@ op_le
 l_int|3
 )paren
 op_logical_or
+(paren
 id|find_copies_harder
 op_logical_and
 id|detect_rename
 op_ne
 id|DIFF_DETECT_COPY
+)paren
 )paren
 id|usage
 c_func
