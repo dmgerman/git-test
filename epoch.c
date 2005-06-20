@@ -2376,6 +2376,16 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|reversed
+)paren
+r_return
+id|ret
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
 id|reversed-&gt;next
 )paren
 (brace
