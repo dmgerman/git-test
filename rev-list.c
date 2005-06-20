@@ -7,6 +7,8 @@ DECL|macro|INTERESTING
 mdefine_line|#define INTERESTING&t;(1u &lt;&lt; 1)
 DECL|macro|COUNTED
 mdefine_line|#define COUNTED&t;&t;(1u &lt;&lt; 2)
+DECL|macro|SHOWN
+mdefine_line|#define SHOWN&t;&t;(LAST_EPOCH_FLAG &lt;&lt; 2)
 DECL|variable|rev_list_usage
 r_static
 r_const
@@ -117,6 +119,10 @@ op_star
 id|commit
 )paren
 (brace
+id|commit-&gt;object.flags
+op_or_assign
+id|SHOWN
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -272,7 +278,11 @@ c_cond
 (paren
 id|commit-&gt;object.flags
 op_amp
+(paren
 id|UNINTERESTING
+op_or
+id|SHOWN
+)paren
 )paren
 r_return
 id|CONTINUE
