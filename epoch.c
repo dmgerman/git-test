@@ -2055,6 +2055,10 @@ c_func
 id|head_of_epoch
 )paren
 suffix:semicolon
+id|next-&gt;object.flags
+op_or_assign
+id|BOUNDARY
+suffix:semicolon
 r_while
 c_loop
 (paren
