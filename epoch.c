@@ -934,28 +934,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|item-&gt;object.util
 )paren
 (brace
-id|die
-c_func
-(paren
-l_string|&quot;%s:%d:%s: logic error: this should not have happened - commit %s&quot;
-comma
-id|__FILE__
-comma
-id|__LINE__
-comma
-id|__FUNCTION__
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|item-&gt;object.sha1
-)paren
-)paren
-suffix:semicolon
-)brace
 id|new_mass_counter
 c_func
 (paren
@@ -1000,6 +982,7 @@ op_amp
 id|pending
 )paren
 suffix:semicolon
+)brace
 )brace
 r_while
 c_loop
