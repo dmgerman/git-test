@@ -3475,6 +3475,14 @@ id|add
 op_plus
 id|del
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|max_change
+OG
+l_int|0
+)paren
+(brace
 id|total
 op_assign
 (paren
@@ -3508,6 +3516,7 @@ op_assign
 id|total
 id|add
 suffix:semicolon
+)brace
 id|printf
 c_func
 (paren
