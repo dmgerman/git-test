@@ -2465,6 +2465,11 @@ id|basedir
 id|write_header
 c_func
 (paren
+(paren
+r_int
+r_char
+op_star
+)paren
 l_string|&quot;0&quot;
 comma
 id|TYPEFLAG_DIR

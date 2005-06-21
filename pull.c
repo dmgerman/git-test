@@ -252,6 +252,7 @@ c_cond
 id|get_delta
 )paren
 (brace
+r_int
 r_char
 id|delta_sha1
 (braket

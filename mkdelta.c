@@ -173,6 +173,7 @@ op_star
 id|create_object
 c_func
 (paren
+r_int
 r_char
 op_star
 id|buf
@@ -194,6 +195,7 @@ op_star
 id|retsize
 )paren
 (brace
+r_int
 r_char
 op_star
 id|compressed
@@ -262,6 +264,11 @@ suffix:semicolon
 multiline_comment|/* First header.. */
 id|stream.next_in
 op_assign
+(paren
+r_int
+r_char
+op_star
+)paren
 id|hdr
 suffix:semicolon
 id|stream.avail_in
@@ -331,6 +338,7 @@ r_int
 id|restore_original_object
 c_func
 (paren
+r_int
 r_char
 op_star
 id|buf
@@ -430,6 +438,7 @@ op_star
 id|create_delta_object
 c_func
 (paren
+r_int
 r_char
 op_star
 id|buf

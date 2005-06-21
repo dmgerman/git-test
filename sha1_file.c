@@ -1718,6 +1718,7 @@ id|buffer
 op_plus
 l_int|1
 suffix:semicolon
+r_int
 r_char
 op_star
 id|buf
@@ -2384,6 +2385,12 @@ suffix:semicolon
 multiline_comment|/* We are dealing with a delta object.  Inflated, the first&n;&t; * 20 bytes hold the base object SHA1, and delta data follows&n;&t; * immediately after it.&n;&t; *&n;&t; * The initial part of the delta starts at delta_data_head +&n;&t; * 20.  Borrow code from patch-delta to read the result size.&n;&t; */
 id|data
 op_assign
+(paren
+r_int
+r_char
+op_star
+)paren
+(paren
 id|hdr
 op_plus
 id|strlen
@@ -2395,6 +2402,7 @@ op_plus
 l_int|1
 op_plus
 l_int|20
+)paren
 suffix:semicolon
 multiline_comment|/* Skip over the source size; we are not interested in&n;&t; * it and we cannot verify it because we do not want&n;&t; * to read the base object.&n;&t; */
 id|cmd
