@@ -1720,18 +1720,11 @@ id|commit_list
 op_star
 id|parents
 suffix:semicolon
-r_struct
-id|commit_list
-op_star
-id|reversed_parents
-op_assign
-l_int|NULL
-suffix:semicolon
 id|head-&gt;object.flags
 op_or_assign
 id|VISITED
 suffix:semicolon
-multiline_comment|/*&n;&t; * parse_commit() builds the parent list in reverse order with respect&n;&t; * to the order of the git-commit-tree arguments. So we need to reverse&n;&t; * this list to output the oldest (or most &quot;local&quot;) commits last.&n;&t; */
+multiline_comment|/*&n;&t; * TODO: By sorting the parents in a different order, we can alter the&n;&t; * merge order to show contemporaneous changes in parallel branches&n;&t; * occurring after &quot;local&quot; changes. This is useful for a developer&n;&t; * when a developer wants to see all changes that were incorporated&n;&t; * into the same merge as her own changes occur after her own&n;&t; * changes.&n;&t; */
 r_for
 c_loop
 (paren
@@ -1745,33 +1738,13 @@ id|parents
 op_assign
 id|parents-&gt;next
 )paren
-id|commit_list_insert
-c_func
-(paren
-id|parents-&gt;item
-comma
-op_amp
-id|reversed_parents
-)paren
-suffix:semicolon
-multiline_comment|/*&n;&t; * TODO: By sorting the parents in a different order, we can alter the&n;&t; * merge order to show contemporaneous changes in parallel branches&n;&t; * occurring after &quot;local&quot; changes. This is useful for a developer&n;&t; * when a developer wants to see all changes that were incorporated&n;&t; * into the same merge as her own changes occur after her own&n;&t; * changes.&n;&t; */
-r_while
-c_loop
-(paren
-id|reversed_parents
-)paren
 (brace
 r_struct
 id|commit
 op_star
 id|parent
 op_assign
-id|pop_commit
-c_func
-(paren
-op_amp
-id|reversed_parents
-)paren
+id|parents-&gt;item
 suffix:semicolon
 r_if
 c_cond
@@ -1859,7 +1832,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|reversed_parents
+id|parents
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t;&t;&t; * This indicates a possible&n;&t;&t;&t;&t;&t; * discontinuity it may not be be&n;&t;&t;&t;&t;&t; * actual discontinuity if the head&n;&t;&t;&t;&t;&t; * of parent N happens to be the tail&n;&t;&t;&t;&t;&t; * of parent N+1.&n;&t;&t;&t;&t;&t; *&n;&t;&t;&t;&t;&t; * The next push onto the stack will&n;&t;&t;&t;&t;&t; * resolve the question.&n;&t;&t;&t;&t;&t; */
