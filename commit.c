@@ -357,6 +357,12 @@ id|parent
 l_int|20
 )braket
 suffix:semicolon
+r_struct
+id|commit_list
+op_star
+op_star
+id|pptr
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -407,6 +413,11 @@ op_add_assign
 l_int|46
 suffix:semicolon
 multiline_comment|/* &quot;tree &quot; + &quot;hex sha1&quot; + &quot;&bslash;n&quot; */
+id|pptr
+op_assign
+op_amp
+id|item-&gt;parents
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -450,14 +461,18 @@ c_cond
 id|new_parent
 )paren
 (brace
+id|pptr
+op_assign
+op_amp
 id|commit_list_insert
 c_func
 (paren
 id|new_parent
 comma
-op_amp
-id|item-&gt;parents
+id|pptr
 )paren
+op_member_access_from_pointer
+id|next
 suffix:semicolon
 id|add_ref
 c_func
