@@ -237,7 +237,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This is like &quot;get_sha1()&quot;, except it allows &quot;sha1 expressions&quot;,&n; * notably &quot;xyz.p&quot; for &quot;parent of xyz&quot;&n; */
+multiline_comment|/*&n; * This is like &quot;get_sha1()&quot;, except it allows &quot;sha1 expressions&quot;,&n; * notably &quot;xyz^&quot; for &quot;parent of xyz&quot;&n; */
 DECL|function|get_extended_sha1
 r_static
 r_int
@@ -275,7 +275,7 @@ c_cond
 (paren
 id|len
 OG
-l_int|3
+l_int|2
 op_logical_and
 id|name
 (braket
@@ -315,21 +315,16 @@ c_cond
 (paren
 id|len
 OG
-l_int|2
+l_int|1
 op_logical_and
-op_logical_neg
-id|memcmp
-c_func
-(paren
 id|name
-op_plus
+(braket
 id|len
-l_int|2
-comma
-l_string|&quot;.p&quot;
-comma
-l_int|2
-)paren
+op_minus
+l_int|1
+)braket
+op_eq
+l_char|&squot;^&squot;
 )paren
 (brace
 r_int
@@ -339,7 +334,7 @@ id|name
 (braket
 id|len
 op_minus
-l_int|2
+l_int|1
 )braket
 op_assign
 l_int|0
@@ -360,10 +355,10 @@ id|name
 (braket
 id|len
 op_minus
-l_int|2
+l_int|1
 )braket
 op_assign
-l_char|&squot;.&squot;
+l_char|&squot;^&squot;
 suffix:semicolon
 r_if
 c_cond
