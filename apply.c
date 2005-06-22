@@ -3379,7 +3379,7 @@ r_char
 op_star
 id|name
 op_assign
-id|patch-&gt;old_name
+id|patch-&gt;new_name
 suffix:semicolon
 r_int
 id|len
@@ -3400,7 +3400,7 @@ id|name
 )paren
 id|name
 op_assign
-id|patch-&gt;new_name
+id|patch-&gt;old_name
 suffix:semicolon
 multiline_comment|/*&n;&t; * &quot;scale&quot; the filename&n;&t; */
 id|len
