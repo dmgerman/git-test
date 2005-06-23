@@ -319,16 +319,6 @@ id|refs-&gt;item-&gt;sha1
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Don&squot;t bother with tag reachability. */
-r_if
-c_cond
-(paren
-id|obj-&gt;type
-op_eq
-id|tag_type
-)paren
-r_continue
-suffix:semicolon
 r_if
 c_cond
 (paren
