@@ -3,8 +3,8 @@ macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
-DECL|variable|patchfile
 DECL|variable|cmitmsg
+DECL|variable|patchfile
 r_static
 id|FILE
 op_star
@@ -970,6 +970,17 @@ comma
 id|line
 comma
 l_int|3
+)paren
+op_logical_or
+op_logical_neg
+id|memcmp
+c_func
+(paren
+l_string|&quot;Index: &quot;
+comma
+id|line
+comma
+l_int|7
 )paren
 )paren
 id|out
