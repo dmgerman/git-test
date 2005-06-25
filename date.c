@@ -1583,6 +1583,10 @@ comma
 r_int
 op_star
 id|offset
+comma
+r_int
+op_star
+id|tm_gmt
 )paren
 (brace
 r_int
@@ -1635,10 +1639,17 @@ comma
 id|tm
 )paren
 )paren
+(brace
+op_star
+id|tm_gmt
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 id|end
 id|date
 suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n;&t; * Check for special formats: num[:-/]num[same]num&n;&t; */
 r_switch
@@ -2063,6 +2074,8 @@ r_int
 id|offset
 comma
 id|sign
+comma
+id|tm_gmt
 suffix:semicolon
 id|time_t
 id|then
@@ -2100,6 +2113,10 @@ suffix:semicolon
 id|offset
 op_assign
 l_int|1
+suffix:semicolon
+id|tm_gmt
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -2178,6 +2195,9 @@ id|tm
 comma
 op_amp
 id|offset
+comma
+op_amp
+id|tm_gmt
 )paren
 suffix:semicolon
 r_else
@@ -2272,6 +2292,12 @@ l_int|1
 )paren
 r_return
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|tm_gmt
+)paren
 id|then
 op_sub_assign
 id|offset
