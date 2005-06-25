@@ -144,6 +144,8 @@ c_func
 id|ce
 comma
 id|ADD_CACHE_OK_TO_ADD
+op_or
+id|ADD_CACHE_SKIP_DFCHECK
 )paren
 suffix:semicolon
 )brace
