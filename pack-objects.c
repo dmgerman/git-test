@@ -606,6 +606,13 @@ c_cond
 id|entry-&gt;delta
 )paren
 (brace
+id|header
+(braket
+l_int|0
+)braket
+op_assign
+l_char|&squot;D&squot;
+suffix:semicolon
 id|memcpy
 c_func
 (paren
