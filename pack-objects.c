@@ -907,7 +907,7 @@ r_for
 c_loop
 (paren
 id|i
-OL
+op_assign
 l_int|0
 suffix:semicolon
 id|i
