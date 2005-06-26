@@ -1758,6 +1758,9 @@ c_func
 id|delta_buf
 )paren
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|find_deltas
 r_static
