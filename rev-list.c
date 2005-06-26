@@ -466,6 +466,11 @@ id|object_list
 op_star
 op_star
 id|p
+comma
+r_const
+r_char
+op_star
+id|name
 )paren
 (brace
 r_struct
@@ -490,6 +495,10 @@ suffix:semicolon
 id|entry-&gt;next
 op_assign
 l_int|NULL
+suffix:semicolon
+id|entry-&gt;name
+op_assign
+id|name
 suffix:semicolon
 op_star
 id|p
@@ -520,6 +529,11 @@ id|object_list
 op_star
 op_star
 id|p
+comma
+r_const
+r_char
+op_star
+id|name
 )paren
 (brace
 r_struct
@@ -564,6 +578,8 @@ c_func
 id|obj
 comma
 id|p
+comma
+id|name
 )paren
 suffix:semicolon
 )brace
@@ -586,6 +602,11 @@ id|object_list
 op_star
 op_star
 id|p
+comma
+r_const
+r_char
+op_star
+id|name
 )paren
 (brace
 r_struct
@@ -659,6 +680,8 @@ c_func
 id|obj
 comma
 id|p
+comma
+id|name
 )paren
 suffix:semicolon
 r_for
@@ -688,6 +711,8 @@ c_func
 id|entry-&gt;item.tree
 comma
 id|p
+comma
+id|entry-&gt;name
 )paren
 suffix:semicolon
 r_else
@@ -699,6 +724,8 @@ c_func
 id|entry-&gt;item.blob
 comma
 id|p
+comma
+id|entry-&gt;name
 )paren
 suffix:semicolon
 )brace
@@ -760,6 +787,8 @@ c_func
 id|commit-&gt;tree
 comma
 id|p
+comma
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -782,14 +811,18 @@ c_loop
 id|objects
 )paren
 (brace
-id|puts
+id|printf
 c_func
 (paren
+l_string|&quot;%s %s&bslash;n&quot;
+comma
 id|sha1_to_hex
 c_func
 (paren
 id|objects-&gt;item-&gt;sha1
 )paren
+comma
+id|objects-&gt;name
 )paren
 suffix:semicolon
 id|objects
