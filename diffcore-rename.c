@@ -769,6 +769,9 @@ id|dst-&gt;size
 comma
 op_amp
 id|delta_size
+comma
+op_complement
+l_int|0UL
 )paren
 suffix:semicolon
 multiline_comment|/* A delta that has a lot of literal additions would have&n;&t; * big delta_size no matter what else it does.&n;&t; */

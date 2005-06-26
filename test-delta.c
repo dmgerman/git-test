@@ -314,6 +314,9 @@ id|data_size
 comma
 op_amp
 id|out_size
+comma
+op_complement
+l_int|0UL
 )paren
 suffix:semicolon
 r_else

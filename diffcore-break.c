@@ -128,6 +128,9 @@ id|dst-&gt;size
 comma
 op_amp
 id|delta_size
+comma
+op_complement
+l_int|0UL
 )paren
 suffix:semicolon
 multiline_comment|/* Estimate the edit size by interpreting delta. */
