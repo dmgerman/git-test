@@ -935,20 +935,6 @@ comma
 l_int|20
 )paren
 suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;lo=%d mi=%d hi=%d cmp=%d&bslash;n&quot;
-comma
-id|lo
-comma
-id|mi
-comma
-id|hi
-comma
-id|cmp
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
