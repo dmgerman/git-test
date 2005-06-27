@@ -425,7 +425,7 @@ op_assign
 id|n
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Total size:&n;&t; *  - 256 index entries 4 bytes each&n;&t; *  - 24-byte entries * nr (20-byte sha1 + 4-byte offset)&n;&t; *  - 20-byte SHA1 file checksum&n;&t; */
+multiline_comment|/*&n;&t; * Total size:&n;&t; *  - 256 index entries 4 bytes each&n;&t; *  - 24-byte entries * nr (20-byte sha1 + 4-byte offset)&n;&t; *  - 20-byte SHA1 of the packfile&n;&t; *  - 20-byte SHA1 file checksum&n;&t; */
 r_if
 c_cond
 (paren
@@ -438,6 +438,8 @@ op_plus
 id|nr
 op_star
 l_int|24
+op_plus
+l_int|20
 op_plus
 l_int|20
 )paren

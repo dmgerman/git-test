@@ -125,6 +125,15 @@ r_char
 op_star
 id|base_name
 suffix:semicolon
+DECL|variable|pack_file_sha1
+r_static
+r_int
+r_char
+id|pack_file_sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
 DECL|function|delta_against
 r_static
 r_void
@@ -538,6 +547,10 @@ id|sha1close
 c_func
 (paren
 id|f
+comma
+id|pack_file_sha1
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|mb
@@ -603,7 +616,7 @@ id|array
 l_int|256
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * Write the first-level table (the list is sorted,&n;&t; * but we use a 256-entry lookup to be able to avoid&n;&t; * having to do eight extra binary search iterations)&n;&t; */
+multiline_comment|/*&n;&t; * Write the first-level table (the list is sorted,&n;&t; * but we use a 256-entry lookup to be able to avoid&n;&t; * having to do eight extra binary search iterations).&n;&t; */
 r_for
 c_loop
 (paren
@@ -752,10 +765,24 @@ l_int|20
 )paren
 suffix:semicolon
 )brace
+id|sha1write
+c_func
+(paren
+id|f
+comma
+id|pack_file_sha1
+comma
+l_int|20
+)paren
+suffix:semicolon
 id|sha1close
 c_func
 (paren
 id|f
+comma
+l_int|NULL
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
