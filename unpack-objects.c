@@ -364,6 +364,8 @@ OL
 l_int|4
 op_star
 l_int|256
+op_plus
+l_int|20
 )paren
 r_return
 id|error
@@ -423,6 +425,7 @@ op_assign
 id|n
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Total size:&n;&t; *  - 256 index entries 4 bytes each&n;&t; *  - 24-byte entries * nr (20-byte sha1 + 4-byte offset)&n;&t; *  - 20-byte SHA1 file checksum&n;&t; */
 r_if
 c_cond
 (paren
@@ -435,26 +438,9 @@ op_plus
 id|nr
 op_star
 l_int|24
-)paren
-(brace
-id|printf
-c_func
-(paren
-l_string|&quot;index_size=%lu, expected %u (%u)&bslash;n&quot;
-comma
-id|index_size
-comma
-l_int|4
-op_star
-l_int|256
 op_plus
-id|nr
-op_star
-l_int|24
-comma
-id|nr
+l_int|20
 )paren
-suffix:semicolon
 r_return
 id|error
 c_func
@@ -462,7 +448,6 @@ c_func
 l_string|&quot;wrong index file size&quot;
 )paren
 suffix:semicolon
-)brace
 id|nr_entries
 op_assign
 id|nr
