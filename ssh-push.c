@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;rsh.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &lt;string.h&gt;
 DECL|variable|local_version
 r_int
 r_char
@@ -531,6 +532,15 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+DECL|variable|ssh_push_usage
+r_static
+r_const
+r_char
+op_star
+id|ssh_push_usage
+op_assign
+l_string|&quot;git-ssh-push [-c] [-t] [-a] [-w ref] commit-id url&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -577,6 +587,19 @@ ques
 c_cond
 suffix:colon
 l_string|&quot;git-ssh-pull&quot;
+suffix:semicolon
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_char
+id|hex
+(braket
+l_int|41
+)braket
 suffix:semicolon
 r_while
 c_loop
@@ -625,17 +648,12 @@ id|arg
 op_plus
 l_int|2
 )paren
-(brace
 id|usage
 c_func
 (paren
-l_string|&quot;git-ssh-push [-c] [-t] [-a] [-w ref] commit-id url&quot;
+id|ssh_push_usage
 )paren
 suffix:semicolon
-r_return
-l_int|1
-suffix:semicolon
-)brace
 id|commit_id
 op_assign
 id|argv
@@ -651,6 +669,47 @@ id|arg
 op_plus
 l_int|1
 )braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|get_sha1
+c_func
+(paren
+id|commit_id
+comma
+id|sha1
+)paren
+)paren
+id|usage
+c_func
+(paren
+id|ssh_push_usage
+)paren
+suffix:semicolon
+id|memcpy
+c_func
+(paren
+id|hex
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+comma
+r_sizeof
+(paren
+id|hex
+)paren
+)paren
+suffix:semicolon
+id|argv
+(braket
+id|arg
+)braket
+op_assign
+id|hex
 suffix:semicolon
 r_if
 c_cond
