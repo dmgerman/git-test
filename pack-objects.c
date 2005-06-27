@@ -31,7 +31,6 @@ id|OBJ_BLOB
 comma
 DECL|enumerator|OBJ_DELTA
 id|OBJ_DELTA
-singleline_comment|// NOTE! This is _not_ the same as a &quot;delta&quot; object in the filesystem
 )brace
 suffix:semicolon
 DECL|struct|object_entry
