@@ -2126,10 +2126,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|sha1_file_size
+id|sha1_object_info
 c_func
 (paren
 id|s-&gt;sha1
+comma
+id|type
 comma
 op_amp
 id|s-&gt;size
