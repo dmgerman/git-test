@@ -720,6 +720,15 @@ l_string|&quot;blob&quot;
 suffix:semicolon
 r_break
 suffix:semicolon
+r_case
+l_char|&squot;G&squot;
+suffix:colon
+id|type_s
+op_assign
+l_string|&quot;tag&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
 r_default
 suffix:colon
 r_goto
@@ -1494,6 +1503,9 @@ l_char|&squot;T&squot;
 suffix:colon
 r_case
 l_char|&squot;B&squot;
+suffix:colon
+r_case
+l_char|&squot;G&squot;
 suffix:colon
 id|unpack_non_delta_entry
 c_func
