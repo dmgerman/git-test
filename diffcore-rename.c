@@ -653,6 +653,10 @@ comma
 id|literal_added
 suffix:semicolon
 r_int
+r_int
+id|delta_limit
+suffix:semicolon
+r_int
 id|score
 suffix:semicolon
 multiline_comment|/* We deal only with regular files.  Symlink renames are handled&n;&t; * only when they are exact matches --- in other words, no edits&n;&t; * after renaming.&n;&t; */
@@ -754,6 +758,18 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* error but caught downstream */
+id|delta_limit
+op_assign
+id|base_size
+op_star
+(paren
+id|MAX_SCORE
+op_minus
+id|minimum_score
+)paren
+op_div
+id|MAX_SCORE
+suffix:semicolon
 id|delta
 op_assign
 id|diff_delta
@@ -770,9 +786,18 @@ comma
 op_amp
 id|delta_size
 comma
-op_complement
-l_int|0UL
+id|delta_limit
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|delta
+)paren
+multiline_comment|/* If delta_limit is exceeded, we have too much differences */
+r_return
+l_int|0
 suffix:semicolon
 multiline_comment|/* A delta that has a lot of literal additions would have&n;&t; * big delta_size no matter what else it does.&n;&t; */
 r_if
