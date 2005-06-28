@@ -1949,6 +1949,10 @@ id|p-&gt;next
 op_assign
 l_int|NULL
 suffix:semicolon
+id|p-&gt;pack_base
+op_assign
+l_int|NULL
+suffix:semicolon
 id|p-&gt;pack_last_used
 op_assign
 l_int|0
