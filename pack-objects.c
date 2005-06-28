@@ -475,7 +475,7 @@ comma
 id|entry-&gt;size
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * The object header is a byte of &squot;type&squot; followed by four bytes of&n;&t; * length, except for deltas that has the 20 bytes of delta sha&n;&t; * instead.&n;&t; */
+multiline_comment|/*&n;&t; * The object header is a byte of &squot;type&squot; followed by zero or&n;&t; * more bytes of length.  For deltas, the 20 bytes of delta sha1&n;&t; * follows that.&n;&t; */
 id|obj_type
 op_assign
 id|entry-&gt;type

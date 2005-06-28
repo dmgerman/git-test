@@ -1571,8 +1571,6 @@ c_func
 id|entry
 comma
 id|pack
-op_plus
-l_int|5
 comma
 id|size
 comma
