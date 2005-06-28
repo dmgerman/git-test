@@ -298,6 +298,10 @@ id|offset
 op_add_assign
 id|nr
 suffix:semicolon
+id|buf
+op_add_assign
+id|nr
+suffix:semicolon
 id|left
 op_sub_assign
 id|nr
