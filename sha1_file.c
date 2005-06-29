@@ -2940,6 +2940,7 @@ op_star
 id|sizep
 )paren
 (brace
+r_const
 r_int
 r_char
 op_star
@@ -2954,8 +2955,6 @@ l_int|64
 suffix:semicolon
 r_int
 r_int
-id|data_size
-comma
 id|result_size
 comma
 id|base_size
@@ -3001,17 +3000,6 @@ c_func
 l_string|&quot;cannot get info for delta-pack base&quot;
 )paren
 suffix:semicolon
-id|data
-op_assign
-id|base_sha1
-op_plus
-l_int|20
-suffix:semicolon
-id|data_size
-op_assign
-id|left
-l_int|20
-suffix:semicolon
 id|memset
 c_func
 (paren
@@ -3026,13 +3014,18 @@ id|stream
 )paren
 )paren
 suffix:semicolon
+id|data
+op_assign
 id|stream.next_in
 op_assign
-id|data
+id|base_sha1
+op_plus
+l_int|20
 suffix:semicolon
 id|stream.avail_in
 op_assign
-id|data_size
+id|left
+l_int|20
 suffix:semicolon
 id|stream.next_out
 op_assign
