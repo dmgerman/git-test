@@ -200,8 +200,7 @@ comma
 op_amp
 id|delta_size
 comma
-op_complement
-l_int|0UL
+l_int|0
 )paren
 suffix:semicolon
 r_if

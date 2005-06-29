@@ -1465,7 +1465,6 @@ op_assign
 id|i
 suffix:semicolon
 )brace
-multiline_comment|/* next time around the largest possible output is 1 + 4 + 3 */
 r_if
 c_cond
 (paren
@@ -1493,6 +1492,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+multiline_comment|/* next time around the largest possible output is 1 + 4 + 3 */
 r_if
 c_cond
 (paren
