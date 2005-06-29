@@ -5,6 +5,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;pack.h&quot;
 DECL|macro|REACHABLE
 mdefine_line|#define REACHABLE 0x0001
 DECL|variable|show_root
@@ -2132,6 +2133,26 @@ suffix:semicolon
 id|prepare_packed_git
 c_func
 (paren
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|p
+op_assign
+id|packed_git
+suffix:semicolon
+id|p
+suffix:semicolon
+id|p
+op_assign
+id|p-&gt;next
+)paren
+multiline_comment|/* verify gives error messages itself */
+id|verify_pack
+c_func
+(paren
+id|p
 )paren
 suffix:semicolon
 r_for
