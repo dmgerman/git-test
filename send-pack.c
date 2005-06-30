@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;pkt-line.h&quot;
 DECL|variable|send_pack_usage
 r_static
 r_const
@@ -46,9 +47,11 @@ l_int|1000
 )braket
 suffix:semicolon
 r_int
-id|ret
+id|len
+suffix:semicolon
+id|len
 op_assign
-id|read
+id|packet_read_line
 c_func
 (paren
 id|in
@@ -64,7 +67,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ret
+id|len
 OG
 l_int|0
 )paren
@@ -72,11 +75,11 @@ l_int|0
 id|write
 c_func
 (paren
-l_int|1
+l_int|2
 comma
 id|buffer
 comma
-id|ret
+id|len
 )paren
 suffix:semicolon
 r_continue
@@ -85,6 +88,12 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+id|packet_flush
+c_func
+(paren
+id|out
+)paren
+suffix:semicolon
 id|close
 c_func
 (paren
@@ -480,7 +489,11 @@ r_else
 id|execlp
 c_func
 (paren
-id|host
+l_string|&quot;sh&quot;
+comma
+l_string|&quot;sh&quot;
+comma
+l_string|&quot;-c&quot;
 comma
 id|command
 comma
