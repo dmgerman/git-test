@@ -543,6 +543,7 @@ c_func
 id|out
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * FIXME! Here we need to now send the pack-file to the &quot;out&quot; fd, using something&n;&t; * like this:&n;&t; *&n;&t; *   fork() +&n;&t; *&t;dup2(out, 1) +&n;&t; *&t;execve(&quot;/bin/sh git-rev-list --objects ..for-each-ref-list.. | &quot;&n;&t; *&t;&t;&quot;git-pack-objects --stdout&quot;);&n;&t; *&n;&t; * but I&squot;m too tired right now.&n;&t; */
 id|close
 c_func
 (paren
