@@ -2305,17 +2305,6 @@ op_logical_neg
 (paren
 id|next-&gt;object.flags
 op_amp
-id|UNINTERESTING
-)paren
-)paren
-(brace
-r_if
-c_cond
-(paren
-op_logical_neg
-(paren
-id|next-&gt;object.flags
-op_amp
 id|DUPCHECK
 )paren
 )paren
@@ -2333,7 +2322,6 @@ op_amp
 id|reversed
 )paren
 suffix:semicolon
-)brace
 )brace
 )brace
 r_if
