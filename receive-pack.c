@@ -1143,6 +1143,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|commands
+)paren
+(brace
 id|unpack
 c_func
 (paren
@@ -1153,6 +1159,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
