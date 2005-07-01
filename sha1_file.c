@@ -3090,6 +3090,45 @@ op_star
 id|sizep
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|left
+OL
+l_int|20
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;truncated pack file&quot;
+)paren
+suffix:semicolon
+multiline_comment|/* We choose to only get the type of the base object and&n;&t; * ignore potentially corrupt pack file that expects the delta&n;&t; * based on a base with a wrong size.  This saves tons of&n;&t; * inflate() calls.&n;&t; */
+r_if
+c_cond
+(paren
+id|sha1_object_info
+c_func
+(paren
+id|base_sha1
+comma
+id|type
+comma
+l_int|NULL
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot get info for delta-pack base&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|sizep
+)paren
+(brace
 r_const
 r_int
 r_char
@@ -3106,49 +3145,12 @@ suffix:semicolon
 r_int
 r_int
 id|result_size
-comma
-id|base_size
-comma
-id|verify_base_size
 suffix:semicolon
 id|z_stream
 id|stream
 suffix:semicolon
 r_int
 id|st
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|left
-OL
-l_int|20
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;truncated pack file&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|sha1_object_info
-c_func
-(paren
-id|base_sha1
-comma
-id|type
-comma
-op_amp
-id|base_size
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;cannot get info for delta-pack base&quot;
-)paren
 suffix:semicolon
 id|memset
 c_func
@@ -3235,13 +3237,11 @@ c_func
 l_string|&quot;delta data unpack-initial failed&quot;
 )paren
 suffix:semicolon
-multiline_comment|/* Examine the initial part of the delta to figure out&n;&t; * the result size.  Verify the base size while we are at it.&n;&t; */
+multiline_comment|/* Examine the initial part of the delta to figure out&n;&t;&t; * the result size.&n;&t;&t; */
 id|data
 op_assign
 id|delta_head
 suffix:semicolon
-id|verify_base_size
-op_assign
 id|get_delta_hdr_size
 c_func
 (paren
@@ -3249,19 +3249,7 @@ op_amp
 id|data
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|verify_base_size
-op_ne
-id|base_size
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;delta base size mismatch&quot;
-)paren
-suffix:semicolon
+multiline_comment|/* ignore base size */
 multiline_comment|/* Read the result size */
 id|result_size
 op_assign
@@ -3277,6 +3265,7 @@ id|sizep
 op_assign
 id|result_size
 suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
@@ -3610,6 +3599,11 @@ l_string|&quot;corrupted pack file&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|sizep
+)paren
 op_star
 id|sizep
 op_assign
@@ -4669,10 +4663,7 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+r_return
 id|packed_object_info
 c_func
 (paren
@@ -4683,41 +4674,6 @@ id|type
 comma
 id|sizep
 )paren
-)paren
-r_return
-l_int|0
-suffix:semicolon
-multiline_comment|/* sheesh */
-id|map
-op_assign
-id|unpack_entry
-c_func
-(paren
-op_amp
-id|e
-comma
-id|type
-comma
-id|sizep
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|map
-)paren
-suffix:semicolon
-r_return
-(paren
-id|map
-op_eq
-l_int|NULL
-)paren
-ques
-c_cond
-l_int|0
-suffix:colon
-l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -4793,6 +4749,11 @@ id|status
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|sizep
+)paren
 op_star
 id|sizep
 op_assign
