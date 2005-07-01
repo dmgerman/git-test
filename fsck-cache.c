@@ -2153,6 +2153,8 @@ id|verify_pack
 c_func
 (paren
 id|p
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_for
