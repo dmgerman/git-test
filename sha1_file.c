@@ -1463,6 +1463,16 @@ id|index
 op_assign
 id|idx_map
 suffix:semicolon
+op_star
+id|idx_map_
+op_assign
+id|idx_map
+suffix:semicolon
+op_star
+id|idx_size_
+op_assign
+id|idx_size
+suffix:semicolon
 multiline_comment|/* check index map */
 r_if
 c_cond
@@ -1559,16 +1569,6 @@ c_func
 (paren
 l_string|&quot;wrong index file size&quot;
 )paren
-suffix:semicolon
-op_star
-id|idx_map_
-op_assign
-id|idx_map
-suffix:semicolon
-op_star
-id|idx_size_
-op_assign
-id|idx_size
 suffix:semicolon
 r_return
 l_int|0
@@ -4229,6 +4229,7 @@ suffix:semicolon
 id|z_stream
 id|stream
 suffix:semicolon
+r_int
 r_char
 op_star
 id|buffer
@@ -4717,6 +4718,7 @@ op_star
 id|p
 )paren
 (brace
+r_int
 r_int
 op_star
 id|level1_ofs
