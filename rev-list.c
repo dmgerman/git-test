@@ -24,9 +24,19 @@ l_string|&quot;usage: git-rev-list [OPTION] commit-id &lt;commit-id&gt;&bslash;n
 l_string|&quot;  --max-count=nr&bslash;n&quot;
 l_string|&quot;  --max-age=epoch&bslash;n&quot;
 l_string|&quot;  --min-age=epoch&bslash;n&quot;
+l_string|&quot;  --bisect&bslash;n&quot;
+l_string|&quot;  --objects&bslash;n&quot;
+l_string|&quot;  --unpacked&bslash;n&quot;
 l_string|&quot;  --header&bslash;n&quot;
 l_string|&quot;  --pretty&bslash;n&quot;
 l_string|&quot;  --merge-order [ --show-breaks ]&quot;
+suffix:semicolon
+DECL|variable|unpacked
+r_static
+r_int
+id|unpacked
+op_assign
+l_int|0
 suffix:semicolon
 DECL|variable|bisect_list
 r_static
@@ -1553,6 +1563,21 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|unpacked
+op_logical_and
+id|has_sha1_pack
+c_func
+(paren
+id|obj-&gt;sha1
+)paren
+)paren
+id|obj-&gt;flags
+op_or_assign
+id|UNINTERESTING
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|obj-&gt;flags
 op_amp
 id|UNINTERESTING
@@ -2200,6 +2225,30 @@ op_assign
 l_int|1
 suffix:semicolon
 id|blob_objects
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--unpacked&quot;
+)paren
+)paren
+(brace
+id|unpacked
+op_assign
+l_int|1
+suffix:semicolon
+id|limited
 op_assign
 l_int|1
 suffix:semicolon
