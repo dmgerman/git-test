@@ -609,6 +609,9 @@ l_string|&quot;rev-list fork failed&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * We don&squot;t wait for the rev-list pipeline in the parent:&n;&t; * we end up waiting for the other end instead&n;&t; */
+r_return
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|read_ref
 r_static
