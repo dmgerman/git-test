@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * rev-parse.c&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;refs.h&quot;
 DECL|variable|def
 r_static
 r_char
@@ -175,6 +176,7 @@ c_func
 r_int
 id|type
 comma
+r_const
 r_int
 r_char
 op_star
@@ -631,6 +633,36 @@ id|s
 suffix:semicolon
 )brace
 )brace
+DECL|function|show_reference
+r_static
+r_int
+id|show_reference
+c_func
+(paren
+r_const
+r_char
+op_star
+id|refname
+comma
+r_const
+r_int
+r_char
+op_star
+id|sha1
+)paren
+(brace
+id|show_rev
+c_func
+(paren
+id|NORMAL
+comma
+id|sha1
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 DECL|function|main
 r_int
 id|main
@@ -853,6 +885,28 @@ l_string|&quot;--not&quot;
 id|show_type
 op_xor_assign
 id|REVERSED
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--all&quot;
+)paren
+)paren
+(brace
+id|for_each_ref
+c_func
+(paren
+id|show_reference
+)paren
 suffix:semicolon
 r_continue
 suffix:semicolon

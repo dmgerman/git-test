@@ -1832,13 +1832,8 @@ c_cond
 op_logical_neg
 id|tree_objects
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;%s is a tree object, not a commit&quot;
-comma
-id|name
-)paren
+r_return
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -1897,13 +1892,8 @@ c_cond
 op_logical_neg
 id|blob_objects
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;%s is a blob object, not a commit&quot;
-comma
-id|name
-)paren
+r_return
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
