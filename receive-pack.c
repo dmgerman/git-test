@@ -111,6 +111,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|variable|commands
+r_static
 r_struct
 id|command
 op_star

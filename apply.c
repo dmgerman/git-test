@@ -3403,6 +3403,7 @@ id|patchsize
 suffix:semicolon
 )brace
 DECL|variable|pluses
+r_static
 r_const
 r_char
 id|pluses
@@ -3412,6 +3413,7 @@ op_assign
 l_string|&quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&quot;
 suffix:semicolon
 DECL|variable|minuses
+r_static
 r_const
 r_char
 id|minuses

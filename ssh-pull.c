@@ -147,6 +147,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|get_version
+r_static
 r_int
 id|get_version
 c_func

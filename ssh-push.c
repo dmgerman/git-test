@@ -3,6 +3,7 @@ macro_line|#include &quot;rsh.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &lt;string.h&gt;
 DECL|variable|local_version
+r_static
 r_int
 r_char
 id|local_version
@@ -10,6 +11,7 @@ op_assign
 l_int|1
 suffix:semicolon
 DECL|variable|remote_version
+r_static
 r_int
 r_char
 id|remote_version
@@ -17,6 +19,7 @@ op_assign
 l_int|0
 suffix:semicolon
 DECL|function|serve_object
+r_static
 r_int
 id|serve_object
 c_func
@@ -251,6 +254,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|serve_version
+r_static
 r_int
 id|serve_version
 c_func
@@ -297,6 +301,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|serve_ref
+r_static
 r_int
 id|serve_ref
 c_func
@@ -417,6 +422,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|service
+r_static
 r_void
 id|service
 c_func

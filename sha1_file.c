@@ -2678,6 +2678,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|unpack_sha1_rest
+r_static
 r_void
 op_star
 id|unpack_sha1_rest

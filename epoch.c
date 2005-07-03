@@ -54,6 +54,7 @@ op_star
 id|get_BN_CTX
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if
@@ -83,6 +84,7 @@ op_star
 id|new_zero
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -293,6 +295,7 @@ op_star
 id|get_one
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if
@@ -329,6 +332,7 @@ op_star
 id|get_zero
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if

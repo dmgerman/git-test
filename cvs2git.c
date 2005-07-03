@@ -758,6 +758,7 @@ id|name
 suffix:semicolon
 )brace
 DECL|struct|hdrentry
+r_static
 r_struct
 id|hdrentry
 (brace

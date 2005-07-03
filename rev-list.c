@@ -1493,6 +1493,7 @@ id|best
 suffix:semicolon
 )brace
 DECL|function|limit_list
+r_static
 r_struct
 id|commit_list
 op_star
