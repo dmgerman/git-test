@@ -301,6 +301,12 @@ id|hdr_termination
 )paren
 suffix:semicolon
 )brace
+id|fflush
+c_func
+(paren
+id|stdout
+)paren
+suffix:semicolon
 )brace
 DECL|function|filter_commit
 r_static
