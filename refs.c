@@ -455,6 +455,7 @@ comma
 id|sha1
 )paren
 )paren
+r_return
 id|fn
 c_func
 (paren
@@ -464,16 +465,7 @@ id|sha1
 )paren
 suffix:semicolon
 r_return
-id|do_for_each_ref
-c_func
-(paren
-id|get_refs_directory
-c_func
-(paren
-)paren
-comma
-id|fn
-)paren
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|for_each_ref
