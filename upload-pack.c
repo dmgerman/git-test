@@ -908,6 +908,12 @@ c_func
 r_void
 )paren
 (brace
+id|head_ref
+c_func
+(paren
+id|send_ref
+)paren
+suffix:semicolon
 id|for_each_ref
 c_func
 (paren
