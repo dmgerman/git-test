@@ -2346,6 +2346,10 @@ id|topo_order
 op_assign
 l_int|1
 suffix:semicolon
+id|limited
+op_assign
+l_int|1
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
