@@ -20,7 +20,7 @@ c_func
 (paren
 id|dir
 comma
-l_int|0755
+l_int|0777
 )paren
 OL
 l_int|0

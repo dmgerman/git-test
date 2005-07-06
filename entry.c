@@ -96,7 +96,7 @@ c_func
 (paren
 id|buf
 comma
-l_int|0755
+l_int|0777
 )paren
 )paren
 (brace
@@ -134,7 +134,7 @@ c_func
 (paren
 id|buf
 comma
-l_int|0755
+l_int|0777
 )paren
 )paren
 r_continue
