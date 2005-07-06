@@ -12,8 +12,6 @@ DECL|macro|COUNTED
 mdefine_line|#define COUNTED&t;&t;(1u &lt;&lt; 2)
 DECL|macro|SHOWN
 mdefine_line|#define SHOWN&t;&t;(1u &lt;&lt; 3)
-DECL|macro|DUPCHECK
-mdefine_line|#define DUPCHECK&t;(1u &lt;&lt; 4)
 DECL|variable|rev_list_usage
 r_static
 r_const
@@ -2415,13 +2413,13 @@ c_cond
 (paren
 id|commit-&gt;object.flags
 op_amp
-id|DUPCHECK
+id|SEEN
 )paren
 r_continue
 suffix:semicolon
 id|commit-&gt;object.flags
 op_or_assign
-id|DUPCHECK
+id|SEEN
 suffix:semicolon
 id|insert
 c_func
