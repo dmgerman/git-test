@@ -2329,6 +2329,12 @@ op_assign
 id|p
 suffix:semicolon
 )brace
+id|closedir
+c_func
+(paren
+id|dir
+)paren
+suffix:semicolon
 )brace
 DECL|function|prepare_packed_git
 r_void
