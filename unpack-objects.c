@@ -272,15 +272,6 @@ c_func
 id|size
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|size
-)paren
-r_return
-id|buf
-suffix:semicolon
 id|memset
 c_func
 (paren
