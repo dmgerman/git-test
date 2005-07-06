@@ -1149,10 +1149,10 @@ suffix:semicolon
 id|insert_by_date
 c_func
 (paren
+id|parent
+comma
 op_amp
 id|pending
-comma
-id|parent
 )paren
 suffix:semicolon
 id|commit_list_insert
@@ -1186,10 +1186,10 @@ c_func
 id|insert_by_date
 c_func
 (paren
+id|parent
+comma
 op_amp
 id|pending
-comma
-id|parent
 )paren
 suffix:semicolon
 id|add

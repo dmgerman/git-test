@@ -2361,10 +2361,10 @@ suffix:semicolon
 id|insert_by_date
 c_func
 (paren
+id|commit
+comma
 op_amp
 id|list
-comma
-id|commit
 )paren
 suffix:semicolon
 )brace
