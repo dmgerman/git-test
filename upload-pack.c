@@ -14,7 +14,7 @@ suffix:semicolon
 DECL|macro|MAX_HAS
 mdefine_line|#define MAX_HAS (16)
 DECL|macro|MAX_NEEDS
-mdefine_line|#define MAX_NEEDS (16)
+mdefine_line|#define MAX_NEEDS (256)
 DECL|variable|nr_has
 DECL|variable|nr_needs
 r_static
