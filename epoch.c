@@ -2384,6 +2384,10 @@ id|next-&gt;object.flags
 op_amp
 id|VISITED
 )paren
+op_logical_and
+id|next
+op_ne
+id|base
 )paren
 (brace
 id|sort_first_epoch
