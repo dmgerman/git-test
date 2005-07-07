@@ -1943,10 +1943,8 @@ id|BOUNDARY
 suffix:semicolon
 id|action
 op_assign
-(paren
-op_star
 id|emitter
-)paren
+c_func
 (paren
 id|next
 )paren
@@ -2139,10 +2137,8 @@ r_else
 (brace
 id|action
 op_assign
-(paren
-op_star
 id|emitter
-)paren
+c_func
 (paren
 id|next
 )paren
@@ -2227,10 +2223,8 @@ op_logical_neg
 id|ret
 )paren
 (brace
-(paren
-op_star
 id|emitter
-)paren
+c_func
 (paren
 id|next
 )paren
