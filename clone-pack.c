@@ -49,6 +49,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|get_remote_refs
+r_static
 r_struct
 id|ref
 op_star
