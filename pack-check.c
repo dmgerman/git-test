@@ -368,7 +368,7 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;cannot packed %s from %s corrupt&quot;
+l_string|&quot;packed %s from %s is corrupt&quot;
 comma
 id|sha1_to_hex
 c_func
