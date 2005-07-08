@@ -896,6 +896,7 @@ multiline_comment|/* We accept the -r flag just to look like git-diff-tree */
 r_continue
 suffix:semicolon
 )brace
+multiline_comment|/* We accept the -u flag as a synonym for &quot;-p&quot; */
 r_if
 c_cond
 (paren
@@ -906,6 +907,15 @@ c_func
 id|arg
 comma
 l_string|&quot;-p&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-u&quot;
 )paren
 )paren
 (brace

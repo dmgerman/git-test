@@ -2678,6 +2678,15 @@ id|arg
 comma
 l_string|&quot;-p&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-u&quot;
+)paren
 )paren
 (brace
 id|diff_output_format
