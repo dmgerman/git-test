@@ -995,6 +995,7 @@ id|argv
 l_int|1
 )braket
 suffix:semicolon
+multiline_comment|/* chdir to the directory. If that fails, try appending &quot;.git&quot; */
 r_if
 c_cond
 (paren
@@ -1003,6 +1004,26 @@ c_func
 (paren
 id|dir
 )paren
+OL
+l_int|0
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|chdir
+c_func
+(paren
+id|mkpath
+c_func
+(paren
+l_string|&quot;%s.git&quot;
+comma
+id|dir
+)paren
+)paren
+OL
+l_int|0
 )paren
 id|die
 c_func
@@ -1012,6 +1033,7 @@ comma
 id|dir
 )paren
 suffix:semicolon
+)brace
 id|chdir
 c_func
 (paren
