@@ -1420,10 +1420,15 @@ c_func
 id|sha1
 )paren
 )paren
+(brace
+id|default_refs
+op_increment
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* it is in a pack */
+)brace
 id|error
 c_func
 (paren
