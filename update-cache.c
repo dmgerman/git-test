@@ -323,6 +323,10 @@ id|fd
 comma
 op_amp
 id|st
+comma
+l_int|1
+comma
+l_int|NULL
 )paren
 OL
 l_int|0
