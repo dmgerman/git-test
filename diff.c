@@ -3,6 +3,7 @@ macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;sys/wait.h&gt;
 macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 DECL|variable|diff_opts
@@ -108,138 +109,6 @@ l_int|1
 suffix:semicolon
 r_return
 id|external_diff_cmd
-suffix:semicolon
-)brace
-multiline_comment|/* Help to copy the thing properly quoted for the shell safety.&n; * any single quote is replaced with &squot;&bslash;&squot;&squot;, and the caller is&n; * expected to enclose the result within a single quote pair.&n; *&n; * E.g.&n; *  original     sq_expand     result&n; *  name     ==&gt; name      ==&gt; &squot;name&squot;&n; *  a b      ==&gt; a b       ==&gt; &squot;a b&squot;&n; *  a&squot;b      ==&gt; a&squot;&bslash;&squot;&squot;b    ==&gt; &squot;a&squot;&bslash;&squot;&squot;b&squot;&n; */
-DECL|function|sq_expand
-r_static
-r_char
-op_star
-id|sq_expand
-c_func
-(paren
-r_const
-r_char
-op_star
-id|src
-)paren
-(brace
-r_static
-r_char
-op_star
-id|buf
-op_assign
-l_int|NULL
-suffix:semicolon
-r_int
-id|cnt
-comma
-id|c
-suffix:semicolon
-r_const
-r_char
-op_star
-id|cp
-suffix:semicolon
-r_char
-op_star
-id|bp
-suffix:semicolon
-multiline_comment|/* count bytes needed to store the quoted string. */
-r_for
-c_loop
-(paren
-id|cnt
-op_assign
-l_int|1
-comma
-id|cp
-op_assign
-id|src
-suffix:semicolon
-op_star
-id|cp
-suffix:semicolon
-id|cnt
-op_increment
-comma
-id|cp
-op_increment
-)paren
-r_if
-c_cond
-(paren
-op_star
-id|cp
-op_eq
-l_char|&squot;&bslash;&squot;&squot;
-)paren
-id|cnt
-op_add_assign
-l_int|3
-suffix:semicolon
-id|buf
-op_assign
-id|xmalloc
-c_func
-(paren
-id|cnt
-)paren
-suffix:semicolon
-id|bp
-op_assign
-id|buf
-suffix:semicolon
-r_while
-c_loop
-(paren
-(paren
-id|c
-op_assign
-op_star
-id|src
-op_increment
-)paren
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|c
-op_ne
-l_char|&squot;&bslash;&squot;&squot;
-)paren
-op_star
-id|bp
-op_increment
-op_assign
-id|c
-suffix:semicolon
-r_else
-(brace
-id|bp
-op_assign
-id|strcpy
-c_func
-(paren
-id|bp
-comma
-l_string|&quot;&squot;&bslash;&bslash;&squot;&squot;&quot;
-)paren
-suffix:semicolon
-id|bp
-op_add_assign
-l_int|4
-suffix:semicolon
-)brace
-)brace
-op_star
-id|bp
-op_assign
-l_int|0
-suffix:semicolon
-r_return
-id|buf
 suffix:semicolon
 )brace
 DECL|struct|diff_tempfile
@@ -723,14 +592,14 @@ r_char
 op_star
 id|diff_cmd
 op_assign
-l_string|&quot;diff -L&squot;%s%s&squot; -L&squot;%s%s&squot;&quot;
+l_string|&quot;diff -L%s%s -L%s%s&quot;
 suffix:semicolon
 r_const
 r_char
 op_star
 id|diff_arg
 op_assign
-l_string|&quot;&squot;%s&squot; &squot;%s&squot;||:&quot;
+l_string|&quot;%s %s||:&quot;
 suffix:semicolon
 multiline_comment|/* &quot;||:&quot; is to return 0 */
 r_const
@@ -774,7 +643,7 @@ id|name_sq
 l_int|0
 )braket
 op_assign
-id|sq_expand
+id|sq_quote
 c_func
 (paren
 id|name_a
@@ -785,7 +654,7 @@ id|name_sq
 l_int|1
 )braket
 op_assign
-id|sq_expand
+id|sq_quote
 c_func
 (paren
 id|name_b
@@ -835,7 +704,7 @@ id|input_name_sq
 id|i
 )braket
 op_assign
-id|sq_expand
+id|sq_quote
 c_func
 (paren
 id|temp
