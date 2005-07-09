@@ -2,6 +2,11 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &lt;sys/wait.h&gt;
+DECL|variable|quiet
+r_static
+r_int
+id|quiet
+suffix:semicolon
 DECL|variable|clone_pack_usage
 r_static
 r_const
@@ -861,6 +866,13 @@ l_string|&quot;git-unpack-objects&quot;
 comma
 l_string|&quot;git-unpack-objects&quot;
 comma
+id|quiet
+ques
+c_cond
+l_string|&quot;-q&quot;
+suffix:colon
+l_int|NULL
+comma
 l_int|NULL
 )paren
 suffix:semicolon
@@ -1086,7 +1098,26 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
-multiline_comment|/* Arguments go here */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;-q&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|quiet
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|usage
 c_func
 (paren
