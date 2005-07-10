@@ -6150,7 +6150,7 @@ id|posn
 op_assign
 l_int|0
 suffix:semicolon
-r_char
+r_void
 op_star
 id|buf
 op_assign
@@ -6284,6 +6284,10 @@ suffix:semicolon
 multiline_comment|/* First header.. */
 id|stream.next_in
 op_assign
+(paren
+r_void
+op_star
+)paren
 id|hdr
 suffix:semicolon
 id|stream.avail_in
