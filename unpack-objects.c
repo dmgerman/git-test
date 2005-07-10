@@ -1171,11 +1171,7 @@ r_int
 id|percentage
 op_assign
 (paren
-(paren
-l_int|1
-op_plus
 id|nr
-)paren
 op_star
 l_int|100
 )paren
@@ -1394,6 +1390,8 @@ id|unpack_one
 c_func
 (paren
 id|i
+op_plus
+l_int|1
 comma
 id|nr_objects
 )paren
