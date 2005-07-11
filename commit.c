@@ -207,8 +207,8 @@ id|obj
 r_return
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
 (paren
 id|obj-&gt;type
 op_eq
@@ -216,6 +216,9 @@ id|tag_type
 )paren
 id|obj
 op_assign
+id|parse_object
+c_func
+(paren
 (paren
 (paren
 r_struct
@@ -225,7 +228,8 @@ op_star
 id|obj
 )paren
 op_member_access_from_pointer
-id|tagged
+id|tagged-&gt;sha1
+)paren
 suffix:semicolon
 r_return
 id|check_commit

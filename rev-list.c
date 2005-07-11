@@ -1766,8 +1766,8 @@ id|name
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Tag object? Look what it points to..&n;&t; */
-r_if
-c_cond
+r_while
+c_loop
 (paren
 id|object-&gt;type
 op_eq
@@ -1812,7 +1812,11 @@ id|tag-&gt;tag
 suffix:semicolon
 id|object
 op_assign
-id|tag-&gt;tagged
+id|parse_object
+c_func
+(paren
+id|tag-&gt;tagged-&gt;sha1
+)paren
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Commit object? Just return it, we&squot;ll do all the complex&n;&t; * reachability crud.&n;&t; */
