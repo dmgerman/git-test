@@ -5550,8 +5550,13 @@ l_string|&quot; %s %.*s{%s =&gt; %s} (%d%%)&bslash;n&quot;
 comma
 id|renamecopy
 comma
+(paren
+r_int
+)paren
+(paren
 id|old
 id|p-&gt;old_name
+)paren
 comma
 id|p-&gt;old_name
 comma
