@@ -1335,6 +1335,7 @@ comma
 r_char
 id|c
 comma
+r_const
 r_char
 op_star
 id|date
@@ -1571,6 +1572,7 @@ r_int
 id|match_digit
 c_func
 (paren
+r_const
 r_char
 op_star
 id|date
@@ -1955,6 +1957,7 @@ r_int
 id|match_tz
 c_func
 (paren
+r_const
 r_char
 op_star
 id|date
@@ -2054,6 +2057,7 @@ r_void
 id|parse_date
 c_func
 (paren
+r_const
 r_char
 op_star
 id|date
