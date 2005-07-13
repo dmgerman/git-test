@@ -2474,7 +2474,9 @@ r_char
 op_star
 id|diff_tree_usage
 op_assign
-l_string|&quot;git-diff-tree [-p] [-r] [-z] [--stdin] [-m] [-s] [-v] [--pretty] [-t] [-R] [-B] [-M] [-C] [--find-copies-header] [-O&lt;orderfile&gt;] [-S&lt;string&gt;] [--pickaxe-all] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
+l_string|&quot;git-diff-tree [--stdin] [-m] [-s] [-v] [--pretty] [-t] &quot;
+l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; &lt;tree-ish&gt;&quot;
+id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
 DECL|function|main
 r_int

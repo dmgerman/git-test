@@ -737,7 +737,9 @@ r_char
 op_star
 id|diff_cache_usage
 op_assign
-l_string|&quot;git-diff-cache [-p] [-r] [-z] [-m] [--cached] [-R] [-B] [-M] [-C] [--find-copies-harder] [-O&lt;orderfile&gt;] [-S&lt;string&gt;] [--pickaxe-all] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
+l_string|&quot;git-diff-cache [-m] [--cached] &quot;
+l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
+id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
 DECL|function|main
 r_int

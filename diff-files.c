@@ -8,7 +8,9 @@ r_char
 op_star
 id|diff_files_usage
 op_assign
-l_string|&quot;git-diff-files [-p] [-q] [-r] [-z] [-R] [-B] [-M] [-C] [--find-copies-harder] [-O&lt;orderfile&gt;] [-S&lt;string&gt;] [--pickaxe-all] [&lt;path&gt;...]&quot;
+l_string|&quot;git-diff-files [-q] &quot;
+l_string|&quot;[&lt;common diff options&gt;] [&lt;path&gt;...]&quot;
+id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
 DECL|variable|diff_output_format
 r_static
