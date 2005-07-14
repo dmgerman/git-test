@@ -9,7 +9,7 @@ id|send_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-send-pack [--exec=other] destination [heads]*&quot;
+l_string|&quot;git-send-pack [--exec=git-receive-pack] [host:]directory [heads]*&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
