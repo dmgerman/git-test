@@ -56,7 +56,7 @@ id|sha1
 id|usage
 c_func
 (paren
-l_string|&quot;git-cat-file [-t | -s | tagname] &lt;sha1&gt;&quot;
+l_string|&quot;git-cat-file [-t | -s | &lt;type&gt;] &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
 r_if
