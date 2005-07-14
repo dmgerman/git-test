@@ -15,7 +15,7 @@ id|clone_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-clone-pack [host:]directory [heads]*&quot;
+l_string|&quot;git-clone-pack [-q] [--exec=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt; [&lt;heads&gt;]*&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
@@ -1114,6 +1114,30 @@ id|arg
 id|quiet
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+l_string|&quot;--exec=&quot;
+comma
+id|arg
+comma
+l_int|7
+)paren
+)paren
+(brace
+id|exec
+op_assign
+id|arg
+op_plus
+l_int|7
 suffix:semicolon
 r_continue
 suffix:semicolon
