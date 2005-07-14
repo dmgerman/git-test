@@ -450,6 +450,8 @@ op_or
 id|O_TRUNC
 op_or
 id|O_CREAT
+op_or
+id|O_EXCL
 comma
 id|mode
 )paren
@@ -490,6 +492,8 @@ op_or
 id|O_TRUNC
 op_or
 id|O_CREAT
+op_or
+id|O_EXCL
 comma
 id|mode
 )paren
