@@ -172,12 +172,14 @@ r_int
 r_int
 id|mode
 comma
+r_const
 r_char
 op_star
 op_star
 id|paths
 )paren
 (brace
+r_const
 r_char
 op_star
 id|match
@@ -335,6 +337,9 @@ id|pathlen
 )paren
 r_continue
 suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
 )brace
 r_return
 l_int|0
@@ -365,6 +370,7 @@ comma
 r_int
 id|stage
 comma
+r_const
 r_char
 op_star
 op_star
@@ -688,6 +694,7 @@ comma
 r_int
 id|stage
 comma
+r_const
 r_char
 op_star
 op_star
