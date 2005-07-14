@@ -2,6 +2,11 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &lt;sys/wait.h&gt;
+DECL|variable|quiet
+r_static
+r_int
+id|quiet
+suffix:semicolon
 DECL|variable|fetch_pack_usage
 r_static
 r_const
@@ -10,7 +15,7 @@ id|fetch_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-fetch-pack [host:]directory [heads]* &lt; mycommitlist&quot;
+l_string|&quot;git-fetch-pack [-q] [--exec=upload-pack] [host:]directory [heads]* &lt; mycommitlist&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
@@ -630,6 +635,13 @@ l_string|&quot;git-unpack-objects&quot;
 comma
 l_string|&quot;git-unpack-objects&quot;
 comma
+id|quiet
+ques
+c_cond
+l_string|&quot;-q&quot;
+suffix:colon
+l_int|NULL
+comma
 l_int|NULL
 )paren
 suffix:semicolon
@@ -859,7 +871,30 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
-multiline_comment|/* Arguments go here */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+l_string|&quot;--exec=&quot;
+comma
+id|arg
+comma
+l_int|7
+)paren
+)paren
+(brace
+id|exec
+op_assign
+id|arg
+op_plus
+l_int|7
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|usage
 c_func
 (paren
