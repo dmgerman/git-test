@@ -1379,6 +1379,8 @@ comma
 id|size
 comma
 l_int|1
+comma
+l_int|NULL
 )paren
 )paren
 id|die

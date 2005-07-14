@@ -71,6 +71,8 @@ comma
 id|size
 comma
 id|stage
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
