@@ -1380,7 +1380,7 @@ id|size
 comma
 l_int|1
 comma
-l_int|NULL
+id|pathspec
 )paren
 )paren
 id|die
@@ -1405,10 +1405,6 @@ id|diffcore_std
 c_func
 (paren
 id|pathspec
-ques
-c_cond
-suffix:colon
-l_int|NULL
 comma
 id|detect_rename
 comma
