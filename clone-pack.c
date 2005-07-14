@@ -181,7 +181,7 @@ id|sha1
 id|die
 c_func
 (paren
-l_string|&quot;git-fetch-pack: protocol error - expected ref descriptor, got &squot;%s&#xfffd;&squot;&quot;
+l_string|&quot;git-clone-pack: protocol error - expected ref descriptor, got &squot;%s&squot;&quot;
 comma
 id|line
 )paren
