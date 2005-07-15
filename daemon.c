@@ -10,7 +10,7 @@ id|daemon_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-daemon [--port=n]&quot;
+l_string|&quot;git-daemon [--inetd | --port=n]&quot;
 suffix:semicolon
 DECL|function|upload
 r_static
@@ -507,6 +507,11 @@ op_assign
 id|DEFAULT_GIT_PORT
 suffix:semicolon
 r_int
+id|inetd_mode
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|i
 suffix:semicolon
 r_for
@@ -592,6 +597,26 @@ r_continue
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--inetd&quot;
+)paren
+)paren
+(brace
+id|inetd_mode
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|usage
 c_func
 (paren
@@ -599,6 +624,17 @@ id|daemon_usage
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|inetd_mode
+)paren
+r_return
+id|execute
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 id|serve
 c_func
