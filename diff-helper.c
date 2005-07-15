@@ -86,6 +86,8 @@ id|diff_flush
 c_func
 (paren
 id|DIFF_FORMAT_PATCH
+comma
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
