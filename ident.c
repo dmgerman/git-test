@@ -86,7 +86,7 @@ id|real_name
 id|die
 c_func
 (paren
-l_string|&quot;Your parents must have hated you&quot;
+l_string|&quot;Your parents must have hated you!&quot;
 )paren
 suffix:semicolon
 id|memcpy
@@ -125,7 +125,7 @@ l_int|2
 id|die
 c_func
 (paren
-l_string|&quot;Your parents must have hated you&quot;
+l_string|&quot;Your sysadmin must hate you!&quot;
 )paren
 suffix:semicolon
 id|memcpy
