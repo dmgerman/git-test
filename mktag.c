@@ -135,6 +135,9 @@ id|type_line
 comma
 op_star
 id|tag_line
+comma
+op_star
+id|tagger_line
 suffix:semicolon
 r_if
 c_cond
@@ -378,6 +381,36 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/* Verify the tagger line */
+id|tagger_line
+op_assign
+id|tag_line
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|memcmp
+c_func
+(paren
+id|tagger_line
+comma
+l_string|&quot;tagger&quot;
+comma
+l_int|6
+)paren
+op_logical_or
+(paren
+id|tagger_line
+(braket
+l_int|6
+)braket
+op_eq
+l_char|&squot;&bslash;n&squot;
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
 multiline_comment|/* The actual stuff afterwards we don&squot;t care about.. */
 r_return
 l_int|0
@@ -488,7 +521,7 @@ op_add_assign
 id|ret
 suffix:semicolon
 )brace
-singleline_comment|// Verify it for some basic sanity: it needs to start with &quot;object &lt;sha1&gt;&bslash;ntype &quot;
+singleline_comment|// Verify it for some basic sanity: it needs to start with &quot;object &lt;sha1&gt;&bslash;ntype&bslash;ntagger &quot;
 r_if
 c_cond
 (paren
