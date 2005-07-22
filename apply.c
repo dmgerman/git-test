@@ -3161,6 +3161,35 @@ r_break
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/* If a fragment ends with an incomplete line, we failed to include&n;&t; * it in the above loop because we hit oldlines == newlines == 0&n;&t; * before seeing it.&n;&t; */
+r_if
+c_cond
+(paren
+l_int|12
+OL
+id|size
+op_logical_and
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|line
+comma
+l_string|&quot;&bslash;&bslash; No newline&quot;
+comma
+l_int|12
+)paren
+)paren
+id|offset
+op_add_assign
+id|linelen
+c_func
+(paren
+id|line
+comma
+id|size
+)paren
+suffix:semicolon
 id|patch-&gt;lines_added
 op_add_assign
 id|added
@@ -4190,7 +4219,7 @@ r_if
 c_cond
 (paren
 id|len
-OG
+OL
 id|size
 op_logical_and
 id|patch
