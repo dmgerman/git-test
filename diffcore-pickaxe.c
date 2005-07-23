@@ -5,6 +5,7 @@ macro_line|#include &quot;diffcore.h&quot;
 DECL|function|contains
 r_static
 r_int
+r_int
 id|contains
 c_func
 (paren
@@ -23,6 +24,10 @@ r_int
 id|len
 )paren
 (brace
+r_int
+r_int
+id|cnt
+suffix:semicolon
 r_int
 r_int
 id|offset
@@ -56,6 +61,11 @@ id|data
 op_assign
 id|one-&gt;data
 suffix:semicolon
+id|cnt
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* Yes, I&squot;ve heard of strstr(), but the thing is *data may&n;&t; * not be NUL terminated.  Sue me.&n;&t; */
 r_for
 c_loop
 (paren
@@ -72,11 +82,13 @@ suffix:semicolon
 id|offset
 op_increment
 )paren
+(brace
+multiline_comment|/* we count non-overlapping occurrences of needle */
 r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|memcmp
 c_func
 (paren
 id|needle
@@ -88,11 +100,19 @@ comma
 id|len
 )paren
 )paren
-r_return
+(brace
+id|offset
+op_add_assign
+id|len
 l_int|1
 suffix:semicolon
+id|cnt
+op_increment
+suffix:semicolon
+)brace
+)brace
 r_return
-l_int|0
+id|cnt
 suffix:semicolon
 )brace
 DECL|function|diffcore_pickaxe
