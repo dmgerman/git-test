@@ -602,6 +602,12 @@ op_assign
 id|cmd-&gt;next
 suffix:semicolon
 )brace
+id|update_server_info
+c_func
+(paren
+l_int|0
+)paren
+suffix:semicolon
 )brace
 DECL|function|read_head_info
 r_static
