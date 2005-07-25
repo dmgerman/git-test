@@ -581,11 +581,11 @@ c_cond
 (paren
 id|status
 op_eq
-l_char|&squot;R&squot;
+id|DIFF_STATUS_RENAMED
 op_logical_or
 id|status
 op_eq
-l_char|&squot;C&squot;
+id|DIFF_STATUS_COPIED
 )paren
 id|two_paths
 op_assign

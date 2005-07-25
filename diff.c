@@ -3182,7 +3182,7 @@ id|p-&gt;status
 )paren
 (brace
 r_case
-l_char|&squot;C&squot;
+id|DIFF_STATUS_COPIED
 suffix:colon
 id|sprintf
 c_func
@@ -3218,7 +3218,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-l_char|&squot;R&squot;
+id|DIFF_STATUS_RENAMED
 suffix:colon
 id|sprintf
 c_func
@@ -3254,7 +3254,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 suffix:colon
 r_if
 c_cond
@@ -4029,10 +4029,10 @@ id|p-&gt;status
 )paren
 (brace
 r_case
-l_char|&squot;C&squot;
+id|DIFF_STATUS_COPIED
 suffix:colon
 r_case
-l_char|&squot;R&squot;
+id|DIFF_STATUS_RENAMED
 suffix:colon
 id|two_paths
 op_assign
@@ -4041,10 +4041,10 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-l_char|&squot;N&squot;
+id|DIFF_STATUS_ADDED
 suffix:colon
 r_case
-l_char|&squot;D&squot;
+id|DIFF_STATUS_DELETED
 suffix:colon
 id|two_paths
 op_assign
@@ -4672,7 +4672,7 @@ id|p
 )paren
 id|p-&gt;status
 op_assign
-l_char|&squot;U&squot;
+id|DIFF_STATUS_UNMERGED
 suffix:semicolon
 r_else
 r_if
@@ -4687,7 +4687,7 @@ id|p-&gt;one
 )paren
 id|p-&gt;status
 op_assign
-l_char|&squot;N&squot;
+id|DIFF_STATUS_ADDED
 suffix:semicolon
 r_else
 r_if
@@ -4702,7 +4702,7 @@ id|p-&gt;two
 )paren
 id|p-&gt;status
 op_assign
-l_char|&squot;D&squot;
+id|DIFF_STATUS_DELETED
 suffix:semicolon
 r_else
 r_if
@@ -4716,7 +4716,7 @@ id|p
 )paren
 id|p-&gt;status
 op_assign
-l_char|&squot;T&squot;
+id|DIFF_STATUS_TYPE_CHANGED
 suffix:semicolon
 multiline_comment|/* from this point on, we are dealing with a pair&n;&t;&t; * whose both sides are valid and of the same type, i.e.&n;&t;&t; * either in-place edit or rename/copy edit.&n;&t;&t; */
 r_else
@@ -4738,7 +4738,7 @@ id|p-&gt;source_stays
 (brace
 id|p-&gt;status
 op_assign
-l_char|&squot;C&squot;
+id|DIFF_STATUS_COPIED
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -4798,7 +4798,7 @@ multiline_comment|/* not a rename/copy */
 multiline_comment|/* pp is a rename/copy from the same source */
 id|p-&gt;status
 op_assign
-l_char|&squot;C&squot;
+id|DIFF_STATUS_COPIED
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -4811,7 +4811,7 @@ id|p-&gt;status
 )paren
 id|p-&gt;status
 op_assign
-l_char|&squot;R&squot;
+id|DIFF_STATUS_RENAMED
 suffix:semicolon
 )brace
 r_else
@@ -4834,7 +4834,7 @@ id|p-&gt;two-&gt;mode
 )paren
 id|p-&gt;status
 op_assign
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 suffix:semicolon
 r_else
 (brace
@@ -4849,7 +4849,7 @@ id|p-&gt;one-&gt;path
 suffix:semicolon
 id|p-&gt;status
 op_assign
-l_char|&squot;X&squot;
+id|DIFF_STATUS_UNKNOWN
 suffix:semicolon
 )brace
 )brace
@@ -4937,7 +4937,7 @@ op_logical_or
 (paren
 id|p-&gt;status
 op_eq
-l_char|&squot;X&squot;
+id|DIFF_STATUS_UNKNOWN
 )paren
 )paren
 r_continue
@@ -5095,11 +5095,10 @@ c_func
 (paren
 id|filter
 comma
-l_char|&squot;A&squot;
+id|DIFF_STATUS_FILTER_AON
 )paren
 )paren
 (brace
-multiline_comment|/* All-or-none */
 r_int
 id|found
 suffix:semicolon
@@ -5140,7 +5139,7 @@ c_cond
 (paren
 id|p-&gt;status
 op_eq
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 )paren
 op_logical_and
 (paren
@@ -5152,7 +5151,7 @@ c_func
 (paren
 id|filter
 comma
-l_char|&squot;B&squot;
+id|DIFF_STATUS_FILTER_BROKEN
 )paren
 )paren
 op_logical_or
@@ -5165,7 +5164,7 @@ c_func
 (paren
 id|filter
 comma
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 )paren
 )paren
 )paren
@@ -5175,7 +5174,7 @@ op_logical_or
 (paren
 id|p-&gt;status
 op_ne
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 )paren
 op_logical_and
 id|strchr
@@ -5258,7 +5257,7 @@ c_cond
 (paren
 id|p-&gt;status
 op_eq
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 )paren
 op_logical_and
 (paren
@@ -5270,7 +5269,7 @@ c_func
 (paren
 id|filter
 comma
-l_char|&squot;B&squot;
+id|DIFF_STATUS_FILTER_BROKEN
 )paren
 )paren
 op_logical_or
@@ -5283,7 +5282,7 @@ c_func
 (paren
 id|filter
 comma
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 )paren
 )paren
 )paren
@@ -5293,7 +5292,7 @@ op_logical_or
 (paren
 id|p-&gt;status
 op_ne
-l_char|&squot;M&squot;
+id|DIFF_STATUS_MODIFIED
 )paren
 op_logical_and
 id|strchr
