@@ -1241,6 +1241,14 @@ OL
 l_int|0
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|errno
+op_ne
+id|EINTR
+)paren
+(brace
 id|error
 c_func
 (paren
@@ -1259,6 +1267,7 @@ c_func
 l_int|1
 )paren
 suffix:semicolon
+)brace
 r_continue
 suffix:semicolon
 )brace
