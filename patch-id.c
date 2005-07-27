@@ -360,7 +360,7 @@ id|patch_id_usage
 (braket
 )braket
 op_assign
-l_string|&quot;usage: git-patch-id &lt; patch&quot;
+l_string|&quot;git-patch-id &lt; patch&quot;
 suffix:semicolon
 DECL|function|main
 r_int

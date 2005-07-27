@@ -7,7 +7,7 @@ id|prune_packed_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-prune-packed: usage: git-prune-packed&quot;
+l_string|&quot;git-prune-packed (no arguments)&quot;
 suffix:semicolon
 DECL|function|prune_dir
 r_static
