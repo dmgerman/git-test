@@ -737,7 +737,9 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-(paren
+id|list
+)paren
+(brace
 r_new
 op_assign
 id|pop_most_recent_commit
@@ -748,11 +750,7 @@ id|list
 comma
 l_int|1
 )paren
-)paren
-op_ne
-l_int|NULL
-)paren
-(brace
+suffix:semicolon
 r_if
 c_cond
 (paren
