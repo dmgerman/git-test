@@ -1022,6 +1022,17 @@ id|mode
 op_ne
 l_int|0
 suffix:semicolon
+id|entry-&gt;zeropad
+op_assign
+op_star
+(paren
+r_char
+op_star
+)paren
+id|bufptr
+op_eq
+l_char|&squot;0&squot;
+suffix:semicolon
 id|entry-&gt;mode
 op_assign
 id|mode
