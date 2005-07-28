@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;rev-cache.h&quot;
 multiline_comment|/* refs */
 DECL|variable|info_ref_fp
@@ -2858,29 +2859,29 @@ id|sha1
 )paren
 (brace
 r_struct
-id|commit
+id|object
 op_star
-id|commit
+id|obj
+op_assign
+id|parse_object
+c_func
+(paren
+id|sha1
+)paren
 suffix:semicolon
 r_if
 c_cond
 (paren
 op_logical_neg
-(paren
-id|commit
-op_assign
-id|lookup_commit_reference
-c_func
-(paren
-id|sha1
-)paren
-)paren
+id|obj
 )paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;not a commit: %s&quot;
+l_string|&quot;ref %s has bad sha %s&quot;
+comma
+id|path
 comma
 id|sha1_to_hex
 c_func
@@ -2889,11 +2890,51 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_while
+c_loop
+(paren
+id|obj
+op_logical_and
+id|obj-&gt;type
+op_eq
+id|tag_type
+)paren
+id|obj
+op_assign
+id|parse_object
+c_func
+(paren
+(paren
+(paren
+r_struct
+id|tag
+op_star
+)paren
+id|obj
+)paren
+op_member_access_from_pointer
+id|tagged-&gt;sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|obj
+op_logical_or
+id|obj-&gt;type
+op_ne
+id|commit_type
+)paren
+multiline_comment|/* tag pointing at a non-commit */
+r_return
+l_int|0
+suffix:semicolon
 r_return
 id|record_rev_cache
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|obj-&gt;sha1
 comma
 l_int|NULL
 )paren
