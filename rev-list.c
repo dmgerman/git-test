@@ -1203,6 +1203,18 @@ id|commit-&gt;object.flags
 op_or_assign
 id|UNINTERESTING
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Normally we haven&squot;t parsed the parent&n;&t;&t; * yet, so we won&squot;t have a parent of a parent&n;&t;&t; * here. However, it may turn out that we&squot;ve&n;&t;&t; * reached this commit some other way (where it&n;&t;&t; * wasn&squot;t uninteresting), in which case we need&n;&t;&t; * to mark its parents recursively too..&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|commit-&gt;parents
+)paren
+id|mark_parents_uninteresting
+c_func
+(paren
+id|commit
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t;&t; * A missing commit is ok iff its parent is marked &n;&t;&t; * uninteresting.&n;&t;&t; *&n;&t;&t; * We just mark such a thing parsed, so that when&n;&t;&t; * it is popped next time around, we won&squot;t be trying&n;&t;&t; * to parse it and get an error.&n;&t;&t; */
 r_if
 c_cond
