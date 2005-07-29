@@ -2562,6 +2562,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
+macro_line|#ifndef NO_OPENSSL
 r_if
 c_cond
 (paren
@@ -2582,6 +2583,14 @@ l_string|&quot;merge order sort failed&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
+macro_line|#else
+id|die
+c_func
+(paren
+l_string|&quot;merge order sort unsupported, OpenSSL not linked&quot;
+)paren
+suffix:semicolon
+macro_line|#endif
 )brace
 r_return
 l_int|0
