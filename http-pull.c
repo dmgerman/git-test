@@ -3,6 +3,18 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;pull.h&quot;
 macro_line|#include &lt;curl/curl.h&gt;
 macro_line|#include &lt;curl/easy.h&gt;
+macro_line|#if LIBCURL_VERSION_NUM &lt; 0x070704
+DECL|macro|curl_global_cleanup
+mdefine_line|#define curl_global_cleanup() do { /* nothing */ } while(0)
+macro_line|#endif
+macro_line|#if LIBCURL_VERSION_NUM &lt; 0x070800
+DECL|macro|curl_global_init
+mdefine_line|#define curl_global_init(a) do { /* nothing */ } while(0)
+macro_line|#endif
+macro_line|#if LIBCURL_VERSION_NUM &lt; 0x070907
+DECL|macro|curl_easy_setopt
+mdefine_line|#define curl_easy_setopt(a, b, c) do { /* nothing */ } while(0)
+macro_line|#endif
 DECL|variable|curl
 r_static
 id|CURL
