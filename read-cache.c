@@ -1952,12 +1952,7 @@ suffix:semicolon
 singleline_comment|// avoid gcc warning
 id|map
 op_assign
-(paren
-r_void
-op_star
-)paren
-op_minus
-l_int|1
+id|MAP_FAILED
 suffix:semicolon
 r_if
 c_cond
@@ -2024,15 +2019,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-l_int|1
-op_eq
-(paren
-r_int
-)paren
-(paren
-r_int
-)paren
 id|map
+op_eq
+id|MAP_FAILED
 )paren
 r_return
 id|error

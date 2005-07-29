@@ -335,15 +335,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-l_int|1
-op_eq
-(paren
-r_int
-)paren
-(paren
-r_int
-)paren
 id|map
+op_eq
+id|MAP_FAILED
 )paren
 (brace
 id|fprintf

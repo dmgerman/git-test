@@ -184,6 +184,12 @@ l_int|2
 )braket
 )paren
 suffix:semicolon
+id|close
+c_func
+(paren
+id|fd
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
@@ -274,6 +280,12 @@ id|argv
 (braket
 l_int|3
 )braket
+)paren
+suffix:semicolon
+id|close
+c_func
+(paren
+id|fd
 )paren
 suffix:semicolon
 r_return
