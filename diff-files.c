@@ -5,8 +5,9 @@ DECL|variable|diff_files_usage
 r_static
 r_const
 r_char
-op_star
 id|diff_files_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-diff-files [-q] &quot;
 l_string|&quot;[&lt;common diff options&gt;] [&lt;path&gt;...]&quot;

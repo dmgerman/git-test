@@ -633,8 +633,9 @@ DECL|variable|local_pull_usage
 r_static
 r_const
 r_char
-op_star
 id|local_pull_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-local-pull [-c] [-t] [-a] [-d] [-v] [-w filename] [--recover] [-l] [-s] [-n] commit-id path&quot;
 suffix:semicolon

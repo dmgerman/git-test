@@ -107,8 +107,9 @@ DECL|variable|hash_object_usage
 r_static
 r_const
 r_char
-op_star
 id|hash_object_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-hash-object [-t &lt;type&gt;] [-w] &lt;file&gt;...&quot;
 suffix:semicolon

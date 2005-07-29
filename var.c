@@ -5,9 +5,11 @@ macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;string.h&gt;
 DECL|variable|var_usage
 r_static
+r_const
 r_char
-op_star
 id|var_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-var [-l | &lt;variable&gt;]&quot;
 suffix:semicolon

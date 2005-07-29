@@ -2036,13 +2036,13 @@ DECL|variable|ls_files_usage
 r_static
 r_const
 r_char
-op_star
 id|ls_files_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
 l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ]&quot;
-suffix:semicolon
 suffix:semicolon
 DECL|function|main
 r_int

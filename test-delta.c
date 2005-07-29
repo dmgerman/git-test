@@ -11,8 +11,9 @@ DECL|variable|usage
 r_static
 r_const
 r_char
-op_star
 id|usage
+(braket
+)braket
 op_assign
 l_string|&quot;test-delta (-d|-p) &lt;from_file&gt; &lt;data_file&gt; &lt;out_file&gt;&quot;
 suffix:semicolon

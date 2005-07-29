@@ -502,8 +502,9 @@ DECL|variable|ssh_push_usage
 r_static
 r_const
 r_char
-op_star
 id|ssh_push_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-ssh-push [-c] [-t] [-a] [-w ref] commit-id url&quot;
 suffix:semicolon

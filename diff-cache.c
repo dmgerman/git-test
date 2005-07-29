@@ -763,9 +763,11 @@ suffix:semicolon
 )brace
 DECL|variable|diff_cache_usage
 r_static
+r_const
 r_char
-op_star
 id|diff_cache_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-diff-cache [-m] [--cached] &quot;
 l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;

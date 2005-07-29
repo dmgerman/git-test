@@ -301,9 +301,11 @@ l_int|20
 suffix:semicolon
 DECL|variable|commit_tree_usage
 r_static
+r_const
 r_char
-op_star
 id|commit_tree_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
 suffix:semicolon

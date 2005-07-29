@@ -214,8 +214,9 @@ DECL|variable|checkout_cache_usage
 r_static
 r_const
 r_char
-op_star
 id|checkout_cache_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-checkout-cache [-u] [-q] [-a] [-f] [-n] [--prefix=&lt;string&gt;] [--] &lt;file&gt;...&quot;
 suffix:semicolon

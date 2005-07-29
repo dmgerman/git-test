@@ -86,9 +86,11 @@ l_int|NULL
 suffix:semicolon
 DECL|variable|diff_stages_usage
 r_static
+r_const
 r_char
-op_star
 id|diff_stages_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-diff-stages [&lt;common diff options&gt;] &lt;stage1&gt; &lt;stage2&gt; [&lt;path&gt;...]&quot;
 id|COMMON_DIFF_OPTIONS_HELP

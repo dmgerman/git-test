@@ -25,8 +25,9 @@ DECL|variable|tar_tree_usage
 r_static
 r_const
 r_char
-op_star
 id|tar_tree_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-tar-tree &lt;key&gt; [basedir]&quot;
 suffix:semicolon

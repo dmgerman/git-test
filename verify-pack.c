@@ -140,8 +140,9 @@ DECL|variable|verify_pack_usage
 r_static
 r_const
 r_char
-op_star
 id|verify_pack_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-verify-pack [-v] &lt;pack&gt;...&quot;
 suffix:semicolon

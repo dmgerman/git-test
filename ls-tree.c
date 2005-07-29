@@ -794,8 +794,9 @@ DECL|variable|ls_tree_usage
 r_static
 r_const
 r_char
-op_star
 id|ls_tree_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-ls-tree [-d] [-r] [-z] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon

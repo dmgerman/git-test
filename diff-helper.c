@@ -95,8 +95,9 @@ DECL|variable|diff_helper_usage
 r_static
 r_const
 r_char
-op_star
 id|diff_helper_usage
+(braket
+)braket
 op_assign
 l_string|&quot;git-diff-helper [-z] [-O&lt;orderfile&gt;] [-S&lt;string&gt;] [--pickaxe-all] [&lt;path&gt;...]&quot;
 suffix:semicolon
