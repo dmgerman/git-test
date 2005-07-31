@@ -11,10 +11,6 @@ macro_line|#if LIBCURL_VERSION_NUM &lt; 0x070800
 DECL|macro|curl_global_init
 mdefine_line|#define curl_global_init(a) do { /* nothing */ } while(0)
 macro_line|#endif
-macro_line|#if LIBCURL_VERSION_NUM &lt; 0x070907
-DECL|macro|curl_easy_setopt
-mdefine_line|#define curl_easy_setopt(a, b, c) do { /* nothing */ } while(0)
-macro_line|#endif
 DECL|variable|curl
 r_static
 id|CURL
@@ -1013,6 +1009,7 @@ comma
 id|curl_ssl_verify
 )paren
 suffix:semicolon
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070907
 id|curl_easy_setopt
 c_func
 (paren
@@ -1023,6 +1020,7 @@ comma
 id|CURL_NETRC_OPTIONAL
 )paren
 suffix:semicolon
+macro_line|#endif
 id|base
 op_assign
 id|url
