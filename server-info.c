@@ -310,6 +310,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* packs */
 DECL|struct|pack_info
+r_static
 r_struct
 id|pack_info
 (brace

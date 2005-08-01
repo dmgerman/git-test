@@ -16,6 +16,7 @@ comma
 id|alloc_revs
 suffix:semicolon
 DECL|variable|rle_free
+r_static
 r_struct
 id|rev_list_elem
 op_star

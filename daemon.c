@@ -223,6 +223,7 @@ op_assign
 l_int|0
 suffix:semicolon
 DECL|variable|dead_child
+r_static
 id|pid_t
 id|dead_child
 (braket
@@ -247,6 +248,7 @@ op_assign
 l_int|0
 suffix:semicolon
 DECL|struct|child
+r_static
 r_struct
 id|child
 (brace
