@@ -1040,7 +1040,6 @@ r_case
 l_int|0
 suffix:colon
 r_return
-l_int|0
 suffix:semicolon
 r_case
 id|ERR_RUN_COMMAND_FORK
