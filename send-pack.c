@@ -10,7 +10,8 @@ id|send_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-send-pack [--exec=git-receive-pack] [host:]directory [heads]*&quot;
+l_string|&quot;git-send-pack [--all] [--exec=git-receive-pack] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
+l_string|&quot;  --all and explicit &lt;head&gt; specification are mutually exclusive.&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
@@ -1131,6 +1132,8 @@ r_if
 c_cond
 (paren
 id|nr_match
+op_logical_or
+id|send_all
 )paren
 (brace
 id|local_ref_nr_match
@@ -1460,6 +1463,19 @@ c_cond
 (paren
 op_logical_neg
 id|dest
+)paren
+id|usage
+c_func
+(paren
+id|send_pack_usage
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|heads
+op_logical_and
+id|send_all
 )paren
 id|usage
 c_func
