@@ -1,16 +1,14 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &lt;sys/wait.h&gt;
-DECL|function|run_external_command
-r_static
+DECL|function|run_command_v
 r_int
-id|run_external_command
+id|run_command_v
 c_func
 (paren
 r_int
 id|argc
 comma
-r_const
 r_char
 op_star
 op_star
@@ -59,8 +57,16 @@ op_star
 id|argv
 )paren
 suffix:semicolon
-r_return
-id|ERR_RUN_COMMAND_EXEC
+id|die
+c_func
+(paren
+l_string|&quot;exec %s failed.&quot;
+comma
+id|argv
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
 )brace
 r_for
@@ -196,7 +202,6 @@ dot
 r_int
 id|argc
 suffix:semicolon
-r_const
 r_char
 op_star
 id|argv
@@ -212,18 +217,6 @@ suffix:semicolon
 id|va_list
 id|param
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;run-command %s (%d)&bslash;n&quot;
-comma
-id|cmd
-comma
-id|ERR_RUN_COMMAND_EXEC
-)paren
-suffix:semicolon
 id|va_start
 c_func
 (paren
@@ -237,6 +230,10 @@ id|argv
 l_int|0
 )braket
 op_assign
+(paren
+r_char
+op_star
+)paren
 id|cmd
 suffix:semicolon
 id|argc
@@ -300,7 +297,7 @@ id|cmd
 )paren
 suffix:semicolon
 r_return
-id|run_external_command
+id|run_command_v
 c_func
 (paren
 id|argc
