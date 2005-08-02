@@ -30,6 +30,18 @@ op_star
 id|path
 suffix:semicolon
 multiline_comment|/* &quot;Remote&quot; git repository */
+DECL|function|prefetch
+r_void
+id|prefetch
+c_func
+(paren
+r_int
+r_char
+op_star
+id|sha1
+)paren
+(brace
+)brace
 DECL|function|fetch
 r_int
 id|fetch
