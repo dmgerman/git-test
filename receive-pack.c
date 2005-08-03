@@ -555,6 +555,12 @@ comma
 id|new_hex
 )paren
 suffix:semicolon
+id|safe_create_leading_directories
+c_func
+(paren
+id|lock_name
+)paren
+suffix:semicolon
 id|newfd
 op_assign
 id|open
