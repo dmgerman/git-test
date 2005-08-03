@@ -208,6 +208,12 @@ c_func
 (paren
 id|refs-&gt;old_sha1
 )paren
+op_logical_and
+id|has_sha1_file
+c_func
+(paren
+id|refs-&gt;old_sha1
+)paren
 )paren
 (brace
 id|args
@@ -1086,6 +1092,34 @@ comma
 l_string|&quot;&squot;%s&squot; unchanged&bslash;n&quot;
 comma
 id|name
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|has_sha1_file
+c_func
+(paren
+id|ref-&gt;old_sha1
+)paren
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;remote &squot;%s&squot; object %s does not exist on local&quot;
+comma
+id|name
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|ref-&gt;old_sha1
+)paren
 )paren
 suffix:semicolon
 r_continue
