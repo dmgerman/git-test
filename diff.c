@@ -111,6 +111,8 @@ r_return
 id|external_diff_cmd
 suffix:semicolon
 )brace
+DECL|macro|TEMPFILE_PATH_LEN
+mdefine_line|#define TEMPFILE_PATH_LEN&t;&t;50
 DECL|struct|diff_tempfile
 r_static
 r_struct
@@ -141,7 +143,7 @@ DECL|member|tmp_path
 r_char
 id|tmp_path
 (braket
-l_int|50
+id|TEMPFILE_PATH_LEN
 )braket
 suffix:semicolon
 DECL|variable|diff_temp
@@ -2130,20 +2132,16 @@ id|mode
 r_int
 id|fd
 suffix:semicolon
-id|strcpy
+id|fd
+op_assign
+id|git_mkstemp
 c_func
 (paren
 id|temp-&gt;tmp_path
 comma
+id|TEMPFILE_PATH_LEN
+comma
 l_string|&quot;.diff_XXXXXX&quot;
-)paren
-suffix:semicolon
-id|fd
-op_assign
-id|mkstemp
-c_func
-(paren
-id|temp-&gt;tmp_path
 )paren
 suffix:semicolon
 r_if
