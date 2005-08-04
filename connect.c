@@ -1351,9 +1351,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|dst_peer
 op_logical_and
 id|dst_peer-&gt;peer_ref
+)paren
+op_logical_or
+(paren
+op_logical_neg
+id|dst_peer
+op_logical_and
+op_logical_neg
+id|all
+)paren
 )paren
 r_continue
 suffix:semicolon
@@ -1364,14 +1374,6 @@ op_logical_neg
 id|dst_peer
 )paren
 (brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|all
-)paren
-r_continue
-suffix:semicolon
 multiline_comment|/* Create a new one and link it */
 r_int
 id|len

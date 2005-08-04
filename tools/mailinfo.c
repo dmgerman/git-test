@@ -773,6 +773,12 @@ c_func
 r_void
 )paren
 (brace
+id|FILE
+op_star
+id|out
+op_assign
+id|cmitmsg
+suffix:semicolon
 r_char
 op_star
 id|sub
@@ -820,12 +826,6 @@ id|sub
 comma
 id|date
 )paren
-suffix:semicolon
-id|FILE
-op_star
-id|out
-op_assign
-id|cmitmsg
 suffix:semicolon
 r_do
 (brace

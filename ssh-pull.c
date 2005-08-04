@@ -30,6 +30,7 @@ op_assign
 l_int|1
 suffix:semicolon
 DECL|function|force_write
+r_static
 id|ssize_t
 id|force_write
 c_func
