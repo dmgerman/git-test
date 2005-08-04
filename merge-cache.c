@@ -174,6 +174,7 @@ r_else
 r_if
 c_cond
 (paren
+op_logical_neg
 id|quiet
 )paren
 id|die
@@ -735,6 +736,7 @@ c_cond
 (paren
 id|err
 op_logical_and
+op_logical_neg
 id|quiet
 )paren
 id|die
