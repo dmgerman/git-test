@@ -1042,6 +1042,13 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
+id|path
+(braket
+id|len
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 id|copy_templates
 c_func
 (paren
