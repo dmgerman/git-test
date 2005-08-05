@@ -1059,6 +1059,8 @@ c_func
 (paren
 id|matched_src-&gt;name
 )paren
+op_plus
+l_int|1
 suffix:semicolon
 id|matched_dst
 op_assign
