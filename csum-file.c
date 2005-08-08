@@ -223,6 +223,12 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|f
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
