@@ -5966,6 +5966,12 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|buffer
+)paren
+suffix:semicolon
 multiline_comment|/* Now we have the ID of the referred-to object in&n;&t;&t; * actual_sha1.  Check again. */
 )brace
 )brace
