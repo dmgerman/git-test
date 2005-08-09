@@ -1793,7 +1793,7 @@ comma
 l_int|2
 )paren
 suffix:semicolon
-id|printf
+id|sprintf
 c_func
 (paren
 op_amp
@@ -1808,7 +1808,7 @@ l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/* devmajor */
-id|printf
+id|sprintf
 c_func
 (paren
 op_amp

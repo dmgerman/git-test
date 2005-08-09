@@ -32,6 +32,8 @@ c_func
 id|git_path
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|refname
 )paren
 comma
@@ -136,6 +138,8 @@ c_func
 id|git_path
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|base
 )paren
 )paren
@@ -310,6 +314,8 @@ c_func
 id|git_path
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|path
 )paren
 comma

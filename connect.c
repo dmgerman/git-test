@@ -1008,6 +1008,13 @@ id|error
 c_func
 (paren
 l_string|&quot;src refspec %s does not match any.&quot;
+comma
+id|rs
+(braket
+id|i
+)braket
+dot
+id|src
 )paren
 suffix:semicolon
 r_break
