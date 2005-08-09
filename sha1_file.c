@@ -7032,6 +7032,11 @@ id|bufposn
 suffix:semicolon
 id|stream.next_in
 op_assign
+(paren
+r_int
+r_char
+op_star
+)paren
 id|buffer
 suffix:semicolon
 r_do
