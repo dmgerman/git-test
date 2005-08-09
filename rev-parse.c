@@ -107,6 +107,12 @@ l_string|&quot;--min-age=&quot;
 comma
 l_string|&quot;--merge-order&quot;
 comma
+l_string|&quot;--topo-order&quot;
+comma
+l_string|&quot;--bisect&quot;
+comma
+l_string|&quot;--no-merges&quot;
+comma
 l_int|NULL
 )brace
 suffix:semicolon
