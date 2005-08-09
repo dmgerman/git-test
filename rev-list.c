@@ -270,6 +270,20 @@ id|parents-&gt;next
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+)paren
+id|putchar
+c_func
+(paren
+l_char|&squot; &squot;
+)paren
+suffix:semicolon
+r_else
 id|putchar
 c_func
 (paren
@@ -2342,6 +2356,18 @@ id|hdr_termination
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+)paren
+id|prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_else
 id|prefix
 op_assign
 l_string|&quot;commit &quot;
