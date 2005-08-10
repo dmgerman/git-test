@@ -299,7 +299,7 @@ id|offset
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * Search for a line beginning with &quot;From &quot;, and &n;&t; * having smething that looks like a date format.&n;&t; */
+multiline_comment|/*&n;&t; * Search for a line beginning with &quot;From &quot;, and &n;&t; * having something that looks like a date format.&n;&t; */
 r_do
 (brace
 r_int

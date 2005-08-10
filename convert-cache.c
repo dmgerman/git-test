@@ -348,6 +348,10 @@ c_func
 (paren
 l_string|&quot;expected sha1, got &squot;%s&squot;&quot;
 comma
+(paren
+r_char
+op_star
+)paren
 id|buffer
 )paren
 suffix:semicolon
@@ -1561,6 +1565,10 @@ c_func
 (paren
 l_string|&quot;Bad commit &squot;%s&squot;&quot;
 comma
+(paren
+r_char
+op_star
+)paren
 id|buffer
 )paren
 suffix:semicolon

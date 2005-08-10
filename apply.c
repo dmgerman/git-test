@@ -2632,6 +2632,9 @@ l_string|&quot;patch fragment without header at line %d: %.*s&quot;
 comma
 id|linenr
 comma
+(paren
+r_int
+)paren
 id|len
 op_minus
 l_int|1
@@ -4545,7 +4548,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;patch failed: %s:%d&quot;
+l_string|&quot;patch failed: %s:%ld&quot;
 comma
 id|patch-&gt;old_name
 comma

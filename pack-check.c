@@ -76,7 +76,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Packfile signature mismatch&quot;
+l_string|&quot;Packfile %s signature mismatch&quot;
 comma
 id|p-&gt;pack_name
 )paren

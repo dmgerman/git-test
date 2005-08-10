@@ -24,12 +24,15 @@ l_string|&quot;git-rev-list [OPTION] commit-id &lt;commit-id&gt;&bslash;n&quot;
 l_string|&quot;  --max-count=nr&bslash;n&quot;
 l_string|&quot;  --max-age=epoch&bslash;n&quot;
 l_string|&quot;  --min-age=epoch&bslash;n&quot;
+l_string|&quot;  --parents&bslash;n&quot;
 l_string|&quot;  --bisect&bslash;n&quot;
 l_string|&quot;  --objects&bslash;n&quot;
 l_string|&quot;  --unpacked&bslash;n&quot;
 l_string|&quot;  --header&bslash;n&quot;
 l_string|&quot;  --pretty&bslash;n&quot;
-l_string|&quot;  --merge-order [ --show-breaks ]&quot;
+l_string|&quot;  --no-merges&bslash;n&quot;
+l_string|&quot;  --merge-order [ --show-breaks ]&bslash;n&quot;
+l_string|&quot;  --topo-order&quot;
 suffix:semicolon
 DECL|variable|unpacked
 r_static
@@ -155,6 +158,13 @@ id|topo_order
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|no_merges
+r_static
+r_int
+id|no_merges
+op_assign
+l_int|0
+suffix:semicolon
 DECL|function|show_commit
 r_static
 r_void
@@ -260,6 +270,20 @@ id|parents-&gt;next
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+)paren
+id|putchar
+c_func
+(paren
+l_char|&squot; &squot;
+)paren
+suffix:semicolon
+r_else
 id|putchar
 c_func
 (paren
@@ -411,6 +435,20 @@ op_decrement
 )paren
 r_return
 id|STOP
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|no_merges
+op_logical_and
+(paren
+id|commit-&gt;parents
+op_logical_and
+id|commit-&gt;parents-&gt;next
+)paren
+)paren
+r_return
+id|CONTINUE
 suffix:semicolon
 r_return
 id|DO
@@ -2318,9 +2356,43 @@ id|hdr_termination
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+)paren
+id|prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_else
 id|prefix
 op_assign
 l_string|&quot;commit &quot;
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--no-merges&quot;
+comma
+l_int|11
+)paren
+)paren
+(brace
+id|no_merges
+op_assign
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
