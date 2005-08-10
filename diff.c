@@ -592,6 +592,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
+r_const
 id|diff_cmd
 op_assign
 l_string|&quot;diff -L%s%s -L%s%s&quot;
@@ -599,6 +600,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
+r_const
 id|diff_arg
 op_assign
 l_string|&quot;%s %s||:&quot;
@@ -3926,6 +3928,7 @@ id|line_termination
 r_const
 r_char
 op_star
+r_const
 id|err
 op_assign
 l_string|&quot;path %s cannot be expressed without -z&quot;
