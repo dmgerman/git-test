@@ -1,6 +1,58 @@
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+DECL|macro|PARENT1
+mdefine_line|#define PARENT1 1
+DECL|macro|PARENT2
+mdefine_line|#define PARENT2 2
+DECL|macro|UNINTERESTING
+mdefine_line|#define UNINTERESTING 4
+DECL|function|interesting
+r_static
+r_int
+id|interesting
+c_func
+(paren
+r_struct
+id|commit_list
+op_star
+id|list
+)paren
+(brace
+r_while
+c_loop
+(paren
+id|list
+)paren
+(brace
+r_struct
+id|commit
+op_star
+id|commit
+op_assign
+id|list-&gt;item
+suffix:semicolon
+id|list
+op_assign
+id|list-&gt;next
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|UNINTERESTING
+)paren
+r_continue
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
+r_return
+l_int|0
+suffix:semicolon
+)brace
 DECL|function|common_ancestor
 r_static
 r_struct
@@ -85,7 +137,11 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+id|interesting
+c_func
+(paren
 id|list
+)paren
 )paren
 (brace
 r_struct
@@ -110,7 +166,7 @@ id|flags
 op_assign
 id|commit-&gt;object.flags
 op_amp
-l_int|3
+l_int|7
 suffix:semicolon
 id|list
 op_assign
@@ -122,15 +178,14 @@ c_func
 id|tmp
 )paren
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
 id|flags
+op_eq
+l_int|3
 )paren
 (brace
-r_case
-l_int|3
-suffix:colon
 id|insert_by_date
 c_func
 (paren
@@ -140,16 +195,10 @@ op_amp
 id|result
 )paren
 suffix:semicolon
-r_continue
-suffix:semicolon
-r_case
-l_int|0
-suffix:colon
-id|die
-c_func
-(paren
-l_string|&quot;git-merge-base: commit without either parent?&quot;
-)paren
+multiline_comment|/* Mark children of a found merge uninteresting */
+id|flags
+op_or_assign
+id|UNINTERESTING
 suffix:semicolon
 )brace
 id|parents
