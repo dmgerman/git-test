@@ -629,6 +629,12 @@ id|sha1
 )paren
 )paren
 (brace
+id|parse_object
+c_func
+(paren
+id|sha1
+)paren
+suffix:semicolon
 multiline_comment|/* We already have it, so we should scan it now. */
 r_return
 id|process_object
