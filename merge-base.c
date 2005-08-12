@@ -1,6 +1,61 @@
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+DECL|macro|PARENT1
+mdefine_line|#define PARENT1 1
+DECL|macro|PARENT2
+mdefine_line|#define PARENT2 2
+DECL|macro|UNINTERESTING
+mdefine_line|#define UNINTERESTING 4
+DECL|function|interesting
+r_static
+r_struct
+id|commit
+op_star
+id|interesting
+c_func
+(paren
+r_struct
+id|commit_list
+op_star
+id|list
+)paren
+(brace
+r_while
+c_loop
+(paren
+id|list
+)paren
+(brace
+r_struct
+id|commit
+op_star
+id|commit
+op_assign
+id|list-&gt;item
+suffix:semicolon
+id|list
+op_assign
+id|list-&gt;next
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|UNINTERESTING
+)paren
+r_continue
+suffix:semicolon
+r_return
+id|commit
+suffix:semicolon
+)brace
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * A pathological example of how this thing works.&n; *&n; * Suppose we had this commit graph, where chronologically&n; * the timestamp on the commit are A &lt;= B &lt;= C &lt;= D &lt;= E &lt;= F&n; * and we are trying to figure out the merge base for E and F&n; * commits.&n; *&n; *                  F&n; *                 / &bslash;&n; *            E   A   D&n; *             &bslash; /   /  &n; *              B   /&n; *               &bslash; /&n; *                C&n; *&n; * First we push E and F to list to be processed.  E gets bit 1&n; * and F gets bit 2.  The list becomes:&n; *&n; *     list=F(2) E(1), result=empty&n; *&n; * Then we pop F, the newest commit, from the list.  Its flag is 2.&n; * We scan its parents, mark them reachable from the side that F is&n; * reachable from, and push them to the list:&n; *&n; *     list=E(1) D(2) A(2), result=empty&n; *&n; * Next pop E and do the same.&n; *&n; *     list=D(2) B(1) A(2), result=empty&n; *&n; * Next pop D and do the same.&n; *&n; *     list=C(2) B(1) A(2), result=empty&n; *&n; * Next pop C and do the same.&n; *&n; *     list=B(1) A(2), result=empty&n; *&n; * Now it is B&squot;s turn.  We mark its parent, C, reachable from B&squot;s side,&n; * and push it to the list:&n; *&n; *     list=C(3) A(2), result=empty&n; *&n; * Now pop C and notice it has flags==3.  It is placed on the result list,&n; * and the list now contains:&n; *&n; *     list=A(2), result=C(3)&n; *&n; * We pop A and do the same.&n; * &n; *     list=B(3), result=C(3)&n; *&n; * Next, we pop B and something very interesting happens.  It has flags==3&n; * so it is also placed on the result list, and its parents are marked&n; * uninteresting, retroactively, and placed back on the list:&n; *&n; *    list=C(7), result=C(7) B(3)&n; * &n; * Now, list does not have any interesting commit.  So we find the newest&n; * commit from the result list that is not marked uninteresting.  Which is&n; * commit B.&n; */
 DECL|function|common_ancestor
 r_static
 r_struct
@@ -85,7 +140,11 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+id|interesting
+c_func
+(paren
 id|list
+)paren
 )paren
 (brace
 r_struct
@@ -110,7 +169,7 @@ id|flags
 op_assign
 id|commit-&gt;object.flags
 op_amp
-l_int|3
+l_int|7
 suffix:semicolon
 id|list
 op_assign
@@ -122,15 +181,14 @@ c_func
 id|tmp
 )paren
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
 id|flags
+op_eq
+l_int|3
 )paren
 (brace
-r_case
-l_int|3
-suffix:colon
 id|insert_by_date
 c_func
 (paren
@@ -140,16 +198,10 @@ op_amp
 id|result
 )paren
 suffix:semicolon
-r_continue
-suffix:semicolon
-r_case
-l_int|0
-suffix:colon
-id|die
-c_func
-(paren
-l_string|&quot;git-merge-base: commit without either parent?&quot;
-)paren
+multiline_comment|/* Mark children of a found merge uninteresting */
+id|flags
+op_or_assign
+id|UNINTERESTING
 suffix:semicolon
 )brace
 id|parents
@@ -207,17 +259,12 @@ id|list
 suffix:semicolon
 )brace
 )brace
-r_if
-c_cond
+r_return
+id|interesting
+c_func
 (paren
-op_logical_neg
 id|result
 )paren
-r_return
-l_int|NULL
-suffix:semicolon
-r_return
-id|result-&gt;item
 suffix:semicolon
 )brace
 DECL|function|main
