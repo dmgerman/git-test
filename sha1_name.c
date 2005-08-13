@@ -886,6 +886,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_eq
+l_int|40
+op_logical_and
 op_logical_neg
 id|get_sha1_hex
 c_func
