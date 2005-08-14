@@ -220,6 +220,12 @@ id|checkout_cache_usage
 op_assign
 l_string|&quot;git-checkout-cache [-u] [-q] [-a] [-f] [-n] [--prefix=&lt;string&gt;] [--] &lt;file&gt;...&quot;
 suffix:semicolon
+DECL|variable|cache_file
+r_static
+r_struct
+id|cache_file
+id|cache_file
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -240,10 +246,6 @@ comma
 id|force_filename
 op_assign
 l_int|0
-suffix:semicolon
-r_struct
-id|cache_file
-id|cache_file
 suffix:semicolon
 r_int
 id|newfd
