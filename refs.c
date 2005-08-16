@@ -308,7 +308,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|lstat
+id|stat
 c_func
 (paren
 id|git_path
