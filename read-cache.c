@@ -1032,6 +1032,15 @@ id|matchlen
 r_return
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|matchlen
+)paren
+r_return
+l_int|1
+suffix:semicolon
 )brace
 r_return
 l_int|0
