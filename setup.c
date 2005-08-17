@@ -421,19 +421,10 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We always want to see a .git/HEAD and a .git/refs/&n;&t;&t; * subdirectory&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We always want to see a .git/refs/ subdirectory&n;&t;&t; */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|access
-c_func
-(paren
-l_string|&quot;.git/HEAD&quot;
-comma
-id|R_OK
-)paren
-op_logical_and
 op_logical_neg
 id|access
 c_func
