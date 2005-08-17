@@ -1,6 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
 DECL|function|prefix_path
-r_static
 r_char
 op_star
 id|prefix_path
