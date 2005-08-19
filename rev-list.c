@@ -1921,6 +1921,24 @@ c_func
 id|tag-&gt;tagged-&gt;sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|object
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad object %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|tag-&gt;tagged-&gt;sha1
+)paren
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Commit object? Just return it, we&squot;ll do all the complex&n;&t; * reachability crud.&n;&t; */
 r_if
