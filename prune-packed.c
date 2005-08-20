@@ -7,7 +7,12 @@ id|prune_packed_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-prune-packed (no arguments)&quot;
+l_string|&quot;git-prune-packed [-n]&quot;
+suffix:semicolon
+DECL|variable|dryrun
+r_static
+r_int
+id|dryrun
 suffix:semicolon
 DECL|function|prune_dir
 r_static
@@ -136,6 +141,20 @@ comma
 l_int|38
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|dryrun
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;rm -f %s&bslash;n&quot;
+comma
+id|pathname
+)paren
+suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -367,12 +386,30 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
-multiline_comment|/* Handle flags here .. */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-n&quot;
+)paren
+)paren
+id|dryrun
+op_assign
+l_int|1
+suffix:semicolon
+r_else
 id|usage
 c_func
 (paren
 id|prune_packed_usage
 )paren
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 multiline_comment|/* Handle arguments here .. */
