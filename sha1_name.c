@@ -872,8 +872,6 @@ l_string|&quot;refs/tags&quot;
 comma
 l_string|&quot;refs/heads&quot;
 comma
-l_string|&quot;refs/snap&quot;
-comma
 l_int|NULL
 )brace
 suffix:semicolon
