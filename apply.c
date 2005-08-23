@@ -6819,6 +6819,7 @@ op_assign
 id|p-&gt;new_name
 ques
 c_cond
+id|p-&gt;new_name
 suffix:colon
 id|p-&gt;old_name
 suffix:semicolon
