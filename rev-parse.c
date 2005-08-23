@@ -434,7 +434,7 @@ id|arg
 )paren
 suffix:semicolon
 r_else
-id|show_norev
+id|show
 c_func
 (paren
 id|arg
@@ -499,7 +499,7 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-id|show_arg
+id|show_norev
 c_func
 (paren
 id|s
@@ -651,6 +651,8 @@ r_if
 c_cond
 (paren
 id|revs_only
+op_logical_or
+id|flags_only
 )paren
 r_break
 suffix:semicolon
