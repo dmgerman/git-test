@@ -2216,10 +2216,10 @@ c_cond
 (paren
 id|standalone
 )paren
-id|unsetenv
+id|putenv
 c_func
 (paren
-l_string|&quot;GIT_ALTERNATE_OBJECT_DIRECTORIES&quot;
+l_string|&quot;GIT_ALTERNATE_OBJECT_DIRECTORIES=&quot;
 )paren
 suffix:semicolon
 id|fsck_head_link
