@@ -2194,6 +2194,16 @@ id|list
 op_assign
 l_int|NULL
 suffix:semicolon
+r_const
+r_char
+op_star
+id|prefix
+op_assign
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_int
 id|i
 comma
