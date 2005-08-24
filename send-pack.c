@@ -1074,7 +1074,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* This part determines what can overwrite what.&n;&t;&t; * The rules are:&n;&t;&t; *&n;&t;&t; * (0) you can always use --force.&n;&t;&t; *&n;&t;&t; * (1) if the old thing does not exist, it is OK.&n;&t;&t; *&n;&t;&t; * (2) if you do not have the old thing, you are not allowed&n;&t;&t; *     to overwrite it; you would not know what you are losing&n;&t;&t; *     otherwise.&n;&t;&t; *&n;&t;&t; * (3) if both new and old are commit-ish, and new is a&n;&t;&t; *     descendant of old, it is OK.&n;&t;&t; */
+multiline_comment|/* This part determines what can overwrite what.&n;&t;&t; * The rules are:&n;&t;&t; *&n;&t;&t; * (0) you can always use --force or +A:B notation to&n;&t;&t; *     selectively force individual ref pairs.&n;&t;&t; *&n;&t;&t; * (1) if the old thing does not exist, it is OK.&n;&t;&t; *&n;&t;&t; * (2) if you do not have the old thing, you are not allowed&n;&t;&t; *     to overwrite it; you would not know what you are losing&n;&t;&t; *     otherwise.&n;&t;&t; *&n;&t;&t; * (3) if both new and old are commit-ish, and new is a&n;&t;&t; *     descendant of old, it is OK.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1087,6 +1087,9 @@ c_func
 (paren
 id|ref-&gt;old_sha1
 )paren
+op_logical_and
+op_logical_neg
+id|ref-&gt;force
 )paren
 (brace
 r_if
@@ -1118,7 +1121,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* We assume that local is fsck-clean.  Otherwise&n;&t;&t;&t; * you _could_ have a old tag which points at&n;&t;&t;&t; * something you do not have which may or may not&n;&t;&t;&t; * be a commit.&n;&t;&t;&t; */
+multiline_comment|/* We assume that local is fsck-clean.  Otherwise&n;&t;&t;&t; * you _could_ have an old tag which points at&n;&t;&t;&t; * something you do not have, which may or may not&n;&t;&t;&t; * be a commit.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren

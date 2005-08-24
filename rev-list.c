@@ -90,12 +90,12 @@ id|hdr_termination
 op_assign
 l_int|0
 suffix:semicolon
-DECL|variable|prefix
+DECL|variable|commit_prefix
 r_static
 r_const
 r_char
 op_star
-id|prefix
+id|commit_prefix
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
@@ -187,7 +187,7 @@ c_cond
 id|show_breaks
 )paren
 (brace
-id|prefix
+id|commit_prefix
 op_assign
 l_string|&quot;| &quot;
 suffix:semicolon
@@ -199,7 +199,7 @@ op_amp
 id|DISCONTINUITY
 )paren
 (brace
-id|prefix
+id|commit_prefix
 op_assign
 l_string|&quot;^ &quot;
 suffix:semicolon
@@ -213,7 +213,7 @@ op_amp
 id|BOUNDARY
 )paren
 (brace
-id|prefix
+id|commit_prefix
 op_assign
 l_string|&quot;= &quot;
 suffix:semicolon
@@ -224,7 +224,7 @@ c_func
 (paren
 l_string|&quot;%s%s&quot;
 comma
-id|prefix
+id|commit_prefix
 comma
 id|sha1_to_hex
 c_func
@@ -2194,22 +2194,17 @@ id|list
 op_assign
 l_int|NULL
 suffix:semicolon
-r_const
-r_char
-op_star
-id|prefix
-op_assign
-id|setup_git_directory
-c_func
-(paren
-)paren
-suffix:semicolon
 r_int
 id|i
 comma
 id|limited
 op_assign
 l_int|0
+suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
 suffix:semicolon
 r_for
 c_loop
@@ -2391,12 +2386,12 @@ id|commit_format
 op_eq
 id|CMIT_FMT_ONELINE
 )paren
-id|prefix
+id|commit_prefix
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
 r_else
-id|prefix
+id|commit_prefix
 op_assign
 l_string|&quot;commit &quot;
 suffix:semicolon
