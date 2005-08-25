@@ -2574,6 +2574,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|c
+op_logical_or
 id|c
 op_eq
 l_char|&squot;*&squot;
