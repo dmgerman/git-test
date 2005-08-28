@@ -1698,7 +1698,8 @@ suffix:semicolon
 r_case
 l_char|&squot;&bslash;n&squot;
 suffix:colon
-r_break
+r_return
+l_int|NULL
 suffix:semicolon
 r_case
 l_char|&squot;&bslash;t&squot;
