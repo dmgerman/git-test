@@ -1000,6 +1000,7 @@ DECL|member|name
 r_char
 id|name
 (braket
+l_int|0
 )braket
 suffix:semicolon
 )brace

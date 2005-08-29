@@ -112,6 +112,7 @@ DECL|member|ref_name
 r_char
 id|ref_name
 (braket
+l_int|0
 )braket
 suffix:semicolon
 )brace
