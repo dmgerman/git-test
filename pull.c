@@ -735,6 +735,7 @@ c_func
 id|obj-&gt;type
 ques
 c_cond
+id|obj-&gt;type
 suffix:colon
 l_string|&quot;object&quot;
 comma

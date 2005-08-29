@@ -3,6 +3,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &lt;signal.h&gt;
 macro_line|#include &lt;sys/wait.h&gt;
 macro_line|#include &lt;sys/socket.h&gt;
+macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;netdb.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 DECL|variable|daemon_usage

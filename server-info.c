@@ -356,7 +356,6 @@ DECL|member|dep
 r_char
 id|dep
 (braket
-l_int|0
 )braket
 suffix:semicolon
 multiline_comment|/* more */

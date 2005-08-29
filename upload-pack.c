@@ -1067,14 +1067,10 @@ comma
 id|dir
 )paren
 suffix:semicolon
-id|setenv
+id|putenv
 c_func
 (paren
-l_string|&quot;GIT_DIR&quot;
-comma
-l_string|&quot;.&quot;
-comma
-l_int|1
+l_string|&quot;GIT_DIR=.&quot;
 )paren
 suffix:semicolon
 id|upload_pack
