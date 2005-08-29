@@ -112,7 +112,6 @@ DECL|member|ref_name
 r_char
 id|ref_name
 (braket
-l_int|0
 )braket
 suffix:semicolon
 )brace
@@ -1453,14 +1452,10 @@ c_func
 l_string|&quot;.git&quot;
 )paren
 suffix:semicolon
-id|setenv
+id|putenv
 c_func
 (paren
-l_string|&quot;GIT_DIR&quot;
-comma
-l_string|&quot;.&quot;
-comma
-l_int|1
+l_string|&quot;GIT_DIR=.&quot;
 )paren
 suffix:semicolon
 r_if
