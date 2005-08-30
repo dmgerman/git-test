@@ -3571,7 +3571,6 @@ id|ch
 l_char|&squot;0&squot;
 suffix:semicolon
 )brace
-op_star
 id|cp
 op_increment
 suffix:semicolon

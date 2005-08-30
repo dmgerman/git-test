@@ -1941,7 +1941,6 @@ op_star
 id|date
 suffix:semicolon
 r_int
-r_int
 id|namelen
 suffix:semicolon
 r_int
