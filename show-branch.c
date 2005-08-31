@@ -1630,6 +1630,11 @@ op_star
 op_star
 id|label
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
