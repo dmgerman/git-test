@@ -200,11 +200,28 @@ id|path
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+l_int|0
+op_eq
+id|status
+)paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;open(&bslash;&quot;%s&bslash;&quot;): %s&quot;
+l_string|&quot;%s: is a directory&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+r_else
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;lstat(&bslash;&quot;%s&bslash;&quot;): %s&quot;
 comma
 id|path
 comma
@@ -1932,7 +1949,7 @@ id|path
 id|die
 c_func
 (paren
-l_string|&quot;Unable to add %s to database&quot;
+l_string|&quot;Unable to add %s to database; maybe you want to use --add option?&quot;
 comma
 id|path
 )paren
