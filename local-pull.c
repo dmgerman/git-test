@@ -52,6 +52,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 DECL|function|setup_index
+r_static
 r_void
 id|setup_index
 c_func
@@ -129,10 +130,12 @@ id|new_pack
 suffix:semicolon
 )brace
 DECL|function|setup_indices
+r_static
 r_int
 id|setup_indices
 c_func
 (paren
+r_void
 )paren
 (brace
 id|DIR
@@ -242,6 +245,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|copy_file
+r_static
 r_int
 id|copy_file
 c_func
@@ -557,10 +561,12 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|fetch_pack
+r_static
 r_int
 id|fetch_pack
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -732,10 +738,12 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|fetch_file
+r_static
 r_int
 id|fetch_file
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
