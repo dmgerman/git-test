@@ -109,6 +109,8 @@ id|malloc
 c_func
 (paren
 id|size
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 r_if
@@ -119,6 +121,13 @@ id|dst_buf
 )paren
 r_return
 l_int|NULL
+suffix:semicolon
+id|dst_buf
+(braket
+id|size
+)braket
+op_assign
+l_int|0
 suffix:semicolon
 id|out
 op_assign
