@@ -2441,6 +2441,7 @@ op_star
 id|parse_pack_index_file
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
