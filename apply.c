@@ -3138,7 +3138,7 @@ op_decrement
 suffix:semicolon
 r_break
 suffix:semicolon
-multiline_comment|/* We allow &quot;&bslash; No newline at end of file&quot; */
+multiline_comment|/* We allow &quot;&bslash; No newline at end of file&quot;. Depending&n;                 * on locale settings when the patch was produced we&n;                 * don&squot;t know what this line looks like. The only&n;                 * thing we do know is that it begins with &quot;&bslash; &quot;. */
 r_case
 l_char|&squot;&bslash;&bslash;&squot;
 suffix:colon
@@ -3154,9 +3154,9 @@ c_func
 (paren
 id|line
 comma
-l_string|&quot;&bslash;&bslash; No newline&quot;
+l_string|&quot;&bslash;&bslash; &quot;
 comma
-l_int|12
+l_int|2
 )paren
 )paren
 r_return
@@ -3180,9 +3180,9 @@ c_func
 (paren
 id|line
 comma
-l_string|&quot;&bslash;&bslash; No newline&quot;
+l_string|&quot;&bslash;&bslash; &quot;
 comma
-l_int|12
+l_int|2
 )paren
 )paren
 id|offset
