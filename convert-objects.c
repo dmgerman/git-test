@@ -1,5 +1,7 @@
 DECL|macro|_XOPEN_SOURCE
 mdefine_line|#define _XOPEN_SOURCE /* glibc2 needs this */
+DECL|macro|__EXTENSIONS__
+mdefine_line|#define __EXTENSIONS__ /* solaris needs this */
 macro_line|#include &lt;time.h&gt;
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
