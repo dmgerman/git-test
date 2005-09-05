@@ -239,6 +239,8 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+DECL|macro|DBRT_DEBUG
+mdefine_line|#define DBRT_DEBUG 0
 DECL|function|unpack_trees_rec
 r_static
 r_int
@@ -405,6 +407,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
+macro_line|#if DBRT_DEBUG
 r_if
 c_cond
 (paren
@@ -418,6 +421,7 @@ comma
 id|first
 )paren
 suffix:semicolon
+macro_line|#endif
 r_for
 c_loop
 (paren
@@ -452,6 +456,7 @@ id|df_conflict_list
 )paren
 r_continue
 suffix:semicolon
+macro_line|#if DBRT_DEBUG
 id|printf
 c_func
 (paren
@@ -469,6 +474,7 @@ op_member_access_from_pointer
 id|name
 )paren
 suffix:semicolon
+macro_line|#endif
 r_if
 c_cond
 (paren
@@ -968,6 +974,7 @@ id|merge
 r_int
 id|ret
 suffix:semicolon
+macro_line|#if DBRT_DEBUG
 id|printf
 c_func
 (paren
@@ -1032,6 +1039,7 @@ l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
+macro_line|#endif
 id|ret
 op_assign
 id|fn
@@ -1040,6 +1048,7 @@ c_func
 id|src
 )paren
 suffix:semicolon
+macro_line|#if DBRT_DEBUG
 id|printf
 c_func
 (paren
@@ -1048,6 +1057,7 @@ comma
 id|ret
 )paren
 suffix:semicolon
+macro_line|#endif
 op_star
 id|indpos
 op_add_assign
