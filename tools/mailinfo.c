@@ -662,6 +662,32 @@ id|line
 )paren
 (brace
 multiline_comment|/* We do not want to mess with boundary.  Note that we do not&n;&t; * handle nested multipart.&n;&t; */
+r_if
+c_cond
+(paren
+id|strcasestr
+c_func
+(paren
+id|line
+comma
+l_string|&quot;boundary=&quot;
+)paren
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Not handling nested multipart message.&bslash;n&quot;
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|1
+)paren
+suffix:semicolon
+)brace
 id|slurp_attr
 c_func
 (paren
