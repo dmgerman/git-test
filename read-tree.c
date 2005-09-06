@@ -1,4 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
+DECL|macro|DBRT_DEBUG
+mdefine_line|#define DBRT_DEBUG 1
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tree.h&quot;
@@ -239,8 +241,6 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-DECL|macro|DBRT_DEBUG
-mdefine_line|#define DBRT_DEBUG 0
 DECL|function|unpack_trees_rec
 r_static
 r_int
@@ -407,7 +407,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
-macro_line|#if DBRT_DEBUG
+macro_line|#if DBRT_DEBUG &gt; 1
 r_if
 c_cond
 (paren
@@ -456,7 +456,7 @@ id|df_conflict_list
 )paren
 r_continue
 suffix:semicolon
-macro_line|#if DBRT_DEBUG
+macro_line|#if DBRT_DEBUG &gt; 1
 id|printf
 c_func
 (paren
@@ -974,7 +974,7 @@ id|merge
 r_int
 id|ret
 suffix:semicolon
-macro_line|#if DBRT_DEBUG
+macro_line|#if DBRT_DEBUG &gt; 1
 id|printf
 c_func
 (paren
@@ -1048,7 +1048,7 @@ c_func
 id|src
 )paren
 suffix:semicolon
-macro_line|#if DBRT_DEBUG
+macro_line|#if DBRT_DEBUG &gt; 1
 id|printf
 c_func
 (paren
@@ -1808,6 +1808,61 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+macro_line|#if DBRT_DEBUG
+DECL|function|show_stage_entry
+r_static
+r_void
+id|show_stage_entry
+c_func
+(paren
+id|FILE
+op_star
+id|o
+comma
+r_const
+r_char
+op_star
+id|label
+comma
+r_const
+r_struct
+id|cache_entry
+op_star
+id|ce
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%s%06o %s %d&bslash;t%s&bslash;n&quot;
+comma
+id|label
+comma
+id|ntohl
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|ce-&gt;sha1
+)paren
+comma
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+comma
+id|ce-&gt;name
+)paren
+suffix:semicolon
+)brace
+macro_line|#endif
 DECL|function|threeway_merge
 r_static
 r_int
@@ -1999,7 +2054,7 @@ id|head
 (brace
 id|head_match
 op_assign
-l_int|1
+id|i
 suffix:semicolon
 )brace
 r_if
@@ -2019,7 +2074,7 @@ id|remote
 (brace
 id|remote_match
 op_assign
-l_int|1
+id|i
 suffix:semicolon
 )brace
 )brace
@@ -2236,6 +2291,45 @@ suffix:semicolon
 )brace
 )brace
 )brace
+macro_line|#if DBRT_DEBUG
+r_else
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;read-tree: warning #16 detected&bslash;n&quot;
+)paren
+suffix:semicolon
+id|show_stage_entry
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;head   &quot;
+comma
+id|stages
+(braket
+id|head_match
+)braket
+)paren
+suffix:semicolon
+id|show_stage_entry
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;remote &quot;
+comma
+id|stages
+(braket
+id|remote_match
+)braket
+)paren
+suffix:semicolon
+)brace
+macro_line|#endif
 r_if
 c_cond
 (paren
