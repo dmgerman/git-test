@@ -1,3 +1,4 @@
+multiline_comment|/*&n; * Copyright (C) 2005 Rene Scharfe&n; */
 macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;unistd.h&gt;
