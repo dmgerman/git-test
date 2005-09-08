@@ -541,7 +541,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-cache: unable to read sha1 file of %s (%s)&quot;
+l_string|&quot;git-checkout-index: unable to read sha1 file of %s (%s)&quot;
 comma
 id|path
 comma
@@ -600,7 +600,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-cache: unable to create file %s (%s)&quot;
+l_string|&quot;git-checkout-index: unable to create file %s (%s)&quot;
 comma
 id|path
 comma
@@ -647,7 +647,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-cache: unable to write file %s&quot;
+l_string|&quot;git-checkout-index: unable to write file %s&quot;
 comma
 id|path
 )paren
@@ -696,7 +696,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-cache: unable to create symlink %s (%s)&quot;
+l_string|&quot;git-checkout-index: unable to create symlink %s (%s)&quot;
 comma
 id|path
 comma
@@ -728,7 +728,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-cache: unknown file mode for %s&quot;
+l_string|&quot;git-checkout-index: unknown file mode for %s&quot;
 comma
 id|path
 )paren
@@ -874,7 +874,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git-checkout-cache: %s already exists&bslash;n&quot;
+l_string|&quot;git-checkout-index: %s already exists&bslash;n&quot;
 comma
 id|path
 )paren
