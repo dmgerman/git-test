@@ -1543,12 +1543,21 @@ c_cond
 (paren
 id|inetd_mode
 )paren
+(brace
+id|fclose
+c_func
+(paren
+id|stderr
+)paren
+suffix:semicolon
+singleline_comment|//FIXME: workaround
 r_return
 id|execute
 c_func
 (paren
 )paren
 suffix:semicolon
+)brace
 r_return
 id|serve
 c_func
