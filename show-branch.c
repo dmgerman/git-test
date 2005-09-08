@@ -10,7 +10,7 @@ id|show_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-show-branch [--all] [--heads] [--tags] [--more=count] [&lt;refs&gt;...]&quot;
+l_string|&quot;git-show-branch [--all] [--heads] [--tags] [--more=count] [--merge-base] [&lt;refs&gt;...]&quot;
 suffix:semicolon
 DECL|macro|UNINTERESTING
 mdefine_line|#define UNINTERESTING&t;01
@@ -1477,6 +1477,11 @@ id|REV_SHIFT
 l_int|1
 )paren
 suffix:semicolon
+r_int
+id|exit_status
+op_assign
+l_int|1
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1533,13 +1538,18 @@ id|commit-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
-r_return
+id|exit_status
+op_assign
 l_int|0
+suffix:semicolon
+id|commit-&gt;object.flags
+op_or_assign
+id|UNINTERESTING
 suffix:semicolon
 )brace
 )brace
 r_return
-l_int|1
+id|exit_status
 suffix:semicolon
 )brace
 DECL|function|main
