@@ -1824,7 +1824,7 @@ id|git_dir
 suffix:semicolon
 id|git_dir
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 id|GIT_DIR_ENVIRONMENT

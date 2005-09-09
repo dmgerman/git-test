@@ -1180,7 +1180,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * Set up the default .git directory contents&n;&t; */
 id|git_dir
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 id|GIT_DIR_ENVIRONMENT

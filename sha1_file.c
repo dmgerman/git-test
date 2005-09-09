@@ -204,7 +204,7 @@ r_void
 (brace
 id|git_dir
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 id|GIT_DIR_ENVIRONMENT
@@ -222,7 +222,7 @@ id|DEFAULT_GIT_DIR_ENVIRONMENT
 suffix:semicolon
 id|git_object_dir
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 id|DB_ENVIRONMENT
@@ -286,7 +286,7 @@ id|git_dir
 suffix:semicolon
 id|git_index_file
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 id|INDEX_ENVIRONMENT
@@ -326,7 +326,7 @@ suffix:semicolon
 )brace
 id|git_graft_file
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 id|GRAFT_ENVIRONMENT
@@ -1383,7 +1383,7 @@ id|alt
 suffix:semicolon
 id|alt
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 id|ALTERNATE_DB_ENVIRONMENT

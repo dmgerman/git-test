@@ -80,7 +80,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * Default values above are meant to match the&n;&t; * Linux kernel development style.  Examples of&n;&t; * alternative styles you can specify via environment&n;&t; * variables are:&n;&t; *&n;&t; * GIT_DIFF_OPTS=&quot;-c&quot;;&n;&t; */
 id|external_diff_cmd
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 l_string|&quot;GIT_EXTERNAL_DIFF&quot;
@@ -89,7 +89,7 @@ suffix:semicolon
 multiline_comment|/* In case external diff fails... */
 id|env_diff_opts
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 l_string|&quot;GIT_DIFF_OPTS&quot;

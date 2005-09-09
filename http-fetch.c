@@ -1837,7 +1837,7 @@ c_func
 suffix:semicolon
 id|curl_ssl_verify
 op_assign
-id|gitenv
+id|getenv
 c_func
 (paren
 l_string|&quot;GIT_SSL_NO_VERIFY&quot;

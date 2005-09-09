@@ -403,7 +403,7 @@ id|X_OK
 )paren
 op_logical_and
 (paren
-id|gitenv
+id|getenv
 c_func
 (paren
 id|DB_ENVIRONMENT
@@ -448,7 +448,7 @@ multiline_comment|/*&n;&t; * If GIT_DIR is set explicitly, we&squot;re not going
 r_if
 c_cond
 (paren
-id|gitenv
+id|getenv
 c_func
 (paren
 id|GIT_DIR_ENVIRONMENT
