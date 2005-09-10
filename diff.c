@@ -4761,7 +4761,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* See if there is some other filepair that&n;&t;&t;&t; * copies from the same source as us.  If so&n;&t;&t;&t; * we are a copy.  Otherwise we are a rename.&n;&t;&t;&t; */
+multiline_comment|/* See if there is some other filepair that&n;&t;&t;&t; * copies from the same source as us.  If so&n;&t;&t;&t; * we are a copy.  Otherwise we are either a&n;&t;&t;&t; * copy if the path stays, or a rename if it&n;&t;&t;&t; * does not, but we already handled &quot;stays&quot; case.&n;&t;&t;&t; */
 r_for
 c_loop
 (paren
