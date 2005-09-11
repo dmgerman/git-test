@@ -18,6 +18,13 @@ id|update
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|index_only
+r_static
+r_int
+id|index_only
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|head_idx
 r_static
 r_int
@@ -1610,6 +1617,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|index_only
+)paren
+r_return
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|lstat
 c_func
@@ -2838,7 +2852,7 @@ id|read_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-read-tree (&lt;sha&gt; | -m [-u] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
+l_string|&quot;git-read-tree (&lt;sha&gt; | -m [-u | -i] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
 suffix:semicolon
 DECL|variable|cache_file
 r_static
@@ -2943,7 +2957,7 @@ id|argv
 id|i
 )braket
 suffix:semicolon
-multiline_comment|/* &quot;-u&quot; means &quot;update&quot;, meaning that a merge will update the working directory */
+multiline_comment|/* &quot;-u&quot; means &quot;update&quot;, meaning that a merge will update&n;&t;&t; * the working tree.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2958,6 +2972,27 @@ l_string|&quot;-u&quot;
 )paren
 (brace
 id|update
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+multiline_comment|/* &quot;-i&quot; means &quot;index only&quot;, meaning that a merge will&n;&t;&t; * not even look at the working tree.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-i&quot;
+)paren
+)paren
+(brace
+id|index_only
 op_assign
 l_int|1
 suffix:semicolon
@@ -3086,6 +3121,22 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+multiline_comment|/* using -u and -i at the same time makes no sense */
+r_if
+c_cond
+(paren
+l_int|1
+OL
+id|index_only
+op_plus
+id|update
+)paren
+id|usage
+c_func
+(paren
+id|read_tree_usage
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
