@@ -2318,6 +2318,10 @@ c_cond
 l_int|1
 OL
 id|num_rev
+op_logical_or
+id|extra
+OL
+l_int|0
 )paren
 (brace
 r_for
