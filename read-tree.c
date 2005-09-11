@@ -1189,6 +1189,12 @@ id|indpos
 r_return
 l_int|1
 suffix:semicolon
+id|free
+c_func
+(paren
+id|newbase
+)paren
+suffix:semicolon
 )brace
 id|free
 c_func
