@@ -258,7 +258,7 @@ id|pid_t
 id|pid
 suffix:semicolon
 DECL|member|addrlen
-id|socklen_t
+r_int
 id|addrlen
 suffix:semicolon
 DECL|member|address
@@ -290,7 +290,7 @@ id|sockaddr
 op_star
 id|addr
 comma
-id|socklen_t
+r_int
 id|addrlen
 )paren
 (brace
@@ -666,7 +666,7 @@ id|sockaddr
 op_star
 id|addr
 comma
-id|socklen_t
+r_int
 id|addrlen
 )paren
 (brace
@@ -1312,7 +1312,7 @@ r_struct
 id|sockaddr_storage
 id|ss
 suffix:semicolon
-id|socklen_t
+r_int
 id|sslen
 op_assign
 r_sizeof
