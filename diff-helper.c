@@ -564,7 +564,7 @@ op_logical_neg
 id|strchr
 c_func
 (paren
-l_string|&quot;MCRNDU&quot;
+l_string|&quot;AMCRDU&quot;
 comma
 id|status
 )paren
