@@ -1851,10 +1851,27 @@ op_star
 id|ce
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ce
+)paren
 id|fprintf
 c_func
 (paren
-id|stderr
+id|o
+comma
+l_string|&quot;%s (missing)&bslash;n&quot;
+comma
+id|label
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|o
 comma
 l_string|&quot;%s%06o %s %d&bslash;t%s&bslash;n&quot;
 comma
