@@ -2737,6 +2737,10 @@ id|list
 )paren
 suffix:semicolon
 )brace
+id|save_commit_buffer
+op_assign
+id|verbose_header
+suffix:semicolon
 r_if
 c_cond
 (paren
