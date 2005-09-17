@@ -2689,6 +2689,17 @@ id|dotdot
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|next
+)paren
+id|next
+op_assign
+l_string|&quot;HEAD&quot;
+suffix:semicolon
 id|exclude
 op_assign
 id|get_commit_reference
@@ -2743,7 +2754,7 @@ r_continue
 suffix:semicolon
 )brace
 op_star
-id|next
+id|dotdot
 op_assign
 l_char|&squot;.&squot;
 suffix:semicolon
