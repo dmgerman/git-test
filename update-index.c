@@ -192,13 +192,49 @@ c_cond
 (paren
 id|allow_remove
 )paren
-r_return
+(brace
+r_if
+c_cond
+(paren
 id|remove_file_from_cache
 c_func
 (paren
 id|path
 )paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;%s: cannot remove from the index&quot;
+comma
+id|path
+)paren
 suffix:semicolon
+r_else
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|status
+OL
+l_int|0
+)paren
+(brace
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;%s: does not exist and --remove not passed&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -211,7 +247,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;%s: is a directory&quot;
+l_string|&quot;%s: is a directory - add files inside instead&quot;
 comma
 id|path
 )paren
@@ -331,7 +367,19 @@ OL
 l_int|0
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;open(&bslash;&quot;%s&bslash;&quot;): %s&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -355,7 +403,13 @@ OL
 l_int|0
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;%s: failed to insert into database&quot;
+comma
+id|path
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -390,6 +444,16 @@ op_ne
 id|st.st_size
 )paren
 (brace
+r_char
+op_star
+id|errstr
+op_assign
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -397,7 +461,15 @@ id|target
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;readlink(&bslash;&quot;%s&bslash;&quot;): %s&quot;
+comma
+id|path
+comma
+id|errstr
+)paren
 suffix:semicolon
 )brace
 r_if
@@ -451,7 +523,13 @@ id|ce-&gt;sha1
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;%s: failed to insert into database&quot;
+comma
+id|path
+)paren
 suffix:semicolon
 id|free
 c_func
@@ -464,7 +542,13 @@ suffix:semicolon
 r_default
 suffix:colon
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;%s: unsupported file type&quot;
+comma
+id|path
+)paren
 suffix:semicolon
 )brace
 id|option
@@ -485,7 +569,9 @@ id|ADD_CACHE_OK_TO_REPLACE
 suffix:colon
 l_int|0
 suffix:semicolon
-r_return
+r_if
+c_cond
+(paren
 id|add_cache_entry
 c_func
 (paren
@@ -493,6 +579,18 @@ id|ce
 comma
 id|option
 )paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;%s: cannot add to the index - missing --add option?&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|compare_data
@@ -1929,7 +2027,7 @@ id|path
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: --force-remove cannot remove %s&quot;
+l_string|&quot;git-update-index: unable to remove %s&quot;
 comma
 id|path
 )paren
@@ -1949,7 +2047,7 @@ id|path
 id|die
 c_func
 (paren
-l_string|&quot;Unable to add %s to database; maybe you want to use --add option?&quot;
+l_string|&quot;Unable to process file %s&quot;
 comma
 id|path
 )paren
