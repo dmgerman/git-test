@@ -1,3 +1,15 @@
+macro_line|#ifndef COUNTERPART_ENV_NAME
+DECL|macro|COUNTERPART_ENV_NAME
+mdefine_line|#define COUNTERPART_ENV_NAME &quot;GIT_SSH_FETCH&quot;
+macro_line|#endif
+macro_line|#ifndef COUNTERPART_PROGRAM_NAME
+DECL|macro|COUNTERPART_PROGRAM_NAME
+mdefine_line|#define COUNTERPART_PROGRAM_NAME &quot;git-ssh-fetch&quot;
+macro_line|#endif
+macro_line|#ifndef MY_PROGRAM_NAME
+DECL|macro|MY_PROGRAM_NAME
+mdefine_line|#define MY_PROGRAM_NAME &quot;git-ssh-upload&quot;
+macro_line|#endif
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;rsh.h&quot;
 macro_line|#include &quot;refs.h&quot;
@@ -506,7 +518,8 @@ id|ssh_push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ssh-upload [-c] [-t] [-a] [-w ref] commit-id url&quot;
+id|MY_PROGRAM_NAME
+l_string|&quot; [-c] [-t] [-a] [-w ref] commit-id url&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -563,7 +576,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_SSH_PULL&quot;
+id|COUNTERPART_ENV_NAME
 )paren
 suffix:semicolon
 r_if
@@ -574,7 +587,7 @@ id|prog
 )paren
 id|prog
 op_assign
-l_string|&quot;git-ssh-fetch&quot;
+id|COUNTERPART_PROGRAM_NAME
 suffix:semicolon
 r_while
 c_loop

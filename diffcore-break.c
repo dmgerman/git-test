@@ -665,13 +665,13 @@ id|dp-&gt;score
 op_assign
 id|p-&gt;score
 suffix:semicolon
-id|diff_free_filespec
+id|diff_free_filespec_data
 c_func
 (paren
 id|d-&gt;two
 )paren
 suffix:semicolon
-id|diff_free_filespec
+id|diff_free_filespec_data
 c_func
 (paren
 id|c-&gt;one

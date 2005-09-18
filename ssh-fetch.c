@@ -1,3 +1,15 @@
+macro_line|#ifndef COUNTERPART_ENV_NAME
+DECL|macro|COUNTERPART_ENV_NAME
+mdefine_line|#define COUNTERPART_ENV_NAME &quot;GIT_SSH_UPLOAD&quot;
+macro_line|#endif
+macro_line|#ifndef COUNTERPART_PROGRAM_NAME
+DECL|macro|COUNTERPART_PROGRAM_NAME
+mdefine_line|#define COUNTERPART_PROGRAM_NAME &quot;git-ssh-upload&quot;
+macro_line|#endif
+macro_line|#ifndef MY_PROGRAM_NAME
+DECL|macro|MY_PROGRAM_NAME
+mdefine_line|#define MY_PROGRAM_NAME &quot;git-ssh-fetch&quot;
+macro_line|#endif
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;rsh.h&quot;
@@ -430,6 +442,17 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|variable|ssh_fetch_usage
+r_static
+r_const
+r_char
+id|ssh_fetch_usage
+(braket
+)braket
+op_assign
+id|MY_PROGRAM_NAME
+l_string|&quot; [-c] [-t] [-a] [-v] [-d] [--recover] [-w ref] commit-id url&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -630,7 +653,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-ssh-fetch [-c] [-t] [-a] [-v] [-d] [--recover] [-w ref] commit-id url&quot;
+id|ssh_fetch_usage
 )paren
 suffix:semicolon
 r_return

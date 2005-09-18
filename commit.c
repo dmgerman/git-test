@@ -2,6 +2,12 @@ macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;cache.h&quot;
+DECL|variable|save_commit_buffer
+r_int
+id|save_commit_buffer
+op_assign
+l_int|1
+suffix:semicolon
 DECL|struct|sort_node
 r_struct
 id|sort_node
@@ -1497,6 +1503,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|save_commit_buffer
+op_logical_and
 op_logical_neg
 id|ret
 )paren

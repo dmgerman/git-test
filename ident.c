@@ -160,7 +160,6 @@ id|real_email
 id|len
 )paren
 suffix:semicolon
-macro_line|#ifndef NO_GETDOMAINNAME
 r_if
 c_cond
 (paren
@@ -208,7 +207,6 @@ id|len
 )paren
 suffix:semicolon
 )brace
-macro_line|#endif
 multiline_comment|/* And set the default date */
 id|datestamp
 c_func

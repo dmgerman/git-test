@@ -2303,6 +2303,12 @@ op_add_assign
 l_int|48
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
