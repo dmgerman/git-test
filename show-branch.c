@@ -892,6 +892,11 @@ id|name
 op_assign
 id|commit-&gt;object.util
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit-&gt;object.parsed
+)paren
 id|pretty_print_commit
 c_func
 (paren
@@ -908,6 +913,15 @@ r_sizeof
 (paren
 id|pretty
 )paren
+)paren
+suffix:semicolon
+r_else
+id|strcpy
+c_func
+(paren
+id|pretty
+comma
+l_string|&quot;(unavailable)&quot;
 )paren
 suffix:semicolon
 r_if
