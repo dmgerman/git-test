@@ -3199,7 +3199,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|update
+op_logical_or
+id|index_only
+)paren
 op_logical_and
 op_logical_neg
 id|merge
