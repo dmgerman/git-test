@@ -2053,7 +2053,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* Gr. strptime is crap for this; it doesn&squot;t have a way to require RFC2822&n;   (i.e. English) day/month names, and it doesn&squot;t work correctly with %z. */
 DECL|function|parse_date
-r_void
+r_int
 id|parse_date
 c_func
 (paren
@@ -2295,6 +2295,7 @@ op_eq
 l_int|1
 )paren
 r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -2329,6 +2330,7 @@ op_assign
 l_char|&squot;-&squot;
 suffix:semicolon
 )brace
+r_return
 id|snprintf
 c_func
 (paren
