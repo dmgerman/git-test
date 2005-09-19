@@ -44,6 +44,13 @@ id|show_unmerged
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|show_modified
+r_static
+r_int
+id|show_modified
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|show_killed
 r_static
 r_int
@@ -131,6 +138,15 @@ r_const
 r_char
 op_star
 id|tag_killed
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+DECL|variable|tag_modified
+r_static
+r_const
+r_char
+op_star
+id|tag_modified
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
@@ -2281,6 +2297,8 @@ r_if
 c_cond
 (paren
 id|show_deleted
+op_or
+id|show_modified
 )paren
 (brace
 r_for
@@ -2312,6 +2330,9 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
+r_int
+id|err
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2325,10 +2346,8 @@ id|show_ignored
 )paren
 r_continue
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+id|err
+op_assign
 id|lstat
 c_func
 (paren
@@ -2337,13 +2356,40 @@ comma
 op_amp
 id|st
 )paren
-)paren
-r_continue
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_deleted
+op_logical_and
+id|err
+)paren
 id|show_ce_entry
 c_func
 (paren
 id|tag_removed
+comma
+id|ce
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_modified
+op_logical_and
+id|ce_modified
+c_func
+(paren
+id|ce
+comma
+op_amp
+id|st
+)paren
+)paren
+id|show_ce_entry
+c_func
+(paren
+id|tag_modified
 comma
 id|ce
 )paren
@@ -2705,7 +2751,7 @@ id|ls_files_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed])* &quot;
+l_string|&quot;git-ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
 l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ]&quot;
 suffix:semicolon
@@ -2820,6 +2866,10 @@ id|tag_removed
 op_assign
 l_string|&quot;R &quot;
 suffix:semicolon
+id|tag_modified
+op_assign
+l_string|&quot;C &quot;
+suffix:semicolon
 id|tag_other
 op_assign
 l_string|&quot;? &quot;
@@ -2883,6 +2933,35 @@ l_string|&quot;--deleted&quot;
 )paren
 (brace
 id|show_deleted
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-m&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--modified&quot;
+)paren
+)paren
+(brace
+id|show_modified
 op_assign
 l_int|1
 suffix:semicolon
@@ -3322,6 +3401,8 @@ op_or
 id|show_unmerged
 op_or
 id|show_killed
+op_or
+id|show_modified
 )paren
 )paren
 id|show_cached
