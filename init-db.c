@@ -849,6 +849,13 @@ comma
 id|len
 )paren
 suffix:semicolon
+id|path
+(braket
+id|len
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 id|copy_templates_1
 c_func
 (paren
