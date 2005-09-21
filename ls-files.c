@@ -152,6 +152,7 @@ l_string|&quot;&quot;
 suffix:semicolon
 DECL|variable|exclude_per_dir
 r_static
+r_const
 r_char
 op_star
 id|exclude_per_dir
@@ -2763,6 +2764,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -2812,6 +2814,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_char
 op_star
 id|arg

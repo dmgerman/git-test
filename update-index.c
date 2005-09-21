@@ -113,6 +113,7 @@ r_int
 id|add_file_to_cache
 c_func
 (paren
+r_const
 r_char
 op_star
 id|path
@@ -992,6 +993,7 @@ r_int
 id|verify_path
 c_func
 (paren
+r_const
 r_char
 op_star
 id|path
@@ -1086,14 +1088,17 @@ r_int
 id|add_cacheinfo
 c_func
 (paren
+r_const
 r_char
 op_star
 id|arg1
 comma
+r_const
 r_char
 op_star
 id|arg2
 comma
+r_const
 r_char
 op_star
 id|arg3
@@ -1280,6 +1285,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1374,6 +1380,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_char
 op_star
 id|path

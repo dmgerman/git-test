@@ -1159,6 +1159,7 @@ r_int
 id|remove_file_from_cache
 c_func
 (paren
+r_const
 r_char
 op_star
 id|path

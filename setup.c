@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 DECL|function|prefix_path
+r_const
 r_char
 op_star
 id|prefix_path
@@ -13,11 +14,13 @@ comma
 r_int
 id|len
 comma
+r_const
 r_char
 op_star
 id|path
 )paren
 (brace
+r_const
 r_char
 op_star
 id|orig
@@ -237,12 +240,14 @@ r_char
 op_star
 id|prefix
 comma
+r_const
 r_char
 op_star
 op_star
 id|pathspec
 )paren
 (brace
+r_const
 r_char
 op_star
 id|entry
@@ -250,6 +255,7 @@ op_assign
 op_star
 id|pathspec
 suffix:semicolon
+r_const
 r_char
 op_star
 op_star
