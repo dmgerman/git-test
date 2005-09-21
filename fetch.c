@@ -237,8 +237,6 @@ DECL|macro|TO_FETCH
 mdefine_line|#define TO_FETCH&t;2U
 DECL|macro|TO_SCAN
 mdefine_line|#define TO_SCAN&t;&t;4U
-DECL|macro|SCANNED
-mdefine_line|#define SCANNED&t;&t;8U
 DECL|macro|SEEN
 mdefine_line|#define SEEN&t;&t;16U
 DECL|variable|complete
@@ -466,20 +464,6 @@ id|obj
 r_if
 c_cond
 (paren
-id|obj-&gt;flags
-op_amp
-id|SCANNED
-)paren
-r_return
-l_int|0
-suffix:semicolon
-id|obj-&gt;flags
-op_or_assign
-id|SCANNED
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|obj-&gt;type
 op_eq
 id|commit_type
@@ -641,11 +625,7 @@ c_cond
 (paren
 id|obj-&gt;flags
 op_amp
-(paren
-id|SCANNED
-op_or
 id|TO_SCAN
-)paren
 )paren
 r_return
 l_int|0
