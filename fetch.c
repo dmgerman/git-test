@@ -233,8 +233,6 @@ suffix:semicolon
 )brace
 DECL|macro|COMPLETE
 mdefine_line|#define COMPLETE&t;1U
-DECL|macro|TO_FETCH
-mdefine_line|#define TO_FETCH&t;2U
 DECL|macro|TO_SCAN
 mdefine_line|#define TO_SCAN&t;&t;4U
 DECL|macro|SEEN
@@ -661,11 +659,7 @@ c_cond
 (paren
 id|obj-&gt;flags
 op_amp
-(paren
 id|COMPLETE
-op_or
-id|TO_FETCH
-)paren
 )paren
 r_return
 l_int|0
@@ -687,10 +681,6 @@ id|process_queue_end
 )paren
 op_member_access_from_pointer
 id|next
-suffix:semicolon
-id|obj-&gt;flags
-op_or_assign
-id|TO_FETCH
 suffix:semicolon
 id|prefetch
 c_func
