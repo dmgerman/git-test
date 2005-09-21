@@ -232,11 +232,11 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|macro|COMPLETE
-mdefine_line|#define COMPLETE&t;1U
-DECL|macro|TO_SCAN
-mdefine_line|#define TO_SCAN&t;&t;4U
+mdefine_line|#define COMPLETE&t;(1U &lt;&lt; 0)
 DECL|macro|SEEN
-mdefine_line|#define SEEN&t;&t;16U
+mdefine_line|#define SEEN&t;&t;(1U &lt;&lt; 1)
+DECL|macro|TO_SCAN
+mdefine_line|#define TO_SCAN&t;&t;(1U &lt;&lt; 2)
 DECL|variable|complete
 r_static
 r_struct
