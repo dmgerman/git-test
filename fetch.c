@@ -618,16 +618,6 @@ id|obj-&gt;sha1
 )paren
 suffix:semicolon
 multiline_comment|/* We already have it, so we should scan it now. */
-r_if
-c_cond
-(paren
-id|obj-&gt;flags
-op_amp
-id|TO_SCAN
-)paren
-r_return
-l_int|0
-suffix:semicolon
 id|obj-&gt;flags
 op_or_assign
 id|TO_SCAN
