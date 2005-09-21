@@ -239,6 +239,8 @@ DECL|macro|TO_SCAN
 mdefine_line|#define TO_SCAN&t;&t;4U
 DECL|macro|SCANNED
 mdefine_line|#define SCANNED&t;&t;8U
+DECL|macro|SEEN
+mdefine_line|#define SEEN&t;&t;16U
 DECL|variable|complete
 r_static
 r_struct
@@ -603,6 +605,20 @@ op_star
 id|obj
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|obj-&gt;flags
+op_amp
+id|SEEN
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|obj-&gt;flags
+op_or_assign
+id|SEEN
+suffix:semicolon
 r_if
 c_cond
 (paren
