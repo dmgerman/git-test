@@ -611,12 +611,6 @@ id|obj-&gt;sha1
 )paren
 )paren
 (brace
-id|parse_object
-c_func
-(paren
-id|obj-&gt;sha1
-)paren
-suffix:semicolon
 multiline_comment|/* We already have it, so we should scan it now. */
 id|obj-&gt;flags
 op_or_assign
