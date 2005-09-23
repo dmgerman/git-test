@@ -219,6 +219,12 @@ suffix:semicolon
 id|free
 c_func
 (paren
+id|entry-&gt;name
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|entry
 )paren
 suffix:semicolon
