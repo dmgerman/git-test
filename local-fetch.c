@@ -413,6 +413,13 @@ OL
 l_int|0
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|ifd
+op_ge
+l_int|0
+)paren
 id|close
 c_func
 (paren
@@ -527,6 +534,13 @@ comma
 id|st.st_size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ofd
+op_ge
+l_int|0
+)paren
 id|close
 c_func
 (paren
