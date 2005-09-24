@@ -65,8 +65,11 @@ r_sizeof
 id|buf
 )paren
 comma
-l_string|&quot;[%d] &quot;
+l_string|&quot;[%ld] &quot;
 comma
+(paren
+r_int
+)paren
 id|getpid
 c_func
 (paren
