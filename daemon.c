@@ -7,6 +7,12 @@ macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;netdb.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
+macro_line|#include &lt;syslog.h&gt;
+DECL|variable|log_syslog
+r_static
+r_int
+id|log_syslog
+suffix:semicolon
 DECL|variable|verbose
 r_static
 r_int
@@ -20,7 +26,7 @@ id|daemon_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-daemon [--verbose] [--inetd | --port=n]&quot;
+l_string|&quot;git-daemon [--verbose] [--syslog] [--inetd | --port=n]&quot;
 suffix:semicolon
 DECL|function|logreport
 r_static
@@ -28,6 +34,9 @@ r_void
 id|logreport
 c_func
 (paren
+r_int
+id|priority
+comma
 r_const
 r_char
 op_star
@@ -102,6 +111,25 @@ comma
 id|params
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|log_syslog
+)paren
+(brace
+id|syslog
+c_func
+(paren
+id|priority
+comma
+l_string|&quot;%s&quot;
+comma
+id|buf
+)paren
+suffix:semicolon
+r_return
+suffix:semicolon
+)brace
 multiline_comment|/* maxlen counted our own LF but also counts space given to&n;&t; * vsnprintf for the terminating NUL.  We want to make sure that&n;&t; * we have space for our own LF and NUL after the &quot;meat&quot; of the&n;&t; * message, so truncate it at maxlen - 1.&n;&t; */
 r_if
 c_cond
@@ -188,6 +216,8 @@ suffix:semicolon
 id|logreport
 c_func
 (paren
+id|LOG_ERR
+comma
 id|err
 comma
 id|params
@@ -237,6 +267,8 @@ suffix:semicolon
 id|logreport
 c_func
 (paren
+id|LOG_INFO
+comma
 id|err
 comma
 id|params
@@ -1175,6 +1207,9 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
+r_int
+id|status
+suffix:semicolon
 id|pid_t
 id|pid
 op_assign
@@ -1183,7 +1218,8 @@ c_func
 (paren
 l_int|1
 comma
-l_int|NULL
+op_amp
+id|status
 comma
 id|WNOHANG
 )paren
@@ -1222,16 +1258,66 @@ c_cond
 (paren
 id|verbose
 )paren
+(brace
+r_char
+op_star
+id|dead
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|WIFEXITED
+c_func
+(paren
+id|status
+)paren
+op_logical_or
+id|WEXITSTATUS
+c_func
+(paren
+id|status
+)paren
+OG
+l_int|0
+)paren
+id|dead
+op_assign
+l_string|&quot; (with error)&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|log_syslog
+)paren
+id|syslog
+c_func
+(paren
+id|LOG_INFO
+comma
+l_string|&quot;[%d] Disconnected%s&quot;
+comma
+id|pid
+comma
+id|dead
+)paren
+suffix:semicolon
+r_else
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;[%d] Disconnected&bslash;n&quot;
+l_string|&quot;[%d] Disconnected%s&bslash;n&quot;
 comma
 id|pid
+comma
+id|dead
 )paren
 suffix:semicolon
+)brace
 r_continue
 suffix:semicolon
 )brace
@@ -1959,6 +2045,36 @@ l_string|&quot;--verbose&quot;
 id|verbose
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--syslog&quot;
+)paren
+)paren
+(brace
+id|log_syslog
+op_assign
+l_int|1
+suffix:semicolon
+id|openlog
+c_func
+(paren
+l_string|&quot;git-daemon&quot;
+comma
+l_int|0
+comma
+id|LOG_DAEMON
+)paren
 suffix:semicolon
 r_continue
 suffix:semicolon
