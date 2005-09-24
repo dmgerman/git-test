@@ -230,9 +230,9 @@ id|params
 )paren
 suffix:semicolon
 )brace
-DECL|function|lognotice
+DECL|function|loginfo
 r_void
-id|lognotice
+id|loginfo
 c_func
 (paren
 r_const
@@ -295,7 +295,7 @@ r_int
 id|dirlen
 )paren
 (brace
-id|lognotice
+id|loginfo
 c_func
 (paren
 l_string|&quot;Request for &squot;%s&squot;&quot;
@@ -1171,7 +1171,7 @@ op_assign
 id|sin6_addr-&gt;sin6_port
 suffix:semicolon
 )brace
-id|lognotice
+id|loginfo
 c_func
 (paren
 l_string|&quot;Connection from %s:%d&quot;
