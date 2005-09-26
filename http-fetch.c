@@ -24,6 +24,14 @@ id|curl_slist
 op_star
 id|no_pragma_header
 suffix:semicolon
+DECL|variable|curl_errorstr
+r_static
+r_char
+id|curl_errorstr
+(braket
+id|CURL_ERROR_SIZE
+)braket
+suffix:semicolon
 DECL|variable|initial_base
 r_static
 r_char
@@ -496,6 +504,16 @@ comma
 id|no_pragma_header
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|curl
+comma
+id|CURLOPT_ERRORBUFFER
+comma
+id|curl_errorstr
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -516,9 +534,11 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Unable to get pack index %s&quot;
+l_string|&quot;Unable to get pack index %s&bslash;n%s&quot;
 comma
 id|url
+comma
+id|curl_errorstr
 )paren
 suffix:semicolon
 )brace
@@ -1331,6 +1351,16 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|curl
+comma
+id|CURLOPT_ERRORBUFFER
+comma
+id|curl_errorstr
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1340,11 +1370,15 @@ c_func
 id|curl
 )paren
 )paren
-(brace
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|curl_errorstr
+)paren
 suffix:semicolon
-)brace
 r_while
 c_loop
 (paren
@@ -1672,6 +1706,16 @@ comma
 id|no_pragma_header
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|curl
+comma
+id|CURLOPT_ERRORBUFFER
+comma
+id|curl_errorstr
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1692,9 +1736,11 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Unable to get pack file %s&quot;
+l_string|&quot;Unable to get pack file %s&bslash;n%s&quot;
 comma
 id|url
+comma
+id|curl_errorstr
 )paren
 suffix:semicolon
 )brace
@@ -1927,6 +1973,16 @@ comma
 id|no_pragma_header
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|curl
+comma
+id|CURLOPT_ERRORBUFFER
+comma
+id|curl_errorstr
+)paren
+suffix:semicolon
 id|url
 op_assign
 id|xmalloc
@@ -2030,7 +2086,13 @@ id|filename
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|curl_errorstr
+)paren
 suffix:semicolon
 )brace
 id|fchmod
@@ -2393,6 +2455,16 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|curl
+comma
+id|CURLOPT_ERRORBUFFER
+comma
+id|curl_errorstr
+)paren
+suffix:semicolon
 id|url
 op_assign
 id|xmalloc
@@ -2474,11 +2546,13 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Couldn&squot;t get %s for %s&bslash;n&quot;
+l_string|&quot;Couldn&squot;t get %s for %s&bslash;n%s&quot;
 comma
 id|url
 comma
 id|ref
+comma
+id|curl_errorstr
 )paren
 suffix:semicolon
 id|hex
