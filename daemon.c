@@ -596,6 +596,12 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|chdir
+c_func
+(paren
+l_string|&quot;.git&quot;
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * Security on the cheap.&n;&t; *&n;&t; * We want a readable HEAD, usable &quot;objects&quot; directory, and &n;&t; * a &quot;git-daemon-export-ok&quot; flag that says that the other side&n;&t; * is ok with us doing this.&n;&t; */
 r_if
 c_cond
