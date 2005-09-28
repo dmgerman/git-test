@@ -1650,7 +1650,7 @@ DECL|macro|STR_
 mdefine_line|#define STR_(s)&t;# s
 DECL|macro|STR
 mdefine_line|#define STR(s)&t;STR_(s)
-macro_line|#ifndef __CYGWIN__
+macro_line|#ifndef NO_IPV6
 DECL|function|git_tcp_connect
 r_static
 r_int
@@ -1971,7 +1971,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-macro_line|#else /* __CYGWIN__ */
+macro_line|#else /* NO_IPV6 */
 DECL|function|git_tcp_connect
 r_static
 r_int
@@ -2360,7 +2360,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-macro_line|#endif /* __CYGWIN__ */
+macro_line|#endif /* NO_IPV6 */
 multiline_comment|/*&n; * Yeah, yeah, fixme. Need to pass in the heads etc.&n; */
 DECL|function|git_connect
 r_int
