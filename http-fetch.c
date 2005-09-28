@@ -66,6 +66,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|variable|alt
+r_static
 r_struct
 id|alt_base
 op_star
@@ -1820,6 +1821,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|fetch_object
+r_static
 r_int
 id|fetch_object
 c_func

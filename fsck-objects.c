@@ -130,6 +130,7 @@ id|stderr
 suffix:semicolon
 )brace
 DECL|function|objerror
+r_static
 r_int
 id|objerror
 c_func
@@ -183,6 +184,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|objwarning
+r_static
 r_int
 id|objwarning
 c_func
