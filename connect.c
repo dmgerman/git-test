@@ -2259,7 +2259,11 @@ id|he-&gt;h_addrtype
 suffix:semicolon
 id|sa.sin_port
 op_assign
+id|htons
+c_func
+(paren
 id|nport
+)paren
 suffix:semicolon
 id|memcpy
 c_func
