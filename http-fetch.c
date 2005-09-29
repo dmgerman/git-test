@@ -2907,6 +2907,7 @@ id|ssl_cert
 )paren
 suffix:semicolon
 )brace
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070902
 r_if
 c_cond
 (paren
@@ -2934,6 +2935,7 @@ id|ssl_key
 )paren
 suffix:semicolon
 )brace
+macro_line|#endif
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070908
 r_if
 c_cond
