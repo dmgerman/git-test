@@ -14,6 +14,7 @@ suffix:semicolon
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
 DECL|function|resolve_ref
+r_static
 r_const
 r_char
 op_star
