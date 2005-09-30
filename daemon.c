@@ -208,6 +208,7 @@ id|buflen
 suffix:semicolon
 )brace
 DECL|function|logerror
+r_static
 r_void
 id|logerror
 c_func
@@ -251,6 +252,7 @@ id|params
 suffix:semicolon
 )brace
 DECL|function|loginfo
+r_static
 r_void
 id|loginfo
 c_func
