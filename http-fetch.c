@@ -2904,12 +2904,6 @@ op_ne
 l_int|0
 )paren
 (brace
-id|unlink
-c_func
-(paren
-id|tmpfile
-)paren
-suffix:semicolon
 r_return
 id|error
 c_func
