@@ -2239,6 +2239,7 @@ id|sockaddr_storage
 id|ss
 suffix:semicolon
 r_int
+r_int
 id|sslen
 op_assign
 r_sizeof
