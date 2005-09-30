@@ -4293,7 +4293,11 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;corrupted pack file&quot;
+l_string|&quot;corrupted pack file %s containing object of kind %d&quot;
+comma
+id|p-&gt;pack_name
+comma
+id|kind
 )paren
 suffix:semicolon
 )brace
@@ -4487,7 +4491,11 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;corrupted pack file&quot;
+l_string|&quot;corrupted pack file %s containing object of kind %d&quot;
+comma
+id|p-&gt;pack_name
+comma
+id|kind
 )paren
 suffix:semicolon
 )brace
@@ -5019,7 +5027,9 @@ id|retval
 id|die
 c_func
 (paren
-l_string|&quot;corrupted pack file&quot;
+l_string|&quot;corrupted pack file %s&quot;
+comma
+id|p-&gt;pack_name
 )paren
 suffix:semicolon
 r_return
