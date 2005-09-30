@@ -13,6 +13,20 @@ DECL|macro|O_NOATIME
 mdefine_line|#define O_NOATIME 0
 macro_line|#endif
 macro_line|#endif
+DECL|variable|null_sha1
+r_const
+r_int
+r_char
+id|null_sha1
+(braket
+l_int|20
+)braket
+op_assign
+(brace
+l_int|0
+comma
+)brace
+suffix:semicolon
 DECL|variable|sha1_file_open_flag
 r_static
 r_int
