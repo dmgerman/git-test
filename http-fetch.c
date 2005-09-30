@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &lt;curl/curl.h&gt;
 macro_line|#include &lt;curl/easy.h&gt;
@@ -2230,6 +2231,20 @@ id|lst
 op_member_access_from_pointer
 id|next
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|verify_pack
+c_func
+(paren
+id|target
+comma
+l_int|0
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
 id|install_packed_git
 c_func
 (paren
@@ -2373,12 +2388,39 @@ comma
 id|filename
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|unlink
 c_func
 (paren
 id|prevfile
 )paren
+op_logical_and
+(paren
+id|errno
+op_ne
+id|ENOENT
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;Failed to unlink %s (%s)&quot;
+comma
+id|prevfile
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|rename
 c_func
 (paren
@@ -2386,11 +2428,28 @@ id|tmpfile
 comma
 id|prevfile
 )paren
-suffix:semicolon
-id|unlink
+op_logical_and
+(paren
+id|errno
+op_ne
+id|ENOENT
+)paren
+)paren
+r_return
+id|error
 c_func
 (paren
+l_string|&quot;Failed to rename %s to %s (%s)&quot;
+comma
 id|tmpfile
+comma
+id|prevfile
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|local
@@ -2747,6 +2806,14 @@ c_func
 id|local
 comma
 id|SEEK_SET
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|ftruncate
+c_func
+(paren
+id|local
 comma
 l_int|0
 )paren
