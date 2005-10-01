@@ -1957,6 +1957,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|active_cache_changed
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|write_cache
 c_func
 (paren
@@ -1980,6 +1986,7 @@ c_func
 l_string|&quot;Unable to write new cachefile&quot;
 )paren
 suffix:semicolon
+)brace
 r_return
 id|has_errors
 ques
