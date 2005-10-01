@@ -2279,11 +2279,7 @@ c_cond
 id|active_cache
 )paren
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;more than one cachefile&quot;
-)paren
+id|active_nr
 suffix:semicolon
 id|errno
 op_assign
@@ -2309,22 +2305,30 @@ id|fd
 OL
 l_int|0
 )paren
-r_return
+(brace
+r_if
+c_cond
 (paren
 id|errno
 op_eq
 id|ENOENT
 )paren
-ques
-c_cond
+r_return
 l_int|0
-suffix:colon
-id|error
+suffix:semicolon
+id|die
 c_func
 (paren
-l_string|&quot;open failed&quot;
+l_string|&quot;index file open failed (%s)&quot;
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
+)brace
 id|size
 op_assign
 l_int|0
@@ -2403,11 +2407,16 @@ id|map
 op_eq
 id|MAP_FAILED
 )paren
-r_return
-id|error
+id|die
 c_func
 (paren
-l_string|&quot;mmap failed&quot;
+l_string|&quot;index file mmap failed (%s)&quot;
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|hdr
@@ -2528,11 +2537,10 @@ id|errno
 op_assign
 id|EINVAL
 suffix:semicolon
-r_return
-id|error
+id|die
 c_func
 (paren
-l_string|&quot;verify header failed&quot;
+l_string|&quot;index file corrupt&quot;
 )paren
 suffix:semicolon
 )brace
