@@ -127,7 +127,7 @@ id|O_CREAT
 op_or
 id|O_EXCL
 comma
-l_int|0600
+l_int|0666
 )paren
 suffix:semicolon
 )brace
