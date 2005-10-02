@@ -2754,7 +2754,7 @@ id|ls_files_usage
 op_assign
 l_string|&quot;git-ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
-l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ]&quot;
+l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--] [&lt;file&gt;]*&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -2824,6 +2824,25 @@ id|argv
 id|i
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--&quot;
+)paren
+)paren
+(brace
+id|i
+op_increment
+suffix:semicolon
+r_break
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
