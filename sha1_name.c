@@ -793,7 +793,15 @@ l_int|20
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;short SHA1 %.*s is ambiguous.&quot;
+comma
+id|len
+comma
+id|canonical
+)paren
 suffix:semicolon
 id|memcpy
 c_func
