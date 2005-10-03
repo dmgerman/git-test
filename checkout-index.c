@@ -151,6 +151,10 @@ r_void
 (brace
 r_int
 id|i
+comma
+id|errs
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -202,10 +206,21 @@ id|state
 OL
 l_int|0
 )paren
-r_return
-l_int|1
+id|errs
+op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|errs
+)paren
+multiline_comment|/* we have already done our error reporting.&n;&t;&t; * exit with the same code as die().&n;&t;&t; */
+m_exit
+(paren
+l_int|128
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
