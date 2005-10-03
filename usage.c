@@ -70,7 +70,7 @@ id|err
 suffix:semicolon
 m_exit
 (paren
-l_int|1
+l_int|129
 )paren
 suffix:semicolon
 )brace
@@ -118,7 +118,7 @@ id|params
 suffix:semicolon
 m_exit
 (paren
-l_int|1
+l_int|128
 )paren
 suffix:semicolon
 )brace
