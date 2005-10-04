@@ -11,7 +11,7 @@ l_string|&quot;git-symbolic-ref name [ref]&quot;
 suffix:semicolon
 DECL|function|check_symref
 r_static
-r_int
+r_void
 id|check_symref
 c_func
 (paren
