@@ -1,22 +1,12 @@
-multiline_comment|/*&n; * apply.c&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; *&n; * This applies patches on top of some (arbitrary) version of the SCM.&n; *&n; * NOTE! It does all its work in the index file, and only cares about&n; * the files in the working directory if you tell it to &quot;merge&quot; the&n; * patch apply.&n; *&n; * Even when merging it always takes the source from the index, and&n; * uses the working tree as a &quot;branch&quot; for a 3-way merge.&n; */
+multiline_comment|/*&n; * apply.c&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; *&n; * This applies patches on top of some (arbitrary) version of the SCM.&n; *&n; */
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
-singleline_comment|// We default to the merge behaviour, since that&squot;s what most people would
-singleline_comment|// expect.
-singleline_comment|//
 singleline_comment|//  --check turns on checking that the working tree matches the
 singleline_comment|//    files that are being modified, but doesn&squot;t apply the patch
 singleline_comment|//  --stat does just a diffstat, and doesn&squot;t actually apply
 singleline_comment|//  --show-files shows the directory changes
 singleline_comment|//
-DECL|variable|merge_patch
-r_static
-r_int
-id|merge_patch
-op_assign
-l_int|1
-suffix:semicolon
 DECL|variable|check_index
 r_static
 r_int
@@ -74,7 +64,7 @@ id|apply_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-apply [--no-merge] [--stat] [--summary] [--check] [--index] [--apply] [--show-files] &lt;patch&gt;...&quot;
+l_string|&quot;git-apply [--stat] [--summary] [--check] [--index] [--apply] [--show-files] &lt;patch&gt;...&quot;
 suffix:semicolon
 multiline_comment|/*&n; * For &quot;diff-stat&quot; like behaviour, we keep track of the biggest change&n; * we&squot;ve seen, and the longest filename. That allows us to do simple&n; * scaling.&n; */
 DECL|variable|max_change
@@ -7477,27 +7467,6 @@ suffix:semicolon
 id|excludes
 op_assign
 id|x
-suffix:semicolon
-r_continue
-suffix:semicolon
-)brace
-multiline_comment|/* NEEDSWORK: this does not do anything at this moment. */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
-id|arg
-comma
-l_string|&quot;--no-merge&quot;
-)paren
-)paren
-(brace
-id|merge_patch
-op_assign
-l_int|0
 suffix:semicolon
 r_continue
 suffix:semicolon
