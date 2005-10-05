@@ -303,6 +303,7 @@ r_char
 op_star
 id|head_path
 suffix:semicolon
+multiline_comment|/* Upload-pack must report HEAD first */
 r_if
 c_cond
 (paren
@@ -367,10 +368,18 @@ id|head-&gt;old_sha1
 comma
 l_int|20
 )paren
+op_logical_and
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|ref-&gt;name
+comma
+l_string|&quot;refs/heads/&quot;
+comma
+l_int|11
 )paren
-(brace
-r_if
-c_cond
+op_logical_and
 (paren
 op_logical_neg
 id|head_ptr
@@ -379,11 +388,11 @@ id|ref
 op_eq
 id|master_ref
 )paren
+)paren
 id|head_ptr
 op_assign
 id|ref
 suffix:semicolon
-)brace
 id|write_one_ref
 c_func
 (paren
@@ -401,14 +410,28 @@ c_cond
 op_logical_neg
 id|head
 )paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;No HEAD in remote.&bslash;n&quot;
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
+)brace
 id|head_path
 op_assign
+id|strdup
+c_func
+(paren
 id|git_path
 c_func
 (paren
 l_string|&quot;HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -444,6 +467,12 @@ c_func
 id|head
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|head_path
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
 )brace
@@ -455,22 +484,26 @@ id|master_ref
 )paren
 r_return
 suffix:semicolon
-multiline_comment|/*&n;&t; * Uhhuh. Other end didn&squot;t have master. We start HEAD off with&n;&t; * the first branch with the same value.&n;&t; */
-id|unlink
+id|fprintf
 c_func
 (paren
-id|head_path
+id|stderr
+comma
+l_string|&quot;Setting HEAD to %s&bslash;n&quot;
+comma
+id|head_ptr-&gt;name
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Uhhuh. Other end didn&squot;t have master. We start HEAD off with&n;&t; * the first branch with the same value.&n;&t; */
 r_if
 c_cond
 (paren
-id|symlink
+id|create_symref
 c_func
 (paren
-id|head_ptr-&gt;name
-comma
 id|head_path
+comma
+id|head_ptr-&gt;name
 )paren
 OL
 l_int|0
@@ -481,6 +514,12 @@ c_func
 l_string|&quot;unable to link HEAD to %s&quot;
 comma
 id|head_ptr-&gt;name
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|head_path
 )paren
 suffix:semicolon
 )brace
