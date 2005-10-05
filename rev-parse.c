@@ -81,6 +81,8 @@ id|rev_args
 )braket
 op_assign
 (brace
+l_string|&quot;--all&quot;
+comma
 l_string|&quot;--bisect&quot;
 comma
 l_string|&quot;--header&quot;
