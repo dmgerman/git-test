@@ -214,7 +214,7 @@ c_func
 (paren
 l_string|&quot;refs/&quot;
 comma
-id|buffer
+id|buf
 comma
 l_int|5
 )paren
