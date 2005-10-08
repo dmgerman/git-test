@@ -625,7 +625,7 @@ op_logical_or
 id|access
 c_func
 (paren
-l_string|&quot;objects/00&quot;
+l_string|&quot;objects/&quot;
 comma
 id|X_OK
 )paren
