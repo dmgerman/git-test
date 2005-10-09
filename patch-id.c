@@ -298,6 +298,23 @@ l_int|5
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* Ignore git-diff index header */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|line
+comma
+l_string|&quot;index &quot;
+comma
+l_int|6
+)paren
+)paren
+r_continue
+suffix:semicolon
 multiline_comment|/* Ignore line numbers when computing the SHA1 of the patch */
 r_if
 c_cond
