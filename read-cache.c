@@ -1,5 +1,11 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+DECL|variable|trust_executable_bit
+r_int
+id|trust_executable_bit
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|active_cache
 r_struct
 id|cache_entry

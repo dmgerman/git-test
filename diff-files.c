@@ -170,6 +170,12 @@ id|entries
 comma
 id|i
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 id|diff_setup
 c_func
 (paren
