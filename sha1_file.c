@@ -6478,7 +6478,6 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Move the just written object into its final resting place&n; */
 DECL|function|move_temp_to_file
-r_static
 r_int
 id|move_temp_to_file
 c_func
