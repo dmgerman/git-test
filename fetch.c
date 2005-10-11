@@ -737,13 +737,6 @@ id|TO_SCAN
 r_if
 c_cond
 (paren
-op_logical_neg
-id|has_sha1_file
-c_func
-(paren
-id|obj-&gt;sha1
-)paren
-op_logical_and
 id|fetch
 c_func
 (paren
