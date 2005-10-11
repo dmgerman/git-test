@@ -4,8 +4,12 @@ macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &lt;curl/curl.h&gt;
 macro_line|#include &lt;curl/easy.h&gt;
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070908
+DECL|macro|USE_CURL_MULTI
+mdefine_line|#define USE_CURL_MULTI
 DECL|macro|DEFAULT_MAX_REQUESTS
 mdefine_line|#define DEFAULT_MAX_REQUESTS 5
+macro_line|#endif
 macro_line|#if LIBCURL_VERSION_NUM &lt; 0x070704
 DECL|macro|curl_global_cleanup
 mdefine_line|#define curl_global_cleanup() do { /* nothing */ } while(0)
@@ -18,13 +22,6 @@ DECL|macro|PREV_BUF_SIZE
 mdefine_line|#define PREV_BUF_SIZE 4096
 DECL|macro|RANGE_HEADER_SIZE
 mdefine_line|#define RANGE_HEADER_SIZE 30
-DECL|variable|max_requests
-r_static
-r_int
-id|max_requests
-op_assign
-id|DEFAULT_MAX_REQUESTS
-suffix:semicolon
 DECL|variable|active_requests
 r_static
 r_int
@@ -37,12 +34,21 @@ r_static
 r_int
 id|data_received
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
+DECL|variable|max_requests
+r_static
+r_int
+id|max_requests
+op_assign
+id|DEFAULT_MAX_REQUESTS
+suffix:semicolon
 DECL|variable|curlm
 r_static
 id|CURLM
 op_star
 id|curlm
 suffix:semicolon
+macro_line|#endif
 DECL|variable|curl_default
 r_static
 id|CURL
@@ -634,6 +640,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+macro_line|#ifdef USE_CURL_MULTI
 r_void
 id|process_curl_messages
 c_func
@@ -646,6 +653,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+macro_line|#endif
 DECL|function|get_active_slot
 r_struct
 id|active_request_slot
@@ -667,6 +675,7 @@ id|active_request_slot
 op_star
 id|newslot
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
 r_int
 id|num_transfers
 suffix:semicolon
@@ -703,6 +712,7 @@ c_func
 suffix:semicolon
 )brace
 )brace
+macro_line|#endif
 r_while
 c_loop
 (paren
@@ -856,6 +866,7 @@ op_star
 id|slot
 )paren
 (brace
+macro_line|#ifdef USE_CURL_MULTI
 id|CURLMcode
 id|curlm_result
 op_assign
@@ -890,6 +901,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+macro_line|#endif
 r_return
 l_int|1
 suffix:semicolon
@@ -905,6 +917,7 @@ op_star
 id|slot
 )paren
 (brace
+macro_line|#ifdef USE_CURL_MULTI
 r_int
 id|num_transfers
 suffix:semicolon
@@ -1084,6 +1097,19 @@ id|select_timeout
 suffix:semicolon
 )brace
 )brace
+macro_line|#else
+id|slot-&gt;curl_result
+op_assign
+id|curl_easy_perform
+c_func
+(paren
+id|slot-&gt;curl
+)paren
+suffix:semicolon
+id|active_requests
+op_decrement
+suffix:semicolon
+macro_line|#endif
 )brace
 DECL|function|start_request
 r_void
@@ -1633,7 +1659,7 @@ id|range_header
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Try to add to multi handle, abort the request on error */
+multiline_comment|/* Try to get the request started, abort the request on error */
 r_if
 c_cond
 (paren
@@ -1886,6 +1912,7 @@ id|request
 )paren
 suffix:semicolon
 )brace
+macro_line|#ifdef USE_CURL_MULTI
 DECL|function|process_curl_messages
 r_void
 id|process_curl_messages
@@ -2172,6 +2199,7 @@ id|request-&gt;next
 suffix:semicolon
 )brace
 )brace
+macro_line|#endif
 DECL|function|prefetch
 r_void
 id|prefetch
@@ -2312,6 +2340,7 @@ op_assign
 id|newreq
 suffix:semicolon
 )brace
+macro_line|#ifdef USE_CURL_MULTI
 id|process_request_queue
 c_func
 (paren
@@ -2322,6 +2351,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+macro_line|#endif
 )brace
 DECL|variable|got_alternates
 r_static
@@ -4257,9 +4287,6 @@ id|request
 op_assign
 id|request_queue_head
 suffix:semicolon
-r_int
-id|num_transfers
-suffix:semicolon
 r_while
 c_loop
 (paren
@@ -4296,6 +4323,10 @@ l_string|&quot;Couldn&squot;t find request for %s in the queue&quot;
 comma
 id|hex
 )paren
+suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
+r_int
+id|num_transfers
 suffix:semicolon
 r_while
 c_loop
@@ -4334,19 +4365,87 @@ c_func
 suffix:semicolon
 )brace
 )brace
-r_if
-c_cond
+macro_line|#else
+id|start_request
+c_func
+(paren
+id|request
+)paren
+suffix:semicolon
+macro_line|#endif
+r_while
+c_loop
 (paren
 id|request-&gt;state
 op_eq
 id|ACTIVE
 )paren
+(brace
 id|run_active_slot
 c_func
 (paren
 id|request-&gt;slot
 )paren
 suffix:semicolon
+macro_line|#ifndef USE_CURL_MULTI
+id|request-&gt;curl_result
+op_assign
+id|request-&gt;slot-&gt;curl_result
+suffix:semicolon
+id|curl_easy_getinfo
+c_func
+(paren
+id|request-&gt;slot-&gt;curl
+comma
+id|CURLINFO_HTTP_CODE
+comma
+op_amp
+id|request-&gt;http_code
+)paren
+suffix:semicolon
+id|request-&gt;slot
+op_assign
+l_int|NULL
+suffix:semicolon
+multiline_comment|/* Use alternates if necessary */
+r_if
+c_cond
+(paren
+id|request-&gt;http_code
+op_eq
+l_int|404
+op_logical_and
+id|request-&gt;repo-&gt;next
+op_ne
+l_int|NULL
+)paren
+(brace
+id|request-&gt;repo
+op_assign
+id|request-&gt;repo-&gt;next
+suffix:semicolon
+id|start_request
+c_func
+(paren
+id|request
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|finish_request
+c_func
+(paren
+id|request
+)paren
+suffix:semicolon
+id|request-&gt;state
+op_assign
+id|COMPLETE
+suffix:semicolon
+)brace
+macro_line|#endif
+)brace
 r_if
 c_cond
 (paren
@@ -5002,6 +5101,7 @@ id|get_recover
 op_assign
 l_int|1
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
 )brace
 r_else
 r_if
@@ -5045,6 +5145,7 @@ suffix:semicolon
 id|arg
 op_increment
 suffix:semicolon
+macro_line|#endif
 )brace
 id|arg
 op_increment
@@ -5060,12 +5161,21 @@ op_plus
 l_int|2
 )paren
 (brace
+macro_line|#ifdef USE_CURL_MULTI
+id|usage
+c_func
+(paren
+l_string|&quot;git-http-fetch [-c] [-t] [-a] [-d] [-v] [-r concurrent-request-limit] [--recover] [-w ref] commit-id url&quot;
+)paren
+suffix:semicolon
+macro_line|#else
 id|usage
 c_func
 (paren
 l_string|&quot;git-http-fetch [-c] [-t] [-a] [-d] [-v] [--recover] [-w ref] commit-id url&quot;
 )paren
 suffix:semicolon
+macro_line|#endif
 r_return
 l_int|1
 suffix:semicolon
@@ -5092,6 +5202,7 @@ c_func
 id|CURL_GLOBAL_ALL
 )paren
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
 id|curlm
 op_assign
 id|curl_multi_init
@@ -5119,6 +5230,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+macro_line|#endif
 id|no_pragma_header
 op_assign
 id|curl_slist_append
@@ -5390,12 +5502,14 @@ op_assign
 id|slot-&gt;next
 suffix:semicolon
 )brace
+macro_line|#ifdef USE_CURL_MULTI
 id|curl_multi_cleanup
 c_func
 (paren
 id|curlm
 )paren
 suffix:semicolon
+macro_line|#endif
 id|curl_global_cleanup
 c_func
 (paren
