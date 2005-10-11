@@ -278,6 +278,18 @@ l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 r_break
 suffix:semicolon
+multiline_comment|/* Some characters escape as themselves */
+r_case
+l_char|&squot;&bslash;&bslash;&squot;
+suffix:colon
+r_case
+l_char|&squot;&quot;&squot;
+suffix:colon
+r_break
+suffix:semicolon
+multiline_comment|/* Reject unknown escape sequences */
+r_default
+suffix:colon
 r_return
 l_int|NULL
 suffix:semicolon
