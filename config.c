@@ -766,7 +766,11 @@ id|var
 id|baselen
 )braket
 op_assign
+id|tolower
+c_func
+(paren
 id|c
+)paren
 suffix:semicolon
 r_if
 c_cond
