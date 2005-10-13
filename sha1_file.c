@@ -2101,6 +2101,9 @@ id|path
 comma
 r_int
 id|path_len
+comma
+r_int
+id|local
 )paren
 (brace
 r_struct
@@ -2234,6 +2237,10 @@ suffix:semicolon
 id|p-&gt;pack_use_cnt
 op_assign
 l_int|0
+suffix:semicolon
+id|p-&gt;pack_local
+op_assign
+id|local
 suffix:semicolon
 r_return
 id|p
@@ -2432,6 +2439,9 @@ c_func
 r_char
 op_star
 id|objdir
+comma
+r_int
+id|local
 )paren
 (brace
 r_char
@@ -2561,6 +2571,8 @@ comma
 id|len
 op_plus
 id|namelen
+comma
+id|local
 )paren
 suffix:semicolon
 r_if
@@ -2620,6 +2632,8 @@ id|get_object_directory
 c_func
 (paren
 )paren
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|prepare_alt_odb
@@ -2652,6 +2666,8 @@ id|prepare_packed_git_one
 c_func
 (paren
 id|alt-&gt;base
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
