@@ -1,5 +1,4 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;object.h&quot;
 DECL|variable|update_server_info_usage
 r_static
 r_const
@@ -29,10 +28,6 @@ id|i
 suffix:semicolon
 r_int
 id|force
-op_assign
-l_int|0
-suffix:semicolon
-id|track_object_refs
 op_assign
 l_int|0
 suffix:semicolon
