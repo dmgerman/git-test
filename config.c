@@ -1,4 +1,3 @@
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|macro|MAXNAME
 mdefine_line|#define MAXNAME (256)

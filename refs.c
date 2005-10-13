@@ -1,7 +1,6 @@
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &lt;errno.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 multiline_comment|/* We allow &quot;recursive&quot; symbolic refs. Only within reason, though */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5

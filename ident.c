@@ -2,7 +2,6 @@ multiline_comment|/*&n; * ident.c&n; *&n; * create git identifier lines of the f
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &lt;pwd.h&gt;
 macro_line|#include &lt;time.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 DECL|variable|git_default_date
 r_static
 r_char

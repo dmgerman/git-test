@@ -1,4 +1,3 @@
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|function|flush_current_id
 r_static

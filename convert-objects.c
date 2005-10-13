@@ -1,7 +1,6 @@
 DECL|macro|_XOPEN_SOURCE
 mdefine_line|#define _XOPEN_SOURCE /* glibc2 needs this */
 macro_line|#include &lt;time.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|struct|entry
 r_struct

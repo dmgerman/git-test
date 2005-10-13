@@ -1,4 +1,3 @@
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;delta.h&quot;

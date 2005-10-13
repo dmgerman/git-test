@@ -1,4 +1,3 @@
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;

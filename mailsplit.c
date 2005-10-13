@@ -6,7 +6,6 @@ macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;sys/stat.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &lt;assert.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|git_mailsplit_usage
