@@ -20,7 +20,7 @@ id|clone_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-clone-pack [-q] [--exec=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt; [&lt;heads&gt;]*&quot;
+l_string|&quot;git-clone-pack [-q] [--keep] [--exec=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt; [&lt;heads&gt;]*&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
@@ -1208,6 +1208,14 @@ comma
 id|final
 )paren
 suffix:semicolon
+id|chmod
+c_func
+(paren
+id|final
+comma
+l_int|0444
+)paren
+suffix:semicolon
 id|snprintf
 c_func
 (paren
@@ -1234,6 +1242,14 @@ c_func
 id|idx
 comma
 id|final
+)paren
+suffix:semicolon
+id|chmod
+c_func
+(paren
+id|final
+comma
+l_int|0444
 )paren
 suffix:semicolon
 r_return
