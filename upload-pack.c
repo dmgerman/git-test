@@ -1,6 +1,8 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
+macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;object.h&quot;
 DECL|variable|upload_pack_usage
 r_static
 r_const
@@ -948,6 +950,17 @@ op_star
 id|sha1
 )paren
 (brace
+r_struct
+id|object
+op_star
+id|o
+op_assign
+id|parse_object
+c_func
+(paren
+id|sha1
+)paren
+suffix:semicolon
 id|packet_write
 c_func
 (paren
@@ -964,6 +977,39 @@ comma
 id|refname
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;type
+op_eq
+id|tag_type
+)paren
+(brace
+id|o
+op_assign
+id|deref_tag
+c_func
+(paren
+id|o
+)paren
+suffix:semicolon
+id|packet_write
+c_func
+(paren
+l_int|1
+comma
+l_string|&quot;%s %s^{}&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|o-&gt;sha1
+)paren
+comma
+id|refname
+)paren
+suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
