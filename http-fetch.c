@@ -5093,9 +5093,15 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;%s&quot;
+l_string|&quot;%s (curl_result = %d, http_code = %ld, sha1 = %s)&quot;
 comma
 id|request-&gt;errorstr
+comma
+id|request-&gt;curl_result
+comma
+id|request-&gt;http_code
+comma
+id|hex
 )paren
 suffix:semicolon
 id|release_request
