@@ -311,7 +311,7 @@ id|url
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* $GIT_RSH &lt;host&gt; &quot;env GIR_DIR=&lt;path&gt; &lt;remote_prog&gt; &lt;args...&gt;&quot; */
+multiline_comment|/* $GIT_RSH &lt;host&gt; &quot;env GIT_DIR=&lt;path&gt; &lt;remote_prog&gt; &lt;args...&gt;&quot; */
 id|sizen
 op_assign
 id|COMMAND_SIZE
