@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;quote.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git-update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -1494,6 +1495,10 @@ r_char
 op_star
 id|ptr
 suffix:semicolon
+r_char
+op_star
+id|path_name
+suffix:semicolon
 r_int
 r_char
 id|sha1
@@ -1575,11 +1580,38 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|line_termination
+op_logical_and
+id|ptr
+(braket
+l_int|0
+)braket
+op_eq
+l_char|&squot;&quot;&squot;
+)paren
+id|path_name
+op_assign
+id|unquote_c_style
+c_func
+(paren
+id|ptr
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+r_else
+id|path_name
+op_assign
+id|ptr
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|verify_path
 c_func
 (paren
-id|ptr
+id|path_name
 )paren
 )paren
 (brace
@@ -1590,7 +1622,20 @@ id|stderr
 comma
 l_string|&quot;Ignoring path %s&bslash;n&quot;
 comma
+id|path_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|path_name
+op_ne
 id|ptr
+)paren
+id|free
+c_func
+(paren
+id|path_name
 )paren
 suffix:semicolon
 r_continue
@@ -1610,7 +1655,7 @@ c_cond
 id|remove_file_from_cache
 c_func
 (paren
-id|ptr
+id|path_name
 )paren
 )paren
 id|die
@@ -1649,7 +1694,7 @@ id|ptr
 op_minus
 l_int|41
 comma
-id|ptr
+id|path_name
 )paren
 )paren
 id|die
@@ -1657,10 +1702,23 @@ c_func
 (paren
 l_string|&quot;git-update-index: unable to update %s&quot;
 comma
-id|ptr
+id|path_name
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|path_name
+op_ne
+id|ptr
+)paren
+id|free
+c_func
+(paren
+id|path_name
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 id|bad_line
