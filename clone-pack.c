@@ -603,6 +603,8 @@ comma
 id|nr_match
 comma
 id|match
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_if
