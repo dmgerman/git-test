@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#include &lt;sys/wait.h&gt;
 macro_line|#include &lt;sys/socket.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
