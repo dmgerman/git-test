@@ -973,16 +973,20 @@ id|size
 suffix:semicolon
 )brace
 macro_line|#ifdef USE_CURL_MULTI
+r_static
 r_void
 id|process_curl_messages
 c_func
 (paren
+r_void
 )paren
 suffix:semicolon
+r_static
 r_void
 id|process_request_queue
 c_func
 (paren
+r_void
 )paren
 suffix:semicolon
 macro_line|#endif
@@ -993,6 +997,7 @@ op_star
 id|get_curl_handle
 c_func
 (paren
+r_void
 )paren
 (brace
 id|CURL
@@ -1113,12 +1118,14 @@ id|result
 suffix:semicolon
 )brace
 DECL|function|get_active_slot
+r_static
 r_struct
 id|active_request_slot
 op_star
 id|get_active_slot
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -1324,6 +1331,7 @@ id|slot
 suffix:semicolon
 )brace
 DECL|function|start_active_slot
+r_static
 r_int
 id|start_active_slot
 c_func
@@ -1375,6 +1383,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|run_active_slot
+r_static
 r_void
 id|run_active_slot
 c_func
@@ -1580,6 +1589,7 @@ suffix:semicolon
 macro_line|#endif
 )brace
 DECL|function|start_request
+r_static
 r_void
 id|start_request
 c_func
@@ -2245,6 +2255,7 @@ id|ACTIVE
 suffix:semicolon
 )brace
 DECL|function|finish_request
+r_static
 r_void
 id|finish_request
 c_func
@@ -2385,6 +2396,7 @@ id|request-&gt;sha1
 suffix:semicolon
 )brace
 DECL|function|release_request
+r_static
 r_void
 id|release_request
 c_func
@@ -2463,6 +2475,7 @@ r_void
 id|process_curl_messages
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int
@@ -2690,6 +2703,7 @@ r_void
 id|process_request_queue
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -4931,9 +4945,6 @@ l_int|0
 suffix:semicolon
 )brace
 macro_line|#ifdef USE_CURL_MULTI
-r_int
-id|num_transfers
-suffix:semicolon
 r_while
 c_loop
 (paren
@@ -4942,6 +4953,9 @@ op_eq
 id|WAITING
 )paren
 (brace
+r_int
+id|num_transfers
+suffix:semicolon
 id|curl_multi_perform
 c_func
 (paren
@@ -6006,6 +6020,7 @@ id|CURL_GLOBAL_ALL
 )paren
 suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
+(brace
 r_char
 op_star
 id|http_max_requests
@@ -6031,6 +6046,7 @@ c_func
 id|http_max_requests
 )paren
 suffix:semicolon
+)brace
 id|curlm
 op_assign
 id|curl_multi_init
