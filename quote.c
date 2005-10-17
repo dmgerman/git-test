@@ -256,7 +256,7 @@ c_cond
 (paren
 (paren
 id|ch
-op_le
+OL
 l_char|&squot; &squot;
 )paren
 op_logical_or
