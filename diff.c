@@ -872,7 +872,7 @@ op_star
 r_const
 id|diff_arg
 op_assign
-l_string|&quot;%s %s||:&quot;
+l_string|&quot;-- %s %s||:&quot;
 suffix:semicolon
 multiline_comment|/* &quot;||:&quot; is to return 0 */
 r_const
