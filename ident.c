@@ -1,7 +1,6 @@
 multiline_comment|/*&n; * ident.c&n; *&n; * create git identifier lines of the form &quot;name &lt;email&gt; date&quot;&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &lt;pwd.h&gt;
-macro_line|#include &lt;time.h&gt;
 DECL|variable|git_default_date
 r_static
 r_char
