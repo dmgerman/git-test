@@ -2600,7 +2600,7 @@ id|arg
 comma
 l_string|&quot;--init-timeout=&quot;
 comma
-l_int|10
+l_int|15
 )paren
 )paren
 (brace
