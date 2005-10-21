@@ -5341,6 +5341,19 @@ op_ne
 l_int|416
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|request-&gt;http_code
+op_eq
+l_int|404
+)paren
+id|ret
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* Be silent, it is probably in a pack. */
+r_else
 id|ret
 op_assign
 id|error
