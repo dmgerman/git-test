@@ -3995,6 +3995,14 @@ id|options-&gt;rename_limit
 op_assign
 l_int|1
 suffix:semicolon
+id|options-&gt;change
+op_assign
+id|diff_change
+suffix:semicolon
+id|options-&gt;add_remove
+op_assign
+id|diff_addremove
+suffix:semicolon
 )brace
 DECL|function|diff_setup_done
 r_int
