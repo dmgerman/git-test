@@ -14,9 +14,9 @@ op_assign
 l_string|&quot;git-upload-pack [--strict] [--timeout=nn] &lt;dir&gt;&quot;
 suffix:semicolon
 DECL|macro|MAX_HAS
-mdefine_line|#define MAX_HAS (16)
+mdefine_line|#define MAX_HAS 256
 DECL|macro|MAX_NEEDS
-mdefine_line|#define MAX_NEEDS (256)
+mdefine_line|#define MAX_NEEDS 256
 DECL|variable|nr_has
 DECL|variable|nr_needs
 r_static
