@@ -1177,7 +1177,7 @@ r_if
 c_cond
 (paren
 id|MAX_REVS
-OL
+op_le
 id|ref_name_cnt
 )paren
 (brace
