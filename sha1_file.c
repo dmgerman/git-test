@@ -6225,13 +6225,19 @@ c_cond
 id|ret
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * Coda hack - coda doesn&squot;t like cross-directory links,&n;&t;&t; * so we fall back to a rename, which will mean that it&n;&t;&t; * won&squot;t be able to check collisions, but that&squot;s not a&n;&t;&t; * big deal.&n;&t;&t; *&n;&t;&t; * When this succeeds, we just return 0. We have nothing&n;&t;&t; * left to unlink.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Coda hack - coda doesn&squot;t like cross-directory links,&n;&t;&t; * so we fall back to a rename, which will mean that it&n;&t;&t; * won&squot;t be able to check collisions, but that&squot;s not a&n;&t;&t; * big deal.&n;&t;&t; *&n;&t;&t; * The same holds for FAT formatted media.&n;&t;&t; *&n;&t;&t; * When this succeeds, we just return 0. We have nothing&n;&t;&t; * left to unlink.&n;&t;&t; */
 r_if
 c_cond
+(paren
 (paren
 id|ret
 op_eq
 id|EXDEV
+op_logical_or
+id|ret
+op_eq
+id|ENOTSUP
+)paren
 op_logical_and
 op_logical_neg
 id|rename
@@ -6244,6 +6250,10 @@ id|filename
 )paren
 r_return
 l_int|0
+suffix:semicolon
+id|ret
+op_assign
+id|errno
 suffix:semicolon
 )brace
 id|unlink

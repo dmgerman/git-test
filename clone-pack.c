@@ -1113,7 +1113,7 @@ r_sizeof
 id|tmpfile
 )paren
 comma
-l_string|&quot;%s/pack-XXXXXX&quot;
+l_string|&quot;%s/pack/tmp-XXXXXX&quot;
 comma
 id|get_object_directory
 c_func
