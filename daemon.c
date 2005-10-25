@@ -1,5 +1,3 @@
-macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &lt;signal.h&gt;
 macro_line|#include &lt;sys/wait.h&gt;
 macro_line|#include &lt;sys/socket.h&gt;
@@ -9,6 +7,8 @@ macro_line|#include &lt;netdb.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
 macro_line|#include &lt;syslog.h&gt;
+macro_line|#include &quot;pkt-line.h&quot;
+macro_line|#include &quot;cache.h&quot;
 DECL|variable|log_syslog
 r_static
 r_int
