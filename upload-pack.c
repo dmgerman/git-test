@@ -316,6 +316,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|create_full_pack
+op_logical_or
 id|MAX_NEEDS
 op_le
 id|nr_needs
@@ -372,6 +374,12 @@ l_int|41
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|create_full_pack
+)paren
 r_for
 c_loop
 (paren
