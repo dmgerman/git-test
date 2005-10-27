@@ -691,6 +691,11 @@ op_star
 id|arg
 )paren
 (brace
+id|show_default
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -827,11 +832,6 @@ l_string|&quot;--&quot;
 id|as_is
 op_assign
 l_int|1
-suffix:semicolon
-id|show_default
-c_func
-(paren
-)paren
 suffix:semicolon
 multiline_comment|/* Pass on the &quot;--&quot; if we show anything but files.. */
 r_if
