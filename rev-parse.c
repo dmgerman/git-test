@@ -1503,6 +1503,10 @@ c_func
 l_string|&quot;Needed a single revision&quot;
 )paren
 suffix:semicolon
+id|as_is
+op_assign
+l_int|1
+suffix:semicolon
 id|show_file
 c_func
 (paren
