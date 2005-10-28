@@ -13,7 +13,7 @@ r_char
 op_star
 id|server_capabilities
 op_assign
-l_string|&quot;&quot;
+l_int|NULL
 suffix:semicolon
 multiline_comment|/*&n; * Read all the refs from the other end&n; */
 DECL|function|get_remote_heads
@@ -321,12 +321,14 @@ id|feature
 )paren
 (brace
 r_return
+id|server_capabilities
+op_logical_and
 id|strstr
 c_func
 (paren
-id|feature
-comma
 id|server_capabilities
+comma
+id|feature
 )paren
 op_ne
 l_int|NULL

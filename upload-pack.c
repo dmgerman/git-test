@@ -1179,7 +1179,7 @@ r_char
 op_star
 id|capabilities
 op_assign
-l_string|&quot;&bslash;0multi_ack&quot;
+l_string|&quot;multi_ack&quot;
 suffix:semicolon
 r_struct
 id|object
@@ -1192,12 +1192,17 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|capabilities
+)paren
 id|packet_write
 c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s %s%s&bslash;n&quot;
+l_string|&quot;%s %s%c%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -1207,12 +1212,31 @@ id|sha1
 comma
 id|refname
 comma
+l_int|0
+comma
 id|capabilities
+)paren
+suffix:semicolon
+r_else
+id|packet_write
+c_func
+(paren
+l_int|1
+comma
+l_string|&quot;%s %s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+comma
+id|refname
 )paren
 suffix:semicolon
 id|capabilities
 op_assign
-l_string|&quot;&quot;
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
