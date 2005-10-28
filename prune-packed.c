@@ -427,6 +427,11 @@ id|prune_packed_usage
 )paren
 suffix:semicolon
 )brace
+id|sync
+c_func
+(paren
+)paren
+suffix:semicolon
 id|prune_packed_objects
 c_func
 (paren
