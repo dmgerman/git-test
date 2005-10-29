@@ -1741,7 +1741,7 @@ id|update_index_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--cacheinfo] [--chmod=(+|-)x] [--info-only] [--force-remove] [--stdin] [--index-info] [--ignore-missing] [-z] [--version] [--] &lt;file&gt;...&quot;
+l_string|&quot;git-update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--cacheinfo] [--chmod=(+|-)x] [--info-only] [--force-remove] [--stdin] [--index-info] [--ignore-missing] [-z] [--verbose] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 DECL|function|main
 r_int
