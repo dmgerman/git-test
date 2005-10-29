@@ -270,7 +270,6 @@ r_char
 op_star
 id|source
 comma
-r_const
 r_char
 op_star
 id|dest
@@ -284,6 +283,12 @@ r_int
 id|warn_if_not_exists
 )paren
 (brace
+id|safe_create_leading_directories
+c_func
+(paren
+id|dest
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -887,7 +892,6 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
-r_const
 r_char
 op_star
 id|dest_filename
