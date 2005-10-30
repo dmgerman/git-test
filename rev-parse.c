@@ -85,6 +85,8 @@ l_string|&quot;--all&quot;
 comma
 l_string|&quot;--bisect&quot;
 comma
+l_string|&quot;--dense&quot;
+comma
 l_string|&quot;--header&quot;
 comma
 l_string|&quot;--max-age=&quot;
@@ -104,6 +106,8 @@ comma
 l_string|&quot;--pretty&quot;
 comma
 l_string|&quot;--show-breaks&quot;
+comma
+l_string|&quot;--sparse&quot;
 comma
 l_string|&quot;--topo-order&quot;
 comma
