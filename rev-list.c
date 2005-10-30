@@ -24,19 +24,24 @@ id|rev_list_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-rev-list [OPTION] commit-id &lt;commit-id&gt;&bslash;n&quot;
-l_string|&quot;  --max-count=nr&bslash;n&quot;
-l_string|&quot;  --max-age=epoch&bslash;n&quot;
-l_string|&quot;  --min-age=epoch&bslash;n&quot;
-l_string|&quot;  --parents&bslash;n&quot;
-l_string|&quot;  --bisect&bslash;n&quot;
-l_string|&quot;  --objects&bslash;n&quot;
-l_string|&quot;  --unpacked&bslash;n&quot;
-l_string|&quot;  --header&bslash;n&quot;
-l_string|&quot;  --pretty&bslash;n&quot;
-l_string|&quot;  --no-merges&bslash;n&quot;
-l_string|&quot;  --merge-order [ --show-breaks ]&bslash;n&quot;
-l_string|&quot;  --topo-order&quot;
+l_string|&quot;git-rev-list [OPTION] &lt;commit-id&gt;... [ -- paths... ]&bslash;n&quot;
+l_string|&quot;  limiting output:&bslash;n&quot;
+l_string|&quot;    --max-count=nr&bslash;n&quot;
+l_string|&quot;    --max-age=epoch&bslash;n&quot;
+l_string|&quot;    --min-age=epoch&bslash;n&quot;
+l_string|&quot;    --sparse&bslash;n&quot;
+l_string|&quot;    --no-merges&bslash;n&quot;
+l_string|&quot;    --all&bslash;n&quot;
+l_string|&quot;  ordering output:&bslash;n&quot;
+l_string|&quot;    --merge-order [ --show-breaks ]&bslash;n&quot;
+l_string|&quot;    --topo-order&bslash;n&quot;
+l_string|&quot;  formatting output:&bslash;n&quot;
+l_string|&quot;    --parents&bslash;n&quot;
+l_string|&quot;    --objects&bslash;n&quot;
+l_string|&quot;    --unpacked&bslash;n&quot;
+l_string|&quot;    --header | --pretty&bslash;n&quot;
+l_string|&quot;  special purpose:&bslash;n&quot;
+l_string|&quot;    --bisect&quot;
 suffix:semicolon
 DECL|variable|dense
 r_static
