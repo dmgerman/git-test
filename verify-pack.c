@@ -79,6 +79,8 @@ c_func
 id|arg
 comma
 id|len
+comma
+l_int|1
 )paren
 )paren
 )paren
@@ -111,6 +113,8 @@ c_func
 id|arg
 comma
 id|len
+comma
+l_int|1
 )paren
 )paren
 )paren

@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;quote.h&quot;
 DECL|variable|line_termination
 r_static
 r_int
@@ -629,7 +630,7 @@ id|root_entry
 id|printf
 c_func
 (paren
-l_string|&quot;%06o %s %s&t;%s%s&quot;
+l_string|&quot;%06o %s %s&t;&quot;
 comma
 id|e-&gt;mode
 comma
@@ -644,10 +645,18 @@ c_func
 (paren
 id|e
 )paren
-comma
+)paren
+suffix:semicolon
+id|write_name_quoted
+c_func
+(paren
 id|pathbuf
 comma
 id|e-&gt;name
+comma
+id|line_termination
+comma
+id|stdout
 )paren
 suffix:semicolon
 id|putchar

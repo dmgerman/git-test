@@ -1,8 +1,5 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;pwd.h&gt;
-macro_line|#include &lt;time.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 DECL|macro|BLOCKING
 mdefine_line|#define BLOCKING (1ul &lt;&lt; 14)
 multiline_comment|/*&n; * FIXME! Share the code with &quot;write-tree.c&quot;&n; */
@@ -436,6 +433,17 @@ r_int
 r_int
 id|size
 suffix:semicolon
+id|setup_ident
+c_func
+(paren
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -581,11 +589,6 @@ id|argv
 (braket
 l_int|1
 )braket
-)paren
-suffix:semicolon
-id|setup_ident
-c_func
-(paren
 )paren
 suffix:semicolon
 id|init_buffer

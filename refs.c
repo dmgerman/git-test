@@ -1,7 +1,6 @@
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &lt;errno.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 multiline_comment|/* We allow &quot;recursive&quot; symbolic refs. Only within reason, though */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
@@ -561,23 +560,6 @@ op_star
 id|refs_heads_master
 )paren
 (brace
-macro_line|#if USE_SYMLINK_HEAD
-id|unlink
-c_func
-(paren
-id|git_HEAD
-)paren
-suffix:semicolon
-r_return
-id|symlink
-c_func
-(paren
-id|refs_heads_master
-comma
-id|git_HEAD
-)paren
-suffix:semicolon
-macro_line|#else
 r_const
 r_char
 op_star
@@ -596,6 +578,37 @@ id|len
 comma
 id|written
 suffix:semicolon
+macro_line|#if USE_SYMLINK_HEAD
+id|unlink
+c_func
+(paren
+id|git_HEAD
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|symlink
+c_func
+(paren
+id|refs_heads_master
+comma
+id|git_HEAD
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;no symlink - falling back to symbolic ref&bslash;n&quot;
+)paren
+suffix:semicolon
+macro_line|#endif
 id|len
 op_assign
 id|snprintf
@@ -741,7 +754,6 @@ suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
-macro_line|#endif
 )brace
 DECL|function|read_ref
 r_int

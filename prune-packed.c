@@ -175,6 +175,19 @@ id|pathname
 )paren
 suffix:semicolon
 )brace
+id|pathname
+(braket
+id|len
+)braket
+op_assign
+l_int|0
+suffix:semicolon
+id|rmdir
+c_func
+(paren
+id|pathname
+)paren
+suffix:semicolon
 )brace
 DECL|function|prune_packed_objects
 r_static
@@ -305,13 +318,7 @@ c_cond
 op_logical_neg
 id|d
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to open %s&quot;
-comma
-id|pathname
-)paren
+r_continue
 suffix:semicolon
 id|prune_dir
 c_func
@@ -420,6 +427,11 @@ id|prune_packed_usage
 )paren
 suffix:semicolon
 )brace
+id|sync
+c_func
+(paren
+)paren
+suffix:semicolon
 id|prune_packed_objects
 c_func
 (paren

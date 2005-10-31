@@ -1,6 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#include &lt;ctype.h&gt;
 DECL|variable|git_update_ref_usage
 r_static
 r_const

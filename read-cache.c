@@ -169,9 +169,12 @@ id|TYPE_CHANGED
 suffix:colon
 l_int|0
 suffix:semicolon
-multiline_comment|/* We consider only the owner x bit to be relevant for &quot;mode changes&quot; */
+multiline_comment|/* We consider only the owner x bit to be relevant for&n;&t;&t; * &quot;mode changes&quot;&n;&t;&t; */
 r_if
 c_cond
+(paren
+id|trust_executable_bit
+op_logical_and
 (paren
 l_int|0100
 op_amp
@@ -183,6 +186,7 @@ id|ce-&gt;ce_mode
 )paren
 op_xor
 id|st-&gt;st_mode
+)paren
 )paren
 )paren
 id|changed
@@ -1894,7 +1898,7 @@ id|ce-&gt;ce_flags
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/* existing match? Just replace it */
+multiline_comment|/* existing match? Just replace it. */
 r_if
 c_cond
 (paren

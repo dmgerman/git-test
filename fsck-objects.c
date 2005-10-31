@@ -1592,17 +1592,9 @@ c_cond
 op_logical_neg
 id|dir
 )paren
-(brace
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;missing sha1 directory &squot;%s&squot;&quot;
-comma
-id|path
-)paren
+l_int|0
 suffix:semicolon
-)brace
 r_while
 c_loop
 (paren
