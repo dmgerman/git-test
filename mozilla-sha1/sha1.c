@@ -100,6 +100,7 @@ id|SHA_CTX
 op_star
 id|ctx
 comma
+r_const
 r_void
 op_star
 id|_dataIn
@@ -108,6 +109,7 @@ r_int
 id|len
 )paren
 (brace
+r_const
 r_int
 r_char
 op_star
