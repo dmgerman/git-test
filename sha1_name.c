@@ -1953,6 +1953,12 @@ id|deref_tag
 c_func
 (paren
 id|o
+comma
+id|name
+comma
+id|sp
+id|name
+l_int|2
 )paren
 suffix:semicolon
 r_if

@@ -1271,6 +1271,10 @@ id|deref_tag
 c_func
 (paren
 id|o
+comma
+id|refname
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|packet_write

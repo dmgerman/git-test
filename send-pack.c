@@ -647,6 +647,10 @@ c_func
 (paren
 id|old_sha1
 )paren
+comma
+l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -681,6 +685,10 @@ c_func
 (paren
 id|new_sha1
 )paren
+comma
+l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

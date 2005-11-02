@@ -69,8 +69,17 @@ id|deref_tag
 c_func
 (paren
 id|o
+comma
+id|path
+comma
+l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|o
+)paren
 id|fprintf
 c_func
 (paren
