@@ -232,6 +232,10 @@ c_func
 (paren
 id|sha1
 )paren
+comma
+l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

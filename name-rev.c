@@ -870,6 +870,11 @@ c_func
 (paren
 id|sha1
 )paren
+comma
+op_star
+id|argv
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
