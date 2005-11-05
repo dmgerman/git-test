@@ -63,6 +63,9 @@ OL
 l_int|0
 )paren
 (brace
+r_int
+id|read_error
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -71,6 +74,16 @@ op_eq
 id|EAGAIN
 )paren
 r_continue
+suffix:semicolon
+id|read_error
+op_assign
+id|errno
+suffix:semicolon
+id|close
+c_func
+(paren
+id|ifd
+)paren
 suffix:semicolon
 r_return
 id|error
@@ -81,7 +94,7 @@ comma
 id|strerror
 c_func
 (paren
-id|errno
+id|read_error
 )paren
 )paren
 suffix:semicolon
