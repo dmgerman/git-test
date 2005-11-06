@@ -6,7 +6,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &lt;curl/curl.h&gt;
 macro_line|#include &lt;curl/easy.h&gt;
-macro_line|#include &quot;expat.h&quot;
+macro_line|#include &lt;expat.h&gt;
 DECL|variable|http_push_usage
 r_static
 r_const
