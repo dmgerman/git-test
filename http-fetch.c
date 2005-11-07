@@ -2708,6 +2708,11 @@ op_eq
 id|CURLMSG_DONE
 )paren
 (brace
+r_int
+id|curl_result
+op_assign
+id|curl_message-&gt;data.result
+suffix:semicolon
 id|slot
 op_assign
 id|active_queue_head
@@ -2756,7 +2761,7 @@ l_int|0
 suffix:semicolon
 id|slot-&gt;curl_result
 op_assign
-id|curl_message-&gt;data.result
+id|curl_result
 suffix:semicolon
 id|curl_easy_getinfo
 c_func
@@ -2810,7 +2815,7 @@ l_int|NULL
 (brace
 id|request-&gt;curl_result
 op_assign
-id|curl_message-&gt;data.result
+id|curl_result
 suffix:semicolon
 id|request-&gt;http_code
 op_assign

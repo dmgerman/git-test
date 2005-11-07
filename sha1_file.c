@@ -201,6 +201,17 @@ id|pos
 op_assign
 id|path
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|pos
+op_eq
+l_char|&squot;/&squot;
+)paren
+id|pos
+op_increment
+suffix:semicolon
 r_while
 c_loop
 (paren
