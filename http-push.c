@@ -35,6 +35,27 @@ macro_line|#if LIBCURL_VERSION_NUM &lt; 0x070c04
 DECL|macro|NO_CURL_EASY_DUPHANDLE
 mdefine_line|#define NO_CURL_EASY_DUPHANDLE
 macro_line|#endif
+macro_line|#ifndef XML_STATUS_OK
+DECL|enum|XML_Status
+r_enum
+id|XML_Status
+(brace
+DECL|enumerator|XML_STATUS_OK
+id|XML_STATUS_OK
+op_assign
+l_int|1
+comma
+DECL|enumerator|XML_STATUS_ERROR
+id|XML_STATUS_ERROR
+op_assign
+l_int|0
+)brace
+suffix:semicolon
+DECL|macro|XML_STATUS_OK
+mdefine_line|#define XML_STATUS_OK    1
+DECL|macro|XML_STATUS_ERROR
+mdefine_line|#define XML_STATUS_ERROR 0
+macro_line|#endif
 DECL|macro|RANGE_HEADER_SIZE
 mdefine_line|#define RANGE_HEADER_SIZE 30
 multiline_comment|/* DAV method names and request body templates */
@@ -83,6 +104,14 @@ r_int
 id|aborted
 op_assign
 l_int|0
+suffix:semicolon
+DECL|variable|remote_dir_exists
+r_static
+r_char
+id|remote_dir_exists
+(braket
+l_int|256
+)braket
 suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 DECL|variable|max_requests
@@ -3083,6 +3112,16 @@ op_eq
 id|CURLE_OK
 )paren
 (brace
+id|remote_dir_exists
+(braket
+id|request-&gt;sha1
+(braket
+l_int|0
+)braket
+)braket
+op_assign
+l_int|1
+suffix:semicolon
 id|request-&gt;state
 op_assign
 id|COMPLETE
@@ -3139,6 +3178,16 @@ op_eq
 l_int|405
 )paren
 (brace
+id|remote_dir_exists
+(braket
+id|request-&gt;sha1
+(braket
+l_int|0
+)braket
+)braket
+op_assign
+l_int|1
+suffix:semicolon
 id|start_put
 c_func
 (paren
@@ -3456,6 +3505,11 @@ op_ne
 l_int|NULL
 )paren
 (brace
+r_int
+id|curl_result
+op_assign
+id|curl_message-&gt;data.result
+suffix:semicolon
 id|curl_multi_remove_handle
 c_func
 (paren
@@ -3477,7 +3531,7 @@ l_int|0
 suffix:semicolon
 id|slot-&gt;curl_result
 op_assign
-id|curl_message-&gt;data.result
+id|curl_result
 suffix:semicolon
 id|curl_easy_getinfo
 c_func
@@ -3646,6 +3700,24 @@ op_eq
 id|NEED_PUSH
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|remote_dir_exists
+(braket
+id|request-&gt;sha1
+(braket
+l_int|0
+)braket
+)braket
+)paren
+id|start_put
+c_func
+(paren
+id|request
+)paren
+suffix:semicolon
+r_else
 id|start_mkcol
 c_func
 (paren
@@ -6303,9 +6375,11 @@ id|in_data
 suffix:semicolon
 id|new_lock
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
+l_int|1
+comma
 r_sizeof
 (paren
 op_star
@@ -8344,6 +8418,16 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+id|memset
+c_func
+(paren
+id|remote_dir_exists
+comma
+l_int|0
+comma
+l_int|256
+)paren
+suffix:semicolon
 id|curl_global_init
 c_func
 (paren
