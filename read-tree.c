@@ -3076,6 +3076,12 @@ c_func
 l_string|&quot;unable to create new cachefile&quot;
 )paren
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 id|merge
 op_assign
 l_int|0
