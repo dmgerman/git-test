@@ -1,14 +1,14 @@
 multiline_comment|/*&n;*&n;* Copyright 2005, Lukas Sandstrom &lt;lukass@etek.chalmers.se&gt;&n;*&n;* This file is licensed under the GPL v2.&n;*&n;*/
 macro_line|#include &quot;cache.h&quot;
-DECL|variable|pack_intersect_usage
+DECL|variable|pack_redundant_usage
 r_static
 r_const
 r_char
-id|pack_intersect_usage
+id|pack_redundant_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-intersect [ -v ]  &lt; -a | &lt;.pack filename&gt; ...&gt;&quot;
+l_string|&quot;git-pack-redundant [ -v ]  &lt; -a | &lt;.pack filename&gt; ...&gt;&quot;
 suffix:semicolon
 DECL|variable|all
 DECL|variable|verbose
@@ -2483,6 +2483,9 @@ l_string|&quot;--&quot;
 )paren
 )paren
 (brace
+id|i
+op_increment
+suffix:semicolon
 r_break
 suffix:semicolon
 )brace
@@ -2538,7 +2541,7 @@ l_char|&squot;-&squot;
 id|usage
 c_func
 (paren
-id|pack_intersect_usage
+id|pack_redundant_usage
 )paren
 suffix:semicolon
 )brace
