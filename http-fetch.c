@@ -1255,6 +1255,16 @@ id|curl_low_speed_time
 )paren
 suffix:semicolon
 )brace
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_FOLLOWLOCATION
+comma
+l_int|1
+)paren
+suffix:semicolon
 r_return
 id|result
 suffix:semicolon
