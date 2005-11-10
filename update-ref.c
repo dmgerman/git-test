@@ -322,7 +322,7 @@ l_int|20
 id|die
 c_func
 (paren
-l_string|&quot;Ref %s changed to %s&quot;
+l_string|&quot;Ref %s is at %s but expected %s&quot;
 comma
 id|refname
 comma
@@ -330,6 +330,12 @@ id|sha1_to_hex
 c_func
 (paren
 id|currsha1
+)paren
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|oldsha1
 )paren
 )paren
 suffix:semicolon
