@@ -2766,6 +2766,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|refresh_lock
+r_static
 r_int
 id|refresh_lock
 c_func
@@ -3427,6 +3428,7 @@ suffix:semicolon
 )brace
 macro_line|#ifdef USE_CURL_MULTI
 DECL|function|process_curl_messages
+r_static
 r_void
 id|process_curl_messages
 c_func
@@ -3619,6 +3621,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|process_request_queue
+r_static
 r_void
 id|process_request_queue
 c_func
@@ -3777,6 +3780,7 @@ suffix:semicolon
 )brace
 macro_line|#endif
 DECL|function|process_waiting_requests
+r_static
 r_void
 id|process_waiting_requests
 c_func
@@ -3824,6 +3828,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|add_request
+r_static
 r_void
 id|add_request
 c_func
@@ -4490,6 +4495,7 @@ r_int
 id|fetch_indices
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int
@@ -6036,6 +6042,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|lock_remote
+r_static
 r_struct
 id|active_lock
 op_star
@@ -6798,6 +6805,7 @@ id|new_lock
 suffix:semicolon
 )brace
 DECL|function|unlock_remote
+r_static
 r_int
 id|unlock_remote
 c_func
@@ -7008,10 +7016,12 @@ id|rc
 suffix:semicolon
 )brace
 DECL|function|check_locking
+r_static
 r_int
 id|check_locking
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -7385,6 +7395,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|is_ancestor
+r_static
 r_int
 id|is_ancestor
 c_func
@@ -7487,6 +7498,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|get_delta
+r_static
 r_void
 id|get_delta
 c_func
@@ -7830,6 +7842,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|update_remote
+r_static
 r_int
 id|update_remote
 c_func

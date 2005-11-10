@@ -2657,6 +2657,7 @@ suffix:semicolon
 )brace
 macro_line|#ifdef USE_CURL_MULTI
 DECL|function|process_curl_messages
+r_static
 r_void
 id|process_curl_messages
 c_func
@@ -2905,6 +2906,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|process_request_queue
+r_static
 r_void
 id|process_request_queue
 c_func
