@@ -86,7 +86,7 @@ id|apply_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--index-info] [-z] &lt;patch&gt;...&quot;
+l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--no-add] [--index-info] [-z] &lt;patch&gt;...&quot;
 suffix:semicolon
 multiline_comment|/*&n; * For &quot;diff-stat&quot; like behaviour, we keep track of the biggest change&n; * we&squot;ve seen, and the longest filename. That allows us to do simple&n; * scaling.&n; */
 DECL|variable|max_change
