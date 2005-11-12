@@ -2949,6 +2949,15 @@ id|request
 )paren
 suffix:semicolon
 )brace
+r_else
+(brace
+id|finish_request
+c_func
+(paren
+id|request
+)paren
+suffix:semicolon
+)brace
 )brace
 r_else
 (brace
