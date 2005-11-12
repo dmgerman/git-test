@@ -1255,6 +1255,16 @@ id|curl_low_speed_time
 )paren
 suffix:semicolon
 )brace
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_FOLLOWLOCATION
+comma
+l_int|1
+)paren
+suffix:semicolon
 r_return
 id|result
 suffix:semicolon
@@ -3696,7 +3706,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Getting alternates list&bslash;n&quot;
+l_string|&quot;Getting alternates list for %s&bslash;n&quot;
+comma
+id|base
 )paren
 suffix:semicolon
 id|url
@@ -4391,7 +4403,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Getting pack list&bslash;n&quot;
+l_string|&quot;Getting pack list for %s&bslash;n&quot;
+comma
+id|repo-&gt;base
 )paren
 suffix:semicolon
 id|url
