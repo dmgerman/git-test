@@ -2908,6 +2908,10 @@ id|stderr
 )paren
 suffix:semicolon
 singleline_comment|//FIXME: workaround
+id|log_syslog
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 id|execute
 c_func
@@ -2915,8 +2919,6 @@ c_func
 )paren
 suffix:semicolon
 )brace
-r_else
-(brace
 r_return
 id|serve
 c_func
@@ -2924,6 +2926,5 @@ c_func
 id|port
 )paren
 suffix:semicolon
-)brace
 )brace
 eof
