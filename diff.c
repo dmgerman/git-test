@@ -3404,6 +3404,11 @@ r_struct
 id|diff_filepair
 op_star
 id|p
+comma
+r_struct
+id|diff_options
+op_star
+id|o
 )paren
 (brace
 r_const
@@ -3720,6 +3725,18 @@ id|one_sha1
 l_int|41
 )braket
 suffix:semicolon
+r_const
+r_char
+op_star
+id|index_fmt
+op_assign
+id|o-&gt;full_index
+ques
+c_cond
+l_string|&quot;index %s..%s&quot;
+suffix:colon
+l_string|&quot;index %.7s..%.7s&quot;
+suffix:semicolon
 id|memcpy
 c_func
 (paren
@@ -3749,7 +3766,7 @@ id|msg
 )paren
 id|len
 comma
-l_string|&quot;index %.7s..%.7s&quot;
+id|index_fmt
 comma
 id|one_sha1
 comma
@@ -4193,6 +4210,23 @@ l_int|NULL
 comma
 l_int|10
 )paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--full-index&quot;
+)paren
+)paren
+id|options-&gt;full_index
+op_assign
+l_int|1
 suffix:semicolon
 r_else
 r_if
@@ -5354,6 +5388,11 @@ r_struct
 id|diff_filepair
 op_star
 id|p
+comma
+r_struct
+id|diff_options
+op_star
+id|o
 )paren
 (brace
 r_if
@@ -5405,6 +5444,8 @@ id|run_diff
 c_func
 (paren
 id|p
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
@@ -6064,6 +6105,8 @@ id|diff_flush_patch
 c_func
 (paren
 id|p
+comma
+id|options
 )paren
 suffix:semicolon
 r_break
