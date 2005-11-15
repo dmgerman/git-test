@@ -1757,7 +1757,7 @@ op_ne
 l_char|&squot;.&squot;
 op_logical_or
 l_int|40
-op_le
+OL
 id|ptr
 id|line
 )paren
@@ -1835,7 +1835,7 @@ r_if
 c_cond
 (paren
 l_int|40
-op_le
+OL
 id|len
 )paren
 r_return
@@ -4338,6 +4338,8 @@ comma
 id|buffer
 op_plus
 id|hdrsize
+op_plus
+id|offset
 comma
 r_sizeof
 (paren
