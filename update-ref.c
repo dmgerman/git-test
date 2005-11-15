@@ -147,7 +147,8 @@ id|oldval
 comma
 op_star
 id|path
-comma
+suffix:semicolon
+r_char
 op_star
 id|lockpath
 suffix:semicolon
@@ -376,6 +377,25 @@ c_func
 l_string|&quot;%s.lock&quot;
 comma
 id|path
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|safe_create_leading_directories
+c_func
+(paren
+id|lockpath
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Unable to create all of %s&quot;
+comma
+id|lockpath
 )paren
 suffix:semicolon
 id|fd

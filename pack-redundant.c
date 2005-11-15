@@ -2773,8 +2773,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;There are %ld packs available in alt-odbs.&bslash;n&quot;
+l_string|&quot;There are %lu packs available in alt-odbs.&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
 id|pack_list_size
 c_func
 (paren
@@ -2820,15 +2824,23 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;containing %ld duplicate objects &quot;
-l_string|&quot;with a total size of %ldkb.&bslash;n&quot;
+l_string|&quot;containing %lu duplicate objects &quot;
+l_string|&quot;with a total size of %lukb.&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
 id|get_pack_redundancy
 c_func
 (paren
 id|min
 )paren
 comma
+(paren
+r_int
+r_int
+)paren
 id|pack_set_bytecount
 c_func
 (paren
@@ -2843,8 +2855,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;A total of %ld unique objects were considered.&bslash;n&quot;
+l_string|&quot;A total of %lu unique objects were considered.&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
 id|all_objects-&gt;size
 )paren
 suffix:semicolon
