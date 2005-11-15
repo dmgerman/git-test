@@ -4,10 +4,6 @@ macro_line|#include &lt;errno.h&gt;
 multiline_comment|/* We allow &quot;recursive&quot; symbolic refs. Only within reason, though */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
-macro_line|#ifndef USE_SYMLINK_HEAD
-DECL|macro|USE_SYMLINK_HEAD
-mdefine_line|#define USE_SYMLINK_HEAD 1
-macro_line|#endif
 DECL|function|resolve_ref
 r_const
 r_char
@@ -361,7 +357,7 @@ id|len
 comma
 id|written
 suffix:semicolon
-macro_line|#if USE_SYMLINK_HEAD
+macro_line|#ifdef USE_SYMLINK_HEAD
 r_if
 c_cond
 (paren
