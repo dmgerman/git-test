@@ -20,6 +20,12 @@ id|trust_executable_bit
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|only_use_symrefs
+r_int
+id|only_use_symrefs
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
