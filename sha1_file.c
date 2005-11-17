@@ -2134,6 +2134,7 @@ r_void
 op_star
 id|idx_map
 suffix:semicolon
+r_int
 r_char
 id|sha1
 (braket

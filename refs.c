@@ -579,6 +579,13 @@ comma
 id|written
 suffix:semicolon
 macro_line|#if USE_SYMLINK_HEAD
+r_if
+c_cond
+(paren
+op_logical_neg
+id|only_use_symrefs
+)paren
+(brace
 id|unlink
 c_func
 (paren
@@ -608,6 +615,7 @@ comma
 l_string|&quot;no symlink - falling back to symbolic ref&bslash;n&quot;
 )paren
 suffix:semicolon
+)brace
 macro_line|#endif
 id|len
 op_assign

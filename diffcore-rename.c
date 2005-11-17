@@ -1372,7 +1372,7 @@ l_int|0
 op_logical_or
 (paren
 l_int|0
-op_le
+OL
 id|rename_limit
 op_logical_and
 id|rename_limit
