@@ -1457,6 +1457,10 @@ id|new_pll-&gt;pl
 op_assign
 id|list
 suffix:semicolon
+id|new_pll-&gt;pl_size
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 id|new_pll
 suffix:semicolon
