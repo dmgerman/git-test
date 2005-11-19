@@ -5,7 +5,6 @@ macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;http.h&quot;
-macro_line|#ifdef USE_CURL_MULTI
 macro_line|#include &lt;expat.h&gt;
 DECL|variable|http_push_usage
 r_static
@@ -7437,32 +7436,4 @@ r_return
 id|rc
 suffix:semicolon
 )brace
-macro_line|#else /* ifdef USE_CURL_MULTI */
-DECL|function|main
-r_int
-id|main
-c_func
-(paren
-r_int
-id|argc
-comma
-r_char
-op_star
-op_star
-id|argv
-)paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;http-push requires curl 7.9.8 or higher.&bslash;n&quot;
-)paren
-suffix:semicolon
-r_return
-l_int|1
-suffix:semicolon
-)brace
-macro_line|#endif
 eof
