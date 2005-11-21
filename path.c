@@ -637,6 +637,7 @@ op_star
 id|current_dir
 c_func
 (paren
+r_void
 )paren
 (brace
 r_return

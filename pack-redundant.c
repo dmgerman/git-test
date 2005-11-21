@@ -13,6 +13,7 @@ suffix:semicolon
 DECL|variable|load_all_packs
 DECL|variable|verbose
 DECL|variable|alt_odb
+r_static
 r_int
 id|load_all_packs
 op_assign
@@ -44,6 +45,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|struct|llist
+r_static
 r_struct
 id|llist
 (brace
@@ -70,6 +72,7 @@ id|all_objects
 suffix:semicolon
 multiline_comment|/* all objects which must be present in local packfiles */
 DECL|struct|pack_list
+r_static
 r_struct
 id|pack_list
 (brace
@@ -133,6 +136,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|llist_free
+r_static
 r_inline
 r_void
 id|llist_free
@@ -173,6 +177,7 @@ id|list
 suffix:semicolon
 )brace
 DECL|function|llist_init
+r_static
 r_inline
 r_void
 id|llist_init
@@ -225,6 +230,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|llist_copy
+r_static
 r_struct
 id|llist
 op_star
@@ -350,6 +356,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|llist_insert
+r_static
 r_inline
 r_struct
 id|llist_item
@@ -463,6 +470,7 @@ r_new
 suffix:semicolon
 )brace
 DECL|function|llist_insert_back
+r_static
 r_inline
 r_struct
 id|llist_item
@@ -493,6 +501,7 @@ id|sha1
 suffix:semicolon
 )brace
 DECL|function|llist_insert_sorted_unique
+r_static
 r_inline
 r_struct
 id|llist_item
@@ -612,6 +621,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* returns a pointer to an item in front of sha1 */
 DECL|function|llist_sorted_remove
+r_static
 r_inline
 r_struct
 id|llist_item
@@ -777,6 +787,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* computes A&bslash;B */
 DECL|function|llist_sorted_difference_inplace
+r_static
 r_void
 id|llist_sorted_difference_inplace
 c_func
@@ -833,6 +844,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|pack_list_insert
+r_static
 r_inline
 r_struct
 id|pack_list
@@ -896,6 +908,7 @@ id|p
 suffix:semicolon
 )brace
 DECL|function|pack_list_size
+r_static
 r_inline
 r_int
 id|pack_list_size
@@ -931,6 +944,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|pack_list_difference
+r_static
 r_struct
 id|pack_list
 op_star
@@ -1040,6 +1054,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|cmp_two_packs
+r_static
 r_void
 id|cmp_two_packs
 c_func
@@ -1213,6 +1228,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|pll_insert
+r_static
 r_void
 id|pll_insert
 c_func
@@ -1351,6 +1367,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* all the permutations have to be free()d at the same time,&n; * since they refer to each other&n; */
 DECL|function|get_all_permutations
+r_static
 r_struct
 id|pll
 op_star
@@ -1622,6 +1639,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|is_superset
+r_static
 r_int
 id|is_superset
 c_func
@@ -1699,6 +1717,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|sizeof_union
+r_static
 r_int
 id|sizeof_union
 c_func
@@ -1844,6 +1863,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* another O(n^2) function ... */
 DECL|function|get_pack_redundancy
+r_static
 r_int
 id|get_pack_redundancy
 c_func
@@ -1859,6 +1879,11 @@ id|pack_list
 op_star
 id|subset
 suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1867,11 +1892,6 @@ op_eq
 l_int|NULL
 )paren
 r_return
-l_int|0
-suffix:semicolon
-r_int
-id|ret
-op_assign
 l_int|0
 suffix:semicolon
 r_while
@@ -1915,6 +1935,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|pack_set_bytecount
+r_static
 r_inline
 r_int
 id|pack_set_bytecount
@@ -1955,6 +1976,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|minimize
+r_static
 r_void
 id|minimize
 c_func
@@ -2274,10 +2296,12 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|load_all_objects
+r_static
 r_void
 id|load_all_objects
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -2378,10 +2402,12 @@ suffix:semicolon
 )brace
 multiline_comment|/* this scales like O(n^2) */
 DECL|function|cmp_local_packs
+r_static
 r_void
 id|cmp_local_packs
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -2430,10 +2456,12 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|scan_alt_odb_packs
+r_static
 r_void
 id|scan_alt_odb_packs
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -2484,6 +2512,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|add_pack
+r_static
 r_struct
 id|pack_list
 op_star
@@ -2615,6 +2644,7 @@ id|l
 suffix:semicolon
 )brace
 DECL|function|add_pack_file
+r_static
 r_struct
 id|pack_list
 op_star
@@ -2691,10 +2721,12 @@ id|filename
 suffix:semicolon
 )brace
 DECL|function|load_all
+r_static
 r_void
 id|load_all
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
