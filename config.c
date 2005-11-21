@@ -2104,6 +2104,13 @@ id|i
 )braket
 )paren
 suffix:semicolon
+id|store.key
+(braket
+id|i
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * The lock_file serves a purpose in addition to locking: the new&n;&t; * contents of .git/config will be written into it.&n;&t; */
 id|fd
 op_assign

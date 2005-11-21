@@ -232,6 +232,13 @@ id|i
 )braket
 )paren
 suffix:semicolon
+id|key
+(braket
+id|i
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
