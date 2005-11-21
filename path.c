@@ -863,15 +863,6 @@ id|strict
 r_if
 c_cond
 (paren
-(paren
-id|path
-(braket
-l_int|0
-)braket
-op_ne
-l_char|&squot;/&squot;
-)paren
-op_logical_or
 id|chdir
 c_func
 (paren
@@ -880,11 +871,9 @@ id|path
 OL
 l_int|0
 )paren
-(brace
 r_return
 l_int|NULL
 suffix:semicolon
-)brace
 )brace
 r_else
 (brace
