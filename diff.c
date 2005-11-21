@@ -4604,6 +4604,21 @@ id|cp_p
 op_assign
 id|cp
 suffix:semicolon
+multiline_comment|/* special case: -M100 would mean 1.0 not 0.1 */
+r_if
+c_cond
+(paren
+id|num
+op_eq
+l_int|100
+op_logical_and
+id|scale
+op_eq
+l_int|1000
+)paren
+r_return
+id|MAX_SCORE
+suffix:semicolon
 multiline_comment|/* user says num divided by scale and we say internally that&n;&t; * is MAX_SCORE * num / scale.&n;&t; */
 r_return
 (paren
