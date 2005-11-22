@@ -2576,6 +2576,19 @@ l_string|&quot;core.gitproxy&quot;
 )paren
 )paren
 (brace
+r_const
+r_char
+op_star
+id|for_pos
+suffix:semicolon
+r_int
+id|matchlen
+op_assign
+l_int|1
+suffix:semicolon
+r_int
+id|hostlen
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2585,9 +2598,6 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* [core]&n;&t;&t; * ;# matches www.kernel.org as well&n;&t;&t; * gitproxy = netcatter-1 for kernel.org&n;&t;&t; * gitproxy = netcatter-2 for sample.xz&n;&t;&t; * gitproxy = netcatter-default&n;&t;&t; */
-r_const
-r_char
-op_star
 id|for_pos
 op_assign
 id|strstr
@@ -2597,14 +2607,6 @@ id|value
 comma
 l_string|&quot; for &quot;
 )paren
-suffix:semicolon
-r_int
-id|matchlen
-op_assign
-l_int|1
-suffix:semicolon
-r_int
-id|hostlen
 suffix:semicolon
 r_if
 c_cond
