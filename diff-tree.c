@@ -918,7 +918,7 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_default_config
+id|git_diff_config
 )paren
 suffix:semicolon
 id|nr_sha1

@@ -310,6 +310,17 @@ id|stage1
 comma
 id|stage2
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_diff_config
+)paren
+suffix:semicolon
 id|read_cache
 c_func
 (paren
