@@ -24,6 +24,7 @@ op_star
 id|name
 suffix:semicolon
 DECL|member|read
+r_const
 r_char
 op_star
 (paren
