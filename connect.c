@@ -2430,6 +2430,7 @@ c_func
 op_amp
 id|sa.sin_addr
 comma
+op_star
 id|ap
 comma
 id|he-&gt;h_length
