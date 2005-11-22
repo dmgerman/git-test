@@ -2382,9 +2382,6 @@ comma
 op_star
 id|l
 suffix:semicolon
-r_int
-id|i
-suffix:semicolon
 id|llist_init
 c_func
 (paren
@@ -2398,10 +2395,6 @@ c_loop
 id|pl
 )paren
 (brace
-id|i
-op_assign
-l_int|0
-suffix:semicolon
 id|hint
 op_assign
 l_int|NULL
