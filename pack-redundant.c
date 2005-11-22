@@ -697,6 +697,7 @@ id|llist
 op_star
 id|list
 comma
+r_const
 r_char
 op_star
 id|sha1
@@ -1014,11 +1015,13 @@ op_star
 id|pack_list_difference
 c_func
 (paren
+r_const
 r_struct
 id|pack_list
 op_star
 id|A
 comma
+r_const
 r_struct
 id|pack_list
 op_star
@@ -1029,7 +1032,10 @@ r_struct
 id|pack_list
 op_star
 id|ret
-comma
+suffix:semicolon
+r_const
+r_struct
+id|pack_list
 op_star
 id|pl
 suffix:semicolon
