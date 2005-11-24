@@ -38,6 +38,7 @@ op_star
 id|next
 suffix:semicolon
 DECL|member|sha1
+r_int
 r_char
 op_star
 id|sha1
@@ -442,6 +443,7 @@ id|llist_item
 op_star
 id|after
 comma
+r_int
 r_char
 op_star
 id|sha1
@@ -546,6 +548,7 @@ id|llist
 op_star
 id|list
 comma
+r_int
 r_char
 op_star
 id|sha1
@@ -577,6 +580,7 @@ id|llist
 op_star
 id|list
 comma
+r_int
 r_char
 op_star
 id|sha1
@@ -698,6 +702,7 @@ op_star
 id|list
 comma
 r_const
+r_int
 r_char
 op_star
 id|sha1
@@ -2849,10 +2854,12 @@ id|llist
 op_star
 id|ignore
 suffix:semicolon
+r_int
 r_char
 op_star
 id|sha1
-comma
+suffix:semicolon
+r_char
 id|buf
 (braket
 l_int|42
@@ -3329,6 +3336,10 @@ id|stderr
 comma
 l_string|&quot;%luMB of redundant packs in total.&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
 id|pack_set_bytecount
 c_func
 (paren
