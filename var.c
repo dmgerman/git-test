@@ -267,6 +267,11 @@ id|var_usage
 )paren
 suffix:semicolon
 )brace
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|setup_ident
 c_func
 (paren
