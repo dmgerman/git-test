@@ -1888,7 +1888,7 @@ id|fd
 suffix:semicolon
 r_char
 op_star
-id|config_file
+id|config_filename
 op_assign
 id|strdup
 c_func
@@ -2132,7 +2132,7 @@ c_cond
 id|stat
 c_func
 (paren
-id|config_file
+id|config_filename
 comma
 op_amp
 id|st
@@ -2469,7 +2469,7 @@ op_assign
 id|open
 c_func
 (paren
-id|config_file
+id|config_filename
 comma
 id|O_RDONLY
 comma
@@ -2701,7 +2701,7 @@ suffix:semicolon
 id|unlink
 c_func
 (paren
-id|config_file
+id|config_filename
 )paren
 suffix:semicolon
 )brace
@@ -2719,7 +2719,7 @@ c_func
 (paren
 id|lock_file
 comma
-id|config_file
+id|config_filename
 )paren
 OL
 l_int|0
