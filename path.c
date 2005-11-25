@@ -970,6 +970,11 @@ c_func
 l_string|&quot;GIT_DIR=.&quot;
 )paren
 suffix:semicolon
+id|check_repository_format
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 id|current_dir
 c_func
