@@ -1475,7 +1475,6 @@ id|exec_path
 op_eq
 l_char|&squot;/&squot;
 )paren
-op_star
 id|exec_path
 op_increment
 suffix:semicolon
