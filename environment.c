@@ -26,6 +26,12 @@ id|only_use_symrefs
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|repository_format_version
+r_int
+id|repository_format_version
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
