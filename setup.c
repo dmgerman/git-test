@@ -851,6 +851,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|check_repository_format
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 id|retval
 suffix:semicolon
