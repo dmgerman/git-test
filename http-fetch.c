@@ -4679,6 +4679,11 @@ id|rc
 op_assign
 l_int|0
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren

@@ -6602,6 +6602,11 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|setup_ident
 c_func
 (paren
