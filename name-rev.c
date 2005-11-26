@@ -1249,17 +1249,6 @@ c_cond
 id|all
 )paren
 (brace
-r_extern
-r_struct
-id|object
-op_star
-op_star
-id|objs
-suffix:semicolon
-r_extern
-r_int
-id|nr_objs
-suffix:semicolon
 r_int
 id|i
 suffix:semicolon

@@ -24,6 +24,7 @@ op_star
 id|name
 suffix:semicolon
 DECL|member|read
+r_const
 r_char
 op_star
 (paren
@@ -266,6 +267,11 @@ id|var_usage
 )paren
 suffix:semicolon
 )brace
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|setup_ident
 c_func
 (paren

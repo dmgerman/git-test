@@ -2929,7 +2929,9 @@ id|sha1
 id|die
 c_func
 (paren
-l_string|&quot;expected sha1, got garbage&quot;
+l_string|&quot;expected sha1, got garbage:&bslash;n %s&quot;
+comma
+id|line
 )paren
 suffix:semicolon
 id|hash

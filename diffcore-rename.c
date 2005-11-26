@@ -1482,6 +1482,16 @@ id|rename_dst_nr
 r_goto
 id|cleanup
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|minimum_score
+op_eq
+id|MAX_SCORE
+)paren
+r_goto
+id|cleanup
+suffix:semicolon
 id|num_create
 op_assign
 (paren

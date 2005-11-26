@@ -773,6 +773,8 @@ id|offset
 suffix:semicolon
 )brace
 DECL|function|get_ident
+r_static
+r_const
 r_char
 op_star
 id|get_ident
@@ -969,6 +971,7 @@ id|buffer
 suffix:semicolon
 )brace
 DECL|function|git_author_info
+r_const
 r_char
 op_star
 id|git_author_info
@@ -1002,6 +1005,7 @@ l_string|&quot;GIT_AUTHOR_DATE&quot;
 suffix:semicolon
 )brace
 DECL|function|git_committer_info
+r_const
 r_char
 op_star
 id|git_committer_info
