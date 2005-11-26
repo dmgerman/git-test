@@ -113,6 +113,11 @@ c_func
 id|update_server_info_usage
 )paren
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 op_logical_neg
 op_logical_neg

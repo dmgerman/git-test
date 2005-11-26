@@ -2866,6 +2866,11 @@ l_int|42
 )braket
 suffix:semicolon
 multiline_comment|/* 40 byte sha1 + &bslash;n + &bslash;0 */
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren

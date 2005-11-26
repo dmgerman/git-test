@@ -576,6 +576,11 @@ c_func
 l_string|&quot;git-merge-index [-o] [-q] &lt;merge-program&gt; (-a | &lt;filename&gt;*)&quot;
 )paren
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|read_cache
 c_func
 (paren
