@@ -19,7 +19,7 @@ r_static
 r_int
 id|ls_options
 op_assign
-l_int|0
+id|LS_RECURSIVE
 suffix:semicolon
 DECL|variable|ls_tree_usage
 r_static
@@ -69,11 +69,6 @@ id|type
 op_assign
 l_string|&quot;blob&quot;
 suffix:semicolon
-r_int
-id|retval
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -84,10 +79,6 @@ id|mode
 )paren
 )paren
 (brace
-id|type
-op_assign
-l_string|&quot;tree&quot;
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -95,9 +86,12 @@ id|ls_options
 op_amp
 id|LS_RECURSIVE
 )paren
-id|retval
-op_assign
+r_return
 id|READ_TREE_RECURSIVE
+suffix:semicolon
+id|type
+op_assign
+l_string|&quot;tree&quot;
 suffix:semicolon
 )brace
 id|printf
@@ -125,7 +119,7 @@ id|line_termination
 )paren
 suffix:semicolon
 r_return
-id|retval
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|main
