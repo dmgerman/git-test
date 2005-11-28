@@ -3656,7 +3656,7 @@ id|mailinfo_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-mailinfo [-k] [-u] msg patch &lt;mail &gt;info&quot;
+l_string|&quot;git-mailinfo [-k] [-u | --encoding=&lt;encoding&gt;] msg patch &lt;mail &gt;info&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -3749,9 +3749,9 @@ id|argv
 l_int|1
 )braket
 comma
-l_string|&quot;-u=&quot;
+l_string|&quot;--encoding=&quot;
 comma
-l_int|3
+l_int|11
 )paren
 )paren
 id|metainfo_charset
@@ -3761,7 +3761,7 @@ id|argv
 l_int|1
 )braket
 op_plus
-l_int|3
+l_int|11
 suffix:semicolon
 r_else
 id|usage
