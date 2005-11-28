@@ -11,6 +11,7 @@ id|config_file
 suffix:semicolon
 DECL|variable|config_file_name
 r_static
+r_const
 r_char
 op_star
 id|config_file_name
