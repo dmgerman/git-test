@@ -6,6 +6,7 @@ macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &lt;iconv.h&gt;
+macro_line|#include &quot;cache.h&quot;
 macro_line|#ifdef NO_STRCASESTR
 r_extern
 r_char
@@ -3657,31 +3658,6 @@ id|mailinfo_usage
 op_assign
 l_string|&quot;git-mailinfo [-k] [-u] msg patch &lt;mail &gt;info&quot;
 suffix:semicolon
-DECL|function|usage
-r_static
-r_void
-id|usage
-c_func
-(paren
-r_void
-)paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;%s&bslash;n&quot;
-comma
-id|mailinfo_usage
-)paren
-suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 DECL|function|main
 r_int
 id|main
@@ -3696,6 +3672,13 @@ op_star
 id|argv
 )paren
 (brace
+multiline_comment|/* NEEDSWORK: might want to do the optional .git/ directory&n;&t; * discovery&n;&t; */
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -3751,7 +3734,7 @@ l_string|&quot;-u&quot;
 )paren
 id|metainfo_charset
 op_assign
-l_string|&quot;utf-8&quot;
+id|git_commit_encoding
 suffix:semicolon
 r_else
 r_if
@@ -3784,6 +3767,7 @@ r_else
 id|usage
 c_func
 (paren
+id|mailinfo_usage
 )paren
 suffix:semicolon
 id|argc
@@ -3803,6 +3787,7 @@ l_int|3
 id|usage
 c_func
 (paren
+id|mailinfo_usage
 )paren
 suffix:semicolon
 id|cmitmsg
