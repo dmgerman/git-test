@@ -146,6 +146,8 @@ r_const
 r_char
 op_star
 id|prefix
+op_assign
+l_int|NULL
 suffix:semicolon
 r_int
 id|prefix_length
@@ -258,6 +260,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_const
 r_char
 op_star
 id|arg
