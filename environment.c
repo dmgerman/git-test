@@ -32,6 +32,15 @@ id|repository_format_version
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|git_commit_encoding
+r_char
+id|git_commit_encoding
+(braket
+id|MAX_ENCODING_LENGTH
+)braket
+op_assign
+l_string|&quot;utf-8&quot;
+suffix:semicolon
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
