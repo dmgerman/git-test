@@ -213,7 +213,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%06o %s %s&bslash;t%.*s%s%c&quot;
+l_string|&quot;%06o %s %s&bslash;t&quot;
 comma
 id|mode
 comma
@@ -224,13 +224,25 @@ c_func
 (paren
 id|sha1
 )paren
+)paren
+suffix:semicolon
+id|write_name_quoted
+c_func
+(paren
+id|base
 comma
 id|baselen
 comma
-id|base
-comma
 id|pathname
 comma
+id|line_termination
+comma
+id|stdout
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
 id|line_termination
 )paren
 suffix:semicolon
