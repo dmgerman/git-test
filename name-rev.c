@@ -89,7 +89,7 @@ suffix:semicolon
 r_int
 id|parent_number
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -254,7 +254,7 @@ c_cond
 (paren
 id|parent_number
 OG
-l_int|0
+l_int|1
 )paren
 (brace
 r_char
