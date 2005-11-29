@@ -1748,6 +1748,8 @@ c_func
 (paren
 l_string|&quot;&quot;
 comma
+l_int|0
+comma
 id|ent-&gt;name
 op_plus
 id|offset
@@ -2214,6 +2216,8 @@ c_func
 (paren
 l_string|&quot;&quot;
 comma
+l_int|0
+comma
 id|ce-&gt;name
 op_plus
 id|offset
@@ -2262,6 +2266,8 @@ id|write_name_quoted
 c_func
 (paren
 l_string|&quot;&quot;
+comma
+l_int|0
 comma
 id|ce-&gt;name
 op_plus

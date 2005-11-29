@@ -627,6 +627,15 @@ op_amp
 id|root_entry
 )paren
 (brace
+r_int
+id|pathlen
+op_assign
+id|strlen
+c_func
+(paren
+id|pathbuf
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -651,6 +660,8 @@ id|write_name_quoted
 c_func
 (paren
 id|pathbuf
+comma
+id|pathlen
 comma
 id|e-&gt;name
 comma
