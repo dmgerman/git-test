@@ -4071,8 +4071,8 @@ id|strlen
 c_func
 (paren
 id|ctx-&gt;cdata
-l_int|15
 )paren
+l_int|15
 )paren
 suffix:semicolon
 id|strcpy
