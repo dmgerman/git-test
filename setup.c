@@ -573,7 +573,11 @@ c_cond
 id|access
 c_func
 (paren
+id|getenv
+c_func
+(paren
 id|DB_ENVIRONMENT
+)paren
 comma
 id|X_OK
 )paren
