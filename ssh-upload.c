@@ -589,6 +589,11 @@ id|prog
 op_assign
 id|COUNTERPART_PROGRAM_NAME
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren

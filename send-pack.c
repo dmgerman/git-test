@@ -1344,6 +1344,11 @@ suffix:semicolon
 id|pid_t
 id|pid
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|argv
 op_increment
 suffix:semicolon

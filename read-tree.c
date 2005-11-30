@@ -3049,6 +3049,11 @@ id|fn
 op_assign
 l_int|NULL
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|newfd
 op_assign
 id|hold_index_file_for_update

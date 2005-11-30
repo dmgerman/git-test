@@ -180,6 +180,11 @@ c_func
 l_string|&quot;git-unpack-file &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|puts
 c_func
 (paren
