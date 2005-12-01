@@ -16,6 +16,8 @@ DECL|macro|LS_TREE_ONLY
 mdefine_line|#define LS_TREE_ONLY 2
 DECL|macro|LS_SHOW_TREES
 mdefine_line|#define LS_SHOW_TREES 4
+DECL|macro|LS_NAME_ONLY
+mdefine_line|#define LS_NAME_ONLY 8
 DECL|variable|ls_options
 r_static
 r_int
@@ -38,7 +40,7 @@ id|ls_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-tree [-d] [-r] [-t] [-z] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git-ls-tree [-d] [-r] [-t] [-z] [--name-only] [--name-status] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon
 DECL|function|show_recursive
 r_static
@@ -284,6 +286,16 @@ id|LS_TREE_ONLY
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|ls_options
+op_amp
+id|LS_NAME_ONLY
+)paren
+)paren
 id|printf
 c_func
 (paren
@@ -432,6 +444,49 @@ id|LS_SHOW_TREES
 suffix:semicolon
 r_break
 suffix:semicolon
+r_case
+l_char|&squot;-&squot;
+suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+op_plus
+l_int|2
+comma
+l_string|&quot;name-only&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+op_plus
+l_int|2
+comma
+l_string|&quot;name-status&quot;
+)paren
+)paren
+(brace
+id|ls_options
+op_or_assign
+id|LS_NAME_ONLY
+suffix:semicolon
+r_break
+suffix:semicolon
+)brace
+multiline_comment|/* otherwise fallthru */
 r_default
 suffix:colon
 id|usage
