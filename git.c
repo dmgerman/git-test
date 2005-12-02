@@ -12,6 +12,25 @@ macro_line|#ifndef PATH_MAX
 DECL|macro|PATH_MAX
 macro_line|# define PATH_MAX 4096
 macro_line|#endif
+macro_line|#ifdef NO_SETENV
+r_extern
+r_int
+id|gitsetenv
+c_func
+(paren
+r_char
+op_star
+id|name
+comma
+r_char
+op_star
+id|value
+comma
+r_int
+id|overwrite
+)paren
+suffix:semicolon
+macro_line|#endif
 DECL|variable|git_usage
 r_static
 r_const
