@@ -4071,8 +4071,8 @@ id|strlen
 c_func
 (paren
 id|ctx-&gt;cdata
-l_int|15
 )paren
+l_int|15
 )paren
 suffix:semicolon
 id|strcpy
@@ -5326,7 +5326,12 @@ c_func
 id|lock-&gt;url
 )paren
 suffix:semicolon
-multiline_comment|/* Freeing the token causes a segfault...&n;&t;free(lock-&gt;token);&n;*/
+id|free
+c_func
+(paren
+id|lock-&gt;token
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -6602,6 +6607,11 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|setup_ident
 c_func
 (paren
@@ -6757,6 +6767,18 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|remote-&gt;url
+)paren
+id|usage
+c_func
+(paren
+id|http_push_usage
+)paren
+suffix:semicolon
 id|memset
 c_func
 (paren

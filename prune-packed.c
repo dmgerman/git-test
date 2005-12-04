@@ -359,6 +359,11 @@ id|argv
 r_int
 id|i
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren

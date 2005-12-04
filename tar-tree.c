@@ -2342,6 +2342,11 @@ r_int
 r_int
 id|size
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_switch
 c_cond
 (paren

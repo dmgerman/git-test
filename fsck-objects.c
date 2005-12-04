@@ -2142,6 +2142,11 @@ id|i
 comma
 id|heads
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren

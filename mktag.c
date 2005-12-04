@@ -460,6 +460,11 @@ c_func
 l_string|&quot;cat &lt;signaturefile&gt; | git-mktag&quot;
 )paren
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 singleline_comment|// Read the signature
 id|size
 op_assign

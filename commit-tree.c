@@ -470,6 +470,11 @@ c_func
 id|commit_tree_usage
 )paren
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|check_valid
 c_func
 (paren

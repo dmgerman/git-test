@@ -1855,6 +1855,11 @@ id|entry
 op_star
 id|entry
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

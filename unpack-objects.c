@@ -1452,6 +1452,11 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
