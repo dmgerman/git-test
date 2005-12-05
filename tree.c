@@ -1141,11 +1141,6 @@ id|obj
 id|n_refs
 op_increment
 suffix:semicolon
-id|entry-&gt;parent
-op_assign
-l_int|NULL
-suffix:semicolon
-multiline_comment|/* needs to be filled by the user */
 op_star
 id|list_p
 op_assign
