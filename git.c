@@ -1571,9 +1571,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git: command name given is too long (%d)&bslash;n&quot;
-comma
-id|len
+l_string|&quot;git: command name given is too long.&bslash;n&quot;
 )paren
 suffix:semicolon
 m_exit
