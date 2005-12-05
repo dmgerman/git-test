@@ -8,27 +8,10 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;limits.h&gt;
 macro_line|#include &lt;stdarg.h&gt;
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#ifndef PATH_MAX
 DECL|macro|PATH_MAX
 macro_line|# define PATH_MAX 4096
-macro_line|#endif
-macro_line|#ifdef NO_SETENV
-r_extern
-r_int
-id|gitsetenv
-c_func
-(paren
-r_const
-r_char
-op_star
-comma
-r_const
-r_char
-op_star
-comma
-r_int
-)paren
-suffix:semicolon
 macro_line|#endif
 DECL|variable|git_usage
 r_static
@@ -812,7 +795,7 @@ suffix:semicolon
 macro_line|#ifdef __GNUC__
 r_static
 r_void
-id|usage
+id|cmd_usage
 c_func
 (paren
 r_const
@@ -848,10 +831,10 @@ id|__noreturn__
 )paren
 suffix:semicolon
 macro_line|#endif
-DECL|function|usage
+DECL|function|cmd_usage
 r_static
 r_void
-id|usage
+id|cmd_usage
 c_func
 (paren
 r_const
@@ -1365,7 +1348,7 @@ c_cond
 op_logical_neg
 id|show_help
 )paren
-id|usage
+id|cmd_usage
 c_func
 (paren
 l_int|NULL
@@ -1391,7 +1374,7 @@ id|i
 op_ge
 id|argc
 )paren
-id|usage
+id|cmd_usage
 c_func
 (paren
 id|exec_path
@@ -1602,7 +1585,7 @@ id|errno
 op_eq
 id|ENOENT
 )paren
-id|usage
+id|cmd_usage
 c_func
 (paren
 id|exec_path

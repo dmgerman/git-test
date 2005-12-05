@@ -7,25 +7,6 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &lt;iconv.h&gt;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#ifdef NO_STRCASESTR
-r_extern
-r_char
-op_star
-id|gitstrcasestr
-c_func
-(paren
-r_const
-r_char
-op_star
-id|haystack
-comma
-r_const
-r_char
-op_star
-id|needle
-)paren
-suffix:semicolon
-macro_line|#endif
 DECL|variable|cmitmsg
 DECL|variable|patchfile
 r_static

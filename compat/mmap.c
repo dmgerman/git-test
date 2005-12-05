@@ -2,7 +2,7 @@ macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;unistd.h&gt;
 macro_line|#include &lt;errno.h&gt;
-macro_line|#include &quot;../cache.h&quot;
+macro_line|#include &quot;../git-compat-util.h&quot;
 DECL|function|gitfakemmap
 r_void
 op_star
