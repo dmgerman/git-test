@@ -409,6 +409,16 @@ r_return
 id|nr
 suffix:semicolon
 )brace
+DECL|variable|write_tree_usage
+r_static
+r_const
+r_char
+id|write_tree_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git-write-tree [--missing-ok]&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -481,12 +491,7 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;unknown option %s&quot;
-comma
-id|argv
-(braket
-l_int|1
-)braket
+id|write_tree_usage
 )paren
 suffix:semicolon
 )brace
