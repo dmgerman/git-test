@@ -6,6 +6,7 @@ macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &lt;iconv.h&gt;
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|cmitmsg
 DECL|variable|patchfile
