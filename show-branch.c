@@ -191,7 +191,7 @@ op_assign
 id|nth
 suffix:semicolon
 )brace
-multiline_comment|/* Parent is the first parent of the commit.  We may name it&n; * as (n+1)th generation ancestor of the same head_name as&n; * commit is nth generation ancestore of, if that generation&n; * number is better than the name it already has.&n; */
+multiline_comment|/* Parent is the first parent of the commit.  We may name it&n; * as (n+1)th generation ancestor of the same head_name as&n; * commit is nth generation ancestor of, if that generation&n; * number is better than the name it already has.&n; */
 DECL|function|name_parent
 r_static
 r_void
