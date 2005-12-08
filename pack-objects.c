@@ -11,7 +11,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-objects [--local] [--incremental] [--window=N] [--depth=N] {--stdout | base-name} &lt; object-list&quot;
+l_string|&quot;git-pack-objects [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] {--stdout | base-name} &lt; object-list&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
