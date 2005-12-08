@@ -11,7 +11,7 @@ id|show_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-show-branch [--all] [--heads] [--tags] [--more=count | --list | --independent | --merge-base ] [&lt;refs&gt;...]&quot;
+l_string|&quot;git-show-branch [--all] [--heads] [--tags] [--topo-order] [--more=count | --list | --independent | --merge-base ] [&lt;refs&gt;...]&quot;
 suffix:semicolon
 DECL|macro|UNINTERESTING
 mdefine_line|#define UNINTERESTING&t;01
