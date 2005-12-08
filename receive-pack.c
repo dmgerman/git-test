@@ -976,12 +976,14 @@ id|argc
 op_assign
 l_int|NULL
 suffix:semicolon
-id|run_command_v
+id|run_command_v_opt
 c_func
 (paren
 id|argc
 comma
 id|argv
+comma
+id|RUN_COMMAND_NO_STDIO
 )paren
 suffix:semicolon
 )brace
