@@ -132,6 +132,16 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|delta
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* error but caught downstream */
 multiline_comment|/* Estimate the edit size by interpreting delta. */
 r_if
 c_cond
