@@ -1,5 +1,4 @@
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;ctype.h&gt;
+macro_line|#include &quot;../git-compat-util.h&quot;
 DECL|function|gitstrcasestr
 r_char
 op_star

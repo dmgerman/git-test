@@ -1675,6 +1675,23 @@ c_func
 id|ref
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|safe_create_leading_directories
+c_func
+(paren
+id|filename
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to create leading directory for %s&quot;
+comma
+id|filename
+)paren
+suffix:semicolon
 id|retval
 op_assign
 id|write_ref_file
@@ -1953,6 +1970,23 @@ id|ref_lock_file_name
 c_func
 (paren
 id|ref
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|safe_create_leading_directories
+c_func
+(paren
+id|filename
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to create leading directory for %s&quot;
+comma
+id|filename
 )paren
 suffix:semicolon
 id|fd

@@ -101,11 +101,6 @@ id|valuelen
 op_plus
 l_int|2
 )paren
-op_star
-r_sizeof
-(paren
-r_char
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -167,12 +162,7 @@ c_func
 id|envstr
 )paren
 suffix:semicolon
-id|free
-c_func
-(paren
-id|envstr
-)paren
-suffix:semicolon
+multiline_comment|/* putenv(3) makes the argument string part of the environment,&n;&t; * and changing that string modifies the environment --- which&n;&t; * means we do not own that storage anymore.  Do not free&n;&t; * envstr.&n;&t; */
 r_return
 id|out
 suffix:semicolon
