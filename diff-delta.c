@@ -913,6 +913,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|from_size
+op_logical_or
+op_logical_neg
+id|to_size
+op_logical_or
 id|delta_prepare
 c_func
 (paren
