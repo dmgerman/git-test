@@ -150,11 +150,6 @@ id|from_size
 op_assign
 id|st.st_size
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|from_size
-)paren
 id|from_buf
 op_assign
 id|mmap
@@ -172,11 +167,6 @@ id|fd
 comma
 l_int|0
 )paren
-suffix:semicolon
-r_else
-id|from_buf
-op_assign
-l_string|&quot;&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -258,11 +248,6 @@ id|data_size
 op_assign
 id|st.st_size
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|data_size
-)paren
 id|data_buf
 op_assign
 id|mmap
@@ -280,11 +265,6 @@ id|fd
 comma
 l_int|0
 )paren
-suffix:semicolon
-r_else
-id|data_buf
-op_assign
-l_string|&quot;&quot;
 suffix:semicolon
 r_if
 c_cond
