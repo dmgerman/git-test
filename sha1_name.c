@@ -1137,6 +1137,16 @@ comma
 l_int|40
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|len
+op_eq
+l_int|40
+)paren
+r_return
+id|hex
+suffix:semicolon
 r_while
 c_loop
 (paren
