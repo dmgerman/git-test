@@ -113,6 +113,17 @@ suffix:colon
 id|dst-&gt;size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|base_size
+OL
+id|MINIMUM_BREAK_SIZE
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* we do not break too small filepair */
 id|delta
 op_assign
 id|diff_delta
@@ -132,6 +143,16 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|delta
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* error but caught downstream */
 multiline_comment|/* Estimate the edit size by interpreting delta. */
 r_if
 c_cond
@@ -401,10 +422,6 @@ comma
 op_amp
 id|score
 )paren
-op_logical_and
-id|MINIMUM_BREAK_SIZE
-op_le
-id|p-&gt;one-&gt;size
 )paren
 (brace
 multiline_comment|/* Split this into delete and create */

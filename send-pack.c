@@ -962,6 +962,11 @@ suffix:semicolon
 r_int
 id|new_refs
 suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/* No funny business with the matcher */
 id|remote_tail
 op_assign
@@ -1147,6 +1152,10 @@ id|ref-&gt;old_sha1
 )paren
 )paren
 suffix:semicolon
+id|ret
+op_assign
+l_int|2
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
@@ -1174,6 +1183,10 @@ id|ref-&gt;name
 comma
 id|ref-&gt;peer_ref-&gt;name
 )paren
+suffix:semicolon
+id|ret
+op_assign
+l_int|2
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -1204,6 +1217,10 @@ c_func
 (paren
 l_string|&quot;cannot happen anymore&quot;
 )paren
+suffix:semicolon
+id|ret
+op_assign
+l_int|3
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -1315,7 +1332,7 @@ id|out
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|ret
 suffix:semicolon
 )brace
 DECL|function|main

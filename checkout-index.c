@@ -134,7 +134,7 @@ id|ce
 )paren
 op_ne
 id|namelen
-op_logical_and
+op_logical_or
 id|memcmp
 c_func
 (paren
