@@ -6404,7 +6404,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;unable to write sha1 filename %s: %s&quot;
+l_string|&quot;unable to write sha1 filename %s: %s&bslash;n&quot;
 comma
 id|filename
 comma
@@ -6579,7 +6579,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;sha1 file %s: %s&quot;
+l_string|&quot;sha1 file %s: %s&bslash;n&quot;
 comma
 id|filename
 comma
@@ -6633,7 +6633,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;unable to create temporary sha1 filename %s: %s&quot;
+l_string|&quot;unable to create temporary sha1 filename %s: %s&bslash;n&quot;
 comma
 id|tmpfile
 comma
@@ -7095,7 +7095,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;write closed&quot;
+l_string|&quot;write closed&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
