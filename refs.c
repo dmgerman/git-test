@@ -1907,6 +1907,28 @@ r_return
 l_int|1
 suffix:semicolon
 multiline_comment|/* at least of form &quot;heads/blah&quot; */
+multiline_comment|/* do not allow ref name to end in &quot;HEAD&quot; */
+r_if
+c_cond
+(paren
+id|cp
+id|ref
+OG
+l_int|4
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|cp
+l_int|4
+comma
+l_string|&quot;HEAD&quot;
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
