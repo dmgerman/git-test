@@ -1907,21 +1907,21 @@ r_return
 l_int|1
 suffix:semicolon
 multiline_comment|/* at least of form &quot;heads/blah&quot; */
-multiline_comment|/* do not allow ref name to end in &quot;HEAD&quot; */
+multiline_comment|/* Do not allow ref name to end in &quot;HEAD&quot;&n;&t;&t;&t; * Note that cp is poiting at one past NUL at the end.&n;&t;&t;&t; * i.e. cp[-1] = NUL.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
+l_int|5
+op_le
 id|cp
 id|ref
-OG
-l_int|4
 op_logical_and
 op_logical_neg
 id|strcmp
 c_func
 (paren
 id|cp
-l_int|4
+l_int|5
 comma
 l_string|&quot;HEAD&quot;
 )paren
