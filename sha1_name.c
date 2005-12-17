@@ -1283,8 +1283,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-r_return
-id|slash
+r_break
 suffix:semicolon
 )brace
 r_return
