@@ -8,6 +8,7 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;limits.h&gt;
 macro_line|#include &lt;stdarg.h&gt;
+macro_line|#include &lt;sys/ioctl.h&gt;
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#ifndef PATH_MAX
 DECL|macro|PATH_MAX
@@ -68,6 +69,39 @@ l_int|0
 r_return
 id|n_cols
 suffix:semicolon
+macro_line|#ifdef TIOCGWINSZ
+(brace
+r_struct
+id|winsize
+id|ws
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ioctl
+c_func
+(paren
+l_int|1
+comma
+id|TIOCGWINSZ
+comma
+op_amp
+id|ws
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|ws.ws_col
+)paren
+r_return
+id|ws.ws_col
+suffix:semicolon
+)brace
+)brace
+macro_line|#endif
 r_return
 l_int|80
 suffix:semicolon
