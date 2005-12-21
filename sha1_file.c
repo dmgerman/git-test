@@ -2336,6 +2336,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|path_len
+OG
+l_int|44
+)paren
+op_logical_and
 op_logical_neg
 id|get_sha1_hex
 c_func
@@ -2343,8 +2349,7 @@ c_func
 id|path
 op_plus
 id|path_len
-l_int|40
-l_int|4
+l_int|44
 comma
 id|sha1
 )paren
