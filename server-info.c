@@ -1057,6 +1057,14 @@ op_plus
 l_int|6
 )paren
 suffix:semicolon
+id|fputc
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+comma
+id|fp
+)paren
+suffix:semicolon
 )brace
 DECL|function|update_info_packs
 r_static
