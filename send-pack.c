@@ -1338,6 +1338,13 @@ id|remote_refs
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|ret
+op_eq
+l_int|0
+)paren
 id|fprintf
 c_func
 (paren
