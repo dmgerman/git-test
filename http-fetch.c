@@ -3215,7 +3215,7 @@ c_cond
 id|i
 op_plus
 l_int|52
-OL
+op_le
 id|buffer.posn
 op_logical_and
 op_logical_neg
@@ -3281,6 +3281,10 @@ suffix:colon
 r_while
 c_loop
 (paren
+id|i
+OL
+id|buffer.posn
+op_logical_and
 id|data
 (braket
 id|i
