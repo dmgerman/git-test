@@ -1756,6 +1756,19 @@ op_logical_or
 id|ch
 op_eq
 l_char|&squot;:&squot;
+op_logical_or
+multiline_comment|/* 2.13 Pattern Matching Notation */
+id|ch
+op_eq
+l_char|&squot;?&squot;
+op_logical_or
+id|ch
+op_eq
+l_char|&squot;*&squot;
+op_logical_or
+id|ch
+op_eq
+l_char|&squot;[&squot;
 )paren
 suffix:semicolon
 )brace

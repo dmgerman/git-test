@@ -28,7 +28,7 @@ id|n
 r_int
 id|ret
 op_assign
-id|write
+id|xwrite
 c_func
 (paren
 id|fd
@@ -68,19 +68,6 @@ c_func
 (paren
 l_string|&quot;write error (disk full?)&quot;
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|errno
-op_eq
-id|EAGAIN
-op_logical_or
-id|errno
-op_eq
-id|EINTR
-)paren
-r_continue
 suffix:semicolon
 id|die
 c_func
@@ -308,7 +295,7 @@ id|size
 r_int
 id|ret
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|fd
@@ -328,20 +315,6 @@ id|ret
 OL
 l_int|0
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|errno
-op_eq
-id|EINTR
-op_logical_or
-id|errno
-op_eq
-id|EAGAIN
-)paren
-r_continue
-suffix:semicolon
 id|die
 c_func
 (paren
@@ -354,7 +327,6 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren

@@ -102,7 +102,7 @@ l_int|0
 r_int
 id|ret
 op_assign
-id|write
+id|xwrite
 c_func
 (paren
 l_int|1
@@ -120,15 +120,6 @@ OL
 l_int|0
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|errno
-op_eq
-id|EAGAIN
-)paren
-r_continue
-suffix:semicolon
 r_if
 c_cond
 (paren
