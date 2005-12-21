@@ -2476,7 +2476,6 @@ id|xmalloc
 c_func
 (paren
 id|len
-l_int|1
 )paren
 suffix:semicolon
 id|memcpy
