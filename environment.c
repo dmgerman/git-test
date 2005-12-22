@@ -41,6 +41,12 @@ id|MAX_ENCODING_LENGTH
 op_assign
 l_string|&quot;utf-8&quot;
 suffix:semicolon
+DECL|variable|shared_repository
+r_int
+id|shared_repository
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
