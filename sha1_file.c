@@ -366,6 +366,11 @@ l_int|0xf
 )braket
 suffix:semicolon
 )brace
+op_star
+id|buf
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
 r_return
 id|buffer
 suffix:semicolon
