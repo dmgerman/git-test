@@ -1147,34 +1147,7 @@ c_func
 (paren
 id|ref-&gt;old_sha1
 )paren
-)paren
-(brace
-id|error
-c_func
-(paren
-l_string|&quot;remote &squot;%s&squot; object %s does not &quot;
-l_string|&quot;exist on local&quot;
-comma
-id|ref-&gt;name
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|ref-&gt;old_sha1
-)paren
-)paren
-suffix:semicolon
-id|ret
-op_assign
-l_int|2
-suffix:semicolon
-r_continue
-suffix:semicolon
-)brace
-multiline_comment|/* We assume that local is fsck-clean.  Otherwise&n;&t;&t;&t; * you _could_ have an old tag which points at&n;&t;&t;&t; * something you do not have, which may or may not&n;&t;&t;&t; * be a commit.&n;&t;&t;&t; */
-r_if
-c_cond
-(paren
+op_logical_or
 op_logical_neg
 id|ref_newer
 c_func
@@ -1185,11 +1158,14 @@ id|ref-&gt;old_sha1
 )paren
 )paren
 (brace
+multiline_comment|/* We do not have the remote ref, or&n;&t;&t;&t;&t; * we know that the remote ref is not&n;&t;&t;&t;&t; * an ancestor of what we are trying to&n;&t;&t;&t;&t; * push.  Either way this can be losing&n;&t;&t;&t;&t; * commits at the remote end and likely&n;&t;&t;&t;&t; * we were not up to date to begin with.&n;&t;&t;&t;&t; */
 id|error
 c_func
 (paren
-l_string|&quot;remote ref &squot;%s&squot; is not a strict &quot;
-l_string|&quot;subset of local ref &squot;%s&squot;.&quot;
+l_string|&quot;remote &squot;%s&squot; is not a strict &quot;
+l_string|&quot;subset of local ref &squot;%s&squot;. &quot;
+l_string|&quot;maybe you are not up-to-date and &quot;
+l_string|&quot;need to pull first?&quot;
 comma
 id|ref-&gt;name
 comma
