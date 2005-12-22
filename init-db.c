@@ -14,6 +14,9 @@ r_const
 r_char
 op_star
 id|dir
+comma
+r_int
+id|share
 )paren
 (brace
 r_if
@@ -51,6 +54,26 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|share
+op_logical_and
+id|adjust_shared_perm
+c_func
+(paren
+id|dir
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Could not make %s writable by group&bslash;n&quot;
+comma
+id|dir
+)paren
+suffix:semicolon
 )brace
 DECL|function|copy_file
 r_static
@@ -162,6 +185,21 @@ c_func
 id|fdo
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|status
+op_logical_and
+id|adjust_shared_perm
+c_func
+(paren
+id|dst
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
 r_return
 id|status
 suffix:semicolon
@@ -201,6 +239,8 @@ id|safe_create_dir
 c_func
 (paren
 id|path
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_while
@@ -945,6 +985,8 @@ id|safe_create_dir
 c_func
 (paren
 id|path
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|strcpy
@@ -961,6 +1003,8 @@ id|safe_create_dir
 c_func
 (paren
 id|path
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|strcpy
@@ -977,6 +1021,8 @@ id|safe_create_dir
 c_func
 (paren
 id|path
+comma
+l_int|1
 )paren
 suffix:semicolon
 multiline_comment|/* First copy the templates -- we might have the default&n;&t; * config file there, in which case we would want to read&n;&t; * from it after installing.&n;&t; */
@@ -1155,7 +1201,7 @@ id|init_db_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-init-db [--template=&lt;template-directory&gt;]&quot;
+l_string|&quot;git-init-db [--template=&lt;template-directory&gt;] [--shared]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * If you want to, you can share the DB area with any number of branches.&n; * That has advantages: you can save space by sharing all the SHA1 objects.&n; * On the other hand, it might just make lookup slower and messier. You&n; * be the judge.  The default case is to have one DB per managed directory.&n; */
 DECL|function|main
@@ -1244,6 +1290,23 @@ op_plus
 l_int|11
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--shared&quot;
+)paren
+)paren
+id|shared_repository
+op_assign
+l_int|1
+suffix:semicolon
+r_else
 id|die
 c_func
 (paren
@@ -1284,6 +1347,8 @@ id|safe_create_dir
 c_func
 (paren
 id|git_dir
+comma
+l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/* Check to see if the repository version is right.&n;&t; * Note that a newly created repository does not have&n;&t; * config file, so this will not fail.  What we are catching&n;&t; * is an attempt to reinitialize new repository with an old tool.&n;&t; */
@@ -1340,6 +1405,8 @@ id|safe_create_dir
 c_func
 (paren
 id|sha1_dir
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|strcpy
@@ -1356,6 +1423,8 @@ id|safe_create_dir
 c_func
 (paren
 id|path
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|strcpy
@@ -1372,6 +1441,21 @@ id|safe_create_dir
 c_func
 (paren
 id|path
+comma
+l_int|1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|shared_repository
+)paren
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.sharedRepository&quot;
+comma
+l_string|&quot;true&quot;
 )paren
 suffix:semicolon
 r_return
