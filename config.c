@@ -2361,7 +2361,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Invalid pattern: %s&quot;
+l_string|&quot;Invalid pattern: %s&bslash;n&quot;
 comma
 id|value_regex
 )paren

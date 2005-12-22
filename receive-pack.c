@@ -398,7 +398,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;%s died of signal&quot;
+l_string|&quot;%s died of signal&bslash;n&quot;
 comma
 id|update_hook
 )paren

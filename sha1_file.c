@@ -2336,6 +2336,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|path_len
+OG
+l_int|44
+)paren
+op_logical_and
 op_logical_neg
 id|get_sha1_hex
 c_func
@@ -2343,8 +2349,7 @@ c_func
 id|path
 op_plus
 id|path_len
-l_int|40
-l_int|4
+l_int|44
 comma
 id|sha1
 )paren
@@ -6399,7 +6404,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;unable to write sha1 filename %s: %s&quot;
+l_string|&quot;unable to write sha1 filename %s: %s&bslash;n&quot;
 comma
 id|filename
 comma
@@ -6574,7 +6579,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;sha1 file %s: %s&quot;
+l_string|&quot;sha1 file %s: %s&bslash;n&quot;
 comma
 id|filename
 comma
@@ -6628,7 +6633,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;unable to create temporary sha1 filename %s: %s&quot;
+l_string|&quot;unable to create temporary sha1 filename %s: %s&bslash;n&quot;
 comma
 id|tmpfile
 comma
@@ -7090,7 +7095,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;write closed&quot;
+l_string|&quot;write closed&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
