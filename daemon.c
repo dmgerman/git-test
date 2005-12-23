@@ -28,7 +28,8 @@ id|daemon_usage
 )braket
 op_assign
 l_string|&quot;git-daemon [--verbose] [--syslog] [--inetd | --port=n] [--export-all]&bslash;n&quot;
-l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths] [directory...]&quot;
+l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths]&bslash;n&quot;
+l_string|&quot;           [--base-path=path] [directory...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
 DECL|variable|ok_paths
@@ -54,6 +55,15 @@ r_int
 id|export_all_trees
 op_assign
 l_int|0
+suffix:semicolon
+multiline_comment|/* Take all paths relative to this one if non-NULL */
+DECL|variable|base_path
+r_static
+r_char
+op_star
+id|base_path
+op_assign
+l_int|NULL
 suffix:semicolon
 multiline_comment|/* Timeout, and initial timeout */
 DECL|variable|timeout
@@ -533,6 +543,58 @@ id|dir
 suffix:semicolon
 r_return
 l_int|NULL
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|base_path
+)paren
+(brace
+r_static
+r_char
+id|rpath
+(braket
+id|PATH_MAX
+)braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|dir
+op_ne
+l_char|&squot;/&squot;
+)paren
+(brace
+multiline_comment|/* Forbid possible base-path evasion using ~paths. */
+id|logerror
+c_func
+(paren
+l_string|&quot;&squot;%s&squot;: Non-absolute path denied (base-path active)&quot;
+)paren
+suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
+id|snprintf
+c_func
+(paren
+id|rpath
+comma
+id|PATH_MAX
+comma
+l_string|&quot;%s%s&quot;
+comma
+id|base_path
+comma
+id|dir
+)paren
+suffix:semicolon
+id|dir
+op_assign
+id|rpath
 suffix:semicolon
 )brace
 id|path
@@ -2829,6 +2891,30 @@ l_string|&quot;--strict-paths&quot;
 id|strict_paths
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--base-path=&quot;
+comma
+l_int|12
+)paren
+)paren
+(brace
+id|base_path
+op_assign
+id|arg
+op_plus
+l_int|12
 suffix:semicolon
 r_continue
 suffix:semicolon
