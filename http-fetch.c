@@ -1312,6 +1312,10 @@ c_cond
 id|obj_req-&gt;http_code
 op_eq
 l_int|404
+op_logical_or
+id|obj_req-&gt;curl_result
+op_eq
+id|CURLE_FILE_COULDNT_READ_FILE
 )paren
 (brace
 id|fetch_alternates
@@ -2301,6 +2305,10 @@ c_cond
 id|slot-&gt;http_code
 op_ne
 l_int|404
+op_logical_and
+id|slot-&gt;curl_result
+op_ne
+id|CURLE_FILE_COULDNT_READ_FILE
 )paren
 (brace
 id|got_alternates
@@ -3122,6 +3130,10 @@ c_cond
 id|slot-&gt;http_code
 op_eq
 l_int|404
+op_logical_or
+id|slot-&gt;curl_result
+op_eq
+id|CURLE_FILE_COULDNT_READ_FILE
 )paren
 (brace
 id|repo-&gt;got_indices
@@ -3983,6 +3995,10 @@ c_cond
 id|obj_req-&gt;http_code
 op_eq
 l_int|404
+op_logical_or
+id|obj_req-&gt;curl_result
+op_eq
+id|CURLE_FILE_COULDNT_READ_FILE
 )paren
 id|ret
 op_assign

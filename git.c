@@ -1492,7 +1492,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git: cannot determine current directory&quot;
+l_string|&quot;git: cannot determine current directory&bslash;n&quot;
 )paren
 suffix:semicolon
 m_exit

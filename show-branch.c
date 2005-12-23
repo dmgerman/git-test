@@ -1395,7 +1395,7 @@ c_func
 id|stderr
 comma
 l_string|&quot;warning: ignoring %s; &quot;
-l_string|&quot;cannot handle more than %d refs&quot;
+l_string|&quot;cannot handle more than %d refs&bslash;n&quot;
 comma
 id|refname
 comma
@@ -2812,7 +2812,7 @@ id|revkey
 id|die
 c_func
 (paren
-l_string|&quot;&squot;%s&squot; is not a valid ref.&bslash;n&quot;
+l_string|&quot;&squot;%s&squot; is not a valid ref.&quot;
 comma
 id|ref_name
 (braket
