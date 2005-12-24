@@ -2922,7 +2922,7 @@ id|ls_files_usage
 op_assign
 l_string|&quot;git-ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
-l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--] [&lt;file&gt;]*&quot;
+l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--full-name] [--] [&lt;file&gt;]*&quot;
 suffix:semicolon
 DECL|function|main
 r_int
