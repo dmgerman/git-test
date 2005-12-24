@@ -2968,6 +2968,14 @@ id|count
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|count
+)paren
+r_return
+suffix:semicolon
 multiline_comment|/* allocate an array to help sort the list */
 id|nodes
 op_assign
