@@ -2503,7 +2503,7 @@ id|latin_one
 (braket
 )braket
 op_assign
-l_string|&quot;latin-1&quot;
+l_string|&quot;latin1&quot;
 suffix:semicolon
 r_char
 op_star
