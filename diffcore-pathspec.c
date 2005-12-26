@@ -228,6 +228,14 @@ id|speccnt
 op_assign
 id|i
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|speccnt
+)paren
+r_return
+suffix:semicolon
 id|spec
 op_assign
 id|xmalloc
