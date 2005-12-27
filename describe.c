@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;refs.h&quot;
 DECL|macro|SEEN
 mdefine_line|#define SEEN (1u &lt;&lt; 0)
@@ -20,7 +21,7 @@ id|all
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* Default to tags only */
+multiline_comment|/* Default to annotated tags only */
 DECL|variable|names
 DECL|variable|allocs
 r_static
@@ -281,7 +282,16 @@ c_cond
 (paren
 op_logical_neg
 id|all
-op_logical_and
+)paren
+(brace
+r_struct
+id|object
+op_star
+id|object
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|strncmp
 c_func
 (paren
@@ -295,10 +305,36 @@ l_int|10
 r_return
 l_int|0
 suffix:semicolon
+id|object
+op_assign
+id|parse_object
+c_func
+(paren
+id|sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|object-&gt;type
+op_ne
+id|tag_type
+)paren
+r_return
+l_int|0
+suffix:semicolon
+)brace
 id|add_to_known_names
 c_func
 (paren
+id|all
+ques
+c_cond
 id|path
+suffix:colon
+id|path
+op_plus
+l_int|10
 comma
 id|commit
 )paren
