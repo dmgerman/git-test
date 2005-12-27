@@ -1370,6 +1370,10 @@ id|rename_dst_nr
 op_eq
 l_int|0
 op_logical_or
+id|rename_src_nr
+op_eq
+l_int|0
+op_logical_or
 (paren
 l_int|0
 OL
