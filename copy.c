@@ -133,6 +133,13 @@ c_cond
 op_logical_neg
 id|written
 )paren
+(brace
+id|close
+c_func
+(paren
+id|ifd
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -140,7 +147,15 @@ c_func
 l_string|&quot;copy-fd: write returned 0&quot;
 )paren
 suffix:semicolon
+)brace
 r_else
+(brace
+id|close
+c_func
+(paren
+id|ifd
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -154,6 +169,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 id|close
