@@ -4139,7 +4139,7 @@ c_cond
 op_logical_neg
 id|active_cache
 )paren
-multiline_comment|/* read-cache does not die even when it fails&n;&t;&t;&t; * so it is safe for us to do this here.  Also&n;&t;&t;&t; * it does not smudge active_cache or active_nr&n;&t;&t;&t; * when it fails, so we do not have to worry about&n;&t;&t;&t; * cleaning it up oufselves either.&n;&t;&t;&t; */
+multiline_comment|/* read-cache does not die even when it fails&n;&t;&t;&t; * so it is safe for us to do this here.  Also&n;&t;&t;&t; * it does not smudge active_cache or active_nr&n;&t;&t;&t; * when it fails, so we do not have to worry about&n;&t;&t;&t; * cleaning it up ourselves either.&n;&t;&t;&t; */
 id|read_cache
 c_func
 (paren
