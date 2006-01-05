@@ -8197,6 +8197,9 @@ id|EEXIST
 )paren
 r_break
 suffix:semicolon
+op_increment
+id|nr
+suffix:semicolon
 )brace
 )brace
 id|die
