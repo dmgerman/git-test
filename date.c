@@ -3464,6 +3464,10 @@ c_cond
 id|tm.tm_mon
 OG
 id|now.tm_mon
+op_logical_and
+id|tm.tm_year
+op_eq
+id|now.tm_year
 )paren
 id|tm.tm_year
 op_decrement
