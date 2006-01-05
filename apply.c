@@ -7916,8 +7916,6 @@ op_or
 id|O_EXCL
 op_or
 id|O_WRONLY
-op_or
-id|O_TRUNC
 comma
 (paren
 id|mode
