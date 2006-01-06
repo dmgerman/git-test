@@ -709,7 +709,7 @@ op_decrement
 id|len
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Copy the rest to the buffer, but avoid the special&n;&t; * characters &squot;&bslash;n&squot; &squot;&lt;&squot; and &squot;&gt;&squot; that act as delimeters on&n;&t; * a identification line&n;&t; */
+multiline_comment|/*&n;&t; * Copy the rest to the buffer, but avoid the special&n;&t; * characters &squot;&bslash;n&squot; &squot;&lt;&squot; and &squot;&gt;&squot; that act as delimiters on&n;&t; * a identification line&n;&t; */
 r_for
 c_loop
 (paren

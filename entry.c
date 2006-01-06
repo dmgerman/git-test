@@ -440,8 +440,6 @@ id|path
 comma
 id|O_WRONLY
 op_or
-id|O_TRUNC
-op_or
 id|O_CREAT
 op_or
 id|O_EXCL

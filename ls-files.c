@@ -866,7 +866,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* match with FNM_PATHNAME:&n;&t;&t;&t;&t; * exclude has base (baselen long) inplicitly&n;&t;&t;&t;&t; * in front of it.&n;&t;&t;&t;&t; */
+multiline_comment|/* match with FNM_PATHNAME:&n;&t;&t;&t;&t; * exclude has base (baselen long) implicitly&n;&t;&t;&t;&t; * in front of it.&n;&t;&t;&t;&t; */
 r_int
 id|baselen
 op_assign

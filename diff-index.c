@@ -584,7 +584,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-multiline_comment|/* We come here with ce pointing at stage 1&n;&t;&t;&t; * (original tree) and ac[1] pointing at stage&n;&t;&t;&t; * 3 (unmerged).  show-modified with&n;&t;&t;&t; * report-mising set to false does not say the&n;&t;&t;&t; * file is deleted but reports true if work&n;&t;&t;&t; * tree does not have it, in which case we&n;&t;&t;&t; * fall through to report the unmerged state.&n;&t;&t;&t; * Otherwise, we show the differences between&n;&t;&t;&t; * the original tree and the work tree.&n;&t;&t;&t; */
+multiline_comment|/* We come here with ce pointing at stage 1&n;&t;&t;&t; * (original tree) and ac[1] pointing at stage&n;&t;&t;&t; * 3 (unmerged).  show-modified with&n;&t;&t;&t; * report-missing set to false does not say the&n;&t;&t;&t; * file is deleted but reports true if work&n;&t;&t;&t; * tree does not have it, in which case we&n;&t;&t;&t; * fall through to report the unmerged state.&n;&t;&t;&t; * Otherwise, we show the differences between&n;&t;&t;&t; * the original tree and the work tree.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren

@@ -1804,7 +1804,7 @@ r_return
 id|n
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * NOTE! We will give precedence to day-of-month over month or&n;&t; * year numebers in the 1-12 range. So 05 is always &quot;mday 5&quot;,&n;&t; * unless we already have a mday..&n;&t; *&n;&t; * IOW, 01 Apr 05 parses as &quot;April 1st, 2005&quot;.&n;&t; */
+multiline_comment|/*&n;&t; * NOTE! We will give precedence to day-of-month over month or&n;&t; * year numbers in the 1-12 range. So 05 is always &quot;mday 5&quot;,&n;&t; * unless we already have a mday..&n;&t; *&n;&t; * IOW, 01 Apr 05 parses as &quot;April 1st, 2005&quot;.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3464,6 +3464,10 @@ c_cond
 id|tm.tm_mon
 OG
 id|now.tm_mon
+op_logical_and
+id|tm.tm_year
+op_eq
+id|now.tm_year
 )paren
 id|tm.tm_year
 op_decrement
