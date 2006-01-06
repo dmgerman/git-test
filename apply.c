@@ -7916,8 +7916,6 @@ op_or
 id|O_EXCL
 op_or
 id|O_WRONLY
-op_or
-id|O_TRUNC
 comma
 (paren
 id|mode
@@ -8198,6 +8196,9 @@ op_ne
 id|EEXIST
 )paren
 r_break
+suffix:semicolon
+op_increment
+id|nr
 suffix:semicolon
 )brace
 )brace

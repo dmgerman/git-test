@@ -608,7 +608,7 @@ comma
 id|e
 )paren
 suffix:semicolon
-multiline_comment|/* if we are delitified, write out its base object. */
+multiline_comment|/* if we are deltified, write out its base object. */
 r_if
 c_cond
 (paren

@@ -303,7 +303,7 @@ comma
 id|strerror
 c_func
 (paren
-id|retval
+id|errno
 )paren
 )paren
 suffix:semicolon
