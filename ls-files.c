@@ -1498,6 +1498,9 @@ comma
 l_int|2
 )paren
 suffix:semicolon
+id|len
+op_increment
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1512,8 +1515,6 @@ comma
 id|baselen
 op_plus
 id|len
-op_plus
-l_int|1
 )paren
 )paren
 r_break
@@ -1528,8 +1529,6 @@ comma
 id|baselen
 op_plus
 id|len
-op_plus
-l_int|1
 )paren
 suffix:semicolon
 r_continue
