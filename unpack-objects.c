@@ -1444,6 +1444,15 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|quiet
+op_assign
+op_logical_neg
+id|isatty
+c_func
+(paren
+l_int|2
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
