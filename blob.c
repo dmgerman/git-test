@@ -1,5 +1,5 @@
-macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;blob.h&quot;
 macro_line|#include &lt;stdlib.h&gt;
 DECL|variable|blob_type
 r_const

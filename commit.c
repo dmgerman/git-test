@@ -1,6 +1,6 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;commit.h&quot;
-macro_line|#include &quot;cache.h&quot;
 DECL|variable|save_commit_buffer
 r_int
 id|save_commit_buffer

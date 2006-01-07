@@ -1,5 +1,5 @@
-macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;tag.h&quot;
 DECL|variable|tag_type
 r_const
 r_char
