@@ -2505,7 +2505,7 @@ l_int|NULL
 comma
 id|basedir
 comma
-l_int|040755
+l_int|040777
 comma
 l_int|NULL
 comma
