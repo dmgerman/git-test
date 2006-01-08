@@ -887,6 +887,17 @@ id|f
 op_eq
 l_int|NULL
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|f
+op_eq
+id|stdin
+)paren
+r_break
+suffix:semicolon
+multiline_comment|/* empty stdin is OK */
 id|die
 c_func
 (paren
@@ -895,6 +906,7 @@ comma
 id|file
 )paren
 suffix:semicolon
+)brace
 r_while
 c_loop
 (paren
