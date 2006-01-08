@@ -1,8 +1,8 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;commit.h&quot;
-macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tag.h&quot;
 DECL|variable|objs
 r_struct

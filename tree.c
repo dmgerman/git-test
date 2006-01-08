@@ -1,8 +1,8 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
-macro_line|#include &quot;cache.h&quot;
 macro_line|#include &lt;stdlib.h&gt;
 DECL|variable|tree_type
 r_const

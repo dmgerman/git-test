@@ -72,8 +72,10 @@ DECL|member|path
 r_char
 id|path
 (braket
+id|FLEX_ARRAY
 )braket
 suffix:semicolon
+multiline_comment|/* more */
 DECL|variable|name_array
 )brace
 op_star

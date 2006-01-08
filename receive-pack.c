@@ -180,9 +180,10 @@ DECL|member|ref_name
 r_char
 id|ref_name
 (braket
-l_int|0
+id|FLEX_ARRAY
 )braket
 suffix:semicolon
+multiline_comment|/* more */
 )brace
 suffix:semicolon
 DECL|variable|commands
