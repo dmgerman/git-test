@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &lt;sys/wait.h&gt;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|run_command_v_opt
 r_int
 id|run_command_v_opt
@@ -85,6 +86,23 @@ id|fd
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|RUN_GIT_CMD
+)paren
+(brace
+id|execv_git_cmd
+c_func
+(paren
+id|argv
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|execvp
 c_func
 (paren
@@ -102,6 +120,7 @@ op_star
 id|argv
 )paren
 suffix:semicolon
+)brace
 id|die
 c_func
 (paren

@@ -9,6 +9,7 @@ macro_line|#include &lt;arpa/inet.h&gt;
 macro_line|#include &lt;syslog.h&gt;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|log_syslog
 r_static
 r_int
@@ -848,12 +849,10 @@ id|timeout
 )paren
 suffix:semicolon
 multiline_comment|/* git-upload-pack only ever reads stuff, so this is safe */
-id|execlp
+id|execl_git_cmd
 c_func
 (paren
-l_string|&quot;git-upload-pack&quot;
-comma
-l_string|&quot;git-upload-pack&quot;
+l_string|&quot;upload-pack&quot;
 comma
 l_string|&quot;--strict&quot;
 comma

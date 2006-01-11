@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &lt;sys/wait.h&gt;
 DECL|function|finish_pack
 r_static
@@ -170,12 +171,10 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
-id|execlp
+id|execl_git_cmd
 c_func
 (paren
-l_string|&quot;git-index-pack&quot;
-comma
-l_string|&quot;git-index-pack&quot;
+l_string|&quot;index-pack&quot;
 comma
 l_string|&quot;-o&quot;
 comma
@@ -613,12 +612,10 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
-id|execlp
+id|execl_git_cmd
 c_func
 (paren
-l_string|&quot;git-unpack-objects&quot;
-comma
-l_string|&quot;git-unpack-objects&quot;
+l_string|&quot;unpack-objects&quot;
 comma
 id|quiet
 ques

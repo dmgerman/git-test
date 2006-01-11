@@ -3,6 +3,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|send_pack_usage
 r_static
 r_const
@@ -107,18 +108,16 @@ id|args
 )braket
 op_assign
 (brace
-l_string|&quot;git-pack-objects&quot;
+l_string|&quot;pack-objects&quot;
 comma
 l_string|&quot;--stdout&quot;
 comma
 l_int|NULL
 )brace
 suffix:semicolon
-id|execvp
+id|execv_git_cmd
 c_func
 (paren
-l_string|&quot;git-pack-objects&quot;
-comma
 id|args
 )paren
 suffix:semicolon
@@ -166,7 +165,7 @@ id|i
 op_increment
 )braket
 op_assign
-l_string|&quot;git-rev-list&quot;
+l_string|&quot;rev-list&quot;
 suffix:semicolon
 multiline_comment|/* 0 */
 id|args
@@ -301,11 +300,9 @@ id|i
 op_assign
 l_int|NULL
 suffix:semicolon
-id|execvp
+id|execv_git_cmd
 c_func
 (paren
-l_string|&quot;git-rev-list&quot;
-comma
 id|args
 )paren
 suffix:semicolon

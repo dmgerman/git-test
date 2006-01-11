@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|do_generic_cmd
 r_static
 r_int
@@ -47,12 +48,33 @@ c_func
 l_string|&quot;bad argument&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|strncmp
+c_func
+(paren
+id|me
+comma
+l_string|&quot;git-&quot;
+comma
+l_int|4
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad command&quot;
+)paren
+suffix:semicolon
 id|my_argv
 (braket
 l_int|0
 )braket
 op_assign
 id|me
+op_plus
+l_int|4
 suffix:semicolon
 id|my_argv
 (braket
@@ -69,11 +91,9 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-id|execvp
+id|execv_git_cmd
 c_func
 (paren
-id|me
-comma
 (paren
 r_char
 op_star
