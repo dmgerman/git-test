@@ -2467,6 +2467,14 @@ id|av
 comma
 l_char|&squot;?&squot;
 )paren
+op_logical_or
+id|strchr
+c_func
+(paren
+id|av
+comma
+l_char|&squot;[&squot;
+)paren
 )paren
 (brace
 multiline_comment|/* glob style match */
