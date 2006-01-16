@@ -515,6 +515,9 @@ r_struct
 id|commit
 op_star
 id|cmit
+comma
+r_int
+id|last_one
 )paren
 (brace
 r_struct
@@ -655,6 +658,12 @@ id|abbrev
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|last_one
+)paren
 id|clear_commit_marks
 c_func
 (paren
@@ -864,6 +873,11 @@ id|describe
 c_func
 (paren
 id|cmit
+comma
+id|i
+op_eq
+id|argc
+l_int|1
 )paren
 suffix:semicolon
 )brace
