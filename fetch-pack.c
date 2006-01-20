@@ -1196,14 +1196,6 @@ comma
 op_star
 id|next
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|nr_match
-)paren
-r_return
-suffix:semicolon
 r_for
 c_loop
 (paren
