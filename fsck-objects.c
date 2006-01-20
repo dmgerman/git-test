@@ -67,6 +67,17 @@ id|head_sha1
 l_int|20
 )braket
 suffix:semicolon
+macro_line|#if NO_D_INO_IN_DIRENT
+DECL|macro|SORT_DIRENT
+mdefine_line|#define SORT_DIRENT 0
+DECL|macro|DIRENT_SORT_HINT
+mdefine_line|#define DIRENT_SORT_HINT(de) 0
+macro_line|#else
+DECL|macro|SORT_DIRENT
+mdefine_line|#define SORT_DIRENT 1
+DECL|macro|DIRENT_SORT_HINT
+mdefine_line|#define DIRENT_SORT_HINT(de) ((de)-&gt;d_ino)
+macro_line|#endif
 DECL|function|objreport
 r_static
 r_void
@@ -1459,6 +1470,11 @@ id|nr
 op_assign
 id|sha1_list.nr
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|SORT_DIRENT
+)paren
 id|qsort
 c_func
 (paren
@@ -1777,7 +1793,11 @@ c_func
 (paren
 id|sha1
 comma
-id|de-&gt;d_ino
+id|DIRENT_SORT_HINT
+c_func
+(paren
+id|de
+)paren
 )paren
 suffix:semicolon
 r_continue
