@@ -43,6 +43,13 @@ id|combine_merges
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|dense_combined_merges
+r_static
+r_int
+id|dense_combined_merges
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|read_stdin
 r_static
 r_int
@@ -640,6 +647,8 @@ comma
 id|header
 comma
 id|show_empty_combined
+comma
+id|dense_combined_merges
 )paren
 suffix:semicolon
 )brace
@@ -893,7 +902,7 @@ id|diff_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-diff-tree [--stdin] [-m] [-c] [-s] [-v] [--pretty] [-t] [-r] [--root] &quot;
+l_string|&quot;git-diff-tree [--stdin] [-m] [-c] [--cc] [-s] [-v] [--pretty] [-t] [-r] [--root] &quot;
 l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;tree-ish&gt;] [&lt;path&gt;...]&bslash;n&quot;
 l_string|&quot;  -r            diff recursively&bslash;n&quot;
 l_string|&quot;  --root        include the initial commit as diff against /dev/null&bslash;n&quot;
@@ -1177,6 +1186,28 @@ l_string|&quot;-c&quot;
 )paren
 )paren
 (brace
+id|combine_merges
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--cc&quot;
+)paren
+)paren
+(brace
+id|dense_combined_merges
+op_assign
 id|combine_merges
 op_assign
 l_int|1
