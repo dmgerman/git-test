@@ -3782,7 +3782,7 @@ ques
 c_cond
 l_int|40
 suffix:colon
-id|DIFF_DEFAULT_INDEX_ABBREV
+id|DEFAULT_ABBREV
 suffix:semicolon
 id|memcpy
 c_func
@@ -4588,7 +4588,7 @@ l_string|&quot;--abbrev&quot;
 )paren
 id|options-&gt;abbrev
 op_assign
-id|DIFF_DEFAULT_ABBREV
+id|DEFAULT_ABBREV
 suffix:semicolon
 r_else
 r_if
