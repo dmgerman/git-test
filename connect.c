@@ -1,3 +1,4 @@
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;quote.h&quot;
