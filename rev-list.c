@@ -345,6 +345,8 @@ r_sizeof
 (paren
 id|pretty_header
 )paren
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|printf

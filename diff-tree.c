@@ -445,6 +445,8 @@ r_sizeof
 id|this_header
 )paren
 id|offset
+comma
+id|abbrev
 )paren
 suffix:semicolon
 r_return

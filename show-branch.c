@@ -1150,6 +1150,8 @@ r_sizeof
 (paren
 id|pretty
 )paren
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_else
