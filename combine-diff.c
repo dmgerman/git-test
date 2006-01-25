@@ -2262,12 +2262,6 @@ l_char|&squot; &squot;
 )paren
 suffix:semicolon
 )brace
-id|putchar
-c_func
-(paren
-l_char|&squot; &squot;
-)paren
-suffix:semicolon
 id|puts
 c_func
 (paren
@@ -2322,7 +2316,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot; %.*s&bslash;n&quot;
+l_string|&quot;%.*s&bslash;n&quot;
 comma
 id|sl-&gt;len
 comma
@@ -3010,7 +3004,14 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;diff --combined &quot;
+l_string|&quot;diff --%s &quot;
+comma
+id|dense
+ques
+c_cond
+l_string|&quot;cc&quot;
+suffix:colon
+l_string|&quot;combined&quot;
 )paren
 suffix:semicolon
 r_if
