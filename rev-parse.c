@@ -680,6 +680,10 @@ id|i
 op_increment
 )paren
 (brace
+r_struct
+id|stat
+id|st
+suffix:semicolon
 r_char
 op_star
 id|arg
@@ -1464,6 +1468,34 @@ id|die
 c_func
 (paren
 l_string|&quot;Needed a single revision&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|lstat
+c_func
+(paren
+id|arg
+comma
+op_amp
+id|st
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;&squot;%s&squot;: %s&quot;
+comma
+id|arg
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|as_is
