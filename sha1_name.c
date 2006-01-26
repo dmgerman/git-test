@@ -844,7 +844,7 @@ l_int|20
 )paren
 )paren
 r_return
-l_int|2
+id|SHORT_NAME_AMBIGUOUS
 suffix:semicolon
 id|memcpy
 c_func
