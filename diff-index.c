@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;diff.h&quot;
 DECL|variable|cached_only
 r_static
@@ -784,13 +785,10 @@ id|pathspec
 op_assign
 l_int|NULL
 suffix:semicolon
-r_void
+r_struct
+id|tree
 op_star
 id|tree
-suffix:semicolon
-r_int
-r_int
-id|size
 suffix:semicolon
 r_int
 id|ret
@@ -1060,17 +1058,10 @@ c_func
 suffix:semicolon
 id|tree
 op_assign
-id|read_object_with_reference
+id|parse_tree_indirect
 c_func
 (paren
 id|sha1
-comma
-l_string|&quot;tree&quot;
-comma
-op_amp
-id|size
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -1094,8 +1085,6 @@ id|read_tree
 c_func
 (paren
 id|tree
-comma
-id|size
 comma
 l_int|1
 comma
