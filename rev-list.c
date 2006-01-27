@@ -31,6 +31,7 @@ l_string|&quot;    --max-age=epoch&bslash;n&quot;
 l_string|&quot;    --min-age=epoch&bslash;n&quot;
 l_string|&quot;    --sparse&bslash;n&quot;
 l_string|&quot;    --no-merges&bslash;n&quot;
+l_string|&quot;    --remove-empty&bslash;n&quot;
 l_string|&quot;    --all&bslash;n&quot;
 l_string|&quot;  ordering output:&bslash;n&quot;
 l_string|&quot;    --merge-order [ --show-breaks ]&bslash;n&quot;
