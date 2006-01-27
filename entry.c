@@ -490,12 +490,6 @@ id|type
 l_int|20
 )braket
 suffix:semicolon
-r_char
-id|target
-(braket
-l_int|1024
-)braket
-suffix:semicolon
 r_new
 op_assign
 id|read_sha1_file
@@ -655,30 +649,13 @@ suffix:semicolon
 r_case
 id|S_IFLNK
 suffix:colon
-id|memcpy
-c_func
-(paren
-id|target
-comma
-r_new
-comma
-id|size
-)paren
-suffix:semicolon
-id|target
-(braket
-id|size
-)braket
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
 r_if
 c_cond
 (paren
 id|symlink
 c_func
 (paren
-id|target
+r_new
 comma
 id|path
 )paren
@@ -694,7 +671,8 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to create symlink %s (%s)&quot;
+l_string|&quot;git-checkout-index: unable to create &quot;
+l_string|&quot;symlink %s (%s)&quot;
 comma
 id|path
 comma
