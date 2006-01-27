@@ -1473,6 +1473,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|filter
+op_amp
+id|DO_REVS
+)paren
+op_logical_and
+(paren
+id|filter
+op_amp
+id|DO_NONFLAGS
+)paren
+op_logical_and
+multiline_comment|/* !def &amp;&amp; */
 id|lstat
 c_func
 (paren
