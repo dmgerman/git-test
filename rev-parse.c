@@ -934,7 +934,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--abbrev&quot;
+l_string|&quot;--short&quot;
 )paren
 op_logical_or
 op_logical_neg
@@ -943,7 +943,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--abbrev=&quot;
+l_string|&quot;--short=&quot;
 comma
 l_int|9
 )paren
