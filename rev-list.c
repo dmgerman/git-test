@@ -334,7 +334,7 @@ c_func
 (paren
 id|commit_format
 comma
-id|commit-&gt;buffer
+id|commit
 comma
 op_complement
 l_int|0

@@ -1139,7 +1139,7 @@ c_func
 (paren
 id|CMIT_FMT_ONELINE
 comma
-id|commit-&gt;buffer
+id|commit
 comma
 op_complement
 l_int|0

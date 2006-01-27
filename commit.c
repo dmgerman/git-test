@@ -2501,9 +2501,10 @@ id|cmit_fmt
 id|fmt
 comma
 r_const
-r_char
+r_struct
+id|commit
 op_star
-id|msg
+id|commit
 comma
 r_int
 r_int
@@ -2554,6 +2555,13 @@ c_cond
 l_int|0
 suffix:colon
 l_int|4
+suffix:semicolon
+r_const
+r_char
+op_star
+id|msg
+op_assign
+id|commit-&gt;buffer
 suffix:semicolon
 r_for
 c_loop

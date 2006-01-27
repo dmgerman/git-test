@@ -335,9 +335,10 @@ op_star
 id|parent_sha1
 comma
 r_const
-r_char
+r_struct
+id|commit
 op_star
-id|msg
+id|commit
 )paren
 (brace
 r_static
@@ -358,6 +359,13 @@ r_int
 id|abbrev
 op_assign
 id|diff_options.abbrev
+suffix:semicolon
+r_const
+r_char
+op_star
+id|msg
+op_assign
+id|commit-&gt;buffer
 suffix:semicolon
 r_if
 c_cond
@@ -432,7 +440,7 @@ c_func
 (paren
 id|commit_format
 comma
-id|msg
+id|commit
 comma
 id|len
 comma
@@ -551,7 +559,7 @@ id|sha1
 comma
 l_int|NULL
 comma
-id|commit-&gt;buffer
+id|commit
 )paren
 suffix:semicolon
 id|diff_root_tree
@@ -606,7 +614,7 @@ id|sha1
 comma
 id|parent-&gt;object.sha1
 comma
-id|commit-&gt;buffer
+id|commit
 )paren
 suffix:semicolon
 id|diff_tree_sha1_top
