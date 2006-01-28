@@ -906,7 +906,7 @@ c_cond
 (paren
 id|len
 OL
-l_int|4
+id|MINIMUM_ABBREV
 )paren
 r_return
 l_int|1

@@ -30,8 +30,6 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* But allow any tags if --tags is specified */
-DECL|macro|DEFAULT_ABBREV
-mdefine_line|#define DEFAULT_ABBREV 8 /* maybe too many */
 DECL|variable|abbrev
 r_static
 r_int
@@ -860,7 +858,7 @@ c_cond
 (paren
 id|abbrev
 OL
-l_int|4
+id|MINIMUM_ABBREV
 op_logical_or
 l_int|40
 op_le

@@ -1139,7 +1139,7 @@ c_func
 (paren
 id|CMIT_FMT_ONELINE
 comma
-id|commit-&gt;buffer
+id|commit
 comma
 op_complement
 l_int|0
@@ -1150,6 +1150,8 @@ r_sizeof
 (paren
 id|pretty
 )paren
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_else
