@@ -702,6 +702,11 @@ suffix:semicolon
 )brace
 id|combine
 suffix:semicolon
+r_int
+id|num_compare_stages
+op_assign
+l_int|0
+suffix:semicolon
 id|combine.p.next
 op_assign
 l_int|NULL
@@ -801,6 +806,10 @@ l_int|2
 op_le
 id|stage
 )paren
+(brace
+id|num_compare_stages
+op_increment
+suffix:semicolon
 id|memcpy
 c_func
 (paren
@@ -816,6 +825,7 @@ comma
 l_int|20
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/* diff against the proper unmerged stage */
 r_if
 c_cond
@@ -840,6 +850,10 @@ r_if
 c_cond
 (paren
 id|combine_merges
+op_logical_and
+id|num_compare_stages
+op_eq
+l_int|2
 )paren
 (brace
 id|show_combined_diff
@@ -857,9 +871,21 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|combine.p.path
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|combine.p.path
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * Show the diff for the &squot;ce&squot; if we found the one&n;&t;&t;&t; * from the desired stage.&n;&t;&t;&t; */
 id|show_unmerge
 c_func
