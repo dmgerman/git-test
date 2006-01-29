@@ -16,6 +16,8 @@ DECL|macro|SHOWN
 mdefine_line|#define SHOWN&t;&t;(1u &lt;&lt; 3)
 DECL|macro|TREECHANGE
 mdefine_line|#define TREECHANGE&t;(1u &lt;&lt; 4)
+DECL|macro|TMP_MARK
+mdefine_line|#define TMP_MARK&t;(1u &lt;&lt; 5) /* for isolated cases; clean after use */
 DECL|variable|rev_list_usage
 r_static
 r_const
@@ -286,6 +288,29 @@ c_loop
 id|parents
 )paren
 (brace
+r_struct
+id|object
+op_star
+id|o
+op_assign
+op_amp
+(paren
+id|parents-&gt;item-&gt;object
+)paren
+suffix:semicolon
+id|parents
+op_assign
+id|parents-&gt;next
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;flags
+op_amp
+id|TMP_MARK
+)paren
+r_continue
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -294,15 +319,34 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|parents-&gt;item-&gt;object.sha1
+id|o-&gt;sha1
 )paren
 )paren
+suffix:semicolon
+id|o-&gt;flags
+op_or_assign
+id|TMP_MARK
+suffix:semicolon
+)brace
+multiline_comment|/* TMP_MARK is a general purpose flag that can&n;&t;&t; * be used locally, but the user should clean&n;&t;&t; * things up after it is done with them.&n;&t;&t; */
+r_for
+c_loop
+(paren
+id|parents
+op_assign
+id|commit-&gt;parents
+suffix:semicolon
+id|parents
 suffix:semicolon
 id|parents
 op_assign
 id|parents-&gt;next
+)paren
+id|parents-&gt;item-&gt;object.flags
+op_and_assign
+op_complement
+id|TMP_MARK
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
