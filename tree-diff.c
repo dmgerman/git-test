@@ -28,7 +28,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 DECL|function|update_tree_entry
-r_static
 r_void
 id|update_tree_entry
 c_func
@@ -89,13 +88,12 @@ id|size
 id|len
 suffix:semicolon
 )brace
-DECL|function|extract
-r_static
+DECL|function|tree_entry_extract
 r_const
 r_int
 r_char
 op_star
-id|extract
+id|tree_entry_extract
 c_func
 (paren
 r_struct
@@ -384,7 +382,7 @@ id|pathlen2
 suffix:semicolon
 id|sha1
 op_assign
-id|extract
+id|tree_entry_extract
 c_func
 (paren
 id|t1
@@ -398,7 +396,7 @@ id|mode1
 suffix:semicolon
 id|sha2
 op_assign
-id|extract
+id|tree_entry_extract
 c_func
 (paren
 id|t2
@@ -708,7 +706,7 @@ suffix:semicolon
 (paren
 r_void
 )paren
-id|extract
+id|tree_entry_extract
 c_func
 (paren
 id|desc
@@ -995,7 +993,7 @@ r_char
 op_star
 id|sha1
 op_assign
-id|extract
+id|tree_entry_extract
 c_func
 (paren
 id|desc
