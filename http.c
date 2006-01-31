@@ -1519,6 +1519,10 @@ id|slot-&gt;local
 op_assign
 l_int|NULL
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+l_int|NULL
+suffix:semicolon
 id|slot-&gt;callback_data
 op_assign
 l_int|NULL
@@ -1871,6 +1875,24 @@ op_amp
 id|slot-&gt;http_code
 )paren
 suffix:semicolon
+multiline_comment|/* Store slot results so they can be read after the slot is reused */
+r_if
+c_cond
+(paren
+id|slot-&gt;results
+op_ne
+l_int|NULL
+)paren
+(brace
+id|slot-&gt;results-&gt;curl_result
+op_assign
+id|slot-&gt;curl_result
+suffix:semicolon
+id|slot-&gt;results-&gt;http_code
+op_assign
+id|slot-&gt;http_code
+suffix:semicolon
+)brace
 multiline_comment|/* Run callback if appropriate */
 r_if
 c_cond
