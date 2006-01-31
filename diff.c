@@ -2887,6 +2887,20 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|signal
+c_func
+(paren
+id|SIGINT
+comma
+id|SIG_DFL
+)paren
+suffix:semicolon
+id|raise
+c_func
+(paren
+id|signo
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/* An external diff command takes:&n; *&n; * diff-cmd name infile1 infile1-sha1 infile1-mode &bslash;&n; *               infile2 infile2-sha1 infile2-mode [ rename-to ]&n; *&n; */
 DECL|function|run_external_diff
