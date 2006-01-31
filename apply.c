@@ -22,6 +22,13 @@ id|prefix_length
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|p_value
+r_static
+r_int
+id|p_value
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|allow_binary_replacement
 r_static
 r_int
@@ -107,7 +114,7 @@ id|apply_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [-z] &lt;patch&gt;...&quot;
+l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [-z] [-pNUM] &lt;patch&gt;...&quot;
 suffix:semicolon
 multiline_comment|/*&n; * For &quot;diff-stat&quot; like behaviour, we keep track of the biggest change&n; * we&squot;ve seen, and the longest filename. That allows us to do simple&n; * scaling.&n; */
 DECL|variable|max_change
@@ -910,11 +917,6 @@ op_star
 id|patch
 )paren
 (brace
-r_int
-id|p_value
-op_assign
-l_int|1
-suffix:semicolon
 r_char
 op_star
 id|name
@@ -8997,6 +8999,34 @@ suffix:semicolon
 id|excludes
 op_assign
 id|x
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-p&quot;
+comma
+l_int|2
+)paren
+)paren
+(brace
+id|p_value
+op_assign
+id|atoi
+c_func
+(paren
+id|arg
+op_plus
+l_int|2
+)paren
 suffix:semicolon
 r_continue
 suffix:semicolon
