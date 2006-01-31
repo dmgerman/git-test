@@ -413,6 +413,7 @@ r_return
 id|curr
 suffix:semicolon
 )brace
+multiline_comment|/* Lines lost from parent */
 DECL|struct|lline
 r_struct
 id|lline
@@ -441,6 +442,7 @@ id|FLEX_ARRAY
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/* Lines surviving in the merge result */
 DECL|struct|sline
 r_struct
 id|sline
@@ -465,6 +467,7 @@ DECL|member|len
 r_int
 id|len
 suffix:semicolon
+multiline_comment|/* bit 0 up to (N-1) are on if the parent does _not_&n;&t; * have this line (i.e. we changed it).&n;&t; * bit N is used for &quot;interesting&quot; lines, including context.&n;&t; */
 DECL|member|flag
 r_int
 r_int
@@ -1425,6 +1428,7 @@ id|lost_bucket
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* not in any hunk yet */
 r_switch
 c_cond
 (paren
