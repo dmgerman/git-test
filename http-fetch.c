@@ -1507,11 +1507,9 @@ c_func
 id|obj_req-&gt;sha1
 )paren
 )paren
-id|release_object_request
-c_func
-(paren
-id|obj_req
-)paren
+id|obj_req-&gt;state
+op_assign
+id|COMPLETE
 suffix:semicolon
 r_else
 id|start_object_request
