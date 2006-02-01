@@ -4109,15 +4109,9 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;unable to write sha1 filename %s: %s&quot;
+l_string|&quot;unable to write sha1 filename %s&quot;
 comma
 id|obj_req-&gt;filename
-comma
-id|strerror
-c_func
-(paren
-id|obj_req-&gt;rename
-)paren
 )paren
 suffix:semicolon
 )brace
