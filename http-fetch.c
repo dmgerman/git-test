@@ -1793,7 +1793,6 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
-r_static
 r_struct
 id|slot_results
 id|results
@@ -2756,7 +2755,6 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
-r_static
 r_struct
 id|alternates_request
 id|alt_req
@@ -2995,7 +2993,6 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
-r_static
 r_struct
 id|slot_results
 id|results
@@ -3418,7 +3415,6 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
-r_static
 r_struct
 id|slot_results
 id|results
@@ -4554,7 +4550,6 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
-r_static
 r_struct
 id|slot_results
 id|results
