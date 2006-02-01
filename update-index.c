@@ -1558,7 +1558,7 @@ l_int|2
 op_eq
 l_char|&squot; &squot;
 op_logical_and
-l_char|&squot;1&squot;
+l_char|&squot;0&squot;
 op_le
 id|tab
 (braket
