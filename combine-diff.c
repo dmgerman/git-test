@@ -2213,7 +2213,7 @@ id|hunk_end
 op_assign
 id|j
 suffix:semicolon
-multiline_comment|/* [i..hunk_end) are interesting.  Now is it really&n;&t;&t; * interesting?&n;&t;&t; */
+multiline_comment|/* [i..hunk_end) are interesting.  Now is it really&n;&t;&t; * interesting?  We check if there are only two versions&n;&t;&t; * and the result matches one of them.  That is, we look&n;&t;&t; * at:&n;&t;&t; *   (+) line, which records lines added to which parents;&n;&t;&t; *       this line appears in the result.&n;&t;&t; *   (-) line, which records from what parents the line&n;&t;&t; *       was removed; this line does not appear in the result.&n;&t;&t; * then check the set of parents the result has difference&n;&t;&t; * from, from all lines.  If there are lines that has&n;&t;&t; * different set of parents that the result has differences&n;&t;&t; * from, that means we have more than two versions.&n;&t;&t; *&n;&t;&t; * Even when we have only two versions, if the result does&n;&t;&t; * not match any of the parents, the it should be considered&n;&t;&t; * interesting.  In such a case, we would have all &squot;+&squot; line.&n;&t;&t; * After passing the above &quot;two versions&quot; test, that would&n;&t;&t; * appear as &quot;the same set of parents&quot; to be &quot;all parents&quot;.&n;&t;&t; */
 id|same_diff
 op_assign
 l_int|0
@@ -2349,6 +2349,10 @@ c_cond
 (paren
 op_logical_neg
 id|has_interesting
+op_logical_and
+id|same_diff
+op_ne
+id|all_mask
 )paren
 (brace
 multiline_comment|/* This hunk is not that interesting after all */
