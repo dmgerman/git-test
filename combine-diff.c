@@ -467,7 +467,7 @@ DECL|member|len
 r_int
 id|len
 suffix:semicolon
-multiline_comment|/* bit 0 up to (N-1) are on if the parent does _not_&n;&t; * have this line (i.e. we changed it).&n;&t; * bit N is used for &quot;interesting&quot; lines, including context.&n;&t; */
+multiline_comment|/* bit 0 up to (N-1) are on if the parent has this line (i.e.&n;&t; * we did not change it).&n;&t; * bit N is used for &quot;interesting&quot; lines, including context.&n;&t; */
 DECL|member|flag
 r_int
 r_int
@@ -1263,13 +1263,6 @@ op_lshift
 id|n
 )paren
 suffix:semicolon
-r_int
-r_int
-id|pmask
-op_assign
-op_complement
-id|nmask
-suffix:semicolon
 r_struct
 id|sline
 op_star
@@ -1536,8 +1529,8 @@ l_int|1
 )braket
 dot
 id|flag
-op_and_assign
-id|pmask
+op_or_assign
+id|nmask
 suffix:semicolon
 id|lno
 op_increment
@@ -1630,6 +1623,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
 id|sline
 (braket
 id|lno
@@ -1638,6 +1633,7 @@ dot
 id|flag
 op_amp
 id|nmask
+)paren
 )paren
 id|p_lno
 op_increment
@@ -1689,6 +1685,7 @@ r_int
 id|all_mask
 )paren
 (brace
+multiline_comment|/* If some parents lost lines here, or if we have added to&n;&t; * some parent, it is interesting.&n;&t; */
 r_return
 (paren
 (paren
@@ -1696,8 +1693,6 @@ id|sline-&gt;flag
 op_amp
 id|all_mask
 )paren
-op_ne
-id|all_mask
 op_logical_or
 id|sline-&gt;lost_head
 )paren
@@ -1728,7 +1723,7 @@ r_int
 id|i
 )paren
 (brace
-multiline_comment|/* i points at the first uninteresting line.&n;&t; * If the last line of the hunk was interesting&n;&t; * only because it has some deletion, then&n;&t; * it is not all that interesting for the&n;&t; * purpose of giving trailing context lines.&n;&t; */
+multiline_comment|/* i points at the first uninteresting line.  If the last line&n;&t; * of the hunk was interesting only because it has some&n;&t; * deletion, then it is not all that interesting for the&n;&t; * purpose of giving trailing context lines.  This is because&n;&t; * we output &squot;-&squot; line and then unmodified sline[i-1] itself in&n;&t; * that case which gives us one extra context line.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1740,7 +1735,7 @@ op_le
 id|i
 )paren
 op_logical_and
-(paren
+op_logical_neg
 (paren
 id|sline
 (braket
@@ -1753,9 +1748,6 @@ id|flag
 op_amp
 id|all_mask
 )paren
-op_eq
-id|all_mask
-)paren
 )paren
 id|i
 op_decrement
@@ -1764,11 +1756,11 @@ r_return
 id|i
 suffix:semicolon
 )brace
-DECL|function|next_interesting
+DECL|function|find_next
 r_static
 r_int
 r_int
-id|next_interesting
+id|find_next
 c_func
 (paren
 r_struct
@@ -1792,6 +1784,7 @@ r_int
 id|uninteresting
 )paren
 (brace
+multiline_comment|/* We have examined up to i-1 and are about to look at i.&n;&t; * Find next interesting or uninteresting line.  Here,&n;&t; * &quot;interesting&quot; does not mean interesting(), but marked by&n;&t; * the give_context() function below (i.e. it includes context&n;&t; * lines that are not interesting to interesting() function&n;&t; * that are surrounded by interesting() ones.&n;&t; */
 r_while
 c_loop
 (paren
@@ -1883,9 +1876,10 @@ r_int
 r_int
 id|i
 suffix:semicolon
+multiline_comment|/* Two groups of interesting lines may have a short gap of&n;&t; * unintersting lines.  Connect such groups to give them a&n;&t; * bit of context.&n;&t; *&n;&t; * We first start from what the interesting() function says,&n;&t; * and mark them with &quot;mark&quot;, and paint context lines with the&n;&t; * mark.  So interesting() would still say false for such context&n;&t; * lines but they are treated as &quot;interesting&quot; in the end.&n;&t; */
 id|i
 op_assign
-id|next_interesting
+id|find_next
 c_func
 (paren
 id|sline
@@ -1939,6 +1933,7 @@ r_int
 r_int
 id|k
 suffix:semicolon
+multiline_comment|/* Paint a few lines before the first interesting line. */
 r_while
 c_loop
 (paren
@@ -1958,9 +1953,10 @@ id|mark
 suffix:semicolon
 id|again
 suffix:colon
+multiline_comment|/* we know up to i is to be included.  where does the&n;&t;&t; * next uninteresting one start?&n;&t;&t; */
 id|j
 op_assign
-id|next_interesting
+id|find_next
 c_func
 (paren
 id|sline
@@ -1987,7 +1983,7 @@ multiline_comment|/* the rest are all interesting */
 multiline_comment|/* lookahead context lines */
 id|k
 op_assign
-id|next_interesting
+id|find_next
 c_func
 (paren
 id|sline
@@ -2051,7 +2047,7 @@ r_goto
 id|again
 suffix:semicolon
 )brace
-multiline_comment|/* j is the first uninteresting line and there is&n;&t;&t; * no overlap beyond it within context lines.&n;&t;&t; */
+multiline_comment|/* j is the first uninteresting line and there is&n;&t;&t; * no overlap beyond it within context lines.  Paint&n;&t;&t; * the trailing edge a bit.&n;&t;&t; */
 id|i
 op_assign
 id|k
@@ -2432,7 +2428,6 @@ r_int
 r_int
 id|this_diff
 op_assign
-op_complement
 id|sline
 (braket
 id|j
@@ -2880,6 +2875,10 @@ suffix:semicolon
 r_int
 id|j
 suffix:semicolon
+r_int
+r_int
+id|p_mask
+suffix:semicolon
 id|sl
 op_assign
 op_amp
@@ -2950,6 +2949,10 @@ op_assign
 id|ll-&gt;next
 suffix:semicolon
 )brace
+id|p_mask
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -2968,26 +2971,26 @@ op_increment
 r_if
 c_cond
 (paren
-(paren
-l_int|1UL
-op_lshift
-id|j
-)paren
+id|p_mask
 op_amp
 id|sl-&gt;flag
 )paren
 id|putchar
 c_func
 (paren
-l_char|&squot; &squot;
+l_char|&squot;+&squot;
 )paren
 suffix:semicolon
 r_else
 id|putchar
 c_func
 (paren
-l_char|&squot;+&squot;
+l_char|&squot; &squot;
 )paren
+suffix:semicolon
+id|p_mask
+op_lshift_assign
+l_int|1
 suffix:semicolon
 )brace
 id|printf
@@ -3107,16 +3110,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
 id|sline-&gt;flag
 op_amp
 id|jmask
 )paren
-)paren
 id|sline-&gt;flag
-op_and_assign
-op_complement
+op_or_assign
 id|imask
 suffix:semicolon
 id|sline
@@ -3542,12 +3541,7 @@ id|lno
 dot
 id|flag
 op_assign
-(paren
-l_int|1UL
-op_lshift
-id|num_parent
-)paren
-l_int|1
+l_int|0
 suffix:semicolon
 id|lno
 op_increment
@@ -3635,12 +3629,7 @@ l_int|1
 dot
 id|flag
 op_assign
-(paren
-l_int|1UL
-op_lshift
-id|num_parent
-)paren
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 id|sline
@@ -3814,13 +3803,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|header
-op_logical_and
-(paren
 id|show_hunks
-op_logical_or
-id|show_empty
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|header
 )paren
 (brace
 id|shown_header
@@ -3833,12 +3822,6 @@ id|header
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|show_hunks
-)paren
-(brace
 id|printf
 c_func
 (paren
@@ -4048,6 +4031,17 @@ suffix:semicolon
 )brace
 )brace
 )brace
+id|free
+c_func
+(paren
+id|sline
+(braket
+l_int|0
+)braket
+dot
+id|p_lno
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
