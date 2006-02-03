@@ -573,6 +573,8 @@ id|logerror
 c_func
 (paren
 l_string|&quot;&squot;%s&squot;: Non-absolute path denied (base-path active)&quot;
+comma
+id|dir
 )paren
 suffix:semicolon
 r_return
