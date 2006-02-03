@@ -2639,7 +2639,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;-%lu,%lu &quot;
+l_string|&quot; -%lu,%lu&quot;
 comma
 id|l0
 comma
@@ -2791,20 +2791,6 @@ c_func
 id|combine_marker
 )paren
 suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot; +%lu,%lu &quot;
-comma
-id|lno
-op_plus
-l_int|1
-comma
-id|hunk_end
-op_minus
-id|lno
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -2831,6 +2817,20 @@ comma
 id|cnt
 comma
 id|i
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot; +%lu,%lu &quot;
+comma
+id|lno
+op_plus
+l_int|1
+comma
+id|hunk_end
+op_minus
+id|lno
 )paren
 suffix:semicolon
 r_for
@@ -3906,7 +3906,7 @@ comma
 id|i
 ques
 c_cond
-l_string|&quot;..&quot;
+l_string|&quot;,&quot;
 suffix:colon
 l_string|&quot;&quot;
 comma
@@ -3926,7 +3926,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;-&gt;%s&bslash;n&quot;
+l_string|&quot;..%s&bslash;n&quot;
 comma
 id|find_unique_abbrev
 c_func
