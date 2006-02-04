@@ -562,13 +562,27 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|strict_paths
+op_logical_and
+op_star
+id|dir
+op_eq
+l_char|&squot;~&squot;
+)paren
+suffix:semicolon
+multiline_comment|/* allow user relative paths */
+r_else
+r_if
+c_cond
+(paren
 op_star
 id|dir
 op_ne
 l_char|&squot;/&squot;
 )paren
 (brace
-multiline_comment|/* Forbid possible base-path evasion using ~paths. */
+multiline_comment|/* otherwise allow only absolute */
 id|logerror
 c_func
 (paren
@@ -581,6 +595,8 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+r_else
+(brace
 id|snprintf
 c_func
 (paren
@@ -599,6 +615,7 @@ id|dir
 op_assign
 id|rpath
 suffix:semicolon
+)brace
 )brace
 id|path
 op_assign
