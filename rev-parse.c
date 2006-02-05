@@ -416,7 +416,7 @@ suffix:semicolon
 multiline_comment|/* Output a flag, only if filter allows it. */
 DECL|function|show_flag
 r_static
-r_void
+r_int
 id|show_flag
 c_func
 (paren
@@ -436,6 +436,7 @@ id|DO_FLAGS
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -455,11 +456,19 @@ suffix:colon
 id|DO_NOREV
 )paren
 )paren
+(brace
 id|show
 c_func
 (paren
 id|arg
 )paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|show_default
@@ -1517,18 +1526,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|show_flag
+c_func
+(paren
+id|arg
+)paren
+op_logical_and
 id|verify
 )paren
 id|die
 c_func
 (paren
 l_string|&quot;Needed a single revision&quot;
-)paren
-suffix:semicolon
-id|show_flag
-c_func
-(paren
-id|arg
 )paren
 suffix:semicolon
 r_continue
