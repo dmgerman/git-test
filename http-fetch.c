@@ -1507,11 +1507,9 @@ c_func
 id|obj_req-&gt;sha1
 )paren
 )paren
-id|release_object_request
-c_func
-(paren
-id|obj_req
-)paren
+id|obj_req-&gt;state
+op_assign
+id|COMPLETE
 suffix:semicolon
 r_else
 id|start_object_request
@@ -2274,17 +2272,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|start_active_slot
 c_func
 (paren
 id|slot
 )paren
 )paren
-(brace
-r_return
-suffix:semicolon
-)brace
-r_else
 (brace
 id|got_alternates
 op_assign
@@ -2294,9 +2288,9 @@ id|slot-&gt;in_use
 op_assign
 l_int|0
 suffix:semicolon
+)brace
 r_return
 suffix:semicolon
-)brace
 )brace
 )brace
 r_else
@@ -4111,15 +4105,9 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;unable to write sha1 filename %s: %s&quot;
+l_string|&quot;unable to write sha1 filename %s&quot;
 comma
 id|obj_req-&gt;filename
-comma
-id|strerror
-c_func
-(paren
-id|obj_req-&gt;rename
-)paren
 )paren
 suffix:semicolon
 )brace
