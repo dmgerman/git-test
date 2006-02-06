@@ -29,13 +29,6 @@ id|ignore_merges
 op_assign
 l_int|1
 suffix:semicolon
-DECL|variable|show_empty_combined
-r_static
-r_int
-id|show_empty_combined
-op_assign
-l_int|0
-suffix:semicolon
 DECL|variable|combine_merges
 r_static
 r_int
@@ -678,8 +671,6 @@ c_func
 id|sha1
 comma
 id|header
-comma
-id|show_empty_combined
 comma
 id|dense_combined_merges
 )paren
@@ -1415,11 +1406,6 @@ id|combine_merges
 id|diff_options.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
-suffix:semicolon
-id|show_empty_combined
-op_assign
-op_logical_neg
-id|ignore_merges
 suffix:semicolon
 id|ignore_merges
 op_assign

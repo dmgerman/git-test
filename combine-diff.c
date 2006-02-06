@@ -3143,9 +3143,6 @@ r_const
 r_char
 op_star
 id|header
-comma
-r_int
-id|show_empty
 )paren
 (brace
 r_int
@@ -4069,9 +4066,6 @@ op_star
 id|header
 comma
 r_int
-id|show_empty_merge
-comma
-r_int
 id|dense
 )paren
 (brace
@@ -4244,8 +4238,6 @@ r_if
 c_cond
 (paren
 id|num_paths
-op_logical_or
-id|show_empty_merge
 )paren
 (brace
 r_for
@@ -4283,8 +4275,6 @@ comma
 id|dense
 comma
 id|header
-comma
-id|show_empty_merge
 )paren
 )paren
 id|header
