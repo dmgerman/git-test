@@ -3633,6 +3633,18 @@ l_int|0
 )paren
 r_return
 suffix:semicolon
+multiline_comment|/* Reset per part headers */
+id|transfer_encoding
+op_assign
+id|TE_DONTCARE
+suffix:semicolon
+id|charset
+(braket
+l_int|0
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_else
 id|check_subheader_line
