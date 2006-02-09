@@ -84,27 +84,24 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|hdr-&gt;hdr_version
-op_ne
-id|htonl
+op_logical_neg
+id|pack_version_ok
 c_func
 (paren
-id|PACK_VERSION
+id|hdr-&gt;hdr_version
 )paren
 )paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;Packfile version %d different from ours %d&quot;
+l_string|&quot;Packfile version %d unsupported&quot;
 comma
 id|ntohl
 c_func
 (paren
 id|hdr-&gt;hdr_version
 )paren
-comma
-id|PACK_VERSION
 )paren
 suffix:semicolon
 id|nr_objects

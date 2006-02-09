@@ -1310,15 +1310,6 @@ id|pack_header
 )paren
 suffix:semicolon
 r_int
-id|version
-op_assign
-id|ntohl
-c_func
-(paren
-id|hdr-&gt;hdr_version
-)paren
-suffix:semicolon
-r_int
 id|nr_objects
 op_assign
 id|ntohl
@@ -1347,16 +1338,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|version
-op_ne
-id|PACK_VERSION
+op_logical_neg
+id|pack_version_ok
+c_func
+(paren
+id|hdr-&gt;hdr_version
+)paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;unable to handle pack file version %d&quot;
+l_string|&quot;unknown pack file version %d&quot;
 comma
-id|version
+id|ntohl
+c_func
+(paren
+id|hdr-&gt;hdr_version
+)paren
 )paren
 suffix:semicolon
 id|fprintf
