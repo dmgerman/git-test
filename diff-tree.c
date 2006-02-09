@@ -1259,6 +1259,8 @@ l_string|&quot;-m&quot;
 )paren
 )paren
 (brace
+id|combine_merges
+op_assign
 id|ignore_merges
 op_assign
 l_int|0
