@@ -832,6 +832,27 @@ id|email
 op_assign
 id|git_default_email
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|name
+op_logical_or
+op_logical_neg
+op_star
+id|email
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;empty ident %s &lt;%s&gt; not allowed&quot;
+comma
+id|name
+comma
+id|email
+)paren
+suffix:semicolon
 id|strcpy
 c_func
 (paren
