@@ -6298,6 +6298,8 @@ id|pos
 comma
 op_amp
 id|st
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_if
