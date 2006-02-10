@@ -2806,15 +2806,15 @@ id|head_at
 op_assign
 l_int|1
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
 id|git_show_branch_config
-)paren
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
 )paren
 suffix:semicolon
 multiline_comment|/* If nothing is specified, try the default first */

@@ -438,6 +438,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -468,11 +473,6 @@ id|usage
 c_func
 (paren
 id|commit_tree_usage
-)paren
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
 )paren
 suffix:semicolon
 id|check_valid
