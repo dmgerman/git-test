@@ -4,7 +4,7 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;limits.h&gt;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;count-delta.h&quot;
-multiline_comment|/*&n; * NOTE.  We do not _interpret_ delta fully.  As an approximation, we&n; * just count the number of bytes that are copied from the source, and&n; * the number of literal data bytes that are inserted.&n; *&n; * Number of bytes that are _not_ copied from the source is deletion,&n; * and number of inserted literal bytes are addition, so sum of them&n; * is the extent of damage.  xdelta can express an edit that copies&n; * data inside of the destination which originally came from the&n; * source.  We do not count that in the following routine, so we are&n; * undercounting the source material that remains in the final output&n; * that way.&n; */
+multiline_comment|/*&n; * NOTE.  We do not _interpret_ delta fully.  As an approximation, we&n; * just count the number of bytes that are copied from the source, and&n; * the number of literal data bytes that are inserted.&n; *&n; * Number of bytes that are _not_ copied from the source is deletion,&n; * and number of inserted literal bytes are addition, so sum of them&n; * is the extent of damage.&n; */
 DECL|function|count_delta
 r_int
 id|count_delta
