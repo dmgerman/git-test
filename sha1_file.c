@@ -1,6 +1,4 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; *&n; * This handles basic git sha1 object files - packing, unpacking,&n; * creation etc.&n; */
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;dirent.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
@@ -315,6 +313,10 @@ id|pos
 op_assign
 id|path
 suffix:semicolon
+r_struct
+id|stat
+id|st
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -358,6 +360,43 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|stat
+c_func
+(paren
+id|path
+comma
+op_amp
+id|st
+)paren
+)paren
+(brace
+multiline_comment|/* path exists */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISDIR
+c_func
+(paren
+id|st.st_mode
+)paren
+)paren
+(brace
+op_star
+id|pos
+op_assign
+l_char|&squot;/&squot;
+suffix:semicolon
+r_return
+l_int|3
+suffix:semicolon
+)brace
+)brace
+r_else
+r_if
+c_cond
+(paren
 id|mkdir
 c_func
 (paren
@@ -365,16 +404,6 @@ id|path
 comma
 l_int|0777
 )paren
-OL
-l_int|0
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|errno
-op_ne
-id|EEXIST
 )paren
 (brace
 op_star
@@ -385,7 +414,6 @@ suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
-)brace
 )brace
 r_else
 r_if
