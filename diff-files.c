@@ -554,14 +554,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|combine_merges
+id|dense_combined_merges
 )paren
-(brace
 id|diff_options.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
-)brace
 multiline_comment|/* Find the directory, and set up the pathspec */
 id|pathspec
 op_assign
@@ -911,6 +909,9 @@ comma
 id|dense_combined_merges
 comma
 l_int|NULL
+comma
+op_amp
+id|diff_options
 )paren
 suffix:semicolon
 id|free
