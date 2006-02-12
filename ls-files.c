@@ -66,6 +66,13 @@ id|show_other_directories
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|show_valid_bit
+r_static
+r_int
+id|show_valid_bit
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|line_terminator
 r_static
 r_int
@@ -2302,6 +2309,8 @@ op_logical_and
 op_star
 id|tag
 op_logical_and
+id|show_valid_bit
+op_logical_and
 (paren
 id|ce-&gt;ce_flags
 op_amp
@@ -3252,7 +3261,7 @@ id|ls_files_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-files [-z] [-t] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
+l_string|&quot;git-ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
 l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--full-name] [--] [&lt;file&gt;]*&quot;
 suffix:semicolon
@@ -3380,6 +3389,15 @@ id|arg
 comma
 l_string|&quot;-t&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-v&quot;
+)paren
 )paren
 (brace
 id|tag_cached
@@ -3405,6 +3423,20 @@ suffix:semicolon
 id|tag_killed
 op_assign
 l_string|&quot;K &quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|arg
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;v&squot;
+)paren
+id|show_valid_bit
+op_assign
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
