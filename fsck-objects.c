@@ -270,7 +270,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|nr_objs
+id|obj_allocs
 suffix:semicolon
 id|i
 op_increment
@@ -285,6 +285,14 @@ id|objs
 (braket
 id|i
 )braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|obj
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
