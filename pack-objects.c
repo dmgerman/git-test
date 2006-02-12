@@ -12,7 +12,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-objects [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] {--stdout | base-name} &lt; object-list&quot;
+l_string|&quot;git-pack-objects [-q] [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] {--stdout | base-name} &lt; object-list&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -149,7 +149,7 @@ r_static
 r_int
 id|progress
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 DECL|function|delta_against
 r_static
@@ -2908,6 +2908,26 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;-q&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|progress
+op_assign
+l_int|0
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;--stdout&quot;
 comma
 id|arg
@@ -2956,14 +2976,6 @@ id|usage
 c_func
 (paren
 id|pack_usage
-)paren
-suffix:semicolon
-id|progress
-op_assign
-id|isatty
-c_func
-(paren
-l_int|2
 )paren
 suffix:semicolon
 id|prepare_packed_git
