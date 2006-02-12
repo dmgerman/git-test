@@ -34,7 +34,7 @@ r_static
 r_int
 id|combine_merges
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 DECL|variable|dense_combined_merges
 r_static
@@ -1259,8 +1259,6 @@ l_string|&quot;-m&quot;
 )paren
 )paren
 (brace
-id|combine_merges
-op_assign
 id|ignore_merges
 op_assign
 l_int|0
