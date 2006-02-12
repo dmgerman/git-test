@@ -1826,6 +1826,8 @@ c_func
 id|fd
 comma
 l_string|&quot;git-fetch-pack&quot;
+comma
+id|quiet
 )paren
 suffix:semicolon
 r_else
