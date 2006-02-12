@@ -321,7 +321,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|count
+id|obj_allocs
 suffix:semicolon
 id|i
 op_increment
