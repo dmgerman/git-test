@@ -1110,16 +1110,14 @@ id|len2
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* Differences between &quot;assume up-to-date&quot; should not matter. */
+multiline_comment|/* Compare stages  */
 id|flags1
 op_and_assign
-op_complement
-id|CE_VALID
+id|CE_STAGEMASK
 suffix:semicolon
 id|flags2
 op_and_assign
-op_complement
-id|CE_VALID
+id|CE_STAGEMASK
 suffix:semicolon
 r_if
 c_cond
