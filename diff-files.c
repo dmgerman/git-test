@@ -867,6 +867,17 @@ c_func
 id|mode
 )paren
 suffix:semicolon
+id|combine.p.parent
+(braket
+id|stage
+op_minus
+l_int|2
+)braket
+dot
+id|status
+op_assign
+id|DIFF_STATUS_MODIFIED
+suffix:semicolon
 )brace
 multiline_comment|/* diff against the proper unmerged stage */
 r_if
