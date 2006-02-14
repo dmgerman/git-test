@@ -3283,10 +3283,10 @@ id|ourtmp
 op_assign
 id|ourtmp_buf
 suffix:semicolon
-multiline_comment|/* Read the result of merge first */
-r_if
-c_cond
-(paren
+r_int
+id|working_tree_file
+op_assign
+op_logical_neg
 id|memcmp
 c_func
 (paren
@@ -3296,6 +3296,13 @@ id|null_sha1
 comma
 l_int|20
 )paren
+suffix:semicolon
+multiline_comment|/* Read the result of merge first */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|working_tree_file
 )paren
 (brace
 id|result
@@ -3371,6 +3378,14 @@ r_int
 id|cnt
 op_assign
 l_int|0
+suffix:semicolon
+id|elem-&gt;mode
+op_assign
+id|DIFF_FILE_CANON_MODE
+c_func
+(paren
+id|st.st_mode
+)paren
 suffix:semicolon
 id|size
 op_assign
@@ -3452,6 +3467,10 @@ r_else
 (brace
 multiline_comment|/* deleted file */
 id|size
+op_assign
+l_int|0
+suffix:semicolon
+id|elem-&gt;mode
 op_assign
 l_int|0
 suffix:semicolon
@@ -3907,6 +3926,8 @@ c_cond
 id|show_hunks
 op_logical_or
 id|mode_differs
+op_logical_or
+id|working_tree_file
 )paren
 (brace
 r_const
@@ -4006,22 +4027,6 @@ id|i
 op_increment
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|elem-&gt;parent
-(braket
-id|i
-)braket
-dot
-id|mode
-op_ne
-id|elem-&gt;mode
-)paren
-id|mode_differs
-op_assign
-l_int|1
-suffix:semicolon
 id|abb
 op_assign
 id|find_unique_abbrev
