@@ -4111,6 +4111,7 @@ op_star
 id|store_size
 comma
 r_int
+r_int
 op_star
 id|delta_chain_length
 comma
@@ -4182,6 +4183,7 @@ l_int|0
 suffix:semicolon
 r_else
 (brace
+r_int
 r_int
 id|chain_length
 op_assign

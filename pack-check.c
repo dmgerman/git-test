@@ -476,6 +476,7 @@ r_int
 id|store_size
 suffix:semicolon
 r_int
+r_int
 id|delta_chain_length
 suffix:semicolon
 r_if
@@ -572,7 +573,7 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %u %d %s&bslash;n&quot;
+l_string|&quot;%-6s %lu %u %u %s&bslash;n&quot;
 comma
 id|type
 comma
