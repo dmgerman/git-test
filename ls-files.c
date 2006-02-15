@@ -4013,7 +4013,7 @@ id|pathspec
 id|num
 )braket
 op_plus
-id|prefix_len
+id|prefix_offset
 )paren
 suffix:semicolon
 )brace
