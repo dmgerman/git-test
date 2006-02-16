@@ -5,7 +5,9 @@ macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
+macro_line|#ifndef NO_ICONV
 macro_line|#include &lt;iconv.h&gt;
+macro_line|#endif
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|cmitmsg
@@ -2476,6 +2478,7 @@ op_star
 id|charset
 )paren
 (brace
+macro_line|#ifndef NO_ICONV
 r_char
 op_star
 id|in
@@ -2674,6 +2677,7 @@ comma
 id|outbuf
 )paren
 suffix:semicolon
+macro_line|#endif
 )brace
 DECL|function|decode_header_bq
 r_static
