@@ -12,7 +12,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-objects [-q] [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] {--stdout | base-name} &lt; object-list&quot;
+l_string|&quot;git-pack-objects [-q] [--no-reuse-delta] [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] {--stdout | base-name} &lt; object-list&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -55,6 +55,18 @@ r_enum
 id|object_type
 id|type
 suffix:semicolon
+DECL|member|edge
+r_int
+r_char
+id|edge
+suffix:semicolon
+multiline_comment|/* reused delta chain points at this entry. */
+DECL|member|in_pack_type
+r_enum
+id|object_type
+id|in_pack_type
+suffix:semicolon
+multiline_comment|/* could be delta */
 DECL|member|delta_size
 r_int
 r_int
@@ -75,12 +87,6 @@ op_star
 id|in_pack
 suffix:semicolon
 multiline_comment|/* already in pack */
-DECL|member|in_pack_type
-r_enum
-id|object_type
-id|in_pack_type
-suffix:semicolon
-multiline_comment|/* could be delta */
 DECL|member|in_pack_offset
 r_int
 r_int
@@ -102,6 +108,13 @@ DECL|variable|non_empty
 r_static
 r_int
 id|non_empty
+op_assign
+l_int|0
+suffix:semicolon
+DECL|variable|no_reuse_delta
+r_static
+r_int
+id|no_reuse_delta
 op_assign
 l_int|0
 suffix:semicolon
@@ -231,10 +244,24 @@ id|written
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|written_delta
+r_static
+r_int
+id|written_delta
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|reused
 r_static
 r_int
 id|reused
+op_assign
+l_int|0
+suffix:semicolon
+DECL|variable|reused_delta
+r_static
+r_int
+id|reused_delta
 op_assign
 l_int|0
 suffix:semicolon
@@ -1064,6 +1091,11 @@ r_enum
 id|object_type
 id|obj_type
 suffix:semicolon
+r_int
+id|to_reuse
+op_assign
+l_int|0
+suffix:semicolon
 id|obj_type
 op_assign
 id|entry-&gt;type
@@ -1073,12 +1105,60 @@ c_cond
 (paren
 op_logical_neg
 id|entry-&gt;in_pack
-op_logical_or
+)paren
+id|to_reuse
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* can&squot;t reuse what we don&squot;t have */
+r_else
+r_if
+c_cond
+(paren
+id|obj_type
+op_eq
+id|OBJ_DELTA
+)paren
+id|to_reuse
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* check_object() decided it for us */
+r_else
+r_if
+c_cond
 (paren
 id|obj_type
 op_ne
 id|entry-&gt;in_pack_type
 )paren
+id|to_reuse
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* pack has delta which is unusable */
+r_else
+r_if
+c_cond
+(paren
+id|entry-&gt;delta
+)paren
+id|to_reuse
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* we want to pack afresh */
+r_else
+id|to_reuse
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* we have it in-pack undeltified,&n;&t;&t;&t;&t; * and we do not need to deltify it.&n;&t;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|to_reuse
 )paren
 (brace
 id|buf
@@ -1277,10 +1357,30 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* not really */
+r_if
+c_cond
+(paren
+id|obj_type
+op_eq
+id|OBJ_DELTA
+)paren
+id|reused_delta
+op_increment
+suffix:semicolon
 id|reused
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|obj_type
+op_eq
+id|OBJ_DELTA
+)paren
+id|written_delta
+op_increment
+suffix:semicolon
 id|written
 op_increment
 suffix:semicolon
@@ -1377,10 +1477,6 @@ suffix:semicolon
 r_int
 r_int
 id|offset
-suffix:semicolon
-r_int
-r_int
-id|mb
 suffix:semicolon
 r_struct
 id|pack_header
@@ -1768,12 +1864,12 @@ suffix:semicolon
 r_int
 r_int
 id|found_offset
+op_assign
+l_int|0
 suffix:semicolon
 r_struct
 id|packed_git
 op_star
-id|found_pack
-suffix:semicolon
 id|found_pack
 op_assign
 l_int|NULL
@@ -2114,7 +2210,6 @@ c_cond
 id|entry-&gt;in_pack
 )paren
 (brace
-multiline_comment|/* Check if it is delta, and the base is also an object&n;&t;&t; * we are going to pack.  If so we will reuse the existing&n;&t;&t; * delta.&n;&t;&t; */
 r_int
 r_char
 id|base
@@ -2131,10 +2226,7 @@ id|object_entry
 op_star
 id|base_entry
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+multiline_comment|/* We want in_pack_type even if we do not reuse delta.&n;&t;&t; * There is no point not reusing non-delta representations.&n;&t;&t; */
 id|check_reuse_pack_delta
 c_func
 (paren
@@ -2150,6 +2242,17 @@ comma
 op_amp
 id|entry-&gt;in_pack_type
 )paren
+suffix:semicolon
+multiline_comment|/* Check if it is delta, and the base is also an object&n;&t;&t; * we are going to pack.  If so we will reuse the existing&n;&t;&t; * delta.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|no_reuse_delta
+op_logical_and
+id|entry-&gt;in_pack_type
+op_eq
+id|OBJ_DELTA
 op_logical_and
 (paren
 id|base_entry
@@ -2162,12 +2265,8 @@ id|base
 )paren
 )paren
 (brace
-multiline_comment|/* We do not know depth at this point, but it&n;&t;&t;&t; * does not matter.  Getting delta_chain_length&n;&t;&t;&t; * with packed_object_info_detail() is not so&n;&t;&t;&t; * expensive, so we could do that later if we&n;&t;&t;&t; * wanted to.  Calling sha1_object_info to get&n;&t;&t;&t; * the true size (and later an uncompressed&n;&t;&t;&t; * representation) of deeply deltified object&n;&t;&t;&t; * is quite expensive.&n;&t;&t;&t; */
-id|entry-&gt;depth
-op_assign
-l_int|1
-suffix:semicolon
-multiline_comment|/* uncompressed size */
+multiline_comment|/* Depth value does not matter - find_deltas()&n;&t;&t;&t; * will never consider reused delta as the&n;&t;&t;&t; * base object to deltify other objects&n;&t;&t;&t; * against, in order to avoid circular deltas.&n;&t;&t;&t; */
+multiline_comment|/* uncompressed size of the delta data */
 id|entry-&gt;size
 op_assign
 id|entry-&gt;delta_size
@@ -2181,6 +2280,10 @@ suffix:semicolon
 id|entry-&gt;type
 op_assign
 id|OBJ_DELTA
+suffix:semicolon
+id|base_entry-&gt;edge
+op_assign
+l_int|1
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -2828,6 +2931,16 @@ id|old_entry-&gt;type
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* If the current object is at edge, take the depth the objects&n;&t; * that depend on the current object into account -- otherwise&n;&t; * they would become too deep.&n;&t; */
+r_if
+c_cond
+(paren
+id|cur_entry-&gt;edge
+)paren
+id|max_depth
+op_div_assign
+l_int|4
+suffix:semicolon
 id|size
 op_assign
 id|cur_entry-&gt;size
@@ -3110,7 +3223,7 @@ c_cond
 (paren
 id|entry-&gt;delta
 )paren
-multiline_comment|/* This happens if we decided to reuse existing&n;&t;&t;&t; * delta from a pack.&n;&t;&t;&t; */
+multiline_comment|/* This happens if we decided to reuse existing&n;&t;&t;&t; * delta from a pack.  &quot;!no_reuse_delta &amp;&amp;&quot; is implied.&n;&t;&t;&t; */
 r_continue
 suffix:semicolon
 id|free
@@ -3313,12 +3426,12 @@ c_cond
 (paren
 id|progress
 )paren
-id|fprintf
+id|fputc
 c_func
 (paren
-id|stderr
+l_char|&squot;.&squot;
 comma
-l_string|&quot;.&quot;
+id|stderr
 )paren
 suffix:semicolon
 id|sorted_by_type
@@ -3495,6 +3608,11 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|progress
+)paren
 id|fprintf
 c_func
 (paren
@@ -4024,6 +4142,26 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;--no-reuse-delta&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|no_reuse_delta
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;--stdout&quot;
 comma
 id|arg
@@ -4447,18 +4585,27 @@ id|object_list_sha1
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|progress
+)paren
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total %d, written %d, reused %d&bslash;n&quot;
+l_string|&quot;Total %d, written %d (delta %d), reused %d (delta %d)&bslash;n&quot;
 comma
 id|nr_objects
 comma
 id|written
 comma
+id|written_delta
+comma
 id|reused
+comma
+id|reused_delta
 )paren
 suffix:semicolon
 r_return
