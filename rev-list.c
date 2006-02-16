@@ -38,6 +38,7 @@ l_string|&quot;    --all&bslash;n&quot;
 l_string|&quot;  ordering output:&bslash;n&quot;
 l_string|&quot;    --merge-order [ --show-breaks ]&bslash;n&quot;
 l_string|&quot;    --topo-order&bslash;n&quot;
+l_string|&quot;    --date-order&bslash;n&quot;
 l_string|&quot;  formatting output:&bslash;n&quot;
 l_string|&quot;    --parents&bslash;n&quot;
 l_string|&quot;    --objects&bslash;n&quot;
@@ -184,6 +185,13 @@ r_int
 id|topo_order
 op_assign
 l_int|0
+suffix:semicolon
+DECL|variable|lifo
+r_static
+r_int
+id|lifo
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|no_merges
 r_static
@@ -3938,6 +3946,38 @@ id|topo_order
 op_assign
 l_int|1
 suffix:semicolon
+id|lifo
+op_assign
+l_int|1
+suffix:semicolon
+id|limited
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--date-order&quot;
+)paren
+)paren
+(brace
+id|topo_order
+op_assign
+l_int|1
+suffix:semicolon
+id|lifo
+op_assign
+l_int|0
+suffix:semicolon
 id|limited
 op_assign
 l_int|1
@@ -4419,6 +4459,8 @@ c_func
 (paren
 op_amp
 id|list
+comma
+id|lifo
 )paren
 suffix:semicolon
 id|show_commit_list
