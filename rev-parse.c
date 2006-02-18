@@ -118,6 +118,8 @@ l_string|&quot;--sparse&quot;
 comma
 l_string|&quot;--topo-order&quot;
 comma
+l_string|&quot;--date-order&quot;
+comma
 l_string|&quot;--unpacked&quot;
 comma
 l_int|NULL
