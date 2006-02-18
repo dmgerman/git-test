@@ -1086,7 +1086,7 @@ id|arg
 comma
 l_string|&quot;--short=&quot;
 comma
-l_int|9
+l_int|8
 )paren
 )paren
 (brace
@@ -1112,7 +1112,7 @@ c_cond
 (paren
 id|arg
 (braket
-l_int|8
+l_int|7
 )braket
 op_eq
 l_char|&squot;=&squot;
@@ -1124,7 +1124,7 @@ c_func
 (paren
 id|arg
 op_plus
-l_int|9
+l_int|8
 comma
 l_int|NULL
 comma
