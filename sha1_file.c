@@ -2785,8 +2785,26 @@ c_cond
 op_logical_neg
 id|dir
 )paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;unable to open object pack directory: %s: %s&bslash;n&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
+)brace
 id|path
 (braket
 id|len
