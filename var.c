@@ -32,7 +32,7 @@ op_star
 id|read
 )paren
 (paren
-r_void
+r_int
 )paren
 suffix:semicolon
 )brace
@@ -105,6 +105,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
+l_int|0
 )paren
 )paren
 suffix:semicolon
@@ -172,6 +173,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
+l_int|1
 )paren
 suffix:semicolon
 r_break

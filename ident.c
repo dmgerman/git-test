@@ -176,40 +176,6 @@ l_string|&quot;Your parents must have hated you!&quot;
 )paren
 suffix:semicolon
 )brace
-DECL|variable|au_env
-r_static
-r_const
-r_char
-id|au_env
-(braket
-)braket
-op_assign
-l_string|&quot;GIT_AUTHOR_NAME&quot;
-suffix:semicolon
-DECL|variable|co_env
-r_static
-r_const
-r_char
-id|co_env
-(braket
-)braket
-op_assign
-l_string|&quot;GIT_COMMITTER_NAME&quot;
-suffix:semicolon
-DECL|variable|env_hint
-r_static
-r_const
-r_char
-id|env_hint
-(braket
-)braket
-op_assign
-l_string|&quot;&bslash;n*** Environment problem:&bslash;n&quot;
-l_string|&quot;*** Your name cannot be determined from your system services (gecos).&bslash;n&quot;
-l_string|&quot;*** You would need to set %s and %s&bslash;n&quot;
-l_string|&quot;*** environment variables; otherwise you won&squot;t be able to perform&bslash;n&quot;
-l_string|&quot;*** certain operations because of &bslash;&quot;empty ident&bslash;&quot; errors.&bslash;n&bslash;n&quot;
-suffix:semicolon
 DECL|function|setup_ident
 r_int
 id|setup_ident
@@ -261,44 +227,6 @@ id|git_default_name
 )paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-op_star
-id|git_default_name
-)paren
-(brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|getenv
-c_func
-(paren
-id|au_env
-)paren
-op_logical_or
-op_logical_neg
-id|getenv
-c_func
-(paren
-id|co_env
-)paren
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-id|env_hint
-comma
-id|au_env
-comma
-id|co_env
-)paren
-suffix:semicolon
-)brace
 multiline_comment|/* Make up a fake email address (name + &squot;@&squot; + hostname [+ &squot;.&squot; + domainname]) */
 id|len
 op_assign
@@ -844,6 +772,40 @@ r_return
 id|offset
 suffix:semicolon
 )brace
+DECL|variable|au_env
+r_static
+r_const
+r_char
+id|au_env
+(braket
+)braket
+op_assign
+l_string|&quot;GIT_AUTHOR_NAME&quot;
+suffix:semicolon
+DECL|variable|co_env
+r_static
+r_const
+r_char
+id|co_env
+(braket
+)braket
+op_assign
+l_string|&quot;GIT_COMMITTER_NAME&quot;
+suffix:semicolon
+DECL|variable|env_hint
+r_static
+r_const
+r_char
+op_star
+id|env_hint
+op_assign
+l_string|&quot;&bslash;n*** Environment problem:&bslash;n&quot;
+l_string|&quot;*** Your name cannot be determined from your system services (gecos).&bslash;n&quot;
+l_string|&quot;*** You would need to set %s and %s&bslash;n&quot;
+l_string|&quot;*** environment variables; otherwise you won&squot;t be able to perform&bslash;n&quot;
+l_string|&quot;*** certain operations because of &bslash;&quot;empty ident&bslash;&quot; errors.&bslash;n&quot;
+l_string|&quot;*** Alternatively, you can use user.name configuration variable.&bslash;n&bslash;n&quot;
+suffix:semicolon
 DECL|function|get_ident
 r_static
 r_const
@@ -866,6 +828,9 @@ r_const
 r_char
 op_star
 id|date_str
+comma
+r_int
+id|error_on_no_name
 )paren
 (brace
 r_static
@@ -910,10 +875,40 @@ c_cond
 op_logical_neg
 op_star
 id|name
-op_logical_or
-op_logical_neg
-op_star
-id|email
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|name
+op_eq
+id|git_default_name
+op_logical_and
+id|env_hint
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|env_hint
+comma
+id|au_env
+comma
+id|co_env
+)paren
+suffix:semicolon
+id|env_hint
+op_assign
+l_int|NULL
+suffix:semicolon
+multiline_comment|/* warn only once, for &quot;git-var -l&quot; */
+)brace
+r_if
+c_cond
+(paren
+id|error_on_no_name
 )paren
 id|die
 c_func
@@ -925,6 +920,7 @@ comma
 id|email
 )paren
 suffix:semicolon
+)brace
 id|strcpy
 c_func
 (paren
@@ -1070,7 +1066,8 @@ op_star
 id|git_author_info
 c_func
 (paren
-r_void
+r_int
+id|error_on_no_name
 )paren
 (brace
 r_return
@@ -1094,6 +1091,8 @@ c_func
 (paren
 l_string|&quot;GIT_AUTHOR_DATE&quot;
 )paren
+comma
+id|error_on_no_name
 )paren
 suffix:semicolon
 )brace
@@ -1104,7 +1103,8 @@ op_star
 id|git_committer_info
 c_func
 (paren
-r_void
+r_int
+id|error_on_no_name
 )paren
 (brace
 r_return
@@ -1128,6 +1128,8 @@ c_func
 (paren
 l_string|&quot;GIT_COMMITTER_DATE&quot;
 )paren
+comma
+id|error_on_no_name
 )paren
 suffix:semicolon
 )brace
