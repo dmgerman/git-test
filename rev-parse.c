@@ -108,6 +108,8 @@ l_string|&quot;--no-merges&quot;
 comma
 l_string|&quot;--objects&quot;
 comma
+l_string|&quot;--objects-edge&quot;
+comma
 l_string|&quot;--parents&quot;
 comma
 l_string|&quot;--pretty&quot;
