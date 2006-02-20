@@ -47,6 +47,13 @@ id|nr_our_refs
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|use_thin_pack
+r_static
+r_int
+id|use_thin_pack
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|has_sha1
 r_static
 r_int
@@ -234,10 +241,17 @@ c_cond
 (paren
 id|create_full_pack
 )paren
+(brace
 id|args
 op_assign
 l_int|10
 suffix:semicolon
+id|use_thin_pack
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* no point doing it */
+)brace
 r_else
 id|args
 op_assign
@@ -320,6 +334,11 @@ op_star
 id|p
 op_increment
 op_assign
+id|use_thin_pack
+ques
+c_cond
+l_string|&quot;--objects-edge&quot;
+suffix:colon
 l_string|&quot;--objects&quot;
 suffix:semicolon
 r_if
@@ -1100,6 +1119,23 @@ id|multi_ack
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|line
+op_plus
+l_int|45
+comma
+l_string|&quot;thin-pack&quot;
+)paren
+)paren
+id|use_thin_pack
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* We have sent all our refs already, and the other end&n;&t;&t; * should have chosen out of them; otherwise they are&n;&t;&t; * asking for nonsense.&n;&t;&t; *&n;&t;&t; * Hmph.  We may later want to allow &quot;want&quot; line that&n;&t;&t; * asks for something like &quot;master~10&quot; (symbolic)...&n;&t;&t; * would it make sense?  I don&squot;t know.&n;&t;&t; */
 id|o
 op_assign
@@ -1176,7 +1212,7 @@ r_char
 op_star
 id|capabilities
 op_assign
-l_string|&quot;multi_ack&quot;
+l_string|&quot;multi_ack thin-pack&quot;
 suffix:semicolon
 r_struct
 id|object
