@@ -675,6 +675,7 @@ comma
 id|git_author_info
 c_func
 (paren
+l_int|1
 )paren
 )paren
 suffix:semicolon
@@ -692,6 +693,7 @@ comma
 id|git_committer_info
 c_func
 (paren
+l_int|1
 )paren
 )paren
 suffix:semicolon
