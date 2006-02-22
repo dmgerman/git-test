@@ -1290,7 +1290,7 @@ c_loop
 id|objects
 )paren
 (brace
-multiline_comment|/* An object with name &quot;foo&bslash;n0000000000000000000000000000000000000000&quot;&n;&t;&t; * can be used confuse downstream git-pack-objects very badly.&n;&t;&t; */
+multiline_comment|/* An object with name &quot;foo&bslash;n0000000...&quot; can be used to&n;&t;&t; * confuse downstream git-pack-objects very badly.&n;&t;&t; */
 r_const
 r_char
 op_star
