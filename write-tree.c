@@ -554,14 +554,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ntohs
+id|ce_stage
 c_func
 (paren
-id|ce-&gt;ce_flags
+id|ce
 )paren
-op_amp
-op_complement
-id|CE_NAMEMASK
 )paren
 (brace
 r_if
