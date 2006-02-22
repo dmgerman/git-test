@@ -4169,6 +4169,9 @@ op_plus
 id|prefix_offset
 )paren
 suffix:semicolon
+id|errors
+op_increment
+suffix:semicolon
 )brace
 r_return
 id|errors
