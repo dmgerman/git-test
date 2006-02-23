@@ -2200,6 +2200,10 @@ l_int|NULL
 suffix:semicolon
 r_int
 id|ix
+comma
+id|status
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -2465,6 +2469,10 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
+id|status
+op_assign
+l_int|1
+suffix:semicolon
 id|already_added
 suffix:colon
 r_if
@@ -2495,7 +2503,7 @@ suffix:semicolon
 )brace
 )brace
 r_return
-l_int|1
+id|status
 suffix:semicolon
 )brace
 DECL|function|add_pbase_tree
@@ -2588,6 +2596,10 @@ id|size
 )paren
 r_continue
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|add_object_entry
 c_func
 (paren
@@ -2597,6 +2609,8 @@ id|name
 comma
 l_int|1
 )paren
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
@@ -2706,6 +2720,9 @@ id|tree.buf
 )paren
 r_return
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|add_object_entry
 c_func
 (paren
@@ -2715,7 +2732,7 @@ l_string|&quot;&quot;
 comma
 l_int|1
 )paren
-suffix:semicolon
+)paren
 id|add_pbase_tree
 c_func
 (paren
@@ -3767,7 +3784,7 @@ suffix:semicolon
 r_else
 multiline_comment|/* trying with non-preferred one when we&n;&t;&t;&t;&t; * already have a delta based on preferred&n;&t;&t;&t;&t; * one is pointless.&n;&t;&t;&t;&t; */
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 )brace
 r_else
