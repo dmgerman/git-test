@@ -834,9 +834,17 @@ id|delta_size
 op_star
 id|MAX_SCORE
 )paren
+(brace
+id|free
+c_func
+(paren
+id|delta
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
+)brace
 multiline_comment|/* Estimate the edit size by interpreting delta. */
 r_if
 c_cond
