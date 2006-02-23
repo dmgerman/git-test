@@ -474,7 +474,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;%s died of signal&bslash;n&quot;
+l_string|&quot;%s died of signal&quot;
 comma
 id|update_hook
 )paren
@@ -868,7 +868,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;hook declined to update %s&bslash;n&quot;
+l_string|&quot;hook declined to update %s&quot;
 comma
 id|name
 )paren
