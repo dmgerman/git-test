@@ -2697,7 +2697,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Cannot do a twoway merge of %d trees&bslash;n&quot;
+l_string|&quot;Cannot do a twoway merge of %d trees&quot;
 comma
 id|merge_size
 )paren
@@ -2962,7 +2962,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Cannot do a oneway merge of %d trees&bslash;n&quot;
+l_string|&quot;Cannot do a oneway merge of %d trees&quot;
 comma
 id|merge_size
 )paren

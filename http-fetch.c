@@ -615,7 +615,7 @@ suffix:semicolon
 id|error
 c_func
 (paren
-l_string|&quot;Couldn&squot;t create temporary file %s for %s: %s&bslash;n&quot;
+l_string|&quot;Couldn&squot;t create temporary file %s for %s: %s&quot;
 comma
 id|obj_req-&gt;tmpfile
 comma
@@ -4118,7 +4118,7 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;File %s (%s) corrupt&bslash;n&quot;
+l_string|&quot;File %s (%s) corrupt&quot;
 comma
 id|hex
 comma
@@ -4146,7 +4146,7 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;File %s has bad hash&bslash;n&quot;
+l_string|&quot;File %s has bad hash&quot;
 comma
 id|hex
 )paren
@@ -4251,7 +4251,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Unable to find %s under %s&bslash;n&quot;
+l_string|&quot;Unable to find %s under %s&quot;
 comma
 id|sha1_to_hex
 c_func

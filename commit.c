@@ -1173,7 +1173,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;bad tree pointer in commit %s&bslash;n&quot;
+l_string|&quot;bad tree pointer in commit %s&quot;
 comma
 id|sha1_to_hex
 c_func
