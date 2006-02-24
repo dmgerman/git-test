@@ -95,6 +95,10 @@ r_if
 c_cond
 (paren
 id|e-&gt;next
+op_logical_and
+id|e-&gt;next-&gt;ofs
+op_le
+id|end
 )paren
 (brace
 id|e-&gt;end
