@@ -1569,7 +1569,7 @@ l_int|1
 id|error
 c_func
 (paren
-l_string|&quot;Couldn&squot;t write %s&bslash;n&quot;
+l_string|&quot;Couldn&squot;t write %s&quot;
 comma
 id|filename
 )paren

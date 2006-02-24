@@ -2841,7 +2841,7 @@ id|ENOENT
 id|error
 c_func
 (paren
-l_string|&quot;unable to open object pack directory: %s: %s&bslash;n&quot;
+l_string|&quot;unable to open object pack directory: %s: %s&quot;
 comma
 id|path
 comma
@@ -7601,7 +7601,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Couldn&squot;t open %s for %s&bslash;n&quot;
+l_string|&quot;Couldn&squot;t open %s for %s&quot;
 comma
 id|tmpfile
 comma
@@ -7903,7 +7903,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;File %s has bad hash&bslash;n&quot;
+l_string|&quot;File %s has bad hash&quot;
 comma
 id|sha1_to_hex
 c_func
