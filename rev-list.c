@@ -2007,7 +2007,19 @@ r_if
 c_cond
 (paren
 id|edge_hint
+op_logical_and
+op_logical_neg
+(paren
+id|parent-&gt;object.flags
+op_amp
+id|SHOWN
 )paren
+)paren
+(brace
+id|parent-&gt;object.flags
+op_or_assign
+id|SHOWN
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -2020,6 +2032,7 @@ id|parent-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 DECL|function|mark_edges_uninteresting
