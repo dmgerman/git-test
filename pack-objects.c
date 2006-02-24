@@ -3268,6 +3268,15 @@ c_func
 id|entry
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|nr_objects
+op_eq
+id|nr_result
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * Depth of objects that depend on the entry -- this&n;&t;&t; * is subtracted from depth-max to break too deep&n;&t;&t; * delta chain because of delta data reusing.&n;&t;&t; * However, we loosen this restriction when we know we&n;&t;&t; * are creating a thin pack -- it will have to be&n;&t;&t; * expanded on the other end anyway, so do not&n;&t;&t; * artificially cut the delta chain and let it go as&n;&t;&t; * deep as it wants.&n;&t;&t; */
 r_for
 c_loop
 (paren
@@ -3307,6 +3316,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+)brace
 )brace
 DECL|typedef|entry_sort_t
 r_typedef
