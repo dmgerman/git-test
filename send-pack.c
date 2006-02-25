@@ -45,6 +45,13 @@ id|force_update
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|use_thin_pack
+r_static
+r_int
+id|use_thin_pack
+op_assign
+l_int|0
+suffix:semicolon
 DECL|function|is_zero_sha1
 r_static
 r_int
@@ -175,6 +182,21 @@ op_assign
 l_string|&quot;rev-list&quot;
 suffix:semicolon
 multiline_comment|/* 0 */
+r_if
+c_cond
+(paren
+id|use_thin_pack
+)paren
+multiline_comment|/* 1 */
+id|args
+(braket
+id|i
+op_increment
+)braket
+op_assign
+l_string|&quot;--objects-edge&quot;
+suffix:semicolon
+r_else
 id|args
 (braket
 id|i
@@ -183,7 +205,6 @@ op_increment
 op_assign
 l_string|&quot;--objects&quot;
 suffix:semicolon
-multiline_comment|/* 1 */
 multiline_comment|/* First send the ones we care about most */
 r_for
 c_loop
@@ -1884,6 +1905,26 @@ l_string|&quot;--verbose&quot;
 )paren
 (brace
 id|verbose
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--thin&quot;
+)paren
+)paren
+(brace
+id|use_thin_pack
 op_assign
 l_int|1
 suffix:semicolon

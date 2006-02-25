@@ -26,7 +26,7 @@ id|fetch_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-fetch-pack [-q] [-v] [-k] [--exec=upload-pack] [host:]directory &lt;refs&gt;...&quot;
+l_string|&quot;git-fetch-pack [-q] [-v] [-k] [--thin] [--exec=upload-pack] [host:]directory &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
@@ -58,6 +58,7 @@ l_int|NULL
 suffix:semicolon
 DECL|variable|non_common_revs
 DECL|variable|multi_ack
+DECL|variable|use_thin_pack
 r_static
 r_int
 id|non_common_revs
@@ -65,6 +66,10 @@ op_assign
 l_int|0
 comma
 id|multi_ack
+op_assign
+l_int|0
+comma
+id|use_thin_pack
 op_assign
 l_int|0
 suffix:semicolon
@@ -634,7 +639,7 @@ id|fd
 l_int|1
 )braket
 comma
-l_string|&quot;want %s%s&bslash;n&quot;
+l_string|&quot;want %s%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -642,12 +647,23 @@ c_func
 id|remote
 )paren
 comma
+(paren
 id|multi_ack
 ques
 c_cond
 l_string|&quot; multi_ack&quot;
 suffix:colon
 l_string|&quot;&quot;
+)paren
+comma
+(paren
+id|use_thin_pack
+ques
+c_cond
+l_string|&quot; thin-pack&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
 )paren
 suffix:semicolon
 id|fetching
@@ -2060,6 +2076,26 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;--thin&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|use_thin_pack
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;-v&quot;
 comma
 id|arg
@@ -2112,6 +2148,15 @@ c_func
 (paren
 id|fetch_pack_usage
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|keep_pack
+)paren
+id|use_thin_pack
+op_assign
+l_int|0
 suffix:semicolon
 id|pid
 op_assign
