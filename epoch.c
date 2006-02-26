@@ -4,6 +4,7 @@ multiline_comment|/* Provides arbitrary precision integers required to accuratel
 macro_line|#include &lt;openssl/bn.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;epoch.h&quot;
 DECL|struct|fraction
 r_struct
