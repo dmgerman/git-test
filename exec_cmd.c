@@ -50,6 +50,7 @@ op_star
 id|git_exec_path
 c_func
 (paren
+r_void
 )paren
 (brace
 r_const

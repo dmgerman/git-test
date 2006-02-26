@@ -3840,6 +3840,7 @@ op_star
 id|create_final_object_list
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
