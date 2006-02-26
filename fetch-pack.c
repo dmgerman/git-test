@@ -352,6 +352,7 @@ op_star
 id|get_rev
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct

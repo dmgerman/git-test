@@ -67,7 +67,7 @@ id|head_sha1
 l_int|20
 )braket
 suffix:semicolon
-macro_line|#if NO_D_INO_IN_DIRENT
+macro_line|#ifdef NO_D_INO_IN_DIRENT
 DECL|macro|SORT_DIRENT
 mdefine_line|#define SORT_DIRENT 0
 DECL|macro|DIRENT_SORT_HINT
