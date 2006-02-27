@@ -3231,6 +3231,11 @@ r_const
 r_char
 op_star
 id|header
+comma
+r_struct
+id|diff_options
+op_star
+id|opt
 )paren
 (brace
 r_int
@@ -3296,6 +3301,16 @@ id|null_sha1
 comma
 l_int|20
 )paren
+suffix:semicolon
+r_int
+id|abbrev
+op_assign
+id|opt-&gt;full_index
+ques
+c_cond
+l_int|40
+suffix:colon
+id|DEFAULT_ABBREV
 suffix:semicolon
 multiline_comment|/* Read the result of merge first */
 r_if
@@ -4039,7 +4054,7 @@ id|i
 dot
 id|sha1
 comma
-id|DEFAULT_ABBREV
+id|abbrev
 )paren
 suffix:semicolon
 id|printf
@@ -4065,7 +4080,7 @@ c_func
 (paren
 id|elem-&gt;sha1
 comma
-id|DEFAULT_ABBREV
+id|abbrev
 )paren
 suffix:semicolon
 id|printf
@@ -4759,6 +4774,8 @@ comma
 id|dense
 comma
 id|header
+comma
+id|opt
 )paren
 suffix:semicolon
 )brace
