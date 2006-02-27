@@ -951,15 +951,6 @@ r_return
 id|p
 suffix:semicolon
 )brace
-DECL|variable|pending_objects
-r_static
-r_struct
-id|object_list
-op_star
-id|pending_objects
-op_assign
-l_int|NULL
-suffix:semicolon
 DECL|function|show_commit_list
 r_static
 r_void
@@ -1042,7 +1033,7 @@ c_loop
 (paren
 id|pending
 op_assign
-id|pending_objects
+id|revs.pending_objects
 suffix:semicolon
 id|pending
 suffix:semicolon
@@ -3065,8 +3056,6 @@ r_if
 c_cond
 (paren
 id|list
-op_logical_and
-id|list-&gt;next
 )paren
 id|limited
 op_assign
@@ -3128,8 +3117,12 @@ r_if
 c_cond
 (paren
 id|revs.max_age
+op_ne
+l_int|1
 op_logical_or
 id|revs.min_age
+op_ne
+l_int|1
 )paren
 id|limited
 op_assign
