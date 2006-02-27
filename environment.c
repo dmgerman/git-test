@@ -53,6 +53,14 @@ id|shared_repository
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|apply_default_whitespace
+r_const
+r_char
+op_star
+id|apply_default_whitespace
+op_assign
+l_int|NULL
+suffix:semicolon
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
