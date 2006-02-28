@@ -948,6 +948,8 @@ op_amp
 id|delta_size
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -4089,6 +4091,12 @@ r_void
 op_star
 id|data
 suffix:semicolon
+DECL|member|delta_index
+r_void
+op_star
+op_star
+id|delta_index
+suffix:semicolon
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * We search for deltas _backwards_ in a list sorted by type and&n; * by size, so that we see progressively smaller and smaller files.&n; * That&squot;s because we prefer deltas to be from the bigger file&n; * to the smaller - deletes are potentially cheaper, but perhaps&n; * more importantly, the bigger file is likely the more recent&n; * one.&n; */
@@ -4316,6 +4324,8 @@ op_amp
 id|delta_size
 comma
 id|max_size
+comma
+id|old-&gt;delta_index
 )paren
 suffix:semicolon
 r_if
@@ -4578,6 +4588,12 @@ suffix:semicolon
 id|free
 c_func
 (paren
+id|n-&gt;delta_index
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|n-&gt;data
 )paren
 suffix:semicolon
@@ -4732,6 +4748,18 @@ suffix:semicolon
 op_increment
 id|i
 )paren
+(brace
+id|free
+c_func
+(paren
+id|array
+(braket
+id|i
+)braket
+dot
+id|delta_index
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -4743,6 +4771,7 @@ dot
 id|data
 )paren
 suffix:semicolon
+)brace
 id|free
 c_func
 (paren

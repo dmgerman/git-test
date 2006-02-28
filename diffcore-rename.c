@@ -806,6 +806,8 @@ op_amp
 id|delta_size
 comma
 id|delta_limit
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
