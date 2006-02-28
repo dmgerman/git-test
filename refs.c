@@ -861,8 +861,20 @@ id|sha1
 OL
 l_int|0
 )paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%s points nowhere!&quot;
+comma
+id|path
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -873,8 +885,21 @@ c_func
 id|sha1
 )paren
 )paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%s does not point to a valid &quot;
+l_string|&quot;commit object!&quot;
+comma
+id|path
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
+)brace
 id|retval
 op_assign
 id|fn
