@@ -6,11 +6,9 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
-multiline_comment|/* bits #0-3 in revision.h */
+multiline_comment|/* bits #0-4 in revision.h */
 DECL|macro|COUNTED
-mdefine_line|#define COUNTED&t;&t;(1u &lt;&lt; 4)
-DECL|macro|TMP_MARK
-mdefine_line|#define TMP_MARK&t;(1u &lt;&lt; 5) /* for isolated cases; clean after use */
+mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;5)
 DECL|variable|rev_list_usage
 r_static
 r_const
