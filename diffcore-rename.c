@@ -2,8 +2,6 @@ multiline_comment|/*&n; * Copyright (C) 2005 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
-macro_line|#include &quot;delta.h&quot;
-macro_line|#include &quot;count-delta.h&quot;
 multiline_comment|/* Table of rename/copy destinations */
 DECL|struct|diff_rename_dst
 r_static
@@ -657,10 +655,6 @@ id|minimum_score
 )paren
 (brace
 multiline_comment|/* src points at a file that existed in the original tree (or&n;&t; * optionally a file in the destination tree) and dst points&n;&t; * at a newly created file.  They may be quite similar, in which&n;&t; * case we want to say src is renamed to dst or src is copied into&n;&t; * dst, and then some edit has been applied to dst.&n;&t; *&n;&t; * Compare them and return how similar they are, representing&n;&t; * the score as an integer between 0 and MAX_SCORE.&n;&t; *&n;&t; * When there is an exact match, it is considered a better&n;&t; * match than anything else; the destination does not even&n;&t; * call into this function in that case.&n;&t; */
-r_void
-op_star
-id|delta
-suffix:semicolon
 r_int
 r_int
 id|delta_size
@@ -789,9 +783,10 @@ id|minimum_score
 op_div
 id|MAX_SCORE
 suffix:semicolon
-id|delta
-op_assign
-id|diff_delta
+r_if
+c_cond
+(paren
+id|diffcore_count_changes
 c_func
 (paren
 id|src-&gt;data
@@ -802,59 +797,7 @@ id|dst-&gt;data
 comma
 id|dst-&gt;size
 comma
-op_amp
-id|delta_size
-comma
 id|delta_limit
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|delta
-)paren
-multiline_comment|/* If delta_limit is exceeded, we have too much differences */
-r_return
-l_int|0
-suffix:semicolon
-multiline_comment|/* A delta that has a lot of literal additions would have&n;&t; * big delta_size no matter what else it does.&n;&t; */
-r_if
-c_cond
-(paren
-id|base_size
-op_star
-(paren
-id|MAX_SCORE
-op_minus
-id|minimum_score
-)paren
-OL
-id|delta_size
-op_star
-id|MAX_SCORE
-)paren
-(brace
-id|free
-c_func
-(paren
-id|delta
-)paren
-suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
-)brace
-multiline_comment|/* Estimate the edit size by interpreting delta. */
-r_if
-c_cond
-(paren
-id|count_delta
-c_func
-(paren
-id|delta
-comma
-id|delta_size
 comma
 op_amp
 id|src_copied
@@ -863,22 +806,8 @@ op_amp
 id|literal_added
 )paren
 )paren
-(brace
-id|free
-c_func
-(paren
-id|delta
-)paren
-suffix:semicolon
 r_return
 l_int|0
-suffix:semicolon
-)brace
-id|free
-c_func
-(paren
-id|delta
-)paren
 suffix:semicolon
 multiline_comment|/* Extent of damage */
 r_if
