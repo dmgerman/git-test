@@ -100,8 +100,6 @@ l_string|&quot;--max-age=&quot;
 comma
 l_string|&quot;--max-count=&quot;
 comma
-l_string|&quot;--merge-order&quot;
-comma
 l_string|&quot;--min-age=&quot;
 comma
 l_string|&quot;--no-merges&quot;
@@ -113,8 +111,6 @@ comma
 l_string|&quot;--parents&quot;
 comma
 l_string|&quot;--pretty&quot;
-comma
-l_string|&quot;--show-breaks&quot;
 comma
 l_string|&quot;--sparse&quot;
 comma
