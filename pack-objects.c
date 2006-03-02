@@ -324,9 +324,6 @@ op_assign
 r_int
 r_int
 )paren
-(paren
-r_int
-)paren
 id|p
 suffix:semicolon
 r_int
