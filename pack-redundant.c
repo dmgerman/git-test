@@ -174,6 +174,7 @@ op_star
 id|llist_item_get
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -1332,6 +1333,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|pll_free
+r_static
 r_void
 id|pll_free
 c_func

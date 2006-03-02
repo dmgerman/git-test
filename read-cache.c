@@ -122,6 +122,19 @@ c_func
 id|st-&gt;st_size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|assume_unchanged
+)paren
+id|ce-&gt;ce_flags
+op_or_assign
+id|htons
+c_func
+(paren
+id|CE_VALID
+)paren
+suffix:semicolon
 )brace
 DECL|function|ce_compare_data
 r_static
@@ -694,10 +707,35 @@ r_struct
 id|stat
 op_star
 id|st
+comma
+r_int
+id|ignore_valid
 )paren
 (brace
 r_int
 r_int
+id|changed
+suffix:semicolon
+multiline_comment|/*&n;&t; * If it&squot;s marked as always valid in the index, it&squot;s&n;&t; * valid whatever the checked-out copy says.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ignore_valid
+op_logical_and
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|htons
+c_func
+(paren
+id|CE_VALID
+)paren
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|changed
 op_assign
 id|ce_match_stat_basic
@@ -708,7 +746,7 @@ comma
 id|st
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Within 1 second of this sequence:&n;&t; * &t;echo xyzzy &gt;file &amp;&amp; git-update-index --add file&n;&t; * running this command:&n;&t; * &t;echo frotz &gt;file&n;&t; * would give a falsely clean cache entry.  The mtime and&n;&t; * length match the cache, and other stat fields do not change.&n;&t; *&n;&t; * We could detect this at update-index time (the cache entry&n;&t; * being registered/updated records the same time as &quot;now&quot;)&n;&t; * and delay the return from git-update-index, but that would&n;&t; * effectively mean we can make at most one commit per second,&n;&t; * which is not acceptable.  Instead, we check cache entries&n;&t; * whose mtime are the same as the index file timestamp more&n;&t; * careful than others.&n;&t; */
+multiline_comment|/*&n;&t; * Within 1 second of this sequence:&n;&t; * &t;echo xyzzy &gt;file &amp;&amp; git-update-index --add file&n;&t; * running this command:&n;&t; * &t;echo frotz &gt;file&n;&t; * would give a falsely clean cache entry.  The mtime and&n;&t; * length match the cache, and other stat fields do not change.&n;&t; *&n;&t; * We could detect this at update-index time (the cache entry&n;&t; * being registered/updated records the same time as &quot;now&quot;)&n;&t; * and delay the return from git-update-index, but that would&n;&t; * effectively mean we can make at most one commit per second,&n;&t; * which is not acceptable.  Instead, we check cache entries&n;&t; * whose mtime are the same as the index file timestamp more&n;&t; * carefully than others.&n;&t; */
 r_if
 c_cond
 (paren
@@ -753,6 +791,9 @@ r_struct
 id|stat
 op_star
 id|st
+comma
+r_int
+id|really
 )paren
 (brace
 r_int
@@ -768,6 +809,8 @@ c_func
 id|ce
 comma
 id|st
+comma
+id|really
 )paren
 suffix:semicolon
 r_if
@@ -1066,6 +1109,15 @@ id|len2
 )paren
 r_return
 l_int|1
+suffix:semicolon
+multiline_comment|/* Compare stages  */
+id|flags1
+op_and_assign
+id|CE_STAGEMASK
+suffix:semicolon
+id|flags2
+op_and_assign
+id|CE_STAGEMASK
 suffix:semicolon
 r_if
 c_cond

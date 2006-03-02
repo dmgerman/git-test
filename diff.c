@@ -1692,6 +1692,8 @@ id|ce
 comma
 op_amp
 id|st
+comma
+l_int|0
 )paren
 op_logical_or
 id|memcmp

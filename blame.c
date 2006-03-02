@@ -5,7 +5,6 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
-macro_line|#include &quot;epoch.h&quot;
 macro_line|#include &quot;diff.h&quot;
 DECL|macro|DEBUG
 mdefine_line|#define DEBUG 0
