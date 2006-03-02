@@ -2688,6 +2688,20 @@ l_string|&quot;--index-info&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|i
+op_ne
+id|argc
+l_int|1
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--index-info must be at the end&quot;
+)paren
+suffix:semicolon
 id|allow_add
 op_assign
 id|allow_replace
@@ -2702,7 +2716,7 @@ c_func
 id|line_termination
 )paren
 suffix:semicolon
-r_continue
+r_break
 suffix:semicolon
 )brace
 r_if
