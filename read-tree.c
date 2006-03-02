@@ -2726,9 +2726,25 @@ op_logical_and
 id|head_match
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|index
+)paren
+r_return
+id|deleted_entry
+c_func
+(paren
+id|index
+comma
+id|index
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t;&t; * Added in both, identically.&n;&t;&t; */
 r_if
 c_cond
