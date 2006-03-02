@@ -2,8 +2,6 @@ multiline_comment|/*&n; * Copyright (C) 2005 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
-macro_line|#include &quot;delta.h&quot;
-macro_line|#include &quot;count-delta.h&quot;
 DECL|function|should_break
 r_static
 r_int
@@ -29,10 +27,6 @@ id|merge_score_p
 )paren
 (brace
 multiline_comment|/* dst is recorded as a modification of src.  Are they so&n;&t; * different that we are better off recording this as a pair&n;&t; * of delete and create?&n;&t; *&n;&t; * There are two criteria used in this algorithm.  For the&n;&t; * purposes of helping later rename/copy, we take both delete&n;&t; * and insert into account and estimate the amount of &quot;edit&quot;.&n;&t; * If the edit is very large, we break this pair so that&n;&t; * rename/copy can pick the pieces up to match with other&n;&t; * files.&n;&t; *&n;&t; * On the other hand, we would want to ignore inserts for the&n;&t; * pure &quot;complete rewrite&quot; detection.  As long as most of the&n;&t; * existing contents were removed from the file, it is a&n;&t; * complete rewrite, and if sizable chunk from the original&n;&t; * still remains in the result, it is not a rewrite.  It does&n;&t; * not matter how much or how little new material is added to&n;&t; * the file.&n;&t; *&n;&t; * The score we leave for such a broken filepair uses the&n;&t; * latter definition so that later clean-up stage can find the&n;&t; * pieces that should not have been broken according to the&n;&t; * latter definition after rename/copy runs, and merge the&n;&t; * broken pair that have a score lower than given criteria&n;&t; * back together.  The break operation itself happens&n;&t; * according to the former definition.&n;&t; *&n;&t; * The minimum_edit parameter tells us when to break (the&n;&t; * amount of &quot;edit&quot; required for us to consider breaking the&n;&t; * pair).  We leave the amount of deletion in *merge_score_p&n;&t; * when we return.&n;&t; *&n;&t; * The value we return is 1 if we want the pair to be broken,&n;&t; * or 0 if we do not.&n;&t; */
-r_void
-op_star
-id|delta
-suffix:semicolon
 r_int
 r_int
 id|delta_size
@@ -146,9 +140,10 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* we do not break too small filepair */
-id|delta
-op_assign
-id|diff_delta
+r_if
+c_cond
+(paren
+id|diffcore_count_changes
 c_func
 (paren
 id|src-&gt;data
@@ -159,32 +154,7 @@ id|dst-&gt;data
 comma
 id|dst-&gt;size
 comma
-op_amp
-id|delta_size
-comma
 l_int|0
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|delta
-)paren
-r_return
-l_int|0
-suffix:semicolon
-multiline_comment|/* error but caught downstream */
-multiline_comment|/* Estimate the edit size by interpreting delta. */
-r_if
-c_cond
-(paren
-id|count_delta
-c_func
-(paren
-id|delta
-comma
-id|delta_size
 comma
 op_amp
 id|src_copied
@@ -193,23 +163,8 @@ op_amp
 id|literal_added
 )paren
 )paren
-(brace
-id|free
-c_func
-(paren
-id|delta
-)paren
-suffix:semicolon
 r_return
 l_int|0
-suffix:semicolon
-multiline_comment|/* we cannot tell */
-)brace
-id|free
-c_func
-(paren
-id|delta
-)paren
 suffix:semicolon
 multiline_comment|/* Compute merge-score, which is &quot;how much is removed&n;&t; * from the source material&quot;.  The clean-up stage will&n;&t; * merge the surviving pair together if the score is&n;&t; * less than the minimum, after rename/copy runs.&n;&t; */
 r_if
