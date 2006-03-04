@@ -1610,9 +1610,32 @@ id|mode
 )paren
 id|mode
 op_or_assign
-l_int|0755
+l_int|0777
 suffix:semicolon
-multiline_comment|/* GIT doesn&squot;t store permissions of dirs */
+r_else
+r_if
+c_cond
+(paren
+id|S_ISREG
+c_func
+(paren
+id|mode
+)paren
+)paren
+id|mode
+op_or_assign
+(paren
+id|mode
+op_amp
+l_int|0100
+)paren
+ques
+c_cond
+l_int|0777
+suffix:colon
+l_int|0666
+suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -1626,7 +1649,6 @@ id|mode
 op_or_assign
 l_int|0777
 suffix:semicolon
-multiline_comment|/* ... nor of symlinks */
 id|sprintf
 c_func
 (paren
@@ -2159,10 +2181,12 @@ suffix:semicolon
 )brace
 id|commit
 op_assign
-id|lookup_commit_reference
+id|lookup_commit_reference_gently
 c_func
 (paren
 id|sha1
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_if
