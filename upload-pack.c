@@ -222,6 +222,7 @@ suffix:semicolon
 r_int
 id|args
 suffix:semicolon
+r_const
 r_char
 op_star
 op_star
@@ -261,7 +262,7 @@ id|nr_needs
 op_plus
 l_int|5
 suffix:semicolon
-id|argv
+id|p
 op_assign
 id|xmalloc
 c_func
@@ -275,6 +276,16 @@ op_star
 )paren
 )paren
 suffix:semicolon
+id|argv
+op_assign
+(paren
+r_const
+r_char
+op_star
+op_star
+)paren
+id|p
+suffix:semicolon
 id|buf
 op_assign
 id|xmalloc
@@ -284,10 +295,6 @@ id|args
 op_star
 l_int|45
 )paren
-suffix:semicolon
-id|p
-op_assign
-id|argv
 suffix:semicolon
 id|dup2
 c_func
