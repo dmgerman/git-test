@@ -113,11 +113,6 @@ r_int
 id|preferred_base
 suffix:semicolon
 multiline_comment|/* we do not pack this, but is encouraged to&n;&t;&t;&t;&t; * be used as the base objectto delta huge&n;&t;&t;&t;&t; * objects against.&n;&t;&t;&t;&t; */
-DECL|member|based_on_preferred
-r_int
-id|based_on_preferred
-suffix:semicolon
-multiline_comment|/* current delta candidate is a preferred&n;&t;&t;&t;&t; * one, or delta against a preferred one.&n;&t;&t;&t;&t; */
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * Objects we are going to pack are colected in objects array (dynamically&n; * expanded).  nr_objects &amp; nr_alloc controls this array.  They are stored&n; * in the order we see -- typically rev-list --objects order that gives us&n; * nice &quot;minimum seek&quot; order.&n; *&n; * sorted-by-sha ans sorted-by-type are arrays of pointers that point at&n; * elements in the objects array.  The former is used to build the pack&n; * index (lists object names in the ascending order to help offset lookup),&n; * and the latter is used to group similar things together by try_delta()&n; * heuristics.&n; */
@@ -4127,15 +4122,6 @@ op_assign
 id|old-&gt;entry
 suffix:semicolon
 r_int
-id|old_preferred
-op_assign
-(paren
-id|old_entry-&gt;preferred_base
-op_logical_or
-id|old_entry-&gt;based_on_preferred
-)paren
-suffix:semicolon
-r_int
 r_int
 id|size
 comma
@@ -4248,47 +4234,12 @@ c_cond
 (paren
 id|cur_entry-&gt;delta
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|cur_entry-&gt;based_on_preferred
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|old_preferred
-)paren
 id|max_size
 op_assign
 id|cur_entry-&gt;delta_size
 op_minus
 l_int|1
 suffix:semicolon
-r_else
-multiline_comment|/* trying with non-preferred one when we&n;&t;&t;&t;&t; * already have a delta based on preferred&n;&t;&t;&t;&t; * one is pointless.&n;&t;&t;&t;&t; */
-r_return
-l_int|1
-suffix:semicolon
-)brace
-r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|old_preferred
-)paren
-id|max_size
-op_assign
-id|cur_entry-&gt;delta_size
-op_minus
-l_int|1
-suffix:semicolon
-r_else
-multiline_comment|/* otherwise...  even if delta with a&n;&t;&t;&t; * preferred one produces a bigger result than&n;&t;&t;&t; * what we currently have, which is based on a&n;&t;&t;&t; * non-preferred one, it is OK.&n;&t;&t;&t; */
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -4340,10 +4291,6 @@ op_assign
 id|old_entry-&gt;depth
 op_plus
 l_int|1
-suffix:semicolon
-id|cur_entry-&gt;based_on_preferred
-op_assign
-id|old_preferred
 suffix:semicolon
 id|free
 c_func
@@ -4690,6 +4637,20 @@ l_int|0
 r_break
 suffix:semicolon
 )brace
+macro_line|#if 0
+multiline_comment|/* if we made n a delta, and if n is already at max&n;&t;&t; * depth, leaving it in the window is pointless.  we&n;&t;&t; * should evict it first.&n;&t;&t; * ... in theory only; somehow this makes things worse.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|entry-&gt;delta
+op_logical_and
+id|depth
+op_le
+id|entry-&gt;depth
+)paren
+r_continue
+suffix:semicolon
+macro_line|#endif
 id|idx
 op_increment
 suffix:semicolon
