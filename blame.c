@@ -420,7 +420,7 @@ c_func
 (paren
 id|diff_cmd
 comma
-l_string|&quot;diff -u0 %s %s&quot;
+l_string|&quot;diff -u -U 0 %s %s&quot;
 comma
 id|tmp_path1
 comma
