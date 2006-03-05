@@ -1118,11 +1118,13 @@ r_void
 id|show_man_page
 c_func
 (paren
+r_const
 r_char
 op_star
 id|git_cmd
 )paren
 (brace
+r_const
 r_char
 op_star
 id|page
@@ -1158,7 +1160,9 @@ id|git_cmd
 op_plus
 l_int|4
 suffix:semicolon
-id|page
+r_char
+op_star
+id|p
 op_assign
 id|malloc
 c_func
@@ -1171,7 +1175,7 @@ suffix:semicolon
 id|strcpy
 c_func
 (paren
-id|page
+id|p
 comma
 l_string|&quot;git-&quot;
 )paren
@@ -1179,19 +1183,23 @@ suffix:semicolon
 id|strcpy
 c_func
 (paren
-id|page
+id|p
 op_plus
 l_int|4
 comma
 id|git_cmd
 )paren
 suffix:semicolon
-id|page
+id|p
 (braket
 id|page_len
 )braket
 op_assign
 l_int|0
+suffix:semicolon
+id|page
+op_assign
+id|p
 suffix:semicolon
 )brace
 id|execlp
@@ -1216,6 +1224,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1248,6 +1257,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1259,6 +1269,7 @@ op_star
 id|envp
 )paren
 (brace
+r_const
 r_char
 op_star
 id|help_cmd
@@ -1306,6 +1317,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1383,6 +1395,7 @@ OL
 id|argc
 )paren
 (brace
+r_const
 r_char
 op_star
 id|arg
@@ -1728,6 +1741,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1766,6 +1780,7 @@ id|fn
 (paren
 r_int
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1870,6 +1885,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1881,6 +1897,7 @@ op_star
 id|envp
 )paren
 (brace
+r_const
 r_char
 op_star
 id|cmd

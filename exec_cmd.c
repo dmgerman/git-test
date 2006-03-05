@@ -93,6 +93,7 @@ r_int
 id|execv_git_cmd
 c_func
 (paren
+r_const
 r_char
 op_star
 op_star
@@ -106,10 +107,6 @@ id|PATH_MAX
 op_plus
 l_int|1
 )braket
-suffix:semicolon
-r_char
-op_star
-id|tmp
 suffix:semicolon
 r_int
 id|len
@@ -172,6 +169,11 @@ id|paths
 (braket
 id|i
 )braket
+suffix:semicolon
+r_const
+r_char
+op_star
+id|tmp
 suffix:semicolon
 r_if
 c_cond
@@ -365,6 +367,11 @@ c_func
 (paren
 id|git_command
 comma
+(paren
+r_char
+op_star
+op_star
+)paren
 id|argv
 comma
 id|environ
@@ -391,6 +398,7 @@ r_int
 id|execl_git_cmd
 c_func
 (paren
+r_const
 r_char
 op_star
 id|cmd
@@ -403,6 +411,7 @@ dot
 r_int
 id|argc
 suffix:semicolon
+r_const
 r_char
 op_star
 id|argv
@@ -412,6 +421,7 @@ op_plus
 l_int|1
 )braket
 suffix:semicolon
+r_const
 r_char
 op_star
 id|arg

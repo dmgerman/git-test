@@ -1196,8 +1196,8 @@ id|len2
 suffix:semicolon
 )brace
 )brace
+macro_line|#if 0
 multiline_comment|/* For debugging only */
-DECL|function|print_map
 r_static
 r_void
 id|print_map
@@ -1361,6 +1361,7 @@ l_string|&quot;&bslash;n&quot;
 suffix:semicolon
 )brace
 )brace
+macro_line|#endif
 singleline_comment|// p is a patch from commit to other.
 DECL|function|fill_line_map
 r_static

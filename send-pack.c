@@ -108,6 +108,7 @@ r_void
 )paren
 (brace
 r_static
+r_const
 r_char
 op_star
 id|args
@@ -159,6 +160,7 @@ op_star
 id|ref
 suffix:semicolon
 r_static
+r_const
 r_char
 op_star
 id|args

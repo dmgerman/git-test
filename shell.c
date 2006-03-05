@@ -94,11 +94,6 @@ r_return
 id|execv_git_cmd
 c_func
 (paren
-(paren
-r_char
-op_star
-op_star
-)paren
 id|my_argv
 )paren
 suffix:semicolon
