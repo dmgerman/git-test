@@ -420,7 +420,7 @@ c_func
 (paren
 id|diff_cmd
 comma
-l_string|&quot;diff -u -U 0 %s %s&quot;
+l_string|&quot;diff -U 0 %s %s&quot;
 comma
 id|tmp_path1
 comma
@@ -1223,8 +1223,9 @@ id|len2
 suffix:semicolon
 )brace
 )brace
-macro_line|#if 0
+macro_line|#if DEBUG
 multiline_comment|/* For debugging only */
+DECL|function|print_map
 r_static
 r_void
 id|print_map
