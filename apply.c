@@ -6707,6 +6707,8 @@ id|pos
 comma
 op_amp
 id|costate
+comma
+l_int|NULL
 )paren
 op_logical_or
 id|lstat
