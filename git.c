@@ -1730,8 +1730,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|macro|ARRAY_SIZE
-mdefine_line|#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))
 DECL|function|handle_internal_command
 r_static
 r_void

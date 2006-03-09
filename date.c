@@ -817,8 +817,6 @@ comma
 multiline_comment|/* International Date Line East */
 )brace
 suffix:semicolon
-DECL|macro|NR_TZ
-mdefine_line|#define NR_TZ (sizeof(timezone_names) / sizeof(timezone_names[0]))
 DECL|function|match_string
 r_static
 r_int
@@ -1078,7 +1076,11 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|NR_TZ
+id|ARRAY_SIZE
+c_func
+(paren
+id|timezone_names
+)paren
 suffix:semicolon
 id|i
 op_increment
