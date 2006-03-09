@@ -862,11 +862,9 @@ OL
 l_int|0
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;%s points nowhere!&quot;
 comma
 id|path
@@ -886,11 +884,9 @@ id|sha1
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;%s does not point to a valid &quot;
 l_string|&quot;commit object!&quot;
 comma
