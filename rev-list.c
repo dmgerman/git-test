@@ -890,7 +890,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|revs.paths
+id|revs.prune_fn
 op_logical_or
 (paren
 id|commit-&gt;object.flags
@@ -1029,7 +1029,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|revs.paths
+id|revs.prune_fn
 op_logical_or
 (paren
 id|p-&gt;item-&gt;object.flags
@@ -1073,7 +1073,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.paths
+id|revs.prune_fn
 op_logical_and
 op_logical_neg
 (paren
