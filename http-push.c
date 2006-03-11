@@ -16,7 +16,7 @@ id|http_push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-http-push [--complete] [--force] [--verbose] &lt;url&gt; &lt;ref&gt; [&lt;ref&gt;...]&bslash;n&quot;
+l_string|&quot;git-http-push [--all] [--force] [--verbose] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
 suffix:semicolon
 macro_line|#ifndef XML_STATUS_OK
 DECL|enum|XML_Status
@@ -3398,6 +3398,11 @@ op_eq
 id|CURLE_OK
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|push_verbosely
+)paren
 id|fprintf
 c_func
 (paren
@@ -4074,7 +4079,7 @@ suffix:semicolon
 )brace
 DECL|function|add_send_request
 r_static
-r_void
+r_int
 id|add_send_request
 c_func
 (paren
@@ -4142,6 +4147,7 @@ id|PUSHING
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
 id|target
 op_assign
@@ -4164,6 +4170,7 @@ op_or_assign
 id|REMOTE
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
 )brace
 id|obj-&gt;flags
@@ -4227,6 +4234,9 @@ id|step_active_slots
 c_func
 (paren
 )paren
+suffix:semicolon
+r_return
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|fetch_index
@@ -4308,7 +4318,7 @@ c_func
 id|remote-&gt;url
 )paren
 op_plus
-l_int|65
+l_int|64
 )paren
 suffix:semicolon
 id|sprintf
@@ -4316,7 +4326,7 @@ c_func
 (paren
 id|url
 comma
-l_string|&quot;%s/objects/pack/pack-%s.pack&quot;
+l_string|&quot;%sobjects/pack/pack-%s.pack&quot;
 comma
 id|remote-&gt;url
 comma
@@ -4438,7 +4448,7 @@ c_func
 (paren
 id|url
 comma
-l_string|&quot;%s/objects/pack/pack-%s.idx&quot;
+l_string|&quot;%sobjects/pack/pack-%s.idx&quot;
 comma
 id|remote-&gt;url
 comma
@@ -4872,7 +4882,7 @@ c_func
 id|remote-&gt;url
 )paren
 op_plus
-l_int|21
+l_int|20
 )paren
 suffix:semicolon
 id|sprintf
@@ -4880,7 +4890,7 @@ c_func
 (paren
 id|url
 comma
-l_string|&quot;%s/objects/info/packs&quot;
+l_string|&quot;%sobjects/info/packs&quot;
 comma
 id|remote-&gt;url
 )paren
@@ -6576,7 +6586,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Unable to start request&bslash;n&quot;
+l_string|&quot;Unable to start MKCOL request&bslash;n&quot;
 )paren
 suffix:semicolon
 id|free
@@ -6963,7 +6973,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Unable to start request&bslash;n&quot;
+l_string|&quot;Unable to start LOCK request&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
@@ -8735,7 +8745,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Unable to start request&bslash;n&quot;
+l_string|&quot;Unable to start PROPFIND request&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
@@ -9033,7 +9043,7 @@ suffix:semicolon
 )brace
 DECL|function|get_delta
 r_static
-r_void
+r_int
 id|get_delta
 c_func
 (paren
@@ -9064,6 +9074,11 @@ id|objects
 comma
 op_star
 id|pending
+suffix:semicolon
+r_int
+id|count
+op_assign
+l_int|0
 suffix:semicolon
 r_while
 c_loop
@@ -9109,6 +9124,8 @@ op_amp
 id|UNINTERESTING
 )paren
 )paren
+id|count
+op_add_assign
 id|add_send_request
 c_func
 (paren
@@ -9280,6 +9297,8 @@ op_amp
 id|UNINTERESTING
 )paren
 )paren
+id|count
+op_add_assign
 id|add_send_request
 c_func
 (paren
@@ -9293,6 +9312,9 @@ op_assign
 id|objects-&gt;next
 suffix:semicolon
 )brace
+r_return
+id|count
+suffix:semicolon
 )brace
 DECL|function|update_remote
 r_static
@@ -11112,6 +11134,9 @@ id|rev_info
 id|revs
 suffix:semicolon
 r_int
+id|objects_to_send
+suffix:semicolon
+r_int
 id|rc
 op_assign
 l_int|0
@@ -11554,11 +11579,6 @@ l_int|0
 suffix:semicolon
 )brace
 r_int
-id|ret
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|new_refs
 op_assign
 l_int|0
@@ -11685,7 +11705,7 @@ comma
 id|ref-&gt;peer_ref-&gt;name
 )paren
 suffix:semicolon
-id|ret
+id|rc
 op_assign
 l_int|2
 suffix:semicolon
@@ -11719,7 +11739,7 @@ c_func
 l_string|&quot;cannot happen anymore&quot;
 )paren
 suffix:semicolon
-id|ret
+id|rc
 op_assign
 l_int|3
 suffix:semicolon
@@ -11980,6 +12000,8 @@ c_func
 id|revs.commits
 )paren
 suffix:semicolon
+id|objects_to_send
+op_assign
 id|get_delta
 c_func
 (paren
@@ -11998,6 +12020,21 @@ multiline_comment|/* Push missing objects to remote, this would be a&n;&t;&t;   
 id|pushing
 op_assign
 l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|objects_to_send
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;    sending %d objects&bslash;n&quot;
+comma
+id|objects_to_send
+)paren
 suffix:semicolon
 id|fill_active_slots
 c_func
