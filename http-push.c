@@ -1341,6 +1341,10 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
+r_struct
+id|slot_results
+id|results
+suffix:semicolon
 r_char
 op_star
 id|if_header
@@ -1481,6 +1485,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -1550,7 +1559,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_ne
 id|CURLE_OK
 )paren
@@ -1562,7 +1571,7 @@ id|stderr
 comma
 l_string|&quot;Got HTTP error %ld&bslash;n&quot;
 comma
-id|slot-&gt;http_code
+id|results.http_code
 )paren
 suffix:semicolon
 id|lock-&gt;active
@@ -2310,6 +2319,10 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
+r_struct
+id|slot_results
+id|results
+suffix:semicolon
 multiline_comment|/* Don&squot;t use the index if the pack isn&squot;t there */
 id|url
 op_assign
@@ -2343,6 +2356,11 @@ id|get_active_slot
 c_func
 (paren
 )paren
+suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
 suffix:semicolon
 id|curl_easy_setopt
 c_func
@@ -2383,7 +2401,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_ne
 id|CURLE_OK
 )paren
@@ -2508,6 +2526,11 @@ id|get_active_slot
 c_func
 (paren
 )paren
+suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
 suffix:semicolon
 id|curl_easy_setopt
 c_func
@@ -2657,7 +2680,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_ne
 id|CURLE_OK
 )paren
@@ -2818,6 +2841,10 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
+r_struct
+id|slot_results
+id|results
+suffix:semicolon
 id|data
 op_assign
 id|xmalloc
@@ -2892,6 +2919,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -2952,7 +2984,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_ne
 id|CURLE_OK
 )paren
@@ -2972,7 +3004,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;http_code
+id|results.http_code
 op_eq
 l_int|404
 )paren
@@ -3462,6 +3494,10 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
+r_struct
+id|slot_results
+id|results
+suffix:semicolon
 id|buffer.size
 op_assign
 l_int|41
@@ -3497,6 +3533,11 @@ id|get_active_slot
 c_func
 (paren
 )paren
+suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
 suffix:semicolon
 id|curl_easy_setopt
 c_func
@@ -3558,7 +3599,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_ne
 id|CURLE_OK
 )paren
@@ -4624,6 +4665,10 @@ op_star
 id|slot
 suffix:semicolon
 r_struct
+id|slot_results
+id|results
+suffix:semicolon
+r_struct
 id|buffer
 id|out_buffer
 suffix:semicolon
@@ -4802,6 +4847,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -4861,11 +4911,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_ne
 id|CURLE_OK
 op_logical_and
-id|slot-&gt;http_code
+id|results.http_code
 op_ne
 l_int|405
 )paren
@@ -5033,6 +5083,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -5174,7 +5229,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_eq
 id|CURLE_OK
 )paren
@@ -5417,6 +5472,10 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
+r_struct
+id|slot_results
+id|results
+suffix:semicolon
 r_char
 op_star
 id|lock_token_header
@@ -5473,6 +5532,11 @@ id|get_active_slot
 c_func
 (paren
 )paren
+suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
 suffix:semicolon
 id|curl_easy_setopt
 c_func
@@ -5533,7 +5597,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_eq
 id|CURLE_OK
 )paren
@@ -5549,7 +5613,7 @@ id|stderr
 comma
 l_string|&quot;Got HTTP error %ld&bslash;n&quot;
 comma
-id|slot-&gt;http_code
+id|results.http_code
 )paren
 suffix:semicolon
 )brace
@@ -5603,6 +5667,10 @@ r_struct
 id|active_request_slot
 op_star
 id|slot
+suffix:semicolon
+r_struct
+id|slot_results
+id|results
 suffix:semicolon
 r_struct
 id|buffer
@@ -5787,6 +5855,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -5898,7 +5971,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_eq
 id|CURLE_OK
 )paren
@@ -6061,6 +6134,10 @@ r_struct
 id|active_request_slot
 op_star
 id|slot
+suffix:semicolon
+r_struct
+id|slot_results
+id|results
 suffix:semicolon
 r_struct
 id|buffer
@@ -6265,6 +6342,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -6376,7 +6458,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_eq
 id|CURLE_OK
 )paren
@@ -6547,6 +6629,10 @@ op_star
 id|slot
 suffix:semicolon
 r_struct
+id|slot_results
+id|results
+suffix:semicolon
+r_struct
 id|buffer
 id|in_buffer
 suffix:semicolon
@@ -6685,6 +6771,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -6796,7 +6887,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_eq
 id|CURLE_OK
 )paren
@@ -7488,6 +7579,10 @@ id|active_request_slot
 op_star
 id|slot
 suffix:semicolon
+r_struct
+id|slot_results
+id|results
+suffix:semicolon
 r_char
 op_star
 id|out_data
@@ -7613,6 +7708,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|slot-&gt;results
+op_assign
+op_amp
+id|results
+suffix:semicolon
 id|curl_easy_setopt
 c_func
 (paren
@@ -7735,7 +7835,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|slot-&gt;curl_result
+id|results.curl_result
 op_ne
 id|CURLE_OK
 )paren
@@ -7747,9 +7847,9 @@ id|stderr
 comma
 l_string|&quot;PUT error: curl result=%d, HTTP code=%ld&bslash;n&quot;
 comma
-id|slot-&gt;curl_result
+id|results.curl_result
 comma
-id|slot-&gt;http_code
+id|results.http_code
 )paren
 suffix:semicolon
 multiline_comment|/* We should attempt recovery? */
