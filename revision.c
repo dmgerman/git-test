@@ -1342,12 +1342,10 @@ id|p-&gt;tree
 )paren
 )paren
 (brace
-op_star
-id|pp
-op_assign
-id|parent-&gt;next
-suffix:semicolon
-r_continue
+multiline_comment|/* We are adding all the specified paths from&n;&t;&t;&t;&t; * this parent, so the parents of it is&n;&t;&t;&t;&t; * not interesting, but the difference between&n;&t;&t;&t;&t; * this parent and us still is interesting.&n;&t;&t;&t;&t; */
+id|p-&gt;object.flags
+op_or_assign
+id|UNINTERESTING
 suffix:semicolon
 )brace
 multiline_comment|/* fallthrough */
