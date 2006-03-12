@@ -4,6 +4,7 @@ macro_line|#include &lt;assert.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 macro_line|#include &lt;netinet/tcp.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
+macro_line|#include &lt;sys/socket.h&gt;
 macro_line|#include &lt;netdb.h&gt;
 DECL|struct|store_conf
 r_typedef
