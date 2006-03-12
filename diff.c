@@ -2390,6 +2390,16 @@ id|s-&gt;data
 op_assign
 l_int|NULL
 suffix:semicolon
+id|free
+c_func
+(paren
+id|s-&gt;cnt_data
+)paren
+suffix:semicolon
+id|s-&gt;cnt_data
+op_assign
+l_int|NULL
+suffix:semicolon
 )brace
 DECL|function|prep_temp_blob
 r_static
