@@ -4,6 +4,7 @@ macro_line|#include &lt;assert.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 macro_line|#include &lt;netinet/tcp.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
+macro_line|#include &lt;sys/socket.h&gt;
 macro_line|#include &lt;netdb.h&gt;
 DECL|struct|store_conf
 r_typedef
@@ -5026,7 +5027,7 @@ l_string|&quot;-c&quot;
 comma
 id|srvc-&gt;tunnel
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 id|_exit
