@@ -151,6 +151,10 @@ id|dst-&gt;data
 comma
 id|dst-&gt;size
 comma
+l_int|NULL
+comma
+l_int|NULL
+comma
 l_int|0
 comma
 op_amp
