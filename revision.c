@@ -1342,10 +1342,16 @@ id|p-&gt;tree
 )paren
 )paren
 (brace
-multiline_comment|/* We are adding all the specified paths from&n;&t;&t;&t;&t; * this parent, so the parents of it is&n;&t;&t;&t;&t; * not interesting, but the difference between&n;&t;&t;&t;&t; * this parent and us still is interesting.&n;&t;&t;&t;&t; */
-id|p-&gt;object.flags
-op_or_assign
-id|UNINTERESTING
+multiline_comment|/* We are adding all the specified&n;&t;&t;&t;&t; * paths from this parent, so the&n;&t;&t;&t;&t; * history beyond this parent is not&n;&t;&t;&t;&t; * interesting.  Remove its parents&n;&t;&t;&t;&t; * (they are grandparents for us).&n;&t;&t;&t;&t; * IOW, we pretend this parent is a&n;&t;&t;&t;&t; * &quot;root&quot; commit.&n;&t;&t;&t;&t; */
+id|parse_commit
+c_func
+(paren
+id|p
+)paren
+suffix:semicolon
+id|p-&gt;parents
+op_assign
+l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/* fallthrough */
