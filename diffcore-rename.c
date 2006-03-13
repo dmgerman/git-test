@@ -657,6 +657,8 @@ id|minimum_score
 multiline_comment|/* src points at a file that existed in the original tree (or&n;&t; * optionally a file in the destination tree) and dst points&n;&t; * at a newly created file.  They may be quite similar, in which&n;&t; * case we want to say src is renamed to dst or src is copied into&n;&t; * dst, and then some edit has been applied to dst.&n;&t; *&n;&t; * Compare them and return how similar they are, representing&n;&t; * the score as an integer between 0 and MAX_SCORE.&n;&t; *&n;&t; * When there is an exact match, it is considered a better&n;&t; * match than anything else; the destination does not even&n;&t; * call into this function in that case.&n;&t; */
 r_int
 r_int
+id|max_size
+comma
 id|delta_size
 comma
 id|base_size
@@ -693,25 +695,19 @@ id|dst-&gt;mode
 r_return
 l_int|0
 suffix:semicolon
-id|delta_size
+id|max_size
 op_assign
 (paren
 (paren
 id|src-&gt;size
-OL
+OG
 id|dst-&gt;size
 )paren
 ques
 c_cond
-(paren
-id|dst-&gt;size
 id|src-&gt;size
-)paren
 suffix:colon
-(paren
-id|src-&gt;size
 id|dst-&gt;size
-)paren
 )paren
 suffix:semicolon
 id|base_size
@@ -728,6 +724,11 @@ id|src-&gt;size
 suffix:colon
 id|dst-&gt;size
 )paren
+suffix:semicolon
+id|delta_size
+op_assign
+id|max_size
+id|base_size
 suffix:semicolon
 multiline_comment|/* We would not consider edits that change the file size so&n;&t; * drastically.  delta_size must be smaller than&n;&t; * (MAX_SCORE-minimum_score)/MAX_SCORE * min(src-&gt;size, dst-&gt;size).&n;&t; *&n;&t; * Note that base_size == 0 case is handled here already&n;&t; * and the final score computation below would not have a&n;&t; * divide-by-zero issue.&n;&t; */
 r_if
@@ -819,18 +820,6 @@ multiline_comment|/* How similar are they?&n;&t; * what percentage of material i
 r_if
 c_cond
 (paren
-id|dst-&gt;size
-OL
-id|src_copied
-)paren
-id|score
-op_assign
-id|MAX_SCORE
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
 op_logical_neg
 id|dst-&gt;size
 )paren
@@ -846,7 +835,7 @@ id|src_copied
 op_star
 id|MAX_SCORE
 op_div
-id|dst-&gt;size
+id|max_size
 suffix:semicolon
 r_return
 id|score
