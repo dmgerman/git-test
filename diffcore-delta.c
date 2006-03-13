@@ -5,11 +5,12 @@ multiline_comment|/*&n; * Idea here is very simple.&n; *&n; * We have total of (
 multiline_comment|/* Wild guess at the initial hash size */
 DECL|macro|INITIAL_HASH_SIZE
 mdefine_line|#define INITIAL_HASH_SIZE 9
-DECL|macro|HASHBASE
-mdefine_line|#define HASHBASE 65537 /* next_prime(2^16) */
 multiline_comment|/* We leave more room in smaller hash but do not let it&n; * grow to have unused hole too much.&n; */
 DECL|macro|INITIAL_FREE
 mdefine_line|#define INITIAL_FREE(sz_log2) ((1&lt;&lt;(sz_log2))*(sz_log2-3)/(sz_log2))
+multiline_comment|/* A prime rather carefully chosen between 2^16..2^17, so that&n; * HASHBASE &lt; INITIAL_FREE(17).  We want to keep the maximum hashtable&n; * size under the current 2&lt;&lt;17 maximum, which can hold this many&n; * different values before overflowing to hashtable of size 2&lt;&lt;18.&n; */
+DECL|macro|HASHBASE
+mdefine_line|#define HASHBASE 107927
 DECL|struct|spanhash
 r_struct
 id|spanhash
