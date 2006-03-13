@@ -1553,15 +1553,12 @@ id|minimum_score
 )paren
 suffix:semicolon
 )brace
-id|free
+multiline_comment|/* We do not need the text anymore */
+id|diff_free_filespec_data
 c_func
 (paren
-id|two-&gt;cnt_data
+id|two
 )paren
-suffix:semicolon
-id|two-&gt;cnt_data
-op_assign
-l_int|NULL
 suffix:semicolon
 id|dst_cnt
 op_increment

@@ -4,9 +4,12 @@ macro_line|#include &quot;diffcore.h&quot;
 multiline_comment|/*&n; * Idea here is very simple.&n; *&n; * We have total of (sz-N+1) N-byte overlapping sequences in buf whose&n; * size is sz.  If the same N-byte sequence appears in both source and&n; * destination, we say the byte that starts that sequence is shared&n; * between them (i.e. copied from source to destination).&n; *&n; * For each possible N-byte sequence, if the source buffer has more&n; * instances of it than the destination buffer, that means the&n; * difference are the number of bytes not copied from source to&n; * destination.  If the counts are the same, everything was copied&n; * from source to destination.  If the destination has more,&n; * everything was copied, and destination added more.&n; *&n; * We are doing an approximation so we do not really have to waste&n; * memory by actually storing the sequence.  We just hash them into&n; * somewhere around 2^16 hashbuckets and count the occurrences.&n; *&n; * The length of the sequence is arbitrarily set to 8 for now.&n; */
 multiline_comment|/* Wild guess at the initial hash size */
 DECL|macro|INITIAL_HASH_SIZE
-mdefine_line|#define INITIAL_HASH_SIZE 10
+mdefine_line|#define INITIAL_HASH_SIZE 9
 DECL|macro|HASHBASE
 mdefine_line|#define HASHBASE 65537 /* next_prime(2^16) */
+multiline_comment|/* We leave more room in smaller hash but do not let it&n; * grow to have unused hole too much.&n; */
+DECL|macro|INITIAL_FREE
+mdefine_line|#define INITIAL_FREE(sz_log2) ((1&lt;&lt;(sz_log2))*(sz_log2-3)/(sz_log2))
 DECL|struct|spanhash
 r_struct
 id|spanhash
@@ -200,7 +203,13 @@ r_new
 op_member_access_from_pointer
 id|free
 op_assign
-id|osz
+id|INITIAL_FREE
+c_func
+(paren
+r_new
+op_member_access_from_pointer
+id|alloc_log2
+)paren
 suffix:semicolon
 id|memset
 c_func
@@ -530,13 +539,11 @@ id|i
 suffix:semicolon
 id|hash-&gt;free
 op_assign
+id|INITIAL_FREE
+c_func
 (paren
-l_int|1
-op_lshift
 id|i
 )paren
-op_div
-l_int|2
 suffix:semicolon
 id|memset
 c_func
