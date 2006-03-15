@@ -596,6 +596,12 @@ op_star
 id|buf
 op_increment
 suffix:semicolon
+r_int
+r_int
+id|old_1
+op_assign
+id|accum1
+suffix:semicolon
 id|sz
 op_decrement
 suffix:semicolon
@@ -606,7 +612,7 @@ id|accum1
 op_lshift
 l_int|7
 )paren
-op_or
+op_xor
 (paren
 id|accum2
 op_rshift
@@ -620,9 +626,9 @@ id|accum2
 op_lshift
 l_int|7
 )paren
-op_or
+op_xor
 (paren
-id|accum1
+id|old_1
 op_rshift
 l_int|25
 )paren
