@@ -1530,8 +1530,8 @@ suffix:semicolon
 )brace
 r_static
 r_int
-DECL|function|vasprintf
-id|vasprintf
+DECL|function|git_vasprintf
+id|git_vasprintf
 c_func
 (paren
 r_char
@@ -1747,7 +1747,7 @@ id|va
 r_int
 id|ret
 op_assign
-id|vasprintf
+id|git_vasprintf
 c_func
 (paren
 id|str
