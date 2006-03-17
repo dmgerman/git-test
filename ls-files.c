@@ -3,6 +3,13 @@ macro_line|#include &lt;dirent.h&gt;
 macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
+DECL|variable|abbrev
+r_static
+r_int
+id|abbrev
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|show_deleted
 r_static
 r_int
@@ -2541,6 +2548,17 @@ c_func
 id|ce-&gt;ce_mode
 )paren
 comma
+id|abbrev
+ques
+c_cond
+id|find_unique_abbrev
+c_func
+(paren
+id|ce-&gt;sha1
+comma
+id|abbrev
+)paren
+suffix:colon
 id|sha1_to_hex
 c_func
 (paren
@@ -3329,7 +3347,8 @@ id|ls_files_usage
 op_assign
 l_string|&quot;git-ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
-l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--full-name] [--] [&lt;file&gt;]*&quot;
+l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--full-name] [--abbrev] &quot;
+l_string|&quot;[--] [&lt;file&gt;]*&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -3980,6 +3999,83 @@ l_string|&quot;--error-unmatch&quot;
 id|error_unmatch
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--abbrev=&quot;
+comma
+l_int|9
+)paren
+)paren
+(brace
+id|abbrev
+op_assign
+id|strtoul
+c_func
+(paren
+id|arg
+op_plus
+l_int|9
+comma
+l_int|NULL
+comma
+l_int|10
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|abbrev
+op_logical_and
+id|abbrev
+OL
+id|MINIMUM_ABBREV
+)paren
+id|abbrev
+op_assign
+id|MINIMUM_ABBREV
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|abbrev
+OG
+l_int|40
+)paren
+id|abbrev
+op_assign
+l_int|40
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--abbrev&quot;
+)paren
+)paren
+(brace
+id|abbrev
+op_assign
+id|DEFAULT_ABBREV
 suffix:semicolon
 r_continue
 suffix:semicolon
