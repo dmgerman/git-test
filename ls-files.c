@@ -458,6 +458,8 @@ id|xmalloc
 c_func
 (paren
 id|size
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 r_if
@@ -483,6 +485,14 @@ c_func
 (paren
 id|fd
 )paren
+suffix:semicolon
+id|buf
+(braket
+id|size
+op_increment
+)braket
+op_assign
+l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 id|entry
 op_assign
