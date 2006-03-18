@@ -1342,12 +1342,16 @@ id|p-&gt;tree
 )paren
 )paren
 (brace
-op_star
-id|pp
-op_assign
-id|parent-&gt;next
+multiline_comment|/* We are adding all the specified&n;&t;&t;&t;&t; * paths from this parent, so the&n;&t;&t;&t;&t; * history beyond this parent is not&n;&t;&t;&t;&t; * interesting.  Remove its parents&n;&t;&t;&t;&t; * (they are grandparents for us).&n;&t;&t;&t;&t; * IOW, we pretend this parent is a&n;&t;&t;&t;&t; * &quot;root&quot; commit.&n;&t;&t;&t;&t; */
+id|parse_commit
+c_func
+(paren
+id|p
+)paren
 suffix:semicolon
-r_continue
+id|p-&gt;parents
+op_assign
+l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/* fallthrough */
