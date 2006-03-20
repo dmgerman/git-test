@@ -18,6 +18,11 @@ r_static
 r_int
 id|verbose
 suffix:semicolon
+DECL|variable|fetch_all
+r_static
+r_int
+id|fetch_all
+suffix:semicolon
 DECL|variable|fetch_pack_usage
 r_static
 r_const
@@ -26,7 +31,7 @@ id|fetch_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-fetch-pack [-q] [-v] [-k] [--thin] [--exec=upload-pack] [host:]directory &lt;refs&gt;...&quot;
+l_string|&quot;git-fetch-pack [--all] [-q] [-v] [-k] [--thin] [--exec=upload-pack] [host:]directory &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
@@ -1260,6 +1265,10 @@ l_int|5
 )paren
 )paren
 op_logical_or
+(paren
+op_logical_neg
+id|fetch_all
+op_logical_and
 op_logical_neg
 id|path_match
 c_func
@@ -1269,6 +1278,7 @@ comma
 id|nr_match
 comma
 id|match
+)paren
 )paren
 )paren
 (brace
@@ -1822,6 +1832,13 @@ id|ref
 OL
 l_int|0
 )paren
+r_if
+c_cond
+(paren
+op_logical_neg
+id|keep_pack
+)paren
+multiline_comment|/* When cloning, it is not unusual to have&n;&t;&t;&t; * no common commit.&n;&t;&t;&t; */
 id|fprintf
 c_func
 (paren
@@ -2084,6 +2101,26 @@ id|arg
 )paren
 (brace
 id|use_thin_pack
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--all&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|fetch_all
 op_assign
 l_int|1
 suffix:semicolon
