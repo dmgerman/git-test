@@ -124,6 +124,7 @@ l_int|0
 suffix:semicolon
 DECL|variable|remote_dir_exists
 r_static
+r_int
 r_char
 id|remote_dir_exists
 (braket
