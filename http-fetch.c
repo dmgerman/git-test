@@ -14,6 +14,13 @@ id|got_alternates
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|corrupt_object_found
+r_static
+r_int
+id|corrupt_object_found
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|no_pragma_header
 r_static
 r_struct
@@ -4141,6 +4148,9 @@ op_ne
 id|Z_STREAM_END
 )paren
 (brace
+id|corrupt_object_found
+op_increment
+suffix:semicolon
 id|ret
 op_assign
 id|error
@@ -5078,6 +5088,23 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|corrupt_object_found
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Some loose object were found to be corrupt, but they might be just&bslash;n&quot;
+l_string|&quot;a false &squot;404 Not Found&squot; error message sent with incorrect HTTP&bslash;n&quot;
+l_string|&quot;status code.  Suggest running git fsck-objects.&bslash;n&quot;
+)paren
+suffix:semicolon
+)brace
 r_return
 id|rc
 suffix:semicolon
