@@ -4024,8 +4024,7 @@ r_if
 c_cond
 (paren
 id|patch-&gt;is_new
-op_ne
-op_logical_neg
+op_logical_and
 id|oldlines
 )paren
 r_return
