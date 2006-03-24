@@ -429,6 +429,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
