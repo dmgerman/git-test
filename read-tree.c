@@ -3442,6 +3442,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 id|newfd
 op_assign
 id|hold_index_file_for_update

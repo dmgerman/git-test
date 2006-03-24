@@ -1352,7 +1352,7 @@ id|fmt
 )braket
 op_assign
 (brace
-l_string|&quot;/%.*s&quot;
+l_string|&quot;%.*s&quot;
 comma
 l_string|&quot;refs/%.*s&quot;
 comma
@@ -1494,17 +1494,6 @@ r_if
 c_cond
 (paren
 id|already_found
-op_logical_and
-op_logical_neg
-id|memcmp
-c_func
-(paren
-id|sha1
-comma
-id|sha1_from_ref
-comma
-l_int|20
-)paren
 )paren
 id|fprintf
 c_func
