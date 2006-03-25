@@ -1170,6 +1170,14 @@ suffix:colon
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|c1
+op_ne
+l_int|1
+)paren
+(brace
 id|memcpy
 c_func
 (paren
@@ -1198,6 +1206,7 @@ comma
 id|c1
 )paren
 suffix:semicolon
+)brace
 id|memcpy
 c_func
 (paren
@@ -1231,6 +1240,14 @@ suffix:colon
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|c2
+op_ne
+l_int|1
+)paren
+(brace
 id|memcpy
 c_func
 (paren
@@ -1259,6 +1276,7 @@ comma
 id|c2
 )paren
 suffix:semicolon
+)brace
 id|memcpy
 c_func
 (paren
