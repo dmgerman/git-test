@@ -2111,6 +2111,11 @@ id|sha1
 (braket
 l_int|20
 )braket
+comma
+id|tree_sha1
+(braket
+l_int|20
+)braket
 suffix:semicolon
 r_struct
 id|commit
@@ -2218,7 +2223,7 @@ comma
 op_amp
 id|tree.size
 comma
-l_int|NULL
+id|tree_sha1
 )paren
 suffix:semicolon
 r_if
@@ -2261,12 +2266,7 @@ id|basedir
 id|write_header
 c_func
 (paren
-(paren
-r_int
-r_char
-op_star
-)paren
-l_string|&quot;0&quot;
+id|tree_sha1
 comma
 id|TYPEFLAG_DIR
 comma
