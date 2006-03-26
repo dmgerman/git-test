@@ -32,6 +32,12 @@ id|only_use_symrefs
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|warn_ambiguous_refs
+r_int
+id|warn_ambiguous_refs
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|repository_format_version
 r_int
 id|repository_format_version
