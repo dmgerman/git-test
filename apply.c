@@ -3355,8 +3355,7 @@ suffix:semicolon
 op_star
 id|p2
 op_assign
-op_star
-id|p1
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -4282,6 +4281,16 @@ r_break
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|oldlines
+op_logical_or
+id|newlines
+)paren
+r_return
+l_int|1
+suffix:semicolon
 multiline_comment|/* If a fragment ends with an incomplete line, we failed to include&n;&t; * it in the above loop because we hit oldlines == newlines == 0&n;&t; * before seeing it.&n;&t; */
 r_if
 c_cond

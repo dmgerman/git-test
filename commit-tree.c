@@ -730,6 +730,10 @@ comma
 id|comment
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|write_sha1_file
 c_func
 (paren
@@ -741,7 +745,8 @@ l_string|&quot;commit&quot;
 comma
 id|commit_sha1
 )paren
-suffix:semicolon
+)paren
+(brace
 id|printf
 c_func
 (paren
@@ -756,6 +761,11 @@ id|commit_sha1
 suffix:semicolon
 r_return
 l_int|0
+suffix:semicolon
+)brace
+r_else
+r_return
+l_int|1
 suffix:semicolon
 )brace
 eof
