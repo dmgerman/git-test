@@ -3012,7 +3012,10 @@ c_func
 (paren
 l_string|&quot;&squot;%s&squot;: %s&quot;
 comma
-id|arg
+id|argv
+(braket
+id|j
+)braket
 comma
 id|strerror
 c_func
