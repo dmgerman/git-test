@@ -2650,14 +2650,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|strcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--no-merges&quot;
-comma
-l_int|11
 )paren
 )paren
 (brace
