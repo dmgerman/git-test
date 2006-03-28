@@ -6,9 +6,9 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
-multiline_comment|/* bits #0-4 in revision.h */
+multiline_comment|/* bits #0-5 in revision.h */
 DECL|macro|COUNTED
-mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;5)
+mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;6)
 DECL|variable|rev_list_usage
 r_static
 r_const
@@ -141,6 +141,19 @@ c_func
 id|commit_prefix
 comma
 id|stdout
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|BOUNDARY
+)paren
+id|putchar
+c_func
+(paren
+l_char|&squot;-&squot;
 )paren
 suffix:semicolon
 id|fputs
