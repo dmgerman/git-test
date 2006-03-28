@@ -1436,6 +1436,10 @@ id|xecfg.ctxlen
 op_assign
 l_int|3
 suffix:semicolon
+id|xecfg.flags
+op_assign
+id|XDL_EMIT_FUNCNAMES
+suffix:semicolon
 r_if
 c_cond
 (paren
