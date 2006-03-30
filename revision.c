@@ -2915,6 +2915,7 @@ id|from_sha1
 l_int|20
 )braket
 suffix:semicolon
+r_const
 r_char
 op_star
 id|next
@@ -2923,20 +2924,12 @@ id|dotdot
 op_plus
 l_int|2
 suffix:semicolon
+r_const
 r_char
 op_star
 id|this
 op_assign
 id|arg
-suffix:semicolon
-r_static
-r_const
-r_char
-id|HEAD
-(braket
-)braket
-op_assign
-l_string|&quot;HEAD&quot;
 suffix:semicolon
 op_star
 id|dotdot
@@ -2952,7 +2945,7 @@ id|next
 )paren
 id|next
 op_assign
-id|HEAD
+l_string|&quot;HEAD&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -2963,7 +2956,7 @@ id|arg
 )paren
 id|this
 op_assign
-id|HEAD
+l_string|&quot;HEAD&quot;
 suffix:semicolon
 r_if
 c_cond
