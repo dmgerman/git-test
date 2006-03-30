@@ -4,7 +4,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
-macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;revision.h&quot;
 multiline_comment|/* bits #0-5 in revision.h */
 DECL|macro|COUNTED

@@ -1,7 +1,7 @@
 multiline_comment|/*&n; * Copyright (c) 2005, 2006 Rene Scharfe&n; */
 macro_line|#include &lt;time.h&gt;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;tar.h&quot;

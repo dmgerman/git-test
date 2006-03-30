@@ -3,7 +3,7 @@ macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
-macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
 DECL|variable|pack_usage

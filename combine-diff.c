@@ -3396,7 +3396,7 @@ l_int|0
 suffix:semicolon
 id|elem-&gt;mode
 op_assign
-id|DIFF_FILE_CANON_MODE
+id|canon_mode
 c_func
 (paren
 id|st.st_mode

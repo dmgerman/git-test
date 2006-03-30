@@ -861,7 +861,7 @@ l_int|2
 dot
 id|mode
 op_assign
-id|DIFF_FILE_CANON_MODE
+id|canon_mode
 c_func
 (paren
 id|mode
@@ -1049,7 +1049,7 @@ id|ce-&gt;ce_mode
 suffix:semicolon
 id|newmode
 op_assign
-id|DIFF_FILE_CANON_MODE
+id|canon_mode
 c_func
 (paren
 id|st.st_mode

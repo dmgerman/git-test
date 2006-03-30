@@ -1663,7 +1663,7 @@ id|mode
 (brace
 id|spec-&gt;mode
 op_assign
-id|DIFF_FILE_CANON_MODE
+id|canon_mode
 c_func
 (paren
 id|mode
