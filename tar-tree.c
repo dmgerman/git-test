@@ -367,10 +367,6 @@ comma
 id|size
 )paren
 suffix:semicolon
-id|buf
-op_add_assign
-id|size
-suffix:semicolon
 id|offset
 op_add_assign
 id|size
