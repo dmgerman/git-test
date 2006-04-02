@@ -2,6 +2,10 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
+macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;tree.h&quot;
 macro_line|#ifndef O_NOATIME
 macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
 DECL|macro|O_NOATIME
@@ -4444,7 +4448,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 suffix:semicolon
 r_break
@@ -4457,7 +4461,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 suffix:semicolon
 r_break
@@ -4470,7 +4474,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 suffix:semicolon
 r_break
@@ -4483,7 +4487,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tag&quot;
+id|tag_type
 )paren
 suffix:semicolon
 r_break
@@ -4642,7 +4646,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 suffix:semicolon
 r_break
@@ -4655,7 +4659,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 suffix:semicolon
 r_break
@@ -4668,7 +4672,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 suffix:semicolon
 r_break
@@ -4681,7 +4685,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tag&quot;
+id|tag_type
 )paren
 suffix:semicolon
 r_break
@@ -5351,7 +5355,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 suffix:semicolon
 r_break
@@ -5364,7 +5368,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 suffix:semicolon
 r_break
@@ -5377,7 +5381,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 suffix:semicolon
 r_break
@@ -5390,7 +5394,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tag&quot;
+id|tag_type
 )paren
 suffix:semicolon
 r_break
@@ -6359,7 +6363,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 )paren
 id|ref_type
@@ -6376,7 +6380,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tag&quot;
+id|tag_type
 )paren
 )paren
 id|ref_type
@@ -8230,7 +8234,7 @@ id|type
 )paren
 id|type
 op_assign
-l_string|&quot;blob&quot;
+id|blob_type
 suffix:semicolon
 r_if
 c_cond
@@ -8386,7 +8390,7 @@ id|type
 )paren
 id|type
 op_assign
-l_string|&quot;blob&quot;
+id|blob_type
 suffix:semicolon
 r_if
 c_cond
@@ -8635,7 +8639,7 @@ id|target
 comma
 id|st-&gt;st_size
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 comma
 id|sha1
 comma
@@ -8657,7 +8661,7 @@ id|target
 comma
 id|st-&gt;st_size
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 comma
 id|sha1
 )paren

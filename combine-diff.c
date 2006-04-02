@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;quote.h&quot;
@@ -619,7 +620,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 )paren
 id|die

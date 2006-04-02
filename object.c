@@ -1161,7 +1161,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 )paren
 (brace
@@ -1202,7 +1202,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 )paren
 (brace
@@ -1243,7 +1243,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 )paren
 (brace
@@ -1300,7 +1300,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tag&quot;
+id|tag_type
 )paren
 )paren
 (brace

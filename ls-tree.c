@@ -247,7 +247,7 @@ r_char
 op_star
 id|type
 op_assign
-l_string|&quot;blob&quot;
+id|blob_type
 suffix:semicolon
 r_if
 c_cond
@@ -293,7 +293,7 @@ suffix:semicolon
 )brace
 id|type
 op_assign
-l_string|&quot;tree&quot;
+id|tree_type
 suffix:semicolon
 )brace
 r_else

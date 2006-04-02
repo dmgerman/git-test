@@ -4,6 +4,9 @@ DECL|macro|_XOPEN_SOURCE_EXTENDED
 mdefine_line|#define _XOPEN_SOURCE_EXTENDED 1 /* AIX 5.3L needs this */
 macro_line|#include &lt;time.h&gt;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tree.h&quot;
 DECL|struct|entry
 r_struct
 id|entry
@@ -747,7 +750,7 @@ r_new
 comma
 id|newlen
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 id|result_sha1
 )paren
@@ -1504,7 +1507,7 @@ r_new
 comma
 id|newlen
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 comma
 id|result_sha1
 )paren
@@ -1733,7 +1736,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 )paren
 (brace
@@ -1744,7 +1747,7 @@ id|buffer
 comma
 id|size
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 comma
 id|entry-&gt;new_sha1
 )paren
@@ -1760,7 +1763,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 )paren
 id|convert_tree
@@ -1783,7 +1786,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 )paren
 id|convert_commit

@@ -2,6 +2,10 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
+macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;tree.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 DECL|variable|dry_run
 DECL|variable|quiet
@@ -807,7 +811,7 @@ id|OBJ_COMMIT
 suffix:colon
 id|type
 op_assign
-l_string|&quot;commit&quot;
+id|commit_type
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -816,7 +820,7 @@ id|OBJ_TREE
 suffix:colon
 id|type
 op_assign
-l_string|&quot;tree&quot;
+id|tree_type
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -825,7 +829,7 @@ id|OBJ_BLOB
 suffix:colon
 id|type
 op_assign
-l_string|&quot;blob&quot;
+id|blob_type
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -834,7 +838,7 @@ id|OBJ_TAG
 suffix:colon
 id|type
 op_assign
-l_string|&quot;tag&quot;
+id|tag_type
 suffix:semicolon
 r_break
 suffix:semicolon
