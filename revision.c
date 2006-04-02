@@ -3323,12 +3323,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
-id|revs-&gt;max_age
-op_ne
-l_int|1
-)paren
-op_logical_or
 id|revs-&gt;topo_order
 op_logical_or
 id|revs-&gt;unpacked
