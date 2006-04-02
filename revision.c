@@ -3634,6 +3634,17 @@ id|revs-&gt;limited
 r_if
 c_cond
 (paren
+(paren
+id|revs-&gt;unpacked
+op_logical_and
+id|has_sha1_pack
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
+)paren
+op_logical_or
+(paren
 id|revs-&gt;max_age
 op_ne
 l_int|1
@@ -3642,6 +3653,7 @@ op_logical_and
 id|commit-&gt;date
 OL
 id|revs-&gt;max_age
+)paren
 )paren
 )paren
 r_continue
