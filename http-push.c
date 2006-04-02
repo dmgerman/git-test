@@ -3004,6 +3004,7 @@ r_void
 id|check_locks
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct

@@ -873,6 +873,7 @@ r_void
 id|list_common_cmds_help
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int
