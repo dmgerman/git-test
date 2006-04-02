@@ -1342,7 +1342,7 @@ op_star
 id|s
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_while
 c_loop
@@ -1377,10 +1377,10 @@ id|s
 op_star
 id|s
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 r_if
@@ -1483,7 +1483,7 @@ id|s
 op_star
 id|s
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 r_return
@@ -2177,7 +2177,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 id|bufl
@@ -2389,7 +2389,7 @@ suffix:semicolon
 )brace
 id|cmd-&gt;cb.data
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 r_else
@@ -2410,7 +2410,7 @@ l_int|1
 suffix:semicolon
 id|cmd-&gt;next
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 op_star
 id|imap-&gt;in_progress_append
@@ -2896,7 +2896,7 @@ id|cur-&gt;next
 suffix:semicolon
 id|cur-&gt;val
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 multiline_comment|/* for clean bail */
 r_if
@@ -3291,7 +3291,7 @@ suffix:semicolon
 op_star
 id|curp
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_return
 l_int|0
@@ -3301,7 +3301,7 @@ suffix:colon
 op_star
 id|curp
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_return
 l_int|1
@@ -3375,7 +3375,7 @@ r_return
 id|parse_imap_list
 c_func
 (paren
-l_int|0
+l_int|NULL
 comma
 id|sp
 )paren
@@ -4040,7 +4040,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 comma
 id|cmd
 )paren
@@ -4235,7 +4235,7 @@ id|cmdp-&gt;cb.data
 suffix:semicolon
 id|cmdp-&gt;cb.data
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -4497,7 +4497,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 comma
 l_string|&quot;CREATE &bslash;&quot;%.*s&bslash;&quot;&quot;
 comma
@@ -4753,7 +4753,7 @@ c_func
 (paren
 id|ictx
 comma
-l_int|0
+l_int|NULL
 comma
 l_string|&quot;LOGOUT&quot;
 )paren
@@ -5345,7 +5345,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 comma
 id|rsp
 )paren
@@ -5361,7 +5361,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 comma
 l_string|&quot;CAPABILITY&quot;
 )paren
@@ -5530,7 +5530,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 comma
 l_string|&quot;LOGIN &bslash;&quot;%s&bslash;&quot; &bslash;&quot;%s&bslash;&quot;&quot;
 comma
@@ -5581,7 +5581,7 @@ id|ctx-&gt;gen
 )paren
 suffix:semicolon
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 r_static
@@ -7064,7 +7064,7 @@ id|store_t
 op_star
 id|ctx
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_int
 id|uid

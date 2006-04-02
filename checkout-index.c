@@ -521,7 +521,7 @@ id|cache_entry
 op_star
 id|last_ce
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_for
 c_loop
