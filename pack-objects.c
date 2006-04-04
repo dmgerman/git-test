@@ -4644,11 +4644,9 @@ r_if
 c_cond
 (paren
 id|errno
-op_eq
+op_ne
 id|EINTR
 )paren
-r_continue
-suffix:semicolon
 id|die
 c_func
 (paren
@@ -4660,6 +4658,14 @@ c_func
 id|errno
 )paren
 )paren
+suffix:semicolon
+id|clearerr
+c_func
+(paren
+id|stdin
+)paren
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 r_if
