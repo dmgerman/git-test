@@ -999,6 +999,16 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_USERAGENT
+comma
+id|GIT_USER_AGENT
+)paren
+suffix:semicolon
 r_return
 id|result
 suffix:semicolon
