@@ -1,5 +1,7 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tree.h&quot;
 DECL|macro|BLOCKING
 mdefine_line|#define BLOCKING (1ul &lt;&lt; 14)
 multiline_comment|/*&n; * FIXME! Share the code with &quot;write-tree.c&quot;&n; */
@@ -480,7 +482,7 @@ c_func
 (paren
 id|tree_sha1
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 suffix:semicolon
 r_for
@@ -561,7 +563,7 @@ id|parent_sha1
 id|parents
 )braket
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 suffix:semicolon
 r_if
@@ -741,7 +743,7 @@ id|buffer
 comma
 id|size
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 comma
 id|commit_sha1
 )paren

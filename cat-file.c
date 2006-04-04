@@ -1,6 +1,8 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;tree.h&quot;
 DECL|function|flush_buffer
 r_static
 r_void
@@ -656,7 +658,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 )paren
 r_return
@@ -712,7 +714,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tag&quot;
+id|tag_type
 )paren
 )paren
 r_return

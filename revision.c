@@ -1126,7 +1126,7 @@ c_func
 (paren
 id|t1-&gt;object.sha1
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 op_amp
 id|real.size

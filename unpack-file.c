@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;blob.h&quot;
 DECL|function|create_temp_file
 r_static
 r_char
@@ -60,7 +61,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 )paren
 id|die

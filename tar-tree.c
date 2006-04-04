@@ -1791,7 +1791,7 @@ c_func
 (paren
 id|sha1
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 op_amp
 id|tree.size

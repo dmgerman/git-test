@@ -1,6 +1,7 @@
 macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;dirent.h&gt;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;blob.h&quot;
 DECL|function|create_directories
 r_static
 r_void
@@ -516,7 +517,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 )paren
 (brace

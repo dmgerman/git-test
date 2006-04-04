@@ -2,6 +2,7 @@ multiline_comment|/*&n; * apply.c&n; *&n; * Copyright (C) Linus Torvalds, 2005&n
 macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;blob.h&quot;
 singleline_comment|//  --check turns on checking that the working tree matches the
 singleline_comment|//    files that are being modified, but doesn&squot;t apply the patch
 singleline_comment|//  --stat does just a diffstat, and doesn&squot;t actually apply
@@ -4396,22 +4397,10 @@ id|len
 suffix:semicolon
 id|fragment
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
-r_sizeof
-(paren
-op_star
-id|fragment
-)paren
-)paren
-suffix:semicolon
-id|memset
-c_func
-(paren
-id|fragment
-comma
-l_int|0
+l_int|1
 comma
 r_sizeof
 (paren
@@ -6192,7 +6181,7 @@ id|desc-&gt;buffer
 comma
 id|desc-&gt;size
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 comma
 id|sha1
 comma
@@ -8067,18 +8056,10 @@ r_return
 suffix:semicolon
 id|ce
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
-id|ce_size
-)paren
-suffix:semicolon
-id|memset
-c_func
-(paren
-id|ce
-comma
-l_int|0
+l_int|1
 comma
 id|ce_size
 )paren
@@ -8150,7 +8131,7 @@ id|buf
 comma
 id|size
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 comma
 id|ce-&gt;sha1
 )paren
@@ -8949,22 +8930,10 @@ id|nr
 suffix:semicolon
 id|patch
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
-r_sizeof
-(paren
-op_star
-id|patch
-)paren
-)paren
-suffix:semicolon
-id|memset
-c_func
-(paren
-id|patch
-comma
-l_int|0
+l_int|1
 comma
 r_sizeof
 (paren

@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - the stupid content tracker&n; *&n; * Copyright (
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;tree.h&quot;
 DECL|struct|treeent
 r_static
 r_struct
@@ -450,7 +451,7 @@ id|buffer
 comma
 id|offset
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 id|sha1
 )paren

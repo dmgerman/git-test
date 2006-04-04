@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
+macro_line|#include &quot;tree.h&quot;
 DECL|function|fill_tree_descriptor
 r_void
 op_star
@@ -43,7 +44,7 @@ c_func
 (paren
 id|sha1
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 op_amp
 id|size

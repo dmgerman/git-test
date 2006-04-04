@@ -1,5 +1,9 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
+macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
@@ -3071,7 +3075,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 )paren
 (brace
@@ -3173,7 +3177,7 @@ c_func
 (paren
 id|sha1
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 op_amp
 id|tree.size
@@ -3379,7 +3383,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;commit&quot;
+id|commit_type
 )paren
 )paren
 (brace
@@ -3398,7 +3402,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 )paren
 (brace
@@ -3417,7 +3421,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 )paren
 (brace
@@ -3436,7 +3440,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tag&quot;
+id|tag_type
 )paren
 )paren
 (brace

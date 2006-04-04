@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;tree.h&quot;
 DECL|variable|missing_ok
 r_static
 r_int
@@ -394,7 +395,7 @@ id|buffer
 comma
 id|offset
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 id|returnsha1
 )paren
