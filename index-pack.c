@@ -2,6 +2,10 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
+macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tag.h&quot;
+macro_line|#include &quot;tree.h&quot;
 DECL|variable|index_pack_usage
 r_static
 r_const
@@ -1210,7 +1214,7 @@ id|OBJ_COMMIT
 suffix:colon
 id|type_str
 op_assign
-l_string|&quot;commit&quot;
+id|commit_type
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1219,7 +1223,7 @@ id|OBJ_TREE
 suffix:colon
 id|type_str
 op_assign
-l_string|&quot;tree&quot;
+id|tree_type
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1228,7 +1232,7 @@ id|OBJ_BLOB
 suffix:colon
 id|type_str
 op_assign
-l_string|&quot;blob&quot;
+id|blob_type
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1237,7 +1241,7 @@ id|OBJ_TAG
 suffix:colon
 id|type_str
 op_assign
-l_string|&quot;tag&quot;
+id|tag_type
 suffix:semicolon
 r_break
 suffix:semicolon

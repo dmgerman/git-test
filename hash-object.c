@@ -1,5 +1,6 @@
-multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; * Copyright (C) Junio C Hamano, 2005 &n; */
+multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; * Copyright (C) Junio C Hamano, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;blob.h&quot;
 DECL|function|hash_object
 r_static
 r_void
@@ -191,7 +192,7 @@ r_char
 op_star
 id|type
 op_assign
-l_string|&quot;blob&quot;
+id|blob_type
 suffix:semicolon
 r_int
 id|write_object

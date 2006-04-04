@@ -265,7 +265,7 @@ c_func
 (paren
 r_new
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 op_amp
 id|real.size

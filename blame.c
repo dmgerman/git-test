@@ -1191,7 +1191,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;blob&quot;
+id|blob_type
 )paren
 )paren
 suffix:semicolon

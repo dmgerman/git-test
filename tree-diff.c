@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * Helper functions for tree diff generation&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;tree.h&quot;
 singleline_comment|// What paths are we interested in?
 DECL|variable|nr_paths
 r_static
@@ -886,7 +887,7 @@ c_func
 (paren
 id|type
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 )paren
 )paren
 id|die
@@ -1212,7 +1213,7 @@ c_func
 (paren
 id|old
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 op_amp
 id|t1.size
@@ -1245,7 +1246,7 @@ c_func
 (paren
 r_new
 comma
-l_string|&quot;tree&quot;
+id|tree_type
 comma
 op_amp
 id|t2.size
