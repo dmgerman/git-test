@@ -1,8 +1,8 @@
 multiline_comment|/*&n; * Copyright (C) 2005 Junio C Hamano&n; */
-macro_line|#include &lt;regex.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
+macro_line|#include &lt;regex.h&gt;
 DECL|function|contains
 r_static
 r_int
