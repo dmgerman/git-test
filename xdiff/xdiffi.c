@@ -1671,24 +1671,13 @@ id|xe-&gt;xdf2.nreff
 op_plus
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * Classical integer square root approximation using shifts.&n;&t; */
 id|xenv.mxcost
 op_assign
-l_int|1
-suffix:semicolon
-r_for
-c_loop
+id|xdl_bogosqrt
+c_func
 (paren
-suffix:semicolon
 id|ndiags
-suffix:semicolon
-id|ndiags
-op_rshift_assign
-l_int|2
 )paren
-id|xenv.mxcost
-op_lshift_assign
-l_int|1
 suffix:semicolon
 r_if
 c_cond

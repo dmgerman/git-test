@@ -2,6 +2,42 @@ multiline_comment|/*&n; *  LibXDiff by Davide Libenzi ( File Differential Librar
 macro_line|#include &quot;xinclude.h&quot;
 DECL|macro|XDL_GUESS_NLINES
 mdefine_line|#define XDL_GUESS_NLINES 256
+DECL|function|xdl_bogosqrt
+r_int
+id|xdl_bogosqrt
+c_func
+(paren
+r_int
+id|n
+)paren
+(brace
+r_int
+id|i
+suffix:semicolon
+multiline_comment|/*&n;&t; * Classical integer square root approximation using shifts.&n;&t; */
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|1
+suffix:semicolon
+id|n
+OG
+l_int|0
+suffix:semicolon
+id|n
+op_rshift_assign
+l_int|2
+)paren
+id|i
+op_lshift_assign
+l_int|1
+suffix:semicolon
+r_return
+id|i
+suffix:semicolon
+)brace
 DECL|function|xdl_emit_diffrec
 r_int
 id|xdl_emit_diffrec
@@ -1175,7 +1211,8 @@ ques
 c_cond
 id|s1
 suffix:colon
-l_int|0
+id|s1
+l_int|1
 )paren
 suffix:semicolon
 r_if
@@ -1245,7 +1282,8 @@ ques
 c_cond
 id|s2
 suffix:colon
-l_int|0
+id|s2
+l_int|1
 )paren
 suffix:semicolon
 r_if
