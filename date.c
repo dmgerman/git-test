@@ -1529,9 +1529,9 @@ c_func
 (paren
 id|num3
 comma
-id|num2
-comma
 id|num
+comma
+id|num2
 comma
 id|tm
 )paren
@@ -1547,9 +1547,9 @@ c_func
 (paren
 id|num3
 comma
-id|num
-comma
 id|num2
+comma
+id|num
 comma
 id|tm
 )paren
