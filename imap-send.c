@@ -6501,6 +6501,10 @@ id|p
 )paren
 r_break
 suffix:semicolon
+id|msg-&gt;data
+op_assign
+id|p
+suffix:semicolon
 )brace
 id|r
 op_assign
