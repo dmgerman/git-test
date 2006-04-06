@@ -4241,6 +4241,10 @@ id|rev.topo_getter
 op_assign
 id|topo_getter
 suffix:semicolon
+id|rev.parents
+op_assign
+l_int|1
+suffix:semicolon
 id|rev.limited
 op_assign
 l_int|1
