@@ -83,6 +83,8 @@ c_func
 (paren
 op_amp
 id|data
+comma
+id|top
 )paren
 suffix:semicolon
 id|dst_size
@@ -92,6 +94,8 @@ c_func
 (paren
 op_amp
 id|data
+comma
+id|top
 )paren
 suffix:semicolon
 id|added_literal
