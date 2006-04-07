@@ -35,6 +35,7 @@ l_string|&quot;    --objects | --objects-edge&bslash;n&quot;
 l_string|&quot;    --unpacked&bslash;n&quot;
 l_string|&quot;    --header | --pretty&bslash;n&quot;
 l_string|&quot;    --abbrev=nr | --no-abbrev&bslash;n&quot;
+l_string|&quot;    --abbrev-commit&bslash;n&quot;
 l_string|&quot;  special purpose:&bslash;n&quot;
 l_string|&quot;    --bisect&quot;
 suffix:semicolon
@@ -63,6 +64,13 @@ r_int
 id|abbrev
 op_assign
 id|DEFAULT_ABBREV
+suffix:semicolon
+DECL|variable|abbrev_commit
+r_static
+r_int
+id|abbrev_commit
+op_assign
+l_int|0
 suffix:semicolon
 DECL|variable|show_timestamp
 r_static
@@ -149,6 +157,28 @@ c_func
 l_char|&squot;-&squot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|abbrev_commit
+op_logical_and
+id|abbrev
+)paren
+id|fputs
+c_func
+(paren
+id|find_unique_abbrev
+c_func
+(paren
+id|commit-&gt;object.sha1
+comma
+id|abbrev
+)paren
+comma
+id|stdout
+)paren
+suffix:semicolon
+r_else
 id|fputs
 c_func
 (paren
@@ -1527,6 +1557,46 @@ l_string|&quot;--no-abbrev&quot;
 id|abbrev
 op_assign
 l_int|0
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--abbrev&quot;
+)paren
+)paren
+(brace
+id|abbrev
+op_assign
+id|DEFAULT_ABBREV
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--abbrev-commit&quot;
+)paren
+)paren
+(brace
+id|abbrev_commit
+op_assign
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
