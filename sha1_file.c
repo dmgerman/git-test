@@ -3986,14 +3986,21 @@ id|data
 op_assign
 id|delta_head
 suffix:semicolon
+multiline_comment|/* ignore base size */
 id|get_delta_hdr_size
 c_func
 (paren
 op_amp
 id|data
+comma
+id|delta_head
+op_plus
+r_sizeof
+(paren
+id|delta_head
+)paren
 )paren
 suffix:semicolon
-multiline_comment|/* ignore base size */
 multiline_comment|/* Read the result size */
 id|result_size
 op_assign
@@ -4002,6 +4009,13 @@ c_func
 (paren
 op_amp
 id|data
+comma
+id|delta_head
+op_plus
+r_sizeof
+(paren
+id|delta_head
+)paren
 )paren
 suffix:semicolon
 op_star
