@@ -12,7 +12,6 @@ op_star
 id|cp_p
 comma
 r_int
-r_int
 op_star
 id|num_p
 )paren
@@ -24,7 +23,6 @@ op_assign
 op_star
 id|cp_p
 suffix:semicolon
-r_int
 r_int
 id|num
 op_assign
@@ -99,21 +97,17 @@ r_int
 id|len
 comma
 r_int
-r_int
 op_star
 id|ob
 comma
-r_int
 r_int
 op_star
 id|on
 comma
 r_int
-r_int
 op_star
 id|nb
 comma
-r_int
 r_int
 op_star
 id|nn
