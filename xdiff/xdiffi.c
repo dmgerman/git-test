@@ -999,6 +999,8 @@ id|bbest1
 suffix:semicolon
 id|fbest
 op_assign
+id|fbest1
+op_assign
 l_int|1
 suffix:semicolon
 r_for
@@ -1075,6 +1077,8 @@ suffix:semicolon
 )brace
 )brace
 id|bbest
+op_assign
+id|bbest1
 op_assign
 id|XDL_LINE_MAX
 suffix:semicolon
@@ -1425,6 +1429,12 @@ id|ec
 suffix:semicolon
 id|xdpsplit_t
 id|spl
+suffix:semicolon
+id|spl.i1
+op_assign
+id|spl.i2
+op_assign
+l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * Divide ...&n;&t;&t; */
 r_if
