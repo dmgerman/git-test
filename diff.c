@@ -716,11 +716,26 @@ op_star
 id|two
 )paren
 (brace
-multiline_comment|/* Use temp[i].name as input, name_a and name_b as labels */
 r_int
 id|lc_a
 comma
 id|lc_b
+suffix:semicolon
+id|diff_populate_filespec
+c_func
+(paren
+id|one
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|diff_populate_filespec
+c_func
+(paren
+id|two
+comma
+l_int|0
+)paren
 suffix:semicolon
 id|lc_a
 op_assign
