@@ -3354,6 +3354,9 @@ id|diff_tree_setup_paths
 c_func
 (paren
 id|revs-&gt;prune_data
+comma
+op_amp
+id|diff_opt
 )paren
 suffix:semicolon
 id|revs-&gt;prune_fn
