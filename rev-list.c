@@ -6,9 +6,9 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;revision.h&quot;
-multiline_comment|/* bits #0-5 in revision.h */
+multiline_comment|/* bits #0-6 in revision.h */
 DECL|macro|COUNTED
-mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;6)
+mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;7)
 DECL|variable|rev_list_usage
 r_static
 r_const
