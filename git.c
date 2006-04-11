@@ -14,8 +14,8 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;common-cmds.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
-macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#ifndef PATH_MAX
 DECL|macro|PATH_MAX
