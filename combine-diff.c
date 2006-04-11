@@ -1299,7 +1299,7 @@ op_assign
 l_int|1
 suffix:semicolon
 id|lno
-OL
+op_le
 id|cnt
 suffix:semicolon
 id|lno
@@ -1358,6 +1358,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|lno
+OL
+id|cnt
+op_logical_and
 op_logical_neg
 (paren
 id|sline
@@ -1524,7 +1528,7 @@ r_while
 c_loop
 (paren
 id|i
-OL
+op_le
 id|cnt
 )paren
 r_if
@@ -1564,7 +1568,7 @@ id|i
 op_increment
 suffix:semicolon
 r_return
-id|cnt
+id|i
 suffix:semicolon
 )brace
 DECL|function|give_context
@@ -1632,7 +1636,7 @@ r_if
 c_cond
 (paren
 id|cnt
-op_le
+OL
 id|i
 )paren
 r_return
@@ -1642,7 +1646,7 @@ r_while
 c_loop
 (paren
 id|i
-OL
+op_le
 id|cnt
 )paren
 (brace
@@ -1709,7 +1713,7 @@ r_if
 c_cond
 (paren
 id|cnt
-op_le
+OL
 id|j
 )paren
 r_break
@@ -1795,6 +1799,8 @@ op_plus
 id|context
 OL
 id|cnt
+op_plus
+l_int|1
 )paren
 ques
 c_cond
@@ -1803,6 +1809,8 @@ op_plus
 id|context
 suffix:colon
 id|cnt
+op_plus
+l_int|1
 suffix:semicolon
 r_while
 c_loop
@@ -1886,7 +1894,7 @@ op_assign
 l_int|0
 suffix:semicolon
 id|i
-OL
+op_le
 id|cnt
 suffix:semicolon
 id|i
@@ -1955,7 +1963,7 @@ r_while
 c_loop
 (paren
 id|i
-OL
+op_le
 id|cnt
 )paren
 (brace
@@ -1975,7 +1983,7 @@ r_while
 c_loop
 (paren
 id|i
-OL
+op_le
 id|cnt
 op_logical_and
 op_logical_neg
@@ -1997,7 +2005,7 @@ r_if
 c_cond
 (paren
 id|cnt
-op_le
+OL
 id|i
 )paren
 r_break
@@ -2017,7 +2025,7 @@ op_plus
 l_int|1
 suffix:semicolon
 id|j
-OL
+op_le
 id|cnt
 suffix:semicolon
 id|j
@@ -2073,6 +2081,8 @@ op_plus
 id|context
 OL
 id|cnt
+op_plus
+l_int|1
 )paren
 ques
 c_cond
@@ -2083,6 +2093,8 @@ id|context
 )paren
 suffix:colon
 id|cnt
+op_plus
+l_int|1
 suffix:semicolon
 r_while
 c_loop
@@ -2451,11 +2463,14 @@ suffix:semicolon
 r_int
 id|hunk_end
 suffix:semicolon
+r_int
+id|rlines
+suffix:semicolon
 r_while
 c_loop
 (paren
 id|lno
-OL
+op_le
 id|cnt
 op_logical_and
 op_logical_neg
@@ -2477,11 +2492,13 @@ r_if
 c_cond
 (paren
 id|cnt
-op_le
+OL
 id|lno
 )paren
 r_break
 suffix:semicolon
+r_else
+(brace
 r_for
 c_loop
 (paren
@@ -2492,7 +2509,7 @@ op_plus
 l_int|1
 suffix:semicolon
 id|hunk_end
-OL
+op_le
 id|cnt
 suffix:semicolon
 id|hunk_end
@@ -2515,6 +2532,23 @@ id|mark
 )paren
 r_break
 suffix:semicolon
+)brace
+id|rlines
+op_assign
+id|hunk_end
+id|lno
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|cnt
+OL
+id|hunk_end
+)paren
+id|rlines
+op_decrement
+suffix:semicolon
+multiline_comment|/* pointing at the last delete hunk */
 r_for
 c_loop
 (paren
@@ -2572,9 +2606,7 @@ id|lno
 op_plus
 l_int|1
 comma
-id|hunk_end
-op_minus
-id|lno
+id|rlines
 )paren
 suffix:semicolon
 r_for
@@ -2693,6 +2725,15 @@ op_assign
 id|ll-&gt;next
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|cnt
+OL
+id|lno
+)paren
+r_break
+suffix:semicolon
 id|p_mask
 op_assign
 l_int|1
@@ -2805,7 +2846,7 @@ op_assign
 l_int|0
 suffix:semicolon
 id|lno
-OL
+op_le
 id|cnt
 suffix:semicolon
 id|lno
@@ -3219,7 +3260,7 @@ c_func
 (paren
 id|cnt
 op_plus
-l_int|1
+l_int|2
 comma
 r_sizeof
 (paren
@@ -3251,6 +3292,8 @@ suffix:semicolon
 id|lno
 op_le
 id|cnt
+op_plus
+l_int|1
 suffix:semicolon
 id|lno
 op_increment
@@ -3392,6 +3435,7 @@ id|result_file.size
 op_assign
 id|result_size
 suffix:semicolon
+multiline_comment|/* Even p_lno[cnt+1] is valid -- that is for the end line number&n;&t; * for deletion hunk at the end.&n;&t; */
 id|sline
 (braket
 l_int|0
@@ -3405,7 +3449,7 @@ c_func
 (paren
 id|cnt
 op_plus
-l_int|1
+l_int|2
 )paren
 op_star
 id|num_parent
@@ -3425,7 +3469,7 @@ op_assign
 l_int|0
 suffix:semicolon
 id|lno
-OL
+op_le
 id|cnt
 suffix:semicolon
 id|lno
