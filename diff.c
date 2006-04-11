@@ -6875,6 +6875,12 @@ id|options
 )paren
 suffix:semicolon
 )brace
+id|putchar
+c_func
+(paren
+id|options-&gt;line_termination
+)paren
+suffix:semicolon
 )brace
 r_for
 c_loop

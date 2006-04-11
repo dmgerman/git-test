@@ -4685,6 +4685,12 @@ id|opt-&gt;output_format
 op_assign
 id|saved_format
 suffix:semicolon
+id|putchar
+c_func
+(paren
+id|opt-&gt;line_termination
+)paren
+suffix:semicolon
 )brace
 r_for
 c_loop
