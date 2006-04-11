@@ -2900,7 +2900,7 @@ id|path
 (brace
 id|path
 op_assign
-id|index
+id|strchr
 c_func
 (paren
 id|path
@@ -3218,7 +3218,7 @@ r_char
 op_star
 id|c
 op_assign
-id|index
+id|strchr
 c_func
 (paren
 id|name
@@ -3360,7 +3360,7 @@ r_char
 op_star
 id|c
 op_assign
-id|index
+id|strchr
 c_func
 (paren
 id|name
@@ -6469,7 +6469,7 @@ id|path
 (brace
 id|path
 op_assign
-id|index
+id|strchr
 c_func
 (paren
 id|path
