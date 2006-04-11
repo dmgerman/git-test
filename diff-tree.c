@@ -590,6 +590,8 @@ id|prefix
 comma
 id|argv
 )paren
+comma
+id|opt
 )paren
 suffix:semicolon
 id|diff_setup_done

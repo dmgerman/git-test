@@ -6,6 +6,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;http.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &lt;expat.h&gt;
