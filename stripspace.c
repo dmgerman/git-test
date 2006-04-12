@@ -1,10 +1,10 @@
 macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
-multiline_comment|/*&n; * Remove empty lines from the beginning and end.&n; *&n; * Turn multiple consecutive empty lines into just one&n; * empty line.&n; */
+multiline_comment|/*&n; * Remove empty lines from the beginning and end.&n; *&n; * Turn multiple consecutive empty lines into just one&n; * empty line.  Return true if it is an incomplete line.&n; */
 DECL|function|cleanup
 r_static
-r_void
+r_int
 id|cleanup
 c_func
 (paren
@@ -92,7 +92,13 @@ OG
 l_int|1
 )paren
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
 )brace
+r_return
+l_int|1
+suffix:semicolon
 )brace
 DECL|function|main
 r_int
@@ -112,6 +118,11 @@ r_int
 id|empties
 op_assign
 l_int|1
+suffix:semicolon
+r_int
+id|incomplete
+op_assign
+l_int|0
 suffix:semicolon
 r_char
 id|line
@@ -136,6 +147,8 @@ id|stdin
 )paren
 )paren
 (brace
+id|incomplete
+op_assign
 id|cleanup
 c_func
 (paren
@@ -195,6 +208,17 @@ id|empties
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|incomplete
+)paren
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
