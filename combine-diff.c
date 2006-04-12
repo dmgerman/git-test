@@ -2461,8 +2461,10 @@ id|lno
 )braket
 suffix:semicolon
 r_int
+r_int
 id|hunk_end
 suffix:semicolon
+r_int
 r_int
 id|rlines
 suffix:semicolon
