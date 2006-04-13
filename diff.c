@@ -1464,6 +1464,13 @@ c_func
 id|name
 )paren
 suffix:semicolon
+id|data-&gt;files
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|name
+op_assign
 id|name
 op_assign
 id|qname
@@ -1582,7 +1589,8 @@ comma
 id|name
 )paren
 suffix:semicolon
-r_continue
+r_goto
+id|free_diffstat_file
 suffix:semicolon
 )brace
 r_else
@@ -1599,7 +1607,8 @@ l_int|0
 id|total_files
 op_decrement
 suffix:semicolon
-r_continue
+r_goto
+id|free_diffstat_file
 suffix:semicolon
 )brace
 id|add
@@ -1666,7 +1675,6 @@ id|total
 id|add
 suffix:semicolon
 )brace
-multiline_comment|/* TODO: binary */
 id|printf
 c_func
 (paren
@@ -1691,9 +1699,16 @@ comma
 id|minuses
 )paren
 suffix:semicolon
+id|free_diffstat_file
+suffix:colon
 id|free
 c_func
 (paren
+id|data-&gt;files
+(braket
+id|i
+)braket
+op_member_access_from_pointer
 id|name
 )paren
 suffix:semicolon
