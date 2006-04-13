@@ -2169,6 +2169,16 @@ id|shown
 op_assign
 l_int|1
 suffix:semicolon
+id|free
+c_func
+(paren
+id|commit-&gt;buffer
+)paren
+suffix:semicolon
+id|commit-&gt;buffer
+op_assign
+l_int|NULL
+suffix:semicolon
 )brace
 id|free
 c_func
