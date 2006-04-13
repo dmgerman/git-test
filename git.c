@@ -1971,11 +1971,13 @@ l_int|NULL
 r_if
 c_cond
 (paren
+id|shown
+op_logical_and
+id|do_diff
+op_logical_and
 id|commit_format
 op_ne
 id|CMIT_FMT_ONELINE
-op_logical_and
-id|shown
 )paren
 id|putchar
 c_func
