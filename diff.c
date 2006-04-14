@@ -2413,11 +2413,11 @@ id|XDF_NEED_MINIMAL
 suffix:semicolon
 id|xecfg.ctxlen
 op_assign
-l_int|3
+l_int|0
 suffix:semicolon
 id|xecfg.flags
 op_assign
-id|XDL_EMIT_FUNCNAMES
+l_int|0
 suffix:semicolon
 id|ecb.outf
 op_assign
