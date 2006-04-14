@@ -26,8 +26,6 @@ r_if
 c_cond
 (paren
 id|len
-OG
-l_int|1
 op_logical_and
 id|line
 (braket
@@ -39,6 +37,16 @@ op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|len
+op_eq
+l_int|1
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_do
 (brace
 r_int
