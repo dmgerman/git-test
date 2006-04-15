@@ -591,7 +591,8 @@ comma
 id|argv
 )paren
 comma
-id|opt
+op_amp
+id|opt-&gt;diffopt
 )paren
 suffix:semicolon
 id|diff_setup_done
