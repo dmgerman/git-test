@@ -2156,6 +2156,13 @@ c_cond
 (paren
 id|do_diff
 )paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;---&bslash;n&quot;
+)paren
+suffix:semicolon
 id|log_tree_commit
 c_func
 (paren
@@ -2165,6 +2172,7 @@ comma
 id|commit
 )paren
 suffix:semicolon
+)brace
 id|shown
 op_assign
 l_int|1

@@ -1300,12 +1300,6 @@ l_int|0
 )paren
 r_return
 suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;---&bslash;n&quot;
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
