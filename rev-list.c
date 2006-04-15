@@ -1765,6 +1765,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 op_logical_neg
 id|list
 op_logical_and
@@ -1781,6 +1782,9 @@ op_logical_and
 op_logical_neg
 id|revs.pending_objects
 )paren
+)paren
+op_logical_or
+id|revs.diff
 )paren
 id|usage
 c_func
