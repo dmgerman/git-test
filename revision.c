@@ -2045,6 +2045,11 @@ op_star
 id|revs
 )paren
 (brace
+r_int
+id|abbrev
+op_assign
+id|revs-&gt;abbrev
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -2058,6 +2063,14 @@ op_star
 id|revs
 )paren
 )paren
+suffix:semicolon
+id|revs-&gt;abbrev
+op_assign
+id|abbrev
+suffix:semicolon
+id|revs-&gt;ignore_merges
+op_assign
+l_int|1
 suffix:semicolon
 id|revs-&gt;pruning.recursive
 op_assign

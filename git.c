@@ -1560,6 +1560,10 @@ id|shown
 op_assign
 l_int|0
 suffix:semicolon
+id|rev.abbrev
+op_assign
+id|DEFAULT_ABBREV
+suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions
