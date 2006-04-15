@@ -1546,6 +1546,13 @@ comma
 id|commit
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;no_walk
+)paren
+r_return
+suffix:semicolon
 id|parent
 op_assign
 id|commit-&gt;parents
@@ -3891,6 +3898,13 @@ op_assign
 id|list-&gt;next
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|revs-&gt;no_walk
+)paren
+r_return
+suffix:semicolon
 r_if
 c_cond
 (paren
