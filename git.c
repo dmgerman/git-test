@@ -1576,6 +1576,20 @@ op_assign
 op_amp
 id|wcopt.logopt
 suffix:semicolon
+id|memset
+c_func
+(paren
+op_amp
+id|wcopt
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+id|wcopt
+)paren
+)paren
+suffix:semicolon
 id|init_log_tree_opt
 c_func
 (paren
@@ -1583,7 +1597,7 @@ op_amp
 id|wcopt.logopt
 )paren
 suffix:semicolon
-id|wcopt.commit_format
+id|opt-&gt;commit_format
 op_assign
 id|CMIT_FMT_DEFAULT
 suffix:semicolon
@@ -1607,7 +1621,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|wcopt.logopt.commit_format
+id|opt-&gt;commit_format
 op_eq
 id|CMIT_FMT_ONELINE
 )paren
@@ -1649,7 +1663,7 @@ id|shown
 op_logical_and
 id|wcopt.do_diff
 op_logical_and
-id|wcopt.commit_format
+id|opt-&gt;commit_format
 op_ne
 id|CMIT_FMT_ONELINE
 )paren
@@ -1783,7 +1797,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|wcopt.commit_format
+id|opt-&gt;commit_format
 op_eq
 id|CMIT_FMT_ONELINE
 )paren
@@ -1803,7 +1817,7 @@ suffix:semicolon
 id|pretty_print_commit
 c_func
 (paren
-id|wcopt.commit_format
+id|opt-&gt;commit_format
 comma
 id|commit
 comma
