@@ -13160,6 +13160,13 @@ id|commit_argc
 op_increment
 suffix:semicolon
 )brace
+id|init_revisions
+c_func
+(paren
+op_amp
+id|revs
+)paren
+suffix:semicolon
 id|setup_revisions
 c_func
 (paren
