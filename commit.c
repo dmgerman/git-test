@@ -806,7 +806,7 @@ op_eq
 l_char|&squot;#&squot;
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -1019,6 +1019,14 @@ id|buf
 comma
 id|len
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|graft
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
