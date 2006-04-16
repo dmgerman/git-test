@@ -2011,6 +2011,10 @@ id|rev.dense_combined_merges
 op_assign
 l_int|1
 suffix:semicolon
+id|rev.always_show_header
+op_assign
+l_int|1
+suffix:semicolon
 id|rev.ignore_merges
 op_assign
 l_int|0
