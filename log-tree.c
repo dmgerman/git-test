@@ -266,6 +266,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|opt-&gt;use_precomputed_header
+)paren
+r_return
+id|opt-&gt;use_precomputed_header
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|opt-&gt;verbose_header
 )paren
