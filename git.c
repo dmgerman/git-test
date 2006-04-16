@@ -1560,6 +1560,13 @@ id|shown
 op_assign
 l_int|0
 suffix:semicolon
+id|init_revisions
+c_func
+(paren
+op_amp
+id|rev
+)paren
+suffix:semicolon
 id|rev.abbrev
 op_assign
 id|DEFAULT_ABBREV

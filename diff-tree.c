@@ -371,6 +371,12 @@ id|nr_sha1
 op_assign
 l_int|0
 suffix:semicolon
+id|init_revisions
+c_func
+(paren
+id|opt
+)paren
+suffix:semicolon
 id|opt-&gt;abbrev
 op_assign
 l_int|0

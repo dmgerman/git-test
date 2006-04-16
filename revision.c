@@ -2045,11 +2045,6 @@ op_star
 id|revs
 )paren
 (brace
-r_int
-id|abbrev
-op_assign
-id|revs-&gt;abbrev
-suffix:semicolon
 id|memset
 c_func
 (paren
@@ -2066,7 +2061,7 @@ id|revs
 suffix:semicolon
 id|revs-&gt;abbrev
 op_assign
-id|abbrev
+id|DEFAULT_ABBREV
 suffix:semicolon
 id|revs-&gt;ignore_merges
 op_assign
@@ -2190,12 +2185,6 @@ r_int
 id|left
 op_assign
 l_int|1
-suffix:semicolon
-id|init_revisions
-c_func
-(paren
-id|revs
-)paren
 suffix:semicolon
 multiline_comment|/* First, search for &quot;--&quot; */
 id|seen_dashdash
