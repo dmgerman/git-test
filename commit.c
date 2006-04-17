@@ -804,6 +804,13 @@ l_int|0
 )braket
 op_eq
 l_char|&squot;#&squot;
+op_logical_or
+id|buf
+(braket
+l_int|0
+)braket
+op_eq
+l_char|&squot;&bslash;0&squot;
 )paren
 r_return
 l_int|NULL
