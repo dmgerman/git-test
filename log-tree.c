@@ -260,6 +260,11 @@ id|opt
 comma
 id|opt-&gt;loginfo
 comma
+id|opt-&gt;diffopt.with_stat
+ques
+c_cond
+l_string|&quot;---&bslash;n&quot;
+suffix:colon
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
