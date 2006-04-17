@@ -8,6 +8,8 @@ macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
+macro_line|#include &quot;rabinpoly.h&quot;
+macro_line|#include &quot;gsimm.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
 DECL|variable|pack_usage
@@ -4925,6 +4927,14 @@ id|object_entry
 op_star
 id|entry
 suffix:semicolon
+DECL|member|fingerprint
+r_int
+r_char
+id|fingerprint
+(braket
+id|MD_LENGTH
+)braket
+suffix:semicolon
 DECL|member|data
 r_void
 op_star
@@ -5063,6 +5073,22 @@ c_cond
 id|old_entry-&gt;depth
 op_ge
 id|max_depth
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|gb_simm_score
+c_func
+(paren
+id|cur-&gt;fingerprint
+comma
+id|old-&gt;fingerprint
+)paren
+OL
+l_float|0.4
 )paren
 r_return
 l_int|0
@@ -5219,6 +5245,10 @@ r_int
 id|last_percent
 op_assign
 l_int|999
+suffix:semicolon
+id|rabin_reset
+(paren
+)paren
 suffix:semicolon
 id|memset
 c_func
@@ -5404,6 +5434,16 @@ comma
 id|size
 comma
 id|entry-&gt;size
+)paren
+suffix:semicolon
+id|gb_simm_process
+c_func
+(paren
+id|n-&gt;data
+comma
+id|size
+comma
+id|n-&gt;fingerprint
 )paren
 suffix:semicolon
 id|j
