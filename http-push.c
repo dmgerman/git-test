@@ -97,15 +97,15 @@ DECL|macro|LOCK_TIME
 mdefine_line|#define LOCK_TIME 600
 DECL|macro|LOCK_REFRESH
 mdefine_line|#define LOCK_REFRESH 30
-multiline_comment|/* bits #0-6 in revision.h */
+multiline_comment|/* bits #0-15 in revision.h */
 DECL|macro|LOCAL
-mdefine_line|#define LOCAL    (1u &lt;&lt; 7)
+mdefine_line|#define LOCAL    (1u&lt;&lt;16)
 DECL|macro|REMOTE
-mdefine_line|#define REMOTE   (1u &lt;&lt; 8)
+mdefine_line|#define REMOTE   (1u&lt;&lt;17)
 DECL|macro|FETCHING
-mdefine_line|#define FETCHING (1u &lt;&lt; 9)
+mdefine_line|#define FETCHING (1u&lt;&lt;18)
 DECL|macro|PUSHING
-mdefine_line|#define PUSHING  (1u &lt;&lt; 10)
+mdefine_line|#define PUSHING  (1u&lt;&lt;19)
 multiline_comment|/* We allow &quot;recursive&quot; symbolic refs. Only within reason, though */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
