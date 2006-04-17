@@ -2129,10 +2129,6 @@ id|revs-&gt;topo_getter
 op_assign
 id|topo_sort_default_getter
 suffix:semicolon
-id|revs-&gt;header_prefix
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
 id|revs-&gt;commit_format
 op_assign
 id|CMIT_FMT_DEFAULT
@@ -3095,10 +3091,6 @@ id|revs-&gt;verbose_header
 op_assign
 l_int|1
 suffix:semicolon
-id|revs-&gt;header_prefix
-op_assign
-l_string|&quot;diff-tree &quot;
-suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
@@ -3120,10 +3112,6 @@ l_int|8
 id|revs-&gt;verbose_header
 op_assign
 l_int|1
-suffix:semicolon
-id|revs-&gt;header_prefix
-op_assign
-l_string|&quot;diff-tree &quot;
 suffix:semicolon
 id|revs-&gt;commit_format
 op_assign

@@ -66,6 +66,13 @@ id|hdr_termination
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|header_prefix
+r_static
+r_const
+r_char
+op_star
+id|header_prefix
+suffix:semicolon
 DECL|function|show_commit
 r_static
 r_void
@@ -94,13 +101,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_star
-id|revs.header_prefix
+id|header_prefix
 )paren
 id|fputs
 c_func
 (paren
-id|revs.header_prefix
+id|header_prefix
 comma
 id|stdout
 )paren
@@ -1481,12 +1487,12 @@ id|revs.commit_format
 op_eq
 id|CMIT_FMT_ONELINE
 )paren
-id|revs.header_prefix
+id|header_prefix
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
 r_else
-id|revs.header_prefix
+id|header_prefix
 op_assign
 l_string|&quot;commit &quot;
 suffix:semicolon

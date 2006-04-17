@@ -381,6 +381,10 @@ id|opt-&gt;abbrev
 op_assign
 l_int|0
 suffix:semicolon
+id|opt-&gt;diff
+op_assign
+l_int|1
+suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions
