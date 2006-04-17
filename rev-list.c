@@ -1491,6 +1491,17 @@ op_assign
 l_string|&quot;commit &quot;
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|revs.verbose_header
+)paren
+multiline_comment|/* Only --header was specified */
+id|revs.commit_format
+op_assign
+id|CMIT_FMT_RAW
+suffix:semicolon
 id|list
 op_assign
 id|revs.commits
