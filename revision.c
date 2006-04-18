@@ -3778,17 +3778,6 @@ op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|revs-&gt;diffopt.output_format
-op_eq
-id|DIFF_FORMAT_PATCH
-)paren
-id|revs-&gt;diffopt.recursive
-op_assign
-l_int|1
-suffix:semicolon
 id|revs-&gt;diffopt.abbrev
 op_assign
 id|revs-&gt;abbrev
