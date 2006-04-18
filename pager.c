@@ -80,6 +80,15 @@ c_cond
 op_logical_neg
 op_star
 id|pager
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|pager
+comma
+l_string|&quot;cat&quot;
+)paren
 )paren
 r_return
 suffix:semicolon
