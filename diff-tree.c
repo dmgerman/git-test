@@ -569,17 +569,6 @@ id|opt-&gt;diffopt.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|opt-&gt;diffopt.output_format
-op_eq
-id|DIFF_FORMAT_PATCH
-)paren
-id|opt-&gt;diffopt.recursive
-op_assign
-l_int|1
-suffix:semicolon
 id|diff_tree_setup_paths
 c_func
 (paren

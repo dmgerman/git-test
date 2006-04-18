@@ -1906,17 +1906,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|opt.diffopt.output_format
-op_eq
-id|DIFF_FORMAT_PATCH
-)paren
-id|opt.diffopt.recursive
-op_assign
-l_int|1
-suffix:semicolon
-r_if
-c_cond
-(paren
 op_logical_neg
 id|full_diff
 op_logical_and
