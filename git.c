@@ -1506,8 +1506,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|macro|LOGSIZE
-mdefine_line|#define LOGSIZE (65536)
 DECL|function|cmd_log_wc
 r_static
 r_int
