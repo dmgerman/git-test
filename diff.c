@@ -5456,10 +5456,6 @@ id|options-&gt;output_format
 op_eq
 id|DIFF_FORMAT_DIFFSTAT
 )paren
-op_logical_or
-(paren
-id|options-&gt;with_stat
-)paren
 )paren
 id|options-&gt;recursive
 op_assign
