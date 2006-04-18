@@ -1,6 +1,8 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;revision.h&quot;
 DECL|variable|diff_files_usage
 r_static
 r_const
@@ -12,11 +14,11 @@ op_assign
 l_string|&quot;git-diff-files [-q] [-0/-1/2/3 |-c|--cc] [&lt;common diff options&gt;] [&lt;path&gt;...]&quot;
 id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
-DECL|variable|diff_options
+DECL|variable|rev
 r_static
 r_struct
-id|diff_options
-id|diff_options
+id|rev_info
+id|rev
 suffix:semicolon
 DECL|variable|silent
 r_static
@@ -62,7 +64,7 @@ id|diff_unmerge
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 comma
 id|path
 )paren
@@ -87,7 +89,7 @@ id|diff_addremove
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 comma
 id|pfx
 comma
@@ -138,7 +140,7 @@ id|diff_change
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 comma
 id|oldmode
 comma
@@ -200,7 +202,7 @@ id|diff_setup
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 )paren
 suffix:semicolon
 r_while
@@ -494,7 +496,7 @@ id|diff_opt_parse
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 comma
 id|argv
 op_plus
@@ -556,7 +558,7 @@ c_cond
 (paren
 id|dense_combined_merges
 )paren
-id|diff_options.output_format
+id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
@@ -587,7 +589,7 @@ id|diff_setup_done
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 )paren
 OL
 l_int|0
@@ -919,10 +921,8 @@ l_int|2
 comma
 id|dense_combined_merges
 comma
-l_int|NULL
-comma
 op_amp
-id|diff_options
+id|rev
 )paren
 suffix:semicolon
 id|free
@@ -1035,7 +1035,7 @@ op_logical_neg
 id|changed
 op_logical_and
 op_logical_neg
-id|diff_options.find_copies_harder
+id|rev.diffopt.find_copies_harder
 )paren
 r_continue
 suffix:semicolon
@@ -1113,14 +1113,14 @@ id|diffcore_std
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 )paren
 suffix:semicolon
 id|diff_flush
 c_func
 (paren
 op_amp
-id|diff_options
+id|rev.diffopt
 )paren
 suffix:semicolon
 r_return
