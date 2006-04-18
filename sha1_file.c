@@ -4319,8 +4319,6 @@ suffix:semicolon
 r_int
 r_int
 id|offset
-comma
-id|left
 suffix:semicolon
 r_int
 r_char
@@ -4352,11 +4350,6 @@ id|p-&gt;pack_base
 op_plus
 id|offset
 suffix:semicolon
-id|left
-op_assign
-id|p-&gt;pack_size
-id|offset
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4376,6 +4369,23 @@ r_int
 id|chain_length
 op_assign
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|p-&gt;pack_size
+op_le
+id|offset
+op_plus
+l_int|20
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;pack file %s records an incomplete delta base&quot;
+comma
+id|p-&gt;pack_name
+)paren
 suffix:semicolon
 id|memcpy
 c_func

@@ -111,8 +111,6 @@ suffix:semicolon
 r_int
 id|len
 comma
-id|err
-comma
 id|i
 suffix:semicolon
 r_const
@@ -369,10 +367,6 @@ id|argv
 comma
 id|environ
 )paren
-suffix:semicolon
-id|err
-op_assign
-id|errno
 suffix:semicolon
 id|argv
 (braket

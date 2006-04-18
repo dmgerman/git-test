@@ -578,11 +578,6 @@ c_func
 suffix:semicolon
 r_break
 suffix:semicolon
-r_case
-l_char|&squot; &squot;
-suffix:colon
-r_break
-suffix:semicolon
 r_default
 suffix:colon
 multiline_comment|/* octal */
