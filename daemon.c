@@ -2228,10 +2228,8 @@ c_func
 id|sockfd
 )paren
 suffix:semicolon
-r_return
-l_int|0
+r_continue
 suffix:semicolon
-multiline_comment|/* not fatal */
 )brace
 r_if
 c_cond
