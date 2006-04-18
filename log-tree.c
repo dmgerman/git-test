@@ -57,6 +57,11 @@ id|opt-&gt;abbrev
 suffix:colon
 l_int|40
 suffix:semicolon
+r_const
+r_char
+op_star
+id|extra
+suffix:semicolon
 r_int
 id|len
 suffix:semicolon
@@ -84,7 +89,27 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Whitespace between commit messages, unless we are oneline&n;&t; */
+multiline_comment|/*&n;&t; * The &quot;oneline&quot; format has several special cases:&n;&t; *  - The pretty-printed commit lacks a newline at the end&n;&t; *    of the buffer, but we do want to make sure that we&n;&t; *    have a newline there. If the separator isn&squot;t already&n;&t; *    a newline, add an extra one.&n;&t; *  - unlike other log messages, the one-line format does&n;&t; *    not have an empty line between entries.&n;&t; */
+id|extra
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|sep
+op_ne
+l_char|&squot;&bslash;n&squot;
+op_logical_and
+id|opt-&gt;commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+)paren
+id|extra
+op_assign
+l_string|&quot;&bslash;n&quot;
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -186,9 +211,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s%s&quot;
+l_string|&quot;%s%s%s&quot;
 comma
 id|this_header
+comma
+id|extra
 comma
 id|sep
 )paren
