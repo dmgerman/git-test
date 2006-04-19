@@ -3,7 +3,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
-macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;tree-walk.h&quot;
 DECL|function|find_short_object_filename
 r_static
 r_int
