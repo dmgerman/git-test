@@ -2505,6 +2505,9 @@ comma
 r_int
 r_char
 op_star
+comma
+r_int
+op_star
 )paren
 suffix:semicolon
 DECL|function|find_tree_entry
@@ -2527,6 +2530,10 @@ r_int
 r_char
 op_star
 id|result
+comma
+r_int
+op_star
+id|mode
 )paren
 (brace
 r_int
@@ -2560,9 +2567,6 @@ id|entrylen
 comma
 id|cmp
 suffix:semicolon
-r_int
-id|mode
-suffix:semicolon
 id|sha1
 op_assign
 id|tree_entry_extract
@@ -2573,7 +2577,6 @@ comma
 op_amp
 id|entry
 comma
-op_amp
 id|mode
 )paren
 suffix:semicolon
@@ -2671,6 +2674,7 @@ op_logical_neg
 id|S_ISDIR
 c_func
 (paren
+op_star
 id|mode
 )paren
 )paren
@@ -2710,6 +2714,8 @@ op_plus
 id|entrylen
 comma
 id|result
+comma
+id|mode
 )paren
 suffix:semicolon
 )brace
@@ -2738,6 +2744,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+op_star
+id|mode
 )paren
 (brace
 r_int
@@ -2790,6 +2800,8 @@ comma
 id|name
 comma
 id|sha1
+comma
+id|mode
 )paren
 suffix:semicolon
 id|free
@@ -2821,6 +2833,9 @@ id|sha1
 (brace
 r_int
 id|ret
+suffix:semicolon
+r_int
+id|unused
 suffix:semicolon
 id|prepare_alt_odb
 c_func
@@ -2904,6 +2919,9 @@ op_plus
 l_int|1
 comma
 id|sha1
+comma
+op_amp
+id|unused
 )paren
 suffix:semicolon
 )brace
