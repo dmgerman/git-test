@@ -2699,7 +2699,7 @@ id|CMIT_FMT_EMAIL
 )paren
 id|subject
 op_assign
-l_string|&quot;Subject: &quot;
+l_string|&quot;Subject: [PATCH] &quot;
 suffix:semicolon
 r_if
 c_cond
