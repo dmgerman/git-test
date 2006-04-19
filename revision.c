@@ -705,6 +705,10 @@ op_amp
 id|UNINTERESTING
 )paren
 (brace
+id|commit-&gt;object.flags
+op_or_assign
+id|UNINTERESTING
+suffix:semicolon
 id|mark_parents_uninteresting
 c_func
 (paren
