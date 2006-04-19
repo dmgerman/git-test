@@ -2016,14 +2016,6 @@ id|rev.diffopt.recursive
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.combine_merges
-op_assign
-l_int|1
-suffix:semicolon
-id|rev.ignore_merges
-op_assign
-l_int|0
-suffix:semicolon
 r_return
 id|cmd_log_wc
 c_func
