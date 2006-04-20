@@ -6061,9 +6061,13 @@ suffix:semicolon
 r_char
 id|line
 (braket
+l_int|40
+op_plus
+l_int|1
+op_plus
 id|PATH_MAX
 op_plus
-l_int|20
+l_int|2
 )braket
 suffix:semicolon
 r_int
