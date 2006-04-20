@@ -2126,7 +2126,7 @@ id|cmd_show
 )brace
 comma
 (brace
-l_string|&quot;format-patch&quot;
+l_string|&quot;fmt-patch&quot;
 comma
 id|cmd_format_patch
 )brace
