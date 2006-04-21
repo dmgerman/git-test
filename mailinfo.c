@@ -2115,6 +2115,9 @@ comma
 r_char
 op_star
 id|ep
+comma
+r_int
+id|rfc2047
 )paren
 (brace
 r_int
@@ -2192,8 +2195,23 @@ op_increment
 )paren
 )paren
 suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
-r_else
+r_if
+c_cond
+(paren
+id|rfc2047
+op_logical_and
+id|c
+op_eq
+l_char|&squot;_&squot;
+)paren
+multiline_comment|/* rfc2047 4.2 (2) */
+id|c
+op_assign
+l_int|0x20
+suffix:semicolon
 op_star
 id|ot
 op_increment
@@ -2938,6 +2956,8 @@ comma
 id|piecebuf
 comma
 id|ep
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_break
@@ -3047,6 +3067,8 @@ comma
 id|line
 comma
 id|ep
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_break
