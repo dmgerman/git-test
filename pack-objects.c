@@ -5094,7 +5094,7 @@ op_ge
 id|max_size
 )paren
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 id|delta_buf
 op_assign
