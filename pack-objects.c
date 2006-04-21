@@ -5094,7 +5094,7 @@ op_ge
 id|max_size
 )paren
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 id|delta_buf
 op_assign
@@ -6061,9 +6061,13 @@ suffix:semicolon
 r_char
 id|line
 (braket
+l_int|40
+op_plus
+l_int|1
+op_plus
 id|PATH_MAX
 op_plus
-l_int|20
+l_int|2
 )braket
 suffix:semicolon
 r_int
