@@ -22,6 +22,20 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|execl
+c_func
+(paren
+l_string|&quot;/bin/sh&quot;
+comma
+l_string|&quot;sh&quot;
+comma
+l_string|&quot;-c&quot;
+comma
+id|pager
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 )brace
 DECL|function|setup_pager
 r_void
@@ -215,6 +229,14 @@ suffix:semicolon
 id|run_pager
 c_func
 (paren
+id|pager
+)paren
+suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;unable to execute pager &squot;%s&squot;&quot;
+comma
 id|pager
 )paren
 suffix:semicolon
