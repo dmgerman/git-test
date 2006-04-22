@@ -1372,9 +1372,6 @@ id|revs
 comma
 r_int
 id|cached
-comma
-r_int
-id|match_missing
 )paren
 (brace
 r_int
@@ -1394,6 +1391,22 @@ r_const
 r_char
 op_star
 id|tree_name
+suffix:semicolon
+r_int
+id|match_missing
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* &n;&t; * Backward compatibility wart - &quot;diff-index -m&quot; does&n;&t; * not mean &quot;do not ignore merges&quot;, but totally different.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;ignore_merges
+)paren
+id|match_missing
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
