@@ -3776,6 +3776,12 @@ r_if
 c_cond
 (paren
 id|revs-&gt;dense_combined_merges
+op_logical_and
+(paren
+id|revs-&gt;diffopt.output_format
+op_ne
+id|DIFF_FORMAT_DIFFSTAT
+)paren
 )paren
 id|revs-&gt;diffopt.output_format
 op_assign
