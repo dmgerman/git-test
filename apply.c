@@ -1,8 +1,25 @@
 multiline_comment|/*&n; * apply.c&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; *&n; * This applies patches on top of some (arbitrary) version of the SCM.&n; *&n; */
 macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;
+DECL|variable|active_cache_sha1
+r_static
+r_int
+r_char
+id|active_cache_sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+DECL|variable|active_cache_tree
+r_static
+r_struct
+id|cache_tree
+op_star
+id|active_cache_tree
+suffix:semicolon
 singleline_comment|//  --check turns on checking that the working tree matches the
 singleline_comment|//    files that are being modified, but doesn&squot;t apply the patch
 singleline_comment|//  --stat does just a diffstat, and doesn&squot;t actually apply
@@ -8377,6 +8394,14 @@ comma
 id|patch-&gt;old_name
 )paren
 suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|patch-&gt;old_name
+)paren
+suffix:semicolon
 )brace
 id|unlink
 c_func
@@ -8987,6 +9012,14 @@ comma
 id|size
 )paren
 suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 )brace
 DECL|function|write_out_one_result
 r_static
@@ -9456,9 +9489,10 @@ id|check_index
 r_if
 c_cond
 (paren
-id|read_cache
+id|read_cache_1
 c_func
 (paren
+id|active_cache_sha1
 )paren
 OL
 l_int|0
@@ -9467,6 +9501,14 @@ id|die
 c_func
 (paren
 l_string|&quot;unable to read index file&quot;
+)paren
+suffix:semicolon
+id|active_cache_tree
+op_assign
+id|read_cache_tree
+c_func
+(paren
+id|active_cache_sha1
 )paren
 suffix:semicolon
 )brace
@@ -9514,7 +9556,7 @@ id|write_index
 r_if
 c_cond
 (paren
-id|write_cache
+id|write_cache_1
 c_func
 (paren
 id|newfd
@@ -9522,6 +9564,8 @@ comma
 id|active_cache
 comma
 id|active_nr
+comma
+id|active_cache_sha1
 )paren
 op_logical_or
 id|commit_index_file
@@ -9535,6 +9579,14 @@ id|die
 c_func
 (paren
 l_string|&quot;Unable to write new cachefile&quot;
+)paren
+suffix:semicolon
+id|write_cache_tree
+c_func
+(paren
+id|active_cache_sha1
+comma
+id|active_cache_tree
 )paren
 suffix:semicolon
 )brace
