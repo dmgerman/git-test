@@ -2,6 +2,24 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
+DECL|variable|active_cache_sha1
+r_static
+r_int
+r_char
+id|active_cache_sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+DECL|variable|active_cache_tree
+r_static
+r_struct
+id|cache_tree
+op_star
+id|active_cache_tree
+suffix:semicolon
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git-update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -271,6 +289,14 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 id|active_cache_changed
 op_assign
 l_int|1
@@ -322,6 +348,15 @@ id|path
 comma
 op_amp
 id|st
+)paren
+suffix:semicolon
+multiline_comment|/* We probably want to do this in remove_file_from_cache() and&n;&t; * add_cache_entry() instead...&n;&t; */
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
 )paren
 suffix:semicolon
 r_if
@@ -1365,6 +1400,14 @@ comma
 id|path
 )paren
 suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -1487,6 +1530,14 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 id|active_cache_changed
 op_assign
 l_int|1
@@ -1586,6 +1637,14 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1916,6 +1975,14 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path_name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2117,9 +2184,10 @@ l_string|&quot;unable to create new cachefile&quot;
 suffix:semicolon
 id|entries
 op_assign
-id|read_cache
+id|read_cache_1
 c_func
 (paren
+id|active_cache_sha1
 )paren
 suffix:semicolon
 r_if
@@ -2133,6 +2201,14 @@ id|die
 c_func
 (paren
 l_string|&quot;cache corrupted&quot;
+)paren
+suffix:semicolon
+id|active_cache_tree
+op_assign
+id|read_cache_tree
+c_func
+(paren
+id|active_cache_sha1
 )paren
 suffix:semicolon
 r_for
@@ -2896,7 +2972,7 @@ id|active_cache_changed
 r_if
 c_cond
 (paren
-id|write_cache
+id|write_cache_1
 c_func
 (paren
 id|newfd
@@ -2904,6 +2980,8 @@ comma
 id|active_cache
 comma
 id|active_nr
+comma
+id|active_cache_sha1
 )paren
 op_logical_or
 id|commit_index_file
@@ -2917,6 +2995,14 @@ id|die
 c_func
 (paren
 l_string|&quot;Unable to write new cachefile&quot;
+)paren
+suffix:semicolon
+id|write_cache_tree
+c_func
+(paren
+id|active_cache_sha1
+comma
+id|active_cache_tree
 )paren
 suffix:semicolon
 )brace
