@@ -868,6 +868,12 @@ c_cond
 l_int|0
 op_le
 id|it-&gt;entry_count
+op_logical_and
+id|has_sha1_file
+c_func
+(paren
+id|it-&gt;sha1
+)paren
 )paren
 r_return
 id|it-&gt;entry_count
