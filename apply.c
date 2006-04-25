@@ -4,22 +4,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;
-DECL|variable|active_cache_sha1
-r_static
-r_int
-r_char
-id|active_cache_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
-DECL|variable|active_cache_tree
-r_static
-r_struct
-id|cache_tree
-op_star
-id|active_cache_tree
-suffix:semicolon
 singleline_comment|//  --check turns on checking that the working tree matches the
 singleline_comment|//    files that are being modified, but doesn&squot;t apply the patch
 singleline_comment|//  --stat does just a diffstat, and doesn&squot;t actually apply
@@ -9489,10 +9473,9 @@ id|check_index
 r_if
 c_cond
 (paren
-id|read_cache_1
+id|read_cache
 c_func
 (paren
-id|active_cache_sha1
 )paren
 OL
 l_int|0
@@ -9501,14 +9484,6 @@ id|die
 c_func
 (paren
 l_string|&quot;unable to read index file&quot;
-)paren
-suffix:semicolon
-id|active_cache_tree
-op_assign
-id|read_cache_tree
-c_func
-(paren
-id|active_cache_sha1
 )paren
 suffix:semicolon
 )brace
@@ -9556,7 +9531,7 @@ id|write_index
 r_if
 c_cond
 (paren
-id|write_cache_1
+id|write_cache
 c_func
 (paren
 id|newfd
@@ -9564,8 +9539,6 @@ comma
 id|active_cache
 comma
 id|active_nr
-comma
-id|active_cache_sha1
 )paren
 op_logical_or
 id|commit_index_file
@@ -9579,14 +9552,6 @@ id|die
 c_func
 (paren
 l_string|&quot;Unable to write new cachefile&quot;
-)paren
-suffix:semicolon
-id|write_cache_tree
-c_func
-(paren
-id|active_cache_sha1
-comma
-id|active_cache_tree
 )paren
 suffix:semicolon
 )brace

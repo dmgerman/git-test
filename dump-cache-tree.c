@@ -1,22 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
-DECL|variable|active_cache_sha1
-r_static
-r_int
-r_char
-id|active_cache_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
-DECL|variable|active_cache_tree
-r_static
-r_struct
-id|cache_tree
-op_star
-id|active_cache_tree
-suffix:semicolon
 DECL|function|dump_cache_tree
 r_static
 r_void
@@ -36,6 +20,14 @@ id|pfx
 (brace
 r_int
 id|i
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|it
+)paren
+r_return
 suffix:semicolon
 r_if
 c_cond
@@ -143,10 +135,9 @@ id|av
 r_if
 c_cond
 (paren
-id|read_cache_1
+id|read_cache
 c_func
 (paren
-id|active_cache_sha1
 )paren
 OL
 l_int|0
@@ -155,14 +146,6 @@ id|die
 c_func
 (paren
 l_string|&quot;unable to read index file&quot;
-)paren
-suffix:semicolon
-id|active_cache_tree
-op_assign
-id|read_cache_tree
-c_func
-(paren
-id|active_cache_sha1
 )paren
 suffix:semicolon
 id|dump_cache_tree
