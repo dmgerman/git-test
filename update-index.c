@@ -3,24 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
-macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
-DECL|variable|active_cache_sha1
-r_static
-r_int
-r_char
-id|active_cache_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
-DECL|variable|active_cache_tree
-r_static
-r_struct
-id|cache_tree
-op_star
-id|active_cache_tree
-suffix:semicolon
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git-update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -2814,10 +2797,9 @@ l_string|&quot;unable to create new cachefile&quot;
 suffix:semicolon
 id|entries
 op_assign
-id|read_cache_1
+id|read_cache
 c_func
 (paren
-id|active_cache_sha1
 )paren
 suffix:semicolon
 r_if
@@ -2831,14 +2813,6 @@ id|die
 c_func
 (paren
 l_string|&quot;cache corrupted&quot;
-)paren
-suffix:semicolon
-id|active_cache_tree
-op_assign
-id|read_cache_tree
-c_func
-(paren
-id|active_cache_sha1
 )paren
 suffix:semicolon
 r_for
@@ -3662,7 +3636,7 @@ id|active_cache_changed
 r_if
 c_cond
 (paren
-id|write_cache_1
+id|write_cache
 c_func
 (paren
 id|newfd
@@ -3670,8 +3644,6 @@ comma
 id|active_cache
 comma
 id|active_nr
-comma
-id|active_cache_sha1
 )paren
 op_logical_or
 id|commit_index_file
@@ -3685,14 +3657,6 @@ id|die
 c_func
 (paren
 l_string|&quot;Unable to write new cachefile&quot;
-)paren
-suffix:semicolon
-id|write_cache_tree
-c_func
-(paren
-id|active_cache_sha1
-comma
-id|active_cache_tree
 )paren
 suffix:semicolon
 )brace

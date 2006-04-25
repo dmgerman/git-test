@@ -4,6 +4,7 @@ mdefine_line|#define DBRT_DEBUG 1
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
 DECL|variable|merge
@@ -3881,6 +3882,13 @@ id|unpack_trees
 c_func
 (paren
 id|fn
+)paren
+suffix:semicolon
+id|cache_tree_free
+c_func
+(paren
+op_amp
+id|active_cache_tree
 )paren
 suffix:semicolon
 r_if

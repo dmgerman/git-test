@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Check-out files from the &quot;current cache directory
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 DECL|macro|CHECKOUT_ALL
 mdefine_line|#define CHECKOUT_ALL 4
 DECL|variable|prefix
