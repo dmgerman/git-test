@@ -1211,7 +1211,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* Add other config variables here.. */
+multiline_comment|/* Add other config variables here and to Documentation/config.txt. */
 r_return
 l_int|0
 suffix:semicolon
