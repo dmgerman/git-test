@@ -39,18 +39,20 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;%-40s %s&bslash;n&quot;
+l_string|&quot;%-40s %s (%d subtrees)&bslash;n&quot;
 comma
 l_string|&quot;invalid&quot;
 comma
 id|pfx
+comma
+id|it-&gt;subtree_nr
 )paren
 suffix:semicolon
 r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%s %s (%d entries)&bslash;n&quot;
+l_string|&quot;%s %s (%d entries, %d subtrees)&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -61,6 +63,8 @@ comma
 id|pfx
 comma
 id|it-&gt;entry_count
+comma
+id|it-&gt;subtree_nr
 )paren
 suffix:semicolon
 r_for
