@@ -222,6 +222,12 @@ comma
 id|cmd_show
 )brace
 comma
+(brace
+l_string|&quot;count-objects&quot;
+comma
+id|cmd_count_objects
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
