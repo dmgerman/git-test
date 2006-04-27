@@ -174,6 +174,8 @@ comma
 id|active_nr
 comma
 id|missing_ok
+comma
+l_int|0
 )paren
 OL
 l_int|0
