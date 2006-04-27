@@ -3470,6 +3470,27 @@ comma
 id|next
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|seen_dashdash
+)paren
+(brace
+op_star
+id|dotdot
+op_assign
+l_char|&squot;.&squot;
+suffix:semicolon
+id|verify_non_filename
+c_func
+(paren
+id|revs-&gt;prefix
+comma
+id|arg
+)paren
+suffix:semicolon
+)brace
 id|add_pending_object
 c_func
 (paren
@@ -3552,7 +3573,7 @@ comma
 id|arg
 )paren
 suffix:semicolon
-multiline_comment|/* If we didn&squot;t have a &quot;--&quot;, all filenames must exist */
+multiline_comment|/* If we didn&squot;t have a &quot;--&quot;:&n;&t;&t;&t; * (1) all filenames must exist;&n;&t;&t;&t; * (2) all rev-args must not be interpretable&n;&t;&t;&t; *     as a valid filename.&n;&t;&t;&t; * but the latter we have checked in the main loop.&n;&t;&t;&t; */
 r_for
 c_loop
 (paren
@@ -3593,6 +3614,20 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|seen_dashdash
+)paren
+id|verify_non_filename
+c_func
+(paren
+id|revs-&gt;prefix
+comma
+id|arg
+)paren
+suffix:semicolon
 id|object
 op_assign
 id|get_reference
