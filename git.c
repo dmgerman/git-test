@@ -8,7 +8,6 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;limits.h&gt;
 macro_line|#include &lt;stdarg.h&gt;
-macro_line|#include &lt;sys/ioctl.h&gt;
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;builtin.h&quot;
