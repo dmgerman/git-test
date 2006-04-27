@@ -2477,6 +2477,14 @@ r_goto
 id|free_return
 suffix:semicolon
 )brace
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 id|remove_file_from_cache
 c_func
 (paren
