@@ -1723,6 +1723,7 @@ c_cond
 id|dryrun
 )paren
 (brace
+r_int
 r_char
 id|hdr
 (braket
