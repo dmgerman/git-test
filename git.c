@@ -234,6 +234,12 @@ comma
 id|cmd_count_objects
 )brace
 comma
+(brace
+l_string|&quot;diffn&quot;
+comma
+id|cmd_diff
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
