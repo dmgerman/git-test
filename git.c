@@ -240,6 +240,12 @@ comma
 id|cmd_diff
 )brace
 comma
+(brace
+l_string|&quot;push&quot;
+comma
+id|cmd_push
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
