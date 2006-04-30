@@ -1608,6 +1608,9 @@ c_func
 (paren
 l_string|&quot;more than %d trees given: &squot;%s&squot;&quot;
 comma
+(paren
+r_int
+)paren
 id|ARRAY_SIZE
 c_func
 (paren
