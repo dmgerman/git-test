@@ -2363,7 +2363,7 @@ id|ret
 comma
 l_string|&quot;Date: %s&bslash;n&quot;
 comma
-id|show_date
+id|show_rfc2822_date
 c_func
 (paren
 id|time
