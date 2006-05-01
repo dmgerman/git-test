@@ -222,6 +222,12 @@ comma
 id|cmd_show
 )brace
 comma
+(brace
+l_string|&quot;grep&quot;
+comma
+id|cmd_grep
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
