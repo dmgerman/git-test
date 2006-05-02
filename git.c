@@ -235,7 +235,7 @@ id|cmd_count_objects
 )brace
 comma
 (brace
-l_string|&quot;diffn&quot;
+l_string|&quot;diff&quot;
 comma
 id|cmd_diff
 )brace
