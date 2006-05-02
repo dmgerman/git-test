@@ -457,9 +457,14 @@ c_func
 (paren
 l_string|&quot;%.*s&bslash;n&quot;
 comma
+(paren
+r_int
+)paren
+(paren
 id|eol
 op_minus
 id|bol
+)paren
 comma
 id|bol
 )paren
