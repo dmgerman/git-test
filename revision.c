@@ -2342,7 +2342,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* accept -&lt;digit&gt;, like traditilnal &quot;head&quot; */
+multiline_comment|/* accept -&lt;digit&gt;, like traditional &quot;head&quot; */
 r_if
 c_cond
 (paren
