@@ -2184,6 +2184,13 @@ id|old
 suffix:semicolon
 )brace
 )brace
+r_else
+id|invalidate_ce_path
+c_func
+(paren
+id|merge
+)paren
+suffix:semicolon
 id|merge-&gt;ce_flags
 op_and_assign
 op_complement
