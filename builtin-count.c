@@ -666,6 +666,17 @@ id|packed_git
 op_star
 id|p
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|packed_git
+)paren
+id|prepare_packed_git
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
