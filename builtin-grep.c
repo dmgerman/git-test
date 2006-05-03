@@ -91,10 +91,10 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|slash
+id|cp
 comma
 op_star
-id|cp
+id|meta
 suffix:semicolon
 r_if
 c_cond
@@ -175,7 +175,7 @@ l_char|&squot;/&squot;
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* We are being asked if the name directory is worth&n;&t;&t; * descending into.&n;&t;&t; *&n;&t;&t; * Find the longest leading directory name that does&n;&t;&t; * not have metacharacter in the pathspec; the name&n;&t;&t; * we are looking at must overlap with that directory.&n;&t;&t; */
+multiline_comment|/* We are being asked if the directory (&quot;name&quot;) is worth&n;&t;&t; * descending into.&n;&t;&t; *&n;&t;&t; * Find the longest leading directory name that does&n;&t;&t; * not have metacharacter in the pathspec; the name&n;&t;&t; * we are looking at must overlap with that directory.&n;&t;&t; */
 r_for
 c_loop
 (paren
@@ -183,7 +183,7 @@ id|cp
 op_assign
 id|match
 comma
-id|slash
+id|meta
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -207,51 +207,46 @@ c_cond
 (paren
 id|ch
 op_eq
-l_char|&squot;/&squot;
-)paren
-id|slash
-op_assign
-id|cp
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|ch
-op_eq
 l_char|&squot;*&squot;
 op_logical_or
 id|ch
 op_eq
 l_char|&squot;[&squot;
+op_logical_or
+id|ch
+op_eq
+l_char|&squot;?&squot;
 )paren
+(brace
+id|meta
+op_assign
+id|cp
+suffix:semicolon
 r_break
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
 (paren
 op_logical_neg
-id|slash
+id|meta
 )paren
-id|slash
+id|meta
 op_assign
-id|match
+id|cp
 suffix:semicolon
-multiline_comment|/* toplevel */
-r_else
-id|slash
-op_increment
-suffix:semicolon
+multiline_comment|/* fully literal */
 r_if
 c_cond
 (paren
 id|namelen
 op_le
-id|slash
+id|meta
 id|match
 )paren
 (brace
-multiline_comment|/* Looking at &quot;Documentation/&quot; and&n;&t;&t;&t; * the pattern says &quot;Documentation/howto/&quot;, or&n;&t;&t;&t; * &quot;Documentation/diff*.txt&quot;.&n;&t;&t;&t; */
+multiline_comment|/* Looking at &quot;Documentation/&quot; and&n;&t;&t;&t; * the pattern says &quot;Documentation/howto/&quot;, or&n;&t;&t;&t; * &quot;Documentation/diff*.txt&quot;.  The name we&n;&t;&t;&t; * have should match prefix.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -269,10 +264,19 @@ id|namelen
 r_return
 l_int|1
 suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
-r_else
+r_if
+c_cond
+(paren
+id|meta
+id|match
+OL
+id|namelen
+)paren
 (brace
-multiline_comment|/* Looking at &quot;Documentation/howto/&quot; and&n;&t;&t;&t; * the pattern says &quot;Documentation/h*&quot;.&n;&t;&t;&t; */
+multiline_comment|/* Looking at &quot;Documentation/howto/&quot; and&n;&t;&t;&t; * the pattern says &quot;Documentation/h*&quot;;&n;&t;&t;&t; * match up to &quot;Do.../h&quot;; this avoids descending&n;&t;&t;&t; * into &quot;Documentation/technical/&quot;.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -284,12 +288,14 @@ id|match
 comma
 id|name
 comma
-id|slash
+id|meta
 id|match
 )paren
 )paren
 r_return
 l_int|1
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 )brace
