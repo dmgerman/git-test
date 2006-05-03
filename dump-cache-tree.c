@@ -101,20 +101,13 @@ c_cond
 (paren
 op_logical_neg
 id|it
-)paren
-r_return
-suffix:semicolon
-r_if
-c_cond
-(paren
+op_logical_or
 op_logical_neg
 id|ref
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;internal error&quot;
-)paren
+multiline_comment|/* missing in either */
+r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
