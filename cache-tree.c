@@ -557,6 +557,18 @@ id|cache_tree_sub
 op_star
 id|down
 suffix:semicolon
+macro_line|#if DEBUG
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;cache-tree invalidate &lt;%s&gt;&bslash;n&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+macro_line|#endif
 r_if
 c_cond
 (paren
@@ -1704,7 +1716,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;cache-tree %o %.*s&bslash;n&quot;
+l_string|&quot;cache-tree update-one %o %.*s&bslash;n&quot;
 comma
 id|mode
 comma
@@ -1780,7 +1792,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;cache-tree (%d ent, %d subtree) %s&bslash;n&quot;
+l_string|&quot;cache-tree update-one (%d ent, %d subtree) %s&bslash;n&quot;
 comma
 id|it-&gt;entry_count
 comma
