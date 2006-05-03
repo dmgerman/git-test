@@ -1615,8 +1615,6 @@ id|outpos
 comma
 id|outsize
 comma
-id|hash_mask
-comma
 id|val
 suffix:semicolon
 r_int
@@ -1788,10 +1786,6 @@ id|trg_buf
 op_plus
 id|trg_size
 suffix:semicolon
-id|hash_mask
-op_assign
-id|index-&gt;hash_mask
-suffix:semicolon
 id|outpos
 op_increment
 suffix:semicolon
@@ -1912,7 +1906,7 @@ id|i
 op_assign
 id|val
 op_amp
-id|hash_mask
+id|index-&gt;hash_mask
 suffix:semicolon
 r_for
 c_loop
