@@ -3230,6 +3230,10 @@ id|revs-&gt;diff
 op_assign
 l_int|1
 suffix:semicolon
+id|revs-&gt;dense_combined_merges
+op_assign
+l_int|0
+suffix:semicolon
 id|revs-&gt;combine_merges
 op_assign
 l_int|1
