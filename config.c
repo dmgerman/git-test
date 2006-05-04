@@ -1076,11 +1076,11 @@ c_func
 (paren
 id|var
 comma
-l_string|&quot;core.symrefsonly&quot;
+l_string|&quot;core.prefersymlinkrefs&quot;
 )paren
 )paren
 (brace
-id|only_use_symrefs
+id|prefer_symlink_refs
 op_assign
 id|git_config_bool
 c_func
