@@ -331,6 +331,10 @@ r_int
 id|has_explicit_refspec
 op_assign
 id|refspec_nr
+op_logical_or
+id|all
+op_logical_or
+id|tags
 suffix:semicolon
 r_if
 c_cond
@@ -751,7 +755,13 @@ suffix:semicolon
 id|config_get_refspecs
 op_assign
 op_logical_neg
+(paren
 id|refspec_nr
+op_logical_or
+id|all
+op_logical_or
+id|tags
+)paren
 suffix:semicolon
 id|git_config
 c_func
