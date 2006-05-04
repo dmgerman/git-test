@@ -223,6 +223,12 @@ id|cmd_show
 )brace
 comma
 (brace
+l_string|&quot;push&quot;
+comma
+id|cmd_push
+)brace
+comma
+(brace
 l_string|&quot;fmt-patch&quot;
 comma
 id|cmd_format_patch
@@ -238,12 +244,6 @@ comma
 l_string|&quot;diff&quot;
 comma
 id|cmd_diff
-)brace
-comma
-(brace
-l_string|&quot;push&quot;
-comma
-id|cmd_push
 )brace
 comma
 (brace
