@@ -1312,6 +1312,14 @@ id|eol
 op_plus
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|left
+)paren
+r_break
+suffix:semicolon
 id|left
 op_decrement
 suffix:semicolon
