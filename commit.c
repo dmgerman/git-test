@@ -2649,6 +2649,11 @@ id|space
 comma
 r_int
 id|abbrev
+comma
+r_const
+r_char
+op_star
+id|subject
 )paren
 (brace
 r_int
@@ -2682,24 +2687,6 @@ op_star
 id|msg
 op_assign
 id|commit-&gt;buffer
-suffix:semicolon
-r_const
-r_char
-op_star
-id|subject
-op_assign
-l_int|NULL
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|fmt
-op_eq
-id|CMIT_FMT_EMAIL
-)paren
-id|subject
-op_assign
-l_string|&quot;Subject: [PATCH] &quot;
 suffix:semicolon
 r_if
 c_cond
