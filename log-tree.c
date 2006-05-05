@@ -182,9 +182,21 @@ id|buffer
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+id|opt-&gt;total
+op_eq
+l_int|0
+)paren
 id|subject
 op_assign
 l_string|&quot;Subject: [PATCH] &quot;
+suffix:semicolon
+r_else
+id|subject
+op_assign
+l_string|&quot;Subject: &quot;
 suffix:semicolon
 id|printf
 c_func
