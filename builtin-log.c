@@ -5,6 +5,17 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+multiline_comment|/* this is in builtin-diff.c */
+r_void
+id|add_head
+c_func
+(paren
+r_struct
+id|rev_info
+op_star
+id|revs
+)paren
+suffix:semicolon
 DECL|function|cmd_log_wc
 r_static
 r_int
@@ -1072,6 +1083,28 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|rev.pending_objects
+op_logical_and
+id|rev.pending_objects-&gt;next
+op_eq
+l_int|NULL
+)paren
+(brace
+id|rev.pending_objects-&gt;item-&gt;flags
+op_or_assign
+id|UNINTERESTING
+suffix:semicolon
+id|add_head
+c_func
+(paren
+op_amp
+id|rev
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
