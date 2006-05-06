@@ -459,6 +459,7 @@ op_star
 id|diff_delta
 c_func
 (paren
+r_const
 r_void
 op_star
 id|from_buf
@@ -467,6 +468,7 @@ r_int
 r_int
 id|from_size
 comma
+r_const
 r_void
 op_star
 id|to_buf

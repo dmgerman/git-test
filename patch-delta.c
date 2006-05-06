@@ -16,6 +16,7 @@ r_int
 r_int
 id|src_size
 comma
+r_const
 r_void
 op_star
 id|delta_buf

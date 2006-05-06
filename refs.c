@@ -357,12 +357,11 @@ id|len
 comma
 id|written
 suffix:semicolon
-macro_line|#ifdef USE_SYMLINK_HEAD
+macro_line|#ifndef NO_SYMLINK_HEAD
 r_if
 c_cond
 (paren
-op_logical_neg
-id|only_use_symrefs
+id|prefer_symlink_refs
 )paren
 (brace
 id|unlink

@@ -8,7 +8,6 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;limits.h&gt;
 macro_line|#include &lt;stdarg.h&gt;
-macro_line|#include &lt;sys/ioctl.h&gt;
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;builtin.h&quot;
@@ -224,9 +223,27 @@ id|cmd_show
 )brace
 comma
 (brace
+l_string|&quot;push&quot;
+comma
+id|cmd_push
+)brace
+comma
+(brace
 l_string|&quot;fmt-patch&quot;
 comma
 id|cmd_format_patch
+)brace
+comma
+(brace
+l_string|&quot;count-objects&quot;
+comma
+id|cmd_count_objects
+)brace
+comma
+(brace
+l_string|&quot;diff&quot;
+comma
+id|cmd_diff
 )brace
 comma
 )brace

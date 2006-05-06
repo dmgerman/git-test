@@ -26,9 +26,9 @@ id|assume_unchanged
 op_assign
 l_int|0
 suffix:semicolon
-DECL|variable|only_use_symrefs
+DECL|variable|prefer_symlink_refs
 r_int
-id|only_use_symrefs
+id|prefer_symlink_refs
 op_assign
 l_int|0
 suffix:semicolon
