@@ -340,7 +340,6 @@ r_int
 id|tmp
 suffix:semicolon
 r_const
-r_const
 r_int
 r_char
 op_star
