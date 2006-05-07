@@ -2543,7 +2543,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* accept -&lt;digit&gt;, like traditilnal &quot;head&quot; */
+multiline_comment|/* accept -&lt;digit&gt;, like traditional &quot;head&quot; */
 r_if
 c_cond
 (paren
@@ -3229,6 +3229,10 @@ l_string|&quot;-c&quot;
 id|revs-&gt;diff
 op_assign
 l_int|1
+suffix:semicolon
+id|revs-&gt;dense_combined_merges
+op_assign
+l_int|0
 suffix:semicolon
 id|revs-&gt;combine_merges
 op_assign
