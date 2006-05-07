@@ -4122,6 +4122,8 @@ multiline_comment|/*&n;&t; * When reading only one tree (either the most basic f
 r_if
 c_cond
 (paren
+id|trees
+op_logical_and
 id|trees-&gt;item
 op_logical_and
 (paren
