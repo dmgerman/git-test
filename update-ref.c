@@ -229,8 +229,6 @@ id|value
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
 id|die
 c_func
@@ -262,8 +260,6 @@ id|oldval
 comma
 id|oldsha1
 )paren
-OL
-l_int|0
 )paren
 id|die
 c_func

@@ -674,10 +674,12 @@ comma
 id|sha1
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|ssh_push_usage
+l_string|&quot;Not a valid object name %s&quot;
+comma
+id|commit_id
 )paren
 suffix:semicolon
 id|memcpy

@@ -839,8 +839,6 @@ id|rev
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
 id|die
 c_func
