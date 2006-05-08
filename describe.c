@@ -555,13 +555,13 @@ id|arg
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|describe_usage
+l_string|&quot;Not a valid object name %s&quot;
+comma
+id|arg
 )paren
 suffix:semicolon
 id|cmit
@@ -578,10 +578,14 @@ c_cond
 op_logical_neg
 id|cmit
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|describe_usage
+l_string|&quot;%s is not a valid &squot;%s&squot; object&quot;
+comma
+id|arg
+comma
+id|commit_type
 )paren
 suffix:semicolon
 r_if
