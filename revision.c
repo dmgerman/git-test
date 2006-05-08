@@ -3790,8 +3790,6 @@ id|arg
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
 (brace
 r_int
@@ -3925,8 +3923,6 @@ id|def
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
 id|die
 c_func

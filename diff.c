@@ -1546,12 +1546,6 @@ op_star
 id|data
 )paren
 (brace
-r_char
-op_star
-id|prefix
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
 r_int
 id|i
 comma
@@ -1680,6 +1674,12 @@ id|i
 op_increment
 )paren
 (brace
+r_char
+op_star
+id|prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
 r_char
 op_star
 id|name

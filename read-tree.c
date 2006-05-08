@@ -4144,13 +4144,13 @@ id|arg
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|read_tree_usage
+l_string|&quot;Not a valid object name %s&quot;
+comma
+id|arg
 )paren
 suffix:semicolon
 r_if
