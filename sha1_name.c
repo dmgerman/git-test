@@ -2742,6 +2742,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+id|pos
+op_increment
+suffix:semicolon
 )brace
 r_return
 l_int|1
