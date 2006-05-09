@@ -2619,7 +2619,7 @@ id|active_nr
 suffix:semicolon
 id|active_cache
 op_assign
-id|calloc
+id|xcalloc
 c_func
 (paren
 id|active_alloc
