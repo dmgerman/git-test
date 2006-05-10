@@ -1498,9 +1498,6 @@ id|i
 )braket
 op_increment
 suffix:semicolon
-id|entries
-op_decrement
-suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n;&t; * Determine a limit on the number of entries in the same hash&n;&t; * bucket.  This guard us against patological data sets causing&n;&t; * really bad hash distribution with most entries in the same hash&n;&t; * bucket that would bring us to O(m*n) computing costs (m and n&n;&t; * corresponding to reference and target buffer sizes).&n;&t; *&n;&t; * Make sure none of the hash buckets has more entries than&n;&t; * we&squot;re willing to test.  Otherwise we cull the entry list&n;&t; * uniformly to still preserve a good repartition across&n;&t; * the reference buffer.&n;&t; */
@@ -1595,29 +1592,6 @@ id|free
 c_func
 (paren
 id|hash_count
-)paren
-suffix:semicolon
-multiline_comment|/* If we didn&squot;t use all hash entries, free the unused memory. */
-r_if
-c_cond
-(paren
-id|entries
-)paren
-id|index
-op_assign
-id|realloc
-c_func
-(paren
-id|index
-comma
-id|memsize
-id|entries
-op_star
-r_sizeof
-(paren
-op_star
-id|entry
-)paren
 )paren
 suffix:semicolon
 r_return
