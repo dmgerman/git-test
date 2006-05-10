@@ -1169,24 +1169,25 @@ l_int|1
 )braket
 )paren
 )paren
-r_continue
+id|hit
+op_assign
+l_int|0
 suffix:semicolon
-multiline_comment|/* not a word boundary */
 r_if
 c_cond
 (paren
-(paren
-id|eol
-op_minus
-id|bol
-)paren
-OL
 id|pmatch
 (braket
 l_int|0
 )braket
 dot
 id|rm_eo
+op_ne
+(paren
+id|eol
+op_minus
+id|bol
+)paren
 op_logical_and
 id|word_char
 c_func
@@ -1202,9 +1203,10 @@ id|rm_eo
 )braket
 )paren
 )paren
-r_continue
+id|hit
+op_assign
+l_int|0
 suffix:semicolon
-multiline_comment|/* not a word boundary */
 )brace
 r_if
 c_cond
