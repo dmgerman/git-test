@@ -638,13 +638,13 @@ id|i
 op_increment
 )paren
 (brace
-r_int
+r_uint32
 id|hl
 op_assign
 op_star
 (paren
 (paren
-r_int
+r_uint32
 op_star
 )paren
 (paren
