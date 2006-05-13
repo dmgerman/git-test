@@ -3083,6 +3083,10 @@ suffix:semicolon
 id|mmfile_t
 id|result_file
 suffix:semicolon
+id|context
+op_assign
+id|opt-&gt;context
+suffix:semicolon
 multiline_comment|/* Read the result of merge first */
 r_if
 c_cond
