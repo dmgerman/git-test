@@ -10,6 +10,7 @@ macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
+macro_line|#include &lt;stdint.h&gt;
 DECL|variable|pack_usage
 r_static
 r_const
