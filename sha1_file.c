@@ -5835,7 +5835,7 @@ c_func
 op_star
 (paren
 (paren
-r_int
+r_uint32
 op_star
 )paren
 (paren
