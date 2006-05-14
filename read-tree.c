@@ -3255,7 +3255,13 @@ op_logical_neg
 id|a
 )paren
 r_return
-l_int|0
+id|deleted_entry
+c_func
+(paren
+id|old
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 r_if
 c_cond
