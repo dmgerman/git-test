@@ -8614,12 +8614,12 @@ id|name
 suffix:semicolon
 id|name
 op_assign
-id|patch-&gt;old_name
+id|patch-&gt;new_name
 ques
 c_cond
-id|patch-&gt;old_name
-suffix:colon
 id|patch-&gt;new_name
+suffix:colon
+id|patch-&gt;old_name
 suffix:semicolon
 id|printf
 c_func
