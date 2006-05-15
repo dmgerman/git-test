@@ -5054,15 +5054,27 @@ id|trg_entry-&gt;size
 suffix:semicolon
 id|max_size
 op_assign
+(paren
 id|size
 op_div
 l_int|2
 l_int|20
+)paren
+op_div
+(paren
+id|src_entry-&gt;depth
+op_plus
+l_int|1
+)paren
 suffix:semicolon
 r_if
 c_cond
 (paren
 id|trg_entry-&gt;delta
+op_logical_and
+id|trg_entry-&gt;delta_size
+op_le
+id|max_size
 )paren
 id|max_size
 op_assign
@@ -5517,8 +5529,7 @@ l_int|0
 r_break
 suffix:semicolon
 )brace
-macro_line|#if 0
-multiline_comment|/* if we made n a delta, and if n is already at max&n;&t;&t; * depth, leaving it in the window is pointless.  we&n;&t;&t; * should evict it first.&n;&t;&t; * ... in theory only; somehow this makes things worse.&n;&t;&t; */
+multiline_comment|/* if we made n a delta, and if n is already at max&n;&t;&t; * depth, leaving it in the window is pointless.  we&n;&t;&t; * should evict it first.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -5530,7 +5541,6 @@ id|entry-&gt;depth
 )paren
 r_continue
 suffix:semicolon
-macro_line|#endif
 id|idx
 op_increment
 suffix:semicolon
