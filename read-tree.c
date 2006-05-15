@@ -6,6 +6,13 @@ macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
+DECL|variable|reset
+r_static
+r_int
+id|reset
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|merge
 r_static
 r_int
@@ -2075,6 +2082,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|reset
+)paren
+(brace
+id|ce-&gt;ce_flags
+op_or_assign
+id|htons
+c_func
+(paren
+id|CE_UPDATE
+)paren
+suffix:semicolon
+r_return
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|errno
 op_eq
 id|ENOENT
@@ -3277,6 +3301,12 @@ id|a
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|reset
+)paren
+(brace
 r_struct
 id|stat
 id|st
@@ -3312,6 +3342,7 @@ c_func
 id|CE_UPDATE
 )paren
 suffix:semicolon
+)brace
 r_return
 id|keep_entry
 c_func
@@ -3460,8 +3491,6 @@ r_int
 id|i
 comma
 id|newfd
-comma
-id|reset
 comma
 id|stage
 op_assign
