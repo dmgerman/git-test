@@ -10,7 +10,6 @@ macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
-macro_line|#include &lt;stdint.h&gt;
 DECL|variable|pack_usage
 r_static
 r_const
@@ -639,13 +638,15 @@ id|i
 op_increment
 )paren
 (brace
-r_uint32
+r_int
+r_int
 id|hl
 op_assign
 op_star
 (paren
 (paren
-r_uint32
+r_int
+r_int
 op_star
 )paren
 (paren
