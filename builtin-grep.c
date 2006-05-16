@@ -2227,7 +2227,7 @@ id|opt-&gt;fixed
 id|push_arg
 c_func
 (paren
-l_string|&quot;-H&quot;
+l_string|&quot;-F&quot;
 )paren
 suffix:semicolon
 r_if
