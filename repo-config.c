@@ -370,9 +370,6 @@ op_star
 id|regex_
 )paren
 (brace
-r_int
-id|i
-suffix:semicolon
 r_char
 op_star
 id|tl
