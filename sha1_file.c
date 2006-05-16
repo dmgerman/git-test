@@ -6,7 +6,6 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
-macro_line|#include &lt;stdint.h&gt;
 macro_line|#ifndef O_NOATIME
 macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
 DECL|macro|O_NOATIME
@@ -5836,7 +5835,8 @@ c_func
 op_star
 (paren
 (paren
-r_uint32
+r_int
+r_int
 op_star
 )paren
 (paren
