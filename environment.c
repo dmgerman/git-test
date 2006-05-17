@@ -32,6 +32,12 @@ id|prefer_symlink_refs
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|log_all_ref_updates
+r_int
+id|log_all_ref_updates
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|warn_ambiguous_refs
 r_int
 id|warn_ambiguous_refs
