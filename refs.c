@@ -2704,6 +2704,8 @@ id|strtoul
 c_func
 (paren
 id|c
+op_plus
+l_int|1
 comma
 l_int|NULL
 comma

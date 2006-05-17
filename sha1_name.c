@@ -1526,6 +1526,8 @@ id|len
 op_assign
 id|at_mark
 suffix:semicolon
+r_break
+suffix:semicolon
 )brace
 )brace
 multiline_comment|/* Accept only unambiguous ref paths. */
