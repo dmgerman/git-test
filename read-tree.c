@@ -3282,7 +3282,7 @@ id|current
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Bind merge.&n; *&n; * Keep the index entries at stage0, collapse stage1 but make sure&n; * stage0 does not have anything in prefix.&n; */
+multiline_comment|/*&n; * Bind merge.&n; *&n; * Keep the index entries at stage0, collapse stage1 but make sure&n; * stage0 does not have anything there.&n; */
 DECL|function|bind_merge
 r_static
 r_int
@@ -3335,21 +3335,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|a
-)paren
-r_return
-id|merged_entry
-c_func
-(paren
-id|old
-comma
-l_int|NULL
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
+op_logical_and
 id|old
 )paren
 id|die
@@ -3360,6 +3347,20 @@ comma
 id|a-&gt;name
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|a
+)paren
+r_return
+id|keep_entry
+c_func
+(paren
+id|old
+)paren
+suffix:semicolon
+r_else
 r_return
 id|merged_entry
 c_func
