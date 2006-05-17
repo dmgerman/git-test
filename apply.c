@@ -8254,7 +8254,11 @@ c_cond
 (paren
 op_logical_neg
 id|cached
-op_logical_and
+)paren
+(brace
+r_if
+c_cond
+(paren
 op_logical_neg
 id|lstat
 c_func
@@ -8296,6 +8300,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
