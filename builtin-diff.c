@@ -599,12 +599,7 @@ id|sha1
 comma
 id|null_sha1
 comma
-id|blob
-(braket
-l_int|0
-)braket
-dot
-id|name
+id|path
 comma
 id|path
 )paren
