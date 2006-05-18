@@ -1297,11 +1297,6 @@ op_star
 id|sha1
 )paren
 (brace
-r_const
-r_char
-op_star
-id|filename
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1314,8 +1309,10 @@ id|ref
 r_return
 l_int|1
 suffix:semicolon
-id|filename
-op_assign
+r_return
+id|read_ref
+c_func
+(paren
 id|git_path
 c_func
 (paren
@@ -1323,12 +1320,6 @@ l_string|&quot;refs/%s&quot;
 comma
 id|ref
 )paren
-suffix:semicolon
-r_return
-id|read_ref
-c_func
-(paren
-id|filename
 comma
 id|sha1
 )paren
