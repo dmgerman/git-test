@@ -246,6 +246,12 @@ comma
 id|cmd_grep
 )brace
 comma
+(brace
+l_string|&quot;rev-list&quot;
+comma
+id|cmd_rev_list
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
