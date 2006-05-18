@@ -572,6 +572,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|match
+(braket
+l_int|0
+)braket
+op_logical_or
+op_logical_neg
 id|lstat
 c_func
 (paren
