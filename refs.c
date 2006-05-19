@@ -1720,7 +1720,6 @@ id|plen
 suffix:semicolon
 id|lock-&gt;force_write
 op_assign
-op_logical_neg
 id|lstat
 c_func
 (paren
@@ -1729,7 +1728,7 @@ comma
 op_amp
 id|st
 )paren
-op_logical_or
+op_logical_and
 id|errno
 op_eq
 id|ENOENT
