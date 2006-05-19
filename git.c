@@ -258,6 +258,17 @@ comma
 id|cmd_add
 )brace
 comma
+(brace
+l_string|&quot;rev-list&quot;
+comma
+id|cmd_rev_list
+)brace
+comma
+(brace
+l_string|&quot;check-ref-format&quot;
+comma
+id|cmd_check_ref_format
+)brace
 )brace
 suffix:semicolon
 r_int
