@@ -210,6 +210,27 @@ op_assign
 l_int|1
 suffix:semicolon
 multiline_comment|/*&n;&t; * Print header line of header..&n;&t; */
+r_if
+c_cond
+(paren
+id|opt-&gt;commit_format
+op_eq
+id|CMIT_FMT_EMAIL
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;From %s  Thu Apr 7 15:13:13 2005&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
+)paren
+suffix:semicolon
+r_else
+(brace
 id|printf
 c_func
 (paren
@@ -278,6 +299,7 @@ suffix:colon
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * And then the pretty-printed message itself&n;&t; */
 id|len
 op_assign
@@ -759,6 +781,9 @@ r_struct
 id|log_info
 id|log
 suffix:semicolon
+r_int
+id|shown
+suffix:semicolon
 id|log.commit
 op_assign
 id|commit
@@ -772,10 +797,8 @@ op_assign
 op_amp
 id|log
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+id|shown
+op_assign
 id|log_tree_diff
 c_func
 (paren
@@ -786,6 +809,12 @@ comma
 op_amp
 id|log
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|shown
 op_logical_and
 id|opt-&gt;loginfo
 op_logical_and
@@ -806,13 +835,17 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
+id|shown
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 id|opt-&gt;loginfo
 op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-l_int|0
+id|shown
 suffix:semicolon
 )brace
 eof
