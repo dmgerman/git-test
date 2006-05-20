@@ -292,6 +292,8 @@ comma
 id|revs.abbrev
 comma
 l_int|NULL
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|printf
