@@ -253,6 +253,12 @@ id|cmd_grep
 )brace
 comma
 (brace
+l_string|&quot;rm&quot;
+comma
+id|cmd_rm
+)brace
+comma
+(brace
 l_string|&quot;add&quot;
 comma
 id|cmd_add
