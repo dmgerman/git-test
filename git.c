@@ -271,6 +271,12 @@ id|cmd_rev_list
 )brace
 comma
 (brace
+l_string|&quot;init-db&quot;
+comma
+id|cmd_init_db
+)brace
+comma
+(brace
 l_string|&quot;check-ref-format&quot;
 comma
 id|cmd_check_ref_format
