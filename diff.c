@@ -2350,9 +2350,7 @@ c_func
 (paren
 id|plus
 comma
-id|line
-op_plus
-id|len
+l_int|NULL
 comma
 l_int|10
 )paren
