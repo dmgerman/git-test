@@ -1,53 +1,51 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#include &lt;stdio.h&gt;
-DECL|function|main
+macro_line|#include &quot;builtin.h&quot;
+DECL|function|cmd_check_ref_format
 r_int
-id|main
+id|cmd_check_ref_format
 c_func
 (paren
 r_int
-id|ac
+id|argc
+comma
+r_const
+r_char
+op_star
+op_star
+id|argv
 comma
 r_char
 op_star
 op_star
-id|av
+id|envp
 )paren
 (brace
 r_if
 c_cond
 (paren
-id|ac
+id|argc
 op_ne
 l_int|2
 )paren
 id|usage
 c_func
 (paren
-l_string|&quot;git-check-ref-format refname&quot;
+l_string|&quot;git check-ref-format refname&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+r_return
+op_logical_neg
+op_logical_neg
 id|check_ref_format
 c_func
 (paren
-id|av
+id|argv
 (braket
 l_int|1
 )braket
 )paren
-)paren
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 eof

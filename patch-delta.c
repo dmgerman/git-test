@@ -8,6 +8,7 @@ op_star
 id|patch_delta
 c_func
 (paren
+r_const
 r_void
 op_star
 id|src_buf

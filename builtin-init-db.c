@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#ifndef DEFAULT_GIT_TEMPLATE_DIR
 DECL|macro|DEFAULT_GIT_TEMPLATE_DIR
 mdefine_line|#define DEFAULT_GIT_TEMPLATE_DIR &quot;/usr/share/git-core/templates/&quot;
@@ -662,6 +663,7 @@ comma
 r_int
 id|len
 comma
+r_const
 r_char
 op_star
 id|template_dir
@@ -880,6 +882,7 @@ r_char
 op_star
 id|git_dir
 comma
+r_const
 r_char
 op_star
 id|template_path
@@ -1204,18 +1207,24 @@ op_assign
 l_string|&quot;git-init-db [--template=&lt;template-directory&gt;] [--shared]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * If you want to, you can share the DB area with any number of branches.&n; * That has advantages: you can save space by sharing all the SHA1 objects.&n; * On the other hand, it might just make lookup slower and messier. You&n; * be the judge.  The default case is to have one DB per managed directory.&n; */
-DECL|function|main
+DECL|function|cmd_init_db
 r_int
-id|main
+id|cmd_init_db
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_const
@@ -1228,14 +1237,16 @@ r_char
 op_star
 id|sha1_dir
 suffix:semicolon
+r_const
 r_char
-op_star
-id|path
-comma
 op_star
 id|template_dir
 op_assign
 l_int|NULL
+suffix:semicolon
+r_char
+op_star
+id|path
 suffix:semicolon
 r_int
 id|len
@@ -1260,6 +1271,7 @@ id|argv
 op_increment
 )paren
 (brace
+r_const
 r_char
 op_star
 id|arg

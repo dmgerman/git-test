@@ -458,7 +458,16 @@ c_cond
 id|argc
 op_ne
 l_int|3
-op_logical_or
+)paren
+id|usage
+c_func
+(paren
+l_string|&quot;git-cat-file [-t|-s|-e|-p|&lt;type&gt;] &lt;sha1&gt;&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|get_sha1
 c_func
 (paren
@@ -470,10 +479,15 @@ comma
 id|sha1
 )paren
 )paren
-id|usage
+id|die
 c_func
 (paren
-l_string|&quot;git-cat-file [-t|-s|-e|-p|&lt;type&gt;] &lt;sha1&gt;&quot;
+l_string|&quot;Not a valid object name %s&quot;
+comma
+id|argv
+(braket
+l_int|2
+)braket
 )paren
 suffix:semicolon
 id|opt
@@ -616,17 +630,6 @@ suffix:colon
 r_if
 c_cond
 (paren
-id|get_sha1
-c_func
-(paren
-id|argv
-(braket
-l_int|2
-)braket
-comma
-id|sha1
-)paren
-op_logical_or
 id|sha1_object_info
 c_func
 (paren
