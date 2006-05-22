@@ -1120,6 +1120,8 @@ DECL|macro|SEEN_DATE
 mdefine_line|#define SEEN_DATE 02
 DECL|macro|SEEN_SUBJECT
 mdefine_line|#define SEEN_SUBJECT 04
+DECL|macro|SEEN_BOGUS_UNIX_FROM
+mdefine_line|#define SEEN_BOGUS_UNIX_FROM 010
 multiline_comment|/* First lines of body can have From:, Date:, and Subject: */
 DECL|function|handle_inbody_header
 r_static
@@ -1136,6 +1138,52 @@ op_star
 id|line
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|memcmp
+c_func
+(paren
+l_string|&quot;&gt;From&quot;
+comma
+id|line
+comma
+l_int|5
+)paren
+op_logical_and
+id|isspace
+c_func
+(paren
+id|line
+(braket
+l_int|5
+)braket
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+op_star
+id|seen
+op_amp
+id|SEEN_BOGUS_UNIX_FROM
+)paren
+)paren
+(brace
+op_star
+id|seen
+op_or_assign
+id|SEEN_BOGUS_UNIX_FROM
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
+)brace
 r_if
 c_cond
 (paren
