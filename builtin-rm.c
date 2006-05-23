@@ -2,6 +2,7 @@ multiline_comment|/*&n; * &quot;git rm&quot; builtin command&n; *&n; * Copyright
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 DECL|variable|builtin_rm_usage
 r_static
 r_const
