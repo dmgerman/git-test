@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|diff_cache_usage
 r_static
 r_const
@@ -14,9 +15,9 @@ l_string|&quot;git-diff-index [-m] [--cached] &quot;
 l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_diff_index
 r_int
-id|main
+id|cmd_diff_index
 c_func
 (paren
 r_int
@@ -27,6 +28,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_struct

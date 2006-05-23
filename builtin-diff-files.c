@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|diff_files_usage
 r_static
 r_const
@@ -14,9 +15,9 @@ op_assign
 l_string|&quot;git-diff-files [-q] [-0/-1/2/3 |-c|--cc] [&lt;common diff options&gt;] [&lt;path&gt;...]&quot;
 id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_diff_files
 r_int
-id|main
+id|cmd_diff_files
 c_func
 (paren
 r_int
@@ -27,6 +28,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_struct
