@@ -7,6 +7,7 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|reset
 r_static
 r_int
@@ -3978,18 +3979,24 @@ r_struct
 id|cache_file
 id|cache_file
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_read_tree
 r_int
-id|main
+id|cmd_read_tree
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int

@@ -1616,6 +1616,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|generate_tar
+r_static
 r_int
 id|generate_tar
 c_func
@@ -1628,6 +1629,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
@@ -2250,6 +2256,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|envp
 )paren
 suffix:semicolon
 )brace
