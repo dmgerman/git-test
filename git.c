@@ -275,6 +275,12 @@ l_string|&quot;ls-tree&quot;
 comma
 id|cmd_ls_tree
 )brace
+comma
+(brace
+l_string|&quot;tar-tree&quot;
+comma
+id|cmd_tar_tree
+)brace
 )brace
 suffix:semicolon
 r_int

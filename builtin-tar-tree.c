@@ -5,6 +5,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;tar.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|macro|RECORDSIZE
 mdefine_line|#define RECORDSIZE&t;(512)
 DECL|macro|BLOCKSIZE
@@ -1613,18 +1614,24 @@ id|eltbuf
 suffix:semicolon
 )brace
 )brace
-DECL|function|main
+DECL|function|cmd_tar_tree
 r_int
-id|main
+id|cmd_tar_tree
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
