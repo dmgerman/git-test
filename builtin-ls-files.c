@@ -3,6 +3,7 @@ macro_line|#include &lt;dirent.h&gt;
 macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|abbrev
 r_static
 r_int
@@ -3420,9 +3421,9 @@ l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;fil
 l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--full-name] [--abbrev] &quot;
 l_string|&quot;[--] [&lt;file&gt;]*&quot;
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_ls_files
 r_int
-id|main
+id|cmd_ls_files
 c_func
 (paren
 r_int
@@ -3433,6 +3434,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int

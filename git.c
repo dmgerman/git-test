@@ -263,6 +263,12 @@ l_string|&quot;check-ref-format&quot;
 comma
 id|cmd_check_ref_format
 )brace
+comma
+(brace
+l_string|&quot;ls-files&quot;
+comma
+id|cmd_ls_files
+)brace
 )brace
 suffix:semicolon
 r_int
