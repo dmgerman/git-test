@@ -1234,10 +1234,12 @@ op_assign
 id|xmalloc
 c_func
 (paren
-id|len_a
-op_plus
-id|len_b
 id|pfx_length
+op_plus
+id|a_midlen
+op_plus
+id|b_midlen
+op_plus
 id|sfx_length
 op_plus
 l_int|7
