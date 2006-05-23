@@ -269,6 +269,12 @@ l_string|&quot;ls-files&quot;
 comma
 id|cmd_ls_files
 )brace
+comma
+(brace
+l_string|&quot;ls-tree&quot;
+comma
+id|cmd_ls_tree
+)brace
 )brace
 suffix:semicolon
 r_int
