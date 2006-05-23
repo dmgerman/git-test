@@ -3676,6 +3676,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|line
+(braket
+l_int|0
+)braket
+op_logical_or
 id|fgets
 c_func
 (paren
