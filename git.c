@@ -287,6 +287,12 @@ l_string|&quot;read-tree&quot;
 comma
 id|cmd_read_tree
 )brace
+comma
+(brace
+l_string|&quot;commit-tree&quot;
+comma
+id|cmd_commit_tree
+)brace
 )brace
 suffix:semicolon
 r_int
