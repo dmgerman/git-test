@@ -299,6 +299,12 @@ l_string|&quot;apply&quot;
 comma
 id|cmd_apply
 )brace
+comma
+(brace
+l_string|&quot;show-branch&quot;
+comma
+id|cmd_show_branch
+)brace
 )brace
 suffix:semicolon
 r_int
