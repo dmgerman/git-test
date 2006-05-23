@@ -148,7 +148,11 @@ OL
 l_int|64
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;wanna fool me ? you obviously got the size wrong !&bslash;n&quot;
+)paren
 suffix:semicolon
 id|buffer
 (braket
@@ -176,7 +180,13 @@ l_int|7
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%d: does not start with &bslash;&quot;object &bslash;&quot;&bslash;n&quot;
+comma
+l_int|0
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -192,7 +202,13 @@ id|sha1
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%d: could not get SHA1 hash&bslash;n&quot;
+comma
+l_int|7
+)paren
 suffix:semicolon
 multiline_comment|/* Verify type line */
 id|type_line
@@ -216,7 +232,13 @@ l_int|6
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%d: could not find &bslash;&quot;&bslash;&bslash;ntype &bslash;&quot;&bslash;n&quot;
+comma
+l_int|47
+)paren
 suffix:semicolon
 multiline_comment|/* Verify tag-line */
 id|tag_line
@@ -236,7 +258,14 @@ op_logical_neg
 id|tag_line
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%td: could not find next &bslash;&quot;&bslash;&bslash;n&bslash;&quot;&bslash;n&quot;
+comma
+id|type_line
+id|buffer
+)paren
 suffix:semicolon
 id|tag_line
 op_increment
@@ -262,7 +291,14 @@ op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%td: no &bslash;&quot;tag &bslash;&quot; found&bslash;n&quot;
+comma
+id|tag_line
+id|buffer
+)paren
 suffix:semicolon
 multiline_comment|/* Get the actual type */
 id|typelen
@@ -286,7 +322,16 @@ id|type
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%td: type too long&bslash;n&quot;
+comma
+id|type_line
+op_plus
+l_int|5
+id|buffer
+)paren
 suffix:semicolon
 id|memcpy
 c_func
@@ -322,7 +367,13 @@ id|sha1
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%d: could not get SHA1 hash but this is really odd since i got it before !&bslash;n&quot;
+comma
+l_int|7
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -336,7 +387,15 @@ id|type
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%d: could not verify object %s&bslash;n&quot;
+comma
+l_int|7
+comma
+id|sha1
+)paren
 suffix:semicolon
 multiline_comment|/* Verify the tag-name: we don&squot;t allow control characters or spaces in it */
 id|tag_line
@@ -377,7 +436,14 @@ l_char|&squot; &squot;
 r_continue
 suffix:semicolon
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%td: could not verify tag name&bslash;n&quot;
+comma
+id|tag_line
+id|buffer
+)paren
 suffix:semicolon
 )brace
 multiline_comment|/* Verify the tagger line */
@@ -408,7 +474,14 @@ l_char|&squot;&bslash;n&squot;
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;char%td: could not find &bslash;&quot;tagger&bslash;&quot;&bslash;n&quot;
+comma
+id|tagger_line
+id|buffer
+)paren
 suffix:semicolon
 multiline_comment|/* The actual stuff afterwards we don&squot;t care about.. */
 r_return
