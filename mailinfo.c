@@ -1644,9 +1644,6 @@ r_char
 op_star
 id|line
 comma
-r_int
-id|len
-comma
 r_struct
 id|header_def
 op_star
@@ -1800,9 +1797,6 @@ c_func
 r_char
 op_star
 id|line
-comma
-r_int
-id|len
 )paren
 (brace
 r_static
@@ -1836,8 +1830,6 @@ c_func
 (paren
 id|line
 comma
-id|len
-comma
 id|header
 )paren
 suffix:semicolon
@@ -1851,9 +1843,6 @@ c_func
 r_char
 op_star
 id|line
-comma
-r_int
-id|len
 )paren
 (brace
 r_static
@@ -1904,8 +1893,6 @@ id|check_header
 c_func
 (paren
 id|line
-comma
-id|len
 comma
 id|header
 )paren
@@ -3625,7 +3612,7 @@ l_int|1
 )paren
 (brace
 r_int
-id|len
+id|hdr
 op_assign
 id|read_one_header_line
 c_func
@@ -3644,7 +3631,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|len
+id|hdr
 )paren
 (brace
 r_if
@@ -3677,8 +3664,6 @@ id|check_subheader_line
 c_func
 (paren
 id|line
-comma
-id|len
 )paren
 suffix:semicolon
 )brace
@@ -4056,7 +4041,7 @@ l_int|1
 )paren
 (brace
 r_int
-id|len
+id|hdr
 op_assign
 id|read_one_header_line
 c_func
@@ -4075,7 +4060,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|len
+id|hdr
 )paren
 (brace
 r_if
@@ -4104,8 +4089,6 @@ id|check_header_line
 c_func
 (paren
 id|line
-comma
-id|len
 )paren
 suffix:semicolon
 )brace
