@@ -4,6 +4,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;delta.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 singleline_comment|//  --check turns on checking that the working tree matches the
 singleline_comment|//    files that are being modified, but doesn&squot;t apply the patch
 singleline_comment|//  --stat does just a diffstat, and doesn&squot;t actually apply
@@ -10613,18 +10614,24 @@ id|value
 )paren
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_apply
 r_int
-id|main
+id|cmd_apply
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
