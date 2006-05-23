@@ -652,6 +652,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -846,6 +852,10 @@ id|arg
 op_plus
 l_int|1
 )braket
+suffix:semicolon
+id|write_ref_log_details
+op_assign
+id|url
 suffix:semicolon
 r_if
 c_cond
