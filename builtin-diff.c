@@ -1234,7 +1234,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|add_head
-r_static
 r_void
 id|add_head
 c_func

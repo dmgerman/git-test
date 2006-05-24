@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * Copyright (c) 2005 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|diff_options
 r_static
 r_struct
@@ -313,9 +314,9 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
-DECL|function|main
+DECL|function|cmd_diff_stages
 r_int
-id|main
+id|cmd_diff_stages
 c_func
 (paren
 r_int
@@ -326,6 +327,11 @@ r_char
 op_star
 op_star
 id|av
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
