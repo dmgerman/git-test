@@ -359,6 +359,12 @@ l_string|&quot;diff-tree&quot;
 comma
 id|cmd_diff_tree
 )brace
+comma
+(brace
+l_string|&quot;cat-file&quot;
+comma
+id|cmd_cat_file
+)brace
 )brace
 suffix:semicolon
 r_int
