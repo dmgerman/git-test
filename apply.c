@@ -6374,6 +6374,8 @@ id|frag
 )paren
 (brace
 r_int
+id|match_beginning
+comma
 id|match_end
 suffix:semicolon
 r_char
@@ -6647,7 +6649,18 @@ id|trailing
 op_assign
 id|frag-&gt;trailing
 suffix:semicolon
-multiline_comment|/*&n;&t; * If we don&squot;t have any trailing data in the patch,&n;&t; * we want it to match at the end of the file.&n;&t; */
+multiline_comment|/*&n;&t; * If we don&squot;t have any leading/trailing data in the patch,&n;&t; * we want it to match at the beginning/end of the file.&n;&t; */
+id|match_beginning
+op_assign
+op_logical_neg
+id|leading
+op_logical_and
+(paren
+id|frag-&gt;oldpos
+op_eq
+l_int|1
+)paren
+suffix:semicolon
 id|match_end
 op_assign
 op_logical_neg
@@ -6697,6 +6710,17 @@ op_plus
 id|oldsize
 op_ne
 id|desc-&gt;size
+)paren
+id|offset
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|match_beginning
+op_logical_and
+id|offset
 )paren
 id|offset
 op_assign
@@ -6859,9 +6883,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|match_beginning
+op_logical_or
 id|match_end
 )paren
 (brace
+id|match_beginning
+op_assign
 id|match_end
 op_assign
 l_int|0
