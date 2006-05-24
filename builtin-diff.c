@@ -599,12 +599,7 @@ id|sha1
 comma
 id|null_sha1
 comma
-id|blob
-(braket
-l_int|0
-)braket
-dot
-id|name
+id|path
 comma
 id|path
 )paren
@@ -1239,7 +1234,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|add_head
-r_static
 r_void
 id|add_head
 c_func

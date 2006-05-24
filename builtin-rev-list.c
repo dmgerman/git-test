@@ -7,6 +7,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 multiline_comment|/* bits #0-15 in revision.h */
 DECL|macro|COUNTED
 mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;16)
@@ -41,6 +42,7 @@ l_string|&quot;  special purpose:&bslash;n&quot;
 l_string|&quot;    --bisect&quot;
 suffix:semicolon
 DECL|variable|revs
+r_static
 r_struct
 id|rev_info
 id|revs
@@ -288,6 +290,10 @@ id|pretty_header
 )paren
 comma
 id|revs.abbrev
+comma
+l_int|NULL
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|printf
@@ -1322,9 +1328,9 @@ id|commit
 suffix:semicolon
 )brace
 )brace
-DECL|function|main
+DECL|function|cmd_rev_list
 r_int
-id|main
+id|cmd_rev_list
 c_func
 (paren
 r_int
@@ -1335,6 +1341,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_struct

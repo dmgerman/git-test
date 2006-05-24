@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|macro|BLOCKING
 mdefine_line|#define BLOCKING (1ul &lt;&lt; 14)
 multiline_comment|/*&n; * FIXME! Share the code with &quot;write-tree.c&quot;&n; */
@@ -382,18 +383,24 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_commit_tree
 r_int
-id|main
+id|cmd_commit_tree
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
@@ -510,6 +517,7 @@ op_add_assign
 l_int|2
 )paren
 (brace
+r_const
 r_char
 op_star
 id|a

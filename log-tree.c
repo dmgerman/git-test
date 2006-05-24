@@ -122,6 +122,17 @@ suffix:semicolon
 r_int
 id|len
 suffix:semicolon
+r_char
+op_star
+id|subject
+op_assign
+l_int|NULL
+comma
+op_star
+id|after_subject
+op_assign
+l_int|NULL
+suffix:semicolon
 id|opt-&gt;loginfo
 op_assign
 l_int|NULL
@@ -217,18 +228,167 @@ id|opt-&gt;commit_format
 op_eq
 id|CMIT_FMT_EMAIL
 )paren
-id|printf
-c_func
-(paren
-l_string|&quot;From %s  Thu Apr 7 15:13:13 2005&bslash;n&quot;
-comma
+(brace
+r_char
+op_star
+id|sha1
+op_assign
 id|sha1_to_hex
 c_func
 (paren
 id|commit-&gt;object.sha1
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;total
+OG
+l_int|0
+)paren
+(brace
+r_static
+r_char
+id|buffer
+(braket
+l_int|64
+)braket
+suffix:semicolon
+id|snprintf
+c_func
+(paren
+id|buffer
+comma
+r_sizeof
+(paren
+id|buffer
+)paren
+comma
+l_string|&quot;Subject: [PATCH %d/%d] &quot;
+comma
+id|opt-&gt;nr
+comma
+id|opt-&gt;total
 )paren
 suffix:semicolon
+id|subject
+op_assign
+id|buffer
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|opt-&gt;total
+op_eq
+l_int|0
+)paren
+id|subject
+op_assign
+l_string|&quot;Subject: [PATCH] &quot;
+suffix:semicolon
+r_else
+id|subject
+op_assign
+l_string|&quot;Subject: &quot;
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;From %s Mon Sep 17 00:00:00 2001&bslash;n&quot;
+comma
+id|sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;mime_boundary
+)paren
+(brace
+r_static
+r_char
+id|subject_buffer
+(braket
+l_int|1024
+)braket
+suffix:semicolon
+r_static
+r_char
+id|buffer
+(braket
+l_int|1024
+)braket
+suffix:semicolon
+id|snprintf
+c_func
+(paren
+id|subject_buffer
+comma
+r_sizeof
+(paren
+id|subject_buffer
+)paren
+l_int|1
+comma
+l_string|&quot;MIME-Version: 1.0&bslash;n&quot;
+l_string|&quot;Content-Type: multipart/mixed;&bslash;n&quot;
+l_string|&quot; boundary=&bslash;&quot;%s%s&bslash;&quot;&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;This is a multi-part message in MIME &quot;
+l_string|&quot;format.&bslash;n&quot;
+l_string|&quot;--%s%s&bslash;n&quot;
+l_string|&quot;Content-Type: text/plain; &quot;
+l_string|&quot;charset=UTF-8; format=fixed&bslash;n&quot;
+l_string|&quot;Content-Transfer-Encoding: 8bit&bslash;n&bslash;n&quot;
+comma
+id|mime_boundary_leader
+comma
+id|opt-&gt;mime_boundary
+comma
+id|mime_boundary_leader
+comma
+id|opt-&gt;mime_boundary
+)paren
+suffix:semicolon
+id|after_subject
+op_assign
+id|subject_buffer
+suffix:semicolon
+id|snprintf
+c_func
+(paren
+id|buffer
+comma
+r_sizeof
+(paren
+id|buffer
+)paren
+l_int|1
+comma
+l_string|&quot;--%s%s&bslash;n&quot;
+l_string|&quot;Content-Type: text/x-patch;&bslash;n&quot;
+l_string|&quot; name=&bslash;&quot;%s.diff&bslash;&quot;&bslash;n&quot;
+l_string|&quot;Content-Transfer-Encoding: 8bit&bslash;n&quot;
+l_string|&quot;Content-Disposition: inline;&bslash;n&quot;
+l_string|&quot; filename=&bslash;&quot;%s.diff&bslash;&quot;&bslash;n&bslash;n&quot;
+comma
+id|mime_boundary_leader
+comma
+id|opt-&gt;mime_boundary
+comma
+id|sha1
+comma
+id|sha1
+)paren
+suffix:semicolon
+id|opt-&gt;diffopt.stat_sep
+op_assign
+id|buffer
+suffix:semicolon
+)brace
+)brace
 r_else
 (brace
 id|printf
@@ -321,6 +481,10 @@ id|this_header
 )paren
 comma
 id|abbrev
+comma
+id|subject
+comma
+id|after_subject
 )paren
 suffix:semicolon
 id|printf

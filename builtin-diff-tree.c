@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|log_tree_opt
 r_static
 r_struct
@@ -310,9 +311,9 @@ l_string|&quot;  -r            diff recursively&bslash;n&quot;
 l_string|&quot;  --root        include the initial commit as diff against /dev/null&bslash;n&quot;
 id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_diff_tree
 r_int
-id|main
+id|cmd_diff_tree
 c_func
 (paren
 r_int
@@ -323,6 +324,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
@@ -622,6 +628,23 @@ comma
 id|stdin
 )paren
 )paren
+r_if
+c_cond
+(paren
+id|line
+(braket
+l_int|0
+)braket
+op_eq
+l_char|&squot;&bslash;n&squot;
+)paren
+id|fflush
+c_func
+(paren
+id|stdout
+)paren
+suffix:semicolon
+r_else
 id|diff_tree_stdin
 c_func
 (paren
