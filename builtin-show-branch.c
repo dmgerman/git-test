@@ -3,6 +3,7 @@ macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|show_branch_usage
 r_static
 r_const
@@ -29,6 +30,7 @@ l_int|0
 suffix:semicolon
 DECL|variable|default_arg
 r_static
+r_const
 r_char
 op_star
 op_star
@@ -2788,18 +2790,24 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_show_branch
 r_int
-id|main
+id|cmd_show_branch
 c_func
 (paren
 r_int
 id|ac
 comma
+r_const
 r_char
 op_star
 op_star
 id|av
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_struct
@@ -2979,6 +2987,7 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
+r_const
 r_char
 op_star
 id|arg
