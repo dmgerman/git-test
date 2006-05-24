@@ -6373,6 +6373,9 @@ op_star
 id|frag
 )paren
 (brace
+r_int
+id|match_end
+suffix:semicolon
 r_char
 op_star
 id|buf
@@ -6644,6 +6647,12 @@ id|trailing
 op_assign
 id|frag-&gt;trailing
 suffix:semicolon
+multiline_comment|/*&n;&t; * If we don&squot;t have any trailing data in the patch,&n;&t; * we want it to match at the end of the file.&n;&t; */
+id|match_end
+op_assign
+op_logical_neg
+id|trailing
+suffix:semicolon
 id|lines
 op_assign
 l_int|0
@@ -6677,6 +6686,21 @@ comma
 op_amp
 id|lines
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|match_end
+op_logical_and
+id|offset
+op_plus
+id|oldsize
+op_ne
+id|desc-&gt;size
+)paren
+id|offset
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -6832,6 +6856,19 @@ id|p_context
 )paren
 r_break
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|match_end
+)paren
+(brace
+id|match_end
+op_assign
+l_int|0
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 multiline_comment|/* Reduce the number of context lines&n;&t;&t; * Reduce both leading and trailing if they are equal&n;&t;&t; * otherwise just reduce the larger context.&n;&t;&t; */
 r_if
 c_cond
