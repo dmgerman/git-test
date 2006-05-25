@@ -634,9 +634,16 @@ op_star
 id|argv
 )paren
 (brace
-id|setup_git_directory
+r_int
+id|nongit
+op_assign
+l_int|0
+suffix:semicolon
+id|setup_git_directory_gently
 c_func
 (paren
+op_amp
+id|nongit
 )paren
 suffix:semicolon
 r_while
