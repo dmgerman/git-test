@@ -52,6 +52,9 @@ DECL|macro|SEEN
 mdefine_line|#define SEEN&t;&t;(1U &lt;&lt; 3)
 DECL|macro|POPPED
 mdefine_line|#define POPPED&t;&t;(1U &lt;&lt; 4)
+multiline_comment|/*&n; * After sending this many &quot;have&quot;s if we do not get any new ACK , we&n; * give up traversing our history.&n; */
+DECL|macro|MAX_IN_VAIN
+mdefine_line|#define MAX_IN_VAIN 256
 DECL|variable|rev_list
 r_static
 r_struct
@@ -576,6 +579,16 @@ r_char
 op_star
 id|sha1
 suffix:semicolon
+r_int
+id|in_vain
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|got_continue
+op_assign
+l_int|0
+suffix:semicolon
 id|for_each_ref
 c_func
 (paren
@@ -751,6 +764,9 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+id|in_vain
+op_increment
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -884,6 +900,14 @@ id|retval
 op_assign
 l_int|0
 suffix:semicolon
+id|in_vain
+op_assign
+l_int|0
+suffix:semicolon
+id|got_continue
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 )brace
 r_while
@@ -895,6 +919,33 @@ suffix:semicolon
 id|flushes
 op_decrement
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|got_continue
+op_logical_and
+id|MAX_IN_VAIN
+OL
+id|in_vain
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;giving up&bslash;n&quot;
+)paren
+suffix:semicolon
+r_break
+suffix:semicolon
+multiline_comment|/* give up */
+)brace
 )brace
 )brace
 id|done
