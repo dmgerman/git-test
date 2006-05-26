@@ -1207,8 +1207,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|numbered
-op_logical_and
 id|start_number
 OL
 l_int|0
@@ -1406,8 +1404,13 @@ id|nr
 suffix:semicolon
 id|rev.nr
 op_assign
-id|rev.total
+id|total
 id|nr
+op_plus
+(paren
+id|start_number
+l_int|1
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -1445,6 +1448,17 @@ suffix:semicolon
 id|commit-&gt;buffer
 op_assign
 l_int|NULL
+suffix:semicolon
+multiline_comment|/* We put one extra blank line between formatted&n;&t;&t; * patches and this flag is used by log-tree code&n;&t;&t; * to see if it needs to emit a LF before showing&n;&t;&t; * the log; when using one file per patch, we do&n;&t;&t; * not want the extra blank line.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|use_stdout
+)paren
+id|rev.shown_one
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
