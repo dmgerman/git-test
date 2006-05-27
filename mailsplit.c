@@ -847,7 +847,7 @@ c_func
 (paren
 id|file
 comma
-l_string|&quot;rt&quot;
+l_string|&quot;r&quot;
 )paren
 suffix:semicolon
 r_int
