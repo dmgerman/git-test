@@ -569,7 +569,11 @@ op_assign
 id|process_tree
 c_func
 (paren
-id|entry-&gt;item.tree
+id|lookup_tree
+c_func
+(paren
+id|entry-&gt;sha1
+)paren
 comma
 id|p
 comma
@@ -585,7 +589,11 @@ op_assign
 id|process_blob
 c_func
 (paren
-id|entry-&gt;item.blob
+id|lookup_blob
+c_func
+(paren
+id|entry-&gt;sha1
+)paren
 comma
 id|p
 comma

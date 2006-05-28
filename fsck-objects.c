@@ -2150,6 +2150,10 @@ id|i
 comma
 id|heads
 suffix:semicolon
+id|track_object_refs
+op_assign
+l_int|1
+suffix:semicolon
 id|setup_git_directory
 c_func
 (paren

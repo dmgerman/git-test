@@ -624,6 +624,7 @@ r_int
 id|get_blob_sha1_internal
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -803,6 +804,7 @@ r_int
 id|get_blob_sha1_internal
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star

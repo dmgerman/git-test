@@ -24,7 +24,7 @@ DECL|variable|track_object_refs
 r_int
 id|track_object_refs
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 DECL|function|hashtable_index
 r_static
