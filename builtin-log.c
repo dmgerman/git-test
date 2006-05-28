@@ -1221,8 +1221,6 @@ c_cond
 id|numbered
 op_logical_and
 id|keep_subject
-OL
-l_int|0
 )paren
 id|die
 (paren
