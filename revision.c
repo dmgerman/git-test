@@ -328,11 +328,11 @@ id|obj-&gt;sha1
 suffix:semicolon
 id|entry
 op_assign
-id|tree-&gt;entries
-suffix:semicolon
-id|tree-&gt;entries
-op_assign
-l_int|NULL
+id|create_tree_entry_list
+c_func
+(paren
+id|tree
+)paren
 suffix:semicolon
 r_while
 c_loop

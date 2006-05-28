@@ -9,6 +9,8 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pack.h&quot;
 DECL|macro|REACHABLE
 mdefine_line|#define REACHABLE 0x0001
+DECL|macro|SEEN
+mdefine_line|#define SEEN      0x0002
 DECL|variable|show_root
 r_static
 r_int
@@ -677,7 +679,11 @@ c_loop
 (paren
 id|entry
 op_assign
-id|item-&gt;entries
+id|create_tree_entry_list
+c_func
+(paren
+id|item
+)paren
 suffix:semicolon
 id|entry
 suffix:semicolon
@@ -814,10 +820,6 @@ c_func
 (paren
 id|last
 )paren
-suffix:semicolon
-id|item-&gt;entries
-op_assign
-l_int|NULL
 suffix:semicolon
 id|free
 c_func
@@ -1270,6 +1272,20 @@ c_func
 id|sha1
 )paren
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|obj-&gt;flags
+op_amp
+id|SEEN
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|obj-&gt;flags
+op_or_assign
+id|SEEN
 suffix:semicolon
 r_if
 c_cond

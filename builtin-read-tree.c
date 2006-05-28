@@ -801,7 +801,11 @@ id|subposns
 id|i
 )braket
 op_assign
-id|tree-&gt;entries
+id|create_tree_entry_list
+c_func
+(paren
+id|tree
+)paren
 suffix:semicolon
 id|posns
 (braket
@@ -1855,6 +1859,8 @@ id|posns
 id|i
 )braket
 op_assign
+id|create_tree_entry_list
+c_func
 (paren
 (paren
 r_struct
@@ -1863,8 +1869,6 @@ op_star
 )paren
 id|posn-&gt;item
 )paren
-op_member_access_from_pointer
-id|entries
 suffix:semicolon
 id|posn
 op_assign
