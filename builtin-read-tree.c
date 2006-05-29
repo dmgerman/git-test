@@ -4,6 +4,7 @@ mdefine_line|#define DBRT_DEBUG 1
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
@@ -3705,9 +3706,8 @@ id|tree
 )paren
 (brace
 r_struct
-id|tree_entry_list
-op_star
-id|ent
+id|tree_desc
+id|desc
 suffix:semicolon
 r_int
 id|cnt
@@ -3722,29 +3722,69 @@ comma
 l_int|20
 )paren
 suffix:semicolon
-r_for
-c_loop
-(paren
+id|desc.buf
+op_assign
+id|tree-&gt;buffer
+suffix:semicolon
+id|desc.size
+op_assign
+id|tree-&gt;size
+suffix:semicolon
 id|cnt
 op_assign
 l_int|0
-comma
-id|ent
-op_assign
-id|tree-&gt;entries
 suffix:semicolon
-id|ent
-suffix:semicolon
-id|ent
-op_assign
-id|ent-&gt;next
+r_while
+c_loop
+(paren
+id|desc.size
 )paren
 (brace
+r_int
+id|mode
+suffix:semicolon
+r_const
+r_char
+op_star
+id|name
+suffix:semicolon
+r_const
+r_int
+r_char
+op_star
+id|sha1
+suffix:semicolon
+id|sha1
+op_assign
+id|tree_entry_extract
+c_func
+(paren
+op_amp
+id|desc
+comma
+op_amp
+id|name
+comma
+op_amp
+id|mode
+)paren
+suffix:semicolon
+id|update_tree_entry
+c_func
+(paren
+op_amp
+id|desc
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
 op_logical_neg
-id|ent-&gt;directory
+id|S_ISDIR
+c_func
+(paren
+id|mode
+)paren
 )paren
 id|cnt
 op_increment
@@ -3764,7 +3804,7 @@ op_assign
 id|lookup_tree
 c_func
 (paren
-id|ent-&gt;sha1
+id|sha1
 )paren
 suffix:semicolon
 r_if
@@ -3786,7 +3826,7 @@ c_func
 (paren
 id|it
 comma
-id|ent-&gt;name
+id|name
 )paren
 suffix:semicolon
 id|sub-&gt;cache_tree
