@@ -78,6 +78,9 @@ r_if
 c_cond
 (paren
 id|env
+op_logical_and
+op_star
+id|env
 )paren
 (brace
 r_return
@@ -174,6 +177,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|exec_dir
+op_logical_or
+op_logical_neg
+op_star
 id|exec_dir
 )paren
 r_continue
