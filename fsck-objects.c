@@ -10,6 +10,8 @@ macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 DECL|macro|REACHABLE
 mdefine_line|#define REACHABLE 0x0001
+DECL|macro|SEEN
+mdefine_line|#define SEEN      0x0002
 DECL|variable|show_root
 r_static
 r_int
@@ -678,7 +680,11 @@ c_loop
 (paren
 id|entry
 op_assign
-id|item-&gt;entries
+id|create_tree_entry_list
+c_func
+(paren
+id|item
+)paren
 suffix:semicolon
 id|entry
 suffix:semicolon
@@ -796,12 +802,6 @@ suffix:semicolon
 id|free
 c_func
 (paren
-id|last-&gt;name
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
 id|last
 )paren
 suffix:semicolon
@@ -816,21 +816,19 @@ c_cond
 (paren
 id|last
 )paren
-(brace
-id|free
-c_func
-(paren
-id|last-&gt;name
-)paren
-suffix:semicolon
 id|free
 c_func
 (paren
 id|last
 )paren
 suffix:semicolon
-)brace
-id|item-&gt;entries
+id|free
+c_func
+(paren
+id|item-&gt;buffer
+)paren
+suffix:semicolon
+id|item-&gt;buffer
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -1275,6 +1273,20 @@ c_func
 id|sha1
 )paren
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|obj-&gt;flags
+op_amp
+id|SEEN
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|obj-&gt;flags
+op_or_assign
+id|SEEN
 suffix:semicolon
 r_if
 c_cond
@@ -2277,6 +2289,10 @@ r_int
 id|i
 comma
 id|heads
+suffix:semicolon
+id|track_object_refs
+op_assign
+l_int|1
 suffix:semicolon
 id|setup_git_directory
 c_func
