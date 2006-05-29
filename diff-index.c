@@ -34,11 +34,6 @@ id|rev_info
 id|rev
 suffix:semicolon
 r_int
-id|match_missing
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|cached
 op_assign
 l_int|0

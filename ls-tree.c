@@ -741,13 +741,16 @@ l_int|1
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|ls_tree_usage
+l_string|&quot;Not a valid object name %s&quot;
+comma
+id|argv
+(braket
+l_int|1
+)braket
 )paren
 suffix:semicolon
 id|pathspec

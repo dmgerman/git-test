@@ -127,12 +127,6 @@ op_star
 id|result
 )paren
 (brace
-r_char
-id|branch1_sha1
-(braket
-l_int|50
-)braket
-suffix:semicolon
 multiline_comment|/* If it&squot;s already branch1, don&squot;t bother showing it */
 r_if
 c_cond
@@ -141,20 +135,6 @@ op_logical_neg
 id|branch1
 )paren
 r_return
-suffix:semicolon
-id|memcpy
-c_func
-(paren
-id|branch1_sha1
-comma
-id|sha1_to_hex_zero
-c_func
-(paren
-id|branch1-&gt;sha1
-)paren
-comma
-l_int|41
-)paren
 suffix:semicolon
 id|printf
 c_func
@@ -165,7 +145,11 @@ id|branch1-&gt;mode
 comma
 id|result-&gt;mode
 comma
-id|branch1_sha1
+id|sha1_to_hex_zero
+c_func
+(paren
+id|branch1-&gt;sha1
+)paren
 comma
 id|sha1_to_hex_zero
 c_func
@@ -839,8 +823,6 @@ id|rev
 comma
 id|sha1
 )paren
-OL
-l_int|0
 )paren
 id|die
 c_func

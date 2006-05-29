@@ -8,7 +8,6 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;limits.h&gt;
 macro_line|#include &lt;stdarg.h&gt;
-macro_line|#include &lt;sys/ioctl.h&gt;
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;builtin.h&quot;
@@ -223,6 +222,59 @@ comma
 id|cmd_show
 )brace
 comma
+(brace
+l_string|&quot;push&quot;
+comma
+id|cmd_push
+)brace
+comma
+(brace
+l_string|&quot;count-objects&quot;
+comma
+id|cmd_count_objects
+)brace
+comma
+(brace
+l_string|&quot;diff&quot;
+comma
+id|cmd_diff
+)brace
+comma
+(brace
+l_string|&quot;grep&quot;
+comma
+id|cmd_grep
+)brace
+comma
+(brace
+l_string|&quot;rm&quot;
+comma
+id|cmd_rm
+)brace
+comma
+(brace
+l_string|&quot;add&quot;
+comma
+id|cmd_add
+)brace
+comma
+(brace
+l_string|&quot;rev-list&quot;
+comma
+id|cmd_rev_list
+)brace
+comma
+(brace
+l_string|&quot;init-db&quot;
+comma
+id|cmd_init_db
+)brace
+comma
+(brace
+l_string|&quot;check-ref-format&quot;
+comma
+id|cmd_check_ref_format
+)brace
 )brace
 suffix:semicolon
 r_int

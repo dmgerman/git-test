@@ -2550,7 +2550,7 @@ id|paths
 )paren
 comma
 op_amp
-id|revs-&gt;diffopt
+id|revs-&gt;pruning
 )paren
 suffix:semicolon
 id|ret
@@ -2569,7 +2569,7 @@ id|diff_tree_release_paths
 c_func
 (paren
 op_amp
-id|revs-&gt;diffopt
+id|revs-&gt;pruning
 )paren
 suffix:semicolon
 r_return
@@ -2635,7 +2635,7 @@ id|paths
 )paren
 comma
 op_amp
-id|revs-&gt;diffopt
+id|revs-&gt;pruning
 )paren
 suffix:semicolon
 id|ret
@@ -2652,7 +2652,7 @@ id|diff_tree_release_paths
 c_func
 (paren
 op_amp
-id|revs-&gt;diffopt
+id|revs-&gt;pruning
 )paren
 suffix:semicolon
 r_return
@@ -4267,7 +4267,7 @@ c_func
 id|args
 comma
 op_amp
-id|rev.diffopt
+id|rev.pruning
 )paren
 suffix:semicolon
 id|prepare_revision_walk
