@@ -2,6 +2,7 @@ macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;refs.h&quot;
@@ -164,9 +165,8 @@ id|tree
 )paren
 (brace
 r_struct
-id|tree_entry_list
-op_star
-id|entry
+id|tree_desc
+id|desc
 suffix:semicolon
 r_if
 c_cond
@@ -180,31 +180,64 @@ id|tree
 r_return
 l_int|1
 suffix:semicolon
-id|entry
+id|desc.buf
 op_assign
-id|create_tree_entry_list
-c_func
-(paren
-id|tree
-)paren
+id|tree-&gt;buffer
+suffix:semicolon
+id|desc.size
+op_assign
+id|tree-&gt;size
 suffix:semicolon
 r_while
 c_loop
 (paren
-id|entry
+id|desc.size
 )paren
 (brace
-r_struct
-id|tree_entry_list
+r_int
+id|mode
+suffix:semicolon
+r_const
+r_char
 op_star
-id|next
+id|name
+suffix:semicolon
+r_const
+r_int
+r_char
+op_star
+id|sha1
+suffix:semicolon
+id|sha1
 op_assign
-id|entry-&gt;next
+id|tree_entry_extract
+c_func
+(paren
+op_amp
+id|desc
+comma
+op_amp
+id|name
+comma
+op_amp
+id|mode
+)paren
+suffix:semicolon
+id|update_tree_entry
+c_func
+(paren
+op_amp
+id|desc
+)paren
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|entry-&gt;directory
+id|S_ISDIR
+c_func
+(paren
+id|mode
+)paren
 )paren
 (brace
 r_struct
@@ -215,7 +248,7 @@ op_assign
 id|lookup_tree
 c_func
 (paren
-id|entry-&gt;sha1
+id|sha1
 )paren
 suffix:semicolon
 id|process_tree
@@ -235,7 +268,7 @@ op_assign
 id|lookup_blob
 c_func
 (paren
-id|entry-&gt;sha1
+id|sha1
 )paren
 suffix:semicolon
 id|process
@@ -246,16 +279,6 @@ id|blob-&gt;object
 )paren
 suffix:semicolon
 )brace
-id|free
-c_func
-(paren
-id|entry
-)paren
-suffix:semicolon
-id|entry
-op_assign
-id|next
-suffix:semicolon
 )brace
 id|free
 c_func
@@ -266,6 +289,10 @@ suffix:semicolon
 id|tree-&gt;buffer
 op_assign
 l_int|NULL
+suffix:semicolon
+id|tree-&gt;size
+op_assign
+l_int|0
 suffix:semicolon
 r_return
 l_int|0
