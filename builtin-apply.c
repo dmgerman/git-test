@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * apply.c&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; *&n; * This applies patches on top of some (arbitrary) version of the SCM.&n; *&n; */
 macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;delta.h&quot;
@@ -9362,6 +9363,14 @@ comma
 id|patch-&gt;old_name
 )paren
 suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|patch-&gt;old_name
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -9991,6 +10000,14 @@ comma
 id|buf
 comma
 id|size
+)paren
+suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
 )paren
 suffix:semicolon
 )brace

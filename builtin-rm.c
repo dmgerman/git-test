@@ -2,6 +2,7 @@ multiline_comment|/*&n; * &quot;git rm&quot; builtin command&n; *&n; * Copyright
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 DECL|variable|builtin_rm_usage
 r_static
 r_const
@@ -637,6 +638,14 @@ id|die
 c_func
 (paren
 l_string|&quot;git rm: unable to remove %s&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
 comma
 id|path
 )paren

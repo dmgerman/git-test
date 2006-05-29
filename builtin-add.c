@@ -3,6 +3,7 @@ macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 DECL|variable|builtin_add_usage
 r_static
 r_const
@@ -633,6 +634,14 @@ id|printf
 c_func
 (paren
 l_string|&quot;add &squot;%s&squot;&bslash;n&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
 comma
 id|path
 )paren
