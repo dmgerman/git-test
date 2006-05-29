@@ -144,6 +144,7 @@ r_int
 id|entcmp
 c_func
 (paren
+r_const
 r_char
 op_star
 id|name1
@@ -151,6 +152,7 @@ comma
 r_int
 id|dir1
 comma
+r_const
 r_char
 op_star
 id|name2
@@ -344,6 +346,7 @@ r_do
 r_int
 id|i
 suffix:semicolon
+r_const
 r_char
 op_star
 id|first
