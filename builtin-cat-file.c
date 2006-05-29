@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|function|flush_buffer
 r_static
 r_void
@@ -403,18 +404,24 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_cat_file
 r_int
-id|main
+id|cmd_cat_file
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
@@ -665,15 +672,14 @@ id|tree_type
 )paren
 )paren
 r_return
-id|execl_git_cmd
+id|cmd_ls_tree
 c_func
 (paren
-l_string|&quot;ls-tree&quot;
+l_int|2
 comma
 id|argv
-(braket
-l_int|2
-)braket
+op_plus
+l_int|1
 comma
 l_int|NULL
 )paren

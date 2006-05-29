@@ -2556,7 +2556,6 @@ id|active_cache
 id|i
 )braket
 suffix:semicolon
-r_const
 r_char
 op_star
 id|name

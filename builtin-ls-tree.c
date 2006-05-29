@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|line_termination
 r_static
 r_int
@@ -33,6 +34,7 @@ op_assign
 l_int|0
 suffix:semicolon
 DECL|variable|pathspec
+r_static
 r_const
 r_char
 op_star
@@ -212,6 +214,7 @@ r_int
 id|show_tree
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -395,9 +398,9 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_ls_tree
 r_int
-id|main
+id|cmd_ls_tree
 c_func
 (paren
 r_int
@@ -408,6 +411,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
