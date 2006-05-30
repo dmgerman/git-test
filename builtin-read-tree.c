@@ -4,8 +4,8 @@ mdefine_line|#define DBRT_DEBUG 1
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tree.h&quot;
-macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;builtin.h&quot;
@@ -3715,8 +3715,6 @@ id|desc
 suffix:semicolon
 r_int
 id|cnt
-op_assign
-l_int|0
 suffix:semicolon
 id|memcpy
 c_func
@@ -3735,6 +3733,10 @@ suffix:semicolon
 id|desc.size
 op_assign
 id|tree-&gt;size
+suffix:semicolon
+id|cnt
+op_assign
+l_int|0
 suffix:semicolon
 r_while
 c_loop
@@ -3801,8 +3803,6 @@ suffix:semicolon
 r_struct
 id|tree
 op_star
-id|subtree
-suffix:semicolon
 id|subtree
 op_assign
 id|lookup_tree
