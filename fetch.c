@@ -963,6 +963,8 @@ r_struct
 id|ref_lock
 op_star
 id|lock
+op_assign
+l_int|NULL
 suffix:semicolon
 r_int
 r_char
@@ -1056,6 +1058,11 @@ comma
 id|target
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|lock
+)paren
 id|unlock_ref
 c_func
 (paren
@@ -1080,6 +1087,11 @@ id|sha1
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|lock
+)paren
 id|unlock_ref
 c_func
 (paren
@@ -1099,6 +1111,11 @@ c_func
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|lock
+)paren
 id|unlock_ref
 c_func
 (paren
