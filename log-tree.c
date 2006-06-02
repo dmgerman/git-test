@@ -310,6 +310,7 @@ suffix:semicolon
 r_int
 id|len
 suffix:semicolon
+r_const
 r_char
 op_star
 id|subject
@@ -317,9 +318,9 @@ op_assign
 l_int|NULL
 comma
 op_star
-id|after_subject
+id|extra_headers
 op_assign
-l_int|NULL
+id|opt-&gt;extra_headers
 suffix:semicolon
 id|opt-&gt;loginfo
 op_assign
@@ -520,6 +521,7 @@ id|subject_buffer
 )paren
 l_int|1
 comma
+l_string|&quot;%s&quot;
 l_string|&quot;MIME-Version: 1.0&bslash;n&quot;
 l_string|&quot;Content-Type: multipart/mixed;&bslash;n&quot;
 l_string|&quot; boundary=&bslash;&quot;%s%s&bslash;&quot;&bslash;n&quot;
@@ -531,6 +533,13 @@ l_string|&quot;Content-Type: text/plain; &quot;
 l_string|&quot;charset=UTF-8; format=fixed&bslash;n&quot;
 l_string|&quot;Content-Transfer-Encoding: 8bit&bslash;n&bslash;n&quot;
 comma
+id|extra_headers
+ques
+c_cond
+id|extra_headers
+suffix:colon
+l_string|&quot;&quot;
+comma
 id|mime_boundary_leader
 comma
 id|opt-&gt;mime_boundary
@@ -540,7 +549,7 @@ comma
 id|opt-&gt;mime_boundary
 )paren
 suffix:semicolon
-id|after_subject
+id|extra_headers
 op_assign
 id|subject_buffer
 suffix:semicolon
@@ -672,7 +681,7 @@ id|abbrev
 comma
 id|subject
 comma
-id|after_subject
+id|extra_headers
 )paren
 suffix:semicolon
 r_if
