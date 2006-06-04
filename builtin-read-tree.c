@@ -3796,13 +3796,6 @@ c_cond
 op_logical_neg
 id|a
 )paren
-(brace
-id|invalidate_ce_path
-c_func
-(paren
-id|old
-)paren
-suffix:semicolon
 r_return
 id|deleted_entry
 c_func
@@ -3812,7 +3805,6 @@ comma
 id|old
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -4924,6 +4916,9 @@ c_cond
 id|trees
 op_logical_and
 id|trees-&gt;item
+op_logical_and
+op_logical_neg
+id|prefix
 op_logical_and
 (paren
 op_logical_neg
