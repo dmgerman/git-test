@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|macro|DO_REVS
 mdefine_line|#define DO_REVS&t;&t;1
 DECL|macro|DO_NOREV
@@ -694,18 +695,24 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_rev_parse
 r_int
-id|main
+id|cmd_rev_parse
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int

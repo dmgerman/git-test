@@ -365,6 +365,12 @@ l_string|&quot;cat-file&quot;
 comma
 id|cmd_cat_file
 )brace
+comma
+(brace
+l_string|&quot;rev-parse&quot;
+comma
+id|cmd_rev_parse
+)brace
 )brace
 suffix:semicolon
 r_int
