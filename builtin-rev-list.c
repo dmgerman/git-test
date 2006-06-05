@@ -588,7 +588,7 @@ comma
 op_amp
 id|me
 comma
-id|name
+id|entry.path
 )paren
 suffix:semicolon
 r_else
@@ -608,7 +608,7 @@ comma
 op_amp
 id|me
 comma
-id|name
+id|entry.path
 )paren
 suffix:semicolon
 )brace
