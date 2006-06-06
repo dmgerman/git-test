@@ -22,6 +22,7 @@ l_int|0
 suffix:semicolon
 DECL|variable|def
 r_static
+r_const
 r_char
 op_star
 id|def
@@ -427,6 +428,7 @@ r_int
 id|show_flag
 c_func
 (paren
+r_const
 r_char
 op_star
 id|arg
@@ -487,6 +489,7 @@ c_func
 r_void
 )paren
 (brace
+r_const
 r_char
 op_star
 id|s
@@ -764,6 +767,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_char
 op_star
 id|arg
@@ -1679,6 +1683,7 @@ id|dotdot
 op_plus
 l_int|2
 suffix:semicolon
+r_const
 r_char
 op_star
 id|this
