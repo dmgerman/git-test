@@ -1892,6 +1892,10 @@ id|last_percent
 op_assign
 id|percent
 suffix:semicolon
+id|progress_update
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 )brace
 )brace
