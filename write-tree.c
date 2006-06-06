@@ -27,11 +27,11 @@ id|write_tree_usage
 op_assign
 l_string|&quot;git-write-tree [--missing-ok] [--prefix=&lt;prefix&gt;/]&quot;
 suffix:semicolon
-DECL|variable|cache_file
+DECL|variable|lock_file
 r_static
 r_struct
-id|cache_file
-id|cache_file
+id|lock_file
+id|lock_file
 suffix:semicolon
 DECL|function|main
 r_int
@@ -61,11 +61,11 @@ c_func
 suffix:semicolon
 id|newfd
 op_assign
-id|hold_index_file_for_update
+id|hold_lock_file_for_update
 c_func
 (paren
 op_amp
-id|cache_file
+id|lock_file
 comma
 id|get_index_file
 c_func
@@ -249,11 +249,11 @@ comma
 id|active_nr
 )paren
 )paren
-id|commit_index_file
+id|commit_lock_file
 c_func
 (paren
 op_amp
-id|cache_file
+id|lock_file
 )paren
 suffix:semicolon
 )brace
