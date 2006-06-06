@@ -723,11 +723,11 @@ id|checkout_cache_usage
 op_assign
 l_string|&quot;git-checkout-index [-u] [-q] [-a] [-f] [-n] [--stage=[123]|all] [--prefix=&lt;string&gt;] [--temp] [--] &lt;file&gt;...&quot;
 suffix:semicolon
-DECL|variable|cache_file
+DECL|variable|lock_file
 r_static
 r_struct
-id|cache_file
-id|cache_file
+id|lock_file
+id|lock_file
 suffix:semicolon
 DECL|function|main
 r_int
@@ -1000,10 +1000,10 @@ l_int|0
 )paren
 id|newfd
 op_assign
-id|hold_index_file_for_update
+id|hold_lock_file_for_update
 (paren
 op_amp
-id|cache_file
+id|lock_file
 comma
 id|get_index_file
 c_func
@@ -1260,11 +1260,11 @@ id|newfd
 op_assign
 l_int|1
 suffix:semicolon
-id|rollback_index_file
+id|rollback_lock_file
 c_func
 (paren
 op_amp
-id|cache_file
+id|lock_file
 )paren
 suffix:semicolon
 )brace
@@ -1537,18 +1537,18 @@ comma
 id|active_nr
 )paren
 op_logical_or
-id|commit_index_file
+id|commit_lock_file
 c_func
 (paren
 op_amp
-id|cache_file
+id|lock_file
 )paren
 )paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;Unable to write new cachefile&quot;
+l_string|&quot;Unable to write new index file&quot;
 )paren
 suffix:semicolon
 r_return
