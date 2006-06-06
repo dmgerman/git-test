@@ -1344,6 +1344,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|curl_slist_free_all
+c_func
+(paren
+id|pragma_header
+)paren
+suffix:semicolon
 )brace
 DECL|function|get_active_slot
 r_struct
@@ -1966,6 +1972,7 @@ c_cond
 id|slot-&gt;curl
 )paren
 (brace
+macro_line|#ifdef USE_CURL_MULTI
 id|curl_multi_remove_handle
 c_func
 (paren
@@ -1974,6 +1981,7 @@ comma
 id|slot-&gt;curl
 )paren
 suffix:semicolon
+macro_line|#endif
 id|curl_easy_cleanup
 c_func
 (paren
@@ -1985,11 +1993,13 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
+macro_line|#ifdef USE_CURL_MULTI
 id|fill_active_slots
 c_func
 (paren
 )paren
 suffix:semicolon
+macro_line|#endif
 )brace
 DECL|function|finish_active_slot
 r_static

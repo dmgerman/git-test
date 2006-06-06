@@ -3795,6 +3795,7 @@ id|request
 suffix:semicolon
 )brace
 )brace
+macro_line|#ifdef USE_CURL_MULTI
 DECL|function|fill_active_slots
 r_void
 id|fill_active_slots
@@ -3955,6 +3956,7 @@ id|slot-&gt;next
 suffix:semicolon
 )brace
 )brace
+macro_line|#endif
 r_static
 r_void
 id|get_remote_object_list
@@ -4075,6 +4077,7 @@ id|request_queue_head
 op_assign
 id|request
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
 id|fill_active_slots
 c_func
 (paren
@@ -4085,6 +4088,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+macro_line|#endif
 )brace
 DECL|function|add_send_request
 r_static
@@ -4234,6 +4238,7 @@ id|request_queue_head
 op_assign
 id|request
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
 id|fill_active_slots
 c_func
 (paren
@@ -4244,6 +4249,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+macro_line|#endif
 r_return
 l_int|1
 suffix:semicolon
@@ -13292,11 +13298,13 @@ comma
 id|objects_to_send
 )paren
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
 id|fill_active_slots
 c_func
 (paren
 )paren
 suffix:semicolon
+macro_line|#endif
 id|finish_all_active_slots
 c_func
 (paren
