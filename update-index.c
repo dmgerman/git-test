@@ -870,11 +870,11 @@ id|path
 )paren
 suffix:semicolon
 )brace
-DECL|variable|cache_file
+DECL|variable|lock_file
 r_static
 r_struct
-id|cache_file
-id|cache_file
+id|lock_file
+id|lock_file
 suffix:semicolon
 DECL|function|update_one
 r_static
@@ -2393,11 +2393,11 @@ id|git_default_config
 suffix:semicolon
 id|newfd
 op_assign
-id|hold_index_file_for_update
+id|hold_lock_file_for_update
 c_func
 (paren
 op_amp
-id|cache_file
+id|lock_file
 comma
 id|get_index_file
 c_func
@@ -2415,7 +2415,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;unable to create new cachefile&quot;
+l_string|&quot;unable to create new index file&quot;
 )paren
 suffix:semicolon
 id|entries
@@ -3341,17 +3341,17 @@ comma
 id|active_nr
 )paren
 op_logical_or
-id|commit_index_file
+id|commit_lock_file
 c_func
 (paren
 op_amp
-id|cache_file
+id|lock_file
 )paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;Unable to write new cachefile&quot;
+l_string|&quot;Unable to write new index file&quot;
 )paren
 suffix:semicolon
 )brace
