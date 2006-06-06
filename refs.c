@@ -1918,6 +1918,7 @@ suffix:semicolon
 DECL|function|unlock_ref
 r_void
 id|unlock_ref
+c_func
 (paren
 r_struct
 id|ref_lock
