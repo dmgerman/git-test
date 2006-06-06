@@ -598,6 +598,8 @@ c_func
 (paren
 l_int|1
 )paren
+op_logical_or
+id|pager_in_use
 )paren
 (brace
 r_char

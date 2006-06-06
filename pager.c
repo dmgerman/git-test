@@ -1,5 +1,9 @@
 macro_line|#include &quot;cache.h&quot;
 multiline_comment|/*&n; * This is split up from the rest of git so that we might do&n; * something different on Windows, for example.&n; */
+DECL|variable|pager_in_use
+r_int
+id|pager_in_use
+suffix:semicolon
 DECL|function|run_pager
 r_static
 r_void
@@ -106,6 +110,11 @@ l_string|&quot;cat&quot;
 )paren
 r_return
 suffix:semicolon
+id|pager_in_use
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* means we are emitting to terminal */
 r_if
 c_cond
 (paren
