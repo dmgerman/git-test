@@ -1827,6 +1827,10 @@ comma
 id|filename
 )paren
 suffix:semicolon
+id|newreq-&gt;slot
+op_assign
+l_int|NULL
+suffix:semicolon
 id|newreq-&gt;next
 op_assign
 l_int|NULL
