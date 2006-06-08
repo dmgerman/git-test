@@ -748,6 +748,12 @@ id|i
 op_assign
 id|maxlen
 suffix:semicolon
+r_do
+(brace
+id|i
+op_decrement
+suffix:semicolon
+)brace
 r_while
 c_loop
 (paren
@@ -762,8 +768,6 @@ id|i
 op_ne
 l_char|&squot;/&squot;
 )paren
-id|i
-op_decrement
 suffix:semicolon
 r_return
 id|i
