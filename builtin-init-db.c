@@ -1465,7 +1465,7 @@ id|shared_repository
 id|git_config_set
 c_func
 (paren
-l_string|&quot;core.sharedRepository&quot;
+l_string|&quot;core.sharedrepository&quot;
 comma
 l_string|&quot;true&quot;
 )paren
