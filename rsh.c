@@ -206,6 +206,9 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+id|pid_t
+id|pid
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -506,14 +509,32 @@ c_func
 l_string|&quot;Couldn&squot;t create socket&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+id|pid
+op_assign
 id|fork
 c_func
 (paren
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|pid
+OL
+l_int|0
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;Couldn&squot;t fork&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pid
 )paren
 (brace
 r_const
