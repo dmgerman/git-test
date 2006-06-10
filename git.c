@@ -883,9 +883,9 @@ id|cmd_init_db
 )brace
 comma
 (brace
-l_string|&quot;tar-tree&quot;
+l_string|&quot;get-tar-commit-id&quot;
 comma
-id|cmd_tar_tree
+id|cmd_get_tar_commit_id
 )brace
 comma
 (brace
