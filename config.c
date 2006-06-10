@@ -2638,6 +2638,12 @@ c_cond
 id|fd
 OL
 l_int|0
+op_logical_or
+id|adjust_shared_perm
+c_func
+(paren
+id|lock_file
+)paren
 )paren
 (brace
 id|fprintf
