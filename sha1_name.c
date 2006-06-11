@@ -1506,7 +1506,7 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|strncpy
+id|safe_strncpy
 c_func
 (paren
 id|date_spec
@@ -1518,14 +1518,9 @@ op_plus
 l_int|2
 comma
 id|date_len
+op_plus
+l_int|1
 )paren
-suffix:semicolon
-id|date_spec
-(braket
-id|date_len
-)braket
-op_assign
-l_int|0
 suffix:semicolon
 id|at_time
 op_assign
