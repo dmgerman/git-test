@@ -1159,6 +1159,16 @@ id|line
 r_if
 c_cond
 (paren
+op_star
+id|seen
+op_amp
+id|SEEN_PREFIX
+)paren
+r_return
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|memcmp
 c_func
