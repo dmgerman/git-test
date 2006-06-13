@@ -975,6 +975,12 @@ l_string|&quot;rev-parse&quot;
 comma
 id|cmd_rev_parse
 )brace
+comma
+(brace
+l_string|&quot;write-tree&quot;
+comma
+id|cmd_write_tree
+)brace
 )brace
 suffix:semicolon
 r_int
