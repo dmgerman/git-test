@@ -999,6 +999,12 @@ l_string|&quot;stripspace&quot;
 comma
 id|cmd_stripspace
 )brace
+comma
+(brace
+l_string|&quot;update-index&quot;
+comma
+id|cmd_update_index
+)brace
 )brace
 suffix:semicolon
 r_int

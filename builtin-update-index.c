@@ -4,6 +4,7 @@ macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git-update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -870,12 +871,6 @@ id|path
 )paren
 suffix:semicolon
 )brace
-DECL|variable|lock_file
-r_static
-r_struct
-id|lock_file
-id|lock_file
-suffix:semicolon
 DECL|function|update_one
 r_static
 r_void
@@ -1109,7 +1104,7 @@ suffix:semicolon
 r_int
 id|stage
 suffix:semicolon
-multiline_comment|/* This reads lines formatted in one of three formats:&n;&t;&t; *&n;&t;&t; * (1) mode         SP sha1          TAB path&n;&t;&t; * The first format is what &quot;git-apply --index-info&quot;&n;&t;&t; * reports, and used to reconstruct a partial tree&n;&t;&t; * that is used for phony merge base tree when falling&n;&t;&t; * back on 3-way merge.&n;&t;&t; *&n;&t;&t; * (2) mode SP type SP sha1          TAB path&n;&t;&t; * The second format is to stuff git-ls-tree output&n;&t;&t; * into the index file.&n;&t;&t; * &n;&t;&t; * (3) mode         SP sha1 SP stage TAB path&n;&t;&t; * This format is to put higher order stages into the&n;&t;&t; * index file and matches git-ls-files --stage output.&n;&t;&t; */
+multiline_comment|/* This reads lines formatted in one of three formats:&n;&t;&t; *&n;&t;&t; * (1) mode         SP sha1          TAB path&n;&t;&t; * The first format is what &quot;git-apply --index-info&quot;&n;&t;&t; * reports, and used to reconstruct a partial tree&n;&t;&t; * that is used for phony merge base tree when falling&n;&t;&t; * back on 3-way merge.&n;&t;&t; *&n;&t;&t; * (2) mode SP type SP sha1          TAB path&n;&t;&t; * The second format is to stuff git-ls-tree output&n;&t;&t; * into the index file.&n;&t;&t; *&n;&t;&t; * (3) mode         SP sha1 SP stage TAB path&n;&t;&t; * This format is to put higher order stages into the&n;&t;&t; * index file and matches git-ls-files --stage output.&n;&t;&t; */
 id|read_line
 c_func
 (paren
@@ -2310,9 +2305,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_update_index
 r_int
-id|main
+id|cmd_update_index
 c_func
 (paren
 r_int
@@ -2323,6 +2318,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_int
@@ -2385,10 +2385,28 @@ id|refresh_flags
 op_assign
 l_int|0
 suffix:semicolon
+r_struct
+id|lock_file
+op_star
+id|lock_file
+suffix:semicolon
 id|git_config
 c_func
 (paren
 id|git_default_config
+)paren
+suffix:semicolon
+multiline_comment|/* We can&squot;t free this memory, it becomes part of a linked list parsed atexit() */
+id|lock_file
+op_assign
+id|xmalloc
+c_func
+(paren
+r_sizeof
+(paren
+r_struct
+id|lock_file
+)paren
 )paren
 suffix:semicolon
 id|newfd
@@ -2396,7 +2414,6 @@ op_assign
 id|hold_lock_file_for_update
 c_func
 (paren
-op_amp
 id|lock_file
 comma
 id|get_index_file
@@ -2415,7 +2432,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;unable to create new index file&quot;
+l_string|&quot;unable to create new cachefile&quot;
 )paren
 suffix:semicolon
 id|entries
@@ -3344,7 +3361,6 @@ op_logical_or
 id|commit_lock_file
 c_func
 (paren
-op_amp
 id|lock_file
 )paren
 )paren
@@ -3355,6 +3371,12 @@ l_string|&quot;Unable to write new index file&quot;
 )paren
 suffix:semicolon
 )brace
+id|rollback_lock_file
+c_func
+(paren
+id|lock_file
+)paren
+suffix:semicolon
 r_return
 id|has_errors
 ques
