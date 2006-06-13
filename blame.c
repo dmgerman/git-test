@@ -23,9 +23,11 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;[-c] [-l] [--] file [commit]&bslash;n&quot;
+l_string|&quot;[-c] [-l] [-t] [-S &lt;revs-file&gt;] [--] file [commit]&bslash;n&quot;
 l_string|&quot;  -c, --compability Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -l, --long        Show long commit SHA1 (Default: off)&bslash;n&quot;
+l_string|&quot;  -t, --time        Show raw timestamp (Default: off)&bslash;n&quot;
+l_string|&quot;  -S, --revs-file   Use revisions from revs-file instead of calling git-rev-list&bslash;n&quot;
 l_string|&quot;  -h, --help        This message&quot;
 suffix:semicolon
 DECL|variable|blame_lines
@@ -3369,6 +3371,9 @@ r_const
 r_char
 op_star
 id|tz_str
+comma
+r_int
+id|show_raw_time
 )paren
 (brace
 r_static
@@ -3393,6 +3398,28 @@ id|tm
 op_star
 id|tm
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_raw_time
+)paren
+(brace
+id|sprintf
+c_func
+(paren
+id|time_buf
+comma
+l_string|&quot;%lu %s&quot;
+comma
+id|time
+comma
+id|tz_str
+)paren
+suffix:semicolon
+r_return
+id|time_buf
+suffix:semicolon
+)brace
 id|tz
 op_assign
 id|atoi
@@ -3717,6 +3744,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|show_raw_time
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|options
 op_assign
 l_int|1
@@ -3896,6 +3928,42 @@ l_string|&quot;--compability&quot;
 )paren
 (brace
 id|compability
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+id|i
+)braket
+comma
+l_string|&quot;-t&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+id|i
+)braket
+comma
+l_string|&quot;--time&quot;
+)paren
+)paren
+(brace
+id|show_raw_time
 op_assign
 l_int|1
 suffix:semicolon
@@ -4529,6 +4597,8 @@ c_func
 id|ci.author_time
 comma
 id|ci.author_tz
+comma
+id|show_raw_time
 )paren
 comma
 id|i
@@ -4573,6 +4643,8 @@ c_func
 id|ci.author_time
 comma
 id|ci.author_tz
+comma
+id|show_raw_time
 )paren
 comma
 id|max_digits
