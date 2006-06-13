@@ -981,6 +981,12 @@ l_string|&quot;write-tree&quot;
 comma
 id|cmd_write_tree
 )brace
+comma
+(brace
+l_string|&quot;mailsplit&quot;
+comma
+id|cmd_mailsplit
+)brace
 )brace
 suffix:semicolon
 r_int
