@@ -987,6 +987,12 @@ l_string|&quot;mailsplit&quot;
 comma
 id|cmd_mailsplit
 )brace
+comma
+(brace
+l_string|&quot;mailinfo&quot;
+comma
+id|cmd_mailinfo
+)brace
 )brace
 suffix:semicolon
 r_int
