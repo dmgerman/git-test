@@ -993,6 +993,12 @@ l_string|&quot;mailinfo&quot;
 comma
 id|cmd_mailinfo
 )brace
+comma
+(brace
+l_string|&quot;stripspace&quot;
+comma
+id|cmd_stripspace
+)brace
 )brace
 suffix:semicolon
 r_int

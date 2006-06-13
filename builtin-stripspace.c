@@ -1,6 +1,7 @@
 macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;ctype.h&gt;
+macro_line|#include &quot;builtin.h&quot;
 multiline_comment|/*&n; * Remove empty lines from the beginning and end.&n; *&n; * Turn multiple consecutive empty lines into just one&n; * empty line.  Return true if it is an incomplete line.&n; */
 DECL|function|cleanup
 r_static
@@ -108,18 +109,18 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|main
-r_int
-id|main
+DECL|function|stripspace
+r_void
+id|stripspace
 c_func
 (paren
-r_int
-id|argc
+id|FILE
+op_star
+id|in
 comma
-r_char
+id|FILE
 op_star
-op_star
-id|argv
+id|out
 )paren
 (brace
 r_int
@@ -151,7 +152,7 @@ r_sizeof
 id|line
 )paren
 comma
-id|stdin
+id|in
 )paren
 )paren
 (brace
@@ -182,10 +183,12 @@ id|empties
 OG
 l_int|0
 )paren
-id|putchar
+id|fputc
 c_func
 (paren
 l_char|&squot;&bslash;n&squot;
+comma
+id|out
 )paren
 suffix:semicolon
 id|empties
@@ -197,7 +200,7 @@ c_func
 (paren
 id|line
 comma
-id|stdout
+id|out
 )paren
 suffix:semicolon
 r_continue
@@ -221,10 +224,41 @@ c_cond
 (paren
 id|incomplete
 )paren
-id|putchar
+id|fputc
 c_func
 (paren
 l_char|&squot;&bslash;n&squot;
+comma
+id|out
+)paren
+suffix:semicolon
+)brace
+DECL|function|cmd_stripspace
+r_int
+id|cmd_stripspace
+c_func
+(paren
+r_int
+id|argc
+comma
+r_const
+r_char
+op_star
+op_star
+id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
+)paren
+(brace
+id|stripspace
+c_func
+(paren
+id|stdin
+comma
+id|stdout
 )paren
 suffix:semicolon
 r_return
