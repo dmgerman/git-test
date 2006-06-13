@@ -1005,6 +1005,12 @@ l_string|&quot;update-index&quot;
 comma
 id|cmd_update_index
 )brace
+comma
+(brace
+l_string|&quot;update-ref&quot;
+comma
+id|cmd_update_ref
+)brace
 )brace
 suffix:semicolon
 r_int
