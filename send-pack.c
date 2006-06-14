@@ -788,7 +788,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|commit_type
+id|TYPE_COMMIT
 )paren
 r_return
 l_int|0
@@ -826,7 +826,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|commit_type
+id|TYPE_COMMIT
 )paren
 r_return
 l_int|0

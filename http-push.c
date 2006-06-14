@@ -9223,7 +9223,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 (brace
 id|obj-&gt;flags
@@ -9252,7 +9252,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tree_type
+id|TYPE_TREE
 )paren
 (brace
 id|p
@@ -9282,7 +9282,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|blob_type
+id|TYPE_BLOB
 )paren
 (brace
 id|p
@@ -10179,7 +10179,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|commit_type
+id|TYPE_COMMIT
 )paren
 r_return
 l_int|0
@@ -10217,7 +10217,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|commit_type
+id|TYPE_COMMIT
 )paren
 r_return
 l_int|0
@@ -10610,7 +10610,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 (brace
 id|o

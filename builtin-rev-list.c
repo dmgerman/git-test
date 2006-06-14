@@ -743,7 +743,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 (brace
 id|obj-&gt;flags
@@ -772,7 +772,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tree_type
+id|TYPE_TREE
 )paren
 (brace
 id|p
@@ -802,7 +802,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|blob_type
+id|TYPE_BLOB
 )paren
 (brace
 id|p

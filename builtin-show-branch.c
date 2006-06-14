@@ -43,7 +43,7 @@ mdefine_line|#define UNINTERESTING&t;01
 DECL|macro|REV_SHIFT
 mdefine_line|#define REV_SHIFT&t; 2
 DECL|macro|MAX_REVS
-mdefine_line|#define MAX_REVS&t;29 /* should not exceed bits_per_int - REV_SHIFT */
+mdefine_line|#define MAX_REVS&t;(FLAG_BITS - REV_SHIFT) /* should not exceed bits_per_int - REV_SHIFT */
 DECL|function|interesting
 r_static
 r_struct

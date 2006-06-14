@@ -411,7 +411,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 (brace
 r_struct
@@ -455,7 +455,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|commit_type
+id|TYPE_COMMIT
 )paren
 (brace
 r_struct
@@ -906,7 +906,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|commit_type
+id|TYPE_COMMIT
 )paren
 (brace
 id|fprintf

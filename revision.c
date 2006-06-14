@@ -610,7 +610,7 @@ c_loop
 (paren
 id|object-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 (brace
 r_struct
@@ -680,7 +680,7 @@ c_cond
 (paren
 id|object-&gt;type
 op_eq
-id|commit_type
+id|TYPE_COMMIT
 )paren
 (brace
 r_struct
@@ -747,7 +747,7 @@ c_cond
 (paren
 id|object-&gt;type
 op_eq
-id|tree_type
+id|TYPE_TREE
 )paren
 (brace
 r_struct
@@ -809,7 +809,7 @@ c_cond
 (paren
 id|object-&gt;type
 op_eq
-id|blob_type
+id|TYPE_BLOB
 )paren
 (brace
 r_struct
@@ -2163,13 +2163,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strcmp
-c_func
-(paren
 id|it-&gt;type
-comma
-id|tag_type
-)paren
+op_ne
+id|TYPE_TAG
 )paren
 r_break
 suffix:semicolon
@@ -2196,13 +2192,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strcmp
-c_func
-(paren
 id|it-&gt;type
-comma
-id|commit_type
-)paren
+op_ne
+id|TYPE_COMMIT
 )paren
 r_return
 l_int|0

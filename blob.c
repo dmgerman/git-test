@@ -69,7 +69,7 @@ id|ret-&gt;object
 suffix:semicolon
 id|ret-&gt;object.type
 op_assign
-id|blob_type
+id|TYPE_BLOB
 suffix:semicolon
 r_return
 id|ret
@@ -83,14 +83,14 @@ id|obj-&gt;type
 )paren
 id|obj-&gt;type
 op_assign
-id|blob_type
+id|TYPE_BLOB
 suffix:semicolon
 r_if
 c_cond
 (paren
 id|obj-&gt;type
 op_ne
-id|blob_type
+id|TYPE_BLOB
 )paren
 (brace
 id|error
@@ -104,7 +104,10 @@ c_func
 id|sha1
 )paren
 comma
+r_typename
+(paren
 id|obj-&gt;type
+)paren
 )paren
 suffix:semicolon
 r_return
