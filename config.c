@@ -1346,7 +1346,7 @@ l_string|&quot;user.name&quot;
 )paren
 )paren
 (brace
-id|strncpy
+id|safe_strncpy
 c_func
 (paren
 id|git_default_name
@@ -1376,7 +1376,7 @@ l_string|&quot;user.email&quot;
 )paren
 )paren
 (brace
-id|strncpy
+id|safe_strncpy
 c_func
 (paren
 id|git_default_email
@@ -1406,7 +1406,7 @@ l_string|&quot;i18n.commitencoding&quot;
 )paren
 )paren
 (brace
-id|strncpy
+id|safe_strncpy
 c_func
 (paren
 id|git_commit_encoding

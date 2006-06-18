@@ -211,6 +211,10 @@ id|rev.diffopt.recursive
 op_assign
 l_int|1
 suffix:semicolon
+id|rev.simplify_history
+op_assign
+l_int|0
+suffix:semicolon
 r_return
 id|cmd_log_wc
 c_func
@@ -561,7 +565,7 @@ c_cond
 id|output_directory
 )paren
 (brace
-id|strncpy
+id|safe_strncpy
 c_func
 (paren
 id|filename

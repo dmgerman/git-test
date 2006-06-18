@@ -351,7 +351,7 @@ l_char|&squot;.&squot;
 )paren
 )paren
 )paren
-id|strncpy
+id|safe_strncpy
 c_func
 (paren
 id|git_default_email
@@ -370,7 +370,7 @@ id|len
 )paren
 suffix:semicolon
 r_else
-id|strncpy
+id|safe_strncpy
 c_func
 (paren
 id|git_default_email
@@ -385,17 +385,6 @@ id|git_default_email
 )paren
 id|len
 )paren
-suffix:semicolon
-id|git_default_email
-(braket
-r_sizeof
-(paren
-id|git_default_email
-)paren
-l_int|1
-)braket
-op_assign
-l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* And set the default date */

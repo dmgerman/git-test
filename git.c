@@ -665,7 +665,6 @@ id|count
 op_plus
 op_star
 id|argcp
-l_int|1
 )paren
 )paren
 suffix:semicolon
@@ -678,6 +677,8 @@ id|count
 comma
 op_star
 id|argv
+op_plus
+l_int|1
 comma
 r_sizeof
 (paren
@@ -685,11 +686,8 @@ r_char
 op_star
 )paren
 op_star
-(paren
 op_star
 id|argcp
-l_int|1
-)paren
 )paren
 suffix:semicolon
 )brace
