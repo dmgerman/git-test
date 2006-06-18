@@ -237,6 +237,10 @@ l_string|&quot;corrupt tree file&quot;
 suffix:semicolon
 id|desc-&gt;buf
 op_assign
+(paren
+r_char
+op_star
+)paren
 id|buf
 op_plus
 id|len
@@ -378,6 +382,11 @@ r_char
 op_star
 id|sha1
 op_assign
+(paren
+r_int
+r_char
+op_star
+)paren
 id|tree
 op_plus
 id|len
@@ -460,7 +469,9 @@ op_star
 id|tree
 op_assign
 id|desc-&gt;buf
-comma
+suffix:semicolon
+r_const
+r_char
 op_star
 id|path
 suffix:semicolon
@@ -528,6 +539,12 @@ l_int|1
 suffix:semicolon
 id|entry-&gt;sha1
 op_assign
+(paren
+r_const
+r_int
+r_char
+op_star
+)paren
 id|path
 suffix:semicolon
 id|path
@@ -537,6 +554,10 @@ suffix:semicolon
 id|len
 op_assign
 id|path
+(paren
+r_char
+op_star
+)paren
 id|tree
 suffix:semicolon
 r_if

@@ -642,6 +642,10 @@ c_func
 (paren
 id|request-&gt;local_fileno
 comma
+(paren
+r_char
+op_star
+)paren
 id|ptr
 op_plus
 id|posn

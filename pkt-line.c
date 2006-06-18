@@ -47,7 +47,13 @@ l_int|0
 )paren
 (brace
 id|buf
-op_add_assign
+op_assign
+(paren
+r_char
+op_star
+)paren
+id|buf
+op_plus
 id|ret
 suffix:semicolon
 id|n
@@ -300,6 +306,10 @@ c_func
 (paren
 id|fd
 comma
+(paren
+r_char
+op_star
+)paren
 id|buffer
 op_plus
 id|n
