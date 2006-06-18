@@ -109,7 +109,10 @@ l_string|&quot;%s in %s %s: &quot;
 comma
 id|severity
 comma
+r_typename
+(paren
 id|obj-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -315,7 +318,10 @@ c_func
 (paren
 l_string|&quot;missing %s %s&bslash;n&quot;
 comma
+r_typename
+(paren
 id|obj-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -389,7 +395,10 @@ c_func
 (paren
 l_string|&quot;broken link from %7s %s&bslash;n&quot;
 comma
+r_typename
+(paren
 id|obj-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -403,7 +412,10 @@ c_func
 (paren
 l_string|&quot;              to %7s %s&bslash;n&quot;
 comma
+r_typename
+(paren
 id|ref-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -432,7 +444,10 @@ c_func
 (paren
 l_string|&quot;unreachable %s %s&bslash;n&quot;
 comma
+r_typename
+(paren
 id|obj-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -456,7 +471,10 @@ c_func
 (paren
 l_string|&quot;dangling %s %s&bslash;n&quot;
 comma
+r_typename
+(paren
 id|obj-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1272,7 +1290,10 @@ c_func
 (paren
 l_string|&quot;tagged %s %s&quot;
 comma
+r_typename
+(paren
 id|tagged-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1360,7 +1381,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|blob_type
+id|TYPE_BLOB
 )paren
 r_return
 l_int|0
@@ -1370,7 +1391,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tree_type
+id|TYPE_TREE
 )paren
 r_return
 id|fsck_tree
@@ -1389,7 +1410,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|commit_type
+id|TYPE_COMMIT
 )paren
 r_return
 id|fsck_commit
@@ -1408,7 +1429,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 r_return
 id|fsck_tag
@@ -1429,7 +1450,7 @@ c_func
 (paren
 id|obj
 comma
-l_string|&quot;unknown type &squot;%s&squot; (internal fsck error)&quot;
+l_string|&quot;unknown type &squot;%d&squot; (internal fsck error)&quot;
 comma
 id|obj-&gt;type
 )paren
@@ -2294,7 +2315,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_ne
-id|tree_type
+id|TYPE_TREE
 )paren
 id|err
 op_or_assign

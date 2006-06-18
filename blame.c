@@ -433,7 +433,7 @@ r_struct
 id|util_info
 op_star
 )paren
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_struct
 id|util_info
@@ -445,7 +445,7 @@ r_struct
 id|util_info
 op_star
 )paren
-id|other-&gt;object.util
+id|other-&gt;util
 suffix:semicolon
 r_struct
 id|timeval
@@ -901,7 +901,7 @@ id|util_info
 op_star
 id|info
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_char
 id|type
@@ -1041,14 +1041,14 @@ id|util_info
 op_star
 id|util
 op_assign
-id|cmit-&gt;object.util
+id|cmit-&gt;util
 suffix:semicolon
 r_struct
 id|util_info
 op_star
 id|util2
 op_assign
-id|other-&gt;object.util
+id|other-&gt;util
 suffix:semicolon
 r_int
 id|i
@@ -1212,14 +1212,14 @@ id|util_info
 op_star
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_struct
 id|util_info
 op_star
 id|util2
 op_assign
-id|other-&gt;object.util
+id|other-&gt;util
 suffix:semicolon
 r_int
 op_star
@@ -1585,7 +1585,7 @@ id|util_info
 op_star
 id|info
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 m_assert
 (paren
@@ -1624,7 +1624,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_if
 c_cond
@@ -1666,7 +1666,7 @@ id|util-&gt;pathname
 op_assign
 l_int|NULL
 suffix:semicolon
-id|commit-&gt;object.util
+id|commit-&gt;util
 op_assign
 id|util
 suffix:semicolon
@@ -1691,7 +1691,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 m_assert
 (paren
@@ -1741,7 +1741,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_int
 id|i
@@ -1865,7 +1865,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_int
 id|i
@@ -1897,7 +1897,7 @@ id|commit
 suffix:semicolon
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_for
 c_loop
@@ -1992,7 +1992,7 @@ id|path
 suffix:semicolon
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 id|num_blame_lines
 op_assign
@@ -2192,7 +2192,7 @@ id|commit
 suffix:semicolon
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_for
 c_loop
@@ -2526,7 +2526,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|c2-&gt;object.util
+id|c2-&gt;util
 suffix:semicolon
 id|paths
 (braket
@@ -2687,7 +2687,7 @@ id|util_info
 op_star
 id|cutil
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_struct
 id|diff_options
@@ -2914,7 +2914,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_if
 c_cond
@@ -3036,7 +3036,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|commit-&gt;object.util
+id|commit-&gt;util
 suffix:semicolon
 r_if
 c_cond
@@ -3531,7 +3531,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|c-&gt;object.util
+id|c-&gt;util
 suffix:semicolon
 id|util-&gt;topo_data
 op_assign
@@ -3556,7 +3556,7 @@ id|util_info
 op_star
 id|util
 op_assign
-id|c-&gt;object.util
+id|c-&gt;util
 suffix:semicolon
 r_return
 id|util-&gt;topo_data
@@ -4441,7 +4441,7 @@ id|initial
 suffix:semicolon
 id|u
 op_assign
-id|c-&gt;object.util
+id|c-&gt;util
 suffix:semicolon
 r_if
 c_cond
@@ -4551,7 +4551,7 @@ id|initial
 suffix:semicolon
 id|u
 op_assign
-id|c-&gt;object.util
+id|c-&gt;util
 suffix:semicolon
 id|get_commit_info
 c_func

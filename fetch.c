@@ -544,7 +544,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|commit_type
+id|TYPE_COMMIT
 )paren
 (brace
 r_if
@@ -573,7 +573,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tree_type
+id|TYPE_TREE
 )paren
 (brace
 r_if
@@ -602,7 +602,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|blob_type
+id|TYPE_BLOB
 )paren
 (brace
 r_return
@@ -614,7 +614,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 (brace
 r_if
@@ -645,7 +645,10 @@ c_func
 l_string|&quot;Unable to determine requirements &quot;
 l_string|&quot;of type %s for %s&quot;
 comma
+r_typename
+(paren
 id|obj-&gt;type
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -815,12 +818,10 @@ id|obj-&gt;sha1
 id|report_missing
 c_func
 (paren
+r_typename
+(paren
 id|obj-&gt;type
-ques
-c_cond
-id|obj-&gt;type
-suffix:colon
-l_string|&quot;object&quot;
+)paren
 comma
 id|obj-&gt;sha1
 )paren

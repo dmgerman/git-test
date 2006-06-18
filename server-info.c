@@ -60,7 +60,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|tag_type
+id|TYPE_TAG
 )paren
 (brace
 id|o
