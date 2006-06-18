@@ -3883,7 +3883,7 @@ op_star
 id|data
 )paren
 (brace
-id|c-&gt;object.util
+id|c-&gt;util
 op_assign
 id|data
 suffix:semicolon
@@ -3901,7 +3901,7 @@ id|c
 )paren
 (brace
 r_return
-id|c-&gt;object.util
+id|c-&gt;util
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Performs an in-place topological sort on the list supplied.&n; */
