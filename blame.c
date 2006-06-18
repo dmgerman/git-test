@@ -1432,6 +1432,11 @@ id|map
 id|i1
 )braket
 comma
+(paren
+r_void
+op_star
+)paren
+(paren
 id|i1
 op_ne
 l_int|1
@@ -1446,6 +1451,7 @@ id|i1
 )braket
 suffix:colon
 l_int|NULL
+)paren
 comma
 id|i2
 comma
@@ -1454,6 +1460,11 @@ id|map2
 id|i2
 )braket
 comma
+(paren
+r_void
+op_star
+)paren
+(paren
 id|i2
 op_ne
 l_int|1
@@ -1468,6 +1479,7 @@ id|i2
 )braket
 suffix:colon
 l_int|NULL
+)paren
 )paren
 suffix:semicolon
 r_if
