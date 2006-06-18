@@ -112,6 +112,9 @@ id|ptr
 suffix:semicolon
 id|c-&gt;len
 op_add_assign
+(paren
+r_uint64
+)paren
 id|n
 op_lshift
 l_int|3
