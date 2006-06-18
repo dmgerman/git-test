@@ -167,6 +167,16 @@ id|commit-&gt;buffer
 op_assign
 l_int|NULL
 suffix:semicolon
+id|free_commit_list
+c_func
+(paren
+id|commit-&gt;parents
+)paren
+suffix:semicolon
+id|commit-&gt;parents
+op_assign
+l_int|NULL
+suffix:semicolon
 )brace
 r_return
 l_int|0
