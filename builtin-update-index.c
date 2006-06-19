@@ -2399,9 +2399,11 @@ suffix:semicolon
 multiline_comment|/* We can&squot;t free this memory, it becomes part of a linked list parsed atexit() */
 id|lock_file
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
+l_int|1
+comma
 r_sizeof
 (paren
 r_struct
