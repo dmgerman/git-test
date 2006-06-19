@@ -403,16 +403,9 @@ id|commit
 op_star
 id|ret
 op_assign
-id|xcalloc
+id|alloc_commit_node
 c_func
 (paren
-l_int|1
-comma
-r_sizeof
-(paren
-r_struct
-id|commit
-)paren
 )paren
 suffix:semicolon
 id|created_object
