@@ -895,9 +895,26 @@ suffix:semicolon
 multiline_comment|/* verbatim */
 r_case
 l_char|&squot;0&squot;
-dot
-dot
-dot
+suffix:colon
+r_case
+l_char|&squot;1&squot;
+suffix:colon
+r_case
+l_char|&squot;2&squot;
+suffix:colon
+r_case
+l_char|&squot;3&squot;
+suffix:colon
+r_case
+l_char|&squot;4&squot;
+suffix:colon
+r_case
+l_char|&squot;5&squot;
+suffix:colon
+r_case
+l_char|&squot;6&squot;
+suffix:colon
+r_case
 l_char|&squot;7&squot;
 suffix:colon
 multiline_comment|/* octal */
