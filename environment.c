@@ -63,7 +63,7 @@ DECL|variable|shared_repository
 r_int
 id|shared_repository
 op_assign
-l_int|0
+id|PERM_UMASK
 suffix:semicolon
 DECL|variable|apply_default_whitespace
 r_const
