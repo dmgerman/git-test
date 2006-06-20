@@ -132,10 +132,9 @@ multiline_comment|/*&n;&t; * Make sure there is one revision (i.e. pending objec
 r_if
 c_cond
 (paren
-op_logical_neg
-id|rev.pending_objects
-op_logical_or
-id|rev.pending_objects-&gt;next
+id|rev.pending.nr
+op_ne
+l_int|1
 op_logical_or
 id|rev.max_count
 op_ne
