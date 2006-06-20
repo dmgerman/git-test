@@ -438,11 +438,6 @@ id|local
 id|local
 op_assign
 id|repo_config
-suffix:semicolon
-r_else
-id|local
-op_assign
-id|repo_config
 op_assign
 id|strdup
 c_func
