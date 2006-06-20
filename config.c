@@ -1610,6 +1610,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|access
 c_func
 (paren
@@ -1617,8 +1618,6 @@ id|user_config
 comma
 id|R_OK
 )paren
-OG
-l_int|0
 )paren
 id|ret
 op_assign
