@@ -45,9 +45,11 @@ id|lock_file
 op_star
 id|lock_file
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
+l_int|1
+comma
 r_sizeof
 (paren
 r_struct
