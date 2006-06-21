@@ -100,6 +100,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|matchlen
+op_logical_or
+(paren
 (paren
 id|matchlen
 op_le
@@ -140,6 +144,7 @@ id|matchlen
 )braket
 op_eq
 l_char|&squot;/&squot;
+)paren
 )paren
 )paren
 r_return
