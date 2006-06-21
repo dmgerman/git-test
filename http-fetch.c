@@ -435,6 +435,10 @@ c_func
 (paren
 id|obj_req-&gt;local
 comma
+(paren
+r_char
+op_star
+)paren
 id|ptr
 op_plus
 id|posn

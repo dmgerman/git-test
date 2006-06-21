@@ -650,6 +650,10 @@ r_int
 op_star
 )paren
 (paren
+(paren
+r_char
+op_star
+)paren
 id|index
 op_plus
 l_int|24
@@ -1380,6 +1384,10 @@ id|entry-&gt;in_pack_offset
 suffix:semicolon
 id|buf
 op_assign
+(paren
+r_char
+op_star
+)paren
 id|p-&gt;pack_base
 op_plus
 id|entry-&gt;in_pack_offset

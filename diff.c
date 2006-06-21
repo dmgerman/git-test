@@ -2994,7 +2994,13 @@ id|bytes
 )paren
 suffix:semicolon
 id|cp
-op_add_assign
+op_assign
+(paren
+r_char
+op_star
+)paren
+id|cp
+op_plus
 id|bytes
 suffix:semicolon
 id|puts

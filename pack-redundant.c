@@ -1180,7 +1180,8 @@ id|p1_off
 comma
 id|p2_off
 suffix:semicolon
-r_void
+r_int
+r_char
 op_star
 id|p1_base
 comma
@@ -1212,7 +1213,8 @@ suffix:semicolon
 id|p1_base
 op_assign
 (paren
-r_void
+r_int
+r_char
 op_star
 )paren
 id|p1-&gt;pack-&gt;index_base
@@ -1220,7 +1222,8 @@ suffix:semicolon
 id|p2_base
 op_assign
 (paren
-r_void
+r_int
+r_char
 op_star
 )paren
 id|p2-&gt;pack-&gt;index_base
@@ -1684,7 +1687,7 @@ id|p1_off
 comma
 id|p2_off
 suffix:semicolon
-r_void
+r_char
 op_star
 id|p1_base
 comma
@@ -1704,7 +1707,7 @@ suffix:semicolon
 id|p1_base
 op_assign
 (paren
-r_void
+r_char
 op_star
 )paren
 id|p1-&gt;index_base
@@ -1712,7 +1715,7 @@ suffix:semicolon
 id|p2_base
 op_assign
 (paren
-r_void
+r_char
 op_star
 )paren
 id|p2-&gt;index_base
@@ -2503,7 +2506,8 @@ suffix:semicolon
 r_int
 id|off
 suffix:semicolon
-r_void
+r_int
+r_char
 op_star
 id|base
 suffix:semicolon
@@ -2545,7 +2549,8 @@ suffix:semicolon
 id|base
 op_assign
 (paren
-r_void
+r_int
+r_char
 op_star
 )paren
 id|p-&gt;index_base

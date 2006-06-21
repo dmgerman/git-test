@@ -146,6 +146,10 @@ c_func
 (paren
 id|ptr
 comma
+(paren
+r_char
+op_star
+)paren
 id|buffer-&gt;buffer
 op_plus
 id|buffer-&gt;posn
@@ -236,6 +240,10 @@ suffix:semicolon
 id|memcpy
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|buffer-&gt;buffer
 op_plus
 id|buffer-&gt;posn
