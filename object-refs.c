@@ -683,6 +683,15 @@ c_func
 l_string|&quot;cannot do reachability with object refs turned off&quot;
 )paren
 suffix:semicolon
+multiline_comment|/* nothing to lookup */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|refs_hash_size
+)paren
+r_return
+suffix:semicolon
 multiline_comment|/* If we&squot;ve been here already, don&squot;t bother */
 r_if
 c_cond
