@@ -2,8 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 multiline_comment|/*&n; * Write a packetized stream, where each line is preceded by&n; * its length (including the header) as a 4-byte hex number.&n; * A length of &squot;zero&squot; means end of stream (and a length of 1-3&n; * would be an error). &n; *&n; * This is all pretty stupid, but we use this packetized line&n; * format to make a streaming format possible without ever&n; * over-running the read buffers. That way we&squot;ll never read&n; * into what might be the pack data (which should go to another&n; * process entirely).&n; *&n; * The writing side could use stdio, but since the reading&n; * side can&squot;t, we stay with pure read/write interfaces.&n; */
 DECL|function|safe_write
-r_static
-r_void
+id|ssize_t
 id|safe_write
 c_func
 (paren
@@ -15,10 +14,15 @@ r_void
 op_star
 id|buf
 comma
-r_int
+id|ssize_t
 id|n
 )paren
 (brace
+id|ssize_t
+id|nn
+op_assign
+id|n
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -82,6 +86,9 @@ id|errno
 )paren
 suffix:semicolon
 )brace
+r_return
+id|nn
+suffix:semicolon
 )brace
 multiline_comment|/*&n; * If we buffered things up above (we don&squot;t, but we should),&n; * we&squot;d flush it here&n; */
 DECL|function|packet_flush
