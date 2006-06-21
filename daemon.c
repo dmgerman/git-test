@@ -3412,13 +3412,16 @@ r_sizeof
 id|ss
 )paren
 suffix:semicolon
-id|fclose
+id|freopen
 c_func
 (paren
+l_string|&quot;/dev/null&quot;
+comma
+l_string|&quot;w&quot;
+comma
 id|stderr
 )paren
 suffix:semicolon
-singleline_comment|//FIXME: workaround
 r_if
 c_cond
 (paren
