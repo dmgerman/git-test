@@ -2931,6 +2931,15 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+multiline_comment|/* Without this we cannot rely on waitpid() to tell&n;&t; * what happened to our children.&n;&t; */
+id|signal
+c_func
+(paren
+id|SIGCHLD
+comma
+id|SIG_DFL
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
