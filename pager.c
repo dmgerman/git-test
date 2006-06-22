@@ -230,7 +230,7 @@ c_func
 (paren
 l_string|&quot;LESS&quot;
 comma
-l_string|&quot;-S&quot;
+l_string|&quot;-RS&quot;
 comma
 l_int|0
 )paren
