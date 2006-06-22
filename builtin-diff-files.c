@@ -191,7 +191,7 @@ multiline_comment|/*&n;&t; * Make sure there are NO revision (i.e. pending objec
 r_if
 c_cond
 (paren
-id|rev.pending_objects
+id|rev.pending.nr
 op_logical_or
 id|rev.min_age
 op_ne
