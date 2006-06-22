@@ -286,6 +286,10 @@ op_logical_or
 id|get_sha1_hex
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|data
 op_plus
 l_int|7
@@ -298,6 +302,10 @@ l_int|1
 suffix:semicolon
 id|type_line
 op_assign
+(paren
+r_char
+op_star
+)paren
 id|data
 op_plus
 l_int|48

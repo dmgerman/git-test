@@ -71,6 +71,12 @@ id|delta_buf
 suffix:semicolon
 id|top
 op_assign
+(paren
+r_const
+r_int
+r_char
+op_star
+)paren
 id|delta_buf
 op_plus
 id|delta_size
@@ -314,6 +320,10 @@ c_func
 (paren
 id|out
 comma
+(paren
+r_char
+op_star
+)paren
 id|src_buf
 op_plus
 id|cp_off

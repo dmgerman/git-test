@@ -79,6 +79,10 @@ c_func
 (paren
 id|fd
 comma
+(paren
+r_char
+op_star
+)paren
 id|buffer
 op_plus
 id|ret

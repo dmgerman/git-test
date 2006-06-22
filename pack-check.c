@@ -179,6 +179,10 @@ c_func
 (paren
 id|sha1
 comma
+(paren
+r_char
+op_star
+)paren
 id|pack_base
 op_plus
 id|pack_size
@@ -204,6 +208,10 @@ c_func
 (paren
 id|sha1
 comma
+(paren
+r_char
+op_star
+)paren
 id|index_base
 op_plus
 id|index_size
@@ -780,6 +788,10 @@ c_func
 (paren
 id|sha1
 comma
+(paren
+r_char
+op_star
+)paren
 id|index_base
 op_plus
 id|index_size

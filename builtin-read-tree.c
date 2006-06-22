@@ -110,9 +110,6 @@ r_static
 r_struct
 id|cache_entry
 id|df_conflict_entry
-op_assign
-(brace
-)brace
 suffix:semicolon
 DECL|struct|tree_entry_list
 r_struct

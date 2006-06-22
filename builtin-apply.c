@@ -621,6 +621,10 @@ c_func
 (paren
 id|fd
 comma
+(paren
+r_char
+op_star
+)paren
 id|buffer
 op_plus
 id|size
@@ -690,6 +694,10 @@ suffix:semicolon
 id|memset
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|buffer
 op_plus
 id|size
@@ -5722,6 +5730,10 @@ c_func
 (paren
 id|fd
 comma
+(paren
+r_char
+op_star
+)paren
 id|buf
 op_plus
 id|got

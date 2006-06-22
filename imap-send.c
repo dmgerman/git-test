@@ -275,7 +275,7 @@ id|flags
 suffix:semicolon
 DECL|member|crlf
 r_int
-r_char
+r_int
 id|crlf
 suffix:colon
 l_int|1

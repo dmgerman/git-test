@@ -2,6 +2,7 @@ multiline_comment|/*&n; * diff-delta.c: generate a delta between two buffers&n; 
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &quot;delta.h&quot;
+macro_line|#include &quot;git-compat-util.h&quot;
 multiline_comment|/* maximum hash entry list for the same hash bucket */
 DECL|macro|HASH_LIMIT
 mdefine_line|#define HASH_LIMIT 64
@@ -1107,7 +1108,7 @@ id|index_entry
 op_star
 id|hash
 (braket
-l_int|0
+id|FLEX_ARRAY
 )braket
 suffix:semicolon
 )brace
@@ -1825,6 +1826,12 @@ id|trg_buf
 suffix:semicolon
 id|top
 op_assign
+(paren
+r_const
+r_int
+r_char
+op_star
+)paren
 id|trg_buf
 op_plus
 id|trg_size
