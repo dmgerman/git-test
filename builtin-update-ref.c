@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|git_update_ref_usage
 r_static
 r_const
@@ -10,18 +11,24 @@ id|git_update_ref_usage
 op_assign
 l_string|&quot;git-update-ref &lt;refname&gt; &lt;value&gt; [&lt;oldval&gt;] [-m &lt;reason&gt;]&quot;
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_update_ref
 r_int
-id|main
+id|cmd_update_ref
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_char
+op_star
+op_star
+id|envp
 )paren
 (brace
 r_const
@@ -325,6 +332,7 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* write_ref_sha1 always unlocks the ref, no need to do it explicitly */
 r_return
 l_int|0
 suffix:semicolon
