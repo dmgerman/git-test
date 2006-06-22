@@ -67,6 +67,7 @@ suffix:semicolon
 DECL|variable|non_common_revs
 DECL|variable|multi_ack
 DECL|variable|use_thin_pack
+DECL|variable|use_sideband
 r_static
 r_int
 id|non_common_revs
@@ -80,6 +81,8 @@ comma
 id|use_thin_pack
 op_assign
 l_int|0
+comma
+id|use_sideband
 suffix:semicolon
 DECL|function|rev_list_push
 r_static
@@ -650,6 +653,12 @@ id|COMPLETE
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|fetching
+)paren
 id|packet_write
 c_func
 (paren
@@ -658,7 +667,7 @@ id|fd
 l_int|1
 )braket
 comma
-l_string|&quot;want %s%s%s&bslash;n&quot;
+l_string|&quot;want %s%s%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -676,12 +685,39 @@ l_string|&quot;&quot;
 )paren
 comma
 (paren
+id|use_sideband
+ques
+c_cond
+l_string|&quot; side-band&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
+comma
+(paren
 id|use_thin_pack
 ques
 c_cond
 l_string|&quot; thin-pack&quot;
 suffix:colon
 l_string|&quot;&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+id|packet_write
+c_func
+(paren
+id|fd
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;want %s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|remote
 )paren
 )paren
 suffix:semicolon
@@ -2000,6 +2036,34 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|server_supports
+c_func
+(paren
+l_string|&quot;side-band&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Server supports side-band&bslash;n&quot;
+)paren
+suffix:semicolon
+id|use_sideband
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 op_logical_neg
 id|ref
 )paren
@@ -2093,6 +2157,8 @@ comma
 l_string|&quot;git-fetch-pack&quot;
 comma
 id|quiet
+comma
+id|use_sideband
 )paren
 suffix:semicolon
 r_else
@@ -2106,6 +2172,8 @@ comma
 l_string|&quot;git-fetch-pack&quot;
 comma
 id|quiet
+comma
+id|use_sideband
 )paren
 suffix:semicolon
 r_if
