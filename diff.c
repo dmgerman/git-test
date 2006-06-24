@@ -971,6 +971,10 @@ id|one
 (brace
 id|mf-&gt;ptr
 op_assign
+(paren
+r_char
+op_star
+)paren
 l_string|&quot;&quot;
 suffix:semicolon
 multiline_comment|/* does not matter */
@@ -2045,6 +2049,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_char
 op_star
 id|prefix
@@ -4856,6 +4861,10 @@ id|empty
 suffix:colon
 id|s-&gt;data
 op_assign
+(paren
+r_char
+op_star
+)paren
 l_string|&quot;&quot;
 suffix:semicolon
 id|s-&gt;size
@@ -7360,6 +7369,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|opt_arg
+r_static
 r_int
 id|opt_arg
 c_func
@@ -9189,9 +9199,6 @@ op_star
 id|p
 comma
 r_int
-id|inter_name_termination
-comma
-r_int
 id|line_termination
 )paren
 (brace
@@ -9213,11 +9220,6 @@ c_func
 (paren
 id|p-&gt;two-&gt;path
 )paren
-suffix:semicolon
-r_else
-id|path
-op_assign
-id|p-&gt;two-&gt;path
 suffix:semicolon
 id|printf
 c_func
@@ -10268,8 +10270,6 @@ id|diff_flush_name
 c_func
 (paren
 id|p
-comma
-id|inter_name_termination
 comma
 id|line_termination
 )paren
