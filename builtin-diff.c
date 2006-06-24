@@ -207,18 +207,6 @@ id|revs-&gt;dense_combined_merges
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * Backward compatibility wart - &quot;diff-files -s&quot; used to&n;&t; * defeat the common diff option &quot;-s&quot; which asked for&n;&t; * DIFF_FORMAT_NO_OUTPUT.&n;&t; */
-r_if
-c_cond
-(paren
-id|revs-&gt;diffopt.output_format
-op_eq
-id|DIFF_FORMAT_NO_OUTPUT
-)paren
-id|revs-&gt;diffopt.output_format
-op_assign
-id|DIFF_FORMAT_RAW
-suffix:semicolon
 r_return
 id|run_diff_files
 c_func
