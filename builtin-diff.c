@@ -214,7 +214,7 @@ l_int|0
 op_logical_and
 (paren
 id|revs-&gt;diffopt.output_format
-op_eq
+op_amp
 id|DIFF_FORMAT_PATCH
 )paren
 )paren

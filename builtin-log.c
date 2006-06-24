@@ -968,14 +968,6 @@ id|rev.diff
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.diffopt.with_raw
-op_assign
-l_int|0
-suffix:semicolon
-id|rev.diffopt.with_stat
-op_assign
-l_int|1
-suffix:semicolon
 id|rev.combine_merges
 op_assign
 l_int|0
@@ -986,6 +978,8 @@ l_int|1
 suffix:semicolon
 id|rev.diffopt.output_format
 op_assign
+id|DIFF_FORMAT_DIFFSTAT
+op_or
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
 id|git_config
