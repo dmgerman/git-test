@@ -1196,10 +1196,6 @@ op_amp
 id|rev
 )paren
 suffix:semicolon
-id|rev.diffopt.output_format
-op_assign
-id|DIFF_FORMAT_PATCH
-suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions
@@ -1214,6 +1210,16 @@ id|rev
 comma
 l_int|NULL
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev.diffopt.output_format
+)paren
+id|rev.diffopt.output_format
+op_assign
+id|DIFF_FORMAT_PATCH
 suffix:semicolon
 multiline_comment|/* Do we have --cached and not have a pending object, then&n;&t; * default to HEAD by hand.  Eek.&n;&t; */
 r_if

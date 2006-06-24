@@ -7708,10 +7708,6 @@ id|options
 )paren
 )paren
 suffix:semicolon
-id|options-&gt;output_format
-op_assign
-id|DIFF_FORMAT_RAW
-suffix:semicolon
 id|options-&gt;line_termination
 op_assign
 l_char|&squot;&bslash;n&squot;

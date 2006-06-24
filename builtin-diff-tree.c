@@ -445,6 +445,16 @@ id|diff_tree_usage
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opt-&gt;diffopt.output_format
+)paren
+id|opt-&gt;diffopt.output_format
+op_assign
+id|DIFF_FORMAT_RAW
+suffix:semicolon
 multiline_comment|/*&n;&t; * NOTE! We expect &quot;a ^b&quot; to be equal to &quot;a..b&quot;, so we&n;&t; * reverse the order of the objects if the second one&n;&t; * is marked UNINTERESTING.&n;&t; */
 id|nr_sha1
 op_assign

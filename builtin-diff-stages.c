@@ -488,6 +488,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|diff_options.output_format
+)paren
+id|diff_options.output_format
+op_assign
+id|DIFF_FORMAT_RAW
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|ac
 OL
 l_int|3

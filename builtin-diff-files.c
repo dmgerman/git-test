@@ -187,6 +187,16 @@ id|argc
 op_decrement
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev.diffopt.output_format
+)paren
+id|rev.diffopt.output_format
+op_assign
+id|DIFF_FORMAT_RAW
+suffix:semicolon
 multiline_comment|/*&n;&t; * Make sure there are NO revision (i.e. pending object) parameter,&n;&t; * rev.max_count is reasonable (0 &lt;= n &lt;= 3),&n;&t; * there is no other revision filtering parameters.&n;&t; */
 r_if
 c_cond
