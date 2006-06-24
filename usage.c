@@ -48,6 +48,8 @@ id|stderr
 suffix:semicolon
 )brace
 DECL|function|usage_builtin
+r_static
+id|NORETURN
 r_void
 id|usage_builtin
 c_func
@@ -75,6 +77,8 @@ l_int|129
 suffix:semicolon
 )brace
 DECL|function|die_builtin
+r_static
+id|NORETURN
 r_void
 id|die_builtin
 c_func
@@ -105,6 +109,7 @@ l_int|128
 suffix:semicolon
 )brace
 DECL|function|error_builtin
+r_static
 r_void
 id|error_builtin
 c_func
