@@ -237,6 +237,25 @@ id|p
 op_add_assign
 l_int|10
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|line
+comma
+l_string|&quot;commit &quot;
+comma
+l_int|7
+)paren
+)paren
+id|p
+op_add_assign
+l_int|7
+suffix:semicolon
 r_if
 c_cond
 (paren
