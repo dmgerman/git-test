@@ -6350,7 +6350,7 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|ctx-&gt;cdata
@@ -7498,7 +7498,7 @@ id|path
 )paren
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|obj_hex
@@ -11439,7 +11439,7 @@ id|buffer.posn
 l_int|5
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 op_star

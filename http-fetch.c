@@ -2810,7 +2810,7 @@ id|i
 l_int|6
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|target
@@ -2820,7 +2820,7 @@ comma
 id|serverlen
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|target
@@ -3468,7 +3468,7 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|ctx-&gt;cdata

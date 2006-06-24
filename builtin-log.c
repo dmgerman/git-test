@@ -575,7 +575,7 @@ c_cond
 id|output_directory
 )paren
 (brace
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|filename

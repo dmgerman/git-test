@@ -351,7 +351,7 @@ l_char|&squot;.&squot;
 )paren
 )paren
 )paren
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|git_default_email
@@ -370,7 +370,7 @@ id|len
 )paren
 suffix:semicolon
 r_else
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|git_default_email

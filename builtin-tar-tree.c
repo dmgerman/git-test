@@ -1221,7 +1221,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|header.uname
@@ -1234,7 +1234,7 @@ id|header.uname
 )paren
 )paren
 suffix:semicolon
-id|safe_strncpy
+id|strlcpy
 c_func
 (paren
 id|header.gname
