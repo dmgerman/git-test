@@ -3262,7 +3262,7 @@ c_func
 (paren
 id|o-&gt;color_diff
 comma
-id|DIFF_PLAIN
+id|DIFF_RESET
 )paren
 suffix:semicolon
 id|a_one
