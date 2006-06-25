@@ -3723,9 +3723,7 @@ c_func
 (paren
 id|rev
 comma
-id|rev-&gt;loginfo
-comma
-l_string|&quot;&bslash;n&quot;
+id|opt-&gt;msg_sep
 )paren
 suffix:semicolon
 id|dump_quoted_path
@@ -4137,9 +4135,7 @@ c_func
 (paren
 id|rev
 comma
-id|rev-&gt;loginfo
-comma
-l_string|&quot;&bslash;n&quot;
+id|opt-&gt;msg_sep
 )paren
 suffix:semicolon
 r_if
@@ -4628,9 +4624,7 @@ c_func
 (paren
 id|rev
 comma
-id|rev-&gt;loginfo
-comma
-l_string|&quot;---&bslash;n&quot;
+id|opt-&gt;msg_sep
 )paren
 suffix:semicolon
 id|diff_flush

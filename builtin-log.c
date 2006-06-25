@@ -963,6 +963,10 @@ id|rev.ignore_merges
 op_assign
 l_int|1
 suffix:semicolon
+id|rev.diffopt.msg_sep
+op_assign
+l_string|&quot;---&bslash;n&quot;
+suffix:semicolon
 id|git_config
 c_func
 (paren
