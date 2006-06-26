@@ -8,6 +8,7 @@ macro_line|#include &lt;sys/socket.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
 macro_line|#include &lt;netdb.h&gt;
+macro_line|#include &lt;signal.h&gt;
 DECL|variable|server_capabilities
 r_static
 r_char

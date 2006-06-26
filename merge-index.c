@@ -1,5 +1,6 @@
 macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;sys/wait.h&gt;
+macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|pgm
 r_static
