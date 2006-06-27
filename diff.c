@@ -7780,17 +7780,6 @@ c_cond
 (paren
 id|options-&gt;output_format
 op_amp
-id|DIFF_FORMAT_NO_OUTPUT
-)paren
-id|options-&gt;output_format
-op_assign
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|options-&gt;output_format
-op_amp
 (paren
 id|DIFF_FORMAT_NAME
 op_or
