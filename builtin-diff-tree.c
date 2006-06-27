@@ -386,10 +386,6 @@ id|opt-&gt;diff
 op_assign
 l_int|1
 suffix:semicolon
-id|opt-&gt;diffopt.msg_sep
-op_assign
-l_string|&quot;---&bslash;n&quot;
-suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions
