@@ -366,10 +366,6 @@ id|rev.always_show_header
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.diffopt.recursive
-op_assign
-l_int|1
-suffix:semicolon
 id|cmd_log_init
 c_func
 (paren
