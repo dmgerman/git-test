@@ -4539,6 +4539,8 @@ l_int|1
 suffix:semicolon
 id|show_log_first
 op_assign
+op_logical_neg
+op_logical_neg
 id|rev-&gt;loginfo
 suffix:semicolon
 id|needsep
