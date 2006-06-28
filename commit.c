@@ -2993,6 +2993,7 @@ c_func
 id|p-&gt;object.sha1
 )paren
 suffix:semicolon
+r_const
 r_char
 op_star
 id|dots

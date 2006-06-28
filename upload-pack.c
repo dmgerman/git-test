@@ -449,14 +449,15 @@ op_star
 op_star
 id|argv
 suffix:semicolon
-r_char
-op_star
-id|buf
-suffix:semicolon
+r_const
 r_char
 op_star
 op_star
 id|p
+suffix:semicolon
+r_char
+op_star
+id|buf
 suffix:semicolon
 r_if
 c_cond
@@ -2340,6 +2341,7 @@ id|sha1
 )paren
 (brace
 r_static
+r_const
 r_char
 op_star
 id|capabilities

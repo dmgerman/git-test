@@ -944,6 +944,7 @@ id|Socket_t
 op_star
 id|sock
 comma
+r_const
 r_char
 op_star
 id|buf

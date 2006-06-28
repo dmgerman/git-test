@@ -1675,6 +1675,7 @@ id|end
 l_int|20
 )braket
 suffix:semicolon
+r_const
 r_char
 op_star
 id|next

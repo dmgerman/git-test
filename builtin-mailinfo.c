@@ -755,6 +755,7 @@ op_star
 id|attr
 )paren
 (brace
+r_const
 r_char
 op_star
 id|ends

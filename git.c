@@ -27,10 +27,8 @@ r_int
 id|len
 )paren
 (brace
+r_const
 r_char
-op_star
-id|path
-comma
 op_star
 id|old_path
 op_assign
@@ -39,6 +37,10 @@ c_func
 (paren
 l_string|&quot;PATH&quot;
 )paren
+suffix:semicolon
+r_char
+op_star
+id|path
 suffix:semicolon
 r_int
 id|path_len

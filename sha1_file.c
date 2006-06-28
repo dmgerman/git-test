@@ -1669,6 +1669,7 @@ c_func
 r_void
 )paren
 (brace
+r_const
 r_char
 op_star
 id|alt

@@ -1840,6 +1840,7 @@ comma
 op_star
 id|end
 suffix:semicolon
+r_const
 r_char
 op_star
 id|port
@@ -2821,6 +2822,7 @@ op_star
 id|path
 )paren
 (brace
+r_const
 r_char
 op_star
 id|port

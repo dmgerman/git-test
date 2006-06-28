@@ -509,6 +509,7 @@ r_void
 id|describe
 c_func
 (paren
+r_const
 r_char
 op_star
 id|arg

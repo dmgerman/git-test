@@ -75,6 +75,7 @@ suffix:semicolon
 multiline_comment|/* If defined, ~user notation is allowed and the string is inserted&n; * after ~user/.  E.g. a request to git://host/~alice/frotz would&n; * go to /home/alice/pub_git/frotz with --user-path=pub_git.&n; */
 DECL|variable|user_path
 r_static
+r_const
 r_char
 op_star
 id|user_path
@@ -1933,6 +1934,7 @@ c_cond
 id|verbose
 )paren
 (brace
+r_const
 r_char
 op_star
 id|dead

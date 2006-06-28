@@ -6371,6 +6371,7 @@ op_star
 id|lock_remote
 c_func
 (paren
+r_const
 r_char
 op_star
 id|path
@@ -11186,6 +11187,7 @@ r_void
 id|fetch_symref
 c_func
 (paren
+r_const
 r_char
 op_star
 id|path
