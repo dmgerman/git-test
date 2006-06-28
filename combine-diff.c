@@ -1135,6 +1135,7 @@ op_star
 id|sline
 comma
 r_int
+r_int
 id|cnt
 comma
 r_int
@@ -1521,7 +1522,7 @@ r_int
 id|cnt
 comma
 r_int
-id|uninteresting
+id|look_for_uninteresting
 )paren
 (brace
 multiline_comment|/* We have examined up to i-1 and are about to look at i.&n;&t; * Find next interesting or uninteresting line.  Here,&n;&t; * &quot;interesting&quot; does not mean interesting(), but marked by&n;&t; * the give_context() function below (i.e. it includes context&n;&t; * lines that are not interesting to interesting() function&n;&t; * that are surrounded by interesting() ones.&n;&t; */
@@ -1535,7 +1536,7 @@ id|cnt
 r_if
 c_cond
 (paren
-id|uninteresting
+id|look_for_uninteresting
 ques
 c_cond
 op_logical_neg
@@ -2353,10 +2354,6 @@ r_int
 id|l1
 comma
 r_int
-r_int
-id|cnt
-comma
-r_int
 id|n
 )paren
 (brace
@@ -2594,8 +2591,6 @@ comma
 id|lno
 comma
 id|hunk_end
-comma
-id|cnt
 comma
 id|i
 )paren
@@ -3149,7 +3144,7 @@ op_assign
 id|st.st_size
 suffix:semicolon
 r_int
-id|cnt
+id|sz
 op_assign
 l_int|0
 suffix:semicolon
@@ -3178,7 +3173,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|cnt
+id|sz
 OL
 id|len
 )paren
@@ -3193,11 +3188,11 @@ id|fd
 comma
 id|result
 op_plus
-id|cnt
+id|sz
 comma
 id|len
 op_minus
-id|cnt
+id|sz
 )paren
 suffix:semicolon
 r_if
@@ -3224,7 +3219,7 @@ comma
 id|elem-&gt;path
 )paren
 suffix:semicolon
-id|cnt
+id|sz
 op_add_assign
 id|done
 suffix:semicolon
@@ -3290,8 +3285,9 @@ op_assign
 id|result
 suffix:semicolon
 id|cp
-id|result
 OL
+id|result
+op_plus
 id|result_size
 suffix:semicolon
 id|cp
@@ -3407,8 +3403,9 @@ op_assign
 id|result
 suffix:semicolon
 id|cp
-id|result
 OL
+id|result
+op_plus
 id|result_size
 suffix:semicolon
 id|cp
@@ -3982,15 +3979,15 @@ suffix:semicolon
 r_for
 c_loop
 (paren
-id|i
+id|lno
 op_assign
 l_int|0
 suffix:semicolon
-id|i
+id|lno
 OL
 id|cnt
 suffix:semicolon
-id|i
+id|lno
 op_increment
 )paren
 (brace
@@ -3999,7 +3996,7 @@ c_cond
 (paren
 id|sline
 (braket
-id|i
+id|lno
 )braket
 dot
 id|lost_head
@@ -4012,7 +4009,7 @@ id|ll
 op_assign
 id|sline
 (braket
-id|i
+id|lno
 )braket
 dot
 id|lost_head
