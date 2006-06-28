@@ -4,7 +4,7 @@ multiline_comment|/* Help to copy the thing properly quoted for the shell safety
 DECL|macro|EMIT
 macro_line|#undef EMIT
 DECL|macro|EMIT
-mdefine_line|#define EMIT(x) ( (++len &lt; n) &amp;&amp; (*bp++ = (x)) )
+mdefine_line|#define EMIT(x) do { if (++len &lt; n) *bp++ = (x); } while(0)
 DECL|function|need_bs_quote
 r_static
 r_inline
