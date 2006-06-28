@@ -1157,14 +1157,6 @@ comma
 l_char|&squot;/&squot;
 )paren
 suffix:semicolon
-r_char
-id|git_command
-(braket
-id|PATH_MAX
-op_plus
-l_int|1
-)braket
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -1508,7 +1500,7 @@ id|stderr
 comma
 l_string|&quot;Failed to run command &squot;%s&squot;: %s&bslash;n&quot;
 comma
-id|git_command
+id|cmd
 comma
 id|strerror
 c_func
