@@ -537,6 +537,10 @@ comma
 id|ret
 op_assign
 l_int|0
+comma
+id|saved_errno
+op_assign
+id|errno
 suffix:semicolon
 r_const
 r_char
@@ -720,6 +724,10 @@ c_func
 (paren
 id|subdir
 )paren
+suffix:semicolon
+id|errno
+op_assign
+id|saved_errno
 suffix:semicolon
 r_return
 id|ret
