@@ -441,14 +441,6 @@ l_string|&quot;GIT_TRACE&quot;
 )paren
 )paren
 (brace
-id|fputs
-c_func
-(paren
-l_string|&quot;trace: exec:&quot;
-comma
-id|stderr
-)paren
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -456,6 +448,14 @@ op_star
 id|p
 op_assign
 id|argv
+suffix:semicolon
+id|fputs
+c_func
+(paren
+l_string|&quot;trace: exec:&quot;
+comma
+id|stderr
+)paren
 suffix:semicolon
 r_while
 c_loop
