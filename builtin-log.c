@@ -998,7 +998,11 @@ l_int|1
 suffix:semicolon
 id|rev.diffopt.msg_sep
 op_assign
-l_string|&quot;---&bslash;n&quot;
+l_string|&quot;&quot;
+suffix:semicolon
+id|rev.diffopt.recursive
+op_assign
+l_int|1
 suffix:semicolon
 id|git_config
 c_func
