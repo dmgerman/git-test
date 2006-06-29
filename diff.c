@@ -11848,7 +11848,7 @@ l_int|3
 suffix:semicolon
 id|xecfg.flags
 op_assign
-l_int|3
+id|XDL_EMIT_FUNCNAMES
 suffix:semicolon
 id|ecb.outf
 op_assign
