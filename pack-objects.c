@@ -4798,6 +4798,19 @@ id|trg_entry-&gt;preferred_base
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t; * We do not bother to try a delta that we discarded&n;&t; * on an earlier try.&n;&t; */
+r_if
+c_cond
+(paren
+id|trg_entry-&gt;in_pack
+op_logical_and
+id|trg_entry-&gt;in_pack
+op_eq
+id|src_entry-&gt;in_pack
+)paren
+r_return
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * If the current object is at pack edge, take the depth the&n;&t; * objects that depend on the current object into account --&n;&t; * otherwise they would become too deep.&n;&t; */
 r_if
 c_cond
