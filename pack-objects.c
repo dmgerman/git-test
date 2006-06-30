@@ -4798,10 +4798,13 @@ id|trg_entry-&gt;preferred_base
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * We do not bother to try a delta that we discarded&n;&t; * on an earlier try.&n;&t; */
+multiline_comment|/*&n;&t; * We do not bother to try a delta that we discarded&n;&t; * on an earlier try, but only when reusing delta data.&n;&t; */
 r_if
 c_cond
 (paren
+op_logical_neg
+id|no_reuse_delta
+op_logical_and
 id|trg_entry-&gt;in_pack
 op_logical_and
 id|trg_entry-&gt;in_pack
