@@ -1224,6 +1224,10 @@ r_int
 id|tree_changed
 op_assign
 l_int|0
+comma
+id|tree_same
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -1307,6 +1311,10 @@ id|commit-&gt;tree
 r_case
 id|REV_TREE_SAME
 suffix:colon
+id|tree_same
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1401,6 +1409,9 @@ r_if
 c_cond
 (paren
 id|tree_changed
+op_logical_and
+op_logical_neg
+id|tree_same
 )paren
 id|commit-&gt;object.flags
 op_or_assign
@@ -4288,6 +4299,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|p-&gt;parents
+op_logical_and
+id|p-&gt;parents-&gt;next
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|p-&gt;object.flags
 op_amp
 (paren
@@ -4627,6 +4648,7 @@ op_logical_and
 id|revs-&gt;dense
 )paren
 (brace
+multiline_comment|/* Commit without changes? */
 r_if
 c_cond
 (paren
@@ -4637,8 +4659,28 @@ op_amp
 id|TREECHANGE
 )paren
 )paren
+(brace
+multiline_comment|/* drop merges unless we want parenthood */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;parents
+)paren
 r_continue
 suffix:semicolon
+multiline_comment|/* non-merge - always ignore it */
+r_if
+c_cond
+(paren
+id|commit-&gt;parents
+op_logical_and
+op_logical_neg
+id|commit-&gt;parents-&gt;next
+)paren
+r_continue
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
