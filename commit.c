@@ -4443,12 +4443,13 @@ id|nodes
 suffix:semicolon
 )brace
 multiline_comment|/* merge-rebase stuff */
+multiline_comment|/* bits #0..7 in revision.h */
 DECL|macro|PARENT1
-mdefine_line|#define PARENT1 1
+mdefine_line|#define PARENT1&t;&t;(1u&lt;&lt; 8)
 DECL|macro|PARENT2
-mdefine_line|#define PARENT2 2
+mdefine_line|#define PARENT2&t;&t;(1u&lt;&lt; 9)
 DECL|macro|UNINTERESTING
-mdefine_line|#define UNINTERESTING 4
+mdefine_line|#define UNINTERESTING&t;(1u&lt;&lt;10)
 DECL|function|interesting
 r_static
 r_struct
@@ -4974,7 +4975,53 @@ op_assign
 id|next
 suffix:semicolon
 )brace
-multiline_comment|/* reset flags */
+r_return
+id|result
+suffix:semicolon
+)brace
+DECL|function|get_merge_bases_clean
+r_struct
+id|commit_list
+op_star
+id|get_merge_bases_clean
+c_func
+(paren
+r_struct
+id|commit
+op_star
+id|rev1
+comma
+r_struct
+id|commit
+op_star
+id|rev2
+)paren
+(brace
+r_int
+r_int
+id|flags1
+op_assign
+id|rev1-&gt;object.flags
+suffix:semicolon
+r_int
+r_int
+id|flags2
+op_assign
+id|rev2-&gt;object.flags
+suffix:semicolon
+r_struct
+id|commit_list
+op_star
+id|result
+op_assign
+id|get_merge_bases
+c_func
+(paren
+id|rev1
+comma
+id|rev2
+)paren
+suffix:semicolon
 id|clear_commit_marks
 c_func
 (paren
@@ -4998,6 +5045,14 @@ id|PARENT2
 op_or
 id|UNINTERESTING
 )paren
+suffix:semicolon
+id|rev1-&gt;object.flags
+op_assign
+id|flags1
+suffix:semicolon
+id|rev2-&gt;object.flags
+op_assign
+id|flags2
 suffix:semicolon
 r_return
 id|result
