@@ -1217,10 +1217,19 @@ c_cond
 op_logical_neg
 id|rev.diffopt.output_format
 )paren
+(brace
 id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
+id|diff_setup_done
+c_func
+(paren
+op_amp
+id|rev.diffopt
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* Do we have --cached and not have a pending object, then&n;&t; * default to HEAD by hand.  Eek.&n;&t; */
 r_if
 c_cond
