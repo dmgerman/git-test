@@ -4436,8 +4436,8 @@ DECL|macro|PARENT1
 mdefine_line|#define PARENT1&t;&t;(1u&lt;&lt; 8)
 DECL|macro|PARENT2
 mdefine_line|#define PARENT2&t;&t;(1u&lt;&lt; 9)
-DECL|macro|UNINTERESTING
-mdefine_line|#define UNINTERESTING&t;(1u&lt;&lt;10)
+DECL|macro|STALE
+mdefine_line|#define STALE&t;&t;(1u&lt;&lt;10)
 DECL|function|interesting
 r_static
 r_struct
@@ -4474,7 +4474,7 @@ c_cond
 (paren
 id|commit-&gt;object.flags
 op_amp
-id|UNINTERESTING
+id|STALE
 )paren
 r_continue
 suffix:semicolon
@@ -4486,7 +4486,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * A pathological example of how this thing works.&n; *&n; * Suppose we had this commit graph, where chronologically&n; * the timestamp on the commit are A &lt;= B &lt;= C &lt;= D &lt;= E &lt;= F&n; * and we are trying to figure out the merge base for E and F&n; * commits.&n; *&n; *                  F&n; *                 / &bslash;&n; *            E   A   D&n; *             &bslash; /   /&n; *              B   /&n; *               &bslash; /&n; *                C&n; *&n; * First we push E and F to list to be processed.  E gets bit 1&n; * and F gets bit 2.  The list becomes:&n; *&n; *     list=F(2) E(1), result=empty&n; *&n; * Then we pop F, the newest commit, from the list.  Its flag is 2.&n; * We scan its parents, mark them reachable from the side that F is&n; * reachable from, and push them to the list:&n; *&n; *     list=E(1) D(2) A(2), result=empty&n; *&n; * Next pop E and do the same.&n; *&n; *     list=D(2) B(1) A(2), result=empty&n; *&n; * Next pop D and do the same.&n; *&n; *     list=C(2) B(1) A(2), result=empty&n; *&n; * Next pop C and do the same.&n; *&n; *     list=B(1) A(2), result=empty&n; *&n; * Now it is B&squot;s turn.  We mark its parent, C, reachable from B&squot;s side,&n; * and push it to the list:&n; *&n; *     list=C(3) A(2), result=empty&n; *&n; * Now pop C and notice it has flags==3.  It is placed on the result list,&n; * and the list now contains:&n; *&n; *     list=A(2), result=C(3)&n; *&n; * We pop A and do the same.&n; *&n; *     list=B(3), result=C(3)&n; *&n; * Next, we pop B and something very interesting happens.  It has flags==3&n; * so it is also placed on the result list, and its parents are marked&n; * uninteresting, retroactively, and placed back on the list:&n; *&n; *    list=C(7), result=C(7) B(3)&n; *&n; * Now, list does not have any interesting commit.  So we find the newest&n; * commit from the result list that is not marked uninteresting.  Which is&n; * commit B.&n; *&n; *&n; * Another pathological example how this thing used to fail to mark an&n; * ancestor of a merge base as UNINTERESTING before we introduced the&n; * postprocessing phase (mark_reachable_commits).&n; *&n; *&t;&t;  2&n; *&t;&t;  H&n; *&t;    1    / &bslash;&n; *&t;    G   A   &bslash;&n; *&t;    |&bslash; /     &bslash;&n; *&t;    | B       &bslash;&n; *&t;    |  &bslash;       &bslash;&n; *&t;     &bslash;  C       F&n; *&t;      &bslash;  &bslash;     /&n; *&t;       &bslash;  D   /&n; *&t;&t;&bslash; |  /&n; *&t;&t; &bslash;| /&n; *&t;&t;  E&n; *&n; *&t; list&t;&t;&t;A B C D E F G H&n; *&t; G1 H2&t;&t;&t;- - - - - - 1 2&n; *&t; H2 E1 B1&t;&t;- 1 - - 1 - 1 2&n; *&t; F2 E1 B1 A2&t;&t;2 1 - - 1 2 1 2&n; *&t; E3 B1 A2&t;&t;2 1 - - 3 2 1 2&n; *&t; B1 A2&t;&t;&t;2 1 - - 3 2 1 2&n; *&t; C1 A2&t;&t;&t;2 1 1 - 3 2 1 2&n; *&t; D1 A2&t;&t;&t;2 1 1 1 3 2 1 2&n; *&t; A2&t;&t;&t;2 1 1 1 3 2 1 2&n; *&t; B3&t;&t;&t;2 3 1 1 3 2 1 2&n; *&t; C7&t;&t;&t;2 3 7 1 3 2 1 2&n; *&n; * At this point, unfortunately, everybody in the list is&n; * uninteresting, so we fail to complete the following two&n; * steps to fully marking uninteresting commits.&n; *&n; *&t; D7&t;&t;&t;2 3 7 7 3 2 1 2&n; *&t; E7&t;&t;&t;2 3 7 7 7 2 1 2&n; *&n; * and we ended up showing E as an interesting merge base.&n; * The postprocessing phase re-injects C and continues traversal&n; * to contaminate D and E.&n; */
+multiline_comment|/*&n; * A pathological example of how this thing works.&n; *&n; * Suppose we had this commit graph, where chronologically&n; * the timestamp on the commit are A &lt;= B &lt;= C &lt;= D &lt;= E &lt;= F&n; * and we are trying to figure out the merge base for E and F&n; * commits.&n; *&n; *                  F&n; *                 / &bslash;&n; *            E   A   D&n; *             &bslash; /   /&n; *              B   /&n; *               &bslash; /&n; *                C&n; *&n; * First we push E and F to list to be processed.  E gets bit 1&n; * and F gets bit 2.  The list becomes:&n; *&n; *     list=F(2) E(1), result=empty&n; *&n; * Then we pop F, the newest commit, from the list.  Its flag is 2.&n; * We scan its parents, mark them reachable from the side that F is&n; * reachable from, and push them to the list:&n; *&n; *     list=E(1) D(2) A(2), result=empty&n; *&n; * Next pop E and do the same.&n; *&n; *     list=D(2) B(1) A(2), result=empty&n; *&n; * Next pop D and do the same.&n; *&n; *     list=C(2) B(1) A(2), result=empty&n; *&n; * Next pop C and do the same.&n; *&n; *     list=B(1) A(2), result=empty&n; *&n; * Now it is B&squot;s turn.  We mark its parent, C, reachable from B&squot;s side,&n; * and push it to the list:&n; *&n; *     list=C(3) A(2), result=empty&n; *&n; * Now pop C and notice it has flags==3.  It is placed on the result list,&n; * and the list now contains:&n; *&n; *     list=A(2), result=C(3)&n; *&n; * We pop A and do the same.&n; *&n; *     list=B(3), result=C(3)&n; *&n; * Next, we pop B and something very interesting happens.  It has flags==3&n; * so it is also placed on the result list, and its parents are marked&n; * stale, retroactively, and placed back on the list:&n; *&n; *    list=C(7), result=C(7) B(3)&n; *&n; * Now, list does not have any interesting commit.  So we find the newest&n; * commit from the result list that is not marked stale.  Which is&n; * commit B.&n; *&n; *&n; * Another pathological example how this thing used to fail to mark an&n; * ancestor of a merge base as STALE before we introduced the&n; * postprocessing phase (mark_reachable_commits).&n; *&n; *&t;&t;  2&n; *&t;&t;  H&n; *&t;    1    / &bslash;&n; *&t;    G   A   &bslash;&n; *&t;    |&bslash; /     &bslash;&n; *&t;    | B       &bslash;&n; *&t;    |  &bslash;       &bslash;&n; *&t;     &bslash;  C       F&n; *&t;      &bslash;  &bslash;     /&n; *&t;       &bslash;  D   /&n; *&t;&t;&bslash; |  /&n; *&t;&t; &bslash;| /&n; *&t;&t;  E&n; *&n; *&t; list&t;&t;&t;A B C D E F G H&n; *&t; G1 H2&t;&t;&t;- - - - - - 1 2&n; *&t; H2 E1 B1&t;&t;- 1 - - 1 - 1 2&n; *&t; F2 E1 B1 A2&t;&t;2 1 - - 1 2 1 2&n; *&t; E3 B1 A2&t;&t;2 1 - - 3 2 1 2&n; *&t; B1 A2&t;&t;&t;2 1 - - 3 2 1 2&n; *&t; C1 A2&t;&t;&t;2 1 1 - 3 2 1 2&n; *&t; D1 A2&t;&t;&t;2 1 1 1 3 2 1 2&n; *&t; A2&t;&t;&t;2 1 1 1 3 2 1 2&n; *&t; B3&t;&t;&t;2 3 1 1 3 2 1 2&n; *&t; C7&t;&t;&t;2 3 7 1 3 2 1 2&n; *&n; * At this point, unfortunately, everybody in the list is&n; * stale, so we fail to complete the following two&n; * steps to fully marking stale commits.&n; *&n; *&t; D7&t;&t;&t;2 3 7 7 3 2 1 2&n; *&t; E7&t;&t;&t;2 3 7 7 7 2 1 2&n; *&n; * and we ended up showing E as an interesting merge base.&n; * The postprocessing phase re-injects C and continues traversal&n; * to contaminate D and E.&n; */
 DECL|function|mark_reachable_commits
 r_static
 r_void
@@ -4531,13 +4531,13 @@ id|c
 op_assign
 id|tmp-&gt;item
 suffix:semicolon
-multiline_comment|/* Reinject uninteresting ones to list,&n;&t;&t; * so we can scan their parents.&n;&t;&t; */
+multiline_comment|/* Reinject stale ones to list,&n;&t;&t; * so we can scan their parents.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|c-&gt;object.flags
 op_amp
-id|UNINTERESTING
+id|STALE
 )paren
 id|commit_list_insert
 c_func
@@ -4581,7 +4581,7 @@ c_func
 id|tmp
 )paren
 suffix:semicolon
-multiline_comment|/* Anything taken out of the list is uninteresting, so&n;&t;&t; * mark all its parents uninteresting.  We do not&n;&t;&t; * parse new ones (we already parsed all the relevant&n;&t;&t; * ones).&n;&t;&t; */
+multiline_comment|/* Anything taken out of the list is stale, so&n;&t;&t; * mark all its parents stale.  We do not&n;&t;&t; * parse new ones (we already parsed all the relevant&n;&t;&t; * ones).&n;&t;&t; */
 id|parents
 op_assign
 id|c-&gt;parents
@@ -4610,13 +4610,13 @@ op_logical_neg
 (paren
 id|p-&gt;object.flags
 op_amp
-id|UNINTERESTING
+id|STALE
 )paren
 )paren
 (brace
 id|p-&gt;object.flags
 op_or_assign
-id|UNINTERESTING
+id|STALE
 suffix:semicolon
 id|commit_list_insert
 c_func
@@ -4760,7 +4760,7 @@ id|PARENT1
 op_or
 id|PARENT2
 op_or
-id|UNINTERESTING
+id|STALE
 )paren
 suffix:semicolon
 id|tmp
@@ -4798,10 +4798,10 @@ op_amp
 id|result
 )paren
 suffix:semicolon
-multiline_comment|/* Mark parents of a found merge uninteresting */
+multiline_comment|/* Mark parents of a found merge stale */
 id|flags
 op_or_assign
-id|UNINTERESTING
+id|STALE
 suffix:semicolon
 )brace
 id|parents
@@ -4918,7 +4918,7 @@ c_cond
 (paren
 id|commit-&gt;object.flags
 op_amp
-id|UNINTERESTING
+id|STALE
 )paren
 (brace
 r_if
@@ -4958,7 +4958,7 @@ id|tmp
 suffix:semicolon
 id|commit-&gt;object.flags
 op_or_assign
-id|UNINTERESTING
+id|STALE
 suffix:semicolon
 )brace
 id|tmp
@@ -4981,7 +4981,7 @@ id|PARENT1
 op_or
 id|PARENT2
 op_or
-id|UNINTERESTING
+id|STALE
 )paren
 suffix:semicolon
 id|clear_commit_marks
@@ -4993,7 +4993,7 @@ id|PARENT1
 op_or
 id|PARENT2
 op_or
-id|UNINTERESTING
+id|STALE
 )paren
 suffix:semicolon
 )brace
