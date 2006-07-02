@@ -4673,8 +4673,9 @@ multiline_comment|/* non-merge - always ignore it */
 r_if
 c_cond
 (paren
+op_logical_neg
 id|commit-&gt;parents
-op_logical_and
+op_logical_or
 op_logical_neg
 id|commit-&gt;parents-&gt;next
 )paren
