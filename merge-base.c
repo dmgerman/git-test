@@ -36,6 +36,8 @@ c_func
 id|rev1
 comma
 id|rev2
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

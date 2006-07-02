@@ -3824,12 +3824,14 @@ id|symmetric
 (brace
 id|exclude
 op_assign
-id|get_merge_bases_clean
+id|get_merge_bases
 c_func
 (paren
 id|a
 comma
 id|b
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|add_pending_commit_list
