@@ -756,6 +756,13 @@ ques
 c_cond
 l_int|0
 suffix:colon
+id|seen
+OG
+l_int|1
+ques
+c_cond
+l_int|2
+suffix:colon
 l_int|1
 suffix:semicolon
 id|free_strings
