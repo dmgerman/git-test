@@ -1,3 +1,6 @@
+macro_line|#include &lt;signal.h&gt;
+macro_line|#include &lt;sys/wait.h&gt;
+macro_line|#include &lt;sys/poll.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
@@ -5,9 +8,6 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
-macro_line|#include &lt;signal.h&gt;
-macro_line|#include &lt;sys/poll.h&gt;
-macro_line|#include &lt;sys/wait.h&gt;
 DECL|variable|upload_pack_usage
 r_static
 r_const

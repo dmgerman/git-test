@@ -259,8 +259,17 @@ r_void
 (brace
 r_int
 id|i
+comma
+id|max
 suffix:semicolon
 multiline_comment|/* Look up all the requirements, warn about missing objects.. */
+id|max
+op_assign
+id|get_max_object_index
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -270,7 +279,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|obj_allocs
+id|max
 suffix:semicolon
 id|i
 op_increment
@@ -287,10 +296,11 @@ id|object
 op_star
 id|obj
 op_assign
-id|objs
-(braket
+id|get_indexed_object
+c_func
+(paren
 id|i
-)braket
+)paren
 suffix:semicolon
 r_if
 c_cond
