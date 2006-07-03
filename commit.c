@@ -4865,8 +4865,8 @@ c_cond
 op_logical_neg
 id|result
 )paren
-r_return
-l_int|NULL
+r_goto
+id|finish
 suffix:semicolon
 r_if
 c_cond
@@ -4966,6 +4966,8 @@ op_assign
 id|next
 suffix:semicolon
 )brace
+id|finish
+suffix:colon
 r_if
 c_cond
 (paren
