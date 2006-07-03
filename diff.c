@@ -3265,7 +3265,7 @@ c_func
 op_amp
 id|stream
 comma
-id|Z_BEST_COMPRESSION
+id|zlib_compression_level
 )paren
 suffix:semicolon
 id|bound

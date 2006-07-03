@@ -73,6 +73,12 @@ id|apply_default_whitespace
 op_assign
 l_int|NULL
 suffix:semicolon
+DECL|variable|zlib_compression_level
+r_int
+id|zlib_compression_level
+op_assign
+id|Z_DEFAULT_COMPRESSION
+suffix:semicolon
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
