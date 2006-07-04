@@ -3364,6 +3364,36 @@ id|builtin_grep_usage
 op_assign
 l_string|&quot;git-grep &lt;option&gt;* &lt;rev&gt;* [-e] &lt;pattern&gt; [&lt;path&gt;...]&quot;
 suffix:semicolon
+DECL|variable|emsg_invalid_context_len
+r_static
+r_const
+r_char
+id|emsg_invalid_context_len
+(braket
+)braket
+op_assign
+l_string|&quot;%s: invalid context length argument&quot;
+suffix:semicolon
+DECL|variable|emsg_missing_context_len
+r_static
+r_const
+r_char
+id|emsg_missing_context_len
+(braket
+)braket
+op_assign
+l_string|&quot;missing context length argument&quot;
+suffix:semicolon
+DECL|variable|emsg_missing_argument
+r_static
+r_const
+r_char
+id|emsg_missing_argument
+(braket
+)braket
+op_assign
+l_string|&quot;option requires an argument -%s&quot;
+suffix:semicolon
 DECL|function|cmd_grep
 r_int
 id|cmd_grep
@@ -3955,10 +3985,10 @@ id|argc
 op_le
 l_int|1
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|builtin_grep_usage
+id|emsg_missing_context_len
 )paren
 suffix:semicolon
 id|scan
@@ -4007,10 +4037,12 @@ id|num
 op_ne
 l_int|1
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|builtin_grep_usage
+id|emsg_invalid_context_len
+comma
+id|scan
 )paren
 suffix:semicolon
 r_switch
@@ -4088,10 +4120,12 @@ id|argc
 op_le
 l_int|1
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|builtin_grep_usage
+id|emsg_missing_argument
+comma
+id|arg
 )paren
 suffix:semicolon
 id|patterns
@@ -4272,10 +4306,12 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|usage
+id|die
 c_func
 (paren
-id|builtin_grep_usage
+id|emsg_missing_argument
+comma
+id|arg
 )paren
 suffix:semicolon
 )brace
