@@ -4265,8 +4265,17 @@ comma
 id|arg
 )paren
 )paren
+(brace
+multiline_comment|/* later processing wants to have this at argv[1] */
+id|argv
+op_decrement
+suffix:semicolon
+id|argc
+op_increment
+suffix:semicolon
 r_break
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
