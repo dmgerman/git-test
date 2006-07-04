@@ -1322,7 +1322,7 @@ l_int|0
 comma
 l_int|NULL
 comma
-l_int|1
+id|REF_NORMAL
 )paren
 suffix:semicolon
 id|get_local_heads
