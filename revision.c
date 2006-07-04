@@ -3855,6 +3855,12 @@ comma
 id|flags_exclude
 )paren
 suffix:semicolon
+id|free_commit_list
+c_func
+(paren
+id|exclude
+)paren
+suffix:semicolon
 id|a-&gt;object.flags
 op_or_assign
 id|flags
