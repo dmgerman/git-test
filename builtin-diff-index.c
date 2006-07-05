@@ -128,6 +128,16 @@ id|diff_cache_usage
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev.diffopt.output_format
+)paren
+id|rev.diffopt.output_format
+op_assign
+id|DIFF_FORMAT_RAW
+suffix:semicolon
 multiline_comment|/*&n;&t; * Make sure there is one revision (i.e. pending object),&n;&t; * and there is no revision filtering parameters.&n;&t; */
 r_if
 c_cond
