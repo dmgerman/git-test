@@ -1021,6 +1021,12 @@ l_string|&quot;update-ref&quot;
 comma
 id|cmd_update_ref
 )brace
+comma
+(brace
+l_string|&quot;fmt-merge-msg&quot;
+comma
+id|cmd_fmt_merge_msg
+)brace
 )brace
 suffix:semicolon
 r_int
