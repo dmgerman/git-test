@@ -1027,6 +1027,13 @@ l_string|&quot;fmt-merge-msg&quot;
 comma
 id|cmd_fmt_merge_msg
 )brace
+comma
+(brace
+l_string|&quot;prune&quot;
+comma
+id|cmd_prune
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
