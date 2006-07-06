@@ -531,6 +531,9 @@ r_struct
 id|diff_filespec
 op_star
 id|dst
+comma
+r_int
+id|contents_too
 )paren
 (brace
 r_if
@@ -553,6 +556,15 @@ l_int|20
 )paren
 r_return
 l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|contents_too
+)paren
+r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -1185,6 +1197,8 @@ comma
 id|j
 comma
 id|rename_count
+comma
+id|contents_too
 suffix:semicolon
 r_int
 id|num_create
@@ -1342,7 +1356,22 @@ r_goto
 id|cleanup
 suffix:semicolon
 multiline_comment|/* nothing to do */
-multiline_comment|/* We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; */
+multiline_comment|/* We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; * The first round matches up the up-to-date entries,&n;&t; * and then during the second round we try to match&n;&t; * cache-dirty entries as well.&n;&t; */
+r_for
+c_loop
+(paren
+id|contents_too
+op_assign
+l_int|0
+suffix:semicolon
+id|contents_too
+OL
+l_int|2
+suffix:semicolon
+id|contents_too
+op_increment
+)paren
+(brace
 r_for
 c_loop
 (paren
@@ -1370,6 +1399,19 @@ id|i
 dot
 id|two
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|rename_dst
+(braket
+id|i
+)braket
+dot
+id|pair
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* dealt with an earlier round */
 r_for
 c_loop
 (paren
@@ -1407,6 +1449,8 @@ c_func
 id|one
 comma
 id|two
+comma
+id|contents_too
 )paren
 )paren
 r_continue
@@ -1427,6 +1471,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 multiline_comment|/* we are done with this entry */
+)brace
 )brace
 )brace
 multiline_comment|/* Have we run out the created file pool?  If so we can avoid&n;&t; * doing the delta matrix altogether.&n;&t; */
