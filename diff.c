@@ -8446,6 +8446,15 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;-a&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--text&quot;
 )paren
 )paren
