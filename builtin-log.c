@@ -202,7 +202,7 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_diff_config
+id|git_diff_ui_config
 )paren
 suffix:semicolon
 id|init_revisions
@@ -283,7 +283,7 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_diff_config
+id|git_diff_ui_config
 )paren
 suffix:semicolon
 id|init_revisions
@@ -370,7 +370,7 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_diff_config
+id|git_diff_ui_config
 )paren
 suffix:semicolon
 id|init_revisions
@@ -548,7 +548,7 @@ l_int|0
 suffix:semicolon
 )brace
 r_return
-id|git_diff_config
+id|git_diff_ui_config
 c_func
 (paren
 id|var

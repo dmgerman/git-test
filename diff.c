@@ -512,9 +512,10 @@ id|var
 )paren
 suffix:semicolon
 )brace
-DECL|function|git_diff_config
+multiline_comment|/*&n; * These are to give UI layer defaults.&n; * The core-level commands such as git-diff-files should&n; * never be affected by the setting of diff.renames&n; * the user happens to have in the configuration file.&n; */
+DECL|function|git_diff_ui_config
 r_int
-id|git_diff_config
+id|git_diff_ui_config
 c_func
 (paren
 r_const
