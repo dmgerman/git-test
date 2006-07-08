@@ -1004,6 +1004,12 @@ comma
 id|active_nr
 )paren
 op_logical_or
+id|close
+c_func
+(paren
+id|newfd
+)paren
+op_logical_or
 id|commit_lock_file
 c_func
 (paren

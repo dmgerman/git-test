@@ -164,6 +164,13 @@ id|active_cache
 comma
 id|active_nr
 )paren
+op_logical_and
+op_logical_neg
+id|close
+c_func
+(paren
+id|newfd
+)paren
 )paren
 id|commit_lock_file
 c_func
