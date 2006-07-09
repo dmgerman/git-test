@@ -2056,7 +2056,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|comitter
+id|committer
 suffix:semicolon
 r_if
 c_cond
@@ -2143,7 +2143,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|comitter
+id|committer
 op_assign
 id|git_committer_info
 c_func
@@ -2162,7 +2162,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|comitter
+id|committer
 )paren
 op_plus
 id|strlen
@@ -2208,7 +2208,7 @@ c_func
 id|sha1
 )paren
 comma
-id|comitter
+id|committer
 comma
 id|msg
 )paren
@@ -2221,7 +2221,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|comitter
+id|committer
 )paren
 op_plus
 l_int|2
@@ -2261,7 +2261,7 @@ c_func
 id|sha1
 )paren
 comma
-id|comitter
+id|committer
 )paren
 suffix:semicolon
 )brace
