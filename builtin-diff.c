@@ -1186,7 +1186,7 @@ multiline_comment|/*&n;&t; * We could get N tree-ish in the rev.pending_objects 
 id|git_config
 c_func
 (paren
-id|git_diff_config
+id|git_diff_ui_config
 )paren
 suffix:semicolon
 id|init_revisions
