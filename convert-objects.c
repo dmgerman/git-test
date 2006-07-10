@@ -1397,7 +1397,7 @@ id|newlen
 op_assign
 l_int|0
 suffix:semicolon
-singleline_comment|// &quot;tree &lt;sha1&gt;&bslash;n&quot;
+multiline_comment|/* &quot;tree &lt;sha1&gt;&bslash;n&quot; */
 id|memcpy
 c_func
 (paren
@@ -1428,7 +1428,7 @@ id|size
 op_sub_assign
 l_int|46
 suffix:semicolon
-singleline_comment|// &quot;parent &lt;sha1&gt;&bslash;n&quot;
+multiline_comment|/* &quot;parent &lt;sha1&gt;&bslash;n&quot; */
 r_while
 c_loop
 (paren
@@ -1475,7 +1475,7 @@ op_sub_assign
 l_int|48
 suffix:semicolon
 )brace
-singleline_comment|// &quot;author xyz &lt;xyz&gt; date&quot;
+multiline_comment|/* &quot;author xyz &lt;xyz&gt; date&quot; */
 id|newlen
 op_add_assign
 id|convert_date_line
@@ -1492,7 +1492,7 @@ op_amp
 id|size
 )paren
 suffix:semicolon
-singleline_comment|// &quot;committer xyz &lt;xyz&gt; date&quot;
+multiline_comment|/* &quot;committer xyz &lt;xyz&gt; date&quot; */
 id|newlen
 op_add_assign
 id|convert_date_line
@@ -1509,7 +1509,7 @@ op_amp
 id|size
 )paren
 suffix:semicolon
-singleline_comment|// Rest
+multiline_comment|/* Rest */
 id|memcpy
 c_func
 (paren

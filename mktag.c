@@ -1,7 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tag.h&quot;
 multiline_comment|/*&n; * A signature file has a very simple fixed format: three lines&n; * of &quot;object &lt;sha1&gt;&quot; + &quot;type &lt;typename&gt;&quot; + &quot;tag &lt;tagname&gt;&quot;,&n; * followed by some free-form signature that git itself doesn&squot;t&n; * care about, but that can be verified with gpg or similar.&n; *&n; * The first three lines are guaranteed to be at least 63 bytes:&n; * &quot;object &lt;sha1&gt;&bslash;n&quot; is 48 bytes, &quot;type tag&bslash;n&quot; at 9 bytes is the&n; * shortest possible type-line, and &quot;tag .&bslash;n&quot; at 6 bytes is the&n; * shortest single-character-tag line. &n; *&n; * We also artificially limit the size of the full object to 8kB.&n; * Just because I&squot;m a lazy bastard, and if you can&squot;t fit a signature&n; * in that size, you&squot;re doing something wrong.&n; */
-singleline_comment|// Some random size
+multiline_comment|/* Some random size */
 DECL|macro|MAXSIZE
 mdefine_line|#define MAXSIZE (8192)
 multiline_comment|/*&n; * We refuse to tag something we can&squot;t verify. Just because.&n; */
@@ -572,7 +572,7 @@ l_string|&quot;could not read from stdin&quot;
 )paren
 suffix:semicolon
 )brace
-singleline_comment|// Verify it for some basic sanity: it needs to start with &quot;object &lt;sha1&gt;&bslash;ntype&bslash;ntagger &quot;
+multiline_comment|/* Verify it for some basic sanity: it needs to start with&n;&t;   &quot;object &lt;sha1&gt;&bslash;ntype&bslash;ntagger &quot; */
 r_if
 c_cond
 (paren

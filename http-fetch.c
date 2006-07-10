@@ -2292,7 +2292,7 @@ id|sha1
 r_return
 l_int|0
 suffix:semicolon
-singleline_comment|// don&squot;t list this as something we can get
+multiline_comment|/* don&squot;t list this as something we can get */
 r_if
 c_cond
 (paren
@@ -2709,7 +2709,7 @@ op_add_assign
 l_int|3
 suffix:semicolon
 )brace
-singleline_comment|// If the server got removed, give up.
+multiline_comment|/* If the server got removed, give up. */
 id|okay
 op_assign
 id|strchr
@@ -2791,7 +2791,7 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
-singleline_comment|// skip &squot;objects&squot; at end
+multiline_comment|/* skip &squot;objects&squot; at end */
 r_if
 c_cond
 (paren

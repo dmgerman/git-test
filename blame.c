@@ -110,7 +110,7 @@ id|off1
 comma
 id|len1
 suffix:semicolon
-singleline_comment|// ---
+multiline_comment|/* --- */
 DECL|member|off2
 DECL|member|len2
 r_int
@@ -118,7 +118,7 @@ id|off2
 comma
 id|len2
 suffix:semicolon
-singleline_comment|// +++
+multiline_comment|/* +++ */
 )brace
 suffix:semicolon
 DECL|struct|patch
@@ -1184,7 +1184,7 @@ suffix:semicolon
 )brace
 )brace
 macro_line|#endif
-singleline_comment|// p is a patch from commit to other.
+multiline_comment|/* p is a patch from commit to other. */
 DECL|function|fill_line_map
 r_static
 r_void

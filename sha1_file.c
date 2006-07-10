@@ -2216,7 +2216,7 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
-singleline_comment|// We created the struct before we had the pack
+multiline_comment|/* We created the struct before we had the pack */
 id|stat
 c_func
 (paren
@@ -7585,7 +7585,7 @@ r_void
 op_star
 id|buf
 suffix:semicolon
-singleline_comment|// need to unpack and recompress it by itself
+multiline_comment|/* need to unpack and recompress it by itself */
 id|unpacked
 op_assign
 id|read_packed_sha1

@@ -6,14 +6,7 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-singleline_comment|//  --check turns on checking that the working tree matches the
-singleline_comment|//    files that are being modified, but doesn&squot;t apply the patch
-singleline_comment|//  --stat does just a diffstat, and doesn&squot;t actually apply
-singleline_comment|//  --numstat does numeric diffstat, and doesn&squot;t actually apply
-singleline_comment|//  --index-info shows the old and new index info for paths if available.
-singleline_comment|//  --index updates the cache as well.
-singleline_comment|//  --cached updates only the cache without ever touching the working tree.
-singleline_comment|//
+multiline_comment|/*&n; *  --check turns on checking that the working tree matches the&n; *    files that are being modified, but doesn&squot;t apply the patch&n; *  --stat does just a diffstat, and doesn&squot;t actually apply&n; *  --numstat does numeric diffstat, and doesn&squot;t actually apply&n; *  --index-info shows the old and new index info for paths if available.&n; *  --index updates the cache as well.&n; *  --cached updates only the cache without ever touching the working tree.&n; */
 DECL|variable|prefix
 r_static
 r_const
@@ -1211,12 +1204,12 @@ id|first
 op_add_assign
 l_int|4
 suffix:semicolon
-singleline_comment|// skip &quot;--- &quot;
+multiline_comment|/* skip &quot;--- &quot; */
 id|second
 op_add_assign
 l_int|4
 suffix:semicolon
-singleline_comment|// skip &quot;+++ &quot;
+multiline_comment|/* skip &quot;+++ &quot; */
 r_if
 c_cond
 (paren

@@ -298,7 +298,7 @@ l_int|20
 )paren
 )paren
 (brace
-singleline_comment|// we must have already fetched it to clean the queue
+multiline_comment|/* we must have already fetched it to clean the queue */
 r_return
 id|has_sha1_file
 c_func
@@ -389,7 +389,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-singleline_comment|//fprintf(stderr, &quot;Got %d&bslash;n&quot;, remote);
+multiline_comment|/* fprintf(stderr, &quot;Got %d&bslash;n&quot;, remote); */
 r_if
 c_cond
 (paren

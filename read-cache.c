@@ -3316,7 +3316,7 @@ id|size
 op_assign
 l_int|0
 suffix:semicolon
-singleline_comment|// avoid gcc warning
+multiline_comment|/* avoid gcc warning */
 id|map
 op_assign
 id|MAP_FAILED

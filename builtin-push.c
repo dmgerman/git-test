@@ -1474,7 +1474,7 @@ id|repo
 op_assign
 l_string|&quot;origin&quot;
 suffix:semicolon
-singleline_comment|// default repository
+multiline_comment|/* default repository */
 r_for
 c_loop
 (paren
