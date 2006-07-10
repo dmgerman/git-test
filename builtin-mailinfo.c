@@ -1749,7 +1749,7 @@ suffix:semicolon
 )brace
 r_static
 r_void
-id|decode_header_bq
+id|decode_header
 c_func
 (paren
 r_char
@@ -1924,7 +1924,7 @@ l_int|1
 )paren
 (brace
 multiline_comment|/* Unwrap inline B and Q encoding, and optionally&n;&t;&t;&t; * normalize the meta information to utf8.&n;&t;&t;&t; */
-id|decode_header_bq
+id|decode_header
 c_func
 (paren
 id|line
@@ -2974,7 +2974,7 @@ macro_line|#endif
 )brace
 DECL|function|decode_header_bq
 r_static
-r_void
+r_int
 id|decode_header_bq
 c_func
 (paren
@@ -3004,6 +3004,11 @@ id|outbuf
 (braket
 l_int|1000
 )braket
+suffix:semicolon
+r_int
+id|rfc2047
+op_assign
+l_int|0
 suffix:semicolon
 id|in
 op_assign
@@ -3046,6 +3051,10 @@ id|piecebuf
 (braket
 l_int|256
 )braket
+suffix:semicolon
+id|rfc2047
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -3101,6 +3110,7 @@ op_logical_neg
 id|cp
 )paren
 r_return
+id|rfc2047
 suffix:semicolon
 multiline_comment|/* no munging */
 r_for
@@ -3159,6 +3169,7 @@ op_ne
 l_char|&squot;?&squot;
 )paren
 r_return
+id|rfc2047
 suffix:semicolon
 multiline_comment|/* no munging */
 id|ep
@@ -3180,6 +3191,7 @@ op_logical_neg
 id|ep
 )paren
 r_return
+id|rfc2047
 suffix:semicolon
 multiline_comment|/* no munging */
 r_switch
@@ -3195,6 +3207,7 @@ id|encoding
 r_default
 suffix:colon
 r_return
+id|rfc2047
 suffix:semicolon
 multiline_comment|/* no munging */
 r_case
@@ -3246,6 +3259,7 @@ OL
 l_int|0
 )paren
 r_return
+id|rfc2047
 suffix:semicolon
 r_if
 c_cond
@@ -3297,6 +3311,46 @@ c_func
 id|it
 comma
 id|outbuf
+)paren
+suffix:semicolon
+r_return
+id|rfc2047
+suffix:semicolon
+)brace
+DECL|function|decode_header
+r_static
+r_void
+id|decode_header
+c_func
+(paren
+r_char
+op_star
+id|it
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|decode_header_bq
+c_func
+(paren
+id|it
+)paren
+)paren
+r_return
+suffix:semicolon
+multiline_comment|/* otherwise &quot;it&quot; is a straight copy of the input.&n;&t; * This can be binary guck but there is no charset specified.&n;&t; */
+r_if
+c_cond
+(paren
+id|metainfo_charset
+)paren
+id|convert_to_utf8
+c_func
+(paren
+id|it
+comma
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
