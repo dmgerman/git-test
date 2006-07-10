@@ -11,7 +11,7 @@ id|name_rev_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-name-rev [--tags] ( --all | --stdin | commitish [commitish...] )&bslash;n&quot;
+l_string|&quot;git-name-rev [--tags] ( --all | --stdin | committish [committish...] )&bslash;n&quot;
 suffix:semicolon
 DECL|struct|rev_name
 r_typedef

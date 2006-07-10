@@ -843,7 +843,7 @@ c_func
 id|builtin_diff_usage
 )paren
 suffix:semicolon
-multiline_comment|/* We saw two trees, ent[0] and ent[1].&n;&t; * if ent[1] is unintesting, they are swapped&n;&t; */
+multiline_comment|/* We saw two trees, ent[0] and ent[1].&n;&t; * if ent[1] is uninteresting, they are swapped&n;&t; */
 r_if
 c_cond
 (paren

@@ -8431,7 +8431,7 @@ suffix:colon
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * reads from fd as long as possible into a supplied buffer of size bytes.&n; * If neccessary the buffer&squot;s size is increased using realloc()&n; *&n; * returns 0 if anything went fine and -1 otherwise&n; *&n; * NOTE: both buf and size may change, but even when -1 is returned&n; * you still have to free() it yourself.&n; */
+multiline_comment|/*&n; * reads from fd as long as possible into a supplied buffer of size bytes.&n; * If necessary the buffer&squot;s size is increased using realloc()&n; *&n; * returns 0 if anything went fine and -1 otherwise&n; *&n; * NOTE: both buf and size may change, but even when -1 is returned&n; * you still have to free() it yourself.&n; */
 DECL|function|read_pipe
 r_int
 id|read_pipe

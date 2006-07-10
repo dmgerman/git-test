@@ -274,7 +274,7 @@ id|got_snake
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We need to extent the diagonal &quot;domain&quot; by one. If the next&n;&t;&t; * values exits the box boundaries we need to change it in the&n;&t;&t; * opposite direction because (max - min) must be a power of two.&n;&t;&t; * Also we initialize the extenal K value to -1 so that we can&n;&t;&t; * avoid extra conditions check inside the core loop.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We need to extent the diagonal &quot;domain&quot; by one. If the next&n;&t;&t; * values exits the box boundaries we need to change it in the&n;&t;&t; * opposite direction because (max - min) must be a power of two.&n;&t;&t; * Also we initialize the external K value to -1 so that we can&n;&t;&t; * avoid extra conditions check inside the core loop.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -465,7 +465,7 @@ id|ec
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t;&t; * We need to extent the diagonal &quot;domain&quot; by one. If the next&n;&t;&t; * values exits the box boundaries we need to change it in the&n;&t;&t; * opposite direction because (max - min) must be a power of two.&n;&t;&t; * Also we initialize the extenal K value to -1 so that we can&n;&t;&t; * avoid extra conditions check inside the core loop.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We need to extent the diagonal &quot;domain&quot; by one. If the next&n;&t;&t; * values exits the box boundaries we need to change it in the&n;&t;&t; * opposite direction because (max - min) must be a power of two.&n;&t;&t; * Also we initialize the external K value to -1 so that we can&n;&t;&t; * avoid extra conditions check inside the core loop.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1949,7 +1949,7 @@ id|recs
 op_assign
 id|xdf-&gt;recs
 suffix:semicolon
-multiline_comment|/*&n;&t; * This is the same of what GNU diff does. Move back and forward&n;&t; * change groups for a consistent and pretty diff output. This also&n;&t; * helps in finding joineable change groups and reduce the diff size.&n;&t; */
+multiline_comment|/*&n;&t; * This is the same of what GNU diff does. Move back and forward&n;&t; * change groups for a consistent and pretty diff output. This also&n;&t; * helps in finding joinable change groups and reduce the diff size.&n;&t; */
 r_for
 c_loop
 (paren

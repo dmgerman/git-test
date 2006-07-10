@@ -507,7 +507,7 @@ r_else
 id|error
 c_func
 (paren
-l_string|&quot;more than %d URL&squot;s specified, ignoreing the rest&quot;
+l_string|&quot;more than %d URL&squot;s specified, ignoring the rest&quot;
 comma
 id|MAX_URI
 )paren

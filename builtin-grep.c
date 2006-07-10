@@ -4770,7 +4770,7 @@ id|opt.regflags
 op_assign
 id|REG_NEWLINE
 suffix:semicolon
-multiline_comment|/*&n;&t; * If there is no -- then the paths must exist in the working&n;&t; * tree.  If there is no explicit pattern specified with -e or&n;&t; * -f, we take the first unrecognized non option to be the&n;&t; * pattern, but then what follows it must be zero or more&n;&t; * valid refs up to the -- (if exists), and then existing&n;&t; * paths.  If there is an explicit pattern, then the first&n;&t; * unrecocnized non option is the beginning of the refs list&n;&t; * that continues up to the -- (if exists), and then paths.&n;&t; */
+multiline_comment|/*&n;&t; * If there is no -- then the paths must exist in the working&n;&t; * tree.  If there is no explicit pattern specified with -e or&n;&t; * -f, we take the first unrecognized non option to be the&n;&t; * pattern, but then what follows it must be zero or more&n;&t; * valid refs up to the -- (if exists), and then existing&n;&t; * paths.  If there is an explicit pattern, then the first&n;&t; * unrecognized non option is the beginning of the refs list&n;&t; * that continues up to the -- (if exists), and then paths.&n;&t; */
 r_while
 c_loop
 (paren

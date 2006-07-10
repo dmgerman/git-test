@@ -3704,7 +3704,7 @@ l_int|6
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Make sure we don&squot;t find any unconnected patch fragmants.&n;&t;&t; * That&squot;s a sign that we didn&squot;t find a header, and that a&n;&t;&t; * patch has become corrupted/broken up.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Make sure we don&squot;t find any unconnected patch fragments.&n;&t;&t; * That&squot;s a sign that we didn&squot;t find a header, and that a&n;&t;&t; * patch has become corrupted/broken up.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -4635,7 +4635,7 @@ op_star
 id|patch
 )paren
 (brace
-multiline_comment|/* We have read &quot;GIT binary patch&bslash;n&quot;; what follows is a line&n;&t; * that says the patch method (currently, either &quot;deflated&n;&t; * literal&quot; or &quot;deflated delta&quot;) and the length of data before&n;&t; * deflating; a sequence of &squot;length-byte&squot; followed by base-85&n;&t; * encoded data follows.&n;&t; *&n;&t; * Each 5-byte sequence of base-85 encodes up to 4 bytes,&n;&t; * and we would limit the patch line to 66 characters,&n;&t; * so one line can fit up to 13 groups that would decode&n;&t; * to 52 bytes max.  The length byte &squot;A&squot;-&squot;Z&squot; corresponds&n;&t; * to 1-26 bytes, and &squot;a&squot;-&squot;z&squot; corresponds to 27-52 bytes.&n;&t; * The end of binary is signalled with an empty line.&n;&t; */
+multiline_comment|/* We have read &quot;GIT binary patch&bslash;n&quot;; what follows is a line&n;&t; * that says the patch method (currently, either &quot;deflated&n;&t; * literal&quot; or &quot;deflated delta&quot;) and the length of data before&n;&t; * deflating; a sequence of &squot;length-byte&squot; followed by base-85&n;&t; * encoded data follows.&n;&t; *&n;&t; * Each 5-byte sequence of base-85 encodes up to 4 bytes,&n;&t; * and we would limit the patch line to 66 characters,&n;&t; * so one line can fit up to 13 groups that would decode&n;&t; * to 52 bytes max.  The length byte &squot;A&squot;-&squot;Z&squot; corresponds&n;&t; * to 1-26 bytes, and &squot;a&squot;-&squot;z&squot; corresponds to 27-52 bytes.&n;&t; * The end of binary is signaled with an empty line.&n;&t; */
 r_int
 id|llen
 comma

@@ -1617,7 +1617,7 @@ r_int
 r_int
 id|i
 suffix:semicolon
-multiline_comment|/* Two groups of interesting lines may have a short gap of&n;&t; * unintersting lines.  Connect such groups to give them a&n;&t; * bit of context.&n;&t; *&n;&t; * We first start from what the interesting() function says,&n;&t; * and mark them with &quot;mark&quot;, and paint context lines with the&n;&t; * mark.  So interesting() would still say false for such context&n;&t; * lines but they are treated as &quot;interesting&quot; in the end.&n;&t; */
+multiline_comment|/* Two groups of interesting lines may have a short gap of&n;&t; * uninteresting lines.  Connect such groups to give them a&n;&t; * bit of context.&n;&t; *&n;&t; * We first start from what the interesting() function says,&n;&t; * and mark them with &quot;mark&quot;, and paint context lines with the&n;&t; * mark.  So interesting() would still say false for such context&n;&t; * lines but they are treated as &quot;interesting&quot; in the end.&n;&t; */
 id|i
 op_assign
 id|find_next

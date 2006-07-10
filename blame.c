@@ -24,11 +24,11 @@ id|blame_usage
 )braket
 op_assign
 l_string|&quot;[-c] [-l] [-t] [-S &lt;revs-file&gt;] [--] file [commit]&bslash;n&quot;
-l_string|&quot;  -c, --compability Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
-l_string|&quot;  -l, --long        Show long commit SHA1 (Default: off)&bslash;n&quot;
-l_string|&quot;  -t, --time        Show raw timestamp (Default: off)&bslash;n&quot;
-l_string|&quot;  -S, --revs-file   Use revisions from revs-file instead of calling git-rev-list&bslash;n&quot;
-l_string|&quot;  -h, --help        This message&quot;
+l_string|&quot;  -c, --compatibility Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
+l_string|&quot;  -l, --long          Show long commit SHA1 (Default: off)&bslash;n&quot;
+l_string|&quot;  -t, --time          Show raw timestamp (Default: off)&bslash;n&quot;
+l_string|&quot;  -S, --revs-file     Use revisions from revs-file instead of calling git-rev-list&bslash;n&quot;
+l_string|&quot;  -h, --help          This message&quot;
 suffix:semicolon
 DECL|variable|blame_lines
 r_static
@@ -3751,7 +3751,7 @@ op_assign
 l_int|8
 suffix:semicolon
 r_int
-id|compability
+id|compatibility
 op_assign
 l_int|0
 suffix:semicolon
@@ -3935,11 +3935,11 @@ id|argv
 id|i
 )braket
 comma
-l_string|&quot;--compability&quot;
+l_string|&quot;--compatibility&quot;
 )paren
 )paren
 (brace
-id|compability
+id|compatibility
 op_assign
 l_int|1
 suffix:semicolon
@@ -4024,7 +4024,7 @@ id|sha1_p
 )paren
 )paren
 (brace
-id|compability
+id|compatibility
 op_assign
 l_int|1
 suffix:semicolon
@@ -4593,7 +4593,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|compability
+id|compatibility
 )paren
 (brace
 id|printf

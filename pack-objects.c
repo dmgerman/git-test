@@ -104,7 +104,7 @@ id|object_entry
 op_star
 id|delta_child
 suffix:semicolon
-multiline_comment|/* delitified objects who bases me */
+multiline_comment|/* deltified objects who bases me */
 DECL|member|delta_sibling
 r_struct
 id|object_entry
@@ -119,7 +119,7 @@ suffix:semicolon
 multiline_comment|/* we do not pack this, but is encouraged to&n;&t;&t;&t;&t; * be used as the base objectto delta huge&n;&t;&t;&t;&t; * objects against.&n;&t;&t;&t;&t; */
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Objects we are going to pack are colected in objects array (dynamically&n; * expanded).  nr_objects &amp; nr_alloc controls this array.  They are stored&n; * in the order we see -- typically rev-list --objects order that gives us&n; * nice &quot;minimum seek&quot; order.&n; *&n; * sorted-by-sha ans sorted-by-type are arrays of pointers that point at&n; * elements in the objects array.  The former is used to build the pack&n; * index (lists object names in the ascending order to help offset lookup),&n; * and the latter is used to group similar things together by try_delta()&n; * heuristics.&n; */
+multiline_comment|/*&n; * Objects we are going to pack are collected in objects array (dynamically&n; * expanded).  nr_objects &amp; nr_alloc controls this array.  They are stored&n; * in the order we see -- typically rev-list --objects order that gives us&n; * nice &quot;minimum seek&quot; order.&n; *&n; * sorted-by-sha ans sorted-by-type are arrays of pointers that point at&n; * elements in the objects array.  The former is used to build the pack&n; * index (lists object names in the ascending order to help offset lookup),&n; * and the latter is used to group similar things together by try_delta()&n; * heuristics.&n; */
 DECL|variable|object_list_sha1
 r_static
 r_int

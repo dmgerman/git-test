@@ -14,7 +14,7 @@ id|git_usage
 op_assign
 l_string|&quot;Usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--help] COMMAND [ ARGS ]&quot;
 suffix:semicolon
-multiline_comment|/* most gui terms set COLUMNS (although some don&squot;t export it) */
+multiline_comment|/* most GUI terminals set COLUMNS (although some don&squot;t export it) */
 DECL|function|term_columns
 r_static
 r_int
