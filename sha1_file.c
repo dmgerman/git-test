@@ -3434,6 +3434,7 @@ id|map
 suffix:semicolon
 )brace
 DECL|function|unpack_sha1_header
+r_static
 r_int
 id|unpack_sha1_header
 c_func
@@ -3626,6 +3627,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * We used to just use &quot;sscanf()&quot;, but that&squot;s actually way&n; * too permissive for what we want to check. So do an anal&n; * object header parse by hand.&n; */
 DECL|function|parse_sha1_header
+r_static
 r_int
 id|parse_sha1_header
 c_func
