@@ -2138,11 +2138,6 @@ id|errno
 )paren
 suffix:semicolon
 )brace
-id|setup_ident
-c_func
-(paren
-)paren
-suffix:semicolon
 id|committer
 op_assign
 id|git_committer_info
