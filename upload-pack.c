@@ -1746,7 +1746,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 (brace
 r_struct
@@ -2447,7 +2447,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 id|o

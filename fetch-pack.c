@@ -196,7 +196,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 id|rev_list_push
 c_func
@@ -1145,7 +1145,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 r_struct
@@ -1189,7 +1189,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 (brace
 r_struct
@@ -1665,7 +1665,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 (brace
 r_struct
@@ -1756,7 +1756,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 op_logical_or
 op_logical_neg
 (paren

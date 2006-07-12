@@ -544,7 +544,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 (brace
 r_if
@@ -573,7 +573,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 (brace
 r_if
@@ -602,7 +602,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_BLOB
+id|OBJ_BLOB
 )paren
 (brace
 r_return
@@ -614,7 +614,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 r_if
