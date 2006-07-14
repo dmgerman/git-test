@@ -717,16 +717,6 @@ id|stderr
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* insert after command name */
-r_if
-c_cond
-(paren
-op_star
-id|argcp
-OG
-l_int|1
-)paren
-(brace
 id|new_argv
 op_assign
 id|realloc
@@ -745,9 +735,12 @@ id|count
 op_plus
 op_star
 id|argcp
+op_plus
+l_int|1
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/* insert after command name */
 id|memcpy
 c_func
 (paren
@@ -770,7 +763,16 @@ op_star
 id|argcp
 )paren
 suffix:semicolon
-)brace
+id|new_argv
+(braket
+id|count
+op_plus
+op_star
+id|argcp
+)braket
+op_assign
+l_int|NULL
+suffix:semicolon
 op_star
 id|argv
 op_assign
