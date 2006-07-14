@@ -246,7 +246,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 (brace
 r_if
@@ -419,7 +419,7 @@ id|ret-&gt;object
 suffix:semicolon
 id|ret-&gt;object.type
 op_assign
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 suffix:semicolon
 r_return
 id|ret
@@ -433,7 +433,7 @@ id|obj-&gt;type
 )paren
 id|obj-&gt;type
 op_assign
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 suffix:semicolon
 r_return
 id|check_commit

@@ -808,7 +808,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 id|process_tag
@@ -835,7 +835,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 (brace
 id|process_tree
@@ -864,7 +864,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_BLOB
+id|OBJ_BLOB
 )paren
 (brace
 id|process_blob

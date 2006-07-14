@@ -63,13 +63,22 @@ op_assign
 (brace
 l_string|&quot;none&quot;
 comma
-l_string|&quot;blob&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;tree&quot;
 comma
-l_string|&quot;commit&quot;
+l_string|&quot;blob&quot;
+comma
+l_string|&quot;tag&quot;
+comma
+l_string|&quot;bad type 5&quot;
+comma
+l_string|&quot;bad type 6&quot;
+comma
+l_string|&quot;delta&quot;
 comma
 l_string|&quot;bad&quot;
+comma
 )brace
 suffix:semicolon
 DECL|function|hash_obj
@@ -437,7 +446,7 @@ l_int|0
 suffix:semicolon
 id|obj-&gt;type
 op_assign
-id|TYPE_NONE
+id|OBJ_NONE
 suffix:semicolon
 id|obj-&gt;flags
 op_assign
@@ -722,7 +731,7 @@ id|ret-&gt;object
 suffix:semicolon
 id|ret-&gt;object.type
 op_assign
-id|TYPE_NONE
+id|OBJ_NONE
 suffix:semicolon
 r_return
 op_amp
