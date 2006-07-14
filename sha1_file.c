@@ -6833,6 +6833,10 @@ id|filename
 r_int
 id|ret
 suffix:semicolon
+r_char
+op_star
+id|dir
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6848,21 +6852,11 @@ id|filename
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * Try to mkdir the last path component if that failed&n;&t; * with an ENOENT.&n;&t; *&n;&t; * Re-try the &quot;link()&quot; regardless of whether the mkdir&n;&t; * succeeds, since a race might mean that somebody&n;&t; * else succeeded.&n;&t; */
+multiline_comment|/*&n;&t; * Try to mkdir the last path component if that failed.&n;&t; *&n;&t; * Re-try the &quot;link()&quot; regardless of whether the mkdir&n;&t; * succeeds, since a race might mean that somebody&n;&t; * else succeeded.&n;&t; */
 id|ret
 op_assign
 id|errno
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|ret
-op_eq
-id|ENOENT
-)paren
-(brace
-r_char
-op_star
 id|dir
 op_assign
 id|strrchr
@@ -6928,7 +6922,6 @@ id|ret
 op_assign
 id|errno
 suffix:semicolon
-)brace
 )brace
 r_return
 id|ret
