@@ -4523,7 +4523,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_BLOB
+id|OBJ_BLOB
 )paren
 r_return
 id|grep_sha1
@@ -4541,11 +4541,11 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 op_logical_or
 id|obj-&gt;type
 op_eq
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 (brace
 r_struct

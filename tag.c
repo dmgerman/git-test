@@ -36,7 +36,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 id|o
 op_assign
@@ -146,7 +146,7 @@ id|ret-&gt;object
 suffix:semicolon
 id|ret-&gt;object.type
 op_assign
-id|TYPE_TAG
+id|OBJ_TAG
 suffix:semicolon
 r_return
 id|ret
@@ -160,14 +160,14 @@ id|obj-&gt;type
 )paren
 id|obj-&gt;type
 op_assign
-id|TYPE_TAG
+id|OBJ_TAG
 suffix:semicolon
 r_if
 c_cond
 (paren
 id|obj-&gt;type
 op_ne
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 id|error

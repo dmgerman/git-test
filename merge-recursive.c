@@ -8139,7 +8139,7 @@ c_cond
 (paren
 id|object-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 l_int|NULL

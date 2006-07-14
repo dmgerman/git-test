@@ -343,7 +343,7 @@ c_cond
 (paren
 id|object-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 id|prio
 op_assign

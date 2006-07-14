@@ -2137,7 +2137,7 @@ l_char|&squot;}&squot;
 )paren
 id|expected_type
 op_assign
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 suffix:semicolon
 r_else
 r_if
@@ -2163,7 +2163,7 @@ l_char|&squot;}&squot;
 )paren
 id|expected_type
 op_assign
-id|TYPE_TREE
+id|OBJ_TREE
 suffix:semicolon
 r_else
 r_if
@@ -2189,7 +2189,7 @@ l_char|&squot;}&squot;
 )paren
 id|expected_type
 op_assign
-id|TYPE_BLOB
+id|OBJ_BLOB
 suffix:semicolon
 r_else
 r_if
@@ -2204,7 +2204,7 @@ l_char|&squot;}&squot;
 )paren
 id|expected_type
 op_assign
-id|TYPE_NONE
+id|OBJ_NONE
 suffix:semicolon
 r_else
 r_return
@@ -2355,7 +2355,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 id|o
 op_assign
@@ -2376,7 +2376,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 id|o
 op_assign

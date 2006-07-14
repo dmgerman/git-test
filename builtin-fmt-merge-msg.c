@@ -1162,7 +1162,7 @@ id|branch
 op_logical_or
 id|branch-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 suffix:semicolon
