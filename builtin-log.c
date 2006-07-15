@@ -5,6 +5,8 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &lt;time.h&gt;
+macro_line|#include &lt;sys/time.h&gt;
 multiline_comment|/* this is in builtin-diff.c */
 r_void
 id|add_head
@@ -1351,19 +1353,28 @@ id|dest
 comma
 id|length
 comma
-l_string|&quot;%s.%u.git.%.*s&quot;
+l_string|&quot;%s.%lu.git.%.*s&quot;
 comma
 id|base
 comma
+(paren
+r_int
+r_int
+)paren
 id|time
 c_func
 (paren
 l_int|NULL
 )paren
 comma
+(paren
+r_int
+)paren
+(paren
 id|email_end
 id|email_start
 l_int|1
+)paren
 comma
 id|email_start
 op_plus
@@ -1449,6 +1460,7 @@ id|thread
 op_assign
 l_int|0
 suffix:semicolon
+r_const
 r_char
 op_star
 id|in_reply_to
