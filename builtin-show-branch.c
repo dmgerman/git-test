@@ -748,7 +748,7 @@ op_logical_neg
 id|commit-&gt;object.flags
 )paren
 (brace
-id|insert_by_date
+id|commit_list_insert
 c_func
 (paren
 id|commit
@@ -979,7 +979,7 @@ id|list_p
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Postprocess to complete well-poisoning.&n;&t; *&n;&t; * At this point we have all the commits we have seen in&n;&t; * seen_p list (which happens to be sorted chronologically but&n;&t; * it does not really matter).  Mark anything that can be&n;&t; * reached from uninteresting commits not interesting.&n;&t; */
+multiline_comment|/*&n;&t; * Postprocess to complete well-poisoning.&n;&t; *&n;&t; * At this point we have all the commits we have seen in&n;&t; * seen_p list.  Mark anything that can be reached from&n;&t; * uninteresting commits not interesting.&n;&t; */
 r_for
 c_loop
 (paren
@@ -3738,6 +3738,13 @@ comma
 id|num_rev
 comma
 id|extra
+)paren
+suffix:semicolon
+id|sort_by_date
+c_func
+(paren
+op_amp
+id|seen
 )paren
 suffix:semicolon
 r_if
