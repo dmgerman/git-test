@@ -9998,6 +9998,10 @@ c_cond
 id|errno
 op_eq
 id|EEXIST
+op_logical_or
+id|errno
+op_eq
+id|EACCES
 )paren
 (brace
 multiline_comment|/* We may be trying to create a file where a directory&n;&t;&t; * used to be.&n;&t;&t; */
