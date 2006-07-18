@@ -962,6 +962,11 @@ id|pu
 comma
 id|pollsize
 suffix:semicolon
+id|reset_timeout
+c_func
+(paren
+)paren
+suffix:semicolon
 id|pollsize
 op_assign
 l_int|0
