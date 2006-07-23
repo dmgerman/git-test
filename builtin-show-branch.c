@@ -348,6 +348,9 @@ id|i
 op_increment
 suffix:semicolon
 )brace
+r_else
+r_break
+suffix:semicolon
 id|c
 op_assign
 id|p
