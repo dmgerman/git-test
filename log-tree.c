@@ -593,7 +593,15 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%s%s&quot;
+l_string|&quot;%s%s%s&quot;
+comma
+id|diff_get_color
+c_func
+(paren
+id|opt-&gt;diffopt.color_diff
+comma
+id|DIFF_COMMIT
+)paren
 comma
 id|opt-&gt;commit_format
 op_eq
@@ -656,6 +664,20 @@ c_cond
 l_char|&squot; &squot;
 suffix:colon
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|diff_get_color
+c_func
+(paren
+id|opt-&gt;diffopt.color_diff
+comma
+id|DIFF_RESET
+)paren
 )paren
 suffix:semicolon
 )brace
