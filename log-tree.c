@@ -653,19 +653,6 @@ id|abbrev_commit
 )paren
 )paren
 suffix:semicolon
-id|putchar
-c_func
-(paren
-id|opt-&gt;commit_format
-op_eq
-id|CMIT_FMT_ONELINE
-ques
-c_cond
-l_char|&squot; &squot;
-suffix:colon
-l_char|&squot;&bslash;n&squot;
-)paren
-suffix:semicolon
 id|printf
 c_func
 (paren
@@ -678,6 +665,19 @@ id|opt-&gt;diffopt.color_diff
 comma
 id|DIFF_RESET
 )paren
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
+id|opt-&gt;commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+ques
+c_cond
+l_char|&squot; &squot;
+suffix:colon
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
