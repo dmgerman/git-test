@@ -495,6 +495,34 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|opt-&gt;message_id
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;Message-Id: &lt;%s&gt;&bslash;n&quot;
+comma
+id|opt-&gt;message_id
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;ref_message_id
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;In-Reply-To: &lt;%s&gt;&bslash;nReferences: &lt;%s&gt;&bslash;n&quot;
+comma
+id|opt-&gt;ref_message_id
+comma
+id|opt-&gt;ref_message_id
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|opt-&gt;mime_boundary
 )paren
 (brace
