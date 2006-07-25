@@ -2482,6 +2482,8 @@ c_func
 id|merge
 comma
 id|ADD_CACHE_OK_TO_ADD
+op_or
+id|ADD_CACHE_OK_TO_REPLACE
 )paren
 suffix:semicolon
 r_return
@@ -2535,6 +2537,8 @@ c_func
 id|ce
 comma
 id|ADD_CACHE_OK_TO_ADD
+op_or
+id|ADD_CACHE_OK_TO_REPLACE
 )paren
 suffix:semicolon
 id|invalidate_ce_path
