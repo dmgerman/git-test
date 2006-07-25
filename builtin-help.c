@@ -1266,10 +1266,17 @@ r_char
 op_star
 id|help_cmd
 op_assign
+id|argc
+OG
+l_int|1
+ques
+c_cond
 id|argv
 (braket
 l_int|1
 )braket
+suffix:colon
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
