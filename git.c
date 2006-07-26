@@ -1110,6 +1110,12 @@ comma
 id|cmd_prune
 )brace
 comma
+(brace
+l_string|&quot;mv&quot;
+comma
+id|cmd_mv
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
