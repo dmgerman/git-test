@@ -1427,8 +1427,12 @@ c_cond
 id|pull
 c_func
 (paren
+l_int|1
+comma
+op_amp
 id|commit_id
 comma
+op_amp
 id|write_ref
 comma
 id|path
