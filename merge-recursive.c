@@ -120,7 +120,7 @@ r_return
 id|commit
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * TODO: we should not have to copy the SHA1s around, but rather reference&n; * them. That way, sha_eq() is just sha1 == sha2.&n; */
+multiline_comment|/*&n; * Since we use get_tree_entry(), which does not put the read object into&n; * the object pool, we cannot rely on a == b.&n; */
 DECL|function|sha_eq
 r_static
 r_int
@@ -170,7 +170,7 @@ op_eq
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * TODO: check if we can just reuse the active_cache structure: it is already&n; * sorted (by name, stage).&n; * Only problem: do not write it when flushing the cache.&n; */
+multiline_comment|/*&n; * Since we want to write the index eventually, we cannot reuse the index&n; * for these (temporary) data.&n; */
 DECL|struct|stage_data
 r_struct
 id|stage_data
