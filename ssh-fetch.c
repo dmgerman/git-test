@@ -599,7 +599,7 @@ id|ssh_fetch_usage
 )braket
 op_assign
 id|MY_PROGRAM_NAME
-l_string|&quot; [-c] [-t] [-a] [-v] [-d] [--recover] [-w ref] commit-id url&quot;
+l_string|&quot; [-c] [-t] [-a] [-v] [--recover] [-w ref] commit-id url&quot;
 suffix:semicolon
 DECL|function|main
 r_int

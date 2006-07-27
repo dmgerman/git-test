@@ -1140,9 +1140,9 @@ id|local_pull_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-local-fetch [-c] [-t] [-a] [-d] [-v] [-w filename] [--recover] [-l] [-s] [-n] commit-id path&quot;
+l_string|&quot;git-local-fetch [-c] [-t] [-a] [-v] [-w filename] [--recover] [-l] [-s] [-n] commit-id path&quot;
 suffix:semicolon
-multiline_comment|/* &n; * By default we only use file copy.&n; * If -l is specified, a hard link is attempted.&n; * If -s is specified, then a symlink is attempted.&n; * If -n is _not_ specified, then a regular file-to-file copy is done.&n; */
+multiline_comment|/*&n; * By default we only use file copy.&n; * If -l is specified, a hard link is attempted.&n; * If -s is specified, then a symlink is attempted.&n; * If -n is _not_ specified, then a regular file-to-file copy is done.&n; */
 DECL|function|main
 r_int
 id|main

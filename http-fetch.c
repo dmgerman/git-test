@@ -6412,7 +6412,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-http-fetch [-c] [-t] [-a] [-d] [-v] [--recover] [-w ref] commit-id url&quot;
+l_string|&quot;git-http-fetch [-c] [-t] [-a] [-v] [--recover] [-w ref] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return
