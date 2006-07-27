@@ -6,22 +6,6 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;refs.h&quot;
-DECL|variable|write_ref
-r_const
-r_char
-op_star
-id|write_ref
-op_assign
-l_int|NULL
-suffix:semicolon
-DECL|variable|write_ref_log_details
-r_const
-r_char
-op_star
-id|write_ref_log_details
-op_assign
-l_int|NULL
-suffix:semicolon
 DECL|variable|get_tree
 r_int
 id|get_tree
@@ -987,6 +971,16 @@ c_func
 r_char
 op_star
 id|target
+comma
+r_const
+r_char
+op_star
+id|write_ref
+comma
+r_const
+r_char
+op_star
+id|write_ref_log_details
 )paren
 (brace
 r_struct

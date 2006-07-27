@@ -1157,6 +1157,13 @@ op_star
 id|argv
 )paren
 (brace
+r_const
+r_char
+op_star
+id|write_ref
+op_assign
+l_int|NULL
+suffix:semicolon
 r_char
 op_star
 id|commit_id
@@ -1414,10 +1421,6 @@ op_plus
 l_int|1
 )braket
 suffix:semicolon
-id|write_ref_log_details
-op_assign
-id|path
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1425,6 +1428,10 @@ id|pull
 c_func
 (paren
 id|commit_id
+comma
+id|write_ref
+comma
+id|path
 )paren
 )paren
 r_return
