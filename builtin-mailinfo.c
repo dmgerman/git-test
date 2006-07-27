@@ -2290,6 +2290,7 @@ c_cond
 op_logical_neg
 id|ofs
 op_logical_and
+(paren
 op_logical_neg
 id|memcmp
 c_func
@@ -2299,6 +2300,18 @@ comma
 l_string|&quot;From &quot;
 comma
 l_int|5
+)paren
+op_logical_or
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|line
+comma
+l_string|&quot;&gt;From &quot;
+comma
+l_int|6
+)paren
 )paren
 )paren
 id|ofs
