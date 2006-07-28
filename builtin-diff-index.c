@@ -47,13 +47,6 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
-id|git_config
-c_func
-(paren
-id|git_default_config
-)paren
-suffix:semicolon
-multiline_comment|/* no &quot;diff&quot; UI options */
 id|init_revisions
 c_func
 (paren
@@ -61,6 +54,13 @@ op_amp
 id|rev
 )paren
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
+multiline_comment|/* no &quot;diff&quot; UI options */
 id|rev.abbrev
 op_assign
 l_int|0

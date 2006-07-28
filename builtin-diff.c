@@ -1183,17 +1183,24 @@ l_int|2
 )braket
 suffix:semicolon
 multiline_comment|/*&n;&t; * We could get N tree-ish in the rev.pending_objects list.&n;&t; * Also there could be M blobs there, and P pathspecs.&n;&t; *&n;&t; * N=0, M=0:&n;&t; *&t;cache vs files (diff-files)&n;&t; * N=0, M=2:&n;&t; *      compare two random blobs.  P must be zero.&n;&t; * N=0, M=1, P=1:&n;&t; *&t;compare a blob with a working tree file.&n;&t; *&n;&t; * N=1, M=0:&n;&t; *      tree vs cache (diff-index --cached)&n;&t; *&n;&t; * N=2, M=0:&n;&t; *      tree vs tree (diff-tree)&n;&t; *&n;&t; * Other cases are errors.&n;&t; */
+id|init_revisions
+c_func
+(paren
+op_amp
+id|rev
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
 id|git_diff_ui_config
 )paren
 suffix:semicolon
-id|init_revisions
+id|diff_setup
 c_func
 (paren
 op_amp
-id|rev
+id|rev.diffopt
 )paren
 suffix:semicolon
 id|argc
