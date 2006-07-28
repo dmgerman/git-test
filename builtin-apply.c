@@ -7302,6 +7302,26 @@ r_void
 op_star
 id|result
 suffix:semicolon
+multiline_comment|/* Binary patch is irreversible */
+r_if
+c_cond
+(paren
+id|patch-&gt;is_reverse
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;cannot reverse-apply a binary patch to &squot;%s&squot;&quot;
+comma
+id|patch-&gt;new_name
+ques
+c_cond
+id|patch-&gt;new_name
+suffix:colon
+id|patch-&gt;old_name
+)paren
+suffix:semicolon
 id|data
 op_assign
 id|inflate_it
