@@ -1211,6 +1211,8 @@ r_if
 c_cond
 (paren
 id|write_ref
+op_logical_and
+id|write_ref
 (braket
 id|targets
 )braket
@@ -1323,6 +1325,9 @@ op_increment
 r_if
 c_cond
 (paren
+op_logical_neg
+id|write_ref
+op_logical_or
 op_logical_neg
 id|write_ref
 (braket
@@ -1528,6 +1533,9 @@ op_increment
 r_if
 c_cond
 (paren
+op_logical_neg
+id|write_ref
+op_logical_or
 op_logical_neg
 id|write_ref
 (braket
