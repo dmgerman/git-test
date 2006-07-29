@@ -33,10 +33,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 comma
 r_struct
 id|rev_info
@@ -191,10 +191,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_struct
@@ -212,6 +212,8 @@ c_func
 (paren
 op_amp
 id|rev
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|rev.diff
@@ -233,7 +235,7 @@ id|argc
 comma
 id|argv
 comma
-id|envp
+id|prefix
 comma
 op_amp
 id|rev
@@ -272,10 +274,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_struct
@@ -293,6 +295,8 @@ c_func
 (paren
 op_amp
 id|rev
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|rev.diff
@@ -330,7 +334,7 @@ id|argc
 comma
 id|argv
 comma
-id|envp
+id|prefix
 comma
 op_amp
 id|rev
@@ -359,10 +363,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_struct
@@ -380,6 +384,8 @@ c_func
 (paren
 op_amp
 id|rev
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|rev.always_show_header
@@ -393,7 +399,7 @@ id|argc
 comma
 id|argv
 comma
-id|envp
+id|prefix
 comma
 op_amp
 id|rev
@@ -997,6 +1003,11 @@ r_struct
 id|diff_options
 op_star
 id|options
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_struct
@@ -1121,6 +1132,8 @@ c_func
 (paren
 op_amp
 id|check_rev
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|o1-&gt;flags
@@ -1396,10 +1409,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_struct
@@ -1500,6 +1513,8 @@ c_func
 (paren
 op_amp
 id|rev
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|rev.commit_format
@@ -2222,6 +2237,8 @@ id|rev
 comma
 op_amp
 id|patch_id_opts
+comma
+id|prefix
 )paren
 suffix:semicolon
 r_if

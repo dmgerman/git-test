@@ -29,10 +29,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_struct
@@ -44,6 +44,15 @@ id|silent
 op_assign
 l_int|0
 suffix:semicolon
+id|init_revisions
+c_func
+(paren
+op_amp
+id|rev
+comma
+id|prefix
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -51,13 +60,6 @@ id|git_default_config
 )paren
 suffix:semicolon
 multiline_comment|/* no &quot;diff&quot; UI options */
-id|init_revisions
-c_func
-(paren
-op_amp
-id|rev
-)paren
-suffix:semicolon
 id|rev.abbrev
 op_assign
 l_int|0

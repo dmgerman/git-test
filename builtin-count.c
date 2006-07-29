@@ -402,10 +402,10 @@ op_star
 op_star
 id|av
 comma
+r_const
 r_char
 op_star
-op_star
-id|ep
+id|prefix
 )paren
 (brace
 r_int
