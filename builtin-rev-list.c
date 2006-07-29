@@ -1421,6 +1421,11 @@ c_func
 (paren
 op_amp
 id|revs
+comma
+id|setup_git_directory
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|revs.abbrev

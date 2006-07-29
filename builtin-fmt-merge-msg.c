@@ -1545,6 +1545,16 @@ comma
 op_star
 id|current_branch
 suffix:semicolon
+r_const
+r_char
+op_star
+id|prefix
+op_assign
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -2099,6 +2109,8 @@ c_func
 (paren
 op_amp
 id|rev
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|rev.commit_format

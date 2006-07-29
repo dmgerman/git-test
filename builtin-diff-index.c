@@ -52,6 +52,11 @@ c_func
 (paren
 op_amp
 id|rev
+comma
+id|setup_git_directory
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|git_config

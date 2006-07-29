@@ -366,6 +366,11 @@ id|init_revisions
 c_func
 (paren
 id|opt
+comma
+id|setup_git_directory
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|git_config
