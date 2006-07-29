@@ -89,6 +89,12 @@ DECL|variable|pager_in_use
 r_int
 id|pager_in_use
 suffix:semicolon
+DECL|variable|pager_use_color
+r_int
+id|pager_use_color
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
