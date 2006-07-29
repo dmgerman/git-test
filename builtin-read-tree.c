@@ -4194,10 +4194,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_int
@@ -4241,11 +4241,6 @@ suffix:semicolon
 id|state.refresh_cache
 op_assign
 l_int|1
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 id|git_config
 c_func
