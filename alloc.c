@@ -9,7 +9,6 @@ DECL|macro|BLOCKING
 mdefine_line|#define BLOCKING 1024
 DECL|macro|DEFINE_ALLOCATOR
 mdefine_line|#define DEFINE_ALLOCATOR(name)&t;&t;&t;&t;&t;&bslash;&n;static unsigned int name##_allocs;&t;&t;&t;&t;&bslash;&n;struct name *alloc_##name##_node(void)&t;&t;&t;&t;&bslash;&n;{&t;&t;&t;&t;&t;&t;&t;&t;&bslash;&n;&t;static int nr;&t;&t;&t;&t;&t;&t;&bslash;&n;&t;static struct name *block;&t;&t;&t;&t;&bslash;&n;&t;&t;&t;&t;&t;&t;&t;&t;&bslash;&n;&t;if (!nr) {&t;&t;&t;&t;&t;&t;&bslash;&n;&t;&t;nr = BLOCKING;&t;&t;&t;&t;&t;&bslash;&n;&t;&t;block = xcalloc(BLOCKING, sizeof(struct name));&t;&bslash;&n;&t;}&t;&t;&t;&t;&t;&t;&t;&bslash;&n;&t;nr--;&t;&t;&t;&t;&t;&t;&t;&bslash;&n;&t;name##_allocs++;&t;&t;&t;&t;&t;&bslash;&n;&t;return block++;&t;&t;&t;&t;&t;&t;&bslash;&n;}
-DECL|function|DEFINE_ALLOCATOR
 id|DEFINE_ALLOCATOR
 c_func
 (paren
@@ -30,8 +29,53 @@ c_func
 (paren
 id|tag
 )paren
+macro_line|#ifdef NO_C99_FORMAT
+DECL|macro|SZ_FMT
+mdefine_line|#define SZ_FMT &quot;%u&quot;
+macro_line|#else
+mdefine_line|#define SZ_FMT &quot;%zu&quot;
+macro_line|#endif
+DECL|function|report
+r_static
+r_void
+id|report
+c_func
+(paren
+r_const
+r_char
+op_star
+id|name
+comma
+r_int
+r_int
+id|count
+comma
+r_int
+id|size
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%10s: %8u (&quot;
+id|SZ_FMT
+l_string|&quot; kB)&bslash;n&quot;
+comma
+id|name
+comma
+id|count
+comma
+id|size
+)paren
+suffix:semicolon
+)brace
+DECL|macro|SZ_FMT
+macro_line|#undef SZ_FMT
 DECL|macro|REPORT
-mdefine_line|#define REPORT(name)&t;&bslash;&n;&t;fprintf(stderr, &quot;%10s: %8u (%zu kB)&bslash;n&quot;, #name, name##_allocs, name##_allocs*sizeof(struct name) &gt;&gt; 10)
+mdefine_line|#define REPORT(name)&t;&bslash;&n;    report(#name, name##_allocs, name##_allocs*sizeof(struct name) &gt;&gt; 10)
+DECL|function|alloc_report
 r_void
 id|alloc_report
 c_func

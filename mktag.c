@@ -95,6 +95,13 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+macro_line|#ifdef NO_C99_FORMAT
+DECL|macro|PD_FMT
+mdefine_line|#define PD_FMT &quot;%d&quot;
+macro_line|#else
+DECL|macro|PD_FMT
+mdefine_line|#define PD_FMT &quot;%td&quot;
+macro_line|#endif
 DECL|function|verify_tag
 r_static
 r_int
@@ -261,7 +268,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: could not find next &bslash;&quot;&bslash;&bslash;n&bslash;&quot;&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: could not find next &bslash;&quot;&bslash;&bslash;n&bslash;&quot;&quot;
 comma
 id|type_line
 id|buffer
@@ -294,7 +303,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: no &bslash;&quot;tag &bslash;&quot; found&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: no &bslash;&quot;tag &bslash;&quot; found&quot;
 comma
 id|tag_line
 id|buffer
@@ -325,7 +336,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: type too long&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: type too long&quot;
 comma
 id|type_line
 op_plus
@@ -421,7 +434,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: could not verify tag name&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: could not verify tag name&quot;
 comma
 id|tag_line
 id|buffer
@@ -459,7 +474,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: could not find &bslash;&quot;tagger&bslash;&quot;&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: could not find &bslash;&quot;tagger&bslash;&quot;&quot;
 comma
 id|tagger_line
 id|buffer
@@ -472,6 +489,8 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|macro|PD_FMT
+macro_line|#undef PD_FMT
 DECL|function|main
 r_int
 id|main
