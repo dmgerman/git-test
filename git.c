@@ -13,6 +13,15 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+DECL|variable|git_usage_string
+r_const
+r_char
+id|git_usage_string
+(braket
+)braket
+op_assign
+l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--help] COMMAND [ ARGS ]&quot;
+suffix:semicolon
 DECL|function|prepend_to_path
 r_static
 r_void
@@ -420,14 +429,10 @@ comma
 id|cmd
 )paren
 suffix:semicolon
-id|cmd_usage
+id|usage
 c_func
 (paren
-l_int|0
-comma
-l_int|NULL
-comma
-l_int|NULL
+id|git_usage_string
 )paren
 suffix:semicolon
 )brace
@@ -2042,15 +2047,9 @@ id|errno
 op_eq
 id|ENOENT
 )paren
-id|cmd_usage
+id|help_unknown_cmd
 c_func
 (paren
-l_int|0
-comma
-id|exec_path
-comma
-l_string|&quot;&squot;%s&squot; is not a git-command&quot;
-comma
 id|cmd
 )paren
 suffix:semicolon
