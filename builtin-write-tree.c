@@ -246,10 +246,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|unused_prefix
 )paren
 (brace
 r_int
@@ -272,11 +272,6 @@ id|sha1
 (braket
 l_int|20
 )braket
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 r_while
 c_loop

@@ -4238,10 +4238,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 multiline_comment|/* NEEDSWORK: might want to do the optional .git/ directory&n;&t; * discovery&n;&t; */

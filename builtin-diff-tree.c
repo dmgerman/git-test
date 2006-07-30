@@ -325,10 +325,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_int
@@ -366,6 +366,8 @@ id|init_revisions
 c_func
 (paren
 id|opt
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|git_config
