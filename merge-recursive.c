@@ -2540,7 +2540,7 @@ op_plus
 id|strlen
 c_func
 (paren
-id|newpath
+id|path
 )paren
 suffix:semicolon
 id|strcpy
@@ -2551,13 +2551,13 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|strcat
-c_func
+op_star
 (paren
-id|newpath
-comma
-l_string|&quot;~&quot;
+id|p
+op_increment
 )paren
+op_assign
+l_char|&squot;~&squot;
 suffix:semicolon
 id|strcpy
 c_func
