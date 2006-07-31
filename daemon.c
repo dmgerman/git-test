@@ -36,7 +36,7 @@ op_assign
 l_string|&quot;git-daemon [--verbose] [--syslog] [--inetd | --port=n] [--export-all]&bslash;n&quot;
 l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths]&bslash;n&quot;
 l_string|&quot;           [--base-path=path] [--user-path | --user-path=path]&bslash;n&quot;
-l_string|&quot;           [--reuseaddr] [directory...]&quot;
+l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file] [directory...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
 DECL|variable|ok_paths

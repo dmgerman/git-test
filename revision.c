@@ -2232,6 +2232,11 @@ r_struct
 id|rev_info
 op_star
 id|revs
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 id|memset
@@ -2282,10 +2287,7 @@ l_int|1
 suffix:semicolon
 id|revs-&gt;prefix
 op_assign
-id|setup_git_directory
-c_func
-(paren
-)paren
+id|prefix
 suffix:semicolon
 id|revs-&gt;max_age
 op_assign

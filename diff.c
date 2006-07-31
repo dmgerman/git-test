@@ -34,42 +34,6 @@ id|diff_use_color_default
 op_assign
 l_int|0
 suffix:semicolon
-DECL|enum|color_diff
-r_enum
-id|color_diff
-(brace
-DECL|enumerator|DIFF_RESET
-id|DIFF_RESET
-op_assign
-l_int|0
-comma
-DECL|enumerator|DIFF_PLAIN
-id|DIFF_PLAIN
-op_assign
-l_int|1
-comma
-DECL|enumerator|DIFF_METAINFO
-id|DIFF_METAINFO
-op_assign
-l_int|2
-comma
-DECL|enumerator|DIFF_FRAGINFO
-id|DIFF_FRAGINFO
-op_assign
-l_int|3
-comma
-DECL|enumerator|DIFF_FILE_OLD
-id|DIFF_FILE_OLD
-op_assign
-l_int|4
-comma
-DECL|enumerator|DIFF_FILE_NEW
-id|DIFF_FILE_NEW
-op_assign
-l_int|5
-comma
-)brace
-suffix:semicolon
 multiline_comment|/* &quot;&bslash;033[1;38;5;2xx;48;5;2xxm&bslash;0&quot; is 23 bytes */
 DECL|variable|diff_colors
 r_static
@@ -98,7 +62,10 @@ l_string|&quot;&bslash;033[31m&quot;
 comma
 multiline_comment|/* red */
 l_string|&quot;&bslash;033[32m&quot;
+comma
 multiline_comment|/* green */
+l_string|&quot;&bslash;033[33m&quot;
+multiline_comment|/* yellow */
 )brace
 suffix:semicolon
 DECL|function|parse_diff_color_slot
@@ -200,6 +167,23 @@ l_string|&quot;new&quot;
 )paren
 r_return
 id|DIFF_FILE_NEW
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+op_plus
+id|ofs
+comma
+l_string|&quot;commit&quot;
+)paren
+)paren
+r_return
+id|DIFF_COMMIT
 suffix:semicolon
 id|die
 c_func
@@ -2027,13 +2011,11 @@ id|label_path
 suffix:semicolon
 )brace
 suffix:semicolon
-DECL|function|get_color
-r_static
-r_inline
+DECL|function|diff_get_color
 r_const
 r_char
 op_star
-id|get_color
+id|diff_get_color
 c_func
 (paren
 r_int
@@ -2093,7 +2075,7 @@ r_char
 op_star
 id|set
 op_assign
-id|get_color
+id|diff_get_color
 c_func
 (paren
 id|ecbdata-&gt;color_diff
@@ -2106,7 +2088,7 @@ r_char
 op_star
 id|reset
 op_assign
-id|get_color
+id|diff_get_color
 c_func
 (paren
 id|ecbdata-&gt;color_diff
@@ -2215,7 +2197,7 @@ l_int|1
 suffix:semicolon
 id|set
 op_assign
-id|get_color
+id|diff_get_color
 c_func
 (paren
 id|ecbdata-&gt;color_diff
@@ -2297,7 +2279,7 @@ suffix:semicolon
 )brace
 id|set
 op_assign
-id|get_color
+id|diff_get_color
 c_func
 (paren
 id|ecbdata-&gt;color_diff
@@ -4244,7 +4226,7 @@ r_char
 op_star
 id|set
 op_assign
-id|get_color
+id|diff_get_color
 c_func
 (paren
 id|o-&gt;color_diff
@@ -4257,7 +4239,7 @@ r_char
 op_star
 id|reset
 op_assign
-id|get_color
+id|diff_get_color
 c_func
 (paren
 id|o-&gt;color_diff
