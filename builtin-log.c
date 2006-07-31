@@ -123,11 +123,6 @@ c_func
 id|rev
 )paren
 suffix:semicolon
-id|setup_pager
-c_func
-(paren
-)paren
-suffix:semicolon
 r_while
 c_loop
 (paren
