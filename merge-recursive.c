@@ -117,6 +117,11 @@ op_assign
 id|virtual_id
 op_increment
 suffix:semicolon
+multiline_comment|/* avoid warnings */
+id|commit-&gt;object.parsed
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 id|commit
 suffix:semicolon
