@@ -774,6 +774,17 @@ suffix:semicolon
 r_case
 l_int|2
 suffix:colon
+multiline_comment|/* color sideband */
+id|safe_write
+c_func
+(paren
+l_int|2
+comma
+l_string|&quot;&bslash;033[44;37;1m&quot;
+comma
+l_int|10
+)paren
+suffix:semicolon
 id|safe_write
 c_func
 (paren
@@ -784,6 +795,16 @@ op_plus
 l_int|1
 comma
 id|len
+)paren
+suffix:semicolon
+id|safe_write
+c_func
+(paren
+l_int|2
+comma
+l_string|&quot;&bslash;033[m&quot;
+comma
+l_int|3
 )paren
 suffix:semicolon
 r_continue
