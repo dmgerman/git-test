@@ -1175,6 +1175,8 @@ id|GIT_VERSION
 suffix:semicolon
 DECL|macro|NEEDS_PREFIX
 mdefine_line|#define NEEDS_PREFIX 1
+DECL|macro|USE_PAGER
+mdefine_line|#define USE_PAGER 2
 DECL|function|handle_internal_command
 r_static
 r_void
@@ -1234,7 +1236,7 @@ op_star
 )paren
 suffix:semicolon
 r_int
-id|prefix
+id|option
 suffix:semicolon
 )brace
 id|commands
@@ -1260,6 +1262,8 @@ comma
 id|cmd_log
 comma
 id|NEEDS_PREFIX
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
@@ -1268,6 +1272,8 @@ comma
 id|cmd_whatchanged
 comma
 id|NEEDS_PREFIX
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
@@ -1276,6 +1282,8 @@ comma
 id|cmd_show
 comma
 id|NEEDS_PREFIX
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
@@ -1629,11 +1637,25 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|p-&gt;prefix
+id|p-&gt;option
+op_amp
+id|NEEDS_PREFIX
 )paren
 id|prefix
 op_assign
 id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|p-&gt;option
+op_amp
+id|USE_PAGER
+)paren
+id|setup_pager
 c_func
 (paren
 )paren

@@ -961,7 +961,11 @@ c_func
 l_int|1
 )paren
 op_logical_or
+(paren
 id|pager_in_use
+op_logical_and
+id|pager_use_color
+)paren
 )paren
 (brace
 r_char
