@@ -1543,6 +1543,14 @@ comma
 id|NEEDS_PREFIX
 )brace
 comma
+(brace
+l_string|&quot;prune-packed&quot;
+comma
+id|cmd_prune_packed
+comma
+id|NEEDS_PREFIX
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
