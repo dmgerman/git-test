@@ -1551,6 +1551,12 @@ comma
 id|NEEDS_PREFIX
 )brace
 comma
+(brace
+l_string|&quot;repo-config&quot;
+comma
+id|cmd_repo_config
+)brace
+comma
 )brace
 suffix:semicolon
 r_int

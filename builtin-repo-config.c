@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &lt;regex.h&gt;
 DECL|variable|git_config_set_usage
@@ -786,9 +787,9 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_repo_config
 r_int
-id|main
+id|cmd_repo_config
 c_func
 (paren
 r_int
@@ -799,6 +800,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
