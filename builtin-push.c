@@ -13,7 +13,7 @@ id|push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git push [--all] [--tags] [--force] &lt;repository&gt; [&lt;refspec&gt;...]&quot;
+l_string|&quot;git push [--all] [--tags] [-f | --force] &lt;repository&gt; [&lt;refspec&gt;...]&quot;
 suffix:semicolon
 DECL|variable|all
 DECL|variable|tags
@@ -1571,6 +1571,15 @@ c_func
 id|arg
 comma
 l_string|&quot;--force&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-f&quot;
 )paren
 )paren
 (brace
