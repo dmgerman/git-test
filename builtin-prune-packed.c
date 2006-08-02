@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|prune_packed_usage
 r_static
@@ -350,6 +351,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
