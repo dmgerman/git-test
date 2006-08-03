@@ -596,7 +596,6 @@ op_star
 id|blob
 )paren
 (brace
-multiline_comment|/* Blobs: the arguments are reversed when setup_revisions()&n;&t; * picked them up.&n;&t; */
 r_int
 id|mode
 op_assign
@@ -633,14 +632,14 @@ id|mode
 comma
 id|blob
 (braket
-l_int|1
+l_int|0
 )braket
 dot
 id|sha1
 comma
 id|blob
 (braket
-l_int|0
+l_int|1
 )braket
 dot
 id|sha1
