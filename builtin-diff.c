@@ -37,7 +37,7 @@ id|builtin_diff_usage
 (braket
 )braket
 op_assign
-l_string|&quot;diff &lt;options&gt; &lt;rev&gt;{0,2} -- &lt;path&gt;*&quot;
+l_string|&quot;git-diff &lt;options&gt; &lt;rev&gt;{0,2} -- &lt;path&gt;*&quot;
 suffix:semicolon
 DECL|function|builtin_diff_files
 r_static
