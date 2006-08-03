@@ -1581,6 +1581,14 @@ comma
 id|NEEDS_PREFIX
 )brace
 comma
+(brace
+l_string|&quot;symbolic-ref&quot;
+comma
+id|cmd_symbolic_ref
+comma
+id|NEEDS_PREFIX
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
