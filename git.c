@@ -1557,6 +1557,14 @@ comma
 id|cmd_repo_config
 )brace
 comma
+(brace
+l_string|&quot;name-rev&quot;
+comma
+id|cmd_name_rev
+comma
+id|NEEDS_PREFIX
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
