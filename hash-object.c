@@ -272,7 +272,7 @@ op_le
 op_increment
 id|i
 )paren
-id|die
+id|usage
 c_func
 (paren
 id|hash_object_usage
@@ -408,7 +408,7 @@ id|write_object
 suffix:semicolon
 )brace
 r_else
-id|die
+id|usage
 c_func
 (paren
 id|hash_object_usage

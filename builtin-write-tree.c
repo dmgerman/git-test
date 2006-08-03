@@ -329,7 +329,7 @@ op_plus
 l_int|9
 suffix:semicolon
 r_else
-id|die
+id|usage
 c_func
 (paren
 id|write_tree_usage
