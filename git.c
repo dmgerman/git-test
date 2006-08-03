@@ -1565,6 +1565,14 @@ comma
 id|NEEDS_PREFIX
 )brace
 comma
+(brace
+l_string|&quot;pack-objects&quot;
+comma
+id|cmd_pack_objects
+comma
+id|NEEDS_PREFIX
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
