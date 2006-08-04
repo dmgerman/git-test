@@ -1178,10 +1178,10 @@ id|git_version_string
 op_assign
 id|GIT_VERSION
 suffix:semicolon
-DECL|macro|NEEDS_PREFIX
-mdefine_line|#define NEEDS_PREFIX 1
+DECL|macro|RUN_SETUP
+mdefine_line|#define RUN_SETUP&t;(1&lt;&lt;0)
 DECL|macro|USE_PAGER
-mdefine_line|#define USE_PAGER 2
+mdefine_line|#define USE_PAGER&t;(1&lt;&lt;1)
 DECL|function|handle_internal_command
 r_static
 r_void
@@ -1254,7 +1254,7 @@ l_string|&quot;add&quot;
 comma
 id|cmd_add
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1268,7 +1268,7 @@ l_string|&quot;cat-file&quot;
 comma
 id|cmd_cat_file
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1276,7 +1276,7 @@ l_string|&quot;checkout-index&quot;
 comma
 id|cmd_checkout_index
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1290,7 +1290,7 @@ l_string|&quot;commit-tree&quot;
 comma
 id|cmd_commit_tree
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1304,7 +1304,7 @@ l_string|&quot;diff&quot;
 comma
 id|cmd_diff
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1312,7 +1312,7 @@ l_string|&quot;diff-files&quot;
 comma
 id|cmd_diff_files
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1320,7 +1320,7 @@ l_string|&quot;diff-index&quot;
 comma
 id|cmd_diff_index
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1328,7 +1328,7 @@ l_string|&quot;diff-stages&quot;
 comma
 id|cmd_diff_stages
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1336,7 +1336,7 @@ l_string|&quot;diff-tree&quot;
 comma
 id|cmd_diff_tree
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1344,7 +1344,7 @@ l_string|&quot;fmt-merge-msg&quot;
 comma
 id|cmd_fmt_merge_msg
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1352,7 +1352,7 @@ l_string|&quot;format-patch&quot;
 comma
 id|cmd_format_patch
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1366,7 +1366,7 @@ l_string|&quot;grep&quot;
 comma
 id|cmd_grep
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1386,7 +1386,7 @@ l_string|&quot;log&quot;
 comma
 id|cmd_log
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 op_or
 id|USE_PAGER
 )brace
@@ -1396,7 +1396,7 @@ l_string|&quot;ls-files&quot;
 comma
 id|cmd_ls_files
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1404,7 +1404,7 @@ l_string|&quot;ls-tree&quot;
 comma
 id|cmd_ls_tree
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1424,7 +1424,7 @@ l_string|&quot;mv&quot;
 comma
 id|cmd_mv
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1432,7 +1432,7 @@ l_string|&quot;name-rev&quot;
 comma
 id|cmd_name_rev
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1440,7 +1440,7 @@ l_string|&quot;pack-objects&quot;
 comma
 id|cmd_pack_objects
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1448,7 +1448,7 @@ l_string|&quot;prune&quot;
 comma
 id|cmd_prune
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1456,7 +1456,7 @@ l_string|&quot;prune-packed&quot;
 comma
 id|cmd_prune_packed
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1470,7 +1470,7 @@ l_string|&quot;read-tree&quot;
 comma
 id|cmd_read_tree
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1484,7 +1484,7 @@ l_string|&quot;rev-list&quot;
 comma
 id|cmd_rev_list
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1492,7 +1492,7 @@ l_string|&quot;rev-parse&quot;
 comma
 id|cmd_rev_parse
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1500,7 +1500,7 @@ l_string|&quot;rm&quot;
 comma
 id|cmd_rm
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1508,7 +1508,7 @@ l_string|&quot;show-branch&quot;
 comma
 id|cmd_show_branch
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1516,7 +1516,7 @@ l_string|&quot;show&quot;
 comma
 id|cmd_show
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 op_or
 id|USE_PAGER
 )brace
@@ -1532,7 +1532,7 @@ l_string|&quot;symbolic-ref&quot;
 comma
 id|cmd_symbolic_ref
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1540,7 +1540,7 @@ l_string|&quot;tar-tree&quot;
 comma
 id|cmd_tar_tree
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1548,7 +1548,7 @@ l_string|&quot;unpack-objects&quot;
 comma
 id|cmd_unpack_objects
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1556,7 +1556,7 @@ l_string|&quot;update-index&quot;
 comma
 id|cmd_update_index
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1564,7 +1564,7 @@ l_string|&quot;update-ref&quot;
 comma
 id|cmd_update_ref
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1584,7 +1584,7 @@ l_string|&quot;whatchanged&quot;
 comma
 id|cmd_whatchanged
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 op_or
 id|USE_PAGER
 )brace
@@ -1594,7 +1594,7 @@ l_string|&quot;write-tree&quot;
 comma
 id|cmd_write_tree
 comma
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )brace
 comma
 )brace
@@ -1698,7 +1698,7 @@ c_cond
 (paren
 id|p-&gt;option
 op_amp
-id|NEEDS_PREFIX
+id|RUN_SETUP
 )paren
 id|prefix
 op_assign
