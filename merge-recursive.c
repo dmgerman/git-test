@@ -4636,6 +4636,13 @@ dot
 id|path
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|compare
+op_le
+l_int|0
+)paren
 id|ren1
 op_assign
 id|a_renames-&gt;items
@@ -4646,6 +4653,13 @@ op_increment
 dot
 id|util
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|compare
+op_ge
+l_int|0
+)paren
 id|ren2
 op_assign
 id|b_renames-&gt;items
