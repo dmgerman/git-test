@@ -1589,6 +1589,14 @@ comma
 id|NEEDS_PREFIX
 )brace
 comma
+(brace
+l_string|&quot;checkout-index&quot;
+comma
+id|cmd_checkout_index
+comma
+id|NEEDS_PREFIX
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
