@@ -625,7 +625,7 @@ id|path
 id|die
 c_func
 (paren
-l_string|&quot;git rm: unable to remove %s&quot;
+l_string|&quot;git-rm: unable to remove %s&quot;
 comma
 id|path
 )paren
@@ -711,7 +711,7 @@ id|removed
 id|die
 c_func
 (paren
-l_string|&quot;git rm: %s: %s&quot;
+l_string|&quot;git-rm: %s: %s&quot;
 comma
 id|path
 comma

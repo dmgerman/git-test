@@ -627,7 +627,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|die
+id|usage
 c_func
 (paren
 id|builtin_mv_usage
