@@ -1463,6 +1463,8 @@ comma
 l_string|&quot;push&quot;
 comma
 id|cmd_push
+comma
+id|RUN_SETUP
 )brace
 comma
 (brace

@@ -658,6 +658,11 @@ id|prog
 op_assign
 l_string|&quot;git-ssh-upload&quot;
 suffix:semicolon
+id|setup_ident
+c_func
+(paren
+)paren
+suffix:semicolon
 id|setup_git_directory
 c_func
 (paren
