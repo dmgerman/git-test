@@ -208,10 +208,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_int
@@ -231,16 +231,6 @@ comma
 id|force
 op_assign
 l_int|0
-suffix:semicolon
-r_const
-r_char
-op_star
-id|prefix
-op_assign
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 r_const
 r_char
@@ -415,7 +405,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|die
+id|usage
 c_func
 (paren
 id|builtin_rm_usage
@@ -470,20 +460,12 @@ multiline_comment|/* nothing */
 suffix:semicolon
 id|seen
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
 id|i
-)paren
-suffix:semicolon
-id|memset
-c_func
-(paren
-id|seen
 comma
-l_int|0
-comma
-id|i
+l_int|1
 )paren
 suffix:semicolon
 r_for
@@ -643,7 +625,7 @@ id|path
 id|die
 c_func
 (paren
-l_string|&quot;git rm: unable to remove %s&quot;
+l_string|&quot;git-rm: unable to remove %s&quot;
 comma
 id|path
 )paren
@@ -665,7 +647,7 @@ id|show_only
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * Then, if we used &quot;-f&quot;, remove the filenames from the&n;&t; * workspace. If we fail to remove the first one, we&n;&t; * abort the &quot;git rm&quot; (but once we&squot;ve successfully removed&n;&t; * any file at all, we&squot;ll go ahead and commit to it all:&n;&t; * by then we&squot;ve already committed ourself and can&squot;t fail&n;&t; * in the middle)&n;&t; */
+multiline_comment|/*&n;&t; * Then, if we used &quot;-f&quot;, remove the filenames from the&n;&t; * workspace. If we fail to remove the first one, we&n;&t; * abort the &quot;git rm&quot; (but once we&squot;ve successfully removed&n;&t; * any file at all, we&squot;ll go ahead and commit to it all:&n;&t; * by then we&squot;ve already committed ourselves and can&squot;t fail&n;&t; * in the middle)&n;&t; */
 r_if
 c_cond
 (paren
@@ -729,7 +711,7 @@ id|removed
 id|die
 c_func
 (paren
-l_string|&quot;git rm: %s: %s&quot;
+l_string|&quot;git-rm: %s: %s&quot;
 comma
 id|path
 comma
@@ -759,6 +741,12 @@ comma
 id|active_cache
 comma
 id|active_nr
+)paren
+op_logical_or
+id|close
+c_func
+(paren
+id|newfd
 )paren
 op_logical_or
 id|commit_lock_file

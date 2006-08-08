@@ -60,7 +60,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 id|o
@@ -463,7 +463,7 @@ id|fp
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* nonexisting is not an error. */
+multiline_comment|/* nonexistent is not an error. */
 r_while
 c_loop
 (paren

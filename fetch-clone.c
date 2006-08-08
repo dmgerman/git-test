@@ -751,6 +751,16 @@ c_func
 (paren
 l_int|2
 comma
+l_string|&quot;remote: &quot;
+comma
+l_int|8
+)paren
+suffix:semicolon
+id|safe_write
+c_func
+(paren
+l_int|2
+comma
 id|buf
 op_plus
 l_int|1
@@ -758,12 +768,14 @@ comma
 id|len
 )paren
 suffix:semicolon
-id|fprintf
+id|safe_write
 c_func
 (paren
-id|stderr
+l_int|2
 comma
 l_string|&quot;&bslash;n&quot;
+comma
+l_int|1
 )paren
 suffix:semicolon
 m_exit
@@ -774,6 +786,16 @@ suffix:semicolon
 r_case
 l_int|2
 suffix:colon
+id|safe_write
+c_func
+(paren
+l_int|2
+comma
+l_string|&quot;remote: &quot;
+comma
+l_int|8
+)paren
+suffix:semicolon
 id|safe_write
 c_func
 (paren
@@ -1129,7 +1151,7 @@ suffix:semicolon
 multiline_comment|/*&n; * We average out the download speed over this many &quot;events&quot;, where&n; * an event is a minimum of about half a second. That way, we get&n; * a reasonably stable number.&n; */
 DECL|macro|NR_AVERAGE
 mdefine_line|#define NR_AVERAGE (4)
-multiline_comment|/*&n; * A &quot;binary msec&quot; is a power-of-two-msec, aka 1/1024th of a second.&n; * Keeing the time in that format means that &quot;bytes / msecs&quot; means&n; * is the same as kB/s (modulo rounding).&n; *&n; * 1000512 is a magic number (usecs in a second, rounded up by half&n; * of 1024, to make &quot;rounding&quot; come out right ;)&n; */
+multiline_comment|/*&n; * A &quot;binary msec&quot; is a power-of-two-msec, aka 1/1024th of a second.&n; * Keeping the time in that format means that &quot;bytes / msecs&quot; means&n; * the same as kB/s (modulo rounding).&n; *&n; * 1000512 is a magic number (usecs in a second, rounded up by half&n; * of 1024, to make &quot;rounding&quot; come out right ;)&n; */
 DECL|macro|usec_to_binarymsec
 mdefine_line|#define usec_to_binarymsec(x) ((int)(x) / (1000512 &gt;&gt; 10))
 DECL|function|receive_keep_pack

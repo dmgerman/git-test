@@ -164,6 +164,13 @@ id|active_cache
 comma
 id|active_nr
 )paren
+op_logical_and
+op_logical_neg
+id|close
+c_func
+(paren
+id|newfd
+)paren
 )paren
 id|commit_lock_file
 c_func
@@ -239,10 +246,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|unused_prefix
 )paren
 (brace
 r_int
@@ -265,11 +272,6 @@ id|sha1
 (braket
 l_int|20
 )braket
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 r_while
 c_loop
@@ -327,7 +329,7 @@ op_plus
 l_int|9
 suffix:semicolon
 r_else
-id|die
+id|usage
 c_func
 (paren
 id|write_tree_usage

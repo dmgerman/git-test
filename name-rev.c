@@ -11,7 +11,7 @@ id|name_rev_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-name-rev [--tags] ( --all | --stdin | commitish [commitish...] )&bslash;n&quot;
+l_string|&quot;git-name-rev [--tags] ( --all | --stdin | committish [committish...] )&bslash;n&quot;
 suffix:semicolon
 DECL|struct|rev_name
 r_typedef
@@ -411,7 +411,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 r_struct
@@ -455,7 +455,7 @@ id|o
 op_logical_and
 id|o-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 (brace
 r_struct
@@ -571,7 +571,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 l_string|&quot;undefined&quot;
@@ -923,7 +923,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 (brace
 id|fprintf

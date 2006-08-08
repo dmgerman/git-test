@@ -106,6 +106,11 @@ l_string|&quot;cat&quot;
 )paren
 r_return
 suffix:semicolon
+id|pager_in_use
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* means we are emitting to terminal */
 r_if
 c_cond
 (paren

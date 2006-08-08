@@ -1285,7 +1285,6 @@ id|type
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * We unpack from the end, older files first. Now, usually&n; * there are deltas etc, so we&squot;ll not actually write the&n; * objects in that order, but we might as well try..&n; */
 DECL|function|unpack_all
 r_static
 r_void

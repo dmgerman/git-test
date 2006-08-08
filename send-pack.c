@@ -788,7 +788,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 l_int|0
@@ -826,7 +826,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 l_int|0
@@ -1322,7 +1322,7 @@ l_int|0
 comma
 l_int|NULL
 comma
-l_int|1
+id|REF_NORMAL
 )paren
 suffix:semicolon
 id|get_local_heads

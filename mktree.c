@@ -465,7 +465,7 @@ id|mktree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;mktree [-z]&quot;
+l_string|&quot;git-mktree [-z]&quot;
 suffix:semicolon
 DECL|function|main
 r_int

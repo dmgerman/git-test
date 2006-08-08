@@ -1397,7 +1397,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_BLOB
+id|OBJ_BLOB
 )paren
 r_return
 l_int|0
@@ -1407,7 +1407,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 r_return
 id|fsck_tree
@@ -1426,7 +1426,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 id|fsck_commit
@@ -1445,7 +1445,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 r_return
 id|fsck_tag
@@ -2331,7 +2331,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_ne
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 id|err
 op_or_assign

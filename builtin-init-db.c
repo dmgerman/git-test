@@ -1290,10 +1290,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_const
@@ -1415,7 +1415,7 @@ l_int|9
 )paren
 suffix:semicolon
 r_else
-id|die
+id|usage
 c_func
 (paren
 id|init_db_usage

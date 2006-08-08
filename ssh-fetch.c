@@ -298,7 +298,7 @@ l_int|20
 )paren
 )paren
 (brace
-singleline_comment|// we must have already fetched it to clean the queue
+multiline_comment|/* we must have already fetched it to clean the queue */
 r_return
 id|has_sha1_file
 c_func
@@ -389,7 +389,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-singleline_comment|//fprintf(stderr, &quot;Got %d&bslash;n&quot;, remote);
+multiline_comment|/* fprintf(stderr, &quot;Got %d&bslash;n&quot;, remote); */
 r_if
 c_cond
 (paren
@@ -599,7 +599,7 @@ id|ssh_fetch_usage
 )braket
 op_assign
 id|MY_PROGRAM_NAME
-l_string|&quot; [-c] [-t] [-a] [-v] [-d] [--recover] [-w ref] commit-id url&quot;
+l_string|&quot; [-c] [-t] [-a] [-v] [--recover] [-w ref] commit-id url&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -615,6 +615,13 @@ op_star
 id|argv
 )paren
 (brace
+r_const
+r_char
+op_star
+id|write_ref
+op_assign
+l_int|NULL
+suffix:semicolon
 r_char
 op_star
 id|commit_id
@@ -650,6 +657,11 @@ id|prog
 id|prog
 op_assign
 l_string|&quot;git-ssh-upload&quot;
+suffix:semicolon
+id|setup_ident
+c_func
+(paren
+)paren
 suffix:semicolon
 id|setup_git_directory
 c_func
@@ -857,10 +869,6 @@ op_plus
 l_int|1
 )braket
 suffix:semicolon
-id|write_ref_log_details
-op_assign
-id|url
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -904,7 +912,15 @@ c_cond
 id|pull
 c_func
 (paren
+l_int|1
+comma
+op_amp
 id|commit_id
+comma
+op_amp
+id|write_ref
+comma
+id|url
 )paren
 )paren
 r_return

@@ -16,10 +16,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_if
@@ -32,7 +32,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git check-ref-format refname&quot;
+l_string|&quot;git-check-ref-format refname&quot;
 )paren
 suffix:semicolon
 r_return

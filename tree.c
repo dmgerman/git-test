@@ -688,7 +688,7 @@ id|ret-&gt;object
 suffix:semicolon
 id|ret-&gt;object.type
 op_assign
-id|TYPE_TREE
+id|OBJ_TREE
 suffix:semicolon
 r_return
 id|ret
@@ -702,14 +702,14 @@ id|obj-&gt;type
 )paren
 id|obj-&gt;type
 op_assign
-id|TYPE_TREE
+id|OBJ_TREE
 suffix:semicolon
 r_if
 c_cond
 (paren
 id|obj-&gt;type
 op_ne
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 (brace
 id|error
@@ -1098,7 +1098,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 r_return
 (paren
@@ -1114,7 +1114,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 id|obj
 op_assign
@@ -1138,7 +1138,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 id|obj
 op_assign

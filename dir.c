@@ -1735,7 +1735,7 @@ id|len
 )paren
 )paren
 (brace
-singleline_comment|// Rewind the read subdirectory
+multiline_comment|/* Rewind the read subdirectory */
 r_while
 c_loop
 (paren

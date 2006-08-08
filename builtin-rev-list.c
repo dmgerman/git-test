@@ -762,7 +762,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 id|obj-&gt;flags
@@ -788,7 +788,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 (brace
 id|process_tree
@@ -817,7 +817,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_BLOB
+id|OBJ_BLOB
 )paren
 (brace
 id|process_blob
@@ -1402,10 +1402,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_struct
@@ -1421,6 +1421,8 @@ c_func
 (paren
 op_amp
 id|revs
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|revs.abbrev

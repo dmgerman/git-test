@@ -1,7 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tag.h&quot;
-multiline_comment|/*&n; * A signature file has a very simple fixed format: three lines&n; * of &quot;object &lt;sha1&gt;&quot; + &quot;type &lt;typename&gt;&quot; + &quot;tag &lt;tagname&gt;&quot;,&n; * followed by some free-form signature that git itself doesn&squot;t&n; * care about, but that can be verified with gpg or similar.&n; *&n; * The first three lines are guaranteed to be at least 63 bytes:&n; * &quot;object &lt;sha1&gt;&bslash;n&quot; is 48 bytes, &quot;type tag&bslash;n&quot; at 9 bytes is the&n; * shortest possible type-line, and &quot;tag .&bslash;n&quot; at 6 bytes is the&n; * shortest single-character-tag line. &n; *&n; * We also artificially limit the size of the full object to 8kB.&n; * Just because I&squot;m a lazy bastard, and if you can&squot;t fit a signature&n; * in that size, you&squot;re doing something wrong.&n; */
-singleline_comment|// Some random size
+multiline_comment|/*&n; * A signature file has a very simple fixed format: four lines&n; * of &quot;object &lt;sha1&gt;&quot; + &quot;type &lt;typename&gt;&quot; + &quot;tag &lt;tagname&gt;&quot; +&n; * &quot;tagger &lt;committer&gt;&quot;, followed by a blank line, a free-form tag&n; * message and a signature block that git itself doesn&squot;t care about,&n; * but that can be verified with gpg or similar.&n; *&n; * The first three lines are guaranteed to be at least 63 bytes:&n; * &quot;object &lt;sha1&gt;&bslash;n&quot; is 48 bytes, &quot;type tag&bslash;n&quot; at 9 bytes is the&n; * shortest possible type-line, and &quot;tag .&bslash;n&quot; at 6 bytes is the&n; * shortest single-character-tag line. &n; *&n; * We also artificially limit the size of the full object to 8kB.&n; * Just because I&squot;m a lazy bastard, and if you can&squot;t fit a signature&n; * in that size, you&squot;re doing something wrong.&n; */
+multiline_comment|/* Some random size */
 DECL|macro|MAXSIZE
 mdefine_line|#define MAXSIZE (8192)
 multiline_comment|/*&n; * We refuse to tag something we can&squot;t verify. Just because.&n; */
@@ -95,6 +95,13 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+macro_line|#ifdef NO_C99_FORMAT
+DECL|macro|PD_FMT
+mdefine_line|#define PD_FMT &quot;%d&quot;
+macro_line|#else
+DECL|macro|PD_FMT
+mdefine_line|#define PD_FMT &quot;%td&quot;
+macro_line|#endif
 DECL|function|verify_tag
 r_static
 r_int
@@ -151,7 +158,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;wanna fool me ? you obviously got the size wrong !&bslash;n&quot;
+l_string|&quot;wanna fool me ? you obviously got the size wrong !&quot;
 )paren
 suffix:semicolon
 id|buffer
@@ -183,7 +190,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%d: does not start with &bslash;&quot;object &bslash;&quot;&bslash;n&quot;
+l_string|&quot;char%d: does not start with &bslash;&quot;object &bslash;&quot;&quot;
 comma
 l_int|0
 )paren
@@ -205,7 +212,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%d: could not get SHA1 hash&bslash;n&quot;
+l_string|&quot;char%d: could not get SHA1 hash&quot;
 comma
 l_int|7
 )paren
@@ -235,7 +242,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%d: could not find &bslash;&quot;&bslash;&bslash;ntype &bslash;&quot;&bslash;n&quot;
+l_string|&quot;char%d: could not find &bslash;&quot;&bslash;&bslash;ntype &bslash;&quot;&quot;
 comma
 l_int|47
 )paren
@@ -261,7 +268,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: could not find next &bslash;&quot;&bslash;&bslash;n&bslash;&quot;&bslash;n&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: could not find next &bslash;&quot;&bslash;&bslash;n&bslash;&quot;&quot;
 comma
 id|type_line
 id|buffer
@@ -294,7 +303,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: no &bslash;&quot;tag &bslash;&quot; found&bslash;n&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: no &bslash;&quot;tag &bslash;&quot; found&quot;
 comma
 id|tag_line
 id|buffer
@@ -325,7 +336,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: type too long&bslash;n&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: type too long&quot;
 comma
 id|type_line
 op_plus
@@ -356,28 +369,6 @@ multiline_comment|/* Verify that the object matches */
 r_if
 c_cond
 (paren
-id|get_sha1_hex
-c_func
-(paren
-id|object
-op_plus
-l_int|7
-comma
-id|sha1
-)paren
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;char%d: could not get SHA1 hash but this is really odd since i got it before !&bslash;n&quot;
-comma
-l_int|7
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|verify_object
 c_func
 (paren
@@ -390,11 +381,15 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%d: could not verify object %s&bslash;n&quot;
+l_string|&quot;char%d: could not verify object %s&quot;
 comma
 l_int|7
 comma
+id|sha1_to_hex
+c_func
+(paren
 id|sha1
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Verify the tag-name: we don&squot;t allow control characters or spaces in it */
@@ -439,7 +434,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: could not verify tag name&bslash;n&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: could not verify tag name&quot;
 comma
 id|tag_line
 id|buffer
@@ -477,17 +474,23 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char%td: could not find &bslash;&quot;tagger&bslash;&quot;&bslash;n&quot;
+l_string|&quot;char&quot;
+id|PD_FMT
+l_string|&quot;: could not find &bslash;&quot;tagger&bslash;&quot;&quot;
 comma
 id|tagger_line
 id|buffer
 )paren
 suffix:semicolon
+multiline_comment|/* TODO: check for committer info + blank line? */
+multiline_comment|/* Also, the minimum length is probably + &quot;tagger .&quot;, or 63+8=71 */
 multiline_comment|/* The actual stuff afterwards we don&squot;t care about.. */
 r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|macro|PD_FMT
+macro_line|#undef PD_FMT
 DECL|function|main
 r_int
 id|main
@@ -535,7 +538,7 @@ l_int|1
 id|usage
 c_func
 (paren
-l_string|&quot;cat &lt;signaturefile&gt; | git-mktag&quot;
+l_string|&quot;git-mktag &lt; signaturefile&quot;
 )paren
 suffix:semicolon
 id|setup_git_directory
@@ -572,7 +575,7 @@ l_string|&quot;could not read from stdin&quot;
 )paren
 suffix:semicolon
 )brace
-singleline_comment|// Verify it for some basic sanity: it needs to start with &quot;object &lt;sha1&gt;&bslash;ntype&bslash;ntagger &quot;
+multiline_comment|/* Verify it for some basic sanity: it needs to start with&n;&t;   &quot;object &lt;sha1&gt;&bslash;ntype&bslash;ntagger &quot; */
 r_if
 c_cond
 (paren

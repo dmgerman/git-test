@@ -13,7 +13,7 @@ id|push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git push [--all] [--tags] [--force] &lt;repository&gt; [&lt;refspec&gt;...]&quot;
+l_string|&quot;git-push [--all] [--tags] [-f | --force] &lt;repository&gt; [&lt;refspec&gt;...]&quot;
 suffix:semicolon
 DECL|variable|all
 DECL|variable|tags
@@ -507,7 +507,7 @@ r_else
 id|error
 c_func
 (paren
-l_string|&quot;more than %d URL&squot;s specified, ignoreing the rest&quot;
+l_string|&quot;more than %d URL&squot;s specified, ignoring the rest&quot;
 comma
 id|MAX_URI
 )paren
@@ -1458,10 +1458,10 @@ op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
 r_int
@@ -1474,7 +1474,7 @@ id|repo
 op_assign
 l_string|&quot;origin&quot;
 suffix:semicolon
-singleline_comment|// default repository
+multiline_comment|/* default repository */
 r_for
 c_loop
 (paren
@@ -1571,6 +1571,15 @@ c_func
 id|arg
 comma
 l_string|&quot;--force&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-f&quot;
 )paren
 )paren
 (brace

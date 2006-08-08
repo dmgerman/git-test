@@ -2247,7 +2247,7 @@ c_func
 op_amp
 id|stream
 comma
-id|Z_BEST_COMPRESSION
+id|zlib_compression_level
 )paren
 suffix:semicolon
 id|size
@@ -9296,7 +9296,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 id|obj-&gt;flags
@@ -9321,7 +9321,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_TREE
+id|OBJ_TREE
 )paren
 (brace
 id|p
@@ -9351,7 +9351,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|TYPE_BLOB
+id|OBJ_BLOB
 )paren
 (brace
 id|p
@@ -10248,7 +10248,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 l_int|0
@@ -10286,7 +10286,7 @@ id|o
 op_logical_or
 id|o-&gt;type
 op_ne
-id|TYPE_COMMIT
+id|OBJ_COMMIT
 )paren
 r_return
 l_int|0
@@ -10679,7 +10679,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|TYPE_TAG
+id|OBJ_TAG
 )paren
 (brace
 id|o
@@ -13273,6 +13273,11 @@ c_func
 (paren
 op_amp
 id|revs
+comma
+id|setup_git_directory
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|setup_revisions

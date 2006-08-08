@@ -1190,7 +1190,7 @@ id|bufsize
 r_return
 l_int|NULL
 suffix:semicolon
-multiline_comment|/* Determine index hash size.  Note that indexing skips the&n;&t;   first byte to allow for optimizing the rabin polynomial&n;&t;   initialization in create_delta(). */
+multiline_comment|/* Determine index hash size.  Note that indexing skips the&n;&t;   first byte to allow for optimizing the Rabin&squot;s polynomial&n;&t;   initialization in create_delta(). */
 id|entries
 op_assign
 (paren
@@ -1501,7 +1501,7 @@ op_increment
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Determine a limit on the number of entries in the same hash&n;&t; * bucket.  This guard us against patological data sets causing&n;&t; * really bad hash distribution with most entries in the same hash&n;&t; * bucket that would bring us to O(m*n) computing costs (m and n&n;&t; * corresponding to reference and target buffer sizes).&n;&t; *&n;&t; * Make sure none of the hash buckets has more entries than&n;&t; * we&squot;re willing to test.  Otherwise we cull the entry list&n;&t; * uniformly to still preserve a good repartition across&n;&t; * the reference buffer.&n;&t; */
+multiline_comment|/*&n;&t; * Determine a limit on the number of entries in the same hash&n;&t; * bucket.  This guards us against pathological data sets causing&n;&t; * really bad hash distribution with most entries in the same hash&n;&t; * bucket that would bring us to O(m*n) computing costs (m and n&n;&t; * corresponding to reference and target buffer sizes).&n;&t; *&n;&t; * Make sure none of the hash buckets has more entries than&n;&t; * we&squot;re willing to test.  Otherwise we cull the entry list&n;&t; * uniformly to still preserve a good repartition across&n;&t; * the reference buffer.&n;&t; */
 r_for
 c_loop
 (paren
@@ -1617,7 +1617,7 @@ id|index
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * The maximum size for any opcode sequence, including the initial header&n; * plus rabin window plus biggest copy.&n; */
+multiline_comment|/*&n; * The maximum size for any opcode sequence, including the initial header&n; * plus Rabin window plus biggest copy.&n; */
 DECL|macro|MAX_OP_SIZE
 mdefine_line|#define MAX_OP_SIZE&t;(5 + 5 + 1 + RABIN_WINDOW + 7)
 r_void
