@@ -1295,6 +1295,8 @@ comma
 l_string|&quot;push&quot;
 comma
 id|cmd_push
+comma
+id|NEEDS_PREFIX
 )brace
 comma
 (brace
