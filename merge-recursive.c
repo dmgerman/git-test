@@ -640,12 +640,17 @@ c_cond
 (paren
 id|cache_dirty
 )paren
-id|die
+(brace
+id|discard_cache
 c_func
 (paren
-l_string|&quot;fatal: cache changed flush_cache();&quot;
 )paren
 suffix:semicolon
+id|cache_dirty
+op_assign
+l_int|0
+suffix:semicolon
+)brace
 id|unlink
 c_func
 (paren
