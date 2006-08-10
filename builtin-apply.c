@@ -8067,6 +8067,38 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* NUL terminate the result */
+r_if
+c_cond
+(paren
+id|desc.alloc
+op_le
+id|desc.size
+)paren
+(brace
+id|desc.buffer
+op_assign
+id|xrealloc
+c_func
+(paren
+id|desc.buffer
+comma
+id|desc.size
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+id|desc.alloc
+op_increment
+suffix:semicolon
+)brace
+id|desc.buffer
+(braket
+id|desc.size
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 id|patch-&gt;result
 op_assign
 id|desc.buffer
@@ -9941,6 +9973,7 @@ c_func
 id|mode
 )paren
 )paren
+multiline_comment|/* Although buf:size is counted string, it also is NUL&n;&t;&t; * terminated.&n;&t;&t; */
 r_return
 id|symlink
 c_func
