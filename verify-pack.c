@@ -38,14 +38,12 @@ multiline_comment|/* Should name foo.idx, but foo.pack may be named;&n;&t;&t; * 
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcmp
+id|has_extension
 c_func
 (paren
 id|arg
-op_plus
+comma
 id|len
-l_int|5
 comma
 l_string|&quot;.pack&quot;
 )paren
