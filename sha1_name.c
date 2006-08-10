@@ -1160,6 +1160,9 @@ c_cond
 id|len
 op_eq
 l_int|40
+op_logical_or
+op_logical_neg
+id|len
 )paren
 r_return
 id|hex

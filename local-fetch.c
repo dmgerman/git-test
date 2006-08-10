@@ -227,13 +227,13 @@ id|namelen
 op_ne
 l_int|50
 op_logical_or
-id|strcmp
+op_logical_neg
+id|has_extension
 c_func
 (paren
 id|de-&gt;d_name
-op_plus
+comma
 id|namelen
-l_int|5
 comma
 l_string|&quot;.pack&quot;
 )paren
