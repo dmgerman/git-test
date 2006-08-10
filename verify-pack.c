@@ -57,13 +57,7 @@ comma
 id|path
 )paren
 suffix:semicolon
-r_while
-c_loop
-(paren
-l_int|1
-)paren
-(brace
-multiline_comment|/* Should name foo.idx, but foo.pack may be named;&n;&t;&t; * convert it to foo.idx&n;&t;&t; */
+multiline_comment|/*&n;&t; * In addition to &quot;foo.idx&quot; we accept &quot;foo.pack&quot; and &quot;foo&quot;;&n;&t; * normalize these forms to &quot;foo.idx&quot; for add_packed_git().&n;&t; */
 r_if
 c_cond
 (paren
@@ -145,6 +139,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 (paren
 id|g
 op_assign
@@ -159,8 +154,6 @@ l_int|1
 )paren
 )paren
 )paren
-r_break
-suffix:semicolon
 r_return
 id|error
 c_func
@@ -170,7 +163,6 @@ comma
 id|arg
 )paren
 suffix:semicolon
-)brace
 r_return
 id|verify_pack
 c_func
