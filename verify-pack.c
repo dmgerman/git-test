@@ -139,6 +139,35 @@ op_add_assign
 l_int|4
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * add_packed_git() uses our buffer (containing &quot;foo.idx&quot;) to&n;&t; * build the pack filename (&quot;foo.pack&quot;).  Make sure it fits.&n;&t; */
+r_if
+c_cond
+(paren
+id|len
+op_plus
+l_int|1
+op_ge
+id|PATH_MAX
+)paren
+(brace
+id|arg
+(braket
+id|len
+l_int|4
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;name too long: %s.pack&quot;
+comma
+id|arg
+)paren
+suffix:semicolon
+)brace
 id|pack
 op_assign
 id|add_packed_git
