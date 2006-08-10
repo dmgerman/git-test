@@ -240,7 +240,7 @@ id|av
 )paren
 (brace
 r_int
-id|errs
+id|err
 op_assign
 l_int|0
 suffix:semicolon
@@ -347,8 +347,9 @@ comma
 id|verbose
 )paren
 )paren
-id|errs
-op_increment
+id|err
+op_assign
+l_int|1
 suffix:semicolon
 id|nothing_done
 op_assign
@@ -374,9 +375,7 @@ id|verify_pack_usage
 )paren
 suffix:semicolon
 r_return
-op_logical_neg
-op_logical_neg
-id|errs
+id|err
 suffix:semicolon
 )brace
 eof
