@@ -93,27 +93,40 @@ id|len
 op_decrement
 suffix:semicolon
 )brace
-multiline_comment|/* Should name foo.idx now */
+r_else
 r_if
 c_cond
 (paren
-(paren
-id|g
-op_assign
-id|add_packed_git
+op_logical_neg
+id|has_extension
 c_func
 (paren
 id|arg
 comma
 id|len
 comma
-l_int|1
+l_string|&quot;.idx&quot;
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|len
+op_plus
+l_int|4
+op_ge
+id|PATH_MAX
 )paren
-r_break
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;name too long: %s.idx&quot;
+comma
+id|arg
+)paren
 suffix:semicolon
-multiline_comment|/* No?  did you name just foo? */
 id|strcpy
 c_func
 (paren
@@ -128,6 +141,7 @@ id|len
 op_add_assign
 l_int|4
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
