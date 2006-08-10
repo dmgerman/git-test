@@ -1774,6 +1774,16 @@ id|UNINTERESTING
 )paren
 (brace
 multiline_comment|/* diff A...B where there is one sane merge base between&n;&t;&t; * A and B.  We have ent[0] == merge-base, ent[1] == A,&n;&t;&t; * and ent[2] == B.  Show diff between the base and B.&n;&t;&t; */
+id|ent
+(braket
+l_int|1
+)braket
+op_assign
+id|ent
+(braket
+l_int|2
+)braket
+suffix:semicolon
 r_return
 id|builtin_diff_tree
 c_func
