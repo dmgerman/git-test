@@ -8075,7 +8075,6 @@ id|desc.alloc
 op_le
 id|desc.size
 )paren
-(brace
 id|desc.buffer
 op_assign
 id|xrealloc
@@ -8088,10 +8087,6 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|desc.alloc
-op_increment
-suffix:semicolon
-)brace
 id|desc.buffer
 (braket
 id|desc.size
