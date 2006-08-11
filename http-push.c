@@ -2471,7 +2471,7 @@ id|posn
 op_increment
 )paren
 op_assign
-l_char|&squot;.&squot;
+l_char|&squot;_&squot;
 suffix:semicolon
 id|strcpy
 c_func
