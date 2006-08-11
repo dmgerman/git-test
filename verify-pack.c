@@ -69,8 +69,6 @@ c_func
 (paren
 id|arg
 comma
-id|len
-comma
 l_string|&quot;.pack&quot;
 )paren
 )paren
@@ -99,8 +97,6 @@ id|has_extension
 c_func
 (paren
 id|arg
-comma
-id|len
 comma
 l_string|&quot;.idx&quot;
 )paren

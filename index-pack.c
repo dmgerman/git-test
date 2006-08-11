@@ -2472,8 +2472,6 @@ c_func
 (paren
 id|pack_name
 comma
-id|len
-comma
 l_string|&quot;.pack&quot;
 )paren
 )paren

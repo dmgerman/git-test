@@ -4319,8 +4319,6 @@ c_func
 (paren
 id|ls-&gt;dentry_name
 comma
-l_int|63
-comma
 l_string|&quot;.pack&quot;
 )paren
 )paren

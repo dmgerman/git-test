@@ -749,8 +749,6 @@ c_func
 (paren
 id|de-&gt;d_name
 comma
-id|entlen
-comma
 l_string|&quot;.exe&quot;
 )paren
 )paren
