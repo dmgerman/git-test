@@ -4260,19 +4260,8 @@ id|get_index_file
 c_func
 (paren
 )paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|newfd
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to create new index file&quot;
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|git_config
