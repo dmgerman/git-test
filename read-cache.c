@@ -249,12 +249,7 @@ comma
 l_int|20
 )paren
 suffix:semicolon
-id|close
-c_func
-(paren
-id|fd
-)paren
-suffix:semicolon
+multiline_comment|/* index_fd() closed the file descriptor already */
 )brace
 r_return
 id|match

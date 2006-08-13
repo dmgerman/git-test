@@ -751,6 +751,16 @@ c_func
 (paren
 l_int|2
 comma
+l_string|&quot;remote: &quot;
+comma
+l_int|8
+)paren
+suffix:semicolon
+id|safe_write
+c_func
+(paren
+l_int|2
+comma
 id|buf
 op_plus
 l_int|1
@@ -758,12 +768,14 @@ comma
 id|len
 )paren
 suffix:semicolon
-id|fprintf
+id|safe_write
 c_func
 (paren
-id|stderr
+l_int|2
 comma
 l_string|&quot;&bslash;n&quot;
+comma
+l_int|1
 )paren
 suffix:semicolon
 m_exit
@@ -774,6 +786,16 @@ suffix:semicolon
 r_case
 l_int|2
 suffix:colon
+id|safe_write
+c_func
+(paren
+l_int|2
+comma
+l_string|&quot;remote: &quot;
+comma
+l_int|8
+)paren
+suffix:semicolon
 id|safe_write
 c_func
 (paren

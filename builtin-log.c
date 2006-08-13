@@ -123,11 +123,6 @@ c_func
 id|rev
 )paren
 suffix:semicolon
-id|setup_pager
-c_func
-(paren
-)paren
-suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1502,6 +1497,11 @@ id|ref_message_id
 l_int|1024
 )braket
 suffix:semicolon
+id|setup_ident
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -1844,11 +1844,6 @@ r_const
 r_char
 op_star
 id|endpos
-suffix:semicolon
-id|setup_ident
-c_func
-(paren
-)paren
 suffix:semicolon
 id|committer
 op_assign

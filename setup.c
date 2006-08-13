@@ -906,7 +906,6 @@ suffix:colon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|nongit_ok
 )paren
 (brace

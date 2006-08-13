@@ -227,13 +227,11 @@ id|namelen
 op_ne
 l_int|50
 op_logical_or
-id|strcmp
+op_logical_neg
+id|has_extension
 c_func
 (paren
 id|de-&gt;d_name
-op_plus
-id|namelen
-l_int|5
 comma
 l_string|&quot;.pack&quot;
 )paren
@@ -1186,6 +1184,11 @@ r_int
 id|arg
 op_assign
 l_int|1
+suffix:semicolon
+id|setup_ident
+c_func
+(paren
+)paren
 suffix:semicolon
 id|setup_git_directory
 c_func

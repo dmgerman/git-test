@@ -2959,13 +2959,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strcmp
+op_logical_neg
+id|has_extension
 c_func
 (paren
 id|de-&gt;d_name
-op_plus
-id|namelen
-l_int|4
 comma
 l_string|&quot;.idx&quot;
 )paren

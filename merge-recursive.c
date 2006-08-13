@@ -554,21 +554,8 @@ c_func
 id|lock
 comma
 id|current_index_file
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|fd
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;could not lock %s&quot;
 comma
-id|lock-&gt;filename
+l_int|1
 )paren
 suffix:semicolon
 r_if

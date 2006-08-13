@@ -17,7 +17,7 @@ id|prune_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git prune [-n]&quot;
+l_string|&quot;git-prune [-n]&quot;
 suffix:semicolon
 DECL|variable|show_only
 r_static

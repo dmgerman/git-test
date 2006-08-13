@@ -1415,7 +1415,7 @@ l_int|9
 )paren
 suffix:semicolon
 r_else
-id|die
+id|usage
 c_func
 (paren
 id|init_db_usage

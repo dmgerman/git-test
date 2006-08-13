@@ -989,6 +989,10 @@ comma
 id|two
 )paren
 suffix:semicolon
+id|dp-&gt;renamed_pair
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren

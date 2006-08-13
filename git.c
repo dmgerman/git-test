@@ -13,6 +13,15 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+DECL|variable|git_usage_string
+r_const
+r_char
+id|git_usage_string
+(braket
+)braket
+op_assign
+l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--help] COMMAND [ ARGS ]&quot;
+suffix:semicolon
 DECL|function|prepend_to_path
 r_static
 r_void
@@ -420,14 +429,10 @@ comma
 id|cmd
 )paren
 suffix:semicolon
-id|cmd_usage
+id|usage
 c_func
 (paren
-l_int|0
-comma
-l_int|NULL
-comma
-l_int|NULL
+id|git_usage_string
 )paren
 suffix:semicolon
 )brace
@@ -1175,6 +1180,8 @@ id|GIT_VERSION
 suffix:semicolon
 DECL|macro|NEEDS_PREFIX
 mdefine_line|#define NEEDS_PREFIX 1
+DECL|macro|USE_PAGER
+mdefine_line|#define USE_PAGER 2
 DECL|function|handle_internal_command
 r_static
 r_void
@@ -1234,7 +1241,7 @@ op_star
 )paren
 suffix:semicolon
 r_int
-id|prefix
+id|option
 suffix:semicolon
 )brace
 id|commands
@@ -1260,6 +1267,8 @@ comma
 id|cmd_log
 comma
 id|NEEDS_PREFIX
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
@@ -1268,6 +1277,8 @@ comma
 id|cmd_whatchanged
 comma
 id|NEEDS_PREFIX
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
@@ -1276,12 +1287,16 @@ comma
 id|cmd_show
 comma
 id|NEEDS_PREFIX
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
 l_string|&quot;push&quot;
 comma
 id|cmd_push
+comma
+id|NEEDS_PREFIX
 )brace
 comma
 (brace
@@ -1530,6 +1545,20 @@ comma
 id|NEEDS_PREFIX
 )brace
 comma
+(brace
+l_string|&quot;prune-packed&quot;
+comma
+id|cmd_prune_packed
+comma
+id|NEEDS_PREFIX
+)brace
+comma
+(brace
+l_string|&quot;repo-config&quot;
+comma
+id|cmd_repo_config
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
@@ -1629,11 +1658,25 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|p-&gt;prefix
+id|p-&gt;option
+op_amp
+id|NEEDS_PREFIX
 )paren
 id|prefix
 op_assign
 id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|p-&gt;option
+op_amp
+id|USE_PAGER
+)paren
+id|setup_pager
 c_func
 (paren
 )paren
@@ -2020,15 +2063,9 @@ id|errno
 op_eq
 id|ENOENT
 )paren
-id|cmd_usage
+id|help_unknown_cmd
 c_func
 (paren
-l_int|0
-comma
-id|exec_path
-comma
-l_string|&quot;&squot;%s&squot; is not a git-command&quot;
-comma
 id|cmd
 )paren
 suffix:semicolon

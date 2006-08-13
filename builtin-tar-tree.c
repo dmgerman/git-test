@@ -1750,6 +1750,10 @@ r_struct
 id|strbuf
 id|current_path
 suffix:semicolon
+r_void
+op_star
+id|buffer
+suffix:semicolon
 id|current_path.buf
 op_assign
 id|xmalloc
@@ -1882,6 +1886,8 @@ l_int|NULL
 suffix:semicolon
 id|tree.buf
 op_assign
+id|buffer
+op_assign
 id|read_object_with_reference
 c_func
 (paren
@@ -1948,6 +1954,12 @@ suffix:semicolon
 id|write_trailer
 c_func
 (paren
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|buffer
 )paren
 suffix:semicolon
 id|free

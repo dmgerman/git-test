@@ -68,6 +68,8 @@ id|get_index_file
 c_func
 (paren
 )paren
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|entries
@@ -329,7 +331,7 @@ op_plus
 l_int|9
 suffix:semicolon
 r_else
-id|die
+id|usage
 c_func
 (paren
 id|write_tree_usage

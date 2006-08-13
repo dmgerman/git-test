@@ -23,7 +23,7 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;[-c] [-l] [-t] [-S &lt;revs-file&gt;] [--] file [commit]&bslash;n&quot;
+l_string|&quot;git-blame [-c] [-l] [-t] [-S &lt;revs-file&gt;] [--] file [commit]&bslash;n&quot;
 l_string|&quot;  -c, --compatibility Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -l, --long          Show long commit SHA1 (Default: off)&bslash;n&quot;
 l_string|&quot;  -t, --time          Show raw timestamp (Default: off)&bslash;n&quot;

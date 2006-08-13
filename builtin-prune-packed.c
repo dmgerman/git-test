@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|prune_packed_usage
 r_static
@@ -342,27 +343,28 @@ id|d
 suffix:semicolon
 )brace
 )brace
-DECL|function|main
+DECL|function|cmd_prune_packed
 r_int
-id|main
+id|cmd_prune_packed
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
 id|i
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 r_for
 c_loop

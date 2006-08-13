@@ -8067,6 +8067,33 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* NUL terminate the result */
+r_if
+c_cond
+(paren
+id|desc.alloc
+op_le
+id|desc.size
+)paren
+id|desc.buffer
+op_assign
+id|xrealloc
+c_func
+(paren
+id|desc.buffer
+comma
+id|desc.size
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+id|desc.buffer
+(braket
+id|desc.size
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 id|patch-&gt;result
 op_assign
 id|desc.buffer
@@ -9941,6 +9968,7 @@ c_func
 id|mode
 )paren
 )paren
+multiline_comment|/* Although buf:size is counted string, it also is NUL&n;&t;&t; * terminated.&n;&t;&t; */
 r_return
 id|symlink
 c_func
@@ -10925,7 +10953,6 @@ id|newfd
 OL
 l_int|0
 )paren
-(brace
 id|newfd
 op_assign
 id|hold_lock_file_for_update
@@ -10938,22 +10965,10 @@ id|get_index_file
 c_func
 (paren
 )paren
+comma
+l_int|1
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|newfd
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to create new index file&quot;
-)paren
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
