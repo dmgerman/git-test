@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|git_symbolic_ref_usage
 r_static
@@ -100,9 +101,9 @@ id|HEAD
 )paren
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_symbolic_ref
 r_int
-id|main
+id|cmd_symbolic_ref
 c_func
 (paren
 r_int
@@ -113,13 +114,13 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
-id|setup_git_directory
-c_func
-(paren
-)paren
-suffix:semicolon
 id|git_config
 c_func
 (paren
