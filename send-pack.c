@@ -609,7 +609,7 @@ suffix:semicolon
 )brace
 DECL|function|pack_objects
 r_static
-r_int
+r_void
 id|pack_objects
 c_func
 (paren
@@ -668,9 +668,6 @@ l_string|&quot;rev-list fork failed&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * We don&squot;t wait for the rev-list pipeline in the parent:&n;&t; * we end up waiting for the other end instead&n;&t; */
-r_return
-l_int|0
-suffix:semicolon
 )brace
 DECL|function|unmark_and_free
 r_static
