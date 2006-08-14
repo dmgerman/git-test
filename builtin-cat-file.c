@@ -99,7 +99,7 @@ suffix:semicolon
 )brace
 DECL|function|pprint_tag
 r_static
-r_int
+r_void
 id|pprint_tag
 c_func
 (paren
@@ -399,9 +399,6 @@ comma
 id|endp
 id|cp
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|cmd_cat_file
@@ -721,7 +718,7 @@ comma
 id|tag_type
 )paren
 )paren
-r_return
+(brace
 id|pprint_tag
 c_func
 (paren
@@ -732,6 +729,10 @@ comma
 id|size
 )paren
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 multiline_comment|/* otherwise just spit out the data */
 r_break
 suffix:semicolon
