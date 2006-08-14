@@ -3124,7 +3124,7 @@ suffix:semicolon
 )brace
 DECL|function|show_patch_diff
 r_static
-r_int
+r_void
 id|show_patch_diff
 c_func
 (paren
@@ -3183,10 +3183,6 @@ r_int
 id|i
 comma
 id|show_hunks
-comma
-id|shown_header
-op_assign
-l_int|0
 suffix:semicolon
 r_int
 id|working_tree_file
@@ -4242,9 +4238,6 @@ c_func
 id|sline
 )paren
 suffix:semicolon
-r_return
-id|shown_header
-suffix:semicolon
 )brace
 DECL|macro|COLONS
 mdefine_line|#define COLONS &quot;::::::::::::::::::::::::::::::::&quot;
@@ -4609,7 +4602,6 @@ op_or
 id|DIFF_FORMAT_NAME_STATUS
 )paren
 )paren
-(brace
 id|show_raw_diff
 c_func
 (paren
@@ -4620,7 +4612,6 @@ comma
 id|rev
 )paren
 suffix:semicolon
-)brace
 r_else
 r_if
 c_cond
@@ -4629,7 +4620,6 @@ id|opt-&gt;output_format
 op_amp
 id|DIFF_FORMAT_PATCH
 )paren
-(brace
 id|show_patch_diff
 c_func
 (paren
@@ -4642,7 +4632,6 @@ comma
 id|rev
 )paren
 suffix:semicolon
-)brace
 )brace
 DECL|function|diff_tree_combined
 r_void
