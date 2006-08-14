@@ -4062,8 +4062,7 @@ c_func
 id|sz
 )paren
 suffix:semicolon
-r_if
-c_cond
+r_return
 (paren
 (paren
 id|ce_write
@@ -4099,10 +4098,10 @@ OL
 l_int|0
 )paren
 )paren
-r_return
+ques
+c_cond
 l_int|1
-suffix:semicolon
-r_return
+suffix:colon
 l_int|0
 suffix:semicolon
 )brace
@@ -4196,8 +4195,7 @@ id|left
 op_add_assign
 l_int|20
 suffix:semicolon
-r_if
-c_cond
+r_return
 (paren
 id|write
 c_func
@@ -4211,10 +4209,10 @@ id|left
 op_ne
 id|left
 )paren
-r_return
+ques
+c_cond
 l_int|1
-suffix:semicolon
-r_return
+suffix:colon
 l_int|0
 suffix:semicolon
 )brace
