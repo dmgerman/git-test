@@ -4915,9 +4915,9 @@ id|sz
 op_assign
 id|FIRST_FEW_BYTES
 suffix:semicolon
-r_if
-c_cond
-(paren
+r_return
+op_logical_neg
+op_logical_neg
 id|memchr
 c_func
 (paren
@@ -4927,12 +4927,6 @@ l_int|0
 comma
 id|sz
 )paren
-)paren
-r_return
-l_int|1
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|builtin_diff
