@@ -744,7 +744,7 @@ suffix:semicolon
 )brace
 DECL|function|track_tree_refs
 r_static
-r_int
+r_void
 id|track_tree_refs
 c_func
 (paren
@@ -889,9 +889,6 @@ id|item-&gt;object
 comma
 id|refs
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|parse_tree_buffer
