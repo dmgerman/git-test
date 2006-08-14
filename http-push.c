@@ -11532,8 +11532,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-r_if
-c_cond
+r_return
 (paren
 id|merge_bases
 op_logical_and
@@ -11544,11 +11543,6 @@ id|merge_bases-&gt;item
 op_eq
 id|branch
 )paren
-r_return
-l_int|1
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|delete_remote_branch
