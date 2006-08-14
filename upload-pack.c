@@ -2438,7 +2438,7 @@ suffix:semicolon
 )brace
 DECL|function|upload_pack
 r_static
-r_int
+r_void
 id|upload_pack
 c_func
 (paren
@@ -2476,12 +2476,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|want_obj.nr
 )paren
-r_return
-l_int|0
-suffix:semicolon
+(brace
 id|get_common_commits
 c_func
 (paren
@@ -2492,9 +2489,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
+)brace
 )brace
 DECL|function|main
 r_int
