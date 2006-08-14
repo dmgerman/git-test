@@ -467,7 +467,7 @@ suffix:semicolon
 )brace
 DECL|function|checkout_all
 r_static
-r_int
+r_void
 id|checkout_all
 c_func
 (paren
@@ -682,9 +682,6 @@ m_exit
 (paren
 l_int|128
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|variable|checkout_cache_usage
