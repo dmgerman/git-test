@@ -98,6 +98,13 @@ id|apply
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|apply_in_reverse
+r_static
+r_int
+id|apply_in_reverse
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|no_add
 r_static
 r_int
@@ -457,7 +464,6 @@ DECL|member|is_copy
 DECL|member|is_new
 DECL|member|is_delete
 DECL|member|is_binary
-DECL|member|is_reverse
 r_int
 id|is_rename
 comma
@@ -468,8 +474,6 @@ comma
 id|is_delete
 comma
 id|is_binary
-comma
-id|is_reverse
 suffix:semicolon
 DECL|macro|BINARY_DELTA_DEFLATED
 mdefine_line|#define BINARY_DELTA_DEFLATED 1
@@ -5409,11 +5413,6 @@ id|frag-&gt;oldlines
 )paren
 suffix:semicolon
 )brace
-id|p-&gt;is_reverse
-op_assign
-op_logical_neg
-id|p-&gt;is_reverse
-suffix:semicolon
 )brace
 )brace
 DECL|variable|pluses
@@ -6498,9 +6497,6 @@ op_star
 id|frag
 comma
 r_int
-id|reverse
-comma
-r_int
 id|inaccurate_eof
 )paren
 (brace
@@ -6642,7 +6638,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|reverse
+id|apply_in_reverse
 )paren
 (brace
 r_if
@@ -7306,7 +7302,7 @@ multiline_comment|/* Binary patch is irreversible */
 r_if
 c_cond
 (paren
-id|patch-&gt;is_reverse
+id|apply_in_reverse
 )paren
 r_return
 id|error
@@ -7858,8 +7854,6 @@ c_func
 id|desc
 comma
 id|frag
-comma
-id|patch-&gt;is_reverse
 comma
 id|patch-&gt;inaccurate_eof
 )paren
@@ -10745,9 +10739,6 @@ op_star
 id|filename
 comma
 r_int
-id|reverse
-comma
-r_int
 id|inaccurate_eof
 )paren
 (brace
@@ -10866,7 +10857,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|reverse
+id|apply_in_reverse
 )paren
 id|reverse_patches
 c_func
@@ -11162,11 +11153,6 @@ op_assign
 l_int|1
 suffix:semicolon
 r_int
-id|reverse
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|inaccurate_eof
 op_assign
 l_int|0
@@ -11229,8 +11215,6 @@ c_func
 l_int|0
 comma
 l_string|&quot;&lt;stdin&gt;&quot;
-comma
-id|reverse
 comma
 id|inaccurate_eof
 )paren
@@ -11675,7 +11659,7 @@ l_string|&quot;--reverse&quot;
 )paren
 )paren
 (brace
-id|reverse
+id|apply_in_reverse
 op_assign
 l_int|1
 suffix:semicolon
@@ -11812,8 +11796,6 @@ id|fd
 comma
 id|arg
 comma
-id|reverse
-comma
 id|inaccurate_eof
 )paren
 suffix:semicolon
@@ -11841,8 +11823,6 @@ c_func
 l_int|0
 comma
 l_string|&quot;&lt;stdin&gt;&quot;
-comma
-id|reverse
 comma
 id|inaccurate_eof
 )paren
