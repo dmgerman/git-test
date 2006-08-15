@@ -14,8 +14,6 @@ r_static
 r_char
 op_star
 id|server_capabilities
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|check_ref
 r_static
@@ -2650,8 +2648,6 @@ r_static
 r_char
 op_star
 id|git_proxy_command
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|rhost_name
 r_static
@@ -2659,8 +2655,6 @@ r_const
 r_char
 op_star
 id|rhost_name
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|rhost_len
 r_static

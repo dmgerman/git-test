@@ -17,8 +17,6 @@ DECL|variable|diff_detect_rename_default
 r_static
 r_int
 id|diff_detect_rename_default
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|diff_rename_limit_default
 r_static
@@ -31,8 +29,6 @@ DECL|variable|diff_use_color_default
 r_static
 r_int
 id|diff_use_color_default
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/* &quot;&bslash;033[1;38;5;2xx;48;5;2xxm&bslash;0&quot; is 23 bytes */
 DECL|variable|diff_colors

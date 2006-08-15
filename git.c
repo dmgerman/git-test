@@ -468,8 +468,6 @@ r_static
 r_char
 op_star
 id|alias_string
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|git_alias_config
 r_static

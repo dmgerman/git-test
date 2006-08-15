@@ -350,8 +350,6 @@ DECL|variable|tags_only
 r_static
 r_int
 id|tags_only
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|name_ref
 r_static

@@ -288,10 +288,6 @@ comma
 id|ent_compare
 )paren
 suffix:semicolon
-id|size
-op_assign
-l_int|100
-suffix:semicolon
 r_for
 c_loop
 (paren

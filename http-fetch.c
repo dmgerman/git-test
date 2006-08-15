@@ -57,8 +57,6 @@ DECL|variable|commits_on_stdin
 r_static
 r_int
 id|commits_on_stdin
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|got_alternates
 r_static
@@ -71,8 +69,6 @@ DECL|variable|corrupt_object_found
 r_static
 r_int
 id|corrupt_object_found
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|no_pragma_header
 r_static
@@ -119,8 +115,6 @@ r_struct
 id|alt_base
 op_star
 id|alt
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|enum|object_request_state
 r_enum
@@ -379,8 +373,6 @@ r_struct
 id|object_request
 op_star
 id|object_queue_head
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|fwrite_sha1_file
 r_static

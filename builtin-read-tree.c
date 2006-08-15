@@ -12,8 +12,6 @@ r_struct
 id|object_list
 op_star
 id|trees
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|list_tree
 r_static

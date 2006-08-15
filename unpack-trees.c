@@ -1424,8 +1424,6 @@ r_static
 r_volatile
 id|sig_atomic_t
 id|progress_update
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|progress_interval
 r_static

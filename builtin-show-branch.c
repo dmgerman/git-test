@@ -18,15 +18,11 @@ DECL|variable|default_num
 r_static
 r_int
 id|default_num
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|default_alloc
 r_static
 r_int
 id|default_alloc
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|default_arg
 r_static
@@ -35,8 +31,6 @@ r_char
 op_star
 op_star
 id|default_arg
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|macro|UNINTERESTING
 mdefine_line|#define UNINTERESTING&t;01

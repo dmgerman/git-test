@@ -23,11 +23,6 @@ id|null_sha1
 (braket
 l_int|20
 )braket
-op_assign
-(brace
-l_int|0
-comma
-)brace
 suffix:semicolon
 DECL|variable|sha1_file_open_flag
 r_static

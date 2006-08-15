@@ -18,16 +18,10 @@ DECL|variable|alt_odb
 r_static
 r_int
 id|load_all_packs
-op_assign
-l_int|0
 comma
 id|verbose
-op_assign
-l_int|0
 comma
 id|alt_odb
-op_assign
-l_int|0
 suffix:semicolon
 DECL|struct|llist_item
 r_struct
@@ -140,8 +134,6 @@ r_struct
 id|llist_item
 op_star
 id|free_nodes
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|llist_item_put
 r_static

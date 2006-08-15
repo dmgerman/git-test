@@ -40,8 +40,6 @@ DECL|variable|mark_valid_only
 r_static
 r_int
 id|mark_valid_only
-op_assign
-l_int|0
 suffix:semicolon
 DECL|macro|MARK_VALID
 mdefine_line|#define MARK_VALID 1

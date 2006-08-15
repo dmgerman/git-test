@@ -23,8 +23,6 @@ DECL|variable|show_only
 r_static
 r_int
 id|show_only
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|revs
 r_static

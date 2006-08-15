@@ -3930,8 +3930,6 @@ id|commit
 (brace
 r_int
 id|count
-op_assign
-l_int|0
 suffix:semicolon
 r_struct
 id|commit_list

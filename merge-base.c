@@ -5,8 +5,6 @@ DECL|variable|show_all
 r_static
 r_int
 id|show_all
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|merge_base
 r_static

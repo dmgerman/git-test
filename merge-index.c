@@ -8,8 +8,6 @@ r_const
 r_char
 op_star
 id|pgm
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|arguments
 r_static

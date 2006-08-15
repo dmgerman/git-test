@@ -24,8 +24,6 @@ r_const
 r_char
 op_star
 id|current_exec_path
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|git_set_exec_path
 r_void

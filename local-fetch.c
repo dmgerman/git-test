@@ -6,15 +6,11 @@ DECL|variable|use_link
 r_static
 r_int
 id|use_link
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|use_symlink
 r_static
 r_int
 id|use_symlink
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|use_filecopy
 r_static
@@ -27,8 +23,6 @@ DECL|variable|commits_on_stdin
 r_static
 r_int
 id|commits_on_stdin
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|path
 r_static
@@ -56,8 +50,6 @@ r_struct
 id|packed_git
 op_star
 id|packs
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|setup_index
 r_static
