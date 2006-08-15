@@ -220,18 +220,6 @@ c_func
 id|diff_files_usage
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Backward compatibility wart - &quot;diff-files -s&quot; used to&n;&t; * defeat the common diff option &quot;-s&quot; which asked for&n;&t; * DIFF_FORMAT_NO_OUTPUT.&n;&t; */
-r_if
-c_cond
-(paren
-id|rev.diffopt.output_format
-op_eq
-id|DIFF_FORMAT_NO_OUTPUT
-)paren
-id|rev.diffopt.output_format
-op_assign
-id|DIFF_FORMAT_RAW
-suffix:semicolon
 r_return
 id|run_diff_files
 c_func

@@ -1715,9 +1715,9 @@ m_assert
 id|util-&gt;pathname
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+r_return
+op_logical_neg
+op_logical_neg
 id|get_blob_sha1
 c_func
 (paren
@@ -1727,13 +1727,6 @@ id|util-&gt;pathname
 comma
 id|util-&gt;sha1
 )paren
-)paren
-r_return
-l_int|1
-suffix:semicolon
-r_else
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|alloc_line_map

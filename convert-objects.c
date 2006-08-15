@@ -2,6 +2,8 @@ DECL|macro|_XOPEN_SOURCE
 mdefine_line|#define _XOPEN_SOURCE 500 /* glibc2 and AIX 5.3L need this */
 DECL|macro|_XOPEN_SOURCE_EXTENDED
 mdefine_line|#define _XOPEN_SOURCE_EXTENDED 1 /* AIX 5.3L needs this */
+DECL|macro|_GNU_SOURCE
+mdefine_line|#define _GNU_SOURCE
 macro_line|#include &lt;time.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;

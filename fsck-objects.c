@@ -1746,7 +1746,7 @@ suffix:semicolon
 )brace
 DECL|function|fsck_dir
 r_static
-r_int
+r_void
 id|fsck_dir
 c_func
 (paren
@@ -1780,7 +1780,6 @@ op_logical_neg
 id|dir
 )paren
 r_return
-l_int|0
 suffix:semicolon
 r_while
 c_loop
@@ -1933,9 +1932,6 @@ c_func
 (paren
 id|dir
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|variable|default_refs

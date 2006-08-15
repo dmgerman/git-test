@@ -207,18 +207,6 @@ id|revs-&gt;dense_combined_merges
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * Backward compatibility wart - &quot;diff-files -s&quot; used to&n;&t; * defeat the common diff option &quot;-s&quot; which asked for&n;&t; * DIFF_FORMAT_NO_OUTPUT.&n;&t; */
-r_if
-c_cond
-(paren
-id|revs-&gt;diffopt.output_format
-op_eq
-id|DIFF_FORMAT_NO_OUTPUT
-)paren
-id|revs-&gt;diffopt.output_format
-op_assign
-id|DIFF_FORMAT_RAW
-suffix:semicolon
 r_return
 id|run_diff_files
 c_func
@@ -1223,11 +1211,22 @@ id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|diff_setup_done
 c_func
 (paren
 op_amp
 id|rev.diffopt
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;diff_setup_done failed&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1763,6 +1762,16 @@ id|UNINTERESTING
 )paren
 (brace
 multiline_comment|/* diff A...B where there is one sane merge base between&n;&t;&t; * A and B.  We have ent[0] == merge-base, ent[1] == A,&n;&t;&t; * and ent[2] == B.  Show diff between the base and B.&n;&t;&t; */
+id|ent
+(braket
+l_int|1
+)braket
+op_assign
+id|ent
+(braket
+l_int|2
+)braket
+suffix:semicolon
 r_return
 id|builtin_diff_tree
 c_func

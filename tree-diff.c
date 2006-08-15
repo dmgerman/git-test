@@ -87,7 +87,7 @@ id|newbase
 suffix:semicolon
 )brace
 r_static
-r_int
+r_void
 id|show_entry
 c_func
 (paren
@@ -749,7 +749,7 @@ suffix:semicolon
 multiline_comment|/* A file entry went away or appeared */
 DECL|function|show_entry
 r_static
-r_int
+r_void
 id|show_entry
 c_func
 (paren
@@ -912,10 +912,9 @@ c_func
 id|newbase
 )paren
 suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
 )brace
+r_else
+(brace
 id|opt
 op_member_access_from_pointer
 id|add_remove
@@ -937,9 +936,7 @@ comma
 id|path
 )paren
 suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
+)brace
 )brace
 DECL|function|diff_tree
 r_int

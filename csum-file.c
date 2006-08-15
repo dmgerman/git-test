@@ -3,7 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 DECL|function|sha1flush
 r_static
-r_int
+r_void
 id|sha1flush
 c_func
 (paren
@@ -73,7 +73,6 @@ id|count
 r_continue
 suffix:semicolon
 r_return
-l_int|0
 suffix:semicolon
 )brace
 r_if

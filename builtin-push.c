@@ -148,6 +148,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|strncmp
 c_func
 (paren
@@ -158,9 +159,6 @@ comma
 l_int|5
 )paren
 )paren
-r_return
-l_int|0
-suffix:semicolon
 id|add_refspec
 c_func
 (paren
