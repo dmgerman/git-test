@@ -1,7 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
-macro_line|#include &lt;time.h&gt;
 multiline_comment|/* Index extensions.&n; *&n; * The first letter should be &squot;A&squot;..&squot;Z&squot; for extensions that are not&n; * necessary for a correct operation (i.e. optimization data).&n; * When new extensions are added that _needs_ to be understood in&n; * order to correctly interpret the index file, pick character that&n; * is outside the range, to cause the reader to abort.&n; */
 DECL|macro|CACHE_EXT
 mdefine_line|#define CACHE_EXT(s) ( (s[0]&lt;&lt;24)|(s[1]&lt;&lt;16)|(s[2]&lt;&lt;8)|(s[3]) )
@@ -4721,12 +4720,6 @@ op_le
 id|now
 )paren
 (brace
-r_struct
-id|timespec
-id|rq
-comma
-id|rm
-suffix:semicolon
 id|off_t
 id|where
 op_assign
@@ -4740,22 +4733,10 @@ comma
 id|SEEK_CUR
 )paren
 suffix:semicolon
-id|rq.tv_sec
-op_assign
-l_int|0
-suffix:semicolon
-id|rq.tv_nsec
-op_assign
-l_int|250000000
-suffix:semicolon
-id|nanosleep
+id|sleep
 c_func
 (paren
-op_amp
-id|rq
-comma
-op_amp
-id|rm
+l_int|1
 )paren
 suffix:semicolon
 r_if
