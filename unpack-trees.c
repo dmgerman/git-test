@@ -1422,7 +1422,7 @@ suffix:semicolon
 DECL|variable|progress_update
 r_static
 r_volatile
-r_int
+id|sig_atomic_t
 id|progress_update
 op_assign
 l_int|0

@@ -146,8 +146,8 @@ id|status
 comma
 id|code
 suffix:semicolon
-r_int
-id|retval
+id|pid_t
+id|waiting
 op_assign
 id|waitpid
 c_func
@@ -163,7 +163,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|retval
+id|waiting
 OL
 l_int|0
 )paren
@@ -185,7 +185,7 @@ comma
 id|strerror
 c_func
 (paren
-id|retval
+id|errno
 )paren
 )paren
 suffix:semicolon
@@ -196,7 +196,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|retval
+id|waiting
 op_ne
 id|pid
 )paren

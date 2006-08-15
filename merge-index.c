@@ -43,14 +43,15 @@ c_func
 r_void
 )paren
 (brace
-r_int
+id|pid_t
 id|pid
 op_assign
 id|fork
 c_func
 (paren
 )paren
-comma
+suffix:semicolon
+r_int
 id|status
 suffix:semicolon
 r_if

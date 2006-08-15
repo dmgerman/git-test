@@ -267,9 +267,9 @@ id|status
 comma
 id|code
 suffix:semicolon
-r_int
-id|retval
-op_assign
+r_if
+c_cond
+(paren
 id|waitpid
 c_func
 (paren
@@ -280,11 +280,6 @@ id|status
 comma
 l_int|0
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|retval
 OL
 l_int|0
 )paren
