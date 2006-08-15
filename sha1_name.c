@@ -1129,15 +1129,10 @@ l_int|41
 suffix:semicolon
 id|is_null
 op_assign
-op_logical_neg
-id|memcmp
+id|is_null_sha1
 c_func
 (paren
 id|sha1
-comma
-id|null_sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|memcpy
