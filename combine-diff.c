@@ -6,34 +6,6 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
-DECL|function|uninteresting
-r_static
-r_int
-id|uninteresting
-c_func
-(paren
-r_struct
-id|diff_filepair
-op_star
-id|p
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|diff_unmodified_pair
-c_func
-(paren
-id|p
-)paren
-)paren
-r_return
-l_int|1
-suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
-)brace
 DECL|function|intersect_paths
 r_static
 r_struct
@@ -117,7 +89,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|uninteresting
+id|diff_unmodified_pair
 c_func
 (paren
 id|q-&gt;queue
@@ -356,7 +328,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|uninteresting
+id|diff_unmodified_pair
 c_func
 (paren
 id|q-&gt;queue
