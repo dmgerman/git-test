@@ -120,7 +120,7 @@ id|apply_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [-z] [-pNUM] [-CNUM] [--whitespace=&lt;nowarn|warn|error|error-all|strip&gt;] &lt;patch&gt;...&quot;
+l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [--reverse] [-z] [-pNUM] [-CNUM] [--whitespace=&lt;nowarn|warn|error|error-all|strip&gt;] &lt;patch&gt;...&quot;
 suffix:semicolon
 DECL|enum|whitespace_eol
 r_static
