@@ -4915,8 +4915,17 @@ id|llen
 op_eq
 l_int|1
 )paren
+(brace
+multiline_comment|/* consume the blank line */
+id|buffer
+op_increment
+suffix:semicolon
+id|size
+op_decrement
+suffix:semicolon
 r_break
 suffix:semicolon
+)brace
 multiline_comment|/* Minimum line is &quot;A00000&bslash;n&quot; which is 7-byte long,&n;&t;&t; * and the line length must be multiple of 5 plus 2.&n;&t;&t; */
 r_if
 c_cond
@@ -7547,7 +7556,7 @@ id|patch-&gt;old_name
 suffix:semicolon
 id|fragment
 op_assign
-id|fragment
+id|fragment-&gt;next
 suffix:semicolon
 )brace
 id|data
@@ -7983,9 +7992,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;binary patch to &squot;%s&squot; creates incorrect result&quot;
+l_string|&quot;binary patch to &squot;%s&squot; creates incorrect result (expecting %s, got %s)&quot;
 comma
 id|name
+comma
+id|patch-&gt;new_sha1_prefix
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
 )paren
 suffix:semicolon
 )brace
