@@ -1427,14 +1427,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|ref-&gt;old_sha1
 comma
 id|ref-&gt;peer_ref-&gt;new_sha1
-comma
-l_int|20
 )paren
 )paren
 (brace

@@ -282,14 +282,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|obj-&gt;sha1
-comma
-l_int|20
 )paren
 )paren
 r_break

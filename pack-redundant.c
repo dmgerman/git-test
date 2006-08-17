@@ -646,14 +646,12 @@ id|l
 r_int
 id|cmp
 op_assign
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|l-&gt;sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if
@@ -772,14 +770,12 @@ id|l
 r_int
 id|cmp
 op_assign
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|l-&gt;sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if
@@ -1241,7 +1237,7 @@ l_int|20
 r_int
 id|cmp
 op_assign
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|p1_base
@@ -1251,8 +1247,6 @@ comma
 id|p2_base
 op_plus
 id|p2_off
-comma
-l_int|20
 )paren
 suffix:semicolon
 multiline_comment|/* cmp ~ p1 - p2 */
@@ -1679,6 +1673,7 @@ id|p1_off
 comma
 id|p2_off
 suffix:semicolon
+r_int
 r_char
 op_star
 id|p1_base
@@ -1699,6 +1694,7 @@ suffix:semicolon
 id|p1_base
 op_assign
 (paren
+r_int
 r_char
 op_star
 )paren
@@ -1707,6 +1703,7 @@ suffix:semicolon
 id|p2_base
 op_assign
 (paren
+r_int
 r_char
 op_star
 )paren
@@ -1733,7 +1730,7 @@ l_int|20
 r_int
 id|cmp
 op_assign
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|p1_base
@@ -1743,8 +1740,6 @@ comma
 id|p2_base
 op_plus
 id|p2_off
-comma
-l_int|20
 )paren
 suffix:semicolon
 multiline_comment|/* cmp ~ p1 - p2 */

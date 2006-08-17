@@ -285,14 +285,12 @@ op_logical_neg
 id|opt-&gt;find_copies_harder
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|sha2
-comma
-l_int|20
 )paren
 op_logical_and
 id|mode1

@@ -164,14 +164,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|it-&gt;sha1
 comma
 id|ref-&gt;sha1
-comma
-l_int|20
 )paren
 op_logical_or
 id|ref-&gt;entry_count

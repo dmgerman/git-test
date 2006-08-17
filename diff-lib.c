@@ -1010,14 +1010,12 @@ op_eq
 id|oldmode
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|old-&gt;sha1
-comma
-l_int|20
 )paren
 op_logical_and
 op_logical_neg

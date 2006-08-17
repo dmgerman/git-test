@@ -267,14 +267,12 @@ r_else
 r_if
 c_cond
 (paren
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|one-&gt;sha1
 comma
 id|two-&gt;sha1
-comma
-l_int|20
 )paren
 op_logical_or
 (paren

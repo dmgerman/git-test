@@ -754,14 +754,12 @@ op_logical_and
 id|b-&gt;sha1
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|a-&gt;sha1
 comma
 id|b-&gt;sha1
-comma
-l_int|20
 )paren
 op_logical_and
 id|a-&gt;mode

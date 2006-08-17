@@ -720,14 +720,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|info-&gt;base_sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -1586,7 +1584,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|fill
@@ -1596,8 +1594,6 @@ l_int|20
 )paren
 comma
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 id|die

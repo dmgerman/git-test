@@ -2132,14 +2132,12 @@ op_eq
 id|b-&gt;ce_mode
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|a-&gt;sha1
 comma
 id|b-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 )brace

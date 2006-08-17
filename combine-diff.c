@@ -3688,7 +3688,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|elem-&gt;parent
@@ -3704,8 +3704,6 @@ id|j
 )braket
 dot
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 (brace

@@ -279,14 +279,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|in_transit-&gt;item-&gt;sha1
-comma
-l_int|20
 )paren
 )paren
 (brace

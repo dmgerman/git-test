@@ -619,14 +619,12 @@ suffix:semicolon
 r_int
 id|cmp
 op_assign
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|graft-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if

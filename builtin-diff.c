@@ -283,14 +283,12 @@ id|new_sha1
 )paren
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|old_sha1
 comma
 id|new_sha1
-comma
-l_int|20
 )paren
 )paren
 r_return
