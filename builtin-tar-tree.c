@@ -19,7 +19,7 @@ id|tar_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-tar-tree [--remote=&lt;repo&gt;] &lt;ent&gt; [basedir]&quot;
+l_string|&quot;git-tar-tree [--remote=&lt;repo&gt;] &lt;tree-ish&gt; [basedir]&quot;
 suffix:semicolon
 DECL|variable|block
 r_static
