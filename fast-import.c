@@ -5141,6 +5141,9 @@ op_or
 l_int|0755
 suffix:colon
 r_case
+id|S_IFLNK
+suffix:colon
+r_case
 l_int|0644
 suffix:colon
 r_case
