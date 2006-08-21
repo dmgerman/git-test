@@ -2262,6 +2262,11 @@ r_void
 op_star
 id|map
 suffix:semicolon
+r_struct
+id|pack_header
+op_star
+id|hdr
+suffix:semicolon
 id|pack_mapped
 op_add_assign
 id|p-&gt;pack_size
@@ -2390,6 +2395,55 @@ suffix:semicolon
 id|p-&gt;pack_base
 op_assign
 id|map
+suffix:semicolon
+multiline_comment|/* Check if we understand this pack file.  If we don&squot;t we&squot;re&n;&t;&t; * likely too old to handle it.&n;&t;&t; */
+id|hdr
+op_assign
+id|map
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|hdr-&gt;hdr_signature
+op_ne
+id|htonl
+c_func
+(paren
+id|PACK_SIGNATURE
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;packfile %s isn&squot;t actually a pack.&quot;
+comma
+id|p-&gt;pack_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pack_version_ok
+c_func
+(paren
+id|hdr-&gt;hdr_version
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;packfile %s is version %i and not supported&quot;
+l_string|&quot; (try upgrading GIT to a newer version)&quot;
+comma
+id|p-&gt;pack_name
+comma
+id|ntohl
+c_func
+(paren
+id|hdr-&gt;hdr_version
+)paren
+)paren
 suffix:semicolon
 multiline_comment|/* Check if the pack file matches with the index file.&n;&t;&t; * this is cheap.&n;&t;&t; */
 r_if
