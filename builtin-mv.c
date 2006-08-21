@@ -165,6 +165,7 @@ suffix:semicolon
 id|without_slash
 (braket
 id|length
+l_int|1
 )braket
 op_assign
 l_char|&squot;&bslash;0&squot;
