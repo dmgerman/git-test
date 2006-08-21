@@ -5201,25 +5201,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* forward declaration for a mutually recursive function */
-r_static
-r_void
-op_star
-id|unpack_entry
-c_func
-(paren
-r_struct
-id|pack_entry
-op_star
-comma
-r_char
-op_star
-comma
-r_int
-r_int
-op_star
-)paren
-suffix:semicolon
 DECL|function|unpack_delta_entry
 r_static
 r_void
