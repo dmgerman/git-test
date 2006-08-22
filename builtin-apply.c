@@ -11142,7 +11142,7 @@ c_loop
 (paren
 id|cnt
 op_assign
-l_int|0
+l_int|1
 comma
 id|frag
 op_assign
