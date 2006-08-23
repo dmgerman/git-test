@@ -332,6 +332,12 @@ r_int
 r_int
 id|branch_count
 suffix:semicolon
+DECL|variable|branch_load_count
+r_static
+r_int
+r_int
+id|branch_load_count
+suffix:semicolon
 DECL|variable|object_count
 r_static
 r_int
@@ -5386,6 +5392,9 @@ suffix:semicolon
 id|cur_active_branches
 op_increment
 suffix:semicolon
+id|branch_load_count
+op_increment
+suffix:semicolon
 )brace
 DECL|function|file_change_m
 r_static
@@ -7441,19 +7450,11 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total branches:  %10lu&bslash;n&quot;
+l_string|&quot;Total branches:  %10lu (%10lu loads     )&bslash;n&quot;
 comma
 id|branch_count
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
 comma
-l_string|&quot;      atoms:     %10u&bslash;n&quot;
-comma
-id|atom_cnt
+id|branch_load_count
 )paren
 suffix:semicolon
 id|fprintf
@@ -7472,6 +7473,16 @@ op_star
 l_int|1024
 comma
 id|marks_set_count
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;      atoms:     %10u&bslash;n&quot;
+comma
+id|atom_cnt
 )paren
 suffix:semicolon
 id|fprintf
