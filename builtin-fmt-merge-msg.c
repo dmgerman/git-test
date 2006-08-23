@@ -17,8 +17,6 @@ DECL|variable|merge_summary
 r_static
 r_int
 id|merge_summary
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|fmt_merge_msg_config
 r_static

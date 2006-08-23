@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
 DECL|function|verify_one_pack
@@ -221,18 +222,24 @@ id|verify_pack_usage
 op_assign
 l_string|&quot;git-verify-pack [-v] &lt;pack&gt;...&quot;
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_verify_pack
 r_int
-id|main
+id|cmd_verify_pack
 c_func
 (paren
 r_int
-id|ac
+id|argc
 comma
+r_const
 r_char
 op_star
 op_star
-id|av
+id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
@@ -260,7 +267,7 @@ c_loop
 (paren
 l_int|1
 OL
-id|ac
+id|argc
 )paren
 (brace
 r_if
@@ -269,7 +276,7 @@ c_cond
 op_logical_neg
 id|no_more_options
 op_logical_and
-id|av
+id|argv
 (braket
 l_int|1
 )braket
@@ -289,7 +296,7 @@ c_func
 (paren
 l_string|&quot;-v&quot;
 comma
-id|av
+id|argv
 (braket
 l_int|1
 )braket
@@ -309,7 +316,7 @@ c_func
 (paren
 l_string|&quot;--&quot;
 comma
-id|av
+id|argv
 (braket
 l_int|1
 )braket
@@ -335,7 +342,7 @@ c_cond
 id|verify_one_pack
 c_func
 (paren
-id|av
+id|argv
 (braket
 l_int|1
 )braket
@@ -352,10 +359,10 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-id|ac
+id|argc
 op_decrement
 suffix:semicolon
-id|av
+id|argv
 op_increment
 suffix:semicolon
 )brace

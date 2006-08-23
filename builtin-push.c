@@ -22,16 +22,10 @@ DECL|variable|thin
 r_static
 r_int
 id|all
-op_assign
-l_int|0
 comma
 id|tags
-op_assign
-l_int|0
 comma
 id|force
-op_assign
-l_int|0
 comma
 id|thin
 op_assign
@@ -43,8 +37,6 @@ r_const
 r_char
 op_star
 id|execute
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|macro|BUF_SIZE
 mdefine_line|#define BUF_SIZE (2084)
@@ -63,15 +55,11 @@ r_char
 op_star
 op_star
 id|refspec
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|refspec_nr
 r_static
 r_int
 id|refspec_nr
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|add_refspec
 r_static
@@ -148,6 +136,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|strncmp
 c_func
 (paren
@@ -158,9 +147,6 @@ comma
 l_int|5
 )paren
 )paren
-r_return
-l_int|0
-suffix:semicolon
 id|add_refspec
 c_func
 (paren

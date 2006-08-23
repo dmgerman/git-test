@@ -30,8 +30,6 @@ r_static
 r_int
 r_char
 id|remote_version
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|local_version
 r_static
@@ -128,8 +126,6 @@ DECL|variable|prefetches
 r_static
 r_int
 id|prefetches
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|in_transit
 r_static
@@ -137,8 +133,6 @@ r_struct
 id|object_list
 op_star
 id|in_transit
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|end_of_transit
 r_static
@@ -258,8 +252,6 @@ DECL|variable|conn_buf_posn
 r_static
 r_int
 id|conn_buf_posn
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|fetch
 r_int
@@ -287,14 +279,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|in_transit-&gt;item-&gt;sha1
-comma
-l_int|20
 )paren
 )paren
 (brace

@@ -1008,7 +1008,7 @@ id|any_files
 op_assign
 l_int|1
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|ce-&gt;sha1
@@ -1019,8 +1019,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|src
@@ -1422,10 +1420,8 @@ suffix:semicolon
 DECL|variable|progress_update
 r_static
 r_volatile
-r_int
+id|sig_atomic_t
 id|progress_update
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|progress_interval
 r_static
@@ -2134,14 +2130,12 @@ op_eq
 id|b-&gt;ce_mode
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|a-&gt;sha1
 comma
 id|b-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 )brace

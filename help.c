@@ -26,8 +26,6 @@ l_string|&quot;COLUMNS&quot;
 suffix:semicolon
 r_int
 id|n_cols
-op_assign
-l_int|0
 suffix:semicolon
 r_if
 c_cond

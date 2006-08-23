@@ -27,15 +27,11 @@ r_static
 r_int
 r_char
 id|remote_version
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|verbose
 r_static
 r_int
 id|verbose
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|serve_object
 r_static

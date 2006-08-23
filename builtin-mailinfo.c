@@ -33,8 +33,6 @@ DECL|variable|keep_subject
 r_static
 r_int
 id|keep_subject
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|metainfo_charset
 r_static
@@ -42,8 +40,6 @@ r_const
 r_char
 op_star
 id|metainfo_charset
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|line
 r_static
@@ -126,8 +122,6 @@ DECL|variable|patch_lines
 r_static
 r_int
 id|patch_lines
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|sanity_check
 r_static

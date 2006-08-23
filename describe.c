@@ -18,16 +18,12 @@ DECL|variable|all
 r_static
 r_int
 id|all
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/* Default to annotated tags only */
 DECL|variable|tags
 r_static
 r_int
 id|tags
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/* But allow any tags if --tags is specified */
 DECL|variable|abbrev
@@ -42,12 +38,8 @@ DECL|variable|allocs
 r_static
 r_int
 id|names
-op_assign
-l_int|0
 comma
 id|allocs
-op_assign
-l_int|0
 suffix:semicolon
 DECL|struct|commit_name
 r_static

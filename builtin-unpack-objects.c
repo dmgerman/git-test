@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;delta.h&quot;
@@ -458,14 +459,12 @@ id|info
 )paren
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|info-&gt;base_sha1
 comma
 id|base_sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|info-&gt;size
@@ -719,14 +718,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|info-&gt;base_sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -917,7 +914,7 @@ suffix:semicolon
 r_int
 id|result
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|base_sha1
@@ -927,8 +924,6 @@ c_func
 (paren
 l_int|20
 )paren
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|use
@@ -1416,18 +1411,24 @@ l_string|&quot;unresolved deltas left after unpacking&quot;
 )paren
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_unpack_objects
 r_int
-id|main
+id|cmd_unpack_objects
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
@@ -1440,9 +1441,10 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-id|setup_git_directory
+id|git_config
 c_func
 (paren
+id|git_default_config
 )paren
 suffix:semicolon
 id|quiet
@@ -1578,7 +1580,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|fill
@@ -1588,8 +1590,6 @@ l_int|20
 )paren
 comma
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 id|die

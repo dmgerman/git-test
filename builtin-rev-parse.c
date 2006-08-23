@@ -26,8 +26,6 @@ r_const
 r_char
 op_star
 id|def
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|macro|NORMAL
 mdefine_line|#define NORMAL 0
@@ -44,29 +42,21 @@ DECL|variable|symbolic
 r_static
 r_int
 id|symbolic
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|abbrev
 r_static
 r_int
 id|abbrev
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|output_sq
 r_static
 r_int
 id|output_sq
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|revs_count
 r_static
 r_int
 id|revs_count
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/*&n; * Some arguments are relevant &quot;revision&quot; arguments,&n; * others are about output format or other details.&n; * This sorts it all out.&n; */
 DECL|function|is_rev_argument

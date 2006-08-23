@@ -1,4 +1,5 @@
 macro_line|#include &lt;stdlib.h&gt;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
@@ -349,8 +350,6 @@ DECL|variable|tags_only
 r_static
 r_int
 id|tags_only
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|name_ref
 r_static
@@ -628,18 +627,24 @@ r_return
 id|buffer
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_name_rev
 r_int
-id|main
+id|cmd_name_rev
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_struct
@@ -666,11 +671,6 @@ comma
 id|transform_stdin
 op_assign
 l_int|0
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 id|git_config
 c_func

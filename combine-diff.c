@@ -6,34 +6,6 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
-DECL|function|uninteresting
-r_static
-r_int
-id|uninteresting
-c_func
-(paren
-r_struct
-id|diff_filepair
-op_star
-id|p
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|diff_unmodified_pair
-c_func
-(paren
-id|p
-)paren
-)paren
-r_return
-l_int|1
-suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
-)brace
 DECL|function|intersect_paths
 r_static
 r_struct
@@ -117,7 +89,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|uninteresting
+id|diff_unmodified_pair
 c_func
 (paren
 id|q-&gt;queue
@@ -216,7 +188,7 @@ op_star
 id|num_parent
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|p-&gt;sha1
@@ -227,8 +199,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|two-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|p-&gt;mode
@@ -240,7 +210,7 @@ id|i
 op_member_access_from_pointer
 id|two-&gt;mode
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|p-&gt;parent
@@ -256,8 +226,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|one-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|p-&gt;parent
@@ -356,7 +324,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|uninteresting
+id|diff_unmodified_pair
 c_func
 (paren
 id|q-&gt;queue
@@ -407,7 +375,7 @@ id|found
 op_assign
 l_int|1
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|p-&gt;parent
@@ -423,8 +391,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|one-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|p-&gt;parent
@@ -574,15 +540,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|memcmp
+id|is_null_sha1
 c_func
 (paren
 id|sha1
-comma
-id|null_sha1
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -3124,7 +3085,7 @@ suffix:semicolon
 )brace
 DECL|function|show_patch_diff
 r_static
-r_int
+r_void
 id|show_patch_diff
 c_func
 (paren
@@ -3183,23 +3144,14 @@ r_int
 id|i
 comma
 id|show_hunks
-comma
-id|shown_header
-op_assign
-l_int|0
 suffix:semicolon
 r_int
 id|working_tree_file
 op_assign
-op_logical_neg
-id|memcmp
+id|is_null_sha1
 c_func
 (paren
 id|elem-&gt;sha1
-comma
-id|null_sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_int
@@ -3730,7 +3682,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|elem-&gt;parent
@@ -3746,8 +3698,6 @@ id|j
 )braket
 dot
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -4242,9 +4192,6 @@ c_func
 id|sline
 )paren
 suffix:semicolon
-r_return
-id|shown_header
-suffix:semicolon
 )brace
 DECL|macro|COLONS
 mdefine_line|#define COLONS &quot;::::::::::::::::::::::::::::::::&quot;
@@ -4609,7 +4556,6 @@ op_or
 id|DIFF_FORMAT_NAME_STATUS
 )paren
 )paren
-(brace
 id|show_raw_diff
 c_func
 (paren
@@ -4620,7 +4566,6 @@ comma
 id|rev
 )paren
 suffix:semicolon
-)brace
 r_else
 r_if
 c_cond
@@ -4629,7 +4574,6 @@ id|opt-&gt;output_format
 op_amp
 id|DIFF_FORMAT_PATCH
 )paren
-(brace
 id|show_patch_diff
 c_func
 (paren
@@ -4642,7 +4586,6 @@ comma
 id|rev
 )paren
 suffix:semicolon
-)brace
 )brace
 DECL|function|diff_tree_combined
 r_void
@@ -5124,16 +5067,21 @@ comma
 id|num_parent
 op_increment
 )paren
-id|memcpy
+id|hashcpy
 c_func
+(paren
+(paren
+r_int
+r_char
+op_star
+)paren
 (paren
 id|parent
 op_plus
 id|num_parent
+)paren
 comma
 id|parents-&gt;item-&gt;object.sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|diff_tree_combined

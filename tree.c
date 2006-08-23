@@ -141,14 +141,12 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|ce-&gt;sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_return
@@ -744,7 +742,7 @@ suffix:semicolon
 )brace
 DECL|function|track_tree_refs
 r_static
-r_int
+r_void
 id|track_tree_refs
 c_func
 (paren
@@ -889,9 +887,6 @@ id|item-&gt;object
 comma
 id|refs
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|parse_tree_buffer

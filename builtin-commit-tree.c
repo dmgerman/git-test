@@ -348,7 +348,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|parent_sha1
@@ -357,8 +357,6 @@ id|i
 )braket
 comma
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 (brace

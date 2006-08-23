@@ -12,8 +12,6 @@ r_struct
 id|object_list
 op_star
 id|trees
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|list_tree
 r_static
@@ -218,14 +216,12 @@ suffix:semicolon
 r_int
 id|cnt
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|it-&gt;sha1
 comma
 id|tree-&gt;object.sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|desc.buf

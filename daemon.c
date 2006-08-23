@@ -45,23 +45,17 @@ r_char
 op_star
 op_star
 id|ok_paths
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|strict_paths
 r_static
 r_int
 id|strict_paths
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/* If this is set, git-daemon-export-ok is not required */
 DECL|variable|export_all_trees
 r_static
 r_int
 id|export_all_trees
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/* Take all paths relative to this one if non-NULL */
 DECL|variable|base_path
@@ -69,8 +63,6 @@ r_static
 r_char
 op_star
 id|base_path
-op_assign
-l_int|NULL
 suffix:semicolon
 multiline_comment|/* If defined, ~user notation is allowed and the string is inserted&n; * after ~user/.  E.g. a request to git://host/~alice/frotz would&n; * go to /home/alice/pub_git/frotz with --user-path=pub_git.&n; */
 DECL|variable|user_path
@@ -79,8 +71,6 @@ r_const
 r_char
 op_star
 id|user_path
-op_assign
-l_int|NULL
 suffix:semicolon
 multiline_comment|/* Timeout, and initial timeout */
 DECL|variable|timeout
@@ -88,16 +78,12 @@ r_static
 r_int
 r_int
 id|timeout
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|init_timeout
 r_static
 r_int
 r_int
 id|init_timeout
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|logreport
 r_static
@@ -1354,8 +1340,6 @@ r_volatile
 r_int
 r_int
 id|children_reaped
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|dead_child
 r_static
@@ -1371,16 +1355,12 @@ r_static
 r_int
 r_int
 id|children_spawned
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|children_deleted
 r_static
 r_int
 r_int
 id|children_deleted
-op_assign
-l_int|0
 suffix:semicolon
 DECL|struct|child
 r_static

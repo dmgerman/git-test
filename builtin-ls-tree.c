@@ -23,15 +23,11 @@ DECL|variable|abbrev
 r_static
 r_int
 id|abbrev
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|ls_options
 r_static
 r_int
 id|ls_options
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|pathspec
 r_static
@@ -45,8 +41,6 @@ DECL|variable|chomp_prefix
 r_static
 r_int
 id|chomp_prefix
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|ls_tree_prefix
 r_static

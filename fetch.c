@@ -365,14 +365,12 @@ id|COMPLETE
 r_return
 l_int|0
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|current_commit_sha1
 comma
 id|commit-&gt;object.sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|pull_say
