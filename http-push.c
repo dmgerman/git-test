@@ -8788,6 +8788,7 @@ id|lock_flags
 suffix:semicolon
 )brace
 DECL|function|add_one_object
+r_static
 r_struct
 id|object_list
 op_star

@@ -1526,6 +1526,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|git_tar_config
+r_static
 r_int
 id|git_tar_config
 c_func
