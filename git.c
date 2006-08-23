@@ -1736,7 +1736,7 @@ l_string|&quot;GIT_TRACE&quot;
 )paren
 (brace
 r_int
-id|i
+id|j
 suffix:semicolon
 id|fprintf
 c_func
@@ -1749,16 +1749,16 @@ suffix:semicolon
 r_for
 c_loop
 (paren
-id|i
+id|j
 op_assign
 l_int|0
 suffix:semicolon
-id|i
+id|j
 OL
 id|argc
 suffix:semicolon
 op_increment
-id|i
+id|j
 )paren
 (brace
 id|fputc
@@ -1776,7 +1776,7 @@ id|stderr
 comma
 id|argv
 (braket
-id|i
+id|j
 )braket
 )paren
 suffix:semicolon

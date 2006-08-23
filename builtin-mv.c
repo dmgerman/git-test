@@ -1751,7 +1751,7 @@ dot
 id|path
 suffix:semicolon
 r_int
-id|i
+id|j
 op_assign
 id|cache_name_pos
 c_func
@@ -1772,13 +1772,13 @@ id|ce
 op_assign
 id|active_cache
 (braket
-id|i
+id|j
 )braket
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|i
+id|j
 OL
 l_int|0
 )paren
