@@ -858,7 +858,7 @@ comma
 l_string|&quot;object extends past end of pack&quot;
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|delta_base
@@ -866,8 +866,6 @@ comma
 id|pack_base
 op_plus
 id|pos
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|pos
@@ -1656,14 +1654,12 @@ id|delta-&gt;obj
 op_assign
 id|obj
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|delta-&gt;base_sha1
 comma
 id|base_sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 )brace

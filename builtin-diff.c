@@ -994,9 +994,14 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-id|memcpy
+id|hashcpy
 c_func
 (paren
+(paren
+r_int
+r_char
+op_star
+)paren
 id|parent
 op_plus
 id|i
@@ -1009,8 +1014,6 @@ id|i
 )braket
 dot
 id|item-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|diff_tree_combined
@@ -1493,7 +1496,7 @@ comma
 id|name
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|blob
@@ -1504,8 +1507,6 @@ dot
 id|sha1
 comma
 id|obj-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|blob

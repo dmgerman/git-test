@@ -1687,14 +1687,12 @@ id|entry-&gt;ino
 op_assign
 id|ino
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|entry-&gt;sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|nr

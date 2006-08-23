@@ -141,14 +141,12 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|ce-&gt;sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_return

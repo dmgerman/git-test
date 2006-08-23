@@ -1902,14 +1902,12 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|ref-&gt;new_sha1
 comma
 id|local
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if
