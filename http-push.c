@@ -11370,14 +11370,10 @@ id|symref
 op_assign
 l_int|NULL
 suffix:semicolon
-id|memset
+id|hashclr
 c_func
 (paren
 id|sha1
-comma
-l_int|0
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if

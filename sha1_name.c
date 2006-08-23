@@ -899,14 +899,10 @@ id|MINIMUM_ABBREV
 r_return
 l_int|1
 suffix:semicolon
-id|memset
+id|hashclr
 c_func
 (paren
 id|res
-comma
-l_int|0
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|memset
