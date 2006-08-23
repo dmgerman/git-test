@@ -1214,7 +1214,7 @@ op_assign
 l_int|4
 suffix:semicolon
 (paren
-l_int|1
+l_int|1u
 op_lshift
 id|i
 )paren
