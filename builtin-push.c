@@ -1235,7 +1235,7 @@ op_increment
 )paren
 (brace
 r_int
-id|error
+id|err
 suffix:semicolon
 r_int
 id|dest_argc
@@ -1353,7 +1353,7 @@ id|dest_argc
 op_assign
 l_int|NULL
 suffix:semicolon
-id|error
+id|err
 op_assign
 id|run_command_v
 c_func
@@ -1367,14 +1367,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|error
+id|err
 )paren
 r_continue
 suffix:semicolon
 r_switch
 c_cond
 (paren
-id|error
+id|err
 )paren
 (brace
 r_case
@@ -1422,7 +1422,7 @@ suffix:semicolon
 r_default
 suffix:colon
 r_return
-id|error
+id|err
 suffix:semicolon
 )brace
 )brace

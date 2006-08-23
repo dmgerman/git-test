@@ -8991,7 +8991,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_int
-id|error
+id|err
 op_assign
 l_int|0
 suffix:semicolon
@@ -9009,7 +9009,7 @@ op_assign
 id|patch-&gt;next
 )paren
 (brace
-id|error
+id|err
 op_or_assign
 id|check_patch
 c_func
@@ -9025,7 +9025,7 @@ id|patch
 suffix:semicolon
 )brace
 r_return
-id|error
+id|err
 suffix:semicolon
 )brace
 DECL|function|show_index_list
