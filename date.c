@@ -3124,10 +3124,6 @@ op_assign
 id|date
 suffix:semicolon
 r_int
-id|n
-op_assign
-l_int|1
-comma
 id|i
 suffix:semicolon
 r_while
@@ -3141,8 +3137,7 @@ op_increment
 id|end
 )paren
 )paren
-id|n
-op_increment
+suffix:semicolon
 suffix:semicolon
 r_for
 c_loop
