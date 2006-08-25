@@ -858,7 +858,7 @@ OL
 id|MINIMUM_ABBREV
 op_logical_or
 l_int|40
-op_le
+OL
 id|abbrev
 )paren
 id|abbrev
