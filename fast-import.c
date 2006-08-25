@@ -2206,6 +2206,16 @@ id|n
 op_assign
 id|tree_entry_alloc
 suffix:semicolon
+id|total_allocd
+op_add_assign
+id|n
+op_star
+r_sizeof
+(paren
+r_struct
+id|tree_entry
+)paren
+suffix:semicolon
 id|avail_tree_entry
 op_assign
 id|e
