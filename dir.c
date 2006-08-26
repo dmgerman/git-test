@@ -440,7 +440,7 @@ id|which-&gt;alloc
 suffix:semicolon
 id|which-&gt;excludes
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|which-&gt;excludes

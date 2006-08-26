@@ -423,7 +423,7 @@ l_char|&squot;&bslash;n&squot;
 multiline_comment|/* Incomplete line */
 id|priv-&gt;remainder
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|priv-&gt;remainder
@@ -505,7 +505,7 @@ suffix:semicolon
 )brace
 id|priv-&gt;remainder
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|priv-&gt;remainder

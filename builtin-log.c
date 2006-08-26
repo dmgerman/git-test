@@ -521,7 +521,7 @@ l_int|1
 suffix:semicolon
 id|extra_headers
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|extra_headers
@@ -2327,7 +2327,7 @@ op_increment
 suffix:semicolon
 id|list
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|list

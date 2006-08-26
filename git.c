@@ -668,7 +668,7 @@ suffix:semicolon
 op_star
 id|argv
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 op_star
@@ -1078,7 +1078,7 @@ suffix:semicolon
 )brace
 id|new_argv
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|new_argv

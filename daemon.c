@@ -2197,10 +2197,6 @@ id|ai-&gt;ai_next
 r_int
 id|sockfd
 suffix:semicolon
-r_int
-op_star
-id|newlist
-suffix:semicolon
 id|sockfd
 op_assign
 id|socket
@@ -2349,9 +2345,9 @@ r_continue
 suffix:semicolon
 multiline_comment|/* not fatal */
 )brace
-id|newlist
+id|socklist
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|socklist
@@ -2367,28 +2363,6 @@ op_plus
 l_int|1
 )paren
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|newlist
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;memory allocation failed: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
-)paren
-suffix:semicolon
-id|socklist
-op_assign
-id|newlist
 suffix:semicolon
 id|socklist
 (braket

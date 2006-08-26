@@ -8823,7 +8823,7 @@ l_int|2
 suffix:semicolon
 id|buf
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|buf

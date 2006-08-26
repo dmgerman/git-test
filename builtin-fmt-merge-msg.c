@@ -120,7 +120,7 @@ l_int|32
 suffix:semicolon
 id|list-&gt;list
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|list-&gt;list
@@ -136,7 +136,7 @@ id|list-&gt;alloc
 suffix:semicolon
 id|list-&gt;payload
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|list-&gt;payload

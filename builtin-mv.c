@@ -1157,7 +1157,7 @@ l_int|0
 (brace
 id|source
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|source
@@ -1178,7 +1178,7 @@ op_star
 suffix:semicolon
 id|destination
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|destination
@@ -1199,7 +1199,7 @@ op_star
 suffix:semicolon
 id|modes
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|modes
