@@ -1975,14 +1975,12 @@ c_cond
 (paren
 id|multi_ack
 )paren
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|last_sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 )brace

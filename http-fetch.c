@@ -1775,14 +1775,12 @@ id|newreq
 )paren
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|newreq-&gt;sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|newreq-&gt;repo

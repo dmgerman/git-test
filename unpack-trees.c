@@ -1008,7 +1008,7 @@ id|any_files
 op_assign
 l_int|1
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|ce-&gt;sha1
@@ -1019,8 +1019,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|src

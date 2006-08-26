@@ -169,14 +169,12 @@ c_cond
 (paren
 id|result
 )paren
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|result
 comma
 id|f-&gt;buffer
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if

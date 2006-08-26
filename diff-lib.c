@@ -204,14 +204,10 @@ id|dpath-&gt;mode
 op_assign
 l_int|0
 suffix:semicolon
-id|memset
+id|hashclr
 c_func
 (paren
 id|dpath-&gt;sha1
-comma
-l_int|0
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|memset
@@ -299,7 +295,7 @@ suffix:semicolon
 id|num_compare_stages
 op_increment
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|dpath-&gt;parent
@@ -312,8 +308,6 @@ dot
 id|sha1
 comma
 id|nce-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|dpath-&gt;parent

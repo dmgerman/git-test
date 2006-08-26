@@ -450,14 +450,12 @@ id|obj-&gt;flags
 op_assign
 l_int|0
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|obj-&gt;sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if

@@ -2146,7 +2146,7 @@ id|OBJ_TAG
 )paren
 r_break
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|sha1
@@ -2161,8 +2161,6 @@ id|it
 )paren
 op_member_access_from_pointer
 id|tagged-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 )brace
