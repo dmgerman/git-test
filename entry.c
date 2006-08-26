@@ -887,7 +887,7 @@ r_static
 r_char
 id|path
 (braket
-id|MAXPATHLEN
+id|PATH_MAX
 op_plus
 l_int|1
 )braket

@@ -31,7 +31,7 @@ id|topath
 l_int|4
 )braket
 (braket
-id|MAXPATHLEN
+id|PATH_MAX
 op_plus
 l_int|1
 )braket

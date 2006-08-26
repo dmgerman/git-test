@@ -1455,7 +1455,7 @@ suffix:semicolon
 r_char
 id|fullname
 (braket
-id|MAXPATHLEN
+id|PATH_MAX
 op_plus
 l_int|1
 )braket
