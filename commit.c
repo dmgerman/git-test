@@ -11,13 +11,13 @@ DECL|struct|sort_node
 r_struct
 id|sort_node
 (brace
-multiline_comment|/*&n;         * the number of children of the associated commit&n;         * that also occur in the list being sorted.&n;         */
+multiline_comment|/*&n;&t; * the number of children of the associated commit&n;&t; * that also occur in the list being sorted.&n;&t; */
 DECL|member|indegree
 r_int
 r_int
 id|indegree
 suffix:semicolon
-multiline_comment|/*&n;         * reference to original list item that we will re-use&n;         * on output.&n;         */
+multiline_comment|/*&n;&t; * reference to original list item that we will re-use&n;&t; * on output.&n;&t; */
 DECL|member|list_item
 r_struct
 id|commit_list
@@ -619,14 +619,12 @@ suffix:semicolon
 r_int
 id|cmp
 op_assign
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|graft-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_if

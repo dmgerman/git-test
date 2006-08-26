@@ -1340,16 +1340,6 @@ op_amp
 id|p
 )paren
 suffix:semicolon
-macro_line|#if DEBUG
-id|dump_pattern_exp
-c_func
-(paren
-id|opt-&gt;pattern_expression
-comma
-l_int|0
-)paren
-suffix:semicolon
-macro_line|#endif
 r_if
 c_cond
 (paren

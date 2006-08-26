@@ -544,14 +544,12 @@ op_logical_and
 id|dst-&gt;sha1_valid
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|src-&gt;sha1
 comma
 id|dst-&gt;sha1
-comma
-l_int|20
 )paren
 )paren
 r_return

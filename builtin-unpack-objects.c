@@ -459,14 +459,12 @@ id|info
 )paren
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|info-&gt;base_sha1
 comma
 id|base_sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|info-&gt;size
@@ -720,14 +718,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|info-&gt;base_sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -918,7 +914,7 @@ suffix:semicolon
 r_int
 id|result
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|base_sha1
@@ -928,8 +924,6 @@ c_func
 (paren
 l_int|20
 )paren
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|use
@@ -1586,7 +1580,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|fill
@@ -1596,8 +1590,6 @@ l_int|20
 )paren
 comma
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 id|die

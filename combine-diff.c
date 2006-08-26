@@ -188,7 +188,7 @@ op_star
 id|num_parent
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|p-&gt;sha1
@@ -199,8 +199,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|two-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|p-&gt;mode
@@ -212,7 +210,7 @@ id|i
 op_member_access_from_pointer
 id|two-&gt;mode
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|p-&gt;parent
@@ -228,8 +226,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|one-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|p-&gt;parent
@@ -379,7 +375,7 @@ id|found
 op_assign
 l_int|1
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|p-&gt;parent
@@ -395,8 +391,6 @@ id|i
 )braket
 op_member_access_from_pointer
 id|one-&gt;sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|p-&gt;parent
@@ -3688,7 +3682,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|elem-&gt;parent
@@ -3704,8 +3698,6 @@ id|j
 )braket
 dot
 id|sha1
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -5075,16 +5067,21 @@ comma
 id|num_parent
 op_increment
 )paren
-id|memcpy
+id|hashcpy
 c_func
+(paren
+(paren
+r_int
+r_char
+op_star
+)paren
 (paren
 id|parent
 op_plus
 id|num_parent
+)paren
 comma
 id|parents-&gt;item-&gt;object.sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|diff_tree_combined
