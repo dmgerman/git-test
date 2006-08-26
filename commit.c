@@ -2799,6 +2799,8 @@ c_func
 id|time
 comma
 id|tz
+comma
+l_int|0
 )paren
 )paren
 suffix:semicolon
@@ -2851,6 +2853,8 @@ c_func
 id|time
 comma
 id|tz
+comma
+l_int|0
 )paren
 )paren
 suffix:semicolon
