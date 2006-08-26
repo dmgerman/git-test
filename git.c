@@ -1544,6 +1544,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;zip-tree&quot;
+comma
+id|cmd_zip_tree
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;unpack-objects&quot;
 comma
 id|cmd_unpack_objects
