@@ -12451,6 +12451,8 @@ id|apply
 op_assign
 id|apply_with_reject
 op_assign
+id|apply_verbosely
+op_assign
 l_int|1
 suffix:semicolon
 r_continue
