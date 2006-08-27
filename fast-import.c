@@ -2277,6 +2277,7 @@ op_star
 (paren
 r_void
 op_star
+op_star
 )paren
 id|e
 )paren
