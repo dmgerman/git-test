@@ -2250,6 +2250,8 @@ c_loop
 (paren
 id|n
 op_decrement
+OG
+l_int|1
 )paren
 (brace
 op_star
@@ -2270,6 +2272,17 @@ id|e
 op_increment
 suffix:semicolon
 )brace
+op_star
+(paren
+(paren
+r_void
+op_star
+)paren
+id|e
+)paren
+op_assign
+l_int|NULL
+suffix:semicolon
 )brace
 id|e
 op_assign
