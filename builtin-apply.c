@@ -5281,11 +5281,6 @@ id|frag
 suffix:semicolon
 id|corrupt
 suffix:colon
-r_if
-c_cond
-(paren
-id|data
-)paren
 id|free
 c_func
 (paren
@@ -6215,11 +6210,6 @@ comma
 id|minuses
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|qname
-)paren
 id|free
 c_func
 (paren

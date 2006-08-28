@@ -449,16 +449,6 @@ dot
 id|path
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|list-&gt;items
-(braket
-id|i
-)braket
-dot
-id|util
-)paren
 id|free
 c_func
 (paren

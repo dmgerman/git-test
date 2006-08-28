@@ -1584,11 +1584,6 @@ r_goto
 id|unlock_and_fail
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|msg
-)paren
 id|free
 c_func
 (paren

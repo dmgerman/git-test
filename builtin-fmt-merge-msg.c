@@ -270,14 +270,6 @@ id|i
 )braket
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|list-&gt;payload
-(braket
-id|i
-)braket
-)paren
 id|free
 c_func
 (paren

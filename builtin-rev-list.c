@@ -324,12 +324,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|commit-&gt;buffer
-)paren
-(brace
 id|free
 c_func
 (paren
@@ -340,7 +334,6 @@ id|commit-&gt;buffer
 op_assign
 l_int|NULL
 suffix:semicolon
-)brace
 )brace
 DECL|function|process_blob
 r_static

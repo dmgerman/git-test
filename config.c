@@ -1777,11 +1777,6 @@ comma
 id|filename
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|repo_config
-)paren
 id|free
 c_func
 (paren
@@ -3605,11 +3600,6 @@ c_func
 id|fd
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|config_filename
-)paren
 id|free
 c_func
 (paren
