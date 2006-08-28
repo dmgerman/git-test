@@ -7,6 +7,8 @@ macro_line|#include &lt;netdb.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
 macro_line|#include &lt;syslog.h&gt;
+macro_line|#include &lt;pwd.h&gt;
+macro_line|#include &lt;grp.h&gt;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
@@ -36,7 +38,8 @@ op_assign
 l_string|&quot;git-daemon [--verbose] [--syslog] [--inetd | --port=n] [--export-all]&bslash;n&quot;
 l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths]&bslash;n&quot;
 l_string|&quot;           [--base-path=path] [--user-path | --user-path=path]&bslash;n&quot;
-l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file] [directory...]&quot;
+l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file]&bslash;n&quot;
+l_string|&quot;           [--user=user [[--group=group]] [directory...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
 DECL|variable|ok_paths
@@ -3079,6 +3082,14 @@ c_func
 (paren
 r_int
 id|port
+comma
+r_struct
+id|passwd
+op_star
+id|pass
+comma
+id|gid_t
+id|gid
 )paren
 (brace
 r_int
@@ -3111,6 +3122,40 @@ c_func
 l_string|&quot;unable to allocate any listen sockets on port %u&quot;
 comma
 id|port
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|pass
+op_logical_and
+id|gid
+op_logical_and
+(paren
+id|initgroups
+c_func
+(paren
+id|pass-&gt;pw_name
+comma
+id|gid
+)paren
+op_logical_or
+id|setgid
+(paren
+id|gid
+)paren
+op_logical_or
+id|setuid
+c_func
+(paren
+id|pass-&gt;pw_uid
+)paren
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot drop privileges&quot;
 )paren
 suffix:semicolon
 r_return
@@ -3153,9 +3198,36 @@ op_star
 id|pid_file
 op_assign
 l_int|NULL
+comma
+op_star
+id|user_name
+op_assign
+l_int|NULL
+comma
+op_star
+id|group_name
+op_assign
+l_int|NULL
 suffix:semicolon
 r_int
 id|detach
+op_assign
+l_int|0
+suffix:semicolon
+r_struct
+id|passwd
+op_star
+id|pass
+op_assign
+l_int|NULL
+suffix:semicolon
+r_struct
+id|group
+op_star
+id|group
+suffix:semicolon
+id|gid_t
+id|gid
 op_assign
 l_int|0
 suffix:semicolon
@@ -3554,6 +3626,54 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--user=&quot;
+comma
+l_int|7
+)paren
+)paren
+(brace
+id|user_name
+op_assign
+id|arg
+op_plus
+l_int|7
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--group=&quot;
+comma
+l_int|8
+)paren
+)paren
+(brace
+id|group_name
+op_assign
+id|arg
+op_plus
+l_int|8
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
 id|strcmp
 c_func
 (paren
@@ -3605,6 +3725,105 @@ c_func
 id|daemon_usage
 )paren
 suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|inetd_mode
+op_logical_and
+(paren
+id|group_name
+op_logical_or
+id|user_name
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--user and --group are incompatible with --inetd&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|group_name
+op_logical_and
+op_logical_neg
+id|user_name
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--group supplied without --user&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|user_name
+)paren
+(brace
+id|pass
+op_assign
+id|getpwnam
+c_func
+(paren
+id|user_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pass
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;user not found - %s&quot;
+comma
+id|user_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|group_name
+)paren
+id|gid
+op_assign
+id|pass-&gt;pw_gid
+suffix:semicolon
+r_else
+(brace
+id|group
+op_assign
+id|getgrnam
+c_func
+(paren
+id|group_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|group
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;group not found - %s&quot;
+comma
+id|group_name
+)paren
+suffix:semicolon
+id|gid
+op_assign
+id|group-&gt;gr_gid
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -3748,6 +3967,10 @@ id|serve
 c_func
 (paren
 id|port
+comma
+id|pass
+comma
+id|gid
 )paren
 suffix:semicolon
 )brace
