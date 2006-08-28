@@ -934,6 +934,8 @@ comma
 id|subject
 comma
 id|extra_headers
+comma
+id|opt-&gt;relative_date
 )paren
 suffix:semicolon
 r_if

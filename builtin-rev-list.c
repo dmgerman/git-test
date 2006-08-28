@@ -288,6 +288,8 @@ comma
 l_int|NULL
 comma
 l_int|NULL
+comma
+id|revs.relative_date
 )paren
 suffix:semicolon
 id|printf

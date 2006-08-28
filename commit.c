@@ -2539,6 +2539,9 @@ r_const
 r_char
 op_star
 id|line
+comma
+r_int
+id|relative_date
 )paren
 (brace
 r_char
@@ -2800,7 +2803,7 @@ id|time
 comma
 id|tz
 comma
-l_int|0
+id|relative_date
 )paren
 )paren
 suffix:semicolon
@@ -2854,7 +2857,7 @@ id|time
 comma
 id|tz
 comma
-l_int|0
+id|relative_date
 )paren
 )paren
 suffix:semicolon
@@ -3119,6 +3122,9 @@ r_const
 r_char
 op_star
 id|after_subject
+comma
+r_int
+id|relative_date
 )paren
 (brace
 r_int
@@ -3504,6 +3510,8 @@ comma
 id|line
 op_plus
 l_int|7
+comma
+id|relative_date
 )paren
 suffix:semicolon
 r_if
@@ -3546,6 +3554,8 @@ comma
 id|line
 op_plus
 l_int|10
+comma
+id|relative_date
 )paren
 suffix:semicolon
 r_continue
