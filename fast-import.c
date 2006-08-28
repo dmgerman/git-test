@@ -9426,6 +9426,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|branch_log
+)paren
 id|fclose
 c_func
 (paren
