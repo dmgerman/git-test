@@ -345,7 +345,7 @@ id|new_hash
 suffix:semicolon
 id|new_hash
 op_assign
-id|calloc
+id|xcalloc
 c_func
 (paren
 id|new_hash_size
