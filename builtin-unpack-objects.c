@@ -38,15 +38,12 @@ l_int|4096
 suffix:semicolon
 DECL|variable|offset
 DECL|variable|len
-DECL|variable|eof
 r_static
 r_int
 r_int
 id|offset
 comma
 id|len
-comma
-id|eof
 suffix:semicolon
 DECL|variable|ctx
 r_static
@@ -76,17 +73,6 @@ r_return
 id|buffer
 op_plus
 id|offset
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|eof
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to fill input&quot;
-)paren
 suffix:semicolon
 r_if
 c_cond
