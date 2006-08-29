@@ -2,7 +2,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;run-command.h&quot;
-macro_line|#include &lt;sys/wait.h&gt;
 DECL|variable|receive_pack_usage
 r_static
 r_const
