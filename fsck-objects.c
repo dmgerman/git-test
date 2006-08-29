@@ -2034,18 +2034,25 @@ c_func
 id|fsck_handle_ref
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Not having any default heads isn&squot;t really fatal, but&n;&t; * it does mean that &quot;--unreachable&quot; no longer makes any&n;&t; * sense (since in this case everything will obviously&n;&t; * be unreachable by definition.&n;&t; *&n;&t; * Showing dangling objects is valid, though (as those&n;&t; * dangling objects are likely lost heads).&n;&t; *&n;&t; * So we just print a warning about it, and clear the&n;&t; * &quot;show_unreachable&quot; flag.&n;&t; */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|default_refs
 )paren
-id|die
+(brace
+id|error
 c_func
 (paren
 l_string|&quot;No default references&quot;
 )paren
 suffix:semicolon
+id|show_unreachable
+op_assign
+l_int|0
+suffix:semicolon
+)brace
 )brace
 DECL|function|fsck_object_dir
 r_static
