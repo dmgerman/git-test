@@ -1322,7 +1322,7 @@ r_char
 op_star
 id|newpath
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|baselen
@@ -2295,7 +2295,7 @@ id|name
 suffix:semicolon
 id|dirs
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|len
@@ -3022,7 +3022,7 @@ r_char
 op_star
 id|lnk
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size

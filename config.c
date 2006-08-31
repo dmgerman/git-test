@@ -2775,11 +2775,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * Validate the key and while at it, lower case it for matching.&n;&t; */
 id|store.key
 op_assign
-(paren
-r_char
-op_star
-)paren
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|strlen
@@ -3134,7 +3130,7 @@ op_assign
 id|regex_t
 op_star
 )paren
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof

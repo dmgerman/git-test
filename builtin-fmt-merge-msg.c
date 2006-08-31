@@ -837,7 +837,7 @@ r_char
 op_star
 id|new_origin
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|len
@@ -886,7 +886,7 @@ r_char
 op_star
 id|new_origin
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|strlen
@@ -1319,7 +1319,7 @@ id|bol
 suffix:semicolon
 id|oneline
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|len

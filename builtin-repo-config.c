@@ -545,7 +545,7 @@ op_assign
 id|regex_t
 op_star
 )paren
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof
@@ -614,7 +614,7 @@ op_assign
 id|regex_t
 op_star
 )paren
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof
