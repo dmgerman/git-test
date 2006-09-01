@@ -860,7 +860,7 @@ suffix:semicolon
 id|new_origin
 (braket
 id|len
-l_int|1
+l_int|2
 )braket
 op_assign
 l_int|0
