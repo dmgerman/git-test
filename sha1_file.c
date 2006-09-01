@@ -6905,6 +6905,7 @@ r_char
 op_star
 id|tmpfile
 comma
+r_const
 r_char
 op_star
 id|filename
@@ -7018,6 +7019,7 @@ r_char
 op_star
 id|tmpfile
 comma
+r_const
 r_char
 op_star
 id|filename
