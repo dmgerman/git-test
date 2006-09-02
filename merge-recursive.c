@@ -2652,12 +2652,12 @@ r_int
 id|mode
 )paren
 (brace
-multiline_comment|/* path points to cache entries, so strdup before messing with it */
+multiline_comment|/* path points to cache entries, so xstrdup before messing with it */
 r_char
 op_star
 id|buf
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path
@@ -3597,7 +3597,7 @@ l_int|2
 op_assign
 id|la
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -3618,7 +3618,7 @@ l_int|6
 op_assign
 id|lb
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -3639,7 +3639,7 @@ l_int|4
 op_assign
 id|lo
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -7247,7 +7247,7 @@ id|original_index_file
 )paren
 id|original_index_file
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path
@@ -7259,7 +7259,7 @@ l_string|&quot;index&quot;
 suffix:semicolon
 id|temporary_index_file
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path

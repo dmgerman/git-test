@@ -494,7 +494,7 @@ id|obj-&gt;sha1
 suffix:semicolon
 id|name
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|name

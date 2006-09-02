@@ -581,7 +581,7 @@ c_func
 op_amp
 id|srcs
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|src
@@ -616,7 +616,7 @@ id|pulling_head
 (brace
 id|origin
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|src
@@ -645,7 +645,7 @@ l_int|7
 (brace
 id|origin
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|line
@@ -695,7 +695,7 @@ c_func
 op_amp
 id|src_data-&gt;tag
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|origin
@@ -729,7 +729,7 @@ l_int|14
 (brace
 id|origin
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|line
@@ -757,7 +757,7 @@ r_else
 (brace
 id|origin
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|src
@@ -769,7 +769,7 @@ c_func
 op_amp
 id|src_data-&gt;generic
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|line
@@ -873,7 +873,7 @@ suffix:semicolon
 r_else
 id|origin
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|origin
@@ -1275,7 +1275,7 @@ c_func
 op_amp
 id|subjects
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|sha1_to_hex
@@ -1348,7 +1348,7 @@ suffix:semicolon
 r_else
 id|oneline
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|bol
@@ -1705,7 +1705,7 @@ suffix:semicolon
 multiline_comment|/* get current branch */
 id|head
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path

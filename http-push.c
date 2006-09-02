@@ -7891,7 +7891,7 @@ id|flags
 suffix:semicolon
 id|ls.path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path
@@ -8992,7 +8992,7 @@ id|SEEN
 suffix:semicolon
 id|name
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|name
@@ -12940,7 +12940,7 @@ l_int|3
 suffix:semicolon
 id|new_sha1_hex
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|sha1_to_hex

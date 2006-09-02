@@ -430,7 +430,7 @@ id|local
 op_assign
 id|repo_config
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path
@@ -447,7 +447,7 @@ id|home
 )paren
 id|global
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -462,7 +462,7 @@ suffix:semicolon
 )brace
 id|key
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|key_

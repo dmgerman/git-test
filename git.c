@@ -514,7 +514,7 @@ id|alias_command
 (brace
 id|alias_string
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value

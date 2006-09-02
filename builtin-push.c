@@ -150,7 +150,7 @@ l_int|5
 id|add_refspec
 c_func
 (paren
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|ref
@@ -483,7 +483,7 @@ id|n
 op_increment
 )braket
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|s
@@ -511,7 +511,7 @@ id|has_explicit_refspec
 id|add_refspec
 c_func
 (paren
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|s
@@ -648,7 +648,7 @@ id|config_current_uri
 op_increment
 )braket
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
@@ -686,7 +686,7 @@ l_string|&quot;.push&quot;
 id|add_refspec
 c_func
 (paren
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value

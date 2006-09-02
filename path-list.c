@@ -231,7 +231,7 @@ op_assign
 id|list-&gt;strdup_paths
 ques
 c_cond
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path

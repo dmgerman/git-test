@@ -892,7 +892,7 @@ r_return
 suffix:semicolon
 id|path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -1240,7 +1240,7 @@ suffix:semicolon
 r_else
 id|path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath

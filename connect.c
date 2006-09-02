@@ -333,7 +333,7 @@ id|server_capabilities
 suffix:semicolon
 id|server_capabilities
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|name
@@ -3530,7 +3530,7 @@ r_else
 (brace
 id|path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|ptr
@@ -3560,7 +3560,7 @@ r_char
 op_star
 id|target_host
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|host

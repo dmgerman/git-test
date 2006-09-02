@@ -533,7 +533,7 @@ l_int|0xf
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * NOTE! This returns a statically allocated buffer, so you have to be&n; * careful about using it. Do a &quot;strdup()&quot; if you need to save the&n; * filename.&n; *&n; * Also note that this returns the location for creating.  Reading&n; * SHA1 file can happen from any alternate directory listed in the&n; * DB_ENVIRONMENT environment variable if it is not found in&n; * the primary object database.&n; */
+multiline_comment|/*&n; * NOTE! This returns a statically allocated buffer, so you have to be&n; * careful about using it. Do a &quot;xstrdup()&quot; if you need to save the&n; * filename.&n; *&n; * Also note that this returns the location for creating.  Reading&n; * SHA1 file can happen from any alternate directory listed in the&n; * DB_ENVIRONMENT environment variable if it is not found in&n; * the primary object database.&n; */
 DECL|function|sha1_file_name
 r_char
 op_star

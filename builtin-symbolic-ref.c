@@ -34,7 +34,7 @@ r_char
 op_star
 id|git_HEAD
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path
@@ -153,7 +153,7 @@ suffix:colon
 id|create_symref
 c_func
 (paren
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path

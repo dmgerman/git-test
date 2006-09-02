@@ -354,7 +354,7 @@ l_int|0
 suffix:semicolon
 id|base
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|buf

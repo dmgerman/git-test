@@ -2139,7 +2139,7 @@ r_char
 op_star
 id|git_HEAD
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path

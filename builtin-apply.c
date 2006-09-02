@@ -11850,7 +11850,7 @@ l_string|&quot;apply.whitespace&quot;
 (brace
 id|apply_default_whitespace
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value

@@ -1598,7 +1598,7 @@ op_increment
 )paren
 id|real_path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|pathname

@@ -515,7 +515,7 @@ c_func
 (paren
 id|commit
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path

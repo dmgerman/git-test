@@ -3843,7 +3843,7 @@ id|repo
 suffix:semicolon
 id|ls.path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path

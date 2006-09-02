@@ -3080,7 +3080,7 @@ id|putil-&gt;pathname
 )paren
 id|putil-&gt;pathname
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|new_name

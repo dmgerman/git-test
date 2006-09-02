@@ -104,7 +104,7 @@ l_int|NULL
 suffix:semicolon
 id|filename
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|filename

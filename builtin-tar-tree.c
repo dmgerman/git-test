@@ -1946,7 +1946,7 @@ suffix:semicolon
 multiline_comment|/* --remote=&lt;repo&gt; */
 id|url
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|argv
