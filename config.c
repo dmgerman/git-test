@@ -1705,7 +1705,7 @@ id|filename
 op_assign
 id|repo_config
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path
@@ -1726,7 +1726,7 @@ r_char
 op_star
 id|user_config
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -2716,7 +2716,7 @@ suffix:semicolon
 )brace
 id|config_filename
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|config_filename
@@ -2724,7 +2724,7 @@ id|config_filename
 suffix:semicolon
 id|lock_file
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -2775,11 +2775,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * Validate the key and while at it, lower case it for matching.&n;&t; */
 id|store.key
 op_assign
-(paren
-r_char
-op_star
-)paren
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|strlen
@@ -3134,7 +3130,7 @@ op_assign
 id|regex_t
 op_star
 )paren
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof

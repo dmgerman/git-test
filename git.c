@@ -81,7 +81,7 @@ l_int|1
 suffix:semicolon
 id|path
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|path_len
@@ -514,7 +514,7 @@ id|alias_command
 (brace
 id|alias_string
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value

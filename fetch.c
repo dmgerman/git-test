@@ -1136,7 +1136,7 @@ id|target
 id|targets
 )braket
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|tg_one
@@ -1153,7 +1153,7 @@ op_assign
 id|rf_one
 ques
 c_cond
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|rf_one

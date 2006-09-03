@@ -5427,7 +5427,7 @@ c_func
 op_amp
 id|opt
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|buf

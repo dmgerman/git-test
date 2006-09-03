@@ -1739,7 +1739,7 @@ id|lock_file
 suffix:semicolon
 id|lock-&gt;ref_file
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path
@@ -1747,7 +1747,7 @@ id|path
 suffix:semicolon
 id|lock-&gt;log_file
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path

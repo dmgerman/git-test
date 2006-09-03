@@ -242,7 +242,7 @@ r_char
 op_star
 id|buf
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 l_int|100
@@ -376,7 +376,7 @@ r_char
 op_star
 id|buf
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 l_int|42

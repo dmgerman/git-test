@@ -1811,7 +1811,7 @@ l_int|3
 suffix:colon
 id|base
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|argv
@@ -1835,7 +1835,7 @@ l_int|2
 suffix:colon
 id|base
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 l_string|&quot;&quot;

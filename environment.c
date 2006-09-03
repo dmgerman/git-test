@@ -257,7 +257,7 @@ id|git_graft_file
 )paren
 id|git_graft_file
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path

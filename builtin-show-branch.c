@@ -692,7 +692,7 @@ c_func
 (paren
 id|p
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|newname
@@ -1703,7 +1703,7 @@ id|ref_name_cnt
 op_increment
 )braket
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|refname
@@ -2652,7 +2652,7 @@ id|default_num
 op_increment
 )braket
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value

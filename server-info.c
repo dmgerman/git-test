@@ -115,7 +115,7 @@ r_char
 op_star
 id|path0
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path

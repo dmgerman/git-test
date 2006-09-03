@@ -5322,7 +5322,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * getpass() returns a pointer to a static buffer.  make a copy&n;&t;&t;&t; * for long term storage.&n;&t;&t;&t; */
 id|srvc-&gt;pass
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|arg
@@ -6716,7 +6716,7 @@ id|key
 (brace
 id|imap_folder
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|val
@@ -6787,7 +6787,7 @@ l_int|2
 suffix:semicolon
 id|server.host
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|val
@@ -6809,7 +6809,7 @@ id|key
 )paren
 id|server.user
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|val
@@ -6830,7 +6830,7 @@ id|key
 )paren
 id|server.pass
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|val
@@ -6874,7 +6874,7 @@ id|key
 )paren
 id|server.tunnel
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|val

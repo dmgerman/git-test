@@ -1214,7 +1214,7 @@ op_logical_neg
 id|needlen
 )paren
 r_return
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|str
@@ -3552,7 +3552,7 @@ suffix:semicolon
 r_else
 id|x-&gt;name
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|name_a

@@ -399,7 +399,7 @@ id|SEEN
 suffix:semicolon
 id|name
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|name
@@ -515,7 +515,7 @@ id|SEEN
 suffix:semicolon
 id|name
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|name

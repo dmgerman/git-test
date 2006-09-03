@@ -1026,7 +1026,7 @@ r_char
 op_star
 id|p
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|page_len
