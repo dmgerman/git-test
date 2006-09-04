@@ -300,7 +300,24 @@ op_star
 id|obj
 )paren
 (brace
+r_struct
+id|object_refs
+op_star
+id|ref
+suffix:semicolon
 r_int
+id|j
+suffix:semicolon
+multiline_comment|/* nothing to lookup */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|refs_hash_size
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
 id|j
 op_assign
 id|hash_obj
@@ -310,11 +327,6 @@ id|obj
 comma
 id|refs_hash_size
 )paren
-suffix:semicolon
-r_struct
-id|object_refs
-op_star
-id|ref
 suffix:semicolon
 r_while
 c_loop
@@ -686,15 +698,6 @@ c_func
 (paren
 l_string|&quot;cannot do reachability with object refs turned off&quot;
 )paren
-suffix:semicolon
-multiline_comment|/* nothing to lookup */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|refs_hash_size
-)paren
-r_return
 suffix:semicolon
 multiline_comment|/* If we&squot;ve been here already, don&squot;t bother */
 r_if
