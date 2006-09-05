@@ -131,6 +131,12 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|path
+)paren
+suffix:semicolon
 )brace
 DECL|function|handle_options
 r_static
