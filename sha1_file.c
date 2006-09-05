@@ -3531,7 +3531,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|unpack_object_header_gently
-r_static
 r_int
 r_int
 id|unpack_object_header_gently
