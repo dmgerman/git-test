@@ -47,8 +47,8 @@ r_if
 c_cond
 (paren
 id|len
-OG
-l_int|45
+OL
+l_int|5
 op_logical_or
 id|memcmp
 c_func
