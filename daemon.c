@@ -39,6 +39,7 @@ l_string|&quot;git-daemon [--verbose] [--syslog] [--inetd | --port=n] [--export-
 l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths]&bslash;n&quot;
 l_string|&quot;           [--base-path=path] [--user-path | --user-path=path]&bslash;n&quot;
 l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file]&bslash;n&quot;
+l_string|&quot;           [--[enable|disable|allow-override|forbid-override]=service]&bslash;n&quot;
 l_string|&quot;           [--user=user [[--group=group]] [directory...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
@@ -4210,9 +4211,9 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--enable-override=&quot;
+l_string|&quot;--allow-override=&quot;
 comma
-l_int|18
+l_int|17
 )paren
 )paren
 (brace
@@ -4221,7 +4222,7 @@ c_func
 (paren
 id|arg
 op_plus
-l_int|18
+l_int|17
 comma
 l_int|1
 )paren
@@ -4238,9 +4239,9 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--disable-override=&quot;
+l_string|&quot;--forbid-override=&quot;
 comma
-l_int|19
+l_int|18
 )paren
 )paren
 (brace
@@ -4249,7 +4250,7 @@ c_func
 (paren
 id|arg
 op_plus
-l_int|19
+l_int|18
 comma
 l_int|0
 )paren
