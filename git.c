@@ -1527,6 +1527,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;upload-archive&quot;
+comma
+id|cmd_upload_archive
+)brace
+comma
+(brace
 l_string|&quot;upload-tar&quot;
 comma
 id|cmd_upload_tar
