@@ -39,6 +39,7 @@ l_string|&quot;git-daemon [--verbose] [--syslog] [--inetd | --port=n] [--export-
 l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths]&bslash;n&quot;
 l_string|&quot;           [--base-path=path] [--user-path | --user-path=path]&bslash;n&quot;
 l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file]&bslash;n&quot;
+l_string|&quot;           [--[enable|disable|allow-override|forbid-override]=service]&bslash;n&quot;
 l_string|&quot;           [--user=user [[--group=group]] [directory...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
@@ -1260,29 +1261,6 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|upload_tar
-r_static
-r_int
-id|upload_tar
-c_func
-(paren
-r_void
-)paren
-(brace
-id|execl_git_cmd
-c_func
-(paren
-l_string|&quot;upload-tar&quot;
-comma
-l_string|&quot;.&quot;
-comma
-l_int|NULL
-)paren
-suffix:semicolon
-r_return
-l_int|1
-suffix:semicolon
-)brace
 DECL|variable|daemon_service
 r_static
 r_struct
@@ -1300,18 +1278,6 @@ comma
 id|upload_pack
 comma
 l_int|1
-comma
-l_int|1
-)brace
-comma
-(brace
-l_string|&quot;upload-tar&quot;
-comma
-l_string|&quot;uploadtar&quot;
-comma
-id|upload_tar
-comma
-l_int|0
 comma
 l_int|1
 )brace
