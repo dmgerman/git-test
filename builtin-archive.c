@@ -27,8 +27,15 @@ id|archivers
 op_assign
 (brace
 (brace
-l_string|&quot;&quot;
-multiline_comment|/* dummy */
+dot
+id|name
+op_assign
+l_string|&quot;tar&quot;
+comma
+dot
+id|write_archive
+op_assign
+id|write_tar_archive
 )brace
 comma
 )brace
