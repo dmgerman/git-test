@@ -36,6 +36,7 @@ dot
 id|write_archive
 op_assign
 id|write_tar_archive
+comma
 )brace
 comma
 (brace
@@ -48,6 +49,12 @@ dot
 id|write_archive
 op_assign
 id|write_zip_archive
+comma
+dot
+id|parse_extra
+op_assign
+id|parse_extra_zip_args
+comma
 )brace
 comma
 )brace
