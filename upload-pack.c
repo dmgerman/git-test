@@ -56,6 +56,7 @@ r_int
 r_int
 id|timeout
 suffix:semicolon
+multiline_comment|/* 0 for no sideband,&n; * otherwise maximum packet size (up to 65520 bytes).&n; */
 DECL|variable|use_sideband
 r_static
 r_int
@@ -152,7 +153,7 @@ id|data
 comma
 id|sz
 comma
-id|DEFAULT_PACKET_MAX
+id|use_sideband
 )paren
 suffix:semicolon
 r_if
@@ -2085,12 +2086,30 @@ id|line
 op_plus
 l_int|45
 comma
+l_string|&quot;side-band-64k&quot;
+)paren
+)paren
+id|use_sideband
+op_assign
+id|LARGE_PACKET_MAX
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|line
+op_plus
+l_int|45
+comma
 l_string|&quot;side-band&quot;
 )paren
 )paren
 id|use_sideband
 op_assign
-l_int|1
+id|DEFAULT_PACKET_MAX
 suffix:semicolon
 multiline_comment|/* We have sent all our refs already, and the other end&n;&t;&t; * should have chosen out of them; otherwise they are&n;&t;&t; * asking for nonsense.&n;&t;&t; *&n;&t;&t; * Hmph.  We may later want to allow &quot;want&quot; line that&n;&t;&t; * asks for something like &quot;master~10&quot; (symbolic)...&n;&t;&t; * would it make sense?  I don&squot;t know.&n;&t;&t; */
 id|o
@@ -2177,7 +2196,7 @@ r_char
 op_star
 id|capabilities
 op_assign
-l_string|&quot;multi_ack thin-pack side-band&quot;
+l_string|&quot;multi_ack thin-pack side-band side-band-64k&quot;
 suffix:semicolon
 r_struct
 id|object

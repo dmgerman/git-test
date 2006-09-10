@@ -642,7 +642,7 @@ multiline_comment|/* subprocess */
 r_char
 id|buf
 (braket
-id|DEFAULT_PACKET_MAX
+id|LARGE_PACKET_MAX
 )braket
 suffix:semicolon
 id|close
