@@ -1316,6 +1316,12 @@ comma
 id|argv
 )paren
 suffix:semicolon
+id|setlinebuf
+c_func
+(paren
+id|stderr
+)paren
+suffix:semicolon
 id|memset
 c_func
 (paren
