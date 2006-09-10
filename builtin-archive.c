@@ -7,6 +7,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
+macro_line|#include &quot;sideband.h&quot;
 DECL|variable|archive_usage
 r_static
 r_const
@@ -86,7 +87,7 @@ id|url
 comma
 id|buf
 (braket
-l_int|1024
+id|LARGE_PACKET_MAX
 )braket
 suffix:semicolon
 r_int
@@ -390,15 +391,26 @@ suffix:semicolon
 multiline_comment|/* Now, start reading from fd[0] and spit it out to stdout */
 id|rv
 op_assign
-id|copy_fd
+id|recv_sideband
 c_func
 (paren
+l_string|&quot;archive&quot;
+comma
 id|fd
 (braket
 l_int|0
 )braket
 comma
 l_int|1
+comma
+l_int|2
+comma
+id|buf
+comma
+r_sizeof
+(paren
+id|buf
+)paren
 )paren
 suffix:semicolon
 id|close
