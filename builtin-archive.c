@@ -16,7 +16,7 @@ id|archive_usage
 )braket
 op_assign
 "&bslash;"
-l_string|&quot;git-archive --format=&lt;fmt&gt; [--prefix=&lt;prefix&gt;/] [&lt;extra&gt;] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git-archive --format=&lt;fmt&gt; [--prefix=&lt;prefix&gt;/] [--verbose] [&lt;extra&gt;] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon
 DECL|variable|archivers
 r_struct
@@ -785,6 +785,11 @@ op_assign
 l_string|&quot;&quot;
 suffix:semicolon
 r_int
+id|verbose
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|i
 suffix:semicolon
 r_for
@@ -869,6 +874,35 @@ m_exit
 (paren
 l_int|0
 )paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--verbose&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-v&quot;
+)paren
+)paren
+(brace
+id|verbose
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 r_if
@@ -1064,6 +1098,10 @@ id|extra_argv
 )paren
 suffix:semicolon
 )brace
+id|ar-&gt;args.verbose
+op_assign
+id|verbose
+suffix:semicolon
 id|ar-&gt;args.base
 op_assign
 id|base

@@ -17,6 +17,11 @@ id|zip_tree_usage
 op_assign
 l_string|&quot;git-zip-tree [-0|...|-9] &lt;tree-ish&gt; [ &lt;base&gt; ]&quot;
 suffix:semicolon
+DECL|variable|verbose
+r_static
+r_int
+id|verbose
+suffix:semicolon
 DECL|variable|zip_date
 r_static
 r_int
@@ -872,6 +877,21 @@ id|mode
 comma
 op_amp
 id|pathlen
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%s&bslash;n&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 r_if
@@ -2091,6 +2111,10 @@ suffix:semicolon
 id|zip_dir_size
 op_assign
 id|ZIP_DIRECTORY_MIN_SIZE
+suffix:semicolon
+id|verbose
+op_assign
+id|args-&gt;verbose
 suffix:semicolon
 r_if
 c_cond

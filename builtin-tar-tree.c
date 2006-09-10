@@ -46,6 +46,11 @@ r_static
 r_int
 id|tar_umask
 suffix:semicolon
+DECL|variable|verbose
+r_static
+r_int
+id|verbose
+suffix:semicolon
 multiline_comment|/* writes out the whole block, but only if it is full */
 DECL|function|write_if_needed
 r_static
@@ -802,6 +807,23 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%.*s&bslash;n&quot;
+comma
+id|path-&gt;len
+comma
+id|path-&gt;buf
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2142,6 +2164,10 @@ suffix:semicolon
 id|archive_time
 op_assign
 id|args-&gt;time
+suffix:semicolon
+id|verbose
+op_assign
+id|args-&gt;verbose
 suffix:semicolon
 r_if
 c_cond
