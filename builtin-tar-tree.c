@@ -2176,7 +2176,7 @@ r_char
 op_star
 id|base
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|args-&gt;base
