@@ -3262,9 +3262,9 @@ suffix:semicolon
 )brace
 DECL|macro|MAX_CMD_LEN
 mdefine_line|#define MAX_CMD_LEN 1024
-multiline_comment|/*&n; * Yeah, yeah, fixme. Need to pass in the heads etc.&n; */
+multiline_comment|/*&n; * This returns 0 if the transport protocol does not need fork(2),&n; * or a process id if it does.  Once done, finish the connection&n; * with finish_connect() with the value returned from this function&n; * (it is safe to call finish_connect() with 0 to support the former&n; * case).&n; *&n; * Does not return a negative value on error; it just dies.&n; */
 DECL|function|git_connect
-r_int
+id|pid_t
 id|git_connect
 c_func
 (paren
@@ -4047,6 +4047,16 @@ id|pid_t
 id|pid
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|pid
+op_eq
+l_int|0
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_while
 c_loop
 (paren
