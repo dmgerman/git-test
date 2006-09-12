@@ -207,7 +207,7 @@ c_func
 (paren
 id|trace
 comma
-l_string|&quot; false&quot;
+l_string|&quot;false&quot;
 )paren
 )paren
 r_return
