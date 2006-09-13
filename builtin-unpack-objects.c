@@ -10,7 +10,7 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &lt;sys/time.h&gt;
 DECL|variable|dry_run
 DECL|variable|quiet
-DECL|variable|desperate
+DECL|variable|recover
 DECL|variable|has_errors
 r_static
 r_int
@@ -18,7 +18,7 @@ id|dry_run
 comma
 id|quiet
 comma
-id|desperate
+id|recover
 comma
 id|has_errors
 suffix:semicolon
@@ -30,7 +30,7 @@ id|unpack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-unpack-objects [-n] [-q] &lt; pack-file&quot;
+l_string|&quot;git-unpack-objects [-n] [-q] [-r] &lt; pack-file&quot;
 suffix:semicolon
 multiline_comment|/* We always read in 4kB chunks. */
 DECL|variable|buffer
@@ -370,7 +370,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|desperate
+id|recover
 )paren
 m_exit
 (paren
@@ -1032,7 +1032,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|desperate
+id|recover
 )paren
 m_exit
 (paren
@@ -1314,7 +1314,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|desperate
+id|recover
 )paren
 r_return
 suffix:semicolon
@@ -1588,7 +1588,7 @@ l_string|&quot;-r&quot;
 )paren
 )paren
 (brace
-id|desperate
+id|recover
 op_assign
 l_int|1
 suffix:semicolon
