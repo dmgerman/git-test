@@ -411,7 +411,7 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_DELETED
 suffix:colon
-id|color_printf_ln
+id|color_printf
 c_func
 (paren
 id|c
