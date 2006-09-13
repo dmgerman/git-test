@@ -1202,12 +1202,12 @@ r_return
 id|i
 suffix:semicolon
 )brace
-DECL|function|remote_request
+DECL|function|extract_remote_arg
 r_static
 r_const
 r_char
 op_star
-id|remote_request
+id|extract_remote_arg
 c_func
 (paren
 r_int
@@ -1421,7 +1421,7 @@ l_int|NULL
 suffix:semicolon
 id|remote
 op_assign
-id|remote_request
+id|extract_remote_arg
 c_func
 (paren
 op_amp
