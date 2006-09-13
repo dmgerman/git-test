@@ -346,6 +346,8 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
+id|ret
+op_or_assign
 id|finish_connect
 c_func
 (paren
@@ -353,6 +355,8 @@ id|pid
 )paren
 suffix:semicolon
 r_return
+op_logical_neg
+op_logical_neg
 id|ret
 suffix:semicolon
 )brace
