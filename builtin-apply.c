@@ -35,11 +35,6 @@ id|p_value
 op_assign
 l_int|1
 suffix:semicolon
-DECL|variable|allow_binary_replacement
-r_static
-r_int
-id|allow_binary_replacement
-suffix:semicolon
 DECL|variable|check_index
 r_static
 r_int
@@ -5753,7 +5748,7 @@ suffix:semicolon
 )brace
 )brace
 )brace
-multiline_comment|/* Empty patch cannot be applied if:&n;&t;&t; * - it is a binary patch and we do not do binary_replace, or&n;&t;&t; * - text patch without metadata change&n;&t;&t; */
+multiline_comment|/* Empty patch cannot be applied if it is a text patch&n;&t;&t; * without metadata change.  A binary patch appears&n;&t;&t; * empty to us here.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -5764,12 +5759,9 @@ id|check
 )paren
 op_logical_and
 (paren
-id|patch-&gt;is_binary
-ques
-c_cond
 op_logical_neg
-id|allow_binary_replacement
-suffix:colon
+id|patch-&gt;is_binary
+op_logical_and
 op_logical_neg
 id|metadata_changes
 c_func
@@ -7823,22 +7815,6 @@ l_int|50
 suffix:semicolon
 r_int
 id|hdrlen
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|allow_binary_replacement
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;cannot apply binary patch to &squot;%s&squot; &quot;
-l_string|&quot;without --allow-binary-replacement&quot;
-comma
-id|name
-)paren
 suffix:semicolon
 multiline_comment|/* For safety, we require patch index line to contain&n;&t; * full 40-byte textual SHA1 for old and new, at least for now.&n;&t; */
 r_if
@@ -12120,12 +12096,9 @@ l_string|&quot;--binary&quot;
 )paren
 )paren
 (brace
-id|allow_binary_replacement
-op_assign
-l_int|1
-suffix:semicolon
 r_continue
 suffix:semicolon
+multiline_comment|/* now no-op */
 )brace
 r_if
 c_cond
