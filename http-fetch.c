@@ -2624,23 +2624,46 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 (brace
-id|serverlen
+multiline_comment|/* This counts&n;&t;&t;&t;&t; * http://git.host/pub/scm/linux.git/&n;&t;&t;&t;&t; * -----------here^&n;&t;&t;&t;&t; * so memcpy(dst, base, serverlen) will&n;&t;&t;&t;&t; * copy up to &quot;...git.host&quot;.&n;&t;&t;&t;&t; */
+r_const
+r_char
+op_star
+id|colon_ss
 op_assign
-id|strchr
+id|strstr
 c_func
 (paren
 id|base
+comma
+l_string|&quot;://&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|colon_ss
+)paren
+(brace
+id|serverlen
+op_assign
+(paren
+id|strchr
+c_func
+(paren
+id|colon_ss
 op_plus
-l_int|8
+l_int|3
 comma
 l_char|&squot;/&squot;
 )paren
 id|base
+)paren
 suffix:semicolon
 id|okay
 op_assign
 l_int|1
 suffix:semicolon
+)brace
 )brace
 r_else
 r_if
@@ -2660,6 +2683,7 @@ l_int|3
 )paren
 )paren
 (brace
+multiline_comment|/* Relative URL; chop the corresponding&n;&t;&t;&t;&t; * number of subpath from base (and ../&n;&t;&t;&t;&t; * from data), and concatenate the result.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * The code first drops ../ from data, and&n;&t;&t;&t;&t; * then drops one ../ from data and one path&n;&t;&t;&t;&t; * from base.  IOW, one extra ../ is dropped&n;&t;&t;&t;&t; * from data than path is dropped from base.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * This is not wrong.  The alternate in&n;&t;&t;&t;&t; *     http://git.host/pub/scm/linux.git/&n;&t;&t;&t;&t; * to borrow from&n;&t;&t;&t;&t; *     http://git.host/pub/scm/linus.git/&n;&t;&t;&t;&t; * is ../../linus.git/objects/.  You need&n;&t;&t;&t;&t; * two ../../ to borrow from your direct&n;&t;&t;&t;&t; * neighbour.&n;&t;&t;&t;&t; */
 id|i
 op_add_assign
 l_int|3
@@ -2802,7 +2826,7 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/* skip &squot;objects&squot; at end */
+multiline_comment|/* skip &quot;objects&bslash;n&quot; at end */
 r_if
 c_cond
 (paren
@@ -2821,7 +2845,7 @@ id|i
 l_int|6
 )paren
 suffix:semicolon
-id|strlcpy
+id|memcpy
 c_func
 (paren
 id|target
@@ -2831,7 +2855,7 @@ comma
 id|serverlen
 )paren
 suffix:semicolon
-id|strlcpy
+id|memcpy
 c_func
 (paren
 id|target
@@ -2844,8 +2868,19 @@ id|i
 comma
 id|posn
 id|i
-l_int|6
+l_int|7
 )paren
+suffix:semicolon
+id|target
+(braket
+id|serverlen
+op_plus
+id|posn
+id|i
+l_int|7
+)braket
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
