@@ -1713,6 +1713,11 @@ c_func
 id|merge_tree_usage
 )paren
 suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
 id|buf1
 op_assign
 id|get_tree_descriptor

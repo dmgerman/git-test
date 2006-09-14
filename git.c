@@ -1240,6 +1240,8 @@ comma
 l_string|&quot;count-objects&quot;
 comma
 id|cmd_count_objects
+comma
+id|RUN_SETUP
 )brace
 comma
 (brace
