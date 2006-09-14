@@ -1704,7 +1704,7 @@ r_if
 c_cond
 (paren
 id|argc
-OL
+op_ne
 l_int|4
 )paren
 id|usage

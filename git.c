@@ -1736,6 +1736,14 @@ id|argv
 (braket
 l_int|0
 )braket
+ques
+c_cond
+id|argv
+(braket
+l_int|0
+)braket
+suffix:colon
+l_string|&quot;git-help&quot;
 suffix:semicolon
 r_char
 op_star

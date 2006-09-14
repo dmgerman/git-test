@@ -882,9 +882,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|i
-op_eq
 id|argc
+op_le
+id|i
 )paren
 id|describe
 c_func
