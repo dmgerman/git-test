@@ -1558,6 +1558,14 @@ comma
 id|cmd_verify_pack
 )brace
 comma
+(brace
+l_string|&quot;show-ref&quot;
+comma
+id|cmd_show_ref
+comma
+id|RUN_SETUP
+)brace
+comma
 )brace
 suffix:semicolon
 r_int
