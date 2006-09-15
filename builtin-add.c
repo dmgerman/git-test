@@ -333,16 +333,6 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|common
-op_assign
-id|xmalloc
-c_func
-(paren
-id|baselen
-op_plus
-l_int|1
-)paren
-suffix:semicolon
 id|memcpy
 c_func
 (paren
