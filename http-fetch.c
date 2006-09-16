@@ -567,6 +567,17 @@ id|result
 op_eq
 id|CURLE_HTTP_RETURNED_ERROR
 )paren
+op_logical_or
+multiline_comment|/* ftp:// URL */
+(paren
+id|code
+op_eq
+l_int|550
+op_logical_and
+id|result
+op_eq
+id|CURLE_FTP_COULDNT_RETR_FILE
+)paren
 suffix:semicolon
 )brace
 DECL|macro|missing_target
