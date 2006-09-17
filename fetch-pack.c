@@ -659,7 +659,7 @@ id|fd
 l_int|1
 )braket
 comma
-l_string|&quot;want %s%s%s%s&bslash;n&quot;
+l_string|&quot;want %s%s%s%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -678,6 +678,19 @@ l_string|&quot;&quot;
 comma
 (paren
 id|use_sideband
+op_eq
+l_int|2
+ques
+c_cond
+l_string|&quot; side-band-64k&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
+comma
+(paren
+id|use_sideband
+op_eq
+l_int|1
 ques
 c_cond
 l_string|&quot; side-band&quot;
@@ -2021,6 +2034,35 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|server_supports
+c_func
+(paren
+l_string|&quot;side-band-64k&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Server supports side-band-64k&bslash;n&quot;
+)paren
+suffix:semicolon
+id|use_sideband
+op_assign
+l_int|2
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren

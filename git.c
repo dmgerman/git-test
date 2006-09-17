@@ -1207,6 +1207,12 @@ id|cmd_apply
 )brace
 comma
 (brace
+l_string|&quot;archive&quot;
+comma
+id|cmd_archive
+)brace
+comma
+(brace
 l_string|&quot;cat-file&quot;
 comma
 id|cmd_cat_file
@@ -1520,6 +1526,12 @@ comma
 id|cmd_update_ref
 comma
 id|RUN_SETUP
+)brace
+comma
+(brace
+l_string|&quot;upload-archive&quot;
+comma
+id|cmd_upload_archive
 )brace
 comma
 (brace
