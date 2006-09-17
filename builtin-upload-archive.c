@@ -930,6 +930,7 @@ comma
 l_int|2
 )paren
 suffix:semicolon
+multiline_comment|/* Always finish to read data when available */
 r_if
 c_cond
 (paren
@@ -948,7 +949,7 @@ l_int|1
 dot
 id|revents
 )paren
-op_eq
+op_amp
 id|POLLIN
 )paren
 r_continue
