@@ -6,6 +6,8 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &lt;regex.h&gt;
+macro_line|#include &quot;grep.h&quot;
 DECL|function|path_name
 r_static
 r_char
@@ -5115,6 +5117,40 @@ id|BOUNDARY_SHOW
 suffix:semicolon
 )brace
 )brace
+DECL|function|commit_match
+r_static
+r_int
+id|commit_match
+c_func
+(paren
+r_struct
+id|commit
+op_star
+id|commit
+comma
+r_struct
+id|rev_info
+op_star
+id|opt
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opt-&gt;header_filter
+op_logical_and
+op_logical_neg
+id|opt-&gt;message_filter
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* match it here */
+r_return
+l_int|1
+suffix:semicolon
+)brace
 DECL|function|get_revision
 r_struct
 id|commit
@@ -5301,6 +5337,20 @@ op_logical_and
 id|commit-&gt;parents
 op_logical_and
 id|commit-&gt;parents-&gt;next
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|commit_match
+c_func
+(paren
+id|commit
+comma
+id|revs
+)paren
 )paren
 r_continue
 suffix:semicolon
