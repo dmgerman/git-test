@@ -1457,6 +1457,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;runstatus&quot;
+comma
+id|cmd_runstatus
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;show-branch&quot;
 comma
 id|cmd_show_branch
