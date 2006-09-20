@@ -63,6 +63,12 @@ id|shared_repository
 op_assign
 id|PERM_UMASK
 suffix:semicolon
+DECL|variable|deny_non_fast_forwards
+r_int
+id|deny_non_fast_forwards
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|apply_default_whitespace
 r_const
 r_char
