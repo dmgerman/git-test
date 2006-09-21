@@ -1942,6 +1942,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|flag
+comma
 r_void
 op_star
 id|cb_data
@@ -2140,6 +2143,9 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+r_int
+id|flag
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -2153,6 +2159,9 @@ comma
 id|sha1
 comma
 l_int|1
+comma
+op_amp
+id|flag
 )paren
 suffix:semicolon
 r_if
@@ -2160,6 +2169,13 @@ c_cond
 (paren
 op_logical_neg
 id|head_points_at
+op_logical_or
+op_logical_neg
+(paren
+id|flag
+op_amp
+id|REF_ISSYMREF
+)paren
 )paren
 r_return
 id|error

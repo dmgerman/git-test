@@ -49,6 +49,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|flags
+comma
 r_void
 op_star
 id|cb_data

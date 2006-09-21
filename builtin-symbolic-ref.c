@@ -1,5 +1,6 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;refs.h&quot;
 DECL|variable|git_symbolic_ref_usage
 r_static
 r_const
@@ -29,6 +30,9 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+r_int
+id|flag
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -42,6 +46,9 @@ comma
 id|sha1
 comma
 l_int|0
+comma
+op_amp
+id|flag
 )paren
 suffix:semicolon
 r_if
@@ -54,6 +61,25 @@ id|die
 c_func
 (paren
 l_string|&quot;No such ref: %s&quot;
+comma
+id|HEAD
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|flag
+op_amp
+id|REF_ISSYMREF
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;ref %s is not a symbolic ref&quot;
 comma
 id|HEAD
 )paren

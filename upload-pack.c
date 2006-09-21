@@ -2215,6 +2215,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|flag
+comma
 r_void
 op_star
 id|cb_data

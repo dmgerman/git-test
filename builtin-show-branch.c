@@ -1613,6 +1613,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|flag
+comma
 r_void
 op_star
 id|cb_data
@@ -1741,6 +1744,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|flag
+comma
 r_void
 op_star
 id|cb_data
@@ -1810,6 +1816,8 @@ id|ofs
 comma
 id|sha1
 comma
+id|flag
+comma
 id|cb_data
 )paren
 suffix:semicolon
@@ -1830,6 +1838,9 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|flag
 comma
 r_void
 op_star
@@ -1861,6 +1872,8 @@ op_plus
 l_int|5
 comma
 id|sha1
+comma
+id|flag
 comma
 id|cb_data
 )paren
@@ -1937,6 +1950,9 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|flag
 comma
 r_void
 op_star
@@ -2033,6 +2049,8 @@ id|refname
 comma
 id|sha1
 comma
+id|flag
+comma
 id|cb_data
 )paren
 suffix:semicolon
@@ -2058,6 +2076,8 @@ id|refname
 comma
 id|sha1
 comma
+id|flag
+comma
 id|cb_data
 )paren
 suffix:semicolon
@@ -2068,6 +2088,8 @@ c_func
 id|refname
 comma
 id|sha1
+comma
+id|flag
 comma
 id|cb_data
 )paren
@@ -2458,6 +2480,8 @@ c_func
 id|av
 comma
 id|revkey
+comma
+l_int|0
 comma
 l_int|NULL
 )paren
@@ -3369,6 +3393,8 @@ comma
 id|head_sha1
 comma
 l_int|1
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

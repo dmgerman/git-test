@@ -63,6 +63,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|flag
+comma
 r_void
 op_star
 id|cb_data
@@ -147,6 +150,8 @@ c_func
 l_string|&quot;capabilities^{}&quot;
 comma
 id|null_sha1
+comma
+l_int|0
 comma
 l_int|NULL
 )paren
