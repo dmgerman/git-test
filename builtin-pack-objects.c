@@ -1011,7 +1011,7 @@ c_cond
 (paren
 id|type
 template_param
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 id|die
 c_func
@@ -1307,7 +1307,7 @@ c_cond
 (paren
 id|type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 id|used
 op_add_assign
@@ -1501,7 +1501,7 @@ c_cond
 (paren
 id|obj_type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 id|to_reuse
 op_assign
@@ -1734,7 +1734,7 @@ id|entry-&gt;delta_size
 suffix:semicolon
 id|obj_type
 op_assign
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * The object header is a byte of &squot;type&squot; followed by zero or&n;&t;&t; * more bytes of length.  For deltas, the 20 bytes of delta&n;&t;&t; * sha1 follows that.&n;&t;&t; */
@@ -1886,7 +1886,7 @@ c_cond
 (paren
 id|obj_type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 id|reused_delta
 op_increment
@@ -1900,7 +1900,7 @@ c_cond
 (paren
 id|obj_type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 id|written_delta
 op_increment
@@ -4393,7 +4393,7 @@ id|no_reuse_delta
 op_logical_and
 id|entry-&gt;in_pack_type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 op_logical_and
 (paren
 id|base_entry
@@ -4425,7 +4425,7 @@ id|base_entry
 suffix:semicolon
 id|entry-&gt;type
 op_assign
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 suffix:semicolon
 id|entry-&gt;delta_sibling
 op_assign

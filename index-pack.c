@@ -839,7 +839,7 @@ id|type
 )paren
 (brace
 r_case
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 suffix:colon
 r_if
 c_cond
@@ -1635,7 +1635,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 (brace
 r_struct
@@ -1755,7 +1755,7 @@ c_cond
 (paren
 id|obj-&gt;type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 r_continue
 suffix:semicolon
@@ -1858,7 +1858,7 @@ id|i
 dot
 id|obj-&gt;real_type
 op_eq
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 id|die
 c_func

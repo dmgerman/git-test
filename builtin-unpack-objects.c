@@ -1287,7 +1287,7 @@ suffix:semicolon
 r_return
 suffix:semicolon
 r_case
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 suffix:colon
 id|unpack_delta_entry
 c_func
