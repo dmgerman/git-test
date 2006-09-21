@@ -1138,7 +1138,7 @@ c_cond
 id|read_ref
 c_func
 (paren
-id|path
+l_string|&quot;HEAD&quot;
 comma
 id|sha1
 )paren
@@ -1152,7 +1152,7 @@ c_cond
 id|create_symref
 c_func
 (paren
-id|path
+l_string|&quot;HEAD&quot;
 comma
 l_string|&quot;refs/heads/master&quot;
 )paren

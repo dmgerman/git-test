@@ -547,6 +547,13 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|flag
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 id|show_rev
@@ -1498,6 +1505,8 @@ id|for_each_ref
 c_func
 (paren
 id|show_reference
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_continue
@@ -1520,6 +1529,8 @@ id|for_each_branch_ref
 c_func
 (paren
 id|show_reference
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_continue
@@ -1542,6 +1553,8 @@ id|for_each_tag_ref
 c_func
 (paren
 id|show_reference
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_continue
@@ -1564,6 +1577,8 @@ id|for_each_remote_ref
 c_func
 (paren
 id|show_reference
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_continue
