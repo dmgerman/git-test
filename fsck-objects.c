@@ -1941,6 +1941,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -2032,6 +2036,8 @@ id|for_each_ref
 c_func
 (paren
 id|fsck_handle_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Not having any default heads isn&squot;t really fatal, but&n;&t; * it does mean that &quot;--unreachable&quot; no longer makes any&n;&t; * sense (since in this case everything will obviously&n;&t; * be unreachable by definition.&n;&t; *&n;&t; * Showing dangling objects is valid, though (as those&n;&t; * dangling objects are likely lost heads).&n;&t; *&n;&t; * So we just print a warning about it, and clear the&n;&t; * &quot;show_unreachable&quot; flag.&n;&t; */

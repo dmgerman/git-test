@@ -2214,6 +2214,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_static
@@ -2377,12 +2381,16 @@ id|head_ref
 c_func
 (paren
 id|send_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|for_each_ref
 c_func
 (paren
 id|send_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|packet_flush

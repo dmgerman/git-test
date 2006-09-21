@@ -160,6 +160,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -588,6 +592,8 @@ id|for_each_ref
 c_func
 (paren
 id|rev_list_insert_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|fetching
@@ -1128,6 +1134,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -1703,6 +1713,8 @@ id|for_each_ref
 c_func
 (paren
 id|mark_complete
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

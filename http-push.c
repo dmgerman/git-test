@@ -9761,6 +9761,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -10010,6 +10014,8 @@ id|for_each_ref
 c_func
 (paren
 id|one_local_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace

@@ -1612,6 +1612,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -1736,6 +1740,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_int
@@ -1801,6 +1809,8 @@ op_plus
 id|ofs
 comma
 id|sha1
+comma
+id|cb_data
 )paren
 suffix:semicolon
 )brace
@@ -1820,6 +1830,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_if
@@ -1847,6 +1861,8 @@ op_plus
 l_int|5
 comma
 id|sha1
+comma
+id|cb_data
 )paren
 suffix:semicolon
 )brace
@@ -1921,6 +1937,10 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 multiline_comment|/* we want to allow pattern hold/&lt;asterisk&gt; to show all&n;&t; * branches under refs/heads/hold/, and v0.99.9? to show&n;&t; * refs/tags/v0.99.9a and friends.&n;&t; */
@@ -2012,6 +2032,8 @@ c_func
 id|refname
 comma
 id|sha1
+comma
+id|cb_data
 )paren
 suffix:semicolon
 r_if
@@ -2035,6 +2057,8 @@ c_func
 id|refname
 comma
 id|sha1
+comma
+id|cb_data
 )paren
 suffix:semicolon
 r_return
@@ -2044,6 +2068,8 @@ c_func
 id|refname
 comma
 id|sha1
+comma
+id|cb_data
 )paren
 suffix:semicolon
 )brace
@@ -2075,6 +2101,8 @@ id|for_each_ref
 c_func
 (paren
 id|append_head_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|sort_ref_range
@@ -2101,6 +2129,8 @@ id|for_each_ref
 c_func
 (paren
 id|append_tag_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|sort_ref_range
@@ -2428,6 +2458,8 @@ c_func
 id|av
 comma
 id|revkey
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_return
@@ -2483,6 +2515,8 @@ id|for_each_ref
 c_func
 (paren
 id|append_matching_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

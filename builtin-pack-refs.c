@@ -1,11 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
-DECL|variable|refs_file
-r_static
-id|FILE
-op_star
-id|refs_file
-suffix:semicolon
 DECL|variable|result_path
 DECL|variable|lock_path
 r_static
@@ -54,8 +48,18 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
+id|FILE
+op_star
+id|refs_file
+op_assign
+id|cb_data
+suffix:semicolon
 id|fprintf
 c_func
 (paren
@@ -98,6 +102,10 @@ id|prefix
 (brace
 r_int
 id|fd
+suffix:semicolon
+id|FILE
+op_star
+id|refs_file
 suffix:semicolon
 id|result_path
 op_assign
@@ -198,6 +206,8 @@ id|for_each_ref
 c_func
 (paren
 id|handle_one_ref
+comma
+id|refs_file
 )paren
 suffix:semicolon
 id|fsync
