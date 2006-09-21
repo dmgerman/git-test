@@ -63,6 +63,17 @@ id|refs_file
 op_assign
 id|cb_data
 suffix:semicolon
+multiline_comment|/* Do not pack the symbolic refs */
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|REF_ISSYMREF
+)paren
+)paren
 id|fprintf
 c_func
 (paren
