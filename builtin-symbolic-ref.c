@@ -37,7 +37,7 @@ op_assign
 id|resolve_ref
 c_func
 (paren
-l_string|&quot;HEAD&quot;
+id|HEAD
 comma
 id|sha1
 comma
