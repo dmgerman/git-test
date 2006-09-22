@@ -1542,7 +1542,7 @@ l_int|NULL
 comma
 l_int|1
 comma
-l_int|0
+id|TERM_TAB
 )paren
 suffix:semicolon
 r_if
@@ -1601,7 +1601,7 @@ l_int|NULL
 comma
 l_int|1
 comma
-l_int|0
+id|TERM_TAB
 )paren
 suffix:semicolon
 r_if
