@@ -1549,6 +1549,10 @@ id|rev.extra_headers
 op_assign
 id|extra_headers
 suffix:semicolon
+id|output_directory
+op_assign
+id|prefix
+suffix:semicolon
 multiline_comment|/*&n;&t; * Parse the arguments before setup_revisions(), or something&n;&t; * like &quot;git fmt-patch -o a123 HEAD^..&quot; may fail; a123 is&n;&t; * possibly a valid SHA1.&n;&t; */
 r_for
 c_loop
