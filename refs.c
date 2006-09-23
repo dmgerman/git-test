@@ -2308,9 +2308,6 @@ r_char
 op_star
 id|ref
 comma
-r_int
-id|plen
-comma
 r_const
 r_int
 r_char
@@ -2580,12 +2577,6 @@ c_func
 (paren
 id|refpath
 comma
-id|strlen
-c_func
-(paren
-id|refpath
-)paren
-comma
 id|old_sha1
 comma
 id|mustexist
@@ -2619,12 +2610,6 @@ id|lock_ref_sha1_basic
 c_func
 (paren
 id|ref
-comma
-id|strlen
-c_func
-(paren
-id|ref
-)paren
 comma
 id|old_sha1
 comma
