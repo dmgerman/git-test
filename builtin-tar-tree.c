@@ -1499,12 +1499,6 @@ id|base
 op_assign
 l_int|NULL
 suffix:semicolon
-id|git_config
-c_func
-(paren
-id|git_tar_config
-)paren
-suffix:semicolon
 id|memset
 c_func
 (paren
