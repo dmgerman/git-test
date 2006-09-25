@@ -252,10 +252,6 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_struct
-id|pack_entry
-id|e
-suffix:semicolon
 r_void
 op_star
 id|data
@@ -269,6 +265,8 @@ suffix:semicolon
 r_int
 r_int
 id|size
+comma
+id|offset
 suffix:semicolon
 r_if
 c_cond
@@ -289,20 +287,21 @@ c_func
 l_string|&quot;internal error pack-check nth-packed-object&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+id|offset
+op_assign
 id|find_pack_entry_one
 c_func
 (paren
 id|sha1
 comma
-op_amp
-id|e
-comma
 id|p
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|offset
 )paren
 id|die
 c_func
@@ -315,8 +314,9 @@ op_assign
 id|unpack_entry_gently
 c_func
 (paren
-op_amp
-id|e
+id|p
+comma
+id|offset
 comma
 id|type
 comma
@@ -485,10 +485,6 @@ id|base_sha1
 l_int|20
 )braket
 suffix:semicolon
-r_struct
-id|pack_entry
-id|e
-suffix:semicolon
 r_char
 id|type
 (braket
@@ -502,6 +498,10 @@ suffix:semicolon
 r_int
 r_int
 id|store_size
+suffix:semicolon
+r_int
+r_int
+id|offset
 suffix:semicolon
 r_int
 r_int
@@ -526,20 +526,21 @@ c_func
 l_string|&quot;internal error pack-check nth-packed-object&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+id|offset
+op_assign
 id|find_pack_entry_one
 c_func
 (paren
 id|sha1
 comma
-op_amp
-id|e
-comma
 id|p
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|offset
 )paren
 id|die
 c_func
@@ -550,8 +551,9 @@ suffix:semicolon
 id|packed_object_info_detail
 c_func
 (paren
-op_amp
-id|e
+id|p
+comma
+id|offset
 comma
 id|type
 comma
@@ -588,13 +590,13 @@ id|delta_chain_length
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %u&bslash;n&quot;
+l_string|&quot;%-6s %lu %lu&bslash;n&quot;
 comma
 id|type
 comma
 id|size
 comma
-id|e.offset
+id|offset
 )paren
 suffix:semicolon
 r_else
@@ -602,13 +604,13 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %u %u %s&bslash;n&quot;
+l_string|&quot;%-6s %lu %lu %u %s&bslash;n&quot;
 comma
 id|type
 comma
 id|size
 comma
-id|e.offset
+id|offset
 comma
 id|delta_chain_length
 comma
