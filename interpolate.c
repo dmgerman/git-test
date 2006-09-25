@@ -14,10 +14,12 @@ comma
 r_int
 id|reslen
 comma
+r_const
 r_char
 op_star
 id|orig
 comma
+r_const
 r_struct
 id|interp
 op_star
@@ -27,6 +29,7 @@ r_int
 id|ninterps
 )paren
 (brace
+r_const
 r_char
 op_star
 id|src
