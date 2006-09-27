@@ -4886,9 +4886,6 @@ r_if
 c_cond
 (paren
 id|base_entry
-op_logical_and
-op_logical_neg
-id|base_entry-&gt;preferred_base
 )paren
 (brace
 multiline_comment|/* Depth value does not matter - find_deltas()&n;&t;&t;&t; * will never consider reused delta as the&n;&t;&t;&t; * base object to deltify other objects&n;&t;&t;&t; * against, in order to avoid circular deltas.&n;&t;&t;&t; */
