@@ -741,14 +741,6 @@ id|grep_pat
 op_star
 id|p
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|opt-&gt;fixed
-)paren
-r_return
-suffix:semicolon
-multiline_comment|/* First compile regexps */
 r_for
 c_loop
 (paren
@@ -779,6 +771,12 @@ suffix:colon
 r_case
 id|GREP_PATTERN_BODY
 suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opt-&gt;fixed
+)paren
 id|compile_regexp
 c_func
 (paren
