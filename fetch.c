@@ -1355,8 +1355,6 @@ id|i
 )braket
 comma
 l_int|NULL
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_if

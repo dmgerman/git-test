@@ -270,8 +270,6 @@ op_plus
 l_int|5
 comma
 id|r-&gt;sha1
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_if
