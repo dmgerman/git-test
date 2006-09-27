@@ -2106,7 +2106,6 @@ id|entry-&gt;in_pack_offset
 )paren
 id|entry-&gt;in_pack_header_size
 suffix:semicolon
-singleline_comment|//fprintf(stderr, &quot;reusing %d at %d header %d size %d&bslash;n&quot;, obj_type, entry-&gt;in_pack_offset, entry-&gt;in_pack_header_size, datalen);
 r_if
 c_cond
 (paren
