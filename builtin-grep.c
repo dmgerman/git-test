@@ -1665,6 +1665,12 @@ id|ce-&gt;name
 )paren
 suffix:semicolon
 )brace
+id|free_grep_patterns
+c_func
+(paren
+id|opt
+)paren
+suffix:semicolon
 r_return
 id|hit
 suffix:semicolon
@@ -3735,6 +3741,13 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+id|free_grep_patterns
+c_func
+(paren
+op_amp
+id|opt
+)paren
+suffix:semicolon
 r_return
 op_logical_neg
 id|hit
