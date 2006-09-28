@@ -3621,7 +3621,7 @@ c_func
 (paren
 r_char
 op_star
-id|lisen_addr
+id|listen_addr
 comma
 r_int
 id|listen_port
