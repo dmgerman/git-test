@@ -14,6 +14,10 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;interpolate.h&quot;
+macro_line|#ifndef HOST_NAME_MAX
+DECL|macro|HOST_NAME_MAX
+mdefine_line|#define HOST_NAME_MAX 256
+macro_line|#endif
 DECL|variable|log_syslog
 r_static
 r_int
