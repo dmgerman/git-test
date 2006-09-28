@@ -15,6 +15,7 @@ comma
 r_int
 id|slot
 comma
+r_const
 r_char
 op_star
 id|value
@@ -35,7 +36,7 @@ r_char
 op_star
 id|newval
 op_assign
-id|value
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
