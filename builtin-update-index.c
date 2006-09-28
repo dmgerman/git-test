@@ -438,7 +438,7 @@ op_logical_neg
 id|trust_executable_bit
 )paren
 (brace
-multiline_comment|/* If there is an existing entry, pick the mode bits&n;&t;&t; * from it.&n;&t;&t; */
+multiline_comment|/* If there is an existing entry, pick the mode bits&n;&t;&t; * from it, otherwise force to 644.&n;&t;&t; */
 r_int
 id|pos
 op_assign
@@ -465,6 +465,17 @@ id|pos
 )braket
 op_member_access_from_pointer
 id|ce_mode
+suffix:semicolon
+r_else
+id|ce-&gt;ce_mode
+op_assign
+id|create_ce_mode
+c_func
+(paren
+id|S_IFREG
+op_or
+l_int|0644
+)paren
 suffix:semicolon
 )brace
 r_if

@@ -1,12 +1,12 @@
 multiline_comment|/*&n; * Copyright (c) 2006 Franck Bui-Huu&n; */
 macro_line|#include &lt;time.h&gt;
+macro_line|#include &lt;sys/wait.h&gt;
+macro_line|#include &lt;sys/poll.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;archive.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;sideband.h&quot;
-macro_line|#include &lt;sys/wait.h&gt;
-macro_line|#include &lt;sys/poll.h&gt;
 DECL|variable|upload_archive_usage
 r_static
 r_const

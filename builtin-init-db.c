@@ -1584,6 +1584,14 @@ comma
 id|buf
 )paren
 suffix:semicolon
+id|git_config_set
+c_func
+(paren
+l_string|&quot;receive.denyNonFastforwards&quot;
+comma
+l_string|&quot;true&quot;
+)paren
+suffix:semicolon
 )brace
 r_return
 l_int|0
