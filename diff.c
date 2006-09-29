@@ -1093,7 +1093,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;--- %s&bslash;n+++ %s&bslash;n@@ -&quot;
+l_string|&quot;--- a/%s&bslash;n+++ b/%s&bslash;n@@ -&quot;
 comma
 id|name_a
 comma
