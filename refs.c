@@ -3220,6 +3220,12 @@ l_int|NULL
 )paren
 suffix:semicolon
 )brace
+DECL|variable|packlock
+r_static
+r_struct
+id|lock_file
+id|packlock
+suffix:semicolon
 DECL|function|repack_without_ref
 r_static
 r_int
@@ -3247,10 +3253,6 @@ r_int
 id|found
 op_assign
 l_int|0
-suffix:semicolon
-r_struct
-id|lock_file
-id|packlock
 suffix:semicolon
 id|packed_ref_list
 op_assign
