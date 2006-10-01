@@ -2578,6 +2578,7 @@ c_func
 id|st.st_mode
 )paren
 op_logical_and
+op_logical_neg
 id|remove_empty_dir_recursive
 c_func
 (paren
