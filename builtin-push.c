@@ -376,11 +376,11 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-l_string|&quot;URL: &quot;
+l_string|&quot;URL:&quot;
 comma
 id|buffer
 comma
-l_int|5
+l_int|4
 )paren
 )paren
 (brace
@@ -392,7 +392,7 @@ id|s
 op_assign
 id|buffer
 op_plus
-l_int|5
+l_int|4
 suffix:semicolon
 )brace
 r_else
@@ -403,11 +403,11 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-l_string|&quot;Push: &quot;
+l_string|&quot;Push:&quot;
 comma
 id|buffer
 comma
-l_int|6
+l_int|5
 )paren
 )paren
 (brace
@@ -419,7 +419,7 @@ id|s
 op_assign
 id|buffer
 op_plus
-l_int|6
+l_int|5
 suffix:semicolon
 )brace
 r_else
