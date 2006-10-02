@@ -168,6 +168,25 @@ r_continue
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/* Is it a directory? */
+r_if
+c_cond
+(paren
+id|S_ISDIR
+c_func
+(paren
+id|st.st_mode
+)paren
+)paren
+(brace
+id|errno
+op_assign
+id|EISDIR
+suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
 multiline_comment|/*&n;&t;&t; * Anything else, just open it and try to use it as&n;&t;&t; * a ref&n;&t;&t; */
 id|fd
 op_assign
