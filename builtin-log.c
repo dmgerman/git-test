@@ -2154,6 +2154,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|output_directory
+)paren
+id|output_directory
+op_assign
+id|prefix
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|output_directory
 )paren
 (brace
