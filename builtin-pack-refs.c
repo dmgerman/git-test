@@ -461,6 +461,12 @@ op_amp
 id|cbdata
 )paren
 suffix:semicolon
+id|fflush
+c_func
+(paren
+id|cbdata.refs_file
+)paren
+suffix:semicolon
 id|fsync
 c_func
 (paren
