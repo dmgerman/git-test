@@ -1165,7 +1165,7 @@ c_func
 (paren
 id|dirent.version
 comma
-l_int|20
+l_int|10
 )paren
 suffix:semicolon
 id|copy_le16
@@ -1337,7 +1337,7 @@ c_func
 (paren
 id|header.version
 comma
-l_int|20
+l_int|10
 )paren
 suffix:semicolon
 id|copy_le16
