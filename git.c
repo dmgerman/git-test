@@ -20,7 +20,7 @@ id|git_usage_string
 (braket
 )braket
 op_assign
-l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--help] COMMAND [ ARGS ]&quot;
+l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [-p|--paginate] [--bare] [--git-dir=GIT_DIR] [--help] COMMAND [ARGS]&quot;
 suffix:semicolon
 DECL|function|prepend_to_path
 r_static
