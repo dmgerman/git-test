@@ -3764,6 +3764,17 @@ r_if
 c_cond
 (paren
 id|log_all_ref_updates
+op_logical_and
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|lock-&gt;ref_name
+comma
+l_string|&quot;refs/heads/&quot;
+comma
+l_int|11
+)paren
 )paren
 (brace
 r_if
