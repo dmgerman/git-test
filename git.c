@@ -1500,8 +1500,6 @@ comma
 l_string|&quot;tar-tree&quot;
 comma
 id|cmd_tar_tree
-comma
-id|RUN_SETUP
 )brace
 comma
 (brace
