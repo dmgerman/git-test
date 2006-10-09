@@ -1201,6 +1201,13 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;annotate&quot;
+comma
+id|cmd_annotate
+comma
+)brace
+comma
+(brace
 l_string|&quot;apply&quot;
 comma
 id|cmd_apply
