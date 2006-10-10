@@ -22,7 +22,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-objects [-q] [--no-reuse-delta] [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] [--revs [--unpacked | --all]*] [--stdout | base-name] &lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;git-pack-objects [-q] [--no-reuse-delta] [--delta-base-offset] [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] [--revs [--unpacked | --all]*] [--stdout | base-name] &lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
