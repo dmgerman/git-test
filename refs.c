@@ -3826,7 +3826,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|log_all_ref_updates
+(paren
+id|oflags
+op_amp
+id|O_CREAT
+)paren
 op_logical_and
 id|errno
 op_eq
