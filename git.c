@@ -1256,6 +1256,8 @@ comma
 id|cmd_diff
 comma
 id|RUN_SETUP
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
