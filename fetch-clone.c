@@ -639,12 +639,6 @@ id|side_pid
 )paren
 (brace
 multiline_comment|/* subprocess */
-r_char
-id|buf
-(braket
-id|LARGE_PACKET_MAX
-)braket
-suffix:semicolon
 id|close
 c_func
 (paren
@@ -695,13 +689,6 @@ l_int|1
 )braket
 comma
 l_int|2
-comma
-id|buf
-comma
-r_sizeof
-(paren
-id|buf
-)paren
 )paren
 )paren
 m_exit

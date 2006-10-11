@@ -404,13 +404,6 @@ comma
 l_int|1
 comma
 l_int|2
-comma
-id|buf
-comma
-r_sizeof
-(paren
-id|buf
-)paren
 )paren
 suffix:semicolon
 id|close
