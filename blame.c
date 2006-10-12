@@ -24,11 +24,14 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-blame [-c] [-l] [-t] [-S &lt;revs-file&gt;] [--] file [commit]&bslash;n&quot;
+l_string|&quot;git-blame [-c] [-l] [-t] [-f] [-n] [-p] [-S &lt;revs-file&gt;] [--] file [commit]&bslash;n&quot;
 l_string|&quot;  -c, --compatibility Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -l, --long          Show long commit SHA1 (Default: off)&bslash;n&quot;
 l_string|&quot;  -t, --time          Show raw timestamp (Default: off)&bslash;n&quot;
-l_string|&quot;  -S, --revs-file     Use revisions from revs-file instead of calling git-rev-list&bslash;n&quot;
+l_string|&quot;  -f, --show-name     Show original filename (Default: auto)&bslash;n&quot;
+l_string|&quot;  -n, --show-number   Show original linenumber (Default: off)&bslash;n&quot;
+l_string|&quot;  -p, --porcelain     Show in a format designed for machine consumption&bslash;n&quot;
+l_string|&quot;  -S revs-file        Use revisions from revs-file instead of calling git-rev-list&bslash;n&quot;
 l_string|&quot;  -h, --help          This message&quot;
 suffix:semicolon
 DECL|variable|blame_lines
@@ -4929,6 +4932,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+id|i
+)braket
+comma
+l_string|&quot;-p&quot;
+)paren
+op_logical_or
 op_logical_neg
 id|strcmp
 c_func
