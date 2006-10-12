@@ -9964,7 +9964,7 @@ suffix:semicolon
 id|putchar
 c_func
 (paren
-l_char|&squot;&bslash;n&squot;
+id|line_termination
 )paren
 suffix:semicolon
 )brace
