@@ -4691,6 +4691,19 @@ op_increment
 )paren
 (brace
 multiline_comment|/* show stat against the first parent even&n;&t;&t; * when doing combined diff.&n;&t;&t; */
+r_int
+id|stat_opt
+op_assign
+(paren
+id|opt-&gt;output_format
+op_amp
+(paren
+id|DIFF_FORMAT_NUMSTAT
+op_or
+id|DIFF_FORMAT_DIFFSTAT
+)paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4698,13 +4711,11 @@ id|i
 op_eq
 l_int|0
 op_logical_and
-id|opt-&gt;output_format
-op_amp
-id|DIFF_FORMAT_DIFFSTAT
+id|stat_opt
 )paren
 id|diffopts.output_format
 op_assign
-id|DIFF_FORMAT_DIFFSTAT
+id|stat_opt
 suffix:semicolon
 r_else
 id|diffopts.output_format
@@ -4875,7 +4886,11 @@ c_cond
 (paren
 id|opt-&gt;output_format
 op_amp
+(paren
+id|DIFF_FORMAT_NUMSTAT
+op_or
 id|DIFF_FORMAT_DIFFSTAT
+)paren
 )paren
 id|needsep
 op_assign
