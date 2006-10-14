@@ -7296,6 +7296,7 @@ multiline_comment|/* Now we have the ID of the referred-to object in&n;&t;&t; * 
 )brace
 )brace
 DECL|function|write_sha1_file_prepare
+r_static
 r_char
 op_star
 id|write_sha1_file_prepare
