@@ -7297,8 +7297,7 @@ multiline_comment|/* Now we have the ID of the referred-to object in&n;&t;&t; * 
 )brace
 DECL|function|write_sha1_file_prepare
 r_static
-r_char
-op_star
+r_void
 id|write_sha1_file_prepare
 c_func
 (paren
@@ -7393,13 +7392,6 @@ id|sha1
 comma
 op_amp
 id|c
-)paren
-suffix:semicolon
-r_return
-id|sha1_file_name
-c_func
-(paren
-id|sha1
 )paren
 suffix:semicolon
 )brace
@@ -8088,8 +8080,6 @@ comma
 id|hdrlen
 suffix:semicolon
 multiline_comment|/* Normally if we have it in the pack then we do not bother writing&n;&t; * it out into .git/objects/??/?{38} file.&n;&t; */
-id|filename
-op_assign
 id|write_sha1_file_prepare
 c_func
 (paren
@@ -8105,6 +8095,14 @@ id|hdr
 comma
 op_amp
 id|hdrlen
+)paren
+suffix:semicolon
+id|filename
+op_assign
+id|sha1_file_name
+c_func
+(paren
+id|sha1
 )paren
 suffix:semicolon
 r_if
