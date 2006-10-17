@@ -64,6 +64,9 @@ id|offset
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * Even if sizeof(union delta_base) == 24 on 64-bit archs, we really want&n; * to memcmp() only the first 20 bytes.&n; */
+DECL|macro|UNION_BASE_SZ
+mdefine_line|#define UNION_BASE_SZ&t;20
 DECL|struct|delta_entry
 r_struct
 id|delta_entry
@@ -1143,11 +1146,7 @@ comma
 op_amp
 id|delta-&gt;base
 comma
-r_sizeof
-(paren
-op_star
-id|base
-)paren
+id|UNION_BASE_SZ
 )paren
 suffix:semicolon
 r_if
@@ -1260,11 +1259,7 @@ id|base
 comma
 id|base
 comma
-r_sizeof
-(paren
-op_star
-id|base
-)paren
+id|UNION_BASE_SZ
 )paren
 )paren
 op_decrement
@@ -1293,11 +1288,7 @@ id|base
 comma
 id|base
 comma
-r_sizeof
-(paren
-op_star
-id|base
-)paren
+id|UNION_BASE_SZ
 )paren
 )paren
 op_increment
@@ -1804,11 +1795,7 @@ comma
 op_amp
 id|delta_b-&gt;base
 comma
-r_sizeof
-(paren
-r_union
-id|delta_base
-)paren
+id|UNION_BASE_SZ
 )paren
 suffix:semicolon
 )brace
