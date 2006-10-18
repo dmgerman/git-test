@@ -4850,7 +4850,7 @@ r_int
 r_char
 id|delta_head
 (braket
-l_int|64
+l_int|20
 )braket
 suffix:semicolon
 r_int
