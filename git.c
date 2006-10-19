@@ -1397,6 +1397,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;pickaxe&quot;
+comma
+id|cmd_pickaxe
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;prune&quot;
 comma
 id|cmd_prune
