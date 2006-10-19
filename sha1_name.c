@@ -893,8 +893,8 @@ r_if
 c_cond
 (paren
 id|len
-OL
-id|MINIMUM_ABBREV
+template_param
+l_int|40
 )paren
 r_return
 l_int|1
