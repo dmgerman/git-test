@@ -4408,6 +4408,10 @@ r_return
 l_int|1
 suffix:semicolon
 r_case
+l_char|&squot;&bslash;n&squot;
+suffix:colon
+multiline_comment|/* newer GNU diff, an empty context line */
+r_case
 l_char|&squot; &squot;
 suffix:colon
 id|oldlines
@@ -7563,6 +7567,38 @@ c_cond
 id|first
 )paren
 (brace
+r_case
+l_char|&squot;&bslash;n&squot;
+suffix:colon
+multiline_comment|/* Newer GNU diff, empty context line */
+r_if
+c_cond
+(paren
+id|plen
+OL
+l_int|0
+)paren
+multiline_comment|/* ... followed by &squot;&bslash;No newline&squot;; nothing */
+r_break
+suffix:semicolon
+id|old
+(braket
+id|oldsize
+op_increment
+)braket
+op_assign
+l_char|&squot;&bslash;n&squot;
+suffix:semicolon
+r_new
+(braket
+id|newsize
+op_increment
+)braket
+op_assign
+l_char|&squot;&bslash;n&squot;
+suffix:semicolon
+r_break
+suffix:semicolon
 r_case
 l_char|&squot; &squot;
 suffix:colon
