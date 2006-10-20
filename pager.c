@@ -249,7 +249,7 @@ c_func
 (paren
 l_string|&quot;LESS&quot;
 comma
-l_string|&quot;-RS&quot;
+l_string|&quot;FRS&quot;
 comma
 l_int|0
 )paren
