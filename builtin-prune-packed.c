@@ -10,11 +10,6 @@ id|prune_packed_usage
 op_assign
 l_string|&quot;git-prune-packed [-n]&quot;
 suffix:semicolon
-DECL|variable|dryrun
-r_static
-r_int
-id|dryrun
-suffix:semicolon
 DECL|function|prune_dir
 r_static
 r_void
@@ -34,6 +29,9 @@ id|pathname
 comma
 r_int
 id|len
+comma
+r_int
+id|dryrun
 )paren
 (brace
 r_struct
@@ -193,12 +191,12 @@ id|pathname
 suffix:semicolon
 )brace
 DECL|function|prune_packed_objects
-r_static
 r_void
 id|prune_packed_objects
 c_func
 (paren
-r_void
+r_int
+id|dryrun
 )paren
 (brace
 r_int
@@ -335,6 +333,8 @@ comma
 id|len
 op_plus
 l_int|3
+comma
+id|dryrun
 )paren
 suffix:semicolon
 id|closedir
@@ -367,6 +367,9 @@ id|prefix
 (brace
 r_int
 id|i
+suffix:semicolon
+r_int
+id|dryrun
 suffix:semicolon
 r_for
 c_loop
@@ -444,6 +447,7 @@ suffix:semicolon
 id|prune_packed_objects
 c_func
 (paren
+id|dryrun
 )paren
 suffix:semicolon
 r_return
