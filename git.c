@@ -1518,6 +1518,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;shortlog&quot;
+comma
+id|cmd_shortlog
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;show-branch&quot;
 comma
 id|cmd_show_branch
