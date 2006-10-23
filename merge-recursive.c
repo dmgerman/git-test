@@ -2110,6 +2110,7 @@ id|renames
 suffix:semicolon
 )brace
 DECL|function|update_stages
+r_static
 r_int
 id|update_stages
 c_func
@@ -2373,6 +2374,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|remove_file
+r_static
 r_int
 id|remove_file
 c_func
@@ -2781,6 +2783,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|update_file_flags
+r_static
 r_void
 id|update_file_flags
 c_func
@@ -3113,6 +3116,7 @@ id|ADD_CACHE_OK_TO_ADD
 suffix:semicolon
 )brace
 DECL|function|update_file
+r_static
 r_void
 id|update_file
 c_func
