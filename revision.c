@@ -1450,6 +1450,9 @@ id|parent
 op_assign
 id|commit-&gt;parents
 suffix:semicolon
+r_int
+id|left_flag
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1558,6 +1561,14 @@ id|revs-&gt;no_walk
 )paren
 r_return
 suffix:semicolon
+id|left_flag
+op_assign
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|SYMMETRIC_LEFT
+)paren
+suffix:semicolon
 id|parent
 op_assign
 id|commit-&gt;parents
@@ -1584,6 +1595,10 @@ c_func
 (paren
 id|p
 )paren
+suffix:semicolon
+id|p-&gt;object.flags
+op_or_assign
+id|left_flag
 suffix:semicolon
 r_if
 c_cond
@@ -2959,6 +2974,8 @@ suffix:semicolon
 id|a-&gt;object.flags
 op_or_assign
 id|flags
+op_or
+id|SYMMETRIC_LEFT
 suffix:semicolon
 )brace
 r_else
