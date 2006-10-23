@@ -1235,6 +1235,14 @@ id|cmd_check_ref_format
 )brace
 comma
 (brace
+l_string|&quot;cherry&quot;
+comma
+id|cmd_cherry
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;commit-tree&quot;
 comma
 id|cmd_commit_tree
