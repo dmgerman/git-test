@@ -379,10 +379,12 @@ c_func
 (paren
 l_string|&quot;%s &quot;
 comma
-id|sha1_to_hex
+id|find_unique_abbrev
 c_func
 (paren
 id|commit-&gt;object.sha1
+comma
+id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
