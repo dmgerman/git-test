@@ -659,7 +659,7 @@ id|fd
 l_int|1
 )braket
 comma
-l_string|&quot;want %s%s%s%s%s&bslash;n&quot;
+l_string|&quot;want %s%s%s%s%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -706,6 +706,8 @@ l_string|&quot; thin-pack&quot;
 suffix:colon
 l_string|&quot;&quot;
 )paren
+comma
+l_string|&quot; ofs-delta&quot;
 )paren
 suffix:semicolon
 r_else
