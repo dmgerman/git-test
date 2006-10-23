@@ -1213,6 +1213,12 @@ id|cmd_archive
 )brace
 comma
 (brace
+l_string|&quot;branch&quot;
+comma
+id|cmd_branch
+)brace
+comma
+(brace
 l_string|&quot;cat-file&quot;
 comma
 id|cmd_cat_file
