@@ -1416,6 +1416,8 @@ suffix:semicolon
 multiline_comment|/* basic@{time or number} format to query ref-log */
 id|reflog_len
 op_assign
+id|at
+op_assign
 l_int|0
 suffix:semicolon
 r_if
