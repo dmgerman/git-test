@@ -198,6 +198,15 @@ c_func
 (paren
 id|trace
 comma
+l_string|&quot;&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|trace
+comma
 l_string|&quot;0&quot;
 )paren
 op_logical_or

@@ -34,9 +34,12 @@ comma
 id|nr_our_refs
 suffix:semicolon
 DECL|variable|use_thin_pack
+DECL|variable|use_ofs_delta
 r_static
 r_int
 id|use_thin_pack
+comma
+id|use_ofs_delta
 suffix:semicolon
 DECL|variable|have_obj
 r_static
@@ -762,6 +765,13 @@ comma
 l_string|&quot;--stdout&quot;
 comma
 l_string|&quot;--progress&quot;
+comma
+id|use_ofs_delta
+ques
+c_cond
+l_string|&quot;--delta-base-offset&quot;
+suffix:colon
+l_int|NULL
 comma
 l_int|NULL
 )paren
@@ -2112,6 +2122,23 @@ id|line
 op_plus
 l_int|45
 comma
+l_string|&quot;ofs-delta&quot;
+)paren
+)paren
+id|use_ofs_delta
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|line
+op_plus
+l_int|45
+comma
 l_string|&quot;side-band-64k&quot;
 )paren
 )paren
@@ -2222,7 +2249,7 @@ r_char
 op_star
 id|capabilities
 op_assign
-l_string|&quot;multi_ack thin-pack side-band side-band-64k&quot;
+l_string|&quot;multi_ack thin-pack side-band side-band-64k ofs-delta&quot;
 suffix:semicolon
 r_struct
 id|object

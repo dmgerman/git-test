@@ -6840,16 +6840,6 @@ id|tree
 )paren
 )paren
 suffix:semicolon
-r_int
-r_char
-id|hdr
-(braket
-l_int|40
-)braket
-suffix:semicolon
-r_int
-id|hdrlen
-suffix:semicolon
 id|tree-&gt;object.parsed
 op_assign
 l_int|1
@@ -6858,7 +6848,7 @@ id|tree-&gt;object.type
 op_assign
 id|OBJ_TREE
 suffix:semicolon
-id|write_sha1_file_prepare
+id|hash_sha1_file
 c_func
 (paren
 l_int|NULL
@@ -6868,11 +6858,6 @@ comma
 id|tree_type
 comma
 id|tree-&gt;object.sha1
-comma
-id|hdr
-comma
-op_amp
-id|hdrlen
 )paren
 suffix:semicolon
 id|merged_common_ancestors

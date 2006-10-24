@@ -20,7 +20,7 @@ id|git_usage_string
 (braket
 )braket
 op_assign
-l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--help] COMMAND [ ARGS ]&quot;
+l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [-p|--paginate] [--bare] [--git-dir=GIT_DIR] [--help] COMMAND [ARGS]&quot;
 suffix:semicolon
 DECL|function|prepend_to_path
 r_static
@@ -1256,6 +1256,8 @@ comma
 id|cmd_diff
 comma
 id|RUN_SETUP
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
@@ -1500,8 +1502,6 @@ comma
 l_string|&quot;tar-tree&quot;
 comma
 id|cmd_tar_tree
-comma
-id|RUN_SETUP
 )brace
 comma
 (brace

@@ -1819,6 +1819,14 @@ id|INTERP_SLOT_HOST
 dot
 id|value
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|hp
+)paren
+r_return
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -2354,6 +2362,7 @@ l_int|1
 op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
+(brace
 id|line
 (braket
 op_decrement
@@ -2362,6 +2371,10 @@ id|len
 op_assign
 l_int|0
 suffix:semicolon
+id|pktlen
+op_decrement
+suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * Initialize the path interpolation table for this connection.&n;&t; */
 id|interp_clear_table
 c_func

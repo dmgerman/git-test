@@ -57,7 +57,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;unable to read idex&quot;
+l_string|&quot;unable to read index&quot;
 )paren
 suffix:semicolon
 id|nr

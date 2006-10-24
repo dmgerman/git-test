@@ -1542,7 +1542,7 @@ l_int|NULL
 comma
 l_int|1
 comma
-l_int|0
+id|TERM_TAB
 )paren
 suffix:semicolon
 r_if
@@ -1601,7 +1601,7 @@ l_int|NULL
 comma
 l_int|1
 comma
-l_int|0
+id|TERM_TAB
 )paren
 suffix:semicolon
 r_if
@@ -4407,6 +4407,10 @@ suffix:colon
 r_return
 l_int|1
 suffix:semicolon
+r_case
+l_char|&squot;&bslash;n&squot;
+suffix:colon
+multiline_comment|/* newer GNU diff, an empty context line */
 r_case
 l_char|&squot; &squot;
 suffix:colon
@@ -7564,6 +7568,38 @@ id|first
 )paren
 (brace
 r_case
+l_char|&squot;&bslash;n&squot;
+suffix:colon
+multiline_comment|/* Newer GNU diff, empty context line */
+r_if
+c_cond
+(paren
+id|plen
+OL
+l_int|0
+)paren
+multiline_comment|/* ... followed by &squot;&bslash;No newline&squot;; nothing */
+r_break
+suffix:semicolon
+id|old
+(braket
+id|oldsize
+op_increment
+)braket
+op_assign
+l_char|&squot;&bslash;n&squot;
+suffix:semicolon
+r_new
+(braket
+id|newsize
+op_increment
+)braket
+op_assign
+l_char|&squot;&bslash;n&squot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
 l_char|&squot; &squot;
 suffix:colon
 r_case
@@ -8251,16 +8287,6 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_int
-r_char
-id|hdr
-(braket
-l_int|50
-)braket
-suffix:semicolon
-r_int
-id|hdrlen
-suffix:semicolon
 multiline_comment|/* For safety, we require patch index line to contain&n;&t; * full 40-byte textual SHA1 for old and new, at least for now.&n;&t; */
 r_if
 c_cond
@@ -8314,7 +8340,7 @@ id|patch-&gt;old_name
 )paren
 (brace
 multiline_comment|/* See if the old one matches what the patch&n;&t;&t; * applies to.&n;&t;&t; */
-id|write_sha1_file_prepare
+id|hash_sha1_file
 c_func
 (paren
 id|desc-&gt;buffer
@@ -8324,11 +8350,6 @@ comma
 id|blob_type
 comma
 id|sha1
-comma
-id|hdr
-comma
-op_amp
-id|hdrlen
 )paren
 suffix:semicolon
 r_if
@@ -8511,7 +8532,7 @@ id|name
 )paren
 suffix:semicolon
 multiline_comment|/* verify that the result matches */
-id|write_sha1_file_prepare
+id|hash_sha1_file
 c_func
 (paren
 id|desc-&gt;buffer
@@ -8521,11 +8542,6 @@ comma
 id|blob_type
 comma
 id|sha1
-comma
-id|hdr
-comma
-op_amp
-id|hdrlen
 )paren
 suffix:semicolon
 r_if
@@ -9964,7 +9980,7 @@ suffix:semicolon
 id|putchar
 c_func
 (paren
-l_char|&squot;&bslash;n&squot;
+id|line_termination
 )paren
 suffix:semicolon
 )brace
