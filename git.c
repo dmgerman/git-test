@@ -1308,6 +1308,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;for-each-ref&quot;
+comma
+id|cmd_for_each_ref
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;format-patch&quot;
 comma
 id|cmd_format_patch
