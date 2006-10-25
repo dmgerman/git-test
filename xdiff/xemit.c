@@ -332,17 +332,11 @@ multiline_comment|/* also identifier? */
 op_star
 id|rec
 op_eq
-l_char|&squot;(&squot;
-op_logical_or
-multiline_comment|/* lisp defun? */
-op_star
-id|rec
-op_eq
-l_char|&squot;#&squot;
+l_char|&squot;$&squot;
 )paren
 )paren
 (brace
-multiline_comment|/* #define? */
+multiline_comment|/* mysterious GNU diff&squot;s invention */
 r_if
 c_cond
 (paren
