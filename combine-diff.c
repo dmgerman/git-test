@@ -2369,6 +2369,17 @@ id|bol
 (brace
 r_int
 id|ch
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|bol
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|ch
 op_assign
 op_star
 id|bol
@@ -4005,6 +4016,9 @@ r_if
 c_cond
 (paren
 id|rev-&gt;loginfo
+op_logical_and
+op_logical_neg
+id|rev-&gt;no_commit_id
 )paren
 id|show_log
 c_func
@@ -4477,6 +4491,9 @@ r_if
 c_cond
 (paren
 id|rev-&gt;loginfo
+op_logical_and
+op_logical_neg
+id|rev-&gt;no_commit_id
 )paren
 id|show_log
 c_func
@@ -4886,6 +4903,9 @@ op_assign
 op_logical_neg
 op_logical_neg
 id|rev-&gt;loginfo
+op_logical_and
+op_logical_neg
+id|rev-&gt;no_commit_id
 suffix:semicolon
 id|needsep
 op_assign
