@@ -2369,6 +2369,17 @@ id|bol
 (brace
 r_int
 id|ch
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|bol
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|ch
 op_assign
 op_star
 id|bol
