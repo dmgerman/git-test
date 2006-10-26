@@ -4016,6 +4016,9 @@ r_if
 c_cond
 (paren
 id|rev-&gt;loginfo
+op_logical_and
+op_logical_neg
+id|rev-&gt;no_commit_id
 )paren
 id|show_log
 c_func
@@ -4488,6 +4491,9 @@ r_if
 c_cond
 (paren
 id|rev-&gt;loginfo
+op_logical_and
+op_logical_neg
+id|rev-&gt;no_commit_id
 )paren
 id|show_log
 c_func
@@ -4897,6 +4903,9 @@ op_assign
 op_logical_neg
 op_logical_neg
 id|rev-&gt;loginfo
+op_logical_and
+op_logical_neg
+id|rev-&gt;no_commit_id
 suffix:semicolon
 id|needsep
 op_assign
