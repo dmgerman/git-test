@@ -2516,6 +2516,12 @@ c_func
 l_string|&quot;pack is corrupted (SHA1 mismatch)&quot;
 )paren
 suffix:semicolon
+id|use
+c_func
+(paren
+l_int|20
+)paren
+suffix:semicolon
 multiline_comment|/* If input_fd is a file, we should have reached its end now. */
 r_if
 c_cond
@@ -2553,8 +2559,6 @@ op_logical_and
 id|st.st_size
 op_ne
 id|consumed_bytes
-op_plus
-l_int|20
 )paren
 id|die
 c_func
@@ -4467,6 +4471,45 @@ comma
 l_int|0444
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Let&squot;s just mimic git-unpack-objects here and write&n;&t;&t; * the last part of the buffer to stdout.&n;&t;&t; */
+r_while
+c_loop
+(paren
+id|input_len
+)paren
+(brace
+id|err
+op_assign
+id|xwrite
+c_func
+(paren
+l_int|1
+comma
+id|input_buffer
+op_plus
+id|input_offset
+comma
+id|input_len
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+op_le
+l_int|0
+)paren
+r_break
+suffix:semicolon
+id|input_len
+op_sub_assign
+id|err
+suffix:semicolon
+id|input_offset
+op_add_assign
+id|err
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -5085,12 +5128,6 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/* Flush remaining pack final 20-byte SHA1. */
-id|use
-c_func
-(paren
-l_int|20
-)paren
-suffix:semicolon
 id|flush
 c_func
 (paren
@@ -5139,6 +5176,12 @@ c_func
 id|index_name_buf
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|from_stdin
+)paren
 id|printf
 c_func
 (paren
