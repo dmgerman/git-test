@@ -10,7 +10,7 @@ id|show_ref_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--dereference] [-s|--hash] [--tags] [--heads] [--] [pattern*]&quot;
+l_string|&quot;git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--dereference] [-s|--hash[=&lt;length&gt;]] [--abbrev[=&lt;length&gt;]] [--tags] [--heads] [--] [pattern*]&quot;
 suffix:semicolon
 DECL|variable|deref_tags
 DECL|variable|show_head
