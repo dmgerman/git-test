@@ -4292,6 +4292,9 @@ r_int
 id|at_time
 comma
 r_int
+id|cnt
+comma
+r_int
 r_char
 op_star
 id|sha1
@@ -4542,6 +4545,10 @@ c_cond
 id|date
 op_le
 id|at_time
+op_logical_or
+id|cnt
+op_eq
+l_int|0
 )paren
 (brace
 r_if
@@ -4751,6 +4758,16 @@ suffix:semicolon
 id|lastrec
 op_assign
 id|rec
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|cnt
+OG
+l_int|0
+)paren
+id|cnt
+op_decrement
 suffix:semicolon
 )brace
 id|rec
