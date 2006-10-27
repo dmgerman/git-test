@@ -2518,15 +2518,6 @@ c_func
 id|fetch_pack_usage
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|keep_pack
-)paren
-id|use_thin_pack
-op_assign
-l_int|0
-suffix:semicolon
 id|pid
 op_assign
 id|git_connect
