@@ -1697,10 +1697,10 @@ op_minus
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|find_delta_childs
+DECL|function|find_delta_children
 r_static
 r_int
-id|find_delta_childs
+id|find_delta_children
 c_func
 (paren
 r_const
@@ -2100,7 +2100,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|find_delta_childs
+id|find_delta_children
 c_func
 (paren
 op_amp
@@ -2186,7 +2186,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|find_delta_childs
+id|find_delta_children
 c_func
 (paren
 op_amp
@@ -2339,7 +2339,7 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
-multiline_comment|/*&n;&t; * First pass:&n;&t; * - find locations of all objects;&n;&t; * - calculate SHA1 of all non-delta objects;&n;&t; * - remember base SHA1 for all deltas.&n;&t; */
+multiline_comment|/*&n;&t; * First pass:&n;&t; * - find locations of all objects;&n;&t; * - calculate SHA1 of all non-delta objects;&n;&t; * - remember base (SHA1 or offset) for all deltas.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2676,7 +2676,7 @@ suffix:semicolon
 id|ref
 op_assign
 op_logical_neg
-id|find_delta_childs
+id|find_delta_children
 c_func
 (paren
 op_amp
@@ -2710,7 +2710,7 @@ suffix:semicolon
 id|ofs
 op_assign
 op_logical_neg
-id|find_delta_childs
+id|find_delta_children
 c_func
 (paren
 op_amp
@@ -3508,7 +3508,7 @@ comma
 id|type
 )paren
 suffix:semicolon
-id|find_delta_childs
+id|find_delta_children
 c_func
 (paren
 op_amp
