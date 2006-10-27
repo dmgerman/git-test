@@ -2386,6 +2386,9 @@ r_const
 r_char
 op_star
 id|path
+comma
+r_int
+id|no_wd
 )paren
 (brace
 r_int
@@ -2400,6 +2403,9 @@ id|update_working_directory
 op_assign
 op_logical_neg
 id|index_only
+op_logical_and
+op_logical_neg
+id|no_wd
 suffix:semicolon
 r_if
 c_cond
@@ -3974,6 +3980,8 @@ c_func
 l_int|0
 comma
 id|ren1_dst
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -4024,6 +4032,8 @@ c_func
 l_int|0
 comma
 id|ren2_dst
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -4116,6 +4126,8 @@ c_func
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;two-&gt;path
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|update_file
@@ -4208,6 +4220,8 @@ c_func
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;two-&gt;path
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|update_file
@@ -4774,6 +4788,8 @@ c_func
 l_int|1
 comma
 id|ren1_src
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|mfi
@@ -4913,6 +4929,8 @@ c_func
 l_int|1
 comma
 id|ren1_src
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|hashcpy
@@ -5601,12 +5619,16 @@ comma
 id|path
 )paren
 suffix:semicolon
+multiline_comment|/* do not touch working file if it did not exist */
 id|remove_file
 c_func
 (paren
 l_int|1
 comma
 id|path
+comma
+op_logical_neg
+id|a_sha
 )paren
 suffix:semicolon
 )brace
@@ -5841,6 +5863,8 @@ c_func
 l_int|0
 comma
 id|path
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|update_file
@@ -6016,6 +6040,8 @@ c_func
 l_int|0
 comma
 id|path
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|update_file
@@ -6665,8 +6691,8 @@ id|next
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Merge the commits h1 and h2, return the resulting virtual&n; * commit object and a flag indicating the cleaness of the merge.&n; */
-r_static
 DECL|function|merge
+r_static
 r_int
 id|merge
 c_func
