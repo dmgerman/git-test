@@ -12,7 +12,7 @@ id|send_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-send-pack [--all] [--exec=git-receive-pack] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
+l_string|&quot;git-send-pack [--all] [--keep] [--exec=git-receive-pack] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
 l_string|&quot;  --all and explicit &lt;head&gt; specification are mutually exclusive.&quot;
 suffix:semicolon
 DECL|variable|exec
@@ -43,6 +43,11 @@ DECL|variable|use_thin_pack
 r_static
 r_int
 id|use_thin_pack
+suffix:semicolon
+DECL|variable|keep_pack
+r_static
+r_int
+id|keep_pack
 suffix:semicolon
 DECL|function|is_zero_sha1
 r_static
@@ -1370,6 +1375,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|ask_to_keep_pack
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|expect_status_report
 op_assign
 l_int|0
@@ -1408,6 +1418,21 @@ l_string|&quot;report-status&quot;
 )paren
 )paren
 id|ask_for_status_report
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|server_supports
+c_func
+(paren
+l_string|&quot;keep-pack&quot;
+)paren
+op_logical_and
+id|keep_pack
+)paren
+id|ask_to_keep_pack
 op_assign
 l_int|1
 suffix:semicolon
@@ -1650,6 +1675,8 @@ r_if
 c_cond
 (paren
 id|ask_for_status_report
+op_logical_or
+id|ask_to_keep_pack
 )paren
 (brace
 id|packet_write
@@ -1657,7 +1684,7 @@ c_func
 (paren
 id|out
 comma
-l_string|&quot;%s %s %s%c%s&quot;
+l_string|&quot;%s %s %s%c%s%s&quot;
 comma
 id|old_hex
 comma
@@ -1667,16 +1694,37 @@ id|ref-&gt;name
 comma
 l_int|0
 comma
-l_string|&quot;report-status&quot;
+id|ask_for_status_report
+ques
+c_cond
+l_string|&quot; report-status&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|ask_to_keep_pack
+ques
+c_cond
+l_string|&quot; keep-pack&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ask_for_status_report
+)paren
+id|expect_status_report
+op_assign
+l_int|1
 suffix:semicolon
 id|ask_for_status_report
 op_assign
 l_int|0
 suffix:semicolon
-id|expect_status_report
+id|ask_to_keep_pack
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 r_else
@@ -1976,6 +2024,26 @@ l_string|&quot;--verbose&quot;
 )paren
 (brace
 id|verbose
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--keep&quot;
+)paren
+)paren
+(brace
+id|keep_pack
 op_assign
 l_int|1
 suffix:semicolon
