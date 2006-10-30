@@ -4160,6 +4160,12 @@ comma
 id|this
 )paren
 suffix:semicolon
+id|decref_split
+c_func
+(paren
+id|this
+)paren
+suffix:semicolon
 )brace
 id|free
 c_func
