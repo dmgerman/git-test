@@ -4848,7 +4848,13 @@ c_func
 id|suspect
 )paren
 suffix:semicolon
-id|coalesce
+r_if
+c_cond
+(paren
+id|DEBUG
+)paren
+multiline_comment|/* sanity */
+id|sanity_check_refcnt
 c_func
 (paren
 id|sb
@@ -6855,7 +6861,34 @@ op_assign
 id|ent-&gt;next
 )paren
 (brace
-multiline_comment|/* first mark the ones that haven&squot;t been checked */
+multiline_comment|/* Nobody should have zero or negative refcnt */
+r_if
+c_cond
+(paren
+id|ent-&gt;suspect-&gt;refcnt
+op_le
+l_int|0
+)paren
+id|baa
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_for
+c_loop
+(paren
+id|ent
+op_assign
+id|sb-&gt;ent
+suffix:semicolon
+id|ent
+suffix:semicolon
+id|ent
+op_assign
+id|ent-&gt;next
+)paren
+(brace
+multiline_comment|/* Mark the ones that haven&squot;t been checked */
 r_if
 c_cond
 (paren
@@ -6866,17 +6899,6 @@ id|ent-&gt;suspect-&gt;refcnt
 id|ent-&gt;suspect-&gt;refcnt
 op_assign
 id|ent-&gt;suspect-&gt;refcnt
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|ent-&gt;suspect-&gt;refcnt
-)paren
-id|baa
-op_assign
-l_int|1
 suffix:semicolon
 )brace
 r_for
@@ -6922,6 +6944,7 @@ id|suspect-&gt;refcnt
 op_assign
 id|suspect-&gt;refcnt
 suffix:semicolon
+multiline_comment|/* Unmark */
 r_for
 c_loop
 (paren
