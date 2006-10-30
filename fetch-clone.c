@@ -281,9 +281,14 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;%s: unable to fork off git-unpack-objects&quot;
+l_string|&quot;%s: unable to fork off %s&quot;
 comma
 id|me
+comma
+id|argv
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 r_if
