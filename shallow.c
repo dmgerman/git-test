@@ -212,6 +212,12 @@ id|heads
 comma
 r_int
 id|depth
+comma
+r_int
+id|shallow_flag
+comma
+r_int
+id|not_shallow_flag
 )paren
 (brace
 r_int
@@ -363,6 +369,10 @@ c_func
 id|commit
 )paren
 suffix:semicolon
+id|commit-&gt;object.flags
+op_or_assign
+id|not_shallow_flag
+suffix:semicolon
 id|cur_depth
 op_increment
 suffix:semicolon
@@ -481,6 +491,7 @@ suffix:semicolon
 )brace
 )brace
 r_else
+(brace
 id|commit_list_insert
 c_func
 (paren
@@ -490,6 +501,11 @@ op_amp
 id|result
 )paren
 suffix:semicolon
+id|p-&gt;item-&gt;object.flags
+op_or_assign
+id|shallow_flag
+suffix:semicolon
+)brace
 )brace
 )brace
 r_return
