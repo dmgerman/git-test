@@ -4977,8 +4977,6 @@ r_if
 c_cond
 (paren
 id|revs-&gt;topo_order
-op_logical_or
-id|revs-&gt;unpacked
 )paren
 id|revs-&gt;limited
 op_assign
