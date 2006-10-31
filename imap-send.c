@@ -1059,7 +1059,7 @@ c_cond
 (paren
 id|n
 )paren
-id|memcpy
+id|memmove
 c_func
 (paren
 id|b-&gt;buf
