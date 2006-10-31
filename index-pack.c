@@ -216,7 +216,7 @@ comma
 id|input_offset
 )paren
 suffix:semicolon
-id|memcpy
+id|memmove
 c_func
 (paren
 id|input_buffer
