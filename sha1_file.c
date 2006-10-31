@@ -7431,9 +7431,16 @@ c_func
 id|filename
 )paren
 )paren
+(brace
+op_star
+id|dir
+op_assign
+l_char|&squot;/&squot;
+suffix:semicolon
 r_return
 l_int|2
 suffix:semicolon
+)brace
 op_star
 id|dir
 op_assign
