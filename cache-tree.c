@@ -1,8 +1,10 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
+macro_line|#ifndef DEBUG
 DECL|macro|DEBUG
 mdefine_line|#define DEBUG 0
+macro_line|#endif
 DECL|function|cache_tree
 r_struct
 id|cache_tree
