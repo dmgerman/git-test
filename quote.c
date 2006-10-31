@@ -837,7 +837,7 @@ l_char|&squot;&bslash;&bslash;&squot;
 op_logical_or
 (paren
 id|ch
-op_eq
+op_ge
 l_int|0177
 )paren
 )paren
