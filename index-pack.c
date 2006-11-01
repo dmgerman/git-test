@@ -4584,6 +4584,8 @@ comma
 id|O_RDWR
 op_or
 id|O_CREAT
+op_or
+id|O_EXCL
 comma
 l_int|0600
 )paren
@@ -4595,12 +4597,23 @@ id|keep_fd
 OL
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_ne
+id|EEXIST
+)paren
 id|die
 c_func
 (paren
 l_string|&quot;cannot write keep file&quot;
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
 r_if
 c_cond
 (paren
@@ -4636,6 +4649,7 @@ c_func
 id|keep_fd
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
