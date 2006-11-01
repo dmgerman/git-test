@@ -1223,6 +1223,8 @@ comma
 l_string|&quot;branch&quot;
 comma
 id|cmd_branch
+comma
+id|RUN_SETUP
 )brace
 comma
 (brace
