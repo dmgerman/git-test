@@ -1934,11 +1934,7 @@ c_cond
 id|read_ref
 c_func
 (paren
-id|git_path
-c_func
-(paren
 l_string|&quot;HEAD&quot;
-)paren
 comma
 id|head_sha1
 )paren
@@ -1955,11 +1951,7 @@ c_cond
 id|read_ref
 c_func
 (paren
-id|git_path
-c_func
-(paren
 l_string|&quot;MERGE_HEAD&quot;
-)paren
 comma
 id|merge_head_sha1
 )paren
@@ -2149,11 +2141,7 @@ c_cond
 id|read_ref
 c_func
 (paren
-id|git_path
-c_func
-(paren
 l_string|&quot;HEAD&quot;
-)paren
 comma
 id|head_sha1
 )paren
