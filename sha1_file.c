@@ -3682,7 +3682,6 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|reprepare_packed_git
-r_static
 r_void
 id|reprepare_packed_git
 c_func
