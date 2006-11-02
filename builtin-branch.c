@@ -501,6 +501,9 @@ id|remote_only
 r_int
 id|i
 suffix:semicolon
+r_char
+id|c
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -554,6 +557,10 @@ id|i
 op_increment
 )paren
 (brace
+id|c
+op_assign
+l_char|&squot; &squot;
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -569,22 +576,16 @@ comma
 id|head
 )paren
 )paren
-id|printf
-c_func
-(paren
-l_string|&quot;* %s&bslash;n&quot;
-comma
-id|ref_list
-(braket
-id|i
-)braket
-)paren
+id|c
+op_assign
+l_char|&squot;*&squot;
 suffix:semicolon
-r_else
 id|printf
 c_func
 (paren
-l_string|&quot;  %s&bslash;n&quot;
+l_string|&quot;%c %s&bslash;n&quot;
+comma
+id|c
 comma
 id|ref_list
 (braket
