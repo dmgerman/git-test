@@ -1035,6 +1035,10 @@ id|diff_opts.output_format
 op_assign
 id|DIFF_FORMAT_NO_OUTPUT
 suffix:semicolon
+id|diff_opts.single_follow
+op_assign
+id|origin-&gt;path
+suffix:semicolon
 id|paths
 (braket
 l_int|0
