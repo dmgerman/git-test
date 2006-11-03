@@ -7414,6 +7414,10 @@ id|dir
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|mkdir
 c_func
 (paren
@@ -7421,10 +7425,7 @@ id|filename
 comma
 l_int|0777
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
+op_logical_and
 id|adjust_shared_perm
 c_func
 (paren
