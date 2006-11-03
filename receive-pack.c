@@ -1530,9 +1530,7 @@ op_star
 id|unpack
 c_func
 (paren
-r_int
-op_star
-id|error_code
+r_void
 )paren
 (brace
 r_int
@@ -1547,11 +1545,6 @@ id|unpacker
 comma
 id|RUN_GIT_CMD
 )paren
-suffix:semicolon
-op_star
-id|error_code
-op_assign
-l_int|0
 suffix:semicolon
 r_switch
 c_cond
@@ -1603,11 +1596,6 @@ l_string|&quot;unpacker died strangely&quot;
 suffix:semicolon
 r_default
 suffix:colon
-op_star
-id|error_code
-op_assign
-id|code
-suffix:semicolon
 r_return
 l_string|&quot;unpacker exited with error code&quot;
 suffix:semicolon
@@ -1835,9 +1823,6 @@ c_cond
 id|commands
 )paren
 (brace
-r_int
-id|code
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -1846,8 +1831,6 @@ op_assign
 id|unpack
 c_func
 (paren
-op_amp
-id|code
 )paren
 suffix:semicolon
 r_if

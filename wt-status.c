@@ -384,7 +384,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;new file: %s&quot;
+l_string|&quot;new file:   %s&quot;
 comma
 id|p-&gt;one-&gt;path
 )paren
@@ -399,7 +399,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;copied: %s -&gt; %s&quot;
+l_string|&quot;copied:     %s -&gt; %s&quot;
 comma
 id|p-&gt;one-&gt;path
 comma
@@ -416,7 +416,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;deleted: %s&quot;
+l_string|&quot;deleted:    %s&quot;
 comma
 id|p-&gt;one-&gt;path
 )paren
@@ -431,7 +431,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;modified: %s&quot;
+l_string|&quot;modified:   %s&quot;
 comma
 id|p-&gt;one-&gt;path
 )paren
@@ -446,7 +446,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;renamed: %s -&gt; %s&quot;
+l_string|&quot;renamed:    %s -&gt; %s&quot;
 comma
 id|p-&gt;one-&gt;path
 comma
@@ -478,7 +478,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;unknown: %s&quot;
+l_string|&quot;unknown:    %s&quot;
 comma
 id|p-&gt;one-&gt;path
 )paren
@@ -493,7 +493,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;unmerged: %s&quot;
+l_string|&quot;unmerged:   %s&quot;
 comma
 id|p-&gt;one-&gt;path
 )paren
