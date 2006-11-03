@@ -118,7 +118,7 @@ comma
 id|offset
 )paren
 suffix:semicolon
-id|memcpy
+id|memmove
 c_func
 (paren
 id|buffer

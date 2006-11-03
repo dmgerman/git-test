@@ -14,8 +14,10 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#ifndef DEBUG
 DECL|macro|DEBUG
 mdefine_line|#define DEBUG 0
+macro_line|#endif
 DECL|variable|blame_usage
 r_static
 r_const
@@ -1032,6 +1034,15 @@ suffix:semicolon
 r_int
 id|num
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|print_map
+op_eq
+l_int|NULL
+)paren
+suffix:semicolon
+multiline_comment|/* to avoid &quot;unused function&quot; warning */
 r_for
 c_loop
 (paren
