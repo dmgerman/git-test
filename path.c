@@ -1372,6 +1372,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|mode
+op_amp
+id|st.st_mode
+)paren
+op_ne
+id|mode
+op_logical_and
 id|chmod
 c_func
 (paren
