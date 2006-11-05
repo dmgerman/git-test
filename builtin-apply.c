@@ -120,7 +120,7 @@ r_int
 r_int
 id|p_context
 op_assign
-l_int|1
+id|ULONG_MAX
 suffix:semicolon
 DECL|variable|apply_usage
 r_static
