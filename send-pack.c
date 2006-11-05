@@ -110,6 +110,8 @@ op_assign
 (brace
 l_string|&quot;pack-objects&quot;
 comma
+l_string|&quot;--all-progress&quot;
+comma
 l_string|&quot;--stdout&quot;
 comma
 l_int|NULL

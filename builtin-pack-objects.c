@@ -22,7 +22,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-objects [-q] [--no-reuse-delta] [--delta-base-offset] [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] [--revs [--unpacked | --all]*] [--stdout | base-name] &lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;git-pack-objects [-q] [--no-reuse-delta] [--delta-base-offset] [--non-empty] [--local] [--incremental] [--window=N] [--depth=N] [--all-progress] [--revs [--unpacked | --all]*] [--stdout | base-name] &lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -2271,7 +2271,7 @@ suffix:semicolon
 r_int
 id|do_progress
 op_assign
-l_int|0
+id|progress
 suffix:semicolon
 r_if
 c_cond
@@ -2279,6 +2279,7 @@ c_cond
 op_logical_neg
 id|base_name
 )paren
+(brace
 id|f
 op_assign
 id|sha1fd
@@ -2289,8 +2290,12 @@ comma
 l_string|&quot;&lt;stdout&gt;&quot;
 )paren
 suffix:semicolon
+id|do_progress
+op_rshift_assign
+l_int|1
+suffix:semicolon
+)brace
 r_else
-(brace
 id|f
 op_assign
 id|sha1create
@@ -2309,11 +2314,6 @@ comma
 l_string|&quot;pack&quot;
 )paren
 suffix:semicolon
-id|do_progress
-op_assign
-id|progress
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -7667,6 +7667,26 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;--all-progress&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|progress
+op_assign
+l_int|2
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;--incremental&quot;
 comma
 id|arg
@@ -8250,6 +8270,8 @@ r_if
 c_cond
 (paren
 id|progress
+op_eq
+l_int|1
 op_logical_and
 id|pack_to_stdout
 )paren
