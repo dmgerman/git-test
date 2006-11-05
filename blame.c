@@ -164,6 +164,11 @@ r_static
 r_int
 id|patch_time
 suffix:semicolon
+DECL|variable|num_read_blob
+r_static
+r_int
+id|num_read_blob
+suffix:semicolon
 DECL|struct|blame_diff_state
 r_struct
 id|blame_diff_state
@@ -911,6 +916,9 @@ comma
 op_amp
 id|info-&gt;size
 )paren
+suffix:semicolon
+id|num_read_blob
+op_increment
 suffix:semicolon
 m_assert
 (paren
@@ -4737,6 +4745,14 @@ c_cond
 id|DEBUG
 )paren
 (brace
+id|printf
+c_func
+(paren
+l_string|&quot;num read blob: %d&bslash;n&quot;
+comma
+id|num_read_blob
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
