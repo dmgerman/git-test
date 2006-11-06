@@ -7216,6 +7216,13 @@ comma
 op_star
 id|h2
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
+multiline_comment|/* core.filemode */
 id|original_index_file
 op_assign
 id|getenv
