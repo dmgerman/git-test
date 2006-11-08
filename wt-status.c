@@ -541,13 +541,6 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|q-&gt;nr
-)paren
-(brace
-)brace
 r_for
 c_loop
 (paren
