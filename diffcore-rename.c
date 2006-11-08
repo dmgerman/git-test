@@ -1258,6 +1258,7 @@ c_func
 id|p-&gt;one
 )paren
 )paren
+(brace
 r_if
 c_cond
 (paren
@@ -1272,6 +1273,23 @@ r_continue
 suffix:semicolon
 multiline_comment|/* unmerged */
 r_else
+r_if
+c_cond
+(paren
+id|options-&gt;single_follow
+op_logical_and
+id|strcmp
+c_func
+(paren
+id|options-&gt;single_follow
+comma
+id|p-&gt;two-&gt;path
+)paren
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* not interested */
+r_else
 id|locate_rename_dst
 c_func
 (paren
@@ -1280,6 +1298,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
