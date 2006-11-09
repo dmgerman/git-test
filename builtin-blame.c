@@ -12,14 +12,14 @@ macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &lt;time.h&gt;
 macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &lt;regex.h&gt;
-DECL|variable|pickaxe_usage
+DECL|variable|blame_usage
 r_static
 r_char
-id|pickaxe_usage
+id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pickaxe [-c] [-l] [-t] [-f] [-n] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [commit] [--] file&bslash;n&quot;
+l_string|&quot;git-blame [-c] [-l] [-t] [-f] [-n] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [commit] [--] file&bslash;n&quot;
 l_string|&quot;  -c, --compatibility Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -l, --long          Show long commit SHA1 (Default: off)&bslash;n&quot;
 l_string|&quot;  -t, --time          Show raw timestamp (Default: off)&bslash;n&quot;
@@ -1033,7 +1033,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;internal error in pickaxe::find_origin&quot;
+l_string|&quot;internal error in blame::find_origin&quot;
 )paren
 suffix:semicolon
 r_else
@@ -1059,7 +1059,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;internal error in pickaxe::find_origin (%c)&quot;
+l_string|&quot;internal error in blame::find_origin (%c)&quot;
 comma
 id|p-&gt;status
 )paren
@@ -8202,7 +8202,7 @@ id|term
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 )brace
@@ -8215,13 +8215,13 @@ id|term
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 )brace
-DECL|function|cmd_pickaxe
+DECL|function|cmd_blame
 r_int
-id|cmd_pickaxe
+id|cmd_blame
 c_func
 (paren
 r_int
@@ -8547,7 +8547,7 @@ id|argc
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 id|arg
@@ -8746,7 +8746,7 @@ id|i
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 id|path
@@ -8783,7 +8783,7 @@ l_int|1
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 id|argv
@@ -8814,7 +8814,7 @@ multiline_comment|/* garbage at end */
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 )brace
@@ -8878,7 +8878,7 @@ l_int|1
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 id|path
@@ -9010,7 +9010,7 @@ l_int|1
 id|usage
 c_func
 (paren
-id|pickaxe_usage
+id|blame_usage
 )paren
 suffix:semicolon
 multiline_comment|/* garbage at end */

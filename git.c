@@ -1220,6 +1220,16 @@ id|cmd_archive
 )brace
 comma
 (brace
+l_string|&quot;blame&quot;
+comma
+id|cmd_blame
+comma
+id|RUN_SETUP
+op_or
+id|USE_PAGER
+)brace
+comma
+(brace
 l_string|&quot;branch&quot;
 comma
 id|cmd_branch
@@ -1430,7 +1440,7 @@ comma
 (brace
 l_string|&quot;pickaxe&quot;
 comma
-id|cmd_pickaxe
+id|cmd_blame
 comma
 id|RUN_SETUP
 op_or
