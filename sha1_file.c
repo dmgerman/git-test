@@ -7750,11 +7750,10 @@ op_ne
 id|EEXIST
 )paren
 (brace
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;unable to write sha1 filename %s: %s&bslash;n&quot;
 comma
 id|filename
@@ -7765,9 +7764,6 @@ c_func
 id|ret
 )paren
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* FIXME!!! Collision check here ? */
@@ -8328,11 +8324,10 @@ op_ne
 id|ENOENT
 )paren
 (brace
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;sha1 file %s: %s&bslash;n&quot;
 comma
 id|filename
@@ -8343,9 +8338,6 @@ c_func
 id|errno
 )paren
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 id|snprintf
@@ -8382,11 +8374,30 @@ OL
 l_int|0
 )paren
 (brace
-id|fprintf
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|EPERM
+)paren
+r_return
+id|error
 c_func
 (paren
-id|stderr
+l_string|&quot;insufficient permission for adding an object to repository database %s&bslash;n&quot;
 comma
+id|get_object_directory
+c_func
+(paren
+)paren
+)paren
+suffix:semicolon
+r_else
+r_return
+id|error
+c_func
+(paren
 l_string|&quot;unable to create temporary sha1 filename %s: %s&bslash;n&quot;
 comma
 id|tmpfile
@@ -8397,9 +8408,6 @@ c_func
 id|errno
 )paren
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* Set it up */
@@ -8968,21 +8976,43 @@ id|local
 OL
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|EPERM
+)paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;Couldn&squot;t open %s for %s&quot;
+l_string|&quot;insufficient permission for adding an object to repository database %s&bslash;n&quot;
 comma
-id|tmpfile
-comma
-id|sha1_to_hex
+id|get_object_directory
 c_func
 (paren
-id|sha1
 )paren
 )paren
 suffix:semicolon
+r_else
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;unable to create temporary sha1 filename %s: %s&bslash;n&quot;
+comma
+id|tmpfile
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
+suffix:semicolon
+)brace
 id|memset
 c_func
 (paren
