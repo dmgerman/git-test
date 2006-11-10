@@ -7031,6 +7031,11 @@ comma
 id|len
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|graft
+)paren
 id|register_commit_graft
 c_func
 (paren
