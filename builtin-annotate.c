@@ -1,6 +1,6 @@
 multiline_comment|/*&n; * &quot;git annotate&quot; builtin alias&n; *&n; * Copyright (C) 2006 Ryan Anderson&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|function|cmd_annotate
 r_int
 id|cmd_annotate
@@ -100,10 +100,16 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-id|execv_git_cmd
+id|cmd_blame
 c_func
 (paren
+id|argc
+op_plus
+l_int|1
+comma
 id|nargv
+comma
+id|prefix
 )paren
 suffix:semicolon
 )brace
