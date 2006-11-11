@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;tag.h&quot;
 DECL|variable|is_shallow
 r_static
 r_int
@@ -294,6 +295,9 @@ r_struct
 id|commit
 op_star
 )paren
+id|deref_tag
+c_func
+(paren
 id|heads-&gt;objects
 (braket
 id|i
@@ -301,6 +305,11 @@ op_increment
 )braket
 dot
 id|item
+comma
+l_int|NULL
+comma
+l_int|0
+)paren
 suffix:semicolon
 r_if
 c_cond
