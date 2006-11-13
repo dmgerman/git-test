@@ -1384,6 +1384,16 @@ comma
 id|dryrun
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|subcnt
+OL
+l_int|0
+)paren
+r_return
+id|subcnt
+suffix:semicolon
 id|i
 op_add_assign
 id|subcnt
