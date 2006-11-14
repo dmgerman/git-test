@@ -890,18 +890,6 @@ comma
 id|line
 )paren
 suffix:semicolon
-multiline_comment|/* no need making it shallow if we have it already */
-r_if
-c_cond
-(paren
-id|lookup_object
-c_func
-(paren
-id|sha1
-)paren
-)paren
-r_continue
-suffix:semicolon
 id|register_shallow
 c_func
 (paren
