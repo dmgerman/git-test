@@ -908,8 +908,9 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
-r_else
 r_if
 c_cond
 (paren
@@ -988,8 +989,9 @@ comma
 id|line
 )paren
 suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
-r_else
 id|die
 c_func
 (paren
