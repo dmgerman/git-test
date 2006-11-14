@@ -3084,6 +3084,10 @@ c_func
 id|object-&gt;sha1
 )paren
 suffix:semicolon
+id|object-&gt;parsed
+op_assign
+l_int|0
+suffix:semicolon
 id|parse_commit
 c_func
 (paren
