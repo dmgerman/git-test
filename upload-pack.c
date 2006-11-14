@@ -644,6 +644,7 @@ id|i
 dot
 id|item
 suffix:semicolon
+multiline_comment|/* why??? */
 id|o-&gt;flags
 op_and_assign
 op_complement
