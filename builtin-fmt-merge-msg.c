@@ -1718,6 +1718,18 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|current_branch
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;No current branch&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|strncmp
 c_func
 (paren
