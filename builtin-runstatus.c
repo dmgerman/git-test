@@ -12,7 +12,7 @@ id|runstatus_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-runstatus [--color|--nocolor] [--amend] [--verbose]&quot;
+l_string|&quot;git-runstatus [--color|--nocolor] [--amend] [--verbose] [--untracked]&quot;
 suffix:semicolon
 DECL|function|cmd_runstatus
 r_int
