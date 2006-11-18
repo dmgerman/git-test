@@ -2795,7 +2795,11 @@ l_string|&quot;body&quot;
 )paren
 id|v-&gt;s
 op_assign
+id|xstrdup
+c_func
+(paren
 id|bodypos
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -2812,7 +2816,11 @@ l_string|&quot;contents&quot;
 )paren
 id|v-&gt;s
 op_assign
+id|xstrdup
+c_func
+(paren
 id|subpos
+)paren
 suffix:semicolon
 )brace
 )brace
