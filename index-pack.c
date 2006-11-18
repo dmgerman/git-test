@@ -338,6 +338,7 @@ r_void
 id|flush
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if

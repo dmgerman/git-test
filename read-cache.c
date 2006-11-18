@@ -3844,6 +3844,7 @@ r_int
 id|discard_cache
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int
