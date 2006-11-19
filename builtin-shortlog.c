@@ -730,11 +730,17 @@ op_assign
 id|strchr
 c_func
 (paren
-id|buffer
+id|oneline
 comma
 l_char|&squot;]&squot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|eob
+)paren
+(brace
 r_while
 c_loop
 (paren
@@ -775,6 +781,7 @@ id|oneline
 op_assign
 id|eob
 suffix:semicolon
+)brace
 )brace
 )brace
 r_while
