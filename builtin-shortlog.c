@@ -13,7 +13,7 @@ id|shortlog_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-shortlog [-n] [-s] [&lt;commit-id&gt;... ]&bslash;n&quot;
+l_string|&quot;git-shortlog [-n] [-s] [&lt;commit-id&gt;... ]&quot;
 suffix:semicolon
 DECL|function|compare_by_number
 r_static
@@ -1757,6 +1757,30 @@ id|i
 dot
 id|util
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|summary
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;%s: %d&bslash;n&quot;
+comma
+id|list.items
+(braket
+id|i
+)braket
+dot
+id|path
+comma
+id|onelines-&gt;nr
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|printf
 c_func
 (paren
@@ -1772,13 +1796,6 @@ comma
 id|onelines-&gt;nr
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|summary
-)paren
-(brace
 r_for
 c_loop
 (paren
