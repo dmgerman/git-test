@@ -1408,10 +1408,16 @@ comma
 id|argv
 )paren
 suffix:semicolon
-id|setlinebuf
+id|setvbuf
 c_func
 (paren
 id|stderr
+comma
+l_int|NULL
+comma
+id|_IOLBF
+comma
+id|BUFSIZ
 )paren
 suffix:semicolon
 id|memset
