@@ -223,15 +223,13 @@ c_func
 (paren
 id|cb-&gt;refs_file
 comma
-l_string|&quot;%s  %s^{}&bslash;n&quot;
+l_string|&quot;^%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
 (paren
 id|o-&gt;sha1
 )paren
-comma
-id|path
 )paren
 suffix:semicolon
 )brace
@@ -566,6 +564,15 @@ c_func
 (paren
 id|errno
 )paren
+)paren
+suffix:semicolon
+multiline_comment|/* perhaps other traits later as well */
+id|fprintf
+c_func
+(paren
+id|cbdata.refs_file
+comma
+l_string|&quot;# pack-refs with: peeled &bslash;n&quot;
 )paren
 suffix:semicolon
 id|for_each_ref

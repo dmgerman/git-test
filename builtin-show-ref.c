@@ -374,6 +374,17 @@ id|peeled
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|peeled
+)paren
+)paren
+(brace
 id|hex
 op_assign
 id|find_unique_abbrev
@@ -394,6 +405,7 @@ comma
 id|refname
 )paren
 suffix:semicolon
+)brace
 )brace
 r_else
 (brace
