@@ -147,6 +147,14 @@ id|extra_length
 l_int|2
 )braket
 suffix:semicolon
+DECL|member|_end
+r_int
+r_char
+id|_end
+(braket
+l_int|1
+)braket
+suffix:semicolon
 )brace
 suffix:semicolon
 DECL|struct|zip_dir_header
@@ -289,6 +297,14 @@ id|offset
 l_int|4
 )braket
 suffix:semicolon
+DECL|member|_end
+r_int
+r_char
+id|_end
+(braket
+l_int|1
+)braket
+suffix:semicolon
 )brace
 suffix:semicolon
 DECL|struct|zip_dir_trailer
@@ -359,8 +375,23 @@ id|comment_length
 l_int|2
 )braket
 suffix:semicolon
+DECL|member|_end
+r_int
+r_char
+id|_end
+(braket
+l_int|1
+)braket
+suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * On ARM, padding is added at the end of the struct, so a simple&n; * sizeof(struct ...) reports two bytes more than the payload size&n; * we&squot;re interested in.&n; */
+DECL|macro|ZIP_LOCAL_HEADER_SIZE
+mdefine_line|#define ZIP_LOCAL_HEADER_SIZE&t;offsetof(struct zip_local_header, _end)
+DECL|macro|ZIP_DIR_HEADER_SIZE
+mdefine_line|#define ZIP_DIR_HEADER_SIZE&t;offsetof(struct zip_dir_header, _end)
+DECL|macro|ZIP_DIR_TRAILER_SIZE
+mdefine_line|#define ZIP_DIR_TRAILER_SIZE&t;offsetof(struct zip_dir_trailer, _end)
 DECL|function|copy_le16
 r_static
 r_void
@@ -1156,11 +1187,7 @@ suffix:semicolon
 multiline_comment|/* make sure we have enough free space in the dictionary */
 id|direntsize
 op_assign
-r_sizeof
-(paren
-r_struct
-id|zip_dir_header
-)paren
+id|ZIP_DIR_HEADER_SIZE
 op_plus
 id|pathlen
 suffix:semicolon
@@ -1344,20 +1371,12 @@ comma
 op_amp
 id|dirent
 comma
-r_sizeof
-(paren
-r_struct
-id|zip_dir_header
-)paren
+id|ZIP_DIR_HEADER_SIZE
 )paren
 suffix:semicolon
 id|zip_dir_offset
 op_add_assign
-r_sizeof
-(paren
-r_struct
-id|zip_dir_header
-)paren
+id|ZIP_DIR_HEADER_SIZE
 suffix:semicolon
 id|memcpy
 c_func
@@ -1474,20 +1493,12 @@ comma
 op_amp
 id|header
 comma
-r_sizeof
-(paren
-r_struct
-id|zip_local_header
-)paren
+id|ZIP_LOCAL_HEADER_SIZE
 )paren
 suffix:semicolon
 id|zip_offset
 op_add_assign
-r_sizeof
-(paren
-r_struct
-id|zip_local_header
-)paren
+id|ZIP_LOCAL_HEADER_SIZE
 suffix:semicolon
 id|write_or_die
 c_func
@@ -1654,11 +1665,7 @@ comma
 op_amp
 id|trailer
 comma
-r_sizeof
-(paren
-r_struct
-id|zip_dir_trailer
-)paren
+id|ZIP_DIR_TRAILER_SIZE
 )paren
 suffix:semicolon
 r_if
