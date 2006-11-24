@@ -749,7 +749,7 @@ id|force
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * A:B means fast forward remote B with local A.&n; * +A:B means overwrite remote B with local A.&n; * +A is a shorthand for +A:A.&n; * A is a shorthand for A:A.&n; */
+multiline_comment|/*&n; * A:B means fast forward remote B with local A.&n; * +A:B means overwrite remote B with local A.&n; * +A is a shorthand for +A:A.&n; * A is a shorthand for A:A.&n; * :B means delete remote B.&n; */
 DECL|function|parse_ref_spec
 r_static
 r_struct
@@ -1199,6 +1199,48 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+op_star
+id|name
+)paren
+(brace
+id|ref
+op_assign
+id|xcalloc
+c_func
+(paren
+l_int|1
+comma
+r_sizeof
+(paren
+op_star
+id|ref
+)paren
+op_plus
+l_int|20
+)paren
+suffix:semicolon
+id|strcpy
+c_func
+(paren
+id|ref-&gt;name
+comma
+l_string|&quot;(delete)&quot;
+)paren
+suffix:semicolon
+id|hashclr
+c_func
+(paren
+id|ref-&gt;new_sha1
+)paren
+suffix:semicolon
+r_return
+id|ref
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|get_sha1
 c_func
 (paren
@@ -1354,7 +1396,7 @@ suffix:semicolon
 r_case
 l_int|0
 suffix:colon
-multiline_comment|/* The source could be in the get_sha1() format&n;&t;&t;&t; * not a reference name.&n;&t;&t;&t; */
+multiline_comment|/* The source could be in the get_sha1() format&n;&t;&t;&t; * not a reference name.  :refs/other is a&n;&t;&t;&t; * way to delete &squot;other&squot; ref at the remote end.&n;&t;&t;&t; */
 id|matched_src
 op_assign
 id|try_explicit_object_name
