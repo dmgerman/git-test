@@ -69,10 +69,6 @@ c_cond
 id|show_only
 )paren
 (brace
-id|type
-op_assign
-id|buf
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -81,7 +77,7 @@ c_func
 (paren
 id|sha1
 comma
-id|type
+id|buf
 comma
 l_int|NULL
 )paren
@@ -89,6 +85,11 @@ l_int|NULL
 id|type
 op_assign
 l_string|&quot;unknown&quot;
+suffix:semicolon
+r_else
+id|type
+op_assign
+id|buf
 suffix:semicolon
 id|printf
 c_func
