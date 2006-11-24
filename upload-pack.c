@@ -2982,7 +2982,11 @@ op_logical_neg
 (paren
 id|object-&gt;flags
 op_amp
+(paren
 id|CLIENT_SHALLOW
+op_or
+id|NOT_SHALLOW
+)paren
 )paren
 )paren
 (brace
