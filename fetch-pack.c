@@ -3731,7 +3731,7 @@ l_int|0
 id|unlink
 c_func
 (paren
-id|lock.filename
+id|shallow
 )paren
 suffix:semicolon
 id|rollback_lock_file
