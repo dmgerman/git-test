@@ -148,6 +148,8 @@ id|rev
 comma
 op_star
 id|head_rev
+op_assign
+id|head_rev
 suffix:semicolon
 r_int
 r_char
@@ -163,6 +165,13 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|force
+)paren
+(brace
 id|head_rev
 op_assign
 id|lookup_commit_reference
@@ -171,6 +180,19 @@ c_func
 id|head_sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|head_rev
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Couldn&squot;t look up commit object for HEAD&quot;
+)paren
+suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
@@ -264,14 +286,13 @@ c_cond
 (paren
 op_logical_neg
 id|rev
-op_logical_or
-op_logical_neg
-id|head_rev
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;Couldn&squot;t look up commit objects.&quot;
+l_string|&quot;Couldn&squot;t look up commit object for &squot;%s&squot;&quot;
+comma
+id|name
 )paren
 suffix:semicolon
 multiline_comment|/* This checks whether the merge bases of branch and&n;&t;&t; * HEAD contains branch -- which means that the HEAD&n;&t;&t; * contains everything in both.&n;&t;&t; */
