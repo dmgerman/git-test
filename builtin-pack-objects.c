@@ -5752,6 +5752,14 @@ op_logical_and
 id|trg_entry-&gt;in_pack
 op_eq
 id|src_entry-&gt;in_pack
+op_logical_and
+id|trg_entry-&gt;in_pack_type
+op_ne
+id|OBJ_REF_DELTA
+op_logical_and
+id|trg_entry-&gt;in_pack_type
+op_ne
+id|OBJ_OFS_DELTA
 )paren
 r_return
 l_int|0

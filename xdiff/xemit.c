@@ -524,7 +524,7 @@ suffix:semicolon
 r_char
 id|funcbuf
 (braket
-l_int|40
+l_int|80
 )braket
 suffix:semicolon
 r_int
