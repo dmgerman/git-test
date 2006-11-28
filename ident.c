@@ -788,12 +788,17 @@ r_char
 op_star
 id|env_hint
 op_assign
-l_string|&quot;&bslash;n*** Environment problem:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 l_string|&quot;*** Your name cannot be determined from your system services (gecos).&bslash;n&quot;
-l_string|&quot;*** You would need to set %s and %s&bslash;n&quot;
-l_string|&quot;*** environment variables; otherwise you won&squot;t be able to perform&bslash;n&quot;
-l_string|&quot;*** certain operations because of &bslash;&quot;empty ident&bslash;&quot; errors.&bslash;n&quot;
-l_string|&quot;*** Alternatively, you can use user.name configuration variable.&bslash;n&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;Run&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git repo-config user.email &bslash;&quot;you@email.com&bslash;&quot;&bslash;n&quot;
+l_string|&quot;  git repo-config user.name &bslash;&quot;Your Name&bslash;&quot;&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;To set the identity in this repository.&bslash;n&quot;
+l_string|&quot;Add --global to set your account&bslash;&squot;s default&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 suffix:semicolon
 DECL|function|get_ident
 r_static
