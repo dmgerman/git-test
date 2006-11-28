@@ -1835,19 +1835,6 @@ c_cond
 (paren
 id|rev.pending.nr
 op_eq
-l_int|1
-)paren
-id|die
-(paren
-l_string|&quot;Need a range!&quot;
-)paren
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-id|rev.pending.nr
-op_eq
 l_int|0
 )paren
 id|read_from_stdin
