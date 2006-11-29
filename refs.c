@@ -4177,7 +4177,7 @@ r_int
 id|log
 op_assign
 op_logical_neg
-id|stat
+id|lstat
 c_func
 (paren
 id|git_path
