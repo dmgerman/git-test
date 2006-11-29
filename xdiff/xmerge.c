@@ -1742,9 +1742,9 @@ id|xscr1-&gt;chg2
 op_assign
 l_int|0
 suffix:semicolon
-id|xscr1
+id|xscr2
 op_assign
-id|xscr1-&gt;next
+id|xscr2-&gt;next
 suffix:semicolon
 )brace
 r_else
@@ -1773,9 +1773,9 @@ id|xscr2-&gt;chg2
 op_assign
 l_int|0
 suffix:semicolon
-id|xscr2
+id|xscr1
 op_assign
-id|xscr2-&gt;next
+id|xscr1-&gt;next
 suffix:semicolon
 )brace
 r_else
