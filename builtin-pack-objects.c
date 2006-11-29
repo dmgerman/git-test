@@ -2477,6 +2477,23 @@ id|stderr
 suffix:semicolon
 id|done
 suffix:colon
+r_if
+c_cond
+(paren
+id|written
+op_ne
+id|nr_result
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;wrote %d objects while expecting %d&quot;
+comma
+id|written
+comma
+id|nr_result
+)paren
+suffix:semicolon
 id|sha1close
 c_func
 (paren
@@ -8340,9 +8357,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total %d, written %d (delta %d), reused %d (delta %d)&bslash;n&quot;
-comma
-id|nr_result
+l_string|&quot;Total %d (delta %d), reused %d (delta %d)&bslash;n&quot;
 comma
 id|written
 comma
