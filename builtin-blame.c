@@ -9062,6 +9062,15 @@ multiline_comment|/* Now we got rev and path.  We do not want the path pruning&n
 id|argv
 (braket
 id|unk
+op_increment
+)braket
+op_assign
+l_string|&quot;--&quot;
+suffix:semicolon
+multiline_comment|/* terminate the rev name */
+id|argv
+(braket
+id|unk
 )braket
 op_assign
 l_int|NULL
