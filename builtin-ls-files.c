@@ -2683,7 +2683,7 @@ suffix:semicolon
 id|error
 c_func
 (paren
-l_string|&quot;pathspec &squot;%s&squot; did not match any.&quot;
+l_string|&quot;pathspec &squot;%s&squot; did not match any file(s) known to git.&quot;
 comma
 id|pathspec
 (braket
@@ -2697,6 +2697,19 @@ id|errors
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|errors
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Did you forget to &squot;git add&squot;?&bslash;n&quot;
+)paren
+suffix:semicolon
 r_return
 id|errors
 ques
