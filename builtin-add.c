@@ -459,22 +459,6 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|read_cache
-c_func
-(paren
-)paren
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;index file corrupt&quot;
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -668,6 +652,22 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|read_cache
+c_func
+(paren
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;index file corrupt&quot;
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
