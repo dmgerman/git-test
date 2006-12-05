@@ -617,6 +617,17 @@ c_func
 (paren
 id|old_sha1
 )paren
+op_logical_and
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|name
+comma
+l_string|&quot;refs/heads/&quot;
+comma
+l_int|11
+)paren
 )paren
 (brace
 r_struct
