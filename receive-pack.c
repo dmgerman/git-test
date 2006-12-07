@@ -29,7 +29,7 @@ r_static
 r_int
 id|unpack_limit
 op_assign
-l_int|5000
+l_int|100
 suffix:semicolon
 DECL|variable|report_status
 r_static
