@@ -1177,8 +1177,8 @@ id|offset
 op_assign
 l_int|8
 suffix:semicolon
-r_while
-c_loop
+r_if
+c_cond
 (paren
 id|isspace
 c_func
@@ -1467,8 +1467,8 @@ suffix:semicolon
 )brace
 r_else
 (brace
-r_while
-c_loop
+r_if
+c_cond
 (paren
 id|bracket
 (braket
