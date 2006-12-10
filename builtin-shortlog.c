@@ -1177,9 +1177,15 @@ id|offset
 op_assign
 l_int|8
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
 (paren
+id|buffer
+op_plus
+id|offset
+OL
+id|bob
+op_logical_and
 id|isspace
 c_func
 (paren
