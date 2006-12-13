@@ -55,12 +55,12 @@ multiline_comment|/* PLAIN (normal) */
 l_string|&quot;&bslash;033[31m&quot;
 comma
 multiline_comment|/* REMOTE (red) */
+l_string|&quot;&quot;
+comma
+multiline_comment|/* LOCAL (normal) */
 l_string|&quot;&bslash;033[32m&quot;
 comma
-multiline_comment|/* LOCAL (green) */
-l_string|&quot;&bslash;033[1;32m&quot;
-comma
-multiline_comment|/* CURRENT (boldgreen) */
+multiline_comment|/* CURRENT (green) */
 )brace
 suffix:semicolon
 DECL|enum|color_branch
