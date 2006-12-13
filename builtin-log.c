@@ -626,6 +626,15 @@ id|var
 comma
 l_string|&quot;diff.color&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;color.diff&quot;
+)paren
 )paren
 (brace
 r_return

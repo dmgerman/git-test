@@ -1561,6 +1561,15 @@ id|var
 comma
 l_string|&quot;pager.color&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;color.pager&quot;
+)paren
 )paren
 (brace
 id|pager_use_color
