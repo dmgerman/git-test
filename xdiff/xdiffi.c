@@ -105,23 +105,6 @@ r_int
 id|chg2
 )paren
 suffix:semicolon
-r_static
-r_int
-id|xdl_change_compact
-c_func
-(paren
-id|xdfile_t
-op_star
-id|xdf
-comma
-id|xdfile_t
-op_star
-id|xdfo
-comma
-r_int
-id|flags
-)paren
-suffix:semicolon
 multiline_comment|/*&n; * See &quot;An O(ND) Difference Algorithm and its Variations&quot;, by Eugene Myers.&n; * Basically considers a &quot;box&quot; (off1, off2, lim1, lim2) and scan from both&n; * the forward diagonal starting from (off1, off2) and the backward diagonal&n; * starting from (lim1, lim2). If the K values on the same diagonal crosses&n; * returns the furthest point of reach. We might end up having to expensive&n; * cases using this algorithm is full, so a little bit of heuristic is needed&n; * to cut the search and to return a suboptimal point.&n; */
 DECL|function|xdl_split
 r_static
@@ -1899,7 +1882,6 @@ id|xch
 suffix:semicolon
 )brace
 DECL|function|xdl_change_compact
-r_static
 r_int
 id|xdl_change_compact
 c_func
