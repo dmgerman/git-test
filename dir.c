@@ -760,7 +760,6 @@ id|fname
 suffix:semicolon
 )brace
 DECL|function|push_exclude_per_directory
-r_static
 r_int
 id|push_exclude_per_directory
 c_func
@@ -845,7 +844,6 @@ id|current_nr
 suffix:semicolon
 )brace
 DECL|function|pop_exclude_per_directory
-r_static
 r_void
 id|pop_exclude_per_directory
 c_func
