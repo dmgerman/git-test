@@ -710,15 +710,6 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--index&quot;
-)paren
-op_logical_or
-op_logical_neg
-id|strcmp
-c_func
-(paren
-id|arg
-comma
 l_string|&quot;--cached&quot;
 )paren
 )paren
