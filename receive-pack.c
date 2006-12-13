@@ -29,7 +29,7 @@ r_static
 r_int
 id|unpack_limit
 op_assign
-l_int|5000
+l_int|100
 suffix:semicolon
 DECL|variable|report_status
 r_static
@@ -616,6 +616,17 @@ id|is_null_sha1
 c_func
 (paren
 id|old_sha1
+)paren
+op_logical_and
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|name
+comma
+l_string|&quot;refs/heads/&quot;
+comma
+l_int|11
 )paren
 )paren
 (brace

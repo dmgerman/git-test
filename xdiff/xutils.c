@@ -1183,6 +1183,13 @@ c_cond
 id|flags
 op_amp
 id|XDF_IGNORE_WHITESPACE_CHANGE
+op_logical_and
+id|ptr
+(braket
+l_int|1
+)braket
+op_ne
+l_char|&squot;&bslash;n&squot;
 )paren
 (brace
 id|ha
