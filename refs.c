@@ -2704,7 +2704,7 @@ OL
 l_int|2
 )paren
 r_return
-l_int|1
+l_int|2
 suffix:semicolon
 multiline_comment|/* at least of form &quot;heads/blah&quot; */
 r_return
