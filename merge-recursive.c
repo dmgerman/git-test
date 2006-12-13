@@ -4930,7 +4930,7 @@ l_int|1
 comma
 id|ren1_src
 comma
-l_int|1
+id|index_only
 )paren
 suffix:semicolon
 id|hashcpy
