@@ -825,7 +825,7 @@ c_func
 (paren
 l_string|&quot;Changed but not updated&quot;
 comma
-l_string|&quot;use git-update-index to mark for commit&quot;
+l_string|&quot;use git-add on files to include for commit&quot;
 )paren
 suffix:semicolon
 r_for
