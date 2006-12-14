@@ -1445,14 +1445,6 @@ r_if
 c_cond
 (paren
 id|s-&gt;branch
-op_logical_and
-id|strcmp
-c_func
-(paren
-id|s-&gt;branch
-comma
-l_string|&quot;refs/heads/master&quot;
-)paren
 )paren
 id|color_printf_ln
 c_func
