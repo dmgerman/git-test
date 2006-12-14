@@ -9,6 +9,13 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;color.h&quot;
+macro_line|#ifdef NO_FAST_WORKING_DIRECTORY
+DECL|macro|FAST_WORKING_DIRECTORY
+mdefine_line|#define FAST_WORKING_DIRECTORY 0
+macro_line|#else
+DECL|macro|FAST_WORKING_DIRECTORY
+mdefine_line|#define FAST_WORKING_DIRECTORY 1
+macro_line|#endif
 DECL|variable|use_size_cache
 r_static
 r_int
@@ -6368,10 +6375,10 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n; * Given a name and sha1 pair, if the dircache tells us the file in&n; * the work tree has that object contents, return true, so that&n; * prepare_temp_file() does not have to inflate and extract.&n; */
-DECL|function|work_tree_matches
+DECL|function|reuse_worktree_file
 r_static
 r_int
-id|work_tree_matches
+id|reuse_worktree_file
 c_func
 (paren
 r_const
@@ -6384,6 +6391,9 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|want_file
 )paren
 (brace
 r_struct
@@ -6406,6 +6416,26 @@ c_cond
 (paren
 op_logical_neg
 id|active_cache
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* We want to avoid the working directory if our caller&n;&t; * doesn&squot;t need the data in a normal file, this system&n;&t; * is rather slow with its stat/open/mmap/close syscalls,&n;&t; * and the object is contained in a pack file.  The pack&n;&t; * is probably already open and will be faster to obtain&n;&t; * the data through than the working directory.  Loose&n;&t; * objects however would tend to be slower as they need&n;&t; * to be individually opened and inflated.&n;&t; */
+r_if
+c_cond
+(paren
+id|FAST_WORKING_DIRECTORY
+op_logical_and
+op_logical_neg
+id|want_file
+op_logical_and
+id|has_sha1_pack
+c_func
+(paren
+id|sha1
+comma
+l_int|NULL
+)paren
 )paren
 r_return
 l_int|0
@@ -6822,12 +6852,14 @@ c_cond
 op_logical_neg
 id|s-&gt;sha1_valid
 op_logical_or
-id|work_tree_matches
+id|reuse_worktree_file
 c_func
 (paren
 id|s-&gt;path
 comma
 id|s-&gt;sha1
+comma
+l_int|0
 )paren
 )paren
 (brace
@@ -7361,12 +7393,14 @@ c_cond
 op_logical_neg
 id|one-&gt;sha1_valid
 op_logical_or
-id|work_tree_matches
+id|reuse_worktree_file
 c_func
 (paren
 id|name
 comma
 id|one-&gt;sha1
+comma
+l_int|1
 )paren
 )paren
 (brace
