@@ -1271,6 +1271,25 @@ l_string|&quot;false&quot;
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* Enable logAllRefUpdates if a working tree is attached */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_bare_git_dir
+c_func
+(paren
+id|git_dir
+)paren
+)paren
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.logallrefupdates&quot;
+comma
+l_string|&quot;true&quot;
+)paren
+suffix:semicolon
 r_return
 id|reinit
 suffix:semicolon
