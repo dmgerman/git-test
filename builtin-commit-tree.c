@@ -600,25 +600,6 @@ id|parents
 op_increment
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|parents
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Committing initial tree %s&bslash;n&quot;
-comma
-id|argv
-(braket
-l_int|1
-)braket
-)paren
-suffix:semicolon
 id|init_buffer
 c_func
 (paren
