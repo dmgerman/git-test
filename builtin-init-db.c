@@ -873,7 +873,7 @@ suffix:semicolon
 )brace
 DECL|function|create_default_files
 r_static
-r_void
+r_int
 id|create_default_files
 c_func
 (paren
@@ -920,6 +920,9 @@ id|repo_version_string
 (braket
 l_int|10
 )braket
+suffix:semicolon
+r_int
+id|reinit
 suffix:semicolon
 r_if
 c_cond
@@ -1132,9 +1135,9 @@ comma
 l_string|&quot;HEAD&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|reinit
+op_assign
+op_logical_neg
 id|read_ref
 c_func
 (paren
@@ -1142,8 +1145,12 @@ l_string|&quot;HEAD&quot;
 comma
 id|sha1
 )paren
-OL
-l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|reinit
 )paren
 (brace
 r_if
@@ -1264,6 +1271,9 @@ l_string|&quot;false&quot;
 )paren
 suffix:semicolon
 )brace
+r_return
+id|reinit
+suffix:semicolon
 )brace
 DECL|variable|init_db_usage
 r_static
@@ -1321,6 +1331,8 @@ r_int
 id|len
 comma
 id|i
+comma
+id|reinit
 suffix:semicolon
 r_for
 c_loop
@@ -1437,20 +1449,10 @@ c_cond
 op_logical_neg
 id|git_dir
 )paren
-(brace
 id|git_dir
 op_assign
 id|DEFAULT_GIT_DIR_ENVIRONMENT
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;defaulting to local storage area&bslash;n&quot;
-)paren
-suffix:semicolon
-)brace
 id|safe_create_dir
 c_func
 (paren
@@ -1465,6 +1467,8 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|reinit
+op_assign
 id|create_default_files
 c_func
 (paren
@@ -1593,6 +1597,28 @@ l_string|&quot;true&quot;
 )paren
 suffix:semicolon
 )brace
+id|printf
+c_func
+(paren
+l_string|&quot;%s%s Git repository in %s/&bslash;n&quot;
+comma
+id|reinit
+ques
+c_cond
+l_string|&quot;Reinitialized existing&quot;
+suffix:colon
+l_string|&quot;Initialized empty&quot;
+comma
+id|shared_repository
+ques
+c_cond
+l_string|&quot; shared&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|git_dir
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
