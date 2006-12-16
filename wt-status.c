@@ -92,6 +92,17 @@ id|offset
 comma
 l_string|&quot;updated&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+op_plus
+id|offset
+comma
+l_string|&quot;added&quot;
+)paren
 )paren
 r_return
 id|WT_STATUS_UPDATED
@@ -763,7 +774,7 @@ id|shown_header
 id|wt_status_print_header
 c_func
 (paren
-l_string|&quot;Updated but not checked in&quot;
+l_string|&quot;Added but not yet committed&quot;
 comma
 l_string|&quot;will commit&quot;
 )paren
@@ -832,7 +843,7 @@ id|q-&gt;nr
 id|wt_status_print_header
 c_func
 (paren
-l_string|&quot;Changed but not updated&quot;
+l_string|&quot;Changed but not added&quot;
 comma
 id|use_add_msg
 )paren
@@ -911,7 +922,7 @@ suffix:semicolon
 id|wt_status_print_header
 c_func
 (paren
-l_string|&quot;Updated but not checked in&quot;
+l_string|&quot;Added but not yet committed&quot;
 comma
 l_string|&quot;will commit&quot;
 )paren
