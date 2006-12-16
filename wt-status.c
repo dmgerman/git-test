@@ -38,6 +38,15 @@ comma
 multiline_comment|/* WT_STATUS_UNTRACKED: red */
 )brace
 suffix:semicolon
+DECL|variable|use_add_msg
+r_static
+r_const
+r_char
+op_star
+id|use_add_msg
+op_assign
+l_string|&quot;use &bslash;&quot;git add file1 file2&bslash;&quot; to include for commit&quot;
+suffix:semicolon
 DECL|function|parse_status_slot
 r_static
 r_int
@@ -825,7 +834,7 @@ c_func
 (paren
 l_string|&quot;Changed but not updated&quot;
 comma
-l_string|&quot;use git-add on files to include for commit&quot;
+id|use_add_msg
 )paren
 suffix:semicolon
 r_for
@@ -1316,7 +1325,7 @@ c_func
 (paren
 l_string|&quot;Untracked files&quot;
 comma
-l_string|&quot;use &bslash;&quot;git add&bslash;&quot; to add to commit&quot;
+id|use_add_msg
 )paren
 suffix:semicolon
 id|shown_header
@@ -1546,7 +1555,7 @@ id|s-&gt;commitable
 id|printf
 c_func
 (paren
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s (%s)&bslash;n&quot;
 comma
 id|s-&gt;amend
 ques
@@ -1554,6 +1563,8 @@ c_cond
 l_string|&quot;# No changes&quot;
 suffix:colon
 l_string|&quot;nothing to commit&quot;
+comma
+id|use_add_msg
 )paren
 suffix:semicolon
 )brace
