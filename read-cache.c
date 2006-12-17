@@ -2666,7 +2666,13 @@ op_logical_neg
 id|ok_to_replace
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; appears as both a file and as a directory&quot;
+comma
+id|ce-&gt;name
+)paren
 suffix:semicolon
 id|pos
 op_assign
