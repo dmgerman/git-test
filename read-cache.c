@@ -2344,6 +2344,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|ok_to_replace
 )paren
 r_break
