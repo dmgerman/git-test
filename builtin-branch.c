@@ -12,8 +12,16 @@ id|builtin_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-branch (-d | -D) &lt;branchname&gt; | [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;] | (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt; | [-r | -a] [-v [--abbrev=&lt;length&gt;]]&quot;
+l_string|&quot;git-branch [-r] (-d | -D) &lt;branchname&gt; | [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;] | (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt; | [-r | -a] [-v [--abbrev=&lt;length&gt;]]&quot;
 suffix:semicolon
+DECL|macro|REF_UNKNOWN_TYPE
+mdefine_line|#define REF_UNKNOWN_TYPE    0x00
+DECL|macro|REF_LOCAL_BRANCH
+mdefine_line|#define REF_LOCAL_BRANCH    0x01
+DECL|macro|REF_REMOTE_BRANCH
+mdefine_line|#define REF_REMOTE_BRANCH   0x02
+DECL|macro|REF_TAG
+mdefine_line|#define REF_TAG             0x04
 DECL|variable|head
 r_static
 r_const
@@ -436,6 +444,9 @@ id|argv
 comma
 r_int
 id|force
+comma
+r_int
+id|kinds
 )paren
 (brace
 r_struct
@@ -459,9 +470,62 @@ r_char
 op_star
 id|name
 suffix:semicolon
+r_const
+r_char
+op_star
+id|fmt
+comma
+op_star
+id|remote
+suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+r_switch
+c_cond
+(paren
+id|kinds
+)paren
+(brace
+r_case
+id|REF_REMOTE_BRANCH
+suffix:colon
+id|fmt
+op_assign
+l_string|&quot;refs/remotes/%s&quot;
+suffix:semicolon
+id|remote
+op_assign
+l_string|&quot;remote &quot;
+suffix:semicolon
+id|force
+op_assign
+l_int|1
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|REF_LOCAL_BRANCH
+suffix:colon
+id|fmt
+op_assign
+l_string|&quot;refs/heads/%s&quot;
+suffix:semicolon
+id|remote
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_default
+suffix:colon
+id|die
+c_func
+(paren
+l_string|&quot;cannot use -a with -d&quot;
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -508,6 +572,10 @@ op_increment
 r_if
 c_cond
 (paren
+id|kinds
+op_eq
+id|REF_LOCAL_BRANCH
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -534,7 +602,7 @@ c_func
 id|mkpath
 c_func
 (paren
-l_string|&quot;refs/heads/%s&quot;
+id|fmt
 comma
 id|argv
 (braket
@@ -562,7 +630,9 @@ l_int|NULL
 id|die
 c_func
 (paren
-l_string|&quot;Branch &squot;%s&squot; not found.&quot;
+l_string|&quot;%sbranch &squot;%s&squot; not found.&quot;
+comma
+id|remote
 comma
 id|argv
 (braket
@@ -650,7 +720,9 @@ id|sha1
 id|printf
 c_func
 (paren
-l_string|&quot;Error deleting branch &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;Error deleting %sbranch &squot;%s&squot;&bslash;n&quot;
+comma
+id|remote
 comma
 id|argv
 (braket
@@ -662,7 +734,9 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;Deleted branch %s.&bslash;n&quot;
+l_string|&quot;Deleted %sbranch %s.&bslash;n&quot;
+comma
+id|remote
 comma
 id|argv
 (braket
@@ -678,14 +752,6 @@ id|name
 suffix:semicolon
 )brace
 )brace
-DECL|macro|REF_UNKNOWN_TYPE
-mdefine_line|#define REF_UNKNOWN_TYPE    0x00
-DECL|macro|REF_LOCAL_BRANCH
-mdefine_line|#define REF_LOCAL_BRANCH    0x01
-DECL|macro|REF_REMOTE_BRANCH
-mdefine_line|#define REF_REMOTE_BRANCH   0x02
-DECL|macro|REF_TAG
-mdefine_line|#define REF_TAG             0x04
 DECL|struct|ref_item
 r_struct
 id|ref_item
@@ -2404,6 +2470,8 @@ op_plus
 id|i
 comma
 id|force_delete
+comma
+id|kinds
 )paren
 suffix:semicolon
 r_else
