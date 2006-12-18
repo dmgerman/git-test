@@ -11,7 +11,7 @@ id|show_ref_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--dereference] [-s|--hash[=&lt;length&gt;]] [--abbrev[=&lt;length&gt;]] [--tags] [--heads] [--] [pattern*] | --filter-invalid &lt; ref-list&quot;
+l_string|&quot;git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--dereference] [-s|--hash[=&lt;length&gt;]] [--abbrev[=&lt;length&gt;]] [--tags] [--heads] [--] [pattern*] &lt; ref-list&quot;
 suffix:semicolon
 DECL|variable|deref_tags
 DECL|variable|show_head
@@ -637,6 +637,10 @@ id|stdin
 )paren
 )paren
 (brace
+r_char
+op_star
+id|ref
+suffix:semicolon
 r_int
 id|len
 op_assign
@@ -645,10 +649,6 @@ c_func
 (paren
 id|buf
 )paren
-suffix:semicolon
-r_char
-op_star
-id|ref
 suffix:semicolon
 r_if
 c_cond
@@ -676,6 +676,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+l_int|3
+op_le
+id|len
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
