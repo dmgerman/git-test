@@ -1294,6 +1294,13 @@ comma
 l_int|NULL
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|quiet
+)paren
 id|printf
 c_func
 (paren
@@ -1309,6 +1316,7 @@ op_star
 id|pattern
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
