@@ -700,7 +700,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_TEMPLATE_DIR&quot;
+id|TEMPLATE_DIR_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
