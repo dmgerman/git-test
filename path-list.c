@@ -1,4 +1,3 @@
-macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;path-list.h&quot;
 multiline_comment|/* if there is no exact match, point to the index where the entry could be&n; * inserted */

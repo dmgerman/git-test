@@ -6,7 +6,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;quote.h&quot;
-macro_line|#include &lt;fnmatch.h&gt;
 multiline_comment|/* Quoting styles */
 DECL|macro|QUOTE_NONE
 mdefine_line|#define QUOTE_NONE 0

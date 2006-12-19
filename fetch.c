@@ -1,5 +1,5 @@
-macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;

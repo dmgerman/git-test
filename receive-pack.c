@@ -6,7 +6,6 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;object.h&quot;
-macro_line|#include &lt;sys/wait.h&gt;
 DECL|variable|receive_pack_usage
 r_static
 r_const

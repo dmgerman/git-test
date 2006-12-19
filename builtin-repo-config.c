@@ -1,6 +1,5 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;regex.h&gt;
 DECL|variable|git_config_set_usage
 r_static
 r_const

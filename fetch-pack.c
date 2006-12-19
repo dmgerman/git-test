@@ -5,7 +5,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;sideband.h&quot;
-macro_line|#include &lt;sys/wait.h&gt;
 DECL|variable|keep_pack
 r_static
 r_int

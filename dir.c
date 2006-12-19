@@ -1,6 +1,4 @@
 multiline_comment|/*&n; * This handles recursive filename detection with exclude&n; * files, index knowledge etc..&n; *&n; * Copyright (C) Linus Torvalds, 2005-2006&n; *&t;&t; Junio Hamano, 2005-2006&n; */
-macro_line|#include &lt;dirent.h&gt;
-macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 DECL|function|common_prefix

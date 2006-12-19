@@ -6,8 +6,6 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;tag.h&quot;
-macro_line|#include &lt;time.h&gt;
-macro_line|#include &lt;sys/time.h&gt;
 DECL|variable|default_show_root
 r_static
 r_int

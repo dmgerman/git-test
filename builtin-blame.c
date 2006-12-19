@@ -9,9 +9,6 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
-macro_line|#include &lt;time.h&gt;
-macro_line|#include &lt;sys/time.h&gt;
-macro_line|#include &lt;regex.h&gt;
 DECL|variable|blame_usage
 r_static
 r_char

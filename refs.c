@@ -1,8 +1,7 @@
-macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tag.h&quot;
-macro_line|#include &lt;errno.h&gt;
 multiline_comment|/* ISSYMREF=01 and ISPACKED=02 are public interfaces */
 DECL|macro|REF_KNOWS_PEELED
 mdefine_line|#define REF_KNOWS_PEELED 04

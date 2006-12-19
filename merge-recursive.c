@@ -1,11 +1,4 @@
 multiline_comment|/*&n; * Recursive Merge algorithm stolen from git-merge-recursive.py by&n; * Fredrik Kuivinen.&n; * The thieves were Alex Riesen and Johannes Schindelin, in June/July 2006&n; */
-macro_line|#include &lt;stdarg.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;assert.h&gt;
-macro_line|#include &lt;sys/wait.h&gt;
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;sys/stat.h&gt;
-macro_line|#include &lt;time.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;commit.h&quot;

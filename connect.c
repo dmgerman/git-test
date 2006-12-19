@@ -3,12 +3,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#include &lt;sys/wait.h&gt;
-macro_line|#include &lt;sys/socket.h&gt;
-macro_line|#include &lt;netinet/in.h&gt;
-macro_line|#include &lt;arpa/inet.h&gt;
-macro_line|#include &lt;netdb.h&gt;
-macro_line|#include &lt;signal.h&gt;
 DECL|variable|server_capabilities
 r_static
 r_char

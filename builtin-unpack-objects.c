@@ -7,7 +7,6 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
-macro_line|#include &lt;sys/time.h&gt;
 DECL|variable|dry_run
 DECL|variable|quiet
 DECL|variable|recover

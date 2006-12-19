@@ -1,8 +1,6 @@
 multiline_comment|/*&n; * diff-delta.c: generate a delta between two buffers&n; *&n; *  Many parts of this file have been lifted from LibXDiff version 0.10.&n; *  http://www.xmailserver.org/xdiff-lib.html&n; *&n; *  LibXDiff was written by Davide Libenzi &lt;davidel@xmailserver.org&gt;&n; *  Copyright (C) 2003&t;Davide Libenzi&n; *&n; *  Many mods for GIT usage by Nicolas Pitre &lt;nico@cam.org&gt;, (C) 2005.&n; *&n; *  This file is free software; you can redistribute it and/or&n; *  modify it under the terms of the GNU Lesser General Public&n; *  License as published by the Free Software Foundation; either&n; *  version 2.1 of the License, or (at your option) any later version.&n; *&n; *  Use of this within git automatically means that the LGPL&n; *  licensing gets turned into GPLv2 within this project.&n; */
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;delta.h&quot;
 multiline_comment|/* maximum hash entry list for the same hash bucket */
 DECL|macro|HASH_LIMIT
 mdefine_line|#define HASH_LIMIT 64

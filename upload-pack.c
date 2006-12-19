@@ -1,6 +1,3 @@
-macro_line|#include &lt;signal.h&gt;
-macro_line|#include &lt;sys/wait.h&gt;
-macro_line|#include &lt;sys/poll.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;

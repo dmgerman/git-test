@@ -1,6 +1,5 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; * Copyright (C) Johannes Schindelin, 2005&n; *&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;regex.h&gt;
 DECL|macro|MAXNAME
 mdefine_line|#define MAXNAME (256)
 DECL|variable|config_file

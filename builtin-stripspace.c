@@ -1,6 +1,3 @@
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;ctype.h&gt;
 macro_line|#include &quot;builtin.h&quot;
 multiline_comment|/*&n; * Remove empty lines from the beginning and end.&n; *&n; * Turn multiple consecutive empty lines into just one&n; * empty line.  Return true if it is an incomplete line.&n; */
 DECL|function|cleanup

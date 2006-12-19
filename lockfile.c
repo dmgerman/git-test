@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * Copyright (c) 2005, Junio C Hamano&n; */
-macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|lock_file_list
 r_static

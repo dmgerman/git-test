@@ -1,6 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git branch&quot;&n; *&n; * Copyright (c) 2006 Kristian H&#xfffd;gsberg &lt;krh@redhat.com&gt;&n; * Based on git-branch.sh by Junio C Hamano.&n; */
-macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;builtin.h&quot;

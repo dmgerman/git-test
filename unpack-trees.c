@@ -1,5 +1,3 @@
-macro_line|#include &lt;signal.h&gt;
-macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;tree.h&quot;

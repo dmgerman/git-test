@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * This merges the file listing in the directory cache index&n; * with the actual working directory list, and shows different&n; * combinations of the two.&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
-macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;dir.h&quot;

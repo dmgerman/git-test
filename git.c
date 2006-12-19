@@ -1,18 +1,7 @@
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;sys/stat.h&gt;
-macro_line|#include &lt;dirent.h&gt;
-macro_line|#include &lt;unistd.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;errno.h&gt;
-macro_line|#include &lt;limits.h&gt;
-macro_line|#include &lt;stdarg.h&gt;
-macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
-macro_line|#include &quot;builtin.h&quot;
 DECL|variable|git_usage_string
 r_const
 r_char

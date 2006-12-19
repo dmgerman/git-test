@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * Copyright 2006 Jon Loeliger&n; */
-macro_line|#include &lt;string.h&gt;
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;interpolate.h&quot;
 DECL|function|interp_set_entry

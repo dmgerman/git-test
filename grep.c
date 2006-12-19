@@ -1,5 +1,4 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;regex.h&gt;
 macro_line|#include &quot;grep.h&quot;
 DECL|function|append_grep_pattern
 r_void

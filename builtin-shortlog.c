@@ -4,7 +4,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;path-list.h&quot;
 macro_line|#include &quot;revision.h&quot;
-macro_line|#include &lt;string.h&gt;
 DECL|variable|shortlog_usage
 r_static
 r_const

@@ -6,10 +6,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &lt;regex.h&gt;
 macro_line|#include &quot;grep.h&quot;
-macro_line|#include &lt;fnmatch.h&gt;
-macro_line|#include &lt;sys/wait.h&gt;
 multiline_comment|/*&n; * git grep pathspecs are somewhat different from diff-tree pathspecs;&n; * pathname wildcards are allowed.&n; */
 DECL|function|pathspec_matches
 r_static

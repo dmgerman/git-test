@@ -1,6 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
-macro_line|#include &lt;sys/wait.h&gt;
 macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|run_command_v_opt
 r_int

@@ -1,6 +1,6 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;wt-status.h&quot;
 macro_line|#include &quot;color.h&quot;
-macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;commit.h&quot;

@@ -12,8 +12,6 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
-macro_line|#include &lt;sys/time.h&gt;
-macro_line|#include &lt;signal.h&gt;
 DECL|variable|pack_usage
 r_static
 r_const

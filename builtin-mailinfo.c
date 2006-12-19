@@ -1,14 +1,4 @@
 multiline_comment|/*&n; * Another stupid program, this one parsing the headers of an&n; * email to figure out authorship and subject&n; */
-DECL|macro|_GNU_SOURCE
-mdefine_line|#define _GNU_SOURCE
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;ctype.h&gt;
-macro_line|#ifndef NO_ICONV
-macro_line|#include &lt;iconv.h&gt;
-macro_line|#endif
-macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 DECL|variable|cmitmsg

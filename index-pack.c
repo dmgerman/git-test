@@ -1,8 +1,3 @@
-DECL|macro|_XOPEN_SOURCE
-mdefine_line|#define _XOPEN_SOURCE 600
-macro_line|#include &lt;unistd.h&gt;
-macro_line|#include &lt;sys/time.h&gt;
-macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;

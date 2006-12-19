@@ -1,5 +1,3 @@
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;dirent.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;
 DECL|function|create_directories
