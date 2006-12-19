@@ -5571,6 +5571,10 @@ r_int
 id|logfd
 comma
 id|tz
+comma
+id|reccnt
+op_assign
+l_int|0
 suffix:semicolon
 r_struct
 id|stat
@@ -5697,6 +5701,9 @@ OL
 id|rec
 )paren
 (brace
+id|reccnt
+op_increment
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6115,6 +6122,11 @@ comma
 id|st.st_size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|at_time
+)paren
 id|fprintf
 c_func
 (paren
@@ -6131,6 +6143,19 @@ id|date
 comma
 id|tz
 )paren
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;warning: Log %s only has %d entries.&bslash;n&quot;
+comma
+id|logfile
+comma
+id|reccnt
 )paren
 suffix:semicolon
 r_return
