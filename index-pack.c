@@ -1,3 +1,8 @@
+DECL|macro|_XOPEN_SOURCE
+mdefine_line|#define _XOPEN_SOURCE 600
+macro_line|#include &lt;unistd.h&gt;
+macro_line|#include &lt;sys/time.h&gt;
+macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
@@ -6,8 +11,6 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
-macro_line|#include &lt;sys/time.h&gt;
-macro_line|#include &lt;signal.h&gt;
 DECL|variable|index_pack_usage
 r_static
 r_const
@@ -322,14 +325,14 @@ id|input_ctx
 suffix:semicolon
 DECL|variable|input_fd
 DECL|variable|output_fd
-DECL|variable|mmap_fd
+DECL|variable|pack_fd
 r_static
 r_int
 id|input_fd
 comma
 id|output_fd
 comma
-id|mmap_fd
+id|pack_fd
 suffix:semicolon
 multiline_comment|/* Discard current buffer used content. */
 DECL|function|flush
@@ -658,7 +661,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-id|mmap_fd
+id|pack_fd
 op_assign
 id|output_fd
 suffix:semicolon
@@ -700,7 +703,7 @@ id|output_fd
 op_assign
 l_int|1
 suffix:semicolon
-id|mmap_fd
+id|pack_fd
 op_assign
 id|input_fd
 suffix:semicolon
@@ -1426,19 +1429,9 @@ id|offset
 id|from
 suffix:semicolon
 r_int
-id|pg_offset
-op_assign
-id|from
-op_mod
-id|getpagesize
-c_func
-(paren
-)paren
-suffix:semicolon
-r_int
 r_char
 op_star
-id|map
+id|src
 comma
 op_star
 id|data
@@ -1449,38 +1442,35 @@ suffix:semicolon
 r_int
 id|st
 suffix:semicolon
-id|map
+id|src
 op_assign
-id|mmap
+id|xmalloc
 c_func
 (paren
-l_int|NULL
-comma
 id|len
-op_plus
-id|pg_offset
-comma
-id|PROT_READ
-comma
-id|MAP_PRIVATE
-comma
-id|mmap_fd
-comma
-id|from
-id|pg_offset
 )paren
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|map
-op_eq
-id|MAP_FAILED
+id|pread
+c_func
+(paren
+id|pack_fd
+comma
+id|src
+comma
+id|len
+comma
+id|from
+)paren
+op_ne
+id|len
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;cannot mmap pack file: %s&quot;
+l_string|&quot;cannot pread pack file: %s&quot;
 comma
 id|strerror
 c_func
@@ -1521,9 +1511,7 @@ id|obj-&gt;size
 suffix:semicolon
 id|stream.next_in
 op_assign
-id|map
-op_plus
-id|pg_offset
+id|src
 suffix:semicolon
 id|stream.avail_in
 op_assign
@@ -1579,14 +1567,10 @@ c_func
 l_string|&quot;serious inflate inconsistency&quot;
 )paren
 suffix:semicolon
-id|munmap
+id|free
 c_func
 (paren
-id|map
-comma
-id|len
-op_plus
-id|pg_offset
+id|src
 )paren
 suffix:semicolon
 r_return
