@@ -1,6 +1,5 @@
 multiline_comment|/*&n; * patch-delta.c:&n; * recreate a buffer from a source and the delta produced by diff-delta.c&n; *&n; * (C) 2005 Nicolas Pitre &lt;nico@cam.org&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;string.h&gt;
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;delta.h&quot;
 DECL|function|patch_delta
 r_void
@@ -117,22 +116,13 @@ id|top
 suffix:semicolon
 id|dst_buf
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size
 op_plus
 l_int|1
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|dst_buf
-)paren
-r_return
-l_int|NULL
 suffix:semicolon
 id|dst_buf
 (braket
@@ -312,8 +302,7 @@ id|cp_size
 OG
 id|size
 )paren
-r_goto
-id|bad
+r_break
 suffix:semicolon
 id|memcpy
 c_func
@@ -354,8 +343,7 @@ id|cmd
 OG
 id|size
 )paren
-r_goto
-id|bad
+r_break
 suffix:semicolon
 id|memcpy
 c_func
@@ -383,6 +371,12 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/*&n;&t;&t;&t; * cmd == 0 is reserved for future encoding&n;&t;&t;&t; * extensions. In the mean time we must fail when&n;&t;&t;&t; * encountering them (might be data corruption).&n;&t;&t;&t; */
+id|error
+c_func
+(paren
+l_string|&quot;unexpected delta opcode 0&quot;
+)paren
+suffix:semicolon
 r_goto
 id|bad
 suffix:semicolon
@@ -401,6 +395,12 @@ op_ne
 l_int|0
 )paren
 (brace
+id|error
+c_func
+(paren
+l_string|&quot;delta replay has gone wild&quot;
+)paren
+suffix:semicolon
 id|bad
 suffix:colon
 id|free
