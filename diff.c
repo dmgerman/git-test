@@ -6591,6 +6591,7 @@ multiline_comment|/* We want to avoid the working directory if our caller&n;&t; 
 r_if
 c_cond
 (paren
+op_logical_neg
 id|FAST_WORKING_DIRECTORY
 op_logical_and
 op_logical_neg
