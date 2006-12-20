@@ -4486,15 +4486,15 @@ id|nodes
 suffix:semicolon
 )brace
 multiline_comment|/* merge-rebase stuff */
-multiline_comment|/* bits #0..7 in revision.h */
+multiline_comment|/* bits #0..15 in revision.h */
 DECL|macro|PARENT1
-mdefine_line|#define PARENT1&t;&t;(1u&lt;&lt; 8)
+mdefine_line|#define PARENT1&t;&t;(1u&lt;&lt;16)
 DECL|macro|PARENT2
-mdefine_line|#define PARENT2&t;&t;(1u&lt;&lt; 9)
+mdefine_line|#define PARENT2&t;&t;(1u&lt;&lt;17)
 DECL|macro|STALE
-mdefine_line|#define STALE&t;&t;(1u&lt;&lt;10)
+mdefine_line|#define STALE&t;&t;(1u&lt;&lt;18)
 DECL|macro|RESULT
-mdefine_line|#define RESULT&t;&t;(1u&lt;&lt;11)
+mdefine_line|#define RESULT&t;&t;(1u&lt;&lt;19)
 DECL|function|interesting
 r_static
 r_struct
