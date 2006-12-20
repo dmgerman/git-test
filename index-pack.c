@@ -1359,7 +1359,7 @@ c_func
 (paren
 id|obj-&gt;offset
 comma
-l_string|&quot;bad object type %d&quot;
+l_string|&quot;unknown object type %d&quot;
 comma
 id|obj-&gt;type
 )paren

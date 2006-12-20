@@ -5372,7 +5372,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;corrupted pack file %s containing object of kind %d&quot;
+l_string|&quot;pack %s contains unknown object type %d&quot;
 comma
 id|p-&gt;pack_name
 comma
@@ -5641,7 +5641,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;corrupted pack file %s containing object of kind %d&quot;
+l_string|&quot;pack %s contains unknown object type %d&quot;
 comma
 id|p-&gt;pack_name
 comma
