@@ -202,7 +202,8 @@ id|best
 comma
 id|cur
 suffix:semicolon
-id|u_int
+r_int
+r_int
 id|words
 (braket
 id|NS_IN6ADDRSZ
