@@ -561,6 +561,34 @@ id|builtin_add_usage
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|argc
+op_le
+id|i
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Nothing specified, nothing added.&bslash;n&quot;
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Maybe you wanted to say &squot;git add .&squot;?&bslash;n&quot;
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 id|pathspec
 op_assign
 id|get_pathspec
