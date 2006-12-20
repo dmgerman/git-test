@@ -3678,7 +3678,6 @@ id|ret
 op_assign
 l_int|0
 suffix:semicolon
-r_const
 r_char
 op_star
 id|config_filename
@@ -3774,13 +3773,19 @@ id|out_fd
 OL
 l_int|0
 )paren
-r_return
+(brace
+id|ret
+op_assign
 id|error
 c_func
 (paren
 l_string|&quot;Could not lock config file!&quot;
 )paren
 suffix:semicolon
+r_goto
+id|out
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -3797,13 +3802,19 @@ l_string|&quot;rb&quot;
 )paren
 )paren
 )paren
-r_return
+(brace
+id|ret
+op_assign
 id|error
 c_func
 (paren
 l_string|&quot;Could not open config file!&quot;
 )paren
 suffix:semicolon
+r_goto
+id|out
+suffix:semicolon
+)brace
 r_while
 c_loop
 (paren
@@ -4080,6 +4091,12 @@ id|buf
 )paren
 suffix:semicolon
 )brace
+id|fclose
+c_func
+(paren
+id|config_file
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4097,11 +4114,20 @@ id|lock
 OL
 l_int|0
 )paren
-r_return
+id|ret
+op_assign
 id|error
 c_func
 (paren
 l_string|&quot;Cannot commit config file!&quot;
+)paren
+suffix:semicolon
+id|out
+suffix:colon
+id|free
+c_func
+(paren
+id|config_filename
 )paren
 suffix:semicolon
 r_return
