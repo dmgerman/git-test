@@ -1481,6 +1481,14 @@ id|cmd_repo_config
 )brace
 comma
 (brace
+l_string|&quot;rerere&quot;
+comma
+id|cmd_rerere
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;rev-list&quot;
 comma
 id|cmd_rev_list
