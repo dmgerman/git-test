@@ -12,8 +12,16 @@ id|builtin_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-branch (-d | -D) &lt;branchname&gt; | [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;] | (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt; | [-r | -a] [-v [--abbrev=&lt;length&gt;]]&quot;
+l_string|&quot;git-branch [-r] (-d | -D) &lt;branchname&gt; | [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;] | (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt; | [-r | -a] [-v [--abbrev=&lt;length&gt;]]&quot;
 suffix:semicolon
+DECL|macro|REF_UNKNOWN_TYPE
+mdefine_line|#define REF_UNKNOWN_TYPE    0x00
+DECL|macro|REF_LOCAL_BRANCH
+mdefine_line|#define REF_LOCAL_BRANCH    0x01
+DECL|macro|REF_REMOTE_BRANCH
+mdefine_line|#define REF_REMOTE_BRANCH   0x02
+DECL|macro|REF_TAG
+mdefine_line|#define REF_TAG             0x04
 DECL|variable|head
 r_static
 r_const
@@ -421,7 +429,7 @@ suffix:semicolon
 )brace
 DECL|function|delete_branches
 r_static
-r_void
+r_int
 id|delete_branches
 c_func
 (paren
@@ -436,6 +444,9 @@ id|argv
 comma
 r_int
 id|force
+comma
+r_int
+id|kinds
 )paren
 (brace
 r_struct
@@ -458,10 +469,70 @@ suffix:semicolon
 r_char
 op_star
 id|name
+op_assign
+l_int|NULL
+suffix:semicolon
+r_const
+r_char
+op_star
+id|fmt
+comma
+op_star
+id|remote
 suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|0
+suffix:semicolon
+r_switch
+c_cond
+(paren
+id|kinds
+)paren
+(brace
+r_case
+id|REF_REMOTE_BRANCH
+suffix:colon
+id|fmt
+op_assign
+l_string|&quot;refs/remotes/%s&quot;
+suffix:semicolon
+id|remote
+op_assign
+l_string|&quot;remote &quot;
+suffix:semicolon
+id|force
+op_assign
+l_int|1
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|REF_LOCAL_BRANCH
+suffix:colon
+id|fmt
+op_assign
+l_string|&quot;refs/heads/%s&quot;
+suffix:semicolon
+id|remote
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_default
+suffix:colon
+id|die
+c_func
+(paren
+l_string|&quot;cannot use -a with -d&quot;
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -508,6 +579,10 @@ op_increment
 r_if
 c_cond
 (paren
+id|kinds
+op_eq
+id|REF_LOCAL_BRANCH
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -520,10 +595,35 @@ id|i
 )braket
 )paren
 )paren
-id|die
+(brace
+id|error
 c_func
 (paren
-l_string|&quot;Cannot delete the branch you are currently on.&quot;
+l_string|&quot;Cannot delete the branch &squot;%s&squot; &quot;
+l_string|&quot;which you are currently on.&quot;
+comma
+id|argv
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+id|ret
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|name
+)paren
+id|free
+c_func
+(paren
+id|name
 )paren
 suffix:semicolon
 id|name
@@ -534,7 +634,7 @@ c_func
 id|mkpath
 c_func
 (paren
-l_string|&quot;refs/heads/%s&quot;
+id|fmt
 comma
 id|argv
 (braket
@@ -559,10 +659,13 @@ comma
 l_int|NULL
 )paren
 )paren
-id|die
+(brace
+id|error
 c_func
 (paren
-l_string|&quot;Branch &squot;%s&squot; not found.&quot;
+l_string|&quot;%sbranch &squot;%s&squot; not found.&quot;
+comma
+id|remote
 comma
 id|argv
 (braket
@@ -570,6 +673,13 @@ id|i
 )braket
 )paren
 suffix:semicolon
+id|ret
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|rev
 op_assign
 id|lookup_commit_reference
@@ -584,7 +694,8 @@ c_cond
 op_logical_neg
 id|rev
 )paren
-id|die
+(brace
+id|error
 c_func
 (paren
 l_string|&quot;Couldn&squot;t look up commit object for &squot;%s&squot;&quot;
@@ -592,6 +703,13 @@ comma
 id|name
 )paren
 suffix:semicolon
+id|ret
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 multiline_comment|/* This checks whether the merge bases of branch and&n;&t;&t; * HEAD contains branch -- which means that the HEAD&n;&t;&t; * contains everything in both.&n;&t;&t; */
 r_if
 c_cond
@@ -611,13 +729,13 @@ id|head_rev
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;The branch &squot;%s&squot; is not a strict subset of your current HEAD.&bslash;n&quot;
-l_string|&quot;If you are sure you want to delete it, run &squot;git branch -D %s&squot;.&bslash;n&quot;
+l_string|&quot;The branch &squot;%s&squot; is not a strict subset of &quot;
+l_string|&quot;your current HEAD.&bslash;n&quot;
+l_string|&quot;If you are sure you want to delete it, &quot;
+l_string|&quot;run &squot;git branch -D %s&squot;.&quot;
 comma
 id|argv
 (braket
@@ -630,10 +748,11 @@ id|i
 )braket
 )paren
 suffix:semicolon
-m_exit
-(paren
+id|ret
+op_assign
 l_int|1
-)paren
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 r_if
@@ -647,10 +766,13 @@ comma
 id|sha1
 )paren
 )paren
-id|printf
+(brace
+id|error
 c_func
 (paren
-l_string|&quot;Error deleting branch &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;Error deleting %sbranch &squot;%s&squot;&quot;
+comma
+id|remote
 comma
 id|argv
 (braket
@@ -658,11 +780,18 @@ id|i
 )braket
 )paren
 suffix:semicolon
+id|ret
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_else
 id|printf
 c_func
 (paren
-l_string|&quot;Deleted branch %s.&bslash;n&quot;
+l_string|&quot;Deleted %sbranch %s.&bslash;n&quot;
+comma
+id|remote
 comma
 id|argv
 (braket
@@ -670,22 +799,22 @@ id|i
 )braket
 )paren
 suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|name
+)paren
 id|free
 c_func
 (paren
 id|name
 )paren
 suffix:semicolon
+r_return
+id|ret
+suffix:semicolon
 )brace
-)brace
-DECL|macro|REF_UNKNOWN_TYPE
-mdefine_line|#define REF_UNKNOWN_TYPE    0x00
-DECL|macro|REF_LOCAL_BRANCH
-mdefine_line|#define REF_LOCAL_BRANCH    0x01
-DECL|macro|REF_REMOTE_BRANCH
-mdefine_line|#define REF_REMOTE_BRANCH   0x02
-DECL|macro|REF_TAG
-mdefine_line|#define REF_TAG             0x04
 DECL|struct|ref_item
 r_struct
 id|ref_item
@@ -2393,6 +2522,7 @@ c_cond
 (paren
 r_delete
 )paren
+r_return
 id|delete_branches
 c_func
 (paren
@@ -2404,6 +2534,8 @@ op_plus
 id|i
 comma
 id|force_delete
+comma
+id|kinds
 )paren
 suffix:semicolon
 r_else
