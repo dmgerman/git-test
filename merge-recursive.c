@@ -7000,7 +7000,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_INDEX_FILE&quot;
+id|INDEX_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if

@@ -1700,7 +1700,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG&quot;
+id|CONFIG_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
@@ -1723,7 +1723,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG_LOCAL&quot;
+id|CONFIG_LOCAL_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
@@ -2712,7 +2712,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG&quot;
+id|CONFIG_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
@@ -2727,7 +2727,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG_LOCAL&quot;
+id|CONFIG_LOCAL_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
@@ -3712,7 +3712,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG&quot;
+id|CONFIG_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
@@ -3727,7 +3727,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG_LOCAL&quot;
+id|CONFIG_LOCAL_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
