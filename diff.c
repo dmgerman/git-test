@@ -4644,9 +4644,6 @@ id|spaces
 op_assign
 l_int|0
 suffix:semicolon
-id|data-&gt;lineno
-op_increment
-suffix:semicolon
 multiline_comment|/* check space before tab */
 r_for
 c_loop
@@ -4765,6 +4762,9 @@ id|len
 comma
 id|line
 )paren
+suffix:semicolon
+id|data-&gt;lineno
+op_increment
 suffix:semicolon
 )brace
 r_else
