@@ -4,6 +4,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;path-list.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|variable|shortlog_usage
 r_static
 r_const
@@ -2019,23 +2020,45 @@ suffix:semicolon
 id|j
 op_decrement
 )paren
-id|printf
+(brace
+r_int
+id|col
+op_assign
+id|print_wrapped_text
 c_func
 (paren
-l_string|&quot;      %s&bslash;n&quot;
-comma
 id|onelines-&gt;items
 (braket
 id|j
 )braket
 dot
 id|path
+comma
+l_int|6
+comma
+l_int|9
+comma
+l_int|76
 )paren
 suffix:semicolon
-id|printf
+r_if
+c_cond
+(paren
+id|col
+op_ne
+l_int|76
+)paren
+id|putchar
 c_func
 (paren
-l_string|&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+)brace
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
