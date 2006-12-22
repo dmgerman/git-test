@@ -557,6 +557,21 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|parents
+op_ge
+id|MAXPARENT
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Too many parents (%d max)&quot;
+comma
+id|MAXPARENT
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|get_sha1
 c_func
 (paren
