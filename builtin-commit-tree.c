@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|macro|BLOCKING
 mdefine_line|#define BLOCKING (1ul &lt;&lt; 14)
 multiline_comment|/*&n; * FIXME! Share the code with &quot;write-tree.c&quot;&n; */
@@ -135,6 +136,8 @@ op_assign
 id|size
 op_plus
 id|len
+op_plus
+l_int|1
 suffix:semicolon
 id|alloc
 op_assign
@@ -191,6 +194,7 @@ op_star
 id|sizep
 op_assign
 id|newsize
+l_int|1
 suffix:semicolon
 id|memcpy
 c_func
@@ -381,6 +385,18 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|variable|commit_utf8_warn
+r_static
+r_const
+r_char
+id|commit_utf8_warn
+(braket
+)braket
+op_assign
+l_string|&quot;Warning: commit message does not conform to UTF-8.&bslash;n&quot;
+l_string|&quot;You may want to amend it after fixing the message, or set the config&bslash;n&quot;
+l_string|&quot;variable i18n.commitencoding to the encoding your project uses.&bslash;n&quot;
+suffix:semicolon
 DECL|function|cmd_commit_tree
 r_int
 id|cmd_commit_tree
@@ -747,6 +763,41 @@ comma
 l_string|&quot;%s&quot;
 comma
 id|comment
+)paren
+suffix:semicolon
+multiline_comment|/* And check the encoding */
+id|buffer
+(braket
+id|size
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|git_commit_encoding
+comma
+l_string|&quot;utf-8&quot;
+)paren
+op_logical_and
+op_logical_neg
+id|is_utf8
+c_func
+(paren
+id|buffer
+)paren
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|commit_utf8_warn
 )paren
 suffix:semicolon
 r_if
