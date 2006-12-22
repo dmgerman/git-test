@@ -296,7 +296,7 @@ id|Quiet
 suffix:semicolon
 r_static
 r_void
-id|info
+id|imap_info
 c_func
 (paren
 r_const
@@ -310,7 +310,7 @@ dot
 suffix:semicolon
 r_static
 r_void
-id|warn
+id|imap_warn
 c_func
 (paren
 r_const
@@ -1183,8 +1183,8 @@ multiline_comment|/* not reached */
 )brace
 r_static
 r_void
-DECL|function|info
-id|info
+DECL|function|imap_info
+id|imap_info
 c_func
 (paren
 r_const
@@ -1239,8 +1239,8 @@ suffix:semicolon
 )brace
 r_static
 r_void
-DECL|function|warn
-id|warn
+DECL|function|imap_warn
+id|imap_warn
 c_func
 (paren
 r_const
@@ -4733,7 +4733,7 @@ c_cond
 id|srvc-&gt;tunnel
 )paren
 (brace
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;Starting tunnel &squot;%s&squot;... &quot;
@@ -4885,7 +4885,7 @@ id|a
 l_int|1
 )braket
 suffix:semicolon
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;ok&bslash;n&quot;
@@ -4920,7 +4920,7 @@ id|addr.sin_family
 op_assign
 id|AF_INET
 suffix:semicolon
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;Resolving %s... &quot;
@@ -4953,7 +4953,7 @@ r_goto
 id|bail
 suffix:semicolon
 )brace
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;ok&bslash;n&quot;
@@ -4985,7 +4985,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;Connecting to %s:%hu... &quot;
@@ -5042,7 +5042,7 @@ r_goto
 id|bail
 suffix:semicolon
 )brace
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;ok&bslash;n&quot;
@@ -5211,7 +5211,7 @@ op_logical_neg
 id|preauth
 )paren
 (brace
-id|info
+id|imap_info
 (paren
 l_string|&quot;Logging in...&bslash;n&quot;
 )paren
@@ -5349,7 +5349,7 @@ r_goto
 id|bail
 suffix:semicolon
 )brace
-id|warn
+id|imap_warn
 c_func
 (paren
 l_string|&quot;*** IMAP Warning *** Password is being sent in the clear&bslash;n&quot;
