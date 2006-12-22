@@ -311,11 +311,24 @@ c_cond
 op_star
 id|argc
 OL
-l_int|1
+l_int|2
 )paren
-r_return
-l_int|1
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;No directory given for --git-dir.&bslash;n&quot;
+)paren
 suffix:semicolon
+id|usage
+c_func
+(paren
+id|git_usage_string
+)paren
+suffix:semicolon
+)brace
 id|setenv
 c_func
 (paren
