@@ -3509,7 +3509,7 @@ c_func
 id|mkpath
 c_func
 (paren
-l_string|&quot;%s/%s&quot;
+l_string|&quot;%s:%s&quot;
 comma
 id|branch1
 comma
@@ -3525,7 +3525,7 @@ c_func
 id|mkpath
 c_func
 (paren
-l_string|&quot;%s/%s&quot;
+l_string|&quot;%s:%s&quot;
 comma
 id|branch2
 comma
