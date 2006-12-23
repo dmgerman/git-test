@@ -76,6 +76,16 @@ id|zlib_compression_level
 op_assign
 id|Z_DEFAULT_COMPRESSION
 suffix:semicolon
+DECL|variable|packed_git_window_size
+r_int
+id|packed_git_window_size
+op_assign
+l_int|32
+op_star
+l_int|1024
+op_star
+l_int|1024
+suffix:semicolon
 DECL|variable|packed_git_limit
 r_int
 id|packed_git_limit
