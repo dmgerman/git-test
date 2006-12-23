@@ -311,7 +311,7 @@ l_string|&quot;internal error pack-check find-pack-entry-one&quot;
 suffix:semicolon
 id|data
 op_assign
-id|unpack_entry_gently
+id|unpack_entry
 c_func
 (paren
 id|p
