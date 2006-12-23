@@ -57,9 +57,18 @@ comma
 id|i
 suffix:semicolon
 multiline_comment|/* Header consistency check */
+id|pack_base
+op_assign
+id|p-&gt;windows-&gt;base
+suffix:semicolon
 id|hdr
 op_assign
-id|p-&gt;pack_base
+(paren
+r_struct
+id|pack_header
+op_star
+)paren
+id|pack_base
 suffix:semicolon
 r_if
 c_cond
@@ -145,10 +154,6 @@ c_func
 op_amp
 id|ctx
 )paren
-suffix:semicolon
-id|pack_base
-op_assign
-id|p-&gt;pack_base
 suffix:semicolon
 id|SHA1_Update
 c_func
@@ -435,7 +440,12 @@ id|MAX_CHAIN
 suffix:semicolon
 id|hdr
 op_assign
-id|p-&gt;pack_base
+(paren
+r_struct
+id|pack_header
+op_star
+)paren
+id|p-&gt;windows-&gt;base
 suffix:semicolon
 id|nr_objects
 op_assign

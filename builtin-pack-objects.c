@@ -2083,11 +2083,7 @@ id|p
 suffix:semicolon
 id|buf
 op_assign
-(paren
-r_char
-op_star
-)paren
-id|p-&gt;pack_base
+id|p-&gt;windows-&gt;base
 op_plus
 id|entry-&gt;in_pack_offset
 op_plus
@@ -4663,7 +4659,7 @@ id|p
 suffix:semicolon
 id|buf
 op_assign
-id|p-&gt;pack_base
+id|p-&gt;windows-&gt;base
 suffix:semicolon
 id|buf
 op_add_assign
