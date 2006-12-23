@@ -2322,8 +2322,6 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-DECL|macro|PACK_MAX_SZ
-mdefine_line|#define PACK_MAX_SZ (1&lt;&lt;26)
 DECL|variable|pack_used_ctr
 r_static
 r_int
@@ -2765,7 +2763,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|PACK_MAX_SZ
+id|packed_git_limit
 OL
 id|pack_mapped
 op_logical_and
