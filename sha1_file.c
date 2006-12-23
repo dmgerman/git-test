@@ -3341,9 +3341,15 @@ id|MAP_FAILED
 id|die
 c_func
 (paren
-l_string|&quot;packfile %s cannot be mapped.&quot;
+l_string|&quot;packfile %s cannot be mapped: %s&quot;
 comma
 id|p-&gt;pack_name
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|win-&gt;next
