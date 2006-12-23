@@ -1497,12 +1497,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|packed_git_window_size
+OL
+l_int|2
 )paren
 id|packed_git_window_size
 op_assign
-l_int|1
+l_int|2
 suffix:semicolon
 id|packed_git_window_size
 op_mul_assign
