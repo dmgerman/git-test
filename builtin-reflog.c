@@ -413,6 +413,9 @@ id|cb-&gt;expire_unreachable
 )paren
 op_logical_and
 (paren
+op_logical_neg
+id|cb-&gt;ref_commit
+op_logical_or
 (paren
 id|old
 op_logical_and
@@ -692,21 +695,16 @@ c_cond
 op_logical_neg
 id|cb.ref_commit
 )paren
-(brace
-id|status
-op_assign
-id|error
+id|fprintf
 c_func
 (paren
-l_string|&quot;ref &squot;%s&squot; does not point at a commit&quot;
+id|stderr
+comma
+l_string|&quot;warning: ref &squot;%s&squot; does not point at a commit&bslash;n&quot;
 comma
 id|ref
 )paren
 suffix:semicolon
-r_goto
-id|finish
-suffix:semicolon
-)brace
 id|cb.ref
 op_assign
 id|ref
