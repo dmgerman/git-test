@@ -4922,22 +4922,7 @@ r_int
 r_int
 id|base_offset
 suffix:semicolon
-multiline_comment|/* there must be at least 20 bytes left regardless of delta type */
-r_if
-c_cond
-(paren
-id|p-&gt;pack_size
-op_le
-id|offset
-op_plus
-l_int|20
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;truncated pack file&quot;
-)paren
-suffix:semicolon
+multiline_comment|/* use_pack() assured us we have [base_info, base_info + 20)&n;&t; * as a range that we can look at without walking off the&n;&t; * end of the mapped window.  Its actually the hash size&n;&t; * that is assured.  An OFS_DELTA longer than the hash size&n;&t; * is stupid, as then a REF_DELTA would be smaller to store.&n;&t; */
 r_if
 c_cond
 (paren
@@ -5460,6 +5445,7 @@ r_int
 r_int
 id|used
 suffix:semicolon
+multiline_comment|/* use_pack() assures us we have [base, base + 20) available&n;&t; * as a range that we can look at at.  (Its actually the hash&n;&t; * size that is assurred.)  With our object header encoding&n;&t; * the maximum deflated object size is 2^137, which is just&n;&t; * insane, so we know won&squot;t exceed what we have been given.&n;&t; */
 id|base
 op_assign
 id|use_pack
