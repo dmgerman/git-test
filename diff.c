@@ -7185,7 +7185,7 @@ id|err_empty
 suffix:semicolon
 id|s-&gt;data
 op_assign
-id|mmap
+id|xmmap
 c_func
 (paren
 l_int|NULL
@@ -7206,16 +7206,6 @@ c_func
 (paren
 id|fd
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|s-&gt;data
-op_eq
-id|MAP_FAILED
-)paren
-r_goto
-id|err_empty
 suffix:semicolon
 id|s-&gt;should_munmap
 op_assign

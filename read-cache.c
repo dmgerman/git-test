@@ -3587,7 +3587,7 @@ l_int|20
 )paren
 id|cache_mmap
 op_assign
-id|mmap
+id|xmmap
 c_func
 (paren
 l_int|NULL

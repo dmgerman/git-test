@@ -5672,7 +5672,7 @@ id|logfile
 suffix:semicolon
 id|logdata
 op_assign
-id|mmap
+id|xmmap
 c_func
 (paren
 l_int|NULL

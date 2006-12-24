@@ -3452,7 +3452,7 @@ id|st
 suffix:semicolon
 id|contents
 op_assign
-id|mmap
+id|xmmap
 c_func
 (paren
 l_int|NULL
