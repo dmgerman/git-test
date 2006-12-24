@@ -1,8 +1,8 @@
 macro_line|#include &quot;../git-compat-util.h&quot;
-DECL|function|gitfakemmap
+DECL|function|git_mmap
 r_void
 op_star
-id|gitfakemmap
+id|git_mmap
 c_func
 (paren
 r_void
@@ -60,7 +60,7 @@ id|MAP_PRIVATE
 id|die
 c_func
 (paren
-l_string|&quot;Invalid usage of gitfakemmap.&quot;
+l_string|&quot;Invalid usage of mmap when built with NO_MMAP&quot;
 )paren
 suffix:semicolon
 r_if
@@ -216,9 +216,9 @@ r_return
 id|start
 suffix:semicolon
 )brace
-DECL|function|gitfakemunmap
+DECL|function|git_munmap
 r_int
-id|gitfakemunmap
+id|git_munmap
 c_func
 (paren
 r_void
