@@ -13,7 +13,7 @@ id|builtin_add_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-add [-n] [-v] &lt;filepattern&gt;...&quot;
+l_string|&quot;git-add [-n] [-v] [--interactive] [--] &lt;filepattern&gt;...&quot;
 suffix:semicolon
 DECL|function|prune_directory
 r_static
