@@ -151,6 +151,21 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|entry-&gt;ignored_entry
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;warning: &squot;%s&squot; is an ignored path.&bslash;n&quot;
+comma
+id|entry-&gt;name
+)paren
+suffix:semicolon
 op_star
 id|dst
 op_increment
