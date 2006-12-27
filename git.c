@@ -1488,6 +1488,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;reflog&quot;
+comma
+id|cmd_reflog
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;repo-config&quot;
 comma
 id|cmd_repo_config

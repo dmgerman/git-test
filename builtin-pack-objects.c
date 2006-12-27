@@ -20,7 +20,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--local] [--incremental] [--window=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--delta-base-offset] [--non-empty] &bslash;n&bslash;&n;&t;[--revs [--unpacked | --all]*] [--stdout | base-name] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--local] [--incremental] [--window=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--delta-base-offset] [--non-empty] &bslash;n&bslash;&n;&t;[--revs [--unpacked | --all]*] [--reflog] [--stdout | base-name] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -7954,6 +7954,15 @@ comma
 id|arg
 comma
 l_int|11
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--reflog&quot;
+comma
+id|arg
 )paren
 op_logical_or
 op_logical_neg
