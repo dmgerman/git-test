@@ -4675,15 +4675,15 @@ id|nodes
 suffix:semicolon
 )brace
 multiline_comment|/* merge-rebase stuff */
-multiline_comment|/* bits #0..7 in revision.h */
+multiline_comment|/* bits #0..15 in revision.h */
 DECL|macro|PARENT1
-mdefine_line|#define PARENT1&t;&t;(1u&lt;&lt; 8)
+mdefine_line|#define PARENT1&t;&t;(1u&lt;&lt;16)
 DECL|macro|PARENT2
-mdefine_line|#define PARENT2&t;&t;(1u&lt;&lt; 9)
+mdefine_line|#define PARENT2&t;&t;(1u&lt;&lt;17)
 DECL|macro|STALE
-mdefine_line|#define STALE&t;&t;(1u&lt;&lt;10)
+mdefine_line|#define STALE&t;&t;(1u&lt;&lt;18)
 DECL|macro|RESULT
-mdefine_line|#define RESULT&t;&t;(1u&lt;&lt;11)
+mdefine_line|#define RESULT&t;&t;(1u&lt;&lt;19)
 DECL|function|interesting
 r_static
 r_struct
@@ -5420,6 +5420,92 @@ id|rslt
 suffix:semicolon
 r_return
 id|result
+suffix:semicolon
+)brace
+DECL|function|in_merge_bases
+r_int
+id|in_merge_bases
+c_func
+(paren
+r_struct
+id|commit
+op_star
+id|rev1
+comma
+r_struct
+id|commit
+op_star
+id|rev2
+)paren
+(brace
+r_struct
+id|commit_list
+op_star
+id|bases
+comma
+op_star
+id|b
+suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|0
+suffix:semicolon
+id|bases
+op_assign
+id|get_merge_bases
+c_func
+(paren
+id|rev1
+comma
+id|rev2
+comma
+l_int|1
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|b
+op_assign
+id|bases
+suffix:semicolon
+id|b
+suffix:semicolon
+id|b
+op_assign
+id|b-&gt;next
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|hashcmp
+c_func
+(paren
+id|rev1-&gt;object.sha1
+comma
+id|b-&gt;item-&gt;object.sha1
+)paren
+)paren
+(brace
+id|ret
+op_assign
+l_int|1
+suffix:semicolon
+r_break
+suffix:semicolon
+)brace
+)brace
+id|free_commit_list
+c_func
+(paren
+id|bases
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 eof

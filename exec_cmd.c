@@ -70,7 +70,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_EXEC_PATH&quot;
+id|EXEC_PATH_ENVIRONMENT
 )paren
 suffix:semicolon
 r_if
@@ -126,7 +126,7 @@ comma
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_EXEC_PATH&quot;
+id|EXEC_PATH_ENVIRONMENT
 )paren
 comma
 id|builtin_exec_path

@@ -1,7 +1,5 @@
 multiline_comment|/*&n; * ident.c&n; *&n; * create git identifier lines of the form &quot;name &lt;email&gt; date&quot;&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;pwd.h&gt;
-macro_line|#include &lt;netdb.h&gt;
 DECL|variable|git_default_date
 r_static
 r_char
@@ -788,12 +786,17 @@ r_char
 op_star
 id|env_hint
 op_assign
-l_string|&quot;&bslash;n*** Environment problem:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 l_string|&quot;*** Your name cannot be determined from your system services (gecos).&bslash;n&quot;
-l_string|&quot;*** You would need to set %s and %s&bslash;n&quot;
-l_string|&quot;*** environment variables; otherwise you won&squot;t be able to perform&bslash;n&quot;
-l_string|&quot;*** certain operations because of &bslash;&quot;empty ident&bslash;&quot; errors.&bslash;n&quot;
-l_string|&quot;*** Alternatively, you can use user.name configuration variable.&bslash;n&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;Run&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git repo-config user.email &bslash;&quot;you@email.com&bslash;&quot;&bslash;n&quot;
+l_string|&quot;  git repo-config user.name &bslash;&quot;Your Name&bslash;&quot;&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;To set the identity in this repository.&bslash;n&quot;
+l_string|&quot;Add --global to set your account&bslash;&squot;s default&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 suffix:semicolon
 DECL|function|get_ident
 r_static
@@ -1121,5 +1124,62 @@ comma
 id|error_on_no_name
 )paren
 suffix:semicolon
+)brace
+DECL|function|ignore_missing_committer_name
+r_void
+id|ignore_missing_committer_name
+c_func
+(paren
+)paren
+(brace
+multiline_comment|/* If we did not get a name from the user&squot;s gecos entry then&n;&t; * git_default_name is empty; so instead load the username&n;&t; * into it as a &squot;good enough for now&squot; approximation of who&n;&t; * this user is.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|git_default_name
+)paren
+(brace
+r_struct
+id|passwd
+op_star
+id|pw
+op_assign
+id|getpwuid
+c_func
+(paren
+id|getuid
+c_func
+(paren
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pw
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;You don&squot;t exist. Go away!&quot;
+)paren
+suffix:semicolon
+id|strlcpy
+c_func
+(paren
+id|git_default_name
+comma
+id|pw-&gt;pw_name
+comma
+r_sizeof
+(paren
+id|git_default_name
+)paren
+)paren
+suffix:semicolon
+)brace
 )brace
 eof

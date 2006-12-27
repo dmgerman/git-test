@@ -1,7 +1,5 @@
-macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;git-compat-util.h&quot;
-macro_line|#include &lt;stdarg.h&gt;
+macro_line|#include &quot;color.h&quot;
 DECL|macro|COLOR_RESET
 mdefine_line|#define COLOR_RESET &quot;&bslash;033[m&quot;
 DECL|function|parse_color

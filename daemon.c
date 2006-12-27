@@ -1,19 +1,8 @@
-macro_line|#include &lt;signal.h&gt;
-macro_line|#include &lt;sys/wait.h&gt;
-macro_line|#include &lt;sys/socket.h&gt;
-macro_line|#include &lt;sys/time.h&gt;
-macro_line|#include &lt;sys/poll.h&gt;
-macro_line|#include &lt;netdb.h&gt;
-macro_line|#include &lt;netinet/in.h&gt;
-macro_line|#include &lt;arpa/inet.h&gt;
-macro_line|#include &lt;syslog.h&gt;
-macro_line|#include &lt;pwd.h&gt;
-macro_line|#include &lt;grp.h&gt;
-macro_line|#include &lt;limits.h&gt;
-macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;interpolate.h&quot;
+macro_line|#include &lt;syslog.h&gt;
 macro_line|#ifndef HOST_NAME_MAX
 DECL|macro|HOST_NAME_MAX
 mdefine_line|#define HOST_NAME_MAX 256

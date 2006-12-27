@@ -5,6 +5,7 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
+macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 DECL|variable|trees
 r_static
@@ -382,7 +383,7 @@ id|read_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-read-tree (&lt;sha&gt; | [[-m [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u | -i]] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
+l_string|&quot;git-read-tree (&lt;sha&gt; | [[-m [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u | -i]] [--exclude-per-directory=&lt;gitignore&gt;] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
 suffix:semicolon
 DECL|variable|lock_file
 r_static
@@ -773,6 +774,69 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--exclude-per-directory=&quot;
+comma
+l_int|24
+)paren
+)paren
+(brace
+r_struct
+id|dir_struct
+op_star
+id|dir
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts.dir
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;more than one --exclude-per-directory are given.&quot;
+)paren
+suffix:semicolon
+id|dir
+op_assign
+id|calloc
+c_func
+(paren
+l_int|1
+comma
+r_sizeof
+(paren
+op_star
+id|opts.dir
+)paren
+)paren
+suffix:semicolon
+id|dir-&gt;show_ignored
+op_assign
+l_int|1
+suffix:semicolon
+id|dir-&gt;exclude_per_dir
+op_assign
+id|arg
+op_plus
+l_int|24
+suffix:semicolon
+id|opts.dir
+op_assign
+id|dir
+suffix:semicolon
+multiline_comment|/* We do not need to nor want to do read-directory&n;&t;&t;&t; * here; we are merely interested in reusing the&n;&t;&t;&t; * per directory ignore stack mechanism.&n;&t;&t;&t; */
+r_continue
+suffix:semicolon
+)brace
 multiline_comment|/* using -u and -i at the same time makes no sense */
 r_if
 c_cond
@@ -847,6 +911,22 @@ id|usage
 c_func
 (paren
 id|read_tree_usage
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|opts.dir
+op_logical_and
+op_logical_neg
+id|opts.update
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--exclude-per-directory is meaningless unless -u&quot;
 )paren
 suffix:semicolon
 r_if

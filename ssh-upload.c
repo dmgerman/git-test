@@ -13,7 +13,6 @@ macro_line|#endif
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;rsh.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#include &lt;string.h&gt;
 DECL|variable|local_version
 r_static
 r_int

@@ -6,10 +6,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &lt;regex.h&gt;
 macro_line|#include &quot;grep.h&quot;
-macro_line|#include &lt;fnmatch.h&gt;
-macro_line|#include &lt;sys/wait.h&gt;
 multiline_comment|/*&n; * git grep pathspecs are somewhat different from diff-tree pathspecs;&n; * pathname wildcards are allowed.&n; */
 DECL|function|pathspec_matches
 r_static
@@ -1337,12 +1334,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ce_stage
-c_func
-(paren
-id|ce
-)paren
-op_logical_or
 op_logical_neg
 id|S_ISREG
 c_func
@@ -1443,6 +1434,13 @@ c_cond
 id|argc
 OL
 id|MAXARGS
+op_logical_and
+op_logical_neg
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
 )paren
 r_continue
 suffix:semicolon
@@ -1471,6 +1469,49 @@ id|argc
 op_assign
 id|nr
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+)paren
+(brace
+r_do
+(brace
+id|i
+op_increment
+suffix:semicolon
+)brace
+r_while
+c_loop
+(paren
+id|i
+OL
+id|active_nr
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|ce-&gt;name
+comma
+id|active_cache
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|name
+)paren
+)paren
+suffix:semicolon
+id|i
+op_decrement
+suffix:semicolon
+multiline_comment|/* compensate for loop control */
+)brace
 )brace
 r_if
 c_cond
@@ -1601,12 +1642,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ce_stage
-c_func
-(paren
-id|ce
-)paren
-op_logical_or
 op_logical_neg
 id|S_ISREG
 c_func
@@ -1639,6 +1674,18 @@ c_cond
 (paren
 id|cached
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+)paren
+r_continue
+suffix:semicolon
 id|hit
 op_or_assign
 id|grep_sha1
@@ -1653,6 +1700,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+)brace
 r_else
 id|hit
 op_or_assign
@@ -1664,6 +1712,49 @@ comma
 id|ce-&gt;name
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+)paren
+(brace
+r_do
+(brace
+id|nr
+op_increment
+suffix:semicolon
+)brace
+r_while
+c_loop
+(paren
+id|nr
+OL
+id|active_nr
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|ce-&gt;name
+comma
+id|active_cache
+(braket
+id|nr
+)braket
+op_member_access_from_pointer
+id|name
+)paren
+)paren
+suffix:semicolon
+id|nr
+op_decrement
+suffix:semicolon
+multiline_comment|/* compensate for loop control */
+)brace
 )brace
 id|free_grep_patterns
 c_func

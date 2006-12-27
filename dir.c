@@ -1,6 +1,4 @@
 multiline_comment|/*&n; * This handles recursive filename detection with exclude&n; * files, index knowledge etc..&n; *&n; * Copyright (C) Linus Torvalds, 2005-2006&n; *&t;&t; Junio Hamano, 2005-2006&n; */
-macro_line|#include &lt;dirent.h&gt;
-macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 DECL|function|common_prefix
@@ -172,6 +170,7 @@ r_return
 id|prefix
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Does &squot;match&squot; matches the given name?&n; * A match is found if&n; *&n; * (1) the &squot;match&squot; string is leading directory of &squot;name&squot;, or&n; * (2) the &squot;match&squot; string is a wildcard and matches &squot;name&squot;, or&n; * (3) the &squot;match&squot; string is exactly the same as &squot;name&squot;.&n; *&n; * and the return value tells which case it was.&n; *&n; * It returns 0 when there is no match.&n; */
 DECL|function|match_one
 r_static
 r_int
@@ -211,7 +210,7 @@ op_logical_neg
 id|matchlen
 )paren
 r_return
-l_int|1
+id|MATCHED_RECURSIVELY
 suffix:semicolon
 multiline_comment|/*&n;&t; * If we don&squot;t match the matchstring exactly,&n;&t; * we need to match by fnmatch&n;&t; */
 r_if
@@ -238,9 +237,27 @@ id|name
 comma
 l_int|0
 )paren
+ques
+c_cond
+id|MATCHED_FNMATCH
+suffix:colon
+l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * If we did match the string exactly, we still&n;&t; * need to make sure that it happened on a path&n;&t; * component boundary (ie either the last character&n;&t; * of the match was &squot;/&squot;, or the next character of&n;&t; * the name was &squot;/&squot; or the terminating NUL.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|name
+(braket
+id|matchlen
+)braket
+)paren
 r_return
+id|MATCHED_EXACTLY
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|match
 (braket
 id|matchlen
@@ -256,14 +273,15 @@ id|matchlen
 )braket
 op_eq
 l_char|&squot;/&squot;
-op_logical_or
-op_logical_neg
-id|name
-(braket
-id|matchlen
-)braket
+)paren
+r_return
+id|MATCHED_RECURSIVELY
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Given a name and a list of pathspecs, see if the name matches&n; * any of the pathspecs.  The caller is also interested in seeing&n; * all pathspec matches some names it calls this function with&n; * (otherwise the user could have mistyped the unmatched pathspec),&n; * and a mark is left in seen[] array for pathspec element that&n; * actually matched anything.&n; */
 DECL|function|match_pathspec
 r_int
 id|match_pathspec
@@ -328,13 +346,18 @@ id|seen
 op_increment
 )paren
 (brace
+r_int
+id|how
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|retval
-op_amp
+op_logical_and
 op_star
 id|seen
+op_eq
+id|MATCHED_EXACTLY
 )paren
 r_continue
 suffix:semicolon
@@ -342,9 +365,8 @@ id|match
 op_add_assign
 id|prefix
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|how
+op_assign
 id|match_one
 c_func
 (paren
@@ -354,16 +376,36 @@ id|name
 comma
 id|namelen
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|how
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|retval
+OL
+id|how
+)paren
 id|retval
 op_assign
-l_int|1
+id|how
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|seen
+OL
+id|how
+)paren
 op_star
 id|seen
 op_assign
-l_int|1
+id|how
 suffix:semicolon
 )brace
 )brace
@@ -760,7 +802,6 @@ id|fname
 suffix:semicolon
 )brace
 DECL|function|push_exclude_per_directory
-r_static
 r_int
 id|push_exclude_per_directory
 c_func
@@ -845,7 +886,6 @@ id|current_nr
 suffix:semicolon
 )brace
 DECL|function|pop_exclude_per_directory
-r_static
 r_void
 id|pop_exclude_per_directory
 c_func
@@ -1208,6 +1248,9 @@ id|pathname
 comma
 r_int
 id|len
+comma
+r_int
+id|ignored_entry
 )paren
 (brace
 r_struct
@@ -1282,6 +1325,10 @@ id|len
 op_plus
 l_int|1
 )paren
+suffix:semicolon
+id|ent-&gt;ignored_entry
+op_assign
+id|ignored_entry
 suffix:semicolon
 id|ent-&gt;len
 op_assign
@@ -1491,6 +1538,9 @@ l_int|NULL
 r_int
 id|len
 suffix:semicolon
+r_int
+id|ignored_entry
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1558,9 +1608,8 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|ignored_entry
+op_assign
 id|excluded
 c_func
 (paren
@@ -1568,12 +1617,19 @@ id|dir
 comma
 id|fullname
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dir-&gt;show_both
+op_logical_and
+(paren
+id|ignored_entry
 op_ne
 id|dir-&gt;show_ignored
 )paren
-(brace
-r_if
-c_cond
+op_logical_and
 (paren
 op_logical_neg
 id|dir-&gt;show_ignored
@@ -1586,11 +1642,9 @@ id|de
 op_ne
 id|DT_DIR
 )paren
-(brace
+)paren
 r_continue
 suffix:semicolon
-)brace
-)brace
 r_switch
 c_cond
 (paren
@@ -1771,6 +1825,8 @@ comma
 id|baselen
 op_plus
 id|len
+comma
+id|ignored_entry
 )paren
 suffix:semicolon
 )brace

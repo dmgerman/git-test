@@ -12,8 +12,6 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
-macro_line|#include &lt;sys/time.h&gt;
-macro_line|#include &lt;signal.h&gt;
 DECL|variable|pack_usage
 r_static
 r_const
@@ -22,7 +20,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--local] [--incremental] [--window=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--delta-base-offset] [--non-empty] &bslash;n&bslash;&n;&t;[--revs [--unpacked | --all]*] [--stdout | base-name] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--local] [--incremental] [--window=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--delta-base-offset] [--non-empty] &bslash;n&bslash;&n;&t;[--revs [--unpacked | --all]*] [--reflog] [--stdout | base-name] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -2477,6 +2475,23 @@ id|stderr
 suffix:semicolon
 id|done
 suffix:colon
+r_if
+c_cond
+(paren
+id|written
+op_ne
+id|nr_result
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;wrote %d objects while expecting %d&quot;
+comma
+id|written
+comma
+id|nr_result
+)paren
+suffix:semicolon
 id|sha1close
 c_func
 (paren
@@ -7945,6 +7960,15 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;--reflog&quot;
+comma
+id|arg
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;--all&quot;
 comma
 id|arg
@@ -8340,9 +8364,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total %d, written %d (delta %d), reused %d (delta %d)&bslash;n&quot;
-comma
-id|nr_result
+l_string|&quot;Total %d (delta %d), reused %d (delta %d)&bslash;n&quot;
 comma
 id|written
 comma

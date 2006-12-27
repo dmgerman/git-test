@@ -1,11 +1,5 @@
 multiline_comment|/*&n; * git-imap-send - drops patches into an imap Drafts folder&n; *                 derived from isync/mbsync - mailbox synchronizer&n; *&n; * Copyright (C) 2000-2002 Michael R. Elkins &lt;me@mutt.org&gt;&n; * Copyright (C) 2002-2004 Oswald Buddenhagen &lt;ossi@users.sf.net&gt;&n; * Copyright (C) 2004 Theodore Y. Ts&squot;o &lt;tytso@mit.edu&gt;&n; * Copyright (C) 2006 Mike McCormack&n; *&n; *  This program is free software; you can redistribute it and/or modify&n; *  it under the terms of the GNU General Public License as published by&n; *  the Free Software Foundation; either version 2 of the License, or&n; *  (at your option) any later version.&n; *&n; *  This program is distributed in the hope that it will be useful,&n; *  but WITHOUT ANY WARRANTY; without even the implied warranty of&n; *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&n; *  GNU General Public License for more details.&n; *&n; *  You should have received a copy of the GNU General Public License&n; *  along with this program; if not, write to the Free Software&n; *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;assert.h&gt;
-macro_line|#include &lt;netinet/in.h&gt;
-macro_line|#include &lt;netinet/tcp.h&gt;
-macro_line|#include &lt;arpa/inet.h&gt;
-macro_line|#include &lt;sys/socket.h&gt;
-macro_line|#include &lt;netdb.h&gt;
 DECL|struct|store_conf
 r_typedef
 r_struct
@@ -302,7 +296,7 @@ id|Quiet
 suffix:semicolon
 r_static
 r_void
-id|info
+id|imap_info
 c_func
 (paren
 r_const
@@ -316,7 +310,7 @@ dot
 suffix:semicolon
 r_static
 r_void
-id|warn
+id|imap_warn
 c_func
 (paren
 r_const
@@ -1189,8 +1183,8 @@ multiline_comment|/* not reached */
 )brace
 r_static
 r_void
-DECL|function|info
-id|info
+DECL|function|imap_info
+id|imap_info
 c_func
 (paren
 r_const
@@ -1245,8 +1239,8 @@ suffix:semicolon
 )brace
 r_static
 r_void
-DECL|function|warn
-id|warn
+DECL|function|imap_warn
+id|imap_warn
 c_func
 (paren
 r_const
@@ -4739,7 +4733,7 @@ c_cond
 id|srvc-&gt;tunnel
 )paren
 (brace
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;Starting tunnel &squot;%s&squot;... &quot;
@@ -4891,7 +4885,7 @@ id|a
 l_int|1
 )braket
 suffix:semicolon
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;ok&bslash;n&quot;
@@ -4926,7 +4920,7 @@ id|addr.sin_family
 op_assign
 id|AF_INET
 suffix:semicolon
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;Resolving %s... &quot;
@@ -4959,7 +4953,7 @@ r_goto
 id|bail
 suffix:semicolon
 )brace
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;ok&bslash;n&quot;
@@ -4991,7 +4985,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;Connecting to %s:%hu... &quot;
@@ -5048,7 +5042,7 @@ r_goto
 id|bail
 suffix:semicolon
 )brace
-id|info
+id|imap_info
 c_func
 (paren
 l_string|&quot;ok&bslash;n&quot;
@@ -5217,7 +5211,7 @@ op_logical_neg
 id|preauth
 )paren
 (brace
-id|info
+id|imap_info
 (paren
 l_string|&quot;Logging in...&bslash;n&quot;
 )paren
@@ -5355,7 +5349,7 @@ r_goto
 id|bail
 suffix:semicolon
 )brace
-id|warn
+id|imap_warn
 c_func
 (paren
 l_string|&quot;*** IMAP Warning *** Password is being sent in the clear&bslash;n&quot;

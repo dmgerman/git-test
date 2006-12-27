@@ -1649,6 +1649,8 @@ c_func
 id|ce
 comma
 id|ADD_CACHE_OK_TO_ADD
+op_or
+id|ADD_CACHE_OK_TO_REPLACE
 )paren
 )paren
 id|die
@@ -2342,6 +2344,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|ok_to_replace
 )paren
 r_break
@@ -2666,7 +2669,13 @@ op_logical_neg
 id|ok_to_replace
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; appears as both a file and as a directory&quot;
+comma
+id|ce-&gt;name
+)paren
 suffix:semicolon
 id|pos
 op_assign

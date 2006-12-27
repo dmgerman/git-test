@@ -1,5 +1,5 @@
-macro_line|#include &quot;wt-status.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;wt-status.h&quot;
 r_extern
 r_int
 id|wt_status_use_color

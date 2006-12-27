@@ -1,9 +1,9 @@
 multiline_comment|/*&n; * builtin-help.c&n; *&n; * Builtin help-related commands (help, usage, version)&n; */
-macro_line|#include &lt;sys/ioctl.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;common-cmds.h&quot;
+macro_line|#include &lt;sys/ioctl.h&gt;
 multiline_comment|/* most GUI terminals set COLUMNS (although some don&squot;t export it) */
 DECL|function|term_columns
 r_static

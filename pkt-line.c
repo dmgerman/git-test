@@ -353,7 +353,7 @@ id|ret
 id|die
 c_func
 (paren
-l_string|&quot;unexpected EOF&quot;
+l_string|&quot;The remote end hung up unexpectedly&quot;
 )paren
 suffix:semicolon
 id|n

@@ -1,6 +1,6 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;wt-status.h&quot;
 macro_line|#include &quot;color.h&quot;
-macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;commit.h&quot;
@@ -37,6 +37,15 @@ l_string|&quot;&bslash;033[31m&quot;
 comma
 multiline_comment|/* WT_STATUS_UNTRACKED: red */
 )brace
+suffix:semicolon
+DECL|variable|use_add_msg
+r_static
+r_const
+r_char
+op_star
+id|use_add_msg
+op_assign
+l_string|&quot;use &bslash;&quot;git add file1 file2&bslash;&quot; to include for commit&quot;
 suffix:semicolon
 DECL|function|parse_status_slot
 r_static
@@ -82,6 +91,17 @@ op_plus
 id|offset
 comma
 l_string|&quot;updated&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+op_plus
+id|offset
+comma
+l_string|&quot;added&quot;
 )paren
 )paren
 r_return
@@ -754,7 +774,7 @@ id|shown_header
 id|wt_status_print_header
 c_func
 (paren
-l_string|&quot;Updated but not checked in&quot;
+l_string|&quot;Added but not yet committed&quot;
 comma
 l_string|&quot;will commit&quot;
 )paren
@@ -823,9 +843,9 @@ id|q-&gt;nr
 id|wt_status_print_header
 c_func
 (paren
-l_string|&quot;Changed but not updated&quot;
+l_string|&quot;Changed but not added&quot;
 comma
-l_string|&quot;use git-update-index to mark for commit&quot;
+id|use_add_msg
 )paren
 suffix:semicolon
 r_for
@@ -902,7 +922,7 @@ suffix:semicolon
 id|wt_status_print_header
 c_func
 (paren
-l_string|&quot;Updated but not checked in&quot;
+l_string|&quot;Added but not yet committed&quot;
 comma
 l_string|&quot;will commit&quot;
 )paren
@@ -1316,7 +1336,7 @@ c_func
 (paren
 l_string|&quot;Untracked files&quot;
 comma
-l_string|&quot;use &bslash;&quot;git add&bslash;&quot; to add to commit&quot;
+id|use_add_msg
 )paren
 suffix:semicolon
 id|shown_header
@@ -1425,14 +1445,6 @@ r_if
 c_cond
 (paren
 id|s-&gt;branch
-op_logical_and
-id|strcmp
-c_func
-(paren
-id|s-&gt;branch
-comma
-l_string|&quot;refs/heads/master&quot;
-)paren
 )paren
 id|color_printf_ln
 c_func
@@ -1546,7 +1558,7 @@ id|s-&gt;commitable
 id|printf
 c_func
 (paren
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s (%s)&bslash;n&quot;
 comma
 id|s-&gt;amend
 ques
@@ -1554,6 +1566,8 @@ c_cond
 l_string|&quot;# No changes&quot;
 suffix:colon
 l_string|&quot;nothing to commit&quot;
+comma
+id|use_add_msg
 )paren
 suffix:semicolon
 )brace
@@ -1584,6 +1598,15 @@ id|k
 comma
 l_string|&quot;status.color&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|k
+comma
+l_string|&quot;color.status&quot;
+)paren
 )paren
 (brace
 id|wt_status_use_color
@@ -1610,6 +1633,17 @@ c_func
 id|k
 comma
 l_string|&quot;status.color.&quot;
+comma
+l_int|13
+)paren
+op_logical_or
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|k
+comma
+l_string|&quot;color.status&quot;
 comma
 l_int|13
 )paren

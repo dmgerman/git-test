@@ -1,18 +1,7 @@
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;sys/stat.h&gt;
-macro_line|#include &lt;dirent.h&gt;
-macro_line|#include &lt;unistd.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;errno.h&gt;
-macro_line|#include &lt;limits.h&gt;
-macro_line|#include &lt;stdarg.h&gt;
-macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
-macro_line|#include &quot;builtin.h&quot;
 DECL|variable|git_usage_string
 r_const
 r_char
@@ -322,11 +311,24 @@ c_cond
 op_star
 id|argc
 OL
-l_int|1
+l_int|2
 )paren
-r_return
-l_int|1
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;No directory given for --git-dir.&bslash;n&quot;
+)paren
 suffix:semicolon
+id|usage
+c_func
+(paren
+id|git_usage_string
+)paren
+suffix:semicolon
+)brace
 id|setenv
 c_func
 (paren
@@ -1414,6 +1416,12 @@ id|cmd_mailsplit
 )brace
 comma
 (brace
+l_string|&quot;merge-file&quot;
+comma
+id|cmd_merge_file
+)brace
+comma
+(brace
 l_string|&quot;mv&quot;
 comma
 id|cmd_mv
@@ -1480,9 +1488,25 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;reflog&quot;
+comma
+id|cmd_reflog
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;repo-config&quot;
 comma
 id|cmd_repo_config
+)brace
+comma
+(brace
+l_string|&quot;rerere&quot;
+comma
+id|cmd_rerere
+comma
+id|RUN_SETUP
 )brace
 comma
 (brace
@@ -1515,6 +1539,16 @@ comma
 id|cmd_runstatus
 comma
 id|RUN_SETUP
+)brace
+comma
+(brace
+l_string|&quot;shortlog&quot;
+comma
+id|cmd_shortlog
+comma
+id|RUN_SETUP
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace

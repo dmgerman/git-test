@@ -1,6 +1,5 @@
-macro_line|#include &lt;signal.h&gt;
-macro_line|#include &lt;sys/time.h&gt;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
@@ -415,6 +414,37 @@ id|len
 op_plus
 l_int|1
 suffix:semicolon
+r_int
+id|i_stk
+op_assign
+id|i_stk
+suffix:semicolon
+r_int
+id|retval
+op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;dir
+)paren
+id|i_stk
+op_assign
+id|push_exclude_per_directory
+c_func
+(paren
+id|o-&gt;dir
+comma
+id|base
+comma
+id|strlen
+c_func
+(paren
+id|base
+)paren
+)paren
+suffix:semicolon
 r_do
 (brace
 r_int
@@ -663,8 +693,8 @@ c_cond
 op_logical_neg
 id|first
 )paren
-r_return
-l_int|0
+r_goto
+id|leave_directory
 suffix:semicolon
 id|pathlen
 op_assign
@@ -1283,9 +1313,15 @@ comma
 id|df_conflict_list
 )paren
 )paren
-r_return
+(brace
+id|retval
+op_assign
 l_int|1
 suffix:semicolon
+r_goto
+id|leave_directory
+suffix:semicolon
+)brace
 id|free
 c_func
 (paren
@@ -1311,6 +1347,24 @@ c_loop
 (paren
 l_int|1
 )paren
+suffix:semicolon
+id|leave_directory
+suffix:colon
+r_if
+c_cond
+(paren
+id|o-&gt;dir
+)paren
+id|pop_exclude_per_directory
+c_func
+(paren
+id|o-&gt;dir
+comma
+id|i_stk
+)paren
+suffix:semicolon
+r_return
+id|retval
 suffix:semicolon
 )brace
 multiline_comment|/* Unlink the last component and attempt to remove leading&n; * directories, in case this unlink is the removal of the&n; * last entry in the directory -- empty directories are removed.&n; */
@@ -1869,9 +1923,11 @@ r_struct
 id|tree_entry_list
 id|df_conflict_list
 suffix:semicolon
+r_static
 r_struct
 id|cache_entry
-id|df_conflict_entry
+op_star
+id|dfc
 suffix:semicolon
 id|memset
 c_func
@@ -1926,24 +1982,31 @@ id|o-&gt;merge_size
 op_assign
 id|len
 suffix:semicolon
-id|memset
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dfc
+)paren
+id|dfc
+op_assign
+id|xcalloc
 c_func
 (paren
-op_amp
-id|df_conflict_entry
-comma
-l_int|0
+l_int|1
 comma
 r_sizeof
 (paren
-id|df_conflict_entry
+r_struct
+id|cache_entry
 )paren
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|o-&gt;df_conflict_entry
 op_assign
-op_amp
-id|df_conflict_entry
+id|dfc
 suffix:semicolon
 r_if
 c_cond
@@ -2272,7 +2335,7 @@ id|ce-&gt;name
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * We do not want to remove or overwrite a working tree file that&n; * is not tracked.&n; */
+multiline_comment|/*&n; * We do not want to remove or overwrite a working tree file that&n; * is not tracked, unless it is ignored.&n; */
 DECL|function|verify_absent
 r_static
 r_void
@@ -2322,6 +2385,19 @@ id|path
 comma
 op_amp
 id|st
+)paren
+op_logical_and
+op_logical_neg
+(paren
+id|o-&gt;dir
+op_logical_and
+id|excluded
+c_func
+(paren
+id|o-&gt;dir
+comma
+id|path
+)paren
 )paren
 )paren
 id|die
