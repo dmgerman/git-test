@@ -4102,7 +4102,14 @@ l_string|&quot;-u&quot;
 )paren
 id|metainfo_charset
 op_assign
+(paren
 id|git_commit_encoding
+ques
+c_cond
+id|git_commit_encoding
+suffix:colon
+l_string|&quot;utf-8&quot;
+)paren
 suffix:semicolon
 r_else
 r_if

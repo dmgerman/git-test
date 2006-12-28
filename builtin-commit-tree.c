@@ -634,8 +634,13 @@ id|parents
 op_increment
 suffix:semicolon
 )brace
+multiline_comment|/* Not having i18n.commitencoding is the same as having utf-8 */
 id|encoding_is_utf8
 op_assign
+(paren
+op_logical_neg
+id|git_commit_encoding
+op_logical_or
 op_logical_neg
 id|strcmp
 c_func
@@ -643,6 +648,7 @@ c_func
 id|git_commit_encoding
 comma
 l_string|&quot;utf-8&quot;
+)paren
 )paren
 suffix:semicolon
 id|init_buffer
