@@ -1059,6 +1059,20 @@ id|m-&gt;mode
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* no sense refining a conflict when one side is empty */
+r_if
+c_cond
+(paren
+id|m-&gt;chg1
+op_eq
+l_int|0
+op_logical_or
+id|m-&gt;chg2
+op_eq
+l_int|0
+)paren
+r_continue
+suffix:semicolon
 multiline_comment|/*&n;&t;&t; * This probably does not work outside git, since&n;&t;&t; * we have a very simple mmfile structure.&n;&t;&t; */
 id|t1.ptr
 op_assign
