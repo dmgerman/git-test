@@ -5008,6 +5008,7 @@ c_cond
 (paren
 id|log_all_ref_updates
 op_logical_and
+(paren
 op_logical_neg
 id|strncmp
 c_func
@@ -5017,6 +5018,18 @@ comma
 l_string|&quot;refs/heads/&quot;
 comma
 l_int|11
+)paren
+op_logical_or
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|lock-&gt;ref_name
+comma
+l_string|&quot;refs/remotes/&quot;
+comma
+l_int|13
+)paren
 )paren
 )paren
 (brace
