@@ -1230,10 +1230,11 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|add_name
-r_static
-r_void
-id|add_name
+DECL|function|dir_add_name
+r_struct
+id|dir_entry
+op_star
+id|dir_add_name
 c_func
 (paren
 r_struct
@@ -1269,6 +1270,7 @@ op_ge
 l_int|0
 )paren
 r_return
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -1323,6 +1325,12 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
+id|ent-&gt;ignored
+op_assign
+id|ent-&gt;ignored_dir
+op_assign
+l_int|0
+suffix:semicolon
 id|ent-&gt;len
 op_assign
 id|len
@@ -1350,6 +1358,9 @@ id|dir-&gt;nr
 op_increment
 )braket
 op_assign
+id|ent
+suffix:semicolon
+r_return
 id|ent
 suffix:semicolon
 )brace
@@ -1801,7 +1812,7 @@ r_goto
 id|exit_early
 suffix:semicolon
 r_else
-id|add_name
+id|dir_add_name
 c_func
 (paren
 id|dir
