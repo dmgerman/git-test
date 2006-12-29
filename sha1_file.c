@@ -2995,6 +2995,9 @@ r_char
 op_star
 id|idx_sha1
 suffix:semicolon
+r_int
+id|fd_flag
+suffix:semicolon
 id|p-&gt;pack_fd
 op_assign
 id|open
@@ -3074,6 +3077,57 @@ c_func
 l_string|&quot;packfile %s size changed&quot;
 comma
 id|p-&gt;pack_name
+)paren
+suffix:semicolon
+multiline_comment|/* We leave these file descriptors open with sliding mmap;&n;&t; * there is no point keeping them open across exec(), though.&n;&t; */
+id|fd_flag
+op_assign
+id|fcntl
+c_func
+(paren
+id|p-&gt;pack_fd
+comma
+id|F_GETFD
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|fd_flag
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot determine file descriptor flags&quot;
+)paren
+suffix:semicolon
+id|fd_flag
+op_or_assign
+id|FD_CLOEXEC
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|fcntl
+c_func
+(paren
+id|p-&gt;pack_fd
+comma
+id|F_SETFD
+comma
+id|fd_flag
+)paren
+op_eq
+l_int|1
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot set FD_CLOEXEC&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Verify we recognize this pack file format. */
