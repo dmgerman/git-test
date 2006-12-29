@@ -4971,6 +4971,10 @@ r_int
 r_int
 id|ofs
 suffix:semicolon
+r_int
+r_int
+id|used_0
+suffix:semicolon
 multiline_comment|/* there is at least 20 bytes left in the pack */
 r_switch
 c_cond
@@ -5024,11 +5028,15 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|used_0
+op_assign
+l_int|0
+suffix:semicolon
 id|c
 op_assign
 id|buf
 (braket
-id|used
+id|used_0
 op_increment
 )braket
 suffix:semicolon
@@ -5082,7 +5090,7 @@ id|c
 op_assign
 id|buf
 (braket
-id|used
+id|used_0
 op_increment
 )braket
 suffix:semicolon
@@ -5134,6 +5142,10 @@ id|p
 comma
 id|ofs
 )paren
+suffix:semicolon
+id|used
+op_add_assign
+id|used_0
 suffix:semicolon
 r_break
 suffix:semicolon
