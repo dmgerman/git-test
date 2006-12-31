@@ -6,9 +6,6 @@ r_int
 id|run_command_v_opt
 c_func
 (paren
-r_int
-id|argc
-comma
 r_const
 r_char
 op_star
@@ -253,9 +250,6 @@ r_int
 id|run_command_v
 c_func
 (paren
-r_int
-id|argc
-comma
 r_const
 r_char
 op_star
@@ -267,8 +261,6 @@ r_return
 id|run_command_v_opt
 c_func
 (paren
-id|argc
-comma
 id|argv
 comma
 l_int|0
@@ -392,8 +384,6 @@ r_return
 id|run_command_v_opt
 c_func
 (paren
-id|argc
-comma
 id|argv
 comma
 l_int|0

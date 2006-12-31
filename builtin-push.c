@@ -1541,8 +1541,6 @@ op_assign
 id|run_command_v
 c_func
 (paren
-id|argc
-comma
 id|argv
 )paren
 suffix:semicolon

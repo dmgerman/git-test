@@ -1046,8 +1046,6 @@ suffix:semicolon
 id|run_command_v_opt
 c_func
 (paren
-id|argc
-comma
 id|argv
 comma
 id|RUN_COMMAND_NO_STDIO
@@ -1581,8 +1579,6 @@ op_assign
 id|run_command_v_opt
 c_func
 (paren
-l_int|1
-comma
 id|unpacker
 comma
 id|RUN_GIT_CMD
