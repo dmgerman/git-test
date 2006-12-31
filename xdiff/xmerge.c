@@ -956,6 +956,9 @@ suffix:colon
 l_int|NULL
 )paren
 suffix:semicolon
+r_else
+r_continue
+suffix:semicolon
 id|i1
 op_assign
 id|m-&gt;i1
@@ -1231,7 +1234,7 @@ op_logical_neg
 id|xscr
 )paren
 (brace
-multiline_comment|/* If this happens, it&squot;s a bug. */
+multiline_comment|/* If this happens, the changes are identical. */
 id|xdl_free_env
 c_func
 (paren
@@ -1239,8 +1242,11 @@ op_amp
 id|xe
 )paren
 suffix:semicolon
-r_return
-l_int|2
+id|m-&gt;mode
+op_assign
+l_int|4
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 id|x
