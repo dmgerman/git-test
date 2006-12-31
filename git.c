@@ -332,7 +332,7 @@ suffix:semicolon
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_DIR&quot;
+id|GIT_DIR_ENVIRONMENT
 comma
 (paren
 op_star
@@ -377,7 +377,7 @@ l_int|10
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_DIR&quot;
+id|GIT_DIR_ENVIRONMENT
 comma
 id|cmd
 op_plus
@@ -413,7 +413,7 @@ suffix:semicolon
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_DIR&quot;
+id|GIT_DIR_ENVIRONMENT
 comma
 id|getcwd
 c_func
