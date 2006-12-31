@@ -5,6 +5,13 @@ macro_line|#ifndef DEFAULT_GIT_TEMPLATE_DIR
 DECL|macro|DEFAULT_GIT_TEMPLATE_DIR
 mdefine_line|#define DEFAULT_GIT_TEMPLATE_DIR &quot;/usr/share/git-core/templates/&quot;
 macro_line|#endif
+macro_line|#ifdef NO_TRUSTABLE_FILEMODE
+DECL|macro|TEST_FILEMODE
+mdefine_line|#define TEST_FILEMODE 0
+macro_line|#else
+DECL|macro|TEST_FILEMODE
+mdefine_line|#define TEST_FILEMODE 1
+macro_line|#endif
 DECL|function|safe_create_dir
 r_static
 r_void
@@ -940,6 +947,9 @@ suffix:semicolon
 r_int
 id|reinit
 suffix:semicolon
+r_int
+id|filemode
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1225,9 +1235,15 @@ l_string|&quot;config&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Check filemode trustability */
+id|filemode
+op_assign
+id|TEST_FILEMODE
+suffix:semicolon
 r_if
 c_cond
 (paren
+id|TEST_FILEMODE
+op_logical_and
 op_logical_neg
 id|lstat
 c_func
@@ -1243,7 +1259,6 @@ r_struct
 id|stat
 id|st2
 suffix:semicolon
-r_int
 id|filemode
 op_assign
 (paren
@@ -1273,6 +1288,7 @@ op_ne
 id|st2.st_mode
 )paren
 suffix:semicolon
+)brace
 id|git_config_set
 c_func
 (paren
@@ -1286,7 +1302,6 @@ suffix:colon
 l_string|&quot;false&quot;
 )paren
 suffix:semicolon
-)brace
 multiline_comment|/* Enable logAllRefUpdates if a working tree is attached */
 r_if
 c_cond
