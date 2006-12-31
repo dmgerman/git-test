@@ -405,7 +405,9 @@ r_static
 r_char
 id|git_dir
 (braket
-l_int|1024
+id|PATH_MAX
+op_plus
+l_int|1
 )braket
 suffix:semicolon
 id|setenv
@@ -418,7 +420,10 @@ c_func
 (paren
 id|git_dir
 comma
-l_int|1024
+r_sizeof
+(paren
+id|git_dir
+)paren
 )paren
 comma
 l_int|1
