@@ -46,7 +46,7 @@ c_cond
 (paren
 id|flags
 op_amp
-id|RUN_COMMAND_NO_STDIO
+id|RUN_COMMAND_NO_STDIN
 )paren
 (brace
 r_int
@@ -68,14 +68,6 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|dup2
-c_func
-(paren
-id|fd
-comma
-l_int|1
-)paren
-suffix:semicolon
 id|close
 c_func
 (paren
@@ -83,7 +75,6 @@ id|fd
 )paren
 suffix:semicolon
 )brace
-r_else
 r_if
 c_cond
 (paren

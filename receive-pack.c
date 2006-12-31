@@ -347,6 +347,8 @@ op_assign
 id|run_command_opt
 c_func
 (paren
+id|RUN_COMMAND_NO_STDIN
+op_or
 id|RUN_COMMAND_STDOUT_TO_STDERR
 comma
 id|update_hook
@@ -1050,7 +1052,9 @@ c_func
 (paren
 id|argv
 comma
-id|RUN_COMMAND_NO_STDIO
+id|RUN_COMMAND_NO_STDIN
+op_or
+id|RUN_COMMAND_STDOUT_TO_STDERR
 )paren
 suffix:semicolon
 )brace
