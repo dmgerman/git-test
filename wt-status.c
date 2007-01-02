@@ -249,6 +249,74 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+DECL|function|wt_status_print_cached_header
+r_static
+r_void
+id|wt_status_print_cached_header
+c_func
+(paren
+r_const
+r_char
+op_star
+id|reference
+)paren
+(brace
+r_const
+r_char
+op_star
+id|c
+op_assign
+id|color
+c_func
+(paren
+id|WT_STATUS_HEADER
+)paren
+suffix:semicolon
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;# Cached changes to be committed:&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|reference
+)paren
+(brace
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;#   (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; and &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+comma
+id|reference
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;#   (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+)paren
+suffix:semicolon
+)brace
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;#&quot;
+)paren
+suffix:semicolon
+)brace
 DECL|function|wt_status_print_header
 r_static
 r_void
@@ -760,12 +828,10 @@ op_logical_neg
 id|shown_header
 )paren
 (brace
-id|wt_status_print_header
+id|wt_status_print_cached_header
 c_func
 (paren
-l_string|&quot;Added but not yet committed&quot;
-comma
-l_string|&quot;will commit&quot;
+id|s-&gt;reference
 )paren
 suffix:semicolon
 id|s-&gt;commitable
@@ -921,12 +987,10 @@ id|s-&gt;commitable
 op_assign
 l_int|1
 suffix:semicolon
-id|wt_status_print_header
+id|wt_status_print_cached_header
 c_func
 (paren
-l_string|&quot;Added but not yet committed&quot;
-comma
-l_string|&quot;will commit&quot;
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
