@@ -3306,6 +3306,12 @@ r_return
 id|dst
 suffix:semicolon
 )brace
+DECL|variable|lock
+r_static
+r_struct
+id|lock_file
+id|lock
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -3349,10 +3355,6 @@ suffix:semicolon
 r_struct
 id|stat
 id|st
-suffix:semicolon
-r_struct
-id|lock_file
-id|lock
 suffix:semicolon
 id|setup_git_directory
 c_func
