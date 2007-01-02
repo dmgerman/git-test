@@ -1558,7 +1558,12 @@ comma
 r_const
 r_char
 op_star
-id|start
+id|start_name
+comma
+r_int
+r_char
+op_star
+id|start_sha1
 comma
 r_int
 id|force
@@ -1680,14 +1685,40 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|start_sha1
+)paren
+multiline_comment|/* detached HEAD */
+id|hashcpy
+c_func
+(paren
+id|sha1
+comma
+id|start_sha1
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 id|get_sha1
 c_func
 (paren
-id|start
+id|start_name
 comma
 id|sha1
 )paren
-op_logical_or
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Not a valid object name: &squot;%s&squot;.&quot;
+comma
+id|start_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 (paren
 id|commit
 op_assign
@@ -1705,7 +1736,7 @@ c_func
 (paren
 l_string|&quot;Not a valid branch point: &squot;%s&squot;.&quot;
 comma
-id|start
+id|start_name
 )paren
 suffix:semicolon
 id|hashcpy
@@ -1764,7 +1795,7 @@ id|msg
 comma
 l_string|&quot;branch: Created from %s&quot;
 comma
-id|start
+id|start_name
 )paren
 suffix:semicolon
 )brace
@@ -1842,6 +1873,18 @@ id|sha1
 (braket
 l_int|20
 )braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|oldname
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot rename the curren branch while not on any.&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -2644,6 +2687,8 @@ id|i
 comma
 id|head
 comma
+id|head_sha1
+comma
 id|force_create
 comma
 id|reflog
@@ -2672,6 +2717,8 @@ id|i
 op_plus
 l_int|1
 )braket
+comma
+l_int|NULL
 comma
 id|force_create
 comma
