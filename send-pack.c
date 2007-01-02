@@ -274,7 +274,11 @@ l_int|41
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
-id|write
+r_if
+c_cond
+(paren
+op_logical_neg
+id|write_in_full
 c_func
 (paren
 id|pipe_fd
@@ -285,7 +289,11 @@ comma
 id|buf
 comma
 l_int|42
+comma
+l_string|&quot;send-pack: send refs&quot;
 )paren
+)paren
+r_break
 suffix:semicolon
 )brace
 r_if
@@ -320,7 +328,11 @@ l_int|40
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
-id|write
+r_if
+c_cond
+(paren
+op_logical_neg
+id|write_in_full
 c_func
 (paren
 id|pipe_fd
@@ -331,7 +343,11 @@ comma
 id|buf
 comma
 l_int|41
+comma
+l_string|&quot;send-pack: send refs&quot;
 )paren
+)paren
+r_break
 suffix:semicolon
 )brace
 id|refs
