@@ -45,7 +45,7 @@ r_char
 op_star
 id|use_add_msg
 op_assign
-l_string|&quot;use &bslash;&quot;git add file1 file2&bslash;&quot; to include for commit&quot;
+l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to incrementally add content to commit&quot;
 suffix:semicolon
 DECL|function|parse_status_slot
 r_static
