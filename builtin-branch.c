@@ -12,7 +12,7 @@ id|builtin_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-branch [-r] (-d | -D) &lt;branchname&gt; | [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;] | (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt; | [-r | -a] [-v [--abbrev=&lt;length&gt;]]&quot;
+l_string|&quot;git-branch [-r] (-d | -D) &lt;branchname&gt; | [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;] | (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt; | [--color | --no-color] [-r | -a] [-v [--abbrev=&lt;length&gt;]]&quot;
 suffix:semicolon
 DECL|macro|REF_UNKNOWN_TYPE
 mdefine_line|#define REF_UNKNOWN_TYPE    0x00
