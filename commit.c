@@ -3886,6 +3886,10 @@ comma
 id|body
 op_assign
 l_int|0
+comma
+id|seen_title
+op_assign
+l_int|0
 suffix:semicolon
 r_int
 r_int
@@ -4358,6 +4362,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|seen_title
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|body
 )paren
 r_continue
@@ -4379,6 +4391,10 @@ id|CMIT_FMT_SHORT
 r_break
 suffix:semicolon
 )brace
+id|seen_title
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
