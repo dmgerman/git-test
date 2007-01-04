@@ -632,13 +632,6 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
-r_struct
-id|name_entry
-id|entry
-(braket
-l_int|3
-)braket
-suffix:semicolon
 r_int
 r_int
 id|mask
