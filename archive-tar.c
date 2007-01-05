@@ -32,6 +32,8 @@ DECL|variable|tar_umask
 r_static
 r_int
 id|tar_umask
+op_assign
+l_int|002
 suffix:semicolon
 DECL|variable|verbose
 r_static
@@ -1136,7 +1138,6 @@ comma
 id|archive_time
 )paren
 suffix:semicolon
-multiline_comment|/* XXX: should we provide more meaningful info here? */
 id|sprintf
 c_func
 (paren
@@ -1162,7 +1163,7 @@ c_func
 (paren
 id|header.uname
 comma
-l_string|&quot;git&quot;
+l_string|&quot;root&quot;
 comma
 r_sizeof
 (paren
@@ -1175,7 +1176,7 @@ c_func
 (paren
 id|header.gname
 comma
-l_string|&quot;git&quot;
+l_string|&quot;root&quot;
 comma
 r_sizeof
 (paren
