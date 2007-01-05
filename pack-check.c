@@ -1,5 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
+DECL|macro|BATCH
+mdefine_line|#define BATCH (1u&lt;&lt;20)
 DECL|function|verify_packfile
 r_static
 r_int
@@ -34,16 +36,6 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_int
-r_int
-id|pack_size
-op_assign
-id|p-&gt;pack_size
-suffix:semicolon
-r_void
-op_star
-id|pack_base
-suffix:semicolon
 r_struct
 id|pack_header
 op_star
@@ -55,6 +47,15 @@ comma
 id|err
 comma
 id|i
+suffix:semicolon
+r_int
+r_char
+op_star
+id|packdata
+suffix:semicolon
+r_int
+r_int
+id|datasize
 suffix:semicolon
 multiline_comment|/* Header consistency check */
 id|hdr
@@ -139,6 +140,7 @@ id|p
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/* Check integrity of pack data with its SHA-1 checksum */
 id|SHA1_Init
 c_func
 (paren
@@ -146,9 +148,35 @@ op_amp
 id|ctx
 )paren
 suffix:semicolon
-id|pack_base
+id|packdata
 op_assign
 id|p-&gt;pack_base
+suffix:semicolon
+id|datasize
+op_assign
+id|p-&gt;pack_size
+l_int|20
+suffix:semicolon
+r_while
+c_loop
+(paren
+id|datasize
+)paren
+(brace
+r_int
+r_int
+id|batch
+op_assign
+(paren
+id|datasize
+OL
+id|BATCH
+)paren
+ques
+c_cond
+id|datasize
+suffix:colon
+id|BATCH
 suffix:semicolon
 id|SHA1_Update
 c_func
@@ -156,12 +184,20 @@ c_func
 op_amp
 id|ctx
 comma
-id|pack_base
+id|packdata
 comma
-id|pack_size
-l_int|20
+id|batch
 )paren
 suffix:semicolon
+id|datasize
+op_sub_assign
+id|batch
+suffix:semicolon
+id|packdata
+op_add_assign
+id|batch
+suffix:semicolon
+)brace
 id|SHA1_Final
 c_func
 (paren
@@ -184,9 +220,11 @@ r_int
 r_char
 op_star
 )paren
-id|pack_base
+(paren
+id|p-&gt;pack_base
+)paren
 op_plus
-id|pack_size
+id|p-&gt;pack_size
 l_int|20
 )paren
 )paren
