@@ -1325,6 +1325,10 @@ id|prune_usage
 )paren
 suffix:semicolon
 )brace
+id|save_commit_buffer
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * Set up revision parsing, and mark us as being interested&n;&t; * in all object types, not just commits.&n;&t; */
 id|init_revisions
 c_func
