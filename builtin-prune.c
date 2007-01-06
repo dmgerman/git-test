@@ -24,12 +24,6 @@ r_static
 r_int
 id|show_only
 suffix:semicolon
-DECL|variable|revs
-r_static
-r_struct
-id|rev_info
-id|revs
-suffix:semicolon
 DECL|function|prune_object
 r_static
 r_int
@@ -969,6 +963,18 @@ id|object
 op_star
 id|object
 suffix:semicolon
+r_struct
+id|rev_info
+op_star
+id|revs
+op_assign
+(paren
+r_struct
+id|rev_info
+op_star
+)paren
+id|cb_data
+suffix:semicolon
 id|object
 op_assign
 id|parse_object
@@ -985,7 +991,6 @@ id|object
 id|add_pending_object
 c_func
 (paren
-op_amp
 id|revs
 comma
 id|object
@@ -1009,7 +1014,6 @@ id|object
 id|add_pending_object
 c_func
 (paren
-op_amp
 id|revs
 comma
 id|object
@@ -1057,6 +1061,18 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_struct
+id|rev_info
+op_star
+id|revs
+op_assign
+(paren
+r_struct
+id|rev_info
+op_star
+)paren
+id|cb_data
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1080,7 +1096,6 @@ suffix:semicolon
 id|add_pending_object
 c_func
 (paren
-op_amp
 id|revs
 comma
 id|object
@@ -1095,7 +1110,7 @@ id|path
 comma
 id|add_one_reflog_ent
 comma
-l_int|NULL
+id|cb_data
 )paren
 suffix:semicolon
 r_return
@@ -1113,6 +1128,11 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_struct
+id|rev_info
+op_star
+id|revs
 )paren
 (brace
 r_struct
@@ -1129,7 +1149,6 @@ suffix:semicolon
 id|add_pending_object
 c_func
 (paren
-op_amp
 id|revs
 comma
 op_amp
@@ -1149,6 +1168,11 @@ r_struct
 id|cache_tree
 op_star
 id|it
+comma
+r_struct
+id|rev_info
+op_star
+id|revs
 )paren
 (brace
 r_int
@@ -1165,6 +1189,8 @@ id|add_one_tree
 c_func
 (paren
 id|it-&gt;sha1
+comma
+id|revs
 )paren
 suffix:semicolon
 r_for
@@ -1190,6 +1216,8 @@ id|i
 )braket
 op_member_access_from_pointer
 id|cache_tree
+comma
+id|revs
 )paren
 suffix:semicolon
 )brace
@@ -1199,7 +1227,10 @@ r_void
 id|add_cache_refs
 c_func
 (paren
-r_void
+r_struct
+id|rev_info
+op_star
+id|revs
 )paren
 (brace
 r_int
@@ -1247,6 +1278,8 @@ id|add_cache_tree
 c_func
 (paren
 id|active_cache_tree
+comma
+id|revs
 )paren
 suffix:semicolon
 )brace
@@ -1272,6 +1305,10 @@ id|prefix
 (brace
 r_int
 id|i
+suffix:semicolon
+r_struct
+id|rev_info
+id|revs
 suffix:semicolon
 r_for
 c_loop
@@ -1351,19 +1388,22 @@ id|revs.tree_objects
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/* Add all external refs */
+multiline_comment|/* Add all external refs, along with its reflog info */
 id|for_each_ref
 c_func
 (paren
 id|add_one_ref
 comma
-l_int|NULL
+op_amp
+id|revs
 )paren
 suffix:semicolon
 multiline_comment|/* Add all refs from the index file */
 id|add_cache_refs
 c_func
 (paren
+op_amp
+id|revs
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Set up the revision walk - this will move all commits&n;&t; * from the pending list to the commit walking list.&n;&t; */
