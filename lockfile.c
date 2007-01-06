@@ -240,7 +240,7 @@ id|die_on_error
 id|die
 c_func
 (paren
-l_string|&quot;unable to create &squot;%s&squot;: %s&quot;
+l_string|&quot;unable to create &squot;%s.lock&squot;: %s&quot;
 comma
 id|path
 comma
