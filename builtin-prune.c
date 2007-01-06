@@ -1103,6 +1103,35 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+DECL|function|add_one_reflog
+r_static
+r_int
+id|add_one_reflog
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+comma
+r_const
+r_int
+r_char
+op_star
+id|sha1
+comma
+r_int
+id|flag
+comma
+r_void
+op_star
+id|cb_data
+)paren
+(brace
 id|for_each_reflog_ent
 c_func
 (paren
@@ -1388,7 +1417,7 @@ id|revs.tree_objects
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/* Add all external refs, along with its reflog info */
+multiline_comment|/* Add all external refs */
 id|for_each_ref
 c_func
 (paren
@@ -1402,6 +1431,16 @@ multiline_comment|/* Add all refs from the index file */
 id|add_cache_refs
 c_func
 (paren
+op_amp
+id|revs
+)paren
+suffix:semicolon
+multiline_comment|/* Add all reflog info from refs */
+id|for_each_ref
+c_func
+(paren
+id|add_one_reflog
+comma
 op_amp
 id|revs
 )paren
