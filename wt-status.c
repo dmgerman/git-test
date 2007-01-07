@@ -45,7 +45,7 @@ r_char
 op_star
 id|use_add_msg
 op_assign
-l_string|&quot;use &bslash;&quot;git add file1 file2&bslash;&quot; to include for commit&quot;
+l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to incrementally add content to commit&quot;
 suffix:semicolon
 DECL|function|parse_status_slot
 r_static
@@ -197,21 +197,6 @@ r_char
 op_star
 id|head
 suffix:semicolon
-id|s-&gt;is_initial
-op_assign
-id|get_sha1
-c_func
-(paren
-l_string|&quot;HEAD&quot;
-comma
-id|sha1
-)paren
-ques
-c_cond
-l_int|1
-suffix:colon
-l_int|0
-suffix:semicolon
 id|head
 op_assign
 id|resolve_ref
@@ -258,6 +243,78 @@ suffix:semicolon
 id|s-&gt;untracked
 op_assign
 l_int|0
+suffix:semicolon
+id|s-&gt;workdir_clean
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+DECL|function|wt_status_print_cached_header
+r_static
+r_void
+id|wt_status_print_cached_header
+c_func
+(paren
+r_const
+r_char
+op_star
+id|reference
+)paren
+(brace
+r_const
+r_char
+op_star
+id|c
+op_assign
+id|color
+c_func
+(paren
+id|WT_STATUS_HEADER
+)paren
+suffix:semicolon
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;# Cached changes to be committed:&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|reference
+)paren
+(brace
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;#   (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; and &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+comma
+id|reference
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;#   (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+)paren
+suffix:semicolon
+)brace
+id|color_printf_ln
+c_func
+(paren
+id|c
+comma
+l_string|&quot;#&quot;
+)paren
 suffix:semicolon
 )brace
 DECL|function|wt_status_print_header
@@ -771,12 +828,10 @@ op_logical_neg
 id|shown_header
 )paren
 (brace
-id|wt_status_print_header
+id|wt_status_print_cached_header
 c_func
 (paren
-l_string|&quot;Added but not yet committed&quot;
-comma
-l_string|&quot;will commit&quot;
+id|s-&gt;reference
 )paren
 suffix:semicolon
 id|s-&gt;commitable
@@ -832,6 +887,13 @@ op_star
 id|data
 )paren
 (brace
+r_struct
+id|wt_status
+op_star
+id|s
+op_assign
+id|data
+suffix:semicolon
 r_int
 id|i
 suffix:semicolon
@@ -840,6 +902,11 @@ c_cond
 (paren
 id|q-&gt;nr
 )paren
+(brace
+id|s-&gt;workdir_clean
+op_assign
+l_int|0
+suffix:semicolon
 id|wt_status_print_header
 c_func
 (paren
@@ -848,6 +915,7 @@ comma
 id|use_add_msg
 )paren
 suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
@@ -919,12 +987,10 @@ id|s-&gt;commitable
 op_assign
 l_int|1
 suffix:semicolon
-id|wt_status_print_header
+id|wt_status_print_cached_header
 c_func
 (paren
-l_string|&quot;Added but not yet committed&quot;
-comma
-l_string|&quot;will commit&quot;
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -1127,7 +1193,6 @@ r_void
 id|wt_status_print_untracked
 c_func
 (paren
-r_const
 r_struct
 id|wt_status
 op_star
@@ -1331,6 +1396,10 @@ op_logical_neg
 id|shown_header
 )paren
 (brace
+id|s-&gt;workdir_clean
+op_assign
+l_int|0
+suffix:semicolon
 id|wt_status_print_header
 c_func
 (paren
@@ -1441,6 +1510,28 @@ op_star
 id|s
 )paren
 (brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+id|s-&gt;is_initial
+op_assign
+id|get_sha1
+c_func
+(paren
+id|s-&gt;reference
+comma
+id|sha1
+)paren
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1555,21 +1646,43 @@ c_cond
 op_logical_neg
 id|s-&gt;commitable
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|s-&gt;amend
+)paren
 id|printf
 c_func
 (paren
-l_string|&quot;%s (%s)&bslash;n&quot;
-comma
-id|s-&gt;amend
-ques
-c_cond
-l_string|&quot;# No changes&quot;
-suffix:colon
-l_string|&quot;nothing to commit&quot;
-comma
-id|use_add_msg
+l_string|&quot;# No changes&bslash;n&quot;
 )paren
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|s-&gt;workdir_clean
+)paren
+id|printf
+c_func
+(paren
+id|s-&gt;is_initial
+ques
+c_cond
+l_string|&quot;nothing to commit&bslash;n&quot;
+suffix:colon
+l_string|&quot;nothing to commit (working directory matches HEAD)&bslash;n&quot;
+)paren
+suffix:semicolon
+r_else
+id|printf
+c_func
+(paren
+l_string|&quot;no changes added to commit (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit [-a|-i|-o]&bslash;&quot;)&bslash;n&quot;
+)paren
+suffix:semicolon
+)brace
 )brace
 DECL|function|git_status_config
 r_int
