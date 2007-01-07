@@ -1377,6 +1377,12 @@ id|cmd_help
 )brace
 comma
 (brace
+l_string|&quot;init&quot;
+comma
+id|cmd_init_db
+)brace
+comma
+(brace
 l_string|&quot;init-db&quot;
 comma
 id|cmd_init_db
