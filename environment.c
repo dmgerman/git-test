@@ -37,7 +37,10 @@ suffix:semicolon
 DECL|variable|log_all_ref_updates
 r_int
 id|log_all_ref_updates
+op_assign
+l_int|1
 suffix:semicolon
+multiline_comment|/* unspecified */
 DECL|variable|warn_ambiguous_refs
 r_int
 id|warn_ambiguous_refs
@@ -280,19 +283,11 @@ l_string|&quot;info/grafts&quot;
 )paren
 )paren
 suffix:semicolon
-id|log_all_ref_updates
-op_assign
-op_logical_neg
-id|is_bare_git_dir
-c_func
-(paren
-id|git_dir
-)paren
-suffix:semicolon
 )brace
 DECL|function|is_bare_git_dir
 r_int
 id|is_bare_git_dir
+c_func
 (paren
 r_const
 r_char
