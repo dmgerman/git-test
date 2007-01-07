@@ -277,7 +277,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;# Cached changes to be committed:&quot;
+l_string|&quot;# Changes to be committed:&quot;
 )paren
 suffix:semicolon
 r_if
@@ -291,7 +291,7 @@ c_func
 (paren
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; and &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+l_string|&quot;#   (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 comma
 id|reference
 )paren
