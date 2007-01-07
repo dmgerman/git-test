@@ -4999,13 +4999,9 @@ l_int|0
 id|log_all_ref_updates
 op_assign
 op_logical_neg
-id|is_bare_git_dir
+id|is_bare_repository
 c_func
 (paren
-id|get_git_dir
-c_func
-(paren
-)paren
 )paren
 suffix:semicolon
 r_if
