@@ -1705,7 +1705,7 @@ l_int|0666
 suffix:semicolon
 id|written
 op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -5280,7 +5280,7 @@ op_le
 id|maxlen
 ques
 c_cond
-id|write
+id|write_in_full
 c_func
 (paren
 id|logfd
@@ -5390,7 +5390,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|lock-&gt;lock_fd
@@ -5406,7 +5406,7 @@ l_int|40
 op_ne
 l_int|40
 op_logical_or
-id|write
+id|write_in_full
 c_func
 (paren
 id|lock-&gt;lock_fd

@@ -151,7 +151,10 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
-id|write
+r_if
+c_cond
+(paren
+id|write_in_full
 c_func
 (paren
 id|fd_out
@@ -161,6 +164,11 @@ id|remote
 comma
 l_int|1
 )paren
+op_ne
+l_int|1
+)paren
+r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -214,7 +222,7 @@ l_int|1
 r_return
 l_int|1
 suffix:semicolon
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd_out
@@ -336,7 +344,10 @@ id|remote
 op_assign
 l_int|1
 suffix:semicolon
-id|write
+r_if
+c_cond
+(paren
+id|write_in_full
 c_func
 (paren
 id|fd_out
@@ -346,6 +357,11 @@ id|remote
 comma
 l_int|1
 )paren
+op_ne
+l_int|1
+)paren
+r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -355,7 +371,7 @@ id|remote
 r_return
 l_int|0
 suffix:semicolon
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd_out

@@ -3971,7 +3971,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -4253,7 +4253,7 @@ id|WRITE_BUFFER_SIZE
 r_if
 c_cond
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -4290,7 +4290,7 @@ l_int|20
 suffix:semicolon
 r_return
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd

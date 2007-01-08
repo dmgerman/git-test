@@ -284,7 +284,7 @@ r_do
 id|ssize_t
 id|retval
 op_assign
-id|write
+id|xwrite
 c_func
 (paren
 id|obj_req-&gt;local

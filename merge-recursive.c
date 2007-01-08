@@ -2716,7 +2716,7 @@ l_int|0
 r_int
 id|ret
 op_assign
-id|xwrite
+id|write_in_full
 c_func
 (paren
 id|fd

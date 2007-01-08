@@ -631,7 +631,7 @@ suffix:semicolon
 )brace
 id|wrote
 op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -729,7 +729,7 @@ suffix:semicolon
 )brace
 id|wrote
 op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd

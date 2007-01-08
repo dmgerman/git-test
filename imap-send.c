@@ -931,7 +931,7 @@ id|len
 r_int
 id|n
 op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|sock-&gt;fd

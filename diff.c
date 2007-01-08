@@ -7425,7 +7425,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd

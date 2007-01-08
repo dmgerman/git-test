@@ -196,6 +196,7 @@ op_eq
 l_int|2
 )paren
 (brace
+multiline_comment|/* XXX: are we happy to lose stuff here? */
 id|xwrite
 c_func
 (paren
