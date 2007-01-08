@@ -294,6 +294,10 @@ r_do
 r_if
 c_cond
 (paren
+id|posn
+op_ge
+id|PATH_MAX
+op_logical_or
 id|read
 c_func
 (paren
