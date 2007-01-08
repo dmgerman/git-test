@@ -843,7 +843,7 @@ r_do
 (brace
 id|prev_read
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|prevlocal

@@ -9919,7 +9919,7 @@ suffix:semicolon
 )brace
 id|size
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|fd

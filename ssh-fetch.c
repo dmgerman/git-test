@@ -362,7 +362,7 @@ r_else
 r_if
 c_cond
 (paren
-id|read
+id|xread
 c_func
 (paren
 id|fd_in
@@ -468,7 +468,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read
+id|xread
 c_func
 (paren
 id|fd_in
@@ -545,7 +545,10 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|read
+r_if
+c_cond
+(paren
+id|read_in_full
 c_func
 (paren
 id|fd_in
@@ -555,6 +558,11 @@ id|remote
 comma
 l_int|1
 )paren
+op_ne
+l_int|1
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -566,7 +574,10 @@ l_int|0
 r_return
 id|remote
 suffix:semicolon
-id|read
+r_if
+c_cond
+(paren
+id|read_in_full
 c_func
 (paren
 id|fd_in
@@ -575,6 +586,11 @@ id|sha1
 comma
 l_int|20
 )paren
+op_ne
+l_int|20
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_return
 l_int|0

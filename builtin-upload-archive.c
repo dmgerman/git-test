@@ -502,6 +502,10 @@ c_cond
 (paren
 id|errno
 op_ne
+id|EAGAIN
+op_logical_and
+id|errno
+op_ne
 id|EINTR
 )paren
 id|error_clnt

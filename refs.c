@@ -1408,7 +1408,7 @@ l_int|NULL
 suffix:semicolon
 id|len
 op_assign
-id|read
+id|read_in_full
 c_func
 (paren
 id|fd

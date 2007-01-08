@@ -1217,7 +1217,7 @@ suffix:semicolon
 )brace
 id|sz
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|pu_pipe
@@ -1353,7 +1353,7 @@ id|POLLHUP
 multiline_comment|/* Status ready; we ship that in the side-band&n;&t;&t;&t;&t; * or dump to the standard error.&n;&t;&t;&t;&t; */
 id|sz
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|pe_pipe
