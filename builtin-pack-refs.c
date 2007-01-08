@@ -10,7 +10,7 @@ id|builtin_pack_refs_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-refs [--all] [--prune]&quot;
+l_string|&quot;git-pack-refs [--all] [--prune | --no-prune]&quot;
 suffix:semicolon
 DECL|struct|ref_to_prune
 r_struct
@@ -439,6 +439,10 @@ id|cbdata
 )paren
 )paren
 suffix:semicolon
+id|cbdata.prune
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -480,6 +484,27 @@ l_string|&quot;--prune&quot;
 id|cbdata.prune
 op_assign
 l_int|1
+suffix:semicolon
+multiline_comment|/* now the default */
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--no-prune&quot;
+)paren
+)paren
+(brace
+id|cbdata.prune
+op_assign
+l_int|0
 suffix:semicolon
 r_continue
 suffix:semicolon
