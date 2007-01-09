@@ -1,14 +1,9 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
-DECL|variable|show_all
+DECL|function|show_merge_base
 r_static
 r_int
-id|show_all
-suffix:semicolon
-DECL|function|merge_base
-r_static
-r_int
-id|merge_base
+id|show_merge_base
 c_func
 (paren
 r_struct
@@ -20,6 +15,9 @@ r_struct
 id|commit
 op_star
 id|rev2
+comma
+r_int
+id|show_all
 )paren
 (brace
 r_struct
@@ -92,18 +90,24 @@ id|merge_base_usage
 op_assign
 l_string|&quot;git-merge-base [--all] &lt;commit-id&gt; &lt;commit-id&gt;&quot;
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_merge_base
 r_int
-id|main
+id|cmd_merge_base
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_struct
@@ -126,10 +130,10 @@ id|rev2key
 l_int|20
 )braket
 suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
+r_int
+id|show_all
+op_assign
+l_int|0
 suffix:semicolon
 id|git_config
 c_func
@@ -155,6 +159,7 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
+r_const
 r_char
 op_star
 id|arg
@@ -295,12 +300,14 @@ r_return
 l_int|1
 suffix:semicolon
 r_return
-id|merge_base
+id|show_merge_base
 c_func
 (paren
 id|rev1
 comma
 id|rev2
+comma
+id|show_all
 )paren
 suffix:semicolon
 )brace

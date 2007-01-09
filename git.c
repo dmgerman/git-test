@@ -1427,6 +1427,14 @@ id|cmd_mailsplit
 )brace
 comma
 (brace
+l_string|&quot;merge-base&quot;
+comma
+id|cmd_merge_base
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;merge-file&quot;
 comma
 id|cmd_merge_file
