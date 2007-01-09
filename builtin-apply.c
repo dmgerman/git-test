@@ -3874,7 +3874,7 @@ l_int|0
 )paren
 r_continue
 suffix:semicolon
-id|error
+id|die
 c_func
 (paren
 l_string|&quot;patch fragment without header at line %d: %.*s&quot;
