@@ -3875,6 +3875,7 @@ l_int|0
 )paren
 r_continue
 suffix:semicolon
+r_return
 id|error
 c_func
 (paren
