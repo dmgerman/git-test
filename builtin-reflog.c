@@ -955,7 +955,10 @@ c_func
 (paren
 id|old
 comma
+op_amp
 id|cb-&gt;ref_commit
+comma
+l_int|1
 )paren
 )paren
 op_logical_or
@@ -968,7 +971,10 @@ c_func
 (paren
 r_new
 comma
+op_amp
 id|cb-&gt;ref_commit
+comma
+l_int|1
 )paren
 )paren
 )paren
