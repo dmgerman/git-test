@@ -5275,7 +5275,7 @@ id|nodes
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* merge-rebase stuff */
+multiline_comment|/* merge-base stuff */
 multiline_comment|/* bits #0..15 in revision.h */
 DECL|macro|PARENT1
 mdefine_line|#define PARENT1&t;&t;(1u&lt;&lt;16)
@@ -5285,6 +5285,22 @@ DECL|macro|STALE
 mdefine_line|#define STALE&t;&t;(1u&lt;&lt;18)
 DECL|macro|RESULT
 mdefine_line|#define RESULT&t;&t;(1u&lt;&lt;19)
+DECL|variable|all_flags
+r_static
+r_const
+r_int
+id|all_flags
+op_assign
+(paren
+id|PARENT1
+op_or
+id|PARENT2
+op_or
+id|STALE
+op_or
+id|RESULT
+)paren
+suffix:semicolon
 DECL|function|interesting
 r_static
 r_struct
@@ -5579,6 +5595,12 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/* Clean up the result to remove stale ones */
+id|free_commit_list
+c_func
+(paren
+id|list
+)paren
+suffix:semicolon
 id|list
 op_assign
 id|result
@@ -5655,20 +5677,6 @@ r_int
 id|cleanup
 )paren
 (brace
-r_const
-r_int
-id|all_flags
-op_assign
-(paren
-id|PARENT1
-op_or
-id|PARENT2
-op_or
-id|STALE
-op_or
-id|RESULT
-)paren
-suffix:semicolon
 r_struct
 id|commit_list
 op_star
