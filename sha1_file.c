@@ -15,6 +15,13 @@ DECL|macro|O_NOATIME
 mdefine_line|#define O_NOATIME 0
 macro_line|#endif
 macro_line|#endif
+macro_line|#ifdef NO_C99_FORMAT
+DECL|macro|SZ_FMT
+mdefine_line|#define SZ_FMT &quot;lu&quot;
+macro_line|#else
+DECL|macro|SZ_FMT
+mdefine_line|#define SZ_FMT &quot;zu&quot;
+macro_line|#endif
 DECL|variable|null_sha1
 r_const
 r_int
@@ -2370,9 +2377,15 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;pack_report: getpagesize()            = %10lu&bslash;n&quot;
-l_string|&quot;pack_report: core.packedGitWindowSize = %10lu&bslash;n&quot;
-l_string|&quot;pack_report: core.packedGitLimit      = %10lu&bslash;n&quot;
+l_string|&quot;pack_report: getpagesize()            = %10&quot;
+id|SZ_FMT
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;pack_report: core.packedGitWindowSize = %10&quot;
+id|SZ_FMT
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;pack_report: core.packedGitLimit      = %10&quot;
+id|SZ_FMT
+l_string|&quot;&bslash;n&quot;
 comma
 id|page_size
 comma
@@ -2389,7 +2402,12 @@ comma
 l_string|&quot;pack_report: pack_used_ctr            = %10u&bslash;n&quot;
 l_string|&quot;pack_report: pack_mmap_calls          = %10u&bslash;n&quot;
 l_string|&quot;pack_report: pack_open_windows        = %10u / %10u&bslash;n&quot;
-l_string|&quot;pack_report: pack_mapped              = %10lu / %10lu&bslash;n&quot;
+l_string|&quot;pack_report: pack_mapped              = &quot;
+l_string|&quot;%10&quot;
+id|SZ_FMT
+l_string|&quot; / %10&quot;
+id|SZ_FMT
+l_string|&quot;&bslash;n&quot;
 comma
 id|pack_used_ctr
 comma
