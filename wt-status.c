@@ -236,17 +236,21 @@ id|s-&gt;verbose
 op_assign
 l_int|0
 suffix:semicolon
-id|s-&gt;commitable
-op_assign
-l_int|0
-suffix:semicolon
 id|s-&gt;untracked
 op_assign
 l_int|0
 suffix:semicolon
-id|s-&gt;workdir_clean
+id|s-&gt;commitable
 op_assign
-l_int|1
+l_int|0
+suffix:semicolon
+id|s-&gt;workdir_dirty
+op_assign
+l_int|0
+suffix:semicolon
+id|s-&gt;workdir_untracked
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|wt_status_print_cached_header
@@ -903,9 +907,9 @@ c_cond
 id|q-&gt;nr
 )paren
 (brace
-id|s-&gt;workdir_clean
+id|s-&gt;workdir_dirty
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 id|wt_status_print_header
 c_func
@@ -1396,9 +1400,9 @@ op_logical_neg
 id|shown_header
 )paren
 (brace
-id|s-&gt;workdir_clean
+id|s-&gt;workdir_untracked
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 id|wt_status_print_header
 c_func
@@ -1662,24 +1666,43 @@ r_else
 r_if
 c_cond
 (paren
-id|s-&gt;workdir_clean
+id|s-&gt;workdir_dirty
 )paren
 id|printf
 c_func
 (paren
-id|s-&gt;is_initial
-ques
+l_string|&quot;no changes added to commit (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit [-a|-i|-o]&bslash;&quot;)&bslash;n&quot;
+)paren
+suffix:semicolon
+r_else
+r_if
 c_cond
-l_string|&quot;nothing to commit&bslash;n&quot;
-suffix:colon
-l_string|&quot;nothing to commit (working directory matches HEAD)&bslash;n&quot;
+(paren
+id|s-&gt;workdir_untracked
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;nothing added to commit but untracked files present (use &bslash;&quot;git add&bslash;&quot; to track)&bslash;n&quot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|s-&gt;is_initial
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;nothing to commit (create/copy files and use &bslash;&quot;git add&bslash;&quot; to track)&bslash;n&quot;
 )paren
 suffix:semicolon
 r_else
 id|printf
 c_func
 (paren
-l_string|&quot;no changes added to commit (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit [-a|-i|-o]&bslash;&quot;)&bslash;n&quot;
+l_string|&quot;nothing to commit (working directory clean)&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
