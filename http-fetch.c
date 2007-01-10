@@ -3900,6 +3900,14 @@ l_string|&quot;Unable to start request&quot;
 )paren
 suffix:semicolon
 )brace
+id|target-&gt;pack_size
+op_assign
+id|ftell
+c_func
+(paren
+id|packfile
+)paren
+suffix:semicolon
 id|fclose
 c_func
 (paren
