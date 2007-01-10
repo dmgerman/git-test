@@ -888,6 +888,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|save_commit_buffer
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
