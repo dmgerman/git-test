@@ -1291,6 +1291,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;describe&quot;
+comma
+id|cmd_describe
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;diff&quot;
 comma
 id|cmd_diff

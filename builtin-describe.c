@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|macro|SEEN
 mdefine_line|#define SEEN (1u &lt;&lt; 0)
 DECL|variable|describe_usage
@@ -743,18 +744,24 @@ id|cmit-&gt;object.sha1
 )paren
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_describe
 r_int
-id|main
+id|cmd_describe
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
@@ -883,11 +890,6 @@ id|describe_usage
 )paren
 suffix:semicolon
 )brace
-id|setup_git_directory
-c_func
-(paren
-)paren
-suffix:semicolon
 id|save_commit_buffer
 op_assign
 l_int|0
