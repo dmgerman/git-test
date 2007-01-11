@@ -8559,6 +8559,15 @@ id|len
 id|ssize_t
 id|size
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|len
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|size
 op_assign
 id|write_in_full
