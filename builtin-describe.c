@@ -977,6 +977,12 @@ id|min_match
 op_assign
 id|cur_match
 suffix:semicolon
+id|free_commit_list
+c_func
+(paren
+id|revs.commits
+)paren
+suffix:semicolon
 )brace
 id|printf
 c_func
