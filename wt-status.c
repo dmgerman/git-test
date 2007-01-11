@@ -42,10 +42,31 @@ DECL|variable|use_add_msg
 r_static
 r_const
 r_char
-op_star
 id|use_add_msg
+(braket
+)braket
 op_assign
-l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to incrementally add content to commit&quot;
+l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to update what will be committed&quot;
+suffix:semicolon
+DECL|variable|use_add_rm_msg
+r_static
+r_const
+r_char
+id|use_add_rm_msg
+(braket
+)braket
+op_assign
+l_string|&quot;use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; to update what will be committed&quot;
+suffix:semicolon
+DECL|variable|use_add_to_include_msg
+r_static
+r_const
+r_char
+id|use_add_to_include_msg
+(braket
+)braket
+op_assign
+l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to include in what will be committed&quot;
 suffix:semicolon
 DECL|function|parse_status_slot
 r_static
@@ -907,16 +928,57 @@ c_cond
 id|q-&gt;nr
 )paren
 (brace
+r_const
+r_char
+op_star
+id|msg
+op_assign
+id|use_add_msg
+suffix:semicolon
 id|s-&gt;workdir_dirty
 op_assign
 l_int|1
 suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|q-&gt;nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+r_if
+c_cond
+(paren
+id|q-&gt;queue
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|status
+op_eq
+id|DIFF_STATUS_DELETED
+)paren
+(brace
+id|msg
+op_assign
+id|use_add_rm_msg
+suffix:semicolon
+r_break
+suffix:semicolon
+)brace
 id|wt_status_print_header
 c_func
 (paren
-l_string|&quot;Changed but not added&quot;
+l_string|&quot;Changed but not updated&quot;
 comma
-id|use_add_msg
+id|msg
 )paren
 suffix:semicolon
 )brace
@@ -1409,7 +1471,7 @@ c_func
 (paren
 l_string|&quot;Untracked files&quot;
 comma
-id|use_add_msg
+id|use_add_to_include_msg
 )paren
 suffix:semicolon
 id|shown_header
