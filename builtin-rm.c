@@ -120,6 +120,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|ret
+op_logical_and
+id|errno
+op_eq
+id|ENOENT
+)paren
+multiline_comment|/* The user has removed it from the filesystem by hand */
+id|ret
+op_assign
+id|errno
+op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|ret
 op_logical_and
@@ -975,7 +991,7 @@ id|show_only
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * Then, unless we used &quot;--cache&quot;, remove the filenames from&n;&t; * the workspace. If we fail to remove the first one, we&n;&t; * abort the &quot;git rm&quot; (but once we&squot;ve successfully removed&n;&t; * any file at all, we&squot;ll go ahead and commit to it all:&n;&t; * by then we&squot;ve already committed ourselves and can&squot;t fail&n;&t; * in the middle)&n;&t; */
+multiline_comment|/*&n;&t; * Then, unless we used &quot;--cached&quot;, remove the filenames from&n;&t; * the workspace. If we fail to remove the first one, we&n;&t; * abort the &quot;git rm&quot; (but once we&squot;ve successfully removed&n;&t; * any file at all, we&squot;ll go ahead and commit to it all:&n;&t; * by then we&squot;ve already committed ourselves and can&squot;t fail&n;&t; * in the middle)&n;&t; */
 r_if
 c_cond
 (paren
