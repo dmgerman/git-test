@@ -4632,6 +4632,11 @@ comma
 id|sz
 )paren
 )paren
+id|free
+c_func
+(paren
+id|data
+)paren
 suffix:semicolon
 r_else
 (brace
