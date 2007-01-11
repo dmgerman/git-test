@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
+macro_line|#include &quot;reflog-walk.h&quot;
 DECL|function|show_parents
 r_static
 r_void
@@ -1034,6 +1035,17 @@ c_cond
 l_char|&squot; &squot;
 suffix:colon
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;reflog_info
+)paren
+id|show_reflog_message
+c_func
+(paren
+id|opt-&gt;reflog_info
 )paren
 suffix:semicolon
 )brace

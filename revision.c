@@ -7,6 +7,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;grep.h&quot;
+macro_line|#include &quot;reflog-walk.h&quot;
 DECL|function|path_name
 r_static
 r_char
@@ -474,6 +475,30 @@ id|name
 comma
 op_amp
 id|revs-&gt;pending
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;reflog_info
+op_logical_and
+id|obj-&gt;type
+op_eq
+id|OBJ_COMMIT
+)paren
+id|add_reflog_for_walk
+c_func
+(paren
+id|revs-&gt;reflog_info
+comma
+(paren
+r_struct
+id|commit
+op_star
+)paren
+id|obj
+comma
+id|name
 )paren
 suffix:semicolon
 )brace
@@ -4302,6 +4327,29 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--walk-reflogs&quot;
+)paren
+)paren
+(brace
+id|init_reflog_walk
+c_func
+(paren
+op_amp
+id|revs-&gt;reflog_info
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--not&quot;
 )paren
 )paren
@@ -6012,6 +6060,19 @@ id|free
 c_func
 (paren
 id|entry
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;reflog_info
+)paren
+id|fake_reflog_parent
+c_func
+(paren
+id|revs-&gt;reflog_info
+comma
+id|commit
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * If we haven&squot;t done the list limiting, we need to look at&n;&t;&t; * the parents here. We also need to do the date-based limiting&n;&t;&t; * that we&squot;d otherwise have done in limit_list().&n;&t;&t; */
