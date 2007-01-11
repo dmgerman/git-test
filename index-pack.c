@@ -4786,7 +4786,7 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
-id|write_in_full
+id|write_or_die
 c_func
 (paren
 l_int|1
