@@ -1355,7 +1355,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;%s: object not found&quot;
+l_string|&quot;%s: object corrupt or missing&quot;
 comma
 id|sha1_to_hex
 c_func
