@@ -1132,6 +1132,9 @@ DECL|macro|RUN_SETUP
 mdefine_line|#define RUN_SETUP&t;(1&lt;&lt;0)
 DECL|macro|USE_PAGER
 mdefine_line|#define USE_PAGER&t;(1&lt;&lt;1)
+multiline_comment|/*&n; * require working tree to be present -- anything uses this needs&n; * RUN_SETUP for reading from the configuration file.&n; */
+DECL|macro|NOT_BARE
+mdefine_line|#define NOT_BARE &t;(1&lt;&lt;2)
 DECL|function|handle_internal_command
 r_static
 r_void
@@ -1205,6 +1208,8 @@ comma
 id|cmd_add
 comma
 id|RUN_SETUP
+op_or
+id|NOT_BARE
 )brace
 comma
 (brace
@@ -1446,6 +1451,8 @@ comma
 id|cmd_mv
 comma
 id|RUN_SETUP
+op_or
+id|NOT_BARE
 )brace
 comma
 (brace
@@ -1550,6 +1557,8 @@ comma
 id|cmd_rm
 comma
 id|RUN_SETUP
+op_or
+id|NOT_BARE
 )brace
 comma
 (brace
@@ -1558,6 +1567,8 @@ comma
 id|cmd_runstatus
 comma
 id|RUN_SETUP
+op_or
+id|NOT_BARE
 )brace
 comma
 (brace
@@ -1804,6 +1815,28 @@ id|USE_PAGER
 id|setup_pager
 c_func
 (paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|p-&gt;option
+op_amp
+id|NOT_BARE
+)paren
+op_logical_and
+id|is_bare_repository
+c_func
+(paren
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;%s cannot be used in a bare git directory&quot;
+comma
+id|cmd
 )paren
 suffix:semicolon
 id|trace_argv_printf
