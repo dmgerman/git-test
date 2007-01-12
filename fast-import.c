@@ -7314,6 +7314,14 @@ l_int|10
 )paren
 )paren
 suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|sha1
+comma
+id|oe-&gt;sha1
+)paren
+suffix:semicolon
 id|p
 op_assign
 id|x
