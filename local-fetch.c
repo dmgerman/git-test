@@ -1067,7 +1067,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read
+id|read_in_full
 c_func
 (paren
 id|ifd

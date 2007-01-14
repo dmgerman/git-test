@@ -2642,7 +2642,7 @@ c_cond
 (paren
 id|type
 template_param
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 )paren
 id|die
 c_func
@@ -2994,7 +2994,7 @@ op_assign
 id|encode_header
 c_func
 (paren
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 comma
 id|deltalen
 comma
@@ -3623,7 +3623,7 @@ suffix:semicolon
 r_static
 r_void
 op_star
-id|unpack_entry
+id|gfi_unpack_entry
 c_func
 (paren
 r_int
@@ -3725,7 +3725,7 @@ l_string|&quot;I&squot;m broken; I can&squot;t find a base I know must be here.&
 suffix:semicolon
 id|base
 op_assign
-id|unpack_entry
+id|gfi_unpack_entry
 c_func
 (paren
 id|base_oe-&gt;offset
@@ -3804,11 +3804,11 @@ r_return
 id|result
 suffix:semicolon
 )brace
-DECL|function|unpack_entry
+DECL|function|gfi_unpack_entry
 r_static
 r_void
 op_star
-id|unpack_entry
+id|gfi_unpack_entry
 c_func
 (paren
 r_int
@@ -3855,7 +3855,7 @@ id|kind
 )paren
 (brace
 r_case
-id|OBJ_DELTA
+id|OBJ_REF_DELTA
 suffix:colon
 r_return
 id|unpack_delta_entry
@@ -4090,7 +4090,7 @@ id|sha1
 suffix:semicolon
 id|buf
 op_assign
-id|unpack_entry
+id|gfi_unpack_entry
 c_func
 (paren
 id|myoe-&gt;offset
@@ -6450,8 +6450,6 @@ c_func
 id|b-&gt;name
 comma
 l_int|NULL
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -6547,8 +6545,6 @@ c_func
 id|path
 comma
 l_int|NULL
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -7876,7 +7872,7 @@ id|oe-&gt;sha1
 suffix:semicolon
 id|buf
 op_assign
-id|unpack_entry
+id|gfi_unpack_entry
 c_func
 (paren
 id|oe-&gt;offset

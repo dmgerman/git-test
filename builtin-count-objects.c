@@ -378,6 +378,8 @@ id|has_sha1_pack
 c_func
 (paren
 id|sha1
+comma
+l_int|NULL
 )paren
 )paren
 (paren
@@ -666,6 +668,12 @@ id|packed_git
 op_star
 id|p
 suffix:semicolon
+r_int
+r_int
+id|num_pack
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -707,6 +715,9 @@ c_func
 id|p
 )paren
 suffix:semicolon
+id|num_pack
+op_increment
+suffix:semicolon
 )brace
 id|printf
 c_func
@@ -732,6 +743,14 @@ c_func
 l_string|&quot;in-pack: %lu&bslash;n&quot;
 comma
 id|packed
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;packs: %lu&bslash;n&quot;
+comma
+id|num_pack
 )paren
 suffix:semicolon
 id|printf

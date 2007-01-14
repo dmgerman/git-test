@@ -5,6 +5,13 @@ macro_line|#ifndef DEFAULT_GIT_TEMPLATE_DIR
 DECL|macro|DEFAULT_GIT_TEMPLATE_DIR
 mdefine_line|#define DEFAULT_GIT_TEMPLATE_DIR &quot;/usr/share/git-core/templates/&quot;
 macro_line|#endif
+macro_line|#ifdef NO_TRUSTABLE_FILEMODE
+DECL|macro|TEST_FILEMODE
+mdefine_line|#define TEST_FILEMODE 0
+macro_line|#else
+DECL|macro|TEST_FILEMODE
+mdefine_line|#define TEST_FILEMODE 1
+macro_line|#endif
 DECL|function|safe_create_dir
 r_static
 r_void
@@ -235,7 +242,7 @@ id|dirent
 op_star
 id|de
 suffix:semicolon
-multiline_comment|/* Note: if &quot;.git/hooks&quot; file exists in the repository being&n;&t; * re-initialized, /etc/core-git/templates/hooks/update would&n;&t; * cause git-init-db to fail here.  I think this is sane but&n;&t; * it means that the set of templates we ship by default, along&n;&t; * with the way the namespace under .git/ is organized, should&n;&t; * be really carefully chosen.&n;&t; */
+multiline_comment|/* Note: if &quot;.git/hooks&quot; file exists in the repository being&n;&t; * re-initialized, /etc/core-git/templates/hooks/update would&n;&t; * cause git-init to fail here.  I think this is sane but&n;&t; * it means that the set of templates we ship by default, along&n;&t; * with the way the namespace under .git/ is organized, should&n;&t; * be really carefully chosen.&n;&t; */
 id|safe_create_dir
 c_func
 (paren
@@ -694,10 +701,26 @@ c_cond
 op_logical_neg
 id|template_dir
 )paren
+(brace
+id|template_dir
+op_assign
+id|getenv
+c_func
+(paren
+id|TEMPLATE_DIR_ENVIRONMENT
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|template_dir
+)paren
 id|template_dir
 op_assign
 id|DEFAULT_GIT_TEMPLATE_DIR
 suffix:semicolon
+)brace
 id|strcpy
 c_func
 (paren
@@ -873,7 +896,7 @@ suffix:semicolon
 )brace
 DECL|function|create_default_files
 r_static
-r_void
+r_int
 id|create_default_files
 c_func
 (paren
@@ -920,6 +943,12 @@ id|repo_version_string
 (braket
 l_int|10
 )braket
+suffix:semicolon
+r_int
+id|reinit
+suffix:semicolon
+r_int
+id|filemode
 suffix:semicolon
 r_if
 c_cond
@@ -1132,18 +1161,22 @@ comma
 l_string|&quot;HEAD&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|reinit
+op_assign
+op_logical_neg
 id|read_ref
 c_func
 (paren
-id|path
+l_string|&quot;HEAD&quot;
 comma
 id|sha1
 )paren
-OL
-l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|reinit
 )paren
 (brace
 r_if
@@ -1152,7 +1185,7 @@ c_cond
 id|create_symref
 c_func
 (paren
-id|path
+l_string|&quot;HEAD&quot;
 comma
 l_string|&quot;refs/heads/master&quot;
 )paren
@@ -1202,9 +1235,15 @@ l_string|&quot;config&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Check filemode trustability */
+id|filemode
+op_assign
+id|TEST_FILEMODE
+suffix:semicolon
 r_if
 c_cond
 (paren
+id|TEST_FILEMODE
+op_logical_and
 op_logical_neg
 id|lstat
 c_func
@@ -1220,7 +1259,6 @@ r_struct
 id|stat
 id|st2
 suffix:semicolon
-r_int
 id|filemode
 op_assign
 (paren
@@ -1250,6 +1288,7 @@ op_ne
 id|st2.st_mode
 )paren
 suffix:semicolon
+)brace
 id|git_config_set
 c_func
 (paren
@@ -1263,7 +1302,46 @@ suffix:colon
 l_string|&quot;false&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_bare_repository
+c_func
+(paren
+)paren
+)paren
+(brace
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.bare&quot;
+comma
+l_string|&quot;true&quot;
+)paren
+suffix:semicolon
 )brace
+r_else
+(brace
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.bare&quot;
+comma
+l_string|&quot;false&quot;
+)paren
+suffix:semicolon
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.logallrefupdates&quot;
+comma
+l_string|&quot;true&quot;
+)paren
+suffix:semicolon
+)brace
+r_return
+id|reinit
+suffix:semicolon
 )brace
 DECL|variable|init_db_usage
 r_static
@@ -1273,7 +1351,7 @@ id|init_db_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-init-db [--template=&lt;template-directory&gt;] [--shared]&quot;
+l_string|&quot;git-init [--template=&lt;template-directory&gt;] [--shared]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * If you want to, you can share the DB area with any number of branches.&n; * That has advantages: you can save space by sharing all the SHA1 objects.&n; * On the other hand, it might just make lookup slower and messier. You&n; * be the judge.  The default case is to have one DB per managed directory.&n; */
 DECL|function|cmd_init_db
@@ -1321,6 +1399,8 @@ r_int
 id|len
 comma
 id|i
+comma
+id|reinit
 suffix:semicolon
 r_for
 c_loop
@@ -1437,20 +1517,10 @@ c_cond
 op_logical_neg
 id|git_dir
 )paren
-(brace
 id|git_dir
 op_assign
 id|DEFAULT_GIT_DIR_ENVIRONMENT
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;defaulting to local storage area&bslash;n&quot;
-)paren
-suffix:semicolon
-)brace
 id|safe_create_dir
 c_func
 (paren
@@ -1465,6 +1535,8 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|reinit
+op_assign
 id|create_default_files
 c_func
 (paren
@@ -1584,7 +1656,37 @@ comma
 id|buf
 )paren
 suffix:semicolon
+id|git_config_set
+c_func
+(paren
+l_string|&quot;receive.denyNonFastforwards&quot;
+comma
+l_string|&quot;true&quot;
+)paren
+suffix:semicolon
 )brace
+id|printf
+c_func
+(paren
+l_string|&quot;%s%s Git repository in %s/&bslash;n&quot;
+comma
+id|reinit
+ques
+c_cond
+l_string|&quot;Reinitialized existing&quot;
+suffix:colon
+l_string|&quot;Initialized empty&quot;
+comma
+id|shared_repository
+ques
+c_cond
+l_string|&quot; shared&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|git_dir
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon

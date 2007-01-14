@@ -892,7 +892,7 @@ r_return
 suffix:semicolon
 id|path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -1240,7 +1240,7 @@ suffix:semicolon
 r_else
 id|path
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|mkpath
@@ -1704,13 +1704,18 @@ r_if
 c_cond
 (paren
 id|argc
-OL
+op_ne
 l_int|4
 )paren
 id|usage
 c_func
 (paren
 id|merge_tree_usage
+)paren
+suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
 )paren
 suffix:semicolon
 id|buf1

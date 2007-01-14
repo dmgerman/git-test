@@ -332,17 +332,11 @@ multiline_comment|/* also identifier? */
 op_star
 id|rec
 op_eq
-l_char|&squot;(&squot;
-op_logical_or
-multiline_comment|/* lisp defun? */
-op_star
-id|rec
-op_eq
-l_char|&squot;#&squot;
+l_char|&squot;$&squot;
 )paren
 )paren
 (brace
-multiline_comment|/* #define? */
+multiline_comment|/* mysterious GNU diff&squot;s invention */
 r_if
 c_cond
 (paren
@@ -354,18 +348,26 @@ id|len
 op_assign
 id|sz
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
 (paren
+l_int|0
+OL
 id|len
 op_logical_and
+id|isspace
+c_func
+(paren
+(paren
+r_int
+r_char
+)paren
 id|rec
 (braket
 id|len
 l_int|1
 )braket
-op_eq
-l_char|&squot;&bslash;n&squot;
+)paren
 )paren
 id|len
 op_decrement
@@ -522,7 +524,7 @@ suffix:semicolon
 r_char
 id|funcbuf
 (braket
-l_int|40
+l_int|80
 )braket
 suffix:semicolon
 r_int

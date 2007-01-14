@@ -26,6 +26,13 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|flag
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -115,7 +122,7 @@ r_char
 op_star
 id|path0
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|git_path
@@ -199,6 +206,8 @@ id|for_each_ref
 c_func
 (paren
 id|add_info_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|fclose

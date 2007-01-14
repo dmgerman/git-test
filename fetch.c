@@ -1,5 +1,5 @@
-macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
@@ -85,15 +85,10 @@ id|report_missing
 c_func
 (paren
 r_const
-r_char
+r_struct
+id|object
 op_star
-id|what
-comma
-r_const
-r_int
-r_char
-op_star
-id|missing
+id|obj
 )paren
 (brace
 r_char
@@ -110,7 +105,7 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|missing
+id|obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
@@ -120,11 +115,37 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Cannot obtain needed %s %s&bslash;nwhile processing commit %s.&bslash;n&quot;
+l_string|&quot;Cannot obtain needed %s %s&bslash;n&quot;
 comma
-id|what
+id|obj-&gt;type
+ques
+c_cond
+r_typename
+(paren
+id|obj-&gt;type
+)paren
+suffix:colon
+l_string|&quot;object&quot;
 comma
 id|missing_hex
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|current_commit_sha1
+)paren
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;while processing commit %s.&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -801,12 +822,7 @@ id|obj-&gt;sha1
 id|report_missing
 c_func
 (paren
-r_typename
-(paren
-id|obj-&gt;type
-)paren
-comma
-id|obj-&gt;sha1
+id|obj
 )paren
 suffix:semicolon
 r_return
@@ -923,6 +939,13 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|flag
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -1136,7 +1159,7 @@ id|target
 id|targets
 )braket
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|tg_one
@@ -1153,7 +1176,7 @@ op_assign
 id|rf_one
 ques
 c_cond
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|rf_one
@@ -1348,8 +1371,6 @@ id|i
 )braket
 comma
 l_int|NULL
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -1388,6 +1409,8 @@ id|for_each_ref
 c_func
 (paren
 id|mark_complete
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_for
@@ -1584,11 +1607,6 @@ r_goto
 id|unlock_and_fail
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|msg
-)paren
 id|free
 c_func
 (paren

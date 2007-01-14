@@ -599,6 +599,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|src-&gt;sha1_valid
+op_logical_and
+id|dst-&gt;sha1_valid
+)paren
+r_return
+op_logical_neg
+id|hashcmp
+c_func
+(paren
+id|src-&gt;sha1
+comma
+id|dst-&gt;sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|diff_populate_filespec
 c_func
 (paren
@@ -1258,6 +1275,7 @@ c_func
 id|p-&gt;one
 )paren
 )paren
+(brace
 r_if
 c_cond
 (paren
@@ -1272,6 +1290,23 @@ r_continue
 suffix:semicolon
 multiline_comment|/* unmerged */
 r_else
+r_if
+c_cond
+(paren
+id|options-&gt;single_follow
+op_logical_and
+id|strcmp
+c_func
+(paren
+id|options-&gt;single_follow
+comma
+id|p-&gt;two-&gt;path
+)paren
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* not interested */
+r_else
 id|locate_rename_dst
 c_func
 (paren
@@ -1280,6 +1315,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond

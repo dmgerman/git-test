@@ -1,7 +1,5 @@
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
 DECL|function|strbuf_init
 r_void
 id|strbuf_init

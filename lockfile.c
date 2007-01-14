@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * Copyright (c) 2005, Junio C Hamano&n; */
-macro_line|#include &lt;signal.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|variable|lock_file_list
 r_static
@@ -131,7 +130,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|lk-&gt;next
+id|lk-&gt;on_list
 )paren
 (brace
 id|lk-&gt;next
@@ -142,6 +141,17 @@ id|lock_file_list
 op_assign
 id|lk
 suffix:semicolon
+id|lk-&gt;on_list
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|lock_file_list
+)paren
+(brace
 id|signal
 c_func
 (paren
@@ -176,6 +186,14 @@ id|lk-&gt;filename
 )paren
 suffix:semicolon
 )brace
+r_else
+id|lk-&gt;filename
+(braket
+l_int|0
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 r_return
 id|fd
 suffix:semicolon
@@ -222,7 +240,7 @@ id|die_on_error
 id|die
 c_func
 (paren
-l_string|&quot;unable to create &squot;%s&squot;: %s&quot;
+l_string|&quot;unable to create &squot;%s.lock&squot;: %s&quot;
 comma
 id|path
 comma

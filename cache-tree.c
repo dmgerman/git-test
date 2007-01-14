@@ -1,8 +1,10 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
+macro_line|#ifndef DEBUG
 DECL|macro|DEBUG
 mdefine_line|#define DEBUG 0
+macro_line|#endif
 DECL|function|cache_tree
 r_struct
 id|cache_tree
@@ -1382,6 +1384,16 @@ comma
 id|dryrun
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|subcnt
+OL
+l_int|0
+)paren
+r_return
+id|subcnt
+suffix:semicolon
 id|i
 op_add_assign
 id|subcnt
@@ -1737,18 +1749,7 @@ c_cond
 (paren
 id|dryrun
 )paren
-(brace
-r_int
-r_char
-id|hdr
-(braket
-l_int|200
-)braket
-suffix:semicolon
-r_int
-id|hdrlen
-suffix:semicolon
-id|write_sha1_file_prepare
+id|hash_sha1_file
 c_func
 (paren
 id|buffer
@@ -1758,14 +1759,8 @@ comma
 id|tree_type
 comma
 id|it-&gt;sha1
-comma
-id|hdr
-comma
-op_amp
-id|hdrlen
 )paren
 suffix:semicolon
-)brace
 r_else
 id|write_sha1_file
 c_func

@@ -262,6 +262,12 @@ id|nothing_done
 op_assign
 l_int|1
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren

@@ -249,6 +249,8 @@ c_func
 id|date
 comma
 id|tz
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|write_or_die

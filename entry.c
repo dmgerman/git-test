@@ -1,5 +1,3 @@
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;dirent.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;
 DECL|function|create_directories
@@ -633,7 +631,7 @@ suffix:semicolon
 )brace
 id|wrote
 op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -731,7 +729,7 @@ suffix:semicolon
 )brace
 id|wrote
 op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -887,7 +885,7 @@ r_static
 r_char
 id|path
 (braket
-id|MAXPATHLEN
+id|PATH_MAX
 op_plus
 l_int|1
 )braket

@@ -1,4 +1,3 @@
-macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
@@ -346,11 +345,6 @@ suffix:semicolon
 )brace
 )brace
 )brace
-DECL|variable|tags_only
-r_static
-r_int
-id|tags_only
-suffix:semicolon
 DECL|function|name_ref
 r_static
 r_int
@@ -367,6 +361,13 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|flags
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -379,6 +380,16 @@ c_func
 (paren
 id|sha1
 )paren
+suffix:semicolon
+r_int
+id|tags_only
+op_assign
+op_star
+(paren
+r_int
+op_star
+)paren
+id|cb_data
 suffix:semicolon
 r_int
 id|deref
@@ -515,7 +526,7 @@ c_func
 (paren
 id|commit
 comma
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path
@@ -669,6 +680,11 @@ op_assign
 l_int|0
 comma
 id|transform_stdin
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|tags_only
 op_assign
 l_int|0
 suffix:semicolon
@@ -982,6 +998,9 @@ id|for_each_ref
 c_func
 (paren
 id|name_ref
+comma
+op_amp
+id|tags_only
 )paren
 suffix:semicolon
 r_if

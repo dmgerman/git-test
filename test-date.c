@@ -1,5 +1,3 @@
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;time.h&gt;
 macro_line|#include &quot;cache.h&quot;
 DECL|function|main
 r_int

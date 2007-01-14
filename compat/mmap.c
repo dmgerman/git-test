@@ -1,12 +1,8 @@
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;unistd.h&gt;
-macro_line|#include &lt;errno.h&gt;
 macro_line|#include &quot;../git-compat-util.h&quot;
-DECL|function|gitfakemmap
+DECL|function|git_mmap
 r_void
 op_star
-id|gitfakemmap
+id|git_mmap
 c_func
 (paren
 r_void
@@ -51,33 +47,9 @@ id|MAP_PRIVATE
 id|die
 c_func
 (paren
-l_string|&quot;Invalid usage of gitfakemmap.&quot;
+l_string|&quot;Invalid usage of mmap when built with NO_MMAP&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|lseek
-c_func
-(paren
-id|fd
-comma
-id|offset
-comma
-id|SEEK_SET
-)paren
-OL
-l_int|0
-)paren
-(brace
-id|errno
-op_assign
-id|EINVAL
-suffix:semicolon
-r_return
-id|MAP_FAILED
-suffix:semicolon
-)brace
 id|start
 op_assign
 id|xmalloc
@@ -110,20 +82,27 @@ OL
 id|length
 )paren
 (brace
-r_int
+id|ssize_t
 id|count
 op_assign
-id|read
+id|pread
 c_func
 (paren
 id|fd
 comma
+(paren
+r_char
+op_star
+)paren
 id|start
 op_plus
 id|n
 comma
 id|length
-op_minus
+id|n
+comma
+id|offset
+op_plus
 id|n
 )paren
 suffix:semicolon
@@ -138,6 +117,10 @@ l_int|0
 id|memset
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|start
 op_plus
 id|n
@@ -160,6 +143,19 @@ OL
 l_int|0
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|EAGAIN
+op_logical_or
+id|errno
+op_eq
+id|EINTR
+)paren
+r_continue
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -183,9 +179,9 @@ r_return
 id|start
 suffix:semicolon
 )brace
-DECL|function|gitfakemunmap
+DECL|function|git_munmap
 r_int
-id|gitfakemunmap
+id|git_munmap
 c_func
 (paren
 r_void

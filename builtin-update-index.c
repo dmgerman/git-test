@@ -438,7 +438,7 @@ op_logical_neg
 id|trust_executable_bit
 )paren
 (brace
-multiline_comment|/* If there is an existing entry, pick the mode bits&n;&t;&t; * from it.&n;&t;&t; */
+multiline_comment|/* If there is an existing entry, pick the mode bits&n;&t;&t; * from it, otherwise assume unexecutable.&n;&t;&t; */
 r_int
 id|pos
 op_assign
@@ -465,6 +465,26 @@ id|pos
 )braket
 op_member_access_from_pointer
 id|ce_mode
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|S_ISREG
+c_func
+(paren
+id|st.st_mode
+)paren
+)paren
+id|ce-&gt;ce_mode
+op_assign
+id|create_ce_mode
+c_func
+(paren
+id|S_IFREG
+op_or
+l_int|0666
+)paren
 suffix:semicolon
 )brace
 r_if
@@ -1426,7 +1446,7 @@ id|update_index_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--really-refresh] [--cacheinfo] [--chmod=(+|-)x] [--assume-unchanged] [--info-only] [--force-remove] [--stdin] [--index-info] [--unresolve] [--again] [--ignore-missing] [-z] [--verbose] [--] &lt;file&gt;...&quot;
+l_string|&quot;git-update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--really-refresh] [--cacheinfo] [--chmod=(+|-)x] [--assume-unchanged] [--info-only] [--force-remove] [--stdin] [--index-info] [--unresolve] [--again | -g] [--ignore-missing] [-z] [--verbose] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 DECL|variable|head_sha1
 r_static
@@ -1923,11 +1943,7 @@ c_cond
 id|read_ref
 c_func
 (paren
-id|git_path
-c_func
-(paren
 l_string|&quot;HEAD&quot;
-)paren
 comma
 id|head_sha1
 )paren
@@ -1944,11 +1960,7 @@ c_cond
 id|read_ref
 c_func
 (paren
-id|git_path
-c_func
-(paren
 l_string|&quot;MERGE_HEAD&quot;
-)paren
 comma
 id|merge_head_sha1
 )paren
@@ -2138,11 +2150,7 @@ c_cond
 id|read_ref
 c_func
 (paren
-id|git_path
-c_func
-(paren
 l_string|&quot;HEAD&quot;
-)paren
 comma
 id|head_sha1
 )paren
@@ -3025,6 +3033,15 @@ c_func
 id|path
 comma
 l_string|&quot;--again&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|path
+comma
+l_string|&quot;-g&quot;
 )paren
 )paren
 (brace

@@ -1,4 +1,3 @@
-macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;path-list.h&quot;
 multiline_comment|/* if there is no exact match, point to the index where the entry could be&n; * inserted */
@@ -231,7 +230,7 @@ op_assign
 id|list-&gt;strdup_paths
 ques
 c_cond
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|path
@@ -449,16 +448,6 @@ dot
 id|path
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|list-&gt;items
-(braket
-id|i
-)braket
-dot
-id|util
-)paren
 id|free
 c_func
 (paren

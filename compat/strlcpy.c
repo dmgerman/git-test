@@ -1,4 +1,4 @@
-macro_line|#include &lt;string.h&gt;
+macro_line|#include &quot;../git-compat-util.h&quot;
 DECL|function|gitstrlcpy
 r_int
 id|gitstrlcpy

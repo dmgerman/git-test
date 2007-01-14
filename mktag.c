@@ -515,7 +515,7 @@ r_char
 op_star
 id|buffer
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size

@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * &quot;git mv&quot; builtin command&n; *&n; * Copyright (C) 2006 Johannes Schindelin&n; */
-macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;dir.h&quot;
@@ -1036,6 +1035,24 @@ c_cond
 id|src_is_dir
 )paren
 (brace
+r_const
+r_char
+op_star
+id|src_w_slash
+op_assign
+id|add_slash
+c_func
+(paren
+id|src
+)paren
+suffix:semicolon
+r_int
+id|len_w_slash
+op_assign
+id|length
+op_plus
+l_int|1
+suffix:semicolon
 r_int
 id|first
 comma
@@ -1053,9 +1070,9 @@ op_assign
 id|cache_name_pos
 c_func
 (paren
-id|src
+id|src_w_slash
 comma
-id|length
+id|len_w_slash
 )paren
 suffix:semicolon
 r_if
@@ -1067,9 +1084,11 @@ l_int|0
 )paren
 id|die
 (paren
-l_string|&quot;Huh? %s/ is in index?&quot;
+l_string|&quot;Huh? %.*s is in index?&quot;
 comma
-id|src
+id|len_w_slash
+comma
+id|src_w_slash
 )paren
 suffix:semicolon
 id|first
@@ -1112,21 +1131,24 @@ c_func
 (paren
 id|path
 comma
-id|src
+id|src_w_slash
 comma
-id|length
+id|len_w_slash
 )paren
-op_logical_or
-id|path
-(braket
-id|length
-)braket
-op_ne
-l_char|&squot;/&squot;
 )paren
 r_break
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+(paren
+r_char
+op_star
+)paren
+id|src_w_slash
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1157,7 +1179,7 @@ l_int|0
 (brace
 id|source
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|source
@@ -1178,7 +1200,7 @@ op_star
 suffix:semicolon
 id|destination
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|destination
@@ -1199,7 +1221,7 @@ op_star
 suffix:semicolon
 id|modes
 op_assign
-id|realloc
+id|xrealloc
 c_func
 (paren
 id|modes
@@ -1751,7 +1773,7 @@ dot
 id|path
 suffix:semicolon
 r_int
-id|i
+id|j
 op_assign
 id|cache_name_pos
 c_func
@@ -1772,13 +1794,13 @@ id|ce
 op_assign
 id|active_cache
 (braket
-id|i
+id|j
 )braket
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|i
+id|j
 OL
 l_int|0
 )paren
@@ -1864,6 +1886,14 @@ suffix:semicolon
 id|remove_file_from_cache
 c_func
 (paren
+id|path
+)paren
+suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
 id|path
 )paren
 suffix:semicolon

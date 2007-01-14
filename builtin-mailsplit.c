@@ -1,11 +1,4 @@
 multiline_comment|/*&n; * Totally braindamaged mbox splitter program.&n; *&n; * It just splits a mbox into a list of files: &quot;0001&quot; &quot;0002&quot; ..&n; * so you can process them further from there.&n; */
-macro_line|#include &lt;unistd.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;fcntl.h&gt;
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;sys/stat.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 DECL|variable|git_mailsplit_usage
