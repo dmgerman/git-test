@@ -234,10 +234,10 @@ comma
 l_int|1
 )brace
 suffix:semicolon
-DECL|variable|output_indent
+DECL|variable|call_depth
 r_static
 r_int
-id|output_indent
+id|call_depth
 op_assign
 l_int|0
 suffix:semicolon
@@ -268,7 +268,7 @@ c_loop
 (paren
 id|i
 op_assign
-id|output_indent
+id|call_depth
 suffix:semicolon
 id|i
 op_decrement
@@ -335,7 +335,7 @@ c_loop
 (paren
 id|i
 op_assign
-id|output_indent
+id|call_depth
 suffix:semicolon
 id|i
 op_decrement
@@ -6067,10 +6067,6 @@ r_char
 op_star
 id|branch2
 comma
-r_int
-id|call_depth
-multiline_comment|/* =0 */
-comma
 r_struct
 id|commit_list
 op_star
@@ -6258,11 +6254,8 @@ op_assign
 id|iter-&gt;next
 )paren
 (brace
-id|output_indent
-op_assign
 id|call_depth
-op_plus
-l_int|1
+op_increment
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * When the merge fails, the result contains files&n;&t;&t; * with conflict markers. The cleanness flag is&n;&t;&t; * ignored, it was never acutally used, as result of&n;&t;&t; * merge_trees has always overwritten it: the commited&n;&t;&t; * &quot;conflicts&quot; were already resolved.&n;&t;&t; */
 id|discard_cache
@@ -6281,19 +6274,14 @@ l_string|&quot;Temporary merge branch 1&quot;
 comma
 l_string|&quot;Temporary merge branch 2&quot;
 comma
-id|call_depth
-op_plus
-l_int|1
-comma
 l_int|NULL
 comma
 op_amp
 id|merged_common_ancestors
 )paren
 suffix:semicolon
-id|output_indent
-op_assign
 id|call_depth
+op_decrement
 suffix:semicolon
 r_if
 c_cond
@@ -6316,9 +6304,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|call_depth
-op_eq
-l_int|0
 )paren
 (brace
 id|read_cache
@@ -6917,8 +6904,6 @@ comma
 id|branch1
 comma
 id|branch2
-comma
-l_int|0
 comma
 id|ca
 comma
