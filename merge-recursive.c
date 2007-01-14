@@ -3958,7 +3958,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s is a directory in %s adding as %s instead&quot;
+l_string|&quot;%s is a directory in %s added as %s instead&quot;
 comma
 id|ren1_dst
 comma
@@ -4012,7 +4012,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s is a directory in %s adding as %s instead&quot;
+l_string|&quot;%s is a directory in %s added as %s instead&quot;
 comma
 id|ren2_dst
 comma
@@ -4110,7 +4110,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;Renaming %s to %s instead&quot;
+l_string|&quot;Renamed %s to %s instead&quot;
 comma
 id|ren1-&gt;pair-&gt;one-&gt;path
 comma
@@ -4202,7 +4202,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;Renaming %s to %s and %s to %s instead&quot;
+l_string|&quot;Renamed %s to %s and %s to %s instead&quot;
 comma
 id|ren1-&gt;pair-&gt;one-&gt;path
 comma
@@ -4822,7 +4822,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;Renaming %s-&gt;%s&quot;
+l_string|&quot;Renamed %s-&gt;%s&quot;
 comma
 id|src
 comma
@@ -4839,7 +4839,7 @@ c_func
 (paren
 l_int|2
 comma
-l_string|&quot;Auto-merging %s&quot;
+l_string|&quot;Auto-merged %s&quot;
 comma
 id|ren1_dst
 )paren
@@ -5010,7 +5010,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;CONFLICT (rename/directory): Rename %s-&gt;%s in %s &quot;
+l_string|&quot;CONFLICT (rename/directory): Renamed %s-&gt;%s in %s &quot;
 l_string|&quot; directory %s added in %s&quot;
 comma
 id|ren1_src
@@ -5055,7 +5055,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;CONFLICT (rename/delete): Rename %s-&gt;%s in %s &quot;
+l_string|&quot;CONFLICT (rename/delete): Renamed %s-&gt;%s in %s &quot;
 l_string|&quot;and deleted in %s&quot;
 comma
 id|ren1_src
@@ -5112,7 +5112,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;CONFLICT (rename/add): Rename %s-&gt;%s in %s. &quot;
+l_string|&quot;CONFLICT (rename/add): Renamed %s-&gt;%s in %s. &quot;
 l_string|&quot;%s added in %s&quot;
 comma
 id|ren1_src
@@ -5141,7 +5141,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;Adding as %s instead&quot;
+l_string|&quot;Added as %s instead&quot;
 comma
 id|new_path
 )paren
@@ -5193,8 +5193,8 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;CONFLICT (rename/rename): Rename %s-&gt;%s in %s. &quot;
-l_string|&quot;Rename %s-&gt;%s in %s&quot;
+l_string|&quot;CONFLICT (rename/rename): Renamed %s-&gt;%s in %s. &quot;
+l_string|&quot;Renamed %s-&gt;%s in %s&quot;
 comma
 id|ren1_src
 comma
@@ -5319,7 +5319,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;Renaming %s =&gt; %s&quot;
+l_string|&quot;Renamed %s =&gt; %s&quot;
 comma
 id|ren1_src
 comma
@@ -5336,7 +5336,7 @@ c_func
 (paren
 l_int|2
 comma
-l_string|&quot;Auto-merging %s&quot;
+l_string|&quot;Auto-merged %s&quot;
 comma
 id|ren1_dst
 )paren
@@ -5629,7 +5629,7 @@ c_func
 (paren
 l_int|2
 comma
-l_string|&quot;Removing %s&quot;
+l_string|&quot;Removed %s&quot;
 comma
 id|path
 )paren
@@ -5865,7 +5865,7 @@ c_func
 l_int|1
 comma
 l_string|&quot;CONFLICT (%s): There is a directory with name %s in %s. &quot;
-l_string|&quot;Adding %s as %s&quot;
+l_string|&quot;Added %s as %s&quot;
 comma
 id|conf
 comma
@@ -5908,7 +5908,7 @@ c_func
 (paren
 l_int|2
 comma
-l_string|&quot;Adding %s&quot;
+l_string|&quot;Added %s&quot;
 comma
 id|path
 )paren
@@ -5983,7 +5983,7 @@ c_func
 (paren
 l_int|2
 comma
-l_string|&quot;Auto-merging %s&quot;
+l_string|&quot;Auto-merged %s&quot;
 comma
 id|path
 )paren
