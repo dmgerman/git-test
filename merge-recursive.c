@@ -241,12 +241,46 @@ id|call_depth
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|verbosity
+r_static
+r_int
+id|verbosity
+op_assign
+l_int|2
+suffix:semicolon
+DECL|function|show
+r_static
+r_int
+id|show
+(paren
+r_int
+id|v
+)paren
+(brace
+r_return
+(paren
+op_logical_neg
+id|call_depth
+op_logical_and
+id|verbosity
+op_ge
+id|v
+)paren
+op_logical_or
+id|verbosity
+op_ge
+l_int|5
+suffix:semicolon
+)brace
 DECL|function|output
 r_static
 r_void
 id|output
 c_func
 (paren
+r_int
+id|v
+comma
 r_const
 r_char
 op_star
@@ -260,6 +294,24 @@ dot
 id|va_list
 id|args
 suffix:semicolon
+id|va_start
+c_func
+(paren
+id|args
+comma
+id|fmt
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|show
+c_func
+(paren
+id|v
+)paren
+)paren
+(brace
 r_int
 id|i
 suffix:semicolon
@@ -282,14 +334,6 @@ comma
 id|stdout
 )paren
 suffix:semicolon
-id|va_start
-c_func
-(paren
-id|args
-comma
-id|fmt
-)paren
-suffix:semicolon
 id|vfprintf
 c_func
 (paren
@@ -300,18 +344,19 @@ comma
 id|args
 )paren
 suffix:semicolon
-id|va_end
-c_func
-(paren
-id|args
-)paren
-suffix:semicolon
 id|fputc
 c_func
 (paren
 l_char|&squot;&bslash;n&squot;
 comma
 id|stdout
+)paren
+suffix:semicolon
+)brace
+id|va_end
+c_func
+(paren
+id|args
 )paren
 suffix:semicolon
 )brace
@@ -3518,6 +3563,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;%s is a directory in %s adding as %s instead&quot;
 comma
 id|ren1_dst
@@ -3570,6 +3617,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;%s is a directory in %s adding as %s instead&quot;
 comma
 id|ren2_dst
@@ -3666,6 +3715,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;Renaming %s to %s instead&quot;
 comma
 id|ren1-&gt;pair-&gt;one-&gt;path
@@ -3756,6 +3807,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;Renaming %s to %s and %s to %s instead&quot;
 comma
 id|ren1-&gt;pair-&gt;one-&gt;path
@@ -4299,6 +4352,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (rename/rename): &quot;
 l_string|&quot;Rename %s-&gt;%s in branch %s &quot;
 l_string|&quot;rename %s-&gt;%s in %s&quot;
@@ -4372,6 +4427,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;Renaming %s-&gt;%s&quot;
 comma
 id|src
@@ -4387,6 +4444,8 @@ id|mfi.merge
 id|output
 c_func
 (paren
+l_int|2
+comma
 l_string|&quot;Auto-merging %s&quot;
 comma
 id|ren1_dst
@@ -4402,6 +4461,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (content): merge conflict in %s&quot;
 comma
 id|ren1_dst
@@ -4554,6 +4615,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (rename/directory): Rename %s-&gt;%s in %s &quot;
 l_string|&quot; directory %s added in %s&quot;
 comma
@@ -4597,6 +4660,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (rename/delete): Rename %s-&gt;%s in %s &quot;
 l_string|&quot;and deleted in %s&quot;
 comma
@@ -4652,6 +4717,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (rename/add): Rename %s-&gt;%s in %s. &quot;
 l_string|&quot;%s added in %s&quot;
 comma
@@ -4679,6 +4746,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;Adding as %s instead&quot;
 comma
 id|new_path
@@ -4729,6 +4798,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (rename/rename): Rename %s-&gt;%s in %s. &quot;
 l_string|&quot;Rename %s-&gt;%s in %s&quot;
 comma
@@ -4853,6 +4924,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;Renaming %s =&gt; %s&quot;
 comma
 id|ren1_src
@@ -4868,6 +4941,8 @@ id|mfi.merge
 id|output
 c_func
 (paren
+l_int|2
+comma
 l_string|&quot;Auto-merging %s&quot;
 comma
 id|ren1_dst
@@ -4883,6 +4958,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (rename/modify): Merge conflict in %s&quot;
 comma
 id|ren1_dst
@@ -5157,6 +5234,8 @@ id|a_sha
 id|output
 c_func
 (paren
+l_int|2
+comma
 l_string|&quot;Removing %s&quot;
 comma
 id|path
@@ -5192,6 +5271,8 @@ id|a_sha
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (delete/modify): %s deleted in %s &quot;
 l_string|&quot;and modified in %s. Version %s of %s left in tree.&quot;
 comma
@@ -5224,6 +5305,8 @@ r_else
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (delete/modify): %s deleted in %s &quot;
 l_string|&quot;and modified in %s. Version %s of %s left in tree.&quot;
 comma
@@ -5386,6 +5469,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (%s): There is a directory with name %s in %s. &quot;
 l_string|&quot;Adding %s as %s&quot;
 comma
@@ -5428,6 +5513,8 @@ r_else
 id|output
 c_func
 (paren
+l_int|2
+comma
 l_string|&quot;Adding %s&quot;
 comma
 id|path
@@ -5501,6 +5588,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|2
+comma
 l_string|&quot;Auto-merging %s&quot;
 comma
 id|path
@@ -5599,6 +5688,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+l_int|1
+comma
 l_string|&quot;CONFLICT (%s): Merge conflict in %s&quot;
 comma
 id|reason
@@ -5711,6 +5802,8 @@ id|merge-&gt;object.sha1
 id|output
 c_func
 (paren
+l_int|0
+comma
 l_string|&quot;Already uptodate!&quot;
 )paren
 suffix:semicolon
@@ -6097,9 +6190,21 @@ suffix:semicolon
 r_int
 id|clean
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show
+c_func
+(paren
+l_int|4
+)paren
+)paren
+(brace
 id|output
 c_func
 (paren
+l_int|4
+comma
 l_string|&quot;Merging:&quot;
 )paren
 suffix:semicolon
@@ -6115,6 +6220,7 @@ c_func
 id|h2
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -6143,9 +6249,21 @@ id|ca
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|show
+c_func
+(paren
+l_int|5
+)paren
+)paren
+(brace
 id|output
 c_func
 (paren
+l_int|5
+comma
 l_string|&quot;found %u common ancestor(s):&quot;
 comma
 id|commit_list_count
@@ -6174,6 +6292,7 @@ c_func
 id|iter-&gt;item
 )paren
 suffix:semicolon
+)brace
 id|merged_common_ancestors
 op_assign
 id|pop_commit
@@ -6597,6 +6716,60 @@ op_star
 id|object
 suffix:semicolon
 )brace
+DECL|function|merge_config
+r_static
+r_int
+id|merge_config
+c_func
+(paren
+r_const
+r_char
+op_star
+id|var
+comma
+r_const
+r_char
+op_star
+id|value
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;merge.verbosity&quot;
+)paren
+)paren
+(brace
+id|verbosity
+op_assign
+id|git_config_int
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_return
+id|git_default_config
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
+)brace
 DECL|function|main
 r_int
 id|main
@@ -6681,10 +6854,34 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_default_config
+id|merge_config
 )paren
 suffix:semicolon
-multiline_comment|/* core.filemode */
+r_if
+c_cond
+(paren
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_MERGE_VERBOSITY&quot;
+)paren
+)paren
+id|verbosity
+op_assign
+id|strtol
+c_func
+(paren
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_MERGE_VERBOSITY&quot;
+)paren
+comma
+l_int|NULL
+comma
+l_int|10
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6826,6 +7023,15 @@ c_func
 id|branch2
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show
+c_func
+(paren
+l_int|3
+)paren
+)paren
 id|printf
 c_func
 (paren
