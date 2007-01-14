@@ -3149,7 +3149,10 @@ l_string|&quot;cannot set FD_CLOEXEC&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Verify we recognize this pack file format. */
-id|read_or_die
+r_if
+c_cond
+(paren
+id|read_in_full
 c_func
 (paren
 id|p-&gt;pack_fd
@@ -3161,6 +3164,19 @@ r_sizeof
 (paren
 id|hdr
 )paren
+)paren
+op_ne
+r_sizeof
+(paren
+id|hdr
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;file %s is far too short to be a packfile&quot;
+comma
+id|p-&gt;pack_name
 )paren
 suffix:semicolon
 r_if
@@ -3271,7 +3287,10 @@ comma
 id|p-&gt;pack_name
 )paren
 suffix:semicolon
-id|read_or_die
+r_if
+c_cond
+(paren
+id|read_in_full
 c_func
 (paren
 id|p-&gt;pack_fd
@@ -3282,6 +3301,19 @@ r_sizeof
 (paren
 id|sha1
 )paren
+)paren
+op_ne
+r_sizeof
+(paren
+id|sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;packfile %s signature is unavailable&quot;
+comma
+id|p-&gt;pack_name
 )paren
 suffix:semicolon
 id|idx_sha1
