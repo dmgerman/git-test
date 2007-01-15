@@ -284,7 +284,7 @@ r_do
 id|ssize_t
 id|retval
 op_assign
-id|write
+id|xwrite
 c_func
 (paren
 id|obj_req-&gt;local
@@ -843,7 +843,7 @@ r_do
 (brace
 id|prev_read
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|prevlocal
@@ -3900,6 +3900,14 @@ l_string|&quot;Unable to start request&quot;
 )paren
 suffix:semicolon
 )brace
+id|target-&gt;pack_size
+op_assign
+id|ftell
+c_func
+(paren
+id|packfile
+)paren
+suffix:semicolon
 id|fclose
 c_func
 (paren

@@ -326,7 +326,7 @@ id|n
 suffix:semicolon
 id|n
 op_assign
-id|xread
+id|read_in_full
 c_func
 (paren
 l_int|0
@@ -380,7 +380,7 @@ l_int|1
 suffix:semicolon
 id|n
 op_assign
-id|xwrite
+id|write_in_full
 c_func
 (paren
 l_int|1

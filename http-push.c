@@ -621,7 +621,7 @@ r_do
 id|ssize_t
 id|retval
 op_assign
-id|write
+id|xwrite
 c_func
 (paren
 id|request-&gt;local_fileno
@@ -1155,7 +1155,7 @@ r_do
 (brace
 id|prev_read
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|prevlocal
@@ -3683,6 +3683,15 @@ suffix:semicolon
 )brace
 r_else
 (brace
+id|off_t
+id|pack_size
+op_assign
+id|ftell
+c_func
+(paren
+id|request-&gt;local_stream
+)paren
+suffix:semicolon
 id|fclose
 c_func
 (paren
@@ -3714,6 +3723,10 @@ id|packed_git
 op_star
 )paren
 id|request-&gt;userData
+suffix:semicolon
+id|target-&gt;pack_size
+op_assign
+id|pack_size
 suffix:semicolon
 id|lst
 op_assign

@@ -278,7 +278,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|write_in_full
+id|write_or_whine
 c_func
 (paren
 id|pipe_fd
@@ -332,7 +332,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|write_in_full
+id|write_or_whine
 c_func
 (paren
 id|pipe_fd

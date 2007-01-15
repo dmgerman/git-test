@@ -651,7 +651,7 @@ c_cond
 (paren
 id|st.st_size
 op_ne
-id|xread
+id|read_in_full
 c_func
 (paren
 id|i

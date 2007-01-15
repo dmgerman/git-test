@@ -762,12 +762,6 @@ c_func
 l_string|&quot;current working directory is untracked&quot;
 )paren
 suffix:semicolon
-id|free
-c_func
-(paren
-id|tree
-)paren
-suffix:semicolon
 id|tree
 op_assign
 id|parse_tree_indirect

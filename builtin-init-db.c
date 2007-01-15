@@ -242,7 +242,7 @@ id|dirent
 op_star
 id|de
 suffix:semicolon
-multiline_comment|/* Note: if &quot;.git/hooks&quot; file exists in the repository being&n;&t; * re-initialized, /etc/core-git/templates/hooks/update would&n;&t; * cause git-init-db to fail here.  I think this is sane but&n;&t; * it means that the set of templates we ship by default, along&n;&t; * with the way the namespace under .git/ is organized, should&n;&t; * be really carefully chosen.&n;&t; */
+multiline_comment|/* Note: if &quot;.git/hooks&quot; file exists in the repository being&n;&t; * re-initialized, /etc/core-git/templates/hooks/update would&n;&t; * cause git-init to fail here.  I think this is sane but&n;&t; * it means that the set of templates we ship by default, along&n;&t; * with the way the namespace under .git/ is organized, should&n;&t; * be really carefully chosen.&n;&t; */
 id|safe_create_dir
 c_func
 (paren
@@ -1302,17 +1302,34 @@ suffix:colon
 l_string|&quot;false&quot;
 )paren
 suffix:semicolon
-multiline_comment|/* Enable logAllRefUpdates if a working tree is attached */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|is_bare_git_dir
+id|is_bare_repository
 c_func
 (paren
-id|git_dir
 )paren
 )paren
+(brace
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.bare&quot;
+comma
+l_string|&quot;true&quot;
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.bare&quot;
+comma
+l_string|&quot;false&quot;
+)paren
+suffix:semicolon
 id|git_config_set
 c_func
 (paren
@@ -1321,6 +1338,7 @@ comma
 l_string|&quot;true&quot;
 )paren
 suffix:semicolon
+)brace
 r_return
 id|reinit
 suffix:semicolon
@@ -1333,7 +1351,7 @@ id|init_db_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-init-db [--template=&lt;template-directory&gt;] [--shared]&quot;
+l_string|&quot;git-init [--template=&lt;template-directory&gt;] [--shared]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * If you want to, you can share the DB area with any number of branches.&n; * That has advantages: you can save space by sharing all the SHA1 objects.&n; * On the other hand, it might just make lookup slower and messier. You&n; * be the judge.  The default case is to have one DB per managed directory.&n; */
 DECL|function|cmd_init_db

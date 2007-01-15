@@ -3546,10 +3546,6 @@ id|errno
 )paren
 suffix:semicolon
 )brace
-id|cache_mmap
-op_assign
-id|MAP_FAILED
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3587,7 +3583,7 @@ l_int|20
 )paren
 id|cache_mmap
 op_assign
-id|mmap
+id|xmmap
 c_func
 (paren
 l_int|NULL
@@ -3605,30 +3601,31 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-)brace
-id|close
-c_func
-(paren
-id|fd
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|cache_mmap
-op_eq
-id|MAP_FAILED
-)paren
+r_else
 id|die
 c_func
 (paren
-l_string|&quot;index file mmap failed (%s)&quot;
+l_string|&quot;index file smaller than expected&quot;
+)paren
+suffix:semicolon
+)brace
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;cannot stat the open index (%s)&quot;
 comma
 id|strerror
 c_func
 (paren
 id|errno
 )paren
+)paren
+suffix:semicolon
+id|close
+c_func
+(paren
+id|fd
 )paren
 suffix:semicolon
 id|hdr
@@ -3974,7 +3971,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -4256,7 +4253,7 @@ id|WRITE_BUFFER_SIZE
 r_if
 c_cond
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -4293,7 +4290,7 @@ l_int|20
 suffix:semicolon
 r_return
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -4634,6 +4631,11 @@ id|data
 comma
 id|sz
 )paren
+)paren
+id|free
+c_func
+(paren
+id|data
 )paren
 suffix:semicolon
 r_else

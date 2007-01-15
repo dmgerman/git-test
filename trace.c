@@ -448,7 +448,7 @@ c_func
 id|rest
 )paren
 suffix:semicolon
-id|write_or_whine
+id|write_or_whine_pipe
 c_func
 (paren
 id|fd
@@ -656,7 +656,7 @@ comma
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
-id|write_or_whine
+id|write_or_whine_pipe
 c_func
 (paren
 id|fd

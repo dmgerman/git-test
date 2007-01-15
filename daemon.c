@@ -307,7 +307,7 @@ id|buflen
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
-id|write
+id|write_in_full
 c_func
 (paren
 l_int|2

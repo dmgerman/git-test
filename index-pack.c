@@ -3657,7 +3657,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|xread
+id|read_in_full
 c_func
 (paren
 id|output_fd
@@ -4786,7 +4786,7 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
-id|xwrite
+id|write_or_die
 c_func
 (paren
 l_int|1

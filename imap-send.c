@@ -866,7 +866,7 @@ id|len
 r_int
 id|n
 op_assign
-id|read
+id|xread
 c_func
 (paren
 id|sock-&gt;fd
@@ -931,7 +931,7 @@ id|len
 r_int
 id|n
 op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|sock-&gt;fd
@@ -1683,7 +1683,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read
+id|read_in_full
 c_func
 (paren
 id|fd
