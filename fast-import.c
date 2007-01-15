@@ -3453,6 +3453,22 @@ c_func
 id|idx_name
 )paren
 suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stdout
+comma
+l_string|&quot;%s&bslash;n&quot;
+comma
+id|old_p-&gt;pack_name
+)paren
+suffix:semicolon
+id|fflush
+c_func
+(paren
+id|stdout
+)paren
+suffix:semicolon
 multiline_comment|/* Register the packfile with core git&squot;s machinary. */
 id|new_p
 op_assign
