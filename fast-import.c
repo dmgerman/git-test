@@ -20,15 +20,16 @@ id|object_entry
 op_star
 id|next
 suffix:semicolon
-DECL|member|type
-r_enum
-id|object_type
-id|type
-suffix:semicolon
 DECL|member|offset
 r_int
 r_int
 id|offset
+suffix:semicolon
+DECL|member|type
+r_int
+id|type
+suffix:colon
+id|TYPE_BITS
 suffix:semicolon
 DECL|member|sha1
 r_int
@@ -448,7 +449,9 @@ r_int
 r_int
 id|object_count_by_type
 (braket
-l_int|9
+l_int|1
+op_lshift
+id|TYPE_BITS
 )braket
 suffix:semicolon
 DECL|variable|duplicate_count_by_type
@@ -457,7 +460,9 @@ r_int
 r_int
 id|duplicate_count_by_type
 (braket
-l_int|9
+l_int|1
+op_lshift
+id|TYPE_BITS
 )braket
 suffix:semicolon
 DECL|variable|delta_count_by_type
@@ -466,7 +471,9 @@ r_int
 r_int
 id|delta_count_by_type
 (braket
-l_int|9
+l_int|1
+op_lshift
+id|TYPE_BITS
 )braket
 suffix:semicolon
 multiline_comment|/* Memory pools */
@@ -725,6 +732,7 @@ r_void
 id|alloc_objects
 c_func
 (paren
+r_int
 r_int
 id|cnt
 )paren
