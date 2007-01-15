@@ -16,7 +16,7 @@ id|reflog_expire_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-reflog expire [--verbose] [--dry-run] [--fix-stale] [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--all] &lt;refs&gt;...&quot;
+l_string|&quot;git-reflog expire [--verbose] [--dry-run] [--stale-fix] [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--all] &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|default_reflog_expire
 r_static
