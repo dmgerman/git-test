@@ -398,7 +398,7 @@ l_int|20
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/* Stats and misc. counters */
+multiline_comment|/* Configured limits on output */
 DECL|variable|max_depth
 r_static
 r_int
@@ -406,14 +406,6 @@ r_int
 id|max_depth
 op_assign
 l_int|10
-suffix:semicolon
-DECL|variable|max_objects
-r_static
-r_int
-r_int
-id|max_objects
-op_assign
-l_int|1
 suffix:semicolon
 DECL|variable|max_packsize
 r_static
@@ -423,11 +415,58 @@ id|max_packsize
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|max_objects
+r_static
+r_uintmax
+id|max_objects
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* Stats and misc. counters */
 DECL|variable|alloc_count
 r_static
-r_int
-r_int
+r_uintmax
 id|alloc_count
+suffix:semicolon
+DECL|variable|object_count
+r_static
+r_uintmax
+id|object_count
+suffix:semicolon
+DECL|variable|marks_set_count
+r_static
+r_uintmax
+id|marks_set_count
+suffix:semicolon
+DECL|variable|object_count_by_type
+r_static
+r_uintmax
+id|object_count_by_type
+(braket
+l_int|1
+op_lshift
+id|TYPE_BITS
+)braket
+suffix:semicolon
+DECL|variable|duplicate_count_by_type
+r_static
+r_uintmax
+id|duplicate_count_by_type
+(braket
+l_int|1
+op_lshift
+id|TYPE_BITS
+)braket
+suffix:semicolon
+DECL|variable|delta_count_by_type
+r_static
+r_uintmax
+id|delta_count_by_type
+(braket
+l_int|1
+op_lshift
+id|TYPE_BITS
+)braket
 suffix:semicolon
 DECL|variable|branch_count
 r_static
@@ -440,51 +479,6 @@ r_static
 r_int
 r_int
 id|branch_load_count
-suffix:semicolon
-DECL|variable|object_count
-r_static
-r_int
-r_int
-id|object_count
-suffix:semicolon
-DECL|variable|marks_set_count
-r_static
-r_int
-r_int
-id|marks_set_count
-suffix:semicolon
-DECL|variable|object_count_by_type
-r_static
-r_int
-r_int
-id|object_count_by_type
-(braket
-l_int|1
-op_lshift
-id|TYPE_BITS
-)braket
-suffix:semicolon
-DECL|variable|duplicate_count_by_type
-r_static
-r_int
-r_int
-id|duplicate_count_by_type
-(braket
-l_int|1
-op_lshift
-id|TYPE_BITS
-)braket
-suffix:semicolon
-DECL|variable|delta_count_by_type
-r_static
-r_int
-r_int
-id|delta_count_by_type
-(braket
-l_int|1
-op_lshift
-id|TYPE_BITS
-)braket
 suffix:semicolon
 multiline_comment|/* Memory pools */
 DECL|variable|mem_pool_alloc
@@ -747,8 +741,7 @@ id|command_buf
 suffix:semicolon
 DECL|variable|next_mark
 r_static
-r_int
-r_int
+r_uintmax
 id|next_mark
 suffix:semicolon
 DECL|variable|new_data
@@ -1417,8 +1410,7 @@ r_void
 id|insert_mark
 c_func
 (paren
-r_int
-r_int
+r_uintmax
 id|idnum
 comma
 r_struct
@@ -1484,8 +1476,7 @@ c_loop
 id|s-&gt;shift
 )paren
 (brace
-r_int
-r_int
+r_uintmax
 id|i
 op_assign
 id|idnum
@@ -1572,13 +1563,11 @@ op_star
 id|find_mark
 c_func
 (paren
-r_int
-r_int
+r_uintmax
 id|idnum
 )paren
 (brace
-r_int
-r_int
+r_uintmax
 id|orig_idnum
 op_assign
 id|idnum
@@ -1617,8 +1606,7 @@ op_logical_and
 id|s-&gt;shift
 )paren
 (brace
-r_int
-r_int
+r_uintmax
 id|i
 op_assign
 id|idnum
@@ -1661,7 +1649,7 @@ id|oe
 id|die
 c_func
 (paren
-l_string|&quot;mark :%lu not declared&quot;
+l_string|&quot;mark :%ju not declared&quot;
 comma
 id|orig_idnum
 )paren
@@ -3718,8 +3706,7 @@ r_char
 op_star
 id|sha1out
 comma
-r_int
-r_int
+r_uintmax
 id|mark
 )paren
 (brace
@@ -6503,8 +6490,7 @@ id|FILE
 op_star
 id|f
 comma
-r_int
-r_int
+r_uintmax
 id|base
 comma
 r_struct
@@ -6513,7 +6499,7 @@ op_star
 id|m
 )paren
 (brace
-r_int
+r_uintmax
 id|k
 suffix:semicolon
 r_if
@@ -6596,7 +6582,7 @@ c_func
 (paren
 id|f
 comma
-l_string|&quot;:%lu %s&bslash;n&quot;
+l_string|&quot;:%ju %s&bslash;n&quot;
 comma
 id|base
 op_plus
@@ -6706,7 +6692,7 @@ l_int|6
 (brace
 id|next_mark
 op_assign
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|command_buf.buf
@@ -7234,7 +7220,7 @@ op_assign
 id|find_mark
 c_func
 (paren
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|p
@@ -7726,11 +7712,10 @@ op_eq
 l_char|&squot;:&squot;
 )paren
 (brace
-r_int
-r_int
+r_uintmax
 id|idnum
 op_assign
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|from
@@ -7771,7 +7756,7 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :%lu not a commit&quot;
+l_string|&quot;Mark :%ju not a commit&quot;
 comma
 id|idnum
 )paren
@@ -8207,11 +8192,10 @@ op_eq
 l_char|&squot;:&squot;
 )paren
 (brace
-r_int
-r_int
+r_uintmax
 id|idnum
 op_assign
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|from
@@ -8244,7 +8228,7 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :%lu not a commit&quot;
+l_string|&quot;Mark :%ju not a commit&quot;
 comma
 id|idnum
 )paren
@@ -9004,7 +8988,7 @@ c_func
 (paren
 id|branch_log
 comma
-l_string|&quot; :%lu %s&bslash;n&quot;
+l_string|&quot; :%ju %s&bslash;n&quot;
 comma
 id|next_mark
 comma
@@ -9064,8 +9048,7 @@ id|tag
 op_star
 id|t
 suffix:semicolon
-r_int
-r_int
+r_uintmax
 id|from_mark
 op_assign
 l_int|0
@@ -9289,7 +9272,7 @@ l_char|&squot;:&squot;
 (brace
 id|from_mark
 op_assign
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|from
@@ -9322,7 +9305,7 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :%lu not a commit&quot;
+l_string|&quot;Mark :%ju not a commit&quot;
 comma
 id|from_mark
 )paren
@@ -9681,7 +9664,7 @@ c_func
 (paren
 id|branch_log
 comma
-l_string|&quot; :%lu %s&bslash;n&quot;
+l_string|&quot; :%ju %s&bslash;n&quot;
 comma
 id|from_mark
 comma
@@ -9889,14 +9872,12 @@ id|argv
 r_int
 id|i
 suffix:semicolon
-r_int
-r_int
+r_uintmax
 id|est_obj_cnt
 op_assign
 id|object_entry_alloc
 suffix:semicolon
-r_int
-r_int
+r_uintmax
 id|duplicate_count
 suffix:semicolon
 id|setup_ident
@@ -9971,7 +9952,7 @@ l_int|10
 )paren
 id|est_obj_cnt
 op_assign
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|a
@@ -10000,7 +9981,7 @@ l_int|23
 )paren
 id|max_objects
 op_assign
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|a
@@ -10029,7 +10010,7 @@ l_int|16
 )paren
 id|max_packsize
 op_assign
-id|strtoul
+id|strtoumax
 c_func
 (paren
 id|a
@@ -10442,6 +10423,10 @@ c_func
 id|branch_log
 )paren
 suffix:semicolon
+id|duplicate_count
+op_assign
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -10493,7 +10478,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Alloc&squot;d objects: %10lu (%10lu overflow  )&bslash;n&quot;
+l_string|&quot;Alloc&squot;d objects: %10ju (%10ju overflow  )&bslash;n&quot;
 comma
 id|alloc_count
 comma
@@ -10506,7 +10491,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total objects:   %10lu (%10lu duplicates                  )&bslash;n&quot;
+l_string|&quot;Total objects:   %10ju (%10ju duplicates                  )&bslash;n&quot;
 comma
 id|object_count
 comma
@@ -10518,7 +10503,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      blobs  :   %10lu (%10lu duplicates %10lu deltas)&bslash;n&quot;
+l_string|&quot;      blobs  :   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -10541,7 +10526,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      trees  :   %10lu (%10lu duplicates %10lu deltas)&bslash;n&quot;
+l_string|&quot;      trees  :   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -10564,7 +10549,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      commits:   %10lu (%10lu duplicates %10lu deltas)&bslash;n&quot;
+l_string|&quot;      commits:   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -10587,7 +10572,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      tags   :   %10lu (%10lu duplicates %10lu deltas)&bslash;n&quot;
+l_string|&quot;      tags   :   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -10622,10 +10607,15 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      marks:     %10u (%10lu unique    )&bslash;n&quot;
+l_string|&quot;      marks:     %10ju (%10ju unique    )&bslash;n&quot;
 comma
 (paren
+(paren
+(paren
+r_uintmax
+)paren
 l_int|1
+)paren
 op_lshift
 id|marks-&gt;shift
 )paren
@@ -10650,7 +10640,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Memory total:    %10lu KiB&bslash;n&quot;
+l_string|&quot;Memory total:    %10ju KiB&bslash;n&quot;
 comma
 (paren
 id|total_allocd
@@ -10684,7 +10674,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;     objects:    %10lu KiB&bslash;n&quot;
+l_string|&quot;     objects:    %10ju KiB&bslash;n&quot;
 comma
 (paren
 id|alloc_count
