@@ -413,6 +413,11 @@ r_int
 r_int
 id|max_packsize
 op_assign
+(paren
+l_int|1LL
+op_lshift
+l_int|32
+)paren
 l_int|1
 suffix:semicolon
 DECL|variable|max_objects
