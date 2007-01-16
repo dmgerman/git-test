@@ -4514,8 +4514,13 @@ c_cond
 id|errno
 op_eq
 id|EISDIR
+op_logical_or
+id|errno
+op_eq
+id|ENOTDIR
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * rename(a, b) when b is an existing&n;&t;&t;&t; * directory ought to result in ISDIR, but&n;&t;&t;&t; * Solaris 5.8 gives ENOTDIR.  Sheesh.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
