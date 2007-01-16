@@ -554,11 +554,6 @@ op_star
 op_star
 id|all_packs
 suffix:semicolon
-DECL|variable|pack_fd
-r_static
-r_int
-id|pack_fd
-suffix:semicolon
 DECL|variable|pack_size
 r_static
 r_int
@@ -2528,6 +2523,9 @@ r_struct
 id|pack_header
 id|hdr
 suffix:semicolon
+r_int
+id|pack_fd
+suffix:semicolon
 id|snprintf
 c_func
 (paren
@@ -2632,7 +2630,7 @@ suffix:semicolon
 id|write_or_die
 c_func
 (paren
-id|pack_fd
+id|p-&gt;pack_fd
 comma
 op_amp
 id|hdr
@@ -2694,6 +2692,11 @@ c_func
 (paren
 )paren
 (brace
+r_int
+id|pack_fd
+op_assign
+id|pack_data-&gt;pack_fd
+suffix:semicolon
 id|SHA_CTX
 id|c
 suffix:semicolon
@@ -4458,7 +4461,7 @@ suffix:semicolon
 id|write_or_die
 c_func
 (paren
-id|pack_fd
+id|pack_data-&gt;pack_fd
 comma
 id|hdr
 comma
@@ -4503,7 +4506,7 @@ suffix:semicolon
 id|write_or_die
 c_func
 (paren
-id|pack_fd
+id|pack_data-&gt;pack_fd
 comma
 id|hdr
 op_plus
@@ -4551,7 +4554,7 @@ suffix:semicolon
 id|write_or_die
 c_func
 (paren
-id|pack_fd
+id|pack_data-&gt;pack_fd
 comma
 id|hdr
 comma
@@ -4566,7 +4569,7 @@ suffix:semicolon
 id|write_or_die
 c_func
 (paren
-id|pack_fd
+id|pack_data-&gt;pack_fd
 comma
 id|out
 comma
