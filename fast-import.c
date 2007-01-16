@@ -578,15 +578,6 @@ r_int
 r_int
 id|pack_size
 suffix:semicolon
-DECL|variable|pack_sha1
-r_static
-r_int
-r_char
-id|pack_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
 multiline_comment|/* Table of objects we&squot;ve written. */
 DECL|variable|object_entry_alloc
 r_static
@@ -2911,7 +2902,7 @@ suffix:semicolon
 id|SHA1_Final
 c_func
 (paren
-id|pack_sha1
+id|pack_data-&gt;sha1
 comma
 op_amp
 id|c
@@ -2922,11 +2913,11 @@ c_func
 (paren
 id|pack_fd
 comma
-id|pack_sha1
+id|pack_data-&gt;sha1
 comma
 r_sizeof
 (paren
-id|pack_sha1
+id|pack_data-&gt;sha1
 )paren
 )paren
 suffix:semicolon
@@ -3303,11 +3294,11 @@ c_func
 (paren
 id|f
 comma
-id|pack_sha1
+id|pack_data-&gt;sha1
 comma
 r_sizeof
 (paren
-id|pack_sha1
+id|pack_data-&gt;sha1
 )paren
 )paren
 suffix:semicolon
@@ -3316,7 +3307,7 @@ c_func
 (paren
 id|f
 comma
-l_int|NULL
+id|pack_data-&gt;sha1
 comma
 l_int|1
 )paren
