@@ -4083,7 +4083,6 @@ id|delta
 op_assign
 l_int|NULL
 suffix:semicolon
-)brace
 id|memset
 c_func
 (paren
@@ -4129,6 +4128,14 @@ suffix:semicolon
 id|s.next_out
 op_assign
 id|out
+op_assign
+id|xrealloc
+c_func
+(paren
+id|out
+comma
+id|s.avail_out
+)paren
 suffix:semicolon
 r_while
 c_loop
@@ -4153,6 +4160,7 @@ op_amp
 id|s
 )paren
 suffix:semicolon
+)brace
 )brace
 id|e-&gt;type
 op_assign
