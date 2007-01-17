@@ -10,6 +10,10 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
+DECL|macro|PACK_ID_BITS
+mdefine_line|#define PACK_ID_BITS 16
+DECL|macro|MAX_PACK_ID
+mdefine_line|#define MAX_PACK_ID ((1&lt;&lt;PACK_ID_BITS)-1)
 DECL|struct|object_entry
 r_struct
 id|object_entry
@@ -35,7 +39,7 @@ DECL|member|pack_id
 r_int
 id|pack_id
 suffix:colon
-l_int|16
+id|PACK_ID_BITS
 suffix:semicolon
 DECL|member|sha1
 r_int
@@ -325,8 +329,7 @@ id|tree_entry
 id|branch_tree
 suffix:semicolon
 DECL|member|last_commit
-r_int
-r_int
+r_uintmax
 id|last_commit
 suffix:semicolon
 DECL|member|pack_id
@@ -1971,6 +1974,10 @@ dot
 id|mode
 op_assign
 id|S_IFDIR
+suffix:semicolon
+id|b-&gt;pack_id
+op_assign
+id|MAX_PACK_ID
 suffix:semicolon
 id|branch_table
 (braket
@@ -9275,6 +9282,10 @@ c_func
 id|msg
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|store_object
 c_func
 (paren
@@ -9295,6 +9306,10 @@ id|b-&gt;sha1
 comma
 id|next_mark
 )paren
+)paren
+id|b-&gt;pack_id
+op_assign
+id|pack_id
 suffix:semicolon
 id|b-&gt;last_commit
 op_assign
@@ -9302,10 +9317,6 @@ id|object_count_by_type
 (braket
 id|OBJ_COMMIT
 )braket
-suffix:semicolon
-id|b-&gt;pack_id
-op_assign
-id|pack_id
 suffix:semicolon
 r_if
 c_cond
@@ -9963,6 +9974,9 @@ c_func
 id|msg
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|store_object
 c_func
 (paren
@@ -9983,7 +9997,12 @@ id|t-&gt;sha1
 comma
 l_int|0
 )paren
+)paren
+id|t-&gt;pack_id
+op_assign
+id|MAX_PACK_ID
 suffix:semicolon
+r_else
 id|t-&gt;pack_id
 op_assign
 id|pack_id
