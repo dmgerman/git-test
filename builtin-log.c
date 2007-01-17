@@ -1064,7 +1064,7 @@ r_char
 op_star
 id|fmt_patch_suffix
 op_assign
-l_string|&quot;.txt&quot;
+l_string|&quot;.patch&quot;
 suffix:semicolon
 DECL|function|git_format_config
 r_static
