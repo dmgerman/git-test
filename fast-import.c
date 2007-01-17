@@ -2371,6 +2371,7 @@ op_star
 id|new_tree_entry
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -2523,6 +2524,7 @@ r_void
 id|start_packfile
 c_func
 (paren
+r_void
 )paren
 (brace
 r_static
@@ -2708,6 +2710,7 @@ r_void
 id|fixup_header_footer
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int
@@ -2984,6 +2987,7 @@ op_star
 id|create_index
 c_func
 (paren
+r_void
 )paren
 (brace
 r_static
@@ -3617,6 +3621,7 @@ r_void
 id|unkeep_all_packs
 c_func
 (paren
+r_void
 )paren
 (brace
 r_static
@@ -3692,6 +3697,7 @@ r_void
 id|end_packfile
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -3948,6 +3954,7 @@ r_void
 id|checkpoint
 c_func
 (paren
+r_void
 )paren
 (brace
 id|end_packfile
@@ -6671,6 +6678,7 @@ r_void
 id|dump_branches
 c_func
 (paren
+r_void
 )paren
 (brace
 r_static
@@ -6772,6 +6780,7 @@ r_void
 id|dump_tags
 c_func
 (paren
+r_void
 )paren
 (brace
 r_static
@@ -6989,6 +6998,7 @@ r_void
 id|dump_marks
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if
@@ -7033,6 +7043,7 @@ r_void
 id|read_next_command
 c_func
 (paren
+r_void
 )paren
 (brace
 id|read_line
@@ -7053,6 +7064,7 @@ r_void
 id|cmd_mark
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if
@@ -7250,6 +7262,7 @@ r_void
 id|cmd_new_blob
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int
@@ -7311,6 +7324,7 @@ r_void
 id|unload_one_branch
 c_func
 (paren
+r_void
 )paren
 (brace
 r_while
@@ -8684,6 +8698,7 @@ r_void
 id|cmd_new_commit
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -9391,6 +9406,7 @@ r_void
 id|cmd_new_tag
 c_func
 (paren
+r_void
 )paren
 (brace
 r_char
@@ -10071,6 +10087,7 @@ r_void
 id|cmd_reset_branch
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct
@@ -10214,6 +10231,7 @@ r_void
 id|cmd_checkpoint
 c_func
 (paren
+r_void
 )paren
 (brace
 r_if
