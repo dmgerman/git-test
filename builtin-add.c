@@ -12,7 +12,7 @@ id|builtin_add_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-add [-n] [-v] [-f] [--interactive] [--] &lt;filepattern&gt;...&quot;
+l_string|&quot;git-add [-n] [-v] [-f] [--interactive | -i] [--] &lt;filepattern&gt;...&quot;
 suffix:semicolon
 DECL|function|prune_directory
 r_static
@@ -513,6 +513,18 @@ id|strcmp
 c_func
 (paren
 l_string|&quot;--interactive&quot;
+comma
+id|argv
+(braket
+id|i
+)braket
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;-i&quot;
 comma
 id|argv
 (braket
