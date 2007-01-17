@@ -2859,6 +2859,8 @@ id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_DIFFSTAT
 op_or
+id|DIFF_FORMAT_SUMMARY
+op_or
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
 r_if
