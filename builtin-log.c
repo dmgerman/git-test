@@ -2867,6 +2867,16 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|rev.diffopt.text
+)paren
+id|rev.diffopt.binary
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|output_directory
 )paren
 id|output_directory
