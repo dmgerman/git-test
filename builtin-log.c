@@ -1098,6 +1098,20 @@ l_string|&quot;format.headers&quot;
 (brace
 r_int
 id|len
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;format.headers without value&quot;
+)paren
+suffix:semicolon
+id|len
 op_assign
 id|strlen
 c_func
