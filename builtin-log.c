@@ -2922,6 +2922,14 @@ op_eq
 l_int|1
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|rev.max_count
+OL
+l_int|0
+)paren
+(brace
 id|rev.pending.objects
 (braket
 l_int|0
@@ -2938,6 +2946,8 @@ op_amp
 id|rev
 )paren
 suffix:semicolon
+)brace
+multiline_comment|/* Otherwise, it is &quot;format-patch -22 HEAD&quot;, and&n;&t;&t; * get_revision() would return only the specified count.&n;&t;&t; */
 )brace
 r_if
 c_cond
