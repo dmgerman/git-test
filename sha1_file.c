@@ -2571,7 +2571,35 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;index file too small&quot;
+l_string|&quot;index file %s is too small&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+multiline_comment|/* a future index format would start with this, as older git&n;&t; * binaries would fail the non-monotonic index check below.&n;&t; * give a nicer warning to the user if we can.&n;&t; */
+r_if
+c_cond
+(paren
+id|index
+(braket
+l_int|0
+)braket
+op_eq
+id|htonl
+c_func
+(paren
+id|PACK_IDX_SIGNATURE
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;index file %s is a newer version&quot;
+l_string|&quot; and is not supported by this binary&quot;
+l_string|&quot; (try upgrading GIT to a newer version)&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 id|nr
@@ -2617,7 +2645,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;non-monotonic index&quot;
+l_string|&quot;non-monotonic index %s&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 id|nr
@@ -2647,7 +2677,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;wrong index file size&quot;
+l_string|&quot;wrong index file size in %s&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 r_return
