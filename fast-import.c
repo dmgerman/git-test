@@ -3076,8 +3076,7 @@ id|object_entry_pool
 op_star
 id|o
 suffix:semicolon
-r_int
-r_int
+r_uint32
 id|array
 (braket
 l_int|256
@@ -3352,8 +3351,7 @@ id|c
 op_increment
 )paren
 (brace
-r_int
-r_int
+r_uint32
 id|offset
 op_assign
 id|htonl
