@@ -2449,8 +2449,7 @@ r_void
 op_star
 id|idx_map
 suffix:semicolon
-r_int
-r_int
+r_uint32
 op_star
 id|index
 suffix:semicolon
@@ -7123,8 +7122,7 @@ op_star
 id|p
 )paren
 (brace
-r_int
-r_int
+r_uint32
 op_star
 id|level1_ofs
 op_assign
@@ -7227,8 +7225,7 @@ c_func
 op_star
 (paren
 (paren
-r_int
-r_int
+r_uint32
 op_star
 )paren
 (paren
