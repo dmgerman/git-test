@@ -12,15 +12,15 @@ id|send_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-send-pack [--all] [--force] [--exec=&lt;git-receive-pack&gt;] [--verbose] [--thin] [&lt;host&gt;:]&lt;directory&gt; [&lt;ref&gt;...]&bslash;n&quot;
+l_string|&quot;git-send-pack [--all] [--force] [--receive-pack=&lt;git-receive-pack&gt;] [--verbose] [--thin] [&lt;host&gt;:]&lt;directory&gt; [&lt;ref&gt;...]&bslash;n&quot;
 l_string|&quot;  --all and explicit &lt;ref&gt; specification are mutually exclusive.&quot;
 suffix:semicolon
-DECL|variable|exec
+DECL|variable|receivepack
 r_static
 r_const
 r_char
 op_star
-id|exec
+id|receivepack
 op_assign
 l_string|&quot;git-receive-pack&quot;
 suffix:semicolon
@@ -1805,13 +1805,37 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--receive-pack=&quot;
+comma
+l_int|15
+)paren
+)paren
+(brace
+id|receivepack
+op_assign
+id|arg
+op_plus
+l_int|15
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--exec=&quot;
 comma
 l_int|7
 )paren
 )paren
 (brace
-id|exec
+id|receivepack
 op_assign
 id|arg
 op_plus
@@ -1975,7 +1999,7 @@ id|fd
 comma
 id|dest
 comma
-id|exec
+id|receivepack
 )paren
 suffix:semicolon
 r_if
