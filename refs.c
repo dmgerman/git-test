@@ -5610,6 +5610,10 @@ id|logged_sha1
 l_int|20
 )braket
 suffix:semicolon
+r_void
+op_star
+id|log_mapped
+suffix:semicolon
 id|logfile
 op_assign
 id|git_path
@@ -5676,7 +5680,7 @@ comma
 id|logfile
 )paren
 suffix:semicolon
-id|logdata
+id|log_mapped
 op_assign
 id|xmmap
 c_func
@@ -5693,6 +5697,10 @@ id|logfd
 comma
 l_int|0
 )paren
+suffix:semicolon
+id|logdata
+op_assign
+id|log_mapped
 suffix:semicolon
 id|close
 c_func
@@ -6011,11 +6019,7 @@ suffix:semicolon
 id|munmap
 c_func
 (paren
-(paren
-r_void
-op_star
-)paren
-id|logdata
+id|log_mapped
 comma
 id|st.st_size
 )paren
@@ -6132,11 +6136,7 @@ suffix:semicolon
 id|munmap
 c_func
 (paren
-(paren
-r_void
-op_star
-)paren
-id|logdata
+id|log_mapped
 comma
 id|st.st_size
 )paren
