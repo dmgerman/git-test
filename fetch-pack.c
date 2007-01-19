@@ -38,7 +38,7 @@ id|fetch_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-fetch-pack [--all] [-q] [-v] [-k] [--thin] [--exec=upload-pack] [--depth=&lt;n&gt;] [host:]directory &lt;refs&gt;...&quot;
+l_string|&quot;git-fetch-pack [--all] [--quiet|-q] [--keep|-k] [--thin] [--exec=&lt;git-upload-pack&gt;] [--depth=&lt;n&gt;] [-v] [&lt;host&gt;:]&lt;directory&gt; [&lt;refs&gt;...]&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static

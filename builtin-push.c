@@ -13,7 +13,7 @@ id|push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-push [--all] [--tags] [-f | --force] &lt;repository&gt; [&lt;refspec&gt;...]&quot;
+l_string|&quot;git-push [--all] [--tags] [--exec=&lt;git-receive-pack&gt;] [--repo=all] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 suffix:semicolon
 DECL|variable|all
 DECL|variable|tags

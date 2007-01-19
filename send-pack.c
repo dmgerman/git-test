@@ -12,8 +12,8 @@ id|send_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-send-pack [--all] [--exec=git-receive-pack] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
-l_string|&quot;  --all and explicit &lt;head&gt; specification are mutually exclusive.&quot;
+l_string|&quot;git-send-pack [--all] [--force] [--exec=&lt;git-receive-pack&gt;] [--verbose] [--thin] [&lt;host&gt;:]&lt;directory&gt; [&lt;ref&gt;...]&bslash;n&quot;
+l_string|&quot;  --all and explicit &lt;ref&gt; specification are mutually exclusive.&quot;
 suffix:semicolon
 DECL|variable|exec
 r_static
