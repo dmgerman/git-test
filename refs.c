@@ -6214,6 +6214,11 @@ id|buf
 l_int|1024
 )braket
 suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|0
+suffix:semicolon
 id|logfile
 op_assign
 id|git_path
@@ -6285,8 +6290,6 @@ id|timestamp
 suffix:semicolon
 r_int
 id|len
-comma
-id|ret
 comma
 id|tz
 suffix:semicolon
@@ -6515,8 +6518,7 @@ c_cond
 (paren
 id|ret
 )paren
-r_return
-id|ret
+r_break
 suffix:semicolon
 )brace
 id|fclose
@@ -6526,7 +6528,7 @@ id|logfp
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|ret
 suffix:semicolon
 )brace
 eof
