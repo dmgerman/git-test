@@ -1602,6 +1602,11 @@ op_plus
 l_int|20
 )braket
 suffix:semicolon
+r_int
+id|forcing
+op_assign
+l_int|0
+suffix:semicolon
 id|snprintf
 c_func
 (paren
@@ -1686,6 +1691,10 @@ c_func
 (paren
 l_string|&quot;Cannot force update the current branch.&quot;
 )paren
+suffix:semicolon
+id|forcing
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -1786,11 +1795,29 @@ c_cond
 (paren
 id|reflog
 )paren
-(brace
 id|log_all_ref_updates
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|forcing
+)paren
+id|snprintf
+c_func
+(paren
+id|msg
+comma
+r_sizeof
+id|msg
+comma
+l_string|&quot;branch: Reset from %s&quot;
+comma
+id|start_name
+)paren
+suffix:semicolon
+r_else
 id|snprintf
 c_func
 (paren
@@ -1804,7 +1831,6 @@ comma
 id|start_name
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
