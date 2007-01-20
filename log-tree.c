@@ -1046,7 +1046,12 @@ id|show_reflog_message
 c_func
 (paren
 id|opt-&gt;reflog_info
+comma
+id|opt-&gt;commit_format
+op_eq
+id|CMIT_FMT_ONELINE
 )paren
+suffix:semicolon
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * And then the pretty-printed message itself&n;&t; */
