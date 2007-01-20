@@ -4,6 +4,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;reflog-walk.h&quot;
 DECL|struct|complete_reflogs
 r_struct
 id|complete_reflogs
