@@ -10,7 +10,17 @@ id|show_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n] &lt;branch&gt;&quot;
+l_string|&quot;git-show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n[,b]] &lt;branch&gt;&quot;
+suffix:semicolon
+DECL|variable|show_branch_usage_reflog
+r_static
+r_const
+r_char
+id|show_branch_usage_reflog
+(braket
+)braket
+op_assign
+l_string|&quot;--reflog is incompatible with --all, --remotes, --independent or --merge-base&quot;
 suffix:semicolon
 DECL|variable|default_num
 r_static
@@ -3646,16 +3656,22 @@ op_logical_neg
 id|reflog
 op_logical_and
 (paren
+(paren
 l_int|0
 OL
 id|extra
 )paren
+op_logical_or
+id|all_heads
+op_logical_or
+id|all_remotes
 )paren
-multiline_comment|/*&n;&t;&t;&t; * Asking for --more in reflog mode does not&n;&t;&t;&t; * make sense.&n;&t;&t;&t; */
+)paren
+multiline_comment|/*&n;&t;&t;&t; * Asking for --more in reflog mode does not&n;&t;&t;&t; * make sense.  --list is Ok.&n;&t;&t;&t; *&n;&t;&t;&t; * Also --all and --remotes do not make sense either.&n;&t;&t;&t; */
 id|usage
 c_func
 (paren
-id|show_branch_usage
+id|show_branch_usage_reflog
 )paren
 suffix:semicolon
 )brace
@@ -3729,6 +3745,21 @@ id|die
 c_func
 (paren
 l_string|&quot;--reflog option needs one branch name&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|MAX_REVS
+OL
+id|reflog
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Only %d entries can be shown at one time.&quot;
+comma
+id|MAX_REVS
 )paren
 suffix:semicolon
 r_if
