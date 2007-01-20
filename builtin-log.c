@@ -221,6 +221,14 @@ comma
 id|commit
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev-&gt;reflog_info
+)paren
+(brace
+multiline_comment|/* we allow cycles in reflog ancestry */
 id|free
 c_func
 (paren
@@ -231,6 +239,7 @@ id|commit-&gt;buffer
 op_assign
 l_int|NULL
 suffix:semicolon
+)brace
 id|free_commit_list
 c_func
 (paren
