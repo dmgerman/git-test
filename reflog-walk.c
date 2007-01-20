@@ -425,7 +425,7 @@ op_ge
 l_int|0
 suffix:semicolon
 id|i
-op_increment
+op_decrement
 )paren
 r_if
 c_cond
