@@ -803,6 +803,20 @@ id|commit_reflog
 op_star
 id|commit_reflog
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|UNINTERESTING
+)paren
+id|die
+(paren
+l_string|&quot;Cannot walk reflogs for %s&quot;
+comma
+id|name
+)paren
+suffix:semicolon
 id|branch
 op_assign
 id|xstrdup
