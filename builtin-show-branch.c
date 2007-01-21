@@ -3979,7 +3979,7 @@ c_func
 (paren
 id|timestamp
 comma
-l_int|0
+id|tz
 comma
 l_int|1
 )paren
