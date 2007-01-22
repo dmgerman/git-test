@@ -3598,6 +3598,20 @@ comma
 id|dir
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_repository_shallow
+c_func
+(paren
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;attempt to fetch/clone from a shallow repository&quot;
+)paren
+suffix:semicolon
 id|upload_pack
 c_func
 (paren

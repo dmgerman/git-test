@@ -2257,6 +2257,20 @@ comma
 id|dir
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_repository_shallow
+c_func
+(paren
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;attempt to push into a shallow repository&quot;
+)paren
+suffix:semicolon
 id|setup_ident
 c_func
 (paren
