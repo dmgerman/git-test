@@ -84,6 +84,7 @@ r_int
 id|is_repository_shallow
 c_func
 (paren
+r_void
 )paren
 (brace
 id|FILE
