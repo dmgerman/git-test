@@ -417,6 +417,15 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+id|close
+c_func
+(paren
+id|fd
+(braket
+l_int|1
+)braket
+)paren
+suffix:semicolon
 id|rv
 op_or_assign
 id|finish_connect
