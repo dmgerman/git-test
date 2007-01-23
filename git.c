@@ -1847,15 +1847,22 @@ op_amp
 id|NOT_BARE
 )paren
 op_logical_and
+(paren
 id|is_bare_repository
 c_func
 (paren
+)paren
+op_logical_or
+id|is_inside_git_dir
+c_func
+(paren
+)paren
 )paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;%s cannot be used in a bare git directory&quot;
+l_string|&quot;%s must be run in a work tree&quot;
 comma
 id|cmd
 )paren
