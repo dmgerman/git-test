@@ -9,14 +9,14 @@ id|peek_remote_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-peek-remote [--exec=upload-pack] [host:]directory&quot;
+l_string|&quot;git-peek-remote [--upload-pack=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt;&quot;
 suffix:semicolon
-DECL|variable|exec
+DECL|variable|uploadpack
 r_static
 r_const
 r_char
 op_star
-id|exec
+id|uploadpack
 op_assign
 l_string|&quot;git-upload-pack&quot;
 suffix:semicolon
@@ -188,6 +188,30 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
+l_string|&quot;--upload-pack=&quot;
+comma
+id|arg
+comma
+l_int|14
+)paren
+)paren
+(brace
+id|uploadpack
+op_assign
+id|arg
+op_plus
+l_int|14
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
 l_string|&quot;--exec=&quot;
 comma
 id|arg
@@ -196,7 +220,7 @@ l_int|7
 )paren
 )paren
 (brace
-id|exec
+id|uploadpack
 op_assign
 id|arg
 op_plus
@@ -305,7 +329,7 @@ id|fd
 comma
 id|dest
 comma
-id|exec
+id|uploadpack
 )paren
 suffix:semicolon
 r_if
