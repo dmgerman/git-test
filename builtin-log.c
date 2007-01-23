@@ -2887,6 +2887,9 @@ c_cond
 (paren
 op_logical_neg
 id|output_directory
+op_logical_and
+op_logical_neg
+id|use_stdout
 )paren
 id|output_directory
 op_assign
