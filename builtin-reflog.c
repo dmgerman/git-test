@@ -1266,22 +1266,6 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|cb.ref_commit
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;warning: ref &squot;%s&squot; does not point at a commit&bslash;n&quot;
-comma
-id|ref
-)paren
-suffix:semicolon
 id|cb.ref
 op_assign
 id|ref
