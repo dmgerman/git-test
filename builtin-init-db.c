@@ -1330,6 +1330,14 @@ comma
 l_string|&quot;false&quot;
 )paren
 suffix:semicolon
+multiline_comment|/* allow template config file to override the default */
+r_if
+c_cond
+(paren
+id|log_all_ref_updates
+op_eq
+l_int|1
+)paren
 id|git_config_set
 c_func
 (paren
