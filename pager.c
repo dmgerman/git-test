@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &lt;sys/select.h&gt;
 multiline_comment|/*&n; * This is split up from the rest of git so that we might do&n; * something different on Windows, for example.&n; */
 DECL|function|run_pager
 r_static
@@ -12,6 +13,42 @@ op_star
 id|pager
 )paren
 (brace
+multiline_comment|/*&n;&t; * Work around bug in &quot;less&quot; by not starting it until we&n;&t; * have real input&n;&t; */
+id|fd_set
+id|in
+suffix:semicolon
+id|FD_ZERO
+c_func
+(paren
+op_amp
+id|in
+)paren
+suffix:semicolon
+id|FD_SET
+c_func
+(paren
+l_int|0
+comma
+op_amp
+id|in
+)paren
+suffix:semicolon
+id|select
+c_func
+(paren
+l_int|1
+comma
+op_amp
+id|in
+comma
+l_int|NULL
+comma
+op_amp
+id|in
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|execlp
 c_func
 (paren
