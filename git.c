@@ -1217,6 +1217,7 @@ l_string|&quot;annotate&quot;
 comma
 id|cmd_annotate
 comma
+id|USE_PAGER
 )brace
 comma
 (brace
