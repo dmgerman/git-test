@@ -4327,6 +4327,15 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;-g&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--walk-reflogs&quot;
 )paren
 )paren
