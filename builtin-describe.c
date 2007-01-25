@@ -994,7 +994,7 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%s-g%s&bslash;n&quot;
+l_string|&quot;%s-%d-g%s&bslash;n&quot;
 comma
 id|all_matches
 (braket
@@ -1002,6 +1002,13 @@ l_int|0
 )braket
 dot
 id|name-&gt;path
+comma
+id|all_matches
+(braket
+l_int|0
+)braket
+dot
+id|depth
 comma
 id|find_unique_abbrev
 c_func
