@@ -504,11 +504,6 @@ id|seen_commits
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-id|found
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -700,8 +695,7 @@ id|match_cnt
 suffix:semicolon
 id|t-&gt;found_order
 op_assign
-id|found
-op_increment
+id|match_cnt
 suffix:semicolon
 id|c-&gt;object.flags
 op_or_assign
