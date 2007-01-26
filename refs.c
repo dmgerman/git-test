@@ -3508,6 +3508,14 @@ c_func
 id|ref
 )paren
 suffix:semicolon
+id|lock-&gt;orig_ref_name
+op_assign
+id|xstrdup
+c_func
+(paren
+id|orig_ref
+)paren
+suffix:semicolon
 id|ref_file
 op_assign
 id|git_path
@@ -4949,6 +4957,12 @@ id|free
 c_func
 (paren
 id|lock-&gt;ref_name
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|lock-&gt;orig_ref_name
 )paren
 suffix:semicolon
 id|free
