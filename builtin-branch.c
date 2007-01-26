@@ -2046,6 +2046,7 @@ c_func
 l_string|&quot;Branch rename failed&quot;
 )paren
 suffix:semicolon
+multiline_comment|/* no need to pass logmsg here as HEAD didn&squot;t really move */
 r_if
 c_cond
 (paren
@@ -2064,6 +2065,8 @@ c_func
 l_string|&quot;HEAD&quot;
 comma
 id|newref
+comma
+l_int|NULL
 )paren
 )paren
 id|die
