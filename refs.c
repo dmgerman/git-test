@@ -3508,20 +3508,6 @@ c_func
 id|ref
 )paren
 suffix:semicolon
-id|lock-&gt;log_file
-op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
-c_func
-(paren
-l_string|&quot;logs/%s&quot;
-comma
-id|ref
-)paren
-)paren
-suffix:semicolon
 id|ref_file
 op_assign
 id|git_path
@@ -4070,7 +4056,13 @@ op_assign
 id|unlink
 c_func
 (paren
-id|lock-&gt;log_file
+id|git_path
+c_func
+(paren
+l_string|&quot;logs/%s&quot;
+comma
+id|lock-&gt;ref_name
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4089,7 +4081,13 @@ id|stderr
 comma
 l_string|&quot;warning: unlink(%s) failed: %s&quot;
 comma
-id|lock-&gt;log_file
+id|git_path
+c_func
+(paren
+l_string|&quot;logs/%s&quot;
+comma
+id|lock-&gt;ref_name
+)paren
 comma
 id|strerror
 c_func
@@ -4956,12 +4954,6 @@ suffix:semicolon
 id|free
 c_func
 (paren
-id|lock-&gt;log_file
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
 id|lock
 )paren
 suffix:semicolon
@@ -4972,16 +4964,22 @@ r_int
 id|log_ref_write
 c_func
 (paren
-r_struct
-id|ref_lock
+r_const
+r_char
 op_star
-id|lock
+id|ref_name
 comma
 r_const
 r_int
 r_char
 op_star
-id|sha1
+id|old_sha1
+comma
+r_const
+r_int
+r_char
+op_star
+id|new_sha1
 comma
 r_const
 r_char
@@ -5010,6 +5008,9 @@ id|msglen
 suffix:semicolon
 r_char
 op_star
+id|log_file
+comma
+op_star
 id|logrec
 suffix:semicolon
 r_const
@@ -5032,6 +5033,16 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|log_file
+op_assign
+id|git_path
+c_func
+(paren
+l_string|&quot;logs/%s&quot;
+comma
+id|ref_name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5042,7 +5053,7 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-id|lock-&gt;ref_name
+id|ref_name
 comma
 l_string|&quot;refs/heads/&quot;
 comma
@@ -5053,7 +5064,7 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-id|lock-&gt;ref_name
+id|ref_name
 comma
 l_string|&quot;refs/remotes/&quot;
 comma
@@ -5068,7 +5079,7 @@ c_cond
 id|safe_create_leading_directories
 c_func
 (paren
-id|lock-&gt;log_file
+id|log_file
 )paren
 OL
 l_int|0
@@ -5079,7 +5090,7 @@ c_func
 (paren
 l_string|&quot;unable to create directory for %s&quot;
 comma
-id|lock-&gt;log_file
+id|log_file
 )paren
 suffix:semicolon
 id|oflags
@@ -5092,7 +5103,7 @@ op_assign
 id|open
 c_func
 (paren
-id|lock-&gt;log_file
+id|log_file
 comma
 id|oflags
 comma
@@ -5144,7 +5155,7 @@ c_cond
 id|remove_empty_directories
 c_func
 (paren
-id|lock-&gt;log_file
+id|log_file
 )paren
 )paren
 (brace
@@ -5154,7 +5165,7 @@ c_func
 (paren
 l_string|&quot;There are still logs under &squot;%s&squot;&quot;
 comma
-id|lock-&gt;log_file
+id|log_file
 )paren
 suffix:semicolon
 )brace
@@ -5163,7 +5174,7 @@ op_assign
 id|open
 c_func
 (paren
-id|lock-&gt;log_file
+id|log_file
 comma
 id|oflags
 comma
@@ -5184,7 +5195,7 @@ c_func
 (paren
 l_string|&quot;Unable to append to %s: %s&quot;
 comma
-id|lock-&gt;log_file
+id|log_file
 comma
 id|strerror
 c_func
@@ -5309,13 +5320,13 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|lock-&gt;old_sha1
+id|old_sha1
 )paren
 comma
 id|sha1_to_hex
 c_func
 (paren
-id|sha1
+id|new_sha1
 )paren
 comma
 id|committer
@@ -5388,7 +5399,7 @@ c_func
 (paren
 l_string|&quot;Unable to append to %s&quot;
 comma
-id|lock-&gt;log_file
+id|log_file
 )paren
 suffix:semicolon
 r_return
@@ -5528,7 +5539,9 @@ c_cond
 id|log_ref_write
 c_func
 (paren
-id|lock
+id|lock-&gt;ref_name
+comma
+id|lock-&gt;old_sha1
 comma
 id|sha1
 comma
