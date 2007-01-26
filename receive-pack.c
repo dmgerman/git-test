@@ -2267,12 +2267,6 @@ c_func
 (paren
 )paren
 suffix:semicolon
-multiline_comment|/* don&squot;t die if gecos is empty */
-id|ignore_missing_committer_name
-c_func
-(paren
-)paren
-suffix:semicolon
 id|git_config
 c_func
 (paren
