@@ -148,6 +148,7 @@ comma
 l_int|10
 )paren
 suffix:semicolon
+multiline_comment|/* ALWAYS pack refs that were already packed or are tags */
 r_if
 c_cond
 (paren
@@ -156,6 +157,13 @@ id|cb-&gt;all
 op_logical_and
 op_logical_neg
 id|is_tag_ref
+op_logical_and
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|REF_ISPACKED
+)paren
 )paren
 r_return
 l_int|0
