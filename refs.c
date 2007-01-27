@@ -1703,6 +1703,26 @@ comma
 l_int|0666
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|fd
+OL
+l_int|0
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;Unable to open %s for writing&quot;
+comma
+id|lockpath
+)paren
+suffix:semicolon
+r_return
+l_int|5
+suffix:semicolon
+)brace
 id|written
 op_assign
 id|write_in_full
