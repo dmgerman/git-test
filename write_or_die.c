@@ -116,7 +116,7 @@ OG
 l_int|0
 )paren
 (brace
-r_int
+id|ssize_t
 id|written
 op_assign
 id|xwrite
