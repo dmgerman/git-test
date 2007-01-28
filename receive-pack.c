@@ -2262,11 +2262,6 @@ c_func
 l_string|&quot;attempt to push into a shallow repository&quot;
 )paren
 suffix:semicolon
-id|setup_ident
-c_func
-(paren
-)paren
-suffix:semicolon
 id|git_config
 c_func
 (paren

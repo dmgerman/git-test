@@ -456,11 +456,6 @@ suffix:semicolon
 r_int
 id|encoding_is_utf8
 suffix:semicolon
-id|setup_ident
-c_func
-(paren
-)paren
-suffix:semicolon
 id|git_config
 c_func
 (paren

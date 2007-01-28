@@ -12155,11 +12155,6 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|setup_ident
-c_func
-(paren
-)paren
-suffix:semicolon
 id|remote
 op_assign
 id|xcalloc
