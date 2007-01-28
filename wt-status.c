@@ -1900,7 +1900,7 @@ c_func
 (paren
 id|k
 comma
-l_string|&quot;color.status&quot;
+l_string|&quot;color.status.&quot;
 comma
 l_int|13
 )paren
