@@ -1279,7 +1279,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;}: &quot;
+l_string|&quot;}: %s&quot;
+comma
+id|info-&gt;message
 )paren
 suffix:semicolon
 )brace
