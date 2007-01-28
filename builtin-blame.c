@@ -9177,6 +9177,17 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|incremental
+)paren
+id|setup_pager
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|blame_move_score
 )paren
 id|blame_move_score
