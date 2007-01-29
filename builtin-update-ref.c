@@ -359,8 +359,13 @@ c_cond
 op_logical_neg
 id|lock
 )paren
-r_return
-l_int|1
+id|die
+c_func
+(paren
+l_string|&quot;%s: cannot lock the ref&quot;
+comma
+id|refname
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -377,10 +382,14 @@ id|msg
 OL
 l_int|0
 )paren
-r_return
-l_int|1
+id|die
+c_func
+(paren
+l_string|&quot;%s: cannot update the ref&quot;
+comma
+id|refname
+)paren
 suffix:semicolon
-multiline_comment|/* write_ref_sha1 always unlocks the ref, no need to do it explicitly */
 r_return
 l_int|0
 suffix:semicolon
