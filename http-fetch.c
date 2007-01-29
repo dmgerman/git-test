@@ -5394,7 +5394,7 @@ id|stderr
 comma
 l_string|&quot;Some loose object were found to be corrupt, but they might be just&bslash;n&quot;
 l_string|&quot;a false &squot;404 Not Found&squot; error message sent with incorrect HTTP&bslash;n&quot;
-l_string|&quot;status code.  Suggest running git fsck-objects.&bslash;n&quot;
+l_string|&quot;status code.  Suggest running git-fsck.&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace

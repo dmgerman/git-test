@@ -2727,7 +2727,7 @@ l_char|&squot;-&squot;
 id|usage
 c_func
 (paren
-l_string|&quot;git-fsck-objects [--tags] [--root] [[--unreachable] [--cache] [--full] [--strict] &lt;head-sha1&gt;*]&quot;
+l_string|&quot;git-fsck [--tags] [--root] [[--unreachable] [--cache] [--full] [--strict] &lt;head-sha1&gt;*]&quot;
 )paren
 suffix:semicolon
 )brace
