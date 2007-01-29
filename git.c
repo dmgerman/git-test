@@ -1287,6 +1287,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;config&quot;
+comma
+id|cmd_config
+)brace
+comma
+(brace
 l_string|&quot;count-objects&quot;
 comma
 id|cmd_count_objects
@@ -1523,7 +1529,7 @@ comma
 (brace
 l_string|&quot;repo-config&quot;
 comma
-id|cmd_repo_config
+id|cmd_config
 )brace
 comma
 (brace
