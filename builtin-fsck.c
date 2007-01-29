@@ -2543,9 +2543,9 @@ r_return
 id|err
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_fsck
 r_int
-id|main
+id|cmd_fsck
 c_func
 (paren
 r_int
@@ -2555,6 +2555,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
@@ -2565,11 +2570,6 @@ suffix:semicolon
 id|track_object_refs
 op_assign
 l_int|1
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 r_for
 c_loop
