@@ -342,17 +342,6 @@ r_int
 r_int
 id|diff
 suffix:semicolon
-id|time_t
-id|t
-op_assign
-id|gm_time_t
-c_func
-(paren
-id|time
-comma
-id|tz
-)paren
-suffix:semicolon
 r_struct
 id|timeval
 id|now
@@ -371,7 +360,7 @@ c_cond
 (paren
 id|now.tv_sec
 OL
-id|t
+id|time
 )paren
 r_return
 l_string|&quot;in the future&quot;
@@ -379,7 +368,7 @@ suffix:semicolon
 id|diff
 op_assign
 id|now.tv_sec
-id|t
+id|time
 suffix:semicolon
 r_if
 c_cond

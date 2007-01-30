@@ -1792,7 +1792,7 @@ id|s-&gt;workdir_dirty
 id|printf
 c_func
 (paren
-l_string|&quot;no changes added to commit (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit [-a|-i|-o]&bslash;&quot;)&bslash;n&quot;
+l_string|&quot;no changes added to commit (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit -a&bslash;&quot;)&bslash;n&quot;
 )paren
 suffix:semicolon
 r_else
@@ -1900,7 +1900,7 @@ c_func
 (paren
 id|k
 comma
-l_string|&quot;color.status&quot;
+l_string|&quot;color.status.&quot;
 comma
 l_int|13
 )paren

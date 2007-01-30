@@ -57,6 +57,15 @@ l_int|0
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|len
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|sz
 op_assign
 id|one-&gt;size

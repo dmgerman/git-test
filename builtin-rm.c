@@ -12,7 +12,7 @@ id|builtin_rm_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-rm [-n] [-f] [--cached] &lt;filepattern&gt;...&quot;
+l_string|&quot;git-rm [-f] [-n] [-r] [--cached] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 r_static
 r_struct

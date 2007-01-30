@@ -2765,7 +2765,11 @@ id|fd
 l_int|1
 )braket
 op_assign
+id|dup
+c_func
+(paren
 id|sockfd
+)paren
 suffix:semicolon
 )brace
 DECL|variable|git_proxy_command

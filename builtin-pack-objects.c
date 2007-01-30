@@ -2812,8 +2812,7 @@ id|list
 op_plus
 id|nr_result
 suffix:semicolon
-r_int
-r_int
+r_uint32
 id|array
 (braket
 l_int|256
@@ -2901,10 +2900,7 @@ id|array
 comma
 l_int|256
 op_star
-r_sizeof
-(paren
-r_int
-)paren
+l_int|4
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Write the actual SHA1 entries..&n;&t; */
@@ -2936,8 +2932,7 @@ op_star
 id|list
 op_increment
 suffix:semicolon
-r_int
-r_int
+r_uint32
 id|offset
 op_assign
 id|htonl

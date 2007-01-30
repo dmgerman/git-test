@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
+macro_line|#include &quot;reflog-walk.h&quot;
 DECL|function|show_parents
 r_static
 r_void
@@ -1036,6 +1037,43 @@ suffix:colon
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;reflog_info
+)paren
+(brace
+id|show_reflog_message
+c_func
+(paren
+id|opt-&gt;reflog_info
+comma
+id|opt-&gt;commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+)paren
+suffix:semicolon
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;commit_format
+op_eq
+id|CMIT_FMT_ONELINE
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|sep
+)paren
+suffix:semicolon
+r_return
+suffix:semicolon
+)brace
+)brace
 )brace
 multiline_comment|/*&n;&t; * And then the pretty-printed message itself&n;&t; */
 id|len

@@ -16,7 +16,7 @@ id|reflog_expire_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-reflog expire [--verbose] [--dry-run] [--fix-stale] [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--all] &lt;refs&gt;...&quot;
+l_string|&quot;git-reflog expire [--verbose] [--dry-run] [--stale-fix] [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--all] &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|default_reflog_expire
 r_static
@@ -1264,22 +1264,6 @@ c_func
 id|sha1
 comma
 l_int|1
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|cb.ref_commit
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;warning: ref &squot;%s&squot; does not point at a commit&bslash;n&quot;
-comma
-id|ref
 )paren
 suffix:semicolon
 id|cb.ref

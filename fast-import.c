@@ -10609,11 +10609,6 @@ id|total_count
 comma
 id|duplicate_count
 suffix:semicolon
-id|setup_ident
-c_func
-(paren
-)paren
-suffix:semicolon
 id|git_config
 c_func
 (paren

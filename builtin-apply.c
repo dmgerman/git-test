@@ -12446,7 +12446,7 @@ comma
 r_const
 r_char
 op_star
-id|prefix
+id|unused_prefix
 )paren
 (brace
 r_int

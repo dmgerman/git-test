@@ -1667,6 +1667,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|is_bare_repository
+c_func
+(paren
+)paren
+op_logical_and
+op_logical_neg
 id|strcmp
 c_func
 (paren
@@ -2136,11 +2142,6 @@ id|REF_LOCAL_BRANCH
 suffix:semicolon
 r_int
 id|i
-suffix:semicolon
-id|setup_ident
-c_func
-(paren
-)paren
 suffix:semicolon
 id|git_config
 c_func
