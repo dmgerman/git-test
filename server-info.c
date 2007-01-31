@@ -46,6 +46,15 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|o
+)paren
+r_return
+l_int|1
+suffix:semicolon
 id|fprintf
 c_func
 (paren
