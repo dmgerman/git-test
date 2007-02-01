@@ -4322,13 +4322,11 @@ id|p
 )paren
 r_continue
 suffix:semicolon
-id|p-&gt;next
-op_assign
-id|packed_git
-suffix:semicolon
-id|packed_git
-op_assign
+id|install_packed_git
+c_func
+(paren
 id|p
+)paren
 suffix:semicolon
 )brace
 id|closedir
