@@ -4248,7 +4248,7 @@ l_string|&quot;.idx&quot;
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* we have .idx.  Is it a file we can map? */
+multiline_comment|/* Don&squot;t reopen a pack we already have. */
 id|strcpy
 c_func
 (paren
@@ -4300,6 +4300,7 @@ id|p
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* See if it really is a valid .idx file with corresponding&n;&t;&t; * .pack file that we can map.&n;&t;&t; */
 id|p
 op_assign
 id|add_packed_git
