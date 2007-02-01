@@ -1554,7 +1554,7 @@ c_loop
 (paren
 id|at
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 id|at
 OL
@@ -1611,6 +1611,8 @@ multiline_comment|/* Accept only unambiguous ref paths. */
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|ambiguous_path
 c_func
 (paren
@@ -1622,6 +1624,33 @@ id|len
 r_return
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|len
+op_logical_and
+id|reflog_len
+)paren
+(brace
+multiline_comment|/* allow &quot;@{...}&quot; to mean the current branch reflog */
+id|refs_found
+op_assign
+id|dwim_ref
+c_func
+(paren
+l_string|&quot;HEAD&quot;
+comma
+l_int|4
+comma
+id|sha1
+comma
+op_amp
+id|real_ref
+)paren
+suffix:semicolon
+)brace
+r_else
 id|refs_found
 op_assign
 id|dwim_ref
@@ -1695,6 +1724,8 @@ multiline_comment|/*&n;&t;&t; * We&squot;ll have an independent reflog for &quot
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 op_logical_neg
 id|strncmp
 c_func
@@ -1722,7 +1753,8 @@ id|error
 c_func
 (paren
 l_string|&quot;reflog for HEAD has not been implemented yet&bslash;n&quot;
-l_string|&quot;Maybe you could try %s%s instead.&quot;
+l_string|&quot;Maybe you could try %s%s instead, &quot;
+l_string|&quot;or just %s for current branch..&quot;
 comma
 id|strchr
 c_func
@@ -1735,6 +1767,10 @@ l_char|&squot;/&squot;
 )paren
 op_plus
 l_int|1
+comma
+id|str
+op_plus
+id|len
 comma
 id|str
 op_plus
