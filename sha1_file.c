@@ -7499,6 +7499,32 @@ c_cond
 id|offset
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * We are about to tell the caller where they can&n;&t;&t;&t; * locate the requested object.  We better make&n;&t;&t;&t; * sure the packfile is still here and can be&n;&t;&t;&t; * accessed before supplying that answer, as&n;&t;&t;&t; * it may have been deleted since the index&n;&t;&t;&t; * was loaded!&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|p-&gt;pack_fd
+op_eq
+l_int|1
+op_logical_and
+id|open_packed_git
+c_func
+(paren
+id|p
+)paren
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;packfile %s cannot be accessed&quot;
+comma
+id|p-&gt;pack_name
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|e-&gt;offset
 op_assign
 id|offset
