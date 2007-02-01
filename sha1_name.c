@@ -1673,7 +1673,6 @@ c_cond
 id|reflog_len
 )paren
 (brace
-multiline_comment|/* Is it asking for N-th entry, or approxidate? */
 r_int
 id|nth
 comma
@@ -1692,6 +1691,63 @@ id|co_tz
 comma
 id|co_cnt
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * We&squot;ll have an independent reflog for &quot;HEAD&quot; eventually&n;&t;&t; * which won&squot;t be a synonym for the current branch reflog.&n;&t;&t; * In the mean time prevent people from getting used to&n;&t;&t; * such a synonym until the work is completed.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+l_string|&quot;HEAD&quot;
+comma
+id|str
+comma
+id|len
+)paren
+op_logical_and
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|real_ref
+comma
+l_string|&quot;refs/&quot;
+comma
+l_int|5
+)paren
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;reflog for HEAD has not been implemented yet&bslash;n&quot;
+l_string|&quot;Maybe you could try %s%s instead.&quot;
+comma
+id|strchr
+c_func
+(paren
+id|real_ref
+op_plus
+l_int|5
+comma
+l_char|&squot;/&squot;
+)paren
+op_plus
+l_int|1
+comma
+id|str
+op_plus
+id|len
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|1
+)paren
+suffix:semicolon
+)brace
+multiline_comment|/* Is it asking for N-th entry, or approxidate? */
 r_for
 c_loop
 (paren
