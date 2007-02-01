@@ -3014,7 +3014,7 @@ suffix:semicolon
 )brace
 DECL|function|open_packed_git
 r_static
-r_void
+r_int
 id|open_packed_git
 c_func
 (paren
@@ -3073,13 +3073,8 @@ op_amp
 id|st
 )paren
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;packfile %s cannot be opened&quot;
-comma
-id|p-&gt;pack_name
-)paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* If we created the struct before we had the pack we lack size. */
 r_if
@@ -3099,7 +3094,8 @@ c_func
 id|st.st_mode
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s not a regular file&quot;
@@ -3120,7 +3116,8 @@ id|p-&gt;pack_size
 op_ne
 id|st.st_size
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s size changed&quot;
@@ -3148,7 +3145,8 @@ id|fd_flag
 OL
 l_int|0
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;cannot determine file descriptor flags&quot;
@@ -3173,7 +3171,8 @@ id|fd_flag
 op_eq
 l_int|1
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;cannot set FD_CLOEXEC&quot;
@@ -3202,7 +3201,8 @@ r_sizeof
 id|hdr
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;file %s is far too short to be a packfile&quot;
@@ -3221,7 +3221,8 @@ c_func
 id|PACK_SIGNATURE
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;file %s is not a GIT packfile&quot;
@@ -3239,7 +3240,8 @@ c_func
 id|hdr.hdr_version
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s is version %u and not supported&quot;
@@ -3270,7 +3272,8 @@ c_func
 id|hdr.hdr_entries
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s claims to have %u objects&quot;
@@ -3310,7 +3313,8 @@ id|SEEK_SET
 op_eq
 l_int|1
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;end of packfile %s is unavailable&quot;
@@ -3339,7 +3343,8 @@ r_sizeof
 id|sha1
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s signature is unavailable&quot;
@@ -3372,13 +3377,17 @@ comma
 id|idx_sha1
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s does not match index&quot;
 comma
 id|p-&gt;pack_name
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|in_window
@@ -3463,11 +3472,19 @@ c_cond
 id|p-&gt;pack_fd
 op_eq
 l_int|1
-)paren
+op_logical_and
 id|open_packed_git
 c_func
 (paren
 id|p
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;packfile %s cannot be accessed&quot;
+comma
+id|p-&gt;pack_name
 )paren
 suffix:semicolon
 multiline_comment|/* Since packfiles end in a hash of their content and its&n;&t; * pointless to ask for an offset into the middle of that&n;&t; * hash, and the in_window function above wouldn&squot;t match&n;&t; * don&squot;t allow an offset too close to the end of the file.&n;&t; */
