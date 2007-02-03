@@ -985,13 +985,13 @@ comma
 id|revs
 )paren
 suffix:semicolon
-multiline_comment|/* Add all reflog info from refs */
+multiline_comment|/* Add all reflog info */
 r_if
 c_cond
 (paren
 id|mark_reflog
 )paren
-id|for_each_ref
+id|for_each_reflog
 c_func
 (paren
 id|add_one_reflog

@@ -1150,28 +1150,6 @@ id|status
 op_assign
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|strncmp
-c_func
-(paren
-id|ref
-comma
-l_string|&quot;refs/&quot;
-comma
-l_int|5
-)paren
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;not a ref &squot;%s&squot;&quot;
-comma
-id|ref
-)paren
-suffix:semicolon
 id|memset
 c_func
 (paren
@@ -1189,12 +1167,10 @@ suffix:semicolon
 multiline_comment|/* we take the lock for the ref itself to prevent it from&n;&t; * getting updated.&n;&t; */
 id|lock
 op_assign
-id|lock_ref_sha1
+id|lock_any_ref_for_update
 c_func
 (paren
 id|ref
-op_plus
-l_int|5
 comma
 id|sha1
 )paren
@@ -1818,7 +1794,7 @@ id|do_all
 )paren
 id|status
 op_or_assign
-id|for_each_ref
+id|for_each_reflog
 c_func
 (paren
 id|expire_reflog
