@@ -4579,6 +4579,13 @@ id|i
 )braket
 op_eq
 l_char|&squot;]&squot;
+op_logical_and
+id|old_name
+(braket
+id|j
+)braket
+op_eq
+l_int|0
 )paren
 (brace
 multiline_comment|/* old_name matches */

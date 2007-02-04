@@ -1934,7 +1934,7 @@ l_int|1
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Get information of all renames which occured between &squot;o_tree&squot; and&n; * &squot;tree&squot;. We need the three trees in the merge (&squot;o_tree&squot;, &squot;a_tree&squot; and&n; * &squot;b_tree&squot;) to be able to associate the correct cache entries with&n; * the rename information. &squot;tree&squot; is always equal to either a_tree or b_tree.&n; */
+multiline_comment|/*&n; * Get information of all renames which occurred between &squot;o_tree&squot; and&n; * &squot;tree&squot;. We need the three trees in the merge (&squot;o_tree&squot;, &squot;a_tree&squot; and&n; * &squot;b_tree&squot;) to be able to associate the correct cache entries with&n; * the rename information. &squot;tree&squot; is always equal to either a_tree or b_tree.&n; */
 DECL|function|get_renames
 r_static
 r_struct
@@ -4938,6 +4938,10 @@ comma
 id|ren1_src
 comma
 id|index_only
+op_logical_or
+id|stage
+op_eq
+l_int|3
 )paren
 suffix:semicolon
 id|hashcpy
@@ -6539,7 +6543,7 @@ r_return
 id|next
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Merge the commits h1 and h2, return the resulting virtual&n; * commit object and a flag indicating the cleaness of the merge.&n; */
+multiline_comment|/*&n; * Merge the commits h1 and h2, return the resulting virtual&n; * commit object and a flag indicating the cleanness of the merge.&n; */
 DECL|function|merge
 r_static
 r_int
@@ -6782,7 +6786,7 @@ id|iter-&gt;next
 id|call_depth
 op_increment
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * When the merge fails, the result contains files&n;&t;&t; * with conflict markers. The cleanness flag is&n;&t;&t; * ignored, it was never acutally used, as result of&n;&t;&t; * merge_trees has always overwritten it: the commited&n;&t;&t; * &quot;conflicts&quot; were already resolved.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * When the merge fails, the result contains files&n;&t;&t; * with conflict markers. The cleanness flag is&n;&t;&t; * ignored, it was never actually used, as result of&n;&t;&t; * merge_trees has always overwritten it: the committed&n;&t;&t; * &quot;conflicts&quot; were already resolved.&n;&t;&t; */
 id|discard_cache
 c_func
 (paren

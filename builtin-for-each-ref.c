@@ -15,6 +15,8 @@ DECL|macro|QUOTE_PERL
 mdefine_line|#define QUOTE_PERL 2
 DECL|macro|QUOTE_PYTHON
 mdefine_line|#define QUOTE_PYTHON 3
+DECL|macro|QUOTE_TCL
+mdefine_line|#define QUOTE_TCL 4
 DECL|enumerator|FIELD_STR
 DECL|enumerator|FIELD_ULONG
 DECL|enumerator|FIELD_TIME
@@ -611,7 +613,7 @@ op_eq
 l_char|&squot;%&squot;
 )paren
 (brace
-multiline_comment|/* %( is the start of an atom;&n;&t;&t;&t; * %% is a quoteed per-cent.&n;&t;&t;&t; */
+multiline_comment|/* %( is the start of an atom;&n;&t;&t;&t; * %% is a quoted per-cent.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -4090,6 +4092,19 @@ id|v-&gt;s
 suffix:semicolon
 r_break
 suffix:semicolon
+r_case
+id|QUOTE_TCL
+suffix:colon
+id|tcl_quote_print
+c_func
+(paren
+id|stdout
+comma
+id|v-&gt;s
+)paren
+suffix:semicolon
+r_break
+suffix:semicolon
 )brace
 )brace
 DECL|function|hex1
@@ -4779,6 +4794,39 @@ suffix:semicolon
 id|quote_style
 op_assign
 id|QUOTE_PYTHON
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--tcl&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+l_int|0
+op_le
+id|quote_style
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;more than one quoting style?&quot;
+)paren
+suffix:semicolon
+id|quote_style
+op_assign
+id|QUOTE_TCL
 suffix:semicolon
 r_continue
 suffix:semicolon

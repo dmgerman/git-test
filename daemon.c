@@ -1440,6 +1440,29 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|function|receive_pack
+r_static
+r_int
+id|receive_pack
+c_func
+(paren
+r_void
+)paren
+(brace
+id|execl_git_cmd
+c_func
+(paren
+l_string|&quot;receive-pack&quot;
+comma
+l_string|&quot;.&quot;
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 DECL|variable|daemon_service
 r_static
 r_struct
@@ -1469,6 +1492,18 @@ comma
 id|upload_pack
 comma
 l_int|1
+comma
+l_int|1
+)brace
+comma
+(brace
+l_string|&quot;receive-pack&quot;
+comma
+l_string|&quot;receivepack&quot;
+comma
+id|receive_pack
+comma
+l_int|0
 comma
 l_int|1
 )brace
@@ -1629,7 +1664,7 @@ id|name
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Separate the &quot;extra args&quot; information as supplied by the client connection.&n; * Any resulting data is squirrelled away in the given interpolation table.&n; */
+multiline_comment|/*&n; * Separate the &quot;extra args&quot; information as supplied by the client connection.&n; * Any resulting data is squirreled away in the given interpolation table.&n; */
 DECL|function|parse_extra_args
 r_static
 r_void

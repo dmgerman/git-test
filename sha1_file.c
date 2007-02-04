@@ -3012,10 +3012,11 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
-DECL|function|open_packed_git
+multiline_comment|/*&n; * Do not call this directly as this leaks p-&gt;pack_fd on error return;&n; * call open_packed_git() instead.&n; */
+DECL|function|open_packed_git_1
 r_static
-r_void
-id|open_packed_git
+r_int
+id|open_packed_git_1
 c_func
 (paren
 r_struct
@@ -3073,13 +3074,8 @@ op_amp
 id|st
 )paren
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;packfile %s cannot be opened&quot;
-comma
-id|p-&gt;pack_name
-)paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* If we created the struct before we had the pack we lack size. */
 r_if
@@ -3099,7 +3095,8 @@ c_func
 id|st.st_mode
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s not a regular file&quot;
@@ -3120,7 +3117,8 @@ id|p-&gt;pack_size
 op_ne
 id|st.st_size
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s size changed&quot;
@@ -3148,7 +3146,8 @@ id|fd_flag
 OL
 l_int|0
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;cannot determine file descriptor flags&quot;
@@ -3173,7 +3172,8 @@ id|fd_flag
 op_eq
 l_int|1
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;cannot set FD_CLOEXEC&quot;
@@ -3202,7 +3202,8 @@ r_sizeof
 id|hdr
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;file %s is far too short to be a packfile&quot;
@@ -3221,7 +3222,8 @@ c_func
 id|PACK_SIGNATURE
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;file %s is not a GIT packfile&quot;
@@ -3239,7 +3241,8 @@ c_func
 id|hdr.hdr_version
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s is version %u and not supported&quot;
@@ -3270,7 +3273,8 @@ c_func
 id|hdr.hdr_entries
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s claims to have %u objects&quot;
@@ -3310,7 +3314,8 @@ id|SEEK_SET
 op_eq
 l_int|1
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;end of packfile %s is unavailable&quot;
@@ -3339,7 +3344,8 @@ r_sizeof
 id|sha1
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s signature is unavailable&quot;
@@ -3372,13 +3378,65 @@ comma
 id|idx_sha1
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;packfile %s does not match index&quot;
 comma
 id|p-&gt;pack_name
 )paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+DECL|function|open_packed_git
+r_static
+r_int
+id|open_packed_git
+c_func
+(paren
+r_struct
+id|packed_git
+op_star
+id|p
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|open_packed_git_1
+c_func
+(paren
+id|p
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|p-&gt;pack_fd
+op_ne
+l_int|1
+)paren
+(brace
+id|close
+c_func
+(paren
+id|p-&gt;pack_fd
+)paren
+suffix:semicolon
+id|p-&gt;pack_fd
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_return
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|in_window
@@ -3463,11 +3521,19 @@ c_cond
 id|p-&gt;pack_fd
 op_eq
 l_int|1
-)paren
+op_logical_and
 id|open_packed_git
 c_func
 (paren
 id|p
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;packfile %s cannot be accessed&quot;
+comma
+id|p-&gt;pack_name
 )paren
 suffix:semicolon
 multiline_comment|/* Since packfiles end in a hash of their content and its&n;&t; * pointless to ask for an offset into the middle of that&n;&t; * hash, and the in_window function above wouldn&squot;t match&n;&t; * don&squot;t allow an offset too close to the end of the file.&n;&t; */
@@ -4248,7 +4314,7 @@ l_string|&quot;.idx&quot;
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* we have .idx.  Is it a file we can map? */
+multiline_comment|/* Don&squot;t reopen a pack we already have. */
 id|strcpy
 c_func
 (paren
@@ -4300,6 +4366,7 @@ id|p
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* See if it really is a valid .idx file with corresponding&n;&t;&t; * .pack file that we can map.&n;&t;&t; */
 id|p
 op_assign
 id|add_packed_git
@@ -4322,13 +4389,11 @@ id|p
 )paren
 r_continue
 suffix:semicolon
-id|p-&gt;next
-op_assign
-id|packed_git
-suffix:semicolon
-id|packed_git
-op_assign
+id|install_packed_git
+c_func
+(paren
 id|p
+)paren
 suffix:semicolon
 )brace
 id|closedir
@@ -6007,7 +6072,7 @@ r_int
 r_int
 id|used
 suffix:semicolon
-multiline_comment|/* use_pack() assures us we have [base, base + 20) available&n;&t; * as a range that we can look at at.  (Its actually the hash&n;&t; * size that is assurred.)  With our object header encoding&n;&t; * the maximum deflated object size is 2^137, which is just&n;&t; * insane, so we know won&squot;t exceed what we have been given.&n;&t; */
+multiline_comment|/* use_pack() assures us we have [base, base + 20) available&n;&t; * as a range that we can look at at.  (Its actually the hash&n;&t; * size that is assured.)  With our object header encoding&n;&t; * the maximum deflated object size is 2^137, which is just&n;&t; * insane, so we know won&squot;t exceed what we have been given.&n;&t; */
 id|base
 op_assign
 id|use_pack
@@ -7483,6 +7548,32 @@ c_cond
 id|offset
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * We are about to tell the caller where they can&n;&t;&t;&t; * locate the requested object.  We better make&n;&t;&t;&t; * sure the packfile is still here and can be&n;&t;&t;&t; * accessed before supplying that answer, as&n;&t;&t;&t; * it may have been deleted since the index&n;&t;&t;&t; * was loaded!&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|p-&gt;pack_fd
+op_eq
+l_int|1
+op_logical_and
+id|open_packed_git
+c_func
+(paren
+id|p
+)paren
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;packfile %s cannot be accessed&quot;
+comma
+id|p-&gt;pack_name
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|e-&gt;offset
 op_assign
 id|offset

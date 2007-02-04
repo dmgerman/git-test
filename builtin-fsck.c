@@ -437,7 +437,7 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * &quot;!used&quot; means that nothing at all points to it, including&n;&t; * other unreacahble objects. In other words, it&squot;s the &quot;tip&quot;&n;&t; * of some set of unreachable objects, usually a commit that&n;&t; * got dropped.&n;&t; *&n;&t; * Such starting points are more interesting than some random&n;&t; * set of unreachable objects, so we show them even if the user&n;&t; * hasn&squot;t asked for _all_ unreachable objects. If you have&n;&t; * deleted a branch by mistake, this is a prime candidate to&n;&t; * start looking at, for example.&n;&t; */
+multiline_comment|/*&n;&t; * &quot;!used&quot; means that nothing at all points to it, including&n;&t; * other unreachable objects. In other words, it&squot;s the &quot;tip&quot;&n;&t; * of some set of unreachable objects, usually a commit that&n;&t; * got dropped.&n;&t; *&n;&t; * Such starting points are more interesting than some random&n;&t; * set of unreachable objects, so we show them even if the user&n;&t; * hasn&squot;t asked for _all_ unreachable objects. If you have&n;&t; * deleted a branch by mistake, this is a prime candidate to&n;&t; * start looking at, for example.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2580,9 +2580,9 @@ r_return
 id|err
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_fsck
 r_int
-id|main
+id|cmd_fsck
 c_func
 (paren
 r_int
@@ -2592,6 +2592,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
@@ -2602,11 +2607,6 @@ suffix:semicolon
 id|track_object_refs
 op_assign
 l_int|1
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
 suffix:semicolon
 r_for
 c_loop
@@ -2764,7 +2764,7 @@ l_char|&squot;-&squot;
 id|usage
 c_func
 (paren
-l_string|&quot;git-fsck-objects [--tags] [--root] [[--unreachable] [--cache] [--full] [--strict] &lt;head-sha1&gt;*]&quot;
+l_string|&quot;git-fsck [--tags] [--root] [[--unreachable] [--cache] [--full] [--strict] &lt;head-sha1&gt;*]&quot;
 )paren
 suffix:semicolon
 )brace

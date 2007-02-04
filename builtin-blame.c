@@ -153,6 +153,7 @@ id|FLEX_ARRAY
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * Given an origin, prepare mmfile_t structure to be used by the&n; * diff machinery&n; */
 DECL|function|fill_origin_blob
 r_static
 r_char
@@ -224,6 +225,7 @@ r_return
 id|file-&gt;ptr
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Origin is refcounted and usually we keep the blob contents to be&n; * reused.&n; */
 DECL|function|origin_incref
 r_static
 r_inline
@@ -307,6 +309,7 @@ id|o
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n; * Each group of lines is described by a blame_entry; it can be split&n; * as we pass blame to the parents.  They form a linked list in the&n; * scoreboard structure, sorted by the target line number.&n; */
 DECL|struct|blame_entry
 r_struct
 id|blame_entry
@@ -350,13 +353,14 @@ DECL|member|s_lno
 r_int
 id|s_lno
 suffix:semicolon
-multiline_comment|/* how significant this entry is -- cached to avoid&n;&t; * scanning the lines over and over&n;&t; */
+multiline_comment|/* how significant this entry is -- cached to avoid&n;&t; * scanning the lines over and over.&n;&t; */
 DECL|member|score
 r_int
 id|score
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * The current state of the blame assignment.&n; */
 DECL|struct|scoreboard
 r_struct
 id|scoreboard
@@ -374,7 +378,7 @@ r_char
 op_star
 id|path
 suffix:semicolon
-multiline_comment|/* the contents in the final; pointed into by buf pointers of&n;&t; * blame_entries&n;&t; */
+multiline_comment|/*&n;&t; * The contents in the final image.&n;&t; * Used by many functions to obtain contents of the nth line,&n;&t; * indexed with scoreboard.lineno[blame_entry.lno].&n;&t; */
 DECL|member|final_buf
 r_const
 r_char
@@ -463,6 +467,7 @@ id|scoreboard
 op_star
 )paren
 suffix:semicolon
+multiline_comment|/*&n; * If two blame entries that are next to each other came from&n; * contiguous lines in the same origin (i.e. &lt;commit, path&gt; pair),&n; * merge them together.&n; */
 DECL|function|coalesce
 r_static
 r_void
@@ -579,6 +584,7 @@ id|sb
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Given a commit and a path in it, create a new origin structure.&n; * The callers that add blame to the scoreboard should use&n; * get_origin() to obtain shared, refcounted copy instead of calling&n; * this function directly.&n; */
 DECL|function|make_origin
 r_static
 r_struct
@@ -645,6 +651,7 @@ r_return
 id|o
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Locate an existing origin or create a new one.&n; */
 DECL|function|get_origin
 r_static
 r_struct
@@ -722,6 +729,7 @@ id|path
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Fill the blob_sha1 field of an origin if it hasn&squot;t, so that later&n; * call to fill_origin_blob() can use it to locate the data.  blob_sha1&n; * for an origin is also used to pass the blame for the entire file to&n; * the parent to detect the case where a child&squot;s blob is identical to&n; * that of its parent&squot;s.&n; */
 DECL|function|fill_blob_sha1
 r_static
 r_int
@@ -814,6 +822,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * We have an origin -- check if the same path exists in the&n; * parent and return an origin structure to represent it.&n; */
 DECL|function|find_origin
 r_static
 r_struct
@@ -863,7 +872,7 @@ c_cond
 id|parent-&gt;util
 )paren
 (brace
-multiline_comment|/* This is a freestanding copy of origin and not&n;&t;&t; * refcounted.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Each commit object can cache one origin in that&n;&t;&t; * commit.  This is a freestanding copy of origin and&n;&t;&t; * not refcounted.&n;&t;&t; */
 r_struct
 id|origin
 op_star
@@ -884,6 +893,7 @@ id|origin-&gt;path
 )paren
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * The same path between origin and its parent&n;&t;&t;&t; * without renaming -- the most common case.&n;&t;&t;&t; */
 id|porigin
 op_assign
 id|get_origin
@@ -896,6 +906,7 @@ comma
 id|cached-&gt;path
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * If the origin was newly created (i.e. get_origin&n;&t;&t;&t; * would call make_origin if none is found in the&n;&t;&t;&t; * scoreboard), it does not know the blob_sha1,&n;&t;&t;&t; * so copy it.  Otherwise porigin was in the&n;&t;&t;&t; * scoreboard and already knows blob_sha1.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1129,6 +1140,7 @@ c_cond
 id|porigin
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * Create a freestanding copy that is not part of&n;&t;&t; * the refcounted origin found in the scoreboard, and&n;&t;&t; * cache it in the commit.&n;&t;&t; */
 r_struct
 id|origin
 op_star
@@ -1161,6 +1173,7 @@ r_return
 id|porigin
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * We have an origin -- find the path that corresponds to it in its&n; * parent and return an origin structure to represent it.&n; */
 DECL|function|find_rename
 r_static
 r_struct
@@ -1367,6 +1380,7 @@ r_return
 id|porigin
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Parsing of patch chunks...&n; */
 DECL|struct|chunk
 r_struct
 id|chunk
@@ -1824,6 +1838,7 @@ r_return
 id|state.ret
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Run diff between two origins and grab the patch output, so that&n; * we can pass blame for lines origin is currently suspected for&n; * to its parent.&n; */
 DECL|function|get_patch
 r_static
 r_struct
@@ -1929,6 +1944,7 @@ id|p
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Link in a new blame entry to the scoreboard.  Entries that cover the&n; * same line range have been removed from the scoreboard previously.&n; */
 DECL|function|add_blame_entry
 r_static
 r_void
@@ -2024,6 +2040,7 @@ op_assign
 id|e
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * src typically is on-stack; we want to copy the information in it to&n; * an malloced blame_entry that is already on the linked list of the&n; * scoreboard.  The origin of dst loses a refcnt while the origin of src&n; * gains one.&n; */
 DECL|function|dup_entry
 r_static
 r_void
@@ -2122,6 +2139,7 @@ id|lno
 )braket
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * It is known that lines between tlno to same came from parent, and e&n; * has an overlap with that range.  it also is known that parent&squot;s&n; * line plno corresponds to e&squot;s line tlno.&n; *&n; *                &lt;---- e -----&gt;&n; *                   &lt;------&gt;&n; *                   &lt;------------&gt;&n; *             &lt;------------&gt;&n; *             &lt;------------------&gt;&n; *&n; * Split e into potentially three parts; before this chunk, the chunk&n; * to be blamed for the parent, and after that portion.&n; */
 DECL|function|split_overlap
 r_static
 r_void
@@ -2153,7 +2171,6 @@ op_star
 id|parent
 )paren
 (brace
-multiline_comment|/* it is known that lines between tlno to same came from&n;&t; * parent, and e has an overlap with that range.  it also is&n;&t; * known that parent&squot;s line plno corresponds to e&squot;s line tlno.&n;&t; *&n;&t; *                &lt;---- e -----&gt;&n;&t; *                   &lt;------&gt;&n;&t; *                   &lt;------------&gt;&n;&t; *             &lt;------------&gt;&n;&t; *             &lt;------------------&gt;&n;&t; *&n;&t; * Potentially we need to split e into three parts; before&n;&t; * this chunk, the chunk to be blamed for parent, and after&n;&t; * that portion.&n;&t; */
 r_int
 id|chunk_end_lno
 suffix:semicolon
@@ -2368,6 +2385,7 @@ l_int|1
 dot
 id|lno
 suffix:semicolon
+multiline_comment|/*&n;&t; * if it turns out there is nothing to blame the parent for,&n;&t; * forget about the splitting.  !split[1].suspect signals this.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2396,6 +2414,7 @@ id|parent
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * split_overlap() divided an existing blame e into up to three parts&n; * in split.  Adjust the linked list of blames in the scoreboard to&n; * reflect the split.&n; */
 DECL|function|split_blame
 r_static
 r_void
@@ -2441,7 +2460,7 @@ dot
 id|suspect
 )paren
 (brace
-multiline_comment|/* we need to split e into two and add another for parent */
+multiline_comment|/* The first part (reuse storage for the existing entry e) */
 id|dup_entry
 c_func
 (paren
@@ -2454,6 +2473,7 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+multiline_comment|/* The last part -- me */
 id|new_entry
 op_assign
 id|xmalloc
@@ -2494,6 +2514,7 @@ comma
 id|new_entry
 )paren
 suffix:semicolon
+multiline_comment|/* ... and the middle part -- parent */
 id|new_entry
 op_assign
 id|xmalloc
@@ -2555,7 +2576,7 @@ l_int|2
 dot
 id|suspect
 )paren
-multiline_comment|/* parent covers the entire area */
+multiline_comment|/*&n;&t;&t; * The parent covers the entire area; reuse storage for&n;&t;&t; * e and replace it with the parent.&n;&t;&t; */
 id|dup_entry
 c_func
 (paren
@@ -2580,6 +2601,7 @@ dot
 id|suspect
 )paren
 (brace
+multiline_comment|/* me and then parent */
 id|dup_entry
 c_func
 (paren
@@ -2635,6 +2657,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
+multiline_comment|/* parent and then me */
 id|dup_entry
 c_func
 (paren
@@ -2802,6 +2825,7 @@ suffix:semicolon
 )brace
 )brace
 )brace
+multiline_comment|/*&n; * After splitting the blame, the origins used by the&n; * on-stack blame_entry should lose one refcnt each.&n; */
 DECL|function|decref_split
 r_static
 r_void
@@ -2843,6 +2867,7 @@ id|suspect
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Helper for blame_chunk().  blame_entry e is known to overlap with&n; * the patch hunk; split it and pass blame to the parent.&n; */
 DECL|function|blame_overlap
 r_static
 r_void
@@ -2924,6 +2949,7 @@ id|split
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Find the line number of the last line the target is suspected for.&n; */
 DECL|function|find_last_in_target
 r_static
 r_int
@@ -3000,6 +3026,7 @@ r_return
 id|last_in_target
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Process one hunk from the patch between the current suspect for&n; * blame_entry e and its parent.  Find and split the overlap, and&n; * pass blame to the overlapping part to the parent.&n; */
 DECL|function|blame_chunk
 r_static
 r_void
@@ -3101,6 +3128,7 @@ id|parent
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n; * We are looking at the origin &squot;target&squot; and aiming to pass blame&n; * for the lines it is suspected to its parent.  Run diff to find&n; * which lines came from parent and pass blame for them.&n; */
 DECL|function|pass_blame_to_parent
 r_static
 r_int
@@ -3225,7 +3253,7 @@ op_assign
 id|chunk-&gt;t_next
 suffix:semicolon
 )brace
-multiline_comment|/* rest (i.e. anything above tlno) are the same as parent */
+multiline_comment|/* The rest (i.e. anything after tlno) are the same as the parent */
 id|blame_chunk
 c_func
 (paren
@@ -3252,6 +3280,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The lines in blame_entry after splitting blames many times can become&n; * very small and trivial, and at some point it becomes pointless to&n; * blame the parents.  E.g. &quot;&bslash;t&bslash;t}&bslash;n&bslash;t}&bslash;n&bslash;n&quot; appears everywhere in any&n; * ordinary C program, and it is not worth to say it was copied from&n; * totally unrelated file in the parent.&n; *&n; * Compute how trivial the lines in the blame_entry are.&n; */
 DECL|function|ent_score
 r_static
 r_int
@@ -3359,6 +3388,7 @@ r_return
 id|score
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * best_so_far[] and this[] are both a split of an existing blame_entry&n; * that passes blame to the parent.  Maintain best_so_far the best split&n; * so far, by comparing this and best_so_far and copying this into&n; * bst_so_far as needed.&n; */
 DECL|function|copy_split_if_better
 r_static
 r_void
@@ -3487,6 +3517,7 @@ l_int|3
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Find the lines from parent that are the same as ent so that&n; * we can pass blames to it.  file_p has the blob contents for&n; * the parent.&n; */
 DECL|function|find_copy_in_blob
 r_static
 r_void
@@ -3541,6 +3572,7 @@ id|plno
 comma
 id|tlno
 suffix:semicolon
+multiline_comment|/*&n;&t; * Prepare mmfile that contains only the lines in ent.&n;&t; */
 id|cp
 op_assign
 id|nth_line
@@ -3733,6 +3765,7 @@ id|patch
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * See if lines currently target is suspected for can be attributed to&n; * parent.&n; */
 DECL|function|find_move_in_parent
 r_static
 r_int
@@ -3942,6 +3975,7 @@ l_int|3
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * Count the number of entries the target is suspected for,&n; * and prepare a list of entry and the best split.&n; */
 DECL|function|setup_blame_list
 r_static
 r_struct
@@ -3982,7 +4016,6 @@ id|blame_list
 op_assign
 l_int|NULL
 suffix:semicolon
-multiline_comment|/* Count the number of entries the target is suspected for,&n;&t; * and prepare a list of entry and the best split.&n;&t; */
 r_for
 c_loop
 (paren
@@ -4090,6 +4123,7 @@ r_return
 id|blame_list
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * For lines target is suspected for, see if we can find code movement&n; * across file boundary from the parent commit.  porigin is the path&n; * in the parent we already tried.&n; */
 DECL|function|find_copy_in_parent
 r_static
 r_int
@@ -4591,7 +4625,7 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-multiline_comment|/* The blobs of origin and porigin exactly match, so everything&n; * origin is suspected for can be blamed on the parent.&n; */
+multiline_comment|/*&n; * The blobs of origin and porigin exactly match, so everything&n; * origin is suspected for can be blamed on the parent.&n; */
 DECL|function|pass_whole_blame
 r_static
 r_void
@@ -5034,7 +5068,7 @@ r_goto
 id|finish
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Optionally run &quot;miff&quot; to find moves in parents&squot; files here.&n;&t; */
+multiline_comment|/*&n;&t; * Optionally find moves in parents&squot; files.&n;&t; */
 r_if
 c_cond
 (paren
@@ -5102,7 +5136,7 @@ r_goto
 id|finish
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Optionally run &quot;ciff&quot; to find copies from parents&squot; files here.&n;&t; */
+multiline_comment|/*&n;&t; * Optionally find copies from parents&squot; files.&n;&t; */
 r_if
 c_cond
 (paren
@@ -5192,6 +5226,7 @@ id|i
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Information on commits, used for output.&n; */
 DECL|struct|commit_info
 r_struct
 id|commit_info
@@ -5244,6 +5279,7 @@ id|summary
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * Parse author/committer line in the commit object buffer&n; */
 DECL|function|get_ac_line
 r_static
 r_void
@@ -5529,7 +5565,7 @@ id|summary_buf
 l_int|1024
 )braket
 suffix:semicolon
-multiline_comment|/* We&squot;ve operated without save_commit_buffer, so&n;&t; * we now need to populate them for output.&n;&t; */
+multiline_comment|/*&n;&t; * We&squot;ve operated without save_commit_buffer, so&n;&t; * we now need to populate them for output.&n;&t; */
 r_if
 c_cond
 (paren
@@ -5724,6 +5760,7 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * To allow LF and other nonportable characters in pathnames,&n; * they are c-style quoted as needed.&n; */
 DECL|function|write_filename_info
 r_static
 r_void
@@ -5763,6 +5800,7 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The blame_entry is found to be guilty for the range.  Mark it&n; * as such, and show it in incremental output.&n; */
 DECL|function|found_guilty_entry
 r_static
 r_void
@@ -5945,6 +5983,7 @@ id|suspect-&gt;path
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n; * The main loop -- while the scoreboard has lines whose true origin&n; * is still unknown, pick one blame_entry, and allow its current&n; * suspect to pass blames to its parents.&n; */
 DECL|function|assign_blame
 r_static
 r_void
@@ -6024,6 +6063,7 @@ id|suspect
 r_return
 suffix:semicolon
 multiline_comment|/* all done */
+multiline_comment|/*&n;&t;&t; * We will use this suspect later in the loop,&n;&t;&t; * so hold onto it in the meantime.&n;&t;&t; */
 id|origin_incref
 c_func
 (paren
@@ -7111,6 +7151,7 @@ suffix:semicolon
 )brace
 )brace
 )brace
+multiline_comment|/*&n; * To allow quick access to the contents of nth line in the&n; * final image, prepare an index in the scoreboard.&n; */
 DECL|function|prepare_lines
 r_static
 r_int
@@ -7274,6 +7315,7 @@ r_return
 id|sb-&gt;num_lines
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Add phony grafts for use with -S; this is primarily to&n; * support git-cvsserver that wants to give a linear history&n; * to its clients.&n; */
 DECL|function|read_ancestry
 r_static
 r_int
@@ -7377,6 +7419,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * How many columns do we need to show line numbers in decimal?&n; */
 DECL|function|lineno_width
 r_static
 r_int
@@ -7420,6 +7463,7 @@ r_return
 id|width
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * How many columns do we need to show line numbers, authors,&n; * and filenames?&n; */
 DECL|function|find_alignment
 r_static
 r_void
@@ -7648,6 +7692,7 @@ id|largest_score
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * For debugging -- origin is refcounted, and this asserts that&n; * we do not underflow.&n; */
 DECL|function|sanity_check_refcnt
 r_static
 r_void
@@ -7758,7 +7803,7 @@ op_assign
 id|ent-&gt;next
 )paren
 (brace
-multiline_comment|/* then pick each and see if they have the the correct&n;&t;&t; * refcnt.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * ... then pick each and see if they have the the&n;&t;&t; * correct refcnt.&n;&t;&t; */
 r_int
 id|found
 suffix:semicolon
@@ -7891,6 +7936,7 @@ id|baa
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n; * Used for the command line parsing; check if the path exists&n; * in the working tree.&n; */
 DECL|function|has_path_in_work_tree
 r_static
 r_int
@@ -8013,6 +8059,7 @@ id|path
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Parsing of (comma separated) one item in the -L option&n; */
 DECL|function|parse_loc
 r_static
 r_const
@@ -8441,6 +8488,7 @@ id|errbuf
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n; * Parsing of -L option&n; */
 DECL|function|prepare_blame_range
 r_static
 r_void
@@ -9177,6 +9225,17 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|incremental
+)paren
+id|setup_pager
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|blame_move_score
 )paren
 id|blame_move_score
@@ -9193,7 +9252,7 @@ id|blame_copy_score
 op_assign
 id|BLAME_DEFAULT_COPY_SCORE
 suffix:semicolon
-multiline_comment|/* We have collected options unknown to us in argv[1..unk]&n;&t; * which are to be passed to revision machinery if we are&n;&t; * going to do the &quot;bottom&quot; procesing.&n;&t; *&n;&t; * The remaining are:&n;&t; *&n;&t; * (1) if seen_dashdash, its either&n;&t; *     &quot;-options -- &lt;path&gt;&quot; or&n;&t; *     &quot;-options -- &lt;path&gt; &lt;rev&gt;&quot;.&n;&t; *     but the latter is allowed only if there is no&n;&t; *     options that we passed to revision machinery.&n;&t; *&n;&t; * (2) otherwise, we may have &quot;--&quot; somewhere later and&n;&t; *     might be looking at the first one of multiple &squot;rev&squot;&n;&t; *     parameters (e.g. &quot; master ^next ^maint -- path&quot;).&n;&t; *     See if there is a dashdash first, and give the&n;&t; *     arguments before that to revision machinery.&n;&t; *     After that there must be one &squot;path&squot;.&n;&t; *&n;&t; * (3) otherwise, its one of the three:&n;&t; *     &quot;-options &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *     &quot;-options &lt;rev&gt; &lt;path&gt;&quot;&n;&t; *     &quot;-options &lt;path&gt;&quot;&n;&t; *     but again the first one is allowed only if&n;&t; *     there is no options that we passed to revision&n;&t; *     machinery.&n;&t; */
+multiline_comment|/*&n;&t; * We have collected options unknown to us in argv[1..unk]&n;&t; * which are to be passed to revision machinery if we are&n;&t; * going to do the &quot;bottom&quot; processing.&n;&t; *&n;&t; * The remaining are:&n;&t; *&n;&t; * (1) if seen_dashdash, its either&n;&t; *     &quot;-options -- &lt;path&gt;&quot; or&n;&t; *     &quot;-options -- &lt;path&gt; &lt;rev&gt;&quot;.&n;&t; *     but the latter is allowed only if there is no&n;&t; *     options that we passed to revision machinery.&n;&t; *&n;&t; * (2) otherwise, we may have &quot;--&quot; somewhere later and&n;&t; *     might be looking at the first one of multiple &squot;rev&squot;&n;&t; *     parameters (e.g. &quot; master ^next ^maint -- path&quot;).&n;&t; *     See if there is a dashdash first, and give the&n;&t; *     arguments before that to revision machinery.&n;&t; *     After that there must be one &squot;path&squot;.&n;&t; *&n;&t; * (3) otherwise, its one of the three:&n;&t; *     &quot;-options &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *     &quot;-options &lt;rev&gt; &lt;path&gt;&quot;&n;&t; *     &quot;-options &lt;path&gt;&quot;&n;&t; *     but again the first one is allowed only if&n;&t; *     there is no options that we passed to revision&n;&t; *     machinery.&n;&t; */
 r_if
 c_cond
 (paren
@@ -9518,7 +9577,7 @@ op_increment
 op_assign
 id|final_commit_name
 suffix:semicolon
-multiline_comment|/* Now we got rev and path.  We do not want the path pruning&n;&t; * but we may want &quot;bottom&quot; processing.&n;&t; */
+multiline_comment|/*&n;&t; * Now we got rev and path.  We do not want the path pruning&n;&t; * but we may want &quot;bottom&quot; processing.&n;&t; */
 id|argv
 (braket
 id|unk
@@ -9571,7 +9630,7 @@ id|sb
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/* There must be one and only one positive commit in the&n;&t; * revs-&gt;pending array.&n;&t; */
+multiline_comment|/*&n;&t; * There must be one and only one positive commit in the&n;&t; * revs-&gt;pending array.&n;&t; */
 r_for
 c_loop
 (paren
@@ -9693,7 +9752,7 @@ op_logical_neg
 id|sb.final
 )paren
 (brace
-multiline_comment|/* &quot;--not A B -- path&quot; without anything positive */
+multiline_comment|/*&n;&t;&t; * &quot;--not A B -- path&quot; without anything positive;&n;&t;&t; * default to HEAD.&n;&t;&t; */
 r_int
 r_char
 id|head_sha1
@@ -9745,7 +9804,7 @@ l_string|&quot;HEAD&quot;
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* If we have bottom, this will mark the ancestors of the&n;&t; * bottom commits we would reach while traversing as&n;&t; * uninteresting.&n;&t; */
+multiline_comment|/*&n;&t; * If we have bottom, this will mark the ancestors of the&n;&t; * bottom commits we would reach while traversing as&n;&t; * uninteresting.&n;&t; */
 id|prepare_revision_walk
 c_func
 (paren
