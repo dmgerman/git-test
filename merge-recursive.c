@@ -4938,6 +4938,10 @@ comma
 id|ren1_src
 comma
 id|index_only
+op_logical_or
+id|stage
+op_eq
+l_int|3
 )paren
 suffix:semicolon
 id|hashcpy
