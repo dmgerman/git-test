@@ -437,7 +437,7 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * &quot;!used&quot; means that nothing at all points to it, including&n;&t; * other unreacahble objects. In other words, it&squot;s the &quot;tip&quot;&n;&t; * of some set of unreachable objects, usually a commit that&n;&t; * got dropped.&n;&t; *&n;&t; * Such starting points are more interesting than some random&n;&t; * set of unreachable objects, so we show them even if the user&n;&t; * hasn&squot;t asked for _all_ unreachable objects. If you have&n;&t; * deleted a branch by mistake, this is a prime candidate to&n;&t; * start looking at, for example.&n;&t; */
+multiline_comment|/*&n;&t; * &quot;!used&quot; means that nothing at all points to it, including&n;&t; * other unreachable objects. In other words, it&squot;s the &quot;tip&quot;&n;&t; * of some set of unreachable objects, usually a commit that&n;&t; * got dropped.&n;&t; *&n;&t; * Such starting points are more interesting than some random&n;&t; * set of unreachable objects, so we show them even if the user&n;&t; * hasn&squot;t asked for _all_ unreachable objects. If you have&n;&t; * deleted a branch by mistake, this is a prime candidate to&n;&t; * start looking at, for example.&n;&t; */
 r_if
 c_cond
 (paren

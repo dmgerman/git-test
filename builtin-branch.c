@@ -1915,7 +1915,7 @@ id|oldname
 id|die
 c_func
 (paren
-l_string|&quot;cannot rename the curren branch while not on any.&quot;
+l_string|&quot;cannot rename the current branch while not on any.&quot;
 )paren
 suffix:semicolon
 r_if

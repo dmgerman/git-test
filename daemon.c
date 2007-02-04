@@ -1664,7 +1664,7 @@ id|name
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Separate the &quot;extra args&quot; information as supplied by the client connection.&n; * Any resulting data is squirrelled away in the given interpolation table.&n; */
+multiline_comment|/*&n; * Separate the &quot;extra args&quot; information as supplied by the client connection.&n; * Any resulting data is squirreled away in the given interpolation table.&n; */
 DECL|function|parse_extra_args
 r_static
 r_void

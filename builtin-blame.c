@@ -1944,7 +1944,7 @@ id|p
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Link in a new blame entry to the scorebord.  Entries that cover the&n; * same line range have been removed from the scoreboard previously.&n; */
+multiline_comment|/*&n; * Link in a new blame entry to the scoreboard.  Entries that cover the&n; * same line range have been removed from the scoreboard previously.&n; */
 DECL|function|add_blame_entry
 r_static
 r_void
@@ -5983,7 +5983,7 @@ id|suspect-&gt;path
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * The main loop -- while the scoreboard has lines whose true origin&n; * is still unknown, pick one brame_entry, and allow its current&n; * suspect to pass blames to its parents.&n; */
+multiline_comment|/*&n; * The main loop -- while the scoreboard has lines whose true origin&n; * is still unknown, pick one blame_entry, and allow its current&n; * suspect to pass blames to its parents.&n; */
 DECL|function|assign_blame
 r_static
 r_void
@@ -9252,7 +9252,7 @@ id|blame_copy_score
 op_assign
 id|BLAME_DEFAULT_COPY_SCORE
 suffix:semicolon
-multiline_comment|/*&n;&t; * We have collected options unknown to us in argv[1..unk]&n;&t; * which are to be passed to revision machinery if we are&n;&t; * going to do the &quot;bottom&quot; procesing.&n;&t; *&n;&t; * The remaining are:&n;&t; *&n;&t; * (1) if seen_dashdash, its either&n;&t; *     &quot;-options -- &lt;path&gt;&quot; or&n;&t; *     &quot;-options -- &lt;path&gt; &lt;rev&gt;&quot;.&n;&t; *     but the latter is allowed only if there is no&n;&t; *     options that we passed to revision machinery.&n;&t; *&n;&t; * (2) otherwise, we may have &quot;--&quot; somewhere later and&n;&t; *     might be looking at the first one of multiple &squot;rev&squot;&n;&t; *     parameters (e.g. &quot; master ^next ^maint -- path&quot;).&n;&t; *     See if there is a dashdash first, and give the&n;&t; *     arguments before that to revision machinery.&n;&t; *     After that there must be one &squot;path&squot;.&n;&t; *&n;&t; * (3) otherwise, its one of the three:&n;&t; *     &quot;-options &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *     &quot;-options &lt;rev&gt; &lt;path&gt;&quot;&n;&t; *     &quot;-options &lt;path&gt;&quot;&n;&t; *     but again the first one is allowed only if&n;&t; *     there is no options that we passed to revision&n;&t; *     machinery.&n;&t; */
+multiline_comment|/*&n;&t; * We have collected options unknown to us in argv[1..unk]&n;&t; * which are to be passed to revision machinery if we are&n;&t; * going to do the &quot;bottom&quot; processing.&n;&t; *&n;&t; * The remaining are:&n;&t; *&n;&t; * (1) if seen_dashdash, its either&n;&t; *     &quot;-options -- &lt;path&gt;&quot; or&n;&t; *     &quot;-options -- &lt;path&gt; &lt;rev&gt;&quot;.&n;&t; *     but the latter is allowed only if there is no&n;&t; *     options that we passed to revision machinery.&n;&t; *&n;&t; * (2) otherwise, we may have &quot;--&quot; somewhere later and&n;&t; *     might be looking at the first one of multiple &squot;rev&squot;&n;&t; *     parameters (e.g. &quot; master ^next ^maint -- path&quot;).&n;&t; *     See if there is a dashdash first, and give the&n;&t; *     arguments before that to revision machinery.&n;&t; *     After that there must be one &squot;path&squot;.&n;&t; *&n;&t; * (3) otherwise, its one of the three:&n;&t; *     &quot;-options &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *     &quot;-options &lt;rev&gt; &lt;path&gt;&quot;&n;&t; *     &quot;-options &lt;path&gt;&quot;&n;&t; *     but again the first one is allowed only if&n;&t; *     there is no options that we passed to revision&n;&t; *     machinery.&n;&t; */
 r_if
 c_cond
 (paren

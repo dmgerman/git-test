@@ -613,7 +613,7 @@ op_eq
 l_char|&squot;%&squot;
 )paren
 (brace
-multiline_comment|/* %( is the start of an atom;&n;&t;&t;&t; * %% is a quoteed per-cent.&n;&t;&t;&t; */
+multiline_comment|/* %( is the start of an atom;&n;&t;&t;&t; * %% is a quoted per-cent.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
