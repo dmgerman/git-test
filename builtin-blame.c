@@ -9222,7 +9222,7 @@ id|origin-&gt;file.size
 op_assign
 id|fin_size
 suffix:semicolon
-id|write_sha1_file
+id|pretend_sha1_file
 c_func
 (paren
 id|buf

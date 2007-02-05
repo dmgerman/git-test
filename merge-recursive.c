@@ -6746,7 +6746,7 @@ id|tree-&gt;object.type
 op_assign
 id|OBJ_TREE
 suffix:semicolon
-id|write_sha1_file
+id|pretend_sha1_file
 c_func
 (paren
 l_int|NULL
