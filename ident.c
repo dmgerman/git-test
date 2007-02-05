@@ -877,12 +877,11 @@ l_string|&quot;To set the identity in this repository.&bslash;n&quot;
 l_string|&quot;Add --global to set your account&bslash;&squot;s default&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 suffix:semicolon
-DECL|function|get_ident
-r_static
+DECL|function|fmt_ident
 r_const
 r_char
 op_star
-id|get_ident
+id|fmt_ident
 c_func
 (paren
 r_const
@@ -1198,7 +1197,7 @@ id|error_on_no_name
 )paren
 (brace
 r_return
-id|get_ident
+id|fmt_ident
 c_func
 (paren
 id|getenv
@@ -1235,7 +1234,7 @@ id|error_on_no_name
 )paren
 (brace
 r_return
-id|get_ident
+id|fmt_ident
 c_func
 (paren
 id|getenv
