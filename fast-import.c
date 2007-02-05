@@ -25,8 +25,7 @@ op_star
 id|next
 suffix:semicolon
 DECL|member|offset
-r_int
-r_int
+r_uint32
 id|offset
 suffix:semicolon
 DECL|member|type
@@ -134,8 +133,7 @@ r_int
 id|len
 suffix:semicolon
 DECL|member|offset
-r_int
-r_int
+r_uint32
 id|offset
 suffix:semicolon
 DECL|member|depth
@@ -230,8 +228,7 @@ r_struct
 id|tree_entry_ms
 (brace
 DECL|member|mode
-r_int
-r_int
+r_uint16
 id|mode
 suffix:semicolon
 DECL|member|sha1
@@ -1658,6 +1655,7 @@ r_char
 op_star
 id|s
 comma
+r_int
 r_int
 id|len
 )paren
@@ -4885,8 +4883,7 @@ r_char
 op_star
 id|str
 comma
-r_int
-r_int
+r_uint16
 op_star
 id|modep
 )paren
@@ -4895,8 +4892,7 @@ r_int
 r_char
 id|c
 suffix:semicolon
-r_int
-r_int
+r_uint16
 id|mode
 op_assign
 l_int|0
@@ -5225,6 +5221,10 @@ c_func
 (paren
 id|c
 comma
+(paren
+r_int
+r_int
+)paren
 id|strlen
 c_func
 (paren
@@ -5620,6 +5620,10 @@ id|c
 comma
 l_string|&quot;%o&quot;
 comma
+(paren
+r_int
+r_int
+)paren
 id|e-&gt;versions
 (braket
 id|v
@@ -6018,8 +6022,7 @@ op_star
 id|sha1
 comma
 r_const
-r_int
-r_int
+r_uint16
 id|mode
 )paren
 (brace
@@ -6323,6 +6326,10 @@ c_func
 (paren
 id|p
 comma
+(paren
+r_int
+r_int
+)paren
 id|n
 )paren
 suffix:semicolon
@@ -7736,8 +7743,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_int
-r_int
+r_uint16
 id|mode
 comma
 id|inline_data
