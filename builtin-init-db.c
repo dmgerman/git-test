@@ -1188,6 +1188,8 @@ c_func
 l_string|&quot;HEAD&quot;
 comma
 l_string|&quot;refs/heads/master&quot;
+comma
+l_int|NULL
 )paren
 OL
 l_int|0
