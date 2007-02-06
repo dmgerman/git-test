@@ -73,6 +73,11 @@ r_static
 r_int
 id|incremental
 suffix:semicolon
+DECL|variable|cmd_is_annotate
+r_static
+r_int
+id|cmd_is_annotate
+suffix:semicolon
 macro_line|#ifndef DEBUG
 DECL|macro|DEBUG
 mdefine_line|#define DEBUG 0
@@ -6874,8 +6879,24 @@ id|UNINTERESTING
 r_if
 c_cond
 (paren
-op_logical_neg
 id|blank_boundary
+)paren
+id|memset
+c_func
+(paren
+id|hex
+comma
+l_char|&squot; &squot;
+comma
+id|length
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cmd_is_annotate
 )paren
 (brace
 id|length
@@ -6888,17 +6909,6 @@ l_char|&squot;^&squot;
 )paren
 suffix:semicolon
 )brace
-r_else
-id|memset
-c_func
-(paren
-id|hex
-comma
-l_char|&squot; &squot;
-comma
-id|length
-)paren
-suffix:semicolon
 )brace
 id|printf
 c_func
@@ -9531,6 +9541,20 @@ op_star
 id|contents_from
 op_assign
 l_int|NULL
+suffix:semicolon
+id|cmd_is_annotate
+op_assign
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+l_string|&quot;annotate&quot;
+)paren
 suffix:semicolon
 id|git_config
 c_func

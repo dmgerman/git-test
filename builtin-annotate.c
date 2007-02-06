@@ -53,7 +53,7 @@ id|nargv
 l_int|0
 )braket
 op_assign
-l_string|&quot;blame&quot;
+l_string|&quot;annotate&quot;
 suffix:semicolon
 id|nargv
 (braket
