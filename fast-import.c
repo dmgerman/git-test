@@ -7729,6 +7729,8 @@ r_struct
 id|object_entry
 op_star
 id|oe
+op_assign
+id|oe
 suffix:semicolon
 r_int
 r_char
@@ -8728,6 +8730,8 @@ id|n
 comma
 op_star
 id|e
+op_assign
+id|e
 suffix:semicolon
 r_const
 r_char
@@ -8906,8 +8910,10 @@ id|e
 op_assign
 id|n
 suffix:semicolon
+(paren
 op_star
 id|count
+)paren
 op_increment
 suffix:semicolon
 id|read_next_command
@@ -9662,6 +9668,11 @@ op_eq
 l_char|&squot;:&squot;
 )paren
 (brace
+r_struct
+id|object_entry
+op_star
+id|oe
+suffix:semicolon
 id|from_mark
 op_assign
 id|strtoumax
@@ -9676,9 +9687,6 @@ comma
 l_int|10
 )paren
 suffix:semicolon
-r_struct
-id|object_entry
-op_star
 id|oe
 op_assign
 id|find_mark
