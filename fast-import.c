@@ -4754,11 +4754,6 @@ c_func
 id|out
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|delta
-)paren
 id|free
 c_func
 (paren
@@ -4774,8 +4769,6 @@ id|last
 r_if
 c_cond
 (paren
-id|last-&gt;data
-op_logical_and
 op_logical_neg
 id|last-&gt;no_free
 )paren
@@ -8131,11 +8124,6 @@ op_or
 id|mode
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|p_uq
-)paren
 id|free
 c_func
 (paren
@@ -8218,11 +8206,6 @@ comma
 id|p
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|p_uq
-)paren
 id|free
 c_func
 (paren
@@ -9430,11 +9413,6 @@ id|sp
 op_add_assign
 id|msglen
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|author
-)paren
 id|free
 c_func
 (paren
