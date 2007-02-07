@@ -1,4 +1,4 @@
-multiline_comment|/*&n;Format of STDIN stream:&n;&n;  stream ::= cmd*;&n;&n;  cmd ::= new_blob&n;        | new_commit&n;        | new_tag&n;        | reset_branch&n;        | checkpoint&n;        ;&n;&n;  new_blob ::= &squot;blob&squot; lf&n;&t;mark?&n;    file_content;&n;  file_content ::= data;&n;&n;  new_commit ::= &squot;commit&squot; sp ref_str lf&n;    mark?&n;    (&squot;author&squot; sp name &squot;&lt;&squot; email &squot;&gt;&squot; when lf)?&n;    &squot;committer&squot; sp name &squot;&lt;&squot; email &squot;&gt;&squot; when lf&n;    commit_msg&n;    (&squot;from&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf)?&n;    (&squot;merge&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf)*&n;    file_change*&n;    lf;&n;  commit_msg ::= data;&n;&n;  file_change ::= file_del | file_obm | file_inm;&n;  file_del ::= &squot;D&squot; sp path_str lf;&n;  file_obm ::= &squot;M&squot; sp mode sp (hexsha1 | idnum) sp path_str lf;&n;  file_inm ::= &squot;M&squot; sp mode sp &squot;inline&squot; sp path_str lf&n;    data;&n;&n;  new_tag ::= &squot;tag&squot; sp tag_str lf&n;    &squot;from&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf&n;&t;&squot;tagger&squot; sp name &squot;&lt;&squot; email &squot;&gt;&squot; when lf&n;    tag_msg;&n;  tag_msg ::= data;&n;&n;  reset_branch ::= &squot;reset&squot; sp ref_str lf&n;    (&squot;from&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf)?&n;    lf;&n;&n;  checkpoint ::= &squot;checkpoint&squot; lf&n;    lf;&n;&n;     # note: the first idnum in a stream should be 1 and subsequent&n;     # idnums should not have gaps between values as this will cause&n;     # the stream parser to reserve space for the gapped values.  An&n;&t; # idnum can be updated in the future to a new object by issuing&n;     # a new mark directive with the old idnum.&n;&t; #&n;  mark ::= &squot;mark&squot; sp idnum lf;&n;  data ::= (delimited_data | exact_data)&n;    lf;&n;&n;    # note: delim may be any string but must not contain lf.&n;    # data_line may contain any data but must not be exactly&n;    # delim.&n;  delimited_data ::= &squot;data&squot; sp &squot;&lt;&lt;&squot; delim lf&n;    (data_line lf)*&n;&t;delim lf;&n;&n;     # note: declen indicates the length of binary_data in bytes.&n;     # declen does not include the lf preceeding the binary data.&n;     #&n;  exact_data ::= &squot;data&squot; sp declen lf&n;    binary_data;&n;&n;     # note: quoted strings are C-style quoting supporting &bslash;c for&n;     # common escapes of &squot;c&squot; (e..g &bslash;n, &bslash;t, &bslash;&bslash;, &bslash;&quot;) or &bslash;nnn where nnn&n;&t; # is the signed byte value in octal.  Note that the only&n;     # characters which must actually be escaped to protect the&n;     # stream formatting is: &bslash;, &quot; and LF.  Otherwise these values&n;&t; # are UTF8.&n;     #&n;  ref_str     ::= ref;&n;  sha1exp_str ::= sha1exp;&n;  tag_str     ::= tag;&n;  path_str    ::= path    | &squot;&quot;&squot; quoted(path)    &squot;&quot;&squot; ;&n;  mode        ::= &squot;100644&squot; | &squot;644&squot;&n;                | &squot;100755&squot; | &squot;755&squot;&n;                | &squot;120000&squot;&n;                ;&n;&n;  declen ::= # unsigned 32 bit value, ascii base10 notation;&n;  bigint ::= # unsigned integer value, ascii base10 notation;&n;  binary_data ::= # file content, not interpreted;&n;&n;  when         ::= raw_when | rfc2822_when;&n;  raw_when     ::= ts sp tz;&n;  rfc2822_when ::= # Valid RFC 2822 date and time;&n;&n;  sp ::= # ASCII space character;&n;  lf ::= # ASCII newline (LF) character;&n;&n;     # note: a colon (&squot;:&squot;) must precede the numerical value assigned to&n;&t; # an idnum.  This is to distinguish it from a ref or tag name as&n;     # GIT does not permit &squot;:&squot; in ref or tag strings.&n;&t; #&n;  idnum   ::= &squot;:&squot; bigint;&n;  path    ::= # GIT style file path, e.g. &quot;a/b/c&quot;;&n;  ref     ::= # GIT ref name, e.g. &quot;refs/heads/MOZ_GECKO_EXPERIMENT&quot;;&n;  tag     ::= # GIT tag name, e.g. &quot;FIREFOX_1_5&quot;;&n;  sha1exp ::= # Any valid GIT SHA1 expression;&n;  hexsha1 ::= # SHA1 in hexadecimal format;&n;&n;     # note: name and email are UTF8 strings, however name must not&n;&t; # contain &squot;&lt;&squot; or lf and email must not contain any of the&n;     # following: &squot;&lt;&squot;, &squot;&gt;&squot;, lf.&n;&t; #&n;  name  ::= # valid GIT author/committer name;&n;  email ::= # valid GIT author/committer email;&n;  ts    ::= # time since the epoch in seconds, ascii base10 notation;&n;  tz    ::= # GIT style timezone;&n;*/
+multiline_comment|/*&n;Format of STDIN stream:&n;&n;  stream ::= cmd*;&n;&n;  cmd ::= new_blob&n;        | new_commit&n;        | new_tag&n;        | reset_branch&n;        | checkpoint&n;        ;&n;&n;  new_blob ::= &squot;blob&squot; lf&n;&t;mark?&n;    file_content;&n;  file_content ::= data;&n;&n;  new_commit ::= &squot;commit&squot; sp ref_str lf&n;    mark?&n;    (&squot;author&squot; sp name &squot;&lt;&squot; email &squot;&gt;&squot; when lf)?&n;    &squot;committer&squot; sp name &squot;&lt;&squot; email &squot;&gt;&squot; when lf&n;    commit_msg&n;    (&squot;from&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf)?&n;    (&squot;merge&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf)*&n;    file_change*&n;    lf;&n;  commit_msg ::= data;&n;&n;  file_change ::= file_clr | file_del | file_obm | file_inm;&n;  file_clr ::= &squot;deleteall&squot; lf;&n;  file_del ::= &squot;D&squot; sp path_str lf;&n;  file_obm ::= &squot;M&squot; sp mode sp (hexsha1 | idnum) sp path_str lf;&n;  file_inm ::= &squot;M&squot; sp mode sp &squot;inline&squot; sp path_str lf&n;    data;&n;&n;  new_tag ::= &squot;tag&squot; sp tag_str lf&n;    &squot;from&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf&n;&t;&squot;tagger&squot; sp name &squot;&lt;&squot; email &squot;&gt;&squot; when lf&n;    tag_msg;&n;  tag_msg ::= data;&n;&n;  reset_branch ::= &squot;reset&squot; sp ref_str lf&n;    (&squot;from&squot; sp (ref_str | hexsha1 | sha1exp_str | idnum) lf)?&n;    lf;&n;&n;  checkpoint ::= &squot;checkpoint&squot; lf&n;    lf;&n;&n;     # note: the first idnum in a stream should be 1 and subsequent&n;     # idnums should not have gaps between values as this will cause&n;     # the stream parser to reserve space for the gapped values.  An&n;&t; # idnum can be updated in the future to a new object by issuing&n;     # a new mark directive with the old idnum.&n;&t; #&n;  mark ::= &squot;mark&squot; sp idnum lf;&n;  data ::= (delimited_data | exact_data)&n;    lf;&n;&n;    # note: delim may be any string but must not contain lf.&n;    # data_line may contain any data but must not be exactly&n;    # delim.&n;  delimited_data ::= &squot;data&squot; sp &squot;&lt;&lt;&squot; delim lf&n;    (data_line lf)*&n;&t;delim lf;&n;&n;     # note: declen indicates the length of binary_data in bytes.&n;     # declen does not include the lf preceeding the binary data.&n;     #&n;  exact_data ::= &squot;data&squot; sp declen lf&n;    binary_data;&n;&n;     # note: quoted strings are C-style quoting supporting &bslash;c for&n;     # common escapes of &squot;c&squot; (e..g &bslash;n, &bslash;t, &bslash;&bslash;, &bslash;&quot;) or &bslash;nnn where nnn&n;&t; # is the signed byte value in octal.  Note that the only&n;     # characters which must actually be escaped to protect the&n;     # stream formatting is: &bslash;, &quot; and LF.  Otherwise these values&n;&t; # are UTF8.&n;     #&n;  ref_str     ::= ref;&n;  sha1exp_str ::= sha1exp;&n;  tag_str     ::= tag;&n;  path_str    ::= path    | &squot;&quot;&squot; quoted(path)    &squot;&quot;&squot; ;&n;  mode        ::= &squot;100644&squot; | &squot;644&squot;&n;                | &squot;100755&squot; | &squot;755&squot;&n;                | &squot;120000&squot;&n;                ;&n;&n;  declen ::= # unsigned 32 bit value, ascii base10 notation;&n;  bigint ::= # unsigned integer value, ascii base10 notation;&n;  binary_data ::= # file content, not interpreted;&n;&n;  when         ::= raw_when | rfc2822_when;&n;  raw_when     ::= ts sp tz;&n;  rfc2822_when ::= # Valid RFC 2822 date and time;&n;&n;  sp ::= # ASCII space character;&n;  lf ::= # ASCII newline (LF) character;&n;&n;     # note: a colon (&squot;:&squot;) must precede the numerical value assigned to&n;&t; # an idnum.  This is to distinguish it from a ref or tag name as&n;     # GIT does not permit &squot;:&squot; in ref or tag strings.&n;&t; #&n;  idnum   ::= &squot;:&squot; bigint;&n;  path    ::= # GIT style file path, e.g. &quot;a/b/c&quot;;&n;  ref     ::= # GIT ref name, e.g. &quot;refs/heads/MOZ_GECKO_EXPERIMENT&quot;;&n;  tag     ::= # GIT tag name, e.g. &quot;FIREFOX_1_5&quot;;&n;  sha1exp ::= # Any valid GIT SHA1 expression;&n;  hexsha1 ::= # SHA1 in hexadecimal format;&n;&n;     # note: name and email are UTF8 strings, however name must not&n;&t; # contain &squot;&lt;&squot; or lf and email must not contain any of the&n;     # following: &squot;&lt;&squot;, &squot;&gt;&squot;, lf.&n;&t; #&n;  name  ::= # valid GIT author/committer name;&n;  email ::= # valid GIT author/committer email;&n;  ts    ::= # time since the epoch in seconds, ascii base10 notation;&n;  tz    ::= # GIT style timezone;&n;*/
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;object.h&quot;
@@ -8758,6 +8758,54 @@ id|p_uq
 )paren
 suffix:semicolon
 )brace
+DECL|function|file_change_deleteall
+r_static
+r_void
+id|file_change_deleteall
+c_func
+(paren
+r_struct
+id|branch
+op_star
+id|b
+)paren
+(brace
+id|release_tree_content_recursive
+c_func
+(paren
+id|b-&gt;branch_tree.tree
+)paren
+suffix:semicolon
+id|hashclr
+c_func
+(paren
+id|b-&gt;branch_tree.versions
+(braket
+l_int|0
+)braket
+dot
+id|sha1
+)paren
+suffix:semicolon
+id|hashclr
+c_func
+(paren
+id|b-&gt;branch_tree.versions
+(braket
+l_int|1
+)braket
+dot
+id|sha1
+)paren
+suffix:semicolon
+id|load_tree
+c_func
+(paren
+op_amp
+id|b-&gt;branch_tree
+)paren
+suffix:semicolon
+)brace
 DECL|function|cmd_from
 r_static
 r_void
@@ -9727,6 +9775,25 @@ l_int|2
 )paren
 )paren
 id|file_change_d
+c_func
+(paren
+id|b
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;deleteall&quot;
+comma
+id|command_buf.buf
+)paren
+)paren
+id|file_change_deleteall
 c_func
 (paren
 id|b
