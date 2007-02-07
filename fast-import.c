@@ -4221,6 +4221,10 @@ id|type_names
 id|type
 )braket
 comma
+(paren
+r_int
+r_int
+)paren
 id|datlen
 )paren
 op_plus
@@ -7662,8 +7666,14 @@ c_func
 (paren
 l_string|&quot;EOF in data (%lu bytes remaining)&quot;
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|length
 id|n
+)paren
 )paren
 suffix:semicolon
 id|n
@@ -11587,9 +11597,15 @@ id|stderr
 comma
 l_string|&quot;       pools:    %10lu KiB&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|total_allocd
 op_div
 l_int|1024
+)paren
 )paren
 suffix:semicolon
 id|fprintf
