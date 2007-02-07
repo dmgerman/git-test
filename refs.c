@@ -6913,7 +6913,7 @@ suffix:semicolon
 r_int
 id|retval
 op_assign
-id|errno
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -7175,6 +7175,10 @@ id|dir
 )paren
 suffix:semicolon
 )brace
+r_else
+r_return
+id|errno
+suffix:semicolon
 r_return
 id|retval
 suffix:semicolon
