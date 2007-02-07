@@ -7257,6 +7257,12 @@ comma
 l_string|&quot;w&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|f
+)paren
+(brace
 id|dump_marks_helper
 c_func
 (paren
@@ -7271,6 +7277,24 @@ id|fclose
 c_func
 (paren
 id|f
+)paren
+suffix:semicolon
+)brace
+r_else
+id|failure
+op_or_assign
+id|error
+c_func
+(paren
+l_string|&quot;Unable to write marks file %s: %s&quot;
+comma
+id|mark_file
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 )brace
