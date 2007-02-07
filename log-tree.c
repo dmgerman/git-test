@@ -680,7 +680,7 @@ id|CMIT_FMT_ONELINE
 id|putchar
 c_func
 (paren
-l_char|&squot;&bslash;n&squot;
+id|opt-&gt;diffopt.line_termination
 )paren
 suffix:semicolon
 id|opt-&gt;shown_one
@@ -1239,16 +1239,13 @@ id|pch
 id|printf
 c_func
 (paren
-l_string|&quot;---%c&quot;
-comma
-id|opt-&gt;diffopt.line_termination
+l_string|&quot;---&quot;
 )paren
 suffix:semicolon
-r_else
 id|putchar
 c_func
 (paren
-id|opt-&gt;diffopt.line_termination
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
