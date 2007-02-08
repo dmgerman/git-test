@@ -5471,6 +5471,26 @@ c_func
 id|old_sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|safe_create_leading_directories
+c_func
+(paren
+id|git_HEAD
+)paren
+OL
+l_int|0
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;unable to create directory for %s&quot;
+comma
+id|git_HEAD
+)paren
+suffix:semicolon
 macro_line|#ifndef NO_SYMLINK_HEAD
 r_if
 c_cond
