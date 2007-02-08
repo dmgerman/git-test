@@ -1051,8 +1051,9 @@ comma
 id|opt-&gt;commit_format
 op_eq
 id|CMIT_FMT_ONELINE
+comma
+id|opt-&gt;relative_date
 )paren
-suffix:semicolon
 suffix:semicolon
 r_if
 c_cond
