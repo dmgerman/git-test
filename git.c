@@ -1411,14 +1411,6 @@ id|RUN_SETUP
 )brace
 comma
 (brace
-l_string|&quot;diff-stages&quot;
-comma
-id|cmd_diff_stages
-comma
-id|RUN_SETUP
-)brace
-comma
-(brace
 l_string|&quot;diff-tree&quot;
 comma
 id|cmd_diff_tree
