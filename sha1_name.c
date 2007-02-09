@@ -1468,7 +1468,6 @@ id|refs_found
 suffix:semicolon
 )brace
 DECL|function|dwim_log
-r_static
 r_int
 id|dwim_log
 c_func
