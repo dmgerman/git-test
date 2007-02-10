@@ -11864,8 +11864,10 @@ id|diff_filepair
 op_star
 id|p
 comma
-r_int
-id|line_termination
+r_struct
+id|diff_options
+op_star
+id|opt
 )paren
 (brace
 r_char
@@ -11877,7 +11879,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|line_termination
+id|opt-&gt;line_termination
 )paren
 id|path
 op_assign
@@ -11894,7 +11896,7 @@ l_string|&quot;%s%c&quot;
 comma
 id|path
 comma
-id|line_termination
+id|opt-&gt;line_termination
 )paren
 suffix:semicolon
 r_if
@@ -12892,7 +12894,7 @@ c_func
 (paren
 id|p
 comma
-id|opt-&gt;line_termination
+id|opt
 )paren
 suffix:semicolon
 )brace
