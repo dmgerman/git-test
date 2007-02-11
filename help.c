@@ -925,7 +925,7 @@ op_increment
 id|printf
 c_func
 (paren
-l_string|&quot;    %s&quot;
+l_string|&quot;   %s   &quot;
 comma
 id|common_cmds
 (braket
@@ -951,8 +951,6 @@ id|i
 dot
 id|name
 )paren
-op_plus
-l_int|4
 )paren
 suffix:semicolon
 id|puts
