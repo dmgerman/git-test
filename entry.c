@@ -629,6 +629,7 @@ id|errno
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* FIXME: LF -&gt; CRLF conversion goes here, based on &quot;ce-&gt;name&quot; */
 id|wrote
 op_assign
 id|write_in_full

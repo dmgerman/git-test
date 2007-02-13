@@ -10977,6 +10977,7 @@ id|type
 op_assign
 id|blob_type
 suffix:semicolon
+multiline_comment|/* FIXME: CRLF -&gt; LF conversion here for blobs! We&squot;ll need the path! */
 r_if
 c_cond
 (paren

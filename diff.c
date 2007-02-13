@@ -7373,6 +7373,7 @@ id|s-&gt;should_munmap
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/* FIXME! CRLF -&gt; LF conversion goes here, based on &quot;s-&gt;path&quot; */
 )brace
 r_else
 (brace
