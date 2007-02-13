@@ -108,6 +108,12 @@ id|pager_use_color
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|auto_crlf
+r_int
+id|auto_crlf
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|git_dir
 r_static
 r_const
