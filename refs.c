@@ -7204,6 +7204,12 @@ id|dir
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_star
+id|base
+)paren
 r_return
 id|errno
 suffix:semicolon
