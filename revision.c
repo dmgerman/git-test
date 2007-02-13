@@ -2333,7 +2333,7 @@ id|cb.all_flags
 op_assign
 id|flags
 suffix:semicolon
-id|for_each_ref
+id|for_each_reflog
 c_func
 (paren
 id|handle_one_reflog
