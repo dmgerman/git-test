@@ -6910,7 +6910,10 @@ c_func
 (paren
 id|old_cmit
 comma
+op_amp
 id|new_cmit
+comma
+l_int|1
 )paren
 )paren
 (brace

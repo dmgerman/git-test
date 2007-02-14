@@ -630,7 +630,10 @@ c_func
 (paren
 id|rev
 comma
+op_amp
 id|head_rev
+comma
+l_int|1
 )paren
 )paren
 (brace
