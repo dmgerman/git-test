@@ -1078,6 +1078,44 @@ id|lc_a
 comma
 id|lc_b
 suffix:semicolon
+r_const
+r_char
+op_star
+id|name_a_tab
+comma
+op_star
+id|name_b_tab
+suffix:semicolon
+id|name_a_tab
+op_assign
+id|strchr
+c_func
+(paren
+id|name_a
+comma
+l_char|&squot; &squot;
+)paren
+ques
+c_cond
+l_string|&quot;&bslash;t&quot;
+suffix:colon
+l_string|&quot;&quot;
+suffix:semicolon
+id|name_b_tab
+op_assign
+id|strchr
+c_func
+(paren
+id|name_b
+comma
+l_char|&squot; &squot;
+)paren
+ques
+c_cond
+l_string|&quot;&bslash;t&quot;
+suffix:colon
+l_string|&quot;&quot;
+suffix:semicolon
 id|diff_populate_filespec
 c_func
 (paren
@@ -1117,11 +1155,15 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;--- a/%s&bslash;n+++ b/%s&bslash;n@@ -&quot;
+l_string|&quot;--- a/%s%s&bslash;n+++ b/%s%s&bslash;n@@ -&quot;
 comma
 id|name_a
 comma
+id|name_a_tab
+comma
 id|name_b
+comma
+id|name_b_tab
 )paren
 suffix:semicolon
 id|print_line_count
@@ -2558,10 +2600,54 @@ l_int|0
 )braket
 )paren
 (brace
+r_const
+r_char
+op_star
+id|name_a_tab
+comma
+op_star
+id|name_b_tab
+suffix:semicolon
+id|name_a_tab
+op_assign
+id|strchr
+c_func
+(paren
+id|ecbdata-&gt;label_path
+(braket
+l_int|0
+)braket
+comma
+l_char|&squot; &squot;
+)paren
+ques
+c_cond
+l_string|&quot;&bslash;t&quot;
+suffix:colon
+l_string|&quot;&quot;
+suffix:semicolon
+id|name_b_tab
+op_assign
+id|strchr
+c_func
+(paren
+id|ecbdata-&gt;label_path
+(braket
+l_int|1
+)braket
+comma
+l_char|&squot; &squot;
+)paren
+ques
+c_cond
+l_string|&quot;&bslash;t&quot;
+suffix:colon
+l_string|&quot;&quot;
+suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s--- %s%s&bslash;n&quot;
+l_string|&quot;%s--- %s%s%s&bslash;n&quot;
 comma
 id|set
 comma
@@ -2571,12 +2657,14 @@ l_int|0
 )braket
 comma
 id|reset
+comma
+id|name_a_tab
 )paren
 suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s+++ %s%s&bslash;n&quot;
+l_string|&quot;%s+++ %s%s%s&bslash;n&quot;
 comma
 id|set
 comma
@@ -2586,6 +2674,8 @@ l_int|1
 )braket
 comma
 id|reset
+comma
+id|name_b_tab
 )paren
 suffix:semicolon
 id|ecbdata-&gt;label_path
