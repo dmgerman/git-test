@@ -450,8 +450,9 @@ multiline_comment|/*&n;&t; * FIXME! Other pluggable conversions should go here,&
 r_if
 c_cond
 (paren
-op_logical_neg
 id|auto_crlf
+op_le
+l_int|0
 )paren
 r_return
 l_int|0

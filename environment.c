@@ -114,6 +114,7 @@ id|auto_crlf
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/* 1: both ways, -1: only when adding git objects */
 DECL|variable|git_dir
 r_static
 r_const
