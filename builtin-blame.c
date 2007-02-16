@@ -10215,6 +10215,7 @@ c_cond
 id|seen_dashdash
 )paren
 (brace
+multiline_comment|/* (2) */
 r_if
 c_cond
 (paren
@@ -10275,6 +10276,19 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/* (3) */
+r_if
+c_cond
+(paren
+id|argc
+op_le
+id|i
+)paren
+id|usage
+c_func
+(paren
+id|blame_usage
+)paren
+suffix:semicolon
 id|path
 op_assign
 id|add_prefix
