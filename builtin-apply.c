@@ -9257,9 +9257,11 @@ op_assign
 id|ntohl
 c_func
 (paren
-id|create_ce_mode
+id|ce_mode_from_stat
 c_func
 (paren
+id|ce
+comma
 id|st.st_mode
 )paren
 )paren
