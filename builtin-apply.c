@@ -12501,13 +12501,6 @@ id|prefix
 suffix:colon
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|is_not_gitdir
-)paren
-(brace
 id|git_config
 c_func
 (paren
@@ -12525,7 +12518,6 @@ c_func
 id|apply_default_whitespace
 )paren
 suffix:semicolon
-)brace
 r_for
 c_loop
 (paren
