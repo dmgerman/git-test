@@ -10553,6 +10553,9 @@ r_struct
 id|patch
 op_star
 id|patch
+comma
+r_int
+id|rmdir_empty
 )paren
 (brace
 r_if
@@ -10605,6 +10608,8 @@ c_func
 (paren
 id|patch-&gt;old_name
 )paren
+op_logical_and
+id|rmdir_empty
 )paren
 (brace
 r_char
@@ -11385,6 +11390,8 @@ id|remove_file
 c_func
 (paren
 id|patch
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_return
@@ -11428,6 +11435,8 @@ id|remove_file
 c_func
 (paren
 id|patch
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
