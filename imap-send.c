@@ -6415,14 +6415,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;From &quot;
-comma
 id|p
 comma
-l_int|5
+l_string|&quot;From &quot;
 )paren
 )paren
 (brace
@@ -6533,14 +6531,12 @@ id|msg-&gt;len
 OL
 l_int|5
 op_logical_or
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|data
 comma
 l_string|&quot;From &quot;
-comma
-l_int|5
 )paren
 )paren
 r_return
@@ -6778,14 +6774,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;imap:&quot;
-comma
 id|val
 comma
-l_int|5
+l_string|&quot;imap:&quot;
 )paren
 )paren
 id|val
@@ -6807,14 +6801,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;//&quot;
-comma
 id|val
 comma
-l_int|2
+l_string|&quot;//&quot;
 )paren
 )paren
 id|val

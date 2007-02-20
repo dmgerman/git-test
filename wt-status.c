@@ -1881,14 +1881,12 @@ l_string|&quot;status.color.&quot;
 )paren
 op_logical_or
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|k
 comma
 l_string|&quot;color.status.&quot;
-comma
-l_int|13
 )paren
 )paren
 (brace

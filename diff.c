@@ -377,14 +377,12 @@ l_string|&quot;diff.color.&quot;
 )paren
 op_logical_or
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|var
 comma
 l_string|&quot;color.diff.&quot;
-comma
-l_int|11
 )paren
 )paren
 (brace
