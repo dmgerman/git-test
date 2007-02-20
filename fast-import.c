@@ -7367,14 +7367,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;mark :&quot;
-)paren
 )paren
 )paren
 (brace
@@ -7425,14 +7423,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;data &quot;
-)paren
 )paren
 )paren
 id|die
@@ -7447,7 +7443,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
@@ -7456,7 +7451,6 @@ op_plus
 l_int|5
 comma
 l_string|&quot;&lt;&lt;&quot;
-)paren
 )paren
 )paren
 (brace
@@ -8468,14 +8462,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|p
 comma
 l_string|&quot;inline&quot;
-)paren
 )paren
 )paren
 (brace
@@ -8895,14 +8887,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;from &quot;
-)paren
 )paren
 )paren
 r_return
@@ -9398,14 +9388,12 @@ r_while
 c_loop
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;merge &quot;
-)paren
 )paren
 )paren
 (brace
@@ -9671,14 +9659,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;author &quot;
-)paren
 )paren
 )paren
 (brace
@@ -9702,14 +9688,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;committer &quot;
-)paren
 )paren
 )paren
 (brace
@@ -9815,14 +9799,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;M &quot;
-)paren
 )paren
 )paren
 id|file_change_m
@@ -9836,14 +9818,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;D &quot;
-)paren
 )paren
 )paren
 id|file_change_d
@@ -10262,14 +10242,12 @@ multiline_comment|/* from ... */
 r_if
 c_cond
 (paren
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;from &quot;
-)paren
 )paren
 )paren
 id|die
@@ -10461,14 +10439,12 @@ multiline_comment|/* tagger ... */
 r_if
 c_cond
 (paren
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;tagger &quot;
-)paren
 )paren
 )paren
 id|die
@@ -11329,14 +11305,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;commit &quot;
-)paren
 )paren
 )paren
 id|cmd_new_commit
@@ -11349,14 +11323,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;tag &quot;
-)paren
 )paren
 )paren
 id|cmd_new_tag
@@ -11369,14 +11341,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|command_buf.buf
 comma
 l_string|&quot;reset &quot;
-)paren
 )paren
 )paren
 id|cmd_reset_branch

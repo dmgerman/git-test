@@ -148,14 +148,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--exec=&quot;
-)paren
 )paren
 )paren
 (brace

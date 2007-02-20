@@ -2783,7 +2783,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
@@ -2791,10 +2790,8 @@ id|arg
 comma
 l_string|&quot;-A&quot;
 )paren
-)paren
 op_logical_or
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
@@ -2802,17 +2799,14 @@ id|arg
 comma
 l_string|&quot;-B&quot;
 )paren
-)paren
 op_logical_or
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;-C&quot;
-)paren
 )paren
 op_logical_or
 (paren

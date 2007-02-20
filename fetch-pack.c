@@ -879,14 +879,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;shallow &quot;
-)paren
 )paren
 )paren
 (brace
@@ -924,14 +922,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;unshallow &quot;
-)paren
 )paren
 )paren
 (brace
@@ -3575,14 +3571,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--upload-pack=&quot;
-)paren
 )paren
 )paren
 (brace
@@ -3599,14 +3593,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--exec=&quot;
-)paren
 )paren
 )paren
 (brace
@@ -3744,14 +3736,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--depth=&quot;
-)paren
 )paren
 )paren
 (brace

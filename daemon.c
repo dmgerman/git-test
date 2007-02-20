@@ -2496,14 +2496,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;git-&quot;
-)paren
 )paren
 op_logical_and
 op_logical_neg

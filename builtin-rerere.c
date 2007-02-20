@@ -661,14 +661,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|buf
 comma
 l_string|&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt; &quot;
-)paren
 )paren
 )paren
 id|hunk
@@ -680,14 +678,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|buf
 comma
 l_string|&quot;=======&quot;
-)paren
 )paren
 )paren
 id|hunk
@@ -699,14 +695,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|buf
 comma
 l_string|&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;
-)paren
 )paren
 )paren
 (brace

@@ -2580,14 +2580,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;shallow &quot;
-)paren
 )paren
 )paren
 (brace
@@ -2672,14 +2670,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;deepen &quot;
-)paren
 )paren
 )paren
 (brace
@@ -2733,14 +2729,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
 id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;want &quot;
-)paren
 )paren
 op_logical_or
 id|get_sha1_hex

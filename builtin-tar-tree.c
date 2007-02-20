@@ -92,7 +92,6 @@ op_le
 id|argc
 op_logical_and
 op_logical_neg
-(paren
 id|prefixcmp
 c_func
 (paren
@@ -102,7 +101,6 @@ l_int|1
 )braket
 comma
 l_string|&quot;--remote=&quot;
-)paren
 )paren
 )paren
 (brace
