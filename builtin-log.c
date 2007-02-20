@@ -124,14 +124,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--encoding=&quot;
-comma
-l_int|11
 )paren
 )paren
 (brace
@@ -1492,14 +1490,12 @@ op_logical_neg
 id|keep_subject
 op_logical_and
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|sol
 comma
 l_string|&quot;[PATCH&quot;
-comma
-l_int|6
 )paren
 )paren
 (brace
@@ -2405,7 +2401,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|argv
@@ -2414,8 +2410,6 @@ id|i
 )braket
 comma
 l_string|&quot;--start-number=&quot;
-comma
-l_int|15
 )paren
 )paren
 id|start_number
@@ -2717,7 +2711,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|argv
@@ -2726,8 +2720,6 @@ id|i
 )braket
 comma
 l_string|&quot;--attach=&quot;
-comma
-l_int|9
 )paren
 )paren
 id|rev.mime_boundary
@@ -2784,7 +2776,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|argv
@@ -2793,8 +2785,6 @@ id|i
 )braket
 comma
 l_string|&quot;--in-reply-to=&quot;
-comma
-l_int|14
 )paren
 )paren
 id|in_reply_to
@@ -2852,7 +2842,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|argv
@@ -2861,8 +2851,6 @@ id|i
 )braket
 comma
 l_string|&quot;--suffix=&quot;
-comma
-l_int|9
 )paren
 )paren
 id|fmt_patch_suffix

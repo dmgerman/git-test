@@ -2418,14 +2418,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|head_points_at
 comma
 l_string|&quot;refs/heads/&quot;
-comma
-l_int|11
 )paren
 )paren
 r_return

@@ -7367,14 +7367,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;mark :&quot;
-comma
 id|command_buf.buf
 comma
-l_int|6
+l_string|&quot;mark :&quot;
+)paren
 )paren
 )paren
 (brace
@@ -7425,14 +7425,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;data &quot;
-comma
 id|command_buf.buf
 comma
-l_int|5
+l_string|&quot;data &quot;
+)paren
 )paren
 )paren
 id|die
@@ -7447,16 +7447,16 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;&lt;&lt;&quot;
-comma
 id|command_buf.buf
 op_plus
 l_int|5
 comma
-l_int|2
+l_string|&quot;&lt;&lt;&quot;
+)paren
 )paren
 )paren
 (brace
@@ -8468,14 +8468,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;inline&quot;
-comma
 id|p
 comma
-l_int|6
+l_string|&quot;inline&quot;
+)paren
 )paren
 )paren
 (brace
@@ -8895,14 +8895,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;from &quot;
-comma
 id|command_buf.buf
 comma
-l_int|5
+l_string|&quot;from &quot;
+)paren
 )paren
 )paren
 r_return
@@ -9398,14 +9398,14 @@ r_while
 c_loop
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;merge &quot;
-comma
 id|command_buf.buf
 comma
-l_int|6
+l_string|&quot;merge &quot;
+)paren
 )paren
 )paren
 (brace
@@ -9671,14 +9671,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;author &quot;
-comma
 id|command_buf.buf
 comma
-l_int|7
+l_string|&quot;author &quot;
+)paren
 )paren
 )paren
 (brace
@@ -9702,14 +9702,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;committer &quot;
-comma
 id|command_buf.buf
 comma
-l_int|10
+l_string|&quot;committer &quot;
+)paren
 )paren
 )paren
 (brace
@@ -9815,14 +9815,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;M &quot;
-comma
 id|command_buf.buf
 comma
-l_int|2
+l_string|&quot;M &quot;
+)paren
 )paren
 )paren
 id|file_change_m
@@ -9836,14 +9836,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;D &quot;
-comma
 id|command_buf.buf
 comma
-l_int|2
+l_string|&quot;D &quot;
+)paren
 )paren
 )paren
 id|file_change_d
@@ -10262,14 +10262,14 @@ multiline_comment|/* from ... */
 r_if
 c_cond
 (paren
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;from &quot;
-comma
 id|command_buf.buf
 comma
-l_int|5
+l_string|&quot;from &quot;
+)paren
 )paren
 )paren
 id|die
@@ -10461,14 +10461,14 @@ multiline_comment|/* tagger ... */
 r_if
 c_cond
 (paren
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;tagger &quot;
-comma
 id|command_buf.buf
 comma
-l_int|7
+l_string|&quot;tagger &quot;
+)paren
 )paren
 )paren
 id|die
@@ -10894,14 +10894,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--date-format=&quot;
-comma
-l_int|14
 )paren
 )paren
 (brace
@@ -10979,14 +10977,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--max-pack-size=&quot;
-comma
-l_int|16
 )paren
 )paren
 id|max_packsize
@@ -11012,14 +11008,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--depth=&quot;
-comma
-l_int|8
 )paren
 )paren
 id|max_depth
@@ -11041,14 +11035,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--active-branches=&quot;
-comma
-l_int|18
 )paren
 )paren
 id|max_active_branches
@@ -11070,14 +11062,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--export-marks=&quot;
-comma
-l_int|15
 )paren
 )paren
 id|mark_file
@@ -11091,14 +11081,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--export-pack-edges=&quot;
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -11341,14 +11329,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;commit &quot;
-comma
 id|command_buf.buf
 comma
-l_int|7
+l_string|&quot;commit &quot;
+)paren
 )paren
 )paren
 id|cmd_new_commit
@@ -11361,14 +11349,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;tag &quot;
-comma
 id|command_buf.buf
 comma
-l_int|4
+l_string|&quot;tag &quot;
+)paren
 )paren
 )paren
 id|cmd_new_tag
@@ -11381,14 +11369,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+(paren
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;reset &quot;
-comma
 id|command_buf.buf
 comma
-l_int|6
+l_string|&quot;reset &quot;
+)paren
 )paren
 )paren
 id|cmd_reset_branch

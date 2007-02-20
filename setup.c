@@ -1214,7 +1214,7 @@ suffix:semicolon
 id|inside_git_dir
 op_assign
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|cwd
@@ -1222,8 +1222,6 @@ op_plus
 id|offset
 comma
 l_string|&quot;.git/&quot;
-comma
-l_int|5
 )paren
 suffix:semicolon
 r_return
