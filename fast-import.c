@@ -15,17 +15,9 @@ DECL|macro|PACK_ID_BITS
 mdefine_line|#define PACK_ID_BITS 16
 DECL|macro|MAX_PACK_ID
 mdefine_line|#define MAX_PACK_ID ((1&lt;&lt;PACK_ID_BITS)-1)
-macro_line|#if !defined(NO_C99_FORMAT)
-DECL|macro|UM_FMT
-mdefine_line|#define UM_FMT &quot;%ju&quot;
-DECL|macro|UM10_FMT
-mdefine_line|#define UM10_FMT &quot;%10ju&quot;
-macro_line|#else
-multiline_comment|/* Assumes unsigned long long exists. */
-DECL|macro|UM_FMT
-mdefine_line|#define UM_FMT &quot;%llu&quot;
-DECL|macro|UM10_FMT
-mdefine_line|#define UM10_FMT &quot;%10llu&quot;
+macro_line|#ifndef PRIuMAX
+DECL|macro|PRIuMAX
+mdefine_line|#define PRIuMAX &quot;llu&quot;
 macro_line|#endif
 DECL|struct|object_entry
 r_struct
@@ -1681,8 +1673,8 @@ id|oe
 id|die
 c_func
 (paren
-l_string|&quot;mark :&quot;
-id|UM_FMT
+l_string|&quot;mark :%&quot;
+id|PRIuMAX
 l_string|&quot; not declared&quot;
 comma
 id|orig_idnum
@@ -7246,8 +7238,8 @@ c_func
 (paren
 id|f
 comma
-l_string|&quot;:&quot;
-id|UM_FMT
+l_string|&quot;:%&quot;
+id|PRIuMAX
 l_string|&quot; %s&bslash;n&quot;
 comma
 id|base
@@ -9072,8 +9064,8 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :&quot;
-id|UM_FMT
+l_string|&quot;Mark :%&quot;
+id|PRIuMAX
 l_string|&quot; not a commit&quot;
 comma
 id|idnum
@@ -9505,8 +9497,8 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :&quot;
-id|UM_FMT
+l_string|&quot;Mark :%&quot;
+id|PRIuMAX
 l_string|&quot; not a commit&quot;
 comma
 id|idnum
@@ -10367,8 +10359,8 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :&quot;
-id|UM_FMT
+l_string|&quot;Mark :%&quot;
+id|PRIuMAX
 l_string|&quot; not a commit&quot;
 comma
 id|from_mark
@@ -11556,8 +11548,8 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Alloc&squot;d objects: &quot;
-id|UM10_FMT
+l_string|&quot;Alloc&squot;d objects: %10&quot;
+id|PRIuMAX
 l_string|&quot;&bslash;n&quot;
 comma
 id|alloc_count
@@ -11568,10 +11560,10 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total objects:   &quot;
-id|UM10_FMT
-l_string|&quot; (&quot;
-id|UM10_FMT
+l_string|&quot;Total objects:   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
 l_string|&quot; duplicates                  )&bslash;n&quot;
 comma
 id|total_count
@@ -11584,12 +11576,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      blobs  :   &quot;
-id|UM10_FMT
-l_string|&quot; (&quot;
-id|UM10_FMT
-l_string|&quot; duplicates &quot;
-id|UM10_FMT
+l_string|&quot;      blobs  :   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
 l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
@@ -11613,12 +11605,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      trees  :   &quot;
-id|UM10_FMT
-l_string|&quot; (&quot;
-id|UM10_FMT
-l_string|&quot; duplicates &quot;
-id|UM10_FMT
+l_string|&quot;      trees  :   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
 l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
@@ -11642,12 +11634,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      commits:   &quot;
-id|UM10_FMT
-l_string|&quot; (&quot;
-id|UM10_FMT
-l_string|&quot; duplicates &quot;
-id|UM10_FMT
+l_string|&quot;      commits:   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
 l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
@@ -11671,12 +11663,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      tags   :   &quot;
-id|UM10_FMT
-l_string|&quot; (&quot;
-id|UM10_FMT
-l_string|&quot; duplicates &quot;
-id|UM10_FMT
+l_string|&quot;      tags   :   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
 l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
@@ -11712,10 +11704,10 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      marks:     &quot;
-id|UM10_FMT
-l_string|&quot; (&quot;
-id|UM10_FMT
+l_string|&quot;      marks:     %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
 l_string|&quot; unique    )&bslash;n&quot;
 comma
 (paren
@@ -11749,8 +11741,8 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Memory total:    &quot;
-id|UM10_FMT
+l_string|&quot;Memory total:    %10&quot;
+id|PRIuMAX
 l_string|&quot; KiB&bslash;n&quot;
 comma
 (paren
@@ -11791,8 +11783,8 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;     objects:    &quot;
-id|UM10_FMT
+l_string|&quot;     objects:    %10&quot;
+id|PRIuMAX
 l_string|&quot; KiB&bslash;n&quot;
 comma
 (paren
