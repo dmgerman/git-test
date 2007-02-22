@@ -2530,6 +2530,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|input_fd
+op_logical_and
 id|S_ISREG
 c_func
 (paren
@@ -2543,7 +2545,21 @@ id|consumed_bytes
 id|die
 c_func
 (paren
-l_string|&quot;pack has junk at the end&quot;
+l_string|&quot;pack has junk at the end: 0%o, %d, %d %d&quot;
+comma
+id|st.st_mode
+comma
+(paren
+r_int
+)paren
+id|st.st_size
+comma
+(paren
+r_int
+)paren
+id|consumed_bytes
+comma
+id|input_fd
 )paren
 suffix:semicolon
 r_if

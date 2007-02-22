@@ -1325,6 +1325,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;bundle&quot;
+comma
+id|cmd_bundle
+)brace
+comma
+(brace
 l_string|&quot;cat-file&quot;
 comma
 id|cmd_cat_file
