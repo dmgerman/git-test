@@ -1389,8 +1389,6 @@ l_string|&quot;diff&quot;
 comma
 id|cmd_diff
 comma
-id|RUN_SETUP
-op_or
 id|USE_PAGER
 )brace
 comma
@@ -1398,8 +1396,6 @@ comma
 l_string|&quot;diff-files&quot;
 comma
 id|cmd_diff_files
-comma
-id|RUN_SETUP
 )brace
 comma
 (brace

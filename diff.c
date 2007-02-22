@@ -13023,6 +13023,12 @@ op_logical_or
 id|p-&gt;one-&gt;mode
 op_ne
 id|p-&gt;two-&gt;mode
+op_logical_or
+id|is_null_sha1
+c_func
+(paren
+id|p-&gt;one-&gt;sha1
+)paren
 )paren
 id|p-&gt;status
 op_assign
