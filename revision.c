@@ -2061,7 +2061,7 @@ id|cb-&gt;all_revs
 comma
 id|object
 comma
-l_string|&quot;&quot;
+id|path
 )paren
 suffix:semicolon
 r_return
