@@ -1658,7 +1658,7 @@ c_func
 (paren
 id|argc
 op_plus
-l_int|3
+l_int|4
 )paren
 op_star
 r_sizeof
@@ -1774,7 +1774,7 @@ c_func
 (paren
 id|argv_boundary
 op_plus
-l_int|2
+l_int|3
 comma
 id|argv
 op_plus
@@ -1806,9 +1806,16 @@ l_string|&quot;--boundary&quot;
 suffix:semicolon
 id|argv_boundary
 (braket
+l_int|2
+)braket
+op_assign
+l_string|&quot;--pretty=oneline&quot;
+suffix:semicolon
+id|argv_boundary
+(braket
 id|argc
 op_plus
-l_int|1
+l_int|2
 )braket
 op_assign
 l_int|NULL
