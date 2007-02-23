@@ -941,6 +941,13 @@ suffix:semicolon
 )brace
 )brace
 r_else
+r_if
+c_cond
+(paren
+id|opt-&gt;commit_format
+op_ne
+id|CMIT_FMT_USERFORMAT
+)paren
 (brace
 id|fputs
 c_func
