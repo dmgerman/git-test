@@ -1298,12 +1298,17 @@ c_cond
 id|verify
 )paren
 (brace
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pattern
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--verify requires a reference&quot;
+)paren
 suffix:semicolon
 r_while
 c_loop
@@ -1312,6 +1317,13 @@ op_star
 id|pattern
 )paren
 (brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
 r_if
 c_cond
 (paren
