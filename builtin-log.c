@@ -1094,6 +1094,9 @@ id|rev
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* format-patch */
+DECL|macro|FORMAT_PATCH_NAME_MAX
+mdefine_line|#define FORMAT_PATCH_NAME_MAX 64
 DECL|function|istitlechar
 r_static
 r_int
@@ -1350,7 +1353,7 @@ l_int|NULL
 suffix:semicolon
 DECL|function|reopen_stdout
 r_static
-r_void
+r_int
 id|reopen_stdout
 c_func
 (paren
@@ -1369,7 +1372,7 @@ id|keep_subject
 r_char
 id|filename
 (braket
-l_int|1024
+id|PATH_MAX
 )braket
 suffix:semicolon
 r_char
@@ -1390,15 +1393,37 @@ c_func
 id|fmt_patch_suffix
 )paren
 op_plus
-l_int|10
+l_int|1
 suffix:semicolon
-multiline_comment|/* ., NUL and slop */
 r_if
 c_cond
 (paren
 id|output_directory
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|strlen
+c_func
+(paren
+id|output_directory
+)paren
+op_ge
+r_sizeof
+(paren
+id|filename
+)paren
+id|FORMAT_PATCH_NAME_MAX
+id|suffix_len
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;name of output directory is too long&quot;
+)paren
+suffix:semicolon
 id|strlcpy
 c_func
 (paren
@@ -1406,7 +1431,11 @@ id|filename
 comma
 id|output_directory
 comma
-l_int|1000
+r_sizeof
+(paren
+id|filename
+)paren
+id|suffix_len
 )paren
 suffix:semicolon
 id|len
@@ -1549,6 +1578,12 @@ id|j
 op_assign
 l_int|0
 suffix:semicolon
+id|j
+OL
+id|FORMAT_PATCH_NAME_MAX
+id|suffix_len
+l_int|5
+op_logical_and
 id|len
 OL
 r_sizeof
@@ -1670,7 +1705,33 @@ l_char|&squot;-&squot;
 id|len
 op_decrement
 suffix:semicolon
+id|filename
+(braket
+id|len
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|len
+op_plus
+id|suffix_len
+op_ge
+r_sizeof
+(paren
+id|filename
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;Patch pathname too long&quot;
+)paren
+suffix:semicolon
 id|strcpy
 c_func
 (paren
@@ -1691,6 +1752,9 @@ comma
 id|filename
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|freopen
 c_func
 (paren
@@ -1700,6 +1764,20 @@ l_string|&quot;w&quot;
 comma
 id|stdout
 )paren
+op_eq
+l_int|NULL
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;Cannot open patch file %s&quot;
+comma
+id|filename
+)paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|get_patch_id
@@ -3323,6 +3401,9 @@ c_cond
 op_logical_neg
 id|use_stdout
 )paren
+r_if
+c_cond
+(paren
 id|reopen_stdout
 c_func
 (paren
@@ -3331,6 +3412,12 @@ comma
 id|rev.nr
 comma
 id|keep_subject
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Failed to create output files&quot;
 )paren
 suffix:semicolon
 id|shown
