@@ -702,7 +702,7 @@ id|fd
 l_int|1
 )braket
 comma
-l_string|&quot;want %s%s%s%s%s%s&bslash;n&quot;
+l_string|&quot;want %s%s%s%s%s%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -746,6 +746,15 @@ id|use_thin_pack
 ques
 c_cond
 l_string|&quot; thin-pack&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
+comma
+(paren
+id|no_progress
+ques
+c_cond
+l_string|&quot; no-progress&quot;
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -3862,47 +3871,6 @@ c_func
 id|fetch_pack_usage
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|no_progress
-)paren
-(brace
-r_char
-id|buf
-(braket
-l_int|256
-)braket
-suffix:semicolon
-id|snprintf
-c_func
-(paren
-id|buf
-comma
-r_sizeof
-(paren
-id|buf
-)paren
-comma
-l_string|&quot;%s --no-progress&quot;
-comma
-id|uploadpack
-)paren
-suffix:semicolon
-id|pid
-op_assign
-id|git_connect
-c_func
-(paren
-id|fd
-comma
-id|dest
-comma
-id|buf
-)paren
-suffix:semicolon
-)brace
-r_else
 id|pid
 op_assign
 id|git_connect

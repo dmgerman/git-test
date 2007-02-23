@@ -17,7 +17,7 @@ id|upload_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-pack [--strict] [--timeout=nn] [--no-progress] &lt;dir&gt;&quot;
+l_string|&quot;git-upload-pack [--strict] [--timeout=nn] &lt;dir&gt;&quot;
 suffix:semicolon
 multiline_comment|/* bits #0..7 in revision.h, #8..10 in commit.c */
 DECL|macro|THEY_HAVE
@@ -2904,6 +2904,23 @@ id|use_sideband
 op_assign
 id|DEFAULT_PACKET_MAX
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|line
+op_plus
+l_int|45
+comma
+l_string|&quot;no-progress&quot;
+)paren
+)paren
+id|no_progress
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* We have sent all our refs already, and the other end&n;&t;&t; * should have chosen out of them; otherwise they are&n;&t;&t; * asking for nonsense.&n;&t;&t; *&n;&t;&t; * Hmph.  We may later want to allow &quot;want&quot; line that&n;&t;&t; * asks for something like &quot;master~10&quot; (symbolic)...&n;&t;&t; * would it make sense?  I don&squot;t know.&n;&t;&t; */
 id|o
 op_assign
@@ -3284,7 +3301,7 @@ op_star
 id|capabilities
 op_assign
 l_string|&quot;multi_ack thin-pack side-band&quot;
-l_string|&quot; side-band-64k ofs-delta shallow&quot;
+l_string|&quot; side-band-64k ofs-delta shallow no-progress&quot;
 suffix:semicolon
 r_struct
 id|object
@@ -3586,26 +3603,6 @@ id|arg
 op_plus
 l_int|10
 )paren
-suffix:semicolon
-r_continue
-suffix:semicolon
-)brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
-id|arg
-comma
-l_string|&quot;--no-progress&quot;
-)paren
-)paren
-(brace
-id|no_progress
-op_assign
-l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
