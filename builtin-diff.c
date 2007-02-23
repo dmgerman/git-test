@@ -1002,9 +1002,11 @@ r_int
 r_char
 op_star
 )paren
+(paren
 id|parent
 op_plus
 id|i
+)paren
 comma
 id|ent
 (braket
