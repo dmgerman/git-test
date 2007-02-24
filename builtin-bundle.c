@@ -1018,7 +1018,7 @@ r_char
 op_star
 id|message
 op_assign
-l_string|&quot;The bundle requires these lacking revs:&quot;
+l_string|&quot;Repository lacks these prerequisite commits:&quot;
 suffix:semicolon
 id|init_revisions
 c_func
