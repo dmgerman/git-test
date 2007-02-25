@@ -1087,7 +1087,7 @@ id|conflict
 suffix:semicolon
 id|i
 op_add_assign
-l_int|3
+l_int|2
 suffix:semicolon
 )brace
 )brace
