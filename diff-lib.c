@@ -1193,6 +1193,9 @@ c_func
 l_string|&quot;need two files/directories with --no-index&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|queue_diff
 c_func
 (paren
@@ -1209,6 +1212,9 @@ id|revs-&gt;diffopt.paths
 l_int|1
 )braket
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|diffcore_std
 c_func
@@ -1224,8 +1230,9 @@ op_amp
 id|revs-&gt;diffopt
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * The return code for --no-index imitates diff(1):&n;&t;&t; * 0 = no changes, 1 = changes, else error&n;&t;&t; */
 r_return
-l_int|0
+id|revs-&gt;diffopt.found_changes
 suffix:semicolon
 )brace
 r_if
