@@ -1298,6 +1298,18 @@ op_amp
 id|rev
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev.pending.nr
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;No HEAD commit to compare with (yet)&quot;
+)paren
+suffix:semicolon
 r_break
 suffix:semicolon
 )brace
