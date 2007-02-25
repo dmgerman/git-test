@@ -202,7 +202,7 @@ c_func
 (paren
 l_string|&quot;Could not access &squot;%s&squot;&quot;
 comma
-id|name1
+id|name2
 )paren
 suffix:semicolon
 id|mode2
