@@ -4241,10 +4241,10 @@ id|hdr
 comma
 l_string|&quot;%s %lu&quot;
 comma
-id|type_names
-(braket
+r_typename
+(paren
 id|type
-)braket
+)paren
 comma
 (paren
 r_int
@@ -8658,10 +8658,10 @@ l_string|&quot;Not a blob (actually a %s): %s&quot;
 comma
 id|command_buf.buf
 comma
-id|type_names
-(braket
+r_typename
+(paren
 id|oe-&gt;type
-)braket
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -9230,10 +9230,7 @@ c_func
 (paren
 id|b-&gt;sha1
 comma
-id|type_names
-(braket
-id|OBJ_COMMIT
-)braket
+id|commit_type
 comma
 op_amp
 id|size
@@ -10385,10 +10382,7 @@ c_func
 (paren
 id|sha1
 comma
-id|type_names
-(braket
-id|OBJ_COMMIT
-)braket
+id|commit_type
 comma
 op_amp
 id|size
@@ -10533,10 +10527,7 @@ id|sp
 comma
 l_string|&quot;type %s&bslash;n&quot;
 comma
-id|type_names
-(braket
-id|OBJ_COMMIT
-)braket
+id|commit_type
 )paren
 suffix:semicolon
 id|sp

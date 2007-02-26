@@ -930,10 +930,10 @@ l_string|&quot;objecttype&quot;
 )paren
 id|v-&gt;s
 op_assign
-id|type_names
-(braket
+r_typename
+(paren
 id|obj-&gt;type
-)braket
+)paren
 suffix:semicolon
 r_else
 r_if
