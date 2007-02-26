@@ -7692,7 +7692,7 @@ suffix:semicolon
 r_char
 id|hdr
 (braket
-l_int|128
+l_int|32
 )braket
 suffix:semicolon
 id|map
@@ -8664,7 +8664,6 @@ r_char
 op_star
 id|sha1
 comma
-r_int
 r_char
 op_star
 id|hdr
@@ -8684,10 +8683,6 @@ op_assign
 id|sprintf
 c_func
 (paren
-(paren
-r_char
-op_star
-)paren
 id|hdr
 comma
 l_string|&quot;%s %lu&quot;
@@ -9125,7 +9120,7 @@ id|len
 r_int
 id|obj_type
 comma
-id|hdr
+id|hdrlen
 suffix:semicolon
 r_if
 c_cond
@@ -9227,7 +9222,7 @@ comma
 id|type
 )paren
 suffix:semicolon
-id|hdr
+id|hdrlen
 op_assign
 id|write_binary_header
 c_func
@@ -9241,15 +9236,15 @@ id|len
 suffix:semicolon
 id|stream-&gt;total_out
 op_assign
-id|hdr
+id|hdrlen
 suffix:semicolon
 id|stream-&gt;next_out
 op_add_assign
-id|hdr
+id|hdrlen
 suffix:semicolon
 id|stream-&gt;avail_out
 op_sub_assign
-id|hdr
+id|hdrlen
 suffix:semicolon
 )brace
 DECL|function|hash_sha1_file
@@ -9276,11 +9271,10 @@ op_star
 id|sha1
 )paren
 (brace
-r_int
 r_char
 id|hdr
 (braket
-l_int|50
+l_int|32
 )braket
 suffix:semicolon
 r_int
@@ -9360,11 +9354,10 @@ id|tmpfile
 id|PATH_MAX
 )braket
 suffix:semicolon
-r_int
 r_char
 id|hdr
 (braket
-l_int|50
+l_int|32
 )braket
 suffix:semicolon
 r_int
@@ -9605,6 +9598,11 @@ suffix:semicolon
 multiline_comment|/* First header.. */
 id|stream.next_in
 op_assign
+(paren
+r_int
+r_char
+op_star
+)paren
 id|hdr
 suffix:semicolon
 id|stream.avail_in
@@ -9753,7 +9751,7 @@ suffix:semicolon
 r_char
 id|hdr
 (braket
-l_int|50
+l_int|32
 )braket
 suffix:semicolon
 r_int
