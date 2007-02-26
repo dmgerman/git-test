@@ -485,11 +485,9 @@ suffix:semicolon
 r_int
 id|wrote
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_new
 op_assign
@@ -498,6 +496,7 @@ c_func
 (paren
 id|ce-&gt;sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -510,13 +509,9 @@ c_cond
 op_logical_neg
 r_new
 op_logical_or
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|blob_type
-)paren
+op_ne
+id|OBJ_BLOB
 )paren
 (brace
 r_if

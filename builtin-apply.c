@@ -8866,11 +8866,9 @@ id|sha1
 )paren
 (brace
 multiline_comment|/* We already have the postimage */
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|10
-)braket
 suffix:semicolon
 r_int
 r_int
@@ -8889,6 +8887,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -9156,11 +9155,9 @@ c_cond
 id|ce
 )paren
 (brace
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 id|buf
 op_assign
@@ -9169,6 +9166,7 @@ c_func
 (paren
 id|ce-&gt;sha1
 comma
+op_amp
 id|type
 comma
 op_amp

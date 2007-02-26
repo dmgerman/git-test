@@ -519,11 +519,9 @@ op_star
 id|item
 )paren
 (brace
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_void
 op_star
@@ -551,6 +549,7 @@ c_func
 (paren
 id|item-&gt;object.sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -579,13 +578,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|tag_type
-)paren
+op_ne
+id|OBJ_TAG
 )paren
 (brace
 id|free

@@ -2152,11 +2152,9 @@ r_char
 op_star
 id|posn
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_char
 id|hdr
@@ -2188,6 +2186,7 @@ c_func
 (paren
 id|request-&gt;obj-&gt;sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -2203,7 +2202,10 @@ id|hdr
 comma
 l_string|&quot;%s %lu&quot;
 comma
+r_typename
+(paren
 id|type
+)paren
 comma
 id|len
 )paren

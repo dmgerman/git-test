@@ -3354,15 +3354,9 @@ r_int
 r_int
 id|size
 suffix:semicolon
-r_char
-id|type
-(braket
-l_int|10
-)braket
-suffix:semicolon
 r_enum
 id|object_type
-id|obj_type
+id|type
 suffix:semicolon
 r_int
 id|j
@@ -3392,6 +3386,7 @@ c_func
 (paren
 id|d-&gt;base.sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -3405,14 +3400,6 @@ op_logical_neg
 id|data
 )paren
 r_continue
-suffix:semicolon
-id|obj_type
-op_assign
-id|type_from_string
-c_func
-(paren
-id|type
-)paren
 suffix:semicolon
 id|find_delta_children
 c_func
@@ -3472,7 +3459,7 @@ id|data
 comma
 id|size
 comma
-id|obj_type
+id|type
 )paren
 suffix:semicolon
 )brace
@@ -3483,7 +3470,7 @@ id|data
 comma
 id|size
 comma
-id|obj_type
+id|type
 )paren
 suffix:semicolon
 id|free

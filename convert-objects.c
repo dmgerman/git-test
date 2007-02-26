@@ -1692,11 +1692,9 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_void
 op_star
@@ -1724,6 +1722,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -1769,14 +1768,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|blob_type
-)paren
+op_eq
+id|OBJ_BLOB
 )paren
 (brace
 id|write_sha1_file
@@ -1796,14 +1790,9 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|tree_type
-)paren
+op_eq
+id|OBJ_TREE
 )paren
 id|convert_tree
 c_func
@@ -1819,14 +1808,9 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|commit_type
-)paren
+op_eq
+id|OBJ_COMMIT
 )paren
 id|convert_commit
 c_func
@@ -1842,7 +1826,7 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;unknown object type &squot;%s&squot; in %s&quot;
+l_string|&quot;unknown object type %d in %s&quot;
 comma
 id|type
 comma
