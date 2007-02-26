@@ -368,11 +368,6 @@ c_func
 (paren
 id|ce-&gt;ce_mode
 )paren
-op_amp
-(paren
-op_complement
-id|S_IFMT
-)paren
 )paren
 suffix:semicolon
 id|arguments
