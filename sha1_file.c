@@ -5507,7 +5507,8 @@ id|w_curs
 comma
 r_int
 r_int
-id|offset
+op_star
+id|curpos
 comma
 r_enum
 id|object_type
@@ -5516,11 +5517,6 @@ comma
 r_int
 r_int
 id|delta_obj_offset
-comma
-r_int
-r_int
-op_star
-id|base_obj_offset
 )paren
 (brace
 r_int
@@ -5535,7 +5531,8 @@ id|p
 comma
 id|w_curs
 comma
-id|offset
+op_star
+id|curpos
 comma
 l_int|NULL
 )paren
@@ -5649,7 +5646,8 @@ c_func
 l_string|&quot;delta base offset out of bound&quot;
 )paren
 suffix:semicolon
-id|offset
+op_star
+id|curpos
 op_add_assign
 id|used
 suffix:semicolon
@@ -5692,7 +5690,8 @@ id|base_info
 )paren
 )paren
 suffix:semicolon
-id|offset
+op_star
+id|curpos
 op_add_assign
 l_int|20
 suffix:semicolon
@@ -5704,13 +5703,8 @@ c_func
 l_string|&quot;I am totally screwed&quot;
 )paren
 suffix:semicolon
-op_star
-id|base_obj_offset
-op_assign
-id|base_offset
-suffix:semicolon
 r_return
-id|offset
+id|base_offset
 suffix:semicolon
 )brace
 multiline_comment|/* forward declaration for a mutually recursive function */
@@ -5757,7 +5751,7 @@ id|w_curs
 comma
 r_int
 r_int
-id|offset
+id|curpos
 comma
 r_enum
 id|object_type
@@ -5781,7 +5775,7 @@ r_int
 r_int
 id|base_offset
 suffix:semicolon
-id|offset
+id|base_offset
 op_assign
 id|get_delta_base
 c_func
@@ -5790,14 +5784,12 @@ id|p
 comma
 id|w_curs
 comma
-id|offset
+op_amp
+id|curpos
 comma
 id|kind
 comma
 id|obj_offset
-comma
-op_amp
-id|base_offset
 )paren
 suffix:semicolon
 multiline_comment|/* We choose to only get the type of the base object and&n;&t; * ignore potentially corrupt pack file that expects the delta&n;&t; * based on a base with a wrong size.  This saves tons of&n;&t; * inflate() calls.&n;&t; */
@@ -5843,10 +5835,6 @@ l_int|20
 comma
 op_star
 id|in
-suffix:semicolon
-r_int
-r_int
-id|result_size
 suffix:semicolon
 id|z_stream
 id|stream
@@ -5897,7 +5885,7 @@ id|p
 comma
 id|w_curs
 comma
-id|offset
+id|curpos
 comma
 op_amp
 id|stream.avail_in
@@ -5918,7 +5906,7 @@ comma
 id|Z_FINISH
 )paren
 suffix:semicolon
-id|offset
+id|curpos
 op_add_assign
 id|stream.next_in
 id|in
@@ -5995,7 +5983,8 @@ id|delta_head
 )paren
 suffix:semicolon
 multiline_comment|/* Read the result size */
-id|result_size
+op_star
+id|sizep
 op_assign
 id|get_delta_hdr_size
 c_func
@@ -6011,11 +6000,6 @@ id|delta_head
 )paren
 )paren
 suffix:semicolon
-op_star
-id|sizep
-op_assign
-id|result_size
-suffix:semicolon
 )brace
 r_return
 l_int|0
@@ -6023,7 +6007,6 @@ suffix:semicolon
 )brace
 DECL|function|unpack_object_header
 r_static
-r_int
 r_int
 id|unpack_object_header
 c_func
@@ -6041,12 +6024,8 @@ id|w_curs
 comma
 r_int
 r_int
-id|offset
-comma
-r_enum
-id|object_type
 op_star
-id|type
+id|curpos
 comma
 r_int
 r_int
@@ -6067,6 +6046,10 @@ r_int
 r_int
 id|used
 suffix:semicolon
+r_enum
+id|object_type
+id|type
+suffix:semicolon
 multiline_comment|/* use_pack() assures us we have [base, base + 20) available&n;&t; * as a range that we can look at at.  (Its actually the hash&n;&t; * size that is assured.)  With our object header encoding&n;&t; * the maximum deflated object size is 2^137, which is just&n;&t; * insane, so we know won&squot;t exceed what we have been given.&n;&t; */
 id|base
 op_assign
@@ -6077,7 +6060,8 @@ id|p
 comma
 id|w_curs
 comma
-id|offset
+op_star
+id|curpos
 comma
 op_amp
 id|left
@@ -6092,6 +6076,7 @@ id|base
 comma
 id|left
 comma
+op_amp
 id|type
 comma
 id|sizep
@@ -6109,10 +6094,13 @@ c_func
 l_string|&quot;object offset outside of pack file&quot;
 )paren
 suffix:semicolon
-r_return
-id|offset
-op_plus
+op_star
+id|curpos
+op_add_assign
 id|used
+suffix:semicolon
+r_return
+id|type
 suffix:semicolon
 )brace
 DECL|function|packed_object_info_detail
@@ -6127,7 +6115,7 @@ id|p
 comma
 r_int
 r_int
-id|offset
+id|obj_offset
 comma
 r_char
 op_star
@@ -6163,9 +6151,9 @@ l_int|NULL
 suffix:semicolon
 r_int
 r_int
-id|obj_offset
+id|curpos
 comma
-id|val
+id|dummy
 suffix:semicolon
 r_int
 r_char
@@ -6181,11 +6169,11 @@ id|delta_chain_length
 op_assign
 l_int|0
 suffix:semicolon
-id|obj_offset
+id|curpos
 op_assign
-id|offset
+id|obj_offset
 suffix:semicolon
-id|offset
+id|kind
 op_assign
 id|unpack_object_header
 c_func
@@ -6195,10 +6183,8 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
-comma
 op_amp
-id|kind
+id|curpos
 comma
 id|size
 )paren
@@ -6269,6 +6255,8 @@ suffix:semicolon
 r_case
 id|OBJ_OFS_DELTA
 suffix:colon
+id|obj_offset
+op_assign
 id|get_delta_base
 c_func
 (paren
@@ -6277,14 +6265,12 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
+op_amp
+id|curpos
 comma
 id|kind
 comma
 id|obj_offset
-comma
-op_amp
-id|offset
 )paren
 suffix:semicolon
 r_if
@@ -6296,7 +6282,7 @@ op_eq
 l_int|0
 )paren
 (brace
-multiline_comment|/* TODO: find base_sha1 as pointed by offset */
+multiline_comment|/* TODO: find base_sha1 as pointed by curpos */
 )brace
 r_break
 suffix:semicolon
@@ -6313,7 +6299,7 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
+id|curpos
 comma
 l_int|NULL
 )paren
@@ -6334,7 +6320,7 @@ comma
 id|next_sha1
 )paren
 suffix:semicolon
-id|offset
+id|obj_offset
 op_assign
 id|find_pack_entry_one
 c_func
@@ -6347,11 +6333,17 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-id|obj_offset
-op_assign
-id|offset
+(paren
+op_star
+id|delta_chain_length
+)paren
+op_increment
 suffix:semicolon
-id|offset
+id|curpos
+op_assign
+id|obj_offset
+suffix:semicolon
+id|kind
 op_assign
 id|unpack_object_header
 c_func
@@ -6361,20 +6353,12 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
+op_amp
+id|curpos
 comma
 op_amp
-id|kind
-comma
-op_amp
-id|val
+id|dummy
 )paren
-suffix:semicolon
-(paren
-op_star
-id|delta_chain_length
-)paren
-op_increment
 suffix:semicolon
 )brace
 )brace
@@ -6391,7 +6375,7 @@ id|p
 comma
 r_int
 r_int
-id|offset
+id|obj_offset
 comma
 r_char
 op_star
@@ -6414,18 +6398,15 @@ r_int
 r_int
 id|size
 comma
-id|obj_offset
+id|curpos
 op_assign
-id|offset
+id|obj_offset
 suffix:semicolon
 r_enum
 id|object_type
 id|kind
 suffix:semicolon
-r_int
-id|r
-suffix:semicolon
-id|offset
+id|kind
 op_assign
 id|unpack_object_header
 c_func
@@ -6435,10 +6416,8 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
-comma
 op_amp
-id|kind
+id|curpos
 comma
 op_amp
 id|size
@@ -6456,8 +6435,6 @@ suffix:colon
 r_case
 id|OBJ_REF_DELTA
 suffix:colon
-id|r
-op_assign
 id|packed_delta_info
 c_func
 (paren
@@ -6466,7 +6443,7 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
+id|curpos
 comma
 id|kind
 comma
@@ -6477,15 +6454,7 @@ comma
 id|sizep
 )paren
 suffix:semicolon
-id|unuse_pack
-c_func
-(paren
-op_amp
-id|w_curs
-)paren
-suffix:semicolon
-r_return
-id|r
+r_break
 suffix:semicolon
 r_case
 id|OBJ_COMMIT
@@ -6510,12 +6479,15 @@ id|kind
 )braket
 )paren
 suffix:semicolon
-id|unuse_pack
-c_func
+r_if
+c_cond
 (paren
-op_amp
-id|w_curs
+id|sizep
 )paren
+op_star
+id|sizep
+op_assign
+id|size
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -6532,15 +6504,12 @@ id|kind
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
+id|unuse_pack
+c_func
 (paren
-id|sizep
+op_amp
+id|w_curs
 )paren
-op_star
-id|sizep
-op_assign
-id|size
 suffix:semicolon
 r_return
 l_int|0
@@ -6566,7 +6535,7 @@ id|w_curs
 comma
 r_int
 r_int
-id|offset
+id|curpos
 comma
 r_int
 r_int
@@ -6644,7 +6613,7 @@ id|p
 comma
 id|w_curs
 comma
-id|offset
+id|curpos
 comma
 op_amp
 id|stream.avail_in
@@ -6665,7 +6634,7 @@ comma
 id|Z_FINISH
 )paren
 suffix:semicolon
-id|offset
+id|curpos
 op_add_assign
 id|stream.next_in
 id|in
@@ -6738,7 +6707,7 @@ id|w_curs
 comma
 r_int
 r_int
-id|offset
+id|curpos
 comma
 r_int
 r_int
@@ -6780,7 +6749,7 @@ id|base_size
 comma
 id|base_offset
 suffix:semicolon
-id|offset
+id|base_offset
 op_assign
 id|get_delta_base
 c_func
@@ -6789,14 +6758,12 @@ id|p
 comma
 id|w_curs
 comma
-id|offset
+op_amp
+id|curpos
 comma
 id|kind
 comma
 id|obj_offset
-comma
-op_amp
-id|base_offset
 )paren
 suffix:semicolon
 id|base
@@ -6839,7 +6806,7 @@ id|p
 comma
 id|w_curs
 comma
-id|offset
+id|curpos
 comma
 id|delta_size
 )paren
@@ -6907,7 +6874,7 @@ id|p
 comma
 r_int
 r_int
-id|offset
+id|obj_offset
 comma
 r_char
 op_star
@@ -6930,9 +6897,9 @@ r_int
 r_int
 id|size
 comma
-id|obj_offset
+id|curpos
 op_assign
-id|offset
+id|obj_offset
 suffix:semicolon
 r_enum
 id|object_type
@@ -6942,7 +6909,7 @@ r_void
 op_star
 id|retval
 suffix:semicolon
-id|offset
+id|kind
 op_assign
 id|unpack_object_header
 c_func
@@ -6952,10 +6919,8 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
-comma
 op_amp
-id|kind
+id|curpos
 comma
 op_amp
 id|size
@@ -6983,7 +6948,7 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
+id|curpos
 comma
 id|size
 comma
@@ -7036,7 +7001,7 @@ comma
 op_amp
 id|w_curs
 comma
-id|offset
+id|curpos
 comma
 id|size
 )paren
