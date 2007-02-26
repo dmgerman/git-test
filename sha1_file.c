@@ -7727,6 +7727,7 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
