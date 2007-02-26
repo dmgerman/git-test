@@ -2037,14 +2037,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--pack_header=&quot;
-comma
-l_int|14
 )paren
 )paren
 (brace

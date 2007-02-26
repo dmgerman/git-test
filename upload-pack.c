@@ -2305,14 +2305,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;have &quot;
-comma
-l_int|5
 )paren
 )paren
 (brace
@@ -2582,14 +2580,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;shallow &quot;
-comma
 id|line
 comma
-l_int|8
+l_string|&quot;shallow &quot;
 )paren
 )paren
 (brace
@@ -2674,14 +2670,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;deepen &quot;
-comma
 id|line
 comma
-l_int|7
+l_string|&quot;deepen &quot;
 )paren
 )paren
 (brace
@@ -2735,14 +2729,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;want &quot;
-comma
 id|line
 comma
-l_int|5
+l_string|&quot;want &quot;
 )paren
 op_logical_or
 id|get_sha1_hex
@@ -3512,14 +3504,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--timeout=&quot;
-comma
-l_int|10
 )paren
 )paren
 (brace

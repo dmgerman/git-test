@@ -3177,7 +3177,7 @@ suffix:semicolon
 id|unlink
 c_func
 (paren
-id|lnk
+id|path
 )paren
 suffix:semicolon
 id|symlink

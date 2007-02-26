@@ -661,14 +661,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt; &quot;
-comma
 id|buf
 comma
-l_int|8
+l_string|&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt; &quot;
 )paren
 )paren
 id|hunk
@@ -680,14 +678,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;=======&quot;
-comma
 id|buf
 comma
-l_int|7
+l_string|&quot;=======&quot;
 )paren
 )paren
 id|hunk
@@ -699,14 +695,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;
-comma
 id|buf
 comma
-l_int|8
+l_string|&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;
 )paren
 )paren
 (brace
@@ -1070,6 +1064,36 @@ id|e1
 comma
 id|e3
 )paren
+op_logical_and
+id|S_ISREG
+c_func
+(paren
+id|ntohl
+c_func
+(paren
+id|e1-&gt;ce_mode
+)paren
+)paren
+op_logical_and
+id|S_ISREG
+c_func
+(paren
+id|ntohl
+c_func
+(paren
+id|e2-&gt;ce_mode
+)paren
+)paren
+op_logical_and
+id|S_ISREG
+c_func
+(paren
+id|ntohl
+c_func
+(paren
+id|e3-&gt;ce_mode
+)paren
+)paren
 )paren
 (brace
 id|path_list_insert
@@ -1087,7 +1111,7 @@ id|conflict
 suffix:semicolon
 id|i
 op_add_assign
-l_int|3
+l_int|2
 suffix:semicolon
 )brace
 )brace

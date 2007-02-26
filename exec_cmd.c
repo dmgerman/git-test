@@ -240,14 +240,12 @@ r_while
 c_loop
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|exec_dir
 comma
 l_string|&quot;./&quot;
-comma
-l_int|2
 )paren
 )paren
 (brace

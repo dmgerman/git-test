@@ -15,6 +15,10 @@ DECL|macro|PACK_ID_BITS
 mdefine_line|#define PACK_ID_BITS 16
 DECL|macro|MAX_PACK_ID
 mdefine_line|#define MAX_PACK_ID ((1&lt;&lt;PACK_ID_BITS)-1)
+macro_line|#ifndef PRIuMAX
+DECL|macro|PRIuMAX
+mdefine_line|#define PRIuMAX &quot;llu&quot;
+macro_line|#endif
 DECL|struct|object_entry
 r_struct
 id|object_entry
@@ -1669,7 +1673,9 @@ id|oe
 id|die
 c_func
 (paren
-l_string|&quot;mark :%ju not declared&quot;
+l_string|&quot;mark :%&quot;
+id|PRIuMAX
+l_string|&quot; not declared&quot;
 comma
 id|orig_idnum
 )paren
@@ -7235,7 +7241,9 @@ c_func
 (paren
 id|f
 comma
-l_string|&quot;:%ju %s&bslash;n&quot;
+l_string|&quot;:%&quot;
+id|PRIuMAX
+l_string|&quot; %s&bslash;n&quot;
 comma
 id|base
 op_plus
@@ -7359,14 +7367,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;mark :&quot;
-comma
 id|command_buf.buf
 comma
-l_int|6
+l_string|&quot;mark :&quot;
 )paren
 )paren
 (brace
@@ -7417,14 +7423,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;data &quot;
-comma
 id|command_buf.buf
 comma
-l_int|5
+l_string|&quot;data &quot;
 )paren
 )paren
 id|die
@@ -7439,16 +7443,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;&lt;&lt;&quot;
-comma
 id|command_buf.buf
 op_plus
 l_int|5
 comma
-l_int|2
+l_string|&quot;&lt;&lt;&quot;
 )paren
 )paren
 (brace
@@ -8460,14 +8462,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;inline&quot;
-comma
 id|p
 comma
-l_int|6
+l_string|&quot;inline&quot;
 )paren
 )paren
 (brace
@@ -8887,14 +8887,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;from &quot;
-comma
 id|command_buf.buf
 comma
-l_int|5
+l_string|&quot;from &quot;
 )paren
 )paren
 r_return
@@ -9059,7 +9057,9 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :%ju not a commit&quot;
+l_string|&quot;Mark :%&quot;
+id|PRIuMAX
+l_string|&quot; not a commit&quot;
 comma
 id|idnum
 )paren
@@ -9388,14 +9388,12 @@ r_while
 c_loop
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;merge &quot;
-comma
 id|command_buf.buf
 comma
-l_int|6
+l_string|&quot;merge &quot;
 )paren
 )paren
 (brace
@@ -9490,7 +9488,9 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :%ju not a commit&quot;
+l_string|&quot;Mark :%&quot;
+id|PRIuMAX
+l_string|&quot; not a commit&quot;
 comma
 id|idnum
 )paren
@@ -9659,14 +9659,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;author &quot;
-comma
 id|command_buf.buf
 comma
-l_int|7
+l_string|&quot;author &quot;
 )paren
 )paren
 (brace
@@ -9690,14 +9688,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;committer &quot;
-comma
 id|command_buf.buf
 comma
-l_int|10
+l_string|&quot;committer &quot;
 )paren
 )paren
 (brace
@@ -9803,14 +9799,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;M &quot;
-comma
 id|command_buf.buf
 comma
-l_int|2
+l_string|&quot;M &quot;
 )paren
 )paren
 id|file_change_m
@@ -9824,14 +9818,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;D &quot;
-comma
 id|command_buf.buf
 comma
-l_int|2
+l_string|&quot;D &quot;
 )paren
 )paren
 id|file_change_d
@@ -10250,14 +10242,12 @@ multiline_comment|/* from ... */
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;from &quot;
-comma
 id|command_buf.buf
 comma
-l_int|5
+l_string|&quot;from &quot;
 )paren
 )paren
 id|die
@@ -10350,7 +10340,9 @@ id|OBJ_COMMIT
 id|die
 c_func
 (paren
-l_string|&quot;Mark :%ju not a commit&quot;
+l_string|&quot;Mark :%&quot;
+id|PRIuMAX
+l_string|&quot; not a commit&quot;
 comma
 id|from_mark
 )paren
@@ -10447,14 +10439,12 @@ multiline_comment|/* tagger ... */
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;tagger &quot;
-comma
 id|command_buf.buf
 comma
-l_int|7
+l_string|&quot;tagger &quot;
 )paren
 )paren
 id|die
@@ -10880,14 +10870,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--date-format=&quot;
-comma
-l_int|14
 )paren
 )paren
 (brace
@@ -10965,14 +10953,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--max-pack-size=&quot;
-comma
-l_int|16
 )paren
 )paren
 id|max_packsize
@@ -10998,14 +10984,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--depth=&quot;
-comma
-l_int|8
 )paren
 )paren
 id|max_depth
@@ -11027,14 +11011,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--active-branches=&quot;
-comma
-l_int|18
 )paren
 )paren
 id|max_active_branches
@@ -11056,14 +11038,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--export-marks=&quot;
-comma
-l_int|15
 )paren
 )paren
 id|mark_file
@@ -11077,14 +11057,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|a
 comma
 l_string|&quot;--export-pack-edges=&quot;
-comma
-l_int|20
 )paren
 )paren
 (brace
@@ -11327,14 +11305,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;commit &quot;
-comma
 id|command_buf.buf
 comma
-l_int|7
+l_string|&quot;commit &quot;
 )paren
 )paren
 id|cmd_new_commit
@@ -11347,14 +11323,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;tag &quot;
-comma
 id|command_buf.buf
 comma
-l_int|4
+l_string|&quot;tag &quot;
 )paren
 )paren
 id|cmd_new_tag
@@ -11367,14 +11341,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;reset &quot;
-comma
 id|command_buf.buf
 comma
-l_int|6
+l_string|&quot;reset &quot;
 )paren
 )paren
 id|cmd_reset_branch
@@ -11537,7 +11509,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Alloc&squot;d objects: %10ju&bslash;n&quot;
+l_string|&quot;Alloc&squot;d objects: %10&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
 comma
 id|alloc_count
 )paren
@@ -11547,7 +11521,11 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total objects:   %10ju (%10ju duplicates                  )&bslash;n&quot;
+l_string|&quot;Total objects:   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates                  )&bslash;n&quot;
 comma
 id|total_count
 comma
@@ -11559,7 +11537,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      blobs  :   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
+l_string|&quot;      blobs  :   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
+l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -11582,7 +11566,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      trees  :   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
+l_string|&quot;      trees  :   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
+l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -11605,7 +11595,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      commits:   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
+l_string|&quot;      commits:   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
+l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -11628,7 +11624,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      tags   :   %10ju (%10ju duplicates %10ju deltas)&bslash;n&quot;
+l_string|&quot;      tags   :   %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; duplicates %10&quot;
+id|PRIuMAX
+l_string|&quot; deltas)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -11663,7 +11665,11 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;      marks:     %10ju (%10ju unique    )&bslash;n&quot;
+l_string|&quot;      marks:     %10&quot;
+id|PRIuMAX
+l_string|&quot; (%10&quot;
+id|PRIuMAX
+l_string|&quot; unique    )&bslash;n&quot;
 comma
 (paren
 (paren
@@ -11696,7 +11702,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Memory total:    %10ju KiB&bslash;n&quot;
+l_string|&quot;Memory total:    %10&quot;
+id|PRIuMAX
+l_string|&quot; KiB&bslash;n&quot;
 comma
 (paren
 id|total_allocd
@@ -11736,7 +11744,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;     objects:    %10ju KiB&bslash;n&quot;
+l_string|&quot;     objects:    %10&quot;
+id|PRIuMAX
+l_string|&quot; KiB&bslash;n&quot;
 comma
 (paren
 id|alloc_count

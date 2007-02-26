@@ -587,7 +587,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|argv
@@ -598,8 +598,6 @@ op_plus
 l_int|2
 comma
 l_string|&quot;abbrev=&quot;
-comma
-l_int|7
 )paren
 )paren
 (brace

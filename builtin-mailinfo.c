@@ -4138,7 +4138,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|argv
@@ -4147,8 +4147,6 @@ l_int|1
 )braket
 comma
 l_string|&quot;--encoding=&quot;
-comma
-l_int|11
 )paren
 )paren
 id|metainfo_charset
