@@ -852,11 +852,9 @@ r_char
 op_star
 id|path
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_void
 op_star
@@ -1051,6 +1049,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 op_amp

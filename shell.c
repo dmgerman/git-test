@@ -51,14 +51,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|me
 comma
 l_string|&quot;git-&quot;
-comma
-l_int|4
 )paren
 )paren
 id|die

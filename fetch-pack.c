@@ -879,14 +879,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;shallow &quot;
-comma
 id|line
 comma
-l_int|8
+l_string|&quot;shallow &quot;
 )paren
 )paren
 (brace
@@ -924,14 +922,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;unshallow &quot;
-comma
 id|line
 comma
-l_int|10
+l_string|&quot;unshallow &quot;
 )paren
 )paren
 (brace
@@ -1723,14 +1719,12 @@ op_logical_and
 op_logical_neg
 id|depth
 op_logical_or
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|ref-&gt;name
 comma
 l_string|&quot;refs/tags/&quot;
-comma
-l_int|10
 )paren
 )paren
 )paren
@@ -3577,14 +3571,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;--upload-pack=&quot;
-comma
 id|arg
 comma
-l_int|14
+l_string|&quot;--upload-pack=&quot;
 )paren
 )paren
 (brace
@@ -3601,14 +3593,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;--exec=&quot;
-comma
 id|arg
 comma
-l_int|7
+l_string|&quot;--exec=&quot;
 )paren
 )paren
 (brace
@@ -3746,14 +3736,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-l_string|&quot;--depth=&quot;
-comma
 id|arg
 comma
-l_int|8
+l_string|&quot;--depth=&quot;
 )paren
 )paren
 (brace

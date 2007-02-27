@@ -3401,7 +3401,7 @@ op_le
 id|buffer.posn
 op_logical_and
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|data
@@ -3409,12 +3409,10 @@ op_plus
 id|i
 comma
 l_string|&quot; pack-&quot;
-comma
-l_int|6
 )paren
 op_logical_and
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|data
@@ -3424,8 +3422,6 @@ op_plus
 l_int|46
 comma
 l_string|&quot;.pack&bslash;n&quot;
-comma
-l_int|6
 )paren
 )paren
 (brace

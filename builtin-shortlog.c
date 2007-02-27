@@ -762,14 +762,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|oneline
 comma
 l_string|&quot;[PATCH&quot;
-comma
-l_int|6
 )paren
 )paren
 (brace
@@ -1103,7 +1101,7 @@ l_char|&squot;a&squot;
 )paren
 op_logical_and
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|buffer
@@ -1111,8 +1109,6 @@ op_plus
 l_int|1
 comma
 l_string|&quot;uthor: &quot;
-comma
-l_int|7
 )paren
 op_logical_and
 (paren
@@ -1434,14 +1430,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|buffer
 comma
 l_string|&quot;author &quot;
-comma
-l_int|7
 )paren
 )paren
 (brace

@@ -2152,11 +2152,9 @@ r_char
 op_star
 id|posn
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_char
 id|hdr
@@ -2188,6 +2186,7 @@ c_func
 (paren
 id|request-&gt;obj-&gt;sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -2203,7 +2202,10 @@ id|hdr
 comma
 l_string|&quot;%s %lu&quot;
 comma
+r_typename
+(paren
 id|type
+)paren
 comma
 id|len
 )paren
@@ -5079,7 +5081,7 @@ OL
 id|buffer.posn
 op_logical_and
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|data
@@ -5087,12 +5089,10 @@ op_plus
 id|i
 comma
 l_string|&quot; pack-&quot;
-comma
-l_int|6
 )paren
 op_logical_and
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|data
@@ -5102,8 +5102,6 @@ op_plus
 l_int|46
 comma
 l_string|&quot;.pack&bslash;n&quot;
-comma
-l_int|6
 )paren
 )paren
 (brace
@@ -5962,14 +5960,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|ctx-&gt;cdata
 comma
 l_string|&quot;Second-&quot;
-comma
-l_int|7
 )paren
 )paren
 id|lock-&gt;timeout
@@ -6005,14 +6001,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|ctx-&gt;cdata
 comma
 l_string|&quot;opaquelocktoken:&quot;
-comma
-l_int|16
 )paren
 )paren
 (brace
@@ -11394,7 +11388,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 (paren
@@ -11404,8 +11398,6 @@ op_star
 id|buffer.buffer
 comma
 l_string|&quot;ref: &quot;
-comma
-l_int|5
 )paren
 )paren
 (brace

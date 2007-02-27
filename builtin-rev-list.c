@@ -915,6 +915,12 @@ id|read_from_stdin
 op_assign
 l_int|0
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 id|init_revisions
 c_func
 (paren

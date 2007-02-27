@@ -420,7 +420,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|line
@@ -428,8 +428,6 @@ op_plus
 l_int|41
 comma
 l_string|&quot;not-for-merge&quot;
-comma
-l_int|13
 )paren
 )paren
 r_return
@@ -632,14 +630,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;branch &quot;
-comma
-l_int|7
 )paren
 )paren
 (brace
@@ -674,14 +670,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;tag &quot;
-comma
-l_int|4
 )paren
 )paren
 (brace
@@ -716,14 +710,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;remote branch &quot;
-comma
-l_int|14
 )paren
 )paren
 (brace
@@ -1730,14 +1722,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|current_branch
 comma
 l_string|&quot;refs/heads/&quot;
-comma
-l_int|11
 )paren
 )paren
 id|current_branch

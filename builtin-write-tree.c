@@ -310,14 +310,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--prefix=&quot;
-comma
-l_int|9
 )paren
 )paren
 id|prefix

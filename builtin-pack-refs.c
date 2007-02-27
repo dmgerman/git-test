@@ -138,14 +138,12 @@ suffix:semicolon
 id|is_tag_ref
 op_assign
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|path
 comma
 l_string|&quot;refs/tags/&quot;
-comma
-l_int|10
 )paren
 suffix:semicolon
 multiline_comment|/* ALWAYS pack refs that were already packed or are tags */

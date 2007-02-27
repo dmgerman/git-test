@@ -247,11 +247,9 @@ op_star
 id|size
 )paren
 (brace
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_struct
 id|blob
@@ -276,6 +274,7 @@ c_func
 (paren
 id|entry-&gt;blob-&gt;object.sha1
 comma
+op_amp
 id|type
 comma
 id|size
@@ -370,11 +369,9 @@ op_star
 id|size
 )paren
 (brace
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_while
 c_loop
@@ -395,6 +392,7 @@ c_func
 (paren
 id|entry-&gt;blob-&gt;object.sha1
 comma
+op_amp
 id|type
 comma
 id|size
