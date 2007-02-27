@@ -7137,6 +7137,11 @@ id|strip_whitespace
 op_logical_or
 op_logical_neg
 id|whitespace_error
+op_logical_or
+op_star
+id|patch
+op_ne
+l_char|&squot;+&squot;
 )paren
 (brace
 id|memcpy
