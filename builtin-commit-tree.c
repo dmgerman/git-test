@@ -220,9 +220,8 @@ r_char
 op_star
 id|sha1
 comma
-r_const
-r_char
-op_star
+r_enum
+id|object_type
 id|expect
 )paren
 (brace
@@ -260,15 +259,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|expect
-op_logical_and
 id|type
 op_ne
-id|type_from_string
-c_func
-(paren
 id|expect
-)paren
 )paren
 id|die
 c_func
@@ -281,7 +274,10 @@ c_func
 id|sha1
 )paren
 comma
+r_typename
+(paren
 id|expect
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -505,7 +501,7 @@ c_func
 (paren
 id|tree_sha1
 comma
-id|tree_type
+id|OBJ_TREE
 )paren
 suffix:semicolon
 r_for
@@ -613,7 +609,7 @@ id|parent_sha1
 id|parents
 )braket
 comma
-id|commit_type
+id|OBJ_COMMIT
 )paren
 suffix:semicolon
 r_if
