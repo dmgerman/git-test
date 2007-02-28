@@ -1621,7 +1621,7 @@ c_cond
 (paren
 id|argc
 OL
-l_int|2
+l_int|3
 )paren
 id|die
 (paren
@@ -1666,6 +1666,23 @@ l_int|2
 )braket
 comma
 l_string|&quot;r&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|in
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot open %s&quot;
+comma
+id|argv
+(braket
+l_int|2
+)braket
 )paren
 suffix:semicolon
 )brace
