@@ -75,6 +75,8 @@ comma
 id|write_object
 comma
 id|type
+comma
+id|path
 )paren
 )paren
 id|die

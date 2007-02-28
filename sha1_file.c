@@ -10751,6 +10751,11 @@ comma
 r_enum
 id|object_type
 id|type
+comma
+r_const
+r_char
+op_star
+id|path
 )paren
 (brace
 r_int
@@ -10840,7 +10845,7 @@ c_cond
 id|convert_to_git
 c_func
 (paren
-l_int|NULL
+id|path
 comma
 op_amp
 id|nbuf
@@ -11039,6 +11044,8 @@ comma
 id|write_object
 comma
 id|OBJ_BLOB
+comma
+id|path
 )paren
 OL
 l_int|0

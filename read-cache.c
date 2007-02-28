@@ -219,6 +219,8 @@ comma
 l_int|0
 comma
 id|OBJ_BLOB
+comma
+id|ce-&gt;name
 )paren
 )paren
 id|match
