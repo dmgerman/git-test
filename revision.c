@@ -466,6 +466,23 @@ op_star
 id|name
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|revs-&gt;no_walk
+op_logical_and
+(paren
+id|obj-&gt;flags
+op_amp
+id|UNINTERESTING
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;object ranges do not make sense when not walking revisions&quot;
+)paren
+suffix:semicolon
 id|add_object_array
 c_func
 (paren
