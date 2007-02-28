@@ -810,11 +810,9 @@ id|mode
 )paren
 )paren
 (brace
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_char
 op_star
@@ -849,6 +847,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -861,13 +860,9 @@ c_cond
 op_logical_neg
 id|tree
 op_logical_or
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|tree_type
-)paren
+op_ne
+id|OBJ_TREE
 )paren
 id|die
 c_func

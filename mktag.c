@@ -27,11 +27,9 @@ id|ret
 op_assign
 l_int|1
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|100
-)braket
 suffix:semicolon
 r_int
 r_int
@@ -46,6 +44,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -61,12 +60,11 @@ id|buffer
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcmp
+id|type
+op_eq
+id|type_from_string
 c_func
 (paren
-id|type
-comma
 id|expected_type
 )paren
 )paren
@@ -81,7 +79,7 @@ id|buffer
 comma
 id|size
 comma
-id|type
+id|expected_type
 )paren
 suffix:semicolon
 id|free

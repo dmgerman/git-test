@@ -270,11 +270,9 @@ r_int
 r_int
 id|size
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|10
-)braket
 suffix:semicolon
 r_int
 id|len
@@ -324,6 +322,7 @@ c_func
 (paren
 id|ce-&gt;sha1
 comma
+op_amp
 id|type
 comma
 op_amp

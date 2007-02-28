@@ -234,11 +234,9 @@ r_void
 op_star
 id|data
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_int
 r_int
@@ -296,6 +294,7 @@ id|p
 comma
 id|offset
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -340,7 +339,10 @@ id|data
 comma
 id|size
 comma
+r_typename
+(paren
 id|type
+)paren
 )paren
 )paren
 (brace
@@ -454,11 +456,10 @@ id|base_sha1
 l_int|20
 )braket
 suffix:semicolon
+r_const
 r_char
+op_star
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_int
 r_int
@@ -517,14 +518,14 @@ c_func
 l_string|&quot;internal error pack-check find-pack-entry-one&quot;
 )paren
 suffix:semicolon
+id|type
+op_assign
 id|packed_object_info_detail
 c_func
 (paren
 id|p
 comma
 id|offset
-comma
-id|type
 comma
 op_amp
 id|size

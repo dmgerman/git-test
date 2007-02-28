@@ -24,11 +24,9 @@ r_void
 op_star
 id|buf
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|100
-)braket
 suffix:semicolon
 r_int
 r_int
@@ -44,6 +42,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 op_amp
@@ -56,13 +55,9 @@ c_cond
 op_logical_neg
 id|buf
 op_logical_or
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|blob_type
-)paren
+op_ne
+id|OBJ_BLOB
 )paren
 id|die
 c_func

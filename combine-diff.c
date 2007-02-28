@@ -531,11 +531,9 @@ r_char
 op_star
 id|blob
 suffix:semicolon
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -570,6 +568,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 id|size
@@ -578,13 +577,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|blob_type
-)paren
+op_ne
+id|OBJ_BLOB
 )paren
 id|die
 c_func

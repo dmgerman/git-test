@@ -771,11 +771,9 @@ op_star
 id|eaten
 )paren
 (brace
-r_char
+r_enum
+id|object_type
 id|type
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_void
 op_star
@@ -786,6 +784,7 @@ c_func
 (paren
 id|sha1
 comma
+op_amp
 id|type
 comma
 id|sz
@@ -930,10 +929,10 @@ l_string|&quot;objecttype&quot;
 )paren
 id|v-&gt;s
 op_assign
-id|type_names
-(braket
+r_typename
+(paren
 id|obj-&gt;type
-)braket
+)paren
 suffix:semicolon
 r_else
 r_if
