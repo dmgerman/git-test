@@ -2425,6 +2425,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|eol
+id|ls
+OL
+l_int|40
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|get_sha1_hex
 c_func
 (paren
