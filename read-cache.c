@@ -218,7 +218,7 @@ id|st
 comma
 l_int|0
 comma
-l_int|NULL
+id|OBJ_BLOB
 )paren
 )paren
 id|match

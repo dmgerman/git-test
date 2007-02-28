@@ -12,9 +12,8 @@ r_char
 op_star
 id|path
 comma
-r_const
-r_char
-op_star
+r_enum
+id|object_type
 id|type
 comma
 r_int
@@ -451,7 +450,11 @@ c_func
 (paren
 id|arg
 comma
+id|type_from_string
+c_func
+(paren
 id|type
+)paren
 comma
 id|write_object
 )paren

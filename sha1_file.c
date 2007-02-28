@@ -10748,9 +10748,8 @@ comma
 r_int
 id|write_object
 comma
-r_const
-r_char
-op_star
+r_enum
+id|object_type
 id|type
 )paren
 (brace
@@ -10812,20 +10811,15 @@ id|type
 )paren
 id|type
 op_assign
-id|blob_type
+id|OBJ_BLOB
 suffix:semicolon
 multiline_comment|/*&n;&t; * Convert blobs to git internal format&n;&t; */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
 id|type
-comma
-id|blob_type
-)paren
+op_eq
+id|OBJ_BLOB
 )paren
 (brace
 r_int
@@ -10897,7 +10891,10 @@ id|buf
 comma
 id|size
 comma
+r_typename
+(paren
 id|type
+)paren
 comma
 id|sha1
 )paren
@@ -10912,7 +10909,10 @@ id|buf
 comma
 id|size
 comma
+r_typename
+(paren
 id|type
+)paren
 comma
 id|sha1
 )paren
@@ -11038,7 +11038,7 @@ id|st
 comma
 id|write_object
 comma
-l_int|NULL
+id|OBJ_BLOB
 )paren
 OL
 l_int|0
