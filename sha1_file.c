@@ -10822,9 +10822,17 @@ multiline_comment|/*&n;&t; * Convert blobs to git internal format&n;&t; */
 r_if
 c_cond
 (paren
+(paren
 id|type
 op_eq
 id|OBJ_BLOB
+)paren
+op_logical_and
+id|S_ISREG
+c_func
+(paren
+id|st-&gt;st_mode
+)paren
 )paren
 (brace
 r_int
