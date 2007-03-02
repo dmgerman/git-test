@@ -1648,9 +1648,9 @@ id|stdout
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Wrap the text, if necessary. The variable indent is the indent for the&n; * first line, indent2 is the indent for all other lines.&n; */
+multiline_comment|/*&n; * Wrap the text, if necessary. The variable indent is the indent for the&n; * first line, indent2 is the indent for all other lines.&n; * If indent is negative, assume that already -indent columns have been&n; * consumed (and no extra indent is necessary for the first line).&n; */
 DECL|function|print_wrapped_text
-r_void
+r_int
 id|print_wrapped_text
 c_func
 (paren
@@ -1694,6 +1694,23 @@ id|space
 op_assign
 l_int|NULL
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|indent
+OL
+l_int|0
+)paren
+(brace
+id|w
+op_assign
+id|indent
+suffix:semicolon
+id|space
+op_assign
+id|text
+suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
@@ -1773,16 +1790,9 @@ c_cond
 op_logical_neg
 id|c
 )paren
-(brace
-id|putchar
-c_func
-(paren
-l_char|&squot;&bslash;n&squot;
-)paren
-suffix:semicolon
 r_return
+id|w
 suffix:semicolon
-)brace
 r_else
 r_if
 c_cond
@@ -1860,6 +1870,9 @@ op_increment
 suffix:semicolon
 )brace
 )brace
+r_return
+id|w
+suffix:semicolon
 )brace
 DECL|function|is_encoding_utf8
 r_int
