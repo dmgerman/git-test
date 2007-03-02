@@ -6327,7 +6327,8 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|strlcpy
+multiline_comment|/* NB: &squot;s&squot; is not null-terminated, can not use strlcpy here */
+id|memcpy
 c_func
 (paren
 id|ctx-&gt;cdata
@@ -6335,9 +6336,14 @@ comma
 id|s
 comma
 id|len
-op_plus
-l_int|1
 )paren
+suffix:semicolon
+id|ctx-&gt;cdata
+(braket
+id|len
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
 DECL|function|lock_remote
@@ -7476,14 +7482,15 @@ id|path
 )paren
 )paren
 suffix:semicolon
-id|strlcpy
+multiline_comment|/* NB: path is not null-terminated, can not use strlcpy here */
+id|memcpy
 c_func
 (paren
 id|obj_hex
 comma
 id|path
 comma
-l_int|3
+l_int|2
 )paren
 suffix:semicolon
 id|strcpy
@@ -11411,7 +11418,7 @@ id|buffer.posn
 l_int|5
 )paren
 suffix:semicolon
-id|strlcpy
+id|memcpy
 c_func
 (paren
 op_star
@@ -11426,8 +11433,19 @@ op_plus
 l_int|5
 comma
 id|buffer.posn
-l_int|5
+l_int|6
 )paren
+suffix:semicolon
+(paren
+op_star
+id|symref
+)paren
+(braket
+id|buffer.posn
+l_int|6
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
 r_else
