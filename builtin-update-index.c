@@ -427,6 +427,8 @@ r_if
 c_cond
 (paren
 id|trust_executable_bit
+op_logical_and
+id|has_symlinks
 )paren
 id|ce-&gt;ce_mode
 op_assign
@@ -438,7 +440,7 @@ id|st.st_mode
 suffix:semicolon
 r_else
 (brace
-multiline_comment|/* If there is an existing entry, pick the mode bits&n;&t;&t; * from it, otherwise assume unexecutable.&n;&t;&t; */
+multiline_comment|/* If there is an existing entry, pick the mode bits and type&n;&t;&t; * from it, otherwise assume unexecutable regular file.&n;&t;&t; */
 r_struct
 id|cache_entry
 op_star
