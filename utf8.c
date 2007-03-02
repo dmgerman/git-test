@@ -1830,7 +1830,12 @@ id|bol
 op_assign
 id|space
 op_plus
-l_int|1
+id|isspace
+c_func
+(paren
+op_star
+id|space
+)paren
 suffix:semicolon
 id|space
 op_assign
