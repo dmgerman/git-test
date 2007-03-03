@@ -1,6 +1,13 @@
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 multiline_comment|/* This code is originally from http://www.cl.cam.ac.uk/~mgk25/ucs/ */
+DECL|typedef|ucs_char_t
+r_typedef
+r_int
+r_int
+id|ucs_char_t
+suffix:semicolon
+multiline_comment|/* assuming 32bit int */
 DECL|struct|interval
 r_struct
 id|interval
@@ -22,7 +29,7 @@ r_int
 id|bisearch
 c_func
 (paren
-m_wchar_t
+id|ucs_char_t
 id|ucs
 comma
 r_const
@@ -121,14 +128,14 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* The following two functions define the column width of an ISO 10646&n; * character as follows:&n; *&n; *    - The null character (U+0000) has a column width of 0.&n; *&n; *    - Other C0/C1 control characters and DEL will lead to a return&n; *      value of -1.&n; *&n; *    - Non-spacing and enclosing combining characters (general&n; *      category code Mn or Me in the Unicode database) have a&n; *      column width of 0.&n; *&n; *    - SOFT HYPHEN (U+00AD) has a column width of 1.&n; *&n; *    - Other format characters (general category code Cf in the Unicode&n; *      database) and ZERO WIDTH SPACE (U+200B) have a column width of 0.&n; *&n; *    - Hangul Jamo medial vowels and final consonants (U+1160-U+11FF)&n; *      have a column width of 0.&n; *&n; *    - Spacing characters in the East Asian Wide (W) or East Asian&n; *      Full-width (F) category as defined in Unicode Technical&n; *      Report #11 have a column width of 2.&n; *&n; *    - All remaining characters (including all printable&n; *      ISO 8859-1 and WGL4 characters, Unicode control characters,&n; *      etc.) have a column width of 1.&n; *&n; * This implementation assumes that wchar_t characters are encoded&n; * in ISO 10646.&n; */
+multiline_comment|/* The following two functions define the column width of an ISO 10646&n; * character as follows:&n; *&n; *    - The null character (U+0000) has a column width of 0.&n; *&n; *    - Other C0/C1 control characters and DEL will lead to a return&n; *      value of -1.&n; *&n; *    - Non-spacing and enclosing combining characters (general&n; *      category code Mn or Me in the Unicode database) have a&n; *      column width of 0.&n; *&n; *    - SOFT HYPHEN (U+00AD) has a column width of 1.&n; *&n; *    - Other format characters (general category code Cf in the Unicode&n; *      database) and ZERO WIDTH SPACE (U+200B) have a column width of 0.&n; *&n; *    - Hangul Jamo medial vowels and final consonants (U+1160-U+11FF)&n; *      have a column width of 0.&n; *&n; *    - Spacing characters in the East Asian Wide (W) or East Asian&n; *      Full-width (F) category as defined in Unicode Technical&n; *      Report #11 have a column width of 2.&n; *&n; *    - All remaining characters (including all printable&n; *      ISO 8859-1 and WGL4 characters, Unicode control characters,&n; *      etc.) have a column width of 1.&n; *&n; * This implementation assumes that ucs_char_t characters are encoded&n; * in ISO 10646.&n; */
 DECL|function|wcwidth
 r_static
 r_int
 id|wcwidth
 c_func
 (paren
-m_wchar_t
+id|ucs_char_t
 id|ch
 )paren
 (brace
@@ -1080,7 +1087,7 @@ op_star
 op_star
 id|start
 suffix:semicolon
-m_wchar_t
+id|ucs_char_t
 id|ch
 suffix:semicolon
 r_if
