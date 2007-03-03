@@ -1918,6 +1918,22 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Given a buffer and its encoding, return it re-encoded&n; * with iconv.  If the conversion fails, returns NULL.&n; */
 macro_line|#ifndef NO_ICONV
+macro_line|#ifdef OLD_ICONV
+DECL|typedef|iconv_ibp
+r_typedef
+r_const
+r_char
+op_star
+id|iconv_ibp
+suffix:semicolon
+macro_line|#else
+DECL|typedef|iconv_ibp
+r_typedef
+r_char
+op_star
+id|iconv_ibp
+suffix:semicolon
+macro_line|#endif
 DECL|function|reencode_string
 r_char
 op_star
@@ -1956,8 +1972,8 @@ id|out
 comma
 op_star
 id|outpos
-comma
-op_star
+suffix:semicolon
+id|iconv_ibp
 id|cp
 suffix:semicolon
 r_if
@@ -2026,8 +2042,7 @@ suffix:semicolon
 id|cp
 op_assign
 (paren
-r_char
-op_star
+id|iconv_ibp
 )paren
 id|in
 suffix:semicolon
