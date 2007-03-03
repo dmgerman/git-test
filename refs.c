@@ -5717,8 +5717,10 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+macro_line|#ifndef NO_SYMLINK_HEAD
 id|done
 suffix:colon
+macro_line|#endif
 r_if
 c_cond
 (paren
