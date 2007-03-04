@@ -1771,15 +1771,7 @@ id|next-&gt;object.sha1
 comma
 id|oneline
 )paren
-)paren
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
+op_logical_or
 id|write_tree
 c_func
 (paren
@@ -1964,44 +1956,15 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;You may choose to use the following &quot;
-l_string|&quot;when making the commit:&bslash;n&quot;
-l_string|&quot;GIT_AUTHOR_NAME=&bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
+l_string|&quot;When commiting, use the option &quot;
+l_string|&quot;&squot;-c %s&squot; to retain authorship and message.&bslash;n&quot;
 comma
-id|getenv
+id|find_unique_abbrev
 c_func
 (paren
-l_string|&quot;GIT_AUTHOR_NAME&quot;
-)paren
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
+id|commit-&gt;object.sha1
 comma
-l_string|&quot;GIT_AUTHOR_EMAIL=&bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
-comma
-id|getenv
-c_func
-(paren
-l_string|&quot;GIT_AUTHOR_EMAIL&quot;
-)paren
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;GIT_AUTHOR_DATE=&bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
-l_string|&quot;export GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL &quot;
-l_string|&quot;GIT_AUTHOR_DATE&bslash;n&quot;
-comma
-id|getenv
-c_func
-(paren
-l_string|&quot;GIT_AUTHOR_DATE&quot;
+id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
