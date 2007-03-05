@@ -537,19 +537,30 @@ suffix:semicolon
 r_case
 id|S_IFLNK
 suffix:colon
-id|changed
-op_or_assign
+r_if
+c_cond
+(paren
 op_logical_neg
 id|S_ISLNK
 c_func
 (paren
 id|st-&gt;st_mode
 )paren
-ques
-c_cond
+op_logical_and
+(paren
+id|has_symlinks
+op_logical_or
+op_logical_neg
+id|S_ISREG
+c_func
+(paren
+id|st-&gt;st_mode
+)paren
+)paren
+)paren
+id|changed
+op_or_assign
 id|TYPE_CHANGED
-suffix:colon
-l_int|0
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1557,6 +1568,8 @@ r_if
 c_cond
 (paren
 id|trust_executable_bit
+op_logical_and
+id|has_symlinks
 )paren
 id|ce-&gt;ce_mode
 op_assign
@@ -1568,7 +1581,7 @@ id|st.st_mode
 suffix:semicolon
 r_else
 (brace
-multiline_comment|/* If there is an existing entry, pick the mode bits&n;&t;&t; * from it, otherwise assume unexecutable.&n;&t;&t; */
+multiline_comment|/* If there is an existing entry, pick the mode bits and type&n;&t;&t; * from it, otherwise assume unexecutable regular file.&n;&t;&t; */
 r_struct
 id|cache_entry
 op_star

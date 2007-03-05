@@ -11285,6 +11285,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|has_symlinks
+op_logical_and
 id|S_ISLNK
 c_func
 (paren
