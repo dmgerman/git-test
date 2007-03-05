@@ -877,7 +877,7 @@ l_int|1
 comma
 l_string|&quot;%s&quot;
 l_string|&quot;MIME-Version: 1.0&bslash;n&quot;
-l_string|&quot;Content-Type: multipart/mixed;&bslash;n&quot;
+l_string|&quot;Content-Type: multipart/mixed;&quot;
 l_string|&quot; boundary=&bslash;&quot;%s%s&bslash;&quot;&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;This is a multi-part message in MIME &quot;
@@ -919,10 +919,10 @@ id|buffer
 l_int|1
 comma
 l_string|&quot;--%s%s&bslash;n&quot;
-l_string|&quot;Content-Type: text/x-patch;&bslash;n&quot;
+l_string|&quot;Content-Type: text/x-patch;&quot;
 l_string|&quot; name=&bslash;&quot;%s.diff&bslash;&quot;&bslash;n&quot;
 l_string|&quot;Content-Transfer-Encoding: 8bit&bslash;n&quot;
-l_string|&quot;Content-Disposition: %s;&bslash;n&quot;
+l_string|&quot;Content-Disposition: %s;&quot;
 l_string|&quot; filename=&bslash;&quot;%s.diff&bslash;&quot;&bslash;n&bslash;n&quot;
 comma
 id|mime_boundary_leader
