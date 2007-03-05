@@ -264,10 +264,12 @@ id|obj-&gt;parsed
 r_if
 c_cond
 (paren
-id|has_sha1_file
+id|has_sha1_pack
 c_func
 (paren
 id|obj-&gt;sha1
+comma
+l_int|NULL
 )paren
 )paren
 r_return
