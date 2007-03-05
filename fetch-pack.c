@@ -52,6 +52,11 @@ r_static
 r_int
 id|depth
 suffix:semicolon
+DECL|variable|no_progress
+r_static
+r_int
+id|no_progress
+suffix:semicolon
 DECL|variable|fetch_pack_usage
 r_static
 r_const
@@ -60,7 +65,7 @@ id|fetch_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-fetch-pack [--all] [--quiet|-q] [--keep|-k] [--thin] [--upload-pack=&lt;git-upload-pack&gt;] [--depth=&lt;n&gt;] [-v] [&lt;host&gt;:]&lt;directory&gt; [&lt;refs&gt;...]&quot;
+l_string|&quot;git-fetch-pack [--all] [--quiet|-q] [--keep|-k] [--thin] [--upload-pack=&lt;git-upload-pack&gt;] [--depth=&lt;n&gt;] [--no-progress] [-v] [&lt;host&gt;:]&lt;directory&gt; [&lt;refs&gt;...]&quot;
 suffix:semicolon
 DECL|variable|uploadpack
 r_static
@@ -697,7 +702,7 @@ id|fd
 l_int|1
 )braket
 comma
-l_string|&quot;want %s%s%s%s%s%s&bslash;n&quot;
+l_string|&quot;want %s%s%s%s%s%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -741,6 +746,15 @@ id|use_thin_pack
 ques
 c_cond
 l_string|&quot; thin-pack&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
+comma
+(paren
+id|no_progress
+ques
+c_cond
+l_string|&quot; no-progress&quot;
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -2612,6 +2626,9 @@ c_cond
 (paren
 op_logical_neg
 id|quiet
+op_logical_and
+op_logical_neg
+id|no_progress
 )paren
 op_star
 id|av
@@ -3778,6 +3795,26 @@ id|st
 id|st.st_mtime
 op_assign
 l_int|0
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--no-progress&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|no_progress
+op_assign
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
