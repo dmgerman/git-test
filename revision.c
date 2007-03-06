@@ -6153,11 +6153,11 @@ id|i
 op_assign
 id|j
 suffix:semicolon
-id|j
+id|i
 OL
 id|nr
 suffix:semicolon
-id|j
+id|i
 op_increment
 )paren
 id|objects
