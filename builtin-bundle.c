@@ -2598,6 +2598,20 @@ comma
 id|O_WRONLY
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|dev_null
+OL
+l_int|0
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;Could not open /dev/null&quot;
+)paren
+suffix:semicolon
 id|pid
 op_assign
 id|fork_with_pipe
@@ -2849,7 +2863,6 @@ comma
 l_string|&quot;create&quot;
 )paren
 op_logical_and
-op_logical_neg
 (paren
 id|bundle_fd
 op_assign
@@ -2862,6 +2875,8 @@ op_amp
 id|header
 )paren
 )paren
+OL
+l_int|0
 )paren
 r_return
 l_int|1
