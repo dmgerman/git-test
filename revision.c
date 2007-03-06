@@ -6406,11 +6406,6 @@ l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Now pick up what they want to give us&n;&t; */
-r_if
-c_cond
-(paren
-op_logical_neg
-(paren
 id|c
 op_assign
 id|get_revision_1
@@ -6418,11 +6413,13 @@ c_func
 (paren
 id|revs
 )paren
-)paren
-)paren
-r_return
-l_int|NULL
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|c
+)paren
+(brace
 r_while
 c_loop
 (paren
@@ -6451,6 +6448,7 @@ id|c
 r_break
 suffix:semicolon
 )brace
+)brace
 multiline_comment|/*&n;&t; * Check the max_count.&n;&t; */
 r_switch
 c_cond
@@ -6466,7 +6464,6 @@ suffix:semicolon
 r_case
 l_int|0
 suffix:colon
-multiline_comment|/* Although we grabbed it, it is not shown. */
 id|c
 op_assign
 l_int|NULL
