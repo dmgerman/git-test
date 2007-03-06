@@ -6354,8 +6354,17 @@ id|revs-&gt;reverse
 op_assign
 l_int|0
 suffix:semicolon
+id|c
+op_assign
+l_int|NULL
+suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Now pick up what they want to give us&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
 id|c
 op_assign
 id|get_revision_1
@@ -6363,6 +6372,10 @@ c_func
 (paren
 id|revs
 )paren
+)paren
+)paren
+r_return
+l_int|NULL
 suffix:semicolon
 r_while
 c_loop
@@ -6391,6 +6404,12 @@ id|c
 )paren
 r_break
 suffix:semicolon
+multiline_comment|/* Although we grabbed it, it is not shown. */
+id|c-&gt;object.flags
+op_and_assign
+op_complement
+id|SHOWN
+suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Check the max_count.&n;&t; */
 r_switch
@@ -6407,6 +6426,17 @@ suffix:semicolon
 r_case
 l_int|0
 suffix:colon
+multiline_comment|/* Although we grabbed it, it is not shown. */
+r_if
+c_cond
+(paren
+id|c
+)paren
+id|c-&gt;object.flags
+op_and_assign
+op_complement
+id|SHOWN
+suffix:semicolon
 id|c
 op_assign
 l_int|NULL

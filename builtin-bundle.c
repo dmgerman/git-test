@@ -957,6 +957,8 @@ r_return
 id|pid
 suffix:semicolon
 )brace
+DECL|macro|PREREQ_MARK
+mdefine_line|#define PREREQ_MARK (1u&lt;&lt;16)
 DECL|function|verify_bundle
 r_static
 r_int
@@ -1072,7 +1074,7 @@ id|o
 (brace
 id|o-&gt;flags
 op_or_assign
-id|BOUNDARY_SHOW
+id|PREREQ_MARK
 suffix:semicolon
 id|add_pending_object
 c_func
@@ -1227,7 +1229,7 @@ c_cond
 (paren
 id|commit-&gt;object.flags
 op_amp
-id|BOUNDARY_SHOW
+id|PREREQ_MARK
 )paren
 id|i
 op_decrement
