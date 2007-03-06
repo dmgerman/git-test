@@ -1649,13 +1649,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|replay
 )paren
 (brace
 id|add_to_msg
 c_func
 (paren
-l_string|&quot;&bslash;n(cherry picked from commit &quot;
+l_string|&quot;(cherry picked from commit &quot;
 )paren
 suffix:semicolon
 id|add_to_msg
