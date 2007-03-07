@@ -447,8 +447,7 @@ l_int|10
 suffix:semicolon
 DECL|variable|max_packsize
 r_static
-r_int
-r_int
+id|off_t
 id|max_packsize
 op_assign
 (paren
@@ -8149,8 +8148,7 @@ op_ge
 id|max_active_branches
 )paren
 (brace
-r_int
-r_int
+r_uintmax
 id|min_commit
 op_assign
 id|ULONG_MAX

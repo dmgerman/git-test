@@ -41,8 +41,7 @@ id|size
 suffix:semicolon
 multiline_comment|/* uncompressed size */
 DECL|member|offset
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 multiline_comment|/* offset into the final pack file;&n;&t;&t;&t;&t; * nonzero if already written.&n;&t;&t;&t;&t; */
@@ -98,8 +97,7 @@ id|in_pack
 suffix:semicolon
 multiline_comment|/* already in pack */
 DECL|member|in_pack_offset
-r_int
-r_int
+id|off_t
 id|in_pack_offset
 suffix:semicolon
 DECL|member|delta_child
@@ -253,8 +251,7 @@ r_struct
 id|revindex_entry
 (brace
 DECL|member|offset
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 DECL|member|nr
@@ -731,8 +728,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
-r_int
+id|off_t
 id|ofs
 )paren
 (brace
@@ -887,8 +883,7 @@ suffix:semicolon
 )brace
 DECL|function|find_packed_object_size
 r_static
-r_int
-r_int
+id|off_t
 id|find_packed_object_size
 c_func
 (paren
@@ -897,8 +892,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
-r_int
+id|off_t
 id|ofs
 )paren
 (brace
@@ -938,8 +932,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
-r_int
+id|off_t
 id|ofs
 )paren
 (brace
@@ -1213,12 +1206,10 @@ op_star
 op_star
 id|w_curs
 comma
-r_int
-r_int
+id|off_t
 id|offset
 comma
-r_int
-r_int
+id|off_t
 id|len
 comma
 r_int
@@ -1374,12 +1365,10 @@ op_star
 op_star
 id|w_curs
 comma
-r_int
-r_int
+id|off_t
 id|offset
 comma
-r_int
-r_int
+id|off_t
 id|len
 )paren
 (brace
@@ -1422,6 +1411,10 @@ id|len
 )paren
 id|avail
 op_assign
+(paren
+r_int
+r_int
+)paren
 id|len
 suffix:semicolon
 id|sha1write
@@ -1691,8 +1684,7 @@ suffix:semicolon
 )brace
 DECL|function|write_object
 r_static
-r_int
-r_int
+id|off_t
 id|write_object
 c_func
 (paren
@@ -1728,7 +1720,8 @@ l_int|10
 suffix:semicolon
 r_int
 id|hdrlen
-comma
+suffix:semicolon
+id|off_t
 id|datalen
 suffix:semicolon
 r_enum
@@ -2043,8 +2036,7 @@ id|OBJ_OFS_DELTA
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * Deltas with relative base contain an additional&n;&t;&t;&t; * encoding of the relative offset for the delta&n;&t;&t;&t; * base from this object&squot;s position in the pack.&n;&t;&t;&t; */
-r_int
-r_int
+id|off_t
 id|ofs
 op_assign
 id|entry-&gt;offset
@@ -2175,8 +2167,7 @@ id|w_curs
 op_assign
 l_int|NULL
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 r_if
@@ -2232,8 +2223,7 @@ op_eq
 id|OBJ_OFS_DELTA
 )paren
 (brace
-r_int
-r_int
+id|off_t
 id|ofs
 op_assign
 id|entry-&gt;offset
@@ -2423,8 +2413,7 @@ suffix:semicolon
 )brace
 DECL|function|write_one
 r_static
-r_int
-r_int
+id|off_t
 id|write_one
 c_func
 (paren
@@ -2438,8 +2427,7 @@ id|object_entry
 op_star
 id|e
 comma
-r_int
-r_int
+id|off_t
 id|offset
 )paren
 (brace
@@ -2505,8 +2493,7 @@ id|sha1file
 op_star
 id|f
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 r_struct
@@ -3349,8 +3336,7 @@ id|packed_git
 op_star
 id|p
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|found_offset
 op_assign
 l_int|0
@@ -3390,8 +3376,7 @@ op_assign
 id|p-&gt;next
 )paren
 (brace
-r_int
-r_int
+id|off_t
 id|offset
 op_assign
 id|find_pack_entry_one
@@ -4865,16 +4850,13 @@ l_int|NULL
 suffix:semicolon
 r_int
 r_int
-id|left
-op_assign
-id|p-&gt;pack_size
-id|entry-&gt;in_pack_offset
-suffix:semicolon
-r_int
-r_int
 id|size
 comma
 id|used
+suffix:semicolon
+r_int
+r_int
+id|avail
 suffix:semicolon
 r_int
 r_char
@@ -4900,7 +4882,8 @@ id|w_curs
 comma
 id|entry-&gt;in_pack_offset
 comma
-l_int|NULL
+op_amp
+id|avail
 )paren
 suffix:semicolon
 multiline_comment|/* We want in_pack_type even if we do not reuse delta.&n;&t;&t; * There is no point not reusing non-delta representations.&n;&t;&t; */
@@ -4911,7 +4894,7 @@ c_func
 (paren
 id|buf
 comma
-id|left
+id|avail
 comma
 op_amp
 id|entry-&gt;in_pack_type
@@ -4935,8 +4918,7 @@ comma
 op_star
 id|base_name
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|ofs
 suffix:semicolon
 r_int
