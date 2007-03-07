@@ -182,7 +182,7 @@ DECL|variable|nr_objects
 DECL|variable|nr_alloc
 DECL|variable|nr_result
 r_static
-r_int
+r_uint32
 id|nr_objects
 comma
 id|nr_alloc
@@ -296,23 +296,19 @@ id|pack_revindex_hashsz
 suffix:semicolon
 multiline_comment|/*&n; * stats&n; */
 DECL|variable|written
-r_static
-r_int
-id|written
-suffix:semicolon
 DECL|variable|written_delta
 r_static
-r_int
+r_uint32
+id|written
+comma
 id|written_delta
 suffix:semicolon
 DECL|variable|reused
-r_static
-r_int
-id|reused
-suffix:semicolon
 DECL|variable|reused_delta
 r_static
-r_int
+r_uint32
+id|reused
+comma
 id|reused_delta
 suffix:semicolon
 DECL|function|pack_revindex_ix
@@ -2501,7 +2497,7 @@ c_func
 r_void
 )paren
 (brace
-r_int
+r_uint32
 id|i
 suffix:semicolon
 r_struct
@@ -2578,7 +2574,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Writing %d objects.&bslash;n&quot;
+l_string|&quot;Writing %u objects.&bslash;n&quot;
 comma
 id|nr_result
 )paren
@@ -2741,7 +2737,7 @@ id|nr_result
 id|die
 c_func
 (paren
-l_string|&quot;wrote %d objects while expecting %d&quot;
+l_string|&quot;wrote %u objects while expecting %u&quot;
 comma
 id|written
 comma
@@ -2768,7 +2764,7 @@ c_func
 r_void
 )paren
 (brace
-r_int
+r_uint32
 id|i
 suffix:semicolon
 r_struct
@@ -3142,7 +3138,7 @@ c_func
 r_void
 )paren
 (brace
-r_int
+r_uint32
 id|i
 suffix:semicolon
 r_struct
@@ -3338,8 +3334,7 @@ r_int
 id|exclude
 )paren
 (brace
-r_int
-r_int
+r_uint32
 id|idx
 op_assign
 id|nr_objects
@@ -3477,9 +3472,7 @@ op_ge
 id|nr_alloc
 )paren
 (brace
-r_int
-r_int
-id|needed
+id|nr_alloc
 op_assign
 (paren
 id|idx
@@ -3498,7 +3491,7 @@ c_func
 (paren
 id|objects
 comma
-id|needed
+id|nr_alloc
 op_star
 r_sizeof
 (paren
@@ -3506,10 +3499,6 @@ op_star
 id|entry
 )paren
 )paren
-suffix:semicolon
-id|nr_alloc
-op_assign
-id|needed
 suffix:semicolon
 )brace
 id|entry
@@ -3617,7 +3606,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Counting objects...%d&bslash;r&quot;
+l_string|&quot;Counting objects...%u&bslash;r&quot;
 comma
 id|nr_objects
 )paren
@@ -5303,7 +5292,7 @@ c_func
 r_void
 )paren
 (brace
-r_int
+r_uint32
 id|i
 suffix:semicolon
 r_struct
@@ -5504,7 +5493,7 @@ op_star
 )paren
 )paren
 suffix:semicolon
-r_int
+r_uint32
 id|i
 suffix:semicolon
 r_for
@@ -5602,7 +5591,7 @@ op_star
 op_star
 id|list
 suffix:semicolon
-r_int
+r_uint32
 id|i
 comma
 id|j
@@ -6265,10 +6254,18 @@ r_int
 id|depth
 )paren
 (brace
-r_int
+r_uint32
 id|i
+op_assign
+id|nr_objects
 comma
 id|idx
+op_assign
+l_int|0
+comma
+id|processed
+op_assign
+l_int|0
 suffix:semicolon
 r_int
 r_int
@@ -6286,22 +6283,27 @@ r_struct
 id|unpacked
 op_star
 id|array
+suffix:semicolon
+r_int
+id|last_percent
+op_assign
+l_int|999
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|nr_objects
+)paren
+r_return
+suffix:semicolon
+id|array
 op_assign
 id|xmalloc
 c_func
 (paren
 id|array_size
 )paren
-suffix:semicolon
-r_int
-id|processed
-op_assign
-l_int|0
-suffix:semicolon
-r_int
-id|last_percent
-op_assign
-l_int|999
 suffix:semicolon
 id|memset
 c_func
@@ -6313,14 +6315,6 @@ comma
 id|array_size
 )paren
 suffix:semicolon
-id|i
-op_assign
-id|nr_objects
-suffix:semicolon
-id|idx
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6331,19 +6325,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Deltifying %d objects.&bslash;n&quot;
+l_string|&quot;Deltifying %u objects.&bslash;n&quot;
 comma
 id|nr_result
 )paren
 suffix:semicolon
-r_while
-c_loop
-(paren
-op_decrement
-id|i
-op_ge
-l_int|0
-)paren
+r_do
 (brace
 r_struct
 id|object_entry
@@ -6352,6 +6339,7 @@ id|entry
 op_assign
 id|list
 (braket
+op_decrement
 id|i
 )braket
 suffix:semicolon
@@ -6479,8 +6467,7 @@ OG
 l_int|0
 )paren
 (brace
-r_int
-r_int
+r_uint32
 id|other_idx
 op_assign
 id|idx
@@ -6562,6 +6549,14 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+r_while
+c_loop
+(paren
+id|i
+OG
+l_int|0
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6801,7 +6796,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Reusing %d objects pack %s&bslash;n&quot;
+l_string|&quot;Reusing %u objects pack %s&bslash;n&quot;
 comma
 id|nr_objects
 comma
@@ -7718,7 +7713,7 @@ id|thin
 op_assign
 l_int|0
 suffix:semicolon
-r_int
+r_uint32
 id|i
 suffix:semicolon
 r_const
@@ -8357,7 +8352,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Done counting %d objects.&bslash;n&quot;
+l_string|&quot;Done counting %u objects.&bslash;n&quot;
 comma
 id|nr_objects
 )paren
@@ -8452,7 +8447,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Result has %d objects.&bslash;n&quot;
+l_string|&quot;Result has %u objects.&bslash;n&quot;
 comma
 id|nr_result
 )paren
@@ -8568,7 +8563,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total %d (delta %d), reused %d (delta %d)&bslash;n&quot;
+l_string|&quot;Total %u (delta %u), reused %u (delta %u)&bslash;n&quot;
 comma
 id|written
 comma
