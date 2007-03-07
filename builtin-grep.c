@@ -732,6 +732,7 @@ r_return
 id|i
 suffix:semicolon
 )brace
+macro_line|#ifdef __unix__
 DECL|function|exec_grep
 r_static
 r_int
@@ -1546,6 +1547,7 @@ r_return
 id|hit
 suffix:semicolon
 )brace
+macro_line|#endif
 DECL|function|grep_cache
 r_static
 r_int
