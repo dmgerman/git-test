@@ -679,7 +679,9 @@ suffix:semicolon
 )brace
 DECL|function|update
 r_static
-r_int
+r_const
+r_char
+op_star
 id|update
 c_func
 (paren
@@ -715,10 +717,6 @@ id|ref_lock
 op_star
 id|lock
 suffix:semicolon
-id|cmd-&gt;error_string
-op_assign
-l_int|NULL
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -740,11 +738,6 @@ l_int|5
 )paren
 )paren
 (brace
-id|cmd-&gt;error_string
-op_assign
-l_string|&quot;funny refname&quot;
-suffix:semicolon
-r_return
 id|error
 c_func
 (paren
@@ -752,6 +745,9 @@ l_string|&quot;refusing to create funny ref &squot;%s&squot; locally&quot;
 comma
 id|name
 )paren
+suffix:semicolon
+r_return
+l_string|&quot;funny refname&quot;
 suffix:semicolon
 )brace
 r_if
@@ -772,11 +768,6 @@ id|new_sha1
 )paren
 )paren
 (brace
-id|cmd-&gt;error_string
-op_assign
-l_string|&quot;bad pack&quot;
-suffix:semicolon
-r_return
 id|error
 c_func
 (paren
@@ -789,6 +780,9 @@ c_func
 id|new_sha1
 )paren
 )paren
+suffix:semicolon
+r_return
+l_string|&quot;bad pack&quot;
 suffix:semicolon
 )brace
 r_if
@@ -913,14 +907,20 @@ c_cond
 op_logical_neg
 id|ent
 )paren
-r_return
+(brace
 id|error
 c_func
 (paren
-l_string|&quot;denying non-fast forward;&quot;
-l_string|&quot; you should pull first&quot;
+l_string|&quot;denying non-fast forward %s&quot;
+l_string|&quot; (you should pull first)&quot;
+comma
+id|name
 )paren
 suffix:semicolon
+r_return
+l_string|&quot;non-fast forward&quot;
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -936,11 +936,6 @@ l_int|1
 )paren
 )paren
 (brace
-id|cmd-&gt;error_string
-op_assign
-l_string|&quot;hook declined&quot;
-suffix:semicolon
-r_return
 id|error
 c_func
 (paren
@@ -948,6 +943,9 @@ l_string|&quot;hook declined to update %s&quot;
 comma
 id|name
 )paren
+suffix:semicolon
+r_return
+l_string|&quot;hook declined&quot;
 suffix:semicolon
 )brace
 r_if
@@ -972,11 +970,6 @@ id|old_sha1
 )paren
 )paren
 (brace
-id|cmd-&gt;error_string
-op_assign
-l_string|&quot;failed to delete&quot;
-suffix:semicolon
-r_return
 id|error
 c_func
 (paren
@@ -984,6 +977,9 @@ l_string|&quot;failed to delete %s&quot;
 comma
 id|name
 )paren
+suffix:semicolon
+r_return
+l_string|&quot;failed to delete&quot;
 suffix:semicolon
 )brace
 id|fprintf
@@ -1002,6 +998,10 @@ id|old_sha1
 )paren
 )paren
 suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+multiline_comment|/* good */
 )brace
 r_else
 (brace
@@ -1022,11 +1022,6 @@ op_logical_neg
 id|lock
 )paren
 (brace
-id|cmd-&gt;error_string
-op_assign
-l_string|&quot;failed to lock&quot;
-suffix:semicolon
-r_return
 id|error
 c_func
 (paren
@@ -1034,6 +1029,9 @@ l_string|&quot;failed to lock %s&quot;
 comma
 id|name
 )paren
+suffix:semicolon
+r_return
+l_string|&quot;failed to lock&quot;
 suffix:semicolon
 )brace
 r_if
@@ -1050,12 +1048,8 @@ l_string|&quot;push&quot;
 )paren
 )paren
 (brace
-id|cmd-&gt;error_string
-op_assign
-l_string|&quot;failed to write&quot;
-suffix:semicolon
 r_return
-l_int|1
+l_string|&quot;failed to write&quot;
 suffix:semicolon
 multiline_comment|/* error() already called */
 )brace
@@ -1081,10 +1075,11 @@ id|new_sha1
 )paren
 )paren
 suffix:semicolon
-)brace
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
+multiline_comment|/* good */
+)brace
 )brace
 DECL|variable|update_post_hook
 r_static
@@ -1273,14 +1268,16 @@ id|RUN_COMMAND_STDOUT_TO_STDERR
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This gets called after(if) we&squot;ve successfully&n; * unpacked the data payload.&n; */
 DECL|function|execute_commands
 r_static
 r_void
 id|execute_commands
 c_func
 (paren
-r_void
+r_const
+r_char
+op_star
+id|unpacker_error
 )paren
 (brace
 r_struct
@@ -1290,12 +1287,38 @@ id|cmd
 op_assign
 id|commands
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|unpacker_error
+)paren
+(brace
 r_while
 c_loop
 (paren
 id|cmd
 )paren
 (brace
+id|cmd-&gt;error_string
+op_assign
+l_string|&quot;n/a (unpacker error)&quot;
+suffix:semicolon
+id|cmd
+op_assign
+id|cmd-&gt;next
+suffix:semicolon
+)brace
+r_return
+suffix:semicolon
+)brace
+r_while
+c_loop
+(paren
+id|cmd
+)paren
+(brace
+id|cmd-&gt;error_string
+op_assign
 id|update
 c_func
 (paren
@@ -1546,7 +1569,7 @@ l_int|81
 suffix:semicolon
 id|cmd-&gt;error_string
 op_assign
-l_string|&quot;n/a (unpacker error)&quot;
+l_int|NULL
 suffix:semicolon
 id|cmd-&gt;next
 op_assign
@@ -2507,15 +2530,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|unpack_status
-)paren
 id|execute_commands
 c_func
 (paren
+id|unpack_status
 )paren
 suffix:semicolon
 r_if
