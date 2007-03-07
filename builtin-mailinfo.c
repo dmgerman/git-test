@@ -2764,12 +2764,14 @@ r_char
 op_star
 id|line
 comma
+r_const
 r_char
 op_star
 id|charset
 )paren
 (brace
 r_static
+r_const
 r_char
 id|latin_one
 (braket
@@ -2777,6 +2779,7 @@ id|latin_one
 op_assign
 l_string|&quot;latin1&quot;
 suffix:semicolon
+r_const
 r_char
 op_star
 id|input_charset

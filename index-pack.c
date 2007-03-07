@@ -4360,6 +4360,7 @@ op_star
 id|sha1
 )paren
 (brace
+r_const
 r_char
 op_star
 id|report

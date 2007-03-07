@@ -3522,6 +3522,7 @@ id|PATH_MAX
 )braket
 suffix:semicolon
 r_static
+r_const
 r_char
 op_star
 id|keep_msg

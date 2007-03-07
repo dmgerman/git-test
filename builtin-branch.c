@@ -1417,7 +1417,11 @@ id|item
 suffix:semicolon
 id|item.name
 op_assign
+id|xstrdup
+c_func
+(paren
 l_string|&quot;(no branch)&quot;
+)paren
 suffix:semicolon
 id|item.kind
 op_assign
@@ -1463,6 +1467,12 @@ comma
 id|abbrev
 comma
 l_int|1
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|item.name
 )paren
 suffix:semicolon
 )brace

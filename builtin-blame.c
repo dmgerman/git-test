@@ -5281,11 +5281,13 @@ r_struct
 id|commit_info
 (brace
 DECL|member|author
+r_const
 r_char
 op_star
 id|author
 suffix:semicolon
 DECL|member|author_mail
+r_const
 r_char
 op_star
 id|author_mail
@@ -5296,17 +5298,20 @@ r_int
 id|author_time
 suffix:semicolon
 DECL|member|author_tz
+r_const
 r_char
 op_star
 id|author_tz
 suffix:semicolon
 multiline_comment|/* filled only when asked for details */
 DECL|member|committer
+r_const
 r_char
 op_star
 id|committer
 suffix:semicolon
 DECL|member|committer_mail
+r_const
 r_char
 op_star
 id|committer_mail
@@ -5317,11 +5322,13 @@ r_int
 id|committer_time
 suffix:semicolon
 DECL|member|committer_tz
+r_const
 r_char
 op_star
 id|committer_tz
 suffix:semicolon
 DECL|member|summary
+r_const
 r_char
 op_star
 id|summary
@@ -5352,6 +5359,7 @@ r_char
 op_star
 id|person
 comma
+r_const
 r_char
 op_star
 op_star
@@ -5362,6 +5370,7 @@ r_int
 op_star
 id|time
 comma
+r_const
 r_char
 op_star
 op_star
@@ -5446,8 +5455,6 @@ id|len
 id|error_out
 suffix:colon
 multiline_comment|/* Ugh */
-id|person
-op_assign
 op_star
 id|mail
 op_assign

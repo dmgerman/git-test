@@ -10810,6 +10810,8 @@ suffix:semicolon
 r_void
 op_star
 id|buf
+op_assign
+l_int|NULL
 suffix:semicolon
 r_int
 id|ret
@@ -10817,10 +10819,6 @@ comma
 id|re_allocated
 op_assign
 l_int|0
-suffix:semicolon
-id|buf
-op_assign
-l_string|&quot;&quot;
 suffix:semicolon
 r_if
 c_cond

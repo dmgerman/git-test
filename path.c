@@ -1240,10 +1240,14 @@ op_eq
 l_int|0
 )paren
 (brace
-id|putenv
+id|setenv
 c_func
 (paren
-l_string|&quot;GIT_DIR=.&quot;
+l_string|&quot;GIT_DIR&quot;
+comma
+l_string|&quot;.&quot;
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|check_repository_format

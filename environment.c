@@ -70,6 +70,7 @@ op_star
 id|git_commit_encoding
 suffix:semicolon
 DECL|variable|git_log_output_encoding
+r_const
 r_char
 op_star
 id|git_log_output_encoding

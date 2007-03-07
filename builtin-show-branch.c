@@ -3937,10 +3937,12 @@ op_star
 id|logmsg
 comma
 op_star
-id|msg
-comma
-op_star
 id|m
+suffix:semicolon
+r_const
+r_char
+op_star
+id|msg
 suffix:semicolon
 r_int
 r_int

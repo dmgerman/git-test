@@ -1599,6 +1599,7 @@ suffix:semicolon
 )brace
 DECL|function|copy_line
 r_static
+r_const
 r_char
 op_star
 id|copy_line
@@ -1677,6 +1678,7 @@ suffix:semicolon
 )brace
 DECL|function|copy_name
 r_static
+r_const
 r_char
 op_star
 id|copy_name
@@ -1776,6 +1778,7 @@ suffix:semicolon
 )brace
 DECL|function|copy_email
 r_static
+r_const
 r_char
 op_star
 id|copy_email

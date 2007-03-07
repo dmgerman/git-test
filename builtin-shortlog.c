@@ -1352,6 +1352,7 @@ op_ne
 l_int|NULL
 )paren
 (brace
+r_const
 r_char
 op_star
 id|author
@@ -1393,6 +1394,7 @@ l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 )paren
 (brace
+r_const
 r_char
 op_star
 id|eol
