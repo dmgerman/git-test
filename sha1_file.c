@@ -6275,6 +6275,12 @@ l_int|0
 )paren
 (brace
 multiline_comment|/* TODO: find base_sha1 as pointed by curpos */
+id|hashclr
+c_func
+(paren
+id|base_sha1
+)paren
+suffix:semicolon
 )brace
 r_break
 suffix:semicolon
