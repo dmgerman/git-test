@@ -3487,8 +3487,7 @@ id|pack_window
 op_star
 id|win
 comma
-r_int
-r_int
+id|off_t
 id|offset
 )paren
 (brace
@@ -3534,8 +3533,7 @@ op_star
 op_star
 id|w_cursor
 comma
-r_int
-r_int
+id|off_t
 id|offset
 comma
 r_int
@@ -5543,8 +5541,7 @@ suffix:semicolon
 )brace
 DECL|function|get_delta_base
 r_static
-r_int
-r_int
+id|off_t
 id|get_delta_base
 c_func
 (paren
@@ -5559,8 +5556,7 @@ op_star
 op_star
 id|w_curs
 comma
-r_int
-r_int
+id|off_t
 op_star
 id|curpos
 comma
@@ -5568,8 +5564,7 @@ r_enum
 id|object_type
 id|type
 comma
-r_int
-r_int
+id|off_t
 id|delta_obj_offset
 )paren
 (brace
@@ -5591,8 +5586,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|base_offset
 suffix:semicolon
 multiline_comment|/* use_pack() assured us we have [base_info, base_info + 20)&n;&t; * as a range that we can look at without walking off the&n;&t; * end of the mapped window.  Its actually the hash size&n;&t; * that is assured.  An OFS_DELTA longer than the hash size&n;&t; * is stupid, as then a REF_DELTA would be smaller to store.&n;&t; */
@@ -5772,8 +5766,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
-r_int
+id|off_t
 id|offset
 comma
 r_int
@@ -5799,16 +5792,14 @@ op_star
 op_star
 id|w_curs
 comma
-r_int
-r_int
+id|off_t
 id|curpos
 comma
 r_enum
 id|object_type
 id|type
 comma
-r_int
-r_int
+id|off_t
 id|obj_offset
 comma
 r_int
@@ -5817,8 +5808,7 @@ op_star
 id|sizep
 )paren
 (brace
-r_int
-r_int
+id|off_t
 id|base_offset
 suffix:semicolon
 id|base_offset
@@ -6059,8 +6049,7 @@ op_star
 op_star
 id|w_curs
 comma
-r_int
-r_int
+id|off_t
 op_star
 id|curpos
 comma
@@ -6152,8 +6141,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
-r_int
+id|off_t
 id|obj_offset
 comma
 r_int
@@ -6184,10 +6172,11 @@ id|w_curs
 op_assign
 l_int|NULL
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|curpos
-comma
+suffix:semicolon
+r_int
+r_int
 id|dummy
 suffix:semicolon
 r_int
@@ -6407,8 +6396,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
-r_int
+id|off_t
 id|obj_offset
 comma
 r_int
@@ -6427,7 +6415,8 @@ suffix:semicolon
 r_int
 r_int
 id|size
-comma
+suffix:semicolon
+id|off_t
 id|curpos
 op_assign
 id|obj_offset
@@ -6552,8 +6541,7 @@ op_star
 op_star
 id|w_curs
 comma
-r_int
-r_int
+id|off_t
 id|curpos
 comma
 r_int
@@ -6724,16 +6712,14 @@ op_star
 op_star
 id|w_curs
 comma
-r_int
-r_int
+id|off_t
 id|curpos
 comma
 r_int
 r_int
 id|delta_size
 comma
-r_int
-r_int
+id|off_t
 id|obj_offset
 comma
 r_enum
@@ -6760,7 +6746,8 @@ suffix:semicolon
 r_int
 r_int
 id|base_size
-comma
+suffix:semicolon
+id|off_t
 id|base_offset
 suffix:semicolon
 id|base_offset
@@ -6805,8 +6792,14 @@ id|base
 id|die
 c_func
 (paren
-l_string|&quot;failed to read delta base object at %lu from %s&quot;
+l_string|&quot;failed to read delta base object&quot;
+l_string|&quot; at %&quot;
+id|PRIuMAX
+l_string|&quot; from %s&quot;
 comma
+(paren
+r_uintmax
+)paren
 id|base_offset
 comma
 id|p-&gt;pack_name
@@ -6881,8 +6874,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
-r_int
+id|off_t
 id|obj_offset
 comma
 r_enum
@@ -6903,8 +6895,7 @@ id|w_curs
 op_assign
 l_int|NULL
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|curpos
 op_assign
 id|obj_offset
@@ -7116,8 +7107,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|find_pack_entry_one
-r_int
-r_int
+id|off_t
 id|find_pack_entry_one
 c_func
 (paren
@@ -7406,8 +7396,7 @@ id|packed_git
 op_star
 id|p
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 id|prepare_packed_git

@@ -1868,7 +1868,7 @@ suffix:semicolon
 DECL|function|pack_set_bytecount
 r_static
 r_inline
-r_int
+id|off_t
 id|pack_set_bytecount
 c_func
 (paren
@@ -1878,7 +1878,7 @@ op_star
 id|pl
 )paren
 (brace
-r_int
+id|off_t
 id|ret
 op_assign
 l_int|0
@@ -1960,14 +1960,10 @@ id|llist
 op_star
 id|missing
 suffix:semicolon
-r_int
+id|off_t
 id|min_perm_size
 op_assign
-(paren
-r_int
-)paren
-op_minus
-l_int|1
+l_int|0
 comma
 id|perm_size
 suffix:semicolon
@@ -2206,6 +2202,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|min_perm_size
+op_logical_or
 id|min_perm_size
 OG
 id|perm_size

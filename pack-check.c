@@ -18,8 +18,7 @@ op_star
 id|w_curs
 )paren
 (brace
-r_int
-r_int
+id|off_t
 id|index_size
 op_assign
 id|p-&gt;index_size
@@ -40,8 +39,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|offset
 op_assign
 l_int|0
@@ -110,8 +108,14 @@ id|pack_sig
 )paren
 id|remaining
 op_sub_assign
+(paren
+r_int
+r_int
+)paren
+(paren
 id|offset
 id|pack_sig
+)paren
 suffix:semicolon
 id|SHA1_Update
 c_func
@@ -244,7 +248,8 @@ suffix:semicolon
 r_int
 r_int
 id|size
-comma
+suffix:semicolon
+id|off_t
 id|offset
 suffix:semicolon
 r_if
@@ -470,8 +475,7 @@ r_int
 r_int
 id|store_size
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 r_int
@@ -561,12 +565,17 @@ id|delta_chain_length
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %lu&bslash;n&quot;
+l_string|&quot;%-6s %lu %&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
 comma
 id|type
 comma
 id|size
 comma
+(paren
+r_uintmax
+)paren
 id|offset
 )paren
 suffix:semicolon
@@ -575,12 +584,17 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %lu %u %s&bslash;n&quot;
+l_string|&quot;%-6s %lu %&quot;
+id|PRIuMAX
+l_string|&quot; %u %s&bslash;n&quot;
 comma
 id|type
 comma
 id|size
 comma
+(paren
+r_uintmax
+)paren
 id|offset
 comma
 id|delta_chain_length
@@ -693,8 +707,7 @@ r_int
 id|verbose
 )paren
 (brace
-r_int
-r_int
+id|off_t
 id|index_size
 op_assign
 id|p-&gt;index_size
@@ -738,8 +751,14 @@ id|ctx
 comma
 id|index_base
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|index_size
 l_int|20
+)paren
 )paren
 suffix:semicolon
 id|SHA1_Final

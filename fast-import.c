@@ -15,10 +15,6 @@ DECL|macro|PACK_ID_BITS
 mdefine_line|#define PACK_ID_BITS 16
 DECL|macro|MAX_PACK_ID
 mdefine_line|#define MAX_PACK_ID ((1&lt;&lt;PACK_ID_BITS)-1)
-macro_line|#ifndef PRIuMAX
-DECL|macro|PRIuMAX
-mdefine_line|#define PRIuMAX &quot;llu&quot;
-macro_line|#endif
 DECL|struct|object_entry
 r_struct
 id|object_entry
