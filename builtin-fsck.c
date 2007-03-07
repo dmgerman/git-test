@@ -2893,7 +2893,9 @@ op_assign
 id|p-&gt;next
 )paren
 (brace
-r_int
+r_uint32
+id|i
+comma
 id|num
 op_assign
 id|num_packed_objects

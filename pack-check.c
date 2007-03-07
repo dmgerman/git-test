@@ -51,12 +51,13 @@ op_assign
 id|p-&gt;pack_size
 l_int|20
 suffix:semicolon
-r_int
+r_uint32
 id|nr_objects
 comma
-id|err
-comma
 id|i
+suffix:semicolon
+r_int
+id|err
 suffix:semicolon
 multiline_comment|/* Note that the pack header checks are actually performed by&n;&t; * use_pack when it first opens the pack file.  If anything&n;&t; * goes wrong during those checks then the call will die out&n;&t; * immediately.&n;&t; */
 id|SHA1_Init
@@ -211,6 +212,8 @@ c_loop
 (paren
 id|i
 op_assign
+l_int|0
+comma
 id|err
 op_assign
 l_int|0
@@ -396,13 +399,11 @@ op_star
 id|p
 )paren
 (brace
-r_int
+r_uint32
 id|nr_objects
 comma
 id|i
-suffix:semicolon
-r_int
-r_int
+comma
 id|chain_histogram
 (braket
 id|MAX_CHAIN

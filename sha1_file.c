@@ -2458,7 +2458,7 @@ r_int
 r_int
 id|idx_size
 suffix:semicolon
-r_int
+r_uint32
 id|nr
 comma
 id|i
@@ -2638,8 +2638,7 @@ id|i
 op_increment
 )paren
 (brace
-r_int
-r_int
+r_uint32
 id|n
 op_assign
 id|ntohl
@@ -7024,7 +7023,7 @@ id|data
 suffix:semicolon
 )brace
 DECL|function|num_packed_objects
-r_int
+r_uint32
 id|num_packed_objects
 c_func
 (paren
@@ -7060,7 +7059,7 @@ id|packed_git
 op_star
 id|p
 comma
-r_int
+r_uint32
 id|n
 comma
 r_int
@@ -7080,10 +7079,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|n
-OL
-l_int|0
-op_logical_or
 id|num_packed_objects
 c_func
 (paren

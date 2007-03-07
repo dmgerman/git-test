@@ -452,7 +452,7 @@ op_assign
 id|p-&gt;next
 )paren
 (brace
-r_int
+r_uint32
 id|num
 op_assign
 id|num_packed_objects
@@ -461,7 +461,7 @@ c_func
 id|p
 )paren
 suffix:semicolon
-r_int
+r_uint32
 id|first
 op_assign
 l_int|0
@@ -478,7 +478,7 @@ OL
 id|last
 )paren
 (brace
-r_int
+r_uint32
 id|mid
 op_assign
 (paren
