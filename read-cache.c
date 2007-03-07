@@ -251,7 +251,6 @@ op_star
 id|ce
 comma
 r_int
-r_int
 id|expected_size
 )paren
 (brace
@@ -438,7 +437,11 @@ c_func
 (paren
 id|ce
 comma
+id|xsize_t
+c_func
+(paren
 id|st-&gt;st_size
+)paren
 )paren
 )paren
 r_return
@@ -3571,7 +3574,11 @@ id|st
 (brace
 id|cache_mmap_size
 op_assign
+id|xsize_t
+c_func
+(paren
 id|st.st_size
+)paren
 suffix:semicolon
 id|errno
 op_assign

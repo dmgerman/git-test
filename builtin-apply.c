@@ -9203,7 +9203,11 @@ id|patch-&gt;old_name
 (brace
 id|size
 op_assign
+id|xsize_t
+c_func
+(paren
 id|st-&gt;st_size
+)paren
 suffix:semicolon
 id|alloc
 op_assign

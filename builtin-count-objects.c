@@ -270,7 +270,11 @@ op_star
 id|loose_size
 )paren
 op_add_assign
+id|xsize_t
+c_func
+(paren
 id|st.st_blocks
+)paren
 suffix:semicolon
 )brace
 r_if

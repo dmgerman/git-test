@@ -214,11 +214,16 @@ multiline_comment|/* Compute merge-score, which is &quot;how much is removed&n;&
 op_star
 id|merge_score_p
 op_assign
+(paren
+r_int
+)paren
+(paren
 id|src_removed
 op_star
 id|MAX_SCORE
 op_div
 id|src-&gt;size
+)paren
 suffix:semicolon
 multiline_comment|/* Extent of damage, which counts both inserts and&n;&t; * deletes.&n;&t; */
 id|delta_size

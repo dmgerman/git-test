@@ -3483,7 +3483,11 @@ id|st.st_mode
 r_int
 id|len
 op_assign
+id|xsize_t
+c_func
+(paren
 id|st.st_size
+)paren
 suffix:semicolon
 id|result_size
 op_assign
@@ -3580,7 +3584,11 @@ id|st
 r_int
 id|len
 op_assign
+id|xsize_t
+c_func
+(paren
 id|st.st_size
+)paren
 suffix:semicolon
 r_int
 id|sz

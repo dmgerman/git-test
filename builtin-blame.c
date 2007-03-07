@@ -8984,7 +8984,11 @@ suffix:semicolon
 )brace
 id|fin_size
 op_assign
+id|xsize_t
+c_func
+(paren
 id|st.st_size
+)paren
 suffix:semicolon
 id|buf
 op_assign

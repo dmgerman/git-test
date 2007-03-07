@@ -820,6 +820,11 @@ suffix:semicolon
 multiline_comment|/* error but caught downstream */
 id|delta_limit
 op_assign
+(paren
+r_int
+r_int
+)paren
+(paren
 id|base_size
 op_star
 (paren
@@ -829,6 +834,7 @@ id|minimum_score
 )paren
 op_div
 id|MAX_SCORE
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -877,11 +883,16 @@ multiline_comment|/* should not happen */
 r_else
 id|score
 op_assign
+(paren
+r_int
+)paren
+(paren
 id|src_copied
 op_star
 id|MAX_SCORE
 op_div
 id|max_size
+)paren
 suffix:semicolon
 r_return
 id|score
@@ -1500,6 +1511,9 @@ id|i
 comma
 id|j
 comma
+(paren
+r_int
+)paren
 id|MAX_SCORE
 )paren
 suffix:semicolon

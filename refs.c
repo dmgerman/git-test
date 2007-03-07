@@ -5927,6 +5927,9 @@ r_void
 op_star
 id|log_mapped
 suffix:semicolon
+r_int
+id|mapsz
+suffix:semicolon
 id|logfile
 op_assign
 id|git_path
@@ -5993,6 +5996,14 @@ comma
 id|logfile
 )paren
 suffix:semicolon
+id|mapsz
+op_assign
+id|xsize_t
+c_func
+(paren
+id|st.st_size
+)paren
+suffix:semicolon
 id|log_mapped
 op_assign
 id|xmmap
@@ -6000,7 +6011,7 @@ c_func
 (paren
 l_int|NULL
 comma
-id|st.st_size
+id|mapsz
 comma
 id|PROT_READ
 comma
@@ -6369,7 +6380,7 @@ c_func
 (paren
 id|log_mapped
 comma
-id|st.st_size
+id|mapsz
 )paren
 suffix:semicolon
 r_return
@@ -6502,7 +6513,7 @@ c_func
 (paren
 id|log_mapped
 comma
-id|st.st_size
+id|mapsz
 )paren
 suffix:semicolon
 r_if

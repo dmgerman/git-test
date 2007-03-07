@@ -2134,7 +2134,7 @@ r_int
 id|multi_replace
 suffix:semicolon
 DECL|member|offset
-id|off_t
+r_int
 id|offset
 (braket
 id|MAX_MATCHES
@@ -3042,7 +3042,7 @@ suffix:semicolon
 )brace
 DECL|function|find_beginning_of_line
 r_static
-r_int
+id|ssize_t
 id|find_beginning_of_line
 c_func
 (paren
@@ -3071,7 +3071,7 @@ id|bracket_offset
 op_assign
 id|size
 suffix:semicolon
-r_int
+id|ssize_t
 id|offset
 suffix:semicolon
 r_for
@@ -3686,11 +3686,14 @@ op_star
 id|contents
 suffix:semicolon
 r_int
-id|i
+id|contents_sz
 comma
 id|copy_begin
 comma
 id|copy_end
+suffix:semicolon
+r_int
+id|i
 comma
 id|new_line
 op_assign
@@ -3927,6 +3930,14 @@ op_amp
 id|st
 )paren
 suffix:semicolon
+id|contents_sz
+op_assign
+id|xsize_t
+c_func
+(paren
+id|st.st_size
+)paren
+suffix:semicolon
 id|contents
 op_assign
 id|xmmap
@@ -3934,7 +3945,7 @@ c_func
 (paren
 l_int|NULL
 comma
-id|st.st_size
+id|contents_sz
 comma
 id|PROT_READ
 comma
@@ -3999,7 +4010,7 @@ id|i
 op_assign
 id|copy_end
 op_assign
-id|st.st_size
+id|contents_sz
 suffix:semicolon
 )brace
 r_else
@@ -4027,7 +4038,7 @@ c_func
 (paren
 id|contents
 comma
-id|st.st_size
+id|contents_sz
 comma
 id|store.offset
 (braket
@@ -4156,7 +4167,7 @@ c_cond
 (paren
 id|copy_begin
 OL
-id|st.st_size
+id|contents_sz
 )paren
 r_if
 c_cond
@@ -4170,11 +4181,11 @@ id|contents
 op_plus
 id|copy_begin
 comma
-id|st.st_size
+id|contents_sz
 id|copy_begin
 )paren
 OL
-id|st.st_size
+id|contents_sz
 id|copy_begin
 )paren
 r_goto
@@ -4185,7 +4196,7 @@ c_func
 (paren
 id|contents
 comma
-id|st.st_size
+id|contents_sz
 )paren
 suffix:semicolon
 id|unlink

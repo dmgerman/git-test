@@ -7676,7 +7676,11 @@ suffix:semicolon
 )brace
 id|s-&gt;size
 op_assign
+id|xsize_t
+c_func
+(paren
 id|st.st_size
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -8268,6 +8272,15 @@ l_int|1
 )braket
 suffix:semicolon
 multiline_comment|/* ought to be SYMLINK_MAX */
+r_int
+id|sz
+op_assign
+id|xsize_t
+c_func
+(paren
+id|st.st_size
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -8295,7 +8308,7 @@ id|name
 comma
 id|buf
 comma
-id|st.st_size
+id|sz
 )paren
 suffix:semicolon
 r_if
@@ -8320,7 +8333,7 @@ id|temp
 comma
 id|buf
 comma
-id|st.st_size
+id|sz
 comma
 (paren
 id|one-&gt;sha1_valid
@@ -11742,6 +11755,10 @@ suffix:semicolon
 multiline_comment|/* user says num divided by scale and we say internally that&n;&t; * is MAX_SCORE * num / scale.&n;&t; */
 r_return
 (paren
+r_int
+)paren
+(paren
+(paren
 id|num
 op_ge
 id|scale
@@ -11756,6 +11773,7 @@ op_star
 id|num
 op_div
 id|scale
+)paren
 )paren
 suffix:semicolon
 )brace

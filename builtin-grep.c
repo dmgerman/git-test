@@ -550,6 +550,9 @@ r_char
 op_star
 id|data
 suffix:semicolon
+r_int
+id|sz
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -615,6 +618,14 @@ id|st.st_mode
 r_return
 l_int|0
 suffix:semicolon
+id|sz
+op_assign
+id|xsize_t
+c_func
+(paren
+id|st.st_size
+)paren
+suffix:semicolon
 id|i
 op_assign
 id|open
@@ -640,7 +651,7 @@ op_assign
 id|xmalloc
 c_func
 (paren
-id|st.st_size
+id|sz
 op_plus
 l_int|1
 )paren
@@ -657,7 +668,7 @@ id|i
 comma
 id|data
 comma
-id|st.st_size
+id|sz
 )paren
 )paren
 (brace
@@ -719,7 +730,7 @@ id|filename
 comma
 id|data
 comma
-id|st.st_size
+id|sz
 )paren
 suffix:semicolon
 id|free

@@ -582,7 +582,11 @@ id|err
 suffix:semicolon
 id|size
 op_assign
+id|xsize_t
+c_func
+(paren
 id|st.st_size
+)paren
 suffix:semicolon
 r_if
 c_cond
