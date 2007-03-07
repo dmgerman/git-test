@@ -885,6 +885,9 @@ id|name
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|write_ref_sha1
 c_func
 (paren
@@ -894,7 +897,17 @@ id|new_sha1
 comma
 l_string|&quot;push&quot;
 )paren
+)paren
+(brace
+id|cmd-&gt;error_string
+op_assign
+l_string|&quot;failed to write&quot;
 suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* error() already called */
+)brace
 id|fprintf
 c_func
 (paren
