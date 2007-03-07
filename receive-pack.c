@@ -1141,12 +1141,6 @@ op_assign
 id|cmd-&gt;next
 suffix:semicolon
 )brace
-id|run_update_post_hook
-c_func
-(paren
-id|commands
-)paren
-suffix:semicolon
 )brace
 DECL|function|read_head_info
 r_static
@@ -2378,6 +2372,12 @@ id|report
 c_func
 (paren
 id|unpack_status
+)paren
+suffix:semicolon
+id|run_update_post_hook
+c_func
+(paren
+id|commands
 )paren
 suffix:semicolon
 )brace
