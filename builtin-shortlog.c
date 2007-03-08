@@ -1880,6 +1880,24 @@ id|rev.pending.nr
 op_eq
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|isatty
+c_func
+(paren
+l_int|0
+)paren
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;(reading log to summarize from standard input)&bslash;n&quot;
+)paren
+suffix:semicolon
 id|read_from_stdin
 c_func
 (paren
@@ -1887,6 +1905,7 @@ op_amp
 id|list
 )paren
 suffix:semicolon
+)brace
 r_else
 id|get_from_rev
 c_func
