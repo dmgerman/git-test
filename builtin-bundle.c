@@ -1697,6 +1697,8 @@ id|path
 comma
 id|O_CREAT
 op_or
+id|O_EXCL
+op_or
 id|O_WRONLY
 comma
 l_int|0666
@@ -1714,9 +1716,15 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Could not write to &squot;%s&squot;&quot;
+l_string|&quot;Could not create &squot;%s&squot;: %s&quot;
 comma
 id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* write signature */
