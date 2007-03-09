@@ -2129,8 +2129,7 @@ op_amp
 id|SHOWN
 )paren
 )paren
-(brace
-id|warn
+id|die
 c_func
 (paren
 l_string|&quot;ref &squot;%s&squot; is excluded by the rev-list options&quot;
@@ -2138,9 +2137,6 @@ comma
 id|e-&gt;name
 )paren
 suffix:semicolon
-r_continue
-suffix:semicolon
-)brace
 id|write_or_die
 c_func
 (paren
