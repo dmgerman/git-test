@@ -1664,6 +1664,10 @@ comma
 id|i
 comma
 id|status
+comma
+id|ref_count
+op_assign
+l_int|0
 suffix:semicolon
 r_char
 id|buffer
@@ -2137,13 +2141,20 @@ op_amp
 id|SHOWN
 )paren
 )paren
-id|die
+(brace
+id|warn
 c_func
 (paren
 l_string|&quot;ref &squot;%s&squot; is excluded by the rev-list options&quot;
 comma
 id|e-&gt;name
 )paren
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+id|ref_count
+op_increment
 suffix:semicolon
 id|write_or_die
 c_func
@@ -2200,6 +2211,17 @@ id|ref
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ref_count
+)paren
+id|die
+(paren
+l_string|&quot;Refusing to create empty bundle.&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* end header */
 id|write_or_die
 c_func
