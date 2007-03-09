@@ -2440,6 +2440,8 @@ op_assign
 (brace
 l_string|&quot;index-pack&quot;
 comma
+l_string|&quot;--fix-thin&quot;
+comma
 l_string|&quot;--stdin&quot;
 comma
 l_int|NULL
