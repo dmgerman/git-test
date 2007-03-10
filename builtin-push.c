@@ -1921,10 +1921,12 @@ id|dest
 suffix:semicolon
 id|err
 op_assign
-id|run_command_v
+id|run_command_v_opt
 c_func
 (paren
 id|argv
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
