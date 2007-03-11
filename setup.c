@@ -1030,6 +1030,8 @@ r_sizeof
 (paren
 id|cwd
 )paren
+op_minus
+l_int|1
 )paren
 op_logical_or
 id|cwd
