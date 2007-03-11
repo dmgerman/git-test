@@ -50,6 +50,15 @@ id|head_sha1
 l_int|20
 )braket
 suffix:semicolon
+DECL|variable|errors_found
+r_static
+r_int
+id|errors_found
+suffix:semicolon
+DECL|macro|ERROR_OBJECT
+mdefine_line|#define ERROR_OBJECT 01
+DECL|macro|ERROR_REACHABLE
+mdefine_line|#define ERROR_REACHABLE 02
 macro_line|#ifdef NO_D_INO_IN_DIRENT
 DECL|macro|SORT_DIRENT
 mdefine_line|#define SORT_DIRENT 0
@@ -158,6 +167,10 @@ comma
 id|err
 )paren
 suffix:semicolon
+id|errors_found
+op_or_assign
+id|ERROR_OBJECT
+suffix:semicolon
 id|objreport
 c_func
 (paren
@@ -264,10 +277,12 @@ id|obj-&gt;parsed
 r_if
 c_cond
 (paren
-id|has_sha1_file
+id|has_sha1_pack
 c_func
 (paren
 id|obj-&gt;sha1
+comma
+l_int|NULL
 )paren
 )paren
 r_return
@@ -289,6 +304,10 @@ c_func
 id|obj-&gt;sha1
 )paren
 )paren
+suffix:semicolon
+id|errors_found
+op_or_assign
+id|ERROR_REACHABLE
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -384,6 +403,10 @@ c_func
 id|ref-&gt;sha1
 )paren
 )paren
+suffix:semicolon
+id|errors_found
+op_or_assign
+id|ERROR_REACHABLE
 suffix:semicolon
 )brace
 )brace
@@ -1424,6 +1447,11 @@ c_cond
 op_logical_neg
 id|obj
 )paren
+(brace
+id|errors_found
+op_or_assign
+id|ERROR_OBJECT
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -1437,6 +1465,7 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2578,6 +2607,17 @@ r_return
 id|err
 suffix:semicolon
 )brace
+DECL|variable|fsck_usage
+r_static
+r_const
+r_char
+id|fsck_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git-fsck [--tags] [--root] [[--unreachable] [--cache] [--full] &quot;
+l_string|&quot;[--strict] &lt;head-sha1&gt;*]&quot;
+suffix:semicolon
 DECL|function|cmd_fsck
 r_int
 id|cmd_fsck
@@ -2605,6 +2645,10 @@ suffix:semicolon
 id|track_object_refs
 op_assign
 l_int|1
+suffix:semicolon
+id|errors_found
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -2762,7 +2806,7 @@ l_char|&squot;-&squot;
 id|usage
 c_func
 (paren
-l_string|&quot;git-fsck [--tags] [--root] [[--unreachable] [--cache] [--full] [--strict] &lt;head-sha1&gt;*]&quot;
+id|fsck_usage
 )paren
 suffix:semicolon
 )brace
@@ -3156,7 +3200,7 @@ c_func
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|errors_found
 suffix:semicolon
 )brace
 eof
