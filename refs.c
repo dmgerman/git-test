@@ -4955,6 +4955,12 @@ id|errno
 )paren
 suffix:semicolon
 )brace
+id|adjust_shared_perm
+c_func
+(paren
+id|log_file
+)paren
+suffix:semicolon
 id|msglen
 op_assign
 l_int|0
