@@ -5273,10 +5273,6 @@ c_func
 (paren
 id|c
 comma
-(paren
-r_int
-r_int
-)paren
 id|strlen
 c_func
 (paren
@@ -6378,10 +6374,6 @@ c_func
 (paren
 id|p
 comma
-(paren
-r_int
-r_int
-)paren
 id|n
 )paren
 suffix:semicolon
