@@ -3322,6 +3322,7 @@ multiline_comment|/*&n; * This interprets names like &squot;:/Initial revision o
 DECL|macro|ONELINE_SEEN
 mdefine_line|#define ONELINE_SEEN (1u&lt;&lt;20)
 DECL|function|get_sha1_oneline
+r_static
 r_int
 id|get_sha1_oneline
 c_func
@@ -3352,12 +3353,10 @@ comma
 op_star
 id|l
 suffix:semicolon
-r_struct
-id|commit
-op_star
-id|commit
+r_int
+id|retval
 op_assign
-l_int|NULL
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -3445,6 +3444,11 @@ r_char
 op_star
 id|p
 suffix:semicolon
+r_struct
+id|commit
+op_star
+id|commit
+suffix:semicolon
 id|commit
 op_assign
 id|pop_most_recent_commit
@@ -3455,14 +3459,6 @@ id|list
 comma
 id|ONELINE_SEEN
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|commit
-)paren
-r_break
 suffix:semicolon
 id|parse_object
 c_func
@@ -3514,6 +3510,10 @@ comma
 id|commit-&gt;object.sha1
 )paren
 suffix:semicolon
+id|retval
+op_assign
+l_int|0
+suffix:semicolon
 r_break
 suffix:semicolon
 )brace
@@ -3546,9 +3546,7 @@ id|ONELINE_SEEN
 )paren
 suffix:semicolon
 r_return
-id|commit
-op_eq
-l_int|NULL
+id|retval
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * This is like &quot;get_sha1_basic()&quot;, except it allows &quot;sha1 expressions&quot;,&n; * notably &quot;xyz^&quot; for &quot;parent of xyz&quot;&n; */
