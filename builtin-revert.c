@@ -1346,9 +1346,6 @@ op_star
 id|oneline
 comma
 op_star
-id|encoding
-comma
-op_star
 id|reencoded_message
 op_assign
 l_int|NULL
@@ -1357,6 +1354,9 @@ r_const
 r_char
 op_star
 id|message
+comma
+op_star
+id|encoding
 suffix:semicolon
 id|git_config
 c_func
