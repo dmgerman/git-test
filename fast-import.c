@@ -5203,7 +5203,7 @@ c_func
 (paren
 id|t
 comma
-l_int|8
+id|t-&gt;entry_count
 )paren
 suffix:semicolon
 id|t-&gt;entries
@@ -5273,10 +5273,6 @@ c_func
 (paren
 id|c
 comma
-(paren
-r_int
-r_int
-)paren
 id|strlen
 c_func
 (paren
@@ -6361,7 +6357,7 @@ c_func
 (paren
 id|t
 comma
-l_int|8
+id|t-&gt;entry_count
 )paren
 suffix:semicolon
 id|e
@@ -6378,10 +6374,6 @@ c_func
 (paren
 id|p
 comma
-(paren
-r_int
-r_int
-)paren
 id|n
 )paren
 suffix:semicolon
