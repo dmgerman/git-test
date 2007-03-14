@@ -580,6 +580,11 @@ op_logical_neg
 id|read_stdin
 )paren
 r_return
+id|opt-&gt;diffopt.exit_with_status
+ques
+c_cond
+id|opt-&gt;diffopt.has_changes
+suffix:colon
 l_int|0
 suffix:semicolon
 r_if
@@ -655,6 +660,11 @@ id|line
 suffix:semicolon
 )brace
 r_return
+id|opt-&gt;diffopt.exit_with_status
+ques
+c_cond
+id|opt-&gt;diffopt.has_changes
+suffix:colon
 l_int|0
 suffix:semicolon
 )brace

@@ -47,6 +47,9 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+r_int
+id|result
+suffix:semicolon
 id|init_revisions
 c_func
 (paren
@@ -188,7 +191,8 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-r_return
+id|result
+op_assign
 id|run_diff_index
 c_func
 (paren
@@ -197,6 +201,14 @@ id|rev
 comma
 id|cached
 )paren
+suffix:semicolon
+r_return
+id|rev.diffopt.exit_with_status
+ques
+c_cond
+id|rev.diffopt.has_changes
+suffix:colon
+id|result
 suffix:semicolon
 )brace
 eof

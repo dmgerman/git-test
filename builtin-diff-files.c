@@ -44,6 +44,9 @@ id|nongit
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|result
+suffix:semicolon
 id|prefix
 op_assign
 id|setup_git_directory_gently
@@ -122,7 +125,8 @@ id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_RAW
 suffix:semicolon
-r_return
+id|result
+op_assign
 id|run_diff_files_cmd
 c_func
 (paren
@@ -133,6 +137,14 @@ id|argc
 comma
 id|argv
 )paren
+suffix:semicolon
+r_return
+id|rev.diffopt.exit_with_status
+ques
+c_cond
+id|rev.diffopt.has_changes
+suffix:colon
+id|result
 suffix:semicolon
 )brace
 eof

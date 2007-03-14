@@ -1044,10 +1044,16 @@ comma
 l_string|&quot;--no-index&quot;
 )paren
 )paren
+(brace
 id|revs-&gt;max_count
 op_assign
 l_int|2
 suffix:semicolon
+id|revs-&gt;diffopt.exit_with_status
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -1432,6 +1438,10 @@ id|i
 op_assign
 id|argc
 l_int|3
+suffix:semicolon
+id|revs-&gt;diffopt.exit_with_status
+op_assign
+l_int|1
 suffix:semicolon
 r_break
 suffix:semicolon
