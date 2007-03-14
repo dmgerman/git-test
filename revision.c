@@ -936,6 +936,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The goal is to get REV_TREE_NEW as the result only if the&n; * diff consists of all &squot;+&squot; (and no other changes), and&n; * REV_TREE_DIFFERENT otherwise (of course if the trees are&n; * the same we want REV_TREE_SAME).  That means that once we&n; * get to REV_TREE_DIFFERENT, we do not have to look any further.&n; */
 DECL|variable|tree_difference
 r_static
 r_int
@@ -1203,7 +1204,7 @@ l_int|0
 suffix:semicolon
 id|tree_difference
 op_assign
-l_int|0
+id|REV_TREE_SAME
 suffix:semicolon
 id|retval
 op_assign
@@ -1233,8 +1234,11 @@ id|retval
 op_ge
 l_int|0
 op_logical_and
-op_logical_neg
+(paren
 id|tree_difference
+op_eq
+id|REV_TREE_SAME
+)paren
 suffix:semicolon
 )brace
 DECL|function|try_to_simplify_commit
