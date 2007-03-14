@@ -968,6 +968,15 @@ id|t2-&gt;size
 r_if
 c_cond
 (paren
+id|opt-&gt;quiet
+op_logical_and
+id|opt-&gt;has_changes
+)paren
+r_break
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|opt-&gt;nr_paths
 op_logical_and
 id|t1-&gt;size
