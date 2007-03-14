@@ -2,10 +2,9 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 multiline_comment|/* Stolen from &quot;imap-send.c&quot;. */
-DECL|function|git_vasprintf
-r_static
+DECL|function|nfvasprintf
 r_int
-id|git_vasprintf
+id|nfvasprintf
 c_func
 (paren
 r_char
@@ -69,8 +68,11 @@ l_int|1
 )paren
 )paren
 )paren
-r_return
-l_int|1
+id|die
+c_func
+(paren
+l_string|&quot;Fatal: Out of memory&bslash;n&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -114,10 +116,9 @@ r_return
 id|len
 suffix:semicolon
 )brace
-multiline_comment|/* Stolen from &quot;imap-send.c&quot;. */
-DECL|function|nfvasprintf
+DECL|function|nfasprintf
 r_int
-id|nfvasprintf
+id|nfasprintf
 c_func
 (paren
 r_char
@@ -130,38 +131,45 @@ r_char
 op_star
 id|fmt
 comma
-id|va_list
-id|va
+dot
+dot
+dot
 )paren
 (brace
 r_int
-id|ret
+id|rc
+suffix:semicolon
+id|va_list
+id|args
+suffix:semicolon
+id|va_start
+c_func
+(paren
+id|args
+comma
+id|fmt
+)paren
+suffix:semicolon
+id|rc
 op_assign
-id|git_vasprintf
+id|nfvasprintf
 c_func
 (paren
 id|str
 comma
 id|fmt
 comma
-id|va
+id|args
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|ret
-OL
-l_int|0
-)paren
-id|die
+id|va_end
 c_func
 (paren
-l_string|&quot;Fatal: Out of memory&bslash;n&quot;
+id|args
 )paren
 suffix:semicolon
 r_return
-id|ret
+id|rc
 suffix:semicolon
 )brace
 multiline_comment|/* Get a trace file descriptor from GIT_TRACE env variable. */
