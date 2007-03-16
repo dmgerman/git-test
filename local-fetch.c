@@ -330,20 +330,20 @@ id|ENOENT
 r_if
 c_cond
 (paren
+op_logical_neg
 id|warn_if_not_exists
 )paren
-id|fprintf
+r_return
+l_int|1
+suffix:semicolon
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;does not exist %s&bslash;n&quot;
+l_string|&quot;does not exist %s&quot;
 comma
 id|source
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 )brace
@@ -383,12 +383,11 @@ id|ENOENT
 r_return
 l_int|1
 suffix:semicolon
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cannot stat %s: %s&bslash;n&quot;
+l_string|&quot;cannot stat %s: %s&quot;
 comma
 id|source
 comma
@@ -398,9 +397,6 @@ c_func
 id|errno
 )paren
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -475,18 +471,14 @@ id|ENOENT
 r_return
 l_int|1
 suffix:semicolon
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cannot open %s&bslash;n&quot;
+l_string|&quot;cannot open %s&quot;
 comma
 id|source
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 id|ofd
@@ -513,16 +505,6 @@ OL
 l_int|0
 )paren
 (brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;cannot open %s&bslash;n&quot;
-comma
-id|dest
-)paren
-suffix:semicolon
 id|close
 c_func
 (paren
@@ -530,7 +512,13 @@ id|ifd
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;cannot open %s&quot;
+comma
+id|dest
+)paren
 suffix:semicolon
 )brace
 id|status
@@ -554,17 +542,15 @@ c_cond
 (paren
 id|status
 )paren
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cannot write %s&bslash;n&quot;
+l_string|&quot;cannot write %s&quot;
 comma
 id|dest
 )paren
 suffix:semicolon
-r_else
 id|pull_say
 c_func
 (paren
@@ -574,21 +560,17 @@ id|hex
 )paren
 suffix:semicolon
 r_return
-id|status
+l_int|0
 suffix:semicolon
 )brace
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;failed to copy %s with given copy methods.&bslash;n&quot;
+l_string|&quot;failed to copy %s with given copy methods.&quot;
 comma
 id|hex
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 DECL|function|fetch_pack
@@ -1050,18 +1032,14 @@ c_func
 id|ifd
 )paren
 suffix:semicolon
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cannot open %s&bslash;n&quot;
+l_string|&quot;cannot open %s&quot;
 comma
 id|filename
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -1094,18 +1072,14 @@ c_func
 id|ifd
 )paren
 suffix:semicolon
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;cannot read from %s&bslash;n&quot;
+l_string|&quot;cannot read from %s&quot;
 comma
 id|filename
 )paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 id|close
