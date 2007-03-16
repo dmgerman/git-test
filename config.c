@@ -1779,7 +1779,7 @@ l_string|&quot;i18n.commitencoding&quot;
 (brace
 id|git_commit_encoding
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
@@ -1804,7 +1804,7 @@ l_string|&quot;i18n.logoutputencoding&quot;
 (brace
 id|git_log_output_encoding
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
