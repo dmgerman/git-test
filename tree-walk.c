@@ -178,10 +178,12 @@ id|a-&gt;mode
 suffix:semicolon
 id|a-&gt;pathlen
 op_assign
-id|strlen
+id|tree_entry_len
 c_func
 (paren
 id|a-&gt;path
+comma
+id|a-&gt;sha1
 )paren
 suffix:semicolon
 )brace
@@ -898,10 +900,12 @@ id|t
 suffix:semicolon
 id|entrylen
 op_assign
-id|strlen
+id|tree_entry_len
 c_func
 (paren
 id|entry
+comma
+id|sha1
 )paren
 suffix:semicolon
 r_if
