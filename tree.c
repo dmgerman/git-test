@@ -783,20 +783,19 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|desc.size
-)paren
-(brace
-id|n_refs
-op_increment
-suffix:semicolon
-id|update_tree_entry
+id|tree_entry
 c_func
 (paren
 op_amp
 id|desc
+comma
+op_amp
+id|entry
 )paren
+)paren
+id|n_refs
+op_increment
 suffix:semicolon
-)brace
 multiline_comment|/* Allocate object refs and walk it again.. */
 id|i
 op_assign
