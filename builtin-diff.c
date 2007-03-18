@@ -1014,6 +1014,11 @@ id|nongit
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|result
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * We could get N tree-ish in the rev.pending_objects list.&n;&t; * Also there could be M blobs there, and P pathspecs.&n;&t; *&n;&t; * N=0, M=0:&n;&t; *&t;cache vs files (diff-files)&n;&t; * N=0, M=2:&n;&t; *      compare two random blobs.  P must be zero.&n;&t; * N=0, M=1, P=1:&n;&t; *&t;compare a blob with a working tree file.&n;&t; *&n;&t; * N=1, M=0:&n;&t; *      tree vs cache (diff-index --cached)&n;&t; *&n;&t; * N=2, M=0:&n;&t; *      tree vs tree (diff-tree)&n;&t; *&n;&t; * Other cases are errors.&n;&t; */
 id|prefix
 op_assign
@@ -1485,7 +1490,8 @@ id|blobs
 r_case
 l_int|0
 suffix:colon
-r_return
+id|result
+op_assign
 id|run_diff_files_cmd
 c_func
 (paren
@@ -1515,7 +1521,8 @@ c_func
 id|builtin_diff_usage
 )paren
 suffix:semicolon
-r_return
+id|result
+op_assign
 id|builtin_diff_b_f
 c_func
 (paren
@@ -1547,7 +1554,8 @@ c_func
 id|builtin_diff_usage
 )paren
 suffix:semicolon
-r_return
+id|result
+op_assign
 id|builtin_diff_blobs
 c_func
 (paren
@@ -1593,7 +1601,8 @@ id|ents
 op_eq
 l_int|1
 )paren
-r_return
+id|result
+op_assign
 id|builtin_diff_index
 c_func
 (paren
@@ -1613,7 +1622,8 @@ id|ents
 op_eq
 l_int|2
 )paren
-r_return
+id|result
+op_assign
 id|builtin_diff_tree
 c_func
 (paren
@@ -1660,7 +1670,8 @@ id|ent
 l_int|2
 )braket
 suffix:semicolon
-r_return
+id|result
+op_assign
 id|builtin_diff_tree
 c_func
 (paren
@@ -1676,7 +1687,8 @@ id|ent
 suffix:semicolon
 )brace
 r_else
-r_return
+id|result
+op_assign
 id|builtin_diff_combined
 c_func
 (paren
@@ -1692,11 +1704,17 @@ comma
 id|ents
 )paren
 suffix:semicolon
-id|usage
-c_func
+r_if
+c_cond
 (paren
-id|builtin_diff_usage
+id|rev.diffopt.exit_with_status
 )paren
+id|result
+op_assign
+id|rev.diffopt.has_changes
+suffix:semicolon
+r_return
+id|result
 suffix:semicolon
 )brace
 eof
