@@ -7138,8 +7138,8 @@ l_int|16
 suffix:semicolon
 r_return
 id|hash
-op_amp
-l_int|0xff
+op_mod
+id|MAX_DELTA_CACHE
 suffix:semicolon
 )brace
 DECL|function|cache_or_unpack_entry
@@ -7405,11 +7405,7 @@ id|delta_base_cache_limit
 op_logical_and
 id|i
 OL
-id|ARRAY_SIZE
-c_func
-(paren
-id|delta_base_cache
-)paren
+id|MAX_DELTA_CACHE
 suffix:semicolon
 id|i
 op_increment
@@ -7451,11 +7447,7 @@ id|delta_base_cache_limit
 op_logical_and
 id|i
 OL
-id|ARRAY_SIZE
-c_func
-(paren
-id|delta_base_cache
-)paren
+id|MAX_DELTA_CACHE
 suffix:semicolon
 id|i
 op_increment
