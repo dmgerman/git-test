@@ -14,7 +14,7 @@ r_char
 op_star
 id|arguments
 (braket
-l_int|8
+l_int|9
 )braket
 suffix:semicolon
 DECL|variable|one_shot
@@ -192,6 +192,13 @@ l_int|7
 )braket
 op_assign
 l_string|&quot;&quot;
+suffix:semicolon
+id|arguments
+(braket
+l_int|8
+)braket
+op_assign
+l_int|NULL
 suffix:semicolon
 id|found
 op_assign
