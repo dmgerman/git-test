@@ -1825,7 +1825,7 @@ r_char
 op_star
 id|sender
 op_assign
-l_string|&quot;git-send-pack&quot;
+l_string|&quot;send-pack&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -1850,7 +1850,7 @@ l_string|&quot;https://&quot;
 )paren
 id|sender
 op_assign
-l_string|&quot;git-http-push&quot;
+l_string|&quot;http-push&quot;
 suffix:semicolon
 r_else
 r_if
@@ -1926,7 +1926,7 @@ c_func
 (paren
 id|argv
 comma
-l_int|0
+id|RUN_GIT_CMD
 )paren
 suffix:semicolon
 r_if

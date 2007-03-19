@@ -65,6 +65,7 @@ r_int
 id|repository_format_version
 suffix:semicolon
 DECL|variable|git_commit_encoding
+r_const
 r_char
 op_star
 id|git_commit_encoding
