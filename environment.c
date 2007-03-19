@@ -106,6 +106,16 @@ id|packed_git_limit
 op_assign
 id|DEFAULT_PACKED_GIT_LIMIT
 suffix:semicolon
+DECL|variable|delta_base_cache_limit
+r_int
+id|delta_base_cache_limit
+op_assign
+l_int|16
+op_star
+l_int|1024
+op_star
+l_int|1024
+suffix:semicolon
 DECL|variable|pager_in_use
 r_int
 id|pager_in_use
