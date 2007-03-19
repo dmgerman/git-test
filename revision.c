@@ -5144,7 +5144,7 @@ l_string|&quot;none&quot;
 )paren
 id|git_log_output_encoding
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|arg

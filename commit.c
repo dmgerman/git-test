@@ -3935,7 +3935,7 @@ id|output_encoding
 )paren
 id|out
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|commit-&gt;buffer
