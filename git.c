@@ -1475,6 +1475,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;gc&quot;
+comma
+id|cmd_gc
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;get-tar-commit-id&quot;
 comma
 id|cmd_get_tar_commit_id
