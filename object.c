@@ -977,7 +977,8 @@ id|type
 OL
 l_int|0
 )paren
-id|printf
+(brace
+id|error
 c_func
 (paren
 l_string|&quot;sha1 mismatch %s&bslash;n&quot;
@@ -989,6 +990,10 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
 id|obj
 op_assign
 id|parse_object_buffer
