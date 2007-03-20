@@ -9451,6 +9451,7 @@ r_void
 id|write_sha1_file_prepare
 c_func
 (paren
+r_const
 r_void
 op_star
 id|buf
@@ -9989,6 +9990,7 @@ r_int
 id|hash_sha1_file
 c_func
 (paren
+r_const
 r_void
 op_star
 id|buf
