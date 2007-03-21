@@ -4193,7 +4193,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|entry.pathlen
+id|tree_entry_len
+c_func
+(paren
+id|entry.path
+comma
+id|entry.sha1
+)paren
 op_ne
 id|cmplen
 op_logical_or

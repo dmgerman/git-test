@@ -1946,7 +1946,13 @@ id|path_buf
 op_plus
 id|len
 op_plus
-id|entry.pathlen
+id|tree_entry_len
+c_func
+(paren
+id|entry.path
+comma
+id|entry.sha1
+)paren
 comma
 l_string|&quot;/&quot;
 )paren

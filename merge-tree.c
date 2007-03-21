@@ -964,6 +964,8 @@ l_int|3
 (brace
 r_int
 id|baselen
+comma
+id|pathlen
 suffix:semicolon
 r_char
 op_star
@@ -1045,6 +1047,16 @@ c_func
 id|base
 )paren
 suffix:semicolon
+id|pathlen
+op_assign
+id|tree_entry_len
+c_func
+(paren
+id|p-&gt;path
+comma
+id|p-&gt;sha1
+)paren
+suffix:semicolon
 id|newbase
 op_assign
 id|xmalloc
@@ -1052,7 +1064,7 @@ c_func
 (paren
 id|baselen
 op_plus
-id|p-&gt;pathlen
+id|pathlen
 op_plus
 l_int|2
 )paren
@@ -1076,7 +1088,7 @@ id|baselen
 comma
 id|p-&gt;path
 comma
-id|p-&gt;pathlen
+id|pathlen
 )paren
 suffix:semicolon
 id|memcpy
@@ -1086,7 +1098,7 @@ id|newbase
 op_plus
 id|baselen
 op_plus
-id|p-&gt;pathlen
+id|pathlen
 comma
 l_string|&quot;/&quot;
 comma
