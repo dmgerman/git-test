@@ -1,6 +1,35 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;tree.h&quot;
+DECL|function|init_tree_desc
+r_void
+id|init_tree_desc
+c_func
+(paren
+r_struct
+id|tree_desc
+op_star
+id|desc
+comma
+r_const
+r_void
+op_star
+id|buffer
+comma
+r_int
+r_int
+id|size
+)paren
+(brace
+id|desc-&gt;buffer
+op_assign
+id|buffer
+suffix:semicolon
+id|desc-&gt;size
+op_assign
+id|size
+suffix:semicolon
+)brace
 DECL|function|fill_tree_descriptor
 r_void
 op_star
@@ -71,13 +100,15 @@ id|sha1
 )paren
 suffix:semicolon
 )brace
-id|desc-&gt;size
-op_assign
-id|size
-suffix:semicolon
-id|desc-&gt;buf
-op_assign
+id|init_tree_desc
+c_func
+(paren
+id|desc
+comma
 id|buf
+comma
+id|size
+)paren
 suffix:semicolon
 r_return
 id|buf
@@ -205,7 +236,7 @@ r_void
 op_star
 id|buf
 op_assign
-id|desc-&gt;buf
+id|desc-&gt;buffer
 suffix:semicolon
 r_int
 r_int
@@ -239,7 +270,7 @@ c_func
 l_string|&quot;corrupt tree file&quot;
 )paren
 suffix:semicolon
-id|desc-&gt;buf
+id|desc-&gt;buffer
 op_assign
 (paren
 r_char
@@ -361,7 +392,7 @@ r_void
 op_star
 id|tree
 op_assign
-id|desc-&gt;buf
+id|desc-&gt;buffer
 suffix:semicolon
 r_int
 r_int
@@ -472,7 +503,7 @@ r_void
 op_star
 id|tree
 op_assign
-id|desc-&gt;buf
+id|desc-&gt;buffer
 suffix:semicolon
 r_const
 r_char
@@ -573,7 +604,7 @@ c_func
 l_string|&quot;corrupt tree file&quot;
 )paren
 suffix:semicolon
-id|desc-&gt;buf
+id|desc-&gt;buffer
 op_assign
 id|path
 suffix:semicolon
@@ -1064,6 +1095,10 @@ r_void
 op_star
 id|tree
 suffix:semicolon
+r_int
+r_int
+id|size
+suffix:semicolon
 r_struct
 id|tree_desc
 id|t
@@ -1085,7 +1120,7 @@ comma
 id|tree_type
 comma
 op_amp
-id|t.size
+id|size
 comma
 id|root
 )paren
@@ -1122,9 +1157,16 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-id|t.buf
-op_assign
+id|init_tree_desc
+c_func
+(paren
+op_amp
+id|t
+comma
 id|tree
+comma
+id|size
+)paren
 suffix:semicolon
 id|retval
 op_assign
