@@ -580,7 +580,10 @@ id|i
 suffix:semicolon
 r_int
 id|m
+op_assign
+l_int|1
 suffix:semicolon
+multiline_comment|/* signals that we haven&squot;t called strncmp() */
 r_if
 c_cond
 (paren
@@ -634,7 +637,14 @@ id|matchlen
 op_sub_assign
 id|baselen
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Does match sort strictly earlier than path with their&n;&t;&t; * common parts?&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|never_interesting
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * We have not seen any match that sorts later&n;&t;&t;&t; * than the current path.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * Does match sort strictly earlier than path&n;&t;&t;&t; * with their common parts?&n;&t;&t;&t; */
 id|m
 op_assign
 id|strncmp
@@ -665,11 +675,12 @@ l_int|0
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * If we come here even once, that means there is at&n;&t;&t; * least one pathspec that would sort equal to or&n;&t;&t; * later than the path we are currently looking at.&n;&t;&t; * In other words, if we have never reached this point&n;&t;&t; * after iterating all pathspecs, it means all&n;&t;&t; * pathspecs are either outside of base, or inside the&n;&t;&t; * base but sorts strictly earlier than the current&n;&t;&t; * one.  In either case, they will never match the&n;&t;&t; * subsequent entries.  In such a case, we initialized&n;&t;&t; * the variable to -1 and that is what will be&n;&t;&t; * returned, allowing the caller to terminate early.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * If we come here even once, that means there is at&n;&t;&t;&t; * least one pathspec that would sort equal to or&n;&t;&t;&t; * later than the path we are currently looking at.&n;&t;&t;&t; * In other words, if we have never reached this point&n;&t;&t;&t; * after iterating all pathspecs, it means all&n;&t;&t;&t; * pathspecs are either outside of base, or inside the&n;&t;&t;&t; * base but sorts strictly earlier than the current&n;&t;&t;&t; * one.  In either case, they will never match the&n;&t;&t;&t; * subsequent entries.  In such a case, we initialized&n;&t;&t;&t; * the variable to -1 and that is what will be&n;&t;&t;&t; * returned, allowing the caller to terminate early.&n;&t;&t;&t; */
 id|never_interesting
 op_assign
 l_int|0
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -712,6 +723,26 @@ id|mode
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|m
+op_eq
+l_int|1
+)paren
+multiline_comment|/*&n;&t;&t;&t; * we cheated and did not do strncmp(), so we do&n;&t;&t;&t; * that here.&n;&t;&t;&t; */
+id|m
+op_assign
+id|strncmp
+c_func
+(paren
+id|match
+comma
+id|path
+comma
+id|pathlen
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t;&t; * If common part matched earlier then it is a hit,&n;&t;&t; * because we rejected the case where path is not a&n;&t;&t; * leading directory and is shorter than match.&n;&t;&t; */
 r_if
 c_cond
