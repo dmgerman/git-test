@@ -461,7 +461,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Return:&n; *  - positive for yes&n; *  - zero for no&n; *  - negative for &quot;no, and no subsequent entries will be either&quot;&n; */
+multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Return:&n; *  - 2 for &quot;yes, and all subsequent entries will be&quot;&n; *  - 1 for yes&n; *  - zero for no&n; *  - negative for &quot;no, and no subsequent entries will be either&quot;&n; */
 DECL|function|tree_entry_interesting
 r_static
 r_int
@@ -608,9 +608,9 @@ id|matchlen
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* The base is a subdirectory of a path which was specified. */
+multiline_comment|/*&n;&t;&t;&t; * The base is a subdirectory of a path which&n;&t;&t;&t; * was specified, so all of them are interesting.&n;&t;&t;&t; */
 r_return
-l_int|1
+l_int|2
 suffix:semicolon
 )brace
 multiline_comment|/* Does the base match? */
@@ -790,6 +790,11 @@ r_int
 id|baselen
 )paren
 (brace
+r_int
+id|all_interesting
+op_assign
+l_int|0
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -797,6 +802,19 @@ id|desc-&gt;size
 )paren
 (brace
 r_int
+id|show
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|all_interesting
+)paren
+id|show
+op_assign
+l_int|1
+suffix:semicolon
+r_else
+(brace
 id|show
 op_assign
 id|tree_entry_interesting
@@ -811,6 +829,18 @@ comma
 id|opt
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show
+op_eq
+l_int|2
+)paren
+id|all_interesting
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1088,6 +1118,11 @@ op_star
 id|opt
 )paren
 (brace
+r_int
+id|all_interesting
+op_assign
+l_int|0
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1095,6 +1130,19 @@ id|t-&gt;size
 )paren
 (brace
 r_int
+id|show
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|all_interesting
+)paren
+id|show
+op_assign
+l_int|1
+suffix:semicolon
+r_else
+(brace
 id|show
 op_assign
 id|tree_entry_interesting
@@ -1109,6 +1157,18 @@ comma
 id|opt
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show
+op_eq
+l_int|2
+)paren
+id|all_interesting
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
