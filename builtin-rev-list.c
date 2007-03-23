@@ -673,7 +673,7 @@ suffix:semicolon
 )brace
 id|closest
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 id|best
 op_assign
