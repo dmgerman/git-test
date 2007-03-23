@@ -1609,6 +1609,18 @@ op_eq
 id|REVERT
 )paren
 (brace
+r_char
+op_star
+id|oneline_body
+op_assign
+id|strchr
+c_func
+(paren
+id|oneline
+comma
+l_char|&squot; &squot;
+)paren
+suffix:semicolon
 id|base
 op_assign
 id|commit
@@ -1620,31 +1632,21 @@ suffix:semicolon
 id|add_to_msg
 c_func
 (paren
-l_string|&quot;Revert &quot;
+l_string|&quot;Revert &bslash;&quot;&quot;
 )paren
 suffix:semicolon
 id|add_to_msg
 c_func
 (paren
-id|find_unique_abbrev
-c_func
-(paren
-id|commit-&gt;object.sha1
-comma
-id|DEFAULT_ABBREV
-)paren
+id|oneline_body
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|add_to_msg
 c_func
 (paren
-id|oneline
-)paren
-suffix:semicolon
-id|add_to_msg
-c_func
-(paren
-l_string|&quot;&bslash;nThis reverts commit &quot;
+l_string|&quot;&bslash;&quot;&bslash;n&bslash;nThis reverts commit &quot;
 )paren
 suffix:semicolon
 id|add_to_msg
