@@ -11182,6 +11182,14 @@ op_amp
 id|stream
 )paren
 suffix:semicolon
+id|fchmod
+c_func
+(paren
+id|local
+comma
+l_int|0444
+)paren
+suffix:semicolon
 id|close
 c_func
 (paren
