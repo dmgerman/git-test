@@ -400,13 +400,7 @@ r_if
 c_cond
 (paren
 id|no_head
-)paren
-r_continue
-suffix:semicolon
-multiline_comment|/*&n;&t;&t; * It is Ok to remove a newly added path, as long as&n;&t;&t; * it is cache-clean.&n;&t;&t; */
-r_if
-c_cond
-(paren
+op_logical_or
 id|get_tree_entry
 c_func
 (paren
@@ -419,13 +413,7 @@ comma
 op_amp
 id|mode
 )paren
-)paren
-r_continue
-suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Otherwise make sure the version from the HEAD&n;&t;&t; * matches the index.&n;&t;&t; */
-r_if
-c_cond
-(paren
+op_logical_or
 id|ce-&gt;ce_mode
 op_ne
 id|create_ce_mode
