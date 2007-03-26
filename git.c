@@ -571,7 +571,7 @@ suffix:semicolon
 op_star
 id|argv
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof

@@ -231,7 +231,7 @@ suffix:semicolon
 )brace
 id|ent
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof
