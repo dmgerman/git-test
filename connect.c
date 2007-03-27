@@ -2189,6 +2189,17 @@ id|colon
 op_plus
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|port
+)paren
+id|port
+op_assign
+l_string|&quot;&lt;none&gt;&quot;
+suffix:semicolon
 )brace
 id|memset
 c_func
@@ -2236,9 +2247,11 @@ id|gai
 id|die
 c_func
 (paren
-l_string|&quot;Unable to look up %s (%s)&quot;
+l_string|&quot;Unable to look up %s (port %s) (%s)&quot;
 comma
 id|host
+comma
+id|port
 comma
 id|gai_strerror
 c_func
