@@ -525,6 +525,15 @@ r_struct
 id|rev_info
 id|revs
 suffix:semicolon
+id|close
+c_func
+(paren
+id|lp_pipe
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 id|pack_pipe
 op_assign
 id|fdopen
