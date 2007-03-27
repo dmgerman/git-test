@@ -4270,9 +4270,11 @@ op_plus
 id|start
 comma
 id|ep
+(paren
 id|msg
 op_plus
 id|start
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* parse tz */
