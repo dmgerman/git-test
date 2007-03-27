@@ -10465,10 +10465,19 @@ comma
 l_int|0444
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|close
 c_func
 (paren
 id|fd
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to write sha1 file&quot;
 )paren
 suffix:semicolon
 id|free
