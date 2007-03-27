@@ -806,7 +806,7 @@ l_string|&quot;more than one --exclude-per-directory are given.&quot;
 suffix:semicolon
 id|dir
 op_assign
-id|calloc
+id|xcalloc
 c_func
 (paren
 l_int|1
