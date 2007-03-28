@@ -5133,9 +5133,12 @@ c_func
 id|msg
 op_plus
 id|i
+op_plus
+l_int|9
 comma
 id|eol
 id|i
+l_int|9
 )paren
 suffix:semicolon
 id|i
