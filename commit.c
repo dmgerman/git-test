@@ -4789,6 +4789,13 @@ id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
+id|parents
+(braket
+l_int|1
+)braket
+op_assign
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -4830,7 +4837,7 @@ id|parents
 id|i
 l_int|1
 comma
-l_string|&quot;%s &quot;
+l_string|&quot; %s&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -4847,7 +4854,16 @@ comma
 id|IPARENTS
 comma
 id|parents
+op_plus
+l_int|1
 )paren
+suffix:semicolon
+id|parents
+(braket
+l_int|1
+)braket
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -4890,7 +4906,7 @@ id|parents
 id|i
 l_int|1
 comma
-l_string|&quot;%s &quot;
+l_string|&quot; %s&quot;
 comma
 id|find_unique_abbrev
 c_func
@@ -4909,6 +4925,8 @@ comma
 id|IPARENTS_ABBREV
 comma
 id|parents
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 r_for
