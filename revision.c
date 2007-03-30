@@ -2094,7 +2094,7 @@ op_logical_neg
 id|cb-&gt;warned_bad_reflog
 )paren
 (brace
-id|warn
+id|warning
 c_func
 (paren
 l_string|&quot;reflog of &squot;%s&squot; references pruned commits&quot;

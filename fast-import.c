@@ -6921,7 +6921,7 @@ c_func
 id|lock
 )paren
 suffix:semicolon
-id|warn
+id|warning
 c_func
 (paren
 l_string|&quot;Not updating %s&quot;

@@ -440,9 +440,9 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|warn
+DECL|function|warning
 r_void
-id|warn
+id|warning
 c_func
 (paren
 r_const

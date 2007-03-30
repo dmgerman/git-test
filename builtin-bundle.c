@@ -491,7 +491,7 @@ id|sha1
 )paren
 )paren
 (brace
-id|warn
+id|warning
 c_func
 (paren
 l_string|&quot;unrecognized header: %s&quot;
@@ -1712,7 +1712,7 @@ id|SHOWN
 )paren
 )paren
 (brace
-id|warn
+id|warning
 c_func
 (paren
 l_string|&quot;ref &squot;%s&squot; is excluded by the rev-list options&quot;
