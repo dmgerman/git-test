@@ -1461,6 +1461,9 @@ r_char
 op_star
 op_star
 id|hdr_data
+comma
+r_int
+id|overwrite
 )paren
 (brace
 r_int
@@ -1498,11 +1501,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 op_logical_neg
 id|hdr_data
 (braket
 id|i
 )braket
+op_logical_or
+id|overwrite
+)paren
 op_logical_and
 op_logical_neg
 id|strncasecmp
@@ -3138,6 +3145,13 @@ c_func
 r_void
 )paren
 (brace
+r_char
+id|newline
+(braket
+)braket
+op_assign
+l_string|&quot;&bslash;n&quot;
+suffix:semicolon
 id|again
 suffix:colon
 r_if
@@ -3193,7 +3207,7 @@ suffix:semicolon
 id|handle_filter
 c_func
 (paren
-l_string|&quot;&bslash;n&quot;
+id|newline
 )paren
 suffix:semicolon
 multiline_comment|/* skip to the next boundary */
@@ -3252,6 +3266,8 @@ c_func
 id|line
 comma
 id|p_hdr_data
+comma
+l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/* eat the blank line after section info */
@@ -3516,6 +3532,8 @@ c_func
 id|cp
 comma
 id|s_hdr_data
+comma
+l_int|0
 )paren
 )paren
 op_ne
@@ -3525,6 +3543,20 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* normalize the log message to UTF-8. */
+r_if
+c_cond
+(paren
+id|metainfo_charset
+)paren
+id|convert_to_utf8
+c_func
+(paren
+id|line
+comma
+id|charset
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3755,24 +3787,11 @@ c_func
 r_return
 suffix:semicolon
 )brace
-multiline_comment|/* Unwrap transfer encoding and optionally&n;&t;&t; * normalize the log message to UTF-8.&n;&t;&t; */
+multiline_comment|/* Unwrap transfer encoding */
 id|decode_transfer_encoding
 c_func
 (paren
 id|line
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|metainfo_charset
-)paren
-id|convert_to_utf8
-c_func
-(paren
-id|line
-comma
-id|charset
 )paren
 suffix:semicolon
 r_switch
@@ -4284,6 +4303,8 @@ c_func
 id|line
 comma
 id|p_hdr_data
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|handle_body
