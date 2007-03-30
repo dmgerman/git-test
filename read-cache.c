@@ -2199,6 +2199,21 @@ l_char|&squot;/&squot;
 )paren
 r_continue
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ce_stage
+c_func
+(paren
+id|p
+)paren
+op_logical_and
+op_logical_neg
+id|p-&gt;ce_mode
+)paren
+r_continue
+suffix:semicolon
 id|retval
 op_assign
 l_int|1
@@ -2349,6 +2364,20 @@ op_ge
 l_int|0
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * Found one, but not so fast.  This could&n;&t;&t;&t; * be a marker that says &quot;I was here, but&n;&t;&t;&t; * I am being removed&quot;.  Such an entry is&n;&t;&t;&t; * not a part of the resulting tree, and&n;&t;&t;&t; * it is Ok to have a directory at the same&n;&t;&t;&t; * path.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|stage
+op_logical_or
+id|active_cache
+(braket
+id|pos
+)braket
+op_member_access_from_pointer
+id|ce_mode
+)paren
+(brace
 id|retval
 op_assign
 l_int|1
@@ -2370,13 +2399,15 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * Trivial optimization: if we find an entry that&n;&t;&t; * already matches the sub-directory, then we know&n;&t;&t; * we&squot;re ok, and we can exit.&n;&t;&t; */
+)brace
+r_else
 id|pos
 op_assign
 id|pos
 op_minus
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Trivial optimization: if we find an entry that&n;&t;&t; * already matches the sub-directory, then we know&n;&t;&t; * we&squot;re ok, and we can exit.&n;&t;&t; */
 r_while
 c_loop
 (paren
@@ -2440,6 +2471,12 @@ id|p
 )paren
 op_eq
 id|stage
+op_logical_and
+(paren
+id|stage
+op_logical_or
+id|p-&gt;ce_mode
+)paren
 )paren
 multiline_comment|/* p is at the same stage as our entry, and&n;&t;&t;&t;&t; * is a subdirectory of what we are looking&n;&t;&t;&t;&t; * at, so we cannot have conflicts at our&n;&t;&t;&t;&t; * level or anything shorter.&n;&t;&t;&t;&t; */
 r_return
@@ -2474,8 +2511,27 @@ r_int
 id|ok_to_replace
 )paren
 (brace
-multiline_comment|/*&n;&t; * We check if the path is a sub-path of a subsequent pathname&n;&t; * first, since removing those will not change the position&n;&t; * in the array&n;&t; */
 r_int
+id|retval
+suffix:semicolon
+multiline_comment|/*&n;&t; * When ce is an &quot;I am going away&quot; entry, we allow it to be added&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+op_logical_and
+op_logical_neg
+id|ce-&gt;ce_mode
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * We check if the path is a sub-path of a subsequent pathname&n;&t; * first, since removing those will not change the position&n;&t; * in the array.&n;&t; */
 id|retval
 op_assign
 id|has_file_name
