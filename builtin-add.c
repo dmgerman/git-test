@@ -430,6 +430,8 @@ comma
 id|base
 comma
 id|baselen
+comma
+id|pathspec
 )paren
 suffix:semicolon
 r_if
