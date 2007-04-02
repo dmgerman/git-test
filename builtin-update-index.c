@@ -205,10 +205,10 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|add_file_to_cache
+DECL|function|process_file
 r_static
 r_int
-id|add_file_to_cache
+id|process_file
 c_func
 (paren
 r_const
@@ -1017,7 +1017,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|add_file_to_cache
+id|process_file
 c_func
 (paren
 id|p
