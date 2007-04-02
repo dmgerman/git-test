@@ -7,46 +7,17 @@ DECL|macro|CACHE_EXT
 mdefine_line|#define CACHE_EXT(s) ( (s[0]&lt;&lt;24)|(s[1]&lt;&lt;16)|(s[2]&lt;&lt;8)|(s[3]) )
 DECL|macro|CACHE_EXT_TREE
 mdefine_line|#define CACHE_EXT_TREE 0x54524545&t;/* &quot;TREE&quot; */
-DECL|variable|active_cache
+DECL|variable|the_index
 r_struct
-id|cache_entry
-op_star
-op_star
-id|active_cache
+id|index_state
+id|the_index
 suffix:semicolon
-DECL|variable|index_file_timestamp
-r_static
-id|time_t
-id|index_file_timestamp
-suffix:semicolon
-DECL|variable|active_nr
-DECL|variable|active_alloc
-DECL|variable|active_cache_changed
-r_int
-r_int
-id|active_nr
-comma
-id|active_alloc
-comma
-id|active_cache_changed
-suffix:semicolon
-DECL|variable|active_cache_tree
-r_struct
-id|cache_tree
-op_star
-id|active_cache_tree
-suffix:semicolon
-DECL|variable|cache_mmap
-r_static
-r_void
-op_star
-id|cache_mmap
-suffix:semicolon
-DECL|variable|cache_mmap_size
-r_static
-r_int
-id|cache_mmap_size
-suffix:semicolon
+DECL|macro|index_file_timestamp
+mdefine_line|#define index_file_timestamp (the_index.timestamp)
+DECL|macro|cache_mmap
+mdefine_line|#define cache_mmap (the_index.mmap)
+DECL|macro|cache_mmap_size
+mdefine_line|#define cache_mmap_size (the_index.mmap_size)
 multiline_comment|/*&n; * This only updates the &quot;non-critical&quot; parts of the directory&n; * cache, ie the parts that aren&squot;t tracked by GIT, and only used&n; * to validate the cache.&n; */
 DECL|function|fill_stat_cache_info
 r_void
