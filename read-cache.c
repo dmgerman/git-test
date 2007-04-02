@@ -36,6 +36,7 @@ op_star
 id|active_cache_tree
 suffix:semicolon
 DECL|variable|cache_errno
+r_static
 r_int
 id|cache_errno
 suffix:semicolon

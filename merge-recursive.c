@@ -1103,13 +1103,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;cache_addinfo failed: %s&quot;
+l_string|&quot;addinfo_cache failed for path &squot;%s&squot;&quot;
 comma
-id|strerror
-c_func
-(paren
-id|cache_errno
-)paren
+id|path
 )paren
 suffix:semicolon
 r_return
