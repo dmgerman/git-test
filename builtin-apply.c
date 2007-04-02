@@ -49,10 +49,10 @@ r_static
 r_int
 id|check_index
 suffix:semicolon
-DECL|variable|write_index
+DECL|variable|update_index
 r_static
 r_int
-id|write_index
+id|update_index
 suffix:semicolon
 DECL|variable|cached
 r_static
@@ -10955,7 +10955,7 @@ id|rmdir_empty
 r_if
 c_cond
 (paren
-id|write_index
+id|update_index
 )paren
 (brace
 r_if
@@ -11124,7 +11124,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|write_index
+id|update_index
 )paren
 r_return
 suffix:semicolon
@@ -12836,7 +12836,7 @@ id|apply
 op_assign
 l_int|0
 suffix:semicolon
-id|write_index
+id|update_index
 op_assign
 id|check_index
 op_logical_and
@@ -12845,7 +12845,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write_index
+id|update_index
 op_logical_and
 id|newfd
 OL
@@ -13974,7 +13974,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write_index
+id|update_index
 )paren
 (brace
 r_if
