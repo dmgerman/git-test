@@ -2611,6 +2611,11 @@ r_struct
 id|cache_entry
 op_star
 id|ce
+comma
+r_struct
+id|unpack_trees_options
+op_star
+id|o
 )paren
 (brace
 id|add_cache_entry
@@ -3320,6 +3325,8 @@ id|stages
 (braket
 id|i
 )braket
+comma
+id|o
 )paren
 suffix:semicolon
 id|count
@@ -3381,6 +3388,8 @@ id|keep_entry
 c_func
 (paren
 id|head
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
@@ -3396,6 +3405,8 @@ id|keep_entry
 c_func
 (paren
 id|remote
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
@@ -3544,6 +3555,8 @@ id|keep_entry
 c_func
 (paren
 id|current
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
@@ -3768,6 +3781,8 @@ id|keep_entry
 c_func
 (paren
 id|old
+comma
+id|o
 )paren
 suffix:semicolon
 r_else
@@ -3915,6 +3930,8 @@ id|keep_entry
 c_func
 (paren
 id|old
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
