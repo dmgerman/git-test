@@ -1068,6 +1068,11 @@ comma
 id|opts.prefix
 )paren
 suffix:semicolon
+id|opts.pos
+op_assign
+l_int|1
+id|pos
+suffix:semicolon
 )brace
 r_if
 c_cond
