@@ -1431,9 +1431,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|add_file_to_index
+DECL|function|add_file_to_cache
 r_int
-id|add_file_to_index
+id|add_file_to_cache
 c_func
 (paren
 r_const

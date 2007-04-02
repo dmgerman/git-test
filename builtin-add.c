@@ -1124,7 +1124,7 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-id|add_file_to_index
+id|add_file_to_cache
 c_func
 (paren
 id|dir.entries

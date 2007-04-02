@@ -1847,7 +1847,7 @@ id|i
 dot
 id|path
 suffix:semicolon
-id|add_file_to_index
+id|add_file_to_cache
 c_func
 (paren
 id|path
