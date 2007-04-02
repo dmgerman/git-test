@@ -3432,7 +3432,9 @@ id|src
 (braket
 l_int|1
 )braket
-comma
+suffix:semicolon
+r_struct
+id|cache_entry
 op_star
 id|newtree
 op_assign
@@ -3456,6 +3458,28 @@ l_string|&quot;Cannot do a twoway merge of %d trees&quot;
 comma
 id|o-&gt;merge_size
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|oldtree
+op_eq
+id|o-&gt;df_conflict_entry
+)paren
+id|oldtree
+op_assign
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|newtree
+op_eq
+id|o-&gt;df_conflict_entry
+)paren
+id|newtree
+op_assign
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -3520,7 +3544,7 @@ comma
 id|newtree
 )paren
 op_logical_and
-multiline_comment|/* 18 and 19*/
+multiline_comment|/* 18 and 19 */
 id|same
 c_func
 (paren
