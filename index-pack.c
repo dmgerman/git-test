@@ -1963,6 +1963,12 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|has_data
+)paren
+suffix:semicolon
 )brace
 )brace
 DECL|function|resolve_delta
