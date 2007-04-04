@@ -4508,7 +4508,49 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;  Bin&bslash;n&quot;
+l_string|&quot;  Bin &quot;
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;%s%d%s&quot;
+comma
+id|del_c
+comma
+id|deleted
+comma
+id|reset
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot; -&gt; &quot;
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;%s%d%s&quot;
+comma
+id|add_c
+comma
+id|added
+comma
+id|reset
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot; bytes&quot;
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 r_goto
@@ -6744,10 +6786,20 @@ op_amp
 id|mf2
 )paren
 )paren
+(brace
 id|data-&gt;is_binary
 op_assign
 l_int|1
 suffix:semicolon
+id|data-&gt;added
+op_assign
+id|mf2.size
+suffix:semicolon
+id|data-&gt;deleted
+op_assign
+id|mf1.size
+suffix:semicolon
+)brace
 r_else
 (brace
 multiline_comment|/* Crazy xdl interfaces.. */
