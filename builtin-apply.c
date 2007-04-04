@@ -1824,7 +1824,7 @@ id|line
 comma
 l_int|NULL
 comma
-l_int|1
+id|p_value
 comma
 id|TERM_TAB
 )paren
@@ -1883,7 +1883,7 @@ id|line
 comma
 l_int|NULL
 comma
-l_int|1
+id|p_value
 comma
 id|TERM_TAB
 )paren
