@@ -4678,16 +4678,9 @@ l_string|&quot;rb&quot;
 )paren
 )paren
 (brace
-id|ret
-op_assign
-id|error
-c_func
-(paren
-l_string|&quot;Could not open config file!&quot;
-)paren
-suffix:semicolon
+multiline_comment|/* no config file means nothing to rename, no error */
 r_goto
-id|out
+id|unlock_and_out
 suffix:semicolon
 )brace
 r_while
@@ -4875,6 +4868,8 @@ c_func
 id|config_file
 )paren
 suffix:semicolon
+id|unlock_and_out
+suffix:colon
 r_if
 c_cond
 (paren
