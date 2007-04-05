@@ -1300,8 +1300,6 @@ comma
 l_string|&quot;archive&quot;
 comma
 id|cmd_archive
-comma
-id|RUN_SETUP
 )brace
 comma
 (brace
