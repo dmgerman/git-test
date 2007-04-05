@@ -963,9 +963,9 @@ c_func
 (paren
 id|obj_req-&gt;local
 comma
-id|SEEK_SET
-comma
 l_int|0
+comma
+id|SEEK_SET
 )paren
 suffix:semicolon
 id|ftruncate
