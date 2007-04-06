@@ -4482,8 +4482,11 @@ id|newsection
 OL
 l_int|0
 )paren
-r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;unable to update config-file&quot;
+)paren
 suffix:semicolon
 )brace
 r_return
