@@ -3612,7 +3612,7 @@ id|o-&gt;nontrivial_merge
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/* #2, #3, #4, #6, #7, #9, #11. */
+multiline_comment|/* #2, #3, #4, #6, #7, #9, #10, #11. */
 id|count
 op_assign
 l_int|0
