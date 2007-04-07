@@ -386,7 +386,7 @@ id|read_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-read-tree (&lt;sha&gt; | [[-m [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u | -i]] [--exclude-per-directory=&lt;gitignore&gt;] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
+l_string|&quot;git-read-tree (&lt;sha&gt; | [[-m [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u | -i]] [--exclude-per-directory=&lt;gitignore&gt;] [--index-output=&lt;file&gt;] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
 suffix:semicolon
 DECL|variable|lock_file
 r_static
@@ -465,16 +465,11 @@ id|git_default_config
 suffix:semicolon
 id|newfd
 op_assign
-id|hold_lock_file_for_update
+id|hold_locked_index
 c_func
 (paren
 op_amp
 id|lock_file
-comma
-id|get_index_file
-c_func
-(paren
-)paren
 comma
 l_int|1
 )paren
@@ -568,6 +563,30 @@ l_string|&quot;-i&quot;
 id|opts.index_only
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--index-output=&quot;
+)paren
+)paren
+(brace
+id|set_alternate_index_output
+c_func
+(paren
+id|arg
+op_plus
+l_int|15
+)paren
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -1224,7 +1243,7 @@ c_func
 id|newfd
 )paren
 op_logical_or
-id|commit_lock_file
+id|commit_locked_index
 c_func
 (paren
 op_amp

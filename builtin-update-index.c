@@ -2403,15 +2403,10 @@ id|lock_file
 suffix:semicolon
 id|newfd
 op_assign
-id|hold_lock_file_for_update
+id|hold_locked_index
 c_func
 (paren
 id|lock_file
-comma
-id|get_index_file
-c_func
-(paren
-)paren
 comma
 l_int|0
 )paren
@@ -3443,7 +3438,7 @@ c_func
 id|newfd
 )paren
 op_logical_or
-id|commit_lock_file
+id|commit_locked_index
 c_func
 (paren
 id|lock_file
