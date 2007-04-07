@@ -1937,6 +1937,17 @@ id|err
 )paren
 r_continue
 suffix:semicolon
+id|error
+c_func
+(paren
+l_string|&quot;failed to push to &squot;%s&squot;&quot;
+comma
+id|uri
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
 r_switch
 c_cond
 (paren
