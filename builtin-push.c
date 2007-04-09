@@ -1664,6 +1664,8 @@ r_int
 id|i
 comma
 id|n
+comma
+id|errs
 suffix:semicolon
 r_int
 id|common_argc
@@ -1773,6 +1775,10 @@ suffix:semicolon
 id|common_argc
 op_assign
 id|argc
+suffix:semicolon
+id|errs
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -1937,6 +1943,17 @@ id|err
 )paren
 r_continue
 suffix:semicolon
+id|error
+c_func
+(paren
+l_string|&quot;failed to push to &squot;%s&squot;&quot;
+comma
+id|uri
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -1946,7 +1963,7 @@ id|err
 r_case
 id|ERR_RUN_COMMAND_FORK
 suffix:colon
-id|die
+id|error
 c_func
 (paren
 l_string|&quot;unable to fork for %s&quot;
@@ -1957,13 +1974,15 @@ suffix:semicolon
 r_case
 id|ERR_RUN_COMMAND_EXEC
 suffix:colon
-id|die
+id|error
 c_func
 (paren
 l_string|&quot;unable to exec %s&quot;
 comma
 id|sender
 )paren
+suffix:semicolon
+r_break
 suffix:semicolon
 r_case
 id|ERR_RUN_COMMAND_WAITPID
@@ -1977,7 +1996,7 @@ suffix:colon
 r_case
 id|ERR_RUN_COMMAND_WAITPID_NOEXIT
 suffix:colon
-id|die
+id|error
 c_func
 (paren
 l_string|&quot;%s died with strange error&quot;
@@ -1985,15 +2004,15 @@ comma
 id|sender
 )paren
 suffix:semicolon
-r_default
-suffix:colon
-r_return
-id|err
+)brace
+id|errs
+op_increment
 suffix:semicolon
 )brace
-)brace
 r_return
-l_int|0
+op_logical_neg
+op_logical_neg
+id|errs
 suffix:semicolon
 )brace
 DECL|function|cmd_push
