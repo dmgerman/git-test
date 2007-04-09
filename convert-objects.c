@@ -510,12 +510,12 @@ c_cond
 op_logical_neg
 id|path
 op_logical_or
-id|sscanf
+id|strtoul_ui
 c_func
 (paren
 id|buffer
 comma
-l_string|&quot;%o&quot;
+l_int|8
 comma
 op_amp
 id|mode

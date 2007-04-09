@@ -1115,6 +1115,10 @@ r_int
 id|mode
 suffix:semicolon
 r_int
+r_int
+id|ul
+suffix:semicolon
+r_int
 id|stage
 suffix:semicolon
 multiline_comment|/* This reads lines formatted in one of three formats:&n;&t;&t; *&n;&t;&t; * (1) mode         SP sha1          TAB path&n;&t;&t; * The first format is what &quot;git-apply --index-info&quot;&n;&t;&t; * reports, and used to reconstruct a partial tree&n;&t;&t; * that is used for phony merge base tree when falling&n;&t;&t; * back on 3-way merge.&n;&t;&t; *&n;&t;&t; * (2) mode SP type SP sha1          TAB path&n;&t;&t; * The second format is to stuff git-ls-tree output&n;&t;&t; * into the index file.&n;&t;&t; *&n;&t;&t; * (3) mode         SP sha1 SP stage TAB path&n;&t;&t; * This format is to put higher order stages into the&n;&t;&t; * index file and matches git-ls-files --stage output.&n;&t;&t; */
@@ -1136,7 +1140,11 @@ id|buf.eof
 )paren
 r_break
 suffix:semicolon
-id|mode
+id|errno
+op_assign
+l_int|0
+suffix:semicolon
+id|ul
 op_assign
 id|strtoul
 c_func
@@ -1160,9 +1168,23 @@ op_star
 id|ptr
 op_ne
 l_char|&squot; &squot;
+op_logical_or
+id|errno
+op_logical_or
+(paren
+r_int
+r_int
+)paren
+id|ul
+op_ne
+id|ul
 )paren
 r_goto
 id|bad_line
+suffix:semicolon
+id|mode
+op_assign
+id|ul
 suffix:semicolon
 id|tab
 op_assign
@@ -2701,7 +2723,7 @@ r_if
 c_cond
 (paren
 (paren
-id|sscanf
+id|strtoul_ui
 c_func
 (paren
 id|argv
@@ -2711,7 +2733,7 @@ op_plus
 l_int|1
 )braket
 comma
-l_string|&quot;%o&quot;
+l_int|8
 comma
 op_amp
 id|mode
