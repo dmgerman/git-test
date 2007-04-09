@@ -5012,13 +5012,11 @@ c_cond
 op_logical_neg
 id|ofs
 op_logical_or
-id|ofs
-op_amp
-op_complement
+id|MSB
+c_func
 (paren
-op_complement
-l_int|0UL
-op_rshift
+id|ofs
+comma
 l_int|7
 )paren
 )paren

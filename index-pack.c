@@ -1264,13 +1264,11 @@ c_cond
 op_logical_neg
 id|base_offset
 op_logical_or
-id|base_offset
-op_amp
-op_complement
+id|MSB
+c_func
 (paren
-op_complement
-l_int|0UL
-op_rshift
+id|base_offset
+comma
 l_int|7
 )paren
 )paren
