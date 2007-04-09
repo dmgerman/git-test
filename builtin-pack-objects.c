@@ -1667,7 +1667,8 @@ suffix:semicolon
 )brace
 DECL|function|write_object
 r_static
-id|off_t
+r_int
+r_int
 id|write_object
 c_func
 (paren
@@ -2414,6 +2415,11 @@ id|off_t
 id|offset
 )paren
 (brace
+r_int
+r_int
+id|size
+suffix:semicolon
+multiline_comment|/* offset is non zero if object is written already. */
 r_if
 c_cond
 (paren
@@ -2421,11 +2427,10 @@ id|e-&gt;offset
 op_logical_or
 id|e-&gt;preferred_base
 )paren
-multiline_comment|/* offset starts from header size and cannot be zero&n;&t;&t; * if it is written already.&n;&t;&t; */
 r_return
 id|offset
 suffix:semicolon
-multiline_comment|/* if we are deltified, write out its base object first. */
+multiline_comment|/* if we are deltified, write out base object first. */
 r_if
 c_cond
 (paren
@@ -2447,9 +2452,8 @@ id|e-&gt;offset
 op_assign
 id|offset
 suffix:semicolon
-r_return
-id|offset
-op_plus
+id|size
+op_assign
 id|write_object
 c_func
 (paren
@@ -2457,6 +2461,27 @@ id|f
 comma
 id|e
 )paren
+suffix:semicolon
+multiline_comment|/* make sure off_t is sufficiently large not to wrap */
+r_if
+c_cond
+(paren
+id|offset
+OG
+id|offset
+op_plus
+id|size
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;pack too large for current definition of off_t&quot;
+)paren
+suffix:semicolon
+r_return
+id|offset
+op_plus
+id|size
 suffix:semicolon
 )brace
 DECL|function|write_pack_file

@@ -21,8 +21,7 @@ r_struct
 id|object_entry
 (brace
 DECL|member|offset
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 DECL|member|size
@@ -68,8 +67,7 @@ l_int|20
 )braket
 suffix:semicolon
 DECL|member|offset
-r_int
-r_int
+id|off_t
 id|offset
 suffix:semicolon
 )brace
@@ -303,14 +301,16 @@ l_int|4096
 suffix:semicolon
 DECL|variable|input_offset
 DECL|variable|input_len
-DECL|variable|consumed_bytes
 r_static
 r_int
 r_int
 id|input_offset
 comma
 id|input_len
-comma
+suffix:semicolon
+DECL|variable|consumed_bytes
+r_static
+id|off_t
 id|consumed_bytes
 suffix:semicolon
 DECL|variable|input_ctx
@@ -539,6 +539,22 @@ suffix:semicolon
 id|input_offset
 op_add_assign
 id|bytes
+suffix:semicolon
+multiline_comment|/* make sure off_t is sufficiently large not to wrap */
+r_if
+c_cond
+(paren
+id|consumed_bytes
+OG
+id|consumed_bytes
+op_plus
+id|bytes
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;pack too large for current definition of off_t&quot;
+)paren
 suffix:semicolon
 id|consumed_bytes
 op_add_assign
@@ -1078,7 +1094,8 @@ suffix:semicolon
 r_int
 r_int
 id|size
-comma
+suffix:semicolon
+id|off_t
 id|base_offset
 suffix:semicolon
 r_int
