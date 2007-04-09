@@ -119,6 +119,11 @@ r_int
 id|preferred_base
 suffix:semicolon
 multiline_comment|/* we do not pack this, but is encouraged to&n;&t;&t;&t;&t; * be used as the base objectto delta huge&n;&t;&t;&t;&t; * objects against.&n;&t;&t;&t;&t; */
+DECL|member|crc32
+r_uint32
+id|crc32
+suffix:semicolon
+multiline_comment|/* crc of raw pack data for this object */
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * Objects we are going to pack are collected in objects array (dynamically&n; * expanded).  nr_objects &amp; nr_alloc controls this array.  They are stored&n; * in the order we see -- typically rev-list --objects order that gives us&n; * nice &quot;minimum seek&quot; order.&n; *&n; * sorted-by-sha ans sorted-by-type are arrays of pointers that point at&n; * elements in the objects array.  The former is used to build the pack&n; * index (lists object names in the ascending order to help offset lookup),&n; * and the latter is used to group similar things together by try_delta()&n; * heuristics.&n; */
@@ -1717,6 +1722,18 @@ id|to_reuse
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pack_to_stdout
+)paren
+id|crc32_begin
+c_func
+(paren
+id|f
+)paren
+suffix:semicolon
 id|obj_type
 op_assign
 id|entry-&gt;type
@@ -2388,6 +2405,20 @@ op_increment
 suffix:semicolon
 id|written
 op_increment
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pack_to_stdout
+)paren
+id|entry-&gt;crc32
+op_assign
+id|crc32_end
+c_func
+(paren
+id|f
+)paren
 suffix:semicolon
 r_return
 id|hdrlen
