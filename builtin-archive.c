@@ -827,9 +827,8 @@ r_char
 op_star
 id|format
 op_assign
-l_int|NULL
+l_string|&quot;tar&quot;
 suffix:semicolon
-multiline_comment|/* might want to default to &quot;tar&quot; */
 r_const
 r_char
 op_star
@@ -1073,18 +1072,6 @@ id|usage
 c_func
 (paren
 id|archive_usage
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|format
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;You must specify an archive format&quot;
 )paren
 suffix:semicolon
 r_if
