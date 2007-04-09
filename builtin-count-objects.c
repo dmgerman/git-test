@@ -713,11 +713,7 @@ r_continue
 suffix:semicolon
 id|packed
 op_add_assign
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 suffix:semicolon
 id|num_pack
 op_increment

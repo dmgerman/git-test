@@ -2978,11 +2978,7 @@ id|i
 comma
 id|num
 op_assign
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 suffix:semicolon
 r_for
 c_loop

@@ -2734,6 +2734,10 @@ id|p-&gt;index_size
 op_assign
 id|idx_size
 suffix:semicolon
+id|p-&gt;num_objects
+op_assign
+id|nr
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -3314,11 +3318,7 @@ multiline_comment|/* Verify the pack matches its index. */
 r_if
 c_cond
 (paren
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 op_ne
 id|ntohl
 c_func
@@ -3331,7 +3331,7 @@ id|error
 c_func
 (paren
 l_string|&quot;packfile %s claims to have %u objects&quot;
-l_string|&quot; while index size indicates %u objects&quot;
+l_string|&quot; while index indicates %u objects&quot;
 comma
 id|p-&gt;pack_name
 comma
@@ -3341,11 +3341,7 @@ c_func
 id|hdr.hdr_entries
 )paren
 comma
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 )paren
 suffix:semicolon
 r_if
@@ -7895,37 +7891,6 @@ r_return
 id|data
 suffix:semicolon
 )brace
-DECL|function|num_packed_objects
-r_uint32
-id|num_packed_objects
-c_func
-(paren
-r_const
-r_struct
-id|packed_git
-op_star
-id|p
-)paren
-(brace
-multiline_comment|/* See check_packed_git_idx() */
-r_return
-(paren
-r_uint32
-)paren
-(paren
-(paren
-id|p-&gt;index_size
-l_int|20
-l_int|20
-l_int|4
-op_star
-l_int|256
-)paren
-op_div
-l_int|24
-)paren
-suffix:semicolon
-)brace
 DECL|function|nth_packed_object_sha1
 r_const
 r_int
@@ -7961,13 +7926,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
-op_le
 id|n
+op_ge
+id|p-&gt;num_objects
 )paren
 r_return
 l_int|NULL

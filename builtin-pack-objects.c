@@ -581,11 +581,7 @@ suffix:semicolon
 r_int
 id|num_ent
 op_assign
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 suffix:semicolon
 r_int
 id|i
@@ -800,11 +796,7 @@ l_int|0
 suffix:semicolon
 id|hi
 op_assign
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 op_plus
 l_int|1
 suffix:semicolon
