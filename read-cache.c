@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
+macro_line|#include &quot;refs.h&quot;
 multiline_comment|/* Index extensions.&n; *&n; * The first letter should be &squot;A&squot;..&squot;Z&squot; for extensions that are not&n; * necessary for a correct operation (i.e. optimization data).&n; * When new extensions are added that _needs_ to be understood in&n; * order to correctly interpret the index file, pick character that&n; * is outside the range, to cause the reader to abort.&n; */
 DECL|macro|CACHE_EXT
 mdefine_line|#define CACHE_EXT(s) ( (s[0]&lt;&lt;24)|(s[1]&lt;&lt;16)|(s[2]&lt;&lt;8)|(s[3]) )
@@ -378,6 +379,54 @@ r_return
 id|match
 suffix:semicolon
 )brace
+DECL|function|ce_compare_gitlink
+r_static
+r_int
+id|ce_compare_gitlink
+c_func
+(paren
+r_struct
+id|cache_entry
+op_star
+id|ce
+)paren
+(brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+multiline_comment|/*&n;&t; * We don&squot;t actually require that the .git directory&n;&t; * under DIRLNK directory be a valid git directory. It&n;&t; * might even be missing (in case nobody populated that&n;&t; * sub-project).&n;&t; *&n;&t; * If so, we consider it always to match.&n;&t; */
+r_if
+c_cond
+(paren
+id|resolve_gitlink_ref
+c_func
+(paren
+id|ce-&gt;name
+comma
+l_string|&quot;HEAD&quot;
+comma
+id|sha1
+)paren
+OL
+l_int|0
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_return
+id|hashcmp
+c_func
+(paren
+id|sha1
+comma
+id|ce-&gt;sha1
+)paren
+suffix:semicolon
+)brace
 DECL|function|ce_modified_check_fs
 r_static
 r_int
@@ -443,6 +492,12 @@ id|st-&gt;st_size
 r_return
 id|DATA_CHANGED
 suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|S_IFDIRLNK
+suffix:colon
+multiline_comment|/* No need to do anything, we did the exact compare in &quot;match_stat_basic&quot; */
 r_break
 suffix:semicolon
 r_default
@@ -560,6 +615,39 @@ id|st-&gt;st_mode
 id|changed
 op_or_assign
 id|TYPE_CHANGED
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|S_IFDIRLNK
+suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISDIR
+c_func
+(paren
+id|st-&gt;st_mode
+)paren
+)paren
+id|changed
+op_or_assign
+id|TYPE_CHANGED
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|ce_compare_gitlink
+c_func
+(paren
+id|ce
+)paren
+)paren
+id|changed
+op_or_assign
+id|DATA_CHANGED
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1020,10 +1108,18 @@ c_cond
 op_logical_neg
 id|c1
 op_logical_and
+(paren
 id|S_ISDIR
 c_func
 (paren
 id|mode1
+)paren
+op_logical_or
+id|S_ISDIRLNK
+c_func
+(paren
+id|mode1
+)paren
 )paren
 )paren
 id|c1
@@ -1036,10 +1132,18 @@ c_cond
 op_logical_neg
 id|c2
 op_logical_and
+(paren
 id|S_ISDIR
 c_func
 (paren
 id|mode2
+)paren
+op_logical_or
+id|S_ISDIRLNK
+c_func
+(paren
+id|mode2
+)paren
 )paren
 )paren
 id|c2
@@ -1501,11 +1605,18 @@ c_func
 (paren
 id|st.st_mode
 )paren
+op_logical_and
+op_logical_neg
+id|S_ISDIR
+c_func
+(paren
+id|st.st_mode
+)paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;%s: can only add regular files or symbolic links&quot;
+l_string|&quot;%s: can only add regular files, symbolic links or git-directories&quot;
 comma
 id|path
 )paren

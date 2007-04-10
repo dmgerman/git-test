@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 DECL|variable|line_termination
@@ -246,6 +247,23 @@ id|type
 op_assign
 id|blob_type
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|S_ISDIRLNK
+c_func
+(paren
+id|mode
+)paren
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * Maybe we want to have some recursive version here?&n;&t;&t; *&n;&t;&t; * Something like:&n;&t;&t; *&n;&t;&t;if (show_subprojects(base, baselen, pathname)) {&n;&t;&t;&t;if (fork()) {&n;&t;&t;&t;&t;chdir(base);&n;&t;&t;&t;&t;exec ls-tree;&n;&t;&t;&t;}&n;&t;&t;&t;waitpid();&n;&t;&t;}&n;&t;&t; *&n;&t;&t; * ..or similar..&n;&t;&t; */
+id|type
+op_assign
+id|commit_type
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren

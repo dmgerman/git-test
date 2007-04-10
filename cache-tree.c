@@ -1611,6 +1611,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|mode
+op_ne
+id|S_IFDIRLNK
+op_logical_and
 op_logical_neg
 id|missing_ok
 op_logical_and
