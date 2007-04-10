@@ -1716,6 +1716,23 @@ c_func
 id|de-&gt;d_name
 )paren
 suffix:semicolon
+multiline_comment|/* Ignore overly long pathnames! */
+r_if
+c_cond
+(paren
+id|len
+op_plus
+id|baselen
+op_plus
+l_int|8
+OG
+r_sizeof
+(paren
+id|fullname
+)paren
+)paren
+r_continue
+suffix:semicolon
 id|memcpy
 c_func
 (paren
