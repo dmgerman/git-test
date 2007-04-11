@@ -2314,10 +2314,12 @@ op_logical_neg
 id|default_refs
 )paren
 (brace
-id|error
+id|fprintf
 c_func
 (paren
-l_string|&quot;No default references&quot;
+id|stderr
+comma
+l_string|&quot;notice: No default references&bslash;n&quot;
 )paren
 suffix:semicolon
 id|show_unreachable
@@ -2409,6 +2411,11 @@ suffix:semicolon
 r_int
 id|flag
 suffix:semicolon
+r_int
+id|null_is_error
+op_assign
+l_int|0
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -2421,7 +2428,7 @@ l_string|&quot;HEAD&quot;
 comma
 id|sha1
 comma
-l_int|1
+l_int|0
 comma
 op_amp
 id|flag
@@ -2432,21 +2439,32 @@ c_cond
 (paren
 op_logical_neg
 id|head_points_at
-op_logical_or
-op_logical_neg
-(paren
-id|flag
-op_amp
-id|REF_ISSYMREF
-)paren
 )paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;HEAD is not a symbolic ref&quot;
+l_string|&quot;Invalid HEAD&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|head_points_at
+comma
+l_string|&quot;HEAD&quot;
+)paren
+)paren
+multiline_comment|/* detached HEAD */
+id|null_is_error
+op_assign
+l_int|1
+suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -2476,13 +2494,32 @@ c_func
 id|sha1
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|null_is_error
+)paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;HEAD: not a valid git pointer&quot;
+l_string|&quot;HEAD: detached HEAD points at nothing&quot;
 )paren
 suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;notice: HEAD points to an unborn branch (%s)&bslash;n&quot;
+comma
+id|head_points_at
+op_plus
+l_int|11
+)paren
+suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
