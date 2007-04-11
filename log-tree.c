@@ -773,7 +773,9 @@ r_sizeof
 id|buffer
 )paren
 comma
-l_string|&quot;Subject: [PATCH %0*d/%d] &quot;
+l_string|&quot;Subject: [%s %0*d/%d] &quot;
+comma
+id|opt-&gt;subject_prefix
 comma
 id|digits_in_number
 c_func
@@ -799,15 +801,41 @@ id|opt-&gt;total
 op_eq
 l_int|0
 )paren
+(brace
+r_static
+r_char
+id|buffer
+(braket
+l_int|256
+)braket
+suffix:semicolon
+id|snprintf
+c_func
+(paren
+id|buffer
+comma
+r_sizeof
+(paren
+id|buffer
+)paren
+comma
+l_string|&quot;Subject: [%s] &quot;
+comma
+id|opt-&gt;subject_prefix
+)paren
+suffix:semicolon
 id|subject
 op_assign
-l_string|&quot;Subject: [PATCH] &quot;
+id|buffer
 suffix:semicolon
+)brace
 r_else
+(brace
 id|subject
 op_assign
 l_string|&quot;Subject: &quot;
 suffix:semicolon
+)brace
 id|printf
 c_func
 (paren
