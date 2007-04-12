@@ -2403,10 +2403,6 @@ id|rev.diffopt.recursive
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.subject_prefix
-op_assign
-l_string|&quot;PATCH&quot;
-suffix:semicolon
 id|rev.extra_headers
 op_assign
 id|extra_headers
