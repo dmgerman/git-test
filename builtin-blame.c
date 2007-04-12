@@ -18,7 +18,7 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-blame [-c] [-l] [-t] [-f] [-n] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
+l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-t] [-f] [-n] [-s] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
 l_string|&quot;  -c                  Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -b                  Show blank SHA-1 for boundary commits (Default: off)&bslash;n&quot;
 l_string|&quot;  -l                  Show long commit SHA1 (Default: off)&bslash;n&quot;
@@ -26,6 +26,7 @@ l_string|&quot;  --root              Do not treat root commits as boundaries (De
 l_string|&quot;  -t                  Show raw timestamp (Default: off)&bslash;n&quot;
 l_string|&quot;  -f, --show-name     Show original filename (Default: auto)&bslash;n&quot;
 l_string|&quot;  -n, --show-number   Show original linenumber (Default: off)&bslash;n&quot;
+l_string|&quot;  -s                  Suppress author name and timestamp (Default: off)&bslash;n&quot;
 l_string|&quot;  -p, --porcelain     Show in a format designed for machine consumption&bslash;n&quot;
 l_string|&quot;  -L n,m              Process only line range n,m, counting from 1&bslash;n&quot;
 l_string|&quot;  -M, -C              Find line movements within and across files&bslash;n&quot;
@@ -6437,6 +6438,8 @@ DECL|macro|OUTPUT_SHOW_NUMBER
 mdefine_line|#define OUTPUT_SHOW_NUMBER&t;040
 DECL|macro|OUTPUT_SHOW_SCORE
 mdefine_line|#define OUTPUT_SHOW_SCORE      0100
+DECL|macro|OUTPUT_NO_AUTHOR
+mdefine_line|#define OUTPUT_NO_AUTHOR       0200
 DECL|function|emit_porcelain
 r_static
 r_void
@@ -7004,10 +7007,20 @@ op_plus
 id|cnt
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|opt
+op_amp
+id|OUTPUT_NO_AUTHOR
+)paren
+)paren
 id|printf
 c_func
 (paren
-l_string|&quot; (%-*.*s %10s %*d) &quot;
+l_string|&quot; (%-*.*s %10s&quot;
 comma
 id|longest_author
 comma
@@ -7024,6 +7037,12 @@ id|ci.author_tz
 comma
 id|show_raw_time
 )paren
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot; %*d) &quot;
 comma
 id|max_digits
 comma
@@ -9713,6 +9732,23 @@ id|arg
 id|output_option
 op_or_assign
 id|OUTPUT_LONG_OBJECT_NAME
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;-s&quot;
+comma
+id|arg
+)paren
+)paren
+id|output_option
+op_or_assign
+id|OUTPUT_NO_AUTHOR
 suffix:semicolon
 r_else
 r_if
