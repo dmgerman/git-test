@@ -355,6 +355,9 @@ id|argc
 )paren
 op_decrement
 suffix:semicolon
+id|handled
+op_increment
+suffix:semicolon
 )brace
 r_else
 r_if
