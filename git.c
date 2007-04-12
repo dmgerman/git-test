@@ -1350,6 +1350,16 @@ id|cmd_check_ref_format
 )brace
 comma
 (brace
+l_string|&quot;check-attr&quot;
+comma
+id|cmd_check_attr
+comma
+id|RUN_SETUP
+op_or
+id|NOT_BARE
+)brace
+comma
+(brace
 l_string|&quot;cherry&quot;
 comma
 id|cmd_cherry
