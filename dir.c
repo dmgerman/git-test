@@ -1631,6 +1631,14 @@ suffix:semicolon
 r_case
 id|index_gitdir
 suffix:colon
+r_if
+c_cond
+(paren
+id|dir-&gt;show_other_directories
+)paren
+r_return
+id|ignore_directory
+suffix:semicolon
 r_return
 id|show_directory
 suffix:semicolon
