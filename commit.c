@@ -4,6 +4,8 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;interpolate.h&quot;
+macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;revision.h&quot;
 DECL|variable|save_commit_buffer
 r_int
 id|save_commit_buffer
@@ -4588,7 +4590,13 @@ multiline_comment|/* reset color */
 (brace
 l_string|&quot;%n&quot;
 )brace
+comma
 multiline_comment|/* newline */
+(brace
+l_string|&quot;%m&quot;
+)brace
+comma
+multiline_comment|/* left/right/bottom */
 )brace
 suffix:semicolon
 r_enum
@@ -4647,6 +4655,9 @@ comma
 id|IRESET_COLOR
 comma
 id|INEWLINE
+comma
+id|ILEFT_RIGHT
+comma
 )brace
 suffix:semicolon
 r_struct
@@ -4676,7 +4687,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|INEWLINE
+id|ILEFT_RIGHT
 op_plus
 l_int|1
 op_ne
@@ -4814,6 +4825,34 @@ id|commit-&gt;tree-&gt;object.sha1
 comma
 id|DEFAULT_ABBREV
 )paren
+)paren
+suffix:semicolon
+id|interp_set_entry
+c_func
+(paren
+id|table
+comma
+id|ILEFT_RIGHT
+comma
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|BOUNDARY
+)paren
+ques
+c_cond
+l_string|&quot;-&quot;
+suffix:colon
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|SYMMETRIC_LEFT
+)paren
+ques
+c_cond
+l_string|&quot;&lt;&quot;
+suffix:colon
+l_string|&quot;&gt;&quot;
 )paren
 suffix:semicolon
 id|parents
