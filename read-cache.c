@@ -495,10 +495,23 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|S_IFDIRLNK
+id|S_IFDIR
 suffix:colon
-multiline_comment|/* No need to do anything, we did the exact compare in &quot;match_stat_basic&quot; */
-r_break
+r_if
+c_cond
+(paren
+id|S_ISDIRLNK
+c_func
+(paren
+id|ntohl
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+)paren
+)paren
+r_return
+l_int|0
 suffix:semicolon
 r_default
 suffix:colon
@@ -649,7 +662,8 @@ id|changed
 op_or_assign
 id|DATA_CHANGED
 suffix:semicolon
-r_break
+r_return
+id|changed
 suffix:semicolon
 r_default
 suffix:colon
