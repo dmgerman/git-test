@@ -854,6 +854,8 @@ id|builtin_attr
 )braket
 op_assign
 (brace
+l_string|&quot;[attr]binary !diff !crlf&quot;
+comma
 l_int|NULL
 comma
 )brace
