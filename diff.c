@@ -5967,12 +5967,13 @@ id|attr_diff_check
 op_logical_and
 (paren
 l_int|0
-op_eq
+op_le
 id|attr_diff_check.isset
 )paren
 )paren
 r_return
-l_int|1
+op_logical_neg
+id|attr_diff_check.isset
 suffix:semicolon
 r_if
 c_cond
