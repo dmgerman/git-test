@@ -14,6 +14,7 @@ r_void
 id|copy_gecos
 c_func
 (paren
+r_const
 r_struct
 id|passwd
 op_star
@@ -180,6 +181,7 @@ r_void
 id|copy_email
 c_func
 (paren
+r_const
 r_struct
 id|passwd
 op_star
