@@ -12,7 +12,7 @@ id|builtin_rm_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-rm [-f] [-n] [-r] [--cached] [--quiet] [--] &lt;file&gt;...&quot;
+l_string|&quot;git-rm [-f] [-n] [-r] [--cached] [--ignore-unmatch] [--quiet] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 r_static
 r_struct
@@ -498,6 +498,11 @@ id|quiet
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|ignore_unmatch
+op_assign
+l_int|0
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -682,6 +687,23 @@ op_assign
 l_int|1
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--ignore-unmatch&quot;
+)paren
+)paren
+id|ignore_unmatch
+op_assign
+l_int|1
+suffix:semicolon
+r_else
 id|usage
 c_func
 (paren
@@ -812,6 +834,11 @@ r_char
 op_star
 id|match
 suffix:semicolon
+r_int
+id|seen_any
+op_assign
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -843,6 +870,14 @@ id|seen
 id|i
 )braket
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ignore_unmatch
+)paren
+(brace
 id|die
 c_func
 (paren
@@ -851,6 +886,15 @@ comma
 id|match
 )paren
 suffix:semicolon
+)brace
+)brace
+r_else
+(brace
+id|seen_any
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -879,6 +923,17 @@ l_string|&quot;.&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|seen_any
+)paren
+m_exit
+(paren
+l_int|0
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * If not forced, the file, the index and the HEAD (if exists)&n;&t; * must match; but the file can already been removed, since&n;&t; * this sequence is a natural &quot;novice&quot; way:&n;&t; *&n;&t; *&t;rm F; git rm F&n;&t; *&n;&t; * Further, if HEAD commit exists, &quot;diff-index --cached&quot; must&n;&t; * report no changes unless forced.&n;&t; */
 r_if
