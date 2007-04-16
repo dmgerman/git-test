@@ -12,7 +12,7 @@ id|builtin_rm_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-rm [-f] [-n] [-r] [--cached] [--] &lt;file&gt;...&quot;
+l_string|&quot;git-rm [-f] [-n] [-r] [--cached] [--quiet] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 r_static
 r_struct
@@ -493,6 +493,10 @@ comma
 id|recursive
 op_assign
 l_int|0
+comma
+id|quiet
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -657,6 +661,23 @@ l_string|&quot;-r&quot;
 )paren
 )paren
 id|recursive
+op_assign
+l_int|1
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--quiet&quot;
+)paren
+)paren
+id|quiet
 op_assign
 l_int|1
 suffix:semicolon
@@ -932,6 +953,12 @@ id|list.name
 id|i
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|quiet
+)paren
 id|printf
 c_func
 (paren
