@@ -880,7 +880,7 @@ l_string|&quot;.&quot;
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * If not forced, the file, the index and the HEAD (if exists)&n;&t; * must match; but the file can already been removed, since&n;&t; * this sequence is a natural &quot;novice&quot; way:&n;&t; *&n;&t; *&t;rm F; git fm F&n;&t; *&n;&t; * Further, if HEAD commit exists, &quot;diff-index --cached&quot; must&n;&t; * report no changes unless forced.&n;&t; */
+multiline_comment|/*&n;&t; * If not forced, the file, the index and the HEAD (if exists)&n;&t; * must match; but the file can already been removed, since&n;&t; * this sequence is a natural &quot;novice&quot; way:&n;&t; *&n;&t; *&t;rm F; git rm F&n;&t; *&n;&t; * Further, if HEAD commit exists, &quot;diff-index --cached&quot; must&n;&t; * report no changes unless forced.&n;&t; */
 r_if
 c_cond
 (paren
