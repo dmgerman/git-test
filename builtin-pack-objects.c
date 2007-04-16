@@ -34,55 +34,34 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+DECL|member|crc32
+r_uint32
+id|crc32
+suffix:semicolon
+multiline_comment|/* crc of raw pack data for this object */
+DECL|member|offset
+id|off_t
+id|offset
+suffix:semicolon
+multiline_comment|/* offset into the final pack file */
 DECL|member|size
 r_int
 r_int
 id|size
 suffix:semicolon
 multiline_comment|/* uncompressed size */
-DECL|member|offset
-id|off_t
-id|offset
-suffix:semicolon
-multiline_comment|/* offset into the final pack file;&n;&t;&t;&t;&t; * nonzero if already written.&n;&t;&t;&t;&t; */
-DECL|member|depth
-r_int
-r_int
-id|depth
-suffix:semicolon
-multiline_comment|/* delta depth */
 DECL|member|hash
 r_int
 r_int
 id|hash
 suffix:semicolon
 multiline_comment|/* name hint hash */
-DECL|member|type
-r_enum
-id|object_type
-id|type
-suffix:semicolon
-DECL|member|in_pack_type
-r_enum
-id|object_type
-id|in_pack_type
-suffix:semicolon
-multiline_comment|/* could be delta */
-DECL|member|delta_size
+DECL|member|depth
 r_int
 r_int
-id|delta_size
+id|depth
 suffix:semicolon
-multiline_comment|/* delta data size (uncompressed) */
-DECL|macro|in_pack_header_size
-mdefine_line|#define in_pack_header_size delta_size&t;/* only when reusing pack data */
-DECL|member|delta
-r_struct
-id|object_entry
-op_star
-id|delta
-suffix:semicolon
-multiline_comment|/* delta base object */
+multiline_comment|/* delta depth */
 DECL|member|in_pack
 r_struct
 id|packed_git
@@ -94,6 +73,13 @@ DECL|member|in_pack_offset
 id|off_t
 id|in_pack_offset
 suffix:semicolon
+DECL|member|delta
+r_struct
+id|object_entry
+op_star
+id|delta
+suffix:semicolon
+multiline_comment|/* delta base object */
 DECL|member|delta_child
 r_struct
 id|object_entry
@@ -108,16 +94,34 @@ op_star
 id|delta_sibling
 suffix:semicolon
 multiline_comment|/* other deltified objects who&n;&t;&t;&t;&t;&t;     * uses the same base as me&n;&t;&t;&t;&t;&t;     */
+DECL|member|delta_size
+r_int
+r_int
+id|delta_size
+suffix:semicolon
+multiline_comment|/* delta data size (uncompressed) */
+DECL|member|type
+r_enum
+id|object_type
+id|type
+suffix:semicolon
+DECL|member|in_pack_type
+r_enum
+id|object_type
+id|in_pack_type
+suffix:semicolon
+multiline_comment|/* could be delta */
+DECL|member|in_pack_header_size
+r_int
+r_char
+id|in_pack_header_size
+suffix:semicolon
 DECL|member|preferred_base
 r_int
+r_char
 id|preferred_base
 suffix:semicolon
-multiline_comment|/* we do not pack this, but is encouraged to&n;&t;&t;&t;&t; * be used as the base objectto delta huge&n;&t;&t;&t;&t; * objects against.&n;&t;&t;&t;&t; */
-DECL|member|crc32
-r_uint32
-id|crc32
-suffix:semicolon
-multiline_comment|/* crc of raw pack data for this object */
+multiline_comment|/* we do not pack this, but is available&n;&t;&t;&t;&t;       * to be used as the base objectto delta&n;&t;&t;&t;&t;       * objects against.&n;&t;&t;&t;&t;       */
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * Objects we are going to pack are collected in objects array (dynamically&n; * expanded).  nr_objects &amp; nr_alloc controls this array.  They are stored&n; * in the order we see -- typically rev-list --objects order that gives us&n; * nice &quot;minimum seek&quot; order.&n; *&n; * sorted-by-sha ans sorted-by-type are arrays of pointers that point at&n; * elements in the objects array.  The former is used to build the pack&n; * index (lists object names in the ascending order to help offset lookup),&n; * and the latter is used to group similar things together by try_delta()&n; * heuristics.&n; */
