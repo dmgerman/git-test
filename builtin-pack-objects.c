@@ -6419,7 +6419,7 @@ l_int|1
 suffix:semicolon
 r_return
 id|a
-OL
+OG
 id|b
 ques
 c_cond
@@ -6427,10 +6427,11 @@ l_int|1
 suffix:colon
 (paren
 id|a
-OG
+OL
 id|b
 )paren
 suffix:semicolon
+multiline_comment|/* newest last */
 )brace
 DECL|struct|unpacked
 r_struct
