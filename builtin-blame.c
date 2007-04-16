@@ -9405,10 +9405,12 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|sprintf
+id|snprintf
 c_func
 (paren
 id|commit-&gt;buffer
+comma
+l_int|400
 comma
 l_string|&quot;tree 0000000000000000000000000000000000000000&bslash;n&quot;
 l_string|&quot;parent %s&bslash;n&quot;
