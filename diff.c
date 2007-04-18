@@ -5966,7 +5966,8 @@ id|attr_diff_check
 )paren
 )paren
 (brace
-r_void
+r_const
+r_char
 op_star
 id|value
 op_assign
@@ -6014,10 +6015,6 @@ c_func
 (paren
 l_string|&quot;unknown value %s given to &squot;diff&squot; attribute&quot;
 comma
-(paren
-r_char
-op_star
-)paren
 id|value
 )paren
 suffix:semicolon

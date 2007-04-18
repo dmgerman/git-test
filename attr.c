@@ -1,7 +1,41 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
+DECL|variable|git_attr__true
+r_const
+r_char
+id|git_attr__true
+(braket
+)braket
+op_assign
+l_string|&quot;(builtin)true&quot;
+suffix:semicolon
+DECL|variable|git_attr__false
+r_const
+r_char
+id|git_attr__false
+(braket
+)braket
+op_assign
+l_string|&quot;&bslash;0(builtin)false&quot;
+suffix:semicolon
+DECL|variable|git_attr__unknown
+r_static
+r_const
+r_char
+id|git_attr__unknown
+(braket
+)braket
+op_assign
+l_string|&quot;(builtin)unknown&quot;
+suffix:semicolon
+DECL|macro|ATTR__TRUE
+mdefine_line|#define ATTR__TRUE git_attr__true
+DECL|macro|ATTR__FALSE
+mdefine_line|#define ATTR__FALSE git_attr__false
+DECL|macro|ATTR__UNSET
+mdefine_line|#define ATTR__UNSET NULL
 DECL|macro|ATTR__UNKNOWN
-mdefine_line|#define ATTR__UNKNOWN&t;((void *) -2)
+mdefine_line|#define ATTR__UNKNOWN git_attr__unknown
 multiline_comment|/*&n; * The basic design decision here is that we are not going to have&n; * insanely large number of attributes.&n; *&n; * This is a randomly chosen prime.&n; */
 DECL|macro|HASHSIZE
 mdefine_line|#define HASHSIZE 257
@@ -422,7 +456,8 @@ op_star
 id|attr
 suffix:semicolon
 DECL|member|setto
-r_void
+r_const
+r_char
 op_star
 id|setto
 suffix:semicolon
@@ -1241,7 +1276,8 @@ id|j
 op_increment
 )paren
 (brace
-r_void
+r_const
+r_char
 op_star
 id|setto
 op_assign
@@ -1276,6 +1312,10 @@ r_else
 id|free
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|setto
 )paren
 suffix:semicolon
@@ -2250,7 +2290,8 @@ id|i
 dot
 id|attr
 suffix:semicolon
-r_void
+r_const
+r_char
 op_star
 op_star
 id|n
@@ -2265,7 +2306,8 @@ dot
 id|value
 )paren
 suffix:semicolon
-r_void
+r_const
+r_char
 op_star
 id|v
 op_assign
@@ -2703,7 +2745,8 @@ id|i
 op_increment
 )paren
 (brace
-r_void
+r_const
+r_char
 op_star
 id|value
 op_assign

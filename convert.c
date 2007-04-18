@@ -915,7 +915,8 @@ id|attr_crlf_check
 )paren
 )paren
 (brace
-r_void
+r_const
+r_char
 op_star
 id|value
 op_assign

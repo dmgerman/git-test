@@ -272,7 +272,8 @@ id|j
 op_increment
 )paren
 (brace
-r_void
+r_const
+r_char
 op_star
 id|value
 op_assign
@@ -353,10 +354,6 @@ op_plus
 l_int|1
 )braket
 comma
-(paren
-r_char
-op_star
-)paren
 id|value
 )paren
 suffix:semicolon
