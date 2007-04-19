@@ -4247,6 +4247,21 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|fn-&gt;cmdline
+op_eq
+l_int|NULL
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;custom merge driver %s lacks command line.&quot;
+comma
+id|fn-&gt;name
+)paren
+suffix:semicolon
 id|result-&gt;ptr
 op_assign
 l_int|NULL
@@ -4659,7 +4674,7 @@ l_char|&squot;.&squot;
 op_eq
 id|var
 op_plus
-l_int|6
+l_int|5
 )paren
 r_return
 l_int|0
