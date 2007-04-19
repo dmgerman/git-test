@@ -8,7 +8,7 @@ id|git_config_set_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-config [ --global ] [ --bool | --int ] [--get | --get-all | --get-regexp | --replace-all | --add | --unset | --unset-all] name [value [value_regex]] | --rename-section old_name new_name | --remove-section name | --list&quot;
+l_string|&quot;git-config [ --global | --system ] [ --bool | --int ] [--get | --get-all | --get-regexp | --replace-all | --add | --unset | --unset-all] name [value [value_regex]] | --rename-section old_name new_name | --remove-section name | --list&quot;
 suffix:semicolon
 DECL|variable|key
 r_static
