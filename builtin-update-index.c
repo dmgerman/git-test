@@ -2722,7 +2722,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
 id|strtoul_ui
 c_func
 (paren
@@ -2737,9 +2736,6 @@ l_int|8
 comma
 op_amp
 id|mode
-)paren
-op_ne
-l_int|1
 )paren
 op_logical_or
 id|get_sha1_hex

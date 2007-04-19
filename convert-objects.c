@@ -520,8 +520,6 @@ comma
 op_amp
 id|mode
 )paren
-op_ne
-l_int|1
 )paren
 id|die
 c_func
