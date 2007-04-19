@@ -241,7 +241,8 @@ suffix:semicolon
 )brace
 DECL|function|crlf_to_git
 r_static
-r_int
+r_char
+op_star
 id|crlf_to_git
 c_func
 (paren
@@ -250,10 +251,10 @@ r_char
 op_star
 id|path
 comma
+r_const
 r_char
 op_star
-op_star
-id|bufp
+id|src
 comma
 r_int
 r_int
@@ -269,7 +270,7 @@ op_star
 id|buffer
 comma
 op_star
-id|nbuf
+id|dst
 suffix:semicolon
 r_int
 r_int
@@ -300,7 +301,7 @@ id|auto_crlf
 )paren
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|size
 op_assign
@@ -314,17 +315,12 @@ op_logical_neg
 id|size
 )paren
 r_return
-l_int|0
-suffix:semicolon
-id|buffer
-op_assign
-op_star
-id|bufp
+l_int|NULL
 suffix:semicolon
 id|gather_stats
 c_func
 (paren
-id|buffer
+id|src
 comma
 id|size
 comma
@@ -340,7 +336,7 @@ op_logical_neg
 id|stats.cr
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -359,7 +355,7 @@ op_ne
 id|stats.crlf
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * And add some heuristics for binary vs text, of course...&n;&t;&t; */
 r_if
@@ -375,7 +371,7 @@ id|stats
 )paren
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Ok, allocate a new buffer, fill it in, and return true&n;&t; * to let the caller know that we switched buffers on it.&n;&t; */
@@ -384,7 +380,7 @@ op_assign
 id|size
 id|stats.crlf
 suffix:semicolon
-id|nbuf
+id|buffer
 op_assign
 id|xmalloc
 c_func
@@ -393,14 +389,13 @@ id|nsize
 )paren
 suffix:semicolon
 op_star
-id|bufp
-op_assign
-id|nbuf
-suffix:semicolon
-op_star
 id|sizep
 op_assign
 id|nsize
+suffix:semicolon
+id|dst
+op_assign
+id|buffer
 suffix:semicolon
 r_if
 c_cond
@@ -418,7 +413,7 @@ r_char
 id|c
 op_assign
 op_star
-id|buffer
+id|src
 op_increment
 suffix:semicolon
 r_if
@@ -429,7 +424,7 @@ op_ne
 l_char|&squot;&bslash;r&squot;
 )paren
 op_star
-id|nbuf
+id|dst
 op_increment
 op_assign
 id|c
@@ -452,7 +447,7 @@ r_char
 id|c
 op_assign
 op_star
-id|buffer
+id|src
 op_increment
 suffix:semicolon
 r_if
@@ -477,7 +472,7 @@ l_char|&squot;&bslash;n&squot;
 )paren
 )paren
 op_star
-id|nbuf
+id|dst
 op_increment
 op_assign
 id|c
@@ -492,12 +487,13 @@ id|size
 suffix:semicolon
 )brace
 r_return
-l_int|1
+id|buffer
 suffix:semicolon
 )brace
 DECL|function|crlf_to_worktree
 r_static
-r_int
+r_char
+op_star
 id|crlf_to_worktree
 c_func
 (paren
@@ -506,10 +502,10 @@ r_char
 op_star
 id|path
 comma
+r_const
 r_char
 op_star
-op_star
-id|bufp
+id|src
 comma
 r_int
 r_int
@@ -525,7 +521,7 @@ op_star
 id|buffer
 comma
 op_star
-id|nbuf
+id|dst
 suffix:semicolon
 r_int
 r_int
@@ -567,7 +563,7 @@ l_int|0
 )paren
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|size
 op_assign
@@ -581,17 +577,12 @@ op_logical_neg
 id|size
 )paren
 r_return
-l_int|0
-suffix:semicolon
-id|buffer
-op_assign
-op_star
-id|bufp
+l_int|NULL
 suffix:semicolon
 id|gather_stats
 c_func
 (paren
-id|buffer
+id|src
 comma
 id|size
 comma
@@ -607,7 +598,7 @@ op_logical_neg
 id|stats.lf
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 multiline_comment|/* Was it already in CRLF format? */
 r_if
@@ -618,7 +609,7 @@ op_eq
 id|stats.crlf
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -637,7 +628,7 @@ op_ne
 id|stats.crlf
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -652,7 +643,7 @@ id|stats
 )paren
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Ok, allocate a new buffer, fill it in, and return true&n;&t; * to let the caller know that we switched buffers on it.&n;&t; */
@@ -663,18 +654,13 @@ op_plus
 id|stats.lf
 id|stats.crlf
 suffix:semicolon
-id|nbuf
+id|buffer
 op_assign
 id|xmalloc
 c_func
 (paren
 id|nsize
 )paren
-suffix:semicolon
-op_star
-id|bufp
-op_assign
-id|nbuf
 suffix:semicolon
 op_star
 id|sizep
@@ -685,6 +671,10 @@ id|last
 op_assign
 l_int|0
 suffix:semicolon
+id|dst
+op_assign
+id|buffer
+suffix:semicolon
 r_do
 (brace
 r_int
@@ -692,7 +682,7 @@ r_char
 id|c
 op_assign
 op_star
-id|buffer
+id|src
 op_increment
 suffix:semicolon
 r_if
@@ -707,13 +697,13 @@ op_ne
 l_char|&squot;&bslash;r&squot;
 )paren
 op_star
-id|nbuf
+id|dst
 op_increment
 op_assign
 l_char|&squot;&bslash;r&squot;
 suffix:semicolon
 op_star
-id|nbuf
+id|dst
 op_increment
 op_assign
 id|c
@@ -731,7 +721,7 @@ id|size
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|buffer
 suffix:semicolon
 )brace
 DECL|function|setup_crlf_check
@@ -878,7 +868,8 @@ id|CRLF_GUESS
 suffix:semicolon
 )brace
 DECL|function|convert_to_git
-r_int
+r_char
+op_star
 id|convert_to_git
 c_func
 (paren
@@ -887,10 +878,10 @@ r_char
 op_star
 id|path
 comma
+r_const
 r_char
 op_star
-op_star
-id|bufp
+id|src
 comma
 r_int
 r_int
@@ -904,7 +895,7 @@ c_func
 (paren
 id|path
 comma
-id|bufp
+id|src
 comma
 id|sizep
 comma
@@ -917,7 +908,8 @@ id|path
 suffix:semicolon
 )brace
 DECL|function|convert_to_working_tree
-r_int
+r_char
+op_star
 id|convert_to_working_tree
 c_func
 (paren
@@ -926,10 +918,10 @@ r_char
 op_star
 id|path
 comma
+r_const
 r_char
 op_star
-op_star
-id|bufp
+id|src
 comma
 r_int
 r_int
@@ -943,7 +935,7 @@ c_func
 (paren
 id|path
 comma
-id|bufp
+id|src
 comma
 id|sizep
 comma
