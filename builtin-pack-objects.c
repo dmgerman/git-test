@@ -124,7 +124,25 @@ suffix:semicolon
 multiline_comment|/* we do not pack this, but is available&n;&t;&t;&t;&t;       * to be used as the base objectto delta&n;&t;&t;&t;&t;       * objects against.&n;&t;&t;&t;&t;       */
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Objects we are going to pack are collected in objects array (dynamically&n; * expanded).  nr_objects &amp; nr_alloc controls this array.  They are stored&n; * in the order we see -- typically rev-list --objects order that gives us&n; * nice &quot;minimum seek&quot; order.&n; *&n; * sorted-by-sha ans sorted-by-type are arrays of pointers that point at&n; * elements in the objects array.  The former is used to build the pack&n; * index (lists object names in the ascending order to help offset lookup),&n; * and the latter is used to group similar things together by try_delta()&n; * heuristics.&n; */
+multiline_comment|/*&n; * Objects we are going to pack are collected in objects array (dynamically&n; * expanded).  nr_objects &amp; nr_alloc controls this array.  They are stored&n; * in the order we see -- typically rev-list --objects order that gives us&n; * nice &quot;minimum seek&quot; order.&n; */
+DECL|variable|objects
+r_static
+r_struct
+id|object_entry
+op_star
+id|objects
+suffix:semicolon
+DECL|variable|nr_objects
+DECL|variable|nr_alloc
+DECL|variable|nr_result
+r_static
+r_uint32
+id|nr_objects
+comma
+id|nr_alloc
+comma
+id|nr_result
+suffix:semicolon
 DECL|variable|non_empty
 r_static
 r_int
@@ -149,24 +167,6 @@ DECL|variable|allow_ofs_delta
 r_static
 r_int
 id|allow_ofs_delta
-suffix:semicolon
-DECL|variable|objects
-r_static
-r_struct
-id|object_entry
-op_star
-id|objects
-suffix:semicolon
-DECL|variable|nr_objects
-DECL|variable|nr_alloc
-DECL|variable|nr_result
-r_static
-r_uint32
-id|nr_objects
-comma
-id|nr_alloc
-comma
-id|nr_result
 suffix:semicolon
 DECL|variable|pack_tmp_name
 DECL|variable|idx_tmp_name
@@ -226,7 +226,7 @@ r_static
 r_int
 id|num_preferred_base
 suffix:semicolon
-multiline_comment|/*&n; * The object names in objects array are hashed with this hashtable,&n; * to help looking up the entry by object name.  Binary search from&n; * sorted_by_sha is also possible but this was easier to code and faster.&n; * This hashtable is built after all the objects are seen.&n; */
+multiline_comment|/*&n; * The object names in objects array are hashed with this hashtable,&n; * to help looking up the entry by object name.&n; * This hashtable is built after all the objects are seen.&n; */
 DECL|variable|object_ix
 r_static
 r_int
