@@ -1563,24 +1563,7 @@ id|total
 op_increment
 suffix:semicolon
 )brace
-multiline_comment|/* Don&squot;t bother doing this for very small updates */
-r_if
-c_cond
-(paren
-id|total
-OL
-l_int|250
-)paren
-id|total
-op_assign
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|total
-)paren
-id|start_progress
+id|start_progress_delay
 c_func
 (paren
 op_amp
@@ -1591,6 +1574,10 @@ comma
 l_string|&quot;&quot;
 comma
 id|total
+comma
+l_int|50
+comma
+l_int|2
 )paren
 suffix:semicolon
 id|cnt
