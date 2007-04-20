@@ -2252,29 +2252,19 @@ c_cond
 (paren
 id|verbose
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Indexing %d objects.&bslash;n&quot;
-comma
-id|nr_objects
-)paren
-suffix:semicolon
 id|start_progress
 c_func
 (paren
 op_amp
 id|progress
 comma
+l_string|&quot;Indexing %u objects...&quot;
+comma
 l_string|&quot;&quot;
 comma
 id|nr_objects
 )paren
 suffix:semicolon
-)brace
 r_for
 c_loop
 (paren
@@ -2522,29 +2512,19 @@ c_cond
 (paren
 id|verbose
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Resolving %d deltas.&bslash;n&quot;
-comma
-id|nr_deltas
-)paren
-suffix:semicolon
 id|start_progress
 c_func
 (paren
 op_amp
 id|progress
 comma
+l_string|&quot;Resolving %u deltas...&quot;
+comma
 l_string|&quot;&quot;
 comma
 id|nr_deltas
 )paren
 suffix:semicolon
-)brace
 r_for
 c_loop
 (paren

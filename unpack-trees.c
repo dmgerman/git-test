@@ -1580,27 +1580,19 @@ c_cond
 (paren
 id|total
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Checking files out...&bslash;n&quot;
-)paren
-suffix:semicolon
 id|start_progress
 c_func
 (paren
 op_amp
 id|progress
 comma
+l_string|&quot;Checking %u files out...&quot;
+comma
 l_string|&quot;&quot;
 comma
 id|total
 )paren
 suffix:semicolon
-)brace
 id|cnt
 op_assign
 l_int|0

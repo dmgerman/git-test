@@ -2931,29 +2931,19 @@ c_cond
 (paren
 id|do_progress
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Writing %u objects.&bslash;n&quot;
-comma
-id|nr_result
-)paren
-suffix:semicolon
 id|start_progress
 c_func
 (paren
 op_amp
 id|progress_state
 comma
+l_string|&quot;Writing %u objects...&quot;
+comma
 l_string|&quot;&quot;
 comma
 id|nr_result
 )paren
 suffix:semicolon
-)brace
 id|hdr.hdr_signature
 op_assign
 id|htonl
@@ -7048,29 +7038,19 @@ c_cond
 (paren
 id|progress
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Deltifying %u objects.&bslash;n&quot;
-comma
-id|nr_result
-)paren
-suffix:semicolon
 id|start_progress
 c_func
 (paren
 op_amp
 id|progress_state
 comma
+l_string|&quot;Deltifying %u objects...&quot;
+comma
 l_string|&quot;&quot;
 comma
 id|nr_result
 )paren
 suffix:semicolon
-)brace
 r_do
 (brace
 r_struct
@@ -8776,27 +8756,19 @@ c_cond
 (paren
 id|progress
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Generating pack...&bslash;n&quot;
-)paren
-suffix:semicolon
 id|start_progress
 c_func
 (paren
 op_amp
 id|progress_state
 comma
+l_string|&quot;Generating pack...&quot;
+comma
 l_string|&quot;Counting objects: &quot;
 comma
 l_int|0
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren

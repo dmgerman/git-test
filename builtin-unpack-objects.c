@@ -1708,29 +1708,19 @@ c_cond
 op_logical_neg
 id|quiet
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Unpacking %d objects&bslash;n&quot;
-comma
-id|nr_objects
-)paren
-suffix:semicolon
 id|start_progress
 c_func
 (paren
 op_amp
 id|progress
 comma
+l_string|&quot;Unpacking %u objects...&quot;
+comma
 l_string|&quot;&quot;
 comma
 id|nr_objects
 )paren
 suffix:semicolon
-)brace
 id|obj_list
 op_assign
 id|xmalloc
