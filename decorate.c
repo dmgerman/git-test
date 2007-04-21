@@ -130,9 +130,6 @@ r_return
 id|old
 suffix:semicolon
 )brace
-id|j
-op_increment
-suffix:semicolon
 r_if
 c_cond
 (paren
