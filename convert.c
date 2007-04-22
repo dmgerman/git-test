@@ -374,7 +374,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Ok, allocate a new buffer, fill it in, and return true&n;&t; * to let the caller know that we switched buffers on it.&n;&t; */
+multiline_comment|/*&n;&t; * Ok, allocate a new buffer, fill it in, and return it&n;&t; * to let the caller know that we switched buffers.&n;&t; */
 id|nsize
 op_assign
 id|size
@@ -465,7 +465,7 @@ OL
 id|size
 op_logical_and
 op_star
-id|buffer
+id|src
 op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
@@ -646,7 +646,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Ok, allocate a new buffer, fill it in, and return true&n;&t; * to let the caller know that we switched buffers on it.&n;&t; */
+multiline_comment|/*&n;&t; * Ok, allocate a new buffer, fill it in, and return it&n;&t; * to let the caller know that we switched buffers.&n;&t; */
 id|nsize
 op_assign
 id|size
