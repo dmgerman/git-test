@@ -754,6 +754,7 @@ op_star
 id|obj
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * NOTE! Tree refs to external git repositories&n; * (ie gitlinks) do not count as real references.&n; *&n; * You don&squot;t have to have those repositories&n; * available at all, much less have the objects&n; * accessible from the current repository.&n; */
 DECL|function|track_tree_refs
 r_static
 r_void
@@ -811,9 +812,22 @@ op_amp
 id|entry
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|S_ISDIRLNK
+c_func
+(paren
+id|entry.mode
+)paren
+)paren
+r_continue
+suffix:semicolon
 id|n_refs
 op_increment
 suffix:semicolon
+)brace
 multiline_comment|/* Allocate object refs and walk it again.. */
 id|i
 op_assign
@@ -856,6 +870,17 @@ r_struct
 id|object
 op_star
 id|obj
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|S_ISDIRLNK
+c_func
+(paren
+id|entry.mode
+)paren
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond

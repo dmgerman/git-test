@@ -6,6 +6,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#ifndef O_NOATIME
 macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
 DECL|macro|O_NOATIME
@@ -12545,6 +12546,20 @@ id|target
 )paren
 suffix:semicolon
 r_break
+suffix:semicolon
+r_case
+id|S_IFDIR
+suffix:colon
+r_return
+id|resolve_gitlink_ref
+c_func
+(paren
+id|path
+comma
+l_string|&quot;HEAD&quot;
+comma
+id|sha1
+)paren
 suffix:semicolon
 r_default
 suffix:colon

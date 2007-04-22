@@ -417,6 +417,7 @@ id|dir
 r_int
 id|i
 suffix:semicolon
+multiline_comment|/*&n;&t; * Skip matching and unmerged entries for the paths,&n;&t; * since we want just &quot;others&quot;.&n;&t; *&n;&t; * (Matching entries are normally pruned during&n;&t; * the directory tree walk, but will show up for&n;&t; * gitlinks because we don&squot;t necessarily have&n;&t; * dir-&gt;show_other_directories set to suppress&n;&t; * them).&n;&t; */
 r_for
 c_loop
 (paren
@@ -432,7 +433,6 @@ id|i
 op_increment
 )paren
 (brace
-multiline_comment|/* We should not have a matching entry, but we&n;&t;&t; * may have an unmerged entry for this path.&n;&t;&t; */
 r_struct
 id|dir_entry
 op_star
@@ -444,6 +444,37 @@ id|i
 )braket
 suffix:semicolon
 r_int
+id|len
+comma
+id|pos
+suffix:semicolon
+r_struct
+id|cache_entry
+op_star
+id|ce
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Remove the &squot;/&squot; at the end that directory&n;&t;&t; * walking adds for directory entries.&n;&t;&t; */
+id|len
+op_assign
+id|ent-&gt;len
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|len
+op_logical_and
+id|ent-&gt;name
+(braket
+id|len
+op_minus
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+)paren
+id|len
+op_decrement
+suffix:semicolon
 id|pos
 op_assign
 id|cache_name_pos
@@ -451,13 +482,8 @@ c_func
 (paren
 id|ent-&gt;name
 comma
-id|ent-&gt;len
+id|len
 )paren
-suffix:semicolon
-r_struct
-id|cache_entry
-op_star
-id|ce
 suffix:semicolon
 r_if
 c_cond
@@ -466,12 +492,9 @@ l_int|0
 op_le
 id|pos
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;bug in show-other-files&quot;
-)paren
+r_continue
 suffix:semicolon
+multiline_comment|/* exact match */
 id|pos
 op_assign
 id|pos
@@ -501,7 +524,7 @@ c_func
 id|ce
 )paren
 op_eq
-id|ent-&gt;len
+id|len
 op_logical_and
 op_logical_neg
 id|memcmp
@@ -511,7 +534,7 @@ id|ce-&gt;name
 comma
 id|ent-&gt;name
 comma
-id|ent-&gt;len
+id|len
 )paren
 )paren
 r_continue
