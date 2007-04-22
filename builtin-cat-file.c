@@ -362,6 +362,14 @@ suffix:semicolon
 r_int
 id|opt
 suffix:semicolon
+r_const
+r_char
+op_star
+id|exp_type
+comma
+op_star
+id|obj_name
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -381,16 +389,27 @@ c_func
 l_string|&quot;git-cat-file [-t|-s|-e|-p|&lt;type&gt;] &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
+id|exp_type
+op_assign
+id|argv
+(braket
+l_int|1
+)braket
+suffix:semicolon
+id|obj_name
+op_assign
+id|argv
+(braket
+l_int|2
+)braket
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|get_sha1
 c_func
 (paren
-id|argv
-(braket
-l_int|2
-)braket
+id|obj_name
 comma
 id|sha1
 )paren
@@ -400,10 +419,7 @@ c_func
 (paren
 l_string|&quot;Not a valid object name %s&quot;
 comma
-id|argv
-(braket
-l_int|2
-)braket
+id|obj_name
 )paren
 suffix:semicolon
 id|opt
@@ -413,10 +429,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|argv
-(braket
-l_int|1
-)braket
+id|exp_type
 (braket
 l_int|0
 )braket
@@ -426,10 +439,7 @@ l_char|&squot;-&squot;
 (brace
 id|opt
 op_assign
-id|argv
-(braket
-l_int|1
-)braket
+id|exp_type
 (braket
 l_int|1
 )braket
@@ -440,10 +450,7 @@ c_cond
 op_logical_neg
 id|opt
 op_logical_or
-id|argv
-(braket
-l_int|1
-)braket
+id|exp_type
 (braket
 l_int|2
 )braket
@@ -574,10 +581,7 @@ c_func
 (paren
 l_string|&quot;Not a valid object name %s&quot;
 comma
-id|argv
-(braket
-l_int|2
-)braket
+id|obj_name
 )paren
 suffix:semicolon
 multiline_comment|/* custom pretty-print here */
@@ -588,19 +592,35 @@ id|type
 op_eq
 id|OBJ_TREE
 )paren
+(brace
+r_const
+r_char
+op_star
+id|ls_args
+(braket
+l_int|3
+)braket
+op_assign
+(brace
+l_string|&quot;ls-tree&quot;
+comma
+id|obj_name
+comma
+l_int|NULL
+)brace
+suffix:semicolon
 r_return
 id|cmd_ls_tree
 c_func
 (paren
 l_int|2
 comma
-id|argv
-op_plus
-l_int|1
+id|ls_args
 comma
 l_int|NULL
 )paren
 suffix:semicolon
+)brace
 id|buf
 op_assign
 id|read_sha1_file
@@ -626,10 +646,7 @@ c_func
 (paren
 l_string|&quot;Cannot read object %s&quot;
 comma
-id|argv
-(braket
-l_int|2
-)braket
+id|obj_name
 )paren
 suffix:semicolon
 r_if
@@ -667,10 +684,7 @@ c_func
 (paren
 id|sha1
 comma
-id|argv
-(braket
-l_int|1
-)braket
+id|exp_type
 comma
 op_amp
 id|size
@@ -687,10 +701,7 @@ c_func
 (paren
 l_string|&quot;git-cat-file: unknown option: %s&bslash;n&quot;
 comma
-id|argv
-(braket
-l_int|1
-)braket
+id|exp_type
 )paren
 suffix:semicolon
 )brace
@@ -705,10 +716,7 @@ c_func
 (paren
 l_string|&quot;git-cat-file %s: bad file&quot;
 comma
-id|argv
-(braket
-l_int|2
-)braket
+id|obj_name
 )paren
 suffix:semicolon
 id|write_or_die
