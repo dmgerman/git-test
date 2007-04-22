@@ -202,11 +202,7 @@ suffix:semicolon
 multiline_comment|/* Make sure everything reachable from idx is valid.  Since we&n;&t; * have verified that nr_objects matches between idx and pack,&n;&t; * we do not do scan-streaming check on the pack file.&n;&t; */
 id|nr_objects
 op_assign
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 suffix:semicolon
 r_for
 c_loop
@@ -415,11 +411,7 @@ id|MAX_CHAIN
 suffix:semicolon
 id|nr_objects
 op_assign
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 suffix:semicolon
 id|memset
 c_func

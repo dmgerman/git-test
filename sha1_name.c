@@ -456,11 +456,7 @@ id|p-&gt;next
 r_uint32
 id|num
 op_assign
-id|num_packed_objects
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;num_objects
 suffix:semicolon
 r_uint32
 id|first
