@@ -5133,6 +5133,10 @@ id|diffopts.recursive
 op_assign
 l_int|1
 suffix:semicolon
+id|diffopts.allow_external
+op_assign
+l_int|0
+suffix:semicolon
 id|show_log_first
 op_assign
 op_logical_neg
