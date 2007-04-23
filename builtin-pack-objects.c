@@ -9123,7 +9123,7 @@ id|mode
 suffix:semicolon
 id|mode
 op_assign
-l_int|0666
+l_int|0444
 op_amp
 op_complement
 id|mode
