@@ -115,6 +115,12 @@ id|old_sha1
 comma
 id|new_sha1
 )paren
+op_logical_and
+(paren
+id|old_mode
+op_eq
+id|new_mode
+)paren
 )paren
 r_return
 suffix:semicolon
