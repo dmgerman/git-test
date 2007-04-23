@@ -105,10 +105,15 @@ id|path
 comma
 id|next
 comma
-id|len
+id|prefix
 )paren
 )paren
 r_continue
+suffix:semicolon
+id|len
+op_assign
+id|prefix
+l_int|1
 suffix:semicolon
 r_for
 c_loop
