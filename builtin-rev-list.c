@@ -321,7 +321,7 @@ l_int|NULL
 comma
 l_int|NULL
 comma
-id|revs.relative_date
+id|revs.date_mode
 )paren
 suffix:semicolon
 id|printf

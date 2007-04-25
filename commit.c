@@ -2871,8 +2871,9 @@ r_char
 op_star
 id|line
 comma
-r_int
-id|relative_date
+r_enum
+id|date_mode
+id|dmode
 comma
 r_const
 r_char
@@ -3141,7 +3142,7 @@ id|time
 comma
 id|tz
 comma
-id|relative_date
+id|dmode
 )paren
 )paren
 suffix:semicolon
@@ -3195,7 +3196,7 @@ id|time
 comma
 id|tz
 comma
-id|relative_date
+id|dmode
 )paren
 )paren
 suffix:semicolon
@@ -5339,8 +5340,9 @@ r_char
 op_star
 id|after_subject
 comma
-r_int
-id|relative_date
+r_enum
+id|date_mode
+id|dmode
 )paren
 (brace
 r_int
@@ -5802,7 +5804,7 @@ id|line
 op_plus
 l_int|7
 comma
-id|relative_date
+id|dmode
 comma
 id|encoding
 )paren
@@ -5848,7 +5850,7 @@ id|line
 op_plus
 l_int|10
 comma
-id|relative_date
+id|dmode
 comma
 id|encoding
 )paren
