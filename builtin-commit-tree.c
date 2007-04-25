@@ -24,9 +24,8 @@ op_star
 id|sizep
 )paren
 (brace
-r_char
 op_star
-id|buf
+id|bufp
 op_assign
 id|xmalloc
 c_func
@@ -38,11 +37,6 @@ op_star
 id|sizep
 op_assign
 l_int|0
-suffix:semicolon
-op_star
-id|bufp
-op_assign
-id|buf
 suffix:semicolon
 )brace
 DECL|function|add_buffer
