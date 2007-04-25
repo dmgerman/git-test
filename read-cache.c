@@ -3882,7 +3882,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|fstat
 c_func
 (paren
@@ -3892,7 +3891,22 @@ op_amp
 id|st
 )paren
 )paren
-(brace
+id|die
+c_func
+(paren
+l_string|&quot;cannot stat the open index (%s)&quot;
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
+suffix:semicolon
+id|errno
+op_assign
+id|EINVAL
+suffix:semicolon
 id|istate-&gt;mmap_size
 op_assign
 id|xsize_t
@@ -3901,15 +3915,11 @@ c_func
 id|st.st_size
 )paren
 suffix:semicolon
-id|errno
-op_assign
-id|EINVAL
-suffix:semicolon
 r_if
 c_cond
 (paren
 id|istate-&gt;mmap_size
-op_ge
+OL
 r_sizeof
 (paren
 r_struct
@@ -3918,6 +3928,12 @@ id|cache_header
 op_plus
 l_int|20
 )paren
+id|die
+c_func
+(paren
+l_string|&quot;index file smaller than expected&quot;
+)paren
+suffix:semicolon
 id|istate-&gt;mmap
 op_assign
 id|xmmap
@@ -3936,27 +3952,6 @@ comma
 id|fd
 comma
 l_int|0
-)paren
-suffix:semicolon
-r_else
-id|die
-c_func
-(paren
-l_string|&quot;index file smaller than expected&quot;
-)paren
-suffix:semicolon
-)brace
-r_else
-id|die
-c_func
-(paren
-l_string|&quot;cannot stat the open index (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|close
