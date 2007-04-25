@@ -11,6 +11,7 @@ r_char
 op_star
 id|path
 comma
+r_const
 r_struct
 id|checkout
 op_star
@@ -555,6 +556,7 @@ r_char
 op_star
 id|path
 comma
+r_const
 r_struct
 id|checkout
 op_star
@@ -1061,6 +1063,7 @@ id|cache_entry
 op_star
 id|ce
 comma
+r_const
 r_struct
 id|checkout
 op_star
