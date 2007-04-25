@@ -224,9 +224,15 @@ id|dir
 id|die
 c_func
 (paren
-l_string|&quot;cannot opendir %s&quot;
+l_string|&quot;cannot opendir %s (%s)&quot;
 comma
 id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|strcpy
@@ -339,9 +345,15 @@ id|st
 id|die
 c_func
 (paren
-l_string|&quot;cannot lstat %s&quot;
+l_string|&quot;cannot lstat %s (%s)&quot;
 comma
 id|pathbuf
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -372,9 +384,15 @@ id|pathbuf
 id|die
 c_func
 (paren
-l_string|&quot;cannot unlink %s&quot;
+l_string|&quot;cannot unlink %s (%s)&quot;
 comma
 id|pathbuf
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -396,9 +414,15 @@ id|path
 id|die
 c_func
 (paren
-l_string|&quot;cannot rmdir %s&quot;
+l_string|&quot;cannot rmdir %s (%s)&quot;
 comma
 id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 )brace
