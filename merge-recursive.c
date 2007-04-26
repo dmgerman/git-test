@@ -7154,8 +7154,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|mfi.merge
-op_logical_and
 id|mfi.clean
 op_logical_and
 id|sha_eq
