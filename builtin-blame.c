@@ -11,6 +11,8 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
+macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;mailmap.h&quot;
 DECL|variable|blame_usage
 r_static
 r_char
@@ -18,12 +20,13 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-t] [-f] [-n] [-s] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
+l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-x] [-t] [-f] [-n] [-s] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
 l_string|&quot;  -c                  Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -b                  Show blank SHA-1 for boundary commits (Default: off)&bslash;n&quot;
 l_string|&quot;  -l                  Show long commit SHA1 (Default: off)&bslash;n&quot;
 l_string|&quot;  --root              Do not treat root commits as boundaries (Default: off)&bslash;n&quot;
 l_string|&quot;  -t                  Show raw timestamp (Default: off)&bslash;n&quot;
+l_string|&quot;  -x                  Do not use .mailmap file&bslash;n&quot;
 l_string|&quot;  -f, --show-name     Show original filename (Default: auto)&bslash;n&quot;
 l_string|&quot;  -n, --show-number   Show original linenumber (Default: off)&bslash;n&quot;
 l_string|&quot;  -s                  Suppress author name and timestamp (Default: off)&bslash;n&quot;
@@ -78,6 +81,17 @@ DECL|variable|cmd_is_annotate
 r_static
 r_int
 id|cmd_is_annotate
+suffix:semicolon
+DECL|variable|no_mailmap
+r_static
+r_int
+id|no_mailmap
+suffix:semicolon
+DECL|variable|mailmap
+r_static
+r_struct
+id|path_list
+id|mailmap
 suffix:semicolon
 macro_line|#ifndef DEBUG
 DECL|macro|DEBUG
@@ -5382,6 +5396,10 @@ id|tz
 (brace
 r_int
 id|len
+comma
+id|tzlen
+comma
+id|maillen
 suffix:semicolon
 r_char
 op_star
@@ -5389,6 +5407,9 @@ id|tmp
 comma
 op_star
 id|endp
+comma
+op_star
+id|timepos
 suffix:semicolon
 id|tmp
 op_assign
@@ -5515,6 +5536,20 @@ id|tmp
 op_plus
 l_int|1
 suffix:semicolon
+id|tzlen
+op_assign
+(paren
+id|person
+op_plus
+id|len
+)paren
+op_minus
+(paren
+id|tmp
+op_plus
+l_int|1
+)paren
+suffix:semicolon
 op_star
 id|tmp
 op_assign
@@ -5544,6 +5579,10 @@ comma
 l_int|10
 )paren
 suffix:semicolon
+id|timepos
+op_assign
+id|tmp
+suffix:semicolon
 op_star
 id|tmp
 op_assign
@@ -5571,6 +5610,106 @@ op_star
 id|tmp
 op_assign
 l_int|0
+suffix:semicolon
+id|maillen
+op_assign
+id|timepos
+id|tmp
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|mailmap.nr
+)paren
+r_return
+suffix:semicolon
+multiline_comment|/*&n;&t; * mailmap expansion may make the name longer.&n;&t; * make room by pushing stuff down.&n;&t; */
+id|tmp
+op_assign
+id|person
+op_plus
+id|bufsz
+(paren
+id|tzlen
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+id|memmove
+c_func
+(paren
+id|tmp
+comma
+op_star
+id|tz
+comma
+id|tzlen
+)paren
+suffix:semicolon
+id|tmp
+(braket
+id|tzlen
+)braket
+op_assign
+l_int|0
+suffix:semicolon
+op_star
+id|tz
+op_assign
+id|tmp
+suffix:semicolon
+id|tmp
+op_assign
+id|tmp
+(paren
+id|maillen
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+id|memmove
+c_func
+(paren
+id|tmp
+comma
+op_star
+id|mail
+comma
+id|maillen
+)paren
+suffix:semicolon
+id|tmp
+(braket
+id|maillen
+)braket
+op_assign
+l_int|0
+suffix:semicolon
+op_star
+id|mail
+op_assign
+id|tmp
+suffix:semicolon
+multiline_comment|/*&n;&t; * Now, convert e-mail using mailmap&n;&t; */
+id|map_email
+c_func
+(paren
+op_amp
+id|mailmap
+comma
+id|tmp
+op_plus
+l_int|1
+comma
+id|person
+comma
+id|tmp
+op_minus
+id|person
+op_minus
+l_int|1
+)paren
 suffix:semicolon
 )brace
 DECL|function|get_commit_info
@@ -10069,6 +10208,32 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;-x&quot;
+comma
+id|arg
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--no-mailmap&quot;
+comma
+id|arg
+)paren
+)paren
+id|no_mailmap
+op_assign
+l_int|1
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;--&quot;
 comma
 id|arg
@@ -10956,6 +11121,32 @@ c_func
 (paren
 id|errno
 )paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|no_mailmap
+op_logical_and
+op_logical_neg
+id|access
+c_func
+(paren
+l_string|&quot;.mailmap&quot;
+comma
+id|R_OK
+)paren
+)paren
+id|read_mailmap
+c_func
+(paren
+op_amp
+id|mailmap
+comma
+l_string|&quot;.mailmap&quot;
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|assign_blame
