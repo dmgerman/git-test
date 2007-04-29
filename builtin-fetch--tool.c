@@ -172,9 +172,6 @@ op_star
 id|oldval
 )paren
 (brace
-r_int
-id|len
-suffix:semicolon
 r_char
 id|msg
 (braket
@@ -207,8 +204,6 @@ id|rla
 op_assign
 l_string|&quot;(reflog update)&quot;
 suffix:semicolon
-id|len
-op_assign
 id|snprintf
 c_func
 (paren
@@ -224,22 +219,6 @@ comma
 id|rla
 comma
 id|action
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-r_sizeof
-(paren
-id|msg
-)paren
-op_le
-id|len
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;insanely long action&quot;
 )paren
 suffix:semicolon
 id|lock

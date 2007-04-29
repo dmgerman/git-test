@@ -1419,6 +1419,10 @@ c_func
 id|pragma_header
 )paren
 suffix:semicolon
+id|pragma_header
+op_assign
+l_int|NULL
+suffix:semicolon
 )brace
 DECL|function|get_active_slot
 r_struct

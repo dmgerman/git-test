@@ -782,6 +782,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|has_empty_name
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|has_zero_pad
 op_assign
 l_int|0
@@ -889,6 +894,17 @@ l_char|&squot;/&squot;
 )paren
 )paren
 id|has_full_path
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|name
+)paren
+id|has_empty_name
 op_assign
 l_int|1
 suffix:semicolon
@@ -1045,6 +1061,22 @@ op_amp
 id|item-&gt;object
 comma
 l_string|&quot;contains full pathnames&quot;
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|has_empty_name
+)paren
+(brace
+id|objwarning
+c_func
+(paren
+op_amp
+id|item-&gt;object
+comma
+l_string|&quot;contains empty pathname&quot;
 )paren
 suffix:semicolon
 )brace
