@@ -2851,6 +2851,9 @@ r_struct
 id|packed_git
 op_star
 id|current
+comma
+r_int
+id|keep_fd
 )paren
 (brace
 r_struct
@@ -2962,9 +2965,9 @@ c_cond
 op_logical_neg
 id|lru_p-&gt;windows
 op_logical_and
-id|lru_p
+id|lru_p-&gt;pack_fd
 op_ne
-id|current
+id|keep_fd
 )paren
 (brace
 id|close
@@ -3003,6 +3006,9 @@ c_func
 (paren
 r_int
 id|need
+comma
+r_int
+id|fd
 )paren
 (brace
 r_int
@@ -3024,6 +3030,8 @@ id|unuse_one_window
 c_func
 (paren
 l_int|NULL
+comma
+id|fd
 )paren
 )paren
 suffix:semicolon
@@ -3735,6 +3743,8 @@ id|unuse_one_window
 c_func
 (paren
 id|p
+comma
+id|p-&gt;pack_fd
 )paren
 )paren
 suffix:semicolon
