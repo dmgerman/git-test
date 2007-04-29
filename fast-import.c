@@ -6162,6 +6162,18 @@ c_func
 id|p
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|n
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Empty path component found in input&quot;
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
