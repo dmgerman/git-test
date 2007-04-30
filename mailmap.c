@@ -129,6 +129,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|repo_abbrev
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|len
 op_logical_and
 id|buffer
