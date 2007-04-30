@@ -11128,15 +11128,6 @@ c_cond
 (paren
 op_logical_neg
 id|no_mailmap
-op_logical_and
-op_logical_neg
-id|access
-c_func
-(paren
-l_string|&quot;.mailmap&quot;
-comma
-id|R_OK
-)paren
 )paren
 id|read_mailmap
 c_func
