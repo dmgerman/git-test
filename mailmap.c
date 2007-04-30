@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;mailmap.h&quot;
 DECL|function|read_mailmap
 r_int
 id|read_mailmap
