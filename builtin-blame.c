@@ -20,13 +20,12 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-x] [-t] [-f] [-n] [-s] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
+l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-t] [-f] [-n] [-s] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
 l_string|&quot;  -c                  Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -b                  Show blank SHA-1 for boundary commits (Default: off)&bslash;n&quot;
 l_string|&quot;  -l                  Show long commit SHA1 (Default: off)&bslash;n&quot;
 l_string|&quot;  --root              Do not treat root commits as boundaries (Default: off)&bslash;n&quot;
 l_string|&quot;  -t                  Show raw timestamp (Default: off)&bslash;n&quot;
-l_string|&quot;  -x                  Do not use .mailmap file&bslash;n&quot;
 l_string|&quot;  -f, --show-name     Show original filename (Default: auto)&bslash;n&quot;
 l_string|&quot;  -n, --show-number   Show original linenumber (Default: off)&bslash;n&quot;
 l_string|&quot;  -s                  Suppress author name and timestamp (Default: off)&bslash;n&quot;
@@ -81,11 +80,6 @@ DECL|variable|cmd_is_annotate
 r_static
 r_int
 id|cmd_is_annotate
-suffix:semicolon
-DECL|variable|no_mailmap
-r_static
-r_int
-id|no_mailmap
 suffix:semicolon
 DECL|variable|mailmap
 r_static
@@ -10208,32 +10202,6 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-l_string|&quot;-x&quot;
-comma
-id|arg
-)paren
-op_logical_or
-op_logical_neg
-id|strcmp
-c_func
-(paren
-l_string|&quot;--no-mailmap&quot;
-comma
-id|arg
-)paren
-)paren
-id|no_mailmap
-op_assign
-l_int|1
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
 l_string|&quot;--&quot;
 comma
 id|arg
@@ -11123,12 +11091,6 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|no_mailmap
-)paren
 id|read_mailmap
 c_func
 (paren
