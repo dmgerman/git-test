@@ -3548,6 +3548,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|eol
+id|line
+OG
+id|key_len
+op_logical_and
 op_logical_neg
 id|strncmp
 c_func
