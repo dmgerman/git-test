@@ -1109,12 +1109,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|opt-&gt;left_right
-)paren
-(brace
-r_if
-c_cond
-(paren
 id|commit-&gt;object.flags
 op_amp
 id|BOUNDARY
@@ -1126,6 +1120,12 @@ l_char|&squot;-&squot;
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|opt-&gt;left_right
+)paren
+(brace
 r_if
 c_cond
 (paren
