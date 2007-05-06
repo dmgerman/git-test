@@ -104,6 +104,8 @@ DECL|macro|PICKAXE_BLAME_COPY
 mdefine_line|#define PICKAXE_BLAME_COPY&t;&t;02
 DECL|macro|PICKAXE_BLAME_COPY_HARDER
 mdefine_line|#define PICKAXE_BLAME_COPY_HARDER&t;04
+DECL|macro|PICKAXE_BLAME_COPY_HARDEST
+mdefine_line|#define PICKAXE_BLAME_COPY_HARDEST&t;010
 multiline_comment|/*&n; * blame for a blame_entry with score lower than these thresholds&n; * is not passed to the parent using move/copy logic.&n; */
 DECL|variable|blame_move_score
 r_static
@@ -4371,6 +4373,13 @@ c_cond
 (paren
 id|opt
 op_amp
+id|PICKAXE_BLAME_COPY_HARDEST
+)paren
+op_logical_or
+(paren
+(paren
+id|opt
+op_amp
 id|PICKAXE_BLAME_COPY_HARDER
 )paren
 op_logical_and
@@ -4384,6 +4393,7 @@ c_func
 id|target-&gt;path
 comma
 id|porigin-&gt;path
+)paren
 )paren
 )paren
 )paren
@@ -9861,6 +9871,18 @@ l_string|&quot;-C&quot;
 )paren
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * -C enables copy from removed files;&n;&t;&t;&t; * -C -C enables copy from existing files, but only&n;&t;&t;&t; *       when blaming a new file;&n;&t;&t;&t; * -C -C -C enables copy from existing files for&n;&t;&t;&t; *          everybody&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|opt
+op_amp
+id|PICKAXE_BLAME_COPY_HARDER
+)paren
+id|opt
+op_or_assign
+id|PICKAXE_BLAME_COPY_HARDEST
+suffix:semicolon
 r_if
 c_cond
 (paren
