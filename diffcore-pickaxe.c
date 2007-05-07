@@ -187,6 +187,12 @@ suffix:semicolon
 )brace
 )brace
 )brace
+id|diff_free_filespec_data
+c_func
+(paren
+id|one
+)paren
+suffix:semicolon
 r_return
 id|cnt
 suffix:semicolon
