@@ -216,7 +216,7 @@ r_static
 r_int
 id|depth
 op_assign
-l_int|10
+l_int|50
 suffix:semicolon
 DECL|variable|pack_to_stdout
 r_static
