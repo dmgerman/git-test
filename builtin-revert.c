@@ -1358,6 +1358,21 @@ comma
 op_star
 id|encoding
 suffix:semicolon
+r_const
+r_char
+op_star
+id|defmsg
+op_assign
+id|xstrdup
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;MERGE_MSG&quot;
+)paren
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -1539,7 +1554,7 @@ c_func
 op_amp
 id|msg_file
 comma
-l_string|&quot;.msg&quot;
+id|defmsg
 comma
 l_int|1
 )paren
@@ -1826,17 +1841,6 @@ l_int|NULL
 )paren
 )paren
 (brace
-r_const
-r_char
-op_star
-id|target
-op_assign
-id|git_path
-c_func
-(paren
-l_string|&quot;MERGE_MSG&quot;
-)paren
-suffix:semicolon
 id|add_to_msg
 c_func
 (paren
@@ -1946,31 +1950,9 @@ l_int|0
 )paren
 id|die
 (paren
-l_string|&quot;Error wrapping up .msg&quot;
-)paren
-suffix:semicolon
-id|unlink
-c_func
-(paren
-id|target
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|rename
-c_func
-(paren
-l_string|&quot;.msg&quot;
+l_string|&quot;Error wrapping up %s&quot;
 comma
-id|target
-)paren
-)paren
-id|die
-(paren
-l_string|&quot;Could not move .msg to %s&quot;
-comma
-id|target
+id|defmsg
 )paren
 suffix:semicolon
 id|fprintf
@@ -2038,7 +2020,9 @@ l_int|0
 )paren
 id|die
 (paren
-l_string|&quot;Error wrapping up .msg&quot;
+l_string|&quot;Error wrapping up %s&quot;
+comma
+id|defmsg
 )paren
 suffix:semicolon
 id|fprintf
@@ -2072,12 +2056,6 @@ l_string|&quot;commit&quot;
 comma
 l_string|&quot;-n&quot;
 comma
-l_string|&quot;-F&quot;
-comma
-l_string|&quot;.msg&quot;
-comma
-l_string|&quot;-e&quot;
-comma
 l_int|NULL
 )paren
 suffix:semicolon
@@ -2092,7 +2070,7 @@ l_string|&quot;-n&quot;
 comma
 l_string|&quot;-F&quot;
 comma
-l_string|&quot;.msg&quot;
+id|defmsg
 comma
 l_int|NULL
 )paren
