@@ -1185,6 +1185,8 @@ c_func
 id|ref
 comma
 id|sha1
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

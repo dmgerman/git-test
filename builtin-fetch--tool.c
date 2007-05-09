@@ -229,6 +229,8 @@ c_func
 id|refname
 comma
 id|oldval
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
