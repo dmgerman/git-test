@@ -1683,6 +1683,12 @@ comma
 id|minimum_score
 )paren
 suffix:semicolon
+id|diff_free_filespec_data
+c_func
+(paren
+id|one
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/* We do not need the text anymore */
 id|diff_free_filespec_data
