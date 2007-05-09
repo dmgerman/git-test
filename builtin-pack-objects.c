@@ -21,7 +21,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--local] [--incremental] [--window=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--delta-base-offset] [--non-empty] &bslash;n&bslash;&n;&t;[--revs [--unpacked | --all]*] [--reflog] [--stdout | base-name] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--local] [--incremental] [--window=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--no-reuse-object] [--delta-base-offset] &bslash;n&bslash;&n;&t;[--non-empty] [--revs [--unpacked | --all]*] [--reflog] &bslash;n&bslash;&n;&t;[--stdout | base-name] [&lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -150,9 +150,12 @@ r_int
 id|non_empty
 suffix:semicolon
 DECL|variable|no_reuse_delta
+DECL|variable|no_reuse_object
 r_static
 r_int
 id|no_reuse_delta
+comma
+id|no_reuse_object
 suffix:semicolon
 DECL|variable|local
 r_static
@@ -1978,6 +1981,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|no_reuse_object
+)paren
+id|to_reuse
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* explicit */
+r_else
+r_if
+c_cond
+(paren
 op_logical_neg
 id|entry-&gt;in_pack
 )paren
@@ -2036,6 +2050,9 @@ multiline_comment|/* we have it in-pack undeltified,&n;&t;&t;&t;&t; * and we do 
 r_if
 c_cond
 (paren
+op_logical_neg
+id|no_reuse_object
+op_logical_and
 op_logical_neg
 id|entry-&gt;in_pack
 op_logical_and
@@ -5824,7 +5841,7 @@ op_amp
 id|avail
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We want in_pack_type even if we do not reuse delta.&n;&t;&t; * There is no point not reusing non-delta representations.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We want in_pack_type even if we do not reuse delta&n;&t;&t; * since non-delta representations could still be reused.&n;&t;&t; */
 id|used
 op_assign
 id|unpack_object_header_gently
@@ -8457,6 +8474,28 @@ id|arg
 )paren
 )paren
 (brace
+id|no_reuse_delta
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--no-reuse-object&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|no_reuse_object
+op_assign
 id|no_reuse_delta
 op_assign
 l_int|1
