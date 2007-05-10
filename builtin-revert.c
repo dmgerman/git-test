@@ -762,7 +762,7 @@ l_int|0
 )paren
 id|die
 (paren
-l_string|&quot;Could not write to .msg&quot;
+l_string|&quot;Could not write to MERGE_MSG&quot;
 )paren
 suffix:semicolon
 )brace
