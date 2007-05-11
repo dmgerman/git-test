@@ -821,6 +821,12 @@ c_func
 (paren
 id|mode
 )paren
+op_logical_or
+id|S_ISDIRLNK
+c_func
+(paren
+id|mode
+)paren
 )paren
 (brace
 op_star
@@ -1603,6 +1609,12 @@ r_if
 c_cond
 (paren
 id|S_ISDIR
+c_func
+(paren
+id|mode
+)paren
+op_logical_or
+id|S_ISDIRLNK
 c_func
 (paren
 id|mode
