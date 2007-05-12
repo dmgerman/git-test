@@ -4,6 +4,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;remote.h&quot;
 DECL|variable|send_pack_usage
 r_static
 r_const

@@ -9,6 +9,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;remote.h&quot;
 macro_line|#include &lt;expat.h&gt;
 DECL|variable|http_push_usage
 r_static
