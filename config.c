@@ -2262,6 +2262,14 @@ op_star
 id|value
 )paren
 (brace
+r_const
+r_char
+op_star
+id|ep
+suffix:semicolon
+r_int
+id|section_len
+suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -2347,17 +2355,39 @@ suffix:semicolon
 r_case
 id|SECTION_SEEN
 suffix:colon
+multiline_comment|/*&n;&t;&t; * What we are looking for is in store.key (both&n;&t;&t; * section and var), and its section part is baselen&n;&t;&t; * long.  We found key (again, both section and var).&n;&t;&t; * We would want to know if this key is in the same&n;&t;&t; * section as what we are looking for.  We already&n;&t;&t; * know we are in the same section as what should&n;&t;&t; * hold store.key.&n;&t;&t; */
+id|ep
+op_assign
+id|strrchr
+c_func
+(paren
+id|key
+comma
+l_char|&squot;.&squot;
+)paren
+suffix:semicolon
+id|section_len
+op_assign
+id|ep
+id|key
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|strncmp
+(paren
+id|section_len
+op_ne
+id|store.baselen
+)paren
+op_logical_or
+id|memcmp
 c_func
 (paren
 id|key
 comma
 id|store.key
 comma
-id|store.baselen
+id|section_len
 op_plus
 l_int|1
 )paren
@@ -2370,8 +2400,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-r_else
-multiline_comment|/* do not increment matches: this is no match */
+multiline_comment|/*&n;&t;&t; * Do not increment matches: this is no match, but we&n;&t;&t; * just made sure we are in the desired section.&n;&t;&t; */
 id|store.offset
 (braket
 id|store.seen
