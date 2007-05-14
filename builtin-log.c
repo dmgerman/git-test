@@ -2402,7 +2402,7 @@ id|rev.extra_headers
 op_assign
 id|extra_headers
 suffix:semicolon
-multiline_comment|/*&n;&t; * Parse the arguments before setup_revisions(), or something&n;&t; * like &quot;git fmt-patch -o a123 HEAD^..&quot; may fail; a123 is&n;&t; * possibly a valid SHA1.&n;&t; */
+multiline_comment|/*&n;&t; * Parse the arguments before setup_revisions(), or something&n;&t; * like &quot;git format-patch -o a123 HEAD^..&quot; may fail; a123 is&n;&t; * possibly a valid SHA1.&n;&t; */
 r_for
 c_loop
 (paren
