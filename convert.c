@@ -1835,7 +1835,7 @@ r_int
 id|size
 )paren
 (brace
-multiline_comment|/*&n;&t; * &quot;$ident: 0000000000000000000000000000000000000000 $&quot; &lt;=&gt; &quot;$ident$&quot;&n;&t; */
+multiline_comment|/*&n;&t; * &quot;$Id: 0000000000000000000000000000000000000000 $&quot; &lt;=&gt; &quot;$Id$&quot;&n;&t; */
 r_int
 id|cnt
 op_assign
@@ -1873,7 +1873,7 @@ c_cond
 (paren
 id|size
 OL
-l_int|6
+l_int|3
 )paren
 r_break
 suffix:semicolon
@@ -1883,11 +1883,11 @@ c_cond
 id|memcmp
 c_func
 (paren
-l_string|&quot;ident&quot;
+l_string|&quot;Id&quot;
 comma
 id|cp
 comma
-l_int|5
+l_int|2
 )paren
 )paren
 r_continue
@@ -1896,16 +1896,16 @@ id|ch
 op_assign
 id|cp
 (braket
-l_int|5
+l_int|2
 )braket
 suffix:semicolon
 id|cp
 op_add_assign
-l_int|6
+l_int|3
 suffix:semicolon
 id|size
 op_sub_assign
-l_int|6
+l_int|3
 suffix:semicolon
 r_if
 c_cond
@@ -1917,7 +1917,7 @@ l_char|&squot;$&squot;
 id|cnt
 op_increment
 suffix:semicolon
-multiline_comment|/* $ident$ */
+multiline_comment|/* $Id$ */
 r_if
 c_cond
 (paren
@@ -1927,7 +1927,7 @@ l_char|&squot;:&squot;
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * &quot;$ident: ... &quot;; scan up to the closing dollar sign and discard.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * &quot;$Id: ... &quot;; scan up to the closing dollar sign and discard.&n;&t;&t; */
 r_while
 c_loop
 (paren
@@ -2080,7 +2080,7 @@ l_char|&squot;$&squot;
 )paren
 op_logical_and
 (paren
-l_int|6
+l_int|3
 op_le
 id|size
 )paren
@@ -2089,11 +2089,11 @@ op_logical_neg
 id|memcmp
 c_func
 (paren
-l_string|&quot;ident:&quot;
+l_string|&quot;Id:&quot;
 comma
 id|src
 comma
-l_int|6
+l_int|3
 )paren
 )paren
 (brace
@@ -2102,7 +2102,7 @@ r_int
 id|rem
 op_assign
 id|size
-l_int|6
+l_int|3
 suffix:semicolon
 r_const
 r_char
@@ -2111,7 +2111,7 @@ id|cp
 op_assign
 id|src
 op_plus
-l_int|6
+l_int|3
 suffix:semicolon
 r_do
 (brace
@@ -2153,14 +2153,14 @@ c_func
 (paren
 id|dst
 comma
-l_string|&quot;ident$&quot;
+l_string|&quot;Id$&quot;
 comma
-l_int|6
+l_int|3
 )paren
 suffix:semicolon
 id|dst
 op_add_assign
-l_int|6
+l_int|3
 suffix:semicolon
 id|size
 op_sub_assign
@@ -2332,17 +2332,17 @@ op_logical_or
 (paren
 id|size
 OL
-l_int|6
+l_int|3
 )paren
 op_logical_or
 id|memcmp
 c_func
 (paren
-l_string|&quot;ident&quot;
+l_string|&quot;Id&quot;
 comma
 id|src
 comma
-l_int|5
+l_int|2
 )paren
 )paren
 r_continue
@@ -2352,7 +2352,7 @@ c_cond
 (paren
 id|src
 (braket
-l_int|5
+l_int|2
 )braket
 op_eq
 l_char|&squot;:&squot;
@@ -2364,13 +2364,13 @@ r_int
 id|rem
 op_assign
 id|size
-l_int|6
+l_int|3
 suffix:semicolon
 id|cp
 op_assign
 id|src
 op_plus
-l_int|6
+l_int|3
 suffix:semicolon
 r_do
 (brace
@@ -2421,7 +2421,7 @@ c_cond
 (paren
 id|src
 (braket
-l_int|5
+l_int|2
 )braket
 op_eq
 l_char|&squot;$&squot;
@@ -2430,7 +2430,7 @@ id|cp
 op_assign
 id|src
 op_plus
-l_int|5
+l_int|2
 suffix:semicolon
 r_else
 r_continue
@@ -2440,14 +2440,14 @@ c_func
 (paren
 id|dst
 comma
-l_string|&quot;ident: &quot;
+l_string|&quot;Id: &quot;
 comma
-l_int|7
+l_int|4
 )paren
 suffix:semicolon
 id|dst
 op_add_assign
-l_int|7
+l_int|4
 suffix:semicolon
 id|memcpy
 c_func
