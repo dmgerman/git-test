@@ -5969,6 +5969,7 @@ r_char
 op_star
 id|header_fmt
 op_assign
+l_string|&quot;MIME-Version: 1.0&bslash;n&quot;
 l_string|&quot;Content-Type: text/plain; charset=%s&bslash;n&quot;
 l_string|&quot;Content-Transfer-Encoding: 8bit&bslash;n&quot;
 suffix:semicolon
