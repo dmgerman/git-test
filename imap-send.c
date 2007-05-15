@@ -863,7 +863,7 @@ r_int
 id|len
 )paren
 (brace
-r_int
+id|ssize_t
 id|n
 op_assign
 id|xread

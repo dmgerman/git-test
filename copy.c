@@ -17,9 +17,6 @@ c_loop
 l_int|1
 )paren
 (brace
-r_int
-id|len
-suffix:semicolon
 r_char
 id|buffer
 (braket
@@ -32,6 +29,7 @@ id|buf
 op_assign
 id|buffer
 suffix:semicolon
+id|ssize_t
 id|len
 op_assign
 id|xread

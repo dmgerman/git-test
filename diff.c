@@ -7794,7 +7794,7 @@ r_int
 r_int
 id|size
 suffix:semicolon
-r_int
+id|ssize_t
 id|got
 suffix:semicolon
 id|size

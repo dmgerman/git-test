@@ -11877,7 +11877,7 @@ op_assign
 op_star
 id|return_size
 suffix:semicolon
-r_int
+id|ssize_t
 id|iret
 suffix:semicolon
 r_int

@@ -401,7 +401,7 @@ id|fd_out
 r_char
 id|type
 suffix:semicolon
-r_int
+id|ssize_t
 id|retval
 suffix:semicolon
 r_do

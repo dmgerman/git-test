@@ -296,7 +296,7 @@ c_func
 suffix:semicolon
 r_do
 (brace
-r_int
+id|ssize_t
 id|ret
 op_assign
 id|xread

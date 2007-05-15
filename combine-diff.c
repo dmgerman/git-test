@@ -3680,7 +3680,7 @@ OL
 id|len
 )paren
 (brace
-r_int
+id|ssize_t
 id|done
 op_assign
 id|xread

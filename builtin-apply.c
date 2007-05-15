@@ -735,7 +735,7 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
-r_int
+id|ssize_t
 id|nr
 op_assign
 id|alloc
@@ -6851,7 +6851,7 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
-r_int
+id|ssize_t
 id|ret
 op_assign
 id|xread

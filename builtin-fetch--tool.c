@@ -34,7 +34,7 @@ c_loop
 l_int|1
 )paren
 (brace
-r_int
+id|ssize_t
 id|cnt
 op_assign
 id|xread

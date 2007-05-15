@@ -208,7 +208,7 @@ id|i
 op_increment
 )paren
 (brace
-r_int
+id|ssize_t
 id|count
 op_assign
 id|xread
