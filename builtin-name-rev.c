@@ -275,7 +275,21 @@ c_func
 (paren
 id|len
 op_plus
-l_int|8
+l_int|1
+op_plus
+id|decimal_length
+c_func
+(paren
+id|generation
+)paren
+op_plus
+multiline_comment|/* ~&lt;n&gt; */
+l_int|1
+op_plus
+l_int|2
+op_plus
+multiline_comment|/* ^NN */
+l_int|1
 )paren
 suffix:semicolon
 r_if
