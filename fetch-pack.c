@@ -3869,6 +3869,13 @@ comma
 id|dest
 comma
 id|uploadpack
+comma
+id|verbose
+ques
+c_cond
+id|CONNECT_VERBOSE
+suffix:colon
+l_int|0
 )paren
 suffix:semicolon
 r_if
