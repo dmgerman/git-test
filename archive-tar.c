@@ -350,6 +350,8 @@ r_if
 c_cond
 (paren
 id|total
+op_plus
+l_int|1
 OG
 id|sb-&gt;alloc
 )paren
@@ -362,11 +364,15 @@ c_func
 id|sb-&gt;buf
 comma
 id|total
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|sb-&gt;alloc
 op_assign
 id|total
+op_plus
+l_int|1
 suffix:semicolon
 )brace
 id|memcpy
@@ -384,6 +390,13 @@ suffix:semicolon
 id|sb-&gt;len
 op_assign
 id|total
+suffix:semicolon
+id|sb-&gt;buf
+(braket
+id|total
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * pax extended header records have the format &quot;%u %s=%s&bslash;n&quot;.  %u contains&n; * the size of the whole string (including the %u), the first %s is the&n; * keyword, the second one is the value.  This function constructs such a&n; * string and appends it to a struct strbuf.&n; */
@@ -1552,6 +1565,8 @@ OL
 id|baselen
 op_plus
 id|filenamelen
+op_plus
+l_int|1
 )paren
 (brace
 id|free
@@ -1568,6 +1583,8 @@ c_func
 id|baselen
 op_plus
 id|filenamelen
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|path.alloc
@@ -1575,6 +1592,8 @@ op_assign
 id|baselen
 op_plus
 id|filenamelen
+op_plus
+l_int|1
 suffix:semicolon
 )brace
 id|memcpy
@@ -1604,6 +1623,13 @@ op_assign
 id|baselen
 op_plus
 id|filenamelen
+suffix:semicolon
+id|path.buf
+(braket
+id|path.len
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 r_if
 c_cond
@@ -1643,10 +1669,14 @@ r_else
 (brace
 id|buffer
 op_assign
-id|read_sha1_file
+id|convert_sha1_file
 c_func
 (paren
+id|path.buf
+comma
 id|sha1
+comma
+id|mode
 comma
 op_amp
 id|type

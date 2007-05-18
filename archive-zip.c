@@ -1061,10 +1061,14 @@ l_int|0
 suffix:semicolon
 id|buffer
 op_assign
-id|read_sha1_file
+id|convert_sha1_file
 c_func
 (paren
+id|path
+comma
 id|sha1
+comma
+id|mode
 comma
 op_amp
 id|type
