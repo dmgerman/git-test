@@ -3349,9 +3349,6 @@ id|builtin_branch_usage
 suffix:semicolon
 id|head
 op_assign
-id|xstrdup
-c_func
-(paren
 id|resolve_ref
 c_func
 (paren
@@ -3362,7 +3359,6 @@ comma
 l_int|0
 comma
 l_int|NULL
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -3375,6 +3371,14 @@ id|die
 c_func
 (paren
 l_string|&quot;Failed to resolve HEAD as a valid ref.&quot;
+)paren
+suffix:semicolon
+id|head
+op_assign
+id|xstrdup
+c_func
+(paren
+id|head
 )paren
 suffix:semicolon
 r_if
