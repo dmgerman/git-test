@@ -200,6 +200,8 @@ comma
 id|url
 comma
 id|exec
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
