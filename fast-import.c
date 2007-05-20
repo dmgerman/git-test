@@ -6615,6 +6615,8 @@ c_func
 id|b-&gt;name
 comma
 id|old_sha1
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

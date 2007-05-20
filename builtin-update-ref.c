@@ -9,7 +9,7 @@ id|git_update_ref_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-update-ref [-m &lt;reason&gt;] (-d &lt;refname&gt; &lt;value&gt; | &lt;refname&gt; &lt;value&gt; [&lt;oldval&gt;])&quot;
+l_string|&quot;git-update-ref [-m &lt;reason&gt;] (-d &lt;refname&gt; &lt;value&gt; | [--no-deref] &lt;refname&gt; &lt;value&gt; [&lt;oldval&gt;])&quot;
 suffix:semicolon
 DECL|function|cmd_update_ref
 r_int
@@ -74,8 +74,14 @@ r_int
 id|i
 comma
 r_delete
+comma
+id|ref_flags
 suffix:semicolon
 r_delete
+op_assign
+l_int|0
+suffix:semicolon
+id|ref_flags
 op_assign
 l_int|0
 suffix:semicolon
@@ -191,6 +197,29 @@ id|i
 r_delete
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--no-deref&quot;
+comma
+id|argv
+(braket
+id|i
+)braket
+)paren
+)paren
+(brace
+id|ref_flags
+op_or_assign
+id|REF_NODEREF
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -351,6 +380,8 @@ c_cond
 id|oldsha1
 suffix:colon
 l_int|NULL
+comma
+id|ref_flags
 )paren
 suffix:semicolon
 r_if
