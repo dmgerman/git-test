@@ -86,7 +86,15 @@ DECL|variable|zlib_compression_level
 r_int
 id|zlib_compression_level
 op_assign
-id|Z_DEFAULT_COMPRESSION
+id|Z_BEST_SPEED
+suffix:semicolon
+DECL|variable|core_compression_level
+r_int
+id|core_compression_level
+suffix:semicolon
+DECL|variable|core_compression_seen
+r_int
+id|core_compression_seen
 suffix:semicolon
 DECL|variable|packed_git_window_size
 r_int

@@ -637,6 +637,9 @@ comma
 r_int
 r_int
 id|size
+comma
+r_int
+id|level
 )paren
 (brace
 id|z_stream
@@ -670,7 +673,7 @@ c_func
 op_amp
 id|stream
 comma
-id|zlib_compression_level
+id|level
 )paren
 suffix:semicolon
 id|maxsize
