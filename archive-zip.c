@@ -953,7 +953,7 @@ c_func
 id|mode
 )paren
 op_logical_or
-id|S_ISDIRLNK
+id|S_ISGITLINK
 c_func
 (paren
 id|mode

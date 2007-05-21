@@ -968,7 +968,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|S_IFDIRLNK
+id|S_IFGITLINK
 suffix:colon
 r_if
 c_cond
@@ -1215,7 +1215,7 @@ multiline_comment|/* If it is a gitlink, leave it alone! */
 r_if
 c_cond
 (paren
-id|S_ISDIRLNK
+id|S_ISGITLINK
 c_func
 (paren
 id|ntohl

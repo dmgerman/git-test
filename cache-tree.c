@@ -1613,7 +1613,7 @@ c_cond
 (paren
 id|mode
 op_ne
-id|S_IFDIRLNK
+id|S_IFGITLINK
 op_logical_and
 op_logical_neg
 id|missing_ok

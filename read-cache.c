@@ -365,7 +365,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * We don&squot;t actually require that the .git directory&n;&t; * under DIRLNK directory be a valid git directory. It&n;&t; * might even be missing (in case nobody populated that&n;&t; * sub-project).&n;&t; *&n;&t; * If so, we consider it always to match.&n;&t; */
+multiline_comment|/*&n;&t; * We don&squot;t actually require that the .git directory&n;&t; * under GITLINK directory be a valid git directory. It&n;&t; * might even be missing (in case nobody populated that&n;&t; * sub-project).&n;&t; *&n;&t; * If so, we consider it always to match.&n;&t; */
 r_if
 c_cond
 (paren
@@ -467,7 +467,7 @@ suffix:colon
 r_if
 c_cond
 (paren
-id|S_ISDIRLNK
+id|S_ISGITLINK
 c_func
 (paren
 id|ntohl
@@ -599,7 +599,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|S_IFDIRLNK
+id|S_IFGITLINK
 suffix:colon
 r_if
 c_cond

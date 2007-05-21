@@ -512,7 +512,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|S_ISDIRLNK
+id|S_ISGITLINK
 c_func
 (paren
 id|ntohl
@@ -734,7 +734,7 @@ c_cond
 (paren
 id|ce
 op_logical_and
-id|S_ISDIRLNK
+id|S_ISGITLINK
 c_func
 (paren
 id|ntohl

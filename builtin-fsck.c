@@ -950,7 +950,7 @@ r_case
 id|S_IFDIR
 suffix:colon
 r_case
-id|S_IFDIRLNK
+id|S_IFGITLINK
 suffix:colon
 r_break
 suffix:semicolon
@@ -3256,7 +3256,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|S_ISDIRLNK
+id|S_ISGITLINK
 c_func
 (paren
 id|mode
