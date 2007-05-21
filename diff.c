@@ -1037,8 +1037,6 @@ r_return
 id|external_diff_cmd
 suffix:semicolon
 )brace
-DECL|macro|TEMPFILE_PATH_LEN
-mdefine_line|#define TEMPFILE_PATH_LEN&t;&t;50
 DECL|struct|diff_tempfile
 r_static
 r_struct
@@ -1069,7 +1067,7 @@ DECL|member|tmp_path
 r_char
 id|tmp_path
 (braket
-id|TEMPFILE_PATH_LEN
+id|PATH_MAX
 )braket
 suffix:semicolon
 DECL|variable|diff_temp
@@ -8490,7 +8488,7 @@ c_func
 (paren
 id|temp-&gt;tmp_path
 comma
-id|TEMPFILE_PATH_LEN
+id|PATH_MAX
 comma
 l_string|&quot;.diff_XXXXXX&quot;
 )paren
