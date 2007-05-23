@@ -7064,13 +7064,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|m-&gt;entry-&gt;no_try_delta
-)paren
-r_continue
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|try_delta
 c_func
 (paren
