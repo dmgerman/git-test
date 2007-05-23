@@ -4870,6 +4870,10 @@ r_if
 c_cond
 (paren
 id|myoe
+op_logical_and
+id|myoe-&gt;pack_id
+op_ne
+id|MAX_PACK_ID
 )paren
 (brace
 r_if
