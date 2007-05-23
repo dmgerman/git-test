@@ -309,6 +309,10 @@ id|progress_update
 op_assign
 l_int|0
 suffix:semicolon
+id|progress-&gt;need_lf
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
@@ -336,6 +340,10 @@ suffix:semicolon
 id|progress_update
 op_assign
 l_int|0
+suffix:semicolon
+id|progress-&gt;need_lf
+op_assign
+l_int|1
 suffix:semicolon
 r_return
 l_int|1
@@ -388,6 +396,10 @@ op_assign
 l_int|1
 suffix:semicolon
 id|progress-&gt;delay
+op_assign
+l_int|0
+suffix:semicolon
+id|progress-&gt;need_lf
 op_assign
 l_int|0
 suffix:semicolon
@@ -479,6 +491,10 @@ id|progress-&gt;delay
 op_assign
 id|delay
 suffix:semicolon
+id|progress-&gt;need_lf
+op_assign
+l_int|0
+suffix:semicolon
 id|set_progress_signal
 c_func
 (paren
@@ -504,7 +520,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|progress-&gt;total
+id|progress-&gt;need_lf
 )paren
 id|fputc
 c_func
