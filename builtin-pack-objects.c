@@ -3568,6 +3568,7 @@ comma
 id|nr_result
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * We have scanned through [0 ... i).  Since we have written&n;&t; * the correct number of objects,  the remaining [i ... nr_objects)&n;&t; * items must be either already written (due to out-of-order delta base)&n;&t; * or a preferred base.  Count those which are neither and complain if any.&n;&t; */
 r_for
 c_loop
 (paren
@@ -9418,6 +9419,19 @@ id|usage
 c_func
 (paren
 id|pack_usage
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|pack_to_stdout
+op_logical_and
+id|pack_size_limit
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--max-pack-size cannot be used to build a pack for transfer.&quot;
 )paren
 suffix:semicolon
 r_if
