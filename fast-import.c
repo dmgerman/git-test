@@ -5659,6 +5659,10 @@ id|lo.depth
 op_assign
 l_int|0
 suffix:semicolon
+id|lo.no_free
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_else
 (brace
