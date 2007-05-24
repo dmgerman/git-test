@@ -41,6 +41,8 @@ op_assign
 (brace
 l_string|&quot;pack-refs&quot;
 comma
+l_string|&quot;--all&quot;
+comma
 l_string|&quot;--prune&quot;
 comma
 l_int|NULL
