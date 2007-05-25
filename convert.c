@@ -2295,6 +2295,7 @@ r_char
 op_star
 id|cp
 suffix:semicolon
+multiline_comment|/* Fetch next source character, move the pointer on */
 r_char
 id|ch
 op_assign
@@ -2302,12 +2303,14 @@ op_star
 id|src
 op_increment
 suffix:semicolon
+multiline_comment|/* Copy the current character to the destination */
 op_star
 id|dst
 op_increment
 op_assign
 id|ch
 suffix:semicolon
+multiline_comment|/* If the current character is &quot;$&quot; or there are less than three&n;&t;&t; * remaining bytes or the two bytes following this one are not&n;&t;&t; * &quot;Id&quot;, then simply read the next character */
 r_if
 c_cond
 (paren
@@ -2335,6 +2338,8 @@ l_int|2
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Here when&n;&t;&t; *  - There are more than 2 bytes remaining&n;&t;&t; *  - The current three bytes are &quot;$Id&quot;&n;&t;&t; * with&n;&t;&t; *  - ch == &quot;$&quot;&n;&t;&t; *  - src[0] == &quot;I&quot;&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * It&squot;s possible that an expanded Id has crept its way into the&n;&t;&t; * repository, we cope with that by stripping the expansion out&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2346,6 +2351,7 @@ op_eq
 l_char|&squot;:&squot;
 )paren
 (brace
+multiline_comment|/* Expanded keywords have &quot;$Id:&quot; at the front */
 multiline_comment|/* discard up to but not including the closing $ */
 r_int
 r_int
@@ -2354,19 +2360,20 @@ op_assign
 id|size
 l_int|3
 suffix:semicolon
+multiline_comment|/* Point at first byte after the &quot;:&quot; */
 id|cp
 op_assign
 id|src
 op_plus
 l_int|3
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Throw away characters until either&n;&t;&t;&t; *  - we reach a &quot;$&quot;&n;&t;&t;&t; *  - we run out of bytes (rem == 0)&n;&t;&t;&t; */
 r_do
 (brace
 id|ch
 op_assign
 op_star
 id|cp
-op_increment
 suffix:semicolon
 r_if
 c_cond
@@ -2376,6 +2383,9 @@ op_eq
 l_char|&squot;$&squot;
 )paren
 r_break
+suffix:semicolon
+id|cp
+op_increment
 suffix:semicolon
 id|rem
 op_decrement
@@ -2387,6 +2397,7 @@ c_loop
 id|rem
 )paren
 suffix:semicolon
+multiline_comment|/* If the above finished because it ran out of characters, then&n;&t;&t;&t; * this is an incomplete keyword, so don&squot;t run the expansion */
 r_if
 c_cond
 (paren
@@ -2394,13 +2405,6 @@ op_logical_neg
 id|rem
 )paren
 r_continue
-suffix:semicolon
-id|size
-op_sub_assign
-(paren
-id|cp
-id|src
-)paren
 suffix:semicolon
 )brace
 r_else
@@ -2421,8 +2425,10 @@ op_plus
 l_int|2
 suffix:semicolon
 r_else
+multiline_comment|/* Anything other than &quot;$Id:XXX$&quot; or $Id$ and we skip the&n;&t;&t;&t; * expansion */
 r_continue
 suffix:semicolon
+multiline_comment|/* cp is now pointing at the last $ of the keyword */
 id|memcpy
 c_func
 (paren
@@ -2461,6 +2467,7 @@ op_increment
 op_assign
 l_char|&squot; &squot;
 suffix:semicolon
+multiline_comment|/* Adjust for the characters we&squot;ve discarded */
 id|size
 op_sub_assign
 (paren
@@ -2472,6 +2479,7 @@ id|src
 op_assign
 id|cp
 suffix:semicolon
+multiline_comment|/* Copy the final &quot;$&quot; */
 op_star
 id|dst
 op_increment
