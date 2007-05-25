@@ -939,6 +939,12 @@ OL
 l_int|0
 )paren
 (brace
+id|free
+c_func
+(paren
+id|buffer
+)paren
+suffix:semicolon
 id|error
 c_func
 (paren
