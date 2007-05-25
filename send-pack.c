@@ -1645,6 +1645,10 @@ r_case
 l_int|2
 suffix:colon
 multiline_comment|/* ok but a single level -- that is fine for&n;&t;&t;&t;  * a match pattern.&n;&t;&t;&t;  */
+r_case
+l_int|3
+suffix:colon
+multiline_comment|/* ok but ends with a pattern-match character */
 r_continue
 suffix:semicolon
 )brace
