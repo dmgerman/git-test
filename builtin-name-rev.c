@@ -3,6 +3,8 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;refs.h&quot;
+DECL|macro|CUTOFF_DATE_SLOP
+mdefine_line|#define CUTOFF_DATE_SLOP 86400 /* one day */
 DECL|variable|name_rev_usage
 r_static
 r_const
@@ -1183,6 +1185,16 @@ id|revs
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|cutoff
+)paren
+id|cutoff
+op_assign
+id|cutoff
+id|CUTOFF_DATE_SLOP
+suffix:semicolon
 id|for_each_ref
 c_func
 (paren
