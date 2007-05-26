@@ -7617,7 +7617,7 @@ id|sha1
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * Given a name and sha1 pair, if the dircache tells us the file in&n; * the work tree has that object contents, return true, so that&n; * prepare_temp_file() does not have to inflate and extract.&n; */
+multiline_comment|/*&n; * Given a name and sha1 pair, if the index tells us the file in&n; * the work tree has that object contents, return true, so that&n; * prepare_temp_file() does not have to inflate and extract.&n; */
 DECL|function|reuse_worktree_file
 r_static
 r_int
