@@ -736,6 +736,11 @@ id|packed_sha1
 l_int|20
 )braket
 suffix:semicolon
+id|prepare_alt_odb
+c_func
+(paren
+)paren
+suffix:semicolon
 id|has_unpacked
 op_assign
 id|find_short_object_filename
@@ -3617,11 +3622,6 @@ op_star
 id|mode
 op_assign
 id|S_IFINVALID
-suffix:semicolon
-id|prepare_alt_odb
-c_func
-(paren
-)paren
 suffix:semicolon
 id|ret
 op_assign
