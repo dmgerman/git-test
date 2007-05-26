@@ -386,7 +386,7 @@ id|err
 suffix:semicolon
 )brace
 DECL|macro|MAX_CHAIN
-mdefine_line|#define MAX_CHAIN 40
+mdefine_line|#define MAX_CHAIN 50
 DECL|function|show_pack_info
 r_static
 r_void
@@ -407,6 +407,8 @@ comma
 id|chain_histogram
 (braket
 id|MAX_CHAIN
+op_plus
+l_int|1
 )braket
 suffix:semicolon
 id|nr_objects
@@ -605,7 +607,7 @@ r_if
 c_cond
 (paren
 id|delta_chain_length
-OL
+op_le
 id|MAX_CHAIN
 )paren
 id|chain_histogram
@@ -631,7 +633,7 @@ op_assign
 l_int|0
 suffix:semicolon
 id|i
-OL
+op_le
 id|MAX_CHAIN
 suffix:semicolon
 id|i
@@ -652,33 +654,21 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;chain length %s %d: %d object%s&bslash;n&quot;
+l_string|&quot;chain length = %d: %d object%s&bslash;n&quot;
 comma
 id|i
-ques
-c_cond
-l_string|&quot;=&quot;
-suffix:colon
-l_string|&quot;&gt;=&quot;
-comma
-id|i
-ques
-c_cond
-id|i
-suffix:colon
-id|MAX_CHAIN
 comma
 id|chain_histogram
 (braket
 id|i
 )braket
 comma
+id|chain_histogram
+(braket
+id|i
+)braket
+OG
 l_int|1
-OL
-id|chain_histogram
-(braket
-id|i
-)braket
 ques
 c_cond
 l_string|&quot;s&quot;
@@ -687,6 +677,39 @@ l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|chain_histogram
+(braket
+l_int|0
+)braket
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;chain length &gt; %d: %d object%s&bslash;n&quot;
+comma
+id|MAX_CHAIN
+comma
+id|chain_histogram
+(braket
+l_int|0
+)braket
+comma
+id|chain_histogram
+(braket
+l_int|0
+)braket
+OG
+l_int|1
+ques
+c_cond
+l_string|&quot;s&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
+suffix:semicolon
 )brace
 DECL|function|verify_pack
 r_int
