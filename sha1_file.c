@@ -2170,6 +2170,13 @@ r_char
 op_star
 id|alt
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|alt_odb_tail
+)paren
+r_return
+suffix:semicolon
 id|alt
 op_assign
 id|getenv
@@ -2187,13 +2194,6 @@ id|alt
 id|alt
 op_assign
 l_string|&quot;&quot;
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|alt_odb_tail
-)paren
-r_return
 suffix:semicolon
 id|alt_odb_tail
 op_assign
