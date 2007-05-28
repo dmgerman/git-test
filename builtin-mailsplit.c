@@ -1421,6 +1421,13 @@ suffix:semicolon
 )brace
 id|num
 op_add_assign
+(paren
+id|ret
+id|nr
+)paren
+suffix:semicolon
+id|nr
+op_assign
 id|ret
 suffix:semicolon
 r_continue
@@ -1521,6 +1528,13 @@ suffix:semicolon
 )brace
 id|num
 op_add_assign
+(paren
+id|ret
+id|nr
+)paren
+suffix:semicolon
+id|nr
+op_assign
 id|ret
 suffix:semicolon
 )brace
