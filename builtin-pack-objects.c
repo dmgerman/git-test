@@ -7409,12 +7409,30 @@ c_cond
 op_logical_neg
 id|src-&gt;index
 )paren
-id|die
+(brace
+r_static
+r_int
+id|warned
+op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|warned
+op_increment
+)paren
+id|warning
 c_func
 (paren
-l_string|&quot;out of memory&quot;
+l_string|&quot;suboptimal pack - out of memory&quot;
 )paren
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 )brace
 id|delta_buf
 op_assign
