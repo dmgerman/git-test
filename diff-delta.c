@@ -2505,7 +2505,7 @@ r_break
 suffix:semicolon
 id|out
 op_assign
-id|xrealloc
+id|realloc
 c_func
 (paren
 id|out
