@@ -121,7 +121,7 @@ op_star
 id|result
 comma
 r_int
-id|update
+id|final
 )paren
 (brace
 r_int
@@ -154,7 +154,21 @@ comma
 id|offset
 )paren
 suffix:semicolon
+id|f-&gt;offset
+op_assign
+l_int|0
+suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|final
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* only want to flush (no checksum write, no close) */
 id|SHA1_Final
 c_func
 (paren
@@ -177,11 +191,6 @@ comma
 id|f-&gt;buffer
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|update
-)paren
 id|sha1flush
 c_func
 (paren
