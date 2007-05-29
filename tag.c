@@ -162,7 +162,7 @@ id|OBJ_TAG
 id|error
 c_func
 (paren
-l_string|&quot;Object %s is a %s, not a tree&quot;
+l_string|&quot;Object %s is a %s, not a tag&quot;
 comma
 id|sha1_to_hex
 c_func
