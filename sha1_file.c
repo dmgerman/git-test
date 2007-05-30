@@ -40,6 +40,7 @@ op_assign
 id|O_NOATIME
 suffix:semicolon
 DECL|variable|hexval_table
+r_const
 r_int
 r_char
 id|hexval_table
