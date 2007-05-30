@@ -418,6 +418,7 @@ op_mul_assign
 l_int|85
 )paren
 )paren
+r_return
 id|error
 c_func
 (paren
