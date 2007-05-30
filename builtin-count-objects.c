@@ -714,9 +714,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|p-&gt;index_data
-op_logical_and
 id|open_pack_index
 c_func
 (paren
