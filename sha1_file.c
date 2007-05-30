@@ -2917,6 +2917,7 @@ suffix:semicolon
 DECL|function|open_pack_index
 r_int
 id|open_pack_index
+c_func
 (paren
 r_struct
 id|packed_git
