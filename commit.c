@@ -2781,6 +2781,7 @@ id|i
 op_amp
 l_int|0xFF
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * We encode &squot; &squot; using &squot;=20&squot; even though rfc2047&n;&t;&t; * allows using &squot;_&squot; for readability.  Unfortunately,&n;&t;&t; * many programs do not understand this and just&n;&t;&t; * leave the underscore in place.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2789,6 +2790,10 @@ c_func
 (paren
 id|ch
 )paren
+op_logical_or
+id|ch
+op_eq
+l_char|&squot; &squot;
 )paren
 (brace
 id|sprintf
@@ -2806,20 +2811,6 @@ op_add_assign
 l_int|3
 suffix:semicolon
 )brace
-r_else
-r_if
-c_cond
-(paren
-id|ch
-op_eq
-l_char|&squot; &squot;
-)paren
-op_star
-id|bp
-op_increment
-op_assign
-l_char|&squot;_&squot;
-suffix:semicolon
 r_else
 op_star
 id|bp
