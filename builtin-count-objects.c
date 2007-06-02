@@ -711,6 +711,17 @@ id|p-&gt;pack_local
 )paren
 r_continue
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|open_pack_index
+c_func
+(paren
+id|p
+)paren
+)paren
+r_continue
+suffix:semicolon
 id|packed
 op_add_assign
 id|p-&gt;num_objects
