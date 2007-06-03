@@ -1300,8 +1300,8 @@ mdefine_line|#define RUN_SETUP&t;(1&lt;&lt;0)
 DECL|macro|USE_PAGER
 mdefine_line|#define USE_PAGER&t;(1&lt;&lt;1)
 multiline_comment|/*&n; * require working tree to be present -- anything uses this needs&n; * RUN_SETUP for reading from the configuration file.&n; */
-DECL|macro|NOT_BARE
-mdefine_line|#define NOT_BARE &t;(1&lt;&lt;2)
+DECL|macro|NEED_WORK_TREE
+mdefine_line|#define NEED_WORK_TREE&t;(1&lt;&lt;2)
 DECL|function|handle_internal_command
 r_static
 r_void
@@ -1376,7 +1376,7 @@ id|cmd_add
 comma
 id|RUN_SETUP
 op_or
-id|NOT_BARE
+id|NEED_WORK_TREE
 )brace
 comma
 (brace
@@ -1452,7 +1452,7 @@ id|cmd_check_attr
 comma
 id|RUN_SETUP
 op_or
-id|NOT_BARE
+id|NEED_WORK_TREE
 )brace
 comma
 (brace
@@ -1470,7 +1470,7 @@ id|cmd_cherry_pick
 comma
 id|RUN_SETUP
 op_or
-id|NOT_BARE
+id|NEED_WORK_TREE
 )brace
 comma
 (brace
@@ -1682,7 +1682,7 @@ id|cmd_mv
 comma
 id|RUN_SETUP
 op_or
-id|NOT_BARE
+id|NEED_WORK_TREE
 )brace
 comma
 (brace
@@ -1788,7 +1788,7 @@ id|cmd_revert
 comma
 id|RUN_SETUP
 op_or
-id|NOT_BARE
+id|NEED_WORK_TREE
 )brace
 comma
 (brace
@@ -1798,7 +1798,7 @@ id|cmd_rm
 comma
 id|RUN_SETUP
 op_or
-id|NOT_BARE
+id|NEED_WORK_TREE
 )brace
 comma
 (brace
@@ -1808,7 +1808,7 @@ id|cmd_runstatus
 comma
 id|RUN_SETUP
 op_or
-id|NOT_BARE
+id|NEED_WORK_TREE
 )brace
 comma
 (brace
@@ -2063,11 +2063,12 @@ c_cond
 (paren
 id|p-&gt;option
 op_amp
-id|NOT_BARE
+id|NEED_WORK_TREE
 )paren
 op_logical_and
 (paren
-id|is_bare_repository
+op_logical_neg
+id|is_inside_work_tree
 c_func
 (paren
 )paren

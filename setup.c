@@ -438,6 +438,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|is_inside_work_tree
+c_func
+(paren
+)paren
+op_logical_or
 id|is_inside_git_dir
 c_func
 (paren

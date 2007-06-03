@@ -2541,7 +2541,8 @@ c_cond
 id|require_work_tree
 op_logical_and
 (paren
-id|is_bare_repository
+op_logical_neg
+id|is_inside_work_tree
 c_func
 (paren
 )paren
