@@ -171,10 +171,10 @@ id|squelch_whitespace_errors
 op_assign
 l_int|5
 suffix:semicolon
-DECL|variable|applied_after_stripping
+DECL|variable|applied_after_fixing_ws
 r_static
 r_int
-id|applied_after_stripping
+id|applied_after_fixing_ws
 suffix:semicolon
 DECL|variable|patch_input_file
 r_static
@@ -7745,7 +7745,7 @@ c_cond
 (paren
 id|fixed
 )paren
-id|applied_after_stripping
+id|applied_after_fixing_ws
 op_increment
 suffix:semicolon
 r_return
@@ -13986,7 +13986,7 @@ id|error_on_whitespace
 id|die
 c_func
 (paren
-l_string|&quot;%d line%s add%s trailing whitespaces.&quot;
+l_string|&quot;%d line%s add%s whitespace errors.&quot;
 comma
 id|whitespace_error
 comma
@@ -14012,7 +14012,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|applied_after_stripping
+id|applied_after_fixing_ws
 )paren
 id|fprintf
 c_func
@@ -14020,11 +14020,11 @@ c_func
 id|stderr
 comma
 l_string|&quot;warning: %d line%s applied after&quot;
-l_string|&quot; stripping trailing whitespaces.&bslash;n&quot;
+l_string|&quot; fixing whitespace errors.&bslash;n&quot;
 comma
-id|applied_after_stripping
+id|applied_after_fixing_ws
 comma
-id|applied_after_stripping
+id|applied_after_fixing_ws
 op_eq
 l_int|1
 ques
@@ -14045,8 +14045,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;warning: %d line%s add%s trailing&quot;
-l_string|&quot; whitespaces.&bslash;n&quot;
+l_string|&quot;warning: %d line%s add%s whitespace errors.&bslash;n&quot;
 comma
 id|whitespace_error
 comma
