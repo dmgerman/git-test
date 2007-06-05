@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;grep.h&quot;
+macro_line|#include &quot;xdiff-interface.h&quot;
 DECL|function|append_grep_pattern
 r_void
 id|append_grep_pattern
@@ -1143,50 +1144,6 @@ id|bol
 )paren
 comma
 id|bol
-)paren
-suffix:semicolon
-)brace
-multiline_comment|/*&n; * NEEDSWORK: share code with diff.c&n; */
-DECL|macro|FIRST_FEW_BYTES
-mdefine_line|#define FIRST_FEW_BYTES 8000
-DECL|function|buffer_is_binary
-r_static
-r_int
-id|buffer_is_binary
-c_func
-(paren
-r_const
-r_char
-op_star
-id|ptr
-comma
-r_int
-r_int
-id|size
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|FIRST_FEW_BYTES
-OL
-id|size
-)paren
-id|size
-op_assign
-id|FIRST_FEW_BYTES
-suffix:semicolon
-r_return
-op_logical_neg
-op_logical_neg
-id|memchr
-c_func
-(paren
-id|ptr
-comma
-l_int|0
-comma
-id|size
 )paren
 suffix:semicolon
 )brace
