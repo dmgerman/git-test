@@ -944,11 +944,7 @@ id|email
 )paren
 id|email
 op_assign
-id|getenv
-c_func
-(paren
-l_string|&quot;EMAIL&quot;
-)paren
+id|git_default_email
 suffix:semicolon
 r_if
 c_cond
@@ -958,7 +954,11 @@ id|email
 )paren
 id|email
 op_assign
-id|git_default_email
+id|getenv
+c_func
+(paren
+l_string|&quot;EMAIL&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
