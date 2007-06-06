@@ -1231,6 +1231,26 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|gitdirenv
+op_assign
+id|getenv
+c_func
+(paren
+id|GIT_DIR_ENVIRONMENT
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|gitdirenv
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;getenv after setenv failed&quot;
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -1443,6 +1463,18 @@ id|getenv
 c_func
 (paren
 id|GIT_DIR_ENVIRONMENT
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|gitdirenv
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;getenv after setenv failed&quot;
 )paren
 suffix:semicolon
 r_if
