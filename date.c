@@ -2356,13 +2356,13 @@ comma
 l_int|10
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Seconds since 1970? We trigger on that for anything after Jan 1, 2000&n;&t; */
+multiline_comment|/*&n;&t; * Seconds since 1970? We trigger on that for any numbers with&n;&t; * more than 8 digits. This is because we don&squot;t want to rule out&n;&t; * numbers like 20070606 as a YYYYMMDD date.&n;&t; */
 r_if
 c_cond
 (paren
 id|num
-OG
-l_int|946684800
+op_ge
+l_int|100000000
 )paren
 (brace
 id|time_t
