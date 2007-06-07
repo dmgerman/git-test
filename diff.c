@@ -16211,7 +16211,7 @@ comma
 op_star
 id|two
 suffix:semicolon
-multiline_comment|/* This may look odd, but it is a preparation for&n;&t; * feeding &quot;there are unchanged files which should&n;&t; * not produce diffs, but when you are doing copy&n;&t; * detection you would need them, so here they are&quot;&n;&t; * entries to the diff-core.  They will be prefixed&n;&t; * with something like &squot;=&squot; or &squot;*&squot; (I haven&squot;t decided&n;&t; * which but should not make any difference).&n;&t; * Feeding the same new and old to diff_change() &n;&t; * also has the same effect.&n;&t; * Before the final output happens, they are pruned after&n;&t; * merged into rename/copy pairs as appropriate.&n;&t; */
+multiline_comment|/* This may look odd, but it is a preparation for&n;&t; * feeding &quot;there are unchanged files which should&n;&t; * not produce diffs, but when you are doing copy&n;&t; * detection you would need them, so here they are&quot;&n;&t; * entries to the diff-core.  They will be prefixed&n;&t; * with something like &squot;=&squot; or &squot;*&squot; (I haven&squot;t decided&n;&t; * which but should not make any difference).&n;&t; * Feeding the same new and old to diff_change()&n;&t; * also has the same effect.&n;&t; * Before the final output happens, they are pruned after&n;&t; * merged into rename/copy pairs as appropriate.&n;&t; */
 r_if
 c_cond
 (paren

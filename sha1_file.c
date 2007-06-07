@@ -5924,7 +5924,7 @@ r_int
 r_int
 id|size
 suffix:semicolon
-multiline_comment|/*&n;&t; * The type can be at most ten bytes (including the &n;&t; * terminating &squot;&bslash;0&squot; that we add), and is followed by&n;&t; * a space.&n;&t; */
+multiline_comment|/*&n;&t; * The type can be at most ten bytes (including the&n;&t; * terminating &squot;&bslash;0&squot; that we add), and is followed by&n;&t; * a space.&n;&t; */
 id|i
 op_assign
 l_int|0

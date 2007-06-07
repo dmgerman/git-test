@@ -6536,7 +6536,7 @@ op_assign
 id|next-&gt;next
 suffix:semicolon
 )brace
-multiline_comment|/* &n;         * find the tips&n;         *&n;         * tips are nodes not reachable from any other node in the list &n;         * &n;         * the tips serve as a starting set for the work queue.&n;         */
+multiline_comment|/*&n;         * find the tips&n;         *&n;         * tips are nodes not reachable from any other node in the list&n;         *&n;         * the tips serve as a starting set for the work queue.&n;         */
 id|next
 op_assign
 op_star
@@ -6686,7 +6686,7 @@ c_cond
 id|pn
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t;&t; * parents are only enqueued for emission &n;                                 * when all their children have been emitted thereby&n;                                 * guaranteeing topological order.&n;                                 */
+multiline_comment|/*&n;&t;&t;&t;&t; * parents are only enqueued for emission&n;                                 * when all their children have been emitted thereby&n;                                 * guaranteeing topological order.&n;                                 */
 id|pn-&gt;indegree
 op_decrement
 suffix:semicolon

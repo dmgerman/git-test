@@ -462,7 +462,7 @@ id|sl
 comma
 id|ndot
 suffix:semicolon
-multiline_comment|/* &n;&t; * This resurrects the belts and suspenders paranoia check by HPA&n;&t; * done in &lt;435560F7.4080006@zytor.com&gt; thread, now enter_repo()&n;&t; * does not do getcwd() based path canonicalizations.&n;&t; *&n;&t; * sl becomes true immediately after seeing &squot;/&squot; and continues to&n;&t; * be true as long as dots continue after that without intervening&n;&t; * non-dot character.&n;&t; */
+multiline_comment|/*&n;&t; * This resurrects the belts and suspenders paranoia check by HPA&n;&t; * done in &lt;435560F7.4080006@zytor.com&gt; thread, now enter_repo()&n;&t; * does not do getcwd() based path canonicalizations.&n;&t; *&n;&t; * sl becomes true immediately after seeing &squot;/&squot; and continues to&n;&t; * be true as long as dots continue after that without intervening&n;&t; * non-dot character.&n;&t; */
 r_if
 c_cond
 (paren
@@ -966,7 +966,7 @@ c_func
 id|path
 )paren
 suffix:semicolon
-multiline_comment|/* The validation is done on the paths after enter_repo&n;&t;&t; * appends optional {.git,.git/.git} and friends, but &n;&t;&t; * it does not use getcwd().  So if your /pub is&n;&t;&t; * a symlink to /mnt/pub, you can whitelist /pub and&n;&t;&t; * do not have to say /mnt/pub.&n;&t;&t; * Do not say /pub/.&n;&t;&t; */
+multiline_comment|/* The validation is done on the paths after enter_repo&n;&t;&t; * appends optional {.git,.git/.git} and friends, but&n;&t;&t; * it does not use getcwd().  So if your /pub is&n;&t;&t; * a symlink to /mnt/pub, you can whitelist /pub and&n;&t;&t; * do not have to say /mnt/pub.&n;&t;&t; * Do not say /pub/.&n;&t;&t; */
 r_for
 c_loop
 (paren

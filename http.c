@@ -701,7 +701,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-macro_line|#ifdef USE_CURL_MULTI&t;
+macro_line|#ifdef USE_CURL_MULTI
 r_if
 c_cond
 (paren

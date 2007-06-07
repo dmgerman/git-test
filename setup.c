@@ -227,7 +227,7 @@ r_return
 id|path
 suffix:semicolon
 )brace
-multiline_comment|/* &n; * Unlike prefix_path, this should be used if the named file does&n; * not have to interact with index entry; i.e. name of a random file&n; * on the filesystem.&n; */
+multiline_comment|/*&n; * Unlike prefix_path, this should be used if the named file does&n; * not have to interact with index entry; i.e. name of a random file&n; * on the filesystem.&n; */
 DECL|function|prefix_filename
 r_const
 r_char

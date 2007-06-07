@@ -2306,7 +2306,7 @@ id|end
 id|date
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * We&squot;ve seen a digit. Time? Year? Date? &n; */
+multiline_comment|/*&n; * We&squot;ve seen a digit. Time? Year? Date?&n; */
 DECL|function|match_digit
 r_static
 r_int

@@ -709,7 +709,7 @@ id|changed
 op_or_assign
 id|CTIME_CHANGED
 suffix:semicolon
-macro_line|#endif&t;
+macro_line|#endif
 r_if
 c_cond
 (paren
@@ -2647,7 +2647,7 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-multiline_comment|/* We may be in a situation where we already have path/file and path&n; * is being added, or we already have path and path/file is being&n; * added.  Either one would result in a nonsense tree that has path&n; * twice when git-write-tree tries to write it out.  Prevent it.&n; * &n; * If ok-to-replace is specified, we remove the conflicting entries&n; * from the cache so the caller should recompute the insert position.&n; * When this happens, we return non-zero.&n; */
+multiline_comment|/* We may be in a situation where we already have path/file and path&n; * is being added, or we already have path and path/file is being&n; * added.  Either one would result in a nonsense tree that has path&n; * twice when git-write-tree tries to write it out.  Prevent it.&n; *&n; * If ok-to-replace is specified, we remove the conflicting entries&n; * from the cache so the caller should recompute the insert position.&n; * When this happens, we return non-zero.&n; */
 DECL|function|check_file_directory_conflict
 r_static
 r_int
@@ -4720,7 +4720,7 @@ id|st
 )paren
 )paren
 (brace
-multiline_comment|/* This is &quot;racily clean&quot;; smudge it.  Note that this&n;&t;&t; * is a tricky code.  At first glance, it may appear&n;&t;&t; * that it can break with this sequence:&n;&t;&t; *&n;&t;&t; * $ echo xyzzy &gt;frotz&n;&t;&t; * $ git-update-index --add frotz&n;&t;&t; * $ : &gt;frotz&n;&t;&t; * $ sleep 3&n;&t;&t; * $ echo filfre &gt;nitfol&n;&t;&t; * $ git-update-index --add nitfol&n;&t;&t; *&n;&t;&t; * but it does not.  When the second update-index runs,&n;&t;&t; * it notices that the entry &quot;frotz&quot; has the same timestamp&n;&t;&t; * as index, and if we were to smudge it by resetting its&n;&t;&t; * size to zero here, then the object name recorded&n;&t;&t; * in index is the 6-byte file but the cached stat information&n;&t;&t; * becomes zero --- which would then match what we would&n;&t;&t; * obtain from the filesystem next time we stat(&quot;frotz&quot;). &n;&t;&t; *&n;&t;&t; * However, the second update-index, before calling&n;&t;&t; * this function, notices that the cached size is 6&n;&t;&t; * bytes and what is on the filesystem is an empty&n;&t;&t; * file, and never calls us, so the cached size information&n;&t;&t; * for &quot;frotz&quot; stays 6 which does not match the filesystem.&n;&t;&t; */
+multiline_comment|/* This is &quot;racily clean&quot;; smudge it.  Note that this&n;&t;&t; * is a tricky code.  At first glance, it may appear&n;&t;&t; * that it can break with this sequence:&n;&t;&t; *&n;&t;&t; * $ echo xyzzy &gt;frotz&n;&t;&t; * $ git-update-index --add frotz&n;&t;&t; * $ : &gt;frotz&n;&t;&t; * $ sleep 3&n;&t;&t; * $ echo filfre &gt;nitfol&n;&t;&t; * $ git-update-index --add nitfol&n;&t;&t; *&n;&t;&t; * but it does not.  When the second update-index runs,&n;&t;&t; * it notices that the entry &quot;frotz&quot; has the same timestamp&n;&t;&t; * as index, and if we were to smudge it by resetting its&n;&t;&t; * size to zero here, then the object name recorded&n;&t;&t; * in index is the 6-byte file but the cached stat information&n;&t;&t; * becomes zero --- which would then match what we would&n;&t;&t; * obtain from the filesystem next time we stat(&quot;frotz&quot;).&n;&t;&t; *&n;&t;&t; * However, the second update-index, before calling&n;&t;&t; * this function, notices that the cached size is 6&n;&t;&t; * bytes and what is on the filesystem is an empty&n;&t;&t; * file, and never calls us, so the cached size information&n;&t;&t; * for &quot;frotz&quot; stays 6 which does not match the filesystem.&n;&t;&t; */
 id|ce-&gt;ce_size
 op_assign
 id|htonl

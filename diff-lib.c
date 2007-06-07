@@ -3553,7 +3553,7 @@ id|match_missing
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* &n;&t; * Backward compatibility wart - &quot;diff-index -m&quot; does&n;&t; * not mean &quot;do not ignore merges&quot;, but totally different.&n;&t; */
+multiline_comment|/*&n;&t; * Backward compatibility wart - &quot;diff-index -m&quot; does&n;&t; * not mean &quot;do not ignore merges&quot;, but totally different.&n;&t; */
 r_if
 c_cond
 (paren
