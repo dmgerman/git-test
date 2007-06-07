@@ -3774,16 +3774,6 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|active_nr
-OL
-l_int|0
-)paren
-r_return
-l_int|1
-suffix:semicolon
 id|pos
 op_assign
 id|cache_name_pos
