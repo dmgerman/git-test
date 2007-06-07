@@ -1817,6 +1817,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|fill_in_extra_table_entries
+r_static
 r_void
 id|fill_in_extra_table_entries
 c_func

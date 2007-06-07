@@ -217,6 +217,7 @@ id|var
 suffix:semicolon
 )brace
 DECL|function|git_branch_config
+r_static
 r_int
 id|git_branch_config
 c_func
@@ -333,6 +334,7 @@ id|value
 suffix:semicolon
 )brace
 DECL|function|branch_get_color
+r_static
 r_const
 r_char
 op_star

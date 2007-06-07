@@ -604,6 +604,7 @@ id|result
 suffix:semicolon
 )brace
 DECL|function|get_encoding
+r_static
 r_char
 op_star
 id|get_encoding

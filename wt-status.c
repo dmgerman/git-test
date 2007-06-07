@@ -1039,6 +1039,7 @@ c_func
 suffix:semicolon
 )brace
 DECL|function|wt_status_print_initial
+r_static
 r_void
 id|wt_status_print_initial
 c_func

@@ -393,6 +393,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|xdl_emit_common
+r_static
 r_int
 id|xdl_emit_common
 c_func
