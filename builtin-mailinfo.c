@@ -4145,6 +4145,7 @@ l_string|&quot;&bslash;n&quot;
 suffix:semicolon
 )brace
 DECL|function|mailinfo
+r_static
 r_int
 id|mailinfo
 c_func

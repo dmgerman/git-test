@@ -812,6 +812,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|split_mbox
+r_static
 r_int
 id|split_mbox
 c_func
