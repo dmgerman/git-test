@@ -227,6 +227,7 @@ id|sz
 suffix:semicolon
 )brace
 DECL|variable|pack_pipe
+r_static
 id|FILE
 op_star
 id|pack_pipe

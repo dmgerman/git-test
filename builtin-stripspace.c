@@ -107,6 +107,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|stripspace
+r_static
 r_void
 id|stripspace
 c_func

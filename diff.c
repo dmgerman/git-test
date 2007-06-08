@@ -11217,6 +11217,17 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+r_static
+r_int
+id|diff_scoreopt_parse
+c_func
+(paren
+r_const
+r_char
+op_star
+id|opt
+)paren
+suffix:semicolon
 DECL|function|diff_opt_parse
 r_int
 id|diff_opt_parse
@@ -12427,6 +12438,7 @@ id|scale
 suffix:semicolon
 )brace
 DECL|function|diff_scoreopt_parse
+r_static
 r_int
 id|diff_scoreopt_parse
 c_func
