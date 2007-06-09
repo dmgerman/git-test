@@ -2023,9 +2023,6 @@ c_func
 id|name
 )paren
 suffix:semicolon
-r_int
-id|weak_match
-suffix:semicolon
 r_if
 c_cond
 (paren
