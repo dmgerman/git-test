@@ -20,7 +20,7 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-t] [-f] [-n] [-s] [-p] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
+l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-t] [-f] [-n] [-s] [-p] [-w] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
 l_string|&quot;  -c                  Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -b                  Show blank SHA-1 for boundary commits (Default: off)&bslash;n&quot;
 l_string|&quot;  -l                  Show long commit SHA1 (Default: off)&bslash;n&quot;
@@ -30,6 +30,7 @@ l_string|&quot;  -f, --show-name     Show original filename (Default: auto)&bsla
 l_string|&quot;  -n, --show-number   Show original linenumber (Default: off)&bslash;n&quot;
 l_string|&quot;  -s                  Suppress author name and timestamp (Default: off)&bslash;n&quot;
 l_string|&quot;  -p, --porcelain     Show in a format designed for machine consumption&bslash;n&quot;
+l_string|&quot;  -w                  Ignore whitespace differences&bslash;n&quot;
 l_string|&quot;  -L n,m              Process only line range n,m, counting from 1&bslash;n&quot;
 l_string|&quot;  -M, -C              Find line movements within and across files&bslash;n&quot;
 l_string|&quot;  --incremental       Show blame entries as we find them, incrementally&bslash;n&quot;
@@ -80,6 +81,13 @@ DECL|variable|cmd_is_annotate
 r_static
 r_int
 id|cmd_is_annotate
+suffix:semicolon
+DECL|variable|xdl_opts
+r_static
+r_int
+id|xdl_opts
+op_assign
+id|XDF_NEED_MINIMAL
 suffix:semicolon
 DECL|variable|mailmap
 r_static
@@ -1772,7 +1780,7 @@ id|ecb
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+id|xdl_opts
 suffix:semicolon
 id|xecfg.ctxlen
 op_assign
@@ -9971,6 +9979,23 @@ id|arg
 id|output_option
 op_or_assign
 id|OUTPUT_NO_AUTHOR
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;-w&quot;
+comma
+id|arg
+)paren
+)paren
+id|xdl_opts
+op_or_assign
+id|XDF_IGNORE_WHITESPACE
 suffix:semicolon
 r_else
 r_if
