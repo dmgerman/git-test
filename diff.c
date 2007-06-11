@@ -11967,6 +11967,17 @@ l_string|&quot;-C&quot;
 r_if
 c_cond
 (paren
+id|options-&gt;detect_rename
+op_eq
+id|DIFF_DETECT_COPY
+)paren
+id|options-&gt;find_copies_harder
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
 (paren
 id|options-&gt;rename_score
 op_assign
