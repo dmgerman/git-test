@@ -115,8 +115,9 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * Convert a NUL-terminated string in buffer orig&n; * into the supplied buffer, result, whose length is reslen,&n; * performing substitutions on %-named sub-strings from&n; * the table, interps, with ninterps entries.&n; *&n; * Example interps:&n; *    {&n; *        { &quot;%H&quot;, &quot;example.org&quot;},&n; *        { &quot;%port&quot;, &quot;123&quot;},&n; *        { &quot;%%&quot;, &quot;%&quot;},&n; *    }&n; *&n; * Returns 1 on a successful substitution pass that fits in result,&n; * Returns 0 on a failed or overflowing substitution pass.&n; */
+multiline_comment|/*&n; * Convert a NUL-terminated string in buffer orig&n; * into the supplied buffer, result, whose length is reslen,&n; * performing substitutions on %-named sub-strings from&n; * the table, interps, with ninterps entries.&n; *&n; * Example interps:&n; *    {&n; *        { &quot;%H&quot;, &quot;example.org&quot;},&n; *        { &quot;%port&quot;, &quot;123&quot;},&n; *        { &quot;%%&quot;, &quot;%&quot;},&n; *    }&n; *&n; * Returns 0 on a successful substitution pass that fits in result,&n; * Returns a number of bytes needed to hold the full substituted&n; * string otherwise.&n; */
 DECL|function|interpolate
+r_int
 r_int
 id|interpolate
 c_func
@@ -125,6 +126,7 @@ r_char
 op_star
 id|result
 comma
+r_int
 r_int
 id|reslen
 comma
@@ -157,6 +159,7 @@ op_assign
 id|result
 suffix:semicolon
 r_int
+r_int
 id|newlen
 op_assign
 l_int|0
@@ -169,6 +172,7 @@ comma
 op_star
 id|value
 suffix:semicolon
+r_int
 r_int
 id|namelen
 comma
@@ -199,11 +203,6 @@ op_assign
 op_star
 id|src
 )paren
-op_logical_and
-id|newlen
-OL
-id|reslen
-l_int|1
 )paren
 (brace
 r_if
@@ -262,10 +261,8 @@ id|namelen
 op_eq
 l_int|0
 )paren
-(brace
 r_break
 suffix:semicolon
-)brace
 )brace
 multiline_comment|/* Check for valid interpolation. */
 r_if
@@ -299,9 +296,10 @@ c_cond
 id|newlen
 op_plus
 id|valuelen
+op_plus
+l_int|1
 OL
 id|reslen
-l_int|1
 )paren
 (brace
 multiline_comment|/* Substitute. */
@@ -315,11 +313,12 @@ comma
 id|valuelen
 )paren
 suffix:semicolon
-id|newlen
+id|dest
 op_add_assign
 id|valuelen
 suffix:semicolon
-id|dest
+)brace
+id|newlen
 op_add_assign
 id|valuelen
 suffix:semicolon
@@ -327,52 +326,51 @@ id|src
 op_add_assign
 id|namelen
 suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
-r_else
-(brace
-multiline_comment|/* Something&squot;s not fitting. */
+)brace
+multiline_comment|/* Straight copy one non-interpolation character. */
+r_if
+c_cond
+(paren
+id|newlen
+op_plus
+l_int|1
+OL
+id|reslen
+)paren
+op_star
+id|dest
+op_increment
+op_assign
+op_star
+id|src
+suffix:semicolon
+id|src
+op_increment
+suffix:semicolon
+id|newlen
+op_increment
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|newlen
+op_plus
+l_int|1
+OL
+id|reslen
+)paren
 r_return
 l_int|0
 suffix:semicolon
-)brace
-)brace
 r_else
-(brace
-multiline_comment|/* Skip bogus interpolation. */
-op_star
-id|dest
-op_increment
-op_assign
-op_star
-id|src
-op_increment
-suffix:semicolon
-id|newlen
-op_increment
-suffix:semicolon
-)brace
-)brace
-r_else
-(brace
-multiline_comment|/* Straight copy one non-interpolation character. */
-op_star
-id|dest
-op_increment
-op_assign
-op_star
-id|src
-op_increment
-suffix:semicolon
-id|newlen
-op_increment
-suffix:semicolon
-)brace
-)brace
 r_return
 id|newlen
-OL
-id|reslen
-l_int|1
+op_plus
+l_int|2
 suffix:semicolon
 )brace
 eof
