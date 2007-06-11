@@ -3,7 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#ifndef DEFAULT_GIT_TEMPLATE_DIR
 DECL|macro|DEFAULT_GIT_TEMPLATE_DIR
-mdefine_line|#define DEFAULT_GIT_TEMPLATE_DIR &quot;/usr/share/git-core/templates/&quot;
+mdefine_line|#define DEFAULT_GIT_TEMPLATE_DIR &quot;/usr/share/git-core/templates&quot;
 macro_line|#endif
 macro_line|#ifdef NO_TRUSTABLE_FILEMODE
 DECL|macro|TEST_FILEMODE
