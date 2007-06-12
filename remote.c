@@ -3066,7 +3066,7 @@ suffix:semicolon
 r_else
 id|dst_name
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|src-&gt;name
