@@ -1255,7 +1255,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;%s[%d: %s]: net=%s, errno=%s&bslash;n&quot;
+l_string|&quot;%s[%d: %s]: errno=%s&bslash;n&quot;
 comma
 id|host
 comma
@@ -1265,12 +1265,6 @@ id|ai_name
 c_func
 (paren
 id|ai
-)paren
-comma
-id|hstrerror
-c_func
-(paren
-id|h_errno
 )paren
 comma
 id|strerror
@@ -1744,7 +1738,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;%s[%d: %s]: net=%s, errno=%s&bslash;n&quot;
+l_string|&quot;%s[%d: %s]: errno=%s&bslash;n&quot;
 comma
 id|host
 comma
@@ -1761,12 +1755,6 @@ op_star
 )paren
 op_amp
 id|sa.sin_addr
-)paren
-comma
-id|hstrerror
-c_func
-(paren
-id|h_errno
 )paren
 comma
 id|strerror
