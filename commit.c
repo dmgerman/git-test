@@ -40,6 +40,7 @@ op_assign
 l_string|&quot;commit&quot;
 suffix:semicolon
 DECL|struct|cmt_fmt_map
+r_static
 r_struct
 id|cmt_fmt_map
 (brace

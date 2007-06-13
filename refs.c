@@ -633,6 +633,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Future: need to be in &quot;struct repository&quot;&n; * when doing a full libification.&n; */
 DECL|struct|cached_refs
+r_static
 r_struct
 id|cached_refs
 (brace

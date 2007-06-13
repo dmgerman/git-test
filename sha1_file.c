@@ -5136,6 +5136,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|map_sha1_file
+r_static
 r_void
 op_star
 id|map_sha1_file

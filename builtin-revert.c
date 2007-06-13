@@ -39,6 +39,7 @@ suffix:semicolon
 DECL|enumerator|REVERT
 DECL|enumerator|CHERRY_PICK
 DECL|variable|action
+r_static
 r_enum
 (brace
 id|REVERT
@@ -741,6 +742,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 DECL|variable|msg_file
+r_static
 r_struct
 id|lock_file
 id|msg_file
