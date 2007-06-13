@@ -532,6 +532,7 @@ r_void
 id|flush_output
 c_func
 (paren
+r_void
 )paren
 (brace
 r_struct

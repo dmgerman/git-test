@@ -2561,6 +2561,7 @@ r_int
 id|write_error
 c_func
 (paren
+r_void
 )paren
 (brace
 id|fprintf

@@ -2378,6 +2378,7 @@ r_void
 id|pack_report
 c_func
 (paren
+r_void
 )paren
 (brace
 id|fprintf
