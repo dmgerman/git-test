@@ -3015,6 +3015,18 @@ c_cond
 id|pat
 )paren
 (brace
+r_const
+r_char
+op_star
+id|dst_side
+op_assign
+id|pat-&gt;dst
+ques
+c_cond
+id|pat-&gt;dst
+suffix:colon
+id|pat-&gt;src
+suffix:semicolon
 id|dst_name
 op_assign
 id|xmalloc
@@ -3023,7 +3035,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|pat-&gt;dst
+id|dst_side
 )paren
 op_plus
 id|strlen
@@ -3045,7 +3057,7 @@ c_func
 (paren
 id|dst_name
 comma
-id|pat-&gt;dst
+id|dst_side
 )paren
 suffix:semicolon
 id|strcat
