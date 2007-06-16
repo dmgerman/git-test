@@ -1395,6 +1395,8 @@ c_func
 id|dir-&gt;entries
 comma
 id|dir-&gt;nr
+op_plus
+l_int|1
 comma
 id|dir-&gt;alloc
 )paren
@@ -1458,6 +1460,8 @@ c_func
 id|dir-&gt;ignored
 comma
 id|dir-&gt;ignored_nr
+op_plus
+l_int|1
 comma
 id|dir-&gt;ignored_alloc
 )paren
