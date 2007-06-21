@@ -1474,16 +1474,41 @@ r_struct
 id|diff_options
 id|diff_opts
 suffix:semicolon
+r_struct
+id|diff_queue_struct
+op_star
+id|q
+op_assign
+op_amp
+id|diff_queued_diff
+suffix:semicolon
+r_struct
+id|diff_filepair
+op_star
+id|choice
+suffix:semicolon
 r_const
 r_char
 op_star
 id|paths
 (braket
-l_int|2
+l_int|1
 )braket
 suffix:semicolon
 r_int
 id|i
+suffix:semicolon
+multiline_comment|/* Remove the file creation entry from the diff queue, and remember it */
+id|choice
+op_assign
+id|q-&gt;queue
+(braket
+l_int|0
+)braket
+suffix:semicolon
+id|q-&gt;nr
+op_assign
+l_int|0
 suffix:semicolon
 id|diff_setup
 c_func
@@ -1565,17 +1590,17 @@ op_amp
 id|diff_opts
 )paren
 suffix:semicolon
-multiline_comment|/* NOTE! Ignore the first diff! That was the old one! */
+multiline_comment|/* Go through the new set of filepairing, and see if we find a more interesting one */
 r_for
 c_loop
 (paren
 id|i
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 id|i
 OL
-id|diff_queued_diff.nr
+id|q-&gt;nr
 suffix:semicolon
 id|i
 op_increment
@@ -1586,12 +1611,12 @@ id|diff_filepair
 op_star
 id|p
 op_assign
-id|diff_queued_diff.queue
+id|q-&gt;queue
 (braket
 id|i
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Found a source? Not only do we use that for the new&n;&t;&t; * diff_queued_diff, we also use that as the path in&n;&t;&t; * the future!&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Found a source? Not only do we use that for the new&n;&t;&t; * diff_queued_diff, we will also use that as the path in&n;&t;&t; * the future!&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1618,13 +1643,19 @@ l_int|0
 )paren
 )paren
 (brace
-id|diff_queued_diff.queue
+multiline_comment|/* Switch the file-pairs around */
+id|q-&gt;queue
 (braket
-l_int|0
+id|i
 )braket
+op_assign
+id|choice
+suffix:semicolon
+id|choice
 op_assign
 id|p
 suffix:semicolon
+multiline_comment|/* Update the path we use from now on.. */
 id|opt-&gt;paths
 (braket
 l_int|0
@@ -1648,8 +1679,48 @@ r_break
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Then, ignore any but the first entry! It might be the old one,&n;&t; * or it might be the rename/copy we found&n;&t; */
-id|diff_queued_diff.nr
+multiline_comment|/*&n;&t; * Then, discard all the non-relevane file pairs...&n;&t; */
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|q-&gt;nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+(brace
+r_struct
+id|diff_filepair
+op_star
+id|p
+op_assign
+id|q-&gt;queue
+(braket
+id|i
+)braket
+suffix:semicolon
+id|diff_free_filepair
+c_func
+(paren
+id|p
+)paren
+suffix:semicolon
+)brace
+multiline_comment|/*&n;&t; * .. and re-instate the one we want (which might be either the&n;&t; * original one, or the rename/copy we found)&n;&t; */
+id|q-&gt;queue
+(braket
+l_int|0
+)braket
+op_assign
+id|choice
+suffix:semicolon
+id|q-&gt;nr
 op_assign
 l_int|1
 suffix:semicolon
