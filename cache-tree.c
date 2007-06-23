@@ -2442,6 +2442,7 @@ c_func
 id|it-&gt;sha1
 comma
 (paren
+r_const
 r_int
 r_char
 op_star
