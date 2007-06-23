@@ -5682,6 +5682,8 @@ op_star
 id|ofs_p
 op_plus
 id|len
+op_plus
+l_int|80
 comma
 op_star
 id|space_p
@@ -5773,6 +5775,8 @@ op_star
 id|ofs_p
 op_plus
 id|len
+op_plus
+l_int|80
 comma
 op_star
 id|space_p
