@@ -513,6 +513,21 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|ferror
+c_func
+(paren
+id|cbdata.refs_file
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;failed to write ref-pack file&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|fflush
 c_func
 (paren
