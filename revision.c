@@ -6098,6 +6098,13 @@ op_amp
 id|revs-&gt;pruning
 )paren
 suffix:semicolon
+multiline_comment|/* Can&squot;t prune commits with rename following: the paths change.. */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;diffopt.follow_renames
+)paren
 id|revs-&gt;prune_fn
 op_assign
 id|try_to_simplify_commit
