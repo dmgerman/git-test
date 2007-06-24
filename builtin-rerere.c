@@ -369,10 +369,21 @@ l_string|&quot;unable to write rerere record&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|close
 c_func
 (paren
 id|out_fd
+)paren
+op_ne
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to write rerere record&quot;
 )paren
 suffix:semicolon
 r_return

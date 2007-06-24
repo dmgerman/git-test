@@ -3733,10 +3733,21 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|close
 c_func
 (paren
 id|keep_fd
+)paren
+op_ne
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot write keep file&quot;
 )paren
 suffix:semicolon
 id|report
