@@ -708,8 +708,10 @@ op_star
 id|sp
 suffix:semicolon
 r_int
+r_char
 id|ch
-comma
+suffix:semicolon
+r_int
 id|count
 op_assign
 l_int|0
@@ -782,9 +784,13 @@ l_char|&squot;&bslash;&bslash;&squot;
 )paren
 op_logical_or
 (paren
+id|quote_path_fully
+op_logical_and
+(paren
 id|ch
 op_ge
 l_int|0177
+)paren
 )paren
 )paren
 (brace
