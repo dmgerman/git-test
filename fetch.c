@@ -230,6 +230,18 @@ id|obj
 op_assign
 l_int|NULL
 suffix:semicolon
+multiline_comment|/* submodule commits are not stored in the superproject */
+r_if
+c_cond
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|entry.mode
+)paren
+)paren
+r_continue
+suffix:semicolon
 r_if
 c_cond
 (paren
