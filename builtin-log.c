@@ -3438,10 +3438,10 @@ id|use_stdout
 )paren
 id|realstdout
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
-id|dup
+id|xdup
 c_func
 (paren
 l_int|1
