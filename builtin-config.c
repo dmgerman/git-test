@@ -1146,7 +1146,7 @@ suffix:semicolon
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG&quot;
+id|CONFIG_ENVIRONMENT
 comma
 id|user_config
 comma
@@ -1189,7 +1189,7 @@ l_string|&quot;--system&quot;
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_CONFIG&quot;
+id|CONFIG_ENVIRONMENT
 comma
 id|ETC_GITCONFIG
 comma

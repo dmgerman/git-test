@@ -1243,7 +1243,7 @@ l_int|0
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_DIR&quot;
+id|GIT_DIR_ENVIRONMENT
 comma
 l_string|&quot;.&quot;
 comma
