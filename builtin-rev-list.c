@@ -345,10 +345,12 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-id|fflush
+id|maybe_flush_or_die
 c_func
 (paren
 id|stdout
+comma
+l_string|&quot;stdout&quot;
 )paren
 suffix:semicolon
 r_if

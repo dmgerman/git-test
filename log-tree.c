@@ -1832,6 +1832,14 @@ id|opt-&gt;loginfo
 op_assign
 l_int|NULL
 suffix:semicolon
+id|maybe_flush_or_die
+c_func
+(paren
+id|stdout
+comma
+l_string|&quot;stdout&quot;
+)paren
+suffix:semicolon
 r_return
 id|shown
 suffix:semicolon

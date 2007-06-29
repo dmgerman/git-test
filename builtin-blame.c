@@ -6280,6 +6280,14 @@ c_func
 id|suspect-&gt;path
 )paren
 suffix:semicolon
+id|maybe_flush_or_die
+c_func
+(paren
+id|stdout
+comma
+l_string|&quot;stdout&quot;
+)paren
+suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n; * The main loop -- while the scoreboard has lines whose true origin&n; * is still unknown, pick one blame_entry, and allow its current&n; * suspect to pass blames to its parents.&n; */
