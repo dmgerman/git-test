@@ -3093,6 +3093,12 @@ suffix:semicolon
 id|unsetenv
 c_func
 (paren
+id|GIT_WORK_TREE_ENVIRONMENT
+)paren
+suffix:semicolon
+id|unsetenv
+c_func
+(paren
 id|GRAFT_ENVIRONMENT
 )paren
 suffix:semicolon
