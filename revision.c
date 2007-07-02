@@ -2962,10 +2962,6 @@ id|revs-&gt;max_count
 op_assign
 l_int|1
 suffix:semicolon
-id|revs-&gt;subject_prefix
-op_assign
-l_string|&quot;PATCH&quot;
-suffix:semicolon
 id|revs-&gt;prune_fn
 op_assign
 l_int|NULL
