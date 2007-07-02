@@ -2999,6 +2999,21 @@ id|pat
 r_continue
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|prefixcmp
+c_func
+(paren
+id|src-&gt;name
+comma
+l_string|&quot;refs/heads/&quot;
+)paren
+)paren
+multiline_comment|/*&n;&t;&t;&t; * &quot;matching refs&quot;; traditionally we pushed everything&n;&t;&t;&t; * including refs outside refs/heads/ hierarchy, but&n;&t;&t;&t; * that does not make much sense these days.&n;&t;&t;&t; */
+r_continue
+suffix:semicolon
 r_if
 c_cond
 (paren
