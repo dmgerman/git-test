@@ -955,13 +955,9 @@ c_cond
 id|diffcore_count_changes
 c_func
 (paren
-id|src-&gt;data
+id|src
 comma
-id|src-&gt;size
-comma
-id|dst-&gt;data
-comma
-id|dst-&gt;size
+id|dst
 comma
 op_amp
 id|src-&gt;cnt_data

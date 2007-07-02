@@ -1,7 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
-multiline_comment|/*&n; * Idea here is very simple.&n; *&n; * We have total of (sz-N+1) N-byte overlapping sequences in buf whose&n; * size is sz.  If the same N-byte sequence appears in both source and&n; * destination, we say the byte that starts that sequence is shared&n; * between them (i.e. copied from source to destination).&n; *&n; * For each possible N-byte sequence, if the source buffer has more&n; * instances of it than the destination buffer, that means the&n; * difference are the number of bytes not copied from source to&n; * destination.  If the counts are the same, everything was copied&n; * from source to destination.  If the destination has more,&n; * everything was copied, and destination added more.&n; *&n; * We are doing an approximation so we do not really have to waste&n; * memory by actually storing the sequence.  We just hash them into&n; * somewhere around 2^16 hashbuckets and count the occurrences.&n; *&n; * The length of the sequence is arbitrarily set to 8 for now.&n; */
+multiline_comment|/*&n; * Idea here is very simple.&n; *&n; * Almost all data we are interested in are text, but sometimes we have&n; * to deal with binary data.  So we cut them into chunks delimited by&n; * LF byte, or 64-byte sequence, whichever comes first, and hash them.&n; *&n; * For those chunks, if the source buffer has more instances of it&n; * than the destination buffer, that means the difference are the&n; * number of bytes not copied from source to destination.  If the&n; * counts are the same, everything was copied from source to&n; * destination.  If the destination has more, everything was copied,&n; * and destination added more.&n; *&n; * We are doing an approximation so we do not really have to waste&n; * memory by actually storing the sequence.  We just hash them into&n; * somewhere around 2^16 hashbuckets and count the occurrences.&n; */
 multiline_comment|/* Wild guess at the initial hash size */
 DECL|macro|INITIAL_HASH_SIZE
 mdefine_line|#define INITIAL_HASH_SIZE 9
@@ -484,14 +484,10 @@ op_star
 id|hash_chars
 c_func
 (paren
-r_int
-r_char
+r_struct
+id|diff_filespec
 op_star
-id|buf
-comma
-r_int
-r_int
-id|sz
+id|one
 )paren
 (brace
 r_int
@@ -511,6 +507,25 @@ r_struct
 id|spanhash_top
 op_star
 id|hash
+suffix:semicolon
+r_int
+r_char
+op_star
+id|buf
+op_assign
+id|one-&gt;data
+suffix:semicolon
+r_int
+r_int
+id|sz
+op_assign
+id|one-&gt;size
+suffix:semicolon
+r_int
+id|is_text
+op_assign
+op_logical_neg
+id|one-&gt;is_binary
 suffix:semicolon
 id|i
 op_assign
@@ -605,6 +620,25 @@ suffix:semicolon
 id|sz
 op_decrement
 suffix:semicolon
+multiline_comment|/* Ignore CR in CRLF sequence if text */
+r_if
+c_cond
+(paren
+id|is_text
+op_logical_and
+id|c
+op_eq
+l_char|&squot;&bslash;r&squot;
+op_logical_and
+id|sz
+op_logical_and
+op_star
+id|buf
+op_eq
+l_char|&squot;&bslash;n&squot;
+)paren
+r_continue
+suffix:semicolon
 id|accum1
 op_assign
 (paren
@@ -695,21 +729,15 @@ r_int
 id|diffcore_count_changes
 c_func
 (paren
-r_void
+r_struct
+id|diff_filespec
 op_star
 id|src
 comma
-r_int
-r_int
-id|src_size
-comma
-r_void
+r_struct
+id|diff_filespec
 op_star
 id|dst
-comma
-r_int
-r_int
-id|dst_size
 comma
 r_void
 op_star
@@ -784,8 +812,6 @@ id|hash_chars
 c_func
 (paren
 id|src
-comma
-id|src_size
 )paren
 suffix:semicolon
 r_if
@@ -822,8 +848,6 @@ id|hash_chars
 c_func
 (paren
 id|dst
-comma
-id|dst_size
 )paren
 suffix:semicolon
 r_if
