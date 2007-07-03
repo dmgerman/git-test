@@ -122,6 +122,16 @@ id|pager
 )paren
 id|pager
 op_assign
+id|pager_program
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pager
+)paren
+id|pager
+op_assign
 id|getenv
 c_func
 (paren

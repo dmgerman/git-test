@@ -124,6 +124,11 @@ l_int|1024
 op_star
 l_int|1024
 suffix:semicolon
+DECL|variable|pager_program
+r_char
+op_star
+id|pager_program
+suffix:semicolon
 DECL|variable|pager_in_use
 r_int
 id|pager_in_use
