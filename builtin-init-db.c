@@ -1381,7 +1381,7 @@ id|init_db_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-init [--template=&lt;template-directory&gt;] [--shared]&quot;
+l_string|&quot;git-init [-q | --quiet] [--template=&lt;template-directory&gt;] [--shared]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * If you want to, you can share the DB area with any number of branches.&n; * That has advantages: you can save space by sharing all the SHA1 objects.&n; * On the other hand, it might just make lookup slower and messier. You&n; * be the judge.  The default case is to have one DB per managed directory.&n; */
 DECL|function|cmd_init_db
@@ -1431,6 +1431,11 @@ comma
 id|i
 comma
 id|reinit
+suffix:semicolon
+r_int
+id|quiet
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -1519,6 +1524,32 @@ id|arg
 op_plus
 l_int|9
 )paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-q&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--quiet&quot;
+)paren
+)paren
+id|quiet
+op_assign
+l_int|1
 suffix:semicolon
 r_else
 id|usage
@@ -1691,6 +1722,12 @@ l_string|&quot;true&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|quiet
+)paren
 id|printf
 c_func
 (paren
