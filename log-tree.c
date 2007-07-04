@@ -954,6 +954,11 @@ c_cond
 id|opt-&gt;total
 op_eq
 l_int|0
+op_logical_and
+id|opt-&gt;subject_prefix
+op_logical_and
+op_star
+id|opt-&gt;subject_prefix
 )paren
 (brace
 r_static
