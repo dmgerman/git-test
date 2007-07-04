@@ -1809,8 +1809,6 @@ comma
 id|cmd_annotate
 comma
 id|RUN_SETUP
-op_or
-id|USE_PAGER
 )brace
 comma
 (brace
@@ -2131,8 +2129,6 @@ comma
 id|cmd_blame
 comma
 id|RUN_SETUP
-op_or
-id|USE_PAGER
 )brace
 comma
 (brace
