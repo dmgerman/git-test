@@ -13167,7 +13167,14 @@ id|status
 comma
 id|inter_name_termination
 comma
+id|two_paths
+op_logical_or
+id|p-&gt;one-&gt;mode
+ques
+c_cond
 id|path_one
+suffix:colon
+id|path_two
 )paren
 suffix:semicolon
 r_if
