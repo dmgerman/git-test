@@ -42,6 +42,8 @@ DECL|variable|branch_track_remotes
 r_static
 r_int
 id|branch_track_remotes
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|branch_use_color
 r_static
