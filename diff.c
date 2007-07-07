@@ -6482,6 +6482,11 @@ r_struct
 id|git_attr_check
 id|attr_diff_check
 suffix:semicolon
+r_int
+id|check_from_data
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6554,6 +6559,11 @@ id|one-&gt;is_binary
 op_assign
 l_int|1
 suffix:semicolon
+r_else
+id|check_from_data
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* funcname pattern ident */
 r_if
 c_cond
@@ -6583,6 +6593,12 @@ op_assign
 id|value
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|check_from_data
+)paren
+(brace
 r_if
 c_cond
 (paren
@@ -6618,6 +6634,7 @@ comma
 id|one-&gt;size
 )paren
 suffix:semicolon
+)brace
 )brace
 DECL|function|diff_filespec_is_binary
 r_int
