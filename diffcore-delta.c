@@ -525,7 +525,11 @@ r_int
 id|is_text
 op_assign
 op_logical_neg
-id|one-&gt;is_binary
+id|diff_filespec_is_binary
+c_func
+(paren
+id|one
+)paren
 suffix:semicolon
 id|i
 op_assign
