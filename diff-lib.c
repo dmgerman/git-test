@@ -92,11 +92,7 @@ id|e-&gt;d_name
 id|path_list_insert
 c_func
 (paren
-id|xstrdup
-c_func
-(paren
 id|e-&gt;d_name
-)paren
 comma
 id|list
 )paren
