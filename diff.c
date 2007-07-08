@@ -6713,6 +6713,48 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+DECL|struct|builtin_funcname_pattern
+r_static
+r_struct
+id|builtin_funcname_pattern
+(brace
+DECL|member|name
+r_const
+r_char
+op_star
+id|name
+suffix:semicolon
+DECL|member|pattern
+r_const
+r_char
+op_star
+id|pattern
+suffix:semicolon
+DECL|variable|builtin_funcname_pattern
+)brace
+id|builtin_funcname_pattern
+(braket
+)braket
+op_assign
+(brace
+(brace
+l_string|&quot;java&quot;
+comma
+l_string|&quot;!^[ &t;]*&bslash;&bslash;(catch&bslash;&bslash;|do&bslash;&bslash;|for&bslash;&bslash;|if&bslash;&bslash;|instanceof&bslash;&bslash;|&quot;
+l_string|&quot;new&bslash;&bslash;|return&bslash;&bslash;|switch&bslash;&bslash;|throw&bslash;&bslash;|while&bslash;&bslash;)&bslash;n&quot;
+l_string|&quot;^[ &t;]*&bslash;&bslash;(&bslash;&bslash;([ &t;]*&quot;
+l_string|&quot;[A-Za-z_][A-Za-z_0-9]*&bslash;&bslash;)&bslash;&bslash;{2,&bslash;&bslash;}&quot;
+l_string|&quot;[ &t;]*([^;]*$&bslash;&bslash;)&quot;
+)brace
+comma
+(brace
+l_string|&quot;tex&quot;
+comma
+l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(sub&bslash;&bslash;)*section{.*&bslash;&bslash;)$&quot;
+)brace
+comma
+)brace
+suffix:semicolon
 DECL|function|diff_funcname_pattern
 r_static
 r_const
@@ -6734,6 +6776,9 @@ id|ident
 comma
 op_star
 id|pattern
+suffix:semicolon
+r_int
+id|i
 suffix:semicolon
 id|diff_filespec_check_attr
 c_func
@@ -6777,6 +6822,24 @@ r_return
 id|pattern
 suffix:semicolon
 multiline_comment|/*&n;&t; * And define built-in fallback patterns here.  Note that&n;&t; * these can be overriden by the user&squot;s config settings.&n;&t; */
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|ARRAY_SIZE
+c_func
+(paren
+id|builtin_funcname_pattern
+)paren
+suffix:semicolon
+id|i
+op_increment
+)paren
 r_if
 c_cond
 (paren
@@ -6786,15 +6849,21 @@ c_func
 (paren
 id|ident
 comma
-l_string|&quot;java&quot;
+id|builtin_funcname_pattern
+(braket
+id|i
+)braket
+dot
+id|name
 )paren
 )paren
 r_return
-l_string|&quot;!^[ &t;]*&bslash;&bslash;(catch&bslash;&bslash;|do&bslash;&bslash;|for&bslash;&bslash;|if&bslash;&bslash;|instanceof&bslash;&bslash;|&quot;
-l_string|&quot;new&bslash;&bslash;|return&bslash;&bslash;|switch&bslash;&bslash;|throw&bslash;&bslash;|while&bslash;&bslash;)&bslash;n&quot;
-l_string|&quot;^[ &t;]*&bslash;&bslash;(&bslash;&bslash;([ &t;]*&quot;
-l_string|&quot;[A-Za-z_][A-Za-z_0-9]*&bslash;&bslash;)&bslash;&bslash;{2,&bslash;&bslash;}&quot;
-l_string|&quot;[ &t;]*([^;]*$&bslash;&bslash;)&quot;
+id|builtin_funcname_pattern
+(braket
+id|i
+)braket
+dot
+id|pattern
 suffix:semicolon
 r_return
 l_int|NULL
