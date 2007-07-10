@@ -1852,6 +1852,11 @@ r_struct
 id|commit_list
 op_star
 id|list
+comma
+r_struct
+id|rev_info
+op_star
+id|revs
 )paren
 (brace
 r_struct
@@ -1939,6 +1944,25 @@ op_amp
 id|ids
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;diffopt.nr_paths
+)paren
+(brace
+id|ids.diffopts.nr_paths
+op_assign
+id|revs-&gt;diffopt.nr_paths
+suffix:semicolon
+id|ids.diffopts.paths
+op_assign
+id|revs-&gt;diffopt.paths
+suffix:semicolon
+id|ids.diffopts.pathlens
+op_assign
+id|revs-&gt;diffopt.pathlens
+suffix:semicolon
+)brace
 multiline_comment|/* Compute patch-ids for one side */
 r_for
 c_loop
@@ -2325,6 +2349,8 @@ id|cherry_pick_list
 c_func
 (paren
 id|newlist
+comma
+id|revs
 )paren
 suffix:semicolon
 id|revs-&gt;commits
