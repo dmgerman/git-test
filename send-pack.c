@@ -1390,6 +1390,14 @@ id|rs.src
 op_assign
 id|ref-&gt;name
 suffix:semicolon
+id|rs.dst
+op_assign
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|remote_find_tracking
 c_func
 (paren
@@ -1398,11 +1406,6 @@ comma
 op_amp
 id|rs
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|rs.dst
 )paren
 (brace
 r_struct
