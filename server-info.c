@@ -225,6 +225,12 @@ c_func
 id|info_ref_fp
 )paren
 suffix:semicolon
+id|adjust_shared_perm
+c_func
+(paren
+id|path1
+)paren
+suffix:semicolon
 id|rename
 c_func
 (paren
@@ -1202,6 +1208,12 @@ id|fclose
 c_func
 (paren
 id|fp
+)paren
+suffix:semicolon
+id|adjust_shared_perm
+c_func
+(paren
+id|name
 )paren
 suffix:semicolon
 id|rename
