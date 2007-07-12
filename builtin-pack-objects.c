@@ -39,18 +39,6 @@ r_int
 id|size
 suffix:semicolon
 multiline_comment|/* uncompressed size */
-DECL|member|hash
-r_int
-r_int
-id|hash
-suffix:semicolon
-multiline_comment|/* name hint hash */
-DECL|member|depth
-r_int
-r_int
-id|depth
-suffix:semicolon
-multiline_comment|/* delta depth */
 DECL|member|in_pack
 r_struct
 id|packed_git
@@ -95,6 +83,12 @@ r_int
 id|delta_size
 suffix:semicolon
 multiline_comment|/* delta data size (uncompressed) */
+DECL|member|hash
+r_int
+r_int
+id|hash
+suffix:semicolon
+multiline_comment|/* name hint hash */
 DECL|member|type
 r_enum
 id|object_type
@@ -6480,6 +6474,10 @@ id|delta_index
 op_star
 id|index
 suffix:semicolon
+DECL|member|depth
+r_int
+id|depth
+suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|delta_cacheable
@@ -6672,7 +6670,7 @@ multiline_comment|/* Let&squot;s not bust the allowed depth. */
 r_if
 c_cond
 (paren
-id|src_entry-&gt;depth
+id|src-&gt;depth
 op_ge
 id|max_depth
 )paren
@@ -6711,7 +6709,7 @@ id|trg_entry-&gt;delta_size
 suffix:semicolon
 id|ref_depth
 op_assign
-id|trg_entry-&gt;depth
+id|trg-&gt;depth
 suffix:semicolon
 )brace
 id|max_size
@@ -6720,7 +6718,7 @@ id|max_size
 op_star
 (paren
 id|max_depth
-id|src_entry-&gt;depth
+id|src-&gt;depth
 )paren
 op_div
 (paren
@@ -6973,11 +6971,11 @@ id|delta_size
 op_eq
 id|trg_entry-&gt;delta_size
 op_logical_and
-id|src_entry-&gt;depth
+id|src-&gt;depth
 op_plus
 l_int|1
 op_ge
-id|trg_entry-&gt;depth
+id|trg-&gt;depth
 )paren
 (brace
 id|free
@@ -7000,11 +6998,11 @@ c_func
 id|trg_entry-&gt;delta_data
 )paren
 suffix:semicolon
-)brace
 id|trg_entry-&gt;delta_data
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
+)brace
 id|trg_entry-&gt;delta
 op_assign
 id|src_entry
@@ -7013,9 +7011,9 @@ id|trg_entry-&gt;delta_size
 op_assign
 id|delta_size
 suffix:semicolon
-id|trg_entry-&gt;depth
+id|trg-&gt;depth
 op_assign
-id|src_entry-&gt;depth
+id|src-&gt;depth
 op_plus
 l_int|1
 suffix:semicolon
@@ -7517,7 +7515,7 @@ id|entry-&gt;delta
 op_logical_and
 id|depth
 op_le
-id|entry-&gt;depth
+id|n-&gt;depth
 )paren
 r_continue
 suffix:semicolon
