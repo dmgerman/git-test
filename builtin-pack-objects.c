@@ -6750,6 +6750,18 @@ id|max_size
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|trg_size
+OL
+id|src_size
+op_div
+l_int|32
+)paren
+r_return
+l_int|0
+suffix:semicolon
 multiline_comment|/* Load data if not already done */
 r_if
 c_cond
