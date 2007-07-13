@@ -215,6 +215,9 @@ r_int
 r_char
 op_star
 id|head
+comma
+r_int
+id|index_only
 )paren
 (brace
 multiline_comment|/* items in list are already sorted in the cache order,&n;&t; * so we could do this a lot more efficiently by using&n;&t; * tree_desc based traversal if we wanted to, but I am&n;&t; * lazy, and who cares if removal of files is a tad&n;&t; * slower than the theoretical maximum speed?&n;&t; */
@@ -282,6 +285,16 @@ l_int|20
 suffix:semicolon
 r_int
 id|mode
+suffix:semicolon
+r_int
+id|local_changes
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|staged_changes
+op_assign
+l_int|0
 suffix:semicolon
 id|pos
 op_assign
@@ -385,16 +398,9 @@ comma
 l_int|0
 )paren
 )paren
-id|errs
+id|local_changes
 op_assign
-id|error
-c_func
-(paren
-l_string|&quot;&squot;%s&squot; has local modifications &quot;
-l_string|&quot;(hint: try -f)&quot;
-comma
-id|ce-&gt;name
-)paren
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -430,17 +436,73 @@ comma
 id|sha1
 )paren
 )paren
+id|staged_changes
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|local_changes
+op_logical_and
+id|staged_changes
+)paren
 id|errs
 op_assign
 id|error
 c_func
 (paren
-l_string|&quot;&squot;%s&squot; has changes staged in the index &quot;
-l_string|&quot;(hint: try -f)&quot;
+l_string|&quot;&squot;%s&squot; has staged content different &quot;
+l_string|&quot;from both the file and the HEAD&bslash;n&quot;
+l_string|&quot;(use -f to force removal)&quot;
 comma
 id|name
 )paren
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|index_only
+)paren
+(brace
+multiline_comment|/* It&squot;s not dangerous to git-rm --cached a&n;&t;&t;&t; * file if the index matches the file or the&n;&t;&t;&t; * HEAD, since it means the deleted content is&n;&t;&t;&t; * still available somewhere.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|staged_changes
+)paren
+id|errs
+op_assign
+id|error
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; has changes staged in the index&bslash;n&quot;
+l_string|&quot;(use --cached to keep the file, &quot;
+l_string|&quot;or -f to force removal)&quot;
+comma
+id|name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|local_changes
+)paren
+id|errs
+op_assign
+id|error
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; has local modifications&bslash;n&quot;
+l_string|&quot;(use --cached to keep the file, &quot;
+l_string|&quot;or -f to force removal)&quot;
+comma
+id|name
+)paren
+suffix:semicolon
+)brace
 )brace
 r_return
 id|errs
@@ -974,6 +1036,8 @@ id|check_local_mod
 c_func
 (paren
 id|sha1
+comma
+id|index_only
 )paren
 )paren
 m_exit
