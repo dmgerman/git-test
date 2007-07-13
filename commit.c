@@ -4401,6 +4401,24 @@ l_int|1
 )paren
 )paren
 suffix:semicolon
+id|interp_set_entry
+c_func
+(paren
+id|table
+comma
+l_int|6
+comma
+id|show_date
+c_func
+(paren
+id|date
+comma
+id|tz
+comma
+id|DATE_ISO8601
+)paren
+)paren
+suffix:semicolon
 )brace
 DECL|function|format_commit_message
 r_static
@@ -4498,6 +4516,11 @@ l_string|&quot;%at&quot;
 comma
 multiline_comment|/* author date, UNIX timestamp */
 (brace
+l_string|&quot;%ai&quot;
+)brace
+comma
+multiline_comment|/* author date, ISO 8601 */
+(brace
 l_string|&quot;%cn&quot;
 )brace
 comma
@@ -4527,6 +4550,11 @@ l_string|&quot;%ct&quot;
 )brace
 comma
 multiline_comment|/* committer date, UNIX timestamp */
+(brace
+l_string|&quot;%ci&quot;
+)brace
+comma
+multiline_comment|/* committer date, ISO 8601 */
 (brace
 l_string|&quot;%e&quot;
 )brace
@@ -4603,6 +4631,8 @@ id|IAUTHOR_DATE_RELATIVE
 comma
 id|IAUTHOR_TIMESTAMP
 comma
+id|IAUTHOR_ISO8601
+comma
 id|ICOMMITTER_NAME
 comma
 id|ICOMMITTER_EMAIL
@@ -4614,6 +4644,8 @@ comma
 id|ICOMMITTER_DATE_RELATIVE
 comma
 id|ICOMMITTER_TIMESTAMP
+comma
+id|ICOMMITTER_ISO8601
 comma
 id|IENCODING
 comma
