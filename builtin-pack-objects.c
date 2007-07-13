@@ -7186,6 +7186,10 @@ id|n-&gt;entry
 op_assign
 l_int|NULL
 suffix:semicolon
+id|n-&gt;depth
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|find_deltas
 r_static
