@@ -3192,12 +3192,14 @@ id|ret
 comma
 l_string|&quot;Date: %s&bslash;n&quot;
 comma
-id|show_rfc2822_date
+id|show_date
 c_func
 (paren
 id|time
 comma
 id|tz
+comma
+id|DATE_RFC2822
 )paren
 )paren
 suffix:semicolon
@@ -4363,7 +4365,7 @@ id|date
 comma
 id|tz
 comma
-l_int|0
+id|DATE_NORMAL
 )paren
 )paren
 suffix:semicolon
@@ -4374,12 +4376,14 @@ id|table
 comma
 l_int|3
 comma
-id|show_rfc2822_date
+id|show_date
 c_func
 (paren
 id|date
 comma
 id|tz
+comma
+id|DATE_RFC2822
 )paren
 )paren
 suffix:semicolon
@@ -4397,7 +4401,7 @@ id|date
 comma
 id|tz
 comma
-l_int|1
+id|DATE_RELATIVE
 )paren
 )paren
 suffix:semicolon

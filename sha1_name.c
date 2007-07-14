@@ -2104,12 +2104,14 @@ id|len
 comma
 id|str
 comma
-id|show_rfc2822_date
+id|show_date
 c_func
 (paren
 id|co_time
 comma
 id|co_tz
+comma
+id|DATE_RFC2822
 )paren
 )paren
 suffix:semicolon
