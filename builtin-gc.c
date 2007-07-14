@@ -1,4 +1,5 @@
 multiline_comment|/*&n; * git gc builtin command&n; *&n; * Cleanup unreachable files and optimize the repository.&n; *&n; * Copyright (c) 2007 James Bowes&n; *&n; * Based on git-gc.sh, which is&n; *&n; * Copyright (c) 2006 Shawn O. Pearce&n; */
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 DECL|macro|FAILED_RUN

@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;wt-status.h&quot;
 r_extern

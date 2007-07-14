@@ -1,3 +1,4 @@
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;xdiff/xdiff.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
@@ -19,17 +20,19 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
 comma
+r_const
 r_char
 op_star
-op_star
-id|envp
+id|prefix
 )paren
 (brace
+r_const
 r_char
 op_star
 id|names
@@ -379,6 +382,7 @@ op_ge
 l_int|0
 )paren
 (brace
+r_const
 r_char
 op_star
 id|filename
