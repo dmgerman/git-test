@@ -5,6 +5,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;progress.h&quot;
+macro_line|#include &quot;refs.h&quot;
 DECL|macro|DBRT_DEBUG
 mdefine_line|#define DBRT_DEBUG 1
 DECL|struct|tree_entry_list
@@ -2166,16 +2167,17 @@ id|ce-&gt;name
 )paren
 suffix:semicolon
 )brace
-DECL|function|verify_clean_subdirectory
+multiline_comment|/*&n; * Check that checking out ce-&gt;sha1 in subdir ce-&gt;name is not&n; * going to overwrite any working files.&n; *&n; * Currently, git does not checkout subprojects during a superproject&n; * checkout, so it is not going to overwrite anything.&n; */
+DECL|function|verify_clean_submodule
 r_static
 r_int
-id|verify_clean_subdirectory
+id|verify_clean_submodule
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|cache_entry
 op_star
-id|path
+id|ce
 comma
 r_const
 r_char
@@ -2188,7 +2190,33 @@ op_star
 id|o
 )paren
 (brace
-multiline_comment|/*&n;&t; * we are about to extract &quot;path&quot;; we would not want to lose&n;&t; * anything in the existing directory there.&n;&t; */
+r_return
+l_int|0
+suffix:semicolon
+)brace
+DECL|function|verify_clean_subdirectory
+r_static
+r_int
+id|verify_clean_subdirectory
+c_func
+(paren
+r_struct
+id|cache_entry
+op_star
+id|ce
+comma
+r_const
+r_char
+op_star
+id|action
+comma
+r_struct
+id|unpack_trees_options
+op_star
+id|o
+)paren
+(brace
+multiline_comment|/*&n;&t; * we are about to extract &quot;ce-&gt;name&quot;; we would not want to lose&n;&t; * anything in the existing directory there.&n;&t; */
 r_int
 id|namelen
 suffix:semicolon
@@ -2210,13 +2238,74 @@ id|cnt
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|ntohl
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+)paren
+op_logical_and
+id|resolve_gitlink_ref
+c_func
+(paren
+id|ce-&gt;name
+comma
+l_string|&quot;HEAD&quot;
+comma
+id|sha1
+)paren
+op_eq
+l_int|0
+)paren
+(brace
+multiline_comment|/* If we are not going to update the submodule, then&n;&t;&t; * we don&squot;t care.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|hashcmp
+c_func
+(paren
+id|sha1
+comma
+id|ce-&gt;sha1
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_return
+id|verify_clean_submodule
+c_func
+(paren
+id|ce
+comma
+id|action
+comma
+id|o
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * First let&squot;s make sure we do not have a local modification&n;&t; * in that directory.&n;&t; */
 id|namelen
 op_assign
 id|strlen
 c_func
 (paren
-id|path
+id|ce-&gt;name
 )paren
 suffix:semicolon
 id|pos
@@ -2224,7 +2313,7 @@ op_assign
 id|cache_name_pos
 c_func
 (paren
-id|path
+id|ce-&gt;name
 comma
 id|namelen
 )paren
@@ -2289,7 +2378,7 @@ op_logical_or
 id|strncmp
 c_func
 (paren
-id|path
+id|ce-&gt;name
 comma
 id|ce-&gt;name
 comma
@@ -2350,7 +2439,7 @@ c_func
 (paren
 id|pathbuf
 comma
-id|path
+id|ce-&gt;name
 comma
 id|namelen
 )paren
@@ -2396,7 +2485,7 @@ c_func
 op_amp
 id|d
 comma
-id|path
+id|ce-&gt;name
 comma
 id|pathbuf
 comma
@@ -2417,7 +2506,7 @@ c_func
 (paren
 l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it&quot;
 comma
-id|path
+id|ce-&gt;name
 )paren
 suffix:semicolon
 id|free
@@ -2437,10 +2526,10 @@ r_void
 id|verify_absent
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|cache_entry
 op_star
-id|path
+id|ce
 comma
 r_const
 r_char
@@ -2475,7 +2564,7 @@ c_cond
 id|has_symlink_leading_path
 c_func
 (paren
-id|path
+id|ce-&gt;name
 comma
 l_int|NULL
 )paren
@@ -2489,7 +2578,7 @@ op_logical_neg
 id|lstat
 c_func
 (paren
-id|path
+id|ce-&gt;name
 comma
 op_amp
 id|st
@@ -2509,10 +2598,10 @@ c_func
 (paren
 id|o-&gt;dir
 comma
-id|path
+id|ce-&gt;name
 )paren
 )paren
-multiline_comment|/*&n;&t;&t;&t; * path is explicitly excluded, so it is Ok to&n;&t;&t;&t; * overwrite it.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * ce-&gt;name is explicitly excluded, so it is Ok to&n;&t;&t;&t; * overwrite it.&n;&t;&t;&t; */
 r_return
 suffix:semicolon
 r_if
@@ -2531,7 +2620,7 @@ op_assign
 id|verify_clean_subdirectory
 c_func
 (paren
-id|path
+id|ce
 comma
 id|action
 comma
@@ -2552,12 +2641,12 @@ op_assign
 id|cache_name_pos
 c_func
 (paren
-id|path
+id|ce-&gt;name
 comma
 id|strlen
 c_func
 (paren
-id|path
+id|ce-&gt;name
 )paren
 )paren
 suffix:semicolon
@@ -2601,7 +2690,7 @@ c_func
 l_string|&quot;Untracked working tree file &squot;%s&squot; &quot;
 l_string|&quot;would be %s by merge.&quot;
 comma
-id|path
+id|ce-&gt;name
 comma
 id|action
 )paren
@@ -2687,7 +2776,7 @@ r_else
 id|verify_absent
 c_func
 (paren
-id|merge-&gt;name
+id|merge
 comma
 l_string|&quot;overwritten&quot;
 comma
@@ -2763,7 +2852,7 @@ r_else
 id|verify_absent
 c_func
 (paren
-id|ce-&gt;name
+id|ce
 comma
 l_string|&quot;removed&quot;
 comma
@@ -3303,10 +3392,10 @@ op_logical_and
 op_logical_neg
 id|df_conflict_remote
 suffix:semicolon
-r_const
-r_char
+r_struct
+id|cache_entry
 op_star
-id|path
+id|ce
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -3315,9 +3404,9 @@ c_cond
 (paren
 id|index
 )paren
-id|path
+id|ce
 op_assign
-id|index-&gt;name
+id|index
 suffix:semicolon
 r_else
 r_if
@@ -3325,9 +3414,9 @@ c_cond
 (paren
 id|head
 )paren
-id|path
+id|ce
 op_assign
-id|head-&gt;name
+id|head
 suffix:semicolon
 r_else
 r_if
@@ -3335,9 +3424,9 @@ c_cond
 (paren
 id|remote
 )paren
-id|path
+id|ce
 op_assign
-id|remote-&gt;name
+id|remote
 suffix:semicolon
 r_else
 (brace
@@ -3372,14 +3461,12 @@ op_ne
 id|o-&gt;df_conflict_entry
 )paren
 (brace
-id|path
+id|ce
 op_assign
 id|stages
 (braket
 id|i
 )braket
-op_member_access_from_pointer
-id|name
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -3433,7 +3520,7 @@ r_else
 r_if
 c_cond
 (paren
-id|path
+id|ce
 op_logical_and
 op_logical_neg
 id|head_deleted
@@ -3441,7 +3528,7 @@ id|head_deleted
 id|verify_absent
 c_func
 (paren
-id|path
+id|ce
 comma
 l_string|&quot;removed&quot;
 comma
