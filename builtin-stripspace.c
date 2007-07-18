@@ -313,7 +313,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_pipe
+id|read_fd
 c_func
 (paren
 l_int|0
@@ -325,12 +325,20 @@ op_amp
 id|size
 )paren
 )paren
+(brace
+id|free
+c_func
+(paren
+id|buffer
+)paren
+suffix:semicolon
 id|die
 c_func
 (paren
 l_string|&quot;could not read the input&quot;
 )paren
 suffix:semicolon
+)brace
 id|size
 op_assign
 id|stripspace

@@ -544,7 +544,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_pipe
+id|read_fd
 c_func
 (paren
 l_int|0
