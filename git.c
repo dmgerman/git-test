@@ -2274,6 +2274,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;tag&quot;
+comma
+id|cmd_tag
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;tar-tree&quot;
 comma
 id|cmd_tar_tree
