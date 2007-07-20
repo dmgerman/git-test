@@ -5735,6 +5735,26 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--log-size&quot;
+)paren
+)paren
+(brace
+id|revs-&gt;show_log_size
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 multiline_comment|/*&n;&t;&t;&t; * Grepping the commit log&n;&t;&t;&t; */
 r_if
 c_cond

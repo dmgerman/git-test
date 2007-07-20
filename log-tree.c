@@ -1380,6 +1380,19 @@ comma
 id|opt-&gt;add_signoff
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;show_log_size
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;log size %i&bslash;n&quot;
+comma
+id|len
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
