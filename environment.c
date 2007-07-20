@@ -139,6 +139,11 @@ id|pager_use_color
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|editor_program
+r_char
+op_star
+id|editor_program
+suffix:semicolon
 DECL|variable|auto_crlf
 r_int
 id|auto_crlf
