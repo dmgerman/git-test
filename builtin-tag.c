@@ -437,13 +437,27 @@ c_cond
 (paren
 op_logical_neg
 id|buf
-op_logical_or
-op_logical_neg
-id|size
 )paren
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|size
+)paren
+(brace
+id|free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 multiline_comment|/* skip header */
 r_while
 c_loop
@@ -686,12 +700,12 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|typedef|func_tag
+DECL|typedef|each_tag_name_fn
 r_typedef
 r_int
 (paren
 op_star
-id|func_tag
+id|each_tag_name_fn
 )paren
 (paren
 r_const
@@ -711,10 +725,10 @@ op_star
 id|sha1
 )paren
 suffix:semicolon
-DECL|function|do_tag_names
+DECL|function|for_each_tag_name
 r_static
 r_int
-id|do_tag_names
+id|for_each_tag_name
 c_func
 (paren
 r_const
@@ -723,7 +737,7 @@ op_star
 op_star
 id|argv
 comma
-id|func_tag
+id|each_tag_name_fn
 id|fn
 )paren
 (brace
@@ -1051,11 +1065,12 @@ r_sizeof
 id|signingkey
 )paren
 )paren
-op_ge
+OG
 r_sizeof
 (paren
 id|signingkey
 )paren
+l_int|1
 )paren
 r_return
 id|error
@@ -1391,7 +1406,7 @@ c_cond
 (paren
 id|type
 op_le
-l_int|0
+id|OBJ_NONE
 )paren
 id|die
 c_func
@@ -1440,11 +1455,12 @@ r_if
 c_cond
 (paren
 id|header_len
-op_ge
+OG
 r_sizeof
 (paren
 id|header_buf
 )paren
+l_int|1
 )paren
 id|die
 c_func
@@ -2015,6 +2031,17 @@ c_func
 l_string|&quot;option -m needs an argument.&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|message
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;only one -F or -m option is allowed.&quot;
+)paren
+suffix:semicolon
 id|message
 op_assign
 id|xstrdup
@@ -2067,6 +2094,17 @@ id|die
 c_func
 (paren
 l_string|&quot;option -F needs an argument.&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|message
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;only one -F or -m option is allowed.&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2259,7 +2297,6 @@ comma
 l_string|&quot;-l&quot;
 )paren
 )paren
-(brace
 r_return
 id|list_tags
 c_func
@@ -2274,7 +2311,6 @@ comma
 id|lines
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -2287,9 +2323,8 @@ comma
 l_string|&quot;-d&quot;
 )paren
 )paren
-(brace
 r_return
-id|do_tag_names
+id|for_each_tag_name
 c_func
 (paren
 id|argv
@@ -2301,7 +2336,6 @@ comma
 id|delete_tag
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -2314,9 +2348,8 @@ comma
 l_string|&quot;-v&quot;
 )paren
 )paren
-(brace
 r_return
-id|do_tag_names
+id|for_each_tag_name
 c_func
 (paren
 id|argv
@@ -2328,7 +2361,6 @@ comma
 id|verify_tag
 )paren
 suffix:semicolon
-)brace
 id|usage
 c_func
 (paren
@@ -2438,11 +2470,12 @@ l_string|&quot;refs/tags/%s&quot;
 comma
 id|tag
 )paren
-op_ge
+OG
 r_sizeof
 (paren
 id|ref
 )paren
+l_int|1
 )paren
 id|die
 c_func
