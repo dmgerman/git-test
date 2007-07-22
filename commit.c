@@ -3986,6 +3986,12 @@ comma
 id|output_encoding
 )paren
 )paren
+r_if
+c_cond
+(paren
+id|encoding
+)paren
+multiline_comment|/* we&squot;ll strip encoding header later */
 id|out
 op_assign
 id|xstrdup
@@ -3994,6 +4000,11 @@ c_func
 id|commit-&gt;buffer
 )paren
 suffix:semicolon
+r_else
+r_return
+l_int|NULL
+suffix:semicolon
+multiline_comment|/* nothing to do */
 r_else
 id|out
 op_assign
