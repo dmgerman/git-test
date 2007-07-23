@@ -743,7 +743,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|add_reflog_for_walk
-r_void
+r_int
 id|add_reflog_for_walk
 c_func
 (paren
@@ -1079,13 +1079,8 @@ id|reflogs-&gt;nr
 op_eq
 l_int|0
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;No reflogs found for &squot;%s&squot;&quot;
-comma
-id|branch
-)paren
+r_return
+l_int|1
 suffix:semicolon
 id|path_list_insert
 c_func
@@ -1158,6 +1153,7 @@ id|commit_reflog
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 )brace
 )brace
@@ -1182,6 +1178,9 @@ comma
 op_amp
 id|info-&gt;reflogs
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|fake_reflog_parent
