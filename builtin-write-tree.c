@@ -203,6 +203,20 @@ comma
 id|prefix
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|subtree
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git-write-tree: prefix %s not found&quot;
+comma
+id|prefix
+)paren
+suffix:semicolon
 id|hashcpy
 c_func
 (paren
