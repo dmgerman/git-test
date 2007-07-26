@@ -9108,7 +9108,13 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;unable to create temp-file&quot;
+l_string|&quot;unable to create temp-file: %s&quot;
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 r_if
