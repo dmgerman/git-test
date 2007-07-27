@@ -32,7 +32,8 @@ id|daemon_usage
 op_assign
 l_string|&quot;git-daemon [--verbose] [--syslog] [--export-all]&bslash;n&quot;
 l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths]&bslash;n&quot;
-l_string|&quot;           [--base-path=path] [--user-path | --user-path=path]&bslash;n&quot;
+l_string|&quot;           [--base-path=path] [--base-path-relaxed]&bslash;n&quot;
+l_string|&quot;           [--user-path | --user-path=path]&bslash;n&quot;
 l_string|&quot;           [--interpolated-path=path]&bslash;n&quot;
 l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file]&bslash;n&quot;
 l_string|&quot;           [--[enable|disable|allow-override|forbid-override]=service]&bslash;n&quot;
@@ -71,6 +72,11 @@ r_static
 r_char
 op_star
 id|interpolated_path
+suffix:semicolon
+DECL|variable|base_path_relaxed
+r_static
+r_int
+id|base_path_relaxed
 suffix:semicolon
 multiline_comment|/* Flag indicating client sent extra args. */
 DECL|variable|saw_extended_args
@@ -643,6 +649,11 @@ id|interp_path
 id|PATH_MAX
 )braket
 suffix:semicolon
+r_int
+id|retried_path
+op_assign
+l_int|0
+suffix:semicolon
 r_char
 op_star
 id|path
@@ -914,6 +925,8 @@ op_assign
 id|rpath
 suffix:semicolon
 )brace
+r_do
+(brace
 id|path
 op_assign
 id|enter_repo
@@ -922,6 +935,50 @@ c_func
 id|dir
 comma
 id|strict_paths
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|path
+)paren
+r_break
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * if we fail and base_path_relaxed is enabled, try without&n;&t;&t; * prefixing the base path&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|base_path
+op_logical_and
+id|base_path_relaxed
+op_logical_and
+op_logical_neg
+id|retried_path
+)paren
+(brace
+id|dir
+op_assign
+id|itable
+(braket
+id|INTERP_SLOT_DIR
+)braket
+dot
+id|value
+suffix:semicolon
+id|retried_path
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_break
+suffix:semicolon
+)brace
+r_while
+c_loop
+(paren
+l_int|1
 )paren
 suffix:semicolon
 r_if
@@ -4946,6 +5003,26 @@ op_assign
 id|arg
 op_plus
 l_int|12
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--base-path-relaxed&quot;
+)paren
+)paren
+(brace
+id|base_path_relaxed
+op_assign
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
