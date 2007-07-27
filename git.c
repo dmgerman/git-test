@@ -2318,6 +2318,14 @@ id|cmd_upload_archive
 )brace
 comma
 (brace
+l_string|&quot;verify-tag&quot;
+comma
+id|cmd_verify_tag
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;version&quot;
 comma
 id|cmd_version
