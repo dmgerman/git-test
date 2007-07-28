@@ -294,6 +294,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|excludes_file
+op_ne
+l_int|NULL
+op_logical_and
 op_logical_neg
 id|access
 c_func
