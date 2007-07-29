@@ -1204,6 +1204,10 @@ id|rev.diffopt.allow_external
 op_assign
 l_int|1
 suffix:semicolon
+id|rev.diffopt.recursive
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* Do we have --cached and not have a pending object, then&n;&t; * default to HEAD by hand.  Eek.&n;&t; */
 r_if
 c_cond
