@@ -242,23 +242,6 @@ c_func
 l_string|&quot;Refusing to perform update with empty message&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|strchr
-c_func
-(paren
-id|msg
-comma
-l_char|&squot;&bslash;n&squot;
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Refusing to perform update with &bslash;&bslash;n in message&quot;
-)paren
-suffix:semicolon
 )brace
 r_else
 r_if
