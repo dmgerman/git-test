@@ -2658,7 +2658,7 @@ id|argv
 l_int|0
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * We search for git commands in the following order:&n;&t; *  - git_exec_path()&n;&t; *  - the path of the &quot;git&quot; command if we could find it&n;&t; *    in $0&n;&t; *  - the regular PATH.&n;&t; */
+multiline_comment|/*&n;&t; * We execute external git command via execv_git_cmd(),&n;&t; * which looks at &quot;--exec-path&quot; option, GIT_EXEC_PATH&n;&t; * environment, and $(gitexecdir) in Makefile while built,&n;&t; * in this order.  For scripted commands, we prepend&n;&t; * the value of the exec_path variable to the PATH.&n;&t; */
 r_if
 c_cond
 (paren
