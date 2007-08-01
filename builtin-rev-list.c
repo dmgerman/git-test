@@ -1250,8 +1250,8 @@ id|on_list
 comma
 r_sizeof
 (paren
-r_int
 op_star
+id|weights
 )paren
 )paren
 suffix:semicolon
