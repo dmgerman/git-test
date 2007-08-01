@@ -3011,7 +3011,7 @@ op_eq
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * get_relative_cwd() gets the prefix of the current working directory&n; * relative to &squot;dir&squot;.  If we are not inside &squot;dir&squot;, it returns NULL.&n; * As a convenience, it also returns NULL if &squot;dir&squot; is already NULL.&n; */
+multiline_comment|/*&n; * get_relative_cwd() gets the prefix of the current working directory&n; * relative to &squot;dir&squot;.  If we are not inside &squot;dir&squot;, it returns NULL.&n; *&n; * As a convenience, it also returns NULL if &squot;dir&squot; is already NULL.  The&n; * reason for this behaviour is that it is natural for functions returning&n; * directory names to return NULL to say &quot;this directory does not exist&quot;&n; * or &quot;this directory is invalid&quot;.  These cases are usually handled the&n; * same as if the cwd is not inside &squot;dir&squot; at all, so get_relative_cwd()&n; * returns NULL for both of them.&n; *&n; * Most notably, get_relative_cwd(buffer, size, get_git_work_tree())&n; * unifies the handling of &quot;outside work tree&quot; with &quot;no work tree at all&quot;.&n; */
 DECL|function|get_relative_cwd
 r_char
 op_star
@@ -3037,7 +3037,6 @@ id|cwd
 op_assign
 id|buffer
 suffix:semicolon
-multiline_comment|/*&n;&t; * a lazy caller can pass a NULL returned from get_git_work_tree()&n;&t; * and rely on this function to return NULL.&n;&t; */
 r_if
 c_cond
 (paren
