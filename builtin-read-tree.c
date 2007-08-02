@@ -452,11 +452,6 @@ id|opts.head_idx
 op_assign
 l_int|1
 suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
-suffix:semicolon
 id|git_config
 c_func
 (paren
