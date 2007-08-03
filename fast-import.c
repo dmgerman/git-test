@@ -1946,7 +1946,7 @@ comma
 id|name
 )paren
 suffix:semicolon
-r_if
+r_switch
 c_cond
 (paren
 id|check_ref_format
@@ -1955,6 +1955,21 @@ c_func
 id|name
 )paren
 )paren
+(brace
+r_case
+l_int|0
+suffix:colon
+r_break
+suffix:semicolon
+multiline_comment|/* its valid */
+r_case
+l_int|2
+suffix:colon
+r_break
+suffix:semicolon
+multiline_comment|/* valid, but too few &squot;/&squot;, allow anyway */
+r_default
+suffix:colon
 id|die
 c_func
 (paren
@@ -1963,6 +1978,7 @@ comma
 id|name
 )paren
 suffix:semicolon
+)brace
 id|b
 op_assign
 id|pool_calloc
