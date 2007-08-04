@@ -2082,6 +2082,22 @@ id|changed
 )paren
 r_return
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * NEEDSWORK: the current default policy is to allow&n;&t;&t; * submodule to be out of sync wrt the supermodule&n;&t;&t; * index.  This needs to be tightened later for&n;&t;&t; * submodules that are marked to be automatically&n;&t;&t; * checked out.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|ntohl
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+)paren
+)paren
+r_return
+suffix:semicolon
 id|errno
 op_assign
 l_int|0
