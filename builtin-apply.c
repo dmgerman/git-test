@@ -11940,7 +11940,7 @@ c_func
 (paren
 id|patch
 comma
-l_int|0
+id|patch-&gt;is_rename
 )paren
 suffix:semicolon
 r_if
