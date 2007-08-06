@@ -505,6 +505,10 @@ c_cond
 id|errno
 op_ne
 id|ENOENT
+op_logical_and
+id|errno
+op_ne
+id|ENOTDIR
 )paren
 id|die
 c_func
