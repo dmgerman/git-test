@@ -1284,6 +1284,7 @@ r_struct
 id|child_process
 id|rls
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK: this should use something like lock-file&n;&t; * to create temporary that is cleaned up upon error.&n;&t; */
 id|bundle_fd
 op_assign
 (paren
@@ -1701,7 +1702,7 @@ l_int|1
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Make sure the refs we wrote out is correct; --max-count and&n;&t;&t; * other limiting options could have prevented all the tips&n;&t;&t; * from getting output.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Make sure the refs we wrote out is correct; --max-count and&n;&t;&t; * other limiting options could have prevented all the tips&n;&t;&t; * from getting output.&n;&t;&t; *&n;&t;&t; * Non commit objects such as tags and blobs do not have&n;&t;&t; * this issue as they are not affected by those extra&n;&t;&t; * constraints.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1711,6 +1712,10 @@ id|e-&gt;item-&gt;flags
 op_amp
 id|SHOWN
 )paren
+op_logical_and
+id|e-&gt;item-&gt;type
+op_eq
+id|OBJ_COMMIT
 )paren
 (brace
 id|warning
