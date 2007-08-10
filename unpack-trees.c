@@ -4085,12 +4085,6 @@ id|src
 l_int|1
 )braket
 suffix:semicolon
-id|remove_entry
-c_func
-(paren
-id|remove
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4191,12 +4185,6 @@ id|src
 l_int|1
 )braket
 suffix:semicolon
-id|remove_entry
-c_func
-(paren
-id|remove
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4219,6 +4207,13 @@ c_cond
 op_logical_neg
 id|a
 )paren
+(brace
+id|remove_entry
+c_func
+(paren
+id|remove
+)paren
+suffix:semicolon
 r_return
 id|deleted_entry
 c_func
@@ -4230,6 +4225,7 @@ comma
 id|o
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
