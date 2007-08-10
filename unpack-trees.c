@@ -3046,12 +3046,6 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
-id|remove_entry
-c_func
-(paren
-id|remove
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -3357,9 +3351,17 @@ id|remote
 op_logical_and
 id|any_anc_missing
 )paren
+(brace
+id|remove_entry
+c_func
+(paren
+id|remove
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
+)brace
 multiline_comment|/* Under the new &quot;aggressive&quot; rule, we resolve mostly trivial&n;&t; * cases that we historically had git-merge-one-file resolve.&n;&t; */
 r_if
 c_cond
@@ -3493,6 +3495,12 @@ id|head_match
 )paren
 )paren
 (brace
+id|remove_entry
+c_func
+(paren
+id|remove
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3578,6 +3586,12 @@ id|o
 )paren
 suffix:semicolon
 )brace
+id|remove_entry
+c_func
+(paren
+id|remove
+)paren
+suffix:semicolon
 id|o-&gt;nontrivial_merge
 op_assign
 l_int|1
