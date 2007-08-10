@@ -3775,12 +3775,6 @@ id|src
 l_int|2
 )braket
 suffix:semicolon
-id|remove_entry
-c_func
-(paren
-id|remove
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3922,6 +3916,12 @@ id|oldtree
 )paren
 (brace
 multiline_comment|/* 10 or 11 */
+id|remove_entry
+c_func
+(paren
+id|remove
+)paren
+suffix:semicolon
 r_return
 id|deleted_entry
 c_func
@@ -3976,6 +3976,12 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/* all other failures */
+id|remove_entry
+c_func
+(paren
+id|remove
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4031,7 +4037,12 @@ comma
 id|o
 )paren
 suffix:semicolon
-r_else
+id|remove_entry
+c_func
+(paren
+id|remove
+)paren
+suffix:semicolon
 r_return
 id|deleted_entry
 c_func
