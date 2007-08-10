@@ -4573,6 +4573,12 @@ id|len
 )paren
 suffix:semicolon
 )brace
+id|close
+c_func
+(paren
+id|fd
+)paren
+suffix:semicolon
 r_return
 id|commit_lock_file
 c_func
