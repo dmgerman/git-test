@@ -4,6 +4,7 @@ mdefine_line|#define NO_THE_INDEX_COMPATIBILITY_MACROS
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;dir.h&quot;
 multiline_comment|/* Index extensions.&n; *&n; * The first letter should be &squot;A&squot;..&squot;Z&squot; for extensions that are not&n; * necessary for a correct operation (i.e. optimization data).&n; * When new extensions are added that _needs_ to be understood in&n; * order to correctly interpret the index file, pick character that&n; * is outside the range, to cause the reader to abort.&n; */
 DECL|macro|CACHE_EXT
 mdefine_line|#define CACHE_EXT(s) ( (s[0]&lt;&lt;24)|(s[1]&lt;&lt;16)|(s[2]&lt;&lt;8)|(s[3]) )
@@ -3568,6 +3569,16 @@ comma
 r_int
 r_int
 id|flags
+comma
+r_const
+r_char
+op_star
+op_star
+id|pathspec
+comma
+r_char
+op_star
+id|seen
 )paren
 (brace
 r_int
@@ -3718,6 +3729,32 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|pathspec
+op_logical_and
+op_logical_neg
+id|match_pathspec
+c_func
+(paren
+id|pathspec
+comma
+id|ce-&gt;name
+comma
+id|strlen
+c_func
+(paren
+id|ce-&gt;name
+)paren
+comma
+l_int|0
+comma
+id|seen
+)paren
+)paren
+r_continue
+suffix:semicolon
 r_new
 op_assign
 id|refresh_cache_ent
