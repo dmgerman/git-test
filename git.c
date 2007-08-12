@@ -1970,8 +1970,6 @@ comma
 l_string|&quot;diff&quot;
 comma
 id|cmd_diff
-comma
-id|USE_PAGER
 )brace
 comma
 (brace
