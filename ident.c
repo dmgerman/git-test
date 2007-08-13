@@ -909,11 +909,11 @@ l_string|&quot;*** Your name cannot be determined from your system services (gec
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;Run&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;  git config user.email &bslash;&quot;you@email.com&bslash;&quot;&bslash;n&quot;
-l_string|&quot;  git config user.name &bslash;&quot;Your Name&bslash;&quot;&bslash;n&quot;
+l_string|&quot;  git config --global user.email &bslash;&quot;you@email.com&bslash;&quot;&bslash;n&quot;
+l_string|&quot;  git config --global user.name &bslash;&quot;Your Name&bslash;&quot;&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;To set the identity in this repository.&bslash;n&quot;
-l_string|&quot;Add --global to set your account&bslash;&squot;s default&bslash;n&quot;
+l_string|&quot;to set your account&bslash;&squot;s default identity.&bslash;n&quot;
+l_string|&quot;Omit --global to set the identity only in this repository.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 suffix:semicolon
 DECL|function|fmt_ident
