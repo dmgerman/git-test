@@ -4097,23 +4097,10 @@ l_string|&quot;.merge_file_XXXXXX&quot;
 suffix:semicolon
 id|fd
 op_assign
-id|mkstemp
+id|xmkstemp
 c_func
 (paren
 id|path
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|fd
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to create temp-file&quot;
 )paren
 suffix:semicolon
 r_if

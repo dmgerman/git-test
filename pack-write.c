@@ -256,7 +256,7 @@ c_func
 suffix:semicolon
 id|fd
 op_assign
-id|mkstemp
+id|xmkstemp
 c_func
 (paren
 id|tmpfile

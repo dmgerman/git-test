@@ -3017,7 +3017,7 @@ id|path
 )paren
 suffix:semicolon
 r_return
-id|mkstemp
+id|xmkstemp
 c_func
 (paren
 id|tmpname
@@ -3153,27 +3153,6 @@ id|open_object_dir_tmp
 c_func
 (paren
 l_string|&quot;tmp_pack_XXXXXX&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|fd
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to create %s: %s&bslash;n&quot;
-comma
-id|tmpname
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|pack_tmp_name
