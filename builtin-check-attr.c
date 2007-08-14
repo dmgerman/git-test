@@ -1,4 +1,5 @@
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;quote.h&quot;
 DECL|variable|check_attr_usage
@@ -43,6 +44,24 @@ id|i
 comma
 id|doubledash
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|read_cache
+c_func
+(paren
+)paren
+OL
+l_int|0
+)paren
+(brace
+id|die
+c_func
+(paren
+l_string|&quot;invalid cache&quot;
+)paren
+suffix:semicolon
+)brace
 id|doubledash
 op_assign
 l_int|1
