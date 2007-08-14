@@ -1109,6 +1109,10 @@ id|revs-&gt;diffopt.exit_with_status
 op_assign
 l_int|1
 suffix:semicolon
+id|revs-&gt;diffopt.no_index
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -1192,10 +1196,16 @@ l_int|1
 )braket
 )paren
 )paren
+(brace
 id|revs-&gt;max_count
 op_assign
 l_int|2
 suffix:semicolon
+id|revs-&gt;diffopt.no_index
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n;&t; * Make sure there are NO revision (i.e. pending object) parameter,&n;&t; * rev.max_count is reasonable (0 &lt;= n &lt;= 3),&n;&t; * there is no other revision filtering parameters.&n;&t; */
 r_if
@@ -1733,6 +1743,10 @@ id|revs-&gt;diffopt.nr_paths
 op_assign
 l_int|2
 suffix:semicolon
+id|revs-&gt;diffopt.no_index
+op_assign
+l_int|1
+suffix:semicolon
 id|revs-&gt;max_count
 op_assign
 l_int|2
@@ -1786,9 +1800,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs-&gt;max_count
-op_eq
-l_int|2
+id|revs-&gt;diffopt.no_index
 )paren
 (brace
 r_if

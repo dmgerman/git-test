@@ -16917,6 +16917,12 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/*&n;&t;&t;&t; * The caller can subtract 1 from skip_stat_unmatch&n;&t;&t;&t; * to determine how many paths were dirty only&n;&t;&t;&t; * due to stat info mismatch.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|diffopt-&gt;no_index
+)paren
 id|diffopt-&gt;skip_stat_unmatch
 op_increment
 suffix:semicolon
