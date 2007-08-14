@@ -2780,7 +2780,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;wrong index file size in %s&quot;
+l_string|&quot;wrong index v1 file size in %s&quot;
 comma
 id|path
 )paren
@@ -2861,7 +2861,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;wrong index file size in %s&quot;
+l_string|&quot;wrong index v2 file size in %s&quot;
 comma
 id|path
 )paren
