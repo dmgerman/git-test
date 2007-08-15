@@ -7,6 +7,8 @@ macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+DECL|macro|MAX_TREES
+mdefine_line|#define MAX_TREES 4
 DECL|variable|nr_trees
 r_static
 r_int
@@ -19,7 +21,7 @@ id|tree
 op_star
 id|trees
 (braket
-l_int|4
+id|MAX_TREES
 )braket
 suffix:semicolon
 DECL|function|list_tree
@@ -443,7 +445,7 @@ r_struct
 id|tree_desc
 id|t
 (braket
-l_int|3
+id|MAX_TREES
 )braket
 suffix:semicolon
 r_struct
@@ -1195,6 +1197,21 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|MAX_TREES
+OL
+id|nr_trees
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;I cannot read more than %d trees&quot;
+comma
+id|MAX_TREES
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
