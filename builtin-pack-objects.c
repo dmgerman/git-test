@@ -6465,16 +6465,6 @@ r_int
 id|delta_cacheable
 c_func
 (paren
-r_struct
-id|unpacked
-op_star
-id|trg
-comma
-r_struct
-id|unpacked
-op_star
-id|src
-comma
 r_int
 r_int
 id|src_size
@@ -7002,10 +6992,6 @@ c_cond
 id|delta_cacheable
 c_func
 (paren
-id|src
-comma
-id|trg
-comma
 id|src_size
 comma
 id|trg_size
