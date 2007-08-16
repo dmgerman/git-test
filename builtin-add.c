@@ -517,6 +517,14 @@ c_func
 id|path
 )paren
 suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|active_cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -547,6 +555,11 @@ comma
 r_const
 r_char
 op_star
+id|prefix
+comma
+r_const
+r_char
+op_star
 op_star
 id|files
 )paren
@@ -561,7 +574,7 @@ c_func
 op_amp
 id|rev
 comma
-l_string|&quot;&quot;
+id|prefix
 )paren
 suffix:semicolon
 id|setup_revisions
@@ -582,7 +595,7 @@ op_assign
 id|get_pathspec
 c_func
 (paren
-id|rev.prefix
+id|prefix
 comma
 id|files
 )paren
@@ -1170,6 +1183,8 @@ id|update
 c_func
 (paren
 id|verbose
+comma
+id|prefix
 comma
 id|argv
 op_plus
