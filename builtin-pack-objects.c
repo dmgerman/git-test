@@ -5011,6 +5011,17 @@ id|entry
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|entry.mode
+)paren
+)paren
+r_continue
+suffix:semicolon
 id|cmp
 op_assign
 id|tree_entry_len
