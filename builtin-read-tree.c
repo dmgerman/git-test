@@ -8,7 +8,7 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 DECL|macro|MAX_TREES
-mdefine_line|#define MAX_TREES 4
+mdefine_line|#define MAX_TREES 8
 DECL|variable|nr_trees
 r_static
 r_int
@@ -46,10 +46,15 @@ c_cond
 (paren
 id|nr_trees
 op_ge
-l_int|4
+id|MAX_TREES
 )paren
-r_return
-l_int|1
+id|die
+c_func
+(paren
+l_string|&quot;I cannot read more than %d trees&quot;
+comma
+id|MAX_TREES
+)paren
 suffix:semicolon
 id|tree
 op_assign
@@ -1197,21 +1202,6 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|MAX_TREES
-OL
-id|nr_trees
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;I cannot read more than %d trees&quot;
-comma
-id|MAX_TREES
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
