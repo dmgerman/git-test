@@ -15650,18 +15650,6 @@ c_func
 l_string|&quot;unable to read files to diff&quot;
 )paren
 suffix:semicolon
-multiline_comment|/* Maybe hash p-&gt;two? into the patch id? */
-r_if
-c_cond
-(paren
-id|diff_filespec_is_binary
-c_func
-(paren
-id|p-&gt;two
-)paren
-)paren
-r_continue
-suffix:semicolon
 id|len1
 op_assign
 id|remove_space
