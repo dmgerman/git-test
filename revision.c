@@ -6368,6 +6368,19 @@ id|revs-&gt;grep_filter
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|revs-&gt;reverse
+op_logical_and
+id|revs-&gt;reflog_info
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot combine --reverse with --walk-reflogs&quot;
+)paren
+suffix:semicolon
 r_return
 id|left
 suffix:semicolon
