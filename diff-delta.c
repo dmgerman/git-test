@@ -1561,8 +1561,6 @@ id|i
 )braket
 op_div
 id|HASH_LIMIT
-op_div
-l_int|2
 suffix:semicolon
 r_do
 (brace
