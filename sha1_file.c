@@ -8060,6 +8060,28 @@ comma
 id|delta_size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|delta_data
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;failed to unpack compressed delta&quot;
+l_string|&quot; at %&quot;
+id|PRIuMAX
+l_string|&quot; from %s&quot;
+comma
+(paren
+r_uintmax
+)paren
+id|curpos
+comma
+id|p-&gt;pack_name
+)paren
+suffix:semicolon
 id|result
 op_assign
 id|patch_delta
