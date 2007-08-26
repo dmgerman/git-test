@@ -16,7 +16,7 @@ id|builtin_add_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-add [-n] [-v] [-f] [--interactive | -i] [-u] [--] &lt;filepattern&gt;...&quot;
+l_string|&quot;git-add [-n] [-v] [-f] [--interactive | -i] [-u] [--refresh] [--] &lt;filepattern&gt;...&quot;
 suffix:semicolon
 DECL|variable|take_worktree_changes
 r_static
