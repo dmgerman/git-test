@@ -582,6 +582,10 @@ op_plus
 l_int|1
 )braket
 suffix:semicolon
+id|is_bare_repository_cfg
+op_assign
+l_int|1
+suffix:semicolon
 id|setenv
 c_func
 (paren
