@@ -278,6 +278,10 @@ id|rev-&gt;verbose_header
 op_assign
 l_int|1
 suffix:semicolon
+id|rev-&gt;diffopt.recursive
+op_assign
+l_int|1
+suffix:semicolon
 id|rev-&gt;show_root_diff
 op_assign
 id|default_show_root
@@ -618,10 +622,6 @@ id|rev.diff
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.diffopt.recursive
-op_assign
-l_int|1
-suffix:semicolon
 id|rev.simplify_history
 op_assign
 l_int|0
@@ -911,10 +911,6 @@ id|prefix
 )paren
 suffix:semicolon
 id|rev.diff
-op_assign
-l_int|1
-suffix:semicolon
-id|rev.diffopt.recursive
 op_assign
 l_int|1
 suffix:semicolon
