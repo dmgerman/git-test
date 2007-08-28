@@ -3442,8 +3442,12 @@ c_cond
 id|rev.max_count
 OL
 l_int|0
+op_logical_and
+op_logical_neg
+id|rev.show_root_diff
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * This is traditional behaviour of &quot;git format-patch&n;&t;&t;&t; * origin&quot; that prepares what the origin side still&n;&t;&t;&t; * does not have.&n;&t;&t;&t; */
 id|rev.pending.objects
 (braket
 l_int|0
@@ -3461,7 +3465,7 @@ id|rev
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Otherwise, it is &quot;format-patch -22 HEAD&quot;, and&n;&t;&t; * get_revision() would return only the specified count.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Otherwise, it is &quot;format-patch -22 HEAD&quot;, and/or&n;&t;&t; * &quot;format-patch --root HEAD&quot;.  The user wants&n;&t;&t; * get_revision() to do the usual traversal.&n;&t;&t; */
 )brace
 r_if
 c_cond
