@@ -602,7 +602,7 @@ id|git_dir
 )paren
 )paren
 comma
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 r_if
