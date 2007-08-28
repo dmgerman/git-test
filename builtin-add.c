@@ -832,11 +832,11 @@ r_struct
 id|lock_file
 id|lock_file
 suffix:semicolon
-DECL|variable|ignore_warning
+DECL|variable|ignore_error
 r_static
 r_const
 r_char
-id|ignore_warning
+id|ignore_error
 (braket
 )braket
 op_assign
@@ -1360,7 +1360,7 @@ c_func
 (paren
 id|stderr
 comma
-id|ignore_warning
+id|ignore_error
 )paren
 suffix:semicolon
 r_for
@@ -1402,9 +1402,10 @@ comma
 l_string|&quot;Use -f if you really want to add them.&bslash;n&quot;
 )paren
 suffix:semicolon
-m_exit
+id|die
+c_func
 (paren
-l_int|1
+l_string|&quot;no files added&quot;
 )paren
 suffix:semicolon
 )brace
