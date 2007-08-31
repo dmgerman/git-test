@@ -4278,6 +4278,16 @@ id|argc
 op_assign
 id|i
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|argv
+(braket
+id|i
+op_plus
+l_int|1
+)braket
+)paren
 id|revs-&gt;prune_data
 op_assign
 id|get_pathspec
