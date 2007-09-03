@@ -165,7 +165,6 @@ op_plus
 id|len
 comma
 id|PGP_SIGNATURE
-l_string|&quot;&bslash;n&quot;
 )paren
 )paren
 (brace
