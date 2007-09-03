@@ -21,6 +21,14 @@ r_static
 r_int
 id|zip_time
 suffix:semicolon
+DECL|variable|commit
+r_static
+r_const
+r_struct
+id|commit
+op_star
+id|commit
+suffix:semicolon
 DECL|variable|zip_dir
 r_static
 r_int
@@ -1061,7 +1069,7 @@ l_int|0
 suffix:semicolon
 id|buffer
 op_assign
-id|convert_sha1_file
+id|sha1_file_to_archive
 c_func
 (paren
 id|path
@@ -1075,6 +1083,8 @@ id|type
 comma
 op_amp
 id|size
+comma
+id|commit
 )paren
 suffix:semicolon
 r_if
@@ -1823,6 +1833,10 @@ suffix:semicolon
 id|verbose
 op_assign
 id|args-&gt;verbose
+suffix:semicolon
+id|commit
+op_assign
+id|args-&gt;commit
 suffix:semicolon
 r_if
 c_cond
