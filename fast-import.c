@@ -8457,9 +8457,12 @@ id|recent_command
 op_star
 id|rc
 suffix:semicolon
-id|command_buf.buf
-op_assign
-l_int|NULL
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|command_buf
+)paren
 suffix:semicolon
 id|read_line
 c_func
@@ -8723,10 +8726,6 @@ c_func
 id|sz
 )paren
 suffix:semicolon
-id|command_buf.buf
-op_assign
-l_int|NULL
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -8784,6 +8783,8 @@ comma
 id|length
 op_plus
 id|command_buf.len
+op_plus
+l_int|1
 comma
 id|sz
 )paren
@@ -8798,13 +8799,11 @@ comma
 id|command_buf.buf
 comma
 id|command_buf.len
-l_int|1
 )paren
 suffix:semicolon
 id|length
 op_add_assign
 id|command_buf.len
-l_int|1
 suffix:semicolon
 id|buffer
 (braket
@@ -11345,7 +11344,7 @@ id|command_buf.eof
 op_logical_and
 id|command_buf.len
 OG
-l_int|1
+l_int|0
 )paren
 (brace
 r_if
@@ -12335,7 +12334,7 @@ id|b
 op_logical_and
 id|command_buf.len
 OG
-l_int|1
+l_int|0
 )paren
 id|unread_command_buf
 op_assign
@@ -12401,7 +12400,6 @@ comma
 l_int|1
 comma
 id|command_buf.len
-l_int|1
 comma
 id|stdout
 )paren

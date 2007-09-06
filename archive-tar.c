@@ -821,6 +821,9 @@ id|stderr
 comma
 l_string|&quot;%.*s&bslash;n&quot;
 comma
+(paren
+r_int
+)paren
 id|path-&gt;len
 comma
 id|path-&gt;buf

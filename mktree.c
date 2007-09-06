@@ -571,9 +571,6 @@ c_loop
 l_int|1
 )paren
 (brace
-r_int
-id|len
-suffix:semicolon
 r_char
 op_star
 id|ptr
@@ -609,10 +606,6 @@ c_cond
 id|sb.eof
 )paren
 r_break
-suffix:semicolon
-id|len
-op_assign
-id|sb.len
 suffix:semicolon
 id|ptr
 op_assign
@@ -680,11 +673,11 @@ id|ntr
 op_logical_or
 id|sb.buf
 op_plus
-id|len
+id|sb.len
 op_le
 id|ntr
 op_plus
-l_int|41
+l_int|40
 op_logical_or
 id|ntr
 (braket
