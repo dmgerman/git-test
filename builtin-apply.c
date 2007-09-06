@@ -7083,6 +7083,14 @@ multiline_comment|/* Exact line number? */
 r_if
 c_cond
 (paren
+(paren
+id|start
+op_plus
+id|fragsize
+op_le
+id|size
+)paren
+op_logical_and
 op_logical_neg
 id|memcmp
 c_func
