@@ -1067,6 +1067,15 @@ op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
+multiline_comment|/* When the username signingkey is bad, program could be terminated&n;&t; * because gpg exits without reading and then write gets SIGPIPE. */
+id|signal
+c_func
+(paren
+id|SIGPIPE
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -1138,7 +1147,10 @@ c_func
 l_string|&quot;could not run gpg.&quot;
 )paren
 suffix:semicolon
-id|write_or_die
+r_if
+c_cond
+(paren
+id|write_in_full
 c_func
 (paren
 id|gpg.in
@@ -1147,7 +1159,31 @@ id|buffer
 comma
 id|size
 )paren
+op_ne
+id|size
+)paren
+(brace
+id|close
+c_func
+(paren
+id|gpg.in
+)paren
 suffix:semicolon
+id|finish_command
+c_func
+(paren
+op_amp
+id|gpg
+)paren
+suffix:semicolon
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;gpg did not accept the tag data&quot;
+)paren
+suffix:semicolon
+)brace
 id|close
 c_func
 (paren
@@ -1173,11 +1209,28 @@ id|max
 id|size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|finish_command
 c_func
 (paren
 op_amp
 id|gpg
+)paren
+op_logical_or
+op_logical_neg
+id|len
+op_logical_or
+id|len
+OL
+l_int|0
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;gpg failed to sign the tag&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1657,7 +1710,8 @@ c_cond
 id|sign
 )paren
 (brace
-id|size
+id|ssize_t
+id|r
 op_assign
 id|do_sign
 c_func
@@ -1672,7 +1726,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|size
+id|r
 OL
 l_int|0
 )paren
@@ -1681,6 +1735,10 @@ c_func
 (paren
 l_string|&quot;unable to sign the tag&quot;
 )paren
+suffix:semicolon
+id|size
+op_assign
+id|r
 suffix:semicolon
 )brace
 r_if
