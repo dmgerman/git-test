@@ -25,8 +25,6 @@ comma
 id|force
 comma
 id|thin
-op_assign
-l_int|1
 comma
 id|verbose
 suffix:semicolon
