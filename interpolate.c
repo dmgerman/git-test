@@ -115,7 +115,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * Convert a NUL-terminated string in buffer orig&n; * into the supplied buffer, result, whose length is reslen,&n; * performing substitutions on %-named sub-strings from&n; * the table, interps, with ninterps entries.&n; *&n; * Example interps:&n; *    {&n; *        { &quot;%H&quot;, &quot;example.org&quot;},&n; *        { &quot;%port&quot;, &quot;123&quot;},&n; *        { &quot;%%&quot;, &quot;%&quot;},&n; *    }&n; *&n; * Returns 0 on a successful substitution pass that fits in result,&n; * Returns a number of bytes needed to hold the full substituted&n; * string otherwise.&n; */
+multiline_comment|/*&n; * Convert a NUL-terminated string in buffer orig&n; * into the supplied buffer, result, whose length is reslen,&n; * performing substitutions on %-named sub-strings from&n; * the table, interps, with ninterps entries.&n; *&n; * Example interps:&n; *    {&n; *        { &quot;%H&quot;, &quot;example.org&quot;},&n; *        { &quot;%port&quot;, &quot;123&quot;},&n; *        { &quot;%%&quot;, &quot;%&quot;},&n; *    }&n; *&n; * Returns the length of the substituted string (not including the final &bslash;0).&n; * Like with snprintf, if the result is &gt;= reslen, then it overflowed.&n; */
 DECL|function|interpolate
 r_int
 r_int
@@ -183,16 +183,6 @@ id|i
 suffix:semicolon
 r_char
 id|c
-suffix:semicolon
-id|memset
-c_func
-(paren
-id|result
-comma
-l_int|0
-comma
-id|reslen
-)paren
 suffix:semicolon
 r_while
 c_loop
@@ -296,14 +286,12 @@ c_cond
 id|newlen
 op_plus
 id|valuelen
-op_plus
-l_int|1
 OL
 id|reslen
 )paren
 (brace
 multiline_comment|/* Substitute. */
-id|strncpy
+id|memcpy
 c_func
 (paren
 id|dest
@@ -354,23 +342,21 @@ id|newlen
 op_increment
 suffix:semicolon
 )brace
+multiline_comment|/* XXX: the previous loop always keep room for the ending NUL,&n;&t;   we just need to check if there was room for a NUL in the first place */
 r_if
 c_cond
 (paren
-id|newlen
-op_plus
-l_int|1
-OL
 id|reslen
-)paren
-r_return
+OG
 l_int|0
+)paren
+op_star
+id|dest
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
-r_else
 r_return
 id|newlen
-op_plus
-l_int|2
 suffix:semicolon
 )brace
 eof
