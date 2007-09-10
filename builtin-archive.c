@@ -632,6 +632,12 @@ op_amp
 id|allocated
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|fmt
+)paren
+suffix:semicolon
 id|result
 op_assign
 id|xrealloc
