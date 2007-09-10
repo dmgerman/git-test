@@ -6556,6 +6556,17 @@ DECL|macro|read_lock
 mdefine_line|#define read_lock()&t;&t;pthread_mutex_lock(&amp;read_mutex)
 DECL|macro|read_unlock
 mdefine_line|#define read_unlock()&t;&t;pthread_mutex_unlock(&amp;read_mutex)
+DECL|variable|cache_mutex
+r_static
+id|pthread_mutex_t
+id|cache_mutex
+op_assign
+id|PTHREAD_MUTEX_INITIALIZER
+suffix:semicolon
+DECL|macro|cache_lock
+mdefine_line|#define cache_lock()&t;&t;pthread_mutex_lock(&amp;cache_mutex)
+DECL|macro|cache_unlock
+mdefine_line|#define cache_unlock()&t;&t;pthread_mutex_unlock(&amp;cache_mutex)
 DECL|variable|progress_mutex
 r_static
 id|pthread_mutex_t
@@ -6572,6 +6583,10 @@ DECL|macro|read_lock
 mdefine_line|#define read_lock()&t;&t;0
 DECL|macro|read_unlock
 mdefine_line|#define read_unlock()&t;&t;0
+DECL|macro|cache_lock
+mdefine_line|#define cache_lock()&t;&t;0
+DECL|macro|cache_unlock
+mdefine_line|#define cache_unlock()&t;&t;0
 DECL|macro|progress_lock
 mdefine_line|#define progress_lock()&t;&t;0
 DECL|macro|progress_unlock
@@ -7073,6 +7088,23 @@ id|src-&gt;depth
 op_plus
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t; * Handle memory allocation outside of the cache&n;&t; * accounting lock.  Compiler will optimize the strangeness&n;&t; * away when THREADED_DELTA_SEARCH is not defined.&n;&t; */
+r_if
+c_cond
+(paren
+id|trg_entry-&gt;delta_data
+)paren
+id|free
+c_func
+(paren
+id|trg_entry-&gt;delta_data
+)paren
+suffix:semicolon
+id|cache_lock
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -7082,12 +7114,6 @@ id|trg_entry-&gt;delta_data
 id|delta_cache_size
 op_sub_assign
 id|trg_entry-&gt;delta_size
-suffix:semicolon
-id|free
-c_func
-(paren
-id|trg_entry-&gt;delta_data
-)paren
 suffix:semicolon
 id|trg_entry-&gt;delta_data
 op_assign
@@ -7108,6 +7134,15 @@ id|delta_size
 )paren
 )paren
 (brace
+id|delta_cache_size
+op_add_assign
+id|trg_entry-&gt;delta_size
+suffix:semicolon
+id|cache_unlock
+c_func
+(paren
+)paren
+suffix:semicolon
 id|trg_entry-&gt;delta_data
 op_assign
 id|xrealloc
@@ -7118,18 +7153,21 @@ comma
 id|delta_size
 )paren
 suffix:semicolon
-id|delta_cache_size
-op_add_assign
-id|trg_entry-&gt;delta_size
-suffix:semicolon
 )brace
 r_else
+(brace
+id|cache_unlock
+c_func
+(paren
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
 id|delta_buf
 )paren
 suffix:semicolon
+)brace
 r_return
 l_int|1
 suffix:semicolon
