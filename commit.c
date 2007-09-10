@@ -4436,7 +4436,6 @@ id|DATE_ISO8601
 suffix:semicolon
 )brace
 DECL|function|format_commit_message
-r_static
 r_int
 id|format_commit_message
 c_func
@@ -4448,9 +4447,9 @@ op_star
 id|commit
 comma
 r_const
-r_char
+r_void
 op_star
-id|msg
+id|format
 comma
 r_char
 op_star
@@ -4705,6 +4704,13 @@ comma
 id|BODY
 )brace
 id|state
+suffix:semicolon
+r_const
+r_char
+op_star
+id|msg
+op_assign
+id|commit-&gt;buffer
 suffix:semicolon
 r_if
 c_cond
@@ -5321,7 +5327,7 @@ id|buf
 comma
 id|space
 comma
-id|user_format
+id|format
 comma
 id|table
 comma
@@ -6673,7 +6679,7 @@ c_func
 (paren
 id|commit
 comma
-id|msg
+id|user_format
 comma
 id|buf_p
 comma
