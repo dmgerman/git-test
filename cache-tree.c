@@ -1411,13 +1411,6 @@ c_func
 (paren
 op_amp
 id|buffer
-)paren
-suffix:semicolon
-id|strbuf_grow
-c_func
-(paren
-op_amp
-id|buffer
 comma
 l_int|8192
 )paren
@@ -2095,6 +2088,8 @@ c_func
 (paren
 op_amp
 id|buffer
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|write_one

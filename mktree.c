@@ -315,13 +315,6 @@ c_func
 (paren
 op_amp
 id|buf
-)paren
-suffix:semicolon
-id|strbuf_grow
-c_func
-(paren
-op_amp
-id|buf
 comma
 id|size
 )paren
@@ -500,6 +493,8 @@ c_func
 (paren
 op_amp
 id|sb
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_while

@@ -486,6 +486,8 @@ c_func
 (paren
 op_amp
 id|minus
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|strbuf_init
@@ -493,6 +495,8 @@ c_func
 (paren
 op_amp
 id|plus
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

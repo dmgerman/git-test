@@ -629,6 +629,8 @@ c_func
 (paren
 op_amp
 id|ext_header
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -1230,6 +1232,8 @@ c_func
 (paren
 op_amp
 id|ext_header
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|strbuf_append_ext_header

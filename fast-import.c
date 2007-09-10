@@ -8659,6 +8659,8 @@ c_func
 (paren
 op_amp
 id|buffer
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -12697,6 +12699,8 @@ c_func
 (paren
 op_amp
 id|command_buf
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|atom_table

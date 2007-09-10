@@ -9204,6 +9204,8 @@ c_func
 (paren
 op_amp
 id|buf
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -9358,6 +9360,8 @@ op_amp
 id|buf
 comma
 id|fd
+comma
+l_int|0
 )paren
 op_ne
 id|xsize_t
@@ -9439,6 +9443,8 @@ c_func
 (paren
 op_amp
 id|buf
+comma
+l_int|0
 comma
 l_int|0
 )paren
