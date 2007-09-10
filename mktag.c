@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;tag.h&quot;
 multiline_comment|/*&n; * A signature file has a very simple fixed format: four lines&n; * of &quot;object &lt;sha1&gt;&quot; + &quot;type &lt;typename&gt;&quot; + &quot;tag &lt;tagname&gt;&quot; +&n; * &quot;tagger &lt;committer&gt;&quot;, followed by a blank line, a free-form tag&n; * message and a signature block that git itself doesn&squot;t care about,&n; * but that can be verified with gpg or similar.&n; *&n; * The first three lines are guaranteed to be at least 63 bytes:&n; * &quot;object &lt;sha1&gt;&bslash;n&quot; is 48 bytes, &quot;type tag&bslash;n&quot; at 9 bytes is the&n; * shortest possible type-line, and &quot;tag .&bslash;n&quot; at 6 bytes is the&n; * shortest single-character-tag line.&n; */
 multiline_comment|/*&n; * We refuse to tag something we can&squot;t verify. Just because.&n; */
@@ -500,21 +501,9 @@ op_star
 id|argv
 )paren
 (brace
-r_int
-r_int
-id|size
-op_assign
-l_int|4096
-suffix:semicolon
-r_char
-op_star
-id|buffer
-op_assign
-id|xmalloc
-c_func
-(paren
-id|size
-)paren
+r_struct
+id|strbuf
+id|buf
 suffix:semicolon
 r_int
 r_char
@@ -541,28 +530,32 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|strbuf_init
+c_func
+(paren
+op_amp
+id|buf
+comma
+l_int|0
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_fd
+id|strbuf_read
 c_func
 (paren
+op_amp
+id|buf
+comma
 l_int|0
 comma
-op_amp
-id|buffer
-comma
-op_amp
-id|size
+l_int|4096
 )paren
+OL
+l_int|0
 )paren
 (brace
-id|free
-c_func
-(paren
-id|buffer
-)paren
-suffix:semicolon
 id|die
 c_func
 (paren
@@ -577,9 +570,9 @@ c_cond
 id|verify_tag
 c_func
 (paren
-id|buffer
+id|buf.buf
 comma
-id|size
+id|buf.len
 )paren
 OL
 l_int|0
@@ -596,9 +589,9 @@ c_cond
 id|write_sha1_file
 c_func
 (paren
-id|buffer
+id|buf.buf
 comma
-id|size
+id|buf.len
 comma
 id|tag_type
 comma
@@ -613,10 +606,11 @@ c_func
 l_string|&quot;unable to write tag file&quot;
 )paren
 suffix:semicolon
-id|free
+id|strbuf_release
 c_func
 (paren
-id|buffer
+op_amp
+id|buf
 )paren
 suffix:semicolon
 id|printf
