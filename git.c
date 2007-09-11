@@ -2034,6 +2034,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;fetch-pack&quot;
+comma
+id|cmd_fetch_pack
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;fetch--tool&quot;
 comma
 id|cmd_fetch__tool
