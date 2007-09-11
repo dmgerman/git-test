@@ -1,7 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;pack.h&quot;
-macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;http.h&quot;
