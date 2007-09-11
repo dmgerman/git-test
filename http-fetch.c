@@ -1508,11 +1508,14 @@ suffix:semicolon
 )brace
 macro_line|#ifdef USE_CURL_MULTI
 DECL|function|fill_active_slot
+r_static
 r_int
 id|fill_active_slot
 c_func
 (paren
 r_void
+op_star
+id|unused
 )paren
 (brace
 r_struct
@@ -5234,6 +5237,16 @@ id|alt-&gt;next
 op_assign
 l_int|NULL
 suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
+id|add_fill_function
+c_func
+(paren
+l_int|NULL
+comma
+id|fill_active_slot
+)paren
+suffix:semicolon
+macro_line|#endif
 r_if
 c_cond
 (paren
