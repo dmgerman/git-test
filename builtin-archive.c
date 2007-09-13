@@ -630,14 +630,6 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|result.len
-op_logical_and
-id|len
-)paren
-(brace
 id|strbuf_add
 c_func
 (paren
@@ -649,7 +641,6 @@ comma
 id|len
 )paren
 suffix:semicolon
-)brace
 op_star
 id|sizep
 op_assign
