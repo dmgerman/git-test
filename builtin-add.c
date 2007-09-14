@@ -487,7 +487,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;unexpacted diff status %c&quot;
+l_string|&quot;unexpected diff status %c&quot;
 comma
 id|p-&gt;status
 )paren
