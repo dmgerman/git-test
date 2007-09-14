@@ -2057,11 +2057,7 @@ op_logical_neg
 id|transport-&gt;ops-&gt;get_refs_list
 op_logical_or
 op_logical_neg
-(paren
-id|transport-&gt;ops-&gt;fetch_refs
-op_logical_or
-id|transport-&gt;ops-&gt;fetch_objs
-)paren
+id|transport-&gt;ops-&gt;fetch
 )paren
 id|die
 c_func
