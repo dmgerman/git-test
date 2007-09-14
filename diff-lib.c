@@ -1751,6 +1751,24 @@ id|revs-&gt;max_count
 op_assign
 l_int|2
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_setup_done
+c_func
+(paren
+op_amp
+id|revs-&gt;diffopt
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;diff_setup_done failed&quot;
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
