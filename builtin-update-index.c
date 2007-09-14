@@ -817,15 +817,6 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
-multiline_comment|/* We probably want to do this in remove_file_from_cache() and&n;&t; * add_cache_entry() instead...&n;&t; */
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path
-)paren
-suffix:semicolon
 multiline_comment|/*&n;&t; * First things first: get the stat information, to decide&n;&t; * what to do about the pathname!&n;&t; */
 r_if
 c_cond
@@ -1059,14 +1050,6 @@ id|report
 c_func
 (paren
 l_string|&quot;add &squot;%s&squot;&quot;
-comma
-id|path
-)paren
-suffix:semicolon
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
 comma
 id|path
 )paren
@@ -1317,14 +1300,6 @@ r_goto
 id|free_return
 suffix:semicolon
 )brace
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1703,14 +1678,6 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path_name
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2206,14 +2173,6 @@ r_goto
 id|free_return
 suffix:semicolon
 )brace
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path
-)paren
-suffix:semicolon
 id|remove_file_from_cache
 c_func
 (paren

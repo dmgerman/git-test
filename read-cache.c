@@ -1499,6 +1499,14 @@ id|pos
 op_minus
 l_int|1
 suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|istate-&gt;cache_tree
+comma
+id|path
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -2057,14 +2065,6 @@ id|printf
 c_func
 (paren
 l_string|&quot;add &squot;%s&squot;&bslash;n&quot;
-comma
-id|path
-)paren
-suffix:semicolon
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|istate-&gt;cache_tree
 comma
 id|path
 )paren
@@ -3134,6 +3134,14 @@ op_assign
 id|option
 op_amp
 id|ADD_CACHE_SKIP_DFCHECK
+suffix:semicolon
+id|cache_tree_invalidate_path
+c_func
+(paren
+id|istate-&gt;cache_tree
+comma
+id|ce-&gt;name
+)paren
 suffix:semicolon
 id|pos
 op_assign

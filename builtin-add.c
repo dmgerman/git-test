@@ -498,6 +498,9 @@ suffix:colon
 r_case
 id|DIFF_STATUS_MODIFIED
 suffix:colon
+r_case
+id|DIFF_STATUS_TYPE_CHANGED
+suffix:colon
 id|add_file_to_cache
 c_func
 (paren
@@ -514,14 +517,6 @@ suffix:colon
 id|remove_file_from_cache
 c_func
 (paren
-id|path
-)paren
-suffix:semicolon
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
 id|path
 )paren
 suffix:semicolon
