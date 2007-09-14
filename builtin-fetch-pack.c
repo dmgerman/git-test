@@ -3461,13 +3461,6 @@ id|dst
 op_increment
 suffix:semicolon
 )brace
-id|heads
-(braket
-id|dst
-)braket
-op_assign
-l_int|0
-suffix:semicolon
 r_return
 id|dst
 suffix:semicolon
