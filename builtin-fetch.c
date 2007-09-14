@@ -1587,6 +1587,12 @@ comma
 id|ref_map
 )paren
 suffix:semicolon
+id|transport_unlock_pack
+c_func
+(paren
+id|transport
+)paren
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
