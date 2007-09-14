@@ -4005,14 +4005,6 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-id|printf
-c_func
-(paren
-l_string|&quot;connect to %s&bslash;n&quot;
-comma
-id|dest
-)paren
-suffix:semicolon
 id|pid
 op_assign
 id|git_connect
