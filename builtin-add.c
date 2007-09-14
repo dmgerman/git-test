@@ -498,6 +498,9 @@ suffix:colon
 r_case
 id|DIFF_STATUS_MODIFIED
 suffix:colon
+r_case
+id|DIFF_STATUS_TYPE_CHANGED
+suffix:colon
 id|add_file_to_cache
 c_func
 (paren
