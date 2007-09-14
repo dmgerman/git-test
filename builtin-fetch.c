@@ -2948,6 +2948,8 @@ id|argv
 id|j
 )braket
 )paren
+op_plus
+l_int|1
 suffix:semicolon
 )brace
 r_if
