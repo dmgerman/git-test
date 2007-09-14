@@ -1245,7 +1245,7 @@ id|rm-&gt;old_sha1
 suffix:semicolon
 id|ref-&gt;force
 op_assign
-id|rm-&gt;force
+id|rm-&gt;peer_ref-&gt;force
 suffix:semicolon
 )brace
 id|commit
