@@ -6,7 +6,6 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 DECL|variable|get_tree
 r_int
 id|get_tree

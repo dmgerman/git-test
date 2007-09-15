@@ -9,7 +9,6 @@ macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
 DECL|macro|PACK_ID_BITS
 mdefine_line|#define PACK_ID_BITS 16

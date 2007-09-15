@@ -1,6 +1,5 @@
 multiline_comment|/*&n; * GIT - the stupid content tracker&n; *&n; * Copyright (c) Junio C Hamano, 2006&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;tree.h&quot;
 DECL|struct|treeent

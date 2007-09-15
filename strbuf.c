@@ -1,5 +1,4 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 DECL|function|strbuf_init
 r_void
 id|strbuf_init

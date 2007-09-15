@@ -2,7 +2,6 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 DECL|function|get_stdin
 r_static
 r_char

@@ -1,7 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;run-command.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 multiline_comment|/*&n; * convert.c - convert a file when checking it out and checking it in.&n; *&n; * This should use the pathname to decide on whether it wants to do some&n; * more interesting conversions (automatic gzip/unzip, general format&n; * conversions etc etc), but by default it just does automatic CRLF&lt;-&gt;LF&n; * translation when the &quot;auto_crlf&quot; option is set.&n; */
 DECL|macro|CRLF_GUESS
 mdefine_line|#define CRLF_GUESS&t;(-1)

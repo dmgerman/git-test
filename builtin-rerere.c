@@ -1,7 +1,6 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;path-list.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;xdiff/xdiff.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &lt;time.h&gt;

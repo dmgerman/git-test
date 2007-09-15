@@ -1,7 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git tag&quot;&n; *&n; * Copyright (c) 2007 Kristian H&oslash;gsberg &lt;krh@redhat.com&gt;,&n; *                    Carlos Rica &lt;jasampler@gmail.com&gt;&n; * Based on git-tag.sh and mktag.c by Linus Torvalds.&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;run-command.h&quot;

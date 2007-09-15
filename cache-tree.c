@@ -1,5 +1,4 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#ifndef DEBUG

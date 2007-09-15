@@ -1,6 +1,5 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 multiline_comment|/*&n; * Returns the length of a line, without trailing spaces.&n; *&n; * If the line ends with newline, it will be removed too.&n; */
 DECL|function|cleanup
 r_static

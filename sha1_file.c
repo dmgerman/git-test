@@ -7,7 +7,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#ifndef O_NOATIME
 macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
 DECL|macro|O_NOATIME

@@ -7,7 +7,6 @@ macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;attr.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#ifdef NO_FAST_WORKING_DIRECTORY
 DECL|macro|FAST_WORKING_DIRECTORY
 mdefine_line|#define FAST_WORKING_DIRECTORY 0

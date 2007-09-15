@@ -13,7 +13,6 @@ macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;path-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 DECL|variable|blame_usage
 r_static
 r_char

@@ -5,7 +5,6 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 multiline_comment|/*&n; *  --check turns on checking that the working tree matches the&n; *    files that are being modified, but doesn&squot;t apply the patch&n; *  --stat does just a diffstat, and doesn&squot;t actually apply&n; *  --numstat does numeric diffstat, and doesn&squot;t actually apply&n; *  --index-info shows the old and new index info for paths if available.&n; *  --index updates the cache as well.&n; *  --cached updates only the cache without ever touching the working tree.&n; */
 DECL|variable|prefix
 r_static
