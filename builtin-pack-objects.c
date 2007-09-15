@@ -6580,17 +6580,17 @@ DECL|macro|progress_unlock
 mdefine_line|#define progress_unlock()&t;pthread_mutex_unlock(&amp;progress_mutex)
 macro_line|#else
 DECL|macro|read_lock
-mdefine_line|#define read_lock()&t;&t;0
+mdefine_line|#define read_lock()&t;&t;(void)0
 DECL|macro|read_unlock
-mdefine_line|#define read_unlock()&t;&t;0
+mdefine_line|#define read_unlock()&t;&t;(void)0
 DECL|macro|cache_lock
-mdefine_line|#define cache_lock()&t;&t;0
+mdefine_line|#define cache_lock()&t;&t;(void)0
 DECL|macro|cache_unlock
-mdefine_line|#define cache_unlock()&t;&t;0
+mdefine_line|#define cache_unlock()&t;&t;(void)0
 DECL|macro|progress_lock
-mdefine_line|#define progress_lock()&t;&t;0
+mdefine_line|#define progress_lock()&t;&t;(void)0
 DECL|macro|progress_unlock
-mdefine_line|#define progress_unlock()&t;0
+mdefine_line|#define progress_unlock()&t;(void)0
 macro_line|#endif
 multiline_comment|/*&n; * We search for deltas _backwards_ in a list sorted by type and&n; * by size, so that we see progressively smaller and smaller files.&n; * That&squot;s because we prefer deltas to be from the bigger file&n; * to the smaller - deletes are potentially cheaper, but perhaps&n; * more importantly, the bigger file is likely the more recent&n; * one.&n; */
 DECL|function|try_delta
