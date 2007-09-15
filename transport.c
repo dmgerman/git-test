@@ -133,7 +133,7 @@ id|objs
 comma
 l_int|NULL
 comma
-id|dest
+l_int|NULL
 )paren
 )paren
 id|die
