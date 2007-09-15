@@ -325,8 +325,6 @@ id|remote-&gt;uri
 (braket
 id|i
 )braket
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_int
