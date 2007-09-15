@@ -1338,6 +1338,13 @@ op_ne
 l_int|NULL
 )paren
 (brace
+r_struct
+id|active_request_slot
+op_star
+id|next
+op_assign
+id|slot-&gt;next
+suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 r_if
 c_cond
@@ -1387,11 +1394,21 @@ c_func
 id|slot-&gt;curl
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|slot
+)paren
+suffix:semicolon
 id|slot
 op_assign
-id|slot-&gt;next
+id|next
 suffix:semicolon
 )brace
+id|active_queue_head
+op_assign
+l_int|NULL
+suffix:semicolon
 macro_line|#ifndef NO_CURL_EASY_DUPHANDLE
 id|curl_easy_cleanup
 c_func
