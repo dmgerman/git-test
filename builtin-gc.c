@@ -392,6 +392,17 @@ id|needed
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * Setting gc.auto to 0 or negative can disable the&n;&t; * automatic gc&n;&t; */
+r_if
+c_cond
+(paren
+id|gc_auto_threshold
+op_le
+l_int|0
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -695,16 +706,6 @@ l_string|&quot;--auto&quot;
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|gc_auto_threshold
-op_le
-l_int|0
-)paren
-r_return
-l_int|0
-suffix:semicolon
 id|auto_gc
 op_assign
 l_int|1
