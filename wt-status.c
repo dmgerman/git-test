@@ -270,6 +270,10 @@ id|s-&gt;reference
 op_assign
 l_string|&quot;HEAD&quot;
 suffix:semicolon
+id|s-&gt;fp
+op_assign
+id|stdout
+suffix:semicolon
 )brace
 DECL|function|wt_status_print_cached_header
 r_static
@@ -277,10 +281,10 @@ r_void
 id|wt_status_print_cached_header
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|wt_status
 op_star
-id|reference
+id|s
 )paren
 (brace
 r_const
@@ -294,9 +298,11 @@ c_func
 id|WT_STATUS_HEADER
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;# Changes to be committed:&quot;
@@ -305,34 +311,40 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|reference
+id|s-&gt;reference
 )paren
 (brace
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;#   (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 comma
-id|reference
+id|s-&gt;reference
 )paren
 suffix:semicolon
 )brace
 r_else
 (brace
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;#   (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 )paren
 suffix:semicolon
 )brace
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;#&quot;
@@ -345,6 +357,11 @@ r_void
 id|wt_status_print_header
 c_func
 (paren
+r_struct
+id|wt_status
+op_star
+id|s
+comma
 r_const
 r_char
 op_star
@@ -367,9 +384,11 @@ c_func
 id|WT_STATUS_HEADER
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;# %s:&quot;
@@ -377,9 +396,11 @@ comma
 id|main
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;#   (%s)&quot;
@@ -387,9 +408,11 @@ comma
 id|sub
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;#&quot;
@@ -402,12 +425,17 @@ r_void
 id|wt_status_print_trailer
 c_func
 (paren
-r_void
+r_struct
+id|wt_status
+op_star
+id|s
 )paren
 (brace
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -549,6 +577,11 @@ r_void
 id|wt_status_print_filepair
 c_func
 (paren
+r_struct
+id|wt_status
+op_star
+id|s
+comma
 r_int
 id|t
 comma
@@ -618,9 +651,11 @@ id|twobuf
 )paren
 )paren
 suffix:semicolon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -639,9 +674,11 @@ id|p-&gt;status
 r_case
 id|DIFF_STATUS_ADDED
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;new file:   %s&quot;
@@ -654,9 +691,11 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_COPIED
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;copied:     %s -&gt; %s&quot;
@@ -671,9 +710,11 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_DELETED
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;deleted:    %s&quot;
@@ -686,9 +727,11 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_MODIFIED
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;modified:   %s&quot;
@@ -701,9 +744,11 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_RENAMED
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;renamed:    %s -&gt; %s&quot;
@@ -718,9 +763,11 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_TYPE_CHANGED
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;typechange: %s&quot;
@@ -733,9 +780,11 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_UNKNOWN
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;unknown:    %s&quot;
@@ -748,9 +797,11 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_UNMERGED
 suffix:colon
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|c
 comma
 l_string|&quot;unmerged:   %s&quot;
@@ -771,9 +822,11 @@ id|p-&gt;status
 )paren
 suffix:semicolon
 )brace
-id|printf
+id|fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
@@ -853,7 +906,7 @@ id|shown_header
 id|wt_status_print_cached_header
 c_func
 (paren
-id|s-&gt;reference
+id|s
 )paren
 suffix:semicolon
 id|s-&gt;commitable
@@ -868,6 +921,8 @@ suffix:semicolon
 id|wt_status_print_filepair
 c_func
 (paren
+id|s
+comma
 id|WT_STATUS_UPDATED
 comma
 id|q-&gt;queue
@@ -885,6 +940,7 @@ id|shown_header
 id|wt_status_print_trailer
 c_func
 (paren
+id|s
 )paren
 suffix:semicolon
 )brace
@@ -973,6 +1029,8 @@ suffix:semicolon
 id|wt_status_print_header
 c_func
 (paren
+id|s
+comma
 l_string|&quot;Changed but not updated&quot;
 comma
 id|msg
@@ -996,6 +1054,8 @@ op_increment
 id|wt_status_print_filepair
 c_func
 (paren
+id|s
+comma
 id|WT_STATUS_CHANGED
 comma
 id|q-&gt;queue
@@ -1012,6 +1072,7 @@ id|q-&gt;nr
 id|wt_status_print_trailer
 c_func
 (paren
+id|s
 )paren
 suffix:semicolon
 )brace
@@ -1078,7 +1139,7 @@ suffix:semicolon
 id|wt_status_print_cached_header
 c_func
 (paren
-l_int|NULL
+id|s
 )paren
 suffix:semicolon
 )brace
@@ -1097,9 +1158,11 @@ id|i
 op_increment
 )paren
 (brace
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1109,9 +1172,11 @@ comma
 l_string|&quot;#&bslash;t&quot;
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1148,6 +1213,7 @@ id|active_nr
 id|wt_status_print_trailer
 c_func
 (paren
+id|s
 )paren
 suffix:semicolon
 )brace
@@ -1529,6 +1595,8 @@ suffix:semicolon
 id|wt_status_print_header
 c_func
 (paren
+id|s
+comma
 l_string|&quot;Untracked files&quot;
 comma
 id|use_add_to_include_msg
@@ -1539,9 +1607,11 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
-id|color_printf
+id|color_fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1551,9 +1621,11 @@ comma
 l_string|&quot;#&bslash;t&quot;
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1723,9 +1795,11 @@ op_assign
 l_string|&quot;Not currently on any branch.&quot;
 suffix:semicolon
 )brace
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1746,9 +1820,11 @@ c_cond
 id|s-&gt;is_initial
 )paren
 (brace
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1758,9 +1834,11 @@ comma
 l_string|&quot;#&quot;
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1770,9 +1848,11 @@ comma
 l_string|&quot;# Initial commit&quot;
 )paren
 suffix:semicolon
-id|color_printf_ln
+id|color_fprintf_ln
 c_func
 (paren
+id|s-&gt;fp
+comma
 id|color
 c_func
 (paren
@@ -1836,9 +1916,11 @@ c_cond
 (paren
 id|s-&gt;amend
 )paren
-id|printf
+id|fprintf
 c_func
 (paren
+id|s-&gt;fp
+comma
 l_string|&quot;# No changes&bslash;n&quot;
 )paren
 suffix:semicolon
