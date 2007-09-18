@@ -1514,20 +1514,12 @@ id|path
 )paren
 suffix:semicolon
 )brace
-id|strbuf_setlen
+id|stripspace
 c_func
 (paren
 id|buf
 comma
-id|stripspace
-c_func
-(paren
-id|buf-&gt;buf
-comma
-id|buf-&gt;len
-comma
 l_int|1
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -1543,20 +1535,6 @@ id|die
 c_func
 (paren
 l_string|&quot;no tag message?&quot;
-)paren
-suffix:semicolon
-multiline_comment|/* insert the header and add the &squot;&bslash;n&squot; if needed: */
-r_if
-c_cond
-(paren
-id|buf-&gt;len
-)paren
-id|strbuf_addch
-c_func
-(paren
-id|buf
-comma
-l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 id|strbuf_insert
