@@ -274,6 +274,13 @@ id|s-&gt;fp
 op_assign
 id|stdout
 suffix:semicolon
+id|s-&gt;index_file
+op_assign
+id|get_index_file
+c_func
+(paren
+)paren
+suffix:semicolon
 )brace
 DECL|function|wt_status_print_cached_header
 r_static
@@ -1093,9 +1100,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|read_cache
+id|read_cache_from
 c_func
 (paren
+id|s-&gt;index_file
 )paren
 suffix:semicolon
 )brace
