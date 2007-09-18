@@ -1103,14 +1103,6 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path
-)paren
-suffix:semicolon
 )brace
 r_if
 c_cond
