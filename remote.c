@@ -4971,6 +4971,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|ref_map-&gt;peer_ref
+op_logical_and
 id|refspec-&gt;force
 )paren
 id|ref_map-&gt;peer_ref-&gt;force
