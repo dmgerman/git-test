@@ -215,13 +215,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|variable|rsync_transport
-r_static
-r_const
-r_struct
-id|transport_ops
-id|rsync_transport
-suffix:semicolon
 DECL|function|curl_transport_push
 r_static
 r_int
@@ -1012,30 +1005,6 @@ l_int|1
 suffix:semicolon
 )brace
 macro_line|#endif
-DECL|variable|curl_transport
-r_static
-r_const
-r_struct
-id|transport_ops
-id|curl_transport
-op_assign
-(brace
-multiline_comment|/* set_option */
-l_int|NULL
-comma
-multiline_comment|/* get_refs_list */
-id|get_refs_via_curl
-comma
-multiline_comment|/* fetch */
-id|fetch_objs_via_curl
-comma
-multiline_comment|/* push */
-id|curl_transport_push
-comma
-multiline_comment|/* disconnect */
-id|disconnect_walker
-)brace
-suffix:semicolon
 DECL|struct|bundle_transport_data
 r_struct
 id|bundle_transport_data
@@ -1264,30 +1233,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|variable|bundle_transport
-r_static
-r_const
-r_struct
-id|transport_ops
-id|bundle_transport
-op_assign
-(brace
-multiline_comment|/* set_option */
-l_int|NULL
-comma
-multiline_comment|/* get_refs_list */
-id|get_refs_from_bundle
-comma
-multiline_comment|/* fetch */
-id|fetch_refs_from_bundle
-comma
-multiline_comment|/* push */
-l_int|NULL
-comma
-multiline_comment|/* disconnect */
-id|close_bundle
-)brace
-suffix:semicolon
 DECL|struct|git_transport_data
 r_struct
 id|git_transport_data
@@ -2158,27 +2103,6 @@ op_logical_neg
 id|err
 suffix:semicolon
 )brace
-DECL|variable|git_transport
-r_static
-r_const
-r_struct
-id|transport_ops
-id|git_transport
-op_assign
-(brace
-multiline_comment|/* set_option */
-id|set_git_option
-comma
-multiline_comment|/* get_refs_list */
-id|get_refs_via_connect
-comma
-multiline_comment|/* fetch */
-id|fetch_refs_via_pack
-comma
-multiline_comment|/* push */
-id|git_transport_push
-)brace
-suffix:semicolon
 DECL|function|is_local
 r_static
 r_int
@@ -2325,11 +2249,7 @@ l_string|&quot;rsync://&quot;
 )paren
 )paren
 (brace
-id|ret-&gt;ops
-op_assign
-op_amp
-id|rsync_transport
-suffix:semicolon
+multiline_comment|/* not supported; don&squot;t populate any ops */
 )brace
 r_else
 r_if
@@ -2363,10 +2283,21 @@ l_string|&quot;ftp://&quot;
 )paren
 )paren
 (brace
-id|ret-&gt;ops
+id|ret-&gt;get_refs_list
 op_assign
-op_amp
-id|curl_transport
+id|get_refs_via_curl
+suffix:semicolon
+id|ret-&gt;fetch
+op_assign
+id|fetch_objs_via_curl
+suffix:semicolon
+id|ret-&gt;push
+op_assign
+id|curl_transport_push
+suffix:semicolon
+id|ret-&gt;disconnect
+op_assign
+id|disconnect_walker
 suffix:semicolon
 )brace
 r_else
@@ -2407,10 +2338,17 @@ id|ret-&gt;data
 op_assign
 id|data
 suffix:semicolon
-id|ret-&gt;ops
+id|ret-&gt;get_refs_list
 op_assign
-op_amp
-id|bundle_transport
+id|get_refs_from_bundle
+suffix:semicolon
+id|ret-&gt;fetch
+op_assign
+id|fetch_refs_from_bundle
+suffix:semicolon
+id|ret-&gt;disconnect
+op_assign
+id|close_bundle
 suffix:semicolon
 )brace
 r_else
@@ -2435,6 +2373,22 @@ suffix:semicolon
 id|ret-&gt;data
 op_assign
 id|data
+suffix:semicolon
+id|ret-&gt;set_option
+op_assign
+id|set_git_option
+suffix:semicolon
+id|ret-&gt;get_refs_list
+op_assign
+id|get_refs_via_connect
+suffix:semicolon
+id|ret-&gt;fetch
+op_assign
+id|fetch_refs_via_pack
+suffix:semicolon
+id|ret-&gt;push
+op_assign
+id|git_transport_push
 suffix:semicolon
 id|data-&gt;thin
 op_assign
@@ -2474,11 +2428,6 @@ id|data-&gt;unpacklimit
 op_assign
 l_int|1
 suffix:semicolon
-id|ret-&gt;ops
-op_assign
-op_amp
-id|git_transport
-suffix:semicolon
 )brace
 r_return
 id|ret
@@ -2508,10 +2457,10 @@ id|value
 r_if
 c_cond
 (paren
-id|transport-&gt;ops-&gt;set_option
+id|transport-&gt;set_option
 )paren
 r_return
-id|transport-&gt;ops
+id|transport
 op_member_access_from_pointer
 id|set_option
 c_func
@@ -2554,13 +2503,13 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|transport-&gt;ops-&gt;push
+id|transport-&gt;push
 )paren
 r_return
 l_int|1
 suffix:semicolon
 r_return
-id|transport-&gt;ops
+id|transport
 op_member_access_from_pointer
 id|push
 c_func
@@ -2596,7 +2545,7 @@ id|transport-&gt;remote_refs
 )paren
 id|transport-&gt;remote_refs
 op_assign
-id|transport-&gt;ops
+id|transport
 op_member_access_from_pointer
 id|get_refs_list
 c_func
@@ -2702,7 +2651,7 @@ suffix:semicolon
 )brace
 id|rc
 op_assign
-id|transport-&gt;ops
+id|transport
 op_member_access_from_pointer
 id|fetch
 c_func
@@ -2778,11 +2727,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|transport-&gt;ops-&gt;disconnect
+id|transport-&gt;disconnect
 )paren
 id|ret
 op_assign
-id|transport-&gt;ops
+id|transport
 op_member_access_from_pointer
 id|disconnect
 c_func
