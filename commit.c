@@ -3642,7 +3642,7 @@ id|encoding
 )paren
 (brace
 multiline_comment|/* we have re-coded to UTF-8; drop the header */
-id|strbuf_splice
+id|strbuf_remove
 c_func
 (paren
 op_amp
@@ -3651,10 +3651,6 @@ comma
 id|start
 comma
 id|len
-comma
-l_int|NULL
-comma
-l_int|0
 )paren
 suffix:semicolon
 )brace
