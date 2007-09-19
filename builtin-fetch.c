@@ -3070,7 +3070,7 @@ c_func
 (paren
 id|remote
 comma
-id|remote-&gt;uri
+id|remote-&gt;url
 (braket
 l_int|0
 )braket

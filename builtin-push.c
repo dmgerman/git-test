@@ -305,7 +305,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|remote-&gt;uri_nr
+id|remote-&gt;url_nr
 suffix:semicolon
 id|i
 op_increment
@@ -321,7 +321,7 @@ c_func
 (paren
 id|remote
 comma
-id|remote-&gt;uri
+id|remote-&gt;url
 (braket
 id|i
 )braket
@@ -372,7 +372,7 @@ id|stderr
 comma
 l_string|&quot;Pushing to %s&bslash;n&quot;
 comma
-id|remote-&gt;uri
+id|remote-&gt;url
 (braket
 id|i
 )braket
@@ -413,7 +413,7 @@ c_func
 (paren
 l_string|&quot;failed to push to &squot;%s&squot;&quot;
 comma
-id|remote-&gt;uri
+id|remote-&gt;url
 (braket
 id|i
 )braket
