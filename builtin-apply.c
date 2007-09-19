@@ -1210,6 +1210,12 @@ id|deflen
 r_return
 id|def
 suffix:semicolon
+id|free
+c_func
+(paren
+id|def
+)paren
+suffix:semicolon
 )brace
 r_return
 id|xmemdupz
