@@ -1092,7 +1092,7 @@ op_assign
 id|strchr
 c_func
 (paren
-id|name
+id|cp
 comma
 l_char|&squot;/&squot;
 )paren
