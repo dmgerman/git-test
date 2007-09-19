@@ -1645,6 +1645,9 @@ id|buf
 suffix:semicolon
 op_star
 id|cp
+op_logical_and
+op_star
+id|cp
 op_ne
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
