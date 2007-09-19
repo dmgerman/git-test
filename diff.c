@@ -24,7 +24,7 @@ r_static
 r_int
 id|diff_rename_limit_default
 op_assign
-l_int|1
+l_int|100
 suffix:semicolon
 DECL|variable|diff_use_color_default
 r_static

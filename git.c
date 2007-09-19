@@ -2264,6 +2264,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;reset&quot;
+comma
+id|cmd_reset
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;rev-list&quot;
 comma
 id|cmd_rev_list

@@ -5041,6 +5041,10 @@ id|revs-&gt;cherry_pick
 op_assign
 l_int|1
 suffix:semicolon
+id|revs-&gt;limited
+op_assign
+l_int|1
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
