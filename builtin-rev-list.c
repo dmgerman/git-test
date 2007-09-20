@@ -1818,6 +1818,7 @@ c_cond
 (paren
 id|best
 )paren
+(brace
 id|best-&gt;next
 op_assign
 l_int|NULL
@@ -1831,6 +1832,7 @@ c_func
 id|best
 )paren
 suffix:semicolon
+)brace
 id|free
 c_func
 (paren
