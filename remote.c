@@ -3518,10 +3518,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|matched_src
 )paren
-r_break
-suffix:semicolon
 id|error
 c_func
 (paren
