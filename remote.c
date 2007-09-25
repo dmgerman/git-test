@@ -2616,9 +2616,8 @@ id|find_src
 r_if
 c_cond
 (paren
+op_logical_neg
 id|refspec-&gt;dst
-op_eq
-l_int|NULL
 )paren
 r_return
 id|error
@@ -3563,9 +3562,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|dst_value
-op_eq
-l_int|NULL
 )paren
 id|dst_value
 op_assign
@@ -3653,9 +3651,8 @@ c_cond
 (paren
 id|errs
 op_logical_or
+op_logical_neg
 id|matched_dst
-op_eq
-l_int|NULL
 )paren
 r_return
 l_int|1
