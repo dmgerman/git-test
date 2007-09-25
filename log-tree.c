@@ -1393,6 +1393,12 @@ comma
 id|len
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|msgbuf
+)paren
 id|printf
 c_func
 (paren
