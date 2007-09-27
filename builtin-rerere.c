@@ -724,6 +724,11 @@ op_amp
 id|ctx
 comma
 id|one.buf
+ques
+c_cond
+id|one.buf
+suffix:colon
+l_string|&quot;&quot;
 comma
 id|one.len
 op_plus
@@ -737,6 +742,11 @@ op_amp
 id|ctx
 comma
 id|two.buf
+ques
+c_cond
+id|two.buf
+suffix:colon
+l_string|&quot;&quot;
 comma
 id|two.len
 op_plus
