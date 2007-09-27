@@ -483,7 +483,7 @@ id|sha1
 )paren
 suffix:semicolon
 )brace
-id|write_name_quoted
+id|write_name_quotedpfx
 c_func
 (paren
 id|base
@@ -495,14 +495,8 @@ id|chomp_prefix
 comma
 id|pathname
 comma
-id|line_termination
-comma
 id|stdout
-)paren
-suffix:semicolon
-id|putchar
-c_func
-(paren
+comma
 id|line_termination
 )paren
 suffix:semicolon
