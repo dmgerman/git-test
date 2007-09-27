@@ -59,6 +59,8 @@ id|strbuf_detach
 c_func
 (paren
 id|dst
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|strbuf_addch

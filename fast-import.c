@@ -8352,6 +8352,8 @@ c_func
 (paren
 op_amp
 id|command_buf
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|stdin_eof

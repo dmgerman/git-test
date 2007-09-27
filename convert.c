@@ -615,6 +615,8 @@ id|strbuf_detach
 c_func
 (paren
 id|buf
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|strbuf_grow
@@ -2190,6 +2192,8 @@ id|strbuf_detach
 c_func
 (paren
 id|buf
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|hash_sha1_file

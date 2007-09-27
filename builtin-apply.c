@@ -697,7 +697,6 @@ r_int
 id|fd
 comma
 r_int
-r_int
 op_star
 id|sizep
 )paren
@@ -743,11 +742,6 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-op_star
-id|sizep
-op_assign
-id|buf.len
-suffix:semicolon
 multiline_comment|/*&n;&t; * Make sure that we have some slop in the buffer&n;&t; * so that we can do speculative &quot;memcmp&quot; etc, and&n;&t; * see to it that it is NUL-filled.&n;&t; */
 id|strbuf_grow
 c_func
@@ -776,6 +770,8 @@ c_func
 (paren
 op_amp
 id|buf
+comma
+id|sizep
 )paren
 suffix:semicolon
 )brace
@@ -1062,7 +1058,14 @@ id|def
 )paren
 suffix:semicolon
 r_return
-id|name.buf
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|name
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 )brace
 )brace
@@ -2819,7 +2822,14 @@ id|sp
 )paren
 suffix:semicolon
 r_return
-id|first.buf
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|first
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 )brace
 multiline_comment|/* unquoted second */
@@ -2878,7 +2888,14 @@ r_goto
 id|free_and_fail1
 suffix:semicolon
 r_return
-id|first.buf
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|first
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 id|free_and_fail1
 suffix:colon
@@ -3065,7 +3082,14 @@ id|sp.buf
 )paren
 suffix:semicolon
 r_return
-id|sp.buf
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|sp
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 )brace
 id|free_and_fail2
@@ -9136,11 +9160,15 @@ suffix:semicolon
 multiline_comment|/* note with --reject this succeeds. */
 id|patch-&gt;result
 op_assign
-id|buf.buf
-suffix:semicolon
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|buf
+comma
+op_amp
 id|patch-&gt;resultsize
-op_assign
-id|buf.len
+)paren
 suffix:semicolon
 r_if
 c_cond

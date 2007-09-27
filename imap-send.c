@@ -6377,6 +6377,8 @@ c_func
 (paren
 op_amp
 id|buf
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_return

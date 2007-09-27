@@ -3689,7 +3689,14 @@ id|encoding
 suffix:semicolon
 )brace
 r_return
-id|tmp.buf
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|tmp
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 )brace
 DECL|function|logmsg_reencode
