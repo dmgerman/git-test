@@ -1064,6 +1064,9 @@ r_const
 r_char
 op_star
 id|path
+comma
+r_int
+id|hint
 )paren
 (brace
 r_int
@@ -1100,7 +1103,7 @@ id|sb
 comma
 id|fd
 comma
-l_int|0
+id|hint
 )paren
 suffix:semicolon
 id|close
