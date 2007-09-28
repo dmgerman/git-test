@@ -1127,6 +1127,8 @@ c_func
 (paren
 id|e-&gt;name
 )paren
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|hashcpy

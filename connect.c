@@ -379,8 +379,9 @@ op_assign
 id|alloc_ref
 c_func
 (paren
-id|len
-l_int|40
+id|name_len
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|hashcpy
@@ -400,8 +401,9 @@ id|buffer
 op_plus
 l_int|41
 comma
-id|len
-l_int|40
+id|name_len
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 op_star
