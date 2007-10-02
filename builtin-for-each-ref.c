@@ -451,6 +451,10 @@ c_cond
 (paren
 op_logical_neg
 id|formatp
+op_logical_or
+id|ep
+OL
+id|formatp
 )paren
 id|formatp
 op_assign
