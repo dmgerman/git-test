@@ -281,6 +281,11 @@ comma
 id|revs.date_mode
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|buf.len
+)paren
 id|printf
 c_func
 (paren

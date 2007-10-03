@@ -1275,6 +1275,11 @@ r_int
 id|msgbuf.len
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|msgbuf.len
+)paren
 id|printf
 c_func
 (paren
