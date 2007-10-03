@@ -862,7 +862,11 @@ id|args
 l_int|1
 )braket
 op_assign
+(paren
 id|transport-&gt;verbose
+OG
+l_int|0
+)paren
 ques
 c_cond
 l_string|&quot;-rv&quot;
@@ -1148,7 +1152,11 @@ id|args
 l_int|1
 )braket
 op_assign
+(paren
 id|transport-&gt;verbose
+OG
+l_int|0
+)paren
 ques
 c_cond
 l_string|&quot;-rv&quot;
@@ -1593,7 +1601,11 @@ id|args
 l_int|1
 )braket
 op_assign
+(paren
 id|transport-&gt;verbose
+OG
+l_int|0
+)paren
 ques
 c_cond
 l_string|&quot;-av&quot;
@@ -1913,6 +1925,8 @@ suffix:semicolon
 id|walker-&gt;get_verbosely
 op_assign
 id|transport-&gt;verbose
+op_ge
+l_int|0
 suffix:semicolon
 id|walker-&gt;get_recover
 op_assign
@@ -3504,6 +3518,8 @@ suffix:semicolon
 id|args.verbose
 op_assign
 id|transport-&gt;verbose
+OG
+l_int|0
 suffix:semicolon
 id|args.depth
 op_assign
