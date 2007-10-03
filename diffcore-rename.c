@@ -1915,7 +1915,7 @@ comma
 id|two
 )paren
 suffix:semicolon
-id|diff_free_filespec_data_large
+id|diff_free_filespec_blob
 c_func
 (paren
 id|one
@@ -1923,7 +1923,7 @@ id|one
 suffix:semicolon
 )brace
 multiline_comment|/* We do not need the text anymore */
-id|diff_free_filespec_data_large
+id|diff_free_filespec_blob
 c_func
 (paren
 id|two

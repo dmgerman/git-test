@@ -145,7 +145,6 @@ comma
 l_string|&quot;parent&quot;
 )brace
 comma
-multiline_comment|/* NEEDSWORK: how to address 2nd and later parents? */
 (brace
 l_string|&quot;numparent&quot;
 comma
@@ -1354,6 +1353,14 @@ c_func
 l_int|40
 )paren
 suffix:semicolon
+id|v-&gt;ul
+op_assign
+id|num_parents
+c_func
+(paren
+id|commit
+)paren
+suffix:semicolon
 id|sprintf
 c_func
 (paren
@@ -1367,14 +1374,6 @@ suffix:semicolon
 id|v-&gt;s
 op_assign
 id|s
-suffix:semicolon
-id|v-&gt;ul
-op_assign
-id|num_parents
-c_func
-(paren
-id|commit
-)paren
 suffix:semicolon
 )brace
 r_else
@@ -1415,9 +1414,11 @@ op_assign
 id|xmalloc
 c_func
 (paren
-l_int|42
+l_int|41
 op_star
 id|num
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|v-&gt;s
@@ -1445,7 +1446,7 @@ id|i
 op_assign
 id|i
 op_plus
-l_int|42
+l_int|41
 )paren
 (brace
 r_struct
@@ -1484,6 +1485,17 @@ op_assign
 l_char|&squot; &squot;
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|i
+)paren
+op_star
+id|s
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
 )brace
 )brace
 )brace

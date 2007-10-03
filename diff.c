@@ -9021,9 +9021,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|diff_free_filespec_data_large
+DECL|function|diff_free_filespec_blob
 r_void
-id|diff_free_filespec_data_large
+id|diff_free_filespec_blob
 c_func
 (paren
 r_struct
@@ -9088,7 +9088,7 @@ op_star
 id|s
 )paren
 (brace
-id|diff_free_filespec_data_large
+id|diff_free_filespec_blob
 c_func
 (paren
 id|s
