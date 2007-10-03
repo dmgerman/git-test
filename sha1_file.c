@@ -8775,7 +8775,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|matches_pack_name
-r_static
 r_int
 id|matches_pack_name
 c_func
@@ -8788,7 +8787,7 @@ comma
 r_const
 r_char
 op_star
-id|ig
+id|name
 )paren
 (brace
 r_const
@@ -8808,11 +8807,11 @@ c_func
 (paren
 id|p-&gt;pack_name
 comma
-id|ig
+id|name
 )paren
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 r_for
 c_loop
@@ -8855,14 +8854,14 @@ c_func
 (paren
 id|last_c
 comma
-id|ig
+id|name
 )paren
 )paren
-r_return
-l_int|0
-suffix:semicolon
 r_return
 l_int|1
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|find_pack_entry
@@ -8970,7 +8969,6 @@ op_increment
 r_if
 c_cond
 (paren
-op_logical_neg
 id|matches_pack_name
 c_func
 (paren
