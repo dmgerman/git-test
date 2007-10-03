@@ -1186,6 +1186,12 @@ comma
 id|WS_SPACE_BEFORE_TAB
 )brace
 comma
+(brace
+l_string|&quot;indent-with-non-tab&quot;
+comma
+id|WS_INDENT_WITH_NON_TAB
+)brace
+comma
 )brace
 suffix:semicolon
 DECL|function|parse_whitespace_rule
