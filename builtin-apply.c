@@ -12797,6 +12797,7 @@ op_plus
 id|offset
 comma
 id|buf.len
+id|offset
 comma
 id|patch
 )paren
