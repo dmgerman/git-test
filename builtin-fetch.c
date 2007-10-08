@@ -611,6 +611,12 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
+id|ref_remove_duplicates
+c_func
+(paren
+id|ref_map
+)paren
+suffix:semicolon
 r_return
 id|ref_map
 suffix:semicolon
