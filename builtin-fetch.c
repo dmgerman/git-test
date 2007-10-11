@@ -573,10 +573,20 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t;&t; * if the remote we&squot;re fetching from is the same&n;&t;&t;&t; * as given in branch.&lt;name&gt;.remote, we add the&n;&t;&t;&t; * ref given in branch.&lt;name&gt;.merge, too.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
 id|has_merge
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|branch-&gt;remote_name
+comma
+id|remote-&gt;name
+)paren
 )paren
 id|add_merge_config
 c_func
