@@ -13,7 +13,7 @@ id|send_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-send-pack [--all] [--force] [--receive-pack=&lt;git-receive-pack&gt;] [--verbose] [--thin] [&lt;host&gt;:]&lt;directory&gt; [&lt;ref&gt;...]&bslash;n&quot;
+l_string|&quot;git-send-pack [--all] [--dry-run] [--force] [--receive-pack=&lt;git-receive-pack&gt;] [--verbose] [--thin] [&lt;host&gt;:]&lt;directory&gt; [&lt;ref&gt;...]&bslash;n&quot;
 l_string|&quot;  --all and explicit &lt;ref&gt; specification are mutually exclusive.&quot;
 suffix:semicolon
 DECL|variable|receivepack
@@ -44,6 +44,11 @@ DECL|variable|use_thin_pack
 r_static
 r_int
 id|use_thin_pack
+suffix:semicolon
+DECL|variable|dry_run
+r_static
+r_int
+id|dry_run
 suffix:semicolon
 multiline_comment|/*&n; * Make a pack stream and spit it out into file descriptor fd&n; */
 DECL|function|pack_objects
@@ -1270,6 +1275,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|dry_run
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|ask_for_status_report
 )paren
 (brace
@@ -1315,6 +1327,7 @@ comma
 id|ref-&gt;name
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1380,6 +1393,9 @@ r_if
 c_cond
 (paren
 id|remote
+op_logical_and
+op_logical_neg
+id|dry_run
 )paren
 (brace
 r_struct
@@ -1480,6 +1496,9 @@ r_if
 c_cond
 (paren
 id|new_refs
+op_logical_and
+op_logical_neg
+id|dry_run
 )paren
 id|ret
 op_assign
@@ -1828,6 +1847,26 @@ l_string|&quot;--all&quot;
 )paren
 (brace
 id|send_all
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--dry-run&quot;
+)paren
+)paren
+(brace
+id|dry_run
 op_assign
 l_int|1
 suffix:semicolon
