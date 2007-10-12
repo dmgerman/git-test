@@ -5167,6 +5167,11 @@ id|rm-&gt;peer_ref-&gt;name
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|ref_map
+)paren
 id|tail_link_ref
 c_func
 (paren
