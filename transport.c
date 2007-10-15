@@ -1,7 +1,9 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#ifndef NO_CURL
 macro_line|#include &quot;http.h&quot;
+macro_line|#endif
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;walker.h&quot;
@@ -2062,6 +2064,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+macro_line|#ifndef NO_CURL
 DECL|function|curl_transport_push
 r_static
 r_int
@@ -2264,7 +2267,6 @@ op_logical_neg
 id|err
 suffix:semicolon
 )brace
-macro_line|#ifndef NO_CURL
 DECL|function|missing__target
 r_static
 r_int
@@ -2788,67 +2790,6 @@ id|nr_objs
 comma
 id|to_fetch
 )paren
-suffix:semicolon
-)brace
-macro_line|#else
-DECL|function|get_refs_via_curl
-r_static
-r_struct
-id|ref
-op_star
-id|get_refs_via_curl
-c_func
-(paren
-r_const
-r_struct
-id|transport
-op_star
-id|transport
-)paren
-(brace
-id|die
-c_func
-(paren
-l_string|&quot;Cannot fetch from &squot;%s&squot; without curl ...&quot;
-comma
-id|transport-&gt;url
-)paren
-suffix:semicolon
-r_return
-l_int|NULL
-suffix:semicolon
-)brace
-DECL|function|fetch_objs_via_curl
-r_static
-r_int
-id|fetch_objs_via_curl
-c_func
-(paren
-r_struct
-id|transport
-op_star
-id|transport
-comma
-r_int
-id|nr_objs
-comma
-r_struct
-id|ref
-op_star
-op_star
-id|to_fetch
-)paren
-(brace
-id|die
-c_func
-(paren
-l_string|&quot;Cannot fetch from &squot;%s&squot; without curl ...&quot;
-comma
-id|transport-&gt;url
-)paren
-suffix:semicolon
-r_return
-l_int|1
 suffix:semicolon
 )brace
 macro_line|#endif
@@ -4141,6 +4082,14 @@ l_string|&quot;ftp://&quot;
 )paren
 )paren
 (brace
+macro_line|#ifdef NO_CURL
+id|error
+c_func
+(paren
+l_string|&quot;git was compiled without libcurl support.&quot;
+)paren
+suffix:semicolon
+macro_line|#else
 id|ret-&gt;get_refs_list
 op_assign
 id|get_refs_via_curl
@@ -4153,6 +4102,7 @@ id|ret-&gt;push
 op_assign
 id|curl_transport_push
 suffix:semicolon
+macro_line|#endif
 id|ret-&gt;disconnect
 op_assign
 id|disconnect_walker
