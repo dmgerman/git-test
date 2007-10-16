@@ -15,13 +15,10 @@ id|push_usage
 op_assign
 l_string|&quot;git-push [--all] [--dry-run] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=all] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 suffix:semicolon
-DECL|variable|all
 DECL|variable|thin
 DECL|variable|verbose
 r_static
 r_int
-id|all
-comma
 id|thin
 comma
 id|verbose
@@ -278,7 +275,11 @@ op_logical_neg
 id|refspec
 op_logical_and
 op_logical_neg
-id|all
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_ALL
+)paren
 op_logical_and
 id|remote-&gt;push_refspec_nr
 )paren
@@ -749,7 +750,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|all
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_ALL
+)paren
 op_logical_and
 id|refspec
 )paren
