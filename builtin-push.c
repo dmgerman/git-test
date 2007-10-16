@@ -13,7 +13,7 @@ id|push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-push [--all] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=all] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
+l_string|&quot;git-push [--all] [--dry-run] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=all] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 suffix:semicolon
 DECL|variable|all
 DECL|variable|thin
@@ -569,6 +569,26 @@ l_string|&quot;--all&quot;
 id|flags
 op_or_assign
 id|TRANSPORT_PUSH_ALL
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--dry-run&quot;
+)paren
+)paren
+(brace
+id|flags
+op_or_assign
+id|TRANSPORT_PUSH_DRY_RUN
 suffix:semicolon
 r_continue
 suffix:semicolon

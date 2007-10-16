@@ -6,7 +6,6 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 DECL|variable|current_commit_sha1
 r_static
 r_int
@@ -1090,6 +1089,8 @@ c_func
 (paren
 op_amp
 id|buf
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_while
@@ -1108,7 +1109,10 @@ r_char
 op_star
 id|tg_one
 suffix:semicolon
-id|read_line
+r_if
+c_cond
+(paren
+id|strbuf_getline
 c_func
 (paren
 op_amp
@@ -1118,11 +1122,8 @@ id|stdin
 comma
 l_char|&squot;&bslash;n&squot;
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|buf.eof
+op_eq
+id|EOF
 )paren
 r_break
 suffix:semicolon
@@ -1246,6 +1247,13 @@ id|targets
 op_increment
 suffix:semicolon
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
 r_return
 id|targets
 suffix:semicolon

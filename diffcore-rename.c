@@ -911,6 +911,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+op_logical_neg
+id|src-&gt;cnt_data
+op_logical_and
 id|diff_populate_filespec
 c_func
 (paren
@@ -918,13 +922,19 @@ id|src
 comma
 l_int|0
 )paren
+)paren
 op_logical_or
+(paren
+op_logical_neg
+id|dst-&gt;cnt_data
+op_logical_and
 id|diff_populate_filespec
 c_func
 (paren
 id|dst
 comma
 l_int|0
+)paren
 )paren
 )paren
 r_return
@@ -1905,7 +1915,7 @@ comma
 id|two
 )paren
 suffix:semicolon
-id|diff_free_filespec_data
+id|diff_free_filespec_blob
 c_func
 (paren
 id|one
@@ -1913,7 +1923,7 @@ id|one
 suffix:semicolon
 )brace
 multiline_comment|/* We do not need the text anymore */
-id|diff_free_filespec_data
+id|diff_free_filespec_blob
 c_func
 (paren
 id|two
