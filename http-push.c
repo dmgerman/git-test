@@ -18,7 +18,7 @@ id|http_push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-http-push [--all] [--force] [--verbose] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
+l_string|&quot;git-http-push [--all] [--dry-run] [--force] [--verbose] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
 suffix:semicolon
 macro_line|#ifndef XML_STATUS_OK
 DECL|enum|XML_Status
@@ -156,6 +156,11 @@ DECL|variable|force_all
 r_static
 r_int
 id|force_all
+suffix:semicolon
+DECL|variable|dry_run
+r_static
+r_int
+id|dry_run
 suffix:semicolon
 DECL|variable|objects
 r_static
@@ -12177,6 +12182,26 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--dry-run&quot;
+)paren
+)paren
+(brace
+id|dry_run
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--verbose&quot;
 )paren
 )paren
@@ -12836,6 +12861,13 @@ comma
 id|new_hex
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|dry_run
+)paren
+r_continue
+suffix:semicolon
 multiline_comment|/* Lock remote branch ref */
 id|ref_lock
 op_assign
@@ -13156,6 +13188,12 @@ comma
 l_string|&quot;Updating remote server info&bslash;n&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dry_run
+)paren
 id|update_remote_info_refs
 c_func
 (paren
