@@ -1372,6 +1372,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|opt-&gt;diffopt.output_format
+op_amp
+op_complement
+id|DIFF_FORMAT_NO_OUTPUT
+)paren
+op_logical_and
 id|opt-&gt;verbose_header
 op_logical_and
 id|opt-&gt;commit_format
