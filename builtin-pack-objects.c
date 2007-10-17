@@ -8374,6 +8374,10 @@ r_if
 c_cond
 (paren
 id|nr_deltas
+op_logical_and
+id|n
+OG
+l_int|1
 )paren
 (brace
 r_int
