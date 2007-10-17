@@ -125,6 +125,9 @@ id|final
 )paren
 (brace
 r_int
+id|fd
+suffix:semicolon
+r_int
 id|offset
 op_assign
 id|f-&gt;offset
@@ -162,13 +165,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|final
 )paren
-r_return
-l_int|0
-suffix:semicolon
-multiline_comment|/* only want to flush (no checksum write, no close) */
+(brace
+multiline_comment|/* write checksum and close fd */
 id|SHA1_Final
 c_func
 (paren
@@ -222,6 +222,16 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+id|fd
+op_assign
+l_int|0
+suffix:semicolon
+)brace
+r_else
+id|fd
+op_assign
+id|f-&gt;fd
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -229,7 +239,7 @@ id|f
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|fd
 suffix:semicolon
 )brace
 DECL|function|sha1write
