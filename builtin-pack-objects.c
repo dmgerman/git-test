@@ -3101,9 +3101,7 @@ c_func
 op_amp
 id|progress_state
 comma
-l_string|&quot;Writing %u objects...&quot;
-comma
-l_string|&quot;&quot;
+l_string|&quot;Writing objects&quot;
 comma
 id|nr_result
 )paren
@@ -8394,9 +8392,7 @@ c_func
 op_amp
 id|progress_state
 comma
-l_string|&quot;Deltifying %u objects...&quot;
-comma
-l_string|&quot;&quot;
+l_string|&quot;Deltifying objects&quot;
 comma
 id|nr_deltas
 )paren
@@ -10742,9 +10738,7 @@ c_func
 op_amp
 id|progress_state
 comma
-l_string|&quot;Generating pack...&quot;
-comma
-l_string|&quot;Counting objects: &quot;
+l_string|&quot;Counting objects&quot;
 comma
 l_int|0
 )paren
@@ -10783,7 +10777,6 @@ c_cond
 (paren
 id|progress
 )paren
-(brace
 id|stop_progress
 c_func
 (paren
@@ -10791,17 +10784,6 @@ op_amp
 id|progress_state
 )paren
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Done counting %u objects.&bslash;n&quot;
-comma
-id|nr_objects
-)paren
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -10812,27 +10794,6 @@ id|nr_result
 )paren
 r_return
 l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|progress
-op_logical_and
-(paren
-id|nr_objects
-op_ne
-id|nr_result
-)paren
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Result has %u objects.&bslash;n&quot;
-comma
-id|nr_result
-)paren
 suffix:semicolon
 r_if
 c_cond

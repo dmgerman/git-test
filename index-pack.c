@@ -2247,9 +2247,7 @@ c_func
 op_amp
 id|progress
 comma
-l_string|&quot;Indexing %u objects...&quot;
-comma
-l_string|&quot;&quot;
+l_string|&quot;Indexing objects&quot;
 comma
 id|nr_objects
 )paren
@@ -2507,9 +2505,7 @@ c_func
 op_amp
 id|progress
 comma
-l_string|&quot;Resolving %u deltas...&quot;
-comma
-l_string|&quot;&quot;
+l_string|&quot;Resolving deltas&quot;
 comma
 id|nr_deltas
 )paren

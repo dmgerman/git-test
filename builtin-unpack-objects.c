@@ -1714,9 +1714,7 @@ c_func
 op_amp
 id|progress
 comma
-l_string|&quot;Unpacking %u objects...&quot;
-comma
-l_string|&quot;&quot;
+l_string|&quot;Unpacking objects&quot;
 comma
 id|nr_objects
 )paren

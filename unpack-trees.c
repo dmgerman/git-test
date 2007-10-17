@@ -1583,9 +1583,7 @@ c_func
 op_amp
 id|progress
 comma
-l_string|&quot;Checking %u files out...&quot;
-comma
-l_string|&quot;&quot;
+l_string|&quot;Checking out files&quot;
 comma
 id|total
 comma
