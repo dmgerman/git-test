@@ -3352,10 +3352,6 @@ id|mode
 suffix:semicolon
 id|idx_tmp_name
 op_assign
-(paren
-r_char
-op_star
-)paren
 id|write_idx_file
 c_func
 (paren

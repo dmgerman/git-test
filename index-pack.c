@@ -422,13 +422,11 @@ suffix:semicolon
 )brace
 DECL|function|open_pack_file
 r_static
-r_const
 r_char
 op_star
 id|open_pack_file
 c_func
 (paren
-r_const
 r_char
 op_star
 id|pack_name
@@ -4008,7 +4006,6 @@ id|fix_thin_pack
 op_assign
 l_int|0
 suffix:semicolon
-r_const
 r_char
 op_star
 id|curr_pack
@@ -4018,7 +4015,6 @@ id|pack_name
 op_assign
 l_int|NULL
 suffix:semicolon
-r_const
 r_char
 op_star
 id|curr_index
@@ -4079,7 +4075,6 @@ id|i
 op_increment
 )paren
 (brace
-r_const
 r_char
 op_star
 id|arg

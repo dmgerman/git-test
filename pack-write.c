@@ -70,13 +70,11 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * On entry *sha1 contains the pack content SHA1 hash, on exit it is&n; * the SHA1 hash of sorted object names. The objects array passed in&n; * will be sorted by SHA1 on exit.&n; */
 DECL|function|write_idx_file
-r_const
 r_char
 op_star
 id|write_idx_file
 c_func
 (paren
-r_const
 r_char
 op_star
 id|index_name
