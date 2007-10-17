@@ -1063,6 +1063,7 @@ c_func
 id|stderr
 comma
 l_string|&quot;No refs in common and none specified; doing nothing.&bslash;n&quot;
+l_string|&quot;Perhaps you should specify a branch such as &squot;master&squot;.&bslash;n&quot;
 )paren
 suffix:semicolon
 r_return
