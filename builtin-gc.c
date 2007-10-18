@@ -973,6 +973,17 @@ c_func
 r_return
 l_int|0
 suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Packing your repository for optimum &quot;
+l_string|&quot;performance. If you would rather run&bslash;n&quot;
+l_string|&quot;&bslash;&quot;git gc&bslash;&quot; by hand, run &bslash;&quot;git config gc.auto 0&bslash;&quot; &quot;
+l_string|&quot;to disable automatic cleanup.&bslash;n&quot;
+)paren
+suffix:semicolon
 )brace
 r_else
 (brace
