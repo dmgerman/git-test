@@ -633,6 +633,17 @@ suffix:semicolon
 r_return
 id|changed
 suffix:semicolon
+r_case
+l_int|0
+suffix:colon
+multiline_comment|/* Special case: unmerged file in index */
+r_return
+id|MODE_CHANGED
+op_or
+id|DATA_CHANGED
+op_or
+id|TYPE_CHANGED
+suffix:semicolon
 r_default
 suffix:colon
 id|die
