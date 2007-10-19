@@ -7,6 +7,10 @@ macro_line|#ifndef HOST_NAME_MAX
 DECL|macro|HOST_NAME_MAX
 mdefine_line|#define HOST_NAME_MAX 256
 macro_line|#endif
+macro_line|#ifndef NI_MAXSERV
+DECL|macro|NI_MAXSERV
+mdefine_line|#define NI_MAXSERV 32
+macro_line|#endif
 DECL|variable|log_syslog
 r_static
 r_int

@@ -806,10 +806,12 @@ id|head
 suffix:semicolon
 id|commit
 op_assign
-id|lookup_commit_reference
+id|lookup_commit_reference_gently
 c_func
 (paren
 id|sha1
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_if

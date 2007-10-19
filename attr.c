@@ -1029,6 +1029,7 @@ c_loop
 op_star
 id|cp
 )paren
+(brace
 id|cp
 op_assign
 id|parse_attr
@@ -1046,6 +1047,16 @@ comma
 id|res
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cp
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
