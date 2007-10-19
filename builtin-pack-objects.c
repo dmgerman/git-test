@@ -8393,7 +8393,7 @@ c_func
 op_amp
 id|progress_state
 comma
-l_string|&quot;Deltifying objects&quot;
+l_string|&quot;Compressing objects&quot;
 comma
 id|nr_deltas
 )paren
