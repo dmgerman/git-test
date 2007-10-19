@@ -2471,9 +2471,11 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This returns 0 if the transport protocol does not need fork(2),&n; * or a process id if it does.  Once done, finish the connection&n; * with finish_connect() with the value returned from this function&n; * (it is safe to call finish_connect() with 0 to support the former&n; * case).&n; *&n; * Does not return a negative value on error; it just dies.&n; */
+multiline_comment|/*&n; * This returns NULL if the transport protocol does not need fork(2), or a&n; * struct child_process object if it does.  Once done, finish the connection&n; * with finish_connect() with the value returned from this function&n; * (it is safe to call finish_connect() with NULL to support the former&n; * case).&n; *&n; * If it returns, the connect is successful; it just dies on errors.&n; */
 DECL|function|git_connect
-id|pid_t
+r_struct
+id|child_process
+op_star
 id|git_connect
 c_func
 (paren
@@ -2521,8 +2523,10 @@ l_int|2
 l_int|2
 )braket
 suffix:semicolon
-id|pid_t
-id|pid
+r_struct
+id|child_process
+op_star
+id|conn
 suffix:semicolon
 r_enum
 id|protocol
@@ -2868,7 +2872,7 @@ id|path
 )paren
 suffix:semicolon
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 r_if
@@ -2902,7 +2906,21 @@ c_func
 l_string|&quot;unable to create pipe pair for communication&quot;
 )paren
 suffix:semicolon
-id|pid
+id|conn
+op_assign
+id|xcalloc
+c_func
+(paren
+l_int|1
+comma
+r_sizeof
+(paren
+op_star
+id|conn
+)paren
+)paren
+suffix:semicolon
+id|conn-&gt;pid
 op_assign
 id|fork
 c_func
@@ -2912,7 +2930,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pid
+id|conn-&gt;pid
 OL
 l_int|0
 )paren
@@ -2926,7 +2944,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|pid
+id|conn-&gt;pid
 )paren
 (brace
 r_struct
@@ -3278,7 +3296,7 @@ id|path
 )paren
 suffix:semicolon
 r_return
-id|pid
+id|conn
 suffix:semicolon
 )brace
 DECL|function|finish_connect
@@ -3286,16 +3304,17 @@ r_int
 id|finish_connect
 c_func
 (paren
-id|pid_t
-id|pid
+r_struct
+id|child_process
+op_star
+id|conn
 )paren
 (brace
 r_if
 c_cond
 (paren
-id|pid
-op_eq
-l_int|0
+op_logical_neg
+id|conn
 )paren
 r_return
 l_int|0
@@ -3306,7 +3325,7 @@ c_loop
 id|waitpid
 c_func
 (paren
-id|pid
+id|conn-&gt;pid
 comma
 l_int|NULL
 comma
@@ -3327,6 +3346,12 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|conn
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
