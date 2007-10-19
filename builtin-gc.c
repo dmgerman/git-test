@@ -979,9 +979,9 @@ c_func
 id|stderr
 comma
 l_string|&quot;Packing your repository for optimum &quot;
-l_string|&quot;performance. If you would rather run&bslash;n&quot;
-l_string|&quot;&bslash;&quot;git gc&bslash;&quot; by hand, run &bslash;&quot;git config gc.auto 0&bslash;&quot; &quot;
-l_string|&quot;to disable automatic cleanup.&bslash;n&quot;
+l_string|&quot;performance. You may also&bslash;n&quot;
+l_string|&quot;run &bslash;&quot;git gc&bslash;&quot; manually. See &quot;
+l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
