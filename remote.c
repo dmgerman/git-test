@@ -3420,6 +3420,15 @@ id|dst_peer-&gt;peer_ref
 op_assign
 id|src
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|pat
+)paren
+id|dst_peer-&gt;force
+op_assign
+id|pat-&gt;force
+suffix:semicolon
 id|free_name
 suffix:colon
 id|free
