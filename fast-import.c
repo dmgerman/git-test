@@ -9857,12 +9857,12 @@ c_func
 (paren
 l_string|&quot;Not a blob (actually a %s): %s&quot;
 comma
-id|command_buf.buf
-comma
 r_typename
 (paren
 id|oe-&gt;type
 )paren
+comma
+id|command_buf.buf
 )paren
 suffix:semicolon
 )brace
