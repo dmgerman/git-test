@@ -2557,7 +2557,7 @@ id|done_alias
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * Take the basename of argv[0] as the command&n;&t; * name, and the dirname as the default exec_path&n;&t; * if it&squot;s an absolute path and we don&squot;t have&n;&t; * anything better.&n;&t; */
+multiline_comment|/*&n;&t; * Take the basename of argv[0] as the command&n;&t; * name, and the dirname as the default exec_path&n;&t; * if we don&squot;t have anything better.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2581,6 +2581,19 @@ l_char|&squot;/&squot;
 id|exec_path
 op_assign
 id|cmd
+suffix:semicolon
+r_else
+id|exec_path
+op_assign
+id|xstrdup
+c_func
+(paren
+id|make_absolute_path
+c_func
+(paren
+id|cmd
+)paren
+)paren
 suffix:semicolon
 id|cmd
 op_assign
