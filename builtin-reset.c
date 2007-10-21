@@ -917,6 +917,7 @@ id|NONE
 suffix:semicolon
 DECL|variable|reset_type_names
 r_static
+r_const
 r_char
 op_star
 id|reset_type_names

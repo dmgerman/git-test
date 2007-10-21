@@ -724,6 +724,7 @@ op_star
 op_star
 id|best_match
 comma
+r_const
 r_char
 op_star
 id|base

@@ -1426,6 +1426,7 @@ id|itsize
 suffix:semicolon
 DECL|variable|header
 r_static
+r_const
 r_char
 op_star
 id|header

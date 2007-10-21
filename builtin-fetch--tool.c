@@ -137,6 +137,7 @@ id|msg
 l_int|1024
 )braket
 suffix:semicolon
+r_const
 r_char
 op_star
 id|rla
@@ -367,6 +368,7 @@ id|sha1_old
 )paren
 )paren
 (brace
+r_const
 r_char
 op_star
 id|msg
