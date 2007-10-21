@@ -852,6 +852,11 @@ r_struct
 id|strbuf
 id|buf
 suffix:semicolon
+r_int
+id|size
+op_assign
+l_int|0
+suffix:semicolon
 id|strbuf_init
 c_func
 (paren
@@ -914,8 +919,14 @@ c_func
 op_amp
 id|buf
 comma
-id|sizep
+op_amp
+id|size
 )paren
+suffix:semicolon
+op_star
+id|sizep
+op_assign
+id|size
 suffix:semicolon
 )brace
 r_return

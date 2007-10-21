@@ -680,6 +680,11 @@ id|buf
 )paren
 )paren
 (brace
+r_int
+id|newsize
+op_assign
+l_int|0
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -695,8 +700,12 @@ op_amp
 id|buf
 comma
 op_amp
-id|size
+id|newsize
 )paren
+suffix:semicolon
+id|size
+op_assign
+id|newsize
 suffix:semicolon
 )brace
 r_if

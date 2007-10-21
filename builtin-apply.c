@@ -535,7 +535,6 @@ id|result
 suffix:semicolon
 DECL|member|resultsize
 r_int
-r_int
 id|resultsize
 suffix:semicolon
 DECL|member|old_sha1_prefix
