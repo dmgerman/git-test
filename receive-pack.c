@@ -916,7 +916,7 @@ l_int|5
 id|error
 c_func
 (paren
-l_string|&quot;refusing to create funny ref &squot;%s&squot; locally&quot;
+l_string|&quot;refusing to create funny ref &squot;%s&squot; remotely&quot;
 comma
 id|name
 )paren

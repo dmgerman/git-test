@@ -1536,6 +1536,10 @@ id|opt-&gt;paths
 l_int|0
 )braket
 suffix:semicolon
+id|diff_opts.break_opt
+op_assign
+id|opt-&gt;break_opt
+suffix:semicolon
 id|paths
 (braket
 l_int|0
