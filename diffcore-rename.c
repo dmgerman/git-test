@@ -1894,6 +1894,14 @@ r_goto
 id|cleanup
 suffix:semicolon
 multiline_comment|/* nothing to do */
+multiline_comment|/*&n;&t; * We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; */
+id|rename_count
+op_assign
+id|find_exact_renames
+c_func
+(paren
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * This basically does a test for the rename matrix not&n;&t; * growing larger than a &quot;rename_limit&quot; square matrix, ie:&n;&t; *&n;&t; *    rename_dst_nr * rename_src_nr &gt; rename_limit * rename_limit&n;&t; *&n;&t; * but handles the potential overflow case specially (and we&n;&t; * assume at least 32-bit integers)&n;&t; */
 r_if
 c_cond
@@ -1937,14 +1945,6 @@ id|rename_limit
 )paren
 r_goto
 id|cleanup
-suffix:semicolon
-multiline_comment|/*&n;&t; * We really want to cull the candidates list early&n;&t; * with cheap tests in order to avoid doing deltas.&n;&t; */
-id|rename_count
-op_assign
-id|find_exact_renames
-c_func
-(paren
-)paren
 suffix:semicolon
 multiline_comment|/* Have we run out the created file pool?  If so we can avoid&n;&t; * doing the delta matrix altogether.&n;&t; */
 r_if
