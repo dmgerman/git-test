@@ -1,7 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;pack.h&quot;
-macro_line|#include &quot;fetch.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;http.h&quot;
@@ -19,7 +18,7 @@ id|http_push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-http-push [--all] [--force] [--verbose] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
+l_string|&quot;git-http-push [--all] [--dry-run] [--force] [--verbose] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
 suffix:semicolon
 macro_line|#ifndef XML_STATUS_OK
 DECL|enum|XML_Status
@@ -157,6 +156,11 @@ DECL|variable|force_all
 r_static
 r_int
 id|force_all
+suffix:semicolon
+DECL|variable|dry_run
+r_static
+r_int
+id|dry_run
 suffix:semicolon
 DECL|variable|objects
 r_static
@@ -3800,12 +3804,15 @@ suffix:semicolon
 )brace
 )brace
 macro_line|#ifdef USE_CURL_MULTI
-DECL|function|fill_active_slots
-r_void
-id|fill_active_slots
+DECL|function|fill_active_slot
+r_static
+r_int
+id|fill_active_slot
 c_func
 (paren
 r_void
+op_star
+id|unused
 )paren
 (brace
 r_struct
@@ -3815,44 +3822,28 @@ id|request
 op_assign
 id|request_queue_head
 suffix:semicolon
-r_struct
-id|transfer_request
-op_star
-id|next
-suffix:semicolon
-r_struct
-id|active_request_slot
-op_star
-id|slot
-op_assign
-id|active_queue_head
-suffix:semicolon
-r_int
-id|num_transfers
-suffix:semicolon
 r_if
 c_cond
 (paren
 id|aborted
 )paren
 r_return
+l_int|0
 suffix:semicolon
-r_while
+r_for
 c_loop
 (paren
-id|active_requests
-OL
-id|max_requests
-op_logical_and
 id|request
-op_ne
-l_int|NULL
-)paren
-(brace
-id|next
+op_assign
+id|request_queue_head
+suffix:semicolon
+id|request
+suffix:semicolon
+id|request
 op_assign
 id|request-&gt;next
-suffix:semicolon
+)paren
+(brace
 r_if
 c_cond
 (paren
@@ -3866,6 +3857,9 @@ c_func
 (paren
 id|request
 )paren
+suffix:semicolon
+r_return
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -3909,56 +3903,14 @@ id|request
 )paren
 suffix:semicolon
 )brace
-id|curl_multi_perform
-c_func
-(paren
-id|curlm
-comma
-op_amp
-id|num_transfers
-)paren
+r_return
+l_int|1
 suffix:semicolon
 )brace
-id|request
-op_assign
-id|next
-suffix:semicolon
 )brace
-r_while
-c_loop
-(paren
-id|slot
-op_ne
-l_int|NULL
-)paren
-(brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|slot-&gt;in_use
-op_logical_and
-id|slot-&gt;curl
-op_ne
-l_int|NULL
-)paren
-(brace
-id|curl_easy_cleanup
-c_func
-(paren
-id|slot-&gt;curl
-)paren
+r_return
+l_int|0
 suffix:semicolon
-id|slot-&gt;curl
-op_assign
-l_int|NULL
-suffix:semicolon
-)brace
-id|slot
-op_assign
-id|slot-&gt;next
-suffix:semicolon
-)brace
 )brace
 macro_line|#endif
 r_static
@@ -12230,6 +12182,26 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--dry-run&quot;
+)paren
+)paren
+(brace
+id|dry_run
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--verbose&quot;
 )paren
 )paren
@@ -12889,6 +12861,13 @@ comma
 id|new_hex
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|dry_run
+)paren
+r_continue
+suffix:semicolon
 multiline_comment|/* Lock remote branch ref */
 id|ref_lock
 op_assign
@@ -13118,6 +13097,14 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|add_fill_function
+c_func
+(paren
+l_int|NULL
+comma
+id|fill_active_slot
+)paren
+suffix:semicolon
 macro_line|#endif
 id|finish_all_active_slots
 c_func
@@ -13201,6 +13188,12 @@ comma
 l_string|&quot;Updating remote server info&bslash;n&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dry_run
+)paren
 id|update_remote_info_refs
 c_func
 (paren

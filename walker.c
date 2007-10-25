@@ -1,41 +1,11 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;fetch.h&quot;
+macro_line|#include &quot;walker.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;refs.h&quot;
-DECL|variable|get_tree
-r_int
-id|get_tree
-op_assign
-l_int|0
-suffix:semicolon
-DECL|variable|get_history
-r_int
-id|get_history
-op_assign
-l_int|0
-suffix:semicolon
-DECL|variable|get_all
-r_int
-id|get_all
-op_assign
-l_int|0
-suffix:semicolon
-DECL|variable|get_verbosely
-r_int
-id|get_verbosely
-op_assign
-l_int|0
-suffix:semicolon
-DECL|variable|get_recover
-r_int
-id|get_recover
-op_assign
-l_int|0
-suffix:semicolon
 DECL|variable|current_commit_sha1
 r_static
 r_int
@@ -45,11 +15,16 @@ id|current_commit_sha1
 l_int|20
 )braket
 suffix:semicolon
-DECL|function|pull_say
+DECL|function|walker_say
 r_void
-id|pull_say
+id|walker_say
 c_func
 (paren
+r_struct
+id|walker
+op_star
+id|walker
+comma
 r_const
 r_char
 op_star
@@ -64,7 +39,7 @@ id|hex
 r_if
 c_cond
 (paren
-id|get_verbosely
+id|walker-&gt;get_verbosely
 )paren
 id|fprintf
 c_func
@@ -160,6 +135,11 @@ id|process
 c_func
 (paren
 r_struct
+id|walker
+op_star
+id|walker
+comma
+r_struct
 id|object
 op_star
 id|obj
@@ -171,6 +151,11 @@ r_int
 id|process_tree
 c_func
 (paren
+r_struct
+id|walker
+op_star
+id|walker
+comma
 r_struct
 id|tree
 op_star
@@ -306,6 +291,8 @@ op_logical_or
 id|process
 c_func
 (paren
+id|walker
+comma
 id|obj
 )paren
 )paren
@@ -352,6 +339,11 @@ r_int
 id|process_commit
 c_func
 (paren
+r_struct
+id|walker
+op_star
+id|walker
+comma
 r_struct
 id|commit
 op_star
@@ -408,9 +400,11 @@ comma
 id|commit-&gt;object.sha1
 )paren
 suffix:semicolon
-id|pull_say
+id|walker_say
 c_func
 (paren
+id|walker
+comma
 l_string|&quot;walk %s&bslash;n&quot;
 comma
 id|sha1_to_hex
@@ -423,7 +417,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_tree
+id|walker-&gt;get_tree
 )paren
 (brace
 r_if
@@ -432,6 +426,8 @@ c_cond
 id|process
 c_func
 (paren
+id|walker
+comma
 op_amp
 id|commit-&gt;tree-&gt;object
 )paren
@@ -443,9 +439,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|get_all
+id|walker-&gt;get_all
 )paren
-id|get_tree
+id|walker-&gt;get_tree
 op_assign
 l_int|0
 suffix:semicolon
@@ -453,7 +449,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_history
+id|walker-&gt;get_history
 )paren
 (brace
 r_struct
@@ -480,6 +476,8 @@ c_cond
 id|process
 c_func
 (paren
+id|walker
+comma
 op_amp
 id|parents-&gt;item-&gt;object
 )paren
@@ -499,6 +497,11 @@ r_int
 id|process_tag
 c_func
 (paren
+r_struct
+id|walker
+op_star
+id|walker
+comma
 r_struct
 id|tag
 op_star
@@ -521,6 +524,8 @@ r_return
 id|process
 c_func
 (paren
+id|walker
+comma
 id|tag-&gt;tagged
 )paren
 suffix:semicolon
@@ -552,6 +557,11 @@ id|process_object
 c_func
 (paren
 r_struct
+id|walker
+op_star
+id|walker
+comma
+r_struct
 id|object
 op_star
 id|obj
@@ -571,6 +581,8 @@ c_cond
 id|process_commit
 c_func
 (paren
+id|walker
+comma
 (paren
 r_struct
 id|commit
@@ -600,6 +612,8 @@ c_cond
 id|process_tree
 c_func
 (paren
+id|walker
+comma
 (paren
 r_struct
 id|tree
@@ -641,6 +655,8 @@ c_cond
 id|process_tag
 c_func
 (paren
+id|walker
+comma
 (paren
 r_struct
 id|tag
@@ -682,6 +698,11 @@ r_int
 id|process
 c_func
 (paren
+r_struct
+id|walker
+op_star
+id|walker
+comma
 r_struct
 id|object
 op_star
@@ -730,9 +751,13 @@ id|COMPLETE
 r_return
 l_int|0
 suffix:semicolon
+id|walker
+op_member_access_from_pointer
 id|prefetch
 c_func
 (paren
+id|walker
+comma
 id|obj-&gt;sha1
 )paren
 suffix:semicolon
@@ -765,7 +790,10 @@ r_int
 id|loop
 c_func
 (paren
-r_void
+r_struct
+id|walker
+op_star
+id|walker
 )paren
 (brace
 r_struct
@@ -826,9 +854,13 @@ id|TO_SCAN
 r_if
 c_cond
 (paren
+id|walker
+op_member_access_from_pointer
 id|fetch
 c_func
 (paren
+id|walker
+comma
 id|obj-&gt;sha1
 )paren
 )paren
@@ -862,6 +894,8 @@ c_cond
 id|process_object
 c_func
 (paren
+id|walker
+comma
 id|obj
 )paren
 )paren
@@ -879,6 +913,11 @@ r_int
 id|interpret_target
 c_func
 (paren
+r_struct
+id|walker
+op_star
+id|walker
+comma
 r_char
 op_star
 id|target
@@ -919,9 +958,13 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|walker
+op_member_access_from_pointer
 id|fetch_ref
 c_func
 (paren
+id|walker
+comma
 id|target
 comma
 id|sha1
@@ -999,9 +1042,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|pull_targets_stdin
+DECL|function|walker_targets_stdin
 r_int
-id|pull_targets_stdin
+id|walker_targets_stdin
 c_func
 (paren
 r_char
@@ -1215,9 +1258,9 @@ r_return
 id|targets
 suffix:semicolon
 )brace
-DECL|function|pull_targets_free
+DECL|function|walker_targets_free
 r_void
-id|pull_targets_free
+id|walker_targets_free
 c_func
 (paren
 r_int
@@ -1276,11 +1319,16 @@ id|targets
 suffix:semicolon
 )brace
 )brace
-DECL|function|pull
+DECL|function|walker_fetch
 r_int
-id|pull
+id|walker_fetch
 c_func
 (paren
+r_struct
+id|walker
+op_star
+id|walker
+comma
 r_int
 id|targets
 comma
@@ -1426,7 +1474,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|get_recover
+id|walker-&gt;get_recover
 )paren
 id|for_each_ref
 c_func
@@ -1457,6 +1505,8 @@ c_cond
 id|interpret_target
 c_func
 (paren
+id|walker
+comma
 id|target
 (braket
 id|i
@@ -1493,6 +1543,8 @@ c_cond
 id|process
 c_func
 (paren
+id|walker
+comma
 id|lookup_unknown_object
 c_func
 (paren
@@ -1516,6 +1568,7 @@ c_cond
 id|loop
 c_func
 (paren
+id|walker
 )paren
 )paren
 r_goto
@@ -1674,6 +1727,32 @@ id|i
 suffix:semicolon
 r_return
 l_int|1
+suffix:semicolon
+)brace
+DECL|function|walker_free
+r_void
+id|walker_free
+c_func
+(paren
+r_struct
+id|walker
+op_star
+id|walker
+)paren
+(brace
+id|walker
+op_member_access_from_pointer
+id|cleanup
+c_func
+(paren
+id|walker
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|walker
+)paren
 suffix:semicolon
 )brace
 eof

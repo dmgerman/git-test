@@ -2018,7 +2018,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|remote_has_uri
+id|remote_has_url
 c_func
 (paren
 id|remote
