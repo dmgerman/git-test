@@ -8608,6 +8608,15 @@ id|command_buf.len
 l_int|5
 l_int|2
 suffix:semicolon
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|command_buf
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
