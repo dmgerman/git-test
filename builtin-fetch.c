@@ -213,7 +213,7 @@ id|rm
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* Not fetched to a tracking branch?  We need to fetch&n;&t;&t; * it anyway to allow this branch&squot;s &quot;branch.$name.merge&quot;&n;&t;&t; * to be honored by git-pull.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Not fetched to a tracking branch?  We need to fetch&n;&t;&t; * it anyway to allow this branch&squot;s &quot;branch.$name.merge&quot;&n;&t;&t; * to be honored by git-pull, but we do not have to&n;&t;&t; * fail if branch.$name.merge is misconfigured to point&n;&t;&t; * at a nonexisting branch.  If we were indeed called by&n;&t;&t; * git-pull, it will notice the misconfiguration because&n;&t;&t; * there is no entry in the resulting FETCH_HEAD marked&n;&t;&t; * for merging.&n;&t;&t; */
 id|refspec.src
 op_assign
 id|branch-&gt;merge
@@ -244,6 +244,8 @@ op_amp
 id|refspec
 comma
 id|tail
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_for
@@ -366,6 +368,8 @@ id|i
 comma
 op_amp
 id|tail
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -448,6 +452,8 @@ id|refspec
 comma
 op_amp
 id|tail
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -522,6 +528,8 @@ id|i
 comma
 op_amp
 id|tail
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -613,6 +621,18 @@ c_func
 id|remote_refs
 comma
 l_string|&quot;HEAD&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ref_map
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Couldn&squot;t find remote ref HEAD&quot;
 )paren
 suffix:semicolon
 id|ref_map-&gt;merge
