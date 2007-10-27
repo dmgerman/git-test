@@ -2720,17 +2720,24 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* Default command: &quot;help&quot; */
-id|argv
-(braket
-l_int|0
-)braket
-op_assign
-l_string|&quot;help&quot;
+multiline_comment|/* The user didn&squot;t specify a command; give them help */
+id|printf
+c_func
+(paren
+l_string|&quot;usage: %s&bslash;n&bslash;n&quot;
+comma
+id|git_usage_string
+)paren
 suffix:semicolon
-id|argc
-op_assign
+id|list_common_cmds_help
+c_func
+(paren
+)paren
+suffix:semicolon
+m_exit
+(paren
 l_int|1
+)paren
 suffix:semicolon
 )brace
 id|cmd

@@ -786,7 +786,6 @@ l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 )brace
 DECL|function|list_common_cmds_help
-r_static
 r_void
 id|list_common_cmds_help
 c_func
@@ -1154,7 +1153,7 @@ c_func
 suffix:semicolon
 m_exit
 (paren
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -1206,7 +1205,7 @@ suffix:semicolon
 )brace
 m_exit
 (paren
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 )brace
