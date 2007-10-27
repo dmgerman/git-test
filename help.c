@@ -1037,17 +1037,14 @@ op_star
 id|cmd
 )paren
 (brace
-id|printf
+id|fprintf
 c_func
 (paren
-l_string|&quot;git: &squot;%s&squot; is not a git-command&bslash;n&bslash;n&quot;
+id|stderr
+comma
+l_string|&quot;git: &squot;%s&squot; is not a git-command. See &squot;git --help&squot;.&bslash;n&quot;
 comma
 id|cmd
-)paren
-suffix:semicolon
-id|list_common_cmds_help
-c_func
-(paren
 )paren
 suffix:semicolon
 m_exit
