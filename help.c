@@ -1042,7 +1042,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git: &squot;%s&squot; is not a git-command. See --help&bslash;n&bslash;n&quot;
+l_string|&quot;git: &squot;%s&squot; is not a git-command. See &squot;git --help&squot;.&bslash;n&quot;
 comma
 id|cmd
 )paren
