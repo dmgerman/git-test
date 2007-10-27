@@ -238,7 +238,7 @@ id|cmd
 op_eq
 l_char|&squot;=&squot;
 )paren
-id|git_set_exec_path
+id|git_set_argv_exec_path
 c_func
 (paren
 id|cmd
