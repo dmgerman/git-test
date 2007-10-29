@@ -8471,6 +8471,8 @@ r_struct
 id|tree
 op_star
 id|mrtree
+op_assign
+id|mrtree
 suffix:semicolon
 r_int
 id|clean
