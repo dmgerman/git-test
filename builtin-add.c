@@ -200,6 +200,12 @@ id|i
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|seen
+)paren
+suffix:semicolon
 )brace
 DECL|function|fill_directory
 r_static
@@ -731,6 +737,12 @@ id|i
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|seen
+)paren
+suffix:semicolon
 )brace
 DECL|function|git_add_config
 r_static
