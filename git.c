@@ -2175,6 +2175,14 @@ id|NEED_WORK_TREE
 )brace
 comma
 (brace
+l_string|&quot;send-pack&quot;
+comma
+id|cmd_send_pack
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;shortlog&quot;
 comma
 id|cmd_shortlog
