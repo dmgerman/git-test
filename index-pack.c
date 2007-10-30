@@ -338,6 +338,19 @@ id|errno
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|from_stdin
+)paren
+id|display_throughput
+c_func
+(paren
+id|progress
+comma
+id|ret
+)paren
+suffix:semicolon
 id|input_len
 op_add_assign
 id|ret
@@ -2245,6 +2258,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|from_stdin
+ques
+c_cond
+l_string|&quot;Receiving objects&quot;
+suffix:colon
 l_string|&quot;Indexing objects&quot;
 comma
 id|nr_objects
