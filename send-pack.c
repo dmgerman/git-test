@@ -1073,6 +1073,7 @@ comma
 r_int
 id|nr_refspec
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1649,6 +1650,7 @@ c_func
 r_int
 id|nr_heads
 comma
+r_const
 r_char
 op_star
 op_star
@@ -1770,6 +1772,7 @@ id|dest
 op_assign
 l_int|NULL
 suffix:semicolon
+r_const
 r_char
 op_star
 op_star
@@ -2040,6 +2043,12 @@ suffix:semicolon
 )brace
 id|heads
 op_assign
+(paren
+r_const
+r_char
+op_star
+op_star
+)paren
 id|argv
 suffix:semicolon
 id|nr_heads

@@ -739,7 +739,6 @@ op_star
 id|get_refs_via_rsync
 c_func
 (paren
-r_const
 r_struct
 id|transport
 op_star
@@ -2394,7 +2393,6 @@ op_star
 id|get_refs_via_curl
 c_func
 (paren
-r_const
 r_struct
 id|transport
 op_star
@@ -2889,7 +2887,6 @@ op_star
 id|get_refs_from_bundle
 c_func
 (paren
-r_const
 r_struct
 id|transport
 op_star
@@ -3305,7 +3302,6 @@ op_star
 id|get_refs_via_connect
 c_func
 (paren
-r_const
 r_struct
 id|transport
 op_star
@@ -4406,6 +4402,7 @@ id|flags
 suffix:semicolon
 )brace
 DECL|function|transport_get_remote_refs
+r_const
 r_struct
 id|ref
 op_star
