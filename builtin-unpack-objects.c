@@ -1756,12 +1756,6 @@ c_func
 id|i
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|quiet
-)paren
 id|display_progress
 c_func
 (paren
@@ -1773,12 +1767,6 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|quiet
-)paren
 id|stop_progress
 c_func
 (paren

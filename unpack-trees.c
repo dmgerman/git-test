@@ -1623,11 +1623,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|total
-)paren
-r_if
-c_cond
-(paren
 op_logical_neg
 id|ce-&gt;ce_mode
 op_logical_or
@@ -1705,11 +1700,6 @@ suffix:semicolon
 )brace
 )brace
 )brace
-r_if
-c_cond
-(paren
-id|total
-)paren
 id|stop_progress
 c_func
 (paren

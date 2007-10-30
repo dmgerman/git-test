@@ -57,13 +57,6 @@ id|hex
 l_int|40
 )braket
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|opts
-op_eq
-id|VERBOSE
-)paren
 id|display_progress
 c_func
 (paren
@@ -396,13 +389,6 @@ id|d
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|opts
-op_eq
-id|VERBOSE
-)paren
 id|stop_progress
 c_func
 (paren
