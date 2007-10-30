@@ -3150,7 +3150,7 @@ c_func
 (paren
 l_int|0
 comma
-l_string|&quot;struct&quot;
+l_string|&quot;strict&quot;
 comma
 op_amp
 id|check_strict
