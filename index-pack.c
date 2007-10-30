@@ -127,6 +127,7 @@ DECL|variable|progress
 r_static
 r_struct
 id|progress
+op_star
 id|progress
 suffix:semicolon
 multiline_comment|/* We always read in 4kB chunks. */
@@ -2239,12 +2240,11 @@ c_cond
 (paren
 id|verbose
 )paren
+id|progress
+op_assign
 id|start_progress
 c_func
 (paren
-op_amp
-id|progress
-comma
 l_string|&quot;Indexing objects&quot;
 comma
 id|nr_objects
@@ -2341,7 +2341,6 @@ id|verbose
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress
 comma
 id|i
@@ -2497,12 +2496,11 @@ c_cond
 (paren
 id|verbose
 )paren
+id|progress
+op_assign
 id|start_progress
 c_func
 (paren
-op_amp
-id|progress
-comma
 l_string|&quot;Resolving deltas&quot;
 comma
 id|nr_deltas
@@ -2765,7 +2763,6 @@ id|verbose
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress
 comma
 id|nr_resolved_deltas
@@ -3483,7 +3480,6 @@ id|verbose
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress
 comma
 id|nr_resolved_deltas

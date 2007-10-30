@@ -1520,7 +1520,10 @@ l_int|0
 suffix:semicolon
 r_struct
 id|progress
+op_star
 id|progress
+op_assign
+l_int|NULL
 suffix:semicolon
 r_char
 id|last_symlink
@@ -1577,12 +1580,11 @@ id|total
 op_increment
 suffix:semicolon
 )brace
+id|progress
+op_assign
 id|start_progress_delay
 c_func
 (paren
-op_amp
-id|progress
-comma
 l_string|&quot;Checking out files&quot;
 comma
 id|total
@@ -1636,7 +1638,6 @@ id|mask
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress
 comma
 op_increment
@@ -1715,7 +1716,6 @@ c_func
 op_amp
 id|progress
 )paren
-suffix:semicolon
 suffix:semicolon
 )brace
 DECL|function|unpack_trees

@@ -236,6 +236,7 @@ DECL|variable|progress_state
 r_static
 r_struct
 id|progress
+op_star
 id|progress_state
 suffix:semicolon
 DECL|variable|pack_compression_level
@@ -3036,12 +3037,11 @@ c_cond
 (paren
 id|do_progress
 )paren
+id|progress_state
+op_assign
 id|start_progress
 c_func
 (paren
-op_amp
-id|progress_state
-comma
 l_string|&quot;Writing objects&quot;
 comma
 id|nr_result
@@ -3249,7 +3249,6 @@ id|do_progress
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress_state
 comma
 id|written
@@ -4435,7 +4434,6 @@ id|progress
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress_state
 comma
 id|nr_objects
@@ -7497,7 +7495,6 @@ id|progress
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress_state
 comma
 op_star
@@ -8387,12 +8384,11 @@ c_cond
 (paren
 id|progress
 )paren
+id|progress_state
+op_assign
 id|start_progress
 c_func
 (paren
-op_amp
-id|progress_state
-comma
 l_string|&quot;Compressing objects&quot;
 comma
 id|nr_deltas
@@ -10733,12 +10729,11 @@ c_cond
 (paren
 id|progress
 )paren
+id|progress_state
+op_assign
 id|start_progress
 c_func
 (paren
-op_amp
-id|progress_state
-comma
 l_string|&quot;Counting objects&quot;
 comma
 l_int|0

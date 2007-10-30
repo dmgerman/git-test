@@ -19,6 +19,7 @@ DECL|variable|progress
 r_static
 r_struct
 id|progress
+op_star
 id|progress
 suffix:semicolon
 DECL|function|prune_dir
@@ -66,7 +67,6 @@ id|VERBOSE
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress
 comma
 id|i
@@ -266,12 +266,11 @@ id|opts
 op_eq
 id|VERBOSE
 )paren
+id|progress
+op_assign
 id|start_progress_delay
 c_func
 (paren
-op_amp
-id|progress
-comma
 l_string|&quot;Removing duplicate objects&quot;
 comma
 l_int|256
