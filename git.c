@@ -2053,6 +2053,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;peek-remote&quot;
+comma
+id|cmd_peek_remote
+)brace
+comma
+(brace
 l_string|&quot;pickaxe&quot;
 comma
 id|cmd_blame
