@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * csum-file.c&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; *&n; * Simple file write infrastructure for writing SHA1-summed&n; * files. Useful when you write a file that you want to be&n; * able to verify hasn&squot;t been messed with afterwards.&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 DECL|function|sha1flush
 r_static
@@ -51,6 +52,14 @@ OG
 l_int|0
 )paren
 (brace
+id|display_throughput
+c_func
+(paren
+id|f-&gt;tp
+comma
+id|ret
+)paren
+suffix:semicolon
 id|buf
 op_assign
 (paren
@@ -400,6 +409,39 @@ op_star
 id|name
 )paren
 (brace
+r_return
+id|sha1fd_throughput
+c_func
+(paren
+id|fd
+comma
+id|name
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+)brace
+DECL|function|sha1fd_throughput
+r_struct
+id|sha1file
+op_star
+id|sha1fd_throughput
+c_func
+(paren
+r_int
+id|fd
+comma
+r_const
+r_char
+op_star
+id|name
+comma
+r_struct
+id|progress
+op_star
+id|tp
+)paren
+(brace
 r_struct
 id|sha1file
 op_star
@@ -468,6 +510,10 @@ suffix:semicolon
 id|f-&gt;offset
 op_assign
 l_int|0
+suffix:semicolon
+id|f-&gt;tp
+op_assign
+id|tp
 suffix:semicolon
 id|f-&gt;do_crc
 op_assign

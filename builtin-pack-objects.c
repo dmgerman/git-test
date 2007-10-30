@@ -3085,12 +3085,14 @@ id|pack_to_stdout
 (brace
 id|f
 op_assign
-id|sha1fd
+id|sha1fd_throughput
 c_func
 (paren
 l_int|1
 comma
 l_string|&quot;&lt;stdout&gt;&quot;
+comma
+id|progress_state
 )paren
 suffix:semicolon
 )brace
