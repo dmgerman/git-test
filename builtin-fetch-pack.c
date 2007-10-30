@@ -33,6 +33,12 @@ r_static
 r_struct
 id|fetch_pack_args
 id|args
+op_assign
+(brace
+multiline_comment|/* .uploadpack = */
+l_string|&quot;git-upload-pack&quot;
+comma
+)brace
 suffix:semicolon
 DECL|variable|fetch_pack_usage
 r_static
@@ -43,15 +49,6 @@ id|fetch_pack_usage
 )braket
 op_assign
 l_string|&quot;git-fetch-pack [--all] [--quiet|-q] [--keep|-k] [--thin] [--upload-pack=&lt;git-upload-pack&gt;] [--depth=&lt;n&gt;] [--no-progress] [-v] [&lt;host&gt;:]&lt;directory&gt; [&lt;refs&gt;...]&quot;
-suffix:semicolon
-DECL|variable|uploadpack
-r_static
-r_const
-r_char
-op_star
-id|uploadpack
-op_assign
-l_string|&quot;git-upload-pack&quot;
 suffix:semicolon
 DECL|macro|COMPLETE
 mdefine_line|#define COMPLETE&t;(1U &lt;&lt; 0)
@@ -4101,7 +4098,7 @@ op_star
 )paren
 id|dest
 comma
-id|uploadpack
+id|args.uploadpack
 comma
 id|args.verbose
 ques
