@@ -1,3 +1,4 @@
+multiline_comment|/*&n; * Simple text-based progress display module for GIT&n; *&n; * Copyright (c) 2007 by Nicolas Pitre &lt;nico@cam.org&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;progress.h&quot;
 DECL|macro|TP_IDX_MAX
