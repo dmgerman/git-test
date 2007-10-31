@@ -4512,6 +4512,8 @@ comma
 l_int|NULL
 comma
 l_int|0
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|printf
