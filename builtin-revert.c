@@ -1971,7 +1971,7 @@ id|stderr
 comma
 l_string|&quot;Automatic %s failed.  &quot;
 l_string|&quot;After resolving the conflicts,&bslash;n&quot;
-l_string|&quot;mark the corrected paths with &squot;git-add &lt;paths&gt;&squot;&bslash;n&quot;
+l_string|&quot;mark the corrected paths with &squot;git add &lt;paths&gt;&squot; &quot;
 l_string|&quot;and commit the result.&bslash;n&quot;
 comma
 id|me
