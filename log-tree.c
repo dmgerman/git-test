@@ -70,7 +70,6 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|show_decorations
-r_static
 r_void
 id|show_decorations
 c_func
