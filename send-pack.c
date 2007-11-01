@@ -1785,8 +1785,10 @@ l_int|2
 comma
 id|ret
 suffix:semicolon
-id|pid_t
-id|pid
+r_struct
+id|child_process
+op_star
+id|conn
 suffix:semicolon
 r_char
 op_star
@@ -2120,7 +2122,7 @@ id|remote_name
 suffix:semicolon
 )brace
 )brace
-id|pid
+id|conn
 op_assign
 id|git_connect
 c_func
@@ -2138,16 +2140,6 @@ id|CONNECT_VERBOSE
 suffix:colon
 l_int|0
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|pid
-OL
-l_int|0
-)paren
-r_return
-l_int|1
 suffix:semicolon
 id|ret
 op_assign
@@ -2194,7 +2186,7 @@ op_or_assign
 id|finish_connect
 c_func
 (paren
-id|pid
+id|conn
 )paren
 suffix:semicolon
 r_return

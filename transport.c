@@ -3328,9 +3328,6 @@ id|fd
 l_int|2
 )braket
 suffix:semicolon
-id|pid_t
-id|pid
-suffix:semicolon
 r_char
 op_star
 id|dest
@@ -3341,7 +3338,10 @@ c_func
 id|transport-&gt;url
 )paren
 suffix:semicolon
-id|pid
+r_struct
+id|child_process
+op_star
+id|conn
 op_assign
 id|git_connect
 c_func
@@ -3353,21 +3353,6 @@ comma
 id|data-&gt;uploadpack
 comma
 l_int|0
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|pid
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Failed to connect to &bslash;&quot;%s&bslash;&quot;&quot;
-comma
-id|transport-&gt;url
 )paren
 suffix:semicolon
 id|get_remote_heads
@@ -3400,7 +3385,7 @@ suffix:semicolon
 id|finish_connect
 c_func
 (paren
-id|pid
+id|conn
 )paren
 suffix:semicolon
 id|free

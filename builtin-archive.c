@@ -105,8 +105,10 @@ id|len
 comma
 id|rv
 suffix:semicolon
-id|pid_t
-id|pid
+r_struct
+id|child_process
+op_star
+id|conn
 suffix:semicolon
 r_const
 r_char
@@ -191,7 +193,7 @@ c_func
 id|remote
 )paren
 suffix:semicolon
-id|pid
+id|conn
 op_assign
 id|git_connect
 c_func
@@ -204,16 +206,6 @@ id|exec
 comma
 l_int|0
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|pid
-OL
-l_int|0
-)paren
-r_return
-id|pid
 suffix:semicolon
 r_for
 c_loop
@@ -430,7 +422,7 @@ op_or_assign
 id|finish_connect
 c_func
 (paren
-id|pid
+id|conn
 )paren
 suffix:semicolon
 r_return
