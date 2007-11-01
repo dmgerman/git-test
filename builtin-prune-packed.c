@@ -57,16 +57,6 @@ id|hex
 l_int|40
 )braket
 suffix:semicolon
-id|display_progress
-c_func
-(paren
-id|progress
-comma
-id|i
-op_plus
-l_int|1
-)paren
-suffix:semicolon
 id|sprintf
 c_func
 (paren
@@ -197,6 +187,16 @@ c_func
 l_string|&quot;unable to unlink %s&quot;
 comma
 id|pathname
+)paren
+suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+id|i
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 )brace
