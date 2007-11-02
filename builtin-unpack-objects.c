@@ -1627,7 +1627,10 @@ id|i
 suffix:semicolon
 r_struct
 id|progress
+op_star
 id|progress
+op_assign
+l_int|NULL
 suffix:semicolon
 r_struct
 id|pack_header
@@ -1708,15 +1711,12 @@ c_cond
 op_logical_neg
 id|quiet
 )paren
+id|progress
+op_assign
 id|start_progress
 c_func
 (paren
-op_amp
-id|progress
-comma
-l_string|&quot;Unpacking %u objects...&quot;
-comma
-l_string|&quot;&quot;
+l_string|&quot;Unpacking objects&quot;
 comma
 id|nr_objects
 )paren
@@ -1756,16 +1756,9 @@ c_func
 id|i
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|quiet
-)paren
 id|display_progress
 c_func
 (paren
-op_amp
 id|progress
 comma
 id|i
@@ -1774,12 +1767,6 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|quiet
-)paren
 id|stop_progress
 c_func
 (paren
