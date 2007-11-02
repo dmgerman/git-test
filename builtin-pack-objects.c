@@ -132,7 +132,7 @@ suffix:semicolon
 DECL|variable|written_list
 r_static
 r_struct
-id|object_entry
+id|pack_idx_entry
 op_star
 op_star
 id|written_list
@@ -2965,7 +2965,8 @@ id|nr_written
 op_increment
 )braket
 op_assign
-id|e
+op_amp
+id|e-&gt;idx
 suffix:semicolon
 multiline_comment|/* make sure off_t is sufficiently large not to wrap */
 r_if
@@ -3117,9 +3118,8 @@ id|nr_objects
 op_star
 r_sizeof
 (paren
-r_struct
-id|object_entry
 op_star
+id|written_list
 )paren
 )paren
 suffix:semicolon
@@ -3374,12 +3374,6 @@ c_func
 (paren
 l_int|NULL
 comma
-(paren
-r_struct
-id|pack_idx_entry
-op_star
-op_star
-)paren
 id|written_list
 comma
 id|nr_written
@@ -3553,7 +3547,7 @@ id|written_list
 id|j
 )braket
 op_member_access_from_pointer
-id|idx.offset
+id|offset
 op_assign
 (paren
 id|off_t
