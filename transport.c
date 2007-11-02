@@ -502,6 +502,8 @@ suffix:semicolon
 (brace
 r_int
 id|cmp
+op_assign
+id|cmp
 comma
 id|len
 suffix:semicolon
