@@ -2706,6 +2706,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|whitespace_rule
+op_amp
+id|WS_SPACE_BEFORE_TAB
+)paren
+op_logical_and
 l_int|0
 op_le
 id|last_space_in_indent
@@ -2893,6 +2899,14 @@ id|tail
 id|tail
 op_decrement
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|whitespace_rule
+op_amp
+id|WS_TRAILING_SPACE
+)paren
+(brace
 r_while
 c_loop
 (paren
@@ -2919,6 +2933,7 @@ suffix:semicolon
 id|tail
 op_decrement
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond

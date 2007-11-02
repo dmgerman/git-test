@@ -151,6 +151,12 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* 1: both ways, -1: only when adding git objects */
+DECL|variable|whitespace_rule
+r_int
+id|whitespace_rule
+op_assign
+id|WS_DEFAULT_RULE
+suffix:semicolon
 multiline_comment|/* This is set by setup_git_dir_gently() and/or git_default_config() */
 DECL|variable|git_work_tree_cfg
 r_char
