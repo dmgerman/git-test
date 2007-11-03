@@ -10854,6 +10854,11 @@ id|sb.final
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * &quot;--not A B -- path&quot; without anything positive;&n;&t;&t; * do not default to HEAD, but use the working tree&n;&t;&t; * or &quot;--contents&quot;.&n;&t;&t; */
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|sb.final
 op_assign
 id|fake_working_tree_commit
