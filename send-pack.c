@@ -1360,9 +1360,9 @@ multiline_comment|/* We do not have the remote ref, or&n;&t;&t;&t;&t; * we know 
 id|error
 c_func
 (paren
-l_string|&quot;remote &squot;%s&squot; is not a strict &quot;
-l_string|&quot;subset of local ref &squot;%s&squot;. &quot;
-l_string|&quot;maybe you are not up-to-date and &quot;
+l_string|&quot;remote &squot;%s&squot; is not an ancestor of&bslash;n&quot;
+l_string|&quot; local  &squot;%s&squot;.&bslash;n&quot;
+l_string|&quot; Maybe you are not up-to-date and &quot;
 l_string|&quot;need to pull first?&quot;
 comma
 id|ref-&gt;name

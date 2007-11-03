@@ -689,7 +689,7 @@ l_int|1
 id|error
 c_func
 (paren
-l_string|&quot;The branch &squot;%s&squot; is not a strict subset of &quot;
+l_string|&quot;The branch &squot;%s&squot; is not an ancestor of &quot;
 l_string|&quot;your current HEAD.&bslash;n&quot;
 l_string|&quot;If you are sure you want to delete it, &quot;
 l_string|&quot;run &squot;git branch -D %s&squot;.&quot;
