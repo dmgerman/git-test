@@ -1131,6 +1131,10 @@ comma
 l_string|&quot;/&quot;
 )paren
 suffix:semicolon
+id|inside_work_tree
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 id|retval
 suffix:semicolon
