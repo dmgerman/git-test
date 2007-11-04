@@ -2,19 +2,19 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;remote.h&quot;
-DECL|variable|peek_remote_usage
+DECL|variable|ls_remote_usage
 r_static
 r_const
 r_char
-id|peek_remote_usage
+id|ls_remote_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-peek-remote [--upload-pack=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt;&quot;
+l_string|&quot;git-ls-remote [--upload-pack=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt;&quot;
 suffix:semicolon
-DECL|function|cmd_peek_remote
+DECL|function|cmd_ls_remote
 r_int
-id|cmd_peek_remote
+id|cmd_ls_remote
 c_func
 (paren
 r_int
@@ -218,7 +218,7 @@ suffix:semicolon
 id|usage
 c_func
 (paren
-id|peek_remote_usage
+id|ls_remote_usage
 )paren
 suffix:semicolon
 )brace
@@ -243,7 +243,7 @@ l_int|1
 id|usage
 c_func
 (paren
-id|peek_remote_usage
+id|ls_remote_usage
 )paren
 suffix:semicolon
 id|transport

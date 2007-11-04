@@ -2001,6 +2001,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;ls-remote&quot;
+comma
+id|cmd_ls_remote
+)brace
+comma
+(brace
 l_string|&quot;mailinfo&quot;
 comma
 id|cmd_mailinfo
@@ -2055,7 +2061,7 @@ comma
 (brace
 l_string|&quot;peek-remote&quot;
 comma
-id|cmd_peek_remote
+id|cmd_ls_remote
 )brace
 comma
 (brace
