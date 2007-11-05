@@ -1153,22 +1153,6 @@ r_return
 l_string|&quot;failed to delete&quot;
 suffix:semicolon
 )brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;%s: %s -&gt; deleted&bslash;n&quot;
-comma
-id|name
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|old_sha1
-)paren
-)paren
-suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
@@ -1226,28 +1210,6 @@ l_string|&quot;failed to write&quot;
 suffix:semicolon
 multiline_comment|/* error() already called */
 )brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;%s: %s -&gt; %s&bslash;n&quot;
-comma
-id|name
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|old_sha1
-)paren
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|new_sha1
-)paren
-)paren
-suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
