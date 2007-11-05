@@ -2275,7 +2275,11 @@ id|addrbuf
 suffix:semicolon
 id|port
 op_assign
+id|ntohs
+c_func
+(paren
 id|sin_addr-&gt;sin_port
+)paren
 suffix:semicolon
 macro_line|#ifndef NO_IPV6
 )brace
@@ -2346,7 +2350,11 @@ l_string|&quot;]&quot;
 suffix:semicolon
 id|port
 op_assign
+id|ntohs
+c_func
+(paren
 id|sin6_addr-&gt;sin6_port
+)paren
 suffix:semicolon
 macro_line|#endif
 )brace
