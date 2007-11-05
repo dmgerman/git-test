@@ -4,7 +4,7 @@ multiline_comment|/*&n; * Receive multiplexed output stream over git native prot
 DECL|macro|PREFIX
 mdefine_line|#define PREFIX &quot;remote:&quot;
 DECL|macro|SUFFIX
-mdefine_line|#define SUFFIX &quot;&bslash;e[K&quot;  /* change to &quot;        &quot; if ANSI sequences don&squot;t work */
+mdefine_line|#define SUFFIX &quot;&bslash;033[K&quot;  /* change to &quot;        &quot; if ANSI sequences don&squot;t work */
 DECL|function|recv_sideband
 r_int
 id|recv_sideband
