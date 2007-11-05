@@ -338,6 +338,10 @@ id|errno
 )paren
 suffix:semicolon
 )brace
+id|input_len
+op_add_assign
+id|ret
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -348,12 +352,10 @@ c_func
 (paren
 id|progress
 comma
-id|ret
-)paren
-suffix:semicolon
+id|consumed_bytes
+op_plus
 id|input_len
-op_add_assign
-id|ret
+)paren
 suffix:semicolon
 )brace
 r_while
