@@ -969,6 +969,11 @@ id|rs
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|args.verbose
+)paren
 id|fprintf
 c_func
 (paren
