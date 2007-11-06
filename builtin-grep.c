@@ -1610,13 +1610,6 @@ c_cond
 id|argc
 OL
 id|MAXARGS
-op_logical_and
-op_logical_neg
-id|ce_stage
-c_func
-(paren
-id|ce
-)paren
 )paren
 r_continue
 suffix:semicolon
