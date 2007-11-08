@@ -263,10 +263,13 @@ comma
 r_int
 id|n
 comma
-r_int
+r_const
+r_char
+op_star
 id|done
 )paren
 (brace
+r_const
 r_char
 op_star
 id|eol
@@ -355,7 +358,7 @@ op_assign
 id|done
 ques
 c_cond
-l_string|&quot;, done.   &bslash;n&quot;
+id|done
 suffix:colon
 l_string|&quot;   &bslash;r&quot;
 suffix:semicolon
@@ -905,7 +908,7 @@ id|progress
 comma
 id|progress-&gt;last_value
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -935,7 +938,7 @@ id|progress
 comma
 id|n
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:colon
 l_int|0
@@ -1079,6 +1082,32 @@ op_star
 id|p_progress
 )paren
 (brace
+id|stop_progress_msg
+c_func
+(paren
+id|p_progress
+comma
+l_string|&quot;done&quot;
+)paren
+suffix:semicolon
+)brace
+DECL|function|stop_progress_msg
+r_void
+id|stop_progress_msg
+c_func
+(paren
+r_struct
+id|progress
+op_star
+op_star
+id|p_progress
+comma
+r_const
+r_char
+op_star
+id|msg
+)paren
+(brace
 r_struct
 id|progress
 op_star
@@ -1109,6 +1138,18 @@ l_int|1
 )paren
 (brace
 multiline_comment|/* Force the last update */
+r_char
+id|buf
+(braket
+id|strlen
+c_func
+(paren
+id|msg
+)paren
+op_plus
+l_int|5
+)braket
+suffix:semicolon
 r_struct
 id|throughput
 op_star
@@ -1151,6 +1192,16 @@ id|progress_update
 op_assign
 l_int|1
 suffix:semicolon
+id|sprintf
+c_func
+(paren
+id|buf
+comma
+l_string|&quot;, %s.&bslash;n&quot;
+comma
+id|msg
+)paren
+suffix:semicolon
 id|display
 c_func
 (paren
@@ -1158,7 +1209,7 @@ id|progress
 comma
 id|progress-&gt;last_value
 comma
-l_int|1
+id|buf
 )paren
 suffix:semicolon
 )brace
