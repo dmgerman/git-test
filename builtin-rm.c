@@ -735,6 +735,17 @@ comma
 id|builtin_rm_options
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|index_only
+)paren
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|pathspec
 op_assign
 id|get_pathspec
