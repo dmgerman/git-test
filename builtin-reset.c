@@ -16,7 +16,7 @@ id|builtin_reset_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-reset [--mixed | --soft | --hard]  [&lt;commit-ish&gt;] [ [--] &lt;paths&gt;...]&quot;
+l_string|&quot;git-reset [--mixed | --soft | --hard] [-q] [&lt;commit-ish&gt;] [ [--] &lt;paths&gt;...]&quot;
 suffix:semicolon
 DECL|function|args_to_str
 r_static
@@ -1004,6 +1004,10 @@ comma
 id|update_ref_status
 op_assign
 l_int|0
+comma
+id|quiet
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -1077,8 +1081,8 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
 (paren
 id|i
 OL
@@ -1159,6 +1163,34 @@ id|i
 op_increment
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+id|i
+)braket
+comma
+l_string|&quot;-q&quot;
+)paren
+)paren
+(brace
+id|quiet
+op_assign
+l_int|1
+suffix:semicolon
+id|i
+op_increment
+suffix:semicolon
+)brace
+r_else
+r_break
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -1539,6 +1571,9 @@ c_cond
 (paren
 op_logical_neg
 id|update_ref_status
+op_logical_and
+op_logical_neg
+id|quiet
 )paren
 id|print_new_head_line
 c_func
