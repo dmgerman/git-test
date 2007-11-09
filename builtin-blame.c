@@ -10639,6 +10639,11 @@ id|blame_usage
 )paren
 suffix:semicolon
 multiline_comment|/* garbage at end */
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

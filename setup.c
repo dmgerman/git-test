@@ -960,15 +960,30 @@ r_const
 r_char
 op_star
 id|work_tree
+comma
+op_star
+id|git_dir
+suffix:semicolon
+r_static
+r_int
+id|initialized
+op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|initialized
+)paren
+r_return
+suffix:semicolon
+id|work_tree
 op_assign
 id|get_git_work_tree
 c_func
 (paren
 )paren
 suffix:semicolon
-r_const
-r_char
-op_star
 id|git_dir
 op_assign
 id|get_git_dir
@@ -1013,6 +1028,10 @@ c_func
 (paren
 l_string|&quot;This operation must be run in a work tree&quot;
 )paren
+suffix:semicolon
+id|initialized
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * We cannot decide in this function whether we are in the work tree or&n; * not, since the config can only be read _after_ this function was called.&n; */
