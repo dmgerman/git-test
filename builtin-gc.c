@@ -819,7 +819,7 @@ comma
 op_amp
 id|prune
 comma
-l_string|&quot;prune unreferenced loose objects&quot;
+l_string|&quot;prune unreferenced objects&quot;
 )paren
 comma
 id|OPT_BOOLEAN

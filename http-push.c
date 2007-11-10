@@ -11827,7 +11827,10 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;The branch &squot;%s&squot; is not a strict subset of your current HEAD.&bslash;nIf you are sure you want to delete it, run:&bslash;n&bslash;t&squot;git http-push -D %s %s&squot;&quot;
+l_string|&quot;The branch &squot;%s&squot; is not an ancestor &quot;
+l_string|&quot;of your current HEAD.&bslash;n&quot;
+l_string|&quot;If you are sure you want to delete it,&quot;
+l_string|&quot; run:&bslash;n&bslash;t&squot;git http-push -D %s %s&squot;&quot;
 comma
 id|remote_ref-&gt;name
 comma
@@ -12748,13 +12751,13 @@ id|ref-&gt;old_sha1
 )paren
 )paren
 (brace
-multiline_comment|/* We do not have the remote ref, or&n;&t;&t;&t;&t; * we know that the remote ref is not&n;&t;&t;&t;&t; * an ancestor of what we are trying to&n;&t;&t;&t;&t; * push.  Either way this can be losing&n;&t;&t;&t;&t; * commits at the remote end and likely&n;&t;&t;&t;&t; * we were not up to date to begin with.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t;&t; * We do not have the remote ref, or&n;&t;&t;&t;&t; * we know that the remote ref is not&n;&t;&t;&t;&t; * an ancestor of what we are trying to&n;&t;&t;&t;&t; * push.  Either way this can be losing&n;&t;&t;&t;&t; * commits at the remote end and likely&n;&t;&t;&t;&t; * we were not up to date to begin with.&n;&t;&t;&t;&t; */
 id|error
 c_func
 (paren
-l_string|&quot;remote &squot;%s&squot; is not a strict &quot;
-l_string|&quot;subset of local ref &squot;%s&squot;. &quot;
-l_string|&quot;maybe you are not up-to-date and &quot;
+l_string|&quot;remote &squot;%s&squot; is not an ancestor of&bslash;n&quot;
+l_string|&quot;local &squot;%s&squot;.&bslash;n&quot;
+l_string|&quot;Maybe you are not up-to-date and &quot;
 l_string|&quot;need to pull first?&quot;
 comma
 id|ref-&gt;name

@@ -73,15 +73,12 @@ id|rev_list
 suffix:semicolon
 DECL|variable|non_common_revs
 DECL|variable|multi_ack
-DECL|variable|use_thin_pack
 DECL|variable|use_sideband
 r_static
 r_int
 id|non_common_revs
 comma
 id|multi_ack
-comma
-id|use_thin_pack
 comma
 id|use_sideband
 suffix:semicolon
@@ -717,7 +714,7 @@ l_string|&quot;&quot;
 )paren
 comma
 (paren
-id|use_thin_pack
+id|args.use_thin_pack
 ques
 c_cond
 l_string|&quot; thin-pack&quot;

@@ -10323,17 +10323,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|incremental
-)paren
-id|setup_pager
-c_func
-(paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
 id|blame_move_score
 )paren
 id|blame_move_score
@@ -10865,6 +10854,11 @@ id|sb.final
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * &quot;--not A B -- path&quot; without anything positive;&n;&t;&t; * do not default to HEAD, but use the working tree&n;&t;&t; * or &quot;--contents&quot;.&n;&t;&t; */
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|sb.final
 op_assign
 id|fake_working_tree_commit
@@ -11211,6 +11205,17 @@ comma
 l_string|&quot;.mailmap&quot;
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|incremental
+)paren
+id|setup_pager
+c_func
+(paren
 )paren
 suffix:semicolon
 id|assign_blame

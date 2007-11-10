@@ -287,6 +287,8 @@ comma
 l_int|NULL
 comma
 id|revs.date_mode
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

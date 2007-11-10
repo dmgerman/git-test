@@ -86,7 +86,7 @@ c_func
 (paren
 id|src
 comma
-l_string|&quot;&squot;&bslash;&bslash;&quot;
+l_string|&quot;&squot;!&quot;
 )paren
 suffix:semicolon
 id|strbuf_add
