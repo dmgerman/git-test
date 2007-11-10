@@ -1754,6 +1754,13 @@ id|cache_entry
 op_star
 id|ce
 suffix:semicolon
+r_int
+id|ce_option
+op_assign
+id|CE_MATCH_IGNORE_VALID
+op_or
+id|CE_MATCH_RACY_IS_DIRTY
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1986,7 +1993,7 @@ id|pos
 )paren
 op_logical_and
 op_logical_neg
-id|ie_modified
+id|ie_match_stat
 c_func
 (paren
 id|istate
@@ -1999,7 +2006,7 @@ comma
 op_amp
 id|st
 comma
-id|CE_MATCH_IGNORE_VALID
+id|ce_option
 )paren
 )paren
 (brace
