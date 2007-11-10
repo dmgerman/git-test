@@ -4802,7 +4802,6 @@ l_int|0
 comma
 l_string|&quot;sort&quot;
 comma
-op_amp
 id|sort_tail
 comma
 l_string|&quot;key&quot;
