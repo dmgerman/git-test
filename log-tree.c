@@ -1085,10 +1085,11 @@ id|CMIT_FMT_USERFORMAT
 id|fputs
 c_func
 (paren
-id|diff_get_color
+id|diff_get_color_opt
 c_func
 (paren
-id|opt-&gt;diffopt.color_diff
+op_amp
+id|opt-&gt;diffopt
 comma
 id|DIFF_COMMIT
 )paren
@@ -1209,10 +1210,11 @@ c_func
 (paren
 l_string|&quot;%s&quot;
 comma
-id|diff_get_color
+id|diff_get_color_opt
 c_func
 (paren
-id|opt-&gt;diffopt.color_diff
+op_amp
+id|opt-&gt;diffopt
 comma
 id|DIFF_RESET
 )paren

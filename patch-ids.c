@@ -434,9 +434,14 @@ op_amp
 id|ids-&gt;diffopts
 )paren
 suffix:semicolon
-id|ids-&gt;diffopts.recursive
-op_assign
-l_int|1
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|ids-&gt;diffopts
+comma
+id|RECURSIVE
+)paren
 suffix:semicolon
 r_if
 c_cond

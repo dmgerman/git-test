@@ -1856,9 +1856,14 @@ op_amp
 id|opts
 )paren
 suffix:semicolon
-id|opts.recursive
-op_assign
-l_int|1
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|opts
+comma
+id|RECURSIVE
+)paren
 suffix:semicolon
 id|opts.detect_rename
 op_assign
