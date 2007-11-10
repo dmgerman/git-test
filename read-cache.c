@@ -818,6 +818,7 @@ op_star
 id|st
 comma
 r_int
+r_int
 id|options
 )paren
 (brace
@@ -830,14 +831,14 @@ id|ignore_valid
 op_assign
 id|options
 op_amp
-l_int|01
+id|CE_MATCH_IGNORE_VALID
 suffix:semicolon
 r_int
 id|assume_racy_is_modified
 op_assign
 id|options
 op_amp
-l_int|02
+id|CE_MATCH_RACY_IS_DIRTY
 suffix:semicolon
 multiline_comment|/*&n;&t; * If it&squot;s marked as always valid in the index, it&squot;s&n;&t; * valid whatever the checked-out copy says.&n;&t; */
 r_if
@@ -933,7 +934,8 @@ op_star
 id|st
 comma
 r_int
-id|really
+r_int
+id|options
 )paren
 (brace
 r_int
@@ -952,7 +954,7 @@ id|ce
 comma
 id|st
 comma
-id|really
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -1997,7 +1999,7 @@ comma
 op_amp
 id|st
 comma
-l_int|1
+id|CE_MATCH_IGNORE_VALID
 )paren
 )paren
 (brace
@@ -3503,7 +3505,8 @@ op_star
 id|ce
 comma
 r_int
-id|really
+r_int
+id|options
 comma
 r_int
 op_star
@@ -3523,6 +3526,13 @@ r_int
 id|changed
 comma
 id|size
+suffix:semicolon
+r_int
+id|ignore_valid
+op_assign
+id|options
+op_amp
+id|CE_MATCH_IGNORE_VALID
 suffix:semicolon
 r_if
 c_cond
@@ -3565,7 +3575,7 @@ comma
 op_amp
 id|st
 comma
-id|really
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -3575,10 +3585,11 @@ op_logical_neg
 id|changed
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * The path is unchanged.  If we were told to ignore&n;&t;&t; * valid bit, then we did the actual stat check and&n;&t;&t; * found that the entry is unmodified.  If the entry&n;&t;&t; * is not marked VALID, this is the place to mark it&n;&t;&t; * valid again, under &quot;assume unchanged&quot; mode.&n;&t;&t; */
 r_if
 c_cond
 (paren
-id|really
+id|ignore_valid
 op_logical_and
 id|assume_unchanged
 op_logical_and
@@ -3613,7 +3624,7 @@ comma
 op_amp
 id|st
 comma
-id|really
+id|options
 )paren
 )paren
 (brace
@@ -3666,12 +3677,12 @@ op_amp
 id|st
 )paren
 suffix:semicolon
-multiline_comment|/* In this case, if really is not set, we should leave&n;&t; * CE_VALID bit alone.  Otherwise, paths marked with&n;&t; * --no-assume-unchanged (i.e. things to be edited) will&n;&t; * reacquire CE_VALID bit automatically, which is not&n;&t; * really what we want.&n;&t; */
+multiline_comment|/*&n;&t; * If ignore_valid is not set, we should leave CE_VALID bit&n;&t; * alone.  Otherwise, paths marked with --no-assume-unchanged&n;&t; * (i.e. things to be edited) will reacquire CE_VALID bit&n;&t; * automatically, which is not really what we want.&n;&t; */
 r_if
 c_cond
 (paren
 op_logical_neg
-id|really
+id|ignore_valid
 op_logical_and
 id|assume_unchanged
 op_logical_and
@@ -3774,6 +3785,17 @@ op_amp
 id|REFRESH_IGNORE_MISSING
 )paren
 op_ne
+l_int|0
+suffix:semicolon
+r_int
+r_int
+id|options
+op_assign
+id|really
+ques
+c_cond
+id|CE_MATCH_IGNORE_VALID
+suffix:colon
 l_int|0
 suffix:semicolon
 r_for
@@ -3907,7 +3929,7 @@ id|istate
 comma
 id|ce
 comma
-id|really
+id|options
 comma
 op_amp
 id|cache_errno
