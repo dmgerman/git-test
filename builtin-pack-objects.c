@@ -5081,16 +5081,11 @@ c_func
 (paren
 id|entry.sha1
 comma
-id|S_ISDIR
+id|object_type
 c_func
 (paren
 id|entry.mode
 )paren
-ques
-c_cond
-id|OBJ_TREE
-suffix:colon
-id|OBJ_BLOB
 comma
 id|fullname
 comma
