@@ -326,15 +326,19 @@ id|entry
 )paren
 )paren
 (brace
-r_if
+r_switch
 c_cond
 (paren
-id|S_ISDIR
+id|object_type
 c_func
 (paren
 id|entry.mode
 )paren
 )paren
+(brace
+r_case
+id|OBJ_TREE
+suffix:colon
 id|mark_tree_uninteresting
 c_func
 (paren
@@ -345,7 +349,11 @@ id|entry.sha1
 )paren
 )paren
 suffix:semicolon
-r_else
+r_break
+suffix:semicolon
+r_case
+id|OBJ_BLOB
+suffix:colon
 id|mark_blob_uninteresting
 c_func
 (paren
@@ -356,6 +364,14 @@ id|entry.sha1
 )paren
 )paren
 suffix:semicolon
+r_break
+suffix:semicolon
+r_default
+suffix:colon
+multiline_comment|/* Subproject commit - not in this repository */
+r_break
+suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n;&t; * We don&squot;t care about the tree any more&n;&t; * after it has been marked uninteresting.&n;&t; */
 id|free
