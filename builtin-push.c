@@ -658,6 +658,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|verbose
+)paren
+id|flags
+op_or_assign
+id|TRANSPORT_PUSH_VERBOSE
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|tags
 )paren
 id|add_refspec
