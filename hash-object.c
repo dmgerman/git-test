@@ -217,6 +217,12 @@ id|no_more_flags
 op_assign
 l_int|0
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren

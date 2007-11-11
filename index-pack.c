@@ -1303,8 +1303,7 @@ op_star
 id|obj
 )paren
 (brace
-r_int
-r_int
+id|off_t
 id|from
 op_assign
 id|obj
