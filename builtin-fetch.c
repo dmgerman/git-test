@@ -2196,7 +2196,7 @@ comma
 id|ref_name
 )paren
 op_logical_and
-id|lookup_object
+id|has_sha1_file
 c_func
 (paren
 id|ref-&gt;old_sha1
