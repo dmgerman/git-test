@@ -2944,6 +2944,12 @@ comma
 id|commit
 )paren
 suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;&bslash;n&quot;
+)paren
+suffix:semicolon
 )brace
 DECL|function|git_commit_config
 r_int
