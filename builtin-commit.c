@@ -731,6 +731,11 @@ r_const
 r_char
 op_star
 id|index_file
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_struct
@@ -743,6 +748,10 @@ c_func
 op_amp
 id|s
 )paren
+suffix:semicolon
+id|s.prefix
+op_assign
+id|prefix
 suffix:semicolon
 r_if
 c_cond
@@ -806,6 +815,11 @@ r_const
 r_char
 op_star
 id|index_file
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_struct
@@ -1381,6 +1395,8 @@ c_func
 id|fp
 comma
 id|index_file
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|fclose
@@ -2471,6 +2487,8 @@ c_func
 id|stdout
 comma
 id|index_file
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|rollback_lock_file
@@ -2966,6 +2984,8 @@ id|prepare_log_message
 c_func
 (paren
 id|index_file
+comma
+id|prefix
 )paren
 op_logical_and
 op_logical_neg
@@ -2978,6 +2998,8 @@ c_func
 id|stdout
 comma
 id|index_file
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|unlink
