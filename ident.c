@@ -1099,6 +1099,13 @@ c_cond
 (paren
 id|date_str
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_star
+id|date_str
+)paren
 id|parse_date
 c_func
 (paren
@@ -1112,6 +1119,15 @@ id|date
 )paren
 )paren
 suffix:semicolon
+r_else
+id|date
+(braket
+l_int|0
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+)brace
 id|i
 op_assign
 id|copy
@@ -1177,7 +1193,15 @@ id|buffer
 comma
 id|i
 comma
+id|date
+(braket
+l_int|0
+)braket
+ques
+c_cond
 l_string|&quot;&gt; &quot;
+suffix:colon
+l_string|&quot;&gt;&quot;
 )paren
 suffix:semicolon
 id|i
