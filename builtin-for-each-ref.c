@@ -1590,10 +1590,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_star
 id|eol
-(braket
-l_int|1
-)braket
 op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
