@@ -1312,12 +1312,6 @@ id|help
 )paren
 suffix:semicolon
 )brace
-id|puts
-c_func
-(paren
-l_string|&quot;(use &squot;git help -a&squot; to get a list of all installed git commands)&quot;
-)paren
-suffix:semicolon
 )brace
 DECL|function|show_man_page
 r_static
