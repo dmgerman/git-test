@@ -641,6 +641,12 @@ comma
 id|files
 )paren
 suffix:semicolon
+id|refresh_cache
+c_func
+(paren
+id|REFRESH_QUIET
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
