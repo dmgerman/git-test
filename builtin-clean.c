@@ -7,7 +7,10 @@ DECL|variable|force
 r_static
 r_int
 id|force
+op_assign
+l_int|1
 suffix:semicolon
+multiline_comment|/* unset */
 DECL|variable|builtin_clean_usage
 r_static
 r_const
@@ -114,6 +117,10 @@ op_assign
 l_int|0
 comma
 id|baselen
+op_assign
+l_int|0
+comma
+id|config_set
 op_assign
 l_int|0
 suffix:semicolon
@@ -225,6 +232,22 @@ c_func
 id|git_clean_config
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|force
+OL
+l_int|0
+)paren
+id|force
+op_assign
+l_int|0
+suffix:semicolon
+r_else
+id|config_set
+op_assign
+l_int|1
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options
@@ -295,7 +318,15 @@ id|force
 id|die
 c_func
 (paren
-l_string|&quot;clean.requireForce set and -n or -f not given; refusing to clean&quot;
+l_string|&quot;clean.requireForce%s set and -n or -f not given; &quot;
+l_string|&quot;refusing to clean&quot;
+comma
+id|config_set
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot; not&quot;
 )paren
 suffix:semicolon
 id|dir.show_other_directories
