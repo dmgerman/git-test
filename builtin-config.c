@@ -512,7 +512,10 @@ id|home
 suffix:semicolon
 id|system_wide
 op_assign
-id|ETC_GITCONFIG
+id|git_etc_gitconfig
+c_func
+(paren
+)paren
 suffix:semicolon
 )brace
 id|key
@@ -1236,7 +1239,10 @@ c_func
 (paren
 id|CONFIG_ENVIRONMENT
 comma
-id|ETC_GITCONFIG
+id|git_etc_gitconfig
+c_func
+(paren
+)paren
 comma
 l_int|1
 )paren
