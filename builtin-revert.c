@@ -1387,7 +1387,7 @@ c_cond
 id|no_commit
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We do not intend to commit immediately.  We just want to&n;&t;&t; * merge the differences in.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We do not intend to commit immediately.  We just want to&n;&t;&t; * merge the differences in, so let&squot;s compute the tree&n;&t;&t; * that represents the &quot;current&quot; state for merge-recursive&n;&t;&t; * to work on.&n;&t;&t; */
 r_if
 c_cond
 (paren
