@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; * Copyright (C) Johannes Schindelin, 2005&n; *&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|macro|MAXNAME
 mdefine_line|#define MAXNAME (256)
 DECL|variable|config_file
@@ -2317,8 +2318,65 @@ c_func
 r_void
 )paren
 (brace
-r_return
+r_static
+r_const
+r_char
+op_star
+id|system_wide
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|system_wide
+)paren
+(brace
+id|system_wide
+op_assign
 id|ETC_GITCONFIG
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_absolute_path
+c_func
+(paren
+id|system_wide
+)paren
+)paren
+(brace
+multiline_comment|/* interpret path relative to exec-dir */
+r_const
+r_char
+op_star
+id|exec_path
+op_assign
+id|git_exec_path
+c_func
+(paren
+)paren
+suffix:semicolon
+id|system_wide
+op_assign
+id|prefix_path
+c_func
+(paren
+id|exec_path
+comma
+id|strlen
+c_func
+(paren
+id|exec_path
+)paren
+comma
+id|system_wide
+)paren
+suffix:semicolon
+)brace
+)brace
+r_return
+id|system_wide
 suffix:semicolon
 )brace
 DECL|function|git_config
