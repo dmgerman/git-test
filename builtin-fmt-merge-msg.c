@@ -1088,7 +1088,7 @@ id|flags
 op_assign
 id|UNINTERESTING
 op_or
-id|TREECHANGE
+id|TREESAME
 op_or
 id|SEEN
 op_or
