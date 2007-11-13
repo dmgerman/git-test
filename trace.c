@@ -269,7 +269,7 @@ c_func
 op_amp
 id|buf
 comma
-l_int|0
+l_int|64
 )paren
 suffix:semicolon
 id|va_start
@@ -490,7 +490,7 @@ c_func
 op_amp
 id|buf
 comma
-l_int|0
+l_int|64
 )paren
 suffix:semicolon
 id|va_start
