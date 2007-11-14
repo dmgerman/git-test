@@ -3042,10 +3042,6 @@ id|prefix
 (brace
 r_int
 id|header_len
-comma
-id|parent_count
-op_assign
-l_int|0
 suffix:semicolon
 r_struct
 id|strbuf
@@ -3231,10 +3227,6 @@ id|initial_commit
 id|reflog_msg
 op_assign
 l_string|&quot;commit (initial)&quot;
-suffix:semicolon
-id|parent_count
-op_assign
-l_int|0
 suffix:semicolon
 )brace
 r_else
@@ -3521,17 +3513,6 @@ c_cond
 op_logical_neg
 id|no_edit
 )paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;launching editor, log %s&bslash;n&quot;
-comma
-id|logfile
-)paren
-suffix:semicolon
 id|launch_editor
 c_func
 (paren
@@ -3545,7 +3526,6 @@ op_amp
 id|sb
 )paren
 suffix:semicolon
-)brace
 r_else
 r_if
 c_cond
