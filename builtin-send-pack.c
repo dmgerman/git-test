@@ -1589,6 +1589,16 @@ id|ref
 op_assign
 id|ref-&gt;next
 )paren
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|ref-&gt;new_sha1
+)paren
+)paren
 id|update_tracking_ref
 c_func
 (paren
