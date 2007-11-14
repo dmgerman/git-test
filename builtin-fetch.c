@@ -770,6 +770,8 @@ suffix:semicolon
 )brace
 DECL|macro|SUMMARY_WIDTH
 mdefine_line|#define SUMMARY_WIDTH (2 * DEFAULT_ABBREV + 3)
+DECL|macro|REFCOL_WIDTH
+mdefine_line|#define REFCOL_WIDTH  10
 DECL|function|update_local_ref
 r_static
 r_int
@@ -951,11 +953,13 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;= %-*s %s -&gt; %s&quot;
+l_string|&quot;= %-*s %-*s -&gt; %s&quot;
 comma
 id|SUMMARY_WIDTH
 comma
 l_string|&quot;[up to date]&quot;
+comma
+id|REFCOL_WIDTH
 comma
 id|remote
 comma
@@ -1004,11 +1008,13 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;! %-*s %s -&gt; %s  (can&squot;t  fetch in current branch)&quot;
+l_string|&quot;! %-*s %-*s -&gt; %s  (can&squot;t fetch in current branch)&quot;
 comma
 id|SUMMARY_WIDTH
 comma
 l_string|&quot;[rejected]&quot;
+comma
+id|REFCOL_WIDTH
 comma
 id|remote
 comma
@@ -1044,11 +1050,13 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;- %-*s %s -&gt; %s&quot;
+l_string|&quot;- %-*s %-*s -&gt; %s&quot;
 comma
 id|SUMMARY_WIDTH
 comma
 l_string|&quot;[tag update]&quot;
+comma
+id|REFCOL_WIDTH
 comma
 id|remote
 comma
@@ -1147,11 +1155,13 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;* %-*s %s -&gt; %s&quot;
+l_string|&quot;* %-*s %-*s -&gt; %s&quot;
 comma
 id|SUMMARY_WIDTH
 comma
 id|what
+comma
+id|REFCOL_WIDTH
 comma
 id|remote
 comma
@@ -1232,11 +1242,13 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;  %-*s %s -&gt; %s  (fast forward)&quot;
+l_string|&quot;  %-*s %-*s -&gt; %s&quot;
 comma
 id|SUMMARY_WIDTH
 comma
 id|quickref
+comma
+id|REFCOL_WIDTH
 comma
 id|remote
 comma
@@ -1311,11 +1323,13 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;+ %-*s %s -&gt; %s  (forced update)&quot;
+l_string|&quot;+ %-*s %-*s -&gt; %s  (forced update)&quot;
 comma
 id|SUMMARY_WIDTH
 comma
 id|quickref
+comma
+id|REFCOL_WIDTH
 comma
 id|remote
 comma
@@ -1341,11 +1355,13 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;! %-*s %s -&gt; %s  (non fast forward)&quot;
+l_string|&quot;! %-*s %-*s -&gt; %s  (non fast forward)&quot;
 comma
 id|SUMMARY_WIDTH
 comma
 l_string|&quot;[rejected]&quot;
+comma
+id|REFCOL_WIDTH
 comma
 id|remote
 comma
