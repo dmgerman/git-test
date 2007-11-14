@@ -1440,8 +1440,6 @@ r_if
 c_cond
 (paren
 id|s.commitable
-op_logical_or
-id|s.workdir_dirty
 )paren
 id|die
 (paren
