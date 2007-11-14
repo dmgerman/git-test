@@ -17,7 +17,7 @@ id|push_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-push [--all] [--dry-run] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=all] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
+l_string|&quot;git-push [--all | --mirror] [--dry-run] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=all] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 comma
 l_int|NULL
 comma
@@ -469,6 +469,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|mirror
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|dry_run
 op_assign
 l_int|0
@@ -531,6 +536,19 @@ op_amp
 id|all
 comma
 l_string|&quot;push all refs&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;mirror&quot;
+comma
+op_amp
+id|mirror
+comma
+l_string|&quot;mirror all refs&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -687,6 +705,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|mirror
+)paren
+id|flags
+op_or_assign
+(paren
+id|TRANSPORT_PUSH_MIRROR
+op_or
+id|TRANSPORT_PUSH_FORCE
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|argc
 OG
 l_int|0
@@ -717,7 +748,11 @@ c_cond
 (paren
 id|flags
 op_amp
+(paren
 id|TRANSPORT_PUSH_ALL
+op_or
+id|TRANSPORT_PUSH_MIRROR
+)paren
 )paren
 op_logical_and
 id|refspec
@@ -730,6 +765,41 @@ comma
 id|options
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|flags
+op_amp
+(paren
+id|TRANSPORT_PUSH_ALL
+op_or
+id|TRANSPORT_PUSH_MIRROR
+)paren
+)paren
+op_eq
+(paren
+id|TRANSPORT_PUSH_ALL
+op_or
+id|TRANSPORT_PUSH_MIRROR
+)paren
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;--all and --mirror are incompatible&quot;
+)paren
+suffix:semicolon
+id|usage_with_options
+c_func
+(paren
+id|push_usage
+comma
+id|options
+)paren
+suffix:semicolon
+)brace
 r_return
 id|do_push
 c_func

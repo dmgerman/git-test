@@ -1552,6 +1552,20 @@ id|args
 l_int|10
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_MIRROR
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;rsync transport does not support mirror mode&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* first push the objects */
 id|strbuf_addstr
 c_func
@@ -2158,6 +2172,20 @@ id|argc
 suffix:semicolon
 r_int
 id|err
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_MIRROR
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;http transport does not support mirror mode&quot;
+)paren
 suffix:semicolon
 id|argv
 op_assign
@@ -3687,6 +3715,16 @@ op_logical_neg
 id|flags
 op_amp
 id|TRANSPORT_PUSH_ALL
+)paren
+suffix:semicolon
+id|args.send_mirror
+op_assign
+op_logical_neg
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_MIRROR
 )paren
 suffix:semicolon
 id|args.force_update

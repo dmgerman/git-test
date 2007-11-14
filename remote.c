@@ -4163,7 +4163,7 @@ op_star
 id|refspec
 comma
 r_int
-id|all
+id|flags
 )paren
 (brace
 r_struct
@@ -4184,6 +4184,20 @@ op_star
 )paren
 id|refspec
 )paren
+suffix:semicolon
+r_int
+id|send_all
+op_assign
+id|flags
+op_amp
+id|MATCH_REFS_ALL
+suffix:semicolon
+r_int
+id|send_mirror
+op_assign
+id|flags
+op_amp
+id|MATCH_REFS_MIRROR
 suffix:semicolon
 r_if
 c_cond
@@ -4272,6 +4286,9 @@ r_else
 r_if
 c_cond
 (paren
+op_logical_neg
+id|send_mirror
+op_logical_and
 id|prefixcmp
 c_func
 (paren
@@ -4389,9 +4406,13 @@ op_logical_neg
 id|nr_refspec
 op_logical_and
 op_logical_neg
-id|all
+(paren
+id|send_all
+op_logical_or
+id|send_mirror
 )paren
-multiline_comment|/* Remote doesn&squot;t have it, and we have no&n;&t;&t;&t; * explicit pattern, and we don&squot;t have&n;&t;&t;&t; * --all. */
+)paren
+multiline_comment|/*&n;&t;&t;&t; * Remote doesn&squot;t have it, and we have no&n;&t;&t;&t; * explicit pattern, and we don&squot;t have&n;&t;&t;&t; * --all nor --mirror.&n;&t;&t;&t; */
 r_goto
 id|free_name
 suffix:semicolon
