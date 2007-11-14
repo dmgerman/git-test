@@ -12595,6 +12595,12 @@ id|remote_tail
 comma
 id|nr_refspec
 comma
+(paren
+r_const
+r_char
+op_star
+op_star
+)paren
 id|refspec
 comma
 id|push_all
