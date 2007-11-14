@@ -15,6 +15,10 @@ DECL|macro|PACK_ID_BITS
 mdefine_line|#define PACK_ID_BITS 16
 DECL|macro|MAX_PACK_ID
 mdefine_line|#define MAX_PACK_ID ((1&lt;&lt;PACK_ID_BITS)-1)
+DECL|macro|DEPTH_BITS
+mdefine_line|#define DEPTH_BITS 13
+DECL|macro|MAX_DEPTH
+mdefine_line|#define MAX_DEPTH ((1&lt;&lt;DEPTH_BITS)-1)
 DECL|struct|object_entry
 r_struct
 id|object_entry
@@ -30,16 +34,20 @@ r_uint32
 id|offset
 suffix:semicolon
 DECL|member|type
-r_int
+r_uint32
 id|type
 suffix:colon
 id|TYPE_BITS
-suffix:semicolon
+comma
 DECL|member|pack_id
-r_int
 id|pack_id
 suffix:colon
 id|PACK_ID_BITS
+comma
+DECL|member|depth
+id|depth
+suffix:colon
+id|DEPTH_BITS
 suffix:semicolon
 DECL|member|sha1
 r_int
@@ -5389,8 +5397,11 @@ id|type
 )braket
 op_increment
 suffix:semicolon
+id|e-&gt;depth
+op_assign
 id|last-&gt;depth
-op_increment
+op_plus
+l_int|1
 suffix:semicolon
 id|hdrlen
 op_assign
@@ -5476,12 +5487,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-r_if
-c_cond
-(paren
-id|last
-)paren
-id|last-&gt;depth
+id|e-&gt;depth
 op_assign
 l_int|0
 suffix:semicolon
@@ -5563,6 +5569,10 @@ suffix:semicolon
 id|last-&gt;offset
 op_assign
 id|e-&gt;offset
+suffix:semicolon
+id|last-&gt;depth
+op_assign
+id|e-&gt;depth
 suffix:semicolon
 id|last-&gt;len
 op_assign
@@ -5814,7 +5824,7 @@ id|sha1
 suffix:semicolon
 id|t-&gt;delta_depth
 op_assign
-l_int|0
+id|myoe-&gt;depth
 suffix:semicolon
 id|buf
 op_assign
@@ -12964,6 +12974,7 @@ comma
 l_string|&quot;--depth=&quot;
 )paren
 )paren
+(brace
 id|max_depth
 op_assign
 id|strtoul
@@ -12978,6 +12989,22 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|max_depth
+OG
+id|MAX_DEPTH
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--depth cannot exceed %u&quot;
+comma
+id|MAX_DEPTH
+)paren
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
