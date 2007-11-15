@@ -1882,9 +1882,6 @@ op_increment
 suffix:semicolon
 )brace
 )brace
-r_return
-id|w
-suffix:semicolon
 )brace
 DECL|function|is_encoding_utf8
 r_int

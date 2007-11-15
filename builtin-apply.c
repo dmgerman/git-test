@@ -3194,9 +3194,6 @@ suffix:semicolon
 )brace
 )brace
 )brace
-r_return
-l_int|NULL
-suffix:semicolon
 )brace
 multiline_comment|/* Verify that we recognize the lines following a git header */
 DECL|function|parse_git_header

@@ -1216,9 +1216,6 @@ id|ec
 suffix:semicolon
 )brace
 )brace
-r_return
-l_int|1
-suffix:semicolon
 )brace
 multiline_comment|/*&n; * Rule: &quot;Divide et Impera&quot;. Recursively split the box in sub-boxes by calling&n; * the box splitting function. Note that the real job (marking changed lines)&n; * is done in the two boundary reaching checks.&n; */
 DECL|function|xdl_recs_cmp

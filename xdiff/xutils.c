@@ -1191,9 +1191,6 @@ comma
 id|s1
 )paren
 suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
 )brace
 DECL|function|xdl_hash_record_with_whitespace
 r_static
