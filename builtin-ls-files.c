@@ -1969,8 +1969,8 @@ id|ls_files_usage
 op_assign
 l_string|&quot;git-ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
-l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--full-name] [--abbrev] &quot;
-l_string|&quot;[--] [&lt;file&gt;]*&quot;
+l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--exclude-standard] &quot;
+l_string|&quot;[--full-name] [--abbrev] [--] [&lt;file&gt;]*&quot;
 suffix:semicolon
 DECL|function|cmd_ls_files
 r_int
@@ -2637,6 +2637,33 @@ op_assign
 id|arg
 op_plus
 l_int|24
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--exclude-standard&quot;
+)paren
+)paren
+(brace
+id|exc_given
+op_assign
+l_int|1
+suffix:semicolon
+id|setup_standard_excludes
+c_func
+(paren
+op_amp
+id|dir
+)paren
 suffix:semicolon
 r_continue
 suffix:semicolon
