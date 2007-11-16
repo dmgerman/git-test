@@ -2858,6 +2858,12 @@ c_func
 id|pathspec
 )paren
 suffix:semicolon
+r_char
+op_star
+id|pp
+op_assign
+l_int|NULL
+suffix:semicolon
 multiline_comment|/*&n;&t; * Make sure to do the per-directory exclude for all the&n;&t; * directories leading up to our base.&n;&t; */
 r_if
 c_cond
@@ -2874,8 +2880,7 @@ id|dir-&gt;exclude_per_dir
 r_char
 op_star
 id|p
-comma
-op_star
+suffix:semicolon
 id|pp
 op_assign
 id|xmalloc
@@ -2971,12 +2976,6 @@ op_plus
 id|baselen
 suffix:semicolon
 )brace
-id|free
-c_func
-(paren
-id|pp
-)paren
-suffix:semicolon
 )brace
 )brace
 id|read_directory_recursive
@@ -2999,6 +2998,12 @@ id|free_simplify
 c_func
 (paren
 id|simplify
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|pp
 )paren
 suffix:semicolon
 id|qsort
