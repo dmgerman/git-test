@@ -144,6 +144,11 @@ r_char
 op_star
 id|editor_program
 suffix:semicolon
+DECL|variable|excludes_file
+r_char
+op_star
+id|excludes_file
+suffix:semicolon
 DECL|variable|auto_crlf
 r_int
 id|auto_crlf
