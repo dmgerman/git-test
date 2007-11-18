@@ -1298,6 +1298,8 @@ l_string|&quot;%u&quot;
 comma
 id|opt-&gt;pre_context
 )paren
+op_plus
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -1356,6 +1358,8 @@ l_string|&quot;%u&quot;
 comma
 id|opt-&gt;post_context
 )paren
+op_plus
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -1411,6 +1415,8 @@ l_string|&quot;%u&quot;
 comma
 id|opt-&gt;post_context
 )paren
+op_plus
+l_int|1
 suffix:semicolon
 r_if
 c_cond
