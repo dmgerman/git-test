@@ -2077,8 +2077,6 @@ comma
 l_string|&quot;rev-parse&quot;
 comma
 id|cmd_rev_parse
-comma
-id|RUN_SETUP
 )brace
 comma
 (brace
