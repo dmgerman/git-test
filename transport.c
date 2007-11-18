@@ -1912,6 +1912,7 @@ id|result
 suffix:semicolon
 )brace
 multiline_comment|/* Generic functions for using commit walkers */
+macro_line|#ifndef NO_CURL /* http fetch is the only user */
 DECL|function|fetch_objs_via_walker
 r_static
 r_int
@@ -2088,6 +2089,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+macro_line|#endif /* NO_CURL */
 DECL|function|disconnect_walker
 r_static
 r_int
