@@ -909,6 +909,8 @@ id|statbuf
 suffix:semicolon
 r_int
 id|commitable
+comma
+id|saved_color_setting
 suffix:semicolon
 r_struct
 id|strbuf
@@ -1527,6 +1529,14 @@ comma
 id|only_include_assumed
 )paren
 suffix:semicolon
+id|saved_color_setting
+op_assign
+id|wt_status_use_color
+suffix:semicolon
+id|wt_status_use_color
+op_assign
+l_int|0
+suffix:semicolon
 id|commitable
 op_assign
 id|run_status
@@ -1538,6 +1548,10 @@ id|index_file
 comma
 id|prefix
 )paren
+suffix:semicolon
+id|wt_status_use_color
+op_assign
+id|saved_color_setting
 suffix:semicolon
 id|fclose
 c_func
