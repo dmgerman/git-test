@@ -3577,7 +3577,11 @@ id|index_file
 comma
 l_string|&quot;commit-msg&quot;
 comma
+id|git_path
+c_func
+(paren
 id|commit_editmsg
+)paren
 )paren
 )paren
 m_exit
