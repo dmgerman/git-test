@@ -1932,7 +1932,7 @@ id|stderr
 comma
 l_string|&quot;Unable to open local file %s for pack&quot;
 comma
-id|filename
+id|request-&gt;tmpfile
 )paren
 suffix:semicolon
 id|remote-&gt;can_update_info_refs
@@ -4473,7 +4473,7 @@ c_func
 (paren
 l_string|&quot;Unable to open local file %s for pack index&quot;
 comma
-id|filename
+id|tmpfile
 )paren
 suffix:semicolon
 id|slot

@@ -1987,7 +1987,7 @@ c_func
 (paren
 l_string|&quot;Unable to open local file %s for pack index&quot;
 comma
-id|filename
+id|tmpfile
 )paren
 suffix:semicolon
 id|slot
@@ -3754,7 +3754,7 @@ c_func
 (paren
 l_string|&quot;Unable to open local file %s for pack&quot;
 comma
-id|filename
+id|tmpfile
 )paren
 suffix:semicolon
 id|slot
