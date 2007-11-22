@@ -14803,10 +14803,12 @@ c_cond
 id|p-&gt;score
 )paren
 (brace
-id|puts
+id|fputs
 c_func
 (paren
 l_string|&quot; rewrite &quot;
+comma
+id|stdout
 )paren
 suffix:semicolon
 id|write_name_quoted
