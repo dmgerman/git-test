@@ -3610,6 +3610,9 @@ suffix:semicolon
 r_char
 op_star
 id|nl
+comma
+op_star
+id|p
 suffix:semicolon
 r_int
 r_char
@@ -4170,6 +4173,34 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* Truncate the message just before the diff, if any. */
+id|p
+op_assign
+id|strstr
+c_func
+(paren
+id|sb.buf
+comma
+l_string|&quot;&bslash;ndiff --git a/&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|p
+op_ne
+l_int|NULL
+)paren
+id|strbuf_setlen
+c_func
+(paren
+op_amp
+id|sb
+comma
+id|p
+id|sb.buf
+)paren
+suffix:semicolon
 id|stripspace
 c_func
 (paren
