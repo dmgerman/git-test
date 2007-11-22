@@ -1970,6 +1970,14 @@ id|cmd_merge_file
 )brace
 comma
 (brace
+l_string|&quot;merge-ours&quot;
+comma
+id|cmd_merge_ours
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;mv&quot;
 comma
 id|cmd_mv
