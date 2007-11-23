@@ -1299,7 +1299,7 @@ id|helpbuf
 comma
 l_string|&quot;  After resolving the conflicts,&bslash;n&quot;
 l_string|&quot;mark the corrected paths with &squot;git add &lt;paths&gt;&squot; &quot;
-l_string|&quot;and commit the result.&quot;
+l_string|&quot;or &squot;git rm &lt;paths&gt;&squot; and commit the result.&quot;
 )paren
 suffix:semicolon
 r_if
