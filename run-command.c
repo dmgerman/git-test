@@ -955,11 +955,9 @@ suffix:semicolon
 )brace
 id|cmd-&gt;pid
 op_assign
-id|spawnvpe
+id|mingw_spawnvpe
 c_func
 (paren
-id|_P_NOWAIT
-comma
 id|cmd-&gt;argv
 (braket
 l_int|0
@@ -967,12 +965,6 @@ l_int|0
 comma
 id|cmd-&gt;argv
 comma
-(paren
-r_const
-r_char
-op_star
-op_star
-)paren
 id|env
 )paren
 suffix:semicolon
