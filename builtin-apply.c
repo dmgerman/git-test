@@ -9763,7 +9763,7 @@ id|ce
 comma
 id|st
 comma
-l_int|1
+id|CE_MATCH_IGNORE_VALID
 )paren
 suffix:semicolon
 )brace

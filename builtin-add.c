@@ -587,7 +587,7 @@ c_func
 op_amp
 id|rev
 comma
-l_int|0
+id|DIFF_RACY_IS_MODIFIED
 )paren
 suffix:semicolon
 )brace
