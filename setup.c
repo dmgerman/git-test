@@ -281,12 +281,11 @@ op_logical_neg
 op_star
 id|pfx
 op_logical_or
+id|is_absolute_path
+c_func
+(paren
 id|arg
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;/&squot;
+)paren
 )paren
 r_return
 id|arg

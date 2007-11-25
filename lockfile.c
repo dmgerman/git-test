@@ -282,12 +282,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|is_absolute_path
+c_func
+(paren
 id|link
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;/&squot;
+)paren
 )paren
 (brace
 multiline_comment|/* absolute path simply replaces p */

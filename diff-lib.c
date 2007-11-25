@@ -1314,12 +1314,11 @@ comma
 l_string|&quot;-&quot;
 )paren
 op_logical_or
+id|is_absolute_path
+c_func
+(paren
 id|path
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;/&squot;
+)paren
 )paren
 r_return
 l_int|1

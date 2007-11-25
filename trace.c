@@ -111,10 +111,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_star
+id|is_absolute_path
+c_func
+(paren
 id|trace
-op_eq
-l_char|&squot;/&squot;
+)paren
 )paren
 (brace
 r_int
