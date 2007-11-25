@@ -6,6 +6,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;refs.h&quot;
 DECL|variable|bundle_signature
 r_static
 r_const
@@ -1549,6 +1550,14 @@ r_char
 op_star
 id|ref
 suffix:semicolon
+r_const
+r_char
+op_star
+id|display_ref
+suffix:semicolon
+r_int
+id|flag
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1581,6 +1590,40 @@ op_ne
 l_int|1
 )paren
 r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|resolve_ref
+c_func
+(paren
+id|e-&gt;name
+comma
+id|sha1
+comma
+l_int|1
+comma
+op_amp
+id|flag
+)paren
+)paren
+id|flag
+op_assign
+l_int|0
+suffix:semicolon
+id|display_ref
+op_assign
+(paren
+id|flag
+op_amp
+id|REF_ISSYMREF
+)paren
+ques
+c_cond
+id|e-&gt;name
+suffix:colon
+id|ref
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * Make sure the refs we wrote out is correct; --max-count and&n;&t;&t; * other limiting options could have prevented all the tips&n;&t;&t; * from getting output.&n;&t;&t; *&n;&t;&t; * Non commit objects such as tags and blobs do not have&n;&t;&t; * this issue as they are not affected by those extra&n;&t;&t; * constraints.&n;&t;&t; */
 r_if
@@ -1722,12 +1765,12 @@ c_func
 (paren
 id|bundle_fd
 comma
-id|ref
+id|display_ref
 comma
 id|strlen
 c_func
 (paren
-id|ref
+id|display_ref
 )paren
 )paren
 suffix:semicolon

@@ -3231,8 +3231,8 @@ r_return
 id|dir-&gt;nr
 suffix:semicolon
 )brace
-r_int
 DECL|function|file_exists
+r_int
 id|file_exists
 c_func
 (paren
@@ -3247,7 +3247,7 @@ id|stat
 id|sb
 suffix:semicolon
 r_return
-id|stat
+id|lstat
 c_func
 (paren
 id|f

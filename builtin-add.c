@@ -487,7 +487,7 @@ r_const
 r_char
 op_star
 op_star
-id|files
+id|pathspec
 )paren
 (brace
 r_struct
@@ -518,13 +518,7 @@ l_int|NULL
 suffix:semicolon
 id|rev.prune_data
 op_assign
-id|get_pathspec
-c_func
-(paren
-id|prefix
-comma
-id|files
-)paren
+id|pathspec
 suffix:semicolon
 id|rev.diffopt.output_format
 op_assign
@@ -1006,6 +1000,12 @@ c_cond
 id|take_worktree_changes
 )paren
 (brace
+r_const
+r_char
+op_star
+op_star
+id|pathspec
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1022,6 +1022,16 @@ c_func
 l_string|&quot;index file corrupt&quot;
 )paren
 suffix:semicolon
+id|pathspec
+op_assign
+id|get_pathspec
+c_func
+(paren
+id|prefix
+comma
+id|argv
+)paren
+suffix:semicolon
 id|add_files_to_cache
 c_func
 (paren
@@ -1029,7 +1039,7 @@ id|verbose
 comma
 id|prefix
 comma
-id|argv
+id|pathspec
 )paren
 suffix:semicolon
 r_goto

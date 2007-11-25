@@ -55,6 +55,10 @@ op_amp
 id|s
 )paren
 suffix:semicolon
+id|s.prefix
+op_assign
+id|prefix
+suffix:semicolon
 r_for
 c_loop
 (paren
