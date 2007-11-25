@@ -2157,6 +2157,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|sign
+)paren
+id|annotate
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|list
 )paren
 r_return
