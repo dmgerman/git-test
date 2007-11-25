@@ -2514,7 +2514,6 @@ suffix:semicolon
 )brace
 multiline_comment|/* High bit set, or ISO-2022-INT */
 DECL|function|non_ascii
-r_static
 r_int
 id|non_ascii
 c_func
@@ -6632,6 +6631,9 @@ comma
 r_enum
 id|date_mode
 id|dmode
+comma
+r_int
+id|plain_non_ascii
 )paren
 (brace
 r_int
@@ -6655,11 +6657,6 @@ op_star
 id|msg
 op_assign
 id|commit-&gt;buffer
-suffix:semicolon
-r_int
-id|plain_non_ascii
-op_assign
-l_int|0
 suffix:semicolon
 r_char
 op_star
