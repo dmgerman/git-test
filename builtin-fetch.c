@@ -125,6 +125,7 @@ op_star
 op_star
 id|head
 comma
+r_const
 r_struct
 id|ref
 op_star
@@ -329,6 +330,7 @@ op_assign
 op_amp
 id|ref_map
 suffix:semicolon
+r_const
 r_struct
 id|ref
 op_star
@@ -2320,11 +2322,13 @@ suffix:semicolon
 r_int
 id|ref_name_len
 suffix:semicolon
+r_const
 r_int
 r_char
 op_star
 id|ref_sha1
 suffix:semicolon
+r_const
 r_struct
 id|ref
 op_star
@@ -2353,6 +2357,7 @@ op_assign
 op_amp
 id|ref_map
 suffix:semicolon
+r_const
 r_struct
 id|ref
 op_star

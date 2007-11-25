@@ -151,6 +151,8 @@ DECL|variable|push_all
 r_static
 r_int
 id|push_all
+op_assign
+id|MATCH_REFS_NONE
 suffix:semicolon
 DECL|variable|force_all
 r_static
@@ -12151,7 +12153,7 @@ l_string|&quot;--all&quot;
 (brace
 id|push_all
 op_assign
-l_int|1
+id|MATCH_REFS_ALL
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -12595,6 +12597,12 @@ id|remote_tail
 comma
 id|nr_refspec
 comma
+(paren
+r_const
+r_char
+op_star
+op_star
+)paren
 id|refspec
 comma
 id|push_all
