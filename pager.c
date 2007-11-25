@@ -1,5 +1,4 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;sys/select.h&gt;
 multiline_comment|/*&n; * This is split up from the rest of git so that we might do&n; * something different on Windows, for example.&n; */
 DECL|function|run_pager
 r_static
