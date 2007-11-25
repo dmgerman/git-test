@@ -891,6 +891,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|commit_style
