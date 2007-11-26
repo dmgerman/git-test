@@ -4238,6 +4238,8 @@ id|sb
 comma
 id|p
 id|sb.buf
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|stripspace
