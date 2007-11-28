@@ -1253,6 +1253,91 @@ id|RUN_GIT_CMD
 )paren
 suffix:semicolon
 )brace
+DECL|function|help_msg
+r_static
+r_char
+op_star
+id|help_msg
+c_func
+(paren
+r_const
+r_int
+r_char
+op_star
+id|sha1
+)paren
+(brace
+r_static
+r_char
+id|helpbuf
+(braket
+l_int|1024
+)braket
+suffix:semicolon
+r_char
+op_star
+id|msg
+op_assign
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_CHERRY_PICK_HELP&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|msg
+)paren
+r_return
+id|msg
+suffix:semicolon
+id|strcpy
+c_func
+(paren
+id|helpbuf
+comma
+l_string|&quot;  After resolving the conflicts,&bslash;n&quot;
+l_string|&quot;mark the corrected paths with &squot;git add &lt;paths&gt;&squot; &quot;
+l_string|&quot;and commit the result.&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|action
+op_eq
+id|CHERRY_PICK
+)paren
+(brace
+id|sprintf
+c_func
+(paren
+id|helpbuf
+op_plus
+id|strlen
+c_func
+(paren
+id|helpbuf
+)paren
+comma
+l_string|&quot;&bslash;nWhen commiting, use the option &quot;
+l_string|&quot;&squot;-c %s&squot; to retain authorship and message.&quot;
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|sha1
+comma
+id|DEFAULT_ABBREV
+)paren
+)paren
+suffix:semicolon
+)brace
+r_return
+id|helpbuf
+suffix:semicolon
+)brace
 DECL|function|revert_or_cherry_pick
 r_static
 r_int
@@ -1939,40 +2024,17 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Automatic %s failed.  &quot;
-l_string|&quot;After resolving the conflicts,&bslash;n&quot;
-l_string|&quot;mark the corrected paths with &squot;git add &lt;paths&gt;&squot; &quot;
-l_string|&quot;and commit the result.&bslash;n&quot;
+l_string|&quot;Automatic %s failed.%s&bslash;n&quot;
 comma
 id|me
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|action
-op_eq
-id|CHERRY_PICK
-)paren
-(brace
-id|fprintf
-c_func
-(paren
-id|stderr
 comma
-l_string|&quot;When commiting, use the option &quot;
-l_string|&quot;&squot;-c %s&squot; to retain authorship and message.&bslash;n&quot;
-comma
-id|find_unique_abbrev
+id|help_msg
 c_func
 (paren
 id|commit-&gt;object.sha1
-comma
-id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
-)brace
 m_exit
 (paren
 l_int|1
