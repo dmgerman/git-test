@@ -1056,11 +1056,28 @@ c_cond
 op_logical_neg
 id|work_tree_env
 )paren
-r_return
+(brace
+id|retval
+op_assign
 id|set_work_tree
 c_func
 (paren
 id|gitdirenv
+)paren
+suffix:semicolon
+multiline_comment|/* config may override worktree&n;&t;&t;&t;&t; * see set_work_tree comment */
+id|check_repository_format
+c_func
+(paren
+)paren
+suffix:semicolon
+r_return
+id|retval
+suffix:semicolon
+)brace
+id|check_repository_format
+c_func
+(paren
 )paren
 suffix:semicolon
 id|retval
@@ -1249,6 +1266,11 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|check_repository_format
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
@@ -1341,6 +1363,11 @@ c_func
 id|cwd
 comma
 id|offset
+)paren
+suffix:semicolon
+id|check_repository_format
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if
@@ -1691,11 +1718,6 @@ id|setup_git_directory_gently
 c_func
 (paren
 l_int|NULL
-)paren
-suffix:semicolon
-id|check_repository_format
-c_func
-(paren
 )paren
 suffix:semicolon
 multiline_comment|/* If the work tree is not the default one, recompute prefix */
