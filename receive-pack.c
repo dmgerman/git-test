@@ -1132,6 +1132,27 @@ id|new_sha1
 r_if
 c_cond
 (paren
+op_logical_neg
+id|parse_object
+c_func
+(paren
+id|old_sha1
+)paren
+)paren
+(brace
+id|warning
+(paren
+l_string|&quot;Allowing deletion of corrupt ref.&quot;
+)paren
+suffix:semicolon
+id|old_sha1
+op_assign
+l_int|NULL
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|delete_ref
 c_func
 (paren
