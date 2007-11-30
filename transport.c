@@ -4020,6 +4020,12 @@ id|slash
 OL
 id|colon
 )paren
+op_logical_or
+id|has_dos_drive_prefix
+c_func
+(paren
+id|url
+)paren
 suffix:semicolon
 )brace
 DECL|function|is_file
