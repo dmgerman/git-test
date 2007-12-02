@@ -1871,7 +1871,7 @@ c_func
 op_amp
 id|sob
 comma
-id|fmt_ident
+id|fmt_name
 c_func
 (paren
 id|getenv
@@ -1885,10 +1885,6 @@ c_func
 (paren
 l_string|&quot;GIT_COMMITTER_EMAIL&quot;
 )paren
-comma
-l_string|&quot;&quot;
-comma
-l_int|1
 )paren
 )paren
 suffix:semicolon
