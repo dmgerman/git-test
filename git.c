@@ -1814,6 +1814,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;fast-export&quot;
+comma
+id|cmd_fast_export
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;fetch&quot;
 comma
 id|cmd_fetch
