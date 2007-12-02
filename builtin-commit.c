@@ -1816,7 +1816,7 @@ l_int|NULL
 id|die
 c_func
 (paren
-l_string|&quot;could not open %s&bslash;n&quot;
+l_string|&quot;could not open %s&quot;
 comma
 id|git_path
 c_func
@@ -2001,7 +2001,7 @@ id|sb.len
 id|die
 c_func
 (paren
-l_string|&quot;could not write commit template: %s&bslash;n&quot;
+l_string|&quot;could not write commit template: %s&quot;
 comma
 id|strerror
 c_func
@@ -2524,7 +2524,7 @@ id|a
 id|die
 c_func
 (paren
-l_string|&quot;invalid commit: %s&bslash;n&quot;
+l_string|&quot;invalid commit: %s&quot;
 comma
 id|use_message
 )paren
@@ -2580,7 +2580,7 @@ id|eol
 id|die
 c_func
 (paren
-l_string|&quot;invalid commit: %s&bslash;n&quot;
+l_string|&quot;invalid commit: %s&quot;
 comma
 id|use_message
 )paren
@@ -2681,7 +2681,7 @@ id|rb
 id|die
 c_func
 (paren
-l_string|&quot;malformed --author parameter&bslash;n&quot;
+l_string|&quot;malformed --author parameter&quot;
 )paren
 suffix:semicolon
 id|name
@@ -2849,7 +2849,7 @@ id|in_merge
 id|die
 c_func
 (paren
-l_string|&quot;You are in the middle of a merger -- cannot amend.&quot;
+l_string|&quot;You are in the middle of a merge -- cannot amend.&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3530,7 +3530,7 @@ id|commit
 id|die
 c_func
 (paren
-l_string|&quot;couldn&squot;t look up newly created commit&bslash;n&quot;
+l_string|&quot;couldn&squot;t look up newly created commit&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4306,7 +4306,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;could not read commit message&bslash;n&quot;
+l_string|&quot;could not read commit message&quot;
 )paren
 suffix:semicolon
 )brace
@@ -4403,7 +4403,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;* no commit message?  aborting commit.&quot;
+l_string|&quot;no commit message?  aborting commit.&quot;
 )paren
 suffix:semicolon
 )brace
