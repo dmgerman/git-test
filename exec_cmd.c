@@ -151,7 +151,7 @@ c_func
 (paren
 id|out
 comma
-l_char|&squot;:&squot;
+id|PATH_SEP
 )paren
 suffix:semicolon
 )brace

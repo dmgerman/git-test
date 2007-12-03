@@ -2321,7 +2321,7 @@ c_func
 id|alt
 )paren
 comma
-l_char|&squot;:&squot;
+id|PATH_SEP
 comma
 l_int|NULL
 comma
