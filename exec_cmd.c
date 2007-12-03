@@ -337,8 +337,6 @@ c_func
 (paren
 id|argv
 comma
-l_int|1
-comma
 l_string|&quot;trace: exec:&quot;
 )paren
 suffix:semicolon

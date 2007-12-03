@@ -1061,10 +1061,6 @@ id|argv
 op_plus
 l_int|1
 comma
-op_star
-id|argcp
-l_int|1
-comma
 id|PATH_MAX
 )paren
 suffix:semicolon
@@ -1247,8 +1243,6 @@ id|trace_argv_printf
 c_func
 (paren
 id|new_argv
-comma
-id|count
 comma
 l_string|&quot;trace: alias expansion: %s =&gt;&quot;
 comma
@@ -1476,8 +1470,6 @@ id|trace_argv_printf
 c_func
 (paren
 id|argv
-comma
-id|argc
 comma
 l_string|&quot;trace: built-in: git&quot;
 )paren

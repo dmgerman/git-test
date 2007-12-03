@@ -439,9 +439,6 @@ op_star
 op_star
 id|argv
 comma
-r_int
-id|count
-comma
 r_const
 r_char
 op_star
@@ -625,8 +622,6 @@ op_amp
 id|buf
 comma
 id|argv
-comma
-id|count
 comma
 l_int|0
 )paren
