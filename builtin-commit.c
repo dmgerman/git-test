@@ -161,6 +161,7 @@ DECL|variable|quiet
 DECL|variable|verbose
 DECL|variable|untracked_files
 DECL|variable|no_verify
+DECL|variable|allow_empty
 r_static
 r_int
 id|quiet
@@ -170,6 +171,8 @@ comma
 id|untracked_files
 comma
 id|no_verify
+comma
+id|allow_empty
 suffix:semicolon
 DECL|variable|no_edit
 DECL|variable|initial_commit
@@ -507,6 +510,19 @@ op_amp
 id|untracked_files
 comma
 l_string|&quot;show all untracked files&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;allow-empty&quot;
+comma
+op_amp
+id|allow_empty
+comma
+l_string|&quot;ok to record an empty change&quot;
 )paren
 comma
 id|OPT_END
@@ -3895,6 +3911,9 @@ id|prefix
 op_logical_and
 op_logical_neg
 id|in_merge
+op_logical_and
+op_logical_neg
+id|allow_empty
 op_logical_and
 op_logical_neg
 (paren
