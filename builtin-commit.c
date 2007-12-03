@@ -31,6 +31,22 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+DECL|variable|builtin_status_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_status_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git-status [options] [--] &lt;filepattern&gt;...&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
 DECL|variable|head_sha1
 DECL|variable|merge_head_sha1
 r_static
@@ -2745,6 +2761,14 @@ op_star
 id|argv
 (braket
 )braket
+comma
+r_const
+r_char
+op_star
+r_const
+id|usage
+(braket
+)braket
 )paren
 (brace
 r_int
@@ -2763,7 +2787,7 @@ id|argv
 comma
 id|builtin_commit_options
 comma
-id|builtin_commit_usage
+id|usage
 comma
 l_int|0
 )paren
@@ -3284,6 +3308,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|builtin_status_usage
 )paren
 suffix:semicolon
 id|index_file
@@ -3763,6 +3789,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|builtin_commit_usage
 )paren
 suffix:semicolon
 id|index_file
