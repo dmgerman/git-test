@@ -52,24 +52,32 @@ multiline_comment|/* assume no deletion --- &quot;do not break&quot;&n;&t;&t;&t;
 r_if
 c_cond
 (paren
-op_logical_neg
 id|S_ISREG
 c_func
 (paren
 id|src-&gt;mode
 )paren
-op_logical_or
-op_logical_neg
+op_ne
 id|S_ISREG
 c_func
 (paren
 id|dst-&gt;mode
 )paren
 )paren
-r_return
-l_int|0
+(brace
+op_star
+id|merge_score_p
+op_assign
+(paren
+r_int
+)paren
+id|MAX_SCORE
 suffix:semicolon
-multiline_comment|/* leave symlink rename alone */
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* even their types are different */
+)brace
 r_if
 c_cond
 (paren
@@ -415,7 +423,7 @@ suffix:semicolon
 r_int
 id|score
 suffix:semicolon
-multiline_comment|/* We deal only with in-place edit of non directory.&n;&t;&t; * We do not break anything else.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We deal only with in-place edit of blobs.&n;&t;&t; * We do not break anything else.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -431,19 +439,21 @@ c_func
 id|p-&gt;two
 )paren
 op_logical_and
-op_logical_neg
-id|S_ISDIR
+id|object_type
 c_func
 (paren
 id|p-&gt;one-&gt;mode
 )paren
+op_eq
+id|OBJ_BLOB
 op_logical_and
-op_logical_neg
-id|S_ISDIR
+id|object_type
 c_func
 (paren
 id|p-&gt;two-&gt;mode
 )paren
+op_eq
+id|OBJ_BLOB
 op_logical_and
 op_logical_neg
 id|strcmp
