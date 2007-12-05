@@ -876,11 +876,14 @@ op_star
 id|prepare_index
 c_func
 (paren
+r_int
+id|argc
+comma
 r_const
 r_char
 op_star
 op_star
-id|files
+id|argv
 comma
 r_const
 r_char
@@ -917,6 +920,11 @@ id|interactive
 id|interactive_add
 c_func
 (paren
+id|argc
+comma
+id|argv
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|commit_style
@@ -950,7 +958,7 @@ r_if
 c_cond
 (paren
 op_star
-id|files
+id|argv
 )paren
 id|pathspec
 op_assign
@@ -959,7 +967,7 @@ c_func
 (paren
 id|prefix
 comma
-id|files
+id|argv
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Non partial, non as-is commit.&n;&t; *&n;&t; * (1) get the real index;&n;&t; * (2) update the_index as necessary;&n;&t; * (3) write the_index out to the real index (still locked);&n;&t; * (4) return the name of the locked index file.&n;&t; *&n;&t; * The caller should run hooks on the locked real index, and&n;&t; * (A) if all goes well, commit the real index;&n;&t; * (B) on failure, rollback the real index.&n;&t; */
@@ -3333,6 +3341,8 @@ op_assign
 id|prepare_index
 c_func
 (paren
+id|argc
+comma
 id|argv
 comma
 id|prefix
@@ -3866,6 +3876,8 @@ op_assign
 id|prepare_index
 c_func
 (paren
+id|argc
+comma
 id|argv
 comma
 id|prefix
