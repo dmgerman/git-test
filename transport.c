@@ -3682,7 +3682,14 @@ id|dest
 )paren
 suffix:semicolon
 r_return
+(paren
+id|refs
+ques
+c_cond
 l_int|0
+suffix:colon
+l_int|1
+)paren
 suffix:semicolon
 )brace
 DECL|function|git_transport_push
