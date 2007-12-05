@@ -3272,7 +3272,7 @@ id|stat
 id|sb
 suffix:semicolon
 r_return
-id|stat
+id|lstat
 c_func
 (paren
 id|f
