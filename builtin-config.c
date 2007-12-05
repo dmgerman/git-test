@@ -227,6 +227,8 @@ op_logical_and
 (paren
 id|do_not_match
 op_xor
+op_logical_neg
+op_logical_neg
 id|regexec
 c_func
 (paren
