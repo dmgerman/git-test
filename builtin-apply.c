@@ -479,6 +479,10 @@ DECL|member|rejected
 r_int
 id|rejected
 suffix:semicolon
+DECL|member|ws_rule
+r_int
+id|ws_rule
+suffix:semicolon
 DECL|member|deflate_origlen
 r_int
 r_int
@@ -4247,6 +4251,9 @@ id|line
 comma
 r_int
 id|len
+comma
+r_int
+id|ws_rule
 )paren
 (brace
 r_const
@@ -4269,7 +4276,7 @@ r_if
 c_cond
 (paren
 (paren
-id|whitespace_rule
+id|ws_rule
 op_amp
 id|WS_TRAILING_SPACE
 )paren
@@ -4292,7 +4299,7 @@ multiline_comment|/*&n;&t; * Make sure that there is no space followed by a tab 
 r_if
 c_cond
 (paren
-id|whitespace_rule
+id|ws_rule
 op_amp
 id|WS_SPACE_BEFORE_TAB
 )paren
@@ -4361,7 +4368,7 @@ r_if
 c_cond
 (paren
 (paren
-id|whitespace_rule
+id|ws_rule
 op_amp
 id|WS_INDENT_WITH_NON_TAB
 )paren
@@ -4671,6 +4678,8 @@ c_func
 id|line
 comma
 id|len
+comma
+id|patch-&gt;ws_rule
 )paren
 suffix:semicolon
 id|deleted
@@ -4704,6 +4713,8 @@ c_func
 id|line
 comma
 id|len
+comma
+id|patch-&gt;ws_rule
 )paren
 suffix:semicolon
 id|added
@@ -5977,6 +5988,19 @@ l_int|0
 r_return
 id|offset
 suffix:semicolon
+id|patch-&gt;ws_rule
+op_assign
+id|whitespace_rule
+c_func
+(paren
+id|patch-&gt;new_name
+ques
+c_cond
+id|patch-&gt;new_name
+suffix:colon
+id|patch-&gt;old_name
+)paren
+suffix:semicolon
 id|patchsize
 op_assign
 id|parse_single_patch
@@ -7233,6 +7257,9 @@ id|patch
 comma
 r_int
 id|plen
+comma
+r_int
+id|ws_rule
 )paren
 (brace
 multiline_comment|/*&n;&t; * plen is number of bytes to be copied from patch,&n;&t; * starting at patch+1 (patch[0] is &squot;+&squot;).  Typically&n;&t; * patch[plen] is &squot;&bslash;n&squot;, unless this is the incomplete&n;&t; * last line.&n;&t; */
@@ -7307,7 +7334,7 @@ r_if
 c_cond
 (paren
 (paren
-id|whitespace_rule
+id|ws_rule
 op_amp
 id|WS_TRAILING_SPACE
 )paren
@@ -7411,7 +7438,7 @@ r_if
 c_cond
 (paren
 (paren
-id|whitespace_rule
+id|ws_rule
 op_amp
 id|WS_SPACE_BEFORE_TAB
 )paren
@@ -7442,7 +7469,7 @@ r_if
 c_cond
 (paren
 (paren
-id|whitespace_rule
+id|ws_rule
 op_amp
 id|WS_INDENT_WITH_NON_TAB
 )paren
@@ -7489,7 +7516,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|whitespace_rule
+id|ws_rule
 op_amp
 id|WS_INDENT_WITH_NON_TAB
 )paren
@@ -7674,6 +7701,9 @@ id|frag
 comma
 r_int
 id|inaccurate_eof
+comma
+r_int
+id|ws_rule
 )paren
 (brace
 r_int
@@ -7944,6 +7974,8 @@ comma
 id|patch
 comma
 id|plen
+comma
+id|ws_rule
 )paren
 suffix:semicolon
 id|newsize
@@ -8909,6 +8941,16 @@ id|patch-&gt;old_name
 suffix:colon
 id|patch-&gt;new_name
 suffix:semicolon
+r_int
+id|ws_rule
+op_assign
+id|patch-&gt;ws_rule
+suffix:semicolon
+r_int
+id|inaccurate_eof
+op_assign
+id|patch-&gt;inaccurate_eof
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -8939,7 +8981,9 @@ id|buf
 comma
 id|frag
 comma
-id|patch-&gt;inaccurate_eof
+id|inaccurate_eof
+comma
+id|ws_rule
 )paren
 )paren
 (brace

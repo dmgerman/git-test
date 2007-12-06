@@ -151,9 +151,9 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* 1: both ways, -1: only when adding git objects */
-DECL|variable|whitespace_rule
+DECL|variable|whitespace_rule_cfg
 r_int
-id|whitespace_rule
+id|whitespace_rule_cfg
 op_assign
 id|WS_DEFAULT_RULE
 suffix:semicolon
