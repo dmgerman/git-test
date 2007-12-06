@@ -1613,12 +1613,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|argc
-OL
 id|MAXARGS
+op_le
+id|argc
 )paren
-r_continue
-suffix:semicolon
+(brace
 id|status
 op_assign
 id|flush_grep
@@ -1653,6 +1652,7 @@ id|nr
 op_plus
 id|kept
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
