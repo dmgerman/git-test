@@ -33,7 +33,7 @@ r_static
 r_int
 id|aggressive_window
 op_assign
-l_int|1
+l_int|250
 suffix:semicolon
 DECL|variable|gc_auto_threshold
 r_static
@@ -991,6 +991,16 @@ c_func
 id|argv_repack
 comma
 l_string|&quot;-f&quot;
+comma
+id|MAX_ADD
+)paren
+suffix:semicolon
+id|append_option
+c_func
+(paren
+id|argv_repack
+comma
+l_string|&quot;--depth=250&quot;
 comma
 id|MAX_ADD
 )paren
