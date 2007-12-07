@@ -2219,6 +2219,8 @@ c_func
 id|k
 comma
 id|v
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_return
