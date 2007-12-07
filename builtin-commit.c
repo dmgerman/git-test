@@ -1410,6 +1410,11 @@ op_amp
 id|s
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|wt_status_relative_paths
+)paren
 id|s.prefix
 op_assign
 id|prefix

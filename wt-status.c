@@ -7,6 +7,12 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
+DECL|variable|wt_status_relative_paths
+r_int
+id|wt_status_relative_paths
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|wt_status_use_color
 r_int
 id|wt_status_use_color
@@ -2286,6 +2292,36 @@ id|wt_status_colors
 id|slot
 )braket
 )paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|k
+comma
+l_string|&quot;status.relativepaths&quot;
+)paren
+)paren
+(brace
+id|wt_status_relative_paths
+op_assign
+id|git_config_bool
+c_func
+(paren
+id|k
+comma
+id|v
+)paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 r_return
