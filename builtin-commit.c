@@ -4436,6 +4436,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|no_verify
+op_logical_and
 id|run_hook
 c_func
 (paren
