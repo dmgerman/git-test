@@ -304,6 +304,7 @@ suffix:semicolon
 id|end_of_name
 op_decrement
 )paren
+suffix:semicolon
 multiline_comment|/* keep on looking */
 r_if
 c_cond
