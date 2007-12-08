@@ -6274,6 +6274,7 @@ id|sorted_by_offset
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * We search for deltas in a list sorted by type, by filename hash, and then&n; * by size, so that we see progressively smaller and smaller files.&n; * That&squot;s because we prefer deltas to be from the bigger file&n; * to the smaller -- deletes are potentially cheaper, but perhaps&n; * more importantly, the bigger file is likely the more recent&n; * one.  The deepest deltas are therefore the oldest objects which are&n; * less susceptible to be accessed often.&n; */
 DECL|function|type_size_sort
 r_static
 r_int
@@ -6325,7 +6326,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;type
-OL
+OG
 id|b-&gt;type
 )paren
 r_return
@@ -6335,7 +6336,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;type
-OG
+OL
 id|b-&gt;type
 )paren
 r_return
@@ -6345,7 +6346,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;hash
-OL
+OG
 id|b-&gt;hash
 )paren
 r_return
@@ -6355,7 +6356,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;hash
-OG
+OL
 id|b-&gt;hash
 )paren
 r_return
@@ -6365,7 +6366,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;preferred_base
-OL
+OG
 id|b-&gt;preferred_base
 )paren
 r_return
@@ -6375,7 +6376,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;preferred_base
-OG
+OL
 id|b-&gt;preferred_base
 )paren
 r_return
@@ -6385,7 +6386,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;size
-OL
+OG
 id|b-&gt;size
 )paren
 r_return
@@ -6395,7 +6396,7 @@ r_if
 c_cond
 (paren
 id|a-&gt;size
-OG
+OL
 id|b-&gt;size
 )paren
 r_return
@@ -6403,7 +6404,7 @@ l_int|1
 suffix:semicolon
 r_return
 id|a
-OG
+OL
 id|b
 ques
 c_cond
@@ -6411,11 +6412,11 @@ l_int|1
 suffix:colon
 (paren
 id|a
-OL
+OG
 id|b
 )paren
 suffix:semicolon
-multiline_comment|/* newest last */
+multiline_comment|/* newest first */
 )brace
 DECL|struct|unpacked
 r_struct
@@ -6564,7 +6565,6 @@ mdefine_line|#define progress_lock()&t;&t;(void)0
 DECL|macro|progress_unlock
 mdefine_line|#define progress_unlock()&t;(void)0
 macro_line|#endif
-multiline_comment|/*&n; * We search for deltas _backwards_ in a list sorted by type and&n; * by size, so that we see progressively smaller and smaller files.&n; * That&squot;s because we prefer deltas to be from the bigger file&n; * to the smaller - deletes are potentially cheaper, but perhaps&n; * more importantly, the bigger file is likely the more recent&n; * one.&n; */
 DECL|function|try_delta
 r_static
 r_int
@@ -7309,7 +7309,7 @@ id|processed
 r_uint32
 id|i
 op_assign
-id|list_size
+l_int|0
 comma
 id|idx
 op_assign
@@ -7369,8 +7369,8 @@ id|entry
 op_assign
 id|list
 (braket
-op_decrement
 id|i
+op_increment
 )braket
 suffix:semicolon
 r_struct
@@ -7718,8 +7718,8 @@ r_while
 c_loop
 (paren
 id|i
-OG
-l_int|0
+OL
+id|list_size
 )paren
 suffix:semicolon
 r_for
