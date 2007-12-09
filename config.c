@@ -3230,7 +3230,7 @@ id|quote
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* Check to see if the value needs to be quoted. */
+multiline_comment|/*&n;&t; * Check to see if the value needs to be surrounded with a dq pair.&n;&t; * Note that problematic characters are always backslash-quoted; this&n;&t; * check is about not losing leading or trailing SP and strings that&n;&t; * follow beginning-of-comment characters (i.e. &squot;;&squot; and &squot;#&squot;) by the&n;&t; * configuration parser.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3284,6 +3284,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|i
+op_logical_and
 id|value
 (braket
 id|i
