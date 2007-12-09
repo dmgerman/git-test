@@ -1874,11 +1874,6 @@ c_func
 l_int|NULL
 )paren
 suffix:semicolon
-id|check_repository_format
-c_func
-(paren
-)paren
-suffix:semicolon
 multiline_comment|/* If the work tree is not the default one, recompute prefix */
 r_if
 c_cond
