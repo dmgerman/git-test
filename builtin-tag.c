@@ -222,6 +222,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|buffer
+)paren
+r_return
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|strbuf_read_file
 c_func
 (paren
