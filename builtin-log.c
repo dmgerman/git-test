@@ -2859,7 +2859,7 @@ op_assign
 id|git_committer_info
 c_func
 (paren
-l_int|1
+id|IDENT_WARN_ON_NO_NAME
 )paren
 suffix:semicolon
 r_const
@@ -3610,7 +3610,7 @@ op_assign
 id|git_committer_info
 c_func
 (paren
-l_int|1
+id|IDENT_ERROR_ON_NO_NAME
 )paren
 suffix:semicolon
 id|endpos

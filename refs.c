@@ -5810,7 +5810,7 @@ op_assign
 id|git_committer_info
 c_func
 (paren
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 id|maxlen

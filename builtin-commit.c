@@ -2770,7 +2770,7 @@ id|email
 comma
 id|date
 comma
-l_int|1
+id|IDENT_ERROR_ON_NO_NAME
 )paren
 )paren
 suffix:semicolon
@@ -4302,7 +4302,7 @@ comma
 id|git_committer_info
 c_func
 (paren
-l_int|1
+id|IDENT_ERROR_ON_NO_NAME
 )paren
 )paren
 suffix:semicolon
