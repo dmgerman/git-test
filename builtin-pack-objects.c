@@ -8385,6 +8385,25 @@ id|sub_size
 op_decrement
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|sub_size
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t;&t; * It is possible for some &quot;paths&quot; to have&n;&t;&t;&t;&t; * so many objects that no hash boundary&n;&t;&t;&t;&t; * might be found.  Let&squot;s just steal the&n;&t;&t;&t;&t; * exact half in that case.&n;&t;&t;&t;&t; */
+id|sub_size
+op_assign
+id|victim-&gt;remaining
+op_div
+l_int|2
+suffix:semicolon
+id|list
+op_sub_assign
+id|sub_size
+suffix:semicolon
+)brace
 id|target-&gt;list
 op_assign
 id|list
