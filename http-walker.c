@@ -393,52 +393,6 @@ r_return
 id|size
 suffix:semicolon
 )brace
-DECL|function|missing__target
-r_static
-r_int
-id|missing__target
-c_func
-(paren
-r_int
-id|code
-comma
-r_int
-id|result
-)paren
-(brace
-r_return
-multiline_comment|/* file:// URL -- do we ever use one??? */
-(paren
-id|result
-op_eq
-id|CURLE_FILE_COULDNT_READ_FILE
-)paren
-op_logical_or
-multiline_comment|/* http:// and https:// URL */
-(paren
-id|code
-op_eq
-l_int|404
-op_logical_and
-id|result
-op_eq
-id|CURLE_HTTP_RETURNED_ERROR
-)paren
-op_logical_or
-multiline_comment|/* ftp:// URL */
-(paren
-id|code
-op_eq
-l_int|550
-op_logical_and
-id|result
-op_eq
-id|CURLE_FTP_COULDNT_RETR_FILE
-)paren
-suffix:semicolon
-)brace
-DECL|macro|missing_target
-mdefine_line|#define missing_target(a) missing__target((a)-&gt;http_code, (a)-&gt;curl_result)
 r_static
 r_void
 id|fetch_alternates
