@@ -1665,8 +1665,6 @@ id|parsed
 comma
 id|argv
 comma
-id|argc
-comma
 l_int|0
 )paren
 suffix:semicolon

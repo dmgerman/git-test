@@ -32,7 +32,7 @@ r_static
 r_int
 id|progress
 suffix:semicolon
-DECL|enumerator|IGNORE
+DECL|enumerator|VERBATIM
 DECL|enumerator|WARN
 DECL|enumerator|STRIP
 DECL|enumerator|ABORT
@@ -40,7 +40,7 @@ DECL|variable|signed_tag_mode
 r_static
 r_enum
 (brace
-id|IGNORE
+id|VERBATIM
 comma
 id|WARN
 comma
@@ -101,12 +101,21 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;verbatim&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;ignore&quot;
 )paren
 )paren
 id|signed_tag_mode
 op_assign
-id|IGNORE
+id|VERBATIM
 suffix:semicolon
 r_else
 r_if
@@ -1472,7 +1481,7 @@ id|tag-&gt;object.sha1
 suffix:semicolon
 multiline_comment|/* fallthru */
 r_case
-id|IGNORE
+id|VERBATIM
 suffix:colon
 r_break
 suffix:semicolon

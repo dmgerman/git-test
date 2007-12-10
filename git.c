@@ -1061,10 +1061,6 @@ id|argv
 op_plus
 l_int|1
 comma
-op_star
-id|argcp
-l_int|1
-comma
 id|PATH_MAX
 )paren
 suffix:semicolon
@@ -1247,8 +1243,6 @@ id|trace_argv_printf
 c_func
 (paren
 id|new_argv
-comma
-id|count
 comma
 l_string|&quot;trace: alias expansion: %s =&gt;&quot;
 comma
@@ -1476,8 +1470,6 @@ id|trace_argv_printf
 c_func
 (paren
 id|argv
-comma
-id|argc
 comma
 l_string|&quot;trace: built-in: git&quot;
 )paren
@@ -1749,6 +1741,16 @@ comma
 l_string|&quot;clean&quot;
 comma
 id|cmd_clean
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
+l_string|&quot;commit&quot;
+comma
+id|cmd_commit
 comma
 id|RUN_SETUP
 op_or
@@ -2138,16 +2140,6 @@ id|RUN_SETUP
 )brace
 comma
 (brace
-l_string|&quot;runstatus&quot;
-comma
-id|cmd_runstatus
-comma
-id|RUN_SETUP
-op_or
-id|NEED_WORK_TREE
-)brace
-comma
-(brace
 l_string|&quot;send-pack&quot;
 comma
 id|cmd_send_pack
@@ -2181,6 +2173,16 @@ comma
 id|RUN_SETUP
 op_or
 id|USE_PAGER
+)brace
+comma
+(brace
+l_string|&quot;status&quot;
+comma
+id|cmd_status
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
 )brace
 comma
 (brace

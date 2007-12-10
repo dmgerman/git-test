@@ -16,9 +16,9 @@ mdefine_line|#define QUOTE_SHELL 1
 DECL|macro|QUOTE_PERL
 mdefine_line|#define QUOTE_PERL 2
 DECL|macro|QUOTE_PYTHON
-mdefine_line|#define QUOTE_PYTHON 3
+mdefine_line|#define QUOTE_PYTHON 4
 DECL|macro|QUOTE_TCL
-mdefine_line|#define QUOTE_TCL 4
+mdefine_line|#define QUOTE_TCL 8
 DECL|enumerator|FIELD_STR
 DECL|enumerator|FIELD_ULONG
 DECL|enumerator|FIELD_TIME
@@ -4862,7 +4862,7 @@ id|quote_style
 id|error
 c_func
 (paren
-l_string|&quot;more than one quoting style ?&quot;
+l_string|&quot;more than one quoting style?&quot;
 )paren
 suffix:semicolon
 id|usage_with_options
