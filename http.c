@@ -1735,16 +1735,6 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_HTTPHEADER
 comma
-l_int|NULL
-)paren
-suffix:semicolon
-id|curl_easy_setopt
-c_func
-(paren
-id|slot-&gt;curl
-comma
-id|CURLOPT_HTTPHEADER
-comma
 id|pragma_header
 )paren
 suffix:semicolon
