@@ -1554,6 +1554,16 @@ c_func
 id|git_cmd
 )paren
 suffix:semicolon
+id|setenv
+c_func
+(paren
+l_string|&quot;INFOPATH&quot;
+comma
+id|GIT_INFO_PATH
+comma
+l_int|1
+)paren
+suffix:semicolon
 id|execlp
 c_func
 (paren
