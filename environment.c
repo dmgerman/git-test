@@ -129,10 +129,6 @@ r_char
 op_star
 id|pager_program
 suffix:semicolon
-DECL|variable|pager_in_use
-r_int
-id|pager_in_use
-suffix:semicolon
 DECL|variable|pager_use_color
 r_int
 id|pager_use_color

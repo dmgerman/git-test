@@ -785,6 +785,9 @@ id|stdout_is_tty
 op_logical_or
 (paren
 id|pager_in_use
+c_func
+(paren
+)paren
 op_logical_and
 id|pager_use_color
 )paren
