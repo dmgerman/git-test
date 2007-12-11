@@ -838,6 +838,13 @@ op_amp
 id|opt
 )paren
 suffix:semicolon
+id|diff_tree_release_paths
+c_func
+(paren
+op_amp
+id|opt
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

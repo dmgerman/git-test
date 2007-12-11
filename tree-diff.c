@@ -1635,6 +1635,13 @@ op_amp
 id|diff_opts
 )paren
 suffix:semicolon
+id|diff_tree_release_paths
+c_func
+(paren
+op_amp
+id|diff_opts
+)paren
+suffix:semicolon
 multiline_comment|/* Go through the new set of filepairing, and see if we find a more interesting one */
 r_for
 c_loop
@@ -1701,6 +1708,12 @@ op_assign
 id|p
 suffix:semicolon
 multiline_comment|/* Update the path we use from now on.. */
+id|diff_tree_release_paths
+c_func
+(paren
+id|opt
+)paren
+suffix:semicolon
 id|opt-&gt;paths
 (braket
 l_int|0
