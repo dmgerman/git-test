@@ -1719,7 +1719,9 @@ id|summary
 id|printf
 c_func
 (paren
-l_string|&quot;%s: %d&bslash;n&quot;
+l_string|&quot;%6d&bslash;t%s&bslash;n&quot;
+comma
+id|onelines-&gt;nr
 comma
 id|list.items
 (braket
@@ -1727,8 +1729,6 @@ id|i
 )braket
 dot
 id|path
-comma
-id|onelines-&gt;nr
 )paren
 suffix:semicolon
 )brace
