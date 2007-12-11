@@ -482,6 +482,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|size
+op_logical_and
 id|fwrite
 c_func
 (paren
