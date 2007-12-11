@@ -25,17 +25,6 @@ id|fmt_patch_subject_prefix
 op_assign
 l_string|&quot;PATCH&quot;
 suffix:semicolon
-multiline_comment|/* this is in builtin-diff.c */
-r_void
-id|add_head
-c_func
-(paren
-r_struct
-id|rev_info
-op_star
-id|revs
-)paren
-suffix:semicolon
 DECL|function|add_name_decoration
 r_static
 r_void
@@ -4144,7 +4133,7 @@ id|item-&gt;flags
 op_or_assign
 id|UNINTERESTING
 suffix:semicolon
-id|add_head
+id|add_head_to_pending
 c_func
 (paren
 op_amp
