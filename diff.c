@@ -5658,7 +5658,7 @@ id|space_before_tab
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/* check white space at line end */
+multiline_comment|/* check whitespace at line end */
 r_if
 c_cond
 (paren
@@ -5742,7 +5742,7 @@ id|white_space_at_end
 id|printf
 c_func
 (paren
-l_string|&quot;white space at end&quot;
+l_string|&quot;whitespace at end&quot;
 )paren
 suffix:semicolon
 id|printf
