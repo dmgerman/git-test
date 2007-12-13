@@ -1397,6 +1397,9 @@ r_const
 r_char
 op_star
 id|prefix
+comma
+r_int
+id|nowarn
 )paren
 (brace
 r_struct
@@ -1449,6 +1452,10 @@ suffix:semicolon
 id|s.fp
 op_assign
 id|fp
+suffix:semicolon
+id|s.nowarn
+op_assign
+id|nowarn
 suffix:semicolon
 id|wt_status_print
 c_func
@@ -2255,6 +2262,8 @@ comma
 id|index_file
 comma
 id|prefix
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|wt_status_use_color
@@ -3363,6 +3372,8 @@ comma
 id|index_file
 comma
 id|prefix
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|rollback_index_files
@@ -3984,6 +3995,8 @@ comma
 id|index_file
 comma
 id|prefix
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|rollback_index_files

@@ -2152,6 +2152,14 @@ r_else
 r_if
 c_cond
 (paren
+id|s-&gt;nowarn
+)paren
+suffix:semicolon
+multiline_comment|/* nothing */
+r_else
+r_if
+c_cond
+(paren
 id|s-&gt;workdir_dirty
 )paren
 id|printf
