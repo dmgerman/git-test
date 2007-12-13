@@ -2357,7 +2357,7 @@ id|diff_words-&gt;xm.consume
 op_assign
 id|fn_out_diff_words_aux
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp
@@ -7627,7 +7627,7 @@ id|diff_words_data
 )paren
 )paren
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp
@@ -7919,7 +7919,7 @@ id|ecb.priv
 op_assign
 id|diffstat
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp
@@ -8134,7 +8134,7 @@ op_assign
 op_amp
 id|data
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp
@@ -15664,7 +15664,7 @@ op_assign
 op_amp
 id|data
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp

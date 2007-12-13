@@ -1802,7 +1802,7 @@ id|ecb.outf
 op_assign
 id|outf
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp

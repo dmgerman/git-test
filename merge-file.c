@@ -356,7 +356,7 @@ op_assign
 id|res
 suffix:semicolon
 r_return
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 id|f1

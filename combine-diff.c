@@ -1226,7 +1226,7 @@ id|state.n
 op_assign
 id|n
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp

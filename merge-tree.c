@@ -579,7 +579,7 @@ id|dst.size
 op_assign
 id|size
 suffix:semicolon
-id|xdl_diff
+id|xdi_diff
 c_func
 (paren
 op_amp
