@@ -4317,13 +4317,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;%s.&bslash;n%s:%d:%.*s&bslash;n&quot;
-comma
-id|err
+l_string|&quot;%s:%d: %s.&bslash;n%.*s&bslash;n&quot;
 comma
 id|patch_input_file
 comma
 id|linenr
+comma
+id|err
 comma
 id|len
 l_int|2

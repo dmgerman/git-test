@@ -5330,17 +5330,13 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s:%d: %s%s:%s &quot;
+l_string|&quot;%s:%d: %s.&bslash;n&quot;
 comma
 id|data-&gt;filename
 comma
 id|data-&gt;lineno
 comma
-id|ws
-comma
 id|err
-comma
-id|reset
 )paren
 suffix:semicolon
 id|free
