@@ -5629,6 +5629,16 @@ l_string|&quot;Unable to start request&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|buffer.posn
+op_ne
+l_int|41
+)paren
+r_return
+l_int|1
+suffix:semicolon
 id|hex
 (braket
 l_int|40
@@ -5636,6 +5646,7 @@ l_int|40
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
+r_return
 id|get_sha1_hex
 c_func
 (paren
@@ -5643,9 +5654,6 @@ id|hex
 comma
 id|sha1
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|one_remote_object
