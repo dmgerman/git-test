@@ -642,8 +642,7 @@ comma
 id|recovered
 op_assign
 l_int|0
-suffix:semicolon
-r_int
+comma
 id|i
 suffix:semicolon
 r_char
