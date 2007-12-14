@@ -2975,6 +2975,9 @@ r_if
 c_cond
 (paren
 id|amend
+op_logical_and
+op_logical_neg
+id|use_message
 )paren
 id|use_message
 op_assign
