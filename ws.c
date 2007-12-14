@@ -456,7 +456,7 @@ c_func
 op_amp
 id|err
 comma
-l_string|&quot;Adds trailing whitespace&quot;
+l_string|&quot;trailing whitespace&quot;
 )paren
 suffix:semicolon
 r_if
@@ -487,7 +487,7 @@ c_func
 op_amp
 id|err
 comma
-l_string|&quot;Space in indent is followed by a tab&quot;
+l_string|&quot;space before tab in indent&quot;
 )paren
 suffix:semicolon
 )brace
@@ -519,7 +519,7 @@ c_func
 op_amp
 id|err
 comma
-l_string|&quot;Indent more than 8 places with spaces&quot;
+l_string|&quot;indent with spaces&quot;
 )paren
 suffix:semicolon
 )brace
