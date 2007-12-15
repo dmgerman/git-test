@@ -173,7 +173,7 @@ op_star
 id|end
 suffix:semicolon
 DECL|member|space
-r_char
+r_uintmax
 id|space
 (braket
 id|FLEX_ARRAY
@@ -2032,6 +2032,10 @@ id|mem_pool
 suffix:semicolon
 id|p-&gt;next_free
 op_assign
+(paren
+r_char
+op_star
+)paren
 id|p-&gt;space
 suffix:semicolon
 id|p-&gt;end
@@ -2049,7 +2053,7 @@ id|r
 op_assign
 id|p-&gt;next_free
 suffix:semicolon
-multiline_comment|/* round out to a pointer alignment */
+multiline_comment|/* round out to a &squot;uintmax_t&squot; alignment */
 r_if
 c_cond
 (paren
@@ -2058,8 +2062,7 @@ op_amp
 (paren
 r_sizeof
 (paren
-r_void
-op_star
+r_uintmax
 )paren
 l_int|1
 )paren
@@ -2068,8 +2071,7 @@ id|len
 op_add_assign
 r_sizeof
 (paren
-r_void
-op_star
+r_uintmax
 )paren
 (paren
 id|len
@@ -2077,8 +2079,7 @@ op_amp
 (paren
 r_sizeof
 (paren
-r_void
-op_star
+r_uintmax
 )paren
 l_int|1
 )paren
