@@ -577,9 +577,9 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
-id|leading_space
+id|written
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_int
 id|trailing_whitespace
@@ -698,9 +698,11 @@ op_eq
 l_char|&squot; &squot;
 )paren
 (brace
-id|leading_space
+id|written
 op_assign
 id|i
+op_plus
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -727,9 +729,9 @@ id|WS_SPACE_BEFORE_TAB
 )paren
 op_logical_and
 (paren
-id|leading_space
+id|written
 op_ne
-l_int|1
+l_int|0
 )paren
 )paren
 id|result
@@ -749,9 +751,9 @@ op_amp
 id|WS_INDENT_WITH_NON_TAB
 )paren
 op_logical_and
-id|leading_space
+id|written
 op_ge
-l_int|7
+l_int|8
 )paren
 id|result
 op_or_assign
@@ -793,9 +795,7 @@ c_func
 (paren
 id|line
 comma
-id|leading_space
-op_plus
-l_int|1
+id|written
 comma
 l_int|1
 comma
@@ -810,16 +810,8 @@ comma
 id|stream
 )paren
 suffix:semicolon
-id|leading_space
-op_increment
-suffix:semicolon
 )brace
-r_else
-id|leading_space
-op_assign
-l_int|0
-suffix:semicolon
-multiline_comment|/* Now the rest of the line starts at leading_space.&n;&t;&t; * The non-highlighted part ends at trailing_whitespace. */
+multiline_comment|/* Now the rest of the line starts at written.&n;&t;&t; * The non-highlighted part ends at trailing_whitespace. */
 r_if
 c_cond
 (paren
@@ -836,7 +828,7 @@ r_if
 c_cond
 (paren
 id|trailing_whitespace
-id|leading_space
+id|written
 OG
 l_int|0
 )paren
@@ -854,10 +846,10 @@ c_func
 (paren
 id|line
 op_plus
-id|leading_space
+id|written
 comma
 id|trailing_whitespace
-id|leading_space
+id|written
 comma
 l_int|1
 comma
