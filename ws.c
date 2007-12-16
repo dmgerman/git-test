@@ -697,16 +697,8 @@ id|i
 op_eq
 l_char|&squot; &squot;
 )paren
-(brace
-id|written
-op_assign
-id|i
-op_plus
-l_int|1
-suffix:semicolon
 r_continue
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -728,17 +720,19 @@ op_amp
 id|WS_SPACE_BEFORE_TAB
 )paren
 op_logical_and
-(paren
 id|written
-op_ne
-l_int|0
-)paren
+OL
+id|i
 )paren
 id|result
 op_or_assign
 id|WS_SPACE_BEFORE_TAB
 suffix:semicolon
-r_break
+id|written
+op_assign
+id|i
+op_plus
+l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* Check for indent using non-tab. */
@@ -751,6 +745,7 @@ op_amp
 id|WS_INDENT_WITH_NON_TAB
 )paren
 op_logical_and
+id|i
 id|written
 op_ge
 l_int|8
