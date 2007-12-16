@@ -7180,12 +7180,12 @@ suffix:semicolon
 r_int
 id|last_tab_in_indent
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_int
 id|last_space_in_indent
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_int
 id|need_fix_leading_space
@@ -7345,7 +7345,7 @@ id|WS_SPACE_BEFORE_TAB
 )paren
 op_logical_and
 l_int|0
-op_le
+OL
 id|last_space_in_indent
 )paren
 id|need_fix_leading_space
@@ -7376,7 +7376,7 @@ id|WS_INDENT_WITH_NON_TAB
 )paren
 op_logical_and
 id|last_tab_in_indent
-OL
+op_le
 l_int|0
 op_logical_and
 l_int|8
