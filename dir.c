@@ -780,9 +780,17 @@ id|size
 op_ne
 id|size
 )paren
+(brace
+id|free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
 r_goto
 id|err
 suffix:semicolon
+)brace
 id|close
 c_func
 (paren
