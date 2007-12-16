@@ -751,7 +751,7 @@ id|WS_INDENT_WITH_NON_TAB
 op_logical_and
 id|leading_space
 op_ge
-l_int|8
+l_int|7
 )paren
 id|result
 op_or_assign
