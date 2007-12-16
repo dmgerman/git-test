@@ -7375,13 +7375,10 @@ op_amp
 id|WS_INDENT_WITH_NON_TAB
 )paren
 op_logical_and
-id|last_tab_in_indent
-op_le
-l_int|0
-op_logical_and
 l_int|8
 op_le
 id|i
+id|last_tab_in_indent
 )paren
 id|need_fix_leading_space
 op_assign
