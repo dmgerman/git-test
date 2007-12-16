@@ -3674,6 +3674,13 @@ id|rev.always_show_header
 op_assign
 l_int|0
 suffix:semicolon
+id|diff_setup_done
+c_func
+(paren
+op_amp
+id|rev.diffopt
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
