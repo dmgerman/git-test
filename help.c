@@ -1788,7 +1788,7 @@ suffix:semicolon
 id|execl_git_cmd
 c_func
 (paren
-l_string|&quot;browse--help&quot;
+l_string|&quot;help--browse&quot;
 comma
 id|page
 comma
