@@ -1525,7 +1525,7 @@ id|i
 id|error
 c_func
 (paren
-l_string|&quot;Could not interpret %s as something to pull&quot;
+l_string|&quot;Could not interpret response from server &squot;%s&squot; as something to pull&quot;
 comma
 id|target
 (braket
