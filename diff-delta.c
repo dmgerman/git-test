@@ -1694,9 +1694,7 @@ id|hmask
 suffix:semicolon
 id|mem
 op_assign
-id|index
-op_plus
-l_int|1
+id|index-&gt;hash
 suffix:semicolon
 id|packed_hash
 op_assign
