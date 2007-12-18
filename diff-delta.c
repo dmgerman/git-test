@@ -1530,6 +1530,7 @@ id|HASH_LIMIT
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* We leave exactly HASH_LIMIT entries in the bucket */
 id|entries
 op_sub_assign
 id|hash_count
@@ -1538,7 +1539,6 @@ id|i
 )braket
 id|HASH_LIMIT
 suffix:semicolon
-multiline_comment|/* We leave exactly HASH_LIMIT entries in the bucket */
 id|entry
 op_assign
 id|hash
@@ -1550,6 +1550,7 @@ id|acc
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Assume that this loop is gone through exactly&n;&t;&t; * HASH_LIMIT times and is entered and left with&n;&t;&t; * acc==0.  So the first statement in the loop&n;&t;&t; * contributes (hash_count[i]-HASH_LIMIT)*HASH_LIMIT&n;&t;&t; * to the accumulator, and the inner loop consequently&n;&t;&t; * is run (hash_count[i]-HASH_LIMIT) times, removing&n;&t;&t; * one element from the list each time.  Since acc&n;&t;&t; * balances out to 0 at the final run, the inner loop&n;&t;&t; * body can&squot;t be left with entry==NULL.  So we indeed&n;&t;&t; * encounter entry==NULL in the outer loop only.&n;&t;&t; */
 r_do
 (brace
 id|acc
@@ -1610,7 +1611,6 @@ c_loop
 id|entry
 )paren
 suffix:semicolon
-multiline_comment|/* Assume that this loop is gone through exactly&n;&t;&t; * HASH_LIMIT times and is entered and left with&n;&t;&t; * acc==0.  So the first statement in the loop&n;&t;&t; * contributes (hash_count[i]-HASH_LIMIT)*HASH_LIMIT&n;&t;&t; * to the accumulator, and the inner loop consequently&n;&t;&t; * is run (hash_count[i]-HASH_LIMIT) times, removing&n;&t;&t; * one element from the list each time.  Since acc&n;&t;&t; * balances out to 0 at the final run, the inner loop&n;&t;&t; * body can&squot;t be left with entry==NULL.  So we indeed&n;&t;&t; * encounter entry==NULL in the outer loop only.&n;&t;&t; */
 )brace
 id|free
 c_func
@@ -1618,7 +1618,7 @@ c_func
 id|hash_count
 )paren
 suffix:semicolon
-multiline_comment|/* Now create the packed index in array form rather than&n;&t; * linked lists */
+multiline_comment|/*&n;&t; * Now create the packed index in array form&n;&t; * rather than linked lists.&n;&t; */
 id|memsize
 op_assign
 r_sizeof
@@ -1714,7 +1714,6 @@ id|packed_entry
 op_assign
 id|mem
 suffix:semicolon
-multiline_comment|/* Coalesce all entries belonging to one linked list into&n;&t; * consecutive array entries */
 r_for
 c_loop
 (paren
@@ -1730,6 +1729,7 @@ id|i
 op_increment
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * Coalesce all entries belonging to one linked list&n;&t;&t; * into consecutive array entries.&n;&t;&t; */
 id|packed_hash
 (braket
 id|i
@@ -1760,7 +1760,7 @@ op_assign
 id|entry-&gt;entry
 suffix:semicolon
 )brace
-multiline_comment|/* Sentinel value to indicate the length of the last hash&n;&t; * bucket */
+multiline_comment|/* Sentinel value to indicate the length of the last hash bucket */
 id|packed_hash
 (braket
 id|hsize
