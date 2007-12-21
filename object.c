@@ -679,6 +679,10 @@ id|eaten
 op_assign
 l_int|0
 suffix:semicolon
+id|obj
+op_assign
+l_int|NULL
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -698,6 +702,12 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|blob
+)paren
+(brace
 id|parse_blob_buffer
 c_func
 (paren
@@ -713,6 +723,7 @@ op_assign
 op_amp
 id|blob-&gt;object
 suffix:semicolon
+)brace
 )brace
 r_else
 r_if
@@ -734,6 +745,12 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|tree
+)paren
+(brace
 id|obj
 op_assign
 op_amp
@@ -762,6 +779,7 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
+)brace
 r_else
 r_if
 c_cond
@@ -782,6 +800,12 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|commit
+)paren
+(brace
 id|parse_commit_buffer
 c_func
 (paren
@@ -814,6 +838,7 @@ op_amp
 id|commit-&gt;object
 suffix:semicolon
 )brace
+)brace
 r_else
 r_if
 c_cond
@@ -834,6 +859,12 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|tag
+)paren
+(brace
 id|parse_tag_buffer
 c_func
 (paren
@@ -849,6 +880,7 @@ op_assign
 op_amp
 id|tag-&gt;object
 suffix:semicolon
+)brace
 )brace
 r_else
 (brace
