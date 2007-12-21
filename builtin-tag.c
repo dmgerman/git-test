@@ -20,7 +20,7 @@ l_string|&quot;git-tag [-a|-s|-u &lt;key-id&gt;] [-f] [-m &lt;msg&gt;|-F &lt;fil
 comma
 l_string|&quot;git-tag -d &lt;tagname&gt;...&quot;
 comma
-l_string|&quot;git-tag [-n [&lt;num&gt;]] -l [&lt;pattern&gt;]&quot;
+l_string|&quot;git-tag -l [-n [&lt;num&gt;]] [&lt;pattern&gt;]&quot;
 comma
 l_string|&quot;git-tag -v &lt;tagname&gt;...&quot;
 comma
@@ -1934,6 +1934,10 @@ id|lines
 op_assign
 l_int|0
 comma
+id|list
+op_assign
+l_int|0
+comma
 r_delete
 op_assign
 l_int|0
@@ -1944,11 +1948,6 @@ l_int|0
 suffix:semicolon
 r_char
 op_star
-id|list
-op_assign
-l_int|NULL
-comma
-op_star
 id|msgfile
 op_assign
 l_int|NULL
@@ -1957,13 +1956,6 @@ op_star
 id|keyid
 op_assign
 l_int|NULL
-suffix:semicolon
-r_const
-r_char
-op_star
-id|no_pattern
-op_assign
-l_string|&quot;NO_PATTERN&quot;
 suffix:semicolon
 r_struct
 id|msg_arg
@@ -1982,9 +1974,9 @@ id|options
 )braket
 op_assign
 (brace
-(brace
-id|OPTION_STRING
-comma
+id|OPT_BOOLEAN
+c_func
+(paren
 l_char|&squot;l&squot;
 comma
 l_int|NULL
@@ -1992,19 +1984,8 @@ comma
 op_amp
 id|list
 comma
-l_string|&quot;pattern&quot;
-comma
 l_string|&quot;list tag names&quot;
-comma
-id|PARSE_OPT_OPTARG
-comma
-l_int|NULL
-comma
-(paren
-r_intptr
 )paren
-id|no_pattern
-)brace
 comma
 (brace
 id|OPTION_INTEGER
@@ -2208,14 +2189,10 @@ r_return
 id|list_tags
 c_func
 (paren
-id|list
-op_eq
-id|no_pattern
-ques
-c_cond
-l_int|NULL
-suffix:colon
-id|list
+id|argv
+(braket
+l_int|0
+)braket
 comma
 id|lines
 )paren
