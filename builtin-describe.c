@@ -1453,7 +1453,7 @@ id|xmalloc
 c_func
 (paren
 (paren
-l_int|5
+l_int|6
 op_plus
 id|argc
 )paren
@@ -1485,6 +1485,14 @@ op_increment
 )braket
 op_assign
 l_string|&quot;--name-only&quot;
+suffix:semicolon
+id|args
+(braket
+id|i
+op_increment
+)braket
+op_assign
+l_string|&quot;--no-undefined&quot;
 suffix:semicolon
 r_if
 c_cond
