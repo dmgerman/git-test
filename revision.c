@@ -6343,11 +6343,13 @@ id|revs-&gt;diff
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/* Pickaxe and rename following needs diffs */
+multiline_comment|/* Pickaxe, diff-filter and rename following need diffs */
 r_if
 c_cond
 (paren
 id|revs-&gt;diffopt.pickaxe
+op_logical_or
+id|revs-&gt;diffopt.filter
 op_logical_or
 id|DIFF_OPT_TST
 c_func
