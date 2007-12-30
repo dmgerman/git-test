@@ -1,6 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;sha1-lookup.h&quot;
-multiline_comment|/*&n; * Conventional binary search loop looks like this:&n; *&n; *&t;unsigned lo, hi;&n; *      do {&n; *              unsigned mi = (lo + hi) / 2;&n; *              int cmp = &quot;entry pointed at by mi&quot; minus &quot;target&quot;;&n; *              if (!cmp)&n; *                      return (mi is the wanted one)&n; *              if (cmp &gt; 0)&n; *                      hi = mi; &quot;mi is larger than target&quot;&n; *              else&n; *                      lo = mi+1; &quot;mi is smaller than target&quot;&n; *      } while (lo &lt; hi);&n; *&n; * The invariants are:&n; *&n; * - When entering the loop, lo points at a slot that is never&n; *   above the target (it could be at the target), hi points at a&n; *   slot that is guaranteed to be above the target (it can never&n; *   be at the target).&n; *&n; * - We find a point &squot;mi&squot; between lo and hi (mi could be the same&n; *   as lo, but never can be as same as hi), and check if it hits&n; *   the target.  There are three cases:&n; *&n; *    - if it is a hit, we are happy.&n; *&n; *    - if it is strictly higher than the target, we set it to hi,&n; *      and repeat the search.&n; *&n; *    - if it is strictly lower than the target, we update lo to&n; *      one slot after it, because we allow lo to be at the target.&n; *&n; *   If the loop exits, there is no matching entry.&n; *&n; * When choosing &squot;mi&squot;, we do not have to take the &quot;middle&quot; but&n; * anywhere in between lo and hi, as long as lo &lt;= mi &lt; hi is&n; * satisfied.  When we somehow know that the distance between the&n; * target and lo is much shorter than the target and hi, we could&n; * pick mi that is much closer to lo than the midway.&n; *&n; * Now, we can take advantage of the fact that SHA-1 is a good hash&n; * function, and as long as there are enough entries in the table, we&n; * can expect uniform distribution.  An entry that begins with for&n; * example &quot;deadbeef...&quot; is much likely to appear much later than in&n; * the midway of the table.  It can reasonably be expected to be near&n; * 87% (222/256) from the top of the table.&n; *&n; * The table at &quot;table&quot; holds at least &quot;nr&quot; entries of &quot;elem_size&quot;&n; * bytes each.  Each entry has the SHA-1 key at &quot;key_offset&quot;.  The&n; * table is sorted by the SHA-1 key of the entries.  The caller wants&n; * to find the entry with &quot;key&quot;, and knows that the entry at &quot;lo&quot; is&n; * not higher than the entry it is looking for, and that the entry at&n; * &quot;hi&quot; is higher than the entry it is looking for.&n; */
+multiline_comment|/*&n; * Conventional binary search loop looks like this:&n; *&n; *&t;unsigned lo, hi;&n; *      do {&n; *              unsigned mi = (lo + hi) / 2;&n; *              int cmp = &quot;entry pointed at by mi&quot; minus &quot;target&quot;;&n; *              if (!cmp)&n; *                      return (mi is the wanted one)&n; *              if (cmp &gt; 0)&n; *                      hi = mi; &quot;mi is larger than target&quot;&n; *              else&n; *                      lo = mi+1; &quot;mi is smaller than target&quot;&n; *      } while (lo &lt; hi);&n; *&n; * The invariants are:&n; *&n; * - When entering the loop, lo points at a slot that is never&n; *   above the target (it could be at the target), hi points at a&n; *   slot that is guaranteed to be above the target (it can never&n; *   be at the target).&n; *&n; * - We find a point &squot;mi&squot; between lo and hi (mi could be the same&n; *   as lo, but never can be as same as hi), and check if it hits&n; *   the target.  There are three cases:&n; *&n; *    - if it is a hit, we are happy.&n; *&n; *    - if it is strictly higher than the target, we set it to hi,&n; *      and repeat the search.&n; *&n; *    - if it is strictly lower than the target, we update lo to&n; *      one slot after it, because we allow lo to be at the target.&n; *&n; *   If the loop exits, there is no matching entry.&n; *&n; * When choosing &squot;mi&squot;, we do not have to take the &quot;middle&quot; but&n; * anywhere in between lo and hi, as long as lo &lt;= mi &lt; hi is&n; * satisfied.  When we somehow know that the distance between the&n; * target and lo is much shorter than the target and hi, we could&n; * pick mi that is much closer to lo than the midway.&n; *&n; * Now, we can take advantage of the fact that SHA-1 is a good hash&n; * function, and as long as there are enough entries in the table, we&n; * can expect uniform distribution.  An entry that begins with for&n; * example &quot;deadbeef...&quot; is much likely to appear much later than in&n; * the midway of the table.  It can reasonably be expected to be near&n; * 87% (222/256) from the top of the table.&n; *&n; * However, we do not want to pick &quot;mi&quot; too precisely.  If the entry at&n; * the 87% in the above example turns out to be higher than the target&n; * we are looking for, we would end up narrowing the search space down&n; * only by 13%, instead of 50% we would get if we did a simple binary&n; * search.  So we would want to hedge our bets by being less aggressive.&n; *&n; * The table at &quot;table&quot; holds at least &quot;nr&quot; entries of &quot;elem_size&quot;&n; * bytes each.  Each entry has the SHA-1 key at &quot;key_offset&quot;.  The&n; * table is sorted by the SHA-1 key of the entries.  The caller wants&n; * to find the entry with &quot;key&quot;, and knows that the entry at &quot;lo&quot; is&n; * not higher than the entry it is looking for, and that the entry at&n; * &quot;hi&quot; is higher than the entry it is looking for.&n; */
 DECL|function|sha1_entry_pos
 r_int
 id|sha1_entry_pos
@@ -325,17 +325,36 @@ r_return
 l_int|1
 id|hi
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Even if we know the target is much closer to &squot;hi&squot;&n;&t;&t; * than &squot;lo&squot;, if we pick too precisely and overshoot&n;&t;&t; * (e.g. when we know &squot;mi&squot; is closer to &squot;hi&squot; than to&n;&t;&t; * &squot;lo&squot;, pick &squot;mi&squot; that is higher than the target), we&n;&t;&t; * end up narrowing the search space by a smaller&n;&t;&t; * amount (i.e. the distance between &squot;mi&squot; and &squot;hi&squot;)&n;&t;&t; * than what we would have (i.e. about half of &squot;lo&squot;&n;&t;&t; * and &squot;hi&squot;).  Hedge our bets to pick &squot;mi&squot; less&n;&t;&t; * aggressively, i.e. make &squot;mi&squot; a bit closer to the&n;&t;&t; * middle than we would otherwise pick.&n;&t;&t; */
+id|kyv
+op_assign
+(paren
+id|kyv
+op_star
+l_int|6
+op_plus
+id|lov
+op_plus
+id|hiv
+)paren
+op_div
+l_int|8
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|lov
+OL
+id|hiv
+l_int|1
+)paren
+(brace
 r_if
 c_cond
 (paren
 id|kyv
 op_eq
 id|lov
-op_logical_and
-id|lov
-OL
-id|hiv
-l_int|1
 )paren
 id|kyv
 op_increment
@@ -347,15 +366,11 @@ c_cond
 id|kyv
 op_eq
 id|hiv
-l_int|1
-op_logical_and
-id|lov
-OL
-id|kyv
 )paren
 id|kyv
 op_decrement
 suffix:semicolon
+)brace
 id|mi
 op_assign
 (paren
