@@ -10380,12 +10380,6 @@ c_func
 id|slot
 )paren
 suffix:semicolon
-id|free
-c_func
-(paren
-id|url
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -10423,12 +10417,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|free
-c_func
-(paren
-id|url
-)paren
-suffix:semicolon
 id|fprintf
 c_func
 (paren
