@@ -1391,6 +1391,24 @@ op_assign
 id|MIXED
 suffix:semicolon
 multiline_comment|/* by default */
+r_if
+c_cond
+(paren
+id|reset_type
+op_eq
+id|HARD
+op_logical_and
+id|is_bare_repository
+c_func
+(paren
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;hard reset makes no sense in a bare repository&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* Soft reset does not touch the index file nor the working tree&n;&t; * at all, but requires them in a good order.  Other resets reset&n;&t; * the index file to the tree object we are switching to. */
 r_if
 c_cond
