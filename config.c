@@ -21,6 +21,11 @@ r_static
 r_int
 id|config_linenr
 suffix:semicolon
+DECL|variable|config_file_eof
+r_static
+r_int
+id|config_file_eof
+suffix:semicolon
 DECL|variable|zlib_compression_seen
 r_static
 r_int
@@ -123,9 +128,9 @@ op_eq
 id|EOF
 )paren
 (brace
-id|config_file
+id|config_file_eof
 op_assign
-l_int|NULL
+l_int|1
 suffix:semicolon
 id|c
 op_assign
@@ -477,9 +482,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|c
-op_eq
-id|EOF
+id|config_file_eof
 )paren
 r_break
 suffix:semicolon
@@ -791,9 +794,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|c
-op_eq
-id|EOF
+id|config_file_eof
 )paren
 r_return
 l_int|1
@@ -921,12 +922,10 @@ op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
 (brace
-multiline_comment|/* EOF? */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|config_file
+id|config_file_eof
 )paren
 r_return
 l_int|0
@@ -2357,6 +2356,10 @@ suffix:semicolon
 id|config_linenr
 op_assign
 l_int|1
+suffix:semicolon
+id|config_file_eof
+op_assign
+l_int|0
 suffix:semicolon
 id|ret
 op_assign
@@ -4467,6 +4470,26 @@ comma
 op_amp
 id|new_line
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|copy_end
+OG
+l_int|0
+op_logical_and
+id|contents
+(braket
+id|copy_end
+op_minus
+l_int|1
+)braket
+op_ne
+l_char|&squot;&bslash;n&squot;
+)paren
+id|new_line
+op_assign
+l_int|1
 suffix:semicolon
 multiline_comment|/* write the first part of the config */
 r_if
