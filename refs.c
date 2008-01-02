@@ -3128,10 +3128,10 @@ c_cond
 op_logical_neg
 id|ch
 )paren
-r_return
-l_int|1
-suffix:semicolon
 multiline_comment|/* should not end with slashes */
+r_return
+id|CHECK_REF_FORMAT_ERROR
+suffix:semicolon
 multiline_comment|/* we are at the beginning of the path component */
 r_if
 c_cond
@@ -3141,7 +3141,7 @@ op_eq
 l_char|&squot;.&squot;
 )paren
 r_return
-l_int|1
+id|CHECK_REF_FORMAT_ERROR
 suffix:semicolon
 id|bad_type
 op_assign
@@ -3169,9 +3169,9 @@ id|cp
 )paren
 ques
 c_cond
-l_int|3
+id|CHECK_REF_FORMAT_WILDCARD
 suffix:colon
-l_int|1
+id|CHECK_REF_FORMAT_ERROR
 suffix:semicolon
 )brace
 multiline_comment|/* scan the rest of the path component */
@@ -3215,9 +3215,9 @@ id|cp
 )paren
 ques
 c_cond
-l_int|3
+id|CHECK_REF_FORMAT_WILDCARD
 suffix:colon
-l_int|1
+id|CHECK_REF_FORMAT_ERROR
 suffix:semicolon
 )brace
 r_if
@@ -3242,7 +3242,7 @@ op_eq
 l_char|&squot;.&squot;
 )paren
 r_return
-l_int|1
+id|CHECK_REF_FORMAT_ERROR
 suffix:semicolon
 )brace
 id|level
@@ -3263,11 +3263,10 @@ OL
 l_int|2
 )paren
 r_return
-l_int|2
+id|CHECK_REF_FORMAT_ONELEVEL
 suffix:semicolon
-multiline_comment|/* at least of form &quot;heads/blah&quot; */
 r_return
-l_int|0
+id|CHECK_REF_FORMAT_OK
 suffix:semicolon
 )brace
 )brace
@@ -4190,7 +4189,7 @@ r_int
 id|flags
 )paren
 (brace
-r_if
+r_switch
 c_cond
 (paren
 id|check_ref_format
@@ -4198,12 +4197,19 @@ c_func
 (paren
 id|ref
 )paren
-op_eq
-l_int|1
 )paren
+(brace
+r_case
+id|CHECK_REF_FORMAT_ERROR
+suffix:colon
+r_case
+id|CHECK_REF_FORMAT_WILDCARD
+suffix:colon
 r_return
 l_int|NULL
 suffix:semicolon
+r_default
+suffix:colon
 r_return
 id|lock_ref_sha1_basic
 c_func
@@ -4217,6 +4223,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+)brace
 )brace
 DECL|variable|packlock
 r_static
