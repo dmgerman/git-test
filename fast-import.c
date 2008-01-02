@@ -2712,7 +2712,7 @@ r_break
 suffix:semicolon
 multiline_comment|/* its valid */
 r_case
-l_int|2
+id|CHECK_REF_FORMAT_ONELEVEL
 suffix:colon
 r_break
 suffix:semicolon

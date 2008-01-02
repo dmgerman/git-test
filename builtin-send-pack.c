@@ -2645,11 +2645,11 @@ l_int|0
 suffix:colon
 multiline_comment|/* ok */
 r_case
-l_int|2
+id|CHECK_REF_FORMAT_ONELEVEL
 suffix:colon
-multiline_comment|/* ok but a single level -- that is fine for&n;&t;&t;&t;  * a match pattern.&n;&t;&t;&t;  */
+multiline_comment|/* ok but a single level -- that is fine for&n;&t;&t;&t; * a match pattern.&n;&t;&t;&t; */
 r_case
-l_int|3
+id|CHECK_REF_FORMAT_WILDCARD
 suffix:colon
 multiline_comment|/* ok but ends with a pattern-match character */
 r_continue
