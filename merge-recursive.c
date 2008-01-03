@@ -1446,7 +1446,7 @@ r_return
 id|n
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Returns a index_entry instance which doesn&squot;t have to correspond to&n; * a real cache entry in Git&squot;s index.&n; */
+multiline_comment|/*&n; * Returns an index_entry instance which doesn&squot;t have to correspond to&n; * a real cache entry in Git&squot;s index.&n; */
 DECL|function|insert_stage_data
 r_static
 r_struct

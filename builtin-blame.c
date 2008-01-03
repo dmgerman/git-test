@@ -2159,7 +2159,7 @@ op_assign
 id|e
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * src typically is on-stack; we want to copy the information in it to&n; * an malloced blame_entry that is already on the linked list of the&n; * scoreboard.  The origin of dst loses a refcnt while the origin of src&n; * gains one.&n; */
+multiline_comment|/*&n; * src typically is on-stack; we want to copy the information in it to&n; * a malloced blame_entry that is already on the linked list of the&n; * scoreboard.  The origin of dst loses a refcnt while the origin of src&n; * gains one.&n; */
 DECL|function|dup_entry
 r_static
 r_void
