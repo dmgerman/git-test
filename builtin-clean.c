@@ -153,6 +153,11 @@ op_star
 op_star
 id|pathspec
 suffix:semicolon
+r_int
+id|prefix_offset
+op_assign
+l_int|0
+suffix:semicolon
 r_char
 op_star
 id|seen
@@ -350,6 +355,19 @@ c_func
 (paren
 op_amp
 id|dir
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|prefix
+)paren
+id|prefix_offset
+op_assign
+id|strlen
+c_func
+(paren
+id|prefix
 )paren
 suffix:semicolon
 id|pathspec
@@ -660,6 +678,8 @@ c_func
 l_string|&quot;Would remove %s&bslash;n&quot;
 comma
 id|directory.buf
+op_plus
+id|prefix_offset
 )paren
 suffix:semicolon
 )brace
@@ -701,6 +721,8 @@ c_func
 l_string|&quot;Removing %s&bslash;n&quot;
 comma
 id|directory.buf
+op_plus
+id|prefix_offset
 )paren
 suffix:semicolon
 id|remove_dir_recursively
@@ -726,6 +748,8 @@ c_func
 l_string|&quot;Would not remove %s&bslash;n&quot;
 comma
 id|directory.buf
+op_plus
+id|prefix_offset
 )paren
 suffix:semicolon
 )brace
@@ -737,6 +761,8 @@ c_func
 l_string|&quot;Not removing %s&bslash;n&quot;
 comma
 id|directory.buf
+op_plus
+id|prefix_offset
 )paren
 suffix:semicolon
 )brace
@@ -772,6 +798,8 @@ c_func
 l_string|&quot;Would remove %s&bslash;n&quot;
 comma
 id|ent-&gt;name
+op_plus
+id|prefix_offset
 )paren
 suffix:semicolon
 r_continue
@@ -791,6 +819,8 @@ c_func
 l_string|&quot;Removing %s&bslash;n&quot;
 comma
 id|ent-&gt;name
+op_plus
+id|prefix_offset
 )paren
 suffix:semicolon
 )brace
