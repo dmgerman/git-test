@@ -62,7 +62,7 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_default_config
+id|git_diff_basic_config
 )paren
 suffix:semicolon
 multiline_comment|/* no &quot;diff&quot; UI options */
