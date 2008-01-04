@@ -892,10 +892,10 @@ id|ref_lock
 op_star
 id|lock
 suffix:semicolon
+multiline_comment|/* only refs/... are allowed */
 r_if
 c_cond
 (paren
-op_logical_neg
 id|prefixcmp
 c_func
 (paren
@@ -903,7 +903,7 @@ id|name
 comma
 l_string|&quot;refs/&quot;
 )paren
-op_logical_and
+op_logical_or
 id|check_ref_format
 c_func
 (paren
