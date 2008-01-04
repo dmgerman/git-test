@@ -3300,6 +3300,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|buf
 (braket
 id|len

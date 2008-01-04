@@ -517,6 +517,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|line
 (braket
 id|len
