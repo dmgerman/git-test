@@ -2092,7 +2092,10 @@ c_func
 (paren
 l_string|&quot;Not a reflog: %s&quot;
 comma
-id|ref
+id|argv
+(braket
+id|i
+)braket
 )paren
 suffix:semicolon
 r_continue
