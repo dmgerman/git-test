@@ -1723,11 +1723,22 @@ op_increment
 )paren
 suffix:semicolon
 multiline_comment|/* do nothing */
+multiline_comment|/*&n;&t; * If it does not even have a &squot;&lt;&squot; and &squot;&gt;&squot;, that is&n;&t; * quite a bogus commit author and we discard it;&n;&t; * this is in line with add_user_info() that is used&n;&t; * in the normal codepath.  When end points at the &squot;&lt;&squot;&n;&t; * that we found, it should have matching &squot;&gt;&squot; later,&n;&t; * which means start (beginning of email address) must&n;&t; * be strictly below len.&n;&t; */
 id|start
 op_assign
 id|end
 op_plus
 l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|start
+op_ge
+id|len
+l_int|1
+)paren
+r_return
 suffix:semicolon
 r_while
 c_loop
@@ -1771,15 +1782,6 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|start
-op_ge
-id|len
-)paren
-r_return
-suffix:semicolon
 multiline_comment|/* parse email */
 r_for
 c_loop
@@ -1787,8 +1789,6 @@ c_loop
 id|end
 op_assign
 id|start
-op_plus
-l_int|1
 suffix:semicolon
 id|end
 OL
