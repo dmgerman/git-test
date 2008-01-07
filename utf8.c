@@ -1,13 +1,6 @@
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 multiline_comment|/* This code is originally from http://www.cl.cam.ac.uk/~mgk25/ucs/ */
-DECL|typedef|ucs_char_t
-r_typedef
-r_int
-r_int
-id|ucs_char_t
-suffix:semicolon
-multiline_comment|/* assuming 32bit int */
 DECL|struct|interval
 r_struct
 id|interval
@@ -1061,10 +1054,10 @@ l_int|0x3fffd
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This function returns the number of columns occupied by the character&n; * pointed to by the variable start. The pointer is updated to point at&n; * the next character. If it was not valid UTF-8, the pointer is set to NULL.&n; */
-DECL|function|utf8_width
-r_int
-id|utf8_width
+multiline_comment|/*&n; * Pick one ucs character starting from the location *start points at,&n; * and return it, while updating the *start pointer to point at the&n; * end of that character.&n; *&n; * If the string was not a valid UTF-8, *start pointer is set to NULL&n; * and the return value is undefined.&n; */
+DECL|function|pick_one_utf8_char
+id|ucs_char_t
+id|pick_one_utf8_char
 c_func
 (paren
 r_const
@@ -1515,6 +1508,42 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_return
+id|ch
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * This function returns the number of columns occupied by the character&n; * pointed to by the variable start. The pointer is updated to point at&n; * the next character.  If it was not valid UTF-8, the pointer is set to&n; * NULL.&n; */
+DECL|function|utf8_width
+r_int
+id|utf8_width
+c_func
+(paren
+r_const
+r_char
+op_star
+op_star
+id|start
+)paren
+(brace
+id|ucs_char_t
+id|ch
+op_assign
+id|pick_one_utf8_char
+c_func
+(paren
+id|start
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|start
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_return
 id|git_wcwidth
 c_func
