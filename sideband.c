@@ -3,8 +3,12 @@ macro_line|#include &quot;sideband.h&quot;
 multiline_comment|/*&n; * Receive multiplexed output stream over git native protocol.&n; * in_stream is the input stream from the remote, which carries data&n; * in pkt_line format with band designator.  Demultiplex it into out&n; * and err and return error appropriately.  Band #1 carries the&n; * primary payload.  Things coming over band #2 is not necessarily&n; * error; they are usually informative message on the standard error&n; * stream, aka &quot;verbose&quot;).  A message over band #3 is a signal that&n; * the remote died unexpectedly.  A flush() concludes the stream.&n; */
 DECL|macro|PREFIX
 mdefine_line|#define PREFIX &quot;remote:&quot;
-DECL|macro|SUFFIX
-mdefine_line|#define SUFFIX &quot;&bslash;033[K&quot;  /* change to &quot;        &quot; if ANSI sequences don&squot;t work */
+DECL|macro|ANSI_SUFFIX
+mdefine_line|#define ANSI_SUFFIX &quot;&bslash;033[K&quot;
+DECL|macro|DUMB_SUFFIX
+mdefine_line|#define DUMB_SUFFIX &quot;        &quot;
+DECL|macro|FIX_SIZE
+mdefine_line|#define FIX_SIZE 10  /* large enough for any of the above */
 DECL|function|recv_sideband
 r_int
 id|recv_sideband
@@ -36,24 +40,23 @@ id|PREFIX
 suffix:semicolon
 r_int
 id|sf
-op_assign
-id|strlen
-c_func
-(paren
-id|SUFFIX
-)paren
 suffix:semicolon
 r_char
 id|buf
 (braket
-id|pf
-op_plus
 id|LARGE_PACKET_MAX
 op_plus
-id|sf
-op_plus
-l_int|1
+l_int|2
+op_star
+id|FIX_SIZE
 )braket
+suffix:semicolon
+r_char
+op_star
+id|suffix
+comma
+op_star
+id|term
 suffix:semicolon
 id|memcpy
 c_func
@@ -63,6 +66,44 @@ comma
 id|PREFIX
 comma
 id|pf
+)paren
+suffix:semicolon
+id|term
+op_assign
+id|getenv
+c_func
+(paren
+l_string|&quot;TERM&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|term
+op_logical_and
+id|strcmp
+c_func
+(paren
+id|term
+comma
+l_string|&quot;dumb&quot;
+)paren
+)paren
+id|suffix
+op_assign
+id|ANSI_SUFFIX
+suffix:semicolon
+r_else
+id|suffix
+op_assign
+id|DUMB_SUFFIX
+suffix:semicolon
+id|sf
+op_assign
+id|strlen
+c_func
+(paren
+id|suffix
 )paren
 suffix:semicolon
 r_while
@@ -272,7 +313,7 @@ l_int|1
 r_char
 id|save
 (braket
-id|sf
+id|FIX_SIZE
 )braket
 suffix:semicolon
 id|memcpy
@@ -309,7 +350,7 @@ op_plus
 id|brk
 l_int|1
 comma
-id|SUFFIX
+id|suffix
 comma
 id|sf
 )paren
