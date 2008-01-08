@@ -14075,6 +14075,8 @@ r_if
 c_cond
 (paren
 id|applied_after_fixing_ws
+op_logical_and
+id|apply
 )paren
 id|fprintf
 c_func
