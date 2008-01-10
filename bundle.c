@@ -1932,7 +1932,7 @@ id|object-&gt;flags
 op_amp
 id|UNINTERESTING
 )paren
-id|write
+id|write_or_die
 c_func
 (paren
 id|rls.in
@@ -1942,7 +1942,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|write
+id|write_or_die
 c_func
 (paren
 id|rls.in
@@ -1956,7 +1956,7 @@ comma
 l_int|40
 )paren
 suffix:semicolon
-id|write
+id|write_or_die
 c_func
 (paren
 id|rls.in

@@ -4199,7 +4199,7 @@ c_func
 l_string|&quot;cannot create keep file&quot;
 )paren
 suffix:semicolon
-id|write
+id|write_or_die
 c_func
 (paren
 id|keep_fd
@@ -4213,10 +4213,19 @@ id|keep_msg
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|close
 c_func
 (paren
 id|keep_fd
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;failed to write keep file&quot;
 )paren
 suffix:semicolon
 id|snprintf
