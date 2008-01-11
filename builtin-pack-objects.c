@@ -2153,13 +2153,6 @@ id|datalen
 op_assign
 id|stream.total_out
 suffix:semicolon
-id|deflateEnd
-c_func
-(paren
-op_amp
-id|stream
-)paren
-suffix:semicolon
 multiline_comment|/*&n;&t;&t; * The object header is a byte of &squot;type&squot; followed by zero or&n;&t;&t; * more bytes of length.&n;&t;&t; */
 id|hdrlen
 op_assign
