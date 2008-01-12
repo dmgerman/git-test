@@ -455,6 +455,13 @@ id|xmalloc
 c_func
 (paren
 id|argc
+OG
+l_int|0
+ques
+c_cond
+id|argc
+suffix:colon
+l_int|1
 )paren
 suffix:semicolon
 r_for
@@ -615,6 +622,13 @@ comma
 l_int|0
 comma
 id|argc
+OG
+l_int|0
+ques
+c_cond
+id|argc
+suffix:colon
+l_int|1
 )paren
 suffix:semicolon
 id|matches
