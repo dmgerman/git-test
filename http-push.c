@@ -11652,6 +11652,14 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+macro_line|#ifndef USE_CURL_MULTI
+id|die
+c_func
+(paren
+l_string|&quot;git-push is not available for http/https repository when not compiled with USE_CURL_MULTI&quot;
+)paren
+suffix:semicolon
+macro_line|#endif
 r_if
 c_cond
 (paren
