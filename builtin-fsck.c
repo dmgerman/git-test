@@ -3601,16 +3601,12 @@ id|obj
 suffix:semicolon
 id|mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|active_cache
 (braket
 id|i
 )braket
 op_member_access_from_pointer
 id|ce_mode
-)paren
 suffix:semicolon
 r_if
 c_cond

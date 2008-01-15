@@ -1982,11 +1982,7 @@ op_logical_and
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 r_return

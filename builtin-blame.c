@@ -9595,16 +9595,12 @@ id|pos
 )paren
 id|mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|active_cache
 (braket
 id|pos
 )braket
 op_member_access_from_pointer
 id|ce_mode
-)paren
 suffix:semicolon
 r_else
 multiline_comment|/* Let&squot;s not bother reading from HEAD tree */
