@@ -6593,7 +6593,7 @@ id|pattern
 r_return
 id|pattern
 suffix:semicolon
-multiline_comment|/*&n;&t; * And define built-in fallback patterns here.  Note that&n;&t; * these can be overriden by the user&squot;s config settings.&n;&t; */
+multiline_comment|/*&n;&t; * And define built-in fallback patterns here.  Note that&n;&t; * these can be overridden by the user&squot;s config settings.&n;&t; */
 r_for
 c_loop
 (paren
