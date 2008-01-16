@@ -14,11 +14,14 @@ DECL|struct|text_stat
 r_struct
 id|text_stat
 (brace
-multiline_comment|/* CR, LF and CRLF counts */
+multiline_comment|/* NUL, CR, LF and CRLF counts */
+DECL|member|nul
 DECL|member|cr
 DECL|member|lf
 DECL|member|crlf
 r_int
+id|nul
+comma
 id|cr
 comma
 id|lf
@@ -191,6 +194,13 @@ op_increment
 suffix:semicolon
 r_break
 suffix:semicolon
+r_case
+l_int|0
+suffix:colon
+id|stats-&gt;nul
+op_increment
+suffix:semicolon
+multiline_comment|/* fall through */
 r_default
 suffix:colon
 id|stats-&gt;nonprintable
@@ -221,6 +231,14 @@ op_star
 id|stats
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|stats-&gt;nul
+)paren
+r_return
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
