@@ -550,6 +550,11 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Since the lock file was fdopen()&squot;ed and then fclose()&squot;ed above,&n;&t; * assign -1 to the lock file descriptor so that commit_lock_file()&n;&t; * won&squot;t try to close() it.&n;&t; */
+id|packed.fd
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren

@@ -4009,12 +4009,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|close
-c_func
-(paren
-id|fd
-)paren
-suffix:semicolon
 id|commit_lock_file
 c_func
 (paren

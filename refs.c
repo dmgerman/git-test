@@ -4435,12 +4435,6 @@ id|len
 )paren
 suffix:semicolon
 )brace
-id|close
-c_func
-(paren
-id|fd
-)paren
-suffix:semicolon
 r_return
 id|commit_lock_file
 c_func
@@ -5379,20 +5373,6 @@ op_star
 id|lock
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|lock-&gt;lock_fd
-op_ge
-l_int|0
-)paren
-(brace
-id|close
-c_func
-(paren
-id|lock-&gt;lock_fd
-)paren
-suffix:semicolon
 multiline_comment|/* Do not free lock-&gt;lk -- atexit() still looks at them */
 r_if
 c_cond
@@ -5405,7 +5385,6 @@ c_func
 id|lock-&gt;lk
 )paren
 suffix:semicolon
-)brace
 id|free
 c_func
 (paren
@@ -6145,10 +6124,10 @@ l_int|1
 op_ne
 l_int|1
 op_logical_or
-id|close
+id|close_lock_file
 c_func
 (paren
-id|lock-&gt;lock_fd
+id|lock-&gt;lk
 )paren
 OL
 l_int|0

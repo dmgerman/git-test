@@ -1997,12 +1997,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|close
-c_func
-(paren
-id|msg_fd
-)paren
-op_logical_or
 id|commit_lock_file
 c_func
 (paren
@@ -2044,12 +2038,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|close
-c_func
-(paren
-id|msg_fd
-)paren
-op_logical_or
 id|commit_lock_file
 c_func
 (paren

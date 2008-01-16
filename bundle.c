@@ -1898,6 +1898,11 @@ c_func
 l_string|&quot;Could not spawn pack-objects&quot;
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * start_command closed bundle_fd if it was &gt; 1&n;&t; * so set the lock fd to -1 so commit_lock_file()&n;&t; * won&squot;t fail trying to close it.&n;&t; */
+id|lock.fd
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1983,27 +1988,22 @@ id|error
 l_string|&quot;pack-objects died&quot;
 )paren
 suffix:semicolon
+r_return
+id|bundle_to_stdout
+ques
+c_cond
 id|close
 c_func
 (paren
 id|bundle_fd
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|bundle_to_stdout
-)paren
+suffix:colon
 id|commit_lock_file
 c_func
 (paren
 op_amp
 id|lock
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|unbundle

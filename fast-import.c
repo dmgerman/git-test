@@ -8285,11 +8285,41 @@ comma
 id|marks
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ferror
+c_func
+(paren
+id|f
+)paren
+op_logical_or
 id|fclose
 c_func
 (paren
 id|f
 )paren
+)paren
+id|failure
+op_or_assign
+id|error
+c_func
+(paren
+l_string|&quot;Unable to write marks file %s: %s&quot;
+comma
+id|mark_file
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t; * Since the lock file was fdopen()&squot;ed and then fclose()&squot;ed above,&n;&t; * assign -1 to the lock file descriptor so that commit_lock_file()&n;&t; * won&squot;t try to close() it.&n;&t; */
+id|mark_lock.fd
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -8306,7 +8336,7 @@ op_or_assign
 id|error
 c_func
 (paren
-l_string|&quot;Unable to write marks file %s: %s&quot;
+l_string|&quot;Unable to write commit file %s: %s&quot;
 comma
 id|mark_file
 comma

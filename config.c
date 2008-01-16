@@ -4644,12 +4644,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|close
-c_func
-(paren
-id|fd
-)paren
-op_logical_or
 id|commit_lock_file
 c_func
 (paren
@@ -4675,11 +4669,6 @@ r_goto
 id|out_free
 suffix:semicolon
 )brace
-multiline_comment|/* fd is closed, so don&squot;t try to close it below. */
-id|fd
-op_assign
-l_int|1
-suffix:semicolon
 multiline_comment|/*&n;&t; * lock is committed, so don&squot;t try to roll it back below.&n;&t; * NOTE: Since lockfile.c keeps a linked list of all created&n;&t; * lock_file structures, it isn&squot;t safe to free(lock).  It&squot;s&n;&t; * better to just leave it hanging around.&n;&t; */
 id|lock
 op_assign
@@ -4691,19 +4680,6 @@ l_int|0
 suffix:semicolon
 id|out_free
 suffix:colon
-r_if
-c_cond
-(paren
-l_int|0
-op_le
-id|fd
-)paren
-id|close
-c_func
-(paren
-id|fd
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5287,12 +5263,6 @@ suffix:colon
 r_if
 c_cond
 (paren
-id|close
-c_func
-(paren
-id|out_fd
-)paren
-op_logical_or
 id|commit_lock_file
 c_func
 (paren

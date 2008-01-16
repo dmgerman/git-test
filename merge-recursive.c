@@ -9515,12 +9515,6 @@ comma
 id|active_nr
 )paren
 op_logical_or
-id|close
-c_func
-(paren
-id|index_fd
-)paren
-op_logical_or
 id|commit_locked_index
 c_func
 (paren

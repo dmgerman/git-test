@@ -381,10 +381,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|close
+id|commit_lock_file
 c_func
 (paren
-id|out_fd
+op_amp
+id|write_lock
 )paren
 op_ne
 l_int|0
@@ -396,12 +397,7 @@ l_string|&quot;unable to write rerere record&quot;
 )paren
 suffix:semicolon
 r_return
-id|commit_lock_file
-c_func
-(paren
-op_amp
-id|write_lock
-)paren
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|handle_file
