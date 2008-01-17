@@ -3005,7 +3005,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|set
+id|meta
 op_assign
 id|diff_get_color
 c_func
@@ -3013,6 +3013,19 @@ c_func
 id|ecbdata-&gt;color_diff
 comma
 id|DIFF_METAINFO
+)paren
+suffix:semicolon
+r_const
+r_char
+op_star
+id|plain
+op_assign
+id|diff_get_color
+c_func
+(paren
+id|ecbdata-&gt;color_diff
+comma
+id|DIFF_PLAIN
 )paren
 suffix:semicolon
 r_const
@@ -3093,7 +3106,7 @@ c_func
 (paren
 l_string|&quot;%s--- %s%s%s&bslash;n&quot;
 comma
-id|set
+id|meta
 comma
 id|ecbdata-&gt;label_path
 (braket
@@ -3110,7 +3123,7 @@ c_func
 (paren
 l_string|&quot;%s+++ %s%s%s&bslash;n&quot;
 comma
-id|set
+id|meta
 comma
 id|ecbdata-&gt;label_path
 (braket
@@ -3241,10 +3254,6 @@ OL
 id|ecbdata-&gt;nparents
 )paren
 (brace
-id|set
-op_assign
-id|reset
-suffix:semicolon
 id|emit_line
 c_func
 (paren
@@ -3359,7 +3368,7 @@ suffix:semicolon
 id|emit_line
 c_func
 (paren
-id|set
+id|plain
 comma
 id|reset
 comma
