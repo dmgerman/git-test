@@ -8275,6 +8275,11 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Since the lock file was fdopen()&squot;ed, it should not be close()&squot;ed.&n;&t; * Assign -1 to the lock file descriptor so that commit_lock_file()&n;&t; * won&squot;t try to close() it.&n;&t; */
+id|mark_lock.fd
+op_assign
+l_int|1
+suffix:semicolon
 id|dump_marks_helper
 c_func
 (paren
@@ -8300,6 +8305,14 @@ c_func
 id|f
 )paren
 )paren
+(brace
+id|rollback_lock_file
+c_func
+(paren
+op_amp
+id|mark_lock
+)paren
+suffix:semicolon
 id|failure
 op_or_assign
 id|error
@@ -8316,11 +8329,9 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Since the lock file was fdopen()&squot;ed and then fclose()&squot;ed above,&n;&t; * assign -1 to the lock file descriptor so that commit_lock_file()&n;&t; * won&squot;t try to close() it.&n;&t; */
-id|mark_lock.fd
-op_assign
-l_int|1
+r_return
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -8331,12 +8342,20 @@ op_amp
 id|mark_lock
 )paren
 )paren
+(brace
+id|rollback_lock_file
+c_func
+(paren
+op_amp
+id|mark_lock
+)paren
+suffix:semicolon
 id|failure
 op_or_assign
 id|error
 c_func
 (paren
-l_string|&quot;Unable to write commit file %s: %s&quot;
+l_string|&quot;Unable to commit marks file %s: %s&quot;
 comma
 id|mark_file
 comma
@@ -8347,6 +8366,9 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+r_return
+suffix:semicolon
+)brace
 )brace
 DECL|function|read_next_command
 r_static
