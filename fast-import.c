@@ -8267,6 +8267,11 @@ op_logical_neg
 id|f
 )paren
 (brace
+r_int
+id|saved_errno
+op_assign
+id|errno
+suffix:semicolon
 id|rollback_lock_file
 c_func
 (paren
@@ -8286,7 +8291,7 @@ comma
 id|strerror
 c_func
 (paren
-id|errno
+id|saved_errno
 )paren
 )paren
 suffix:semicolon
@@ -8324,6 +8329,11 @@ id|f
 )paren
 )paren
 (brace
+r_int
+id|saved_errno
+op_assign
+id|errno
+suffix:semicolon
 id|rollback_lock_file
 c_func
 (paren
@@ -8343,7 +8353,7 @@ comma
 id|strerror
 c_func
 (paren
-id|errno
+id|saved_errno
 )paren
 )paren
 suffix:semicolon
@@ -8361,6 +8371,11 @@ id|mark_lock
 )paren
 )paren
 (brace
+r_int
+id|saved_errno
+op_assign
+id|errno
+suffix:semicolon
 id|rollback_lock_file
 c_func
 (paren
@@ -8380,7 +8395,7 @@ comma
 id|strerror
 c_func
 (paren
-id|errno
+id|saved_errno
 )paren
 )paren
 suffix:semicolon
