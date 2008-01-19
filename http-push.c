@@ -11787,6 +11787,24 @@ id|remote-&gt;can_update_info_refs
 op_assign
 l_int|1
 suffix:semicolon
+r_else
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Error: cannot lock existing info/refs&bslash;n&quot;
+)paren
+suffix:semicolon
+id|rc
+op_assign
+l_int|1
+suffix:semicolon
+r_goto
+id|cleanup
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
