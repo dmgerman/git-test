@@ -11895,9 +11895,15 @@ comma
 id|push_all
 )paren
 )paren
-r_return
+(brace
+id|rc
+op_assign
 l_int|1
 suffix:semicolon
+r_goto
+id|cleanup
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -11913,8 +11919,12 @@ comma
 l_string|&quot;No refs in common and none specified; doing nothing.&bslash;n&quot;
 )paren
 suffix:semicolon
-r_return
+id|rc
+op_assign
 l_int|0
+suffix:semicolon
+r_goto
+id|cleanup
 suffix:semicolon
 )brace
 id|new_refs
@@ -12511,6 +12521,8 @@ l_string|&quot;Unable to update server info&bslash;n&quot;
 suffix:semicolon
 )brace
 )brace
+id|cleanup
+suffix:colon
 r_if
 c_cond
 (paren
@@ -12522,8 +12534,6 @@ c_func
 id|info_ref_lock
 )paren
 suffix:semicolon
-id|cleanup
-suffix:colon
 id|free
 c_func
 (paren
