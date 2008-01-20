@@ -8052,16 +8052,47 @@ c_func
 id|parser
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|lock_flags
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;Error: no DAV locking support on %s&quot;
+comma
+id|remote-&gt;url
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;Cannot access URL %s, return code %d&quot;
+comma
+id|remote-&gt;url
+comma
+id|results.curl_result
+)paren
+suffix:semicolon
+id|lock_flags
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 )brace
 r_else
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
+l_string|&quot;Unable to start PROPFIND request on %s&quot;
 comma
-l_string|&quot;Unable to start PROPFIND request&bslash;n&quot;
+id|remote-&gt;url
 )paren
 suffix:semicolon
 )brace
@@ -11723,16 +11754,6 @@ c_func
 )paren
 )paren
 (brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Error: no DAV locking support on remote repo %s&bslash;n&quot;
-comma
-id|remote-&gt;url
-)paren
-suffix:semicolon
 id|rc
 op_assign
 l_int|1
