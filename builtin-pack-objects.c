@@ -8093,6 +8093,8 @@ r_while
 c_loop
 (paren
 id|sub_size
+op_logical_and
+id|sub_size
 OL
 id|list_size
 op_logical_and
