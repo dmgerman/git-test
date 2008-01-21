@@ -5547,6 +5547,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* All calls must be guarded by find_object() or find_mark() to&n; * ensure the &squot;struct object_entry&squot; passed was written by this&n; * process instance.  We unpack the entry by the offset, avoiding&n; * the need for the corresponding .idx file.  This unpacking rule&n; * works because we only use OBJ_REF_DELTA within the packfiles&n; * created by fast-import.&n; *&n; * oe must not be NULL.  Such an oe usually comes from giving&n; * an unknown SHA-1 to find_object() or an undefined mark to&n; * find_mark().  Callers must test for this condition and use&n; * the standard read_sha1_file() when it happens.&n; *&n; * oe-&gt;pack_id must not be MAX_PACK_ID.  Such an oe is usually from&n; * find_mark(), where the mark was reloaded from an existing marks&n; * file and is referencing an object that this fast-import process&n; * instance did not write out to a packfile.  Callers must test for&n; * this condition and use read_sha1_file() instead.&n; */
 DECL|function|gfi_unpack_entry
 r_static
 r_void
@@ -5595,12 +5596,14 @@ l_int|20
 )paren
 )paren
 (brace
+multiline_comment|/* The object is stored in the packfile we are writing to&n;&t;&t; * and we have modified it since the last time we scanned&n;&t;&t; * back to read a previously written object.  If an old&n;&t;&t; * window covered [p-&gt;pack_size, p-&gt;pack_size + 20) its&n;&t;&t; * data is stale and is not valid.  Closing all windows&n;&t;&t; * and updating the packfile length ensures we can read&n;&t;&t; * the newly written data.&n;&t;&t; */
 id|close_pack_windows
 c_func
 (paren
 id|p
 )paren
 suffix:semicolon
+multiline_comment|/* We have to offer 20 bytes additional on the end of&n;&t;&t; * the packfile as the core unpacker code assumes the&n;&t;&t; * footer is present at the file end and must promise&n;&t;&t; * at least 20 bytes within any window it maps.  But&n;&t;&t; * we don&squot;t actually create the footer here.&n;&t;&t; */
 id|p-&gt;pack_size
 op_assign
 id|pack_size
