@@ -1745,15 +1745,13 @@ id|len
 r_if
 c_cond
 (paren
-id|cache_name_pos
+id|cache_name_exists
 c_func
 (paren
 id|pathname
 comma
 id|len
 )paren
-op_ge
-l_int|0
 )paren
 r_return
 l_int|NULL
