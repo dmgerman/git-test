@@ -628,13 +628,18 @@ suffix:semicolon
 )brace
 DECL|function|commit_index_files
 r_static
-r_void
+r_int
 id|commit_index_files
 c_func
 (paren
 r_void
 )paren
 (brace
+r_int
+id|err
+op_assign
+l_int|0
+suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -650,6 +655,8 @@ multiline_comment|/* nothing to do */
 r_case
 id|COMMIT_NORMAL
 suffix:colon
+id|err
+op_assign
 id|commit_lock_file
 c_func
 (paren
@@ -662,6 +669,8 @@ suffix:semicolon
 r_case
 id|COMMIT_PARTIAL
 suffix:colon
+id|err
+op_assign
 id|commit_lock_file
 c_func
 (paren
@@ -679,6 +688,9 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+r_return
+id|err
+suffix:semicolon
 )brace
 multiline_comment|/*&n; * Take a union of paths in the index and the named tree (typically, &quot;HEAD&quot;),&n; * and return the paths that match the given pattern in list.&n; */
 DECL|function|list_paths
@@ -5177,9 +5189,19 @@ l_string|&quot;MERGE_MSG&quot;
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|commit_index_files
 c_func
 (paren
+)paren
+)paren
+id|die
+(paren
+l_string|&quot;Repository has been updated, but unable to write&bslash;n&quot;
+l_string|&quot;new_index file. Check that disk is not full or quota is&bslash;n&quot;
+l_string|&quot;not exceeded, and then &bslash;&quot;git reset HEAD&bslash;&quot; to recover.&quot;
 )paren
 suffix:semicolon
 id|rerere
