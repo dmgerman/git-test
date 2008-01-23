@@ -2807,14 +2807,17 @@ multiline_comment|/*&n;&t;&t;&t; * Found one, but not so fast.  This could&n;&t;
 r_if
 c_cond
 (paren
-id|stage
-op_logical_or
+op_logical_neg
+(paren
 id|istate-&gt;cache
 (braket
 id|pos
 )braket
 op_member_access_from_pointer
-id|ce_mode
+id|ce_flags
+op_amp
+id|CE_REMOVE
+)paren
 )paren
 (brace
 id|retval
@@ -2913,13 +2916,14 @@ id|p
 op_eq
 id|stage
 op_logical_and
+op_logical_neg
 (paren
-id|stage
-op_logical_or
-id|p-&gt;ce_mode
+id|p-&gt;ce_flags
+op_amp
+id|CE_REMOVE
 )paren
 )paren
-multiline_comment|/* p is at the same stage as our entry, and&n;&t;&t;&t;&t; * is a subdirectory of what we are looking&n;&t;&t;&t;&t; * at, so we cannot have conflicts at our&n;&t;&t;&t;&t; * level or anything shorter.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t;&t; * p is at the same stage as our entry, and&n;&t;&t;&t;&t; * is a subdirectory of what we are looking&n;&t;&t;&t;&t; * at, so we cannot have conflicts at our&n;&t;&t;&t;&t; * level or anything shorter.&n;&t;&t;&t;&t; */
 r_return
 id|retval
 suffix:semicolon
