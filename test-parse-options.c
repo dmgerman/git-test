@@ -147,6 +147,21 @@ comma
 l_string|&quot;get another string (pervert ordering)&quot;
 )paren
 comma
+id|OPT_STRING
+c_func
+(paren
+l_char|&squot;o&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|string
+comma
+l_string|&quot;str&quot;
+comma
+l_string|&quot;get another string&quot;
+)paren
+comma
 id|OPT_END
 c_func
 (paren
