@@ -7259,6 +7259,27 @@ id|img-&gt;nr
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t; * If match_begining or match_end is specified, there is no&n;&t; * point starting from a wrong line that will never match and&n;&t; * wander around and wait for a match at the specified end.&n;&t; */
+r_if
+c_cond
+(paren
+id|match_beginning
+)paren
+id|line
+op_assign
+l_int|0
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|match_end
+)paren
+id|line
+op_assign
+id|img-&gt;nr
+id|preimage-&gt;nr
+suffix:semicolon
 r_try
 op_assign
 l_int|0
