@@ -1166,7 +1166,6 @@ c_func
 (paren
 id|dst
 )paren
-l_int|1
 suffix:semicolon
 r_for
 c_loop
@@ -1224,6 +1223,8 @@ comma
 id|path
 op_plus
 id|length
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|modes
