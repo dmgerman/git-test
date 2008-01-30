@@ -7480,6 +7480,9 @@ r_int
 id|try_lno
 comma
 r_int
+id|ws_rule
+comma
+r_int
 id|match_beginning
 comma
 r_int
@@ -7633,6 +7636,9 @@ r_int
 id|line
 comma
 r_int
+id|ws_rule
+comma
+r_int
 id|match_beginning
 comma
 r_int
@@ -7763,6 +7769,8 @@ comma
 r_try
 comma
 id|try_lno
+comma
+id|ws_rule
 comma
 id|match_beginning
 comma
@@ -8868,6 +8876,8 @@ op_amp
 id|postimage
 comma
 id|pos
+comma
+id|ws_rule
 comma
 id|match_beginning
 comma
