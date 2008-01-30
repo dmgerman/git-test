@@ -7551,7 +7551,7 @@ r_int
 id|ws_rule
 )paren
 (brace
-multiline_comment|/*&n;&t; * plen is number of bytes to be copied from patch,&n;&t; * starting at patch+1 (patch[0] is &squot;+&squot;).  Typically&n;&t; * patch[plen] is &squot;&bslash;n&squot;, unless this is the incomplete&n;&t; * last line.&n;&t; */
+multiline_comment|/*&n;&t; * plen is number of bytes to be copied from patch, starting&n;&t; * at patch.  Typically patch[plen-1] is &squot;&bslash;n&squot;, unless this is&n;&t; * the incomplete last line.&n;&t; */
 r_int
 id|i
 suffix:semicolon
@@ -7568,12 +7568,12 @@ suffix:semicolon
 r_int
 id|last_tab_in_indent
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 r_int
 id|last_space_in_indent
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 r_int
 id|need_fix_leading_space
@@ -7595,7 +7595,7 @@ id|WS_TRAILING_SPACE
 )paren
 op_logical_and
 (paren
-l_int|1
+l_int|2
 OL
 id|plen
 op_logical_and
@@ -7606,7 +7606,7 @@ id|patch
 (braket
 id|plen
 op_minus
-l_int|1
+l_int|2
 )braket
 )paren
 )paren
@@ -7618,6 +7618,8 @@ c_cond
 id|patch
 (braket
 id|plen
+op_minus
+l_int|1
 )braket
 op_eq
 l_char|&squot;&bslash;n&squot;
@@ -7642,6 +7644,8 @@ c_func
 id|patch
 (braket
 id|plen
+op_minus
+l_int|1
 )braket
 )paren
 )paren
@@ -7659,7 +7663,7 @@ c_loop
 (paren
 id|i
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 id|i
 OL
@@ -7699,7 +7703,7 @@ id|WS_SPACE_BEFORE_TAB
 )paren
 op_logical_and
 l_int|0
-OL
+op_le
 id|last_space_in_indent
 )paren
 id|need_fix_leading_space
@@ -7753,6 +7757,7 @@ c_cond
 id|need_fix_leading_space
 )paren
 (brace
+multiline_comment|/* Process indent ourselves */
 r_int
 id|consecutive_spaces
 op_assign
@@ -7795,13 +7800,13 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * between patch[1..last], strip the funny spaces,&n;&t;&t; * updating them to tab as needed.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * between patch[0..last-1], strip the funny spaces,&n;&t;&t; * updating them to tab as needed.&n;&t;&t; */
 r_for
 c_loop
 (paren
 id|i
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 id|i
 OL
@@ -7809,9 +7814,6 @@ id|last
 suffix:semicolon
 id|i
 op_increment
-comma
-id|plen
-op_decrement
 )paren
 (brace
 r_char
@@ -7881,28 +7883,25 @@ op_increment
 op_assign
 l_char|&squot; &squot;
 suffix:semicolon
+id|plen
+op_sub_assign
+id|last
+suffix:semicolon
+id|patch
+op_add_assign
+id|last
+suffix:semicolon
 id|fixed
 op_assign
 l_int|1
 suffix:semicolon
-id|i
-op_assign
-id|last
-suffix:semicolon
 )brace
-r_else
-id|i
-op_assign
-l_int|1
-suffix:semicolon
 id|memcpy
 c_func
 (paren
 id|output
 comma
 id|patch
-op_plus
-id|i
 comma
 id|plen
 )paren
@@ -8615,6 +8614,8 @@ c_func
 r_new
 comma
 id|patch
+op_plus
+l_int|1
 comma
 id|plen
 comma
