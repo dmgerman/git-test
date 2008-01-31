@@ -2202,8 +2202,6 @@ r_if
 c_cond
 (paren
 id|cb
-op_logical_and
-id|cb-&gt;data
 )paren
 id|free
 c_func
@@ -4555,11 +4553,6 @@ comma
 id|resp
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|cmdp-&gt;cb.data
-)paren
 id|free
 c_func
 (paren

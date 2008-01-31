@@ -3484,11 +3484,6 @@ id|commit-&gt;object.sha1
 )paren
 r_continue
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|temp_commit_buffer
-)paren
 id|free
 c_func
 (paren
@@ -3582,11 +3577,6 @@ r_break
 suffix:semicolon
 )brace
 )brace
-r_if
-c_cond
-(paren
-id|temp_commit_buffer
-)paren
 id|free
 c_func
 (paren

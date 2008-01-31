@@ -154,11 +154,6 @@ l_string|&quot;format:&quot;
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|user_format
-)paren
 id|free
 c_func
 (paren

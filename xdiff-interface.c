@@ -1450,11 +1450,6 @@ comma
 id|expression
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|buffer
-)paren
 id|free
 c_func
 (paren

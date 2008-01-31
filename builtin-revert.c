@@ -2106,11 +2106,6 @@ l_int|NULL
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|reencoded_message
-)paren
 id|free
 c_func
 (paren

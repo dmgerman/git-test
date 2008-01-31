@@ -7043,11 +7043,6 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n;&t; * Handle memory allocation outside of the cache&n;&t; * accounting lock.  Compiler will optimize the strangeness&n;&t; * away when THREADED_DELTA_SEARCH is not defined.&n;&t; */
-r_if
-c_cond
-(paren
-id|trg_entry-&gt;delta_data
-)paren
 id|free
 c_func
 (paren

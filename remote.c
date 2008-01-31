@@ -3172,11 +3172,6 @@ id|next
 op_assign
 id|ref-&gt;next
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|ref-&gt;peer_ref
-)paren
 id|free
 c_func
 (paren
