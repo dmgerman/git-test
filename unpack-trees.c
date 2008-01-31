@@ -2532,6 +2532,12 @@ c_func
 id|o-&gt;dir
 comma
 id|ce-&gt;name
+comma
+id|ce_to_dtype
+c_func
+(paren
+id|ce
+)paren
 )paren
 )paren
 multiline_comment|/*&n;&t;&t;&t; * ce-&gt;name is explicitly excluded, so it is Ok to&n;&t;&t;&t; * overwrite it.&n;&t;&t;&t; */

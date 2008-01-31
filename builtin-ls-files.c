@@ -1186,6 +1186,12 @@ c_func
 id|dir
 comma
 id|ce-&gt;name
+comma
+id|ce_to_dtype
+c_func
+(paren
+id|ce
+)paren
 )paren
 op_ne
 id|dir-&gt;show_ignored
@@ -1287,6 +1293,12 @@ c_func
 id|dir
 comma
 id|ce-&gt;name
+comma
+id|ce_to_dtype
+c_func
+(paren
+id|ce
+)paren
 )paren
 op_ne
 id|dir-&gt;show_ignored
