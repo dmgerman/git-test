@@ -2521,6 +2521,15 @@ id|st
 r_int
 id|cnt
 suffix:semicolon
+r_int
+id|dtype
+op_assign
+id|ce_to_dtype
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2533,11 +2542,8 @@ id|o-&gt;dir
 comma
 id|ce-&gt;name
 comma
-id|ce_to_dtype
-c_func
-(paren
-id|ce
-)paren
+op_amp
+id|dtype
 )paren
 )paren
 multiline_comment|/*&n;&t;&t;&t; * ce-&gt;name is explicitly excluded, so it is Ok to&n;&t;&t;&t; * overwrite it.&n;&t;&t;&t; */
