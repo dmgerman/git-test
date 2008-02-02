@@ -1874,6 +1874,10 @@ c_func
 (paren
 l_string|&quot;help--browse&quot;
 comma
+l_string|&quot;-c&quot;
+comma
+l_string|&quot;help.browser&quot;
+comma
 id|page_path.buf
 comma
 l_int|NULL
