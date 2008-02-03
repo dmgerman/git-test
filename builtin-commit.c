@@ -3215,7 +3215,7 @@ id|use_message
 suffix:semicolon
 id|commit
 op_assign
-id|lookup_commit
+id|lookup_commit_reference
 c_func
 (paren
 id|sha1
