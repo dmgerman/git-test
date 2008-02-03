@@ -1427,6 +1427,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|commit-&gt;date
+)paren
+r_return
+id|objerror
+c_func
+(paren
+op_amp
+id|commit-&gt;object
+comma
+l_string|&quot;invalid author/committer line&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|memcmp
 c_func
 (paren
@@ -1594,24 +1610,6 @@ id|printf
 c_func
 (paren
 l_string|&quot;root %s&bslash;n&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|commit-&gt;date
-)paren
-id|printf
-c_func
-(paren
-l_string|&quot;bad commit date in %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
