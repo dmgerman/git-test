@@ -708,6 +708,9 @@ c_cond
 id|blob
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|parse_blob_buffer
 c_func
 (paren
@@ -717,6 +720,9 @@ id|buffer
 comma
 id|size
 )paren
+)paren
+r_return
+l_int|NULL
 suffix:semicolon
 id|obj
 op_assign
@@ -763,6 +769,9 @@ op_logical_neg
 id|tree-&gt;object.parsed
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|parse_tree_buffer
 c_func
 (paren
@@ -772,6 +781,9 @@ id|buffer
 comma
 id|size
 )paren
+)paren
+r_return
+l_int|NULL
 suffix:semicolon
 id|eaten
 op_assign
@@ -806,6 +818,9 @@ c_cond
 id|commit
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|parse_commit_buffer
 c_func
 (paren
@@ -815,6 +830,9 @@ id|buffer
 comma
 id|size
 )paren
+)paren
+r_return
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -865,6 +883,9 @@ c_cond
 id|tag
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|parse_tag_buffer
 c_func
 (paren
@@ -874,6 +895,9 @@ id|buffer
 comma
 id|size
 )paren
+)paren
+r_return
+l_int|NULL
 suffix:semicolon
 id|obj
 op_assign
