@@ -765,7 +765,7 @@ c_func
 suffix:semicolon
 id|template_dir
 op_assign
-id|prefix_path
+id|prefix_filename
 c_func
 (paren
 id|exec_path

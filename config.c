@@ -2435,7 +2435,10 @@ c_func
 suffix:semicolon
 id|system_wide
 op_assign
-id|prefix_path
+id|strdup
+c_func
+(paren
+id|prefix_filename
 c_func
 (paren
 id|exec_path
@@ -2447,6 +2450,7 @@ id|exec_path
 )paren
 comma
 id|system_wide
+)paren
 )paren
 suffix:semicolon
 )brace
