@@ -123,12 +123,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_star
-id|name
-op_logical_and
-op_logical_neg
-op_star
 id|end
+id|name
+op_eq
+id|len
 op_logical_and
 id|i
 op_ge
