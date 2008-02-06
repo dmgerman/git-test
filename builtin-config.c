@@ -497,6 +497,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|git_config_global
+c_func
+(paren
+)paren
+op_logical_and
 id|home
 )paren
 id|global
@@ -513,6 +518,14 @@ id|home
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|git_config_system
+c_func
+(paren
+)paren
+)paren
 id|system_wide
 op_assign
 id|git_etc_gitconfig
