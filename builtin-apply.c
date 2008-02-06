@@ -6663,6 +6663,8 @@ comma
 id|buf-&gt;len
 comma
 id|buf
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_return

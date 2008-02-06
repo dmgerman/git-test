@@ -152,6 +152,13 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* 1: both ways, -1: only when adding git objects */
+DECL|variable|safe_crlf
+r_enum
+id|safe_crlf
+id|safe_crlf
+op_assign
+id|SAFE_CRLF_WARN
+suffix:semicolon
 DECL|variable|whitespace_rule_cfg
 r_int
 id|whitespace_rule_cfg
