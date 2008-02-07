@@ -2006,6 +2006,16 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;merge-recursive&quot;
+comma
+id|cmd_merge_recursive
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
 l_string|&quot;mv&quot;
 comma
 id|cmd_mv
