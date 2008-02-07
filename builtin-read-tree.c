@@ -1237,6 +1237,9 @@ id|tree-&gt;size
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|unpack_trees
 c_func
 (paren
@@ -1247,6 +1250,9 @@ comma
 op_amp
 id|opts
 )paren
+)paren
+r_return
+l_int|128
 suffix:semicolon
 multiline_comment|/*&n;&t; * When reading only one tree (either the most basic form,&n;&t; * &quot;-m ent&quot; or &quot;--reset ent&quot; form), we can obtain a fully&n;&t; * valid cache-tree because the index must match exactly&n;&t; * what came from the tree.&n;&t; */
 r_if

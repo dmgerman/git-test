@@ -1128,6 +1128,16 @@ comma
 id|remove
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+OL
+l_int|0
+)paren
+r_return
+id|ret
+suffix:semicolon
 macro_line|#if DBRT_DEBUG &gt; 1
 id|printf
 c_func
@@ -1861,7 +1871,8 @@ id|o-&gt;trivial_merges_only
 op_logical_and
 id|o-&gt;nontrivial_merge
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;Merge requires file-level merging&quot;
@@ -1884,7 +1895,7 @@ suffix:semicolon
 multiline_comment|/* Here come the merge functions */
 DECL|function|reject_merge
 r_static
-r_void
+r_int
 id|reject_merge
 c_func
 (paren
@@ -1894,7 +1905,8 @@ op_star
 id|ce
 )paren
 (brace
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;Entry &squot;%s&squot; would be overwritten by merge. Cannot merge.&quot;
@@ -1964,7 +1976,7 @@ suffix:semicolon
 multiline_comment|/*&n; * When a CE gets turned into an unmerged entry, we&n; * want it to be up-to-date&n; */
 DECL|function|verify_uptodate
 r_static
-r_void
+r_int
 id|verify_uptodate
 c_func
 (paren
@@ -1991,6 +2003,7 @@ op_logical_or
 id|o-&gt;reset
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -2027,6 +2040,7 @@ op_logical_neg
 id|changed
 )paren
 r_return
+l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * NEEDSWORK: the current default policy is to allow&n;&t;&t; * submodule to be out of sync wrt the supermodule&n;&t;&t; * index.  This needs to be tightened later for&n;&t;&t; * submodules that are marked to be automatically&n;&t;&t; * checked out.&n;&t;&t; */
 r_if
@@ -2039,6 +2053,7 @@ id|ce-&gt;ce_mode
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
 id|errno
 op_assign
@@ -2053,8 +2068,10 @@ op_eq
 id|ENOENT
 )paren
 r_return
+l_int|0
 suffix:semicolon
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;Entry &squot;%s&squot; not uptodate. Cannot merge.&quot;
@@ -2324,6 +2341,9 @@ id|ce
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|verify_uptodate
 c_func
 (paren
@@ -2331,6 +2351,9 @@ id|ce
 comma
 id|o
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|ce-&gt;ce_flags
 op_or_assign
@@ -2419,7 +2442,8 @@ c_cond
 (paren
 id|i
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it&quot;
@@ -2440,7 +2464,7 @@ suffix:semicolon
 multiline_comment|/*&n; * We do not want to remove or overwrite a working tree file that&n; * is not tracked, unless it is ignored.&n; */
 DECL|function|verify_absent
 r_static
-r_void
+r_int
 id|verify_absent
 c_func
 (paren
@@ -2475,6 +2499,7 @@ op_logical_neg
 id|o-&gt;update
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -2488,6 +2513,7 @@ l_int|NULL
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -2521,6 +2547,7 @@ id|ce-&gt;name
 )paren
 multiline_comment|/*&n;&t;&t;&t; * ce-&gt;name is explicitly excluded, so it is Ok to&n;&t;&t;&t; * overwrite it.&n;&t;&t;&t; */
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -2551,6 +2578,7 @@ op_add_assign
 id|cnt
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * The previous round may already have decided to&n;&t;&t; * delete this path, which is in a subdirectory that&n;&t;&t; * is being replaced with a blob.&n;&t;&t; */
@@ -2594,9 +2622,11 @@ op_amp
 id|CE_REMOVE
 )paren
 r_return
+l_int|0
 suffix:semicolon
 )brace
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;Untracked working tree file &squot;%s&squot; &quot;
@@ -2608,6 +2638,9 @@ id|action
 )paren
 suffix:semicolon
 )brace
+r_return
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|merged_entry
 r_static
@@ -2673,6 +2706,9 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_if
+c_cond
+(paren
 id|verify_uptodate
 c_func
 (paren
@@ -2680,6 +2716,9 @@ id|old
 comma
 id|o
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|invalidate_ce_path
 c_func
@@ -2691,6 +2730,9 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_if
+c_cond
+(paren
 id|verify_absent
 c_func
 (paren
@@ -2700,6 +2742,9 @@ l_string|&quot;overwritten&quot;
 comma
 id|o
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|invalidate_ce_path
 c_func
@@ -2754,6 +2799,10 @@ c_cond
 (paren
 id|old
 )paren
+(brace
+r_if
+c_cond
+(paren
 id|verify_uptodate
 c_func
 (paren
@@ -2761,8 +2810,15 @@ id|old
 comma
 id|o
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
+)brace
 r_else
+r_if
+c_cond
+(paren
 id|verify_absent
 c_func
 (paren
@@ -2772,6 +2828,9 @@ l_string|&quot;removed&quot;
 comma
 id|o
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|ce-&gt;ce_flags
 op_or_assign
@@ -3171,6 +3230,7 @@ comma
 id|head
 )paren
 )paren
+r_return
 id|reject_merge
 c_func
 (paren
@@ -3205,6 +3265,7 @@ id|head
 )paren
 )paren
 (brace
+r_return
 id|reject_merge
 c_func
 (paren
@@ -3452,6 +3513,10 @@ op_logical_and
 op_logical_neg
 id|head_deleted
 )paren
+(brace
+r_if
+c_cond
+(paren
 id|verify_absent
 c_func
 (paren
@@ -3461,7 +3526,11 @@ l_string|&quot;removed&quot;
 comma
 id|o
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
@@ -3503,6 +3572,9 @@ c_cond
 id|index
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|verify_uptodate
 c_func
 (paren
@@ -3510,6 +3582,9 @@ id|index
 comma
 id|o
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 )brace
 id|remove_entry
@@ -3927,6 +4002,7 @@ c_cond
 (paren
 id|oldtree
 )paren
+r_return
 id|reject_merge
 c_func
 (paren
@@ -3938,6 +4014,7 @@ c_cond
 (paren
 id|current
 )paren
+r_return
 id|reject_merge
 c_func
 (paren
@@ -3949,6 +4026,7 @@ c_cond
 (paren
 id|newtree
 )paren
+r_return
 id|reject_merge
 c_func
 (paren
@@ -4059,7 +4137,8 @@ id|a
 op_logical_and
 id|old
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;Entry &squot;%s&squot; overlaps.  Cannot bind.&quot;
