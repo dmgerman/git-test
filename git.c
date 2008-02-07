@@ -1694,6 +1694,16 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;checkout&quot;
+comma
+id|cmd_checkout
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
 l_string|&quot;checkout-index&quot;
 comma
 id|cmd_checkout_index
