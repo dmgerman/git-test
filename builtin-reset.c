@@ -8,6 +8,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;branch.h&quot;
 DECL|variable|builtin_reset_usage
 r_static
 r_const
@@ -1560,44 +1561,9 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-id|unlink
+id|remove_branch_state
 c_func
 (paren
-id|git_path
-c_func
-(paren
-l_string|&quot;MERGE_HEAD&quot;
-)paren
-)paren
-suffix:semicolon
-id|unlink
-c_func
-(paren
-id|git_path
-c_func
-(paren
-l_string|&quot;rr-cache/MERGE_RR&quot;
-)paren
-)paren
-suffix:semicolon
-id|unlink
-c_func
-(paren
-id|git_path
-c_func
-(paren
-l_string|&quot;MERGE_MSG&quot;
-)paren
-)paren
-suffix:semicolon
-id|unlink
-c_func
-(paren
-id|git_path
-c_func
-(paren
-l_string|&quot;SQUASH_MSG&quot;
-)paren
 )paren
 suffix:semicolon
 id|free
