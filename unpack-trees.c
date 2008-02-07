@@ -499,9 +499,11 @@ c_cond
 (paren
 id|first
 )paren
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot;index %s&bslash;n&quot;
 comma
 id|first
@@ -542,9 +544,11 @@ id|df_conflict_list
 r_continue
 suffix:semicolon
 macro_line|#if DBRT_DEBUG &gt; 1
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot;%d %s&bslash;n&quot;
 comma
 id|i
@@ -1049,9 +1053,11 @@ r_int
 id|ret
 suffix:semicolon
 macro_line|#if DBRT_DEBUG &gt; 1
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot;%s:&bslash;n&quot;
 comma
 id|first
@@ -1072,9 +1078,11 @@ id|i
 op_increment
 )paren
 (brace
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot; %d &quot;
 comma
 id|i
@@ -1088,10 +1096,19 @@ id|src
 id|i
 )braket
 )paren
-id|printf
+id|fprintf
 c_func
 (paren
-l_string|&quot;%s&bslash;n&quot;
+id|stderr
+comma
+l_string|&quot;%06x %s&bslash;n&quot;
+comma
+id|src
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|ce_mode
 comma
 id|sha1_to_hex
 c_func
@@ -1106,9 +1123,11 @@ id|sha1
 )paren
 suffix:semicolon
 r_else
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
@@ -1139,9 +1158,11 @@ r_return
 id|ret
 suffix:semicolon
 macro_line|#if DBRT_DEBUG &gt; 1
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot;Added %d entries&bslash;n&quot;
 comma
 id|ret
