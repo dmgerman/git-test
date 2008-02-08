@@ -5189,6 +5189,16 @@ l_string|&quot;MERGE_MSG&quot;
 )paren
 )paren
 suffix:semicolon
+id|unlink
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;SQUASH_MSG&quot;
+)paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
