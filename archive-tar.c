@@ -1307,6 +1307,8 @@ l_string|&quot;tar.umask&quot;
 r_if
 c_cond
 (paren
+id|value
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
