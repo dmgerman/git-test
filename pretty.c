@@ -1661,7 +1661,7 @@ suffix:semicolon
 )brace
 DECL|function|format_person_part
 r_static
-r_void
+r_int
 id|format_person_part
 c_func
 (paren
@@ -1682,6 +1682,13 @@ r_int
 id|len
 )paren
 (brace
+multiline_comment|/* currently all placeholders have same length */
+r_const
+r_int
+id|placeholder_len
+op_assign
+l_int|2
+suffix:semicolon
 r_int
 id|start
 comma
@@ -1694,12 +1701,14 @@ suffix:semicolon
 r_int
 r_int
 id|date
+op_assign
+l_int|0
 suffix:semicolon
 r_char
 op_star
 id|ep
 suffix:semicolon
-multiline_comment|/* parse name */
+multiline_comment|/* advance &squot;end&squot; to point to email start delimiter */
 r_for
 c_loop
 (paren
@@ -1723,23 +1732,27 @@ op_increment
 )paren
 suffix:semicolon
 multiline_comment|/* do nothing */
-multiline_comment|/*&n;&t; * If it does not even have a &squot;&lt;&squot; and &squot;&gt;&squot;, that is&n;&t; * quite a bogus commit author and we discard it;&n;&t; * this is in line with add_user_info() that is used&n;&t; * in the normal codepath.  When end points at the &squot;&lt;&squot;&n;&t; * that we found, it should have matching &squot;&gt;&squot; later,&n;&t; * which means start (beginning of email address) must&n;&t; * be strictly below len.&n;&t; */
-id|start
-op_assign
+multiline_comment|/*&n;&t; * When end points at the &squot;&lt;&squot; that we found, it should have&n;&t; * matching &squot;&gt;&squot; later, which means &squot;end&squot; must be strictly&n;&t; * below len - 1.&n;&t; */
+r_if
+c_cond
+(paren
 id|end
-op_plus
-l_int|1
+op_ge
+id|len
+l_int|2
+)paren
+r_goto
+id|skip
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|start
-op_ge
-id|len
-l_int|1
+id|part
+op_eq
+l_char|&squot;n&squot;
 )paren
-r_return
-suffix:semicolon
+(brace
+multiline_comment|/* name */
 r_while
 c_loop
 (paren
@@ -1760,15 +1773,6 @@ l_int|1
 id|end
 op_decrement
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|part
-op_eq
-l_char|&squot;n&squot;
-)paren
-(brace
-multiline_comment|/* name */
 id|strbuf_add
 c_func
 (paren
@@ -1780,15 +1784,19 @@ id|end
 )paren
 suffix:semicolon
 r_return
+id|placeholder_len
 suffix:semicolon
 )brace
-multiline_comment|/* parse email */
+id|start
+op_assign
+op_increment
+id|end
+suffix:semicolon
+multiline_comment|/* save email start position */
+multiline_comment|/* advance &squot;end&squot; to point to email end delimiter */
 r_for
 c_loop
 (paren
-id|end
-op_assign
-id|start
 suffix:semicolon
 id|end
 OL
@@ -1813,7 +1821,8 @@ id|end
 op_ge
 id|len
 )paren
-r_return
+r_goto
+id|skip
 suffix:semicolon
 r_if
 c_cond
@@ -1838,9 +1847,10 @@ id|start
 )paren
 suffix:semicolon
 r_return
+id|placeholder_len
 suffix:semicolon
 )brace
-multiline_comment|/* parse date */
+multiline_comment|/* advance &squot;start&squot; to point to date start delimiter */
 r_for
 c_loop
 (paren
@@ -1875,7 +1885,8 @@ id|start
 op_ge
 id|len
 )paren
-r_return
+r_goto
+id|skip
 suffix:semicolon
 id|date
 op_assign
@@ -1901,7 +1912,8 @@ id|start
 op_eq
 id|ep
 )paren
-r_return
+r_goto
+id|skip
 suffix:semicolon
 r_if
 c_cond
@@ -1930,6 +1942,7 @@ id|start
 )paren
 suffix:semicolon
 r_return
+id|placeholder_len
 suffix:semicolon
 )brace
 multiline_comment|/* parse tz */
@@ -2029,6 +2042,7 @@ id|DATE_NORMAL
 )paren
 suffix:semicolon
 r_return
+id|placeholder_len
 suffix:semicolon
 r_case
 l_char|&squot;D&squot;
@@ -2051,6 +2065,7 @@ id|DATE_RFC2822
 )paren
 suffix:semicolon
 r_return
+id|placeholder_len
 suffix:semicolon
 r_case
 l_char|&squot;r&squot;
@@ -2073,6 +2088,7 @@ id|DATE_RELATIVE
 )paren
 suffix:semicolon
 r_return
+id|placeholder_len
 suffix:semicolon
 r_case
 l_char|&squot;i&squot;
@@ -2095,8 +2111,50 @@ id|DATE_ISO8601
 )paren
 suffix:semicolon
 r_return
+id|placeholder_len
 suffix:semicolon
 )brace
+id|skip
+suffix:colon
+multiline_comment|/*&n;&t; * bogus commit, &squot;sb&squot; cannot be updated, but we still need to&n;&t; * compute a valid return value.&n;&t; */
+r_if
+c_cond
+(paren
+id|part
+op_eq
+l_char|&squot;n&squot;
+op_logical_or
+id|part
+op_eq
+l_char|&squot;e&squot;
+op_logical_or
+id|part
+op_eq
+l_char|&squot;t&squot;
+op_logical_or
+id|part
+op_eq
+l_char|&squot;d&squot;
+op_logical_or
+id|part
+op_eq
+l_char|&squot;D&squot;
+op_logical_or
+id|part
+op_eq
+l_char|&squot;r&squot;
+op_logical_or
+id|part
+op_eq
+l_char|&squot;i&squot;
+)paren
+r_return
+id|placeholder_len
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* unknown placeholder */
 )brace
 DECL|struct|chunk
 r_struct
@@ -2470,7 +2528,7 @@ suffix:semicolon
 )brace
 DECL|function|format_commit_item
 r_static
-r_void
+r_int
 id|format_commit_item
 c_func
 (paren
@@ -2529,19 +2587,21 @@ l_int|0
 r_case
 l_char|&squot;C&squot;
 suffix:colon
-r_switch
+r_if
 c_cond
 (paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
 id|placeholder
-(braket
-l_int|3
-)braket
+op_plus
+l_int|1
+comma
+l_string|&quot;red&quot;
+)paren
 )paren
 (brace
-r_case
-l_char|&squot;d&squot;
-suffix:colon
-multiline_comment|/* red */
 id|strbuf_addstr
 c_func
 (paren
@@ -2551,11 +2611,25 @@ l_string|&quot;&bslash;033[31m&quot;
 )paren
 suffix:semicolon
 r_return
+l_int|4
 suffix:semicolon
-r_case
-l_char|&squot;e&squot;
-suffix:colon
-multiline_comment|/* green */
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|placeholder
+op_plus
+l_int|1
+comma
+l_string|&quot;green&quot;
+)paren
+)paren
+(brace
 id|strbuf_addstr
 c_func
 (paren
@@ -2565,11 +2639,25 @@ l_string|&quot;&bslash;033[32m&quot;
 )paren
 suffix:semicolon
 r_return
+l_int|6
 suffix:semicolon
-r_case
-l_char|&squot;u&squot;
-suffix:colon
-multiline_comment|/* blue */
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|placeholder
+op_plus
+l_int|1
+comma
+l_string|&quot;blue&quot;
+)paren
+)paren
+(brace
 id|strbuf_addstr
 c_func
 (paren
@@ -2579,11 +2667,25 @@ l_string|&quot;&bslash;033[34m&quot;
 )paren
 suffix:semicolon
 r_return
+l_int|5
 suffix:semicolon
-r_case
-l_char|&squot;s&squot;
-suffix:colon
-multiline_comment|/* reset color */
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|placeholder
+op_plus
+l_int|1
+comma
+l_string|&quot;reset&quot;
+)paren
+)paren
+(brace
 id|strbuf_addstr
 c_func
 (paren
@@ -2593,8 +2695,13 @@ l_string|&quot;&bslash;033[m&quot;
 )paren
 suffix:semicolon
 r_return
+l_int|6
 suffix:semicolon
 )brace
+r_else
+r_return
+l_int|0
+suffix:semicolon
 r_case
 l_char|&squot;n&squot;
 suffix:colon
@@ -2608,6 +2715,7 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* these depend on the commit */
@@ -2649,6 +2757,7 @@ id|commit-&gt;object.sha1
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;h&squot;
@@ -2667,6 +2776,7 @@ id|c-&gt;abbrev_commit_hash
 )paren
 )paren
 r_return
+l_int|1
 suffix:semicolon
 id|strbuf_addstr
 c_func
@@ -2688,6 +2798,7 @@ id|sb-&gt;len
 id|c-&gt;abbrev_commit_hash.off
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;T&squot;
@@ -2706,6 +2817,7 @@ id|commit-&gt;tree-&gt;object.sha1
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;t&squot;
@@ -2724,6 +2836,7 @@ id|c-&gt;abbrev_tree_hash
 )paren
 )paren
 r_return
+l_int|1
 suffix:semicolon
 id|strbuf_addstr
 c_func
@@ -2745,6 +2858,7 @@ id|sb-&gt;len
 id|c-&gt;abbrev_tree_hash.off
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;P&squot;
@@ -2793,6 +2907,7 @@ id|p-&gt;item-&gt;object.sha1
 suffix:semicolon
 )brace
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;p&squot;
@@ -2811,6 +2926,7 @@ id|c-&gt;abbrev_parent_hashes
 )paren
 )paren
 r_return
+l_int|1
 suffix:semicolon
 r_for
 c_loop
@@ -2862,6 +2978,7 @@ id|sb-&gt;len
 id|c-&gt;abbrev_parent_hashes.off
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;m&squot;
@@ -2894,6 +3011,7 @@ l_char|&squot;&gt;&squot;
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* For the rest we have to parse the commit header. */
@@ -2921,6 +3039,7 @@ l_int|0
 r_case
 l_char|&squot;s&squot;
 suffix:colon
+multiline_comment|/* subject */
 id|strbuf_add
 c_func
 (paren
@@ -2934,10 +3053,13 @@ id|c-&gt;subject.len
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;a&squot;
 suffix:colon
+multiline_comment|/* author ... */
+r_return
 id|format_person_part
 c_func
 (paren
@@ -2955,11 +3077,11 @@ comma
 id|c-&gt;author.len
 )paren
 suffix:semicolon
-r_return
-suffix:semicolon
 r_case
 l_char|&squot;c&squot;
 suffix:colon
+multiline_comment|/* committer ... */
+r_return
 id|format_person_part
 c_func
 (paren
@@ -2977,11 +3099,10 @@ comma
 id|c-&gt;committer.len
 )paren
 suffix:semicolon
-r_return
-suffix:semicolon
 r_case
 l_char|&squot;e&squot;
 suffix:colon
+multiline_comment|/* encoding */
 id|strbuf_add
 c_func
 (paren
@@ -2995,10 +3116,12 @@ id|c-&gt;encoding.len
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 r_case
 l_char|&squot;b&squot;
 suffix:colon
+multiline_comment|/* body */
 id|strbuf_addstr
 c_func
 (paren
@@ -3010,8 +3133,13 @@ id|c-&gt;body_off
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 )brace
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* unknown placeholder */
 )brace
 DECL|function|format_commit_message
 r_void
@@ -3035,104 +3163,6 @@ op_star
 id|sb
 )paren
 (brace
-r_const
-r_char
-op_star
-id|placeholders
-(braket
-)braket
-op_assign
-(brace
-l_string|&quot;H&quot;
-comma
-multiline_comment|/* commit hash */
-l_string|&quot;h&quot;
-comma
-multiline_comment|/* abbreviated commit hash */
-l_string|&quot;T&quot;
-comma
-multiline_comment|/* tree hash */
-l_string|&quot;t&quot;
-comma
-multiline_comment|/* abbreviated tree hash */
-l_string|&quot;P&quot;
-comma
-multiline_comment|/* parent hashes */
-l_string|&quot;p&quot;
-comma
-multiline_comment|/* abbreviated parent hashes */
-l_string|&quot;an&quot;
-comma
-multiline_comment|/* author name */
-l_string|&quot;ae&quot;
-comma
-multiline_comment|/* author email */
-l_string|&quot;ad&quot;
-comma
-multiline_comment|/* author date */
-l_string|&quot;aD&quot;
-comma
-multiline_comment|/* author date, RFC2822 style */
-l_string|&quot;ar&quot;
-comma
-multiline_comment|/* author date, relative */
-l_string|&quot;at&quot;
-comma
-multiline_comment|/* author date, UNIX timestamp */
-l_string|&quot;ai&quot;
-comma
-multiline_comment|/* author date, ISO 8601 */
-l_string|&quot;cn&quot;
-comma
-multiline_comment|/* committer name */
-l_string|&quot;ce&quot;
-comma
-multiline_comment|/* committer email */
-l_string|&quot;cd&quot;
-comma
-multiline_comment|/* committer date */
-l_string|&quot;cD&quot;
-comma
-multiline_comment|/* committer date, RFC2822 style */
-l_string|&quot;cr&quot;
-comma
-multiline_comment|/* committer date, relative */
-l_string|&quot;ct&quot;
-comma
-multiline_comment|/* committer date, UNIX timestamp */
-l_string|&quot;ci&quot;
-comma
-multiline_comment|/* committer date, ISO 8601 */
-l_string|&quot;e&quot;
-comma
-multiline_comment|/* encoding */
-l_string|&quot;s&quot;
-comma
-multiline_comment|/* subject */
-l_string|&quot;b&quot;
-comma
-multiline_comment|/* body */
-l_string|&quot;Cred&quot;
-comma
-multiline_comment|/* red */
-l_string|&quot;Cgreen&quot;
-comma
-multiline_comment|/* green */
-l_string|&quot;Cblue&quot;
-comma
-multiline_comment|/* blue */
-l_string|&quot;Creset&quot;
-comma
-multiline_comment|/* reset color */
-l_string|&quot;n&quot;
-comma
-multiline_comment|/* newline */
-l_string|&quot;m&quot;
-comma
-multiline_comment|/* left/right/bottom */
-l_int|NULL
-)brace
-suffix:semicolon
 r_struct
 id|format_commit_context
 id|context
@@ -3161,8 +3191,6 @@ c_func
 id|sb
 comma
 id|format
-comma
-id|placeholders
 comma
 id|format_commit_item
 comma
