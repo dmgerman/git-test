@@ -8287,6 +8287,17 @@ op_assign
 id|img-&gt;nr
 id|preimage-&gt;nr
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|line
+OG
+id|img-&gt;nr
+)paren
+id|line
+op_assign
+id|img-&gt;nr
+suffix:semicolon
 r_try
 op_assign
 l_int|0
