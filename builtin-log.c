@@ -2181,10 +2181,11 @@ c_cond
 op_logical_neg
 id|value
 )paren
-id|die
+r_return
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;format.suffix without value&quot;
+id|var
 )paren
 suffix:semicolon
 id|fmt_patch_suffix
@@ -2241,6 +2242,8 @@ l_string|&quot;format.numbered&quot;
 r_if
 c_cond
 (paren
+id|value
+op_logical_and
 op_logical_neg
 id|strcasecmp
 c_func
