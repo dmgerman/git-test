@@ -5318,4 +5318,26 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Call this to report error for your variable that should not&n; * get a boolean value (i.e. &quot;[my] var&quot; means &quot;true&quot;).&n; */
+DECL|function|config_error_nonbool
+r_int
+id|config_error_nonbool
+c_func
+(paren
+r_const
+r_char
+op_star
+id|var
+)paren
+(brace
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;Missing value for &squot;%s&squot;&quot;
+comma
+id|var
+)paren
+suffix:semicolon
+)brace
 eof
