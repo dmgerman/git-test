@@ -967,10 +967,10 @@ c_cond
 op_logical_neg
 id|value
 )paren
-id|die
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;format.subjectprefix without value&quot;
+id|var
 )paren
 suffix:semicolon
 id|fmt_patch_subject_prefix
