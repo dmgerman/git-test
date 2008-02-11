@@ -1341,10 +1341,11 @@ c_cond
 op_logical_neg
 id|value
 )paren
-id|die
+r_return
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;user.signingkey without value&quot;
+id|value
 )paren
 suffix:semicolon
 id|set_signingkey
