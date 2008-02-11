@@ -2006,6 +2006,19 @@ id|git_proxy_command
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+r_return
+id|config_error_nonbool
+c_func
+(paren
+id|var
+)paren
+suffix:semicolon
 multiline_comment|/* [core]&n;&t;&t; * ;# matches www.kernel.org as well&n;&t;&t; * gitproxy = netcatter-1 for kernel.org&n;&t;&t; * gitproxy = netcatter-2 for sample.xz&n;&t;&t; * gitproxy = netcatter-default&n;&t;&t; */
 id|for_pos
 op_assign
