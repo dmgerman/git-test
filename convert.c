@@ -1413,11 +1413,9 @@ op_logical_neg
 id|value
 )paren
 r_return
-id|error
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;%s: lacks value&quot;
-comma
 id|var
 )paren
 suffix:semicolon
@@ -1453,11 +1451,9 @@ op_logical_neg
 id|value
 )paren
 r_return
-id|error
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;%s: lacks value&quot;
-comma
 id|var
 )paren
 suffix:semicolon
