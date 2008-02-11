@@ -4482,8 +4482,16 @@ l_string|&quot;merge.default&quot;
 r_if
 c_cond
 (paren
+op_logical_neg
 id|value
 )paren
+r_return
+id|config_error_nonbool
+c_func
+(paren
+id|var
+)paren
+suffix:semicolon
 id|default_ll_merge
 op_assign
 id|strdup
@@ -4645,11 +4653,9 @@ op_logical_neg
 id|value
 )paren
 r_return
-id|error
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;%s: lacks value&quot;
-comma
 id|var
 )paren
 suffix:semicolon
@@ -4685,11 +4691,9 @@ op_logical_neg
 id|value
 )paren
 r_return
-id|error
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;%s: lacks value&quot;
-comma
 id|var
 )paren
 suffix:semicolon
@@ -4726,11 +4730,9 @@ op_logical_neg
 id|value
 )paren
 r_return
-id|error
+id|config_error_nonbool
 c_func
 (paren
-l_string|&quot;%s: lacks value&quot;
-comma
 id|var
 )paren
 suffix:semicolon
