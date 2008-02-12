@@ -317,7 +317,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|s-&gt;reference
+op_logical_neg
+id|s-&gt;is_initial
 )paren
 (brace
 id|color_fprintf_ln
