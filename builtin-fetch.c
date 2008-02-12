@@ -3071,6 +3071,12 @@ c_func
 id|fetch_map
 )paren
 suffix:semicolon
+id|transport_disconnect
+c_func
+(paren
+id|transport
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
