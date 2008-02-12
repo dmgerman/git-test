@@ -286,11 +286,7 @@ id|stage
 comma
 l_string|&quot;%o&quot;
 comma
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 suffix:semicolon
 id|arguments

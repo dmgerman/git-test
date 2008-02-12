@@ -978,16 +978,12 @@ c_cond
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|active_cache
 (braket
 id|i
 )braket
 op_member_access_from_pointer
 id|ce_mode
-)paren
 )paren
 )paren
 r_continue

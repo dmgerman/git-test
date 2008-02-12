@@ -797,11 +797,7 @@ c_cond
 (paren
 id|ce-&gt;ce_flags
 op_amp
-id|htons
-c_func
-(paren
 id|CE_UPDATE
-)paren
 )paren
 r_continue
 suffix:semicolon

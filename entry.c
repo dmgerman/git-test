@@ -595,11 +595,7 @@ suffix:semicolon
 r_switch
 c_cond
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 op_amp
 id|S_IFMT
 )paren
@@ -739,11 +735,7 @@ c_func
 (paren
 id|path
 comma
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -1263,11 +1255,7 @@ c_cond
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 r_return

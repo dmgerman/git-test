@@ -1583,11 +1583,7 @@ id|ce-&gt;sha1
 suffix:semicolon
 id|mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 suffix:semicolon
 id|entlen
 op_assign
@@ -1628,8 +1624,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|ce-&gt;ce_mode
+id|ce-&gt;ce_flags
+op_amp
+id|CE_REMOVE
 )paren
 r_continue
 suffix:semicolon

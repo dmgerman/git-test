@@ -3892,11 +3892,7 @@ suffix:semicolon
 op_star
 id|mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 suffix:semicolon
 r_return
 l_int|0

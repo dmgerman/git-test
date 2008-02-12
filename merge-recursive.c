@@ -1730,11 +1730,7 @@ id|ce
 dot
 id|mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 suffix:semicolon
 id|hashcpy
 c_func

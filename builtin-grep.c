@@ -1520,11 +1520,7 @@ op_logical_neg
 id|S_ISREG
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 r_continue
@@ -1837,11 +1833,7 @@ op_logical_neg
 id|S_ISREG
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 r_continue
