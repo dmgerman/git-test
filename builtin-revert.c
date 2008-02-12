@@ -8,6 +8,7 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 multiline_comment|/*&n; * This implements the builtins revert and cherry-pick.&n; *&n; * Copyright (c) 2007 Johannes E. Schindelin&n; *&n; * Based on git-revert.sh, which is&n; *&n; * Copyright (c) 2005 Linus Torvalds&n; * Copyright (c) 2005 Junio C Hamano&n; */
 DECL|variable|revert_usage
 r_static
@@ -1469,7 +1470,7 @@ multiline_comment|/*&n;&t;&t; * We do not intend to commit immediately.  We just
 r_if
 c_cond
 (paren
-id|write_tree
+id|write_cache_as_tree
 c_func
 (paren
 id|head
@@ -1894,7 +1895,7 @@ comma
 id|oneline
 )paren
 op_logical_or
-id|write_tree
+id|write_cache_as_tree
 c_func
 (paren
 id|head
