@@ -3163,6 +3163,9 @@ r_if
 c_cond
 (paren
 id|prefix
+op_logical_and
+op_logical_neg
+id|revs-&gt;diffopt.prefix
 )paren
 (brace
 id|revs-&gt;diffopt.prefix
