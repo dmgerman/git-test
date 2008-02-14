@@ -410,7 +410,7 @@ id|var
 suffix:semicolon
 id|drv-&gt;cmd
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
