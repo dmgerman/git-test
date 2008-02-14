@@ -12569,17 +12569,10 @@ comma
 id|ref_lock
 )paren
 )paren
-(brace
 id|rc
 op_assign
 l_int|1
 suffix:semicolon
-r_goto
-id|unlock
-suffix:semicolon
-)brace
-id|unlock
-suffix:colon
 r_if
 c_cond
 (paren
