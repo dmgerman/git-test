@@ -1488,6 +1488,17 @@ c_func
 l_string|&quot;unable to write temporary index file&quot;
 )paren
 suffix:semicolon
+id|discard_cache
+c_func
+(paren
+)paren
+suffix:semicolon
+id|read_cache_from
+c_func
+(paren
+id|false_lock.filename
+)paren
+suffix:semicolon
 r_return
 id|false_lock.filename
 suffix:semicolon
