@@ -12516,9 +12516,28 @@ id|fill_active_slot
 )paren
 suffix:semicolon
 macro_line|#endif
+r_do
+(brace
 id|finish_all_active_slots
 c_func
 (paren
+)paren
+suffix:semicolon
+macro_line|#ifdef USE_CURL_MULTI
+id|fill_active_slots
+c_func
+(paren
+)paren
+suffix:semicolon
+macro_line|#endif
+)brace
+r_while
+c_loop
+(paren
+id|request_queue_head
+op_logical_and
+op_logical_neg
+id|aborted
 )paren
 suffix:semicolon
 multiline_comment|/* Update the remote branch if all went well */
