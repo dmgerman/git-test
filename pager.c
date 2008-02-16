@@ -258,6 +258,17 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|dup2
+c_func
+(paren
+id|fd
+(braket
+l_int|1
+)braket
+comma
+l_int|2
+)paren
+suffix:semicolon
 id|close
 c_func
 (paren
