@@ -271,6 +271,12 @@ op_assign
 id|refs-&gt;next
 suffix:semicolon
 )brace
+id|close
+c_func
+(paren
+id|po.in
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

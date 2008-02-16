@@ -1981,6 +1981,12 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+id|close
+c_func
+(paren
+id|rls.in
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

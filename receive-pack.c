@@ -704,6 +704,12 @@ r_break
 suffix:semicolon
 )brace
 )brace
+id|close
+c_func
+(paren
+id|proc.in
+)paren
+suffix:semicolon
 r_return
 id|hook_status
 c_func
@@ -2209,6 +2215,12 @@ suffix:semicolon
 id|pack_lockfile
 op_assign
 id|index_pack_lockfile
+c_func
+(paren
+id|ip.out
+)paren
+suffix:semicolon
+id|close
 c_func
 (paren
 id|ip.out

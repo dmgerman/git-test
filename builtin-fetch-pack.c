@@ -2667,6 +2667,7 @@ id|do_keep
 op_logical_and
 id|pack_lockfile
 )paren
+(brace
 op_star
 id|pack_lockfile
 op_assign
@@ -2676,6 +2677,13 @@ c_func
 id|cmd.out
 )paren
 suffix:semicolon
+id|close
+c_func
+(paren
+id|cmd.out
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren

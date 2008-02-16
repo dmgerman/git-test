@@ -282,10 +282,6 @@ c_func
 id|gpg.in
 )paren
 suffix:semicolon
-id|gpg.close_in
-op_assign
-l_int|0
-suffix:semicolon
 id|ret
 op_assign
 id|finish_command
