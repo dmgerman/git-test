@@ -5611,6 +5611,9 @@ op_eq
 l_char|&squot;+&squot;
 )paren
 (brace
+id|data-&gt;lineno
+op_increment
+suffix:semicolon
 id|data-&gt;status
 op_assign
 id|check_and_emit_line
@@ -5704,9 +5707,6 @@ comma
 id|ws
 )paren
 suffix:semicolon
-id|data-&gt;lineno
-op_increment
-suffix:semicolon
 )brace
 r_else
 r_if
@@ -5762,6 +5762,7 @@ l_int|NULL
 comma
 l_int|10
 )paren
+l_int|1
 suffix:semicolon
 r_else
 id|die
