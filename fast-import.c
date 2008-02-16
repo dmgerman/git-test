@@ -5820,6 +5820,24 @@ op_amp
 id|size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Can&squot;t load tree %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
 )brace
 r_else
 (brace

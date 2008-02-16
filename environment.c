@@ -125,6 +125,7 @@ op_star
 l_int|1024
 suffix:semicolon
 DECL|variable|pager_program
+r_const
 r_char
 op_star
 id|pager_program
@@ -136,11 +137,13 @@ op_assign
 l_int|1
 suffix:semicolon
 DECL|variable|editor_program
+r_const
 r_char
 op_star
 id|editor_program
 suffix:semicolon
 DECL|variable|excludes_file
+r_const
 r_char
 op_star
 id|excludes_file

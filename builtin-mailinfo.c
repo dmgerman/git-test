@@ -4056,6 +4056,9 @@ id|transfer_encoding
 r_case
 id|TE_BASE64
 suffix:colon
+r_case
+id|TE_QP
+suffix:colon
 (brace
 r_char
 op_star
