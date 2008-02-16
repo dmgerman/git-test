@@ -143,6 +143,7 @@ op_star
 id|editor_program
 suffix:semicolon
 DECL|variable|excludes_file
+r_const
 r_char
 op_star
 id|excludes_file
