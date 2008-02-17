@@ -8804,6 +8804,8 @@ id|s-&gt;size
 comma
 op_amp
 id|buf
+comma
+id|safe_crlf
 )paren
 )paren
 (brace

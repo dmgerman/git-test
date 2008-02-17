@@ -9523,6 +9523,8 @@ id|buf.len
 comma
 op_amp
 id|buf
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|origin-&gt;file.ptr
