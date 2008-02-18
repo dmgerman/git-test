@@ -386,10 +386,19 @@ id|commit-&gt;util
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
 id|parse_commit
 c_func
 (paren
 id|commit
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;invalid commit&quot;
 )paren
 suffix:semicolon
 id|commit-&gt;object.flags
