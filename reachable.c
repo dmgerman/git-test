@@ -392,6 +392,11 @@ id|obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|tag-&gt;tagged
+)paren
 id|add_object
 c_func
 (paren
