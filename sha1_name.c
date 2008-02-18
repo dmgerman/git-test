@@ -3445,11 +3445,17 @@ comma
 id|ONELINE_SEEN
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|parse_object
 c_func
 (paren
 id|commit-&gt;object.sha1
 )paren
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
