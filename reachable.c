@@ -45,6 +45,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|blob
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad blob object&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|obj-&gt;flags
 op_amp
 id|SEEN
@@ -133,6 +145,18 @@ suffix:semicolon
 r_struct
 id|name_path
 id|me
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|tree
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad tree object&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
