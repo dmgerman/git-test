@@ -1746,6 +1746,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|item
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|item-&gt;object.parsed
 )paren
 r_return
