@@ -856,10 +856,19 @@ c_func
 id|rev
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 id|rev
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2913,11 +2922,20 @@ comma
 l_string|&quot;o2&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 op_amp
 id|check_rev
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 r_while
@@ -4363,11 +4381,20 @@ comma
 l_string|&quot;w&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 op_amp
 id|rev
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 r_while
@@ -5106,11 +5133,20 @@ id|limit
 )paren
 suffix:semicolon
 multiline_comment|/* reverse the list of commits */
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 op_amp
 id|revs
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 r_while

@@ -1073,10 +1073,19 @@ id|revs
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Set up the revision walk - this will move all commits&n;&t; * from the pending list to the commit walking list.&n;&t; */
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 id|revs
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 id|walk_commit_list

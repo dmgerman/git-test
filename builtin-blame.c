@@ -10991,11 +10991,20 @@ l_string|&quot;Cannot use --contents with final commit object name&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * If we have bottom, this will mark the ancestors of the&n;&t; * bottom commits we would reach while traversing as&n;&t; * uninteresting.&n;&t; */
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 op_amp
 id|revs
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 r_if

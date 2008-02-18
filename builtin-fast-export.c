@@ -2090,11 +2090,20 @@ op_amp
 id|extra_refs
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 op_amp
 id|revs
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 id|revs.diffopt.format_callback
