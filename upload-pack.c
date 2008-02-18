@@ -3029,6 +3029,11 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|o
+)paren
 id|packet_write
 c_func
 (paren

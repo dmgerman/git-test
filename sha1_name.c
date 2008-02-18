@@ -3259,6 +3259,7 @@ id|object-&gt;type
 op_eq
 id|OBJ_TAG
 )paren
+(brace
 id|object
 op_assign
 id|deref_tag
@@ -3275,6 +3276,16 @@ id|path
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|object
+)paren
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren

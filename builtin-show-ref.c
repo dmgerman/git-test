@@ -485,6 +485,26 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|obj
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git-show-ref: bad tag at ref %s (%s)&quot;
+comma
+id|refname
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
 id|hex
 op_assign
 id|find_unique_abbrev

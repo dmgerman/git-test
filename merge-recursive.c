@@ -8948,6 +8948,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|object
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|object-&gt;type
 op_eq
 id|OBJ_TREE
