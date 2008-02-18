@@ -861,6 +861,11 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|tree
+)paren
 id|add_pending_object
 c_func
 (paren
