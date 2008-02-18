@@ -2956,6 +2956,11 @@ comma
 l_string|&quot;merge&quot;
 )paren
 comma
+id|OPT_END
+c_func
+(paren
+)paren
+comma
 )brace
 suffix:semicolon
 id|memset
