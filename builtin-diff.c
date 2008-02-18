@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git diff&quot;&n; *&n; * Copyright (c) 2006 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tag.h&quot;
@@ -1161,6 +1162,17 @@ c_func
 (paren
 id|git_diff_ui_config
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_use_color_default
+op_eq
+l_int|1
+)paren
+id|diff_use_color_default
+op_assign
+id|git_use_color_default
 suffix:semicolon
 id|init_revisions
 c_func
