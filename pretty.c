@@ -621,10 +621,9 @@ l_string|&quot;?=&quot;
 )paren
 suffix:semicolon
 )brace
-DECL|function|add_user_info
-r_static
+DECL|function|pp_user_info
 r_void
-id|add_user_info
+id|pp_user_info
 c_func
 (paren
 r_const
@@ -1723,7 +1722,7 @@ op_increment
 )paren
 suffix:semicolon
 multiline_comment|/* do nothing */
-multiline_comment|/*&n;&t; * If it does not even have a &squot;&lt;&squot; and &squot;&gt;&squot;, that is&n;&t; * quite a bogus commit author and we discard it;&n;&t; * this is in line with add_user_info() that is used&n;&t; * in the normal codepath.  When end points at the &squot;&lt;&squot;&n;&t; * that we found, it should have matching &squot;&gt;&squot; later,&n;&t; * which means start (beginning of email address) must&n;&t; * be strictly below len.&n;&t; */
+multiline_comment|/*&n;&t; * If it does not even have a &squot;&lt;&squot; and &squot;&gt;&squot;, that is&n;&t; * quite a bogus commit author and we discard it;&n;&t; * this is in line with pp_user_info() that is used&n;&t; * in the normal codepath.  When end points at the &squot;&lt;&squot;&n;&t; * that we found, it should have matching &squot;&gt;&squot; later,&n;&t; * which means start (beginning of email address) must&n;&t; * be strictly below len.&n;&t; */
 id|start
 op_assign
 id|end
@@ -3408,7 +3407,7 @@ op_plus
 l_int|80
 )paren
 suffix:semicolon
-id|add_user_info
+id|pp_user_info
 c_func
 (paren
 l_string|&quot;Author&quot;
@@ -3462,7 +3461,7 @@ op_plus
 l_int|80
 )paren
 suffix:semicolon
-id|add_user_info
+id|pp_user_info
 c_func
 (paren
 l_string|&quot;Commit&quot;
@@ -3484,7 +3483,6 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|pp_title_line
-r_static
 r_void
 id|pp_title_line
 c_func
@@ -3763,7 +3761,6 @@ id|title
 suffix:semicolon
 )brace
 DECL|function|pp_remainder
-r_static
 r_void
 id|pp_remainder
 c_func
