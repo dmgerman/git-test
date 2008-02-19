@@ -158,6 +158,13 @@ id|whitespace_rule_cfg
 op_assign
 id|WS_DEFAULT_RULE
 suffix:semicolon
+DECL|variable|git_branch_track
+r_enum
+id|branch_track
+id|git_branch_track
+op_assign
+id|BRANCH_TRACK_REMOTE
+suffix:semicolon
 multiline_comment|/* This is set by setup_git_dir_gently() and/or git_default_config() */
 DECL|variable|git_work_tree_cfg
 r_char
