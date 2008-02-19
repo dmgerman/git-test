@@ -10126,6 +10126,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|ref_length
+op_plus
+l_int|40
+OG
+id|isize
+op_logical_or
 id|memcmp
 c_func
 (paren
