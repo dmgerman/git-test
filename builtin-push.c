@@ -494,7 +494,7 @@ suffix:semicolon
 id|error
 c_func
 (paren
-l_string|&quot;failed to push to &squot;%s&squot;&quot;
+l_string|&quot;failed to push some refs to &squot;%s&squot;&quot;
 comma
 id|remote-&gt;url
 (braket
