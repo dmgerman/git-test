@@ -1313,10 +1313,6 @@ id|topts.dir-&gt;exclude_per_dir
 op_assign
 l_string|&quot;.gitignore&quot;
 suffix:semicolon
-id|topts.prefix
-op_assign
-id|prefix
-suffix:semicolon
 id|tree
 op_assign
 id|parse_tree_indirect
