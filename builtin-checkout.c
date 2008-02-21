@@ -1138,11 +1138,6 @@ r_struct
 id|branch_info
 op_star
 r_new
-comma
-r_const
-r_char
-op_star
-id|prefix
 )paren
 (brace
 r_int
@@ -2256,11 +2251,6 @@ r_struct
 id|branch_info
 op_star
 r_new
-comma
-r_const
-r_char
-op_star
-id|prefix
 )paren
 (brace
 r_int
@@ -2496,8 +2486,6 @@ op_amp
 id|old
 comma
 r_new
-comma
-id|prefix
 )paren
 suffix:semicolon
 r_if
@@ -3086,8 +3074,6 @@ id|opts
 comma
 op_amp
 r_new
-comma
-id|prefix
 )paren
 suffix:semicolon
 )brace
