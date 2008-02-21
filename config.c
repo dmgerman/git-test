@@ -1324,6 +1324,42 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|function|die_bad_config
+r_static
+r_void
+id|die_bad_config
+c_func
+(paren
+r_const
+r_char
+op_star
+id|name
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|config_file_name
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad config value for &squot;%s&squot; in %s&quot;
+comma
+id|name
+comma
+id|config_file_name
+)paren
+suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;bad config value for &squot;%s&squot;&quot;
+comma
+id|name
+)paren
+suffix:semicolon
+)brace
 DECL|function|git_config_int
 r_int
 id|git_config_int
@@ -1356,14 +1392,10 @@ op_amp
 id|ret
 )paren
 )paren
-id|die
+id|die_bad_config
 c_func
 (paren
-l_string|&quot;bad config value for &squot;%s&squot; in %s&quot;
-comma
 id|name
-comma
-id|config_file_name
 )paren
 suffix:semicolon
 r_return
@@ -1404,14 +1436,10 @@ op_amp
 id|ret
 )paren
 )paren
-id|die
+id|die_bad_config
 c_func
 (paren
-l_string|&quot;bad config value for &squot;%s&squot; in %s&quot;
-comma
 id|name
-comma
-id|config_file_name
 )paren
 suffix:semicolon
 r_return
