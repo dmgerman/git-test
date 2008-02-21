@@ -182,9 +182,7 @@ id|last
 op_assign
 id|ce
 suffix:semicolon
-id|ce-&gt;ce_flags
-op_or_assign
-id|CE_REMOVE
+r_continue
 suffix:semicolon
 )brace
 op_star
