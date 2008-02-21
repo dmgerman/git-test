@@ -1516,10 +1516,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|adjust_to_tracking
+DECL|function|report_tracking
 r_static
 r_void
-id|adjust_to_tracking
+id|report_tracking
 c_func
 (paren
 r_struct
@@ -1592,7 +1592,9 @@ op_assign
 id|branch_get
 c_func
 (paren
-l_int|NULL
+r_new
+op_member_access_from_pointer
+id|name
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Nothing to report unless we are marked to build on top of&n;&t; * somebody else.&n;&t; */
@@ -1604,6 +1606,20 @@ id|branch
 op_logical_or
 op_logical_neg
 id|branch-&gt;merge
+op_logical_or
+op_logical_neg
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_logical_or
+op_logical_neg
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
 )paren
 r_return
 suffix:semicolon
@@ -1896,7 +1912,7 @@ id|num_ours
 id|printf
 c_func
 (paren
-l_string|&quot;Your branch is behind of the tracked%s branch &squot;%s&squot; &quot;
+l_string|&quot;Your branch is behind the tracked%s branch &squot;%s&squot; &quot;
 l_string|&quot;by %d commit%s,&bslash;n&quot;
 l_string|&quot;and can be fast-forwarded.&bslash;n&quot;
 comma
@@ -2227,7 +2243,7 @@ l_string|&quot;HEAD&quot;
 )paren
 )paren
 )paren
-id|adjust_to_tracking
+id|report_tracking
 c_func
 (paren
 r_new
