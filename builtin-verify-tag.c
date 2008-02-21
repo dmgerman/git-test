@@ -238,10 +238,6 @@ id|gpg.in
 op_assign
 l_int|1
 suffix:semicolon
-id|gpg.out
-op_assign
-l_int|1
-suffix:semicolon
 id|args_gpg
 (braket
 l_int|2

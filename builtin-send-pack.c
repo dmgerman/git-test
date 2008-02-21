@@ -2122,9 +2122,17 @@ comma
 id|flags
 )paren
 )paren
+(brace
+id|close
+c_func
+(paren
+id|out
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2139,6 +2147,12 @@ id|stderr
 comma
 l_string|&quot;No refs in common and none specified; doing nothing.&bslash;n&quot;
 l_string|&quot;Perhaps you should specify a branch such as &squot;master&squot;.&bslash;n&quot;
+)paren
+suffix:semicolon
+id|close
+c_func
+(paren
+id|out
 )paren
 suffix:semicolon
 r_return
@@ -2423,18 +2437,11 @@ id|remote_refs
 OL
 l_int|0
 )paren
-(brace
-id|close
-c_func
-(paren
-id|out
-)paren
-suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
 )brace
-)brace
+r_else
 id|close
 c_func
 (paren
@@ -3204,15 +3211,7 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-id|close
-c_func
-(paren
-id|fd
-(braket
-l_int|1
-)braket
-)paren
-suffix:semicolon
+multiline_comment|/* do_send_pack always closes fd[1] */
 id|ret
 op_or_assign
 id|finish_connect
