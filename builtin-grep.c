@@ -2889,6 +2889,15 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;--name-only&quot;
+comma
+id|arg
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;--files-with-matches&quot;
 comma
 id|arg
