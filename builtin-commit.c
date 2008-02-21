@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * Builtin &quot;git commit&quot;&n; *&n; * Copyright (c) 2007 Kristian H&oslash;gsberg &lt;krh@redhat.com&gt;&n; * Based on git-commit.sh by Junio C Hamano and Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
+macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;diff.h&quot;
@@ -4172,6 +4173,17 @@ c_func
 (paren
 id|git_status_config
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|wt_status_use_color
+op_eq
+l_int|1
+)paren
+id|wt_status_use_color
+op_assign
+id|git_use_color_default
 suffix:semicolon
 id|argc
 op_assign

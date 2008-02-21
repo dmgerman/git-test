@@ -17,7 +17,7 @@ DECL|variable|wt_status_use_color
 r_int
 id|wt_status_use_color
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 DECL|variable|wt_status_colors
 r_static
@@ -191,6 +191,8 @@ id|slot
 (brace
 r_return
 id|wt_status_use_color
+OG
+l_int|0
 ques
 c_cond
 id|wt_status_colors
@@ -2299,7 +2301,7 @@ l_int|0
 suffix:semicolon
 )brace
 r_return
-id|git_default_config
+id|git_color_default_config
 c_func
 (paren
 id|k

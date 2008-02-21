@@ -29,9 +29,10 @@ op_assign
 l_int|100
 suffix:semicolon
 DECL|variable|diff_use_color_default
-r_static
 r_int
 id|diff_use_color_default
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|external_diff_cmd_cfg
 r_static
@@ -1021,7 +1022,7 @@ suffix:semicolon
 )brace
 )brace
 r_return
-id|git_default_config
+id|git_color_default_config
 c_func
 (paren
 id|var
@@ -11176,6 +11177,8 @@ r_if
 c_cond
 (paren
 id|diff_use_color_default
+OG
+l_int|0
 )paren
 id|DIFF_OPT_SET
 c_func

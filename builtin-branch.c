@@ -63,6 +63,8 @@ DECL|variable|branch_use_color
 r_static
 r_int
 id|branch_use_color
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|branch_colors
 r_static
@@ -360,7 +362,7 @@ l_int|0
 suffix:semicolon
 )brace
 r_return
-id|git_default_config
+id|git_color_default_config
 c_func
 (paren
 id|var
@@ -386,6 +388,8 @@ r_if
 c_cond
 (paren
 id|branch_use_color
+OG
+l_int|0
 )paren
 r_return
 id|branch_colors
@@ -3175,6 +3179,17 @@ c_func
 (paren
 id|git_branch_config
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|branch_use_color
+op_eq
+l_int|1
+)paren
+id|branch_use_color
+op_assign
+id|git_use_color_default
 suffix:semicolon
 id|track
 op_assign

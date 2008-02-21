@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git log&quot; and related commands (show, whatchanged)&n; *&n; * (C) Copyright 2006 Linus Torvalds&n; *&t;&t; 2006 Junio Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
@@ -1061,6 +1062,17 @@ c_func
 id|git_log_config
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_use_color_default
+op_eq
+l_int|1
+)paren
+id|diff_use_color_default
+op_assign
+id|git_use_color_default
+suffix:semicolon
 id|init_revisions
 c_func
 (paren
@@ -1528,6 +1540,17 @@ c_func
 id|git_log_config
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_use_color_default
+op_eq
+l_int|1
+)paren
+id|diff_use_color_default
+op_assign
+id|git_use_color_default
+suffix:semicolon
 id|init_revisions
 c_func
 (paren
@@ -1864,6 +1887,17 @@ c_func
 id|git_log_config
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_use_color_default
+op_eq
+l_int|1
+)paren
+id|diff_use_color_default
+op_assign
+id|git_use_color_default
+suffix:semicolon
 id|init_revisions
 c_func
 (paren
@@ -1954,6 +1988,17 @@ c_func
 (paren
 id|git_log_config
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_use_color_default
+op_eq
+l_int|1
+)paren
+id|diff_use_color_default
+op_assign
+id|git_use_color_default
 suffix:semicolon
 id|init_revisions
 c_func
