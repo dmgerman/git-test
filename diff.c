@@ -6552,7 +6552,7 @@ l_string|&quot;!^[ &t;]*&bslash;&bslash;(catch&bslash;&bslash;|do&bslash;&bslash
 l_string|&quot;new&bslash;&bslash;|return&bslash;&bslash;|switch&bslash;&bslash;|throw&bslash;&bslash;|while&bslash;&bslash;)&bslash;n&quot;
 l_string|&quot;^[ &t;]*&bslash;&bslash;(&bslash;&bslash;([ &t;]*&quot;
 l_string|&quot;[A-Za-z_][A-Za-z_0-9]*&bslash;&bslash;)&bslash;&bslash;{2,&bslash;&bslash;}&quot;
-l_string|&quot;[ &t;]*([^;]*$&bslash;&bslash;)&quot;
+l_string|&quot;[ &t;]*([^;]*&bslash;&bslash;)$&quot;
 )brace
 comma
 (brace
