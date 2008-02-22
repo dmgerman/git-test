@@ -5363,7 +5363,6 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|close_ref
-r_static
 r_int
 id|close_ref
 c_func
@@ -5395,7 +5394,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|commit_ref
-r_static
 r_int
 id|commit_ref
 c_func
