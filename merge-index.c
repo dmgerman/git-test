@@ -493,7 +493,7 @@ l_int|3
 id|usage
 c_func
 (paren
-l_string|&quot;git-merge-index [-o] [-q] &lt;merge-program&gt; (-a | &lt;filename&gt;*)&quot;
+l_string|&quot;git-merge-index [-o] [-q] &lt;merge-program&gt; (-a | [--] &lt;filename&gt;*)&quot;
 )paren
 suffix:semicolon
 id|setup_git_directory
