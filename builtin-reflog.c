@@ -1351,6 +1351,7 @@ c_func
 id|cb.newlog
 )paren
 )paren
+(brace
 id|status
 op_or_assign
 id|error
@@ -1367,6 +1368,14 @@ comma
 id|newlog_path
 )paren
 suffix:semicolon
+id|unlink
+c_func
+(paren
+id|newlog_path
+)paren
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren
