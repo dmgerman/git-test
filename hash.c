@@ -302,7 +302,6 @@ r_return
 l_int|NULL
 suffix:semicolon
 r_return
-op_amp
 id|lookup_hash_entry
 c_func
 (paren
