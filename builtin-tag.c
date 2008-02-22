@@ -1232,20 +1232,6 @@ c_func
 l_string|&quot;gpg failed to sign the tag&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|len
-OL
-l_int|0
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;could not read the entire signature from gpg.&quot;
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
