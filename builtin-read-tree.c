@@ -154,6 +154,12 @@ id|ce
 )paren
 )paren
 (brace
+id|remove_index_entry
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
