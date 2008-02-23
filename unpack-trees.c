@@ -1543,7 +1543,7 @@ id|total
 comma
 l_int|50
 comma
-l_int|2
+l_int|1
 )paren
 suffix:semicolon
 id|cnt
