@@ -15,6 +15,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#ifdef THREADED_DELTA_SEARCH
+macro_line|#include &quot;thread-utils.h&quot;
 macro_line|#include &lt;pthread.h&gt;
 macro_line|#endif
 DECL|variable|pack_usage
@@ -9038,7 +9039,7 @@ c_cond
 (paren
 id|delta_search_threads
 OL
-l_int|1
+l_int|0
 )paren
 id|die
 c_func
@@ -9053,7 +9054,7 @@ r_if
 c_cond
 (paren
 id|delta_search_threads
-OG
+op_ne
 l_int|1
 )paren
 id|warning
@@ -10600,7 +10601,7 @@ id|end
 op_logical_or
 id|delta_search_threads
 OL
-l_int|1
+l_int|0
 )paren
 id|usage
 c_func
@@ -10613,7 +10614,7 @@ r_if
 c_cond
 (paren
 id|delta_search_threads
-OG
+op_ne
 l_int|1
 )paren
 id|warning
@@ -11151,6 +11152,22 @@ c_func
 l_string|&quot;--thin cannot be used to build an indexable pack.&quot;
 )paren
 suffix:semicolon
+macro_line|#ifdef THREADED_DELTA_SEARCH
+r_if
+c_cond
+(paren
+op_logical_neg
+id|delta_search_threads
+)paren
+multiline_comment|/* --threads=0 means autodetect */
+id|delta_search_threads
+op_assign
+id|online_cpus
+c_func
+(paren
+)paren
+suffix:semicolon
+macro_line|#endif
 id|prepare_packed_git
 c_func
 (paren
