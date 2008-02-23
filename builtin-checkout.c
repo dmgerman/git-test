@@ -1282,6 +1282,11 @@ id|topts.gently
 op_assign
 id|opts-&gt;merge
 suffix:semicolon
+id|topts.verbose_update
+op_assign
+op_logical_neg
+id|opts-&gt;quiet
+suffix:semicolon
 id|topts.fn
 op_assign
 id|twoway_merge
