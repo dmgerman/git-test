@@ -1254,22 +1254,17 @@ c_func
 )paren
 )paren
 (brace
-id|ret
-op_assign
-id|opts-&gt;merge
-ques
-c_cond
-l_int|1
-suffix:colon
 id|error
 c_func
 (paren
 l_string|&quot;you need to resolve your current index first&quot;
 )paren
 suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
 )brace
-r_else
-(brace
+multiline_comment|/* 2-way merge to the new branch */
 id|topts.update
 op_assign
 l_int|1
@@ -1359,8 +1354,9 @@ comma
 id|tree-&gt;size
 )paren
 suffix:semicolon
-id|ret
-op_assign
+r_if
+c_cond
+(paren
 id|unpack_trees
 c_func
 (paren
@@ -1371,12 +1367,6 @@ comma
 op_amp
 id|topts
 )paren
-suffix:semicolon
-)brace
-r_if
-c_cond
-(paren
-id|ret
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * Unpack couldn&squot;t do a trivial merge; either&n;&t;&t;&t; * give up or do a real merge, depending on&n;&t;&t;&t; * whether the merge flag was used.&n;&t;&t;&t; */
