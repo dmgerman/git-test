@@ -7,6 +7,10 @@ macro_line|#ifndef HOST_NAME_MAX
 DECL|macro|HOST_NAME_MAX
 mdefine_line|#define HOST_NAME_MAX 256
 macro_line|#endif
+macro_line|#ifndef NI_MAXSERV
+DECL|macro|NI_MAXSERV
+mdefine_line|#define NI_MAXSERV 32
+macro_line|#endif
 DECL|variable|log_syslog
 r_static
 r_int
@@ -2271,7 +2275,11 @@ id|addrbuf
 suffix:semicolon
 id|port
 op_assign
+id|ntohs
+c_func
+(paren
 id|sin_addr-&gt;sin_port
+)paren
 suffix:semicolon
 macro_line|#ifndef NO_IPV6
 )brace
@@ -2342,7 +2350,11 @@ l_string|&quot;]&quot;
 suffix:semicolon
 id|port
 op_assign
+id|ntohs
+c_func
+(paren
 id|sin6_addr-&gt;sin6_port
+)paren
 suffix:semicolon
 macro_line|#endif
 )brace

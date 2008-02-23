@@ -102,7 +102,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
-l_int|0
+id|IDENT_WARN_ON_NO_NAME
 )paren
 )paren
 suffix:semicolon
@@ -170,7 +170,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
-l_int|1
+id|IDENT_ERROR_ON_NO_NAME
 )paren
 suffix:semicolon
 r_break

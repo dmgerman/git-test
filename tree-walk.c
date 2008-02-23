@@ -30,6 +30,17 @@ id|mode
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|str
+op_eq
+l_char|&squot; &squot;
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -89,7 +100,7 @@ op_star
 id|desc
 comma
 r_const
-r_void
+r_char
 op_star
 id|buf
 comma
@@ -109,6 +120,25 @@ id|mode
 comma
 id|len
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|size
+OL
+l_int|24
+op_logical_or
+id|buf
+(braket
+id|size
+l_int|21
+)braket
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;corrupt tree file&quot;
+)paren
+suffix:semicolon
 id|path
 op_assign
 id|get_mode
@@ -124,6 +154,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|path
+op_logical_or
+op_logical_neg
+op_star
 id|path
 )paren
 id|die

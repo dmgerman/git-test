@@ -68,7 +68,7 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_default_config
+id|git_diff_basic_config
 )paren
 suffix:semicolon
 multiline_comment|/* no &quot;diff&quot; UI options */
@@ -139,12 +139,14 @@ id|argv
 )paren
 suffix:semicolon
 r_return
-id|rev.diffopt.exit_with_status
-ques
-c_cond
-id|rev.diffopt.has_changes
-suffix:colon
+id|diff_result_code
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
 id|result
+)paren
 suffix:semicolon
 )brace
 eof

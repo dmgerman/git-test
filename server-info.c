@@ -208,7 +208,7 @@ c_func
 (paren
 l_string|&quot;unable to update %s&quot;
 comma
-id|path0
+id|path1
 )paren
 suffix:semicolon
 id|for_each_ref
@@ -517,6 +517,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|line
 (braket
 id|len

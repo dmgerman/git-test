@@ -111,10 +111,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_star
+id|is_absolute_path
+c_func
+(paren
 id|trace
-op_eq
-l_char|&squot;/&squot;
+)paren
 )paren
 (brace
 r_int
@@ -269,7 +270,7 @@ c_func
 op_amp
 id|buf
 comma
-l_int|0
+l_int|64
 )paren
 suffix:semicolon
 id|va_start
@@ -438,9 +439,6 @@ op_star
 op_star
 id|argv
 comma
-r_int
-id|count
-comma
 r_const
 r_char
 op_star
@@ -490,7 +488,7 @@ c_func
 op_amp
 id|buf
 comma
-l_int|0
+l_int|64
 )paren
 suffix:semicolon
 id|va_start
@@ -624,8 +622,6 @@ op_amp
 id|buf
 comma
 id|argv
-comma
-id|count
 comma
 l_int|0
 )paren

@@ -1,5 +1,6 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;progress.h&quot;
 DECL|variable|prune_packed_usage
 r_static
 r_const
@@ -14,6 +15,13 @@ DECL|macro|DRY_RUN
 mdefine_line|#define DRY_RUN 01
 DECL|macro|VERBOSE
 mdefine_line|#define VERBOSE 02
+DECL|variable|progress
+r_static
+r_struct
+id|progress
+op_star
+id|progress
+suffix:semicolon
 DECL|function|prune_dir
 r_static
 r_void
@@ -181,6 +189,16 @@ comma
 id|pathname
 )paren
 suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+id|i
+op_plus
+l_int|1
+)paren
+suffix:semicolon
 )brace
 id|pathname
 (braket
@@ -232,6 +250,27 @@ id|strlen
 c_func
 (paren
 id|dir
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts
+op_eq
+id|VERBOSE
+)paren
+id|progress
+op_assign
+id|start_progress_delay
+c_func
+(paren
+l_string|&quot;Removing duplicate objects&quot;
+comma
+l_int|256
+comma
+l_int|95
+comma
+l_int|2
 )paren
 suffix:semicolon
 r_if
@@ -322,41 +361,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|opts
-op_eq
-id|VERBOSE
-op_logical_and
-(paren
-id|d
-op_logical_or
-id|i
-op_eq
-l_int|255
-)paren
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Removing unused objects %d%%...&bslash;015&quot;
-comma
-(paren
-(paren
-id|i
-op_plus
-l_int|1
-)paren
-op_star
-l_int|100
-)paren
-op_div
-l_int|256
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 op_logical_neg
 id|d
 )paren
@@ -385,19 +389,11 @@ id|d
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|opts
-op_eq
-id|VERBOSE
-)paren
-id|fprintf
+id|stop_progress
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;&bslash;nDone.&bslash;n&quot;
+op_amp
+id|progress
 )paren
 suffix:semicolon
 )brace

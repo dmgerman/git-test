@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#ifndef DEFAULT_GIT_TEMPLATE_DIR
 DECL|macro|DEFAULT_GIT_TEMPLATE_DIR
 mdefine_line|#define DEFAULT_GIT_TEMPLATE_DIR &quot;/usr/share/git-core/templates&quot;
@@ -721,7 +722,6 @@ c_cond
 op_logical_neg
 id|template_dir
 )paren
-(brace
 id|template_dir
 op_assign
 id|getenv
@@ -736,10 +736,57 @@ c_cond
 op_logical_neg
 id|template_dir
 )paren
+(brace
+multiline_comment|/*&n;&t;&t; * if the hard-coded template is relative, it is&n;&t;&t; * interpreted relative to the exec_dir&n;&t;&t; */
 id|template_dir
 op_assign
 id|DEFAULT_GIT_TEMPLATE_DIR
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_absolute_path
+c_func
+(paren
+id|template_dir
+)paren
+)paren
+(brace
+r_struct
+id|strbuf
+id|d
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|d
+comma
+l_string|&quot;%s/%s&quot;
+comma
+id|git_exec_path
+c_func
+(paren
+)paren
+comma
+id|template_dir
+)paren
+suffix:semicolon
+id|template_dir
+op_assign
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|d
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+)brace
 )brace
 id|strcpy
 c_func

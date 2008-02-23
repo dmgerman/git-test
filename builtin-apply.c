@@ -136,30 +136,30 @@ id|apply_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [--reverse] [--reject] [--verbose] [-z] [-pNUM] [-CNUM] [--whitespace=&lt;nowarn|warn|error|error-all|strip&gt;] &lt;patch&gt;...&quot;
+l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [--reverse] [--reject] [--verbose] [-z] [-pNUM] [-CNUM] [--whitespace=&lt;nowarn|warn|fix|error|error-all&gt;] &lt;patch&gt;...&quot;
 suffix:semicolon
-DECL|enum|whitespace_eol
+DECL|enum|ws_error_action
 r_static
 r_enum
-id|whitespace_eol
+id|ws_error_action
 (brace
-DECL|enumerator|nowarn_whitespace
-id|nowarn_whitespace
+DECL|enumerator|nowarn_ws_error
+id|nowarn_ws_error
 comma
-DECL|enumerator|warn_on_whitespace
-id|warn_on_whitespace
+DECL|enumerator|warn_on_ws_error
+id|warn_on_ws_error
 comma
-DECL|enumerator|error_on_whitespace
-id|error_on_whitespace
+DECL|enumerator|die_on_ws_error
+id|die_on_ws_error
 comma
-DECL|enumerator|strip_whitespace
-id|strip_whitespace
+DECL|enumerator|correct_ws_error
+id|correct_ws_error
 comma
-DECL|variable|new_whitespace
+DECL|variable|ws_error_action
 )brace
-id|new_whitespace
+id|ws_error_action
 op_assign
-id|warn_on_whitespace
+id|warn_on_ws_error
 suffix:semicolon
 DECL|variable|whitespace_error
 r_static
@@ -204,9 +204,9 @@ op_logical_neg
 id|option
 )paren
 (brace
-id|new_whitespace
+id|ws_error_action
 op_assign
-id|warn_on_whitespace
+id|warn_on_ws_error
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -224,9 +224,9 @@ l_string|&quot;warn&quot;
 )paren
 )paren
 (brace
-id|new_whitespace
+id|ws_error_action
 op_assign
-id|warn_on_whitespace
+id|warn_on_ws_error
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -244,9 +244,9 @@ l_string|&quot;nowarn&quot;
 )paren
 )paren
 (brace
-id|new_whitespace
+id|ws_error_action
 op_assign
-id|nowarn_whitespace
+id|nowarn_ws_error
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -264,9 +264,9 @@ l_string|&quot;error&quot;
 )paren
 )paren
 (brace
-id|new_whitespace
+id|ws_error_action
 op_assign
-id|error_on_whitespace
+id|die_on_ws_error
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -284,9 +284,9 @@ l_string|&quot;error-all&quot;
 )paren
 )paren
 (brace
-id|new_whitespace
+id|ws_error_action
 op_assign
-id|error_on_whitespace
+id|die_on_ws_error
 suffix:semicolon
 id|squelch_whitespace_errors
 op_assign
@@ -306,11 +306,20 @@ id|option
 comma
 l_string|&quot;strip&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|option
+comma
+l_string|&quot;fix&quot;
+)paren
 )paren
 (brace
-id|new_whitespace
+id|ws_error_action
 op_assign
-id|strip_whitespace
+id|correct_ws_error
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -345,19 +354,17 @@ op_logical_and
 op_logical_neg
 id|apply_default_whitespace
 )paren
-(brace
-id|new_whitespace
+id|ws_error_action
 op_assign
 (paren
 id|apply
 ques
 c_cond
-id|warn_on_whitespace
+id|warn_on_ws_error
 suffix:colon
-id|nowarn_whitespace
+id|nowarn_ws_error
 )paren
 suffix:semicolon
-)brace
 )brace
 multiline_comment|/*&n; * For &quot;diff-stat&quot; like behaviour, we keep track of the biggest change&n; * we&squot;ve seen, and the longest filename. That allows us to do simple&n; * scaling.&n; */
 DECL|variable|max_change
@@ -434,6 +441,7 @@ DECL|macro|BINARY_DELTA_DEFLATED
 mdefine_line|#define BINARY_DELTA_DEFLATED&t;1
 DECL|macro|BINARY_LITERAL_DEFLATED
 mdefine_line|#define BINARY_LITERAL_DEFLATED 2
+multiline_comment|/*&n; * This represents a &quot;patch&quot; to a file, both metainfo changes&n; * such as creation/deletion, filemode and content changes represented&n; * as a series of fragments.&n; */
 DECL|struct|patch
 r_struct
 id|patch
@@ -470,6 +478,10 @@ multiline_comment|/* -1 = unknown, 0 = false, 1 = true */
 DECL|member|rejected
 r_int
 id|rejected
+suffix:semicolon
+DECL|member|ws_rule
+r_int
+id|ws_rule
 suffix:semicolon
 DECL|member|deflate_origlen
 r_int
@@ -534,7 +546,6 @@ op_star
 id|result
 suffix:semicolon
 DECL|member|resultsize
-r_int
 r_int
 id|resultsize
 suffix:semicolon
@@ -944,7 +955,7 @@ r_struct
 id|strbuf
 id|name
 suffix:semicolon
-multiline_comment|/* Proposed &quot;new-style&quot; GNU patch/diff format; see&n;&t;&t; * http://marc.theaimsgroup.com/?l=git&amp;m=112927316408690&amp;w=2&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Proposed &quot;new-style&quot; GNU patch/diff format; see&n;&t;&t; * http://marc.theaimsgroup.com/?l=git&amp;m=112927316408690&amp;w=2&n;&t;&t; */
 id|strbuf_init
 c_func
 (paren
@@ -2300,7 +2311,7 @@ op_star
 id|patch
 )paren
 (brace
-multiline_comment|/* index line is N hexadecimal, &quot;..&quot;, N hexadecimal,&n;&t; * and optional space with octal mode.&n;&t; */
+multiline_comment|/*&n;&t; * index line is N hexadecimal, &quot;..&quot;, N hexadecimal,&n;&t; * and optional space with octal mode.&n;&t; */
 r_const
 r_char
 op_star
@@ -2547,7 +2558,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/* This is to extract the same name that appears on &quot;diff --git&quot;&n; * line.  We do not find and return anything if it is a rename&n; * patch, and it is OK because we will find the name elsewhere.&n; * We need to reliably find name only when it is mode-change only,&n; * creation or deletion of an empty file.  In any of these cases,&n; * both sides are the same name under a/ and b/ respectively.&n; */
+multiline_comment|/*&n; * This is to extract the same name that appears on &quot;diff --git&quot;&n; * line.  We do not find and return anything if it is a rename&n; * patch, and it is OK because we will find the name elsewhere.&n; * We need to reliably find name only when it is mode-change only,&n; * creation or deletion of an empty file.  In any of these cases,&n; * both sides are the same name under a/ and b/ respectively.&n; */
 DECL|function|git_header_name
 r_static
 r_char
@@ -2691,7 +2702,7 @@ l_int|1
 id|first.buf
 )paren
 suffix:semicolon
-multiline_comment|/* second points at one past closing dq of name.&n;&t;&t; * find the second name.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * second points at one past closing dq of name.&n;&t;&t; * find the second name.&n;&t;&t; */
 r_while
 c_loop
 (paren
@@ -2921,7 +2932,7 @@ suffix:semicolon
 id|name
 op_increment
 suffix:semicolon
-multiline_comment|/* since the first name is unquoted, a dq if exists must be&n;&t; * the beginning of the second name.&n;&t; */
+multiline_comment|/*&n;&t; * since the first name is unquoted, a dq if exists must be&n;&t; * the beginning of the second name.&n;&t; */
 r_for
 c_loop
 (paren
@@ -3195,9 +3206,6 @@ suffix:semicolon
 )brace
 )brace
 )brace
-r_return
-l_int|NULL
-suffix:semicolon
 )brace
 multiline_comment|/* Verify that we recognize the lines following a git header */
 DECL|function|parse_git_header
@@ -4128,7 +4136,7 @@ r_return
 id|offset
 suffix:semicolon
 )brace
-multiline_comment|/** --- followed by +++ ? */
+multiline_comment|/* --- followed by +++ ? */
 r_if
 c_cond
 (paren
@@ -4156,7 +4164,7 @@ l_int|4
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We only accept unified patches, so we want it to&n;&t;&t; * at least have &quot;@@ -a,b +c,d @@&bslash;n&quot;, which is 14 chars&n;&t;&t; * minimum&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We only accept unified patches, so we want it to&n;&t;&t; * at least have &quot;@@ -a,b +c,d @@&bslash;n&quot;, which is 14 chars&n;&t;&t; * minimum (&quot;@@ -0,0 +1 @@&bslash;n&quot; is the shortest).&n;&t;&t; */
 id|nextlen
 op_assign
 id|linelen
@@ -4240,104 +4248,47 @@ id|line
 comma
 r_int
 id|len
+comma
+r_int
+id|ws_rule
 )paren
 (brace
-r_const
 r_char
 op_star
 id|err
-op_assign
-l_string|&quot;Adds trailing whitespace&quot;
 suffix:semicolon
 r_int
-id|seen_space
+id|result
 op_assign
-l_int|0
-suffix:semicolon
-r_int
-id|i
-suffix:semicolon
-multiline_comment|/*&n;&t; * We know len is at least two, since we have a &squot;+&squot; and we&n;&t; * checked that the last character was a &squot;&bslash;n&squot; before calling&n;&t; * this function.  That is, an addition of an empty line would&n;&t; * check the &squot;+&squot; here.  Sneaky...&n;&t; */
-r_if
-c_cond
-(paren
-id|isspace
+id|check_and_emit_line
 c_func
 (paren
 id|line
-(braket
-id|len
-op_minus
-l_int|2
-)braket
-)paren
-)paren
-r_goto
-id|error
-suffix:semicolon
-multiline_comment|/*&n;&t; * Make sure that there is no space followed by a tab in&n;&t; * indentation.&n;&t; */
-id|err
-op_assign
-l_string|&quot;Space in indent is followed by a tab&quot;
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|i
-op_assign
+op_plus
 l_int|1
-suffix:semicolon
-id|i
-OL
+comma
 id|len
-suffix:semicolon
-id|i
-op_increment
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|line
-(braket
-id|i
-)braket
-op_eq
-l_char|&squot;&bslash;t&squot;
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|seen_space
-)paren
-r_goto
-id|error
-suffix:semicolon
-)brace
-r_else
-r_if
-c_cond
-(paren
-id|line
-(braket
-id|i
-)braket
-op_eq
-l_char|&squot; &squot;
-)paren
-id|seen_space
-op_assign
 l_int|1
+comma
+id|ws_rule
+comma
+l_int|NULL
+comma
+l_int|NULL
+comma
+l_int|NULL
+comma
+l_int|NULL
+)paren
 suffix:semicolon
-r_else
-r_break
-suffix:semicolon
-)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|result
+)paren
 r_return
 suffix:semicolon
-id|error
-suffix:colon
 id|whitespace_error
 op_increment
 suffix:semicolon
@@ -4352,21 +4303,29 @@ id|whitespace_error
 )paren
 suffix:semicolon
 r_else
+(brace
+id|err
+op_assign
+id|whitespace_error_string
+c_func
+(paren
+id|result
+)paren
+suffix:semicolon
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;%s.&bslash;n%s:%d:%.*s&bslash;n&quot;
-comma
-id|err
+l_string|&quot;%s:%d: %s.&bslash;n%.*s&bslash;n&quot;
 comma
 id|patch_input_file
 comma
 id|linenr
 comma
+id|err
+comma
 id|len
-op_minus
 l_int|2
 comma
 id|line
@@ -4374,6 +4333,13 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|err
+)paren
+suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n; * Parse a unified diff. Note that this really needs to parse each&n; * fragment separately, since the only way to know the difference&n; * between a &quot;---&quot; that is part of a patch, and a &quot;---&quot; that starts&n; * the next patch is to look at the line counts..&n; */
 DECL|function|parse_fragment
@@ -4603,9 +4569,9 @@ c_cond
 (paren
 id|apply_in_reverse
 op_logical_and
-id|new_whitespace
+id|ws_error_action
 op_ne
-id|nowarn_whitespace
+id|nowarn_ws_error
 )paren
 id|check_whitespace
 c_func
@@ -4613,6 +4579,8 @@ c_func
 id|line
 comma
 id|len
+comma
+id|patch-&gt;ws_rule
 )paren
 suffix:semicolon
 id|deleted
@@ -4636,9 +4604,9 @@ c_cond
 op_logical_neg
 id|apply_in_reverse
 op_logical_and
-id|new_whitespace
+id|ws_error_action
 op_ne
-id|nowarn_whitespace
+id|nowarn_ws_error
 )paren
 id|check_whitespace
 c_func
@@ -4646,6 +4614,8 @@ c_func
 id|line
 comma
 id|len
+comma
+id|patch-&gt;ws_rule
 )paren
 suffix:semicolon
 id|added
@@ -4660,7 +4630,7 @@ l_int|0
 suffix:semicolon
 r_break
 suffix:semicolon
-multiline_comment|/* We allow &quot;&bslash; No newline at end of file&quot;. Depending&n;                 * on locale settings when the patch was produced we&n;                 * don&squot;t know what this line looks like. The only&n;                 * thing we do know is that it begins with &quot;&bslash; &quot;.&n;&t;&t; * Checking for 12 is just for sanity check -- any&n;&t;&t; * l10n of &quot;&bslash; No newline...&quot; is at least that long.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We allow &quot;&bslash; No newline at end of file&quot;. Depending&n;                 * on locale settings when the patch was produced we&n;                 * don&squot;t know what this line looks like. The only&n;                 * thing we do know is that it begins with &quot;&bslash; &quot;.&n;&t;&t; * Checking for 12 is just for sanity check -- any&n;&t;&t; * l10n of &quot;&bslash; No newline...&quot; is at least that long.&n;&t;&t; */
 r_case
 l_char|&squot;&bslash;&bslash;&squot;
 suffix:colon
@@ -4706,7 +4676,7 @@ id|fragment-&gt;trailing
 op_assign
 id|trailing
 suffix:semicolon
-multiline_comment|/* If a fragment ends with an incomplete line, we failed to include&n;&t; * it in the above loop because we hit oldlines == newlines == 0&n;&t; * before seeing it.&n;&t; */
+multiline_comment|/*&n;&t; * If a fragment ends with an incomplete line, we failed to include&n;&t; * it in the above loop because we hit oldlines == newlines == 0&n;&t; * before seeing it.&n;&t; */
 r_if
 c_cond
 (paren
@@ -5281,7 +5251,7 @@ op_star
 id|used_p
 )paren
 (brace
-multiline_comment|/* Expect a line that begins with binary patch method (&quot;literal&quot;&n;&t; * or &quot;delta&quot;), followed by the length of data before deflating.&n;&t; * a sequence of &squot;length-byte&squot; followed by base-85 encoded data&n;&t; * should follow, terminated by a newline.&n;&t; *&n;&t; * Each 5-byte sequence of base-85 encodes up to 4 bytes,&n;&t; * and we would limit the patch line to 66 characters,&n;&t; * so one line can fit up to 13 groups that would decode&n;&t; * to 52 bytes max.  The length byte &squot;A&squot;-&squot;Z&squot; corresponds&n;&t; * to 1-26 bytes, and &squot;a&squot;-&squot;z&squot; corresponds to 27-52 bytes.&n;&t; */
+multiline_comment|/*&n;&t; * Expect a line that begins with binary patch method (&quot;literal&quot;&n;&t; * or &quot;delta&quot;), followed by the length of data before deflating.&n;&t; * a sequence of &squot;length-byte&squot; followed by base-85 encoded data&n;&t; * should follow, terminated by a newline.&n;&t; *&n;&t; * Each 5-byte sequence of base-85 encodes up to 4 bytes,&n;&t; * and we would limit the patch line to 66 characters,&n;&t; * so one line can fit up to 13 groups that would decode&n;&t; * to 52 bytes max.  The length byte &squot;A&squot;-&squot;Z&squot; corresponds&n;&t; * to 1-26 bytes, and &squot;a&squot;-&squot;z&squot; corresponds to 27-52 bytes.&n;&t; */
 r_int
 id|llen
 comma
@@ -5467,7 +5437,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-multiline_comment|/* Minimum line is &quot;A00000&bslash;n&quot; which is 7-byte long,&n;&t;&t; * and the line length must be multiple of 5 plus 2.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Minimum line is &quot;A00000&bslash;n&quot; which is 7-byte long,&n;&t;&t; * and the line length must be multiple of 5 plus 2.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -5730,7 +5700,7 @@ op_star
 id|patch
 )paren
 (brace
-multiline_comment|/* We have read &quot;GIT binary patch&bslash;n&quot;; what follows is a line&n;&t; * that says the patch method (currently, either &quot;literal&quot; or&n;&t; * &quot;delta&quot;) and the length of data before deflating; a&n;&t; * sequence of &squot;length-byte&squot; followed by base-85 encoded data&n;&t; * follows.&n;&t; *&n;&t; * When a binary patch is reversible, there is another binary&n;&t; * hunk in the same format, starting with patch method (either&n;&t; * &quot;literal&quot; or &quot;delta&quot;) with the length of data, and a sequence&n;&t; * of length-byte + base-85 encoded data, terminated with another&n;&t; * empty line.  This data, when applied to the postimage, produces&n;&t; * the preimage.&n;&t; */
+multiline_comment|/*&n;&t; * We have read &quot;GIT binary patch&bslash;n&quot;; what follows is a line&n;&t; * that says the patch method (currently, either &quot;literal&quot; or&n;&t; * &quot;delta&quot;) and the length of data before deflating; a&n;&t; * sequence of &squot;length-byte&squot; followed by base-85 encoded data&n;&t; * follows.&n;&t; *&n;&t; * When a binary patch is reversible, there is another binary&n;&t; * hunk in the same format, starting with patch method (either&n;&t; * &quot;literal&quot; or &quot;delta&quot;) with the length of data, and a sequence&n;&t; * of length-byte + base-85 encoded data, terminated with another&n;&t; * empty line.  This data, when applied to the postimage, produces&n;&t; * the preimage.&n;&t; */
 r_struct
 id|fragment
 op_star
@@ -5831,7 +5801,7 @@ c_cond
 id|status
 )paren
 (brace
-multiline_comment|/* not having reverse hunk is not an error, but having&n;&t;&t; * a corrupt reverse hunk is.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Not having reverse hunk is not an error, but having&n;&t;&t; * a corrupt reverse hunk is.&n;&t;&t; */
 id|free
 c_func
 (paren
@@ -5918,6 +5888,19 @@ l_int|0
 )paren
 r_return
 id|offset
+suffix:semicolon
+id|patch-&gt;ws_rule
+op_assign
+id|whitespace_rule
+c_func
+(paren
+id|patch-&gt;new_name
+ques
+c_cond
+id|patch-&gt;new_name
+suffix:colon
+id|patch-&gt;old_name
+)paren
 suffix:semicolon
 id|patchsize
 op_assign
@@ -6680,6 +6663,8 @@ comma
 id|buf-&gt;len
 comma
 id|buf
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_return
@@ -7175,9 +7160,12 @@ id|patch
 comma
 r_int
 id|plen
+comma
+r_int
+id|ws_rule
 )paren
 (brace
-multiline_comment|/* plen is number of bytes to be copied from patch,&n;&t; * starting at patch+1 (patch[0] is &squot;+&squot;).  Typically&n;&t; * patch[plen] is &squot;&bslash;n&squot;, unless this is the incomplete&n;&t; * last line.&n;&t; */
+multiline_comment|/*&n;&t; * plen is number of bytes to be copied from patch,&n;&t; * starting at patch+1 (patch[0] is &squot;+&squot;).  Typically&n;&t; * patch[plen] is &squot;&bslash;n&squot;, unless this is the incomplete&n;&t; * last line.&n;&t; */
 r_int
 id|i
 suffix:semicolon
@@ -7194,12 +7182,12 @@ suffix:semicolon
 r_int
 id|last_tab_in_indent
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_int
 id|last_space_in_indent
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_int
 id|need_fix_leading_space
@@ -7214,9 +7202,9 @@ r_if
 c_cond
 (paren
 (paren
-id|new_whitespace
+id|ws_error_action
 op_ne
-id|strip_whitespace
+id|correct_ws_error
 )paren
 op_logical_or
 op_logical_neg
@@ -7244,8 +7232,16 @@ r_return
 id|plen
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Strip trailing whitespace&n;&t; */
 r_if
 c_cond
+(paren
+(paren
+id|ws_rule
+op_amp
+id|WS_TRAILING_SPACE
+)paren
+op_logical_and
 (paren
 l_int|1
 OL
@@ -7260,6 +7256,7 @@ id|plen
 op_minus
 l_int|1
 )braket
+)paren
 )paren
 )paren
 (brace
@@ -7304,6 +7301,7 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Check leading whitespaces (indent)&n;&t; */
 r_for
 c_loop
 (paren
@@ -7342,8 +7340,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|ws_rule
+op_amp
+id|WS_SPACE_BEFORE_TAB
+)paren
+op_logical_and
 l_int|0
-op_le
+OL
 id|last_space_in_indent
 )paren
 id|need_fix_leading_space
@@ -7359,10 +7363,30 @@ id|ch
 op_eq
 l_char|&squot; &squot;
 )paren
+(brace
 id|last_space_in_indent
 op_assign
 id|i
 suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|ws_rule
+op_amp
+id|WS_INDENT_WITH_NON_TAB
+)paren
+op_logical_and
+l_int|8
+op_le
+id|i
+id|last_tab_in_indent
+)paren
+id|need_fix_leading_space
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_else
 r_break
 suffix:semicolon
@@ -7382,7 +7406,44 @@ id|consecutive_spaces
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* between patch[1..last_tab_in_indent] strip the&n;&t;&t; * funny spaces, updating them to tab as needed.&n;&t;&t; */
+r_int
+id|last
+op_assign
+id|last_tab_in_indent
+op_plus
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ws_rule
+op_amp
+id|WS_INDENT_WITH_NON_TAB
+)paren
+(brace
+multiline_comment|/* have &quot;last&quot; point at one past the indent */
+r_if
+c_cond
+(paren
+id|last_tab_in_indent
+OL
+id|last_space_in_indent
+)paren
+id|last
+op_assign
+id|last_space_in_indent
+op_plus
+l_int|1
+suffix:semicolon
+r_else
+id|last
+op_assign
+id|last_tab_in_indent
+op_plus
+l_int|1
+suffix:semicolon
+)brace
+multiline_comment|/*&n;&t;&t; * between patch[1..last], strip the funny spaces,&n;&t;&t; * updating them to tab as needed.&n;&t;&t; */
 r_for
 c_loop
 (paren
@@ -7392,7 +7453,7 @@ l_int|1
 suffix:semicolon
 id|i
 OL
-id|last_tab_in_indent
+id|last
 suffix:semicolon
 id|i
 op_increment
@@ -7454,13 +7515,27 @@ suffix:semicolon
 )brace
 )brace
 )brace
+r_while
+c_loop
+(paren
+l_int|0
+OL
+id|consecutive_spaces
+op_decrement
+)paren
+op_star
+id|output
+op_increment
+op_assign
+l_char|&squot; &squot;
+suffix:semicolon
 id|fixed
 op_assign
 l_int|1
 suffix:semicolon
 id|i
 op_assign
-id|last_tab_in_indent
+id|last
 suffix:semicolon
 )brace
 r_else
@@ -7526,6 +7601,9 @@ id|frag
 comma
 r_int
 id|inaccurate_eof
+comma
+r_int
+id|ws_rule
 )paren
 (brace
 r_int
@@ -7796,6 +7874,8 @@ comma
 id|patch
 comma
 id|plen
+comma
+id|ws_rule
 )paren
 suffix:semicolon
 id|newsize
@@ -8046,9 +8126,9 @@ l_int|0
 r_if
 c_cond
 (paren
-id|new_whitespace
+id|ws_error_action
 op_eq
-id|strip_whitespace
+id|correct_ws_error
 op_logical_and
 (paren
 id|buf-&gt;len
@@ -8152,7 +8232,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* Reduce the number of context lines&n;&t;&t; * Reduce both leading and trailing if they are equal&n;&t;&t; * otherwise just reduce the larger context.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Reduce the number of context lines; reduce both&n;&t;&t; * leading and trailing if they are equal otherwise&n;&t;&t; * just reduce the larger context.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -8435,7 +8515,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-multiline_comment|/* For safety, we require patch index line to contain&n;&t; * full 40-byte textual SHA1 for old and new, at least for now.&n;&t; */
+multiline_comment|/*&n;&t; * For safety, we require patch index line to contain&n;&t; * full 40-byte textual SHA1 for old and new, at least for now.&n;&t; */
 r_if
 c_cond
 (paren
@@ -8487,7 +8567,7 @@ c_cond
 id|patch-&gt;old_name
 )paren
 (brace
-multiline_comment|/* See if the old one matches what the patch&n;&t;&t; * applies to.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * See if the old one matches what the patch&n;&t;&t; * applies to.&n;&t;&t; */
 id|hash_sha1_file
 c_func
 (paren
@@ -8654,7 +8734,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* We have verified buf matches the preimage;&n;&t;&t; * apply the patch data to it, which is stored&n;&t;&t; * in the patch-&gt;fragments-&gt;{patch,size}.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We have verified buf matches the preimage;&n;&t;&t; * apply the patch data to it, which is stored&n;&t;&t; * in the patch-&gt;fragments-&gt;{patch,size}.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -8761,6 +8841,16 @@ id|patch-&gt;old_name
 suffix:colon
 id|patch-&gt;new_name
 suffix:semicolon
+r_int
+id|ws_rule
+op_assign
+id|patch-&gt;ws_rule
+suffix:semicolon
+r_int
+id|inaccurate_eof
+op_assign
+id|patch-&gt;inaccurate_eof
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -8791,7 +8881,9 @@ id|buf
 comma
 id|frag
 comma
-id|patch-&gt;inaccurate_eof
+id|inaccurate_eof
+comma
+id|ws_rule
 )paren
 )paren
 (brace
@@ -8860,11 +8952,7 @@ c_cond
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 (brace
@@ -9260,11 +9348,7 @@ c_cond
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 (brace
@@ -9293,7 +9377,7 @@ id|ce
 comma
 id|st
 comma
-l_int|1
+id|CE_MATCH_IGNORE_VALID
 )paren
 suffix:semicolon
 )brace
@@ -9554,11 +9638,7 @@ id|cached
 )paren
 id|st_mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 suffix:semicolon
 )brace
 r_else
@@ -9592,16 +9672,12 @@ id|cached
 )paren
 id|st_mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|ce_mode_from_stat
 c_func
 (paren
 id|ce
 comma
 id|st.st_mode
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -9687,7 +9763,7 @@ comma
 id|new_name
 )paren
 )paren
-multiline_comment|/* A type-change diff is always split into a patch to&n;&t;&t; * delete old, immediately followed by a patch to&n;&t;&t; * create new (see diff.c::run_diff()); in such a case&n;&t;&t; * it is Ok that the entry to be deleted by the&n;&t;&t; * previous patch is still in the working tree and in&n;&t;&t; * the index.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * A type-change diff is always split into a patch to&n;&t;&t; * delete old, immediately followed by a patch to&n;&t;&t; * create new (see diff.c::run_diff()); in such a case&n;&t;&t; * it is Ok that the entry to be deleted by the&n;&t;&t; * previous patch is still in the working tree and in&n;&t;&t; * the index.&n;&t;&t; */
 id|ok_if_exists
 op_assign
 l_int|1
@@ -11207,11 +11283,7 @@ id|mode
 suffix:semicolon
 id|ce-&gt;ce_flags
 op_assign
-id|htons
-c_func
-(paren
 id|namelen
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -12884,9 +12956,9 @@ c_cond
 id|whitespace_error
 op_logical_and
 (paren
-id|new_whitespace
+id|ws_error_action
 op_eq
-id|error_on_whitespace
+id|die_on_ws_error
 )paren
 )paren
 id|apply
@@ -13072,6 +13144,19 @@ l_string|&quot;apply.whitespace&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+r_return
+id|config_error_nonbool
+c_func
+(paren
+id|var
+)paren
+suffix:semicolon
 id|apply_default_whitespace
 op_assign
 id|xstrdup
@@ -13951,9 +14036,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|new_whitespace
+id|ws_error_action
 op_eq
-id|error_on_whitespace
+id|die_on_ws_error
 )paren
 id|die
 c_func
@@ -13985,6 +14070,8 @@ r_if
 c_cond
 (paren
 id|applied_after_fixing_ws
+op_logical_and
+id|apply
 )paren
 id|fprintf
 c_func
@@ -14058,12 +14145,6 @@ comma
 id|active_cache
 comma
 id|active_nr
-)paren
-op_logical_or
-id|close
-c_func
-(paren
-id|newfd
 )paren
 op_logical_or
 id|commit_locked_index

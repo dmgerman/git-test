@@ -125,13 +125,10 @@ op_star
 l_int|1024
 suffix:semicolon
 DECL|variable|pager_program
+r_const
 r_char
 op_star
 id|pager_program
-suffix:semicolon
-DECL|variable|pager_in_use
-r_int
-id|pager_in_use
 suffix:semicolon
 DECL|variable|pager_use_color
 r_int
@@ -140,9 +137,16 @@ op_assign
 l_int|1
 suffix:semicolon
 DECL|variable|editor_program
+r_const
 r_char
 op_star
 id|editor_program
+suffix:semicolon
+DECL|variable|excludes_file
+r_const
+r_char
+op_star
+id|excludes_file
 suffix:semicolon
 DECL|variable|auto_crlf
 r_int
@@ -151,6 +155,19 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* 1: both ways, -1: only when adding git objects */
+DECL|variable|safe_crlf
+r_enum
+id|safe_crlf
+id|safe_crlf
+op_assign
+id|SAFE_CRLF_WARN
+suffix:semicolon
+DECL|variable|whitespace_rule_cfg
+r_int
+id|whitespace_rule_cfg
+op_assign
+id|WS_DEFAULT_RULE
+suffix:semicolon
 multiline_comment|/* This is set by setup_git_dir_gently() and/or git_default_config() */
 DECL|variable|git_work_tree_cfg
 r_char

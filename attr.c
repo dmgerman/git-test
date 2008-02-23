@@ -1029,6 +1029,7 @@ c_loop
 op_star
 id|cp
 )paren
+(brace
 id|cp
 op_assign
 id|parse_attr
@@ -1046,6 +1047,16 @@ comma
 id|res
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cp
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2001,6 +2012,7 @@ id|git_attr
 op_star
 id|attr
 comma
+r_const
 r_void
 op_star
 id|v
@@ -2549,7 +2561,6 @@ op_logical_and
 id|pathname
 (braket
 id|baselen
-l_int|1
 )braket
 op_ne
 l_char|&squot;/&squot;
@@ -2577,6 +2588,8 @@ comma
 id|pathname
 op_plus
 id|baselen
+op_plus
+l_int|1
 comma
 id|FNM_PATHNAME
 )paren

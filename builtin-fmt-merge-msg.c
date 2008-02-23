@@ -1088,7 +1088,7 @@ id|flags
 op_assign
 id|UNINTERESTING
 op_or
-id|TREECHANGE
+id|TREESAME
 op_or
 id|SEEN
 op_or
@@ -1169,10 +1169,19 @@ id|head-&gt;object.flags
 op_or_assign
 id|UNINTERESTING
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 id|rev
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 r_while
