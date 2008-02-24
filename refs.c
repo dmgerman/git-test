@@ -2614,6 +2614,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|o
+op_logical_and
 id|o-&gt;type
 op_eq
 id|OBJ_TAG
