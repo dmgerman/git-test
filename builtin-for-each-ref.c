@@ -719,7 +719,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;malformatted format string %s&quot;
+l_string|&quot;malformed format string %s&quot;
 comma
 id|sp
 )paren
