@@ -9862,10 +9862,6 @@ id|save_commit_buffer
 op_assign
 l_int|0
 suffix:semicolon
-id|track_object_refs
-op_assign
-l_int|0
-suffix:semicolon
 id|setup_revisions
 c_func
 (paren
