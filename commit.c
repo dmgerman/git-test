@@ -1042,7 +1042,6 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|lookup_commit_graft
-r_static
 r_struct
 id|commit_graft
 op_star
