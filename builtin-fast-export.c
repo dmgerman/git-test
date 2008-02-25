@@ -615,7 +615,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;M 0%06o :%d %s&bslash;n&quot;
+l_string|&quot;M %06o :%d %s&bslash;n&quot;
 comma
 id|spec-&gt;mode
 comma
