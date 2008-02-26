@@ -1127,7 +1127,7 @@ id|WS_TRAILING_SPACE
 op_logical_and
 (paren
 l_int|2
-OL
+op_le
 id|len
 op_logical_and
 id|isspace
