@@ -1540,7 +1540,7 @@ c_func
 id|skipspaces
 c_func
 (paren
-id|s
+id|sb.buf
 )paren
 )paren
 suffix:semicolon

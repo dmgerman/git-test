@@ -1310,7 +1310,7 @@ multiline_comment|/* Guam Standard, USSR Zone 9 */
 l_string|&quot;NZT&quot;
 comma
 op_plus
-l_int|11
+l_int|12
 comma
 l_int|0
 comma
@@ -1321,7 +1321,7 @@ multiline_comment|/* New Zealand */
 l_string|&quot;NZST&quot;
 comma
 op_plus
-l_int|11
+l_int|12
 comma
 l_int|0
 comma
@@ -1332,7 +1332,7 @@ multiline_comment|/* New Zealand Standard */
 l_string|&quot;NZDT&quot;
 comma
 op_plus
-l_int|11
+l_int|12
 comma
 l_int|1
 comma

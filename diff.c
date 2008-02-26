@@ -1429,10 +1429,10 @@ r_break
 suffix:semicolon
 )brace
 )brace
-DECL|function|copy_file
+DECL|function|copy_file_with_prefix
 r_static
 r_void
-id|copy_file
+id|copy_file_with_prefix
 c_func
 (paren
 r_int
@@ -1859,7 +1859,7 @@ c_cond
 (paren
 id|lc_a
 )paren
-id|copy_file
+id|copy_file_with_prefix
 c_func
 (paren
 l_char|&squot;-&squot;
@@ -1878,7 +1878,7 @@ c_cond
 (paren
 id|lc_b
 )paren
-id|copy_file
+id|copy_file_with_prefix
 c_func
 (paren
 l_char|&squot;+&squot;
