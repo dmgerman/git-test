@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
@@ -13,6 +14,7 @@ macro_line|#include &quot;path-list.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;interpolate.h&quot;
 macro_line|#include &quot;attr.h&quot;
+macro_line|#include &quot;merge-recursive.h&quot;
 DECL|variable|subtree_merge
 r_static
 r_int
@@ -1062,66 +1064,11 @@ r_return
 id|rc
 suffix:semicolon
 )brace
-DECL|function|unmerged_index
-r_static
-r_int
-id|unmerged_index
-c_func
-(paren
-r_void
-)paren
-(brace
-r_int
-id|i
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|i
-op_assign
-l_int|0
-suffix:semicolon
-id|i
-OL
-id|active_nr
-suffix:semicolon
-id|i
-op_increment
-)paren
-(brace
-r_struct
-id|cache_entry
-op_star
-id|ce
-op_assign
-id|active_cache
-(braket
-id|i
-)braket
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|ce_stage
-c_func
-(paren
-id|ce
-)paren
-)paren
-r_return
-l_int|1
-suffix:semicolon
-)brace
-r_return
-l_int|0
-suffix:semicolon
-)brace
-DECL|function|git_write_tree
-r_static
+DECL|function|write_tree_from_memory
 r_struct
 id|tree
 op_star
-id|git_write_tree
+id|write_tree_from_memory
 c_func
 (paren
 r_void
@@ -1137,7 +1084,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|unmerged_index
+id|unmerged_cache
 c_func
 (paren
 )paren
@@ -8014,7 +7961,6 @@ id|clean_merge
 suffix:semicolon
 )brace
 DECL|function|merge_trees
-r_static
 r_int
 id|merge_trees
 c_func
@@ -8154,7 +8100,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|unmerged_index
+id|unmerged_cache
 c_func
 (paren
 )paren
@@ -8358,7 +8304,7 @@ id|index_only
 op_star
 id|result
 op_assign
-id|git_write_tree
+id|write_tree_from_memory
 c_func
 (paren
 )paren
@@ -8426,10 +8372,9 @@ id|next
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Merge the commits h1 and h2, return the resulting virtual&n; * commit object and a flag indicating the cleanness of the merge.&n; */
-DECL|function|merge
-r_static
+DECL|function|merge_recursive
 r_int
-id|merge
+id|merge_recursive
 c_func
 (paren
 r_struct
@@ -8676,7 +8621,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|merge
+id|merge_recursive
 c_func
 (paren
 id|merged_common_ancestors
@@ -9105,19 +9050,24 @@ id|value
 )paren
 suffix:semicolon
 )brace
-DECL|function|main
+DECL|function|cmd_merge_recursive
 r_int
-id|main
+id|cmd_merge_recursive
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
+op_star
 id|argv
-(braket
-)braket
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_static
@@ -9489,7 +9439,7 @@ suffix:semicolon
 )brace
 id|clean
 op_assign
-id|merge
+id|merge_recursive
 c_func
 (paren
 id|h1

@@ -3813,6 +3813,9 @@ comma
 id|tree-&gt;size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|unpack_trees
 c_func
 (paren
@@ -3823,6 +3826,11 @@ id|t
 comma
 op_amp
 id|opts
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 id|diffcore_std
@@ -4063,6 +4071,9 @@ comma
 id|tree-&gt;size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|unpack_trees
 c_func
 (paren
@@ -4073,6 +4084,11 @@ id|t
 comma
 op_amp
 id|opts
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_return
