@@ -562,11 +562,6 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|name
-)paren
 id|free
 c_func
 (paren
@@ -787,11 +782,6 @@ l_string|&quot;Update of config-file failed&quot;
 suffix:semicolon
 )brace
 )brace
-r_if
-c_cond
-(paren
-id|name
-)paren
 id|free
 c_func
 (paren

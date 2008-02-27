@@ -1069,11 +1069,6 @@ suffix:colon
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|reencoded
-)paren
 id|free
 c_func
 (paren

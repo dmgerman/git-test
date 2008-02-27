@@ -3334,11 +3334,6 @@ op_star
 id|simplify
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|simplify
-)paren
 id|free
 c_func
 (paren

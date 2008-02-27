@@ -484,11 +484,6 @@ c_func
 id|walker
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|rewritten_url
-)paren
 id|free
 c_func
 (paren
