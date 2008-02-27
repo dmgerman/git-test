@@ -11167,21 +11167,6 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|progress
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Using %d pack threads.&bslash;n&quot;
-comma
-id|delta_search_threads
-)paren
-suffix:semicolon
 macro_line|#endif
 id|prepare_packed_git
 c_func
