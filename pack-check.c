@@ -736,13 +736,15 @@ id|delta_chain_length
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %&quot;
+l_string|&quot;%-6s %lu %lu %&quot;
 id|PRIuMAX
 l_string|&quot;&bslash;n&quot;
 comma
 id|type
 comma
 id|size
+comma
+id|store_size
 comma
 (paren
 r_uintmax
@@ -755,13 +757,15 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %&quot;
+l_string|&quot;%-6s %lu %lu %&quot;
 id|PRIuMAX
 l_string|&quot; %u %s&bslash;n&quot;
 comma
 id|type
 comma
 id|size
+comma
+id|store_size
 comma
 (paren
 r_uintmax
