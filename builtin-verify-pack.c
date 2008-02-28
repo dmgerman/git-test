@@ -192,6 +192,12 @@ comma
 id|arg
 )paren
 suffix:semicolon
+id|install_packed_git
+c_func
+(paren
+id|pack
+)paren
+suffix:semicolon
 id|err
 op_assign
 id|verify_pack
@@ -200,12 +206,6 @@ c_func
 id|pack
 comma
 id|verbose
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|pack
 )paren
 suffix:semicolon
 r_return
