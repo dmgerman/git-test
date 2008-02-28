@@ -2962,6 +2962,18 @@ comma
 id|argv
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pathspec
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;invalid path specification&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* Checkout paths */
 r_if
 c_cond
