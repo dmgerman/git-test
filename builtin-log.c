@@ -5434,20 +5434,6 @@ op_amp
 id|BOUNDARY
 )paren
 (brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Boundary %s&bslash;n&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
-)paren
-suffix:semicolon
 id|boundary_count
 op_increment
 suffix:semicolon
