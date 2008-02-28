@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
+macro_line|#include &quot;pack-revindex.h&quot;
 DECL|struct|idx_entry
 r_struct
 id|idx_entry
@@ -594,6 +595,11 @@ r_sizeof
 (paren
 id|chain_histogram
 )paren
+)paren
+suffix:semicolon
+id|init_pack_revindex
+c_func
+(paren
 )paren
 suffix:semicolon
 r_for
