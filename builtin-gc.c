@@ -798,6 +798,11 @@ id|auto_gc
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|quiet
+op_assign
+l_int|0
+suffix:semicolon
 r_char
 id|buf
 (braket
@@ -848,6 +853,19 @@ op_amp
 id|auto_gc
 comma
 l_string|&quot;enable auto-gc mode&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;q&squot;
+comma
+l_string|&quot;quiet&quot;
+comma
+op_amp
+id|quiet
+comma
+l_string|&quot;suppress progress reports&quot;
 )paren
 comma
 id|OPT_END
@@ -954,6 +972,21 @@ id|MAX_ADD
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|quiet
+)paren
+id|append_option
+c_func
+(paren
+id|argv_repack
+comma
+l_string|&quot;-q&quot;
+comma
+id|MAX_ADD
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
