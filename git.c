@@ -2060,6 +2060,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;remote&quot;
+comma
+id|cmd_remote
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;repo-config&quot;
 comma
 id|cmd_config
