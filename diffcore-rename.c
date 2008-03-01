@@ -1978,6 +1978,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|num_create
 OG
 id|rename_limit
@@ -1986,11 +1987,7 @@ id|num_src
 OG
 id|rename_limit
 )paren
-r_goto
-id|cleanup
-suffix:semicolon
-r_if
-c_cond
+op_logical_or
 (paren
 id|num_create
 op_star
@@ -2000,9 +1997,18 @@ id|rename_limit
 op_star
 id|rename_limit
 )paren
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;too many files, skipping inexact rename detection&quot;
+)paren
+suffix:semicolon
 r_goto
 id|cleanup
 suffix:semicolon
+)brace
 id|mx
 op_assign
 id|xmalloc
