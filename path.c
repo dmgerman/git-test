@@ -1569,6 +1569,7 @@ l_int|1
 suffix:semicolon
 )brace
 r_else
+(brace
 id|last_elem
 op_assign
 id|xstrdup
@@ -1577,6 +1578,12 @@ c_func
 id|buf
 )paren
 suffix:semicolon
+op_star
+id|buf
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
