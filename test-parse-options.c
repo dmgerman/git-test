@@ -162,6 +162,20 @@ comma
 l_string|&quot;get another string&quot;
 )paren
 comma
+id|OPT_GROUP
+c_func
+(paren
+l_string|&quot;magic arguments&quot;
+)paren
+comma
+id|OPT_ARGUMENT
+c_func
+(paren
+l_string|&quot;quux&quot;
+comma
+l_string|&quot;means --quux&quot;
+)paren
+comma
 id|OPT_END
 c_func
 (paren
