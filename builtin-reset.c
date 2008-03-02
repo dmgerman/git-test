@@ -277,11 +277,6 @@ op_star
 id|hex
 comma
 op_star
-id|dots
-op_assign
-l_string|&quot;...&quot;
-comma
-op_star
 id|body
 suffix:semicolon
 id|hex
@@ -294,34 +289,12 @@ comma
 id|DEFAULT_ABBREV
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|hex
-)paren
-(brace
-id|hex
-op_assign
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
-suffix:semicolon
-id|dots
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
-)brace
 id|printf
 c_func
 (paren
-l_string|&quot;HEAD is now at %s%s&quot;
+l_string|&quot;HEAD is now at %s&quot;
 comma
 id|hex
-comma
-id|dots
 )paren
 suffix:semicolon
 id|body
