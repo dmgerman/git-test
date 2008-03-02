@@ -1912,10 +1912,6 @@ suffix:semicolon
 r_int
 id|len
 suffix:semicolon
-id|track_object_refs
-op_assign
-l_int|0
-suffix:semicolon
 id|save_commit_buffer
 op_assign
 l_int|0

@@ -2749,10 +2749,6 @@ id|revs.verbose_header
 op_logical_or
 id|revs.grep_filter
 suffix:semicolon
-id|track_object_refs
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
