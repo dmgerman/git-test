@@ -2628,6 +2628,7 @@ id|cache_entry
 op_star
 id|ce
 comma
+r_const
 r_int
 r_char
 op_star
@@ -2670,6 +2671,7 @@ id|cache_entry
 op_star
 id|ce
 comma
+r_const
 r_int
 r_char
 op_star
@@ -2688,6 +2690,7 @@ r_int
 id|match_missing
 )paren
 (brace
+r_const
 r_int
 r_char
 op_star
@@ -2708,14 +2711,6 @@ op_logical_neg
 id|cached
 )paren
 (brace
-r_static
-r_int
-r_char
-id|no_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
 r_int
 id|changed
 suffix:semicolon
@@ -2797,7 +2792,7 @@ id|st.st_mode
 suffix:semicolon
 id|sha1
 op_assign
-id|no_sha1
+id|null_sha1
 suffix:semicolon
 )brace
 )brace
@@ -2838,6 +2833,7 @@ r_int
 id|match_missing
 )paren
 (brace
+r_const
 r_int
 r_char
 op_star
@@ -2923,6 +2919,7 @@ id|mode
 comma
 id|oldmode
 suffix:semicolon
+r_const
 r_int
 r_char
 op_star
