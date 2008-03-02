@@ -2287,6 +2287,12 @@ c_func
 id|transport
 )paren
 suffix:semicolon
+id|transport_disconnect
+c_func
+(paren
+id|transport
+)paren
+suffix:semicolon
 id|read_branches
 c_func
 (paren
