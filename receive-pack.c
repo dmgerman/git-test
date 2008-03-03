@@ -2551,6 +2551,12 @@ c_func
 id|receive_pack_usage
 )paren
 suffix:semicolon
+id|setup_path
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
