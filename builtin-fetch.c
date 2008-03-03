@@ -2817,9 +2817,6 @@ r_struct
 id|ref
 op_star
 id|ref_map
-comma
-op_star
-id|fetch_map
 suffix:semicolon
 r_struct
 id|ref
@@ -3003,9 +3000,11 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-id|fetch_map
-op_assign
+id|free_refs
+c_func
+(paren
 id|ref_map
+)paren
 suffix:semicolon
 multiline_comment|/* if neither --no-tags nor --tags was specified, do automated tag&n;&t; * following ... */
 r_if
@@ -3058,12 +3057,6 @@ id|ref_map
 )paren
 suffix:semicolon
 )brace
-id|free_refs
-c_func
-(paren
-id|fetch_map
-)paren
-suffix:semicolon
 id|transport_disconnect
 c_func
 (paren
