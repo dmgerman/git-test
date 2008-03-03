@@ -2477,11 +2477,6 @@ r_struct
 id|transport
 op_star
 id|transport
-comma
-r_struct
-id|ref
-op_star
-id|fetch_map
 )paren
 (brace
 r_static
@@ -3029,8 +3024,6 @@ id|find_non_local_tags
 c_func
 (paren
 id|transport
-comma
-id|fetch_map
 )paren
 suffix:semicolon
 r_if
