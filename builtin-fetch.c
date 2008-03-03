@@ -815,6 +815,11 @@ id|ref_map-&gt;merge
 op_assign
 l_int|1
 suffix:semicolon
+id|tail
+op_assign
+op_amp
+id|ref_map-&gt;next
+suffix:semicolon
 )brace
 )brace
 id|ref_remove_duplicates
