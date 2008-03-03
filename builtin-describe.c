@@ -794,6 +794,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|parse_tag
+c_func
+(paren
+id|n-&gt;tag
+)paren
+op_logical_or
 op_logical_neg
 id|n-&gt;tag
 op_logical_or
