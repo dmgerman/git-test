@@ -321,11 +321,6 @@ op_le
 l_int|0
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|o-&gt;file.ptr
-)paren
 id|free
 c_func
 (paren

@@ -343,7 +343,7 @@ comma
 op_amp
 id|xpp
 comma
-id|XDL_MERGE_ZEALOUS
+id|XDL_MERGE_ZEALOUS_ALNUM
 comma
 op_amp
 id|result

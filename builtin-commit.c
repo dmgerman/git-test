@@ -1022,6 +1022,9 @@ comma
 id|tree-&gt;size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|unpack_trees
 c_func
 (paren
@@ -1033,7 +1036,13 @@ comma
 op_amp
 id|opts
 )paren
+)paren
+m_exit
+(paren
+l_int|128
+)paren
 suffix:semicolon
+multiline_comment|/* We&squot;ve already reported the error, finish dying */
 )brace
 DECL|function|prepare_index
 r_static

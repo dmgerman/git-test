@@ -347,11 +347,6 @@ op_plus
 l_int|41
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|server_capabilities
-)paren
 id|free
 c_func
 (paren

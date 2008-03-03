@@ -154,11 +154,6 @@ l_string|&quot;format:&quot;
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|user_format
-)paren
 id|free
 c_func
 (paren
@@ -621,10 +616,9 @@ l_string|&quot;?=&quot;
 )paren
 suffix:semicolon
 )brace
-DECL|function|add_user_info
-r_static
+DECL|function|pp_user_info
 r_void
-id|add_user_info
+id|pp_user_info
 c_func
 (paren
 r_const
@@ -3436,7 +3430,7 @@ op_plus
 l_int|80
 )paren
 suffix:semicolon
-id|add_user_info
+id|pp_user_info
 c_func
 (paren
 l_string|&quot;Author&quot;
@@ -3490,7 +3484,7 @@ op_plus
 l_int|80
 )paren
 suffix:semicolon
-id|add_user_info
+id|pp_user_info
 c_func
 (paren
 l_string|&quot;Commit&quot;
@@ -3512,7 +3506,6 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|pp_title_line
-r_static
 r_void
 id|pp_title_line
 c_func
@@ -3791,7 +3784,6 @@ id|title
 suffix:semicolon
 )brace
 DECL|function|pp_remainder
-r_static
 r_void
 id|pp_remainder
 c_func

@@ -1171,6 +1171,12 @@ c_func
 id|gpg.in
 )paren
 suffix:semicolon
+id|close
+c_func
+(paren
+id|gpg.out
+)paren
+suffix:semicolon
 id|finish_command
 c_func
 (paren
@@ -1192,10 +1198,6 @@ c_func
 id|gpg.in
 )paren
 suffix:semicolon
-id|gpg.close_in
-op_assign
-l_int|0
-suffix:semicolon
 id|len
 op_assign
 id|strbuf_read
@@ -1206,6 +1208,12 @@ comma
 id|gpg.out
 comma
 l_int|1024
+)paren
+suffix:semicolon
+id|close
+c_func
+(paren
+id|gpg.out
 )paren
 suffix:semicolon
 r_if

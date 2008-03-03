@@ -2136,11 +2136,6 @@ c_func
 id|var
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|git_work_tree_cfg
-)paren
 id|free
 c_func
 (paren
