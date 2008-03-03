@@ -7,6 +7,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;pack-revindex.h&quot;
 macro_line|#ifndef O_NOATIME
 macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
 DECL|macro|O_NOATIME
@@ -6999,6 +7000,11 @@ r_enum
 id|object_type
 id|type
 suffix:semicolon
+r_struct
+id|revindex_entry
+op_star
+id|revidx
+suffix:semicolon
 op_star
 id|delta_chain_length
 op_assign
@@ -7023,6 +7029,27 @@ id|curpos
 comma
 id|size
 )paren
+suffix:semicolon
+id|revidx
+op_assign
+id|find_pack_revindex
+c_func
+(paren
+id|p
+comma
+id|obj_offset
+)paren
+suffix:semicolon
+op_star
+id|store_size
+op_assign
+id|revidx
+(braket
+l_int|1
+)braket
+dot
+id|offset
+id|obj_offset
 suffix:semicolon
 r_for
 c_loop
@@ -7061,12 +7088,6 @@ suffix:colon
 r_case
 id|OBJ_TAG
 suffix:colon
-op_star
-id|store_size
-op_assign
-l_int|0
-suffix:semicolon
-multiline_comment|/* notyet */
 id|unuse_pack
 c_func
 (paren
@@ -7110,11 +7131,28 @@ op_eq
 l_int|0
 )paren
 (brace
-multiline_comment|/* TODO: find base_sha1 as pointed by curpos */
-id|hashclr
+id|revidx
+op_assign
+id|find_pack_revindex
+c_func
+(paren
+id|p
+comma
+id|obj_offset
+)paren
+suffix:semicolon
+id|hashcpy
 c_func
 (paren
 id|base_sha1
+comma
+id|nth_packed_object_sha1
+c_func
+(paren
+id|p
+comma
+id|revidx-&gt;nr
+)paren
 )paren
 suffix:semicolon
 )brace

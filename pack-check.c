@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
+macro_line|#include &quot;pack-revindex.h&quot;
 DECL|struct|idx_entry
 r_struct
 id|idx_entry
@@ -596,6 +597,11 @@ id|chain_histogram
 )paren
 )paren
 suffix:semicolon
+id|init_pack_revindex
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -730,13 +736,15 @@ id|delta_chain_length
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %&quot;
+l_string|&quot;%-6s %lu %lu %&quot;
 id|PRIuMAX
 l_string|&quot;&bslash;n&quot;
 comma
 id|type
 comma
 id|size
+comma
+id|store_size
 comma
 (paren
 r_uintmax
@@ -749,13 +757,15 @@ r_else
 id|printf
 c_func
 (paren
-l_string|&quot;%-6s %lu %&quot;
+l_string|&quot;%-6s %lu %lu %&quot;
 id|PRIuMAX
 l_string|&quot; %u %s&bslash;n&quot;
 comma
 id|type
 comma
 id|size
+comma
+id|store_size
 comma
 (paren
 r_uintmax
