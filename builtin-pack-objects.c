@@ -15,6 +15,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;progress.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#ifdef THREADED_DELTA_SEARCH
 macro_line|#include &quot;thread-utils.h&quot;
 macro_line|#include &lt;pthread.h&gt;
@@ -27,7 +28,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--max-pack-size=N] [--local] [--incremental] &bslash;n&bslash;&n;&t;[--window=N] [--window-memory=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--no-reuse-object] [--delta-base-offset] &bslash;n&bslash;&n;&t;[--threads=N] [--non-empty] [--revs [--unpacked | --all]*] [--reflog] &bslash;n&bslash;&n;&t;[--stdout | base-name] [--keep-unreachable] [&lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--max-pack-size=N] [--local] [--incremental] &bslash;n&bslash;&n;&t;[--window=N] [--window-memory=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--no-reuse-object] [--delta-base-offset] &bslash;n&bslash;&n;&t;[--threads=N] [--non-empty] [--revs [--unpacked | --all]*] [--reflog] &bslash;n&bslash;&n;&t;[--stdout | base-name] [--include-tag] [--keep-unreachable] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -161,6 +162,7 @@ suffix:semicolon
 DECL|variable|no_reuse_delta
 DECL|variable|no_reuse_object
 DECL|variable|keep_unreachable
+DECL|variable|include_tag
 r_static
 r_int
 id|no_reuse_delta
@@ -168,6 +170,8 @@ comma
 id|no_reuse_object
 comma
 id|keep_unreachable
+comma
+id|include_tag
 suffix:semicolon
 DECL|variable|local
 r_static
@@ -7795,6 +7799,92 @@ macro_line|#else
 DECL|macro|ll_find_deltas
 mdefine_line|#define ll_find_deltas(l, s, w, d, p)&t;find_deltas(l, &amp;s, w, d, p)
 macro_line|#endif
+DECL|function|add_ref_tag
+r_static
+r_int
+id|add_ref_tag
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+comma
+r_const
+r_int
+r_char
+op_star
+id|sha1
+comma
+r_int
+id|flag
+comma
+r_void
+op_star
+id|cb_data
+)paren
+(brace
+r_int
+r_char
+id|peeled
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|path
+comma
+l_string|&quot;refs/tags/&quot;
+)paren
+op_logical_and
+multiline_comment|/* is a tag? */
+op_logical_neg
+id|peel_ref
+c_func
+(paren
+id|path
+comma
+id|peeled
+)paren
+op_logical_and
+multiline_comment|/* peelable? */
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|peeled
+)paren
+op_logical_and
+multiline_comment|/* annotated tag? */
+id|locate_object_entry
+c_func
+(paren
+id|peeled
+)paren
+)paren
+multiline_comment|/* object packed? */
+id|add_object_entry
+c_func
+(paren
+id|sha1
+comma
+id|OBJ_TAG
+comma
+l_int|NULL
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 DECL|function|prepare_pack
 r_static
 r_void
@@ -10089,6 +10179,26 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;--include-tag&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|include_tag
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;--unpacked&quot;
 comma
 id|arg
@@ -10434,6 +10544,21 @@ id|rp_av
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|include_tag
+op_logical_and
+id|nr_result
+)paren
+id|for_each_ref
+c_func
+(paren
+id|add_ref_tag
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|stop_progress
 c_func
 (paren
