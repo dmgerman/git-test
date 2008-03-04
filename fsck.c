@@ -747,24 +747,6 @@ id|o_sha1
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|desc.size
-)paren
-r_return
-id|error_func
-c_func
-(paren
-op_amp
-id|item-&gt;object
-comma
-id|FSCK_ERROR
-comma
-l_string|&quot;empty tree&quot;
-)paren
-suffix:semicolon
 r_while
 c_loop
 (paren
