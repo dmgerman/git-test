@@ -53,13 +53,18 @@ id|nr_our_refs
 suffix:semicolon
 DECL|variable|use_thin_pack
 DECL|variable|use_ofs_delta
-DECL|variable|no_progress
+DECL|variable|use_include_tag
 r_static
 r_int
 id|use_thin_pack
 comma
 id|use_ofs_delta
 comma
+id|use_include_tag
+suffix:semicolon
+DECL|variable|no_progress
+r_static
+r_int
 id|no_progress
 suffix:semicolon
 DECL|variable|have_obj
@@ -811,6 +816,19 @@ op_increment
 )braket
 op_assign
 l_string|&quot;--delta-base-offset&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|use_include_tag
+)paren
+id|argv
+(braket
+id|arg
+op_increment
+)braket
+op_assign
+l_string|&quot;--include-tag&quot;
 suffix:semicolon
 id|argv
 (braket
@@ -2573,6 +2591,23 @@ id|no_progress
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|line
+op_plus
+l_int|45
+comma
+l_string|&quot;include-tag&quot;
+)paren
+)paren
+id|use_include_tag
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* We have sent all our refs already, and the other end&n;&t;&t; * should have chosen out of them; otherwise they are&n;&t;&t; * asking for nonsense.&n;&t;&t; *&n;&t;&t; * Hmph.  We may later want to allow &quot;want&quot; line that&n;&t;&t; * asks for something like &quot;master~10&quot; (symbolic)...&n;&t;&t; * would it make sense?  I don&squot;t know.&n;&t;&t; */
 id|o
 op_assign
@@ -2978,6 +3013,7 @@ id|capabilities
 op_assign
 l_string|&quot;multi_ack thin-pack side-band&quot;
 l_string|&quot; side-band-64k ofs-delta shallow no-progress&quot;
+l_string|&quot; include-tag&quot;
 suffix:semicolon
 r_struct
 id|object
