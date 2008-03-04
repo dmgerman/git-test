@@ -551,15 +551,6 @@ c_func
 id|transport
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|ref
-)paren
-r_return
-l_int|1
-suffix:semicolon
 r_for
 c_loop
 (paren
