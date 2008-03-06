@@ -1110,6 +1110,7 @@ r_int
 id|is_racy_timestamp
 c_func
 (paren
+r_const
 r_struct
 id|index_state
 op_star
@@ -1142,6 +1143,7 @@ r_int
 id|ie_match_stat
 c_func
 (paren
+r_const
 r_struct
 id|index_state
 op_star
@@ -1252,6 +1254,7 @@ r_int
 id|ie_modified
 c_func
 (paren
+r_const
 r_struct
 id|index_state
 op_star
@@ -1779,6 +1782,7 @@ r_int
 id|index_name_pos
 c_func
 (paren
+r_const
 r_struct
 id|index_state
 op_star
@@ -5534,6 +5538,7 @@ r_int
 id|unmerged_index
 c_func
 (paren
+r_const
 r_struct
 id|index_state
 op_star
@@ -6201,6 +6206,7 @@ r_int
 id|write_index
 c_func
 (paren
+r_const
 r_struct
 id|index_state
 op_star

@@ -14,6 +14,7 @@ r_int
 r_int
 id|hash
 comma
+r_const
 r_struct
 id|hash_table
 op_star
@@ -286,6 +287,7 @@ r_int
 r_int
 id|hash
 comma
+r_const
 r_struct
 id|hash_table
 op_star
@@ -372,6 +374,7 @@ r_int
 id|for_each_hash
 c_func
 (paren
+r_const
 r_struct
 id|hash_table
 op_star
