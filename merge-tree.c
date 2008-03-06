@@ -1375,7 +1375,7 @@ suffix:semicolon
 multiline_comment|/*&n; * Merge two trees together (t[1] and t[2]), using a common base (t[0])&n; * as the origin.&n; *&n; * This walks the (sorted) trees in lock-step, checking every possible&n; * name. Note that directories automatically sort differently from other&n; * files (see &quot;base_name_compare&quot;), so you&squot;ll never see file/directory&n; * conflicts, because they won&squot;t ever compare the same.&n; *&n; * IOW, if a directory changes to a filename, it will automatically be&n; * seen as the directory going away, and the filename being created.&n; *&n; * Think of this as a three-way diff.&n; *&n; * The output will be either:&n; *  - successful merge&n; *&t; &quot;0 mode sha1 filename&quot;&n; *    NOTE NOTE NOTE! FIXME! We really really need to walk the index&n; *    in parallel with this too!&n; *&n; *  - conflict:&n; *&t;&quot;1 mode sha1 filename&quot;&n; *&t;&quot;2 mode sha1 filename&quot;&n; *&t;&quot;3 mode sha1 filename&quot;&n; *    where not all of the 1/2/3 lines may exist, of course.&n; *&n; * The successful merge rules are the same as for the three-way merge&n; * in git-read-tree.&n; */
 DECL|function|threeway_callback
 r_static
-r_void
+r_int
 id|threeway_callback
 c_func
 (paren
@@ -1438,6 +1438,7 @@ l_int|1
 )paren
 suffix:semicolon
 r_return
+id|mask
 suffix:semicolon
 )brace
 )brace
@@ -1495,6 +1496,7 @@ l_int|2
 )paren
 suffix:semicolon
 r_return
+id|mask
 suffix:semicolon
 )brace
 )brace
@@ -1550,6 +1552,7 @@ l_int|1
 )paren
 suffix:semicolon
 r_return
+id|mask
 suffix:semicolon
 )brace
 )brace
@@ -1560,6 +1563,9 @@ id|info
 comma
 id|entry
 )paren
+suffix:semicolon
+r_return
+id|mask
 suffix:semicolon
 )brace
 DECL|function|merge_trees
