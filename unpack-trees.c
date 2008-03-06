@@ -1,3 +1,5 @@
+DECL|macro|NO_THE_INDEX_COMPATIBILITY_MACROS
+mdefine_line|#define NO_THE_INDEX_COMPATIBILITY_MACROS
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;tree.h&quot;
@@ -15,6 +17,11 @@ c_func
 (paren
 r_int
 id|remove
+comma
+r_struct
+id|unpack_trees_options
+op_star
+id|o
 )paren
 (brace
 r_if
@@ -24,9 +31,11 @@ id|remove
 op_ge
 l_int|0
 )paren
-id|remove_cache_entry_at
+id|remove_index_entry_at
 c_func
 (paren
+id|o-&gt;index
+comma
 id|remove
 )paren
 suffix:semicolon
@@ -214,7 +223,7 @@ l_int|0
 suffix:semicolon
 id|cnt
 OL
-id|active_nr
+id|o-&gt;index-&gt;cache_nr
 suffix:semicolon
 id|cnt
 op_increment
@@ -225,7 +234,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|active_cache
+id|o-&gt;index-&gt;cache
 (braket
 id|cnt
 )braket
@@ -278,7 +287,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|active_nr
+id|o-&gt;index-&gt;cache_nr
 suffix:semicolon
 id|i
 op_increment
@@ -289,7 +298,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|active_cache
+id|o-&gt;index-&gt;cache
 (braket
 id|i
 )braket
@@ -335,9 +344,11 @@ comma
 id|last_symlink
 )paren
 suffix:semicolon
-id|remove_cache_entry_at
+id|remove_index_entry_at
 c_func
 (paren
+id|o-&gt;index
+comma
 id|i
 )paren
 suffix:semicolon
@@ -507,6 +518,8 @@ id|remove_entry
 c_func
 (paren
 id|o-&gt;pos
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
@@ -1202,6 +1215,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 r_for
@@ -1218,9 +1233,11 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-id|add_cache_entry
+id|add_index_entry
 c_func
 (paren
+id|o-&gt;index
+comma
 id|src
 (braket
 id|i
@@ -1318,7 +1335,7 @@ c_loop
 (paren
 id|o-&gt;pos
 OL
-id|active_nr
+id|o-&gt;index-&gt;cache_nr
 )paren
 (brace
 r_struct
@@ -1326,7 +1343,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|active_cache
+id|o-&gt;index-&gt;cache
 (braket
 id|o-&gt;pos
 )braket
@@ -1401,6 +1418,8 @@ id|remove_entry
 c_func
 (paren
 id|o-&gt;pos
+comma
+id|o
 )paren
 suffix:semicolon
 r_continue
@@ -1549,14 +1568,16 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-id|discard_cache
+id|discard_index
 c_func
 (paren
+id|o-&gt;index
 )paren
 suffix:semicolon
-id|read_cache
+id|read_index
 c_func
 (paren
+id|o-&gt;index
 )paren
 suffix:semicolon
 r_return
@@ -1738,7 +1759,7 @@ c_loop
 (paren
 id|o-&gt;pos
 OL
-id|active_nr
+id|o-&gt;index-&gt;cache_nr
 )paren
 (brace
 r_struct
@@ -1746,7 +1767,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|active_cache
+id|o-&gt;index-&gt;cache
 (braket
 id|o-&gt;pos
 )braket
@@ -1931,9 +1952,11 @@ id|st
 r_int
 id|changed
 op_assign
-id|ce_match_stat
+id|ie_match_stat
 c_func
 (paren
+id|o-&gt;index
+comma
 id|ce
 comma
 op_amp
@@ -2004,6 +2027,11 @@ r_struct
 id|cache_entry
 op_star
 id|ce
+comma
+r_struct
+id|unpack_trees_options
+op_star
+id|o
 )paren
 (brace
 r_if
@@ -2014,7 +2042,7 @@ id|ce
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|active_cache_tree
+id|o-&gt;index-&gt;cache_tree
 comma
 id|ce-&gt;name
 )paren
@@ -2159,9 +2187,11 @@ id|ce-&gt;name
 suffix:semicolon
 id|pos
 op_assign
-id|cache_name_pos
+id|index_name_pos
 c_func
 (paren
+id|o-&gt;index
+comma
 id|ce-&gt;name
 comma
 id|namelen
@@ -2192,7 +2222,7 @@ id|pos
 suffix:semicolon
 id|i
 OL
-id|active_nr
+id|o-&gt;index-&gt;cache_nr
 suffix:semicolon
 id|i
 op_increment
@@ -2203,7 +2233,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|active_cache
+id|o-&gt;index-&gt;cache
 (braket
 id|i
 )braket
@@ -2515,9 +2545,11 @@ suffix:semicolon
 multiline_comment|/*&n;&t;&t; * The previous round may already have decided to&n;&t;&t; * delete this path, which is in a subdirectory that&n;&t;&t; * is being replaced with a blob.&n;&t;&t; */
 id|cnt
 op_assign
-id|cache_name_pos
+id|index_name_pos
 c_func
 (paren
+id|o-&gt;index
+comma
 id|ce-&gt;name
 comma
 id|strlen
@@ -2540,7 +2572,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|active_cache
+id|o-&gt;index-&gt;cache
 (braket
 id|cnt
 )braket
@@ -2652,6 +2684,8 @@ id|invalidate_ce_path
 c_func
 (paren
 id|old
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
@@ -2678,6 +2712,8 @@ id|invalidate_ce_path
 c_func
 (paren
 id|merge
+comma
+id|o
 )paren
 suffix:semicolon
 )brace
@@ -2686,9 +2722,11 @@ op_and_assign
 op_complement
 id|CE_STAGEMASK
 suffix:semicolon
-id|add_cache_entry
+id|add_index_entry
 c_func
 (paren
+id|o-&gt;index
+comma
 id|merge
 comma
 id|ADD_CACHE_OK_TO_ADD
@@ -2764,9 +2802,11 @@ id|ce-&gt;ce_flags
 op_or_assign
 id|CE_REMOVE
 suffix:semicolon
-id|add_cache_entry
+id|add_index_entry
 c_func
 (paren
+id|o-&gt;index
+comma
 id|ce
 comma
 id|ADD_CACHE_OK_TO_ADD
@@ -2778,6 +2818,8 @@ id|invalidate_ce_path
 c_func
 (paren
 id|ce
+comma
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -2801,9 +2843,11 @@ op_star
 id|o
 )paren
 (brace
-id|add_cache_entry
+id|add_index_entry
 c_func
 (paren
+id|o-&gt;index
+comma
 id|ce
 comma
 id|ADD_CACHE_OK_TO_ADD
@@ -3279,6 +3323,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -3422,6 +3468,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 r_if
@@ -3527,6 +3575,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 id|o-&gt;nontrivial_merge
@@ -3871,6 +3921,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -3931,6 +3983,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 r_if
@@ -4010,6 +4064,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -4198,6 +4254,8 @@ id|remove_entry
 c_func
 (paren
 id|remove
+comma
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -4248,9 +4306,11 @@ op_amp
 id|st
 )paren
 op_logical_or
-id|ce_match_stat
+id|ie_match_stat
 c_func
 (paren
+id|o-&gt;index
+comma
 id|old
 comma
 op_amp

@@ -470,6 +470,11 @@ id|opts.head_idx
 op_assign
 l_int|1
 suffix:semicolon
+id|opts.index
+op_assign
+op_amp
+id|the_index
+suffix:semicolon
 id|git_config
 c_func
 (paren

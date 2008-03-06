@@ -1010,6 +1010,11 @@ id|opts.fn
 op_assign
 id|threeway_merge
 suffix:semicolon
+id|opts.index
+op_assign
+op_amp
+id|the_index
+suffix:semicolon
 id|init_tree_desc_from_tree
 c_func
 (paren

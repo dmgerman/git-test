@@ -3799,6 +3799,11 @@ id|opts.unpack_data
 op_assign
 id|revs
 suffix:semicolon
+id|opts.index
+op_assign
+op_amp
+id|the_index
+suffix:semicolon
 id|init_tree_desc
 c_func
 (paren
@@ -4056,6 +4061,11 @@ id|opts.unpack_data
 op_assign
 op_amp
 id|revs
+suffix:semicolon
+id|opts.index
+op_assign
+op_amp
+id|the_index
 suffix:semicolon
 id|init_tree_desc
 c_func
