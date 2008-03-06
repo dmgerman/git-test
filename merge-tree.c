@@ -1386,6 +1386,10 @@ r_int
 r_int
 id|mask
 comma
+r_int
+r_int
+id|dirmask
+comma
 r_struct
 id|name_entry
 op_star
