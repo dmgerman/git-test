@@ -1423,8 +1423,6 @@ op_star
 id|endp
 op_assign
 id|quoted
-op_plus
-l_int|1
 suffix:semicolon
 r_return
 l_int|0
