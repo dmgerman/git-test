@@ -1010,7 +1010,12 @@ id|opts.fn
 op_assign
 id|threeway_merge
 suffix:semicolon
-id|opts.index
+id|opts.src_index
+op_assign
+op_amp
+id|the_index
+suffix:semicolon
+id|opts.dst_index
 op_assign
 op_amp
 id|the_index

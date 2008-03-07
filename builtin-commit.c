@@ -981,7 +981,12 @@ id|opts.merge
 op_assign
 l_int|1
 suffix:semicolon
-id|opts.index
+id|opts.src_index
+op_assign
+op_amp
+id|the_index
+suffix:semicolon
+id|opts.dst_index
 op_assign
 op_amp
 id|the_index
