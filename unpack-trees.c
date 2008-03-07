@@ -1597,6 +1597,13 @@ op_star
 id|message
 )paren
 (brace
+id|discard_index
+c_func
+(paren
+op_amp
+id|o-&gt;result
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
