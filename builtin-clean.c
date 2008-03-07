@@ -3,6 +3,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;quote.h&quot;
 DECL|variable|force
 r_static
 r_int
@@ -157,10 +158,14 @@ op_star
 op_star
 id|pathspec
 suffix:semicolon
-r_int
-id|prefix_offset
-op_assign
-l_int|0
+r_struct
+id|strbuf
+id|buf
+suffix:semicolon
+r_const
+r_char
+op_star
+id|qname
 suffix:semicolon
 r_char
 op_star
@@ -285,6 +290,15 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+id|strbuf_init
+c_func
+(paren
+op_amp
+id|buf
+comma
+l_int|0
+)paren
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -359,19 +373,6 @@ c_func
 (paren
 op_amp
 id|dir
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|prefix
-)paren
-id|prefix_offset
-op_assign
-id|strlen
-c_func
-(paren
-id|prefix
 )paren
 suffix:semicolon
 id|pathspec
@@ -678,6 +679,21 @@ comma
 id|ent-&gt;name
 )paren
 suffix:semicolon
+id|qname
+op_assign
+id|quote_path_relative
+c_func
+(paren
+id|directory.buf
+comma
+id|directory.len
+comma
+op_amp
+id|buf
+comma
+id|prefix
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -695,9 +711,7 @@ c_func
 (paren
 l_string|&quot;Would remove %s&bslash;n&quot;
 comma
-id|directory.buf
-op_plus
-id|prefix_offset
+id|qname
 )paren
 suffix:semicolon
 )brace
@@ -721,9 +735,7 @@ c_func
 (paren
 l_string|&quot;Removing %s&bslash;n&quot;
 comma
-id|directory.buf
-op_plus
-id|prefix_offset
+id|qname
 )paren
 suffix:semicolon
 r_if
@@ -746,9 +758,7 @@ c_func
 (paren
 l_string|&quot;failed to remove &squot;%s&squot;&quot;
 comma
-id|directory.buf
-op_plus
-id|prefix_offset
+id|qname
 )paren
 suffix:semicolon
 id|errors
@@ -768,9 +778,7 @@ c_func
 (paren
 l_string|&quot;Would not remove %s&bslash;n&quot;
 comma
-id|directory.buf
-op_plus
-id|prefix_offset
+id|qname
 )paren
 suffix:semicolon
 )brace
@@ -781,9 +789,7 @@ c_func
 (paren
 l_string|&quot;Not removing %s&bslash;n&quot;
 comma
-id|directory.buf
-op_plus
-id|prefix_offset
+id|qname
 )paren
 suffix:semicolon
 )brace
@@ -807,6 +813,21 @@ id|matches
 )paren
 r_continue
 suffix:semicolon
+id|qname
+op_assign
+id|quote_path_relative
+c_func
+(paren
+id|ent-&gt;name
+comma
+l_int|1
+comma
+op_amp
+id|buf
+comma
+id|prefix
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -818,9 +839,7 @@ c_func
 (paren
 l_string|&quot;Would remove %s&bslash;n&quot;
 comma
-id|ent-&gt;name
-op_plus
-id|prefix_offset
+id|qname
 )paren
 suffix:semicolon
 r_continue
@@ -839,9 +858,7 @@ c_func
 (paren
 l_string|&quot;Removing %s&bslash;n&quot;
 comma
-id|ent-&gt;name
-op_plus
-id|prefix_offset
+id|qname
 )paren
 suffix:semicolon
 )brace
@@ -862,7 +879,7 @@ c_func
 (paren
 l_string|&quot;failed to remove &squot;%s&squot;&quot;
 comma
-id|ent-&gt;name
+id|qname
 )paren
 suffix:semicolon
 id|errors
