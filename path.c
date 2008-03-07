@@ -1379,7 +1379,7 @@ id|mode
 )paren
 id|mode
 op_or_assign
-id|S_ISGID
+id|FORCE_DIR_SET_GID
 suffix:semicolon
 r_if
 c_cond
