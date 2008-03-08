@@ -4495,6 +4495,11 @@ r_const
 r_char
 op_star
 id|url
+comma
+r_struct
+id|remote
+op_star
+id|remote
 )paren
 (brace
 r_char
@@ -4534,6 +4539,7 @@ suffix:semicolon
 id|http_init
 c_func
 (paren
+id|remote
 )paren
 suffix:semicolon
 id|data-&gt;no_pragma_header

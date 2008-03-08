@@ -11751,6 +11751,7 @@ suffix:semicolon
 id|http_init
 c_func
 (paren
+l_int|NULL
 )paren
 suffix:semicolon
 id|no_pragma_header
