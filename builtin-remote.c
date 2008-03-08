@@ -1543,6 +1543,25 @@ id|path_list_item
 op_star
 id|item
 suffix:semicolon
+multiline_comment|/* make sure that symrefs are deleted */
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|REF_ISSYMREF
+)paren
+r_return
+id|unlink
+c_func
+(paren
+id|git_path
+c_func
+(paren
+id|refname
+)paren
+)paren
+suffix:semicolon
 id|item
 op_assign
 id|path_list_append
