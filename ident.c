@@ -824,7 +824,7 @@ op_star
 id|env_hint
 op_assign
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;*** Your name cannot be determined from your system services (gecos).&bslash;n&quot;
+l_string|&quot;*** Please tell me who you are.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;Run&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
