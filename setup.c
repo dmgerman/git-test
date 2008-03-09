@@ -977,6 +977,13 @@ op_increment
 op_assign
 id|p
 suffix:semicolon
+r_else
+m_exit
+(paren
+l_int|128
+)paren
+suffix:semicolon
+multiline_comment|/* error message already given */
 id|src
 op_increment
 suffix:semicolon
