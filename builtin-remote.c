@@ -223,6 +223,14 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;Updating %s&bslash;n&quot;
+comma
+id|name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
