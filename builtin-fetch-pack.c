@@ -50,7 +50,7 @@ id|fetch_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-fetch-pack [--all] [--quiet|-q] [--keep|-k] [--thin] [--upload-pack=&lt;git-upload-pack&gt;] [--depth=&lt;n&gt;] [--no-progress] [-v] [&lt;host&gt;:]&lt;directory&gt; [&lt;refs&gt;...]&quot;
+l_string|&quot;git-fetch-pack [--all] [--quiet|-q] [--keep|-k] [--thin] [--include-tag] [--upload-pack=&lt;git-upload-pack&gt;] [--depth=&lt;n&gt;] [--no-progress] [-v] [&lt;host&gt;:]&lt;directory&gt; [&lt;refs&gt;...]&quot;
 suffix:semicolon
 DECL|macro|COMPLETE
 mdefine_line|#define COMPLETE&t;(1U &lt;&lt; 0)
@@ -691,7 +691,7 @@ id|fd
 l_int|1
 )braket
 comma
-l_string|&quot;want %s%s%s%s%s%s%s&bslash;n&quot;
+l_string|&quot;want %s%s%s%s%s%s%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -744,6 +744,15 @@ id|args.no_progress
 ques
 c_cond
 l_string|&quot; no-progress&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
+comma
+(paren
+id|args.include_tag
+ques
+c_cond
+l_string|&quot; include-tag&quot;
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -3461,6 +3470,26 @@ id|arg
 )paren
 (brace
 id|args.use_thin_pack
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--include-tag&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|args.include_tag
 op_assign
 l_int|1
 suffix:semicolon
