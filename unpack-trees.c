@@ -749,6 +749,7 @@ id|sha1
 )paren
 suffix:semicolon
 )brace
+r_return
 id|traverse_trees
 c_func
 (paren
@@ -759,9 +760,6 @@ comma
 op_amp
 id|newinfo
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Compare the traverse-path to the cache entry without actually&n; * having to generate the textual representation of the traverse&n; * path.&n; *&n; * NOTE! This *only* compares up to the size of the traverse path&n; * itself - the caller needs to do the final check for the cache&n; * entry having more data at the end!&n; */
@@ -1558,6 +1556,9 @@ op_or_assign
 l_int|1
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|traverse_trees_recursive
 c_func
 (paren
@@ -1571,6 +1572,11 @@ id|names
 comma
 id|info
 )paren
+OL
+l_int|0
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_return
 id|mask
