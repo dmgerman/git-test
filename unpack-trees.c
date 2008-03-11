@@ -592,9 +592,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-r_return
-l_int|0
-suffix:semicolon
 )brace
 r_return
 id|call_unpack_fn
@@ -1478,8 +1475,6 @@ r_return
 id|mask
 suffix:semicolon
 )brace
-r_continue
-suffix:semicolon
 )brace
 id|src
 (braket
