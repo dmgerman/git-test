@@ -202,6 +202,19 @@ id|args
 l_int|6
 )braket
 suffix:semicolon
+r_struct
+id|strbuf
+id|arg0
+suffix:semicolon
+id|strbuf_init
+c_func
+(paren
+op_amp
+id|arg0
+comma
+l_int|0
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -217,6 +230,17 @@ id|len
 )paren
 (brace
 multiline_comment|/* there are specials */
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|arg0
+comma
+l_string|&quot;%s &bslash;&quot;$@&bslash;&quot;&quot;
+comma
+id|editor
+)paren
+suffix:semicolon
 id|args
 (braket
 id|i
@@ -239,7 +263,7 @@ id|i
 op_increment
 )braket
 op_assign
-l_string|&quot;$0 &bslash;&quot;$@&bslash;&quot;&quot;
+id|arg0.buf
 suffix:semicolon
 )brace
 id|args
@@ -286,6 +310,13 @@ c_func
 l_string|&quot;There was a problem with the editor %s.&quot;
 comma
 id|editor
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|arg0
 )paren
 suffix:semicolon
 )brace
