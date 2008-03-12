@@ -1497,6 +1497,15 @@ l_int|1
 )braket
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|PARSE_OPT_STOP_AT_NON_OPTION
+)paren
+r_break
+suffix:semicolon
 id|args.out
 (braket
 id|args.cpidx
