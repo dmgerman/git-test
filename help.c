@@ -723,8 +723,7 @@ id|exec_man_konqueror
 )paren
 suffix:semicolon
 r_else
-r_return
-id|error
+id|warning
 c_func
 (paren
 l_string|&quot;&squot;%s&squot;: unsupported man viewer.&quot;
