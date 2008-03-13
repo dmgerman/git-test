@@ -177,6 +177,21 @@ comma
 id|TAGS_SET
 )paren
 comma
+id|OPT_SET_INT
+c_func
+(paren
+l_char|&squot;n&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|tags
+comma
+l_string|&quot;do not fetch all tags (--no-tags)&quot;
+comma
+id|TAGS_UNSET
+)paren
+comma
 id|OPT_BOOLEAN
 c_func
 (paren
