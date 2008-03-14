@@ -251,6 +251,9 @@ r_char
 op_star
 id|val
 suffix:semicolon
+r_int
+id|nongit
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -266,9 +269,11 @@ id|var_usage
 )paren
 suffix:semicolon
 )brace
-id|setup_git_directory
+id|setup_git_directory_gently
 c_func
 (paren
+op_amp
+id|nongit
 )paren
 suffix:semicolon
 id|val
