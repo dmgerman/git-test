@@ -637,7 +637,7 @@ r_struct
 id|tree_desc
 id|t
 (braket
-l_int|3
+id|MAX_UNPACK_TREES
 )braket
 suffix:semicolon
 r_struct
@@ -1662,12 +1662,14 @@ c_cond
 (paren
 id|len
 OG
-l_int|4
+id|MAX_UNPACK_TREES
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;unpack_trees takes at most four trees&quot;
+l_string|&quot;unpack_trees takes at most %d trees&quot;
+comma
+id|MAX_UNPACK_TREES
 )paren
 suffix:semicolon
 id|memset
