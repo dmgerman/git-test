@@ -3541,7 +3541,7 @@ op_star
 id|encoding
 comma
 r_int
-id|plain_non_ascii
+id|need_8bit_cte
 )paren
 (brace
 r_struct
@@ -3720,7 +3720,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|plain_non_ascii
+id|need_8bit_cte
+OG
+l_int|0
 )paren
 (brace
 r_const
@@ -3982,7 +3984,7 @@ id|date_mode
 id|dmode
 comma
 r_int
-id|plain_non_ascii
+id|need_8bit_cte
 )paren
 (brace
 r_int
@@ -4088,7 +4090,7 @@ id|indent
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* After-subject is used to pass in Content-Type: multipart&n;&t; * MIME header; in that case we do not have to do the&n;&t; * plaintext content type even if the commit message has&n;&t; * non 7-bit ASCII character.  Otherwise, check if we need&n;&t; * to say this is not a 7-bit ASCII.&n;&t; */
+multiline_comment|/*&n;&t; * We need to check and emit Content-type: to mark it&n;&t; * as 8-bit if we haven&squot;t done so.&n;&t; */
 r_if
 c_cond
 (paren
@@ -4096,8 +4098,9 @@ id|fmt
 op_eq
 id|CMIT_FMT_EMAIL
 op_logical_and
-op_logical_neg
-id|after_subject
+id|need_8bit_cte
+op_eq
+l_int|0
 )paren
 (brace
 r_int
@@ -4169,7 +4172,7 @@ id|ch
 )paren
 )paren
 (brace
-id|plain_non_ascii
+id|need_8bit_cte
 op_assign
 l_int|1
 suffix:semicolon
@@ -4295,7 +4298,7 @@ id|after_subject
 comma
 id|encoding
 comma
-id|plain_non_ascii
+id|need_8bit_cte
 )paren
 suffix:semicolon
 id|beginning_of_body

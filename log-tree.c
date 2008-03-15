@@ -643,6 +643,10 @@ r_char
 op_star
 op_star
 id|extra_headers_p
+comma
+r_int
+op_star
+id|need_8bit_cte_p
 )paren
 (brace
 r_const
@@ -659,6 +663,12 @@ id|extra_headers
 op_assign
 id|opt-&gt;extra_headers
 suffix:semicolon
+op_star
+id|need_8bit_cte_p
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* unknown */
 r_if
 c_cond
 (paren
@@ -808,6 +818,12 @@ id|buffer
 l_int|1024
 )braket
 suffix:semicolon
+op_star
+id|need_8bit_cte_p
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* NEVER */
 id|snprintf
 c_func
 (paren
@@ -971,6 +987,11 @@ op_star
 id|extra_headers
 op_assign
 id|opt-&gt;extra_headers
+suffix:semicolon
+r_int
+id|need_8bit_cte
+op_assign
+l_int|0
 suffix:semicolon
 id|opt-&gt;loginfo
 op_assign
@@ -1145,6 +1166,9 @@ id|subject
 comma
 op_amp
 id|extra_headers
+comma
+op_amp
+id|need_8bit_cte
 )paren
 suffix:semicolon
 )brace
@@ -1379,6 +1403,21 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|need_8bit_cte
+op_ge
+l_int|0
+)paren
+id|need_8bit_cte
+op_assign
+id|has_non_ascii
+c_func
+(paren
+id|opt-&gt;add_signoff
+)paren
+suffix:semicolon
 id|pretty_print_commit
 c_func
 (paren
@@ -1397,11 +1436,7 @@ id|extra_headers
 comma
 id|opt-&gt;date_mode
 comma
-id|has_non_ascii
-c_func
-(paren
-id|opt-&gt;add_signoff
-)paren
+id|need_8bit_cte
 )paren
 suffix:semicolon
 r_if

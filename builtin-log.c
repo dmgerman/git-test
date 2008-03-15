@@ -3527,6 +3527,11 @@ r_struct
 id|diff_options
 id|opts
 suffix:semicolon
+r_int
+id|need_8bit_cte
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3583,6 +3588,9 @@ id|subject_start
 comma
 op_amp
 id|extra_headers
+comma
+op_amp
+id|need_8bit_cte
 )paren
 suffix:semicolon
 id|committer
@@ -3640,7 +3648,7 @@ id|extra_headers
 comma
 id|encoding
 comma
-l_int|0
+id|need_8bit_cte
 )paren
 suffix:semicolon
 id|pp_remainder
