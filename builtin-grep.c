@@ -7,6 +7,15 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;grep.h&quot;
+macro_line|#ifndef NO_EXTERNAL_GREP
+macro_line|#ifdef __unix__
+DECL|macro|NO_EXTERNAL_GREP
+mdefine_line|#define NO_EXTERNAL_GREP 0
+macro_line|#else
+DECL|macro|NO_EXTERNAL_GREP
+mdefine_line|#define NO_EXTERNAL_GREP 1
+macro_line|#endif
+macro_line|#endif
 multiline_comment|/*&n; * git grep pathspecs are somewhat different from diff-tree pathspecs;&n; * pathname wildcards are allowed.&n; */
 DECL|function|pathspec_matches
 r_static
@@ -743,7 +752,7 @@ r_return
 id|i
 suffix:semicolon
 )brace
-macro_line|#ifdef __unix__
+macro_line|#if !NO_EXTERNAL_GREP
 DECL|function|exec_grep
 r_static
 r_int
@@ -1768,7 +1777,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-macro_line|#ifdef __unix__
+macro_line|#if !NO_EXTERNAL_GREP
 multiline_comment|/*&n;&t; * Use the external &quot;grep&quot; command for the case where&n;&t; * we grep through the checked-out files. It tends to&n;&t; * be a lot more optimized&n;&t; */
 r_if
 c_cond
