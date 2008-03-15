@@ -2304,7 +2304,14 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+r_struct
+id|commit
+op_star
+id|commit
+suffix:semicolon
 r_int
+id|ret
+suffix:semicolon
 id|ret
 op_assign
 id|get_sha1_1
@@ -2325,16 +2332,6 @@ id|ret
 r_return
 id|ret
 suffix:semicolon
-r_while
-c_loop
-(paren
-id|generation
-op_decrement
-)paren
-(brace
-r_struct
-id|commit
-op_star
 id|commit
 op_assign
 id|lookup_commit_reference
@@ -2348,7 +2345,20 @@ c_cond
 (paren
 op_logical_neg
 id|commit
-op_logical_or
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_while
+c_loop
+(paren
+id|generation
+op_decrement
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|parse_commit
 c_func
 (paren
@@ -2361,13 +2371,9 @@ id|commit-&gt;parents
 r_return
 l_int|1
 suffix:semicolon
-id|hashcpy
-c_func
-(paren
-id|sha1
-comma
-id|commit-&gt;parents-&gt;item-&gt;object.sha1
-)paren
+id|commit
+op_assign
+id|commit-&gt;parents-&gt;item
 suffix:semicolon
 )brace
 id|hashcpy
@@ -2375,7 +2381,7 @@ c_func
 (paren
 id|result
 comma
-id|sha1
+id|commit-&gt;object.sha1
 )paren
 suffix:semicolon
 r_return
@@ -3062,7 +3068,7 @@ r_char
 op_star
 id|cp
 suffix:semicolon
-multiline_comment|/* &quot;name~3&quot; is &quot;name^^^&quot;,&n;&t; * &quot;name~&quot; and &quot;name~0&quot; are name -- not &quot;name^0&quot;!&n;&t; * &quot;name^&quot; is not &quot;name^0&quot;; it is &quot;name^1&quot;.&n;&t; */
+multiline_comment|/*&n;&t; * &quot;name~3&quot; is &quot;name^^^&quot;, &quot;name~&quot; is &quot;name~1&quot;, and &quot;name^&quot; is &quot;name^1&quot;.&n;&t; */
 id|has_suffix
 op_assign
 l_int|0
@@ -3165,14 +3171,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_suffix
-op_eq
-l_char|&squot;^&squot;
-)paren
-(brace
-r_if
-c_cond
-(paren
 op_logical_neg
 id|num
 op_logical_and
@@ -3185,6 +3183,13 @@ id|num
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|has_suffix
+op_eq
+l_char|&squot;^&squot;
+)paren
 r_return
 id|get_parent
 c_func
@@ -3198,7 +3203,6 @@ comma
 id|num
 )paren
 suffix:semicolon
-)brace
 multiline_comment|/* else if (has_suffix == &squot;~&squot;) -- goes without saying */
 r_return
 id|get_nth_ancestor
