@@ -1716,6 +1716,15 @@ id|o-&gt;result
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;src_index
+)paren
+id|o-&gt;result.timestamp
+op_assign
+id|o-&gt;src_index-&gt;timestamp
+suffix:semicolon
 id|o-&gt;merge_size
 op_assign
 id|len
