@@ -2728,13 +2728,18 @@ op_star
 id|o
 )paren
 (brace
+r_int
+id|update
+op_assign
+id|CE_UPDATE
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|old
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * See if we can re-use the old CE directly?&n;&t;&t; * That way we get the uptodate stat info.&n;&t;&t; *&n;&t;&t; * This also removes the UPDATE flag on&n;&t;&t; * a match.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * See if we can re-use the old CE directly?&n;&t;&t; * That way we get the uptodate stat info.&n;&t;&t; *&n;&t;&t; * This also removes the UPDATE flag on a match; otherwise&n;&t;&t; * we will end up overwriting local changes in the work tree.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2754,6 +2759,10 @@ id|merge
 comma
 id|old
 )paren
+suffix:semicolon
+id|update
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 r_else
@@ -2816,7 +2825,7 @@ id|o
 comma
 id|merge
 comma
-id|CE_UPDATE
+id|update
 comma
 id|CE_STAGEMASK
 )paren
