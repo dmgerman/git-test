@@ -1232,12 +1232,6 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * We unlink the old file, to get the new one with the&n;&t;&t; * right permissions (including umask, which is nasty&n;&t;&t; * to emulate by hand - much easier to let the system&n;&t;&t; * just do the right thing)&n;&t;&t; */
-id|unlink
-c_func
-(paren
-id|path
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1283,6 +1277,31 @@ id|path
 )paren
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|unlink
+c_func
+(paren
+id|path
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;unable to unlink old &squot;%s&squot; (%s)&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
+suffix:semicolon
 )brace
 r_else
 r_if
