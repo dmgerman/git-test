@@ -3543,7 +3543,7 @@ c_func
 (paren
 id|transport
 comma
-id|parse_ref_spec
+id|parse_fetch_refspec
 c_func
 (paren
 id|ref_nr
