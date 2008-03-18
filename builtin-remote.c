@@ -2755,6 +2755,12 @@ l_string|&quot;refs/heads/&quot;
 )paren
 suffix:semicolon
 )brace
+id|printf
+c_func
+(paren
+l_string|&quot;&bslash;n&quot;
+)paren
+suffix:semicolon
 )brace
 id|cleanup_states
 suffix:colon
