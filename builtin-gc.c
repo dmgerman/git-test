@@ -807,15 +807,11 @@ c_func
 r_void
 )paren
 (brace
-multiline_comment|/*&n;&t; * Setting gc.auto and gc.autopacklimit to 0 or negative can&n;&t; * disable the automatic gc.&n;&t; */
+multiline_comment|/*&n;&t; * Setting gc.auto to 0 or negative can disable the&n;&t; * automatic gc.&n;&t; */
 r_if
 c_cond
 (paren
 id|gc_auto_threshold
-op_le
-l_int|0
-op_logical_and
-id|gc_auto_pack_limit
 op_le
 l_int|0
 )paren
