@@ -38,6 +38,7 @@ l_string|&quot;    --quiet&bslash;n&quot;
 l_string|&quot;  ordering output:&bslash;n&quot;
 l_string|&quot;    --topo-order&bslash;n&quot;
 l_string|&quot;    --date-order&bslash;n&quot;
+l_string|&quot;    --reverse&bslash;n&quot;
 l_string|&quot;  formatting output:&bslash;n&quot;
 l_string|&quot;    --parents&bslash;n&quot;
 l_string|&quot;    --objects | --objects-edge&bslash;n&quot;
