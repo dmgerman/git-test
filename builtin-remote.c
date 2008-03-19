@@ -1210,9 +1210,16 @@ comma
 l_string|&quot;refs/heads/&quot;
 )paren
 suffix:semicolon
+multiline_comment|/* symbolic refs pointing nowhere were handled already */
 r_if
 c_cond
 (paren
+(paren
+id|flags
+op_amp
+id|REF_ISSYMREF
+)paren
+op_logical_or
 id|unsorted_path_list_has_path
 c_func
 (paren
