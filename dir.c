@@ -1917,6 +1917,8 @@ c_func
 id|pathname
 comma
 id|len
+comma
+l_int|0
 )paren
 )paren
 r_return

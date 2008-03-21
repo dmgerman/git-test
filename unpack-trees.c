@@ -2676,6 +2676,8 @@ c_func
 (paren
 id|ce
 )paren
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
