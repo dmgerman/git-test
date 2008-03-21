@@ -230,7 +230,9 @@ id|ce
 suffix:semicolon
 )brace
 DECL|function|index_name_exists
-r_int
+r_struct
+id|cache_entry
+op_star
 id|index_name_exists
 c_func
 (paren
@@ -316,7 +318,7 @@ id|ce-&gt;ce_flags
 )paren
 )paren
 r_return
-l_int|1
+id|ce
 suffix:semicolon
 )brace
 id|ce
@@ -325,7 +327,7 @@ id|ce-&gt;next
 suffix:semicolon
 )brace
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 eof
