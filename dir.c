@@ -1918,7 +1918,7 @@ id|pathname
 comma
 id|len
 comma
-l_int|0
+id|ignore_case
 )paren
 )paren
 r_return
