@@ -47,7 +47,7 @@ r_static
 r_int
 id|gc_auto_pack_limit
 op_assign
-l_int|20
+l_int|50
 suffix:semicolon
 DECL|variable|prune_expire
 r_static
