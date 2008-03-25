@@ -876,10 +876,6 @@ id|argv
 )paren
 (brace
 r_int
-id|nongit
-op_assign
-l_int|0
-comma
 id|envchanged
 op_assign
 l_int|0
@@ -922,8 +918,7 @@ op_assign
 id|setup_git_directory_gently
 c_func
 (paren
-op_amp
-id|nongit
+l_int|NULL
 )paren
 suffix:semicolon
 id|alias_command

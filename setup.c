@@ -1466,6 +1466,17 @@ id|len
 comma
 id|offset
 suffix:semicolon
+multiline_comment|/*&n;&t; * Let&squot;s assume that we are in a git repository.&n;&t; * If it turns out later that we are somewhere else, the value will be&n;&t; * updated accordingly.&n;&t; */
+r_if
+c_cond
+(paren
+id|nongit_ok
+)paren
+op_star
+id|nongit_ok
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * If GIT_DIR is set explicitly, we&squot;re not going&n;&t; * to do any discovery, but we still do repository&n;&t; * validation.&n;&t; */
 id|gitdirenv
 op_assign

@@ -14202,8 +14202,6 @@ l_int|0
 suffix:semicolon
 r_int
 id|is_not_gitdir
-op_assign
-l_int|0
 suffix:semicolon
 r_const
 r_char
