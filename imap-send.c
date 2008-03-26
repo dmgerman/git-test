@@ -6970,6 +6970,25 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|server.host
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;no imap host specified&bslash;n&quot;
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 multiline_comment|/* read the messages */
 r_if
 c_cond
