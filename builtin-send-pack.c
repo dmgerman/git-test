@@ -2603,7 +2603,7 @@ r_char
 op_star
 id|remote
 op_assign
-id|strchr
+id|strrchr
 c_func
 (paren
 id|heads
