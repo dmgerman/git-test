@@ -6368,6 +6368,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|ce_uptodate
+c_func
+(paren
+id|ce
+)paren
+op_logical_and
 id|is_racy_timestamp
 c_func
 (paren
