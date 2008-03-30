@@ -2655,7 +2655,17 @@ c_cond
 (paren
 op_logical_neg
 id|changed
-op_logical_and
+)paren
+(brace
+id|ce_mark_uptodate
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|DIFF_OPT_TST
 c_func
@@ -2668,6 +2678,7 @@ id|FIND_COPIES_HARDER
 )paren
 r_continue
 suffix:semicolon
+)brace
 id|oldmode
 op_assign
 id|ce-&gt;ce_mode
