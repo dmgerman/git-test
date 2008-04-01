@@ -913,12 +913,16 @@ r_char
 op_star
 id|alias_string
 suffix:semicolon
+r_int
+id|unused_nongit
+suffix:semicolon
 id|subdir
 op_assign
 id|setup_git_directory_gently
 c_func
 (paren
-l_int|NULL
+op_amp
+id|unused_nongit
 )paren
 suffix:semicolon
 id|alias_command
