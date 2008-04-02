@@ -255,6 +255,13 @@ op_amp
 id|gpg
 )paren
 )paren
+(brace
+id|unlink
+c_func
+(paren
+id|path
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -262,6 +269,7 @@ c_func
 l_string|&quot;could not run gpg.&quot;
 )paren
 suffix:semicolon
+)brace
 id|write_in_full
 c_func
 (paren
