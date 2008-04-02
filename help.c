@@ -130,6 +130,11 @@ comma
 id|HELP_FORMAT_INFO
 )paren
 comma
+id|OPT_END
+c_func
+(paren
+)paren
+comma
 )brace
 suffix:semicolon
 DECL|variable|builtin_help_usage
