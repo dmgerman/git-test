@@ -41,6 +41,7 @@ l_string|&quot;    --date-order&bslash;n&quot;
 l_string|&quot;    --reverse&bslash;n&quot;
 l_string|&quot;  formatting output:&bslash;n&quot;
 l_string|&quot;    --parents&bslash;n&quot;
+l_string|&quot;    --children&bslash;n&quot;
 l_string|&quot;    --objects | --objects-edge&bslash;n&quot;
 l_string|&quot;    --unpacked&bslash;n&quot;
 l_string|&quot;    --header | --pretty&bslash;n&quot;
@@ -252,6 +253,53 @@ suffix:semicolon
 id|parents
 op_assign
 id|parents-&gt;next
+suffix:semicolon
+)brace
+)brace
+r_if
+c_cond
+(paren
+id|revs.children.name
+)paren
+(brace
+r_struct
+id|commit_list
+op_star
+id|children
+suffix:semicolon
+id|children
+op_assign
+id|lookup_decoration
+c_func
+(paren
+op_amp
+id|revs.children
+comma
+op_amp
+id|commit-&gt;object
+)paren
+suffix:semicolon
+r_while
+c_loop
+(paren
+id|children
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot; %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|children-&gt;item-&gt;object.sha1
+)paren
+)paren
+suffix:semicolon
+id|children
+op_assign
+id|children-&gt;next
 suffix:semicolon
 )brace
 )brace
