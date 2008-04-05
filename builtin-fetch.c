@@ -3599,6 +3599,19 @@ suffix:semicolon
 id|i
 op_increment
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|i
+op_ge
+id|argc
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;You need to specify a tag name.&quot;
+)paren
+suffix:semicolon
 id|ref
 op_assign
 id|xmalloc
