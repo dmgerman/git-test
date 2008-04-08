@@ -5830,14 +5830,14 @@ id|revs-&gt;verbose_header
 op_assign
 l_int|1
 suffix:semicolon
-id|revs-&gt;commit_format
-op_assign
 id|get_commit_format
 c_func
 (paren
 id|arg
 op_plus
 l_int|8
+comma
+id|revs
 )paren
 suffix:semicolon
 r_continue

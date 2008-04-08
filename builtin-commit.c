@@ -4365,12 +4365,13 @@ id|rev.show_root_diff
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.commit_format
-op_assign
 id|get_commit_format
 c_func
 (paren
 l_string|&quot;format:%h: %s&quot;
+comma
+op_amp
+id|rev
 )paren
 suffix:semicolon
 id|rev.always_show_header

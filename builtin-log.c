@@ -278,12 +278,12 @@ c_cond
 (paren
 id|fmt_pretty
 )paren
-id|rev-&gt;commit_format
-op_assign
 id|get_commit_format
 c_func
 (paren
 id|fmt_pretty
+comma
+id|rev
 )paren
 suffix:semicolon
 id|rev-&gt;verbose_header
@@ -1985,6 +1985,10 @@ multiline_comment|/*&n;&t; * This means that we override whatever commit format 
 id|rev.commit_format
 op_assign
 id|CMIT_FMT_ONELINE
+suffix:semicolon
+id|rev.use_terminator
+op_assign
+l_int|1
 suffix:semicolon
 id|rev.always_show_header
 op_assign
