@@ -1944,7 +1944,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot; [&lt;n&gt;]&quot;
+l_string|&quot;[&lt;n&gt;]&quot;
 )paren
 suffix:semicolon
 r_else
