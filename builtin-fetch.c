@@ -2061,11 +2061,6 @@ id|note
 )paren
 suffix:semicolon
 r_else
-r_if
-c_cond
-(paren
-id|verbose
-)paren
 id|sprintf
 c_func
 (paren
@@ -2093,12 +2088,6 @@ id|what
 suffix:colon
 l_string|&quot;HEAD&quot;
 )paren
-suffix:semicolon
-r_else
-op_star
-id|note
-op_assign
-l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 r_if
 c_cond
