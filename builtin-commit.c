@@ -4030,16 +4030,10 @@ op_logical_and
 op_logical_neg
 id|only
 )paren
-(brace
 id|only_include_assumed
 op_assign
 l_string|&quot;Explicit paths specified without -i nor -o; assuming --only paths...&quot;
 suffix:semicolon
-id|also
-op_assign
-l_int|0
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
