@@ -47,6 +47,11 @@ id|commit
 op_star
 id|commit
 suffix:semicolon
+DECL|variable|base_len
+r_static
+r_int
+id|base_len
+suffix:semicolon
 multiline_comment|/* writes out the whole block, but only if it is full */
 DECL|function|write_if_needed
 r_static
@@ -1490,6 +1495,8 @@ id|sha1_file_to_archive
 c_func
 (paren
 id|path.buf
+op_plus
+id|base_len
 comma
 id|sha1
 comma
@@ -1590,6 +1597,19 @@ suffix:semicolon
 id|commit
 op_assign
 id|args-&gt;commit
+suffix:semicolon
+id|base_len
+op_assign
+id|args-&gt;base
+ques
+c_cond
+id|strlen
+c_func
+(paren
+id|args-&gt;base
+)paren
+suffix:colon
+l_int|0
 suffix:semicolon
 r_if
 c_cond
