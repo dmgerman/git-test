@@ -496,7 +496,7 @@ comma
 op_amp
 id|only
 comma
-l_string|&quot;&quot;
+l_string|&quot;commit only specified files&quot;
 )paren
 comma
 id|OPT_BOOLEAN
