@@ -5255,6 +5255,10 @@ l_string|&quot;--topo-order&quot;
 )paren
 )paren
 (brace
+id|revs-&gt;lifo
+op_assign
+l_int|1
+suffix:semicolon
 id|revs-&gt;topo_order
 op_assign
 l_int|1
