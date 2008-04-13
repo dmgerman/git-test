@@ -1551,8 +1551,6 @@ id|name
 comma
 id|value
 )paren
-op_ne
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|git_config_bool
@@ -1575,6 +1573,8 @@ r_int
 id|discard
 suffix:semicolon
 r_return
+op_logical_neg
+op_logical_neg
 id|git_config_bool_or_int
 c_func
 (paren
