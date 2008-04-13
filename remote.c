@@ -1899,7 +1899,7 @@ id|name
 op_assign
 id|key
 op_plus
-l_int|5
+l_int|4
 suffix:semicolon
 id|subkey
 op_assign
