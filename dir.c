@@ -317,11 +317,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|name
-(braket
+id|namelen
+op_eq
 id|matchlen
-)braket
 )paren
 r_return
 id|MATCHED_EXACTLY
