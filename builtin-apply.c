@@ -14888,10 +14888,18 @@ id|fd
 OL
 l_int|0
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|apply_usage
+l_string|&quot;can&squot;t open patch &squot;%s&squot;: %s&quot;
+comma
+id|arg
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|read_stdin
