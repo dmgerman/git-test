@@ -1,6 +1,32 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;refs.h&quot;
+DECL|variable|s_tag_refspec
+r_static
+r_struct
+id|refspec
+id|s_tag_refspec
+op_assign
+(brace
+l_int|0
+comma
+l_int|1
+comma
+l_string|&quot;refs/tags/&quot;
+comma
+l_string|&quot;refs/tags/&quot;
+)brace
+suffix:semicolon
+DECL|variable|tag_refspec
+r_const
+r_struct
+id|refspec
+op_star
+id|tag_refspec
+op_assign
+op_amp
+id|s_tag_refspec
+suffix:semicolon
 DECL|struct|counted_string
 r_struct
 id|counted_string
