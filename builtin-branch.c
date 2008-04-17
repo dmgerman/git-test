@@ -18,7 +18,7 @@ id|builtin_branch_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-branch [options] [-r | -a]&quot;
+l_string|&quot;git-branch [options] [-r | -a] [--merged | --no-merged]&quot;
 comma
 l_string|&quot;git-branch [options] [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;]&quot;
 comma
@@ -118,6 +118,13 @@ op_assign
 l_int|4
 comma
 )brace
+suffix:semicolon
+DECL|variable|mergefilter
+r_static
+r_int
+id|mergefilter
+op_assign
+l_int|1
 suffix:semicolon
 DECL|function|parse_branch_color_slot
 r_static
@@ -992,6 +999,11 @@ suffix:semicolon
 r_int
 id|len
 suffix:semicolon
+r_static
+r_struct
+id|commit_list
+id|branch
+suffix:semicolon
 multiline_comment|/* Detect kind */
 r_if
 c_cond
@@ -1092,6 +1104,78 @@ l_int|0
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|mergefilter
+OG
+l_int|1
+)paren
+(brace
+id|branch.item
+op_assign
+id|lookup_commit_reference_gently
+c_func
+(paren
+id|sha1
+comma
+l_int|1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|branch.item
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Unable to lookup tip of branch %s&quot;
+comma
+id|refname
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|mergefilter
+op_eq
+l_int|0
+op_logical_and
+id|has_commit
+c_func
+(paren
+id|head_sha1
+comma
+op_amp
+id|branch
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|mergefilter
+op_eq
+l_int|1
+op_logical_and
+op_logical_neg
+id|has_commit
+c_func
+(paren
+id|head_sha1
+comma
+op_amp
+id|branch
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+)brace
 multiline_comment|/* Resize buffer */
 r_if
 c_cond
@@ -2449,6 +2533,21 @@ op_amp
 id|force_create
 comma
 l_string|&quot;force creation (when already exists)&quot;
+)paren
+comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;merged&quot;
+comma
+op_amp
+id|mergefilter
+comma
+l_string|&quot;list only merged branches&quot;
+comma
+l_int|1
 )paren
 comma
 id|OPT_END
