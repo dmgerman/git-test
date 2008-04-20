@@ -1114,9 +1114,7 @@ id|sep
 op_ne
 l_char|&squot;&bslash;n&squot;
 op_logical_and
-id|opt-&gt;commit_format
-op_eq
-id|CMIT_FMT_ONELINE
+id|opt-&gt;use_terminator
 )paren
 id|extra
 op_assign
@@ -1127,9 +1125,8 @@ c_cond
 (paren
 id|opt-&gt;shown_one
 op_logical_and
-id|opt-&gt;commit_format
-op_ne
-id|CMIT_FMT_ONELINE
+op_logical_neg
+id|opt-&gt;use_terminator
 )paren
 id|putchar
 c_func
