@@ -6977,6 +6977,13 @@ op_logical_neg
 id|server.host
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|server.tunnel
+)paren
+(brace
 id|fprintf
 c_func
 (paren
@@ -6987,6 +6994,11 @@ l_string|&quot;no imap host specified&bslash;n&quot;
 suffix:semicolon
 r_return
 l_int|1
+suffix:semicolon
+)brace
+id|server.host
+op_assign
+l_string|&quot;tunnel&quot;
 suffix:semicolon
 )brace
 multiline_comment|/* read the messages */
