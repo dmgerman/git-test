@@ -2579,6 +2579,16 @@ id|baselen
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|baselen
+op_ne
+l_int|0
+)paren
+id|baselen
+op_increment
+suffix:semicolon
 r_return
 id|fnmatch
 c_func
@@ -2588,8 +2598,6 @@ comma
 id|pathname
 op_plus
 id|baselen
-op_plus
-l_int|1
 comma
 id|FNM_PATHNAME
 )paren
