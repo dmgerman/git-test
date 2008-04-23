@@ -97,14 +97,6 @@ c_cond
 (paren
 op_logical_neg
 id|b
-op_logical_or
-id|src
-op_plus
-id|len
-OL
-id|b
-op_plus
-l_int|9
 )paren
 r_break
 suffix:semicolon
@@ -119,7 +111,12 @@ l_int|8
 comma
 l_char|&squot;$&squot;
 comma
+(paren
+id|src
+op_plus
 id|len
+)paren
+id|b
 l_int|8
 )paren
 suffix:semicolon
