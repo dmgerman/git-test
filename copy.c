@@ -63,8 +63,6 @@ l_int|0
 (brace
 r_int
 id|read_error
-suffix:semicolon
-id|read_error
 op_assign
 id|errno
 suffix:semicolon
@@ -148,6 +146,11 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_int
+id|write_error
+op_assign
+id|errno
+suffix:semicolon
 id|close
 c_func
 (paren
@@ -163,7 +166,7 @@ comma
 id|strerror
 c_func
 (paren
-id|errno
+id|write_error
 )paren
 )paren
 suffix:semicolon
@@ -298,7 +301,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;%s: write error: %s&quot;
+l_string|&quot;%s: close error: %s&quot;
 comma
 id|dst
 comma
