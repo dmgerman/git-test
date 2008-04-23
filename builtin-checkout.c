@@ -2673,7 +2673,7 @@ comma
 id|OPT_SET_INT
 c_func
 (paren
-l_int|0
+l_char|&squot;t&squot;
 comma
 l_string|&quot;track&quot;
 comma
