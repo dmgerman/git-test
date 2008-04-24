@@ -2162,6 +2162,8 @@ comma
 id|RUN_SETUP
 op_or
 id|NEED_WORK_TREE
+op_or
+id|USE_PAGER
 )brace
 comma
 (brace
