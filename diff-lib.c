@@ -1539,6 +1539,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|nongit
+op_logical_and
+id|argc
+op_ne
+id|i
+op_plus
+l_int|2
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git diff [--no-index] takes two paths&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|argc
 op_ne
 id|i
