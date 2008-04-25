@@ -628,6 +628,15 @@ op_amp
 id|buf2
 )paren
 suffix:semicolon
+id|strbuf_addch
+c_func
+(paren
+op_amp
+id|buf2
+comma
+l_char|&squot;+&squot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
