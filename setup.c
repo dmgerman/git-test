@@ -1925,14 +1925,22 @@ op_star
 id|value
 )paren
 (brace
+r_int
+id|i
+suffix:semicolon
+r_char
+op_star
+id|endptr
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|value
+op_eq
+l_int|NULL
 )paren
-(brace
-r_int
-id|i
+r_return
+id|PERM_GROUP
 suffix:semicolon
 r_if
 c_cond
@@ -1997,25 +2005,29 @@ l_string|&quot;everybody&quot;
 r_return
 id|PERM_EVERYBODY
 suffix:semicolon
+multiline_comment|/* Parse octal numbers */
 id|i
 op_assign
-id|atoi
+id|strtol
 c_func
 (paren
 id|value
+comma
+op_amp
+id|endptr
+comma
+l_int|8
 )paren
 suffix:semicolon
+multiline_comment|/* If not an octal number, maybe true/false? */
 r_if
 c_cond
 (paren
-id|i
-OG
-l_int|1
+op_star
+id|endptr
+op_ne
+l_int|0
 )paren
-r_return
-id|i
-suffix:semicolon
-)brace
 r_return
 id|git_config_bool
 c_func
@@ -2024,6 +2036,68 @@ id|var
 comma
 id|value
 )paren
+ques
+c_cond
+id|PERM_GROUP
+suffix:colon
+id|PERM_UMASK
+suffix:semicolon
+multiline_comment|/*&n;&t; * Treat values 0, 1 and 2 as compatibility cases, otherwise it is&n;&t; * a chmod value.&n;&t; */
+r_switch
+c_cond
+(paren
+id|i
+)paren
+(brace
+r_case
+id|PERM_UMASK
+suffix:colon
+multiline_comment|/* 0 */
+r_return
+id|PERM_UMASK
+suffix:semicolon
+r_case
+id|OLD_PERM_GROUP
+suffix:colon
+multiline_comment|/* 1 */
+r_return
+id|PERM_GROUP
+suffix:semicolon
+r_case
+id|OLD_PERM_EVERYBODY
+suffix:colon
+multiline_comment|/* 2 */
+r_return
+id|PERM_EVERYBODY
+suffix:semicolon
+)brace
+multiline_comment|/* A filemode value was given: 0xxx */
+r_if
+c_cond
+(paren
+(paren
+id|i
+op_amp
+l_int|0600
+)paren
+op_ne
+l_int|0600
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Problem with core.sharedRepository filemode value &quot;
+l_string|&quot;(0%.3o).&bslash;nThe owner of files must always have &quot;
+l_string|&quot;read and write permissions.&quot;
+comma
+id|i
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t; * Mask filemode value. Others can not get write permission.&n;&t; * x flags for directories are handled separately.&n;&t; */
+r_return
+id|i
+op_amp
+l_int|0666
 suffix:semicolon
 )brace
 DECL|function|check_repository_format_version
