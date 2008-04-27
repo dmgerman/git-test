@@ -410,7 +410,7 @@ comma
 op_amp
 id|signoff
 comma
-l_string|&quot;add Signed-off-by: header&quot;
+l_string|&quot;add Signed-off-by:&quot;
 )paren
 comma
 id|OPT_STRING
