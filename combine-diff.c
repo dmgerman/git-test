@@ -3726,9 +3726,20 @@ c_cond
 id|done
 op_eq
 l_int|0
+op_logical_and
+id|sz
+op_ne
+id|len
 )paren
-r_break
+id|die
+c_func
+(paren
+l_string|&quot;early EOF &squot;%s&squot;&quot;
+comma
+id|elem-&gt;path
+)paren
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
