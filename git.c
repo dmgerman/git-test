@@ -1691,6 +1691,12 @@ id|NEED_WORK_TREE
 )brace
 comma
 (brace
+l_string|&quot;clone&quot;
+comma
+id|cmd_clone
+)brace
+comma
+(brace
 l_string|&quot;clean&quot;
 comma
 id|cmd_clean
