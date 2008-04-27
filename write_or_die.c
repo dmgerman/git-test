@@ -161,7 +161,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|read_in_full
-r_int
+id|ssize_t
 id|read_in_full
 c_func
 (paren
@@ -241,7 +241,7 @@ id|total
 suffix:semicolon
 )brace
 DECL|function|write_in_full
-r_int
+id|ssize_t
 id|write_in_full
 c_func
 (paren

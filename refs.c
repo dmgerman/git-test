@@ -1929,7 +1929,8 @@ r_int
 id|depth
 op_assign
 id|MAXDEPTH
-comma
+suffix:semicolon
+id|ssize_t
 id|len
 suffix:semicolon
 r_char

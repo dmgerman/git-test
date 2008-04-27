@@ -427,9 +427,10 @@ l_int|20
 )braket
 suffix:semicolon
 r_int
-id|len
-comma
 id|fd
+suffix:semicolon
+id|ssize_t
+id|len
 suffix:semicolon
 r_if
 c_cond
