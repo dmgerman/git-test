@@ -1433,7 +1433,6 @@ c_cond
 (paren
 id|msgbuf.len
 )paren
-(brace
 id|fwrite
 c_func
 (paren
@@ -1460,7 +1459,6 @@ c_func
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-)brace
 id|strbuf_release
 c_func
 (paren
