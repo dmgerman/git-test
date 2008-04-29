@@ -4111,10 +4111,6 @@ id|rev.ignore_merges
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.diffopt.msg_sep
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
 id|DIFF_OPT_SET
 c_func
 (paren

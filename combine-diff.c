@@ -4299,8 +4299,6 @@ id|show_log
 c_func
 (paren
 id|rev
-comma
-id|opt-&gt;msg_sep
 )paren
 suffix:semicolon
 id|dump_quoted_path
@@ -4790,8 +4788,6 @@ id|show_log
 c_func
 (paren
 id|rev
-comma
-id|opt-&gt;msg_sep
 )paren
 suffix:semicolon
 r_if
@@ -5261,8 +5257,6 @@ id|show_log
 c_func
 (paren
 id|rev
-comma
-id|opt-&gt;msg_sep
 )paren
 suffix:semicolon
 r_if

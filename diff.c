@@ -12124,10 +12124,6 @@ id|options-&gt;context
 op_assign
 l_int|3
 suffix:semicolon
-id|options-&gt;msg_sep
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
 id|options-&gt;change
 op_assign
 id|diff_change
