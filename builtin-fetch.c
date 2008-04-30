@@ -3257,12 +3257,6 @@ id|ref_map
 )paren
 suffix:semicolon
 )brace
-id|transport_disconnect
-c_func
-(paren
-id|transport
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -3375,6 +3369,9 @@ r_int
 id|ref_nr
 op_assign
 l_int|0
+suffix:semicolon
+r_int
+id|exit_code
 suffix:semicolon
 multiline_comment|/* Record the command line for the reflog */
 id|strbuf_addstr
@@ -3727,7 +3724,8 @@ c_func
 id|unlock_pack
 )paren
 suffix:semicolon
-r_return
+id|exit_code
+op_assign
 id|do_fetch
 c_func
 (paren
@@ -3743,6 +3741,19 @@ id|refs
 comma
 id|ref_nr
 )paren
+suffix:semicolon
+id|transport_disconnect
+c_func
+(paren
+id|transport
+)paren
+suffix:semicolon
+id|transport
+op_assign
+l_int|NULL
+suffix:semicolon
+r_return
+id|exit_code
 suffix:semicolon
 )brace
 eof
