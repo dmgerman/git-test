@@ -1845,7 +1845,7 @@ ques
 c_cond
 id|diff_rename_limit
 suffix:colon
-l_int|100
+l_int|500
 suffix:semicolon
 id|opts.output_format
 op_assign
