@@ -1847,6 +1847,10 @@ id|diff_rename_limit
 suffix:colon
 l_int|500
 suffix:semicolon
+id|opts.warn_on_too_large_rename
+op_assign
+l_int|1
+suffix:semicolon
 id|opts.output_format
 op_assign
 id|DIFF_FORMAT_NO_OUTPUT
