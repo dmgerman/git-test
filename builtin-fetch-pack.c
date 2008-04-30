@@ -508,6 +508,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|commit-&gt;object.parsed
 )paren
 id|parse_commit
