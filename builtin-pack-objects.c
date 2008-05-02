@@ -159,16 +159,22 @@ r_static
 r_int
 id|non_empty
 suffix:semicolon
-DECL|variable|no_reuse_delta
-DECL|variable|no_reuse_object
+DECL|variable|reuse_delta
+DECL|variable|reuse_object
+r_static
+r_int
+id|reuse_delta
+op_assign
+l_int|1
+comma
+id|reuse_object
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|keep_unreachable
 DECL|variable|include_tag
 r_static
 r_int
-id|no_reuse_delta
-comma
-id|no_reuse_object
-comma
 id|keep_unreachable
 comma
 id|include_tag
@@ -1087,7 +1093,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|no_reuse_object
+op_logical_neg
+id|reuse_object
 )paren
 id|to_reuse
 op_assign
@@ -5066,8 +5073,7 @@ suffix:colon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|no_reuse_delta
+id|reuse_delta
 op_logical_and
 op_logical_neg
 id|entry-&gt;preferred_base
@@ -5223,8 +5229,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|no_reuse_delta
+id|reuse_delta
 op_logical_and
 op_logical_neg
 id|entry-&gt;preferred_base
@@ -5958,8 +5963,7 @@ multiline_comment|/*&n;&t; * We do not bother to try a delta that we discarded&n
 r_if
 c_cond
 (paren
-op_logical_neg
-id|no_reuse_delta
+id|reuse_delta
 op_logical_and
 id|trg_entry-&gt;in_pack
 op_logical_and
@@ -8066,7 +8070,7 @@ c_cond
 (paren
 id|entry-&gt;delta
 )paren
-multiline_comment|/* This happens if we decided to reuse existing&n;&t;&t;&t; * delta from a pack.  &quot;!no_reuse_delta &amp;&amp;&quot; is implied.&n;&t;&t;&t; */
+multiline_comment|/* This happens if we decided to reuse existing&n;&t;&t;&t; * delta from a pack.  &quot;reuse_delta &amp;&amp;&quot; is implied.&n;&t;&t;&t; */
 r_continue
 suffix:semicolon
 r_if
@@ -10150,9 +10154,9 @@ id|arg
 )paren
 )paren
 (brace
-id|no_reuse_delta
+id|reuse_delta
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -10170,11 +10174,11 @@ id|arg
 )paren
 )paren
 (brace
-id|no_reuse_object
+id|reuse_object
 op_assign
-id|no_reuse_delta
+id|reuse_delta
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_continue
 suffix:semicolon
