@@ -2228,13 +2228,6 @@ r_struct
 id|pack_header
 id|hdr
 suffix:semicolon
-r_int
-id|do_progress
-op_assign
-id|progress
-op_rshift
-id|pack_to_stdout
-suffix:semicolon
 r_uint32
 id|nr_remaining
 op_assign
@@ -2248,7 +2241,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|do_progress
+id|progress
+OG
+id|pack_to_stdout
 )paren
 id|progress_state
 op_assign
