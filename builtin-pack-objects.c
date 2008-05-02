@@ -7054,7 +7054,7 @@ c_cond
 (paren
 id|entry-&gt;delta
 op_logical_and
-id|depth
+id|max_depth
 op_le
 id|n-&gt;depth
 )paren
