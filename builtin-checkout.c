@@ -785,9 +785,9 @@ id|sb
 comma
 l_int|0
 comma
-l_string|&quot;&quot;
+l_int|NULL
 comma
-l_string|&quot;&quot;
+l_int|NULL
 comma
 l_int|0
 comma
