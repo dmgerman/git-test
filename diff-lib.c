@@ -1963,10 +1963,10 @@ id|options
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Has the work tree entity been removed?&n; *&n; * Return 1 if it was removed from the work tree, 0 if an entity to be&n; * compared with the cache entry ce still exists (the latter includes&n; * the case where a directory that is not a submodule repository&n; * exists for ce that is a submodule -- it is a submodule that is not&n; * checked out).  Return negative for an error.&n; */
-DECL|function|check_work_tree_entity
+DECL|function|check_removed
 r_static
 r_int
-id|check_work_tree_entity
+id|check_removed
 c_func
 (paren
 r_const
@@ -2342,7 +2342,7 @@ l_int|5
 suffix:semicolon
 id|changed
 op_assign
-id|check_work_tree_entity
+id|check_removed
 c_func
 (paren
 id|ce
@@ -2601,7 +2601,7 @@ r_continue
 suffix:semicolon
 id|changed
 op_assign
-id|check_work_tree_entity
+id|check_removed
 c_func
 (paren
 id|ce
@@ -2891,7 +2891,7 @@ id|st
 suffix:semicolon
 id|changed
 op_assign
-id|check_work_tree_entity
+id|check_removed
 c_func
 (paren
 id|ce
