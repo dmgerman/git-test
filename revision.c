@@ -6,6 +6,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;graph.h&quot;
 macro_line|#include &quot;grep.h&quot;
 macro_line|#include &quot;reflog-walk.h&quot;
 macro_line|#include &quot;patch-ids.h&quot;
@@ -5855,6 +5856,37 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--graph&quot;
+)paren
+)paren
+(brace
+id|revs-&gt;topo_order
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;rewrite_parents
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;graph
+op_assign
+id|graph_init
+c_func
+(paren
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
 id|strcmp
 c_func
 (paren
@@ -6820,6 +6852,33 @@ c_func
 l_string|&quot;cannot combine --reverse with --walk-reflogs&quot;
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Limitations on the graph functionality&n;&t; */
+r_if
+c_cond
+(paren
+id|revs-&gt;reverse
+op_logical_and
+id|revs-&gt;graph
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot combine --reverse with --graph&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;reflog_info
+op_logical_and
+id|revs-&gt;graph
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot combine --walk-reflogs with --graph&quot;
+)paren
+suffix:semicolon
 r_return
 id|left
 suffix:semicolon
@@ -7766,11 +7825,12 @@ id|j
 suffix:semicolon
 )brace
 )brace
-DECL|function|get_revision
+DECL|function|get_revision_internal
+r_static
 r_struct
 id|commit
 op_star
-id|get_revision
+id|get_revision_internal
 c_func
 (paren
 r_struct
@@ -8170,6 +8230,49 @@ id|revs-&gt;boundary_commits
 )paren
 suffix:semicolon
 )brace
+r_return
+id|c
+suffix:semicolon
+)brace
+DECL|function|get_revision
+r_struct
+id|commit
+op_star
+id|get_revision
+c_func
+(paren
+r_struct
+id|rev_info
+op_star
+id|revs
+)paren
+(brace
+r_struct
+id|commit
+op_star
+id|c
+op_assign
+id|get_revision_internal
+c_func
+(paren
+id|revs
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|c
+op_logical_and
+id|revs-&gt;graph
+)paren
+id|graph_update
+c_func
+(paren
+id|revs-&gt;graph
+comma
+id|c
+)paren
+suffix:semicolon
 r_return
 id|c
 suffix:semicolon
