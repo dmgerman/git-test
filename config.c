@@ -3468,6 +3468,13 @@ id|i
 )braket
 op_eq
 l_char|&squot;&quot;&squot;
+op_logical_or
+id|key
+(braket
+id|i
+)braket
+op_eq
+l_char|&squot;&bslash;&bslash;&squot;
 )paren
 id|strbuf_addch
 c_func
