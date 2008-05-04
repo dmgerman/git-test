@@ -5359,7 +5359,11 @@ l_string|&quot;--parents&quot;
 )paren
 )paren
 (brace
-id|revs-&gt;parents
+id|revs-&gt;rewrite_parents
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;print_parents
 op_assign
 l_int|1
 suffix:semicolon
@@ -7452,7 +7456,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|revs-&gt;parents
+id|revs-&gt;rewrite_parents
 )paren
 r_return
 id|commit_ignore
@@ -7474,7 +7478,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs-&gt;parents
+id|revs-&gt;rewrite_parents
 op_logical_and
 id|rewrite_parents
 c_func

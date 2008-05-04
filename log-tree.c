@@ -1066,7 +1066,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|opt-&gt;parents
+id|opt-&gt;print_parents
 )paren
 id|show_parents
 c_func
@@ -1252,7 +1252,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|opt-&gt;parents
+id|opt-&gt;print_parents
 )paren
 id|show_parents
 c_func

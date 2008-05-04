@@ -221,7 +221,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.parents
+id|revs.print_parents
 )paren
 (brace
 r_struct
