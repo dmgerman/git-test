@@ -1124,6 +1124,13 @@ id|ce
 (brace
 r_return
 (paren
+op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+op_logical_and
 id|istate-&gt;timestamp
 op_logical_and
 (paren
