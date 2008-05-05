@@ -57,6 +57,11 @@ DECL|member|num_parents
 r_int
 id|num_parents
 suffix:semicolon
+multiline_comment|/*&n;&t; * The width of the graph output for this commit.&n;&t; * All rows for this commit are padded to this width, so that&n;&t; * messages printed after the graph output are aligned.&n;&t; */
+DECL|member|width
+r_int
+id|width
+suffix:semicolon
 multiline_comment|/*&n;&t; * The next expansion row to print&n;&t; * when state is GRAPH_PRE_COMMIT&n;&t; */
 DECL|member|expansion_row
 r_int
@@ -489,6 +494,57 @@ id|graph-&gt;num_new_columns
 op_increment
 suffix:semicolon
 )brace
+DECL|function|graph_update_width
+r_static
+r_void
+id|graph_update_width
+c_func
+(paren
+r_struct
+id|git_graph
+op_star
+id|graph
+comma
+r_int
+id|is_commit_in_existing_columns
+)paren
+(brace
+multiline_comment|/*&n;&t; * Compute the width needed to display the graph for this commit.&n;&t; * This is the maximum width needed for any row.  All other rows&n;&t; * will be padded to this width.&n;&t; *&n;&t; * Compute the number of columns in the widest row:&n;&t; * Count each existing column (graph-&gt;num_columns), and each new&n;&t; * column added by this commit.&n;&t; */
+r_int
+id|max_cols
+op_assign
+id|graph-&gt;num_columns
+op_plus
+id|graph-&gt;num_parents
+suffix:semicolon
+multiline_comment|/*&n;&t; * Even if the current commit has no parents, it still takes up a&n;&t; * column for itself.&n;&t; */
+r_if
+c_cond
+(paren
+id|graph-&gt;num_parents
+OL
+l_int|1
+)paren
+id|max_cols
+op_increment
+suffix:semicolon
+multiline_comment|/*&n;&t; * We added a column for the the current commit as part of&n;&t; * graph-&gt;num_parents.  If the current commit was already in&n;&t; * graph-&gt;columns, then we have double counted it.&n;&t; */
+r_if
+c_cond
+(paren
+id|is_commit_in_existing_columns
+)paren
+id|max_cols
+op_decrement
+suffix:semicolon
+multiline_comment|/*&n;&t; * Each column takes up 2 spaces&n;&t; */
+id|graph-&gt;width
+op_assign
+id|max_cols
+op_star
+l_int|2
+suffix:semicolon
+)brace
 DECL|function|graph_update_columns
 r_static
 r_void
@@ -521,6 +577,8 @@ r_int
 id|i
 comma
 id|seen_this
+comma
+id|is_commit_in_columns
 suffix:semicolon
 multiline_comment|/*&n;&t; * Swap graph-&gt;columns with graph-&gt;new_columns&n;&t; * graph-&gt;columns contains the state for the previous commit,&n;&t; * and new_columns now contains the state for our commit.&n;&t; *&n;&t; * We&squot;ll re-use the old columns array as storage to compute the new&n;&t; * columns list for the commit after this one.&n;&t; */
 id|tmp_columns
@@ -595,6 +653,10 @@ id|mapping_idx
 op_assign
 l_int|0
 suffix:semicolon
+id|is_commit_in_columns
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -629,6 +691,10 @@ c_cond
 id|seen_this
 )paren
 r_break
+suffix:semicolon
+id|is_commit_in_columns
+op_assign
+l_int|0
 suffix:semicolon
 id|col_commit
 op_assign
@@ -719,6 +785,15 @@ l_int|0
 )paren
 id|graph-&gt;mapping_size
 op_decrement
+suffix:semicolon
+multiline_comment|/*&n;&t; * Compute graph-&gt;width for this commit&n;&t; */
+id|graph_update_width
+c_func
+(paren
+id|graph
+comma
+id|is_commit_in_columns
+)paren
 suffix:semicolon
 )brace
 DECL|function|graph_update
@@ -895,43 +970,22 @@ op_star
 id|sb
 )paren
 (brace
-multiline_comment|/*&n;&t; * Add additional spaces to the end of the strbuf, so that all&n;&t; * lines for a particular commit have the same width.&n;&t; *&n;&t; * This way, fields printed to the right of the graph will remain&n;&t; * aligned for the entire commit.&n;&t; *&n;&t; * This computation results in 3 extra space to the right in most&n;&t; * cases, but only 1 extra space if the commit doesn&squot;t have any&n;&t; * children that have already been displayed in the graph (i.e.,&n;&t; * if the current commit isn&squot;t in graph-&gt;columns).&n;&t; */
+multiline_comment|/*&n;&t; * Add additional spaces to the end of the strbuf, so that all&n;&t; * lines for a particular commit have the same width.&n;&t; *&n;&t; * This way, fields printed to the right of the graph will remain&n;&t; * aligned for the entire commit.&n;&t; */
 r_int
 id|extra
-suffix:semicolon
-r_int
-id|final_width
-op_assign
-id|graph-&gt;num_columns
-op_plus
-id|graph-&gt;num_parents
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|graph-&gt;num_parents
-OL
-l_int|1
-)paren
-id|final_width
-op_increment
-suffix:semicolon
-id|final_width
-op_mul_assign
-l_int|2
 suffix:semicolon
 r_if
 c_cond
 (paren
 id|sb-&gt;len
 op_ge
-id|final_width
+id|graph-&gt;width
 )paren
 r_return
 suffix:semicolon
 id|extra
 op_assign
-id|final_width
+id|graph-&gt;width
 id|sb-&gt;len
 suffix:semicolon
 id|strbuf_addf
