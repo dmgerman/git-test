@@ -1,6 +1,7 @@
+multiline_comment|/*&n; *  The order of the following two lines is important.&n; *&n; *  FREAD_READS_DIRECTORIES is undefined before including git-compat-util.h&n; *  to avoid the redefinition of fopen within git-compat-util.h. This is&n; *  necessary since fopen is a macro on some platforms which may be set&n; *  based on compiler options. For example, on AIX fopen is set to fopen64&n; *  when _LARGE_FILES is defined. The previous technique of merely undefining&n; *  fopen after including git-compat-util.h is inadequate in this case.&n; */
+DECL|macro|FREAD_READS_DIRECTORIES
+macro_line|#undef FREAD_READS_DIRECTORIES
 macro_line|#include &quot;../git-compat-util.h&quot;
-DECL|macro|fopen
-macro_line|#undef fopen
 DECL|function|git_fopen
 id|FILE
 op_star
