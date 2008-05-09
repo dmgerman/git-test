@@ -1979,10 +1979,6 @@ r_struct
 id|stat
 op_star
 id|st
-comma
-r_char
-op_star
-id|symcache
 )paren
 (brace
 r_if
@@ -2023,9 +2019,13 @@ c_cond
 id|has_symlink_leading_path
 c_func
 (paren
-id|ce-&gt;name
+id|ce_namelen
+c_func
+(paren
+id|ce
+)paren
 comma
-id|symcache
+id|ce-&gt;name
 )paren
 )paren
 r_return
@@ -2349,8 +2349,6 @@ id|ce
 comma
 op_amp
 id|st
-comma
-id|symcache
 )paren
 suffix:semicolon
 r_if
@@ -2608,8 +2606,6 @@ id|ce
 comma
 op_amp
 id|st
-comma
-id|symcache
 )paren
 suffix:semicolon
 r_if
@@ -2909,8 +2905,6 @@ id|ce
 comma
 op_amp
 id|st
-comma
-id|cbdata-&gt;symcache
 )paren
 suffix:semicolon
 r_if

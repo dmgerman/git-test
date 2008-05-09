@@ -10230,9 +10230,13 @@ c_cond
 id|has_symlink_leading_path
 c_func
 (paren
+id|strlen
+c_func
+(paren
 id|new_name
+)paren
 comma
-l_int|NULL
+id|new_name
 )paren
 )paren
 r_return
