@@ -4424,14 +4424,10 @@ id|walker
 op_star
 id|walker
 comma
-r_char
+r_struct
+id|ref
 op_star
 id|ref
-comma
-r_int
-r_char
-op_star
-id|sha1
 )paren
 (brace
 r_struct
@@ -4448,8 +4444,6 @@ c_func
 id|data-&gt;alt-&gt;base
 comma
 id|ref
-comma
-id|sha1
 )paren
 suffix:semicolon
 )brace
