@@ -528,7 +528,7 @@ comma
 id|OPT_BOOLEAN
 c_func
 (paren
-l_int|0
+l_char|&squot;u&squot;
 comma
 l_string|&quot;untracked-files&quot;
 comma
