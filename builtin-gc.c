@@ -1076,7 +1076,7 @@ comma
 op_amp
 id|prune
 comma
-l_string|&quot;prune unreferenced objects&quot;
+l_string|&quot;prune unreferenced objects (deprecated)&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1244,10 +1244,6 @@ id|auto_gc
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * Auto-gc should be least intrusive as possible.&n;&t;&t; */
-id|prune
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
