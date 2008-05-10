@@ -175,6 +175,13 @@ id|git_branch_track
 op_assign
 id|BRANCH_TRACK_REMOTE
 suffix:semicolon
+DECL|variable|autorebase
+r_enum
+id|rebase_setup_type
+id|autorebase
+op_assign
+id|AUTOREBASE_NEVER
+suffix:semicolon
 multiline_comment|/* This is set by setup_git_dir_gently() and/or git_default_config() */
 DECL|variable|git_work_tree_cfg
 r_char
