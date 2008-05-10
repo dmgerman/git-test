@@ -1273,24 +1273,6 @@ l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&bsl
 suffix:semicolon
 )brace
 r_else
-(brace
-multiline_comment|/*&n;&t;&t; * Use safer (for shared repos) &quot;-A&quot; option to&n;&t;&t; * repack when not pruning. Auto-gc makes its&n;&t;&t; * own decision.&n;&t;&t; */
-r_if
-c_cond
-(paren
-id|prune
-)paren
-id|append_option
-c_func
-(paren
-id|argv_repack
-comma
-l_string|&quot;-a&quot;
-comma
-id|MAX_ADD
-)paren
-suffix:semicolon
-r_else
 id|append_option
 c_func
 (paren
@@ -1301,7 +1283,6 @@ comma
 id|MAX_ADD
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
