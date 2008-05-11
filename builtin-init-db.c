@@ -1308,7 +1308,6 @@ id|work_tree
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Check if symlink is supported in the work tree */
 r_if
 c_cond
 (paren
@@ -1316,6 +1315,7 @@ op_logical_neg
 id|reinit
 )paren
 (brace
+multiline_comment|/* Check if symlink is supported in the work tree */
 id|path
 (braket
 id|len
@@ -1393,6 +1393,44 @@ c_func
 l_string|&quot;core.symlinks&quot;
 comma
 l_string|&quot;false&quot;
+)paren
+suffix:semicolon
+multiline_comment|/* Check if the filesystem is case-insensitive */
+id|path
+(braket
+id|len
+)braket
+op_assign
+l_int|0
+suffix:semicolon
+id|strcpy
+c_func
+(paren
+id|path
+op_plus
+id|len
+comma
+l_string|&quot;CoNfIg&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|access
+c_func
+(paren
+id|path
+comma
+id|F_OK
+)paren
+)paren
+id|git_config_set
+c_func
+(paren
+l_string|&quot;core.ignorecase&quot;
+comma
+l_string|&quot;true&quot;
 )paren
 suffix:semicolon
 )brace
