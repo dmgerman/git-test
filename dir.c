@@ -1997,6 +1997,8 @@ c_func
 id|pathname
 comma
 id|len
+comma
+id|ignore_case
 )paren
 )paren
 r_return
