@@ -32,6 +32,10 @@ id|has_symlinks
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|ignore_case
+r_int
+id|ignore_case
+suffix:semicolon
 DECL|variable|assume_unchanged
 r_int
 id|assume_unchanged

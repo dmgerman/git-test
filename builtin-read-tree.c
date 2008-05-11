@@ -152,7 +152,7 @@ id|ce
 )paren
 )paren
 (brace
-id|remove_index_entry
+id|remove_name_hash
 c_func
 (paren
 id|ce
