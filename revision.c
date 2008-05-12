@@ -1947,12 +1947,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
 id|p-&gt;object.flags
 op_amp
 id|SEEN
 )paren
-r_continue
-suffix:semicolon
+)paren
+(brace
 id|p-&gt;object.flags
 op_or_assign
 id|SEEN
@@ -1965,6 +1967,7 @@ comma
 id|list
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
