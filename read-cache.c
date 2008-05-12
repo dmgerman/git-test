@@ -2153,7 +2153,8 @@ c_func
 id|st_mode
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;%s: can only add regular files, symbolic links or git-directories&quot;
@@ -2380,7 +2381,8 @@ comma
 l_int|1
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;unable to index file %s&quot;
@@ -2432,7 +2434,8 @@ op_or
 id|ADD_CACHE_OK_TO_REPLACE
 )paren
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;unable to add %s to index&quot;

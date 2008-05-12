@@ -445,12 +445,21 @@ suffix:colon
 r_case
 id|DIFF_STATUS_TYPE_CHANGED
 suffix:colon
+r_if
+c_cond
+(paren
 id|add_file_to_cache
 c_func
 (paren
 id|path
 comma
 id|verbose
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;updating files failed&quot;
 )paren
 suffix:semicolon
 r_break
@@ -1418,6 +1427,9 @@ suffix:semicolon
 id|i
 op_increment
 )paren
+r_if
+c_cond
+(paren
 id|add_file_to_cache
 c_func
 (paren
@@ -1429,6 +1441,12 @@ op_member_access_from_pointer
 id|name
 comma
 id|verbose
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;adding files failed&quot;
 )paren
 suffix:semicolon
 id|finish

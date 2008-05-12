@@ -1758,12 +1758,21 @@ id|i
 dot
 id|path
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|add_file_to_cache
 c_func
 (paren
 id|path
 comma
 id|verbose
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;updating index entries failed&quot;
 )paren
 suffix:semicolon
 )brace

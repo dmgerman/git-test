@@ -910,6 +910,10 @@ op_amp
 id|st
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
 id|add_to_cache
 c_func
 (paren
@@ -920,7 +924,14 @@ id|st
 comma
 l_int|0
 )paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;updating files failed&quot;
+)paren
 suffix:semicolon
+)brace
 r_else
 id|remove_file_from_cache
 c_func
