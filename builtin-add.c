@@ -997,6 +997,11 @@ id|refresh_only
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|ignore_add_errors
+r_static
+r_int
+id|ignore_add_errors
+suffix:semicolon
 DECL|variable|builtin_add_options
 r_static
 r_struct
@@ -1089,6 +1094,19 @@ op_amp
 id|refresh_only
 comma
 l_string|&quot;don&squot;t add, only refresh the index&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ignore-errors&quot;
+comma
+op_amp
+id|ignore_add_errors
+comma
+l_string|&quot;just skip files which cannot be added because of errors&quot;
 )paren
 comma
 id|OPT_END
@@ -1249,6 +1267,15 @@ id|verbose
 id|flags
 op_or_assign
 id|ADD_FILES_VERBOSE
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ignore_add_errors
+)paren
+id|flags
+op_or_assign
+id|ADD_FILES_IGNORE_ERRORS
 suffix:semicolon
 id|exit_status
 op_assign
@@ -1508,12 +1535,24 @@ comma
 id|verbose
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ignore_add_errors
+)paren
 id|die
 c_func
 (paren
 l_string|&quot;adding files failed&quot;
 )paren
 suffix:semicolon
+id|exit_status
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 id|finish
 suffix:colon
 r_if
