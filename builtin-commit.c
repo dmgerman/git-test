@@ -1203,8 +1203,6 @@ suffix:semicolon
 id|add_files_to_cache
 c_func
 (paren
-l_int|0
-comma
 id|also
 ques
 c_cond
@@ -1213,6 +1211,8 @@ suffix:colon
 l_int|NULL
 comma
 id|pathspec
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|refresh_cache
