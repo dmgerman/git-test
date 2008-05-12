@@ -3282,12 +3282,10 @@ op_eq
 l_int|0
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Warning: %s has multiple values&bslash;n&quot;
+l_string|&quot;%s has multiple values&quot;
 comma
 id|key
 )paren
@@ -3302,12 +3300,12 @@ op_ge
 id|MAX_MATCHES
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
+l_string|&quot;too many matches for %s&quot;
 comma
-l_string|&quot;Too many matches&bslash;n&quot;
+id|key
 )paren
 suffix:semicolon
 r_return
@@ -3485,15 +3483,18 @@ r_int
 id|write_error
 c_func
 (paren
-r_void
+r_const
+r_char
+op_star
+id|filename
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
+l_string|&quot;failed to write new configuration file %s&quot;
 comma
-l_string|&quot;Failed to write new configuration file&bslash;n&quot;
+id|filename
 )paren
 suffix:semicolon
 multiline_comment|/* Same error code as &quot;failed to rename&quot;. */
@@ -4231,12 +4232,10 @@ op_eq
 l_int|NULL
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;key does not contain a section: %s&bslash;n&quot;
+l_string|&quot;key does not contain a section: %s&quot;
 comma
 id|key
 )paren
@@ -4351,12 +4350,10 @@ id|c
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;invalid key: %s&bslash;n&quot;
+l_string|&quot;invalid key: %s&quot;
 comma
 id|key
 )paren
@@ -4393,12 +4390,10 @@ op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;invalid key (newline): %s&bslash;n&quot;
+l_string|&quot;invalid key (newline): %s&quot;
 comma
 id|key
 )paren
@@ -4467,12 +4462,12 @@ OL
 l_int|0
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
+l_string|&quot;could not lock config file %s&quot;
 comma
-l_string|&quot;could not lock config file&bslash;n&quot;
+id|config_filename
 )paren
 suffix:semicolon
 id|free
@@ -4687,12 +4682,10 @@ id|REG_EXTENDED
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Invalid pattern: %s&bslash;n&quot;
+l_string|&quot;invalid pattern: %s&quot;
 comma
 id|value_regex
 )paren
@@ -4740,12 +4733,12 @@ id|config_filename
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
+l_string|&quot;invalid config file %s&quot;
 comma
-l_string|&quot;invalid config file&bslash;n&quot;
+id|config_filename
 )paren
 suffix:semicolon
 id|free
@@ -5154,12 +5147,12 @@ OL
 l_int|0
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
+l_string|&quot;could not commit config file %s&quot;
 comma
-l_string|&quot;Cannot commit config file!&bslash;n&quot;
+id|config_filename
 )paren
 suffix:semicolon
 id|ret
@@ -5208,6 +5201,7 @@ op_assign
 id|write_error
 c_func
 (paren
+id|lock-&gt;filename
 )paren
 suffix:semicolon
 r_goto
@@ -5545,7 +5539,9 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;Could not lock config file!&quot;
+l_string|&quot;could not lock config file %s&quot;
+comma
+id|config_filename
 )paren
 suffix:semicolon
 r_goto
@@ -5696,6 +5692,7 @@ op_assign
 id|write_error
 c_func
 (paren
+id|lock-&gt;filename
 )paren
 suffix:semicolon
 r_goto
@@ -5746,6 +5743,7 @@ op_assign
 id|write_error
 c_func
 (paren
+id|lock-&gt;filename
 )paren
 suffix:semicolon
 r_goto
@@ -5777,7 +5775,9 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;Cannot commit config file!&quot;
+l_string|&quot;could not commit config file %s&quot;
+comma
+id|config_filename
 )paren
 suffix:semicolon
 id|out
