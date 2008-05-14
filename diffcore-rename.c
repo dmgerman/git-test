@@ -2122,6 +2122,11 @@ id|rename_limit
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|options-&gt;warn_on_too_large_rename
+)paren
 id|warning
 c_func
 (paren
