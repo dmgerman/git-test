@@ -14,6 +14,10 @@ id|git_default_name
 id|MAX_GITNAME
 )braket
 suffix:semicolon
+DECL|variable|user_ident_explicitly_given
+r_int
+id|user_ident_explicitly_given
+suffix:semicolon
 DECL|variable|trust_executable_bit
 r_int
 id|trust_executable_bit
