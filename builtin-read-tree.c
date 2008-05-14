@@ -482,6 +482,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|newfd
@@ -493,12 +495,6 @@ op_amp
 id|lock_file
 comma
 l_int|1
-)paren
-suffix:semicolon
-id|git_config
-c_func
-(paren
-id|git_default_config
 )paren
 suffix:semicolon
 r_for

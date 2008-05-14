@@ -110,6 +110,10 @@ r_const
 r_char
 op_star
 id|value_
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -161,6 +165,10 @@ r_const
 r_char
 op_star
 id|value_
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_char
@@ -795,6 +803,8 @@ c_func
 id|show_config
 comma
 id|system_wide
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -810,6 +820,8 @@ c_func
 id|show_config
 comma
 id|global
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|git_config_from_file
@@ -818,6 +830,8 @@ c_func
 id|show_config
 comma
 id|local
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -837,6 +851,8 @@ c_func
 id|show_config
 comma
 id|global
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -856,6 +872,8 @@ c_func
 id|show_config
 comma
 id|system_wide
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
@@ -1146,6 +1164,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -1269,6 +1291,8 @@ id|git_config
 c_func
 (paren
 id|git_get_color_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -1331,6 +1355,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -1497,6 +1525,8 @@ id|git_config
 c_func
 (paren
 id|git_get_colorbool_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -1727,6 +1757,8 @@ id|git_config
 c_func
 (paren
 id|show_all_config
+comma
+l_int|NULL
 )paren
 OL
 l_int|0

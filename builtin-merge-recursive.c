@@ -7312,6 +7312,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -7375,6 +7379,8 @@ c_func
 id|var
 comma
 id|value
+comma
+id|cb
 )paren
 suffix:semicolon
 )brace
@@ -7516,6 +7522,8 @@ id|git_config
 c_func
 (paren
 id|merge_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

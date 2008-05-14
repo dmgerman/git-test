@@ -12728,6 +12728,10 @@ r_const
 r_char
 op_star
 id|v
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -12838,6 +12842,8 @@ c_func
 id|k
 comma
 id|v
+comma
+id|cb
 )paren
 suffix:semicolon
 )brace
@@ -12883,6 +12889,8 @@ id|git_config
 c_func
 (paren
 id|git_pack_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
