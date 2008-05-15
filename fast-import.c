@@ -8828,10 +8828,10 @@ id|stdin
 )paren
 suffix:semicolon
 )brace
-DECL|function|cmd_mark
+DECL|function|parse_mark
 r_static
 r_void
-id|cmd_mark
+id|parse_mark
 c_func
 (paren
 r_void
@@ -8876,10 +8876,10 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|cmd_data
+DECL|function|parse_data
 r_static
 r_void
-id|cmd_data
+id|parse_data
 c_func
 (paren
 r_struct
@@ -9451,10 +9451,10 @@ r_return
 id|ident
 suffix:semicolon
 )brace
-DECL|function|cmd_new_blob
+DECL|function|parse_new_blob
 r_static
 r_void
-id|cmd_new_blob
+id|parse_new_blob
 c_func
 (paren
 r_void
@@ -9472,12 +9472,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|cmd_mark
+id|parse_mark
 c_func
 (paren
 )paren
 suffix:semicolon
-id|cmd_data
+id|parse_data
 c_func
 (paren
 op_amp
@@ -9998,7 +9998,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|cmd_data
+id|parse_data
 c_func
 (paren
 op_amp
@@ -10544,10 +10544,10 @@ id|b-&gt;branch_tree
 )paren
 suffix:semicolon
 )brace
-DECL|function|cmd_from_commit
+DECL|function|parse_from_commit
 r_static
 r_void
-id|cmd_from_commit
+id|parse_from_commit
 c_func
 (paren
 r_struct
@@ -10645,10 +10645,10 @@ id|sha1
 )paren
 suffix:semicolon
 )brace
-DECL|function|cmd_from_existing
+DECL|function|parse_from_existing
 r_static
 r_void
-id|cmd_from_existing
+id|parse_from_existing
 c_func
 (paren
 r_struct
@@ -10715,7 +10715,7 @@ comma
 id|b-&gt;sha1
 )paren
 suffix:semicolon
-id|cmd_from_commit
+id|parse_from_commit
 c_func
 (paren
 id|b
@@ -10733,10 +10733,10 @@ id|buf
 suffix:semicolon
 )brace
 )brace
-DECL|function|cmd_from
+DECL|function|parse_from
 r_static
 r_int
-id|cmd_from
+id|parse_from
 c_func
 (paren
 r_struct
@@ -10961,7 +10961,7 @@ op_amp
 id|size
 )paren
 suffix:semicolon
-id|cmd_from_commit
+id|parse_from_commit
 c_func
 (paren
 id|b
@@ -10979,7 +10979,7 @@ id|buf
 suffix:semicolon
 )brace
 r_else
-id|cmd_from_existing
+id|parse_from_existing
 c_func
 (paren
 id|b
@@ -10999,7 +10999,7 @@ comma
 id|b-&gt;sha1
 )paren
 )paren
-id|cmd_from_existing
+id|parse_from_existing
 c_func
 (paren
 id|b
@@ -11023,12 +11023,12 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|cmd_merge
+DECL|function|parse_merge
 r_static
 r_struct
 id|hash_list
 op_star
-id|cmd_merge
+id|parse_merge
 c_func
 (paren
 r_int
@@ -11294,10 +11294,10 @@ r_return
 id|list
 suffix:semicolon
 )brace
-DECL|function|cmd_new_commit
+DECL|function|parse_new_commit
 r_static
 r_void
-id|cmd_new_commit
+id|parse_new_commit
 c_func
 (paren
 r_void
@@ -11382,7 +11382,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|cmd_mark
+id|parse_mark
 c_func
 (paren
 )paren
@@ -11457,7 +11457,7 @@ c_func
 l_string|&quot;Expected committer but didn&squot;t get one&quot;
 )paren
 suffix:semicolon
-id|cmd_data
+id|parse_data
 c_func
 (paren
 op_amp
@@ -11469,7 +11469,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|cmd_from
+id|parse_from
 c_func
 (paren
 id|b
@@ -11477,7 +11477,7 @@ id|b
 suffix:semicolon
 id|merge_list
 op_assign
-id|cmd_merge
+id|parse_merge
 c_func
 (paren
 op_amp
@@ -11826,10 +11826,10 @@ id|OBJ_COMMIT
 )braket
 suffix:semicolon
 )brace
-DECL|function|cmd_new_tag
+DECL|function|parse_new_tag
 r_static
 r_void
-id|cmd_new_tag
+id|parse_new_tag
 c_func
 (paren
 r_void
@@ -12167,7 +12167,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|cmd_data
+id|parse_data
 c_func
 (paren
 op_amp
@@ -12251,10 +12251,10 @@ op_assign
 id|pack_id
 suffix:semicolon
 )brace
-DECL|function|cmd_reset_branch
+DECL|function|parse_reset_branch
 r_static
 r_void
-id|cmd_reset_branch
+id|parse_reset_branch
 c_func
 (paren
 r_void
@@ -12356,7 +12356,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|cmd_from
+id|parse_from
 c_func
 (paren
 id|b
@@ -12374,10 +12374,10 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|cmd_checkpoint
+DECL|function|parse_checkpoint
 r_static
 r_void
-id|cmd_checkpoint
+id|parse_checkpoint
 c_func
 (paren
 r_void
@@ -12416,10 +12416,10 @@ c_func
 )paren
 suffix:semicolon
 )brace
-DECL|function|cmd_progress
+DECL|function|parse_progress
 r_static
 r_void
-id|cmd_progress
+id|parse_progress
 c_func
 (paren
 r_void
@@ -13469,7 +13469,7 @@ comma
 id|command_buf.buf
 )paren
 )paren
-id|cmd_new_blob
+id|parse_new_blob
 c_func
 (paren
 )paren
@@ -13487,7 +13487,7 @@ comma
 l_string|&quot;commit &quot;
 )paren
 )paren
-id|cmd_new_commit
+id|parse_new_commit
 c_func
 (paren
 )paren
@@ -13505,7 +13505,7 @@ comma
 l_string|&quot;tag &quot;
 )paren
 )paren
-id|cmd_new_tag
+id|parse_new_tag
 c_func
 (paren
 )paren
@@ -13523,7 +13523,7 @@ comma
 l_string|&quot;reset &quot;
 )paren
 )paren
-id|cmd_reset_branch
+id|parse_reset_branch
 c_func
 (paren
 )paren
@@ -13541,7 +13541,7 @@ comma
 id|command_buf.buf
 )paren
 )paren
-id|cmd_checkpoint
+id|parse_checkpoint
 c_func
 (paren
 )paren
@@ -13559,7 +13559,7 @@ comma
 l_string|&quot;progress &quot;
 )paren
 )paren
-id|cmd_progress
+id|parse_progress
 c_func
 (paren
 )paren
