@@ -1782,7 +1782,7 @@ r_return
 id|val
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Get the name etc info from the --/+++ lines of a traditional patch header&n; *&n; * FIXME! The end-of-filename heuristics are kind of screwy. For existing&n; * files, we can happily check the index for a match, but for creating a&n; * new file we should try to match whatever &quot;patch&quot; does. I have no idea.&n; */
+multiline_comment|/*&n; * Get the name etc info from the ---/+++ lines of a traditional patch header&n; *&n; * FIXME! The end-of-filename heuristics are kind of screwy. For existing&n; * files, we can happily check the index for a match, but for creating a&n; * new file we should try to match whatever &quot;patch&quot; does. I have no idea.&n; */
 DECL|function|parse_traditional_patch
 r_static
 r_void
