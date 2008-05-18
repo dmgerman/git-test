@@ -1191,6 +1191,12 @@ id|dest
 suffix:semicolon
 )brace
 )brace
+id|closedir
+c_func
+(paren
+id|dir
+)paren
+suffix:semicolon
 )brace
 DECL|function|clone_local
 r_static
