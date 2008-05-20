@@ -2074,12 +2074,6 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-id|chdir
-c_func
-(paren
-l_string|&quot;..&quot;
-)paren
-suffix:semicolon
 r_while
 c_loop
 (paren
@@ -2141,6 +2135,12 @@ l_string|&quot;Not a git repository&quot;
 )paren
 suffix:semicolon
 )brace
+id|chdir
+c_func
+(paren
+l_string|&quot;..&quot;
+)paren
+suffix:semicolon
 )brace
 id|inside_git_dir
 op_assign
