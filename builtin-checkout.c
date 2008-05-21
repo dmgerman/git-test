@@ -1449,11 +1449,11 @@ multiline_comment|/*&n;&t;&t;&t; * We update the index fully, then write the&n;&
 id|add_files_to_cache
 c_func
 (paren
+l_int|NULL
+comma
+l_int|NULL
+comma
 l_int|0
-comma
-l_int|NULL
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 id|work

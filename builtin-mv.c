@@ -1764,6 +1764,11 @@ c_func
 id|path
 comma
 id|verbose
+ques
+c_cond
+id|ADD_CACHE_VERBOSE
+suffix:colon
+l_int|0
 )paren
 suffix:semicolon
 )brace
