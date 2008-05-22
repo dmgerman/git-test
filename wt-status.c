@@ -48,6 +48,9 @@ multiline_comment|/* WT_STATUS_CHANGED: red */
 l_string|&quot;&bslash;033[31m&quot;
 comma
 multiline_comment|/* WT_STATUS_UNTRACKED: red */
+l_string|&quot;&bslash;033[31m&quot;
+comma
+multiline_comment|/* WT_STATUS_NOBRANCH: red */
 )brace
 suffix:semicolon
 DECL|variable|use_add_msg
@@ -173,6 +176,23 @@ l_string|&quot;untracked&quot;
 )paren
 r_return
 id|WT_STATUS_UNTRACKED
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+op_plus
+id|offset
+comma
+l_string|&quot;nobranch&quot;
+)paren
+)paren
+r_return
+id|WT_STATUS_NOBRANCH
 suffix:semicolon
 id|die
 c_func
@@ -1753,6 +1773,17 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+r_const
+r_char
+op_star
+id|branch_color
+op_assign
+id|color
+c_func
+(paren
+id|WT_STATUS_HEADER
+)paren
+suffix:semicolon
 id|s-&gt;is_initial
 op_assign
 id|get_sha1
@@ -1822,12 +1853,20 @@ id|branch_name
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
+id|branch_color
+op_assign
+id|color
+c_func
+(paren
+id|WT_STATUS_NOBRANCH
+)paren
+suffix:semicolon
 id|on_what
 op_assign
 l_string|&quot;Not currently on any branch.&quot;
 suffix:semicolon
 )brace
-id|color_fprintf_ln
+id|color_fprintf
 c_func
 (paren
 id|s-&gt;fp
@@ -1838,7 +1877,17 @@ c_func
 id|WT_STATUS_HEADER
 )paren
 comma
-l_string|&quot;# %s%s&quot;
+l_string|&quot;# &quot;
+)paren
+suffix:semicolon
+id|color_fprintf_ln
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|branch_color
+comma
+l_string|&quot;%s%s&quot;
 comma
 id|on_what
 comma
