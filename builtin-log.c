@@ -12,6 +12,16 @@ macro_line|#include &quot;patch-ids.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;shortlog.h&quot;
+multiline_comment|/* Set a default date-time format for git log (&quot;log.date&quot; config variable) */
+DECL|variable|default_date_mode
+r_static
+r_const
+r_char
+op_star
+id|default_date_mode
+op_assign
+l_int|NULL
+suffix:semicolon
 DECL|variable|default_show_root
 r_static
 r_int
@@ -306,6 +316,19 @@ suffix:semicolon
 id|rev-&gt;subject_prefix
 op_assign
 id|fmt_patch_subject_prefix
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|default_date_mode
+)paren
+id|rev-&gt;date_mode
+op_assign
+id|parse_date_format
+c_func
+(paren
+id|default_date_mode
+)paren
 suffix:semicolon
 id|argc
 op_assign
@@ -1041,6 +1064,30 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;log.date&quot;
+)paren
+)paren
+r_return
+id|git_config_string
+c_func
+(paren
+op_amp
+id|default_date_mode
+comma
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
