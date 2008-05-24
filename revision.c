@@ -8150,7 +8150,7 @@ op_assign
 l_int|2
 suffix:semicolon
 r_return
-id|get_revision
+id|get_revision_internal
 c_func
 (paren
 id|revs
