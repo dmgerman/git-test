@@ -1750,6 +1750,8 @@ comma
 l_string|&quot;diff-files&quot;
 comma
 id|cmd_diff_files
+comma
+id|RUN_SETUP
 )brace
 comma
 (brace
