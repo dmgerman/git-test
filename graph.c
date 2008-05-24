@@ -419,8 +419,15 @@ op_or
 id|TREESAME
 )paren
 )paren
+(brace
+op_star
+id|mapping_index
+op_add_assign
+l_int|2
+suffix:semicolon
 r_return
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * If the commit is already in the new_columns list, we don&squot;t need to&n;&t; * add it.  Just update the mapping correctly.&n;&t; */
 r_for
 c_loop
