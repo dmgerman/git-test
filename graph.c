@@ -415,7 +415,7 @@ op_star
 id|commit
 )paren
 (brace
-multiline_comment|/*&n;&t; * If revs-&gt;boundary is set, commits whose children have&n;&t; * been shown are always interesting, even if they have the&n;&t; * UNINTERESTING or TREESAME flags set.&n;&t; *&n;&t; * However, ignore the commit if SHOWN is set.  If SHOWN is set,&n;&t; * the commit is interesting, but it has already been printed.&n;&t; * This can happen because get_revision() doesn&squot;t return the&n;&t; * boundary commits in topological order, even when&n;&t; * revs-&gt;topo_order is set.&n;&t; */
+multiline_comment|/*&n;&t; * If revs-&gt;boundary is set, commits whose children have&n;&t; * been shown are always interesting, even if they have the&n;&t; * UNINTERESTING or TREESAME flags set.&n;&t; */
 r_if
 c_cond
 (paren
@@ -427,16 +427,8 @@ id|graph-&gt;revs-&gt;boundary
 r_if
 c_cond
 (paren
-(paren
 id|commit-&gt;object.flags
 op_amp
-(paren
-id|SHOWN
-op_or
-id|CHILD_SHOWN
-)paren
-)paren
-op_eq
 id|CHILD_SHOWN
 )paren
 r_return
