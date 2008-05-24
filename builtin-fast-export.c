@@ -1132,26 +1132,10 @@ id|mark
 )paren
 suffix:semicolon
 r_else
-r_if
-c_cond
-(paren
-id|i
-op_eq
-l_int|1
-)paren
 id|printf
 c_func
 (paren
-l_string|&quot;merge :%d&quot;
-comma
-id|mark
-)paren
-suffix:semicolon
-r_else
-id|printf
-c_func
-(paren
-l_string|&quot; :%d&quot;
+l_string|&quot;merge :%d&bslash;n&quot;
 comma
 id|mark
 )paren
@@ -1160,19 +1144,6 @@ id|i
 op_increment
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|i
-OG
-l_int|1
-)paren
-id|printf
-c_func
-(paren
-l_string|&quot;&bslash;n&quot;
-)paren
-suffix:semicolon
 id|log_tree_diff_flush
 c_func
 (paren
