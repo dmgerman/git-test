@@ -52,7 +52,7 @@ id|commit
 op_star
 id|commit
 suffix:semicolon
-multiline_comment|/*&n;&t; * The number of parents this commit has.&n;&t; * (Stored so we don&squot;t have to walk over them each time we need&n;&t; * this number)&n;&t; */
+multiline_comment|/*&n;&t; * The number of interesting parents that this commit has.&n;&t; *&n;&t; * Note that this is not the same as the actual number of parents.&n;&t; * This count excludes parents that won&squot;t be printed in the graph&n;&t; * output, as determined by graph_is_interesting().&n;&t; */
 DECL|member|num_parents
 r_int
 id|num_parents
@@ -383,6 +383,37 @@ id|graph-&gt;column_capacity
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Returns 1 if the commit will be printed in the graph output,&n; * and 0 otherwise.&n; */
+DECL|function|graph_is_interesting
+r_static
+r_int
+id|graph_is_interesting
+c_func
+(paren
+r_struct
+id|commit
+op_star
+id|commit
+)paren
+(brace
+multiline_comment|/*&n;&t; * Uninteresting and pruned commits won&squot;t be printed&n;&t; */
+r_return
+(paren
+id|commit-&gt;object.flags
+op_amp
+(paren
+id|UNINTERESTING
+op_or
+id|TREESAME
+)paren
+)paren
+ques
+c_cond
+l_int|0
+suffix:colon
+l_int|1
+suffix:semicolon
+)brace
 DECL|function|graph_insert_into_new_columns
 r_static
 r_void
@@ -407,27 +438,19 @@ id|mapping_index
 r_int
 id|i
 suffix:semicolon
-multiline_comment|/*&n;&t; * Ignore uinteresting and pruned commits&n;&t; */
+multiline_comment|/*&n;&t; * Ignore uinteresting commits&n;&t; */
 r_if
 c_cond
 (paren
-id|commit-&gt;object.flags
-op_amp
+op_logical_neg
+id|graph_is_interesting
+c_func
 (paren
-id|UNINTERESTING
-op_or
-id|TREESAME
+id|commit
 )paren
 )paren
-(brace
-op_star
-id|mapping_index
-op_add_assign
-l_int|2
-suffix:semicolon
 r_return
 suffix:semicolon
-)brace
 multiline_comment|/*&n;&t; * If the commit is already in the new_columns list, we don&squot;t need to&n;&t; * add it.  Just update the mapping correctly.&n;&t; */
 r_for
 c_loop
@@ -524,7 +547,7 @@ id|graph-&gt;num_columns
 op_plus
 id|graph-&gt;num_parents
 suffix:semicolon
-multiline_comment|/*&n;&t; * Even if the current commit has no parents, it still takes up a&n;&t; * column for itself.&n;&t; */
+multiline_comment|/*&n;&t; * Even if the current commit has no parents to be printed, it&n;&t; * still takes up a column for itself.&n;&t; */
 r_if
 c_cond
 (paren
@@ -728,6 +751,11 @@ op_eq
 id|graph-&gt;commit
 )paren
 (brace
+r_int
+id|old_mapping_idx
+op_assign
+id|mapping_idx
+suffix:semicolon
 id|seen_this
 op_assign
 l_int|1
@@ -758,6 +786,18 @@ id|mapping_idx
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t;&t; * We always need to increment mapping_idx by at&n;&t;&t;&t; * least 2, even if it has no interesting parents.&n;&t;&t;&t; * The current commit always takes up at least 2&n;&t;&t;&t; * spaces.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|mapping_idx
+op_eq
+id|old_mapping_idx
+)paren
+id|mapping_idx
+op_add_assign
+l_int|2
+suffix:semicolon
 )brace
 r_else
 (brace
@@ -829,7 +869,7 @@ id|graph-&gt;commit
 op_assign
 id|commit
 suffix:semicolon
-multiline_comment|/*&n;&t; * Count how many parents this commit has&n;&t; */
+multiline_comment|/*&n;&t; * Count how many interesting parents this commit has&n;&t; */
 id|graph-&gt;num_parents
 op_assign
 l_int|0
@@ -847,9 +887,20 @@ id|parent
 op_assign
 id|parent-&gt;next
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|graph_is_interesting
+c_func
+(paren
+id|parent-&gt;item
+)paren
+)paren
 id|graph-&gt;num_parents
 op_increment
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * Call graph_update_columns() to update&n;&t; * columns, new_columns, and mapping.&n;&t; */
 id|graph_update_columns
 c_func
@@ -1382,6 +1433,7 @@ id|seen_this
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * If the commit has more than 1 interesting&n;&t;&t;&t; * parent, print &squot;M&squot; to indicate that it is a&n;&t;&t;&t; * merge.  Otherwise, print &squot;*&squot;.&n;&t;&t;&t; *&n;&t;&t;&t; * Note that even if this is actually a merge&n;&t;&t;&t; * commit, we still print &squot;*&squot; if less than 2 of its&n;&t;&t;&t; * parents are interesting.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
