@@ -1288,6 +1288,10 @@ op_assign
 op_amp
 id|the_index
 suffix:semicolon
+id|topts.msgs.not_uptodate_file
+op_assign
+l_string|&quot;You have local changes to &squot;%s&squot;; cannot switch branches.&quot;
+suffix:semicolon
 id|refresh_cache
 c_func
 (paren

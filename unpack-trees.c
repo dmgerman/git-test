@@ -8,6 +8,33 @@ macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
+multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; replaces not_uptodate_file to&n; * explain why it does not allow switching between branches when you have&n; * local changes, for example.&n; */
+DECL|variable|unpack_plumbing_errors
+r_static
+r_struct
+id|unpack_trees_error_msgs
+id|unpack_plumbing_errors
+op_assign
+(brace
+multiline_comment|/* would_overwrite */
+l_string|&quot;Entry &squot;%s&squot; would be overwritten by merge. Cannot merge.&quot;
+comma
+multiline_comment|/* not_uptodate_file */
+l_string|&quot;Entry &squot;%s&squot; not uptodate. Cannot merge.&quot;
+comma
+multiline_comment|/* not_uptodate_dir */
+l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it&quot;
+comma
+multiline_comment|/* would_lose_untracked */
+l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.&quot;
+comma
+multiline_comment|/* bind_overlap */
+l_string|&quot;Entry &squot;%s&squot; overlaps with &squot;%s&squot;.  Cannot bind.&quot;
+comma
+)brace
+suffix:semicolon
+DECL|macro|ERRORMSG
+mdefine_line|#define ERRORMSG(o,fld) &bslash;&n;&t;( ((o) &amp;&amp; (o)-&gt;msgs.fld) &bslash;&n;&t;? ((o)-&gt;msgs.fld) &bslash;&n;&t;: (unpack_plumbing_errors.fld) )
 DECL|function|add_entry
 r_static
 r_void
@@ -1951,13 +1978,24 @@ r_struct
 id|cache_entry
 op_star
 id|ce
+comma
+r_struct
+id|unpack_trees_options
+op_star
+id|o
 )paren
 (brace
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;Entry &squot;%s&squot; would be overwritten by merge. Cannot merge.&quot;
+id|ERRORMSG
+c_func
+(paren
+id|o
+comma
+id|would_overwrite
+)paren
 comma
 id|ce-&gt;name
 )paren
@@ -2129,7 +2167,13 @@ suffix:colon
 id|error
 c_func
 (paren
-l_string|&quot;Entry &squot;%s&squot; not uptodate. Cannot merge.&quot;
+id|ERRORMSG
+c_func
+(paren
+id|o
+comma
+id|not_uptodate_file
+)paren
 comma
 id|ce-&gt;name
 )paren
@@ -2521,7 +2565,13 @@ suffix:colon
 id|error
 c_func
 (paren
-l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it&quot;
+id|ERRORMSG
+c_func
+(paren
+id|o
+comma
+id|not_uptodate_dir
+)paren
 comma
 id|ce-&gt;name
 )paren
@@ -2806,8 +2856,13 @@ suffix:colon
 id|error
 c_func
 (paren
-l_string|&quot;Untracked working tree file &squot;%s&squot; &quot;
-l_string|&quot;would be %s by merge.&quot;
+id|ERRORMSG
+c_func
+(paren
+id|o
+comma
+id|would_lose_untracked
+)paren
 comma
 id|ce-&gt;name
 comma
@@ -3420,6 +3475,8 @@ id|reject_merge
 c_func
 (paren
 id|index
+comma
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -3459,6 +3516,8 @@ id|reject_merge
 c_func
 (paren
 id|index
+comma
+id|o
 )paren
 suffix:semicolon
 r_if
@@ -4164,6 +4223,8 @@ id|reject_merge
 c_func
 (paren
 id|oldtree
+comma
+id|o
 )paren
 suffix:semicolon
 r_if
@@ -4181,6 +4242,8 @@ id|reject_merge
 c_func
 (paren
 id|current
+comma
+id|o
 )paren
 suffix:semicolon
 r_if
@@ -4198,6 +4261,8 @@ id|reject_merge
 c_func
 (paren
 id|newtree
+comma
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -4304,7 +4369,13 @@ suffix:colon
 id|error
 c_func
 (paren
-l_string|&quot;Entry &squot;%s&squot; overlaps with &squot;%s&squot;.  Cannot bind.&quot;
+id|ERRORMSG
+c_func
+(paren
+id|o
+comma
+id|bind_overlap
+)paren
 comma
 id|a-&gt;name
 comma
