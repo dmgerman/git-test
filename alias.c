@@ -27,6 +27,10 @@ r_const
 r_char
 op_star
 id|v
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -106,6 +110,8 @@ id|git_config
 c_func
 (paren
 id|alias_lookup_cb
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_return

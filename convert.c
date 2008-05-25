@@ -1391,6 +1391,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_const
@@ -1690,6 +1694,8 @@ id|git_config
 c_func
 (paren
 id|read_convert_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace

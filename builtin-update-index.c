@@ -2694,6 +2694,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* We can&squot;t free this memory, it becomes part of a linked list parsed atexit() */

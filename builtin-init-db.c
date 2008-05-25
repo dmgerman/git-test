@@ -744,6 +744,8 @@ c_func
 id|check_repository_format_version
 comma
 id|template_path
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|template_path
@@ -1004,6 +1006,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * We would have created the above under user&squot;s umask -- under&n;&t; * shared-repository settings, we would need to fix them up.&n;&t; */

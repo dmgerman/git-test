@@ -448,6 +448,10 @@ c_func
 id|config_fn_t
 id|fn
 comma
+r_void
+op_star
+id|data
+comma
 r_char
 op_star
 id|name
@@ -592,6 +596,8 @@ c_func
 id|name
 comma
 id|value
+comma
+id|data
 )paren
 suffix:semicolon
 )brace
@@ -880,6 +886,10 @@ c_func
 (paren
 id|config_fn_t
 id|fn
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_int
@@ -1042,6 +1052,8 @@ id|get_value
 c_func
 (paren
 id|fn
+comma
+id|data
 comma
 id|var
 comma
@@ -1649,6 +1661,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|dummy
 )paren
 (brace
 multiline_comment|/* This needs a better name */
@@ -2721,6 +2737,10 @@ r_const
 r_char
 op_star
 id|filename
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_int
@@ -2770,6 +2790,8 @@ id|git_parse_file
 c_func
 (paren
 id|fn
+comma
+id|data
 )paren
 suffix:semicolon
 id|fclose
@@ -2950,6 +2972,10 @@ c_func
 (paren
 id|config_fn_t
 id|fn
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_int
@@ -3020,6 +3046,8 @@ id|git_etc_gitconfig
 c_func
 (paren
 )paren
+comma
+id|data
 )paren
 suffix:semicolon
 id|home
@@ -3106,6 +3134,8 @@ c_func
 id|fn
 comma
 id|user_config
+comma
+id|data
 )paren
 suffix:semicolon
 id|free
@@ -3123,6 +3153,8 @@ c_func
 id|fn
 comma
 id|filename
+comma
+id|data
 )paren
 suffix:semicolon
 id|free
@@ -3263,6 +3295,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_const
@@ -4761,6 +4797,8 @@ c_func
 id|store_aux
 comma
 id|config_filename
+comma
+l_int|NULL
 )paren
 )paren
 (brace

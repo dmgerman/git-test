@@ -874,6 +874,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -1167,6 +1171,8 @@ id|git_config
 c_func
 (paren
 id|config_read_branches
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|sort_path_list
@@ -2978,6 +2984,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -3176,6 +3186,8 @@ id|git_config
 c_func
 (paren
 id|get_remote_group
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace

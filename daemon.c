@@ -1191,6 +1191,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -1371,6 +1375,8 @@ id|git_config
 c_func
 (paren
 id|git_daemon_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
