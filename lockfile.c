@@ -94,7 +94,7 @@ suffix:semicolon
 id|signal
 c_func
 (paren
-id|SIGINT
+id|signo
 comma
 id|SIG_DFL
 )paren
