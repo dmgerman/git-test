@@ -1078,6 +1078,7 @@ comma
 r_int
 id|nr_objs
 comma
+r_const
 r_struct
 id|ref
 op_star
@@ -1943,6 +1944,7 @@ comma
 r_int
 id|nr_objs
 comma
+r_const
 r_struct
 id|ref
 op_star
@@ -2876,6 +2878,7 @@ comma
 r_int
 id|nr_objs
 comma
+r_const
 r_struct
 id|ref
 op_star
@@ -3066,6 +3069,7 @@ comma
 r_int
 id|nr_heads
 comma
+r_const
 r_struct
 id|ref
 op_star
@@ -3476,6 +3480,7 @@ comma
 r_int
 id|nr_heads
 comma
+r_const
 r_struct
 id|ref
 op_star
@@ -4455,6 +4460,7 @@ id|transport
 op_star
 id|transport
 comma
+r_const
 r_struct
 id|ref
 op_star
@@ -4473,6 +4479,7 @@ id|nr_alloc
 op_assign
 l_int|0
 suffix:semicolon
+r_const
 r_struct
 id|ref
 op_star
@@ -4481,6 +4488,7 @@ id|heads
 op_assign
 l_int|NULL
 suffix:semicolon
+r_const
 r_struct
 id|ref
 op_star
