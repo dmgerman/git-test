@@ -5867,6 +5867,7 @@ op_assign
 id|graph_init
 c_func
 (paren
+id|revs
 )paren
 suffix:semicolon
 r_continue
