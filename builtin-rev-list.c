@@ -139,6 +139,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|revs.graph
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|commit-&gt;object.flags
 op_amp
 id|BOUNDARY
@@ -190,6 +197,7 @@ c_func
 l_char|&squot;&gt;&squot;
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
