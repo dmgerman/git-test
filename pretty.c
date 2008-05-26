@@ -133,17 +133,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_star
-id|arg
-op_eq
-l_char|&squot;=&squot;
-)paren
-id|arg
-op_increment
-suffix:semicolon
-r_if
-c_cond
-(paren
 op_logical_neg
 id|prefixcmp
 c_func
