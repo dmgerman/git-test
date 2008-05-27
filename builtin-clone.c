@@ -2463,6 +2463,23 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|transport-&gt;get_refs_list
+op_logical_or
+op_logical_neg
+id|transport-&gt;fetch
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Don&squot;t know how to clone %s&quot;
+comma
+id|transport-&gt;url
+)paren
+suffix:semicolon
 id|transport_set_option
 c_func
 (paren
