@@ -1107,6 +1107,22 @@ comma
 id|prefix
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|read_cache
+c_func
+(paren
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;index file corrupt&quot;
+)paren
+suffix:semicolon
 id|commit_style
 op_assign
 id|COMMIT_AS_IS
