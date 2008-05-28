@@ -947,7 +947,7 @@ suffix:semicolon
 )brace
 DECL|function|reset_clean_to_new
 r_static
-r_void
+r_int
 id|reset_clean_to_new
 c_func
 (paren
@@ -1049,10 +1049,11 @@ op_amp
 id|opts
 )paren
 )paren
-m_exit
-(paren
+r_return
 l_int|128
-)paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|struct|checkout_opts
@@ -1520,6 +1521,8 @@ op_amp
 id|result
 )paren
 suffix:semicolon
+id|ret
+op_assign
 id|reset_clean_to_new
 c_func
 (paren
@@ -1529,6 +1532,14 @@ id|commit-&gt;tree
 comma
 id|opts-&gt;quiet
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+)paren
+r_return
+id|ret
 suffix:semicolon
 )brace
 )brace
