@@ -1600,6 +1600,10 @@ comma
 id|shown_url
 op_assign
 l_int|0
+comma
+id|rc
+op_assign
+l_int|0
 suffix:semicolon
 r_char
 id|note
@@ -2025,6 +2029,8 @@ c_cond
 (paren
 id|ref
 )paren
+id|rc
+op_or_assign
 id|update_local_ref
 c_func
 (paren
@@ -2116,7 +2122,7 @@ id|fp
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|rc
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * We would want to bypass the object transfer altogether if&n; * everything we are going to fetch already exists and connected&n; * locally.&n; *&n; * The refs we are going to fetch are in to_fetch (nr_heads in&n; * total).  If running&n; *&n; *  $ git-rev-list --objects to_fetch[0] to_fetch[1] ... --not --all&n; *&n; * does not error out, that means everything reachable from the&n; * refs we are going to fetch exists and is connected to some of&n; * our existing refs.&n; */
