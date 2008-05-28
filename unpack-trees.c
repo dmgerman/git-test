@@ -1684,6 +1684,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * N-way merge &quot;len&quot; trees.  Returns 0 on success, -1 on failure to manipulate the&n; * resulting index, -2 on failure to reflect the changes to the work tree.&n; */
 DECL|function|unpack_trees
 r_int
 id|unpack_trees
@@ -1703,6 +1704,9 @@ op_star
 id|o
 )paren
 (brace
+r_int
+id|ret
+suffix:semicolon
 r_static
 r_struct
 id|cache_entry
@@ -1941,17 +1945,20 @@ id|o-&gt;src_index
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|ret
+op_assign
 id|check_updates
 c_func
 (paren
 id|o
 )paren
+ques
+c_cond
+(paren
+l_int|2
 )paren
-r_return
-l_int|1
+suffix:colon
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -1964,7 +1971,7 @@ op_assign
 id|o-&gt;result
 suffix:semicolon
 r_return
-l_int|0
+id|ret
 suffix:semicolon
 )brace
 multiline_comment|/* Here come the merge functions */
