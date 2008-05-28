@@ -850,6 +850,10 @@ DECL|member|force
 r_int
 id|force
 suffix:semicolon
+DECL|member|writeout_error
+r_int
+id|writeout_error
+suffix:semicolon
 DECL|member|new_branch
 r_char
 op_star
@@ -965,7 +969,7 @@ comma
 id|tree-&gt;size
 )paren
 suffix:semicolon
-r_if
+r_switch
 c_cond
 (paren
 id|unpack_trees
@@ -980,12 +984,27 @@ op_amp
 id|opts
 )paren
 )paren
-r_return
-l_int|128
+(brace
+r_case
+l_int|2
+suffix:colon
+id|o-&gt;writeout_error
+op_assign
+l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * We return 0 nevertheless, as the index is all right&n;&t;&t; * and more importantly we have made best efforts to&n;&t;&t; * update paths in the work tree, and we cannot revert&n;&t;&t; * them.&n;&t;&t; */
+r_case
+l_int|0
+suffix:colon
 r_return
 l_int|0
 suffix:semicolon
+r_default
+suffix:colon
+r_return
+l_int|128
+suffix:semicolon
+)brace
 )brace
 DECL|struct|branch_info
 r_struct
@@ -1321,9 +1340,8 @@ comma
 id|tree-&gt;size
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|ret
+op_assign
 id|unpack_trees
 c_func
 (paren
@@ -1334,6 +1352,13 @@ comma
 op_amp
 id|topts
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+op_eq
+l_int|1
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * Unpack couldn&squot;t do a trivial merge; either&n;&t;&t;&t; * give up or do a real merge, depending on&n;&t;&t;&t; * whether the merge flag was used.&n;&t;&t;&t; */
@@ -2499,7 +2524,8 @@ comma
 r_new
 )paren
 suffix:semicolon
-r_return
+id|ret
+op_assign
 id|post_checkout_hook
 c_func
 (paren
@@ -2511,6 +2537,11 @@ id|commit
 comma
 l_int|1
 )paren
+suffix:semicolon
+r_return
+id|ret
+op_logical_or
+id|opts-&gt;writeout_error
 suffix:semicolon
 )brace
 DECL|function|cmd_checkout
