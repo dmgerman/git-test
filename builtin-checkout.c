@@ -420,6 +420,11 @@ op_star
 id|head
 suffix:semicolon
 r_int
+id|errs
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|newfd
 suffix:semicolon
 r_struct
@@ -547,6 +552,7 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* Now we are committed to check them out */
 id|memset
 c_func
 (paren
@@ -610,6 +616,8 @@ l_int|0
 )paren
 )paren
 (brace
+id|errs
+op_or_assign
 id|checkout_entry
 c_func
 (paren
@@ -671,7 +679,8 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-r_return
+id|errs
+op_or_assign
 id|post_checkout_hook
 c_func
 (paren
@@ -681,6 +690,9 @@ id|head
 comma
 l_int|0
 )paren
+suffix:semicolon
+r_return
+id|errs
 suffix:semicolon
 )brace
 DECL|function|show_local_changes
