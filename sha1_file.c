@@ -1208,6 +1208,11 @@ r_char
 op_star
 op_star
 id|base
+comma
+r_const
+r_char
+op_star
+id|which
 )paren
 (brace
 r_static
@@ -1270,9 +1275,11 @@ c_func
 op_star
 id|base
 comma
-l_string|&quot;%s/pack/pack-1234567890123456789012345678901234567890.pack&quot;
+l_string|&quot;%s/pack/pack-1234567890123456789012345678901234567890.%s&quot;
 comma
 id|sha1_file_directory
+comma
+id|which
 )paren
 suffix:semicolon
 op_star
@@ -1374,6 +1381,8 @@ id|name
 comma
 op_amp
 id|base
+comma
+l_string|&quot;pack&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1409,6 +1418,8 @@ id|name
 comma
 op_amp
 id|base
+comma
+l_string|&quot;idx&quot;
 )paren
 suffix:semicolon
 )brace
