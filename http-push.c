@@ -11884,6 +11884,14 @@ comma
 id|remove_locks_on_signal
 )paren
 suffix:semicolon
+id|signal
+c_func
+(paren
+id|SIGTERM
+comma
+id|remove_locks_on_signal
+)paren
+suffix:semicolon
 multiline_comment|/* Check whether the remote has server info files */
 id|remote-&gt;can_update_info_refs
 op_assign
