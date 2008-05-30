@@ -786,7 +786,7 @@ id|f
 comma
 l_int|NULL
 comma
-l_int|1
+id|CSUM_FSYNC
 )paren
 suffix:semicolon
 id|SHA1_Final
