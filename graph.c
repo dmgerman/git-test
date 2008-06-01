@@ -1017,7 +1017,7 @@ id|graph-&gt;expansion_row
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * Update graph-&gt;state.&n;&t; * Note that we don&squot;t call graph_update_state() here, since&n;&t; * we don&squot;t want to update graph-&gt;prev_state.  No line for&n;&t; * graph-&gt;state was ever printed.&n;&t; *&n;&t; * If the previous commit didn&squot;t get to the GRAPH_PADDING state,&n;&t; * it never finished its output.  Goto GRAPH_SKIP, to print out&n;&t; * a line to indicate that portion of the graph is missing.&n;&t; *&n;&t; * Otherwise, if there are 3 or more parents, we need to print&n;&t; * extra rows before the commit, to expand the branch lines around&n;&t; * it and make room for it.&n;&t; *&n;&t; * If there are less than 3 parents, we can immediately print the&n;&t; * commit line.&n;&t; */
+multiline_comment|/*&n;&t; * Update graph-&gt;state.&n;&t; * Note that we don&squot;t call graph_update_state() here, since&n;&t; * we don&squot;t want to update graph-&gt;prev_state.  No line for&n;&t; * graph-&gt;state was ever printed.&n;&t; *&n;&t; * If the previous commit didn&squot;t get to the GRAPH_PADDING state,&n;&t; * it never finished its output.  Goto GRAPH_SKIP, to print out&n;&t; * a line to indicate that portion of the graph is missing.&n;&t; *&n;&t; * If there are 3 or more parents, we may need to print extra rows&n;&t; * before the commit, to expand the branch lines around it and make&n;&t; * room for it.  We need to do this only if there is a branch row&n;&t; * (or more) to the right of this commit.&n;&t; *&n;&t; * If there are less than 3 parents, we can immediately print the&n;&t; * commit line.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1036,6 +1036,13 @@ c_cond
 id|graph-&gt;num_parents
 op_ge
 l_int|3
+op_logical_and
+id|graph-&gt;commit_index
+OL
+(paren
+id|graph-&gt;num_columns
+l_int|1
+)paren
 )paren
 id|graph-&gt;state
 op_assign
@@ -1270,6 +1277,13 @@ c_cond
 id|graph-&gt;num_parents
 op_ge
 l_int|3
+op_logical_and
+id|graph-&gt;commit_index
+OL
+(paren
+id|graph-&gt;num_columns
+l_int|1
+)paren
 )paren
 id|graph_update_state
 c_func
