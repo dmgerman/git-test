@@ -3969,6 +3969,14 @@ suffix:semicolon
 )brace
 r_else
 (brace
+id|fsync_or_die
+c_func
+(paren
+id|output_fd
+comma
+id|curr_pack_name
+)paren
+suffix:semicolon
 id|err
 op_assign
 id|close
