@@ -115,13 +115,16 @@ id|sha1
 (braket
 l_int|20
 )braket
+comma
+op_star
+id|pack_sig
 suffix:semicolon
 id|off_t
 id|offset
 op_assign
 l_int|0
 comma
-id|pack_sig
+id|pack_sig_ofs
 op_assign
 id|p-&gt;pack_size
 l_int|20
@@ -133,6 +136,8 @@ id|i
 suffix:semicolon
 r_int
 id|err
+op_assign
+l_int|0
 suffix:semicolon
 r_struct
 id|idx_entry
@@ -152,7 +157,7 @@ c_loop
 (paren
 id|offset
 OL
-id|pack_sig
+id|pack_sig_ofs
 )paren
 (brace
 r_int
@@ -186,7 +191,7 @@ c_cond
 (paren
 id|offset
 OG
-id|pack_sig
+id|pack_sig_ofs
 )paren
 id|remaining
 op_sub_assign
@@ -196,7 +201,7 @@ r_int
 )paren
 (paren
 id|offset
-id|pack_sig
+id|pack_sig_ofs
 )paren
 suffix:semicolon
 id|SHA1_Update
@@ -220,14 +225,8 @@ op_amp
 id|ctx
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|hashcmp
-c_func
-(paren
-id|sha1
-comma
+id|pack_sig
+op_assign
 id|use_pack
 c_func
 (paren
@@ -235,19 +234,9 @@ id|p
 comma
 id|w_curs
 comma
-id|pack_sig
+id|pack_sig_ofs
 comma
 l_int|NULL
-)paren
-)paren
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;Packfile %s SHA1 mismatch with itself&quot;
-comma
-id|p-&gt;pack_name
 )paren
 suffix:semicolon
 r_if
@@ -258,17 +247,39 @@ c_func
 (paren
 id|sha1
 comma
+id|pack_sig
+)paren
+)paren
+id|err
+op_assign
+id|error
+c_func
+(paren
+l_string|&quot;%s SHA1 checksum mismatch&quot;
+comma
+id|p-&gt;pack_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|hashcmp
+c_func
+(paren
 id|index_base
 op_plus
 id|index_size
 l_int|40
+comma
+id|pack_sig
 )paren
 )paren
-r_return
+id|err
+op_assign
 id|error
 c_func
 (paren
-l_string|&quot;Packfile %s SHA1 mismatch with idx&quot;
+l_string|&quot;%s SHA1 does not match its inddex&quot;
 comma
 id|p-&gt;pack_name
 )paren
@@ -406,10 +417,6 @@ c_loop
 id|i
 op_assign
 l_int|0
-comma
-id|err
-op_assign
-l_int|0
 suffix:semicolon
 id|i
 OL
@@ -464,7 +471,9 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;cannot unpack %s from %s&quot;
+l_string|&quot;cannot unpack %s from %s at offset %&quot;
+id|PRIuMAX
+l_string|&quot;&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -478,9 +487,19 @@ id|sha1
 )paren
 comma
 id|p-&gt;pack_name
+comma
+(paren
+r_uintmax
+)paren
+id|entries
+(braket
+id|i
+)braket
+dot
+id|offset
 )paren
 suffix:semicolon
-r_continue
+r_break
 suffix:semicolon
 )brace
 r_if
@@ -534,7 +553,7 @@ c_func
 id|data
 )paren
 suffix:semicolon
-r_continue
+r_break
 suffix:semicolon
 )brace
 id|free
@@ -923,7 +942,16 @@ l_int|20
 )braket
 suffix:semicolon
 r_int
-id|ret
+id|err
+op_assign
+l_int|0
+suffix:semicolon
+r_struct
+id|pack_window
+op_star
+id|w_curs
+op_assign
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -950,10 +978,6 @@ suffix:semicolon
 id|index_base
 op_assign
 id|p-&gt;index_data
-suffix:semicolon
-id|ret
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/* Verify SHA1 sum of the index file */
 id|SHA1_Init
@@ -1004,7 +1028,7 @@ id|index_size
 l_int|20
 )paren
 )paren
-id|ret
+id|err
 op_assign
 id|error
 c_func
@@ -1014,23 +1038,9 @@ comma
 id|p-&gt;pack_name
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|ret
-)paren
-(brace
 multiline_comment|/* Verify pack file */
-r_struct
-id|pack_window
-op_star
-id|w_curs
-op_assign
-l_int|NULL
-suffix:semicolon
-id|ret
-op_assign
+id|err
+op_or_assign
 id|verify_packfile
 c_func
 (paren
@@ -1047,7 +1057,6 @@ op_amp
 id|w_curs
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -1057,7 +1066,7 @@ id|verbose
 r_if
 c_cond
 (paren
-id|ret
+id|err
 )paren
 id|printf
 c_func
@@ -1086,7 +1095,7 @@ suffix:semicolon
 )brace
 )brace
 r_return
-id|ret
+id|err
 suffix:semicolon
 )brace
 eof
