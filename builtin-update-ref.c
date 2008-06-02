@@ -13,7 +13,7 @@ id|git_update_ref_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-update-ref [options] -d &lt;refname&gt; &lt;oldval&gt;&quot;
+l_string|&quot;git-update-ref [options] -d &lt;refname&gt; [&lt;oldval&gt;]&quot;
 comma
 l_string|&quot;git-update-ref [options]    &lt;refname&gt; &lt;newval&gt; [&lt;oldval&gt;]&quot;
 comma
@@ -178,7 +178,7 @@ r_if
 c_cond
 (paren
 id|argc
-op_ne
+template_param
 l_int|2
 )paren
 id|usage_with_options
@@ -309,7 +309,12 @@ c_func
 (paren
 id|refname
 comma
+id|oldval
+ques
+c_cond
 id|oldsha1
+suffix:colon
+l_int|NULL
 )paren
 suffix:semicolon
 r_else
