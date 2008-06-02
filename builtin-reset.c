@@ -187,6 +187,9 @@ id|sha1
 comma
 r_int
 id|is_hard_reset
+comma
+r_int
+id|quiet
 )paren
 (brace
 r_int
@@ -210,6 +213,12 @@ op_increment
 op_assign
 l_string|&quot;read-tree&quot;
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|quiet
+)paren
 id|args
 (braket
 id|i
@@ -1050,7 +1059,7 @@ comma
 op_amp
 id|quiet
 comma
-l_string|&quot;disable showing new HEAD in hard reset&quot;
+l_string|&quot;disable showing new HEAD in hard reset and progress message&quot;
 )paren
 comma
 id|OPT_END
@@ -1333,6 +1342,8 @@ id|reset_type
 op_eq
 id|HARD
 )paren
+comma
+id|quiet
 )paren
 )paren
 id|die
