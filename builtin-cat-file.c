@@ -720,6 +720,12 @@ comma
 id|obj_name
 )paren
 suffix:semicolon
+id|fflush
+c_func
+(paren
+id|stdout
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
