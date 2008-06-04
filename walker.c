@@ -314,6 +314,10 @@ id|tree-&gt;size
 op_assign
 l_int|0
 suffix:semicolon
+id|tree-&gt;object.parsed
+op_assign
+l_int|0
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
