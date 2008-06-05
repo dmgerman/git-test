@@ -11,6 +11,15 @@ id|git_usage_string
 op_assign
 l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [-p|--paginate|--no-pager] [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE] [--help] COMMAND [ARGS]&quot;
 suffix:semicolon
+DECL|variable|git_more_info_string
+r_const
+r_char
+id|git_more_info_string
+(braket
+)braket
+op_assign
+l_string|&quot;See &squot;git help COMMAND&squot; for more information on a specific command.&quot;
+suffix:semicolon
 DECL|function|handle_options
 r_static
 r_int
@@ -2573,6 +2582,14 @@ suffix:semicolon
 id|list_common_cmds_help
 c_func
 (paren
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;&bslash;n%s&bslash;n&quot;
+comma
+id|git_more_info_string
 )paren
 suffix:semicolon
 m_exit
