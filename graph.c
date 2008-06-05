@@ -1714,30 +1714,6 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Print &squot;M&squot; for merge commits&n;&t; *&n;&t; * Note that we don&squot;t check graph-&gt;num_parents to determine if the&n;&t; * commit is a merge, since that only tracks the number of&n;&t; * &quot;interesting&quot; parents.  We want to print &squot;M&squot; for merge commits&n;&t; * even if they have less than 2 interesting parents.&n;&t; */
-r_if
-c_cond
-(paren
-id|graph-&gt;commit-&gt;parents
-op_ne
-l_int|NULL
-op_logical_and
-id|graph-&gt;commit-&gt;parents-&gt;next
-op_ne
-l_int|NULL
-)paren
-(brace
-id|strbuf_addch
-c_func
-(paren
-id|sb
-comma
-l_char|&squot;M&squot;
-)paren
-suffix:semicolon
-r_return
-suffix:semicolon
-)brace
 multiline_comment|/*&n;&t; * Print &squot;*&squot; in all other cases&n;&t; */
 id|strbuf_addch
 c_func
