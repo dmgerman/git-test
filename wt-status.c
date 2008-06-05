@@ -83,6 +83,13 @@ id|use_add_to_include_msg
 op_assign
 l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to include in what will be committed&quot;
 suffix:semicolon
+DECL|variable|show_untracked_files
+r_enum
+id|untracked_status_type
+id|show_untracked_files
+op_assign
+id|SHOW_NORMAL_UNTRACKED_FILES
+suffix:semicolon
 DECL|function|parse_status_slot
 r_static
 r_int
