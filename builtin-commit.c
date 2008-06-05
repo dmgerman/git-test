@@ -555,7 +555,7 @@ id|untracked_files_arg
 comma
 l_string|&quot;mode&quot;
 comma
-l_string|&quot;show untracked files, optional modes: all, normal. (Default: all)&quot;
+l_string|&quot;show untracked files, optional modes: all, normal, no. (Default: all)&quot;
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -4317,6 +4317,23 @@ id|untracked_files_arg
 )paren
 suffix:semicolon
 multiline_comment|/* default already initialized */
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|untracked_files_arg
+comma
+l_string|&quot;no&quot;
+)paren
+)paren
+id|show_untracked_files
+op_assign
+id|SHOW_NO_UNTRACKED_FILES
+suffix:semicolon
 r_else
 r_if
 c_cond

@@ -1983,10 +1983,29 @@ c_func
 id|s
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_untracked_files
+)paren
 id|wt_status_print_untracked
 c_func
 (paren
 id|s
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|s-&gt;commitable
+)paren
+id|fprintf
+c_func
+(paren
+id|s-&gt;fp
+comma
+l_string|&quot;# Untracked files not listed (use -u option to show untracked files)&bslash;n&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2065,6 +2084,19 @@ id|printf
 c_func
 (paren
 l_string|&quot;nothing to commit (create/copy files and use &bslash;&quot;git add&bslash;&quot; to track)&bslash;n&quot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|show_untracked_files
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;nothing to commit (use -u to show untracked files)&bslash;n&quot;
 )paren
 suffix:semicolon
 r_else
