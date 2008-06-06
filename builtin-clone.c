@@ -373,7 +373,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|make_absolute_path
+id|make_nonrelative_path
 c_func
 (paren
 id|path
@@ -450,7 +450,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|make_absolute_path
+id|make_nonrelative_path
 c_func
 (paren
 id|path
