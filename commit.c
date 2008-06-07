@@ -1333,11 +1333,6 @@ id|commit_graft
 op_star
 id|graft
 suffix:semicolon
-r_int
-id|n_refs
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1428,14 +1423,6 @@ c_func
 (paren
 id|parent
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|item-&gt;tree
-)paren
-id|n_refs
-op_increment
 suffix:semicolon
 id|bufptr
 op_add_assign
@@ -1544,7 +1531,6 @@ c_cond
 (paren
 id|new_parent
 )paren
-(brace
 id|pptr
 op_assign
 op_amp
@@ -1558,10 +1544,6 @@ id|pptr
 op_member_access_from_pointer
 id|next
 suffix:semicolon
-id|n_refs
-op_increment
-suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -1623,9 +1605,6 @@ id|pptr
 )paren
 op_member_access_from_pointer
 id|next
-suffix:semicolon
-id|n_refs
-op_increment
 suffix:semicolon
 )brace
 )brace
