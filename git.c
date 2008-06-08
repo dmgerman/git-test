@@ -1677,8 +1677,6 @@ comma
 id|cmd_check_attr
 comma
 id|RUN_SETUP
-op_or
-id|NEED_WORK_TREE
 )brace
 comma
 (brace
