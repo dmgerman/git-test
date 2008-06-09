@@ -680,6 +680,8 @@ suffix:semicolon
 r_enum
 id|object_type
 id|type
+op_assign
+l_int|0
 suffix:semicolon
 r_int
 r_int
@@ -770,9 +772,25 @@ id|type
 op_le
 l_int|0
 )paren
-r_return
-l_int|1
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;%s missing&bslash;n&quot;
+comma
+id|obj_name
+)paren
 suffix:semicolon
+id|fflush
+c_func
+(paren
+id|stdout
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 id|printf
 c_func
 (paren
