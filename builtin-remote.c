@@ -2434,7 +2434,7 @@ id|prune
 )paren
 (brace
 r_int
-id|dry_run
+id|no_query
 op_assign
 l_int|0
 comma
@@ -2455,11 +2455,17 @@ c_func
 l_string|&quot;show specific options&quot;
 )paren
 comma
-id|OPT__DRY_RUN
+id|OPT_BOOLEAN
 c_func
 (paren
+l_char|&squot;n&squot;
+comma
+l_int|NULL
+comma
 op_amp
-id|dry_run
+id|no_query
+comma
+l_string|&quot;do not query remotes&quot;
 )paren
 comma
 id|OPT_END
@@ -2561,8 +2567,6 @@ id|buf
 suffix:semicolon
 r_int
 id|i
-comma
-id|got_states
 suffix:semicolon
 id|states.remote
 op_assign
@@ -2589,6 +2593,18 @@ op_star
 id|argv
 )paren
 suffix:semicolon
+id|read_branches
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|no_query
+)paren
+(brace
 id|transport
 op_assign
 id|transport_get
@@ -2623,13 +2639,6 @@ c_func
 id|transport
 )paren
 suffix:semicolon
-id|read_branches
-c_func
-(paren
-)paren
-suffix:semicolon
-id|got_states
-op_assign
 id|get_ref_states
 c_func
 (paren
@@ -2639,21 +2648,7 @@ op_amp
 id|states
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|got_states
-)paren
-id|result
-op_assign
-id|error
-c_func
-(paren
-l_string|&quot;Error getting local info for &squot;%s&squot;&quot;
-comma
-id|states.remote-&gt;name
-)paren
-suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2829,10 +2824,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|got_states
+op_logical_neg
+id|no_query
 )paren
-r_continue
-suffix:semicolon
+(brace
 id|strbuf_init
 c_func
 (paren
@@ -2848,8 +2843,8 @@ c_func
 op_amp
 id|buf
 comma
-l_string|&quot;  New remote branch%%s (next fetch will &quot;
-l_string|&quot;store in remotes/%s)&quot;
+l_string|&quot;  New remote branch%%s (next fetch &quot;
+l_string|&quot;will store in remotes/%s)&quot;
 comma
 id|states.remote-&gt;name
 )paren
@@ -2875,7 +2870,8 @@ suffix:semicolon
 id|show_list
 c_func
 (paren
-l_string|&quot;  Stale tracking branch%s (use &squot;git remote prune&squot;)&quot;
+l_string|&quot;  Stale tracking branch%s (use &squot;git remote &quot;
+l_string|&quot;prune&squot;)&quot;
 comma
 op_amp
 id|states.stale
@@ -2890,6 +2886,7 @@ op_amp
 id|states.tracked
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
