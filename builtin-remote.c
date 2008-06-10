@@ -2994,7 +2994,7 @@ id|argv
 )paren
 (brace
 r_int
-id|no_query
+id|dry_run
 op_assign
 l_int|0
 comma
@@ -3015,17 +3015,11 @@ c_func
 l_string|&quot;prune specific options&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__DRY_RUN
 c_func
 (paren
-l_char|&squot;n&squot;
-comma
-l_int|NULL
-comma
 op_amp
-id|no_query
-comma
-l_string|&quot;do not query remotes&quot;
+id|dry_run
 )paren
 comma
 id|OPT_END
@@ -3108,8 +3102,37 @@ comma
 op_amp
 id|states
 comma
-op_logical_neg
-id|no_query
+l_int|1
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;Pruning %s&bslash;n&quot;
+comma
+op_star
+id|argv
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|states.stale.nr
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;URL: %s&bslash;n&quot;
+comma
+id|states.remote-&gt;url_nr
+ques
+c_cond
+id|states.remote-&gt;url
+(braket
+l_int|0
+)braket
+suffix:colon
+l_string|&quot;(no URL)&quot;
 )paren
 suffix:semicolon
 r_for
@@ -3139,6 +3162,12 @@ id|i
 dot
 id|util
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dry_run
+)paren
 id|result
 op_or_assign
 id|delete_ref
@@ -3147,6 +3176,27 @@ c_func
 id|refname
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot; * [%s] %s&bslash;n&quot;
+comma
+id|dry_run
+ques
+c_cond
+l_string|&quot;would prune&quot;
+suffix:colon
+l_string|&quot;pruned&quot;
+comma
+id|skip_prefix
+c_func
+(paren
+id|refname
+comma
+l_string|&quot;refs/remotes/&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
