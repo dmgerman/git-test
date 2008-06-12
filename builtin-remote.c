@@ -3211,6 +3211,12 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|states.stale.nr
+)paren
+(brace
 id|printf
 c_func
 (paren
@@ -3220,11 +3226,6 @@ op_star
 id|argv
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|states.stale.nr
-)paren
 id|printf
 c_func
 (paren
@@ -3241,6 +3242,7 @@ suffix:colon
 l_string|&quot;(no URL)&quot;
 )paren
 suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
