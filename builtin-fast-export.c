@@ -997,6 +997,25 @@ comma
 id|encoding
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|commit-&gt;parents
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;reset %s&bslash;n&quot;
+comma
+(paren
+r_const
+r_char
+op_star
+)paren
+id|commit-&gt;util
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
