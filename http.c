@@ -2637,9 +2637,9 @@ id|len
 op_assign
 id|baselen
 op_plus
-l_int|7
+l_int|2
 suffix:semicolon
-multiline_comment|/* &quot;/refs/&quot; + NUL */
+multiline_comment|/* &squot;/&squot; after base and terminating NUL */
 r_for
 c_loop
 (paren
