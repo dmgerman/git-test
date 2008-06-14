@@ -2140,6 +2140,16 @@ id|attr_stack
 op_assign
 id|elem
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_bare_repository
+c_func
+(paren
+)paren
+)paren
+(brace
 id|elem
 op_assign
 id|read_attr
@@ -2172,6 +2182,7 @@ c_func
 id|elem
 )paren
 suffix:semicolon
+)brace
 id|elem
 op_assign
 id|read_attr_from_file
@@ -2333,6 +2344,16 @@ id|elem
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Read from parent directories and push them down&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_bare_repository
+c_func
+(paren
+)paren
+)paren
+(brace
 r_while
 c_loop
 (paren
@@ -2443,6 +2464,7 @@ c_func
 id|elem
 )paren
 suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n;&t; * Finally push the &quot;info&quot; one at the top of the stack.&n;&t; */
 id|info-&gt;prev
