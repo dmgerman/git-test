@@ -1074,7 +1074,7 @@ c_func
 (paren
 l_char|&squot;f&squot;
 comma
-l_int|NULL
+l_string|&quot;force&quot;
 comma
 op_amp
 id|ignored_too
@@ -1087,7 +1087,7 @@ c_func
 (paren
 l_char|&squot;u&squot;
 comma
-l_int|NULL
+l_string|&quot;update&quot;
 comma
 op_amp
 id|take_worktree_changes
