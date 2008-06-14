@@ -1840,18 +1840,31 @@ c_loop
 op_star
 id|usagestr
 )paren
+(brace
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;    %s&bslash;n&quot;
+l_string|&quot;%s%s&bslash;n&quot;
+comma
+op_star
+op_star
+id|usagestr
+ques
+c_cond
+l_string|&quot;    &quot;
+suffix:colon
+l_string|&quot;&quot;
 comma
 op_star
 id|usagestr
-op_increment
 )paren
 suffix:semicolon
+id|usagestr
+op_increment
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
