@@ -5182,11 +5182,20 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;%5d &quot;
+l_string|&quot;%5d%s&quot;
 comma
 id|added
 op_plus
 id|deleted
+comma
+id|added
+op_plus
+id|deleted
+ques
+c_cond
+l_string|&quot; &quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 id|show_graph
