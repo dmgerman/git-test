@@ -9,6 +9,7 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;pack-refs.h&quot;
 multiline_comment|/*&n; * Overall FIXMEs:&n; *  - respect DB_ENVIRONMENT for .git/objects.&n; *&n; * Implementation notes:&n; *  - dropping use-separate-remote and no-separate-remote compatibility&n; *&n; */
 DECL|variable|builtin_clone_usage
 r_static
@@ -1755,20 +1756,25 @@ id|r
 op_assign
 id|r-&gt;next
 )paren
-id|update_ref
+id|add_extra_ref
 c_func
 (paren
-id|reflog
-comma
 id|r-&gt;peer_ref-&gt;name
 comma
 id|r-&gt;old_sha1
 comma
-l_int|NULL
-comma
 l_int|0
-comma
-id|DIE_ON_ERR
+)paren
+suffix:semicolon
+id|pack_refs
+c_func
+(paren
+id|PACK_REFS_ALL
+)paren
+suffix:semicolon
+id|clear_extra_refs
+c_func
+(paren
 )paren
 suffix:semicolon
 r_return
