@@ -1555,6 +1555,15 @@ id|lock-&gt;ref_name
 )paren
 suffix:semicolon
 )brace
+r_else
+(brace
+id|adjust_shared_perm
+c_func
+(paren
+id|log_file
+)paren
+suffix:semicolon
+)brace
 )brace
 id|free
 c_func
