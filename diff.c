@@ -2810,8 +2810,9 @@ r_int
 id|len
 )paren
 (brace
-r_if
-c_cond
+r_int
+id|has_trailing_newline
+op_assign
 (paren
 id|len
 OG
@@ -2825,6 +2826,12 @@ l_int|1
 )braket
 op_eq
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|has_trailing_newline
 )paren
 id|len
 op_decrement
@@ -2857,6 +2864,11 @@ comma
 id|file
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|has_trailing_newline
+)paren
 id|fputc
 c_func
 (paren
