@@ -11062,7 +11062,7 @@ id|buffer
 comma
 l_int|0777
 )paren
-op_logical_and
+op_logical_or
 id|adjust_shared_perm
 c_func
 (paren
