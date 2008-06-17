@@ -251,11 +251,7 @@ id|rr
 op_member_access_from_pointer
 id|util
 op_assign
-id|xstrdup
-c_func
-(paren
 id|name
-)paren
 suffix:semicolon
 )brace
 id|fclose
