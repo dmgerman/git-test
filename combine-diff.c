@@ -494,7 +494,7 @@ DECL|member|len
 r_int
 id|len
 suffix:semicolon
-multiline_comment|/* bit 0 up to (N-1) are on if the parent has this line (i.e.&n;&t; * we did not change it).&n;&t; * bit N is used for &quot;interesting&quot; lines, including context.&n;&t; */
+multiline_comment|/* bit 0 up to (N-1) are on if the parent has this line (i.e.&n;&t; * we did not change it).&n;&t; * bit N is used for &quot;interesting&quot; lines, including context.&n;&t; * bit (N+1) is used for &quot;do not show deletion before this&quot;.&n;&t; */
 DECL|member|flag
 r_int
 r_int
@@ -1577,6 +1577,16 @@ id|num_parent
 suffix:semicolon
 r_int
 r_int
+id|no_pre_delete
+op_assign
+(paren
+l_int|2UL
+op_lshift
+id|num_parent
+)paren
+suffix:semicolon
+r_int
+r_int
 id|i
 suffix:semicolon
 multiline_comment|/* Two groups of interesting lines may have a short gap of&n;&t; * uninteresting lines.  Connect such groups to give them a&n;&t; * bit of context.&n;&t; *&n;&t; * We first start from what the interesting() function says,&n;&t; * and mark them with &quot;mark&quot;, and paint context lines with the&n;&t; * mark.  So interesting() would still say false for such context&n;&t; * lines but they are treated as &quot;interesting&quot; in the end.&n;&t; */
@@ -1653,6 +1663,8 @@ dot
 id|flag
 op_or_assign
 id|mark
+op_or
+id|no_pre_delete
 suffix:semicolon
 id|again
 suffix:colon
@@ -2444,6 +2456,16 @@ id|num_parent
 )paren
 suffix:semicolon
 r_int
+r_int
+id|no_pre_delete
+op_assign
+(paren
+l_int|2UL
+op_lshift
+id|num_parent
+)paren
+suffix:semicolon
+r_int
 id|i
 suffix:semicolon
 r_int
@@ -2950,6 +2972,15 @@ op_increment
 suffix:semicolon
 id|ll
 op_assign
+(paren
+id|sl-&gt;flag
+op_amp
+id|no_pre_delete
+)paren
+ques
+c_cond
+l_int|NULL
+suffix:colon
 id|sl-&gt;lost_head
 suffix:semicolon
 r_while
