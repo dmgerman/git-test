@@ -2691,12 +2691,18 @@ l_int|NULL
 id|die
 c_func
 (paren
-l_string|&quot;could not open %s&quot;
+l_string|&quot;could not open %s: %s&quot;
 comma
 id|git_path
 c_func
 (paren
 id|commit_editmsg
+)paren
+comma
+id|strerror
+c_func
+(paren
+id|errno
 )paren
 )paren
 suffix:semicolon
