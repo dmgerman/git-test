@@ -2888,6 +2888,7 @@ id|system_wide
 suffix:semicolon
 )brace
 DECL|function|git_env_bool
+r_static
 r_int
 id|git_env_bool
 c_func
