@@ -11015,6 +11015,16 @@ id|dirlen
 )paren
 (brace
 multiline_comment|/* Make sure the directory exists */
+id|memcpy
+c_func
+(paren
+id|buffer
+comma
+id|filename
+comma
+id|dirlen
+)paren
+suffix:semicolon
 id|buffer
 (braket
 id|dirlen
