@@ -1,11 +1,12 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
-DECL|function|my_mktime
-r_static
+multiline_comment|/*&n; * This is like mktime, but without normalization of tm_wday and tm_yday.&n; */
+DECL|function|tm_to_time_t
 id|time_t
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
+r_const
 r_struct
 id|tm
 op_star
@@ -344,7 +345,7 @@ id|tm
 suffix:semicolon
 id|t_local
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 op_amp
@@ -1914,7 +1915,7 @@ l_int|1
 suffix:semicolon
 id|specified
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 id|r
@@ -3060,7 +3061,7 @@ suffix:semicolon
 multiline_comment|/* mktime uses local timezone */
 id|then
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 op_amp
@@ -3287,7 +3288,7 @@ id|now
 suffix:semicolon
 id|offset
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 id|localtime
