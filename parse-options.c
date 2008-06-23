@@ -1,5 +1,6 @@
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;cache.h&quot;
 DECL|macro|OPT_SHORT
 mdefine_line|#define OPT_SHORT 1
 DECL|macro|OPT_UNSET
@@ -1471,6 +1472,11 @@ id|usagestr
 )braket
 )paren
 (brace
+multiline_comment|/* we must reset -&gt;opt, unknown short option leave it dangling */
+id|ctx-&gt;opt
+op_assign
+l_int|NULL
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1662,6 +1668,31 @@ suffix:semicolon
 r_case
 l_int|2
 suffix:colon
+multiline_comment|/* fake a short option thing to hide the fact that we may have&n;&t;&t;&t;&t;&t; * started to parse aggregated stuff&n;&t;&t;&t;&t;&t; *&n;&t;&t;&t;&t;&t; * This is leaky, too bad.&n;&t;&t;&t;&t;&t; */
+id|ctx-&gt;argv
+(braket
+l_int|0
+)braket
+op_assign
+id|xstrdup
+c_func
+(paren
+id|ctx-&gt;opt
+l_int|1
+)paren
+suffix:semicolon
+op_star
+(paren
+r_char
+op_star
+)paren
+id|ctx-&gt;argv
+(braket
+l_int|0
+)braket
+op_assign
+l_char|&squot;-&squot;
+suffix:semicolon
 r_return
 id|PARSE_OPT_UNKNOWN
 suffix:semicolon
