@@ -5649,11 +5649,6 @@ comma
 id|pack_offset_sort
 )paren
 suffix:semicolon
-id|init_pack_revindex
-c_func
-(paren
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren

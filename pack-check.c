@@ -616,11 +616,6 @@ id|chain_histogram
 )paren
 )paren
 suffix:semicolon
-id|init_pack_revindex
-c_func
-(paren
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren

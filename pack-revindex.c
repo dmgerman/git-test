@@ -123,6 +123,7 @@ id|i
 suffix:semicolon
 )brace
 DECL|function|init_pack_revindex
+r_static
 r_void
 id|init_pack_revindex
 c_func
@@ -607,6 +608,17 @@ id|revindex_entry
 op_star
 id|revindex
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pack_revindex_hashsz
+)paren
+id|init_pack_revindex
+c_func
+(paren
+)paren
+suffix:semicolon
 id|num
 op_assign
 id|pack_revindex_ix
@@ -625,7 +637,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;internal error: pack revindex uninitialized&quot;
+l_string|&quot;internal error: pack revindex fubar&quot;
 )paren
 suffix:semicolon
 id|rix
