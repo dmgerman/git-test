@@ -1321,14 +1321,12 @@ c_func
 id|git_dir
 )paren
 )paren
-id|set_git_dir
-c_func
-(paren
+id|git_dir
+op_assign
 id|make_absolute_path
 c_func
 (paren
 id|git_dir
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -1347,6 +1345,18 @@ id|die
 c_func
 (paren
 l_string|&quot;This operation must be run in a work tree&quot;
+)paren
+suffix:semicolon
+id|set_git_dir
+c_func
+(paren
+id|make_relative_path
+c_func
+(paren
+id|git_dir
+comma
+id|work_tree
+)paren
 )paren
 suffix:semicolon
 id|initialized
