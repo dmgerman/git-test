@@ -8885,7 +8885,6 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|nth_packed_object_offset
-r_static
 id|off_t
 id|nth_packed_object_offset
 c_func
