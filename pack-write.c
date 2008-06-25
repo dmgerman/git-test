@@ -5,7 +5,7 @@ DECL|variable|pack_idx_default_version
 r_uint32
 id|pack_idx_default_version
 op_assign
-l_int|1
+l_int|2
 suffix:semicolon
 DECL|variable|pack_idx_off32_limit
 r_uint32
