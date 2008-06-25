@@ -4227,6 +4227,11 @@ id|lock
 suffix:semicolon
 )brace
 )brace
+id|reprepare_packed_git
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 id|ref_cpy
 suffix:semicolon
