@@ -3773,8 +3773,6 @@ id|verify_pack
 c_func
 (paren
 id|target
-comma
-l_int|0
 )paren
 )paren
 id|install_packed_git
