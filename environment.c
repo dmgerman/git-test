@@ -110,6 +110,10 @@ DECL|variable|core_compression_seen
 r_int
 id|core_compression_seen
 suffix:semicolon
+DECL|variable|fsync_object_files
+r_int
+id|fsync_object_files
+suffix:semicolon
 DECL|variable|packed_git_window_size
 r_int
 id|packed_git_window_size
