@@ -8728,6 +8728,7 @@ c_func
 l_string|&quot;unable to read files to diff&quot;
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * All the other codepaths check both sides, but not checking&n;&t; * the &quot;old&quot; side here is deliberate.  We are checking the newly&n;&t; * introduced changes, and as long as the &quot;new&quot; side is text, we&n;&t; * can and should check what it introduces.&n;&t; */
 r_if
 c_cond
 (paren
