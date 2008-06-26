@@ -4631,7 +4631,7 @@ suffix:semicolon
 r_int
 id|result
 op_assign
-id|check_and_emit_line
+id|ws_check
 c_func
 (paren
 id|line
@@ -4642,14 +4642,6 @@ id|len
 l_int|1
 comma
 id|ws_rule
-comma
-l_int|NULL
-comma
-l_int|NULL
-comma
-l_int|NULL
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 r_if

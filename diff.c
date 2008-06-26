@@ -2979,10 +2979,7 @@ comma
 id|ecbdata-&gt;nparents
 )paren
 suffix:semicolon
-(paren
-r_void
-)paren
-id|check_and_emit_line
+id|ws_check_emit
 c_func
 (paren
 id|line
@@ -6404,7 +6401,7 @@ op_increment
 suffix:semicolon
 id|bad
 op_assign
-id|check_and_emit_line
+id|ws_check
 c_func
 (paren
 id|line
@@ -6415,14 +6412,6 @@ id|len
 l_int|1
 comma
 id|data-&gt;ws_rule
-comma
-l_int|NULL
-comma
-l_int|NULL
-comma
-l_int|NULL
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -6479,10 +6468,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-(paren
-r_void
-)paren
-id|check_and_emit_line
+id|ws_check_emit
 c_func
 (paren
 id|line
