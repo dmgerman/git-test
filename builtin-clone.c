@@ -2495,7 +2495,7 @@ c_func
 (paren
 id|remote
 comma
-id|argv
+id|remote-&gt;url
 (braket
 l_int|0
 )braket
