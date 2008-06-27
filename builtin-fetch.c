@@ -963,7 +963,7 @@ op_logical_neg
 id|lock
 )paren
 r_return
-l_int|1
+l_int|2
 suffix:semicolon
 r_if
 c_cond
@@ -981,7 +981,7 @@ OL
 l_int|0
 )paren
 r_return
-l_int|1
+l_int|2
 suffix:semicolon
 r_return
 l_int|0
@@ -1659,6 +1659,11 @@ r_char
 op_star
 id|url
 comma
+r_const
+r_char
+op_star
+id|remote_name
+comma
 r_struct
 id|ref
 op_star
@@ -2205,6 +2210,23 @@ c_func
 id|fp
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|rc
+op_amp
+l_int|2
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;some local refs could not be updated; try running&bslash;n&quot;
+l_string|&quot; &squot;git remote prune %s&squot; to remove any old, conflicting &quot;
+l_string|&quot;branches&quot;
+comma
+id|remote_name
+)paren
+suffix:semicolon
 r_return
 id|rc
 suffix:semicolon
@@ -2534,6 +2556,8 @@ id|store_updated_refs
 c_func
 (paren
 id|transport-&gt;url
+comma
+id|transport-&gt;remote-&gt;name
 comma
 id|ref_map
 )paren
