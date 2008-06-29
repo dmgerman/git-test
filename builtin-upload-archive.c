@@ -116,6 +116,8 @@ id|argv
 l_int|1
 )braket
 )paren
+op_plus
+l_int|1
 OG
 r_sizeof
 (paren

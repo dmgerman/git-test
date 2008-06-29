@@ -846,6 +846,12 @@ c_func
 id|stdout
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|contents
+)paren
+suffix:semicolon
 )brace
 r_return
 l_int|0
