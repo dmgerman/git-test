@@ -2315,6 +2315,13 @@ suffix:colon
 l_int|0
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * At this point, the config exists, so we do not need the&n;&t; * environment variable.  We actually need to unset it, too, to&n;&t; * re-enable parsing of the global configs.&n;&t; */
+id|unsetenv
+c_func
+(paren
+id|CONFIG_ENVIRONMENT
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2501,7 +2508,7 @@ c_func
 (paren
 id|remote
 comma
-id|argv
+id|remote-&gt;url
 (braket
 l_int|0
 )braket
