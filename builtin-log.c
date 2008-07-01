@@ -1835,12 +1835,11 @@ id|i
 dot
 id|item
 op_assign
+id|parse_object
+c_func
 (paren
-r_struct
-id|object
-op_star
+id|t-&gt;tagged-&gt;sha1
 )paren
-id|t-&gt;tagged
 suffix:semicolon
 id|i
 op_decrement
