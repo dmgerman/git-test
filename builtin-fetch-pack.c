@@ -1474,8 +1474,14 @@ id|flushes
 op_decrement
 suffix:semicolon
 )brace
+multiline_comment|/* it is no error to fetch into a completely empty repo */
 r_return
+id|count
+ques
+c_cond
 id|retval
+suffix:colon
+l_int|0
 suffix:semicolon
 )brace
 DECL|variable|complete
