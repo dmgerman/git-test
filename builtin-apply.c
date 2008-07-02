@@ -15009,18 +15009,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
 id|arg
 comma
 l_string|&quot;--root=&quot;
-comma
-id|strlen
-c_func
-(paren
-l_string|&quot;--root=&quot;
-)paren
 )paren
 )paren
 (brace
@@ -15048,7 +15042,6 @@ op_logical_and
 id|arg
 (braket
 id|root_len
-op_plus
 l_int|1
 )braket
 op_ne
