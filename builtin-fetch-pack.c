@@ -2574,7 +2574,10 @@ r_sizeof
 id|hdr_arg
 )paren
 comma
-l_string|&quot;--pack_header=%u,%u&quot;
+l_string|&quot;--pack_header=%&quot;
+id|PRIu32
+l_string|&quot;,%&quot;
+id|PRIu32
 comma
 id|ntohl
 c_func

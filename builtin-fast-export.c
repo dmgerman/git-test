@@ -536,7 +536,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;blob&bslash;nmark :%d&bslash;ndata %lu&bslash;n&quot;
+l_string|&quot;blob&bslash;nmark :%&quot;
+id|PRIu32
+l_string|&quot;&bslash;ndata %lu&bslash;n&quot;
 comma
 id|last_idnum
 comma
@@ -1083,7 +1085,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;commit %s&bslash;nmark :%d&bslash;n%.*s&bslash;n%.*s&bslash;ndata %u&bslash;n%s&quot;
+l_string|&quot;commit %s&bslash;nmark :%&quot;
+id|PRIu32
+l_string|&quot;&bslash;n%.*s&bslash;n%.*s&bslash;ndata %u&bslash;n%s&quot;
 comma
 (paren
 r_const

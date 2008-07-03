@@ -2454,7 +2454,8 @@ id|hdr-&gt;hdr_version
 id|die
 c_func
 (paren
-l_string|&quot;unknown pack file version %d&quot;
+l_string|&quot;unknown pack file version %&quot;
+id|PRIu32
 comma
 id|ntohl
 c_func

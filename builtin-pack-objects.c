@@ -2842,7 +2842,10 @@ id|nr_result
 id|die
 c_func
 (paren
-l_string|&quot;wrote %u objects while expecting %u&quot;
+l_string|&quot;wrote %&quot;
+id|PRIu32
+l_string|&quot; objects while expecting %&quot;
+id|PRIu32
 comma
 id|written
 comma
@@ -2891,7 +2894,11 @@ id|j
 id|die
 c_func
 (paren
-l_string|&quot;wrote %u objects as expected but %u unwritten&quot;
+l_string|&quot;wrote %&quot;
+id|PRIu32
+l_string|&quot; objects as expected but %&quot;
+id|PRIu32
+l_string|&quot; unwritten&quot;
 comma
 id|written
 comma
@@ -7986,9 +7993,10 @@ suffix:semicolon
 r_uint32
 id|i
 comma
-id|n
-comma
 id|nr_deltas
+suffix:semicolon
+r_int
+id|n
 suffix:semicolon
 id|get_object_details
 c_func
@@ -8497,7 +8505,8 @@ l_int|2
 id|die
 c_func
 (paren
-l_string|&quot;bad pack.indexversion=%d&quot;
+l_string|&quot;bad pack.indexversion=%&quot;
+id|PRIu32
 comma
 id|pack_idx_default_version
 )paren
@@ -10888,7 +10897,16 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Total %u (delta %u), reused %u (delta %u)&bslash;n&quot;
+l_string|&quot;Total %&quot;
+id|PRIu32
+l_string|&quot; (delta %&quot;
+id|PRIu32
+l_string|&quot;),&quot;
+l_string|&quot; reused %&quot;
+id|PRIu32
+l_string|&quot; (delta %&quot;
+id|PRIu32
+l_string|&quot;)&bslash;n&quot;
 comma
 id|written
 comma

@@ -858,7 +858,9 @@ id|hdr-&gt;hdr_version
 id|die
 c_func
 (paren
-l_string|&quot;pack version %d unsupported&quot;
+l_string|&quot;pack version %&quot;
+id|PRIu32
+l_string|&quot; unsupported&quot;
 comma
 id|ntohl
 c_func
@@ -4445,7 +4447,8 @@ l_int|2
 id|die
 c_func
 (paren
-l_string|&quot;bad pack.indexversion=%d&quot;
+l_string|&quot;bad pack.indexversion=%&quot;
+id|PRIu32
 comma
 id|pack_idx_default_version
 )paren

@@ -2825,7 +2825,8 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;index file %s is version %d&quot;
+l_string|&quot;index file %s is version %&quot;
+id|PRIu32
 l_string|&quot; and is not supported by this binary&quot;
 l_string|&quot; (try upgrading GIT to a newer version)&quot;
 comma
@@ -3828,8 +3829,10 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;packfile %s is version %u and not supported&quot;
-l_string|&quot; (try upgrading GIT to a newer version)&quot;
+l_string|&quot;packfile %s is version %&quot;
+id|PRIu32
+l_string|&quot; and not&quot;
+l_string|&quot; supported (try upgrading GIT to a newer version)&quot;
 comma
 id|p-&gt;pack_name
 comma
@@ -3856,8 +3859,12 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;packfile %s claims to have %u objects&quot;
-l_string|&quot; while index indicates %u objects&quot;
+l_string|&quot;packfile %s claims to have %&quot;
+id|PRIu32
+l_string|&quot; objects&quot;
+l_string|&quot; while index indicates %&quot;
+id|PRIu32
+l_string|&quot; objects&quot;
 comma
 id|p-&gt;pack_name
 comma
@@ -9276,7 +9283,9 @@ id|debug_lookup
 id|printf
 c_func
 (paren
-l_string|&quot;%02x%02x%02x... lo %u hi %u nr %u&bslash;n&quot;
+l_string|&quot;%02x%02x%02x... lo %u hi %u nr %&quot;
+id|PRIu32
+l_string|&quot;&bslash;n&quot;
 comma
 id|sha1
 (braket

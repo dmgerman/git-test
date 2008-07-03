@@ -262,7 +262,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;chain length = %d: %d object%s&bslash;n&quot;
+l_string|&quot;chain length = %&quot;
+id|PRIu32
+l_string|&quot;: %&quot;
+id|PRIu32
+l_string|&quot; object%s&bslash;n&quot;
 comma
 id|i
 comma
@@ -296,7 +300,9 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;chain length &gt; %d: %d object%s&bslash;n&quot;
+l_string|&quot;chain length &gt; %d: %&quot;
+id|PRIu32
+l_string|&quot; object%s&bslash;n&quot;
 comma
 id|MAX_CHAIN
 comma
