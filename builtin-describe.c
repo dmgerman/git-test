@@ -1058,7 +1058,12 @@ c_func
 (paren
 l_int|0
 comma
+id|n-&gt;tag
+ques
+c_cond
 id|n-&gt;tag-&gt;tagged-&gt;sha1
+suffix:colon
+id|sha1
 )paren
 suffix:semicolon
 id|printf
