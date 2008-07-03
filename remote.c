@@ -7169,6 +7169,23 @@ id|num_theirs
 op_increment
 suffix:semicolon
 )brace
+multiline_comment|/* clear object flags smudged by the above traversal */
+id|clear_commit_marks
+c_func
+(paren
+id|ours
+comma
+id|ALL_REV_FLAGS
+)paren
+suffix:semicolon
+id|clear_commit_marks
+c_func
+(paren
+id|theirs
+comma
+id|ALL_REV_FLAGS
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
