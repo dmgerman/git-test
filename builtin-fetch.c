@@ -963,7 +963,7 @@ op_logical_neg
 id|lock
 )paren
 r_return
-l_int|1
+l_int|2
 suffix:semicolon
 r_if
 c_cond
@@ -981,7 +981,7 @@ OL
 l_int|0
 )paren
 r_return
-l_int|1
+l_int|2
 suffix:semicolon
 r_return
 l_int|0
@@ -1236,12 +1236,34 @@ l_string|&quot;refs/tags/&quot;
 )paren
 )paren
 (brace
+r_int
+id|r
+suffix:semicolon
+id|r
+op_assign
+id|s_update_ref
+c_func
+(paren
+l_string|&quot;updating tag&quot;
+comma
+id|ref
+comma
+l_int|0
+)paren
+suffix:semicolon
 id|sprintf
 c_func
 (paren
 id|display
 comma
-l_string|&quot;- %-*s %-*s -&gt; %s&quot;
+l_string|&quot;%c %-*s %-*s -&gt; %s%s&quot;
+comma
+id|r
+ques
+c_cond
+l_char|&squot;!&squot;
+suffix:colon
+l_char|&squot;-&squot;
 comma
 id|SUMMARY_WIDTH
 comma
@@ -1252,18 +1274,17 @@ comma
 id|remote
 comma
 id|pretty_ref
+comma
+id|r
+ques
+c_cond
+l_string|&quot;  (unable to update local ref)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_return
-id|s_update_ref
-c_func
-(paren
-l_string|&quot;updating tag&quot;
-comma
-id|ref
-comma
-l_int|0
-)paren
+id|r
 suffix:semicolon
 )brace
 id|current
@@ -1306,6 +1327,9 @@ r_char
 op_star
 id|what
 suffix:semicolon
+r_int
+id|r
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1341,12 +1365,31 @@ op_assign
 l_string|&quot;[new branch]&quot;
 suffix:semicolon
 )brace
+id|r
+op_assign
+id|s_update_ref
+c_func
+(paren
+id|msg
+comma
+id|ref
+comma
+l_int|0
+)paren
+suffix:semicolon
 id|sprintf
 c_func
 (paren
 id|display
 comma
-l_string|&quot;* %-*s %-*s -&gt; %s&quot;
+l_string|&quot;%c %-*s %-*s -&gt; %s%s&quot;
+comma
+id|r
+ques
+c_cond
+l_char|&squot;!&squot;
+suffix:colon
+l_char|&squot;*&squot;
 comma
 id|SUMMARY_WIDTH
 comma
@@ -1357,18 +1400,17 @@ comma
 id|remote
 comma
 id|pretty_ref
+comma
+id|r
+ques
+c_cond
+l_string|&quot;  (unable to update local ref)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_return
-id|s_update_ref
-c_func
-(paren
-id|msg
-comma
-id|ref
-comma
-l_int|0
-)paren
+id|r
 suffix:semicolon
 )brace
 r_if
@@ -1391,6 +1433,9 @@ id|quickref
 (braket
 l_int|83
 )braket
+suffix:semicolon
+r_int
+id|r
 suffix:semicolon
 id|strcpy
 c_func
@@ -1428,12 +1473,31 @@ id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
+id|r
+op_assign
+id|s_update_ref
+c_func
+(paren
+l_string|&quot;fast forward&quot;
+comma
+id|ref
+comma
+l_int|1
+)paren
+suffix:semicolon
 id|sprintf
 c_func
 (paren
 id|display
 comma
-l_string|&quot;  %-*s %-*s -&gt; %s&quot;
+l_string|&quot;%c %-*s %-*s -&gt; %s%s&quot;
+comma
+id|r
+ques
+c_cond
+l_char|&squot;!&squot;
+suffix:colon
+l_char|&squot; &squot;
 comma
 id|SUMMARY_WIDTH
 comma
@@ -1444,18 +1508,17 @@ comma
 id|remote
 comma
 id|pretty_ref
+comma
+id|r
+ques
+c_cond
+l_string|&quot;  (unable to update local ref)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_return
-id|s_update_ref
-c_func
-(paren
-l_string|&quot;fast forward&quot;
-comma
-id|ref
-comma
-l_int|1
-)paren
+id|r
 suffix:semicolon
 )brace
 r_else
@@ -1472,6 +1535,9 @@ id|quickref
 (braket
 l_int|84
 )braket
+suffix:semicolon
+r_int
+id|r
 suffix:semicolon
 id|strcpy
 c_func
@@ -1509,12 +1575,31 @@ id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
+id|r
+op_assign
+id|s_update_ref
+c_func
+(paren
+l_string|&quot;forced-update&quot;
+comma
+id|ref
+comma
+l_int|1
+)paren
+suffix:semicolon
 id|sprintf
 c_func
 (paren
 id|display
 comma
-l_string|&quot;+ %-*s %-*s -&gt; %s  (forced update)&quot;
+l_string|&quot;%c %-*s %-*s -&gt; %s  (%s)&quot;
+comma
+id|r
+ques
+c_cond
+l_char|&squot;!&squot;
+suffix:colon
+l_char|&squot;+&squot;
 comma
 id|SUMMARY_WIDTH
 comma
@@ -1525,18 +1610,17 @@ comma
 id|remote
 comma
 id|pretty_ref
+comma
+id|r
+ques
+c_cond
+l_string|&quot;unable to update local ref&quot;
+suffix:colon
+l_string|&quot;forced update&quot;
 )paren
 suffix:semicolon
 r_return
-id|s_update_ref
-c_func
-(paren
-l_string|&quot;forced-update&quot;
-comma
-id|ref
-comma
-l_int|1
-)paren
+id|r
 suffix:semicolon
 )brace
 r_else
@@ -1574,6 +1658,11 @@ r_const
 r_char
 op_star
 id|url
+comma
+r_const
+r_char
+op_star
+id|remote_name
 comma
 r_struct
 id|ref
@@ -2121,6 +2210,23 @@ c_func
 id|fp
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|rc
+op_amp
+l_int|2
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;some local refs could not be updated; try running&bslash;n&quot;
+l_string|&quot; &squot;git remote prune %s&squot; to remove any old, conflicting &quot;
+l_string|&quot;branches&quot;
+comma
+id|remote_name
+)paren
+suffix:semicolon
 r_return
 id|rc
 suffix:semicolon
@@ -2450,6 +2556,8 @@ id|store_updated_refs
 c_func
 (paren
 id|transport-&gt;url
+comma
+id|transport-&gt;remote-&gt;name
 comma
 id|ref_map
 )paren
