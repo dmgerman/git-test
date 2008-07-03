@@ -2734,6 +2734,13 @@ r_if
 c_cond
 (paren
 id|path
+op_logical_and
+op_logical_neg
+id|has_dos_drive_prefix
+c_func
+(paren
+id|end
+)paren
 )paren
 (brace
 r_if

@@ -1,4 +1,9 @@
 macro_line|#include &quot;../git-compat-util.h&quot;
+multiline_comment|/*&n; * The size parameter specifies the available space, i.e. includes&n; * the trailing NUL byte; but Windows&squot;s vsnprintf expects the&n; * number of characters to write without the trailing NUL.&n; */
+macro_line|#ifndef SNPRINTF_SIZE_CORR
+DECL|macro|SNPRINTF_SIZE_CORR
+mdefine_line|#define SNPRINTF_SIZE_CORR 0
+macro_line|#endif
 DECL|macro|vsnprintf
 macro_line|#undef vsnprintf
 DECL|function|git_vsnprintf
@@ -28,7 +33,17 @@ id|s
 suffix:semicolon
 r_int
 id|ret
+op_assign
+l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|maxsize
+OG
+l_int|0
+)paren
+(brace
 id|ret
 op_assign
 id|vsnprintf
@@ -37,12 +52,25 @@ c_func
 id|str
 comma
 id|maxsize
+op_minus
+id|SNPRINTF_SIZE_CORR
 comma
 id|format
 comma
 id|ap
 )paren
 suffix:semicolon
+multiline_comment|/* Windows does not NUL-terminate if result fills buffer */
+id|str
+(braket
+id|maxsize
+op_minus
+l_int|1
+)braket
+op_assign
+l_int|0
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -110,6 +138,8 @@ c_func
 id|str
 comma
 id|maxsize
+op_minus
+id|SNPRINTF_SIZE_CORR
 comma
 id|format
 comma

@@ -132,12 +132,17 @@ id|f
 )paren
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * On Windows, EPIPE is returned only by the first write()&n;&t;&t; * after the reading end has closed its handle; subsequent&n;&t;&t; * write()s return EINVAL.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|errno
 op_eq
 id|EPIPE
+op_logical_or
+id|errno
+op_eq
+id|EINVAL
 )paren
 m_exit
 (paren
