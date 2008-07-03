@@ -192,12 +192,6 @@ r_struct
 id|object_decoration
 op_star
 id|old_hash
-suffix:semicolon
-id|old_size
-op_assign
-id|n-&gt;size
-suffix:semicolon
-id|old_hash
 op_assign
 id|n-&gt;hash
 suffix:semicolon
