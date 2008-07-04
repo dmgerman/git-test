@@ -4288,7 +4288,7 @@ suffix:semicolon
 r_case
 l_char|&squot;&bslash;&bslash;&squot;
 suffix:colon
-r_break
+r_continue
 suffix:semicolon
 r_case
 l_char|&squot;@&squot;
