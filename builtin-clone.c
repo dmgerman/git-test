@@ -2286,16 +2286,6 @@ id|git_dir
 )paren
 )paren
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Initialize %s&bslash;n&quot;
-comma
-id|git_dir
-)paren
-suffix:semicolon
 id|init_db
 c_func
 (paren
