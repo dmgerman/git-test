@@ -2323,7 +2323,7 @@ r_return
 id|config_error_nonbool
 c_func
 (paren
-id|v
+id|k
 )paren
 suffix:semicolon
 r_else

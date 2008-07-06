@@ -1374,7 +1374,7 @@ r_return
 id|config_error_nonbool
 c_func
 (paren
-id|value
+id|var
 )paren
 suffix:semicolon
 id|set_signingkey
