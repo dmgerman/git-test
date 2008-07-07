@@ -4071,6 +4071,14 @@ c_func
 )paren
 r_return
 suffix:semicolon
+id|len
+op_assign
+id|strlen
+c_func
+(paren
+id|line
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/* Unwrap transfer encoding */
 id|len
