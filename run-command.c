@@ -308,6 +308,14 @@ l_int|0
 )braket
 suffix:semicolon
 )brace
+id|trace_argv_printf
+c_func
+(paren
+id|cmd-&gt;argv
+comma
+l_string|&quot;trace: run_command:&quot;
+)paren
+suffix:semicolon
 macro_line|#ifndef __MINGW32__
 id|cmd-&gt;pid
 op_assign
