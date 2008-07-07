@@ -1634,6 +1634,16 @@ id|cmd_mailsplit
 )brace
 comma
 (brace
+l_string|&quot;merge&quot;
+comma
+id|cmd_merge
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
 l_string|&quot;merge-base&quot;
 comma
 id|cmd_merge_base
