@@ -15014,7 +15014,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--root=&quot;
+l_string|&quot;--directory=&quot;
 )paren
 )paren
 (brace
@@ -15023,7 +15023,7 @@ op_add_assign
 id|strlen
 c_func
 (paren
-l_string|&quot;--root=&quot;
+l_string|&quot;--directory=&quot;
 )paren
 suffix:semicolon
 id|root_len
