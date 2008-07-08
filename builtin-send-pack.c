@@ -1144,21 +1144,12 @@ c_cond
 id|ref-&gt;deletion
 )paren
 (brace
-r_if
-c_cond
-(paren
 id|delete_ref
 c_func
 (paren
 id|rs.dst
 comma
 l_int|NULL
-)paren
-)paren
-id|error
-c_func
-(paren
-l_string|&quot;Failed to delete&quot;
 )paren
 suffix:semicolon
 )brace
