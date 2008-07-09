@@ -6943,10 +6943,20 @@ id|n
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|nongit_ok
+suffix:semicolon
 multiline_comment|/* init the random number generator */
 id|arc4_init
 c_func
 (paren
+)paren
+suffix:semicolon
+id|setup_git_directory_gently
+c_func
+(paren
+op_amp
+id|nongit_ok
 )paren
 suffix:semicolon
 id|git_config
