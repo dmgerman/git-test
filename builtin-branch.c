@@ -2388,9 +2388,9 @@ comma
 id|REF_REMOTE_BRANCH
 )paren
 comma
-id|OPT_CALLBACK
-c_func
-(paren
+(brace
+id|OPTION_CALLBACK
+comma
 l_int|0
 comma
 l_string|&quot;contains&quot;
@@ -2402,8 +2402,16 @@ l_string|&quot;commit&quot;
 comma
 l_string|&quot;print only branches that contain the commit&quot;
 comma
+id|PARSE_OPT_LASTARG_DEFAULT
+comma
 id|opt_parse_with_commit
+comma
+(paren
+r_intptr
 )paren
+l_string|&quot;HEAD&quot;
+comma
+)brace
 comma
 (brace
 id|OPTION_CALLBACK
@@ -2420,8 +2428,15 @@ comma
 l_string|&quot;print only branches that contain the commit&quot;
 comma
 id|PARSE_OPT_HIDDEN
+op_or
+id|PARSE_OPT_LASTARG_DEFAULT
 comma
 id|opt_parse_with_commit
+comma
+(paren
+r_intptr
+)paren
+l_string|&quot;HEAD&quot;
 comma
 )brace
 comma
