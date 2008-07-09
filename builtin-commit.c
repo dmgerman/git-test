@@ -16,6 +16,7 @@ macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 DECL|variable|builtin_commit_usage
 r_static
