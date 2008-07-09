@@ -8308,6 +8308,12 @@ comma
 id|obj_offset
 )paren
 suffix:semicolon
+id|unuse_pack
+c_func
+(paren
+id|w_curs
+)paren
+suffix:semicolon
 id|base
 op_assign
 id|cache_or_unpack_entry
