@@ -37,7 +37,7 @@ id|blame_usage
 comma
 l_string|&quot;&quot;
 comma
-l_string|&quot;[rev-opts] are documented in git-rev-parse(1)&quot;
+l_string|&quot;[rev-opts] are documented in git-rev-list(1)&quot;
 comma
 l_int|NULL
 )brace
