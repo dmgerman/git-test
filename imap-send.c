@@ -953,9 +953,9 @@ l_int|0
 suffix:semicolon
 )brace
 macro_line|#endif
+DECL|function|socket_perror
 r_static
 r_void
-DECL|function|socket_perror
 id|socket_perror
 c_func
 (paren
@@ -1268,9 +1268,9 @@ l_int|0
 suffix:semicolon
 macro_line|#endif
 )brace
+DECL|function|socket_read
 r_static
 r_int
-DECL|function|socket_read
 id|socket_read
 c_func
 (paren
@@ -1354,9 +1354,9 @@ r_return
 id|n
 suffix:semicolon
 )brace
+DECL|function|socket_write
 r_static
 r_int
-DECL|function|socket_write
 id|socket_write
 c_func
 (paren
@@ -1481,9 +1481,9 @@ id|sock-&gt;fd
 suffix:semicolon
 )brace
 multiline_comment|/* simple line buffering */
+DECL|function|buffer_gets
 r_static
 r_int
-DECL|function|buffer_gets
 id|buffer_gets
 c_func
 (paren
@@ -1687,9 +1687,9 @@ suffix:semicolon
 )brace
 multiline_comment|/* not reached */
 )brace
+DECL|function|imap_info
 r_static
 r_void
-DECL|function|imap_info
 id|imap_info
 c_func
 (paren
@@ -1743,9 +1743,9 @@ id|stdout
 suffix:semicolon
 )brace
 )brace
+DECL|function|imap_warn
 r_static
 r_void
-DECL|function|imap_warn
 id|imap_warn
 c_func
 (paren
@@ -1796,10 +1796,10 @@ id|va
 suffix:semicolon
 )brace
 )brace
+DECL|function|next_arg
 r_static
 r_char
 op_star
-DECL|function|next_arg
 id|next_arg
 c_func
 (paren
@@ -1972,9 +1972,9 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+DECL|function|free_generic_messages
 r_static
 r_void
-DECL|function|free_generic_messages
 id|free_generic_messages
 c_func
 (paren
@@ -2010,9 +2010,9 @@ id|msgs
 suffix:semicolon
 )brace
 )brace
+DECL|function|nfsnprintf
 r_static
 r_int
-DECL|function|nfsnprintf
 id|nfsnprintf
 c_func
 (paren
@@ -2115,9 +2115,9 @@ DECL|variable|rs
 )brace
 id|rs
 suffix:semicolon
+DECL|function|arc4_init
 r_static
 r_void
-DECL|function|arc4_init
 id|arc4_init
 c_func
 (paren
@@ -2322,10 +2322,10 @@ c_func
 )paren
 suffix:semicolon
 )brace
+DECL|function|arc4_getbyte
 r_static
 r_int
 r_char
-DECL|function|arc4_getbyte
 id|arc4_getbyte
 c_func
 (paren
@@ -2386,11 +2386,11 @@ l_int|0xff
 )braket
 suffix:semicolon
 )brace
+DECL|function|v_issue_imap_cmd
 r_static
 r_struct
 id|imap_cmd
 op_star
-DECL|function|v_issue_imap_cmd
 id|v_issue_imap_cmd
 c_func
 (paren
@@ -2747,11 +2747,11 @@ r_return
 id|cmd
 suffix:semicolon
 )brace
+DECL|function|issue_imap_cmd
 r_static
 r_struct
 id|imap_cmd
 op_star
-DECL|function|issue_imap_cmd
 id|issue_imap_cmd
 c_func
 (paren
@@ -2814,9 +2814,9 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+DECL|function|imap_exec
 r_static
 r_int
-DECL|function|imap_exec
 id|imap_exec
 c_func
 (paren
@@ -2894,9 +2894,9 @@ id|cmdp
 )paren
 suffix:semicolon
 )brace
+DECL|function|imap_exec_m
 r_static
 r_int
-DECL|function|imap_exec_m
 id|imap_exec_m
 c_func
 (paren
@@ -2995,9 +2995,9 @@ id|DRV_OK
 suffix:semicolon
 )brace
 )brace
+DECL|function|is_atom
 r_static
 r_int
-DECL|function|is_atom
 id|is_atom
 c_func
 (paren
@@ -3020,9 +3020,9 @@ op_ne
 id|LIST
 suffix:semicolon
 )brace
+DECL|function|is_list
 r_static
 r_int
-DECL|function|is_list
 id|is_list
 c_func
 (paren
@@ -3039,9 +3039,9 @@ op_eq
 id|LIST
 suffix:semicolon
 )brace
+DECL|function|free_list
 r_static
 r_void
-DECL|function|free_list
 id|free_list
 c_func
 (paren
@@ -3108,9 +3108,9 @@ id|list
 suffix:semicolon
 )brace
 )brace
+DECL|function|parse_imap_list_l
 r_static
 r_int
-DECL|function|parse_imap_list_l
 id|parse_imap_list_l
 c_func
 (paren
@@ -3367,6 +3367,7 @@ c_cond
 id|n
 op_assign
 id|socket_read
+c_func
 (paren
 op_amp
 id|imap-&gt;buf.sock
@@ -3522,6 +3523,7 @@ l_int|3
 op_logical_and
 op_logical_neg
 id|memcmp
+c_func
 (paren
 l_string|&quot;NIL&quot;
 comma
@@ -3593,10 +3595,10 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|function|parse_imap_list
 r_static
 id|list_t
 op_star
-DECL|function|parse_imap_list
 id|parse_imap_list
 c_func
 (paren
@@ -3644,10 +3646,10 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+DECL|function|parse_list
 r_static
 id|list_t
 op_star
-DECL|function|parse_list
 id|parse_list
 c_func
 (paren
@@ -3667,9 +3669,9 @@ id|sp
 )paren
 suffix:semicolon
 )brace
+DECL|function|parse_capability
 r_static
 r_void
-DECL|function|parse_capability
 id|parse_capability
 c_func
 (paren
@@ -3751,9 +3753,9 @@ op_assign
 id|imap-&gt;caps
 suffix:semicolon
 )brace
+DECL|function|parse_response_code
 r_static
 r_int
-DECL|function|parse_response_code
 id|parse_response_code
 c_func
 (paren
@@ -4108,9 +4110,9 @@ r_return
 id|RESP_OK
 suffix:semicolon
 )brace
+DECL|function|get_cmd_result
 r_static
 r_int
-DECL|function|get_cmd_result
 id|get_cmd_result
 c_func
 (paren
@@ -4889,7 +4891,7 @@ id|RESP_NO
 suffix:semicolon
 )brace
 r_else
-multiline_comment|/*if (!strcmp( &quot;BAD&quot;, arg ))*/
+multiline_comment|/*if (!strcmp(&quot;BAD&quot;, arg))*/
 id|resp
 op_assign
 id|RESP_BAD
@@ -4902,6 +4904,7 @@ comma
 l_string|&quot;IMAP command &squot;%s&squot; returned response (%s) - %s&bslash;n&quot;
 comma
 id|memcmp
+c_func
 (paren
 id|cmdp-&gt;cmd
 comma
@@ -5004,9 +5007,9 @@ suffix:semicolon
 )brace
 multiline_comment|/* not reached */
 )brace
+DECL|function|imap_close_server
 r_static
 r_void
-DECL|function|imap_close_server
 id|imap_close_server
 c_func
 (paren
@@ -5072,9 +5075,9 @@ id|imap
 )paren
 suffix:semicolon
 )brace
+DECL|function|imap_close_store
 r_static
 r_void
-DECL|function|imap_close_store
 id|imap_close_store
 c_func
 (paren
@@ -5106,10 +5109,10 @@ id|ctx
 )paren
 suffix:semicolon
 )brace
+DECL|function|imap_open_store
 r_static
 id|store_t
 op_star
-DECL|function|imap_open_store
 id|imap_open_store
 c_func
 (paren
@@ -5339,6 +5342,7 @@ l_int|127
 suffix:semicolon
 )brace
 id|close
+c_func
 (paren
 id|a
 (braket
@@ -5777,6 +5781,7 @@ suffix:semicolon
 )brace
 macro_line|#endif
 id|imap_info
+c_func
 (paren
 l_string|&quot;Logging in...&bslash;n&quot;
 )paren
@@ -5989,9 +5994,9 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+DECL|function|imap_make_flags
 r_static
 r_int
-DECL|function|imap_make_flags
 id|imap_make_flags
 c_func
 (paren
@@ -6108,9 +6113,9 @@ suffix:semicolon
 )brace
 DECL|macro|TUIDL
 mdefine_line|#define TUIDL 8
+DECL|function|imap_store_msg
 r_static
 r_int
-DECL|function|imap_store_msg
 id|imap_store_msg
 c_func
 (paren
@@ -6806,9 +6811,9 @@ suffix:semicolon
 )brace
 DECL|macro|CHUNKSIZE
 mdefine_line|#define CHUNKSIZE 0x1000
+DECL|function|read_message
 r_static
 r_int
-DECL|function|read_message
 id|read_message
 c_func
 (paren
@@ -6899,9 +6904,9 @@ r_return
 id|msg-&gt;len
 suffix:semicolon
 )brace
+DECL|function|count_messages
 r_static
 r_int
-DECL|function|count_messages
 id|count_messages
 c_func
 (paren
@@ -6976,9 +6981,9 @@ r_return
 id|count
 suffix:semicolon
 )brace
+DECL|function|split_msg
 r_static
 r_int
-DECL|function|split_msg
 id|split_msg
 c_func
 (paren
@@ -7181,9 +7186,9 @@ r_char
 op_star
 id|imap_folder
 suffix:semicolon
+DECL|function|git_imap_config
 r_static
 r_int
-DECL|function|git_imap_config
 id|git_imap_config
 c_func
 (paren
@@ -7459,8 +7464,8 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-r_int
 DECL|function|main
+r_int
 id|main
 c_func
 (paren
