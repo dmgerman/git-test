@@ -10417,6 +10417,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
+id|patch-&gt;is_copy
+op_logical_or
+id|patch-&gt;is_rename
+)paren
+op_logical_and
+(paren
 (paren
 id|tpatch
 op_assign
@@ -10428,6 +10436,7 @@ id|patch-&gt;old_name
 )paren
 op_ne
 l_int|NULL
+)paren
 )paren
 (brace
 r_if
@@ -10849,6 +10858,8 @@ r_struct
 id|patch
 op_star
 id|tpatch
+op_assign
+l_int|NULL
 suffix:semicolon
 r_int
 id|stat_ret
@@ -10880,6 +10891,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
+id|patch-&gt;is_copy
+op_logical_or
+id|patch-&gt;is_rename
+)paren
+op_logical_and
 (paren
 id|tpatch
 op_assign
