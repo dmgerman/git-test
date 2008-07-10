@@ -4820,7 +4820,7 @@ id|mailinfo_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-mailinfo [-k] [-u | --encoding=&lt;encoding&gt;] msg patch &lt;mail &gt;info&quot;
+l_string|&quot;git-mailinfo [-k] [-u | --encoding=&lt;encoding&gt; | -n] msg patch &lt;mail &gt;info&quot;
 suffix:semicolon
 DECL|function|cmd_mailinfo
 r_int
