@@ -832,7 +832,7 @@ c_func
 id|git_path
 c_func
 (paren
-l_string|&quot;rr-cache/MERGE_RR&quot;
+l_string|&quot;MERGE_RR&quot;
 )paren
 )paren
 suffix:semicolon
