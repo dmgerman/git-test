@@ -1319,14 +1319,7 @@ op_complement
 l_int|0222
 suffix:semicolon
 id|mode
-op_assign
-(paren
-id|mode
-op_amp
-op_complement
-l_int|0777
-)paren
-op_or
+op_or_assign
 id|tweak
 suffix:semicolon
 )brace
