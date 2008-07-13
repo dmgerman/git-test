@@ -3527,6 +3527,17 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
+r_const
+r_char
+op_star
+id|html_path
+op_assign
+id|system_path
+c_func
+(paren
+id|GIT_HTML_PATH
+)paren
+suffix:semicolon
 multiline_comment|/* Check that we have a git documentation directory. */
 r_if
 c_cond
@@ -3534,8 +3545,13 @@ c_cond
 id|stat
 c_func
 (paren
-id|GIT_HTML_PATH
-l_string|&quot;/git.html&quot;
+id|mkpath
+c_func
+(paren
+l_string|&quot;%s/git.html&quot;
+comma
+id|html_path
+)paren
 comma
 op_amp
 id|st
@@ -3553,7 +3569,7 @@ c_func
 (paren
 l_string|&quot;&squot;%s&squot;: not a documentation directory.&quot;
 comma
-id|GIT_HTML_PATH
+id|html_path
 )paren
 suffix:semicolon
 id|strbuf_init
@@ -3569,8 +3585,9 @@ c_func
 (paren
 id|page_path
 comma
-id|GIT_HTML_PATH
-l_string|&quot;/%s.html&quot;
+l_string|&quot;%s/%s.html&quot;
+comma
+id|html_path
 comma
 id|page
 )paren
