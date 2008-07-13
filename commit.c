@@ -3933,9 +3933,9 @@ id|q-&gt;next
 r_if
 c_cond
 (paren
-id|p
+id|p-&gt;item
 op_eq
-id|q
+id|q-&gt;item
 )paren
 r_continue
 suffix:semicolon
