@@ -348,11 +348,13 @@ r_int
 id|strbuf_cmp
 c_func
 (paren
+r_const
 r_struct
 id|strbuf
 op_star
 id|a
 comma
+r_const
 r_struct
 id|strbuf
 op_star
