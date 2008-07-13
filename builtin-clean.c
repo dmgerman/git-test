@@ -23,7 +23,7 @@ id|builtin_clean_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-clean [-d] [-f] [-n] [-q] [-x | -X] [--] &lt;paths&gt;...&quot;
+l_string|&quot;git clean [-d] [-f] [-n] [-q] [-x | -X] [--] &lt;paths&gt;...&quot;
 comma
 l_int|NULL
 )brace

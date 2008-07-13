@@ -12855,7 +12855,7 @@ id|fast_import_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-fast-import [--date-format=f] [--max-pack-size=n] [--depth=n] [--active-branches=n] [--export-marks=marks.file]&quot;
+l_string|&quot;git fast-import [--date-format=f] [--max-pack-size=n] [--depth=n] [--active-branches=n] [--export-marks=marks.file]&quot;
 suffix:semicolon
 DECL|function|main
 r_int

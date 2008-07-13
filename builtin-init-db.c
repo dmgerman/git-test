@@ -1827,7 +1827,7 @@ id|init_db_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-init [-q | --quiet] [--bare] [--template=&lt;template-directory&gt;] [--shared[=&lt;permissions&gt;]]&quot;
+l_string|&quot;git init [-q | --quiet] [--bare] [--template=&lt;template-directory&gt;] [--shared[=&lt;permissions&gt;]]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * If you want to, you can share the DB area with any number of branches.&n; * That has advantages: you can save space by sharing all the SHA1 objects.&n; * On the other hand, it might just make lookup slower and messier. You&n; * be the judge.  The default case is to have one DB per managed directory.&n; */
 DECL|function|cmd_init_db

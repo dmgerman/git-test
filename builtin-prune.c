@@ -16,7 +16,7 @@ id|prune_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-prune [-n] [--expire &lt;time&gt;] [--] [&lt;head&gt;...]&quot;
+l_string|&quot;git prune [-n] [--expire &lt;time&gt;] [--] [&lt;head&gt;...]&quot;
 comma
 l_int|NULL
 )brace

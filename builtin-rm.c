@@ -16,7 +16,7 @@ id|builtin_rm_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-rm [options] [--] &lt;file&gt;...&quot;
+l_string|&quot;git rm [options] [--] &lt;file&gt;...&quot;
 comma
 l_int|NULL
 )brace

@@ -11,7 +11,7 @@ id|diff_cache_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-diff-index [-m] [--cached] &quot;
+l_string|&quot;git diff-index [-m] [--cached] &quot;
 l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon

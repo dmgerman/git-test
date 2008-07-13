@@ -10,7 +10,7 @@ id|show_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n[,b]] &lt;branch&gt;&quot;
+l_string|&quot;git show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n[,b]] &lt;branch&gt;&quot;
 suffix:semicolon
 DECL|variable|show_branch_usage_reflog
 r_static

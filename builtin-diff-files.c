@@ -12,7 +12,7 @@ id|diff_files_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-diff-files [-q] [-0/-1/2/3 |-c|--cc] [&lt;common diff options&gt;] [&lt;path&gt;...]&quot;
+l_string|&quot;git diff-files [-q] [-0/-1/2/3 |-c|--cc] [&lt;common diff options&gt;] [&lt;path&gt;...]&quot;
 id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
 DECL|function|cmd_diff_files

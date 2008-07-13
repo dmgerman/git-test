@@ -22,7 +22,7 @@ id|fast_export_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-fast-export [rev-list-opts]&quot;
+l_string|&quot;git fast-export [rev-list-opts]&quot;
 comma
 l_int|NULL
 )brace

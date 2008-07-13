@@ -22,7 +22,7 @@ id|builtin_clone_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-clone [options] [--] &lt;repo&gt; [&lt;dir&gt;]&quot;
+l_string|&quot;git clone [options] [--] &lt;repo&gt; [&lt;dir&gt;]&quot;
 comma
 l_int|NULL
 )brace

@@ -11,7 +11,7 @@ id|write_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-write-tree [--missing-ok] [--prefix=&lt;prefix&gt;/]&quot;
+l_string|&quot;git write-tree [--missing-ok] [--prefix=&lt;prefix&gt;/]&quot;
 suffix:semicolon
 DECL|function|cmd_write_tree
 r_int

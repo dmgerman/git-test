@@ -13,7 +13,7 @@ id|git_symbolic_ref_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-symbolic-ref [options] name [ref]&quot;
+l_string|&quot;git symbolic-ref [options] name [ref]&quot;
 comma
 l_int|NULL
 )brace

@@ -2117,7 +2117,7 @@ id|ls_files_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
+l_string|&quot;git ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
 l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--exclude-standard] &quot;
 l_string|&quot;[--full-name] [--abbrev] [--] [&lt;file&gt;]*&quot;

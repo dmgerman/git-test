@@ -18,13 +18,13 @@ id|builtin_branch_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-branch [options] [-r | -a] [--merged | --no-merged]&quot;
+l_string|&quot;git branch [options] [-r | -a] [--merged | --no-merged]&quot;
 comma
-l_string|&quot;git-branch [options] [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;]&quot;
+l_string|&quot;git branch [options] [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;]&quot;
 comma
-l_string|&quot;git-branch [options] [-r] (-d | -D) &lt;branchname&gt;&quot;
+l_string|&quot;git branch [options] [-r] (-d | -D) &lt;branchname&gt;&quot;
 comma
-l_string|&quot;git-branch [options] (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt;&quot;
+l_string|&quot;git branch [options] (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt;&quot;
 comma
 l_int|NULL
 )brace

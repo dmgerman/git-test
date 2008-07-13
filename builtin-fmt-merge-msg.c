@@ -11,7 +11,7 @@ r_char
 op_star
 id|fmt_merge_msg_usage
 op_assign
-l_string|&quot;git-fmt-merge-msg [--log] [--no-log] [--file &lt;file&gt;]&quot;
+l_string|&quot;git fmt-merge-msg [--log] [--no-log] [--file &lt;file&gt;]&quot;
 suffix:semicolon
 DECL|variable|merge_summary
 r_static

@@ -15,7 +15,7 @@ id|shortlog_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-shortlog [-n] [-s] [-e] [-w] [&lt;commit-id&gt;... ]&quot;
+l_string|&quot;git shortlog [-n] [-s] [-e] [-w] [&lt;commit-id&gt;... ]&quot;
 suffix:semicolon
 DECL|function|compare_by_number
 r_static

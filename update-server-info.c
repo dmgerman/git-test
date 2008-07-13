@@ -7,7 +7,7 @@ id|update_server_info_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-update-server-info [--force]&quot;
+l_string|&quot;git update-server-info [--force]&quot;
 suffix:semicolon
 DECL|function|main
 r_int

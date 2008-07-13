@@ -20,7 +20,7 @@ id|describe_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-describe [options] &lt;committish&gt;*&quot;
+l_string|&quot;git describe [options] &lt;committish&gt;*&quot;
 comma
 l_int|NULL
 )brace

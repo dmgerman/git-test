@@ -16,7 +16,7 @@ id|builtin_gc_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-gc [options]&quot;
+l_string|&quot;git gc [options]&quot;
 comma
 l_int|NULL
 )brace

@@ -4680,7 +4680,7 @@ id|for_each_ref_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-for-each-ref [options] [&lt;pattern&gt;]&quot;
+l_string|&quot;git for-each-ref [options] [&lt;pattern&gt;]&quot;
 comma
 l_int|NULL
 )brace

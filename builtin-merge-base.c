@@ -89,7 +89,7 @@ id|merge_base_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-merge-base [--all] &lt;commit-id&gt; &lt;commit-id&gt;&quot;
+l_string|&quot;git merge-base [--all] &lt;commit-id&gt; &lt;commit-id&gt;&quot;
 suffix:semicolon
 DECL|function|cmd_merge_base
 r_int

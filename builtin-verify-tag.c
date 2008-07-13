@@ -12,7 +12,7 @@ id|builtin_verify_tag_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-verify-tag [-v|--verbose] &lt;tag&gt;...&quot;
+l_string|&quot;git verify-tag [-v|--verbose] &lt;tag&gt;...&quot;
 suffix:semicolon
 DECL|macro|PGP_SIGNATURE
 mdefine_line|#define PGP_SIGNATURE &quot;-----BEGIN PGP SIGNATURE-----&quot;

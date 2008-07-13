@@ -2439,7 +2439,7 @@ id|builtin_grep_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-grep &lt;option&gt;* &lt;rev&gt;* [-e] &lt;pattern&gt; [&lt;path&gt;...]&quot;
+l_string|&quot;git grep &lt;option&gt;* &lt;rev&gt;* [-e] &lt;pattern&gt; [&lt;path&gt;...]&quot;
 suffix:semicolon
 DECL|variable|emsg_invalid_context_len
 r_static

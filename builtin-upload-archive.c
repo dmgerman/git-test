@@ -12,7 +12,7 @@ id|upload_archive_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-archive &lt;repo&gt;&quot;
+l_string|&quot;git upload-archive &lt;repo&gt;&quot;
 suffix:semicolon
 DECL|variable|deadchild
 r_static
@@ -22,7 +22,7 @@ id|deadchild
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-archive: archiver died with error&quot;
+l_string|&quot;git upload-archive: archiver died with error&quot;
 suffix:semicolon
 DECL|variable|lostchild
 r_static
@@ -32,7 +32,7 @@ id|lostchild
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-archive: archiver process was lost&quot;
+l_string|&quot;git upload-archive: archiver process was lost&quot;
 suffix:semicolon
 DECL|function|run_upload_archive
 r_static

@@ -172,7 +172,7 @@ id|builtin_help_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-help [--all] [--man|--web|--info] [command]&quot;
+l_string|&quot;git help [--all] [--man|--web|--info] [command]&quot;
 comma
 l_int|NULL
 )brace

@@ -20,7 +20,7 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-blame [-c] [-b] [-l] [--root] [-t] [-f] [-n] [-s] [-p] [-w] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
+l_string|&quot;git blame [-c] [-b] [-l] [--root] [-t] [-f] [-n] [-s] [-p] [-w] [-L n,m] [-S &lt;revs-file&gt;] [-M] [-C] [-C] [--contents &lt;filename&gt;] [--incremental] [commit] [--] file&bslash;n&quot;
 l_string|&quot;  -c                  Use the same output mode as git-annotate (Default: off)&bslash;n&quot;
 l_string|&quot;  -b                  Show blank SHA-1 for boundary commits (Default: off)&bslash;n&quot;
 l_string|&quot;  -l                  Show long commit SHA1 (Default: off)&bslash;n&quot;

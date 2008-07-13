@@ -22,7 +22,7 @@ id|rev_list_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-rev-list [OPTION] &lt;commit-id&gt;... [ -- paths... ]&bslash;n&quot;
+l_string|&quot;git rev-list [OPTION] &lt;commit-id&gt;... [ -- paths... ]&bslash;n&quot;
 l_string|&quot;  limiting output:&bslash;n&quot;
 l_string|&quot;    --max-count=nr&bslash;n&quot;
 l_string|&quot;    --max-age=epoch&bslash;n&quot;

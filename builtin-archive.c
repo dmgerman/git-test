@@ -17,7 +17,7 @@ id|archive_usage
 )braket
 op_assign
 "&bslash;"
-l_string|&quot;git-archive --format=&lt;fmt&gt; [--prefix=&lt;prefix&gt;/] [--verbose] [&lt;extra&gt;] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git archive --format=&lt;fmt&gt; [--prefix=&lt;prefix&gt;/] [--verbose] [&lt;extra&gt;] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon
 DECL|struct|archiver_desc
 r_static
