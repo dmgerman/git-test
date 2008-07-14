@@ -214,6 +214,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_int
@@ -367,6 +371,8 @@ comma
 id|pathspec
 comma
 id|update_some
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* update the index with the given tree&squot;s info&n;&t; * for all args, expanding wildcards, and exit&n;&t; * with any non-zero return code.&n;&t; */

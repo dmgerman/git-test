@@ -192,6 +192,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_return
@@ -247,6 +251,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_return
@@ -494,6 +502,10 @@ id|match
 comma
 id|read_tree_fn_t
 id|fn
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_struct
@@ -578,6 +590,8 @@ comma
 id|entry.mode
 comma
 id|stage
+comma
+id|context
 )paren
 )paren
 (brace
@@ -694,6 +708,8 @@ comma
 id|match
 comma
 id|fn
+comma
+id|context
 )paren
 suffix:semicolon
 id|free
@@ -888,6 +904,8 @@ comma
 id|match
 comma
 id|fn
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

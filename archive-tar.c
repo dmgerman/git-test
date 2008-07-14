@@ -1402,6 +1402,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_static
@@ -1718,6 +1722,8 @@ comma
 l_int|040777
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
@@ -1741,6 +1747,8 @@ comma
 id|args-&gt;pathspec
 comma
 id|write_tar_entry
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|write_trailer

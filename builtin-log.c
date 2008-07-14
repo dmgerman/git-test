@@ -1559,6 +1559,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 id|printf
@@ -1882,6 +1886,8 @@ comma
 l_int|NULL
 comma
 id|show_tree_object
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_break

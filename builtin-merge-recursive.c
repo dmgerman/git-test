@@ -1267,6 +1267,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_int
@@ -1393,9 +1397,9 @@ comma
 l_int|NULL
 comma
 id|save_files_dirs
+comma
+l_int|NULL
 )paren
-op_ne
-l_int|0
 )paren
 r_return
 l_int|0

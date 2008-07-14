@@ -811,6 +811,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_struct
@@ -1975,6 +1979,8 @@ comma
 l_int|040777
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
@@ -1998,6 +2004,8 @@ comma
 id|args-&gt;pathspec
 comma
 id|write_zip_entry
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|write_zip_trailer
