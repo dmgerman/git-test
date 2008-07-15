@@ -410,6 +410,11 @@ DECL|member|guilty
 r_char
 id|guilty
 suffix:semicolon
+multiline_comment|/* true if the entry has been scanned for copies in the current parent&n;&t; */
+DECL|member|scanned
+r_char
+id|scanned
+suffix:semicolon
 multiline_comment|/* the line number of the first line of this group in the&n;&t; * suspect&squot;s file; internally all line numbers are 0 based.&n;&t; */
 DECL|member|s_lno
 r_int
@@ -4245,6 +4250,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|e-&gt;scanned
+op_logical_and
+op_logical_neg
 id|e-&gt;guilty
 op_logical_and
 id|same_suspect
@@ -4299,6 +4307,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|e-&gt;scanned
+op_logical_and
+op_logical_neg
 id|e-&gt;guilty
 op_logical_and
 id|same_suspect
@@ -4327,6 +4338,42 @@ id|num_ents
 suffix:semicolon
 r_return
 id|blame_list
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * Reset the scanned status on all entries.&n; */
+DECL|function|reset_scanned_flag
+r_static
+r_void
+id|reset_scanned_flag
+c_func
+(paren
+r_struct
+id|scoreboard
+op_star
+id|sb
+)paren
+(brace
+r_struct
+id|blame_entry
+op_star
+id|e
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|e
+op_assign
+id|sb-&gt;ent
+suffix:semicolon
+id|e
+suffix:semicolon
+id|e
+op_assign
+id|e-&gt;next
+)paren
+id|e-&gt;scanned
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * For lines target is suspected for, see if we can find code movement&n; * across file boundary from the parent commit.  porigin is the path&n; * in the parent we already tried.&n; */
@@ -4815,6 +4862,16 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+r_else
+id|blame_list
+(braket
+id|j
+)braket
+dot
+id|ent-&gt;scanned
+op_assign
+l_int|1
+suffix:semicolon
 id|decref_split
 c_func
 (paren
@@ -4864,6 +4921,12 @@ r_break
 suffix:semicolon
 )brace
 )brace
+id|reset_scanned_flag
+c_func
+(paren
+id|sb
+)paren
+suffix:semicolon
 id|diff_flush
 c_func
 (paren
