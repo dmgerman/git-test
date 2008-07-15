@@ -1099,6 +1099,14 @@ id|args-&gt;base
 op_assign
 id|base
 suffix:semicolon
+id|args-&gt;baselen
+op_assign
+id|strlen
+c_func
+(paren
+id|base
+)paren
+suffix:semicolon
 r_return
 id|i
 suffix:semicolon
