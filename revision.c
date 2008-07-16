@@ -1129,12 +1129,7 @@ comma
 r_const
 r_char
 op_star
-id|base
-comma
-r_const
-r_char
-op_star
-id|path
+id|fullpath
 )paren
 (brace
 r_int
@@ -1221,12 +1216,7 @@ comma
 r_const
 r_char
 op_star
-id|base
-comma
-r_const
-r_char
-op_star
-id|path
+id|fullpath
 )paren
 (brace
 id|tree_difference

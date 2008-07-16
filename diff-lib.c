@@ -698,8 +698,6 @@ comma
 id|ce-&gt;sha1
 comma
 id|ce-&gt;name
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 r_continue
@@ -783,8 +781,6 @@ id|ce-&gt;sha1
 )paren
 comma
 id|ce-&gt;name
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -875,8 +871,6 @@ comma
 id|sha1
 comma
 id|ce-&gt;name
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -1480,8 +1474,6 @@ comma
 id|sha1
 comma
 id|old-&gt;name
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 r_return
