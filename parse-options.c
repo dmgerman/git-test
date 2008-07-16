@@ -1232,6 +1232,7 @@ l_int|2
 suffix:semicolon
 )brace
 DECL|function|check_typos
+r_static
 r_void
 id|check_typos
 c_func
