@@ -63,12 +63,11 @@ op_assign
 l_int|10
 suffix:semicolon
 DECL|variable|pattern
+r_static
 r_const
 r_char
 op_star
 id|pattern
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|always
 r_static
