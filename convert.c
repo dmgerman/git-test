@@ -213,6 +213,26 @@ id|stats-&gt;printable
 op_increment
 suffix:semicolon
 )brace
+multiline_comment|/* If file ends with EOF then don&squot;t count this EOF as non-printable. */
+r_if
+c_cond
+(paren
+id|size
+op_ge
+l_int|1
+op_logical_and
+id|buf
+(braket
+id|size
+op_minus
+l_int|1
+)braket
+op_eq
+l_char|&squot;&bslash;032&squot;
+)paren
+id|stats-&gt;nonprintable
+op_decrement
+suffix:semicolon
 )brace
 multiline_comment|/*&n; * The same heuristics as diff.c::mmfile_is_binary()&n; */
 DECL|function|is_binary
