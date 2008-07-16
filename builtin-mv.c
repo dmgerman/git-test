@@ -1551,8 +1551,7 @@ id|WORKING_DIRECTORY
 )paren
 r_continue
 suffix:semicolon
-r_if
-c_cond
+m_assert
 (paren
 id|cache_name_pos
 c_func
@@ -1568,7 +1567,7 @@ id|src
 op_ge
 l_int|0
 )paren
-(brace
+suffix:semicolon
 id|string_list_insert
 c_func
 (paren
@@ -1600,17 +1599,6 @@ op_amp
 id|changed
 )paren
 suffix:semicolon
-r_else
-id|string_list_insert
-c_func
-(paren
-id|dst
-comma
-op_amp
-id|added
-)paren
-suffix:semicolon
-)brace
 r_else
 id|string_list_insert
 c_func
