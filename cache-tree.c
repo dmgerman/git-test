@@ -2534,6 +2534,7 @@ id|size
 suffix:semicolon
 )brace
 DECL|function|cache_tree_find
+r_static
 r_struct
 id|cache_tree
 op_star
