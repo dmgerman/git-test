@@ -1152,10 +1152,7 @@ id|remove
 op_assign
 id|pos
 id|subject-&gt;buf
-op_plus
-l_int|1
 suffix:semicolon
-multiline_comment|/* Don&squot;t remove too much. */
 r_if
 c_cond
 (paren
@@ -1164,8 +1161,6 @@ op_le
 (paren
 id|subject-&gt;len
 id|remove
-op_plus
-l_int|1
 )paren
 op_star
 l_int|2
@@ -1179,6 +1174,8 @@ comma
 l_int|0
 comma
 id|remove
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 r_continue
