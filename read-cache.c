@@ -2537,7 +2537,7 @@ id|ce-&gt;ce_flags
 op_or_assign
 id|CE_ADDED
 suffix:semicolon
-multiline_comment|/* It was suspected to be recily clean, but it turns out to be Ok */
+multiline_comment|/* It was suspected to be racily clean, but it turns out to be Ok */
 id|was_same
 op_assign
 (paren
