@@ -21,9 +21,9 @@ id|git_reset_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-reset [--mixed | --soft | --hard] [-q] [&lt;commit&gt;]&quot;
+l_string|&quot;git reset [--mixed | --soft | --hard] [-q] [&lt;commit&gt;]&quot;
 comma
-l_string|&quot;git-reset [--mixed] &lt;commit&gt; [--] &lt;paths&gt;...&quot;
+l_string|&quot;git reset [--mixed] &lt;commit&gt; [--] &lt;paths&gt;...&quot;
 comma
 l_int|NULL
 )brace

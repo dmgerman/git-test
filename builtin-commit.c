@@ -29,7 +29,7 @@ id|builtin_commit_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-commit [options] [--] &lt;filepattern&gt;...&quot;
+l_string|&quot;git commit [options] [--] &lt;filepattern&gt;...&quot;
 comma
 l_int|NULL
 )brace
@@ -45,7 +45,7 @@ id|builtin_status_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-status [options] [--] &lt;filepattern&gt;...&quot;
+l_string|&quot;git status [options] [--] &lt;filepattern&gt;...&quot;
 comma
 l_int|NULL
 )brace

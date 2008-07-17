@@ -17,7 +17,7 @@ id|archive_usage
 )braket
 op_assign
 "&bslash;"
-l_string|&quot;git-archive --format=&lt;fmt&gt; [--prefix=&lt;prefix&gt;/] [--verbose] [&lt;extra&gt;] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git archive --format=&lt;fmt&gt; [--prefix=&lt;prefix&gt;/] [--verbose] [&lt;extra&gt;] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon
 DECL|macro|USES_ZLIB_COMPRESSION
 mdefine_line|#define USES_ZLIB_COMPRESSION 1

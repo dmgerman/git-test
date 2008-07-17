@@ -16,13 +16,13 @@ id|git_tag_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-tag [-a|-s|-u &lt;key-id&gt;] [-f] [-m &lt;msg&gt;|-F &lt;file&gt;] &lt;tagname&gt; [&lt;head&gt;]&quot;
+l_string|&quot;git tag [-a|-s|-u &lt;key-id&gt;] [-f] [-m &lt;msg&gt;|-F &lt;file&gt;] &lt;tagname&gt; [&lt;head&gt;]&quot;
 comma
-l_string|&quot;git-tag -d &lt;tagname&gt;...&quot;
+l_string|&quot;git tag -d &lt;tagname&gt;...&quot;
 comma
-l_string|&quot;git-tag -l [-n[&lt;num&gt;]] [&lt;pattern&gt;]&quot;
+l_string|&quot;git tag -l [-n[&lt;num&gt;]] [&lt;pattern&gt;]&quot;
 comma
-l_string|&quot;git-tag -v &lt;tagname&gt;...&quot;
+l_string|&quot;git tag -v &lt;tagname&gt;...&quot;
 comma
 l_int|NULL
 )brace

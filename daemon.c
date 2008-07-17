@@ -34,7 +34,7 @@ id|daemon_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-daemon [--verbose] [--syslog] [--export-all]&bslash;n&quot;
+l_string|&quot;git daemon [--verbose] [--syslog] [--export-all]&bslash;n&quot;
 l_string|&quot;           [--timeout=n] [--init-timeout=n] [--strict-paths]&bslash;n&quot;
 l_string|&quot;           [--base-path=path] [--base-path-relaxed]&bslash;n&quot;
 l_string|&quot;           [--user-path | --user-path=path]&bslash;n&quot;

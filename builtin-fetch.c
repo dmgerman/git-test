@@ -19,7 +19,7 @@ id|builtin_fetch_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-fetch [options] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
+l_string|&quot;git fetch [options] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 comma
 l_int|NULL
 )brace

@@ -2516,7 +2516,7 @@ id|fsck_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-fsck [options] [&lt;object&gt;...]&quot;
+l_string|&quot;git fsck [options] [&lt;object&gt;...]&quot;
 comma
 l_int|NULL
 )brace

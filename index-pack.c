@@ -16,7 +16,7 @@ id|index_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-index-pack [-v] [-o &lt;index-file&gt;] [{ ---keep | --keep=&lt;msg&gt; }] [--strict] { &lt;pack-file&gt; | --stdin [--fix-thin] [&lt;pack-file&gt;] }&quot;
+l_string|&quot;git index-pack [-v] [-o &lt;index-file&gt;] [{ ---keep | --keep=&lt;msg&gt; }] [--strict] { &lt;pack-file&gt; | --stdin [--fix-thin] [&lt;pack-file&gt;] }&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct

@@ -13,9 +13,9 @@ id|git_update_ref_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-update-ref [options] -d &lt;refname&gt; [&lt;oldval&gt;]&quot;
+l_string|&quot;git update-ref [options] -d &lt;refname&gt; [&lt;oldval&gt;]&quot;
 comma
-l_string|&quot;git-update-ref [options]    &lt;refname&gt; &lt;newval&gt; [&lt;oldval&gt;]&quot;
+l_string|&quot;git update-ref [options]    &lt;refname&gt; &lt;newval&gt; [&lt;oldval&gt;]&quot;
 comma
 l_int|NULL
 )brace

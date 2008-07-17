@@ -10,7 +10,7 @@ id|pack_redundant_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-pack-redundant [ --verbose ] [ --alt-odb ] &lt; --all | &lt;.pack filename&gt; ...&gt;&quot;
+l_string|&quot;git pack-redundant [ --verbose ] [ --alt-odb ] &lt; --all | &lt;.pack filename&gt; ...&gt;&quot;
 suffix:semicolon
 DECL|variable|load_all_packs
 DECL|variable|verbose

@@ -16,7 +16,7 @@ id|builtin_mv_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-mv [options] &lt;source&gt;... &lt;destination&gt;&quot;
+l_string|&quot;git mv [options] &lt;source&gt;... &lt;destination&gt;&quot;
 comma
 l_int|NULL
 )brace

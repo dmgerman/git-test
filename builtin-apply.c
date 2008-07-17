@@ -137,7 +137,7 @@ id|apply_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [--reverse] [--reject] [--verbose] [-z] [-pNUM] [-CNUM] [--whitespace=&lt;nowarn|warn|fix|error|error-all&gt;] &lt;patch&gt;...&quot;
+l_string|&quot;git apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [--reverse] [--reject] [--verbose] [-z] [-pNUM] [-CNUM] [--whitespace=&lt;nowarn|warn|fix|error|error-all&gt;] &lt;patch&gt;...&quot;
 suffix:semicolon
 DECL|enum|ws_error_action
 r_static

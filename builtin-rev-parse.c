@@ -1224,7 +1224,7 @@ id|parseopt_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-rev-parse --parseopt [options] -- [&lt;args&gt;...]&quot;
+l_string|&quot;git rev-parse --parseopt [options] -- [&lt;args&gt;...]&quot;
 comma
 l_int|NULL
 )brace

@@ -12,7 +12,7 @@ id|git_rerere_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-rerere [clear | status | diff | gc]&quot;
+l_string|&quot;git rerere [clear | status | diff | gc]&quot;
 suffix:semicolon
 multiline_comment|/* these values are days */
 DECL|variable|cutoff_noresolve

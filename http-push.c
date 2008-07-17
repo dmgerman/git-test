@@ -19,7 +19,7 @@ id|http_push_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-http-push [--all] [--dry-run] [--force] [--verbose] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
+l_string|&quot;git http-push [--all] [--dry-run] [--force] [--verbose] &lt;remote&gt; [&lt;head&gt;...]&bslash;n&quot;
 suffix:semicolon
 macro_line|#ifndef XML_STATUS_OK
 DECL|enum|XML_Status

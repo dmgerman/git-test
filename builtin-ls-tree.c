@@ -60,7 +60,7 @@ id|ls_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-tree [-d] [-r] [-t] [-l] [-z] [--name-only] [--name-status] [--full-name] [--abbrev[=&lt;n&gt;]] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git ls-tree [-d] [-r] [-t] [-l] [-z] [--name-only] [--name-status] [--full-name] [--abbrev[=&lt;n&gt;]] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon
 DECL|function|show_recursive
 r_static

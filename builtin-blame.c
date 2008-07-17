@@ -21,7 +21,7 @@ id|blame_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-blame [options] [rev-opts] [rev] [--] file&quot;
+l_string|&quot;git blame [options] [rev-opts] [rev] [--] file&quot;
 suffix:semicolon
 DECL|variable|blame_opt_usage
 r_static

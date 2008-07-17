@@ -682,7 +682,7 @@ id|checkout_cache_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-checkout-index [-u] [-q] [-a] [-f] [-n] [--stage=[123]|all] [--prefix=&lt;string&gt;] [--temp] [--] &lt;file&gt;...&quot;
+l_string|&quot;git checkout-index [-u] [-q] [-a] [-f] [-n] [--stage=[123]|all] [--prefix=&lt;string&gt;] [--temp] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 DECL|variable|lock_file
 r_static

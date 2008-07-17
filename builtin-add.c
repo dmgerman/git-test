@@ -21,7 +21,7 @@ id|builtin_add_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-add [options] [--] &lt;filepattern&gt;...&quot;
+l_string|&quot;git add [options] [--] &lt;filepattern&gt;...&quot;
 comma
 l_int|NULL
 )brace

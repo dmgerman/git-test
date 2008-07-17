@@ -6062,7 +6062,7 @@ id|cherry_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-cherry [-v] &lt;upstream&gt; [&lt;head&gt;] [&lt;limit&gt;]&quot;
+l_string|&quot;git cherry [-v] &lt;upstream&gt; [&lt;head&gt;] [&lt;limit&gt;]&quot;
 suffix:semicolon
 DECL|function|cmd_cherry
 r_int

@@ -19,7 +19,7 @@ id|shortlog_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-shortlog [-n] [-s] [-e] [-w] [rev-opts] [--] [&lt;commit-id&gt;... ]&quot;
+l_string|&quot;git shortlog [-n] [-s] [-e] [-w] [rev-opts] [--] [&lt;commit-id&gt;... ]&quot;
 comma
 l_string|&quot;&quot;
 comma

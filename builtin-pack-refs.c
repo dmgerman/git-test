@@ -12,7 +12,7 @@ id|pack_refs_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-pack-refs [options]&quot;
+l_string|&quot;git pack-refs [options]&quot;
 comma
 l_int|NULL
 )brace

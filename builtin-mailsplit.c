@@ -10,7 +10,7 @@ id|git_mailsplit_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-mailsplit [-d&lt;prec&gt;] [-f&lt;n&gt;] [-b] -o&lt;directory&gt; [&lt;mbox&gt;|&lt;Maildir&gt;...]&quot;
+l_string|&quot;git mailsplit [-d&lt;prec&gt;] [-f&lt;n&gt;] [-b] -o&lt;directory&gt; [&lt;mbox&gt;|&lt;Maildir&gt;...]&quot;
 suffix:semicolon
 DECL|function|is_from_line
 r_static

@@ -23,7 +23,7 @@ id|revert_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-revert [options] &lt;commit-ish&gt;&quot;
+l_string|&quot;git revert [options] &lt;commit-ish&gt;&quot;
 comma
 l_int|NULL
 )brace
@@ -39,7 +39,7 @@ id|cherry_pick_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-cherry-pick [options] &lt;commit-ish&gt;&quot;
+l_string|&quot;git cherry-pick [options] &lt;commit-ish&gt;&quot;
 comma
 l_int|NULL
 )brace

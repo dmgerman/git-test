@@ -16,7 +16,7 @@ id|reflog_expire_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-reflog (show|expire) [--verbose] [--dry-run] [--stale-fix] [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--all] &lt;refs&gt;...&quot;
+l_string|&quot;git reflog (show|expire) [--verbose] [--dry-run] [--stale-fix] [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--all] &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|reflog_delete_usage
 r_static
@@ -26,7 +26,7 @@ id|reflog_delete_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-reflog delete [--verbose] [--dry-run] [--rewrite] [--updateref] &lt;refs&gt;...&quot;
+l_string|&quot;git reflog delete [--verbose] [--dry-run] [--rewrite] [--updateref] &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|default_reflog_expire
 r_static
@@ -3421,7 +3421,7 @@ id|reflog_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-reflog (expire | ...)&quot;
+l_string|&quot;git reflog (expire | ...)&quot;
 suffix:semicolon
 DECL|function|cmd_reflog
 r_int
