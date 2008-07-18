@@ -4,10 +4,8 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;archive.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;sideband.h&quot;
-macro_line|#include &quot;attr.h&quot;
 DECL|variable|archive_usage
 r_static
 r_const

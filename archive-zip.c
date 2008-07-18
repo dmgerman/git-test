@@ -1,10 +1,5 @@
 multiline_comment|/*&n; * Copyright (c) 2006 Rene Scharfe&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;commit.h&quot;
-macro_line|#include &quot;blob.h&quot;
-macro_line|#include &quot;tree.h&quot;
-macro_line|#include &quot;quote.h&quot;
-macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;archive.h&quot;
 DECL|variable|zip_date
 r_static

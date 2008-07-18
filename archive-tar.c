@@ -1,8 +1,6 @@
 multiline_comment|/*&n; * Copyright (c) 2005, 2006 Rene Scharfe&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tar.h&quot;
-macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;archive.h&quot;
 DECL|macro|RECORDSIZE
 mdefine_line|#define RECORDSIZE&t;(512)
