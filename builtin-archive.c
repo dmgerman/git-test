@@ -1052,6 +1052,10 @@ comma
 id|format
 )paren
 suffix:semicolon
+id|args-&gt;compression_level
+op_assign
+id|Z_DEFAULT_COMPRESSION
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1072,7 +1076,7 @@ id|flags
 op_amp
 id|USES_ZLIB_COMPRESSION
 )paren
-id|zlib_compression_level
+id|args-&gt;compression_level
 op_assign
 id|compression_level
 suffix:semicolon

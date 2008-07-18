@@ -506,6 +506,9 @@ r_int
 id|size
 comma
 r_int
+id|compression_level
+comma
+r_int
 r_int
 op_star
 id|compressed_size
@@ -545,7 +548,7 @@ c_func
 op_amp
 id|stream
 comma
-id|zlib_compression_level
+id|compression_level
 )paren
 suffix:semicolon
 id|maxsize
@@ -863,7 +866,7 @@ c_func
 id|mode
 )paren
 op_logical_and
-id|zlib_compression_level
+id|args-&gt;compression_level
 op_ne
 l_int|0
 )paren
@@ -930,6 +933,8 @@ c_func
 id|buffer
 comma
 id|size
+comma
+id|args-&gt;compression_level
 comma
 op_amp
 id|compressed_size
