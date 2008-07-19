@@ -667,6 +667,34 @@ id|spec-&gt;path
 suffix:semicolon
 r_else
 (brace
+multiline_comment|/*&n;&t;&t;&t; * Links refer to objects in another repositories;&n;&t;&t;&t; * output the SHA-1 verbatim.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|spec-&gt;mode
+)paren
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;M %06o %s %s&bslash;n&quot;
+comma
+id|spec-&gt;mode
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|spec-&gt;sha1
+)paren
+comma
+id|spec-&gt;path
+)paren
+suffix:semicolon
+r_else
+(brace
 r_struct
 id|object
 op_star
@@ -694,6 +722,7 @@ comma
 id|spec-&gt;path
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 )brace
@@ -1009,6 +1038,7 @@ op_amp
 id|rev-&gt;diffopt
 )paren
 suffix:semicolon
+multiline_comment|/* Export the referenced blobs, and remember the marks. */
 r_for
 c_loop
 (paren
@@ -1022,6 +1052,21 @@ id|diff_queued_diff.nr
 suffix:semicolon
 id|i
 op_increment
+)paren
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|diff_queued_diff.queue
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|two-&gt;mode
+)paren
 )paren
 id|handle_object
 c_func
