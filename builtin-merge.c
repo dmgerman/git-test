@@ -153,12 +153,6 @@ id|all_strategy
 op_assign
 (brace
 (brace
-l_string|&quot;recur&quot;
-comma
-id|NO_TRIVIAL
-)brace
-comma
-(brace
 l_string|&quot;recursive&quot;
 comma
 id|DEFAULT_TWOHEAD
@@ -174,12 +168,6 @@ id|DEFAULT_OCTOPUS
 comma
 (brace
 l_string|&quot;resolve&quot;
-comma
-l_int|0
-)brace
-comma
-(brace
-l_string|&quot;stupid&quot;
 comma
 l_int|0
 )brace
