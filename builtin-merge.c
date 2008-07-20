@@ -243,6 +243,11 @@ l_int|0
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|arg
+)paren
 (brace
 id|strbuf_addf
 c_func
@@ -259,6 +264,14 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+r_else
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;switch `m&squot; requires a value&quot;
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
