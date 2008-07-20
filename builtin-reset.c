@@ -461,7 +461,7 @@ op_assign
 id|refresh_cache
 c_func
 (paren
-l_int|0
+id|REFRESH_SAY_CHANGED
 )paren
 ques
 c_cond

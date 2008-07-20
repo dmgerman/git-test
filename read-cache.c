@@ -4425,6 +4425,26 @@ id|CE_MATCH_IGNORE_VALID
 suffix:colon
 l_int|0
 suffix:semicolon
+r_const
+r_char
+op_star
+id|needs_update_message
+suffix:semicolon
+id|needs_update_message
+op_assign
+(paren
+(paren
+id|flags
+op_amp
+id|REFRESH_SAY_CHANGED
+)paren
+ques
+c_cond
+l_string|&quot;locally modified&quot;
+suffix:colon
+l_string|&quot;needs update&quot;
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -4633,9 +4653,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s: needs update&bslash;n&quot;
+l_string|&quot;%s: %s&bslash;n&quot;
 comma
 id|ce-&gt;name
+comma
+id|needs_update_message
 )paren
 suffix:semicolon
 id|has_errors

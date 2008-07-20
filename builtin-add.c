@@ -697,7 +697,7 @@ comma
 id|verbose
 ques
 c_cond
-l_int|0
+id|REFRESH_SAY_CHANGED
 suffix:colon
 id|REFRESH_QUIET
 comma
