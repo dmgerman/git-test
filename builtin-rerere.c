@@ -1,6 +1,6 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;xdiff/xdiff.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
@@ -285,13 +285,13 @@ id|garbage_collect
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|rr
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 id|to_remove
 op_assign
 (brace
@@ -448,7 +448,7 @@ id|cutoff
 op_star
 l_int|86400
 )paren
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|name
@@ -480,10 +480,10 @@ id|to_remove.items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -728,7 +728,7 @@ id|prefix
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 id|merge_rr
 op_assign
 (brace
@@ -917,7 +917,7 @@ id|merge_rr.items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 r_else
@@ -961,7 +961,7 @@ id|merge_rr.items
 id|i
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 r_const
 r_char
@@ -1006,7 +1006,7 @@ c_func
 id|git_rerere_usage
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp

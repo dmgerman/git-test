@@ -3,7 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 DECL|variable|builtin_mv_usage
 r_static
@@ -222,7 +222,7 @@ op_star
 id|label
 comma
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 )paren
@@ -279,7 +279,7 @@ id|list-&gt;items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 id|putchar
@@ -498,7 +498,7 @@ id|stat
 id|st
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|overwritten
 op_assign
 (brace
@@ -512,7 +512,7 @@ l_int|0
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|src_for_dst
 op_assign
 (brace
@@ -526,7 +526,7 @@ l_int|0
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|added
 op_assign
 (brace
@@ -540,7 +540,7 @@ l_int|0
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|deleted
 op_assign
 (brace
@@ -554,7 +554,7 @@ l_int|0
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|changed
 op_assign
 (brace
@@ -1298,7 +1298,7 @@ id|bad
 op_assign
 l_int|NULL
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|dst
@@ -1337,7 +1337,7 @@ r_else
 r_if
 c_cond
 (paren
-id|path_list_has_path
+id|string_list_has_string
 c_func
 (paren
 op_amp
@@ -1351,7 +1351,7 @@ op_assign
 l_string|&quot;multiple sources for the same target&quot;
 suffix:semicolon
 r_else
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|dst
@@ -1569,7 +1569,7 @@ op_ge
 l_int|0
 )paren
 (brace
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|src
@@ -1582,7 +1582,7 @@ multiline_comment|/* destination can be a directory with 1 file inside */
 r_if
 c_cond
 (paren
-id|path_list_has_path
+id|string_list_has_string
 c_func
 (paren
 op_amp
@@ -1591,7 +1591,7 @@ comma
 id|dst
 )paren
 )paren
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|dst
@@ -1601,7 +1601,7 @@ id|changed
 )paren
 suffix:semicolon
 r_else
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|dst
@@ -1612,7 +1612,7 @@ id|added
 suffix:semicolon
 )brace
 r_else
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|dst
@@ -1683,7 +1683,7 @@ id|changed.items
 id|i
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 r_int
 id|j
@@ -1758,7 +1758,7 @@ id|added.items
 id|i
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 r_if
 c_cond
@@ -1805,7 +1805,7 @@ id|deleted.items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 r_if

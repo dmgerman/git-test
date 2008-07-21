@@ -2,7 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;remote.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;refs.h&quot;
@@ -125,7 +125,7 @@ op_logical_neg
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 op_assign
@@ -136,7 +136,7 @@ c_cond
 (paren
 op_logical_neg
 )paren
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 id|list
@@ -145,7 +145,7 @@ l_int|0
 )paren
 suffix:semicolon
 r_else
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|arg
@@ -242,7 +242,7 @@ op_assign
 l_int|0
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|track
 op_assign
 (brace
@@ -541,7 +541,7 @@ id|track.nr
 op_eq
 l_int|0
 )paren
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 l_string|&quot;*&quot;
@@ -566,7 +566,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 op_assign
@@ -603,9 +603,9 @@ id|buf2
 comma
 l_string|&quot;refs/%s:refs/%s&quot;
 comma
-id|item-&gt;path
+id|item-&gt;string
 comma
-id|item-&gt;path
+id|item-&gt;string
 )paren
 suffix:semicolon
 r_else
@@ -617,11 +617,11 @@ id|buf2
 comma
 l_string|&quot;refs/heads/%s:refs/remotes/%s/%s&quot;
 comma
-id|item-&gt;path
+id|item-&gt;string
 comma
 id|name
 comma
-id|item-&gt;path
+id|item-&gt;string
 )paren
 suffix:semicolon
 r_if
@@ -777,7 +777,7 @@ op_amp
 id|buf2
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -801,7 +801,7 @@ id|remote
 suffix:semicolon
 DECL|member|merge
 r_struct
-id|path_list
+id|string_list
 id|merge
 suffix:semicolon
 )brace
@@ -809,7 +809,7 @@ suffix:semicolon
 DECL|variable|branch_list
 r_static
 r_struct
-id|path_list
+id|string_list
 id|branch_list
 suffix:semicolon
 DECL|function|abbrev_ref
@@ -897,7 +897,7 @@ op_star
 id|name
 suffix:semicolon
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -991,7 +991,7 @@ l_int|0
 suffix:semicolon
 id|item
 op_assign
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|name
@@ -1097,7 +1097,7 @@ id|space
 id|value
 )paren
 suffix:semicolon
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|merge
@@ -1127,7 +1127,7 @@ l_char|&squot; &squot;
 )paren
 suffix:semicolon
 )brace
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|xstrdup
@@ -1170,7 +1170,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|sort_path_list
+id|sort_string_list
 c_func
 (paren
 op_amp
@@ -1192,7 +1192,7 @@ DECL|member|new
 DECL|member|stale
 DECL|member|tracked
 r_struct
-id|path_list
+id|string_list
 r_new
 comma
 id|stale
@@ -1274,7 +1274,7 @@ id|refspec
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -1299,7 +1299,7 @@ op_amp
 id|REF_ISSYMREF
 )paren
 op_logical_or
-id|unsorted_path_list_has_path
+id|unsorted_string_list_has_string
 c_func
 (paren
 op_amp
@@ -1308,7 +1308,7 @@ comma
 id|name
 )paren
 op_logical_or
-id|unsorted_path_list_has_path
+id|unsorted_string_list_has_string
 c_func
 (paren
 op_amp
@@ -1324,7 +1324,7 @@ l_int|0
 suffix:semicolon
 id|item
 op_assign
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|name
@@ -1428,9 +1428,9 @@ id|states
 op_member_access_from_pointer
 r_new
 dot
-id|strdup_paths
+id|strdup_strings
 op_assign
-id|states-&gt;tracked.strdup_paths
+id|states-&gt;tracked.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
@@ -1449,7 +1449,7 @@ id|ref-&gt;next
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 op_star
 id|target
 op_assign
@@ -1514,7 +1514,7 @@ op_amp
 id|states
 suffix:semicolon
 )brace
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|abbrev_branch
@@ -1545,7 +1545,7 @@ comma
 id|states
 )paren
 suffix:semicolon
-id|sort_path_list
+id|sort_string_list
 c_func
 (paren
 op_amp
@@ -1675,7 +1675,7 @@ id|remote
 suffix:semicolon
 DECL|member|branches
 r_struct
-id|path_list
+id|string_list
 op_star
 id|branches
 suffix:semicolon
@@ -1724,7 +1724,7 @@ id|refspec
 id|refspec
 suffix:semicolon
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -1845,7 +1845,7 @@ id|refname
 suffix:semicolon
 id|item
 op_assign
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|refname
@@ -1880,7 +1880,7 @@ id|remove_branches
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|branches
 )paren
@@ -1908,7 +1908,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 op_assign
@@ -1921,7 +1921,7 @@ r_char
 op_star
 id|refname
 op_assign
-id|item-&gt;path
+id|item-&gt;string
 suffix:semicolon
 r_int
 r_char
@@ -2005,7 +2005,7 @@ l_int|NULL
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|branches
 op_assign
 (brace
@@ -2154,7 +2154,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 op_assign
@@ -2232,7 +2232,7 @@ id|buf
 comma
 l_string|&quot;branch.%s.%s&quot;
 comma
-id|item-&gt;path
+id|item-&gt;string
 comma
 op_star
 id|k
@@ -2302,7 +2302,7 @@ op_amp
 id|branches
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -2327,7 +2327,7 @@ op_star
 id|title
 comma
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 )paren
@@ -2395,7 +2395,7 @@ id|list-&gt;items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 id|printf
@@ -2588,7 +2588,7 @@ op_amp
 id|refspec
 )paren
 )paren
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|abbrev_branch
@@ -2779,7 +2779,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|branch
 op_assign
@@ -2829,7 +2829,7 @@ l_string|&quot;es&quot;
 suffix:colon
 l_string|&quot;&quot;
 comma
-id|branch-&gt;path
+id|branch-&gt;string
 )paren
 suffix:semicolon
 r_for
@@ -2856,7 +2856,7 @@ id|info-&gt;merge.items
 id|j
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 id|printf
@@ -3037,7 +3037,7 @@ l_string|&quot;&bslash;n&quot;
 suffix:semicolon
 )brace
 multiline_comment|/* NEEDSWORK: free remote */
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -3048,7 +3048,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -3057,7 +3057,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -3297,7 +3297,7 @@ l_string|&quot;refs/remotes/&quot;
 suffix:semicolon
 )brace
 multiline_comment|/* NEEDSWORK: free remote */
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -3308,7 +3308,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -3317,7 +3317,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -3348,7 +3348,7 @@ id|priv
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 op_assign
@@ -3360,7 +3360,7 @@ c_cond
 op_logical_neg
 id|remote-&gt;skip_default_update
 )paren
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|xstrdup
@@ -3388,7 +3388,7 @@ id|name
 suffix:semicolon
 DECL|member|list
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 suffix:semicolon
@@ -3467,7 +3467,7 @@ id|space
 OG
 l_int|1
 )paren
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|xstrndup
@@ -3534,7 +3534,7 @@ op_assign
 l_int|0
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|list
 op_assign
 (brace
@@ -3678,15 +3678,15 @@ id|list.items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 multiline_comment|/* all names were strdup()ed or strndup()ed */
-id|list.strdup_paths
+id|list.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -3716,13 +3716,13 @@ id|priv
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 op_assign
 id|priv
 suffix:semicolon
-id|path_list_append
+id|string_list_append
 c_func
 (paren
 id|remote-&gt;name
@@ -3775,7 +3775,7 @@ r_void
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 id|list
 op_assign
 (brace
@@ -3808,7 +3808,7 @@ id|result
 r_int
 id|i
 suffix:semicolon
-id|sort_path_list
+id|sort_string_list
 c_func
 (paren
 op_amp
@@ -3831,7 +3831,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 op_assign
@@ -3844,7 +3844,7 @@ c_func
 (paren
 l_string|&quot;%s%s%s&bslash;n&quot;
 comma
-id|item-&gt;path
+id|item-&gt;string
 comma
 id|verbose
 ques

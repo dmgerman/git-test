@@ -9,7 +9,7 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|function|read_directory
 r_static
 r_int
@@ -22,7 +22,7 @@ op_star
 id|path
 comma
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 )paren
@@ -91,7 +91,7 @@ comma
 id|e-&gt;d_name
 )paren
 )paren
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|e-&gt;d_name
@@ -316,7 +316,7 @@ id|PATH_MAX
 )braket
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|p1
 op_assign
 (brace
@@ -390,7 +390,7 @@ id|p2
 )paren
 )paren
 (brace
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -574,14 +574,14 @@ id|p1.items
 id|i1
 )braket
 dot
-id|path
+id|string
 comma
 id|p2.items
 (braket
 id|i2
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 r_if
@@ -614,7 +614,7 @@ id|i1
 op_increment
 )braket
 dot
-id|path
+id|string
 comma
 id|PATH_MAX
 id|len1
@@ -651,7 +651,7 @@ id|i2
 op_increment
 )braket
 dot
-id|path
+id|string
 comma
 id|PATH_MAX
 id|len2
@@ -671,7 +671,7 @@ id|n2
 )paren
 suffix:semicolon
 )brace
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -680,7 +680,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp

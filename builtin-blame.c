@@ -11,7 +11,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 DECL|variable|blame_usage
@@ -102,7 +102,7 @@ suffix:semicolon
 DECL|variable|mailmap
 r_static
 r_struct
-id|path_list
+id|string_list
 id|mailmap
 suffix:semicolon
 macro_line|#ifndef DEBUG
@@ -8702,10 +8702,10 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n; * Used for the command line parsing; check if the path exists&n; * in the working tree.&n; */
-DECL|function|has_path_in_work_tree
+DECL|function|has_string_in_work_tree
 r_static
 r_int
-id|has_path_in_work_tree
+id|has_string_in_work_tree
 c_func
 (paren
 r_const
@@ -11262,7 +11262,7 @@ op_eq
 l_int|3
 op_logical_and
 op_logical_neg
-id|has_path_in_work_tree
+id|has_string_in_work_tree
 c_func
 (paren
 id|path
@@ -11311,7 +11311,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_path_in_work_tree
+id|has_string_in_work_tree
 c_func
 (paren
 id|path

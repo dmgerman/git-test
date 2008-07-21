@@ -9,7 +9,7 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;decorate.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 DECL|variable|fast_export_usage
@@ -1669,7 +1669,7 @@ op_star
 id|pending
 comma
 r_struct
-id|path_list
+id|string_list
 op_star
 id|extra_refs
 )paren
@@ -1790,7 +1790,7 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|full_name
@@ -1878,7 +1878,7 @@ c_cond
 id|commit-&gt;util
 )paren
 multiline_comment|/* more than one name for the same object */
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|full_name
@@ -1904,7 +1904,7 @@ id|handle_tags_and_duplicates
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|extra_refs
 )paren
@@ -1943,7 +1943,7 @@ id|extra_refs-&gt;items
 id|i
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 r_struct
 id|object
@@ -2432,7 +2432,7 @@ l_int|NULL
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|extra_refs
 op_assign
 (brace

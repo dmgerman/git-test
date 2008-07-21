@@ -3,7 +3,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 DECL|variable|user_format
 r_static
@@ -1723,7 +1723,7 @@ id|email
 (brace
 r_static
 r_struct
-id|path_list
+id|string_list
 op_star
 id|mail_map
 suffix:semicolon

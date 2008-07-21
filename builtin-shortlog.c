@@ -2,7 +2,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
@@ -47,7 +47,7 @@ id|a2
 (brace
 r_const
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|i1
 op_assign
@@ -60,7 +60,7 @@ id|a2
 suffix:semicolon
 r_const
 r_struct
-id|path_list
+id|string_list
 op_star
 id|l1
 op_assign
@@ -134,12 +134,12 @@ op_star
 id|p
 suffix:semicolon
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 op_star
 id|onelines
 suffix:semicolon
@@ -364,7 +364,7 @@ id|namebuf
 suffix:semicolon
 id|item
 op_assign
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|buffer
@@ -390,7 +390,7 @@ comma
 r_sizeof
 (paren
 r_struct
-id|path_list
+id|string_list
 )paren
 )paren
 suffix:semicolon
@@ -657,7 +657,7 @@ op_star
 r_sizeof
 (paren
 r_struct
-id|path_list_item
+id|string_list_item
 )paren
 )paren
 suffix:semicolon
@@ -677,7 +677,7 @@ id|onelines-&gt;nr
 op_increment
 )braket
 dot
-id|path
+id|string
 op_assign
 id|buffer
 suffix:semicolon
@@ -1390,7 +1390,7 @@ op_amp
 id|log-&gt;common_repo_prefix
 )paren
 suffix:semicolon
-id|log-&gt;list.strdup_paths
+id|log-&gt;list.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
@@ -1759,7 +1759,7 @@ comma
 r_sizeof
 (paren
 r_struct
-id|path_list_item
+id|string_list_item
 )paren
 comma
 id|compare_by_number
@@ -1781,7 +1781,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 op_star
 id|onelines
 op_assign
@@ -1810,7 +1810,7 @@ id|log-&gt;list.items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 )brace
@@ -1826,7 +1826,7 @@ id|log-&gt;list.items
 id|i
 )braket
 dot
-id|path
+id|string
 comma
 id|onelines-&gt;nr
 )paren
@@ -1857,7 +1857,7 @@ id|onelines-&gt;items
 id|j
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 r_if
 c_cond
@@ -1911,11 +1911,11 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
-id|onelines-&gt;strdup_paths
+id|onelines-&gt;strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 id|onelines
@@ -1939,11 +1939,11 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
-id|log-&gt;list.strdup_paths
+id|log-&gt;list.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -1952,11 +1952,11 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|log-&gt;mailmap.strdup_paths
+id|log-&gt;mailmap.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp

@@ -3,7 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
@@ -2598,18 +2598,18 @@ id|cbdata
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 op_assign
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 )paren
 id|cbdata
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|refname
@@ -2704,7 +2704,7 @@ id|tail
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 id|existing_refs
 op_assign
 (brace
@@ -2718,7 +2718,7 @@ l_int|0
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|new_refs
 op_assign
 (brace
@@ -2891,7 +2891,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|path_list_has_path
+id|string_list_has_string
 c_func
 (paren
 op_amp
@@ -2901,7 +2901,7 @@ id|ref_name
 )paren
 op_logical_and
 op_logical_neg
-id|path_list_has_path
+id|string_list_has_string
 c_func
 (paren
 op_amp
@@ -2927,7 +2927,7 @@ id|ref-&gt;old_sha1
 )paren
 )paren
 (brace
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|ref_name
@@ -2980,7 +2980,7 @@ id|ref_name
 )paren
 suffix:semicolon
 )brace
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
@@ -2989,7 +2989,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp

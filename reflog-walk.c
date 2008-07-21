@@ -3,7 +3,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;reflog-walk.h&quot;
 DECL|struct|complete_reflogs
 r_struct
@@ -703,7 +703,7 @@ id|reflogs
 suffix:semicolon
 DECL|member|complete_reflogs
 r_struct
-id|path_list
+id|string_list
 id|complete_reflogs
 suffix:semicolon
 DECL|member|last_commit_reflog
@@ -775,7 +775,7 @@ op_assign
 l_int|1
 suffix:semicolon
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -898,7 +898,7 @@ l_int|0
 suffix:semicolon
 id|item
 op_assign
-id|path_list_lookup
+id|string_list_lookup
 c_func
 (paren
 id|branch
@@ -1082,7 +1082,7 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|branch

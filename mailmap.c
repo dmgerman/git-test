@@ -1,5 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 DECL|function|read_mailmap
 r_int
@@ -7,7 +7,7 @@ id|read_mailmap
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|map
 comma
@@ -389,7 +389,7 @@ l_int|1
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|email
@@ -418,7 +418,7 @@ id|map_email
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|map
 comma
@@ -440,7 +440,7 @@ op_star
 id|p
 suffix:semicolon
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -544,7 +544,7 @@ l_int|0
 suffix:semicolon
 id|item
 op_assign
-id|path_list_lookup
+id|string_list_lookup
 c_func
 (paren
 id|mailbuf

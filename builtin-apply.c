@@ -5,7 +5,7 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 multiline_comment|/*&n; *  --check turns on checking that the working tree matches the&n; *    files that are being modified, but doesn&squot;t apply the patch&n; *  --stat does just a diffstat, and doesn&squot;t actually apply&n; *  --numstat does numeric diffstat, and doesn&squot;t actually apply&n; *  --index-info shows the old and new index info for paths if available.&n; *  --index updates the cache as well.&n; *  --cached updates only the cache without ever touching the working tree.&n; */
 DECL|variable|prefix
 r_static
@@ -656,7 +656,7 @@ multiline_comment|/*&n; * Records filenames that have been touched, in order to 
 DECL|variable|fn_table
 r_static
 r_struct
-id|path_list
+id|string_list
 id|fn_table
 suffix:semicolon
 DECL|function|hash_line
@@ -10240,7 +10240,7 @@ id|name
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -10256,7 +10256,7 @@ l_int|NULL
 suffix:semicolon
 id|item
 op_assign
-id|path_list_lookup
+id|string_list_lookup
 c_func
 (paren
 id|name
@@ -10297,7 +10297,7 @@ id|patch
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -10312,7 +10312,7 @@ l_int|NULL
 (brace
 id|item
 op_assign
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|patch-&gt;new_name
@@ -10343,7 +10343,7 @@ id|patch-&gt;is_rename
 (brace
 id|item
 op_assign
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|patch-&gt;old_name
@@ -14417,7 +14417,7 @@ comma
 r_sizeof
 (paren
 r_struct
-id|path_list
+id|string_list
 )paren
 )paren
 suffix:semicolon

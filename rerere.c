@@ -1,5 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;xdiff/xdiff.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
@@ -95,7 +95,7 @@ id|read_rr
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|rr
 )paren
@@ -255,7 +255,7 @@ c_func
 l_string|&quot;filename too long&quot;
 )paren
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|buf
@@ -288,7 +288,7 @@ id|write_rr
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|rr
 comma
@@ -342,7 +342,7 @@ id|rr-&gt;items
 id|i
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 id|length
 op_assign
@@ -969,7 +969,7 @@ id|find_conflict
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|conflict
 )paren
@@ -1073,7 +1073,7 @@ id|e3-&gt;ce_mode
 )paren
 )paren
 (brace
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 (paren
@@ -1335,7 +1335,7 @@ id|update_paths
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|update
 )paren
@@ -1386,7 +1386,7 @@ op_increment
 )paren
 (brace
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 op_assign
@@ -1402,7 +1402,7 @@ c_cond
 id|add_file_to_cache
 c_func
 (paren
-id|item-&gt;path
+id|item-&gt;string
 comma
 id|ADD_CACHE_IGNORE_ERRORS
 )paren
@@ -1474,7 +1474,7 @@ id|do_plain_rerere
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|rr
 comma
@@ -1483,7 +1483,7 @@ id|fd
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 id|conflict
 op_assign
 (brace
@@ -1497,7 +1497,7 @@ l_int|1
 )brace
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|update
 op_assign
 (brace
@@ -1546,13 +1546,13 @@ id|conflict.items
 id|i
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 r_if
 c_cond
 (paren
 op_logical_neg
-id|path_list_has_path
+id|string_list_has_string
 c_func
 (paren
 id|rr
@@ -1608,7 +1608,7 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|path
@@ -1697,7 +1697,7 @@ id|rr-&gt;items
 id|i
 )braket
 dot
-id|path
+id|string
 suffix:semicolon
 r_const
 r_char
@@ -1744,7 +1744,7 @@ c_cond
 (paren
 id|rerere_autoupdate
 )paren
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|path
@@ -2043,7 +2043,7 @@ id|setup_rerere
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|merge_rr
 )paren
@@ -2115,7 +2115,7 @@ r_void
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 id|merge_rr
 op_assign
 (brace

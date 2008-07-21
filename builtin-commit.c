@@ -15,7 +15,7 @@ macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 DECL|variable|builtin_commit_usage
@@ -733,7 +733,7 @@ id|list_paths
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 comma
@@ -852,7 +852,7 @@ l_int|0
 )paren
 r_continue
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|ce-&gt;name
@@ -889,7 +889,7 @@ id|add_remove_files
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 )paren
@@ -917,7 +917,7 @@ id|stat
 id|st
 suffix:semicolon
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|p
 op_assign
@@ -936,7 +936,7 @@ op_logical_neg
 id|lstat
 c_func
 (paren
-id|p-&gt;path
+id|p-&gt;string
 comma
 op_amp
 id|st
@@ -949,7 +949,7 @@ c_cond
 id|add_to_cache
 c_func
 (paren
-id|p-&gt;path
+id|p-&gt;string
 comma
 op_amp
 id|st
@@ -968,7 +968,7 @@ r_else
 id|remove_file_from_cache
 c_func
 (paren
-id|p-&gt;path
+id|p-&gt;string
 )paren
 suffix:semicolon
 )brace
@@ -1134,7 +1134,7 @@ r_int
 id|fd
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|partial
 suffix:semicolon
 r_const
@@ -1407,7 +1407,7 @@ id|partial
 )paren
 )paren
 suffix:semicolon
-id|partial.strdup_paths
+id|partial.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon

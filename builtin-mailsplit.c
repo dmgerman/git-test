@@ -1,7 +1,7 @@
 multiline_comment|/*&n; * Totally braindamaged mbox splitter program.&n; *&n; * It just splits a mbox into a list of files: &quot;0001&quot; &quot;0002&quot; ..&n; * so you can process them further from there.&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|variable|git_mailsplit_usage
 r_static
 r_const
@@ -536,7 +536,7 @@ id|populate_maildir_list
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 comma
@@ -701,7 +701,7 @@ comma
 id|dent-&gt;d_name
 )paren
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|name
@@ -765,7 +765,7 @@ r_int
 id|i
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|list
 op_assign
 (brace
@@ -833,7 +833,7 @@ id|list.items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 id|f
@@ -946,7 +946,7 @@ id|skip
 suffix:semicolon
 id|out
 suffix:colon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp
