@@ -7216,9 +7216,6 @@ r_const
 r_char
 op_star
 id|base
-comma
-op_star
-id|remote_msg
 suffix:semicolon
 r_if
 c_cond
@@ -7261,10 +7258,6 @@ l_string|&quot;refs/remotes/&quot;
 )paren
 )paren
 (brace
-id|remote_msg
-op_assign
-l_string|&quot; remote&quot;
-suffix:semicolon
 id|base
 op_add_assign
 id|strlen
@@ -7274,13 +7267,6 @@ l_string|&quot;refs/remotes/&quot;
 )paren
 suffix:semicolon
 )brace
-r_else
-(brace
-id|remote_msg
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -7292,11 +7278,9 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;Your branch is ahead of the tracked%s branch &squot;%s&squot; &quot;
+l_string|&quot;Your branch is ahead of &squot;%s&squot; &quot;
 l_string|&quot;by %d commit%s.&bslash;n&quot;
 comma
-id|remote_msg
-comma
 id|base
 comma
 id|num_ours
@@ -7325,11 +7309,9 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;Your branch is behind the tracked%s branch &squot;%s&squot; &quot;
-l_string|&quot;by %d commit%s,&bslash;n&quot;
+l_string|&quot;Your branch is behind &squot;%s&squot; &quot;
+l_string|&quot;by %d commit%s, &quot;
 l_string|&quot;and can be fast-forwarded.&bslash;n&quot;
-comma
-id|remote_msg
 comma
 id|base
 comma
@@ -7353,11 +7335,9 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;Your branch and the tracked%s branch &squot;%s&squot; &quot;
-l_string|&quot;have diverged,&bslash;nand respectively &quot;
-l_string|&quot;have %d and %d different commit(s) each.&bslash;n&quot;
-comma
-id|remote_msg
+l_string|&quot;Your branch and &squot;%s&squot; have diverged,&bslash;n&quot;
+l_string|&quot;and have %d and %d different commit(s) each, &quot;
+l_string|&quot;respectively.&bslash;n&quot;
 comma
 id|base
 comma
