@@ -201,6 +201,8 @@ c_func
 (paren
 id|path
 )paren
+op_logical_and
+id|argv0_path
 )paren
 (brace
 r_struct
@@ -217,10 +219,7 @@ id|d
 comma
 l_string|&quot;%s/%s&quot;
 comma
-id|git_exec_path
-c_func
-(paren
-)paren
+id|argv0_path
 comma
 id|path
 )paren
