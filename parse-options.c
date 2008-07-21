@@ -148,6 +148,8 @@ r_if
 c_cond
 (paren
 id|p-&gt;argc
+OG
+l_int|1
 )paren
 (brace
 id|p-&gt;argc
