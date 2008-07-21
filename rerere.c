@@ -1739,17 +1739,6 @@ id|path
 )paren
 )paren
 (brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Resolved &squot;%s&squot; using &quot;
-l_string|&quot;previous resolution.&bslash;n&quot;
-comma
-id|path
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1762,6 +1751,23 @@ id|path
 comma
 op_amp
 id|update
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%s &squot;%s&squot; using previous resolution.&bslash;n&quot;
+comma
+id|rerere_autoupdate
+ques
+c_cond
+l_string|&quot;Staged&quot;
+suffix:colon
+l_string|&quot;Resolved&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 r_goto
