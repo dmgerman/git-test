@@ -218,7 +218,7 @@ c_func
 (paren
 id|out
 comma
-id|make_absolute_path
+id|make_nonrelative_path
 c_func
 (paren
 id|path
