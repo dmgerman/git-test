@@ -1529,6 +1529,14 @@ id|rev.diffopt
 comma
 id|EXIT_WITH_STATUS
 )paren
+op_logical_and
+id|check_pager_config
+c_func
+(paren
+l_string|&quot;diff&quot;
+)paren
+op_ne
+l_int|0
 )paren
 id|setup_pager
 c_func
