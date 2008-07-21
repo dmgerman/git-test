@@ -2529,13 +2529,6 @@ c_func
 id|cmd
 )paren
 suffix:semicolon
-r_const
-r_char
-op_star
-id|cmd_path
-op_assign
-l_int|NULL
-suffix:semicolon
 r_int
 id|done_alias
 op_assign
@@ -2576,9 +2569,11 @@ op_increment
 op_assign
 l_int|0
 suffix:semicolon
-id|cmd_path
-op_assign
+id|git_set_argv0_path
+c_func
+(paren
 id|cmd
+)paren
 suffix:semicolon
 id|cmd
 op_assign
@@ -2723,7 +2718,6 @@ multiline_comment|/*&n;&t; * We use PATH to find git commands, but we prepend so
 id|setup_path
 c_func
 (paren
-id|cmd_path
 )paren
 suffix:semicolon
 r_while

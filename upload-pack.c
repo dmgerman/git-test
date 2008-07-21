@@ -3372,7 +3372,6 @@ suffix:semicolon
 id|setup_path
 c_func
 (paren
-l_int|NULL
 )paren
 suffix:semicolon
 id|dir
