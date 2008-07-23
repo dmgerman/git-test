@@ -2341,13 +2341,9 @@ id|commit
 op_assign
 id|next-&gt;item
 suffix:semicolon
-id|commit-&gt;object.flags
-op_or_assign
-id|TOPOSORT
-suffix:semicolon
 id|commit-&gt;indegree
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* update the indegree */
@@ -2388,9 +2384,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|parent-&gt;object.flags
-op_amp
-id|TOPOSORT
+id|parent-&gt;indegree
 )paren
 id|parent-&gt;indegree
 op_increment
@@ -2435,8 +2429,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|commit-&gt;indegree
+op_eq
+l_int|1
 )paren
 id|insert
 op_assign
@@ -2535,11 +2530,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-(paren
-id|parent-&gt;object.flags
-op_amp
-id|TOPOSORT
-)paren
+id|parent-&gt;indegree
 )paren
 r_continue
 suffix:semicolon
@@ -2547,9 +2538,10 @@ multiline_comment|/*&n;&t;&t;&t; * parents are only enqueued for emission&n;&t;&
 r_if
 c_cond
 (paren
-op_logical_neg
 op_decrement
 id|parent-&gt;indegree
+op_eq
+l_int|1
 )paren
 (brace
 r_if
@@ -2580,10 +2572,9 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n;&t;&t; * work_item is a commit all of whose children&n;&t;&t; * have already been emitted. we can emit it now.&n;&t;&t; */
-id|commit-&gt;object.flags
-op_and_assign
-op_complement
-id|TOPOSORT
+id|commit-&gt;indegree
+op_assign
+l_int|0
 suffix:semicolon
 op_star
 id|pptr
