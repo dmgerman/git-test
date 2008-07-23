@@ -29,14 +29,10 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-DECL|macro|REF_UNKNOWN_TYPE
-mdefine_line|#define REF_UNKNOWN_TYPE    0x00
 DECL|macro|REF_LOCAL_BRANCH
 mdefine_line|#define REF_LOCAL_BRANCH    0x01
 DECL|macro|REF_REMOTE_BRANCH
 mdefine_line|#define REF_REMOTE_BRANCH   0x02
-DECL|macro|REF_TAG
-mdefine_line|#define REF_TAG             0x04
 DECL|variable|head
 r_static
 r_const
@@ -1021,8 +1017,6 @@ id|newitem
 suffix:semicolon
 r_int
 id|kind
-op_assign
-id|REF_UNKNOWN_TYPE
 suffix:semicolon
 r_int
 id|len
@@ -1079,28 +1073,9 @@ l_int|13
 suffix:semicolon
 )brace
 r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|prefixcmp
-c_func
-(paren
-id|refname
-comma
-l_string|&quot;refs/tags/&quot;
-)paren
-)paren
-(brace
-id|kind
-op_assign
-id|REF_TAG
+r_return
+l_int|0
 suffix:semicolon
-id|refname
-op_add_assign
-l_int|10
-suffix:semicolon
-)brace
 multiline_comment|/* Filter with with_commit if specified */
 r_if
 c_cond
