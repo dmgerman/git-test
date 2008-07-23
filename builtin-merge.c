@@ -2333,6 +2333,7 @@ id|remote
 suffix:semicolon
 )brace
 DECL|function|git_merge_config
+r_static
 r_int
 id|git_merge_config
 c_func

@@ -933,6 +933,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|normalize_value
+r_static
 r_char
 op_star
 id|normalize_value

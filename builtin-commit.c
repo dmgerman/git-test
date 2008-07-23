@@ -4718,6 +4718,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|git_commit_config
+r_static
 r_int
 id|git_commit_config
 c_func

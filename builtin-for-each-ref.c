@@ -4561,6 +4561,7 @@ id|sort
 suffix:semicolon
 )brace
 DECL|function|opt_parse_sort
+r_static
 r_int
 id|opt_parse_sort
 c_func
