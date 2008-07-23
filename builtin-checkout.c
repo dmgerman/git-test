@@ -2734,7 +2734,7 @@ id|options
 comma
 id|checkout_usage
 comma
-l_int|0
+id|PARSE_OPT_KEEP_DASHDASH
 )paren
 suffix:semicolon
 r_if
