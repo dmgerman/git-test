@@ -34,6 +34,8 @@ id|lostchild
 op_assign
 l_string|&quot;git upload-archive: archiver process was lost&quot;
 suffix:semicolon
+DECL|macro|MAX_ARGS
+mdefine_line|#define MAX_ARGS (64)
 DECL|function|run_upload_archive
 r_static
 r_int
@@ -215,7 +217,10 @@ l_int|2
 id|die
 c_func
 (paren
-l_string|&quot;Too many options (&gt;29)&quot;
+l_string|&quot;Too many options (&gt;%d)&quot;
+comma
+id|MAX_ARGS
+l_int|2
 )paren
 suffix:semicolon
 r_if
