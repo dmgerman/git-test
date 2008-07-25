@@ -3462,6 +3462,9 @@ comma
 id|index_file
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|launch_editor
 c_func
 (paren
@@ -3475,7 +3478,22 @@ l_int|NULL
 comma
 id|env
 )paren
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Please supply the message using either -m or -F option.&bslash;n&quot;
+)paren
 suffix:semicolon
+m_exit
+(paren
+l_int|1
+)paren
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond

@@ -2,7 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 DECL|function|launch_editor
-r_void
+r_int
 id|launch_editor
 c_func
 (paren
@@ -108,22 +108,13 @@ l_string|&quot;dumb&quot;
 )paren
 )paren
 )paren
-(brace
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Terminal is dumb but no VISUAL nor EDITOR defined.&bslash;n&quot;
-l_string|&quot;Please supply the message using either -m or -F option.&bslash;n&quot;
+l_string|&quot;Terminal is dumb but no VISUAL nor EDITOR defined.&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -159,6 +150,9 @@ r_int
 id|i
 op_assign
 l_int|0
+suffix:semicolon
+r_int
+id|failed
 suffix:semicolon
 r_const
 r_char
@@ -255,9 +249,8 @@ id|i
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|failed
+op_assign
 id|run_command_v_opt_cd_env
 c_func
 (paren
@@ -269,20 +262,26 @@ l_int|NULL
 comma
 id|env
 )paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;There was a problem with the editor %s.&quot;
-comma
-id|editor
-)paren
 suffix:semicolon
 id|strbuf_release
 c_func
 (paren
 op_amp
 id|arg0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|failed
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;There was a problem with the editor &squot;%s&squot;.&quot;
+comma
+id|editor
 )paren
 suffix:semicolon
 )brace
@@ -293,6 +292,7 @@ op_logical_neg
 id|buffer
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -309,10 +309,11 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
-l_string|&quot;could not read message file &squot;%s&squot;: %s&quot;
+l_string|&quot;could not read file &squot;%s&squot;: %s&quot;
 comma
 id|path
 comma
@@ -322,6 +323,9 @@ c_func
 id|errno
 )paren
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 eof
