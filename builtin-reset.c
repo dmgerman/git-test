@@ -402,6 +402,9 @@ r_struct
 id|lock_file
 op_star
 id|index_lock
+comma
+r_int
+id|flags
 )paren
 (brace
 r_int
@@ -461,7 +464,7 @@ op_assign
 id|refresh_cache
 c_func
 (paren
-id|REFRESH_SAY_CHANGED
+id|flags
 )paren
 ques
 c_cond
@@ -639,6 +642,9 @@ r_int
 r_char
 op_star
 id|tree_sha1
+comma
+r_int
+id|refresh_flags
 )paren
 (brace
 r_struct
@@ -791,6 +797,8 @@ c_func
 id|index_fd
 comma
 id|lock
+comma
+id|refresh_flags
 )paren
 suffix:semicolon
 )brace
@@ -1333,6 +1341,13 @@ op_plus
 id|i
 comma
 id|sha1
+comma
+id|quiet
+ques
+c_cond
+id|REFRESH_QUIET
+suffix:colon
+id|REFRESH_SAY_CHANGED
 )paren
 suffix:semicolon
 )brace
@@ -1579,6 +1594,13 @@ c_func
 l_int|0
 comma
 l_int|NULL
+comma
+id|quiet
+ques
+c_cond
+id|REFRESH_QUIET
+suffix:colon
+id|REFRESH_SAY_CHANGED
 )paren
 suffix:semicolon
 r_break
