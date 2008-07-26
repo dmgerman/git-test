@@ -1006,11 +1006,6 @@ suffix:semicolon
 r_int
 id|len
 suffix:semicolon
-r_static
-r_struct
-id|commit_list
-id|branch
-suffix:semicolon
 multiline_comment|/* Detect kind */
 r_if
 c_cond
@@ -1124,31 +1119,6 @@ id|merge_filter
 op_ne
 id|NO_FILTER
 )paren
-(brace
-id|branch.item
-op_assign
-id|lookup_commit_reference_gently
-c_func
-(paren
-id|sha1
-comma
-l_int|1
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|branch.item
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Unable to lookup tip of branch %s&quot;
-comma
-id|refname
-)paren
-suffix:semicolon
 id|add_pending_object
 c_func
 (paren
@@ -1160,12 +1130,11 @@ r_struct
 id|object
 op_star
 )paren
-id|branch.item
+id|commit
 comma
 id|refname
 )paren
 suffix:semicolon
-)brace
 multiline_comment|/* Resize buffer */
 r_if
 c_cond
