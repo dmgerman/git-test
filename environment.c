@@ -24,6 +24,12 @@ id|trust_executable_bit
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|trust_ctime
+r_int
+id|trust_ctime
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|has_symlinks
 r_int
 id|has_symlinks

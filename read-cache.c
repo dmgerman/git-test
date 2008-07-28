@@ -921,6 +921,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|trust_ctime
+op_logical_and
 id|ce-&gt;ce_ctime
 op_ne
 (paren
