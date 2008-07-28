@@ -489,17 +489,9 @@ r_if
 c_cond
 (paren
 id|argc
-op_eq
+OG
 l_int|1
-)paren
-id|usage
-c_func
-(paren
-id|builtin_verify_tag_usage
-)paren
-suffix:semicolon
-r_if
-c_cond
+op_logical_and
 (paren
 op_logical_neg
 id|strcmp
@@ -525,6 +517,7 @@ comma
 l_string|&quot;--verbose&quot;
 )paren
 )paren
+)paren
 (brace
 id|verbose
 op_assign
@@ -534,6 +527,19 @@ id|i
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|argc
+op_le
+id|i
+)paren
+id|usage
+c_func
+(paren
+id|builtin_verify_tag_usage
+)paren
+suffix:semicolon
 multiline_comment|/* sometimes the program was terminated because this signal&n;&t; * was received in the process of writing the gpg input: */
 id|signal
 c_func
