@@ -650,6 +650,17 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|template_dir
+(braket
+l_int|0
+)braket
+)paren
+r_return
+suffix:semicolon
 id|strcpy
 c_func
 (paren
