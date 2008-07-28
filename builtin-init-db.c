@@ -606,6 +606,17 @@ c_func
 id|DEFAULT_GIT_TEMPLATE_DIR
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|template_dir
+(braket
+l_int|0
+)braket
+)paren
+r_return
+suffix:semicolon
 id|strcpy
 c_func
 (paren
