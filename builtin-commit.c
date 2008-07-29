@@ -2975,6 +2975,7 @@ id|fp
 comma
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;# Please enter the commit message for your changes.&bslash;n&quot;
+l_string|&quot;# To abort the commit, use an empty commit message.&bslash;n&quot;
 l_string|&quot;# (Comment lines starting with &squot;#&squot; will &quot;
 )paren
 suffix:semicolon
