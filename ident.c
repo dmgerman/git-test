@@ -974,7 +974,7 @@ id|env_hint
 op_assign
 l_int|NULL
 suffix:semicolon
-multiline_comment|/* warn only once, for &quot;git-var -l&quot; */
+multiline_comment|/* warn only once, for &quot;git var -l&quot; */
 )brace
 r_if
 c_cond
