@@ -10,10 +10,15 @@ suffix:semicolon
 DECL|variable|integer
 r_static
 r_int
-r_int
 id|integer
 op_assign
 l_int|0
+suffix:semicolon
+DECL|variable|timestamp
+r_static
+r_int
+r_int
+id|timestamp
 suffix:semicolon
 DECL|variable|abbrev
 r_static
@@ -229,7 +234,7 @@ comma
 l_int|NULL
 comma
 op_amp
-id|integer
+id|timestamp
 comma
 l_string|&quot;get timestamp of &lt;time&gt;&quot;
 )paren
@@ -421,9 +426,17 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;integer: %lu&bslash;n&quot;
+l_string|&quot;integer: %u&bslash;n&quot;
 comma
 id|integer
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;timestamp: %lu&bslash;n&quot;
+comma
+id|timestamp
 )paren
 suffix:semicolon
 id|printf
