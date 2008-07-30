@@ -2114,9 +2114,8 @@ c_func
 op_amp
 id|truname
 comma
+id|truname.len
 id|len
-op_plus
-l_int|11
 )paren
 suffix:semicolon
 r_if
@@ -2149,6 +2148,8 @@ id|remote_head-&gt;sha1
 )paren
 comma
 id|truname.buf
+op_plus
+l_int|11
 comma
 (paren
 id|early
