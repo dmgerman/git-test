@@ -901,7 +901,7 @@ id|buffer
 )paren
 l_int|1
 comma
-l_string|&quot;--%s%s&bslash;n&quot;
+l_string|&quot;&bslash;n--%s%s&bslash;n&quot;
 l_string|&quot;Content-Type: text/x-patch;&quot;
 l_string|&quot; name=&bslash;&quot;%s.diff&bslash;&quot;&bslash;n&quot;
 l_string|&quot;Content-Transfer-Encoding: 8bit&bslash;n&quot;
