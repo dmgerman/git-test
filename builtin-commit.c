@@ -2974,9 +2974,7 @@ c_func
 id|fp
 comma
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;# Please enter the commit message for your changes.&bslash;n&quot;
-l_string|&quot;# To abort the commit, use an empty commit message.&bslash;n&quot;
-l_string|&quot;# (Comment lines starting with &squot;#&squot; will &quot;
+l_string|&quot;# Please enter the commit message for your changes.&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2991,7 +2989,9 @@ c_func
 (paren
 id|fp
 comma
-l_string|&quot;not be included)&bslash;n&quot;
+l_string|&quot; Lines starting&bslash;n&quot;
+l_string|&quot;# with &squot;#&squot; will be ignored, and an empty&quot;
+l_string|&quot; message aborts the commit.&bslash;n&quot;
 )paren
 suffix:semicolon
 r_else
@@ -3001,8 +3001,10 @@ c_func
 (paren
 id|fp
 comma
-l_string|&quot;be kept.&bslash;n&quot;
-l_string|&quot;# You can remove them yourself if you want to)&bslash;n&quot;
+l_string|&quot; Lines starting&bslash;n&quot;
+l_string|&quot;# with &squot;#&squot; will be kept; you may remove them&quot;
+l_string|&quot; yourself if you want to.&bslash;n&quot;
+l_string|&quot;# An empty message aborts the commit.&bslash;n&quot;
 )paren
 suffix:semicolon
 r_if
@@ -5509,10 +5511,17 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|die
+id|fprintf
 c_func
 (paren
-l_string|&quot;no commit message?  aborting commit.&quot;
+id|stderr
+comma
+l_string|&quot;Aborting commit due to empty commit message.&bslash;n&quot;
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|1
 )paren
 suffix:semicolon
 )brace
