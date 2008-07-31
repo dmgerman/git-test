@@ -7597,6 +7597,12 @@ comma
 l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(sub&bslash;&bslash;)*section{.*&bslash;&bslash;)$&quot;
 )brace
 comma
+(brace
+l_string|&quot;ruby&quot;
+comma
+l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|module&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
+)brace
+comma
 )brace
 suffix:semicolon
 DECL|function|diff_funcname_pattern
