@@ -2083,10 +2083,8 @@ c_cond
 (paren
 id|revs-&gt;first_parent_only
 )paren
-(brace
 r_break
 suffix:semicolon
-)brace
 )brace
 r_return
 l_int|0
