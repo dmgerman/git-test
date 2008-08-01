@@ -7592,6 +7592,16 @@ l_string|&quot;[ &t;]*([^;]*&bslash;&bslash;)$&quot;
 )brace
 comma
 (brace
+l_string|&quot;pascal&quot;
+comma
+l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;(procedure&bslash;&bslash;|function&bslash;&bslash;|constructor&bslash;&bslash;|&quot;
+l_string|&quot;destructor&bslash;&bslash;|interface&bslash;&bslash;|implementation&bslash;&bslash;|&quot;
+l_string|&quot;initialization&bslash;&bslash;|finalization&bslash;&bslash;)[ &bslash;t]*.*&bslash;&bslash;)$&quot;
+l_string|&quot;&bslash;&bslash;|&quot;
+l_string|&quot;^&bslash;&bslash;(.*=[ &bslash;t]*&bslash;&bslash;(class&bslash;&bslash;|record&bslash;&bslash;).*&bslash;&bslash;)$&quot;
+)brace
+comma
+(brace
 l_string|&quot;tex&quot;
 comma
 l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(sub&bslash;&bslash;)*section{.*&bslash;&bslash;)$&quot;
