@@ -1029,7 +1029,7 @@ id|timestamp
 )paren
 id|die
 (paren
-l_string|&quot;Could not extract author email from %s&quot;
+l_string|&quot;Could not extract author time from %s&quot;
 comma
 id|sha1_to_hex
 c_func
