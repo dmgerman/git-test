@@ -7604,7 +7604,7 @@ comma
 (brace
 l_string|&quot;tex&quot;
 comma
-l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(sub&bslash;&bslash;)*section{.*&bslash;&bslash;)$&quot;
+l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(&bslash;&bslash;(sub&bslash;&bslash;)*section&bslash;&bslash;|chapter&bslash;&bslash;|part&bslash;&bslash;)&bslash;&bslash;*&bslash;&bslash;{0,1&bslash;&bslash;}{.*&bslash;&bslash;)$&quot;
 )brace
 comma
 (brace
