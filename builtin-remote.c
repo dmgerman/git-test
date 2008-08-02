@@ -675,7 +675,7 @@ c_func
 (paren
 id|buf.buf
 comma
-l_string|&quot;yes&quot;
+l_string|&quot;true&quot;
 )paren
 )paren
 r_return
