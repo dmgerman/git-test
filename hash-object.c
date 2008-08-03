@@ -124,6 +124,11 @@ id|type
 comma
 r_int
 id|write_object
+comma
+r_const
+r_char
+op_star
+id|vpath
 )paren
 (brace
 r_int
@@ -163,7 +168,7 @@ id|type
 comma
 id|write_object
 comma
-id|path
+id|vpath
 )paren
 suffix:semicolon
 )brace
@@ -280,6 +285,8 @@ comma
 id|type
 comma
 id|write_objects
+comma
+id|buf.buf
 )paren
 suffix:semicolon
 )brace
@@ -309,7 +316,7 @@ id|hash_object_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--stdin] [--] &lt;file&gt;...&quot;
+l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--path=&lt;file&gt;] [--stdin] [--] &lt;file&gt;...&quot;
 comma
 l_string|&quot;git hash-object  --stdin-paths &lt; &lt;list-of-paths&gt;&quot;
 comma
@@ -337,6 +344,13 @@ DECL|variable|stdin_paths
 r_static
 r_int
 id|stdin_paths
+suffix:semicolon
+DECL|variable|vpath
+r_static
+r_const
+r_char
+op_star
+id|vpath
 suffix:semicolon
 DECL|variable|hash_object_options
 r_static
@@ -400,6 +414,21 @@ op_amp
 id|stdin_paths
 comma
 l_string|&quot;read file names from stdin&quot;
+)paren
+comma
+id|OPT_STRING
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;path&quot;
+comma
+op_amp
+id|vpath
+comma
+l_string|&quot;file&quot;
+comma
+l_string|&quot;process file as it were from this path&quot;
 )paren
 comma
 id|OPT_END
@@ -499,6 +528,25 @@ id|prefix
 suffix:colon
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|vpath
+op_logical_and
+id|prefix
+)paren
+id|vpath
+op_assign
+id|prefix_filename
+c_func
+(paren
+id|prefix
+comma
+id|prefix_length
+comma
+id|vpath
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -524,6 +572,16 @@ id|argc
 id|errstr
 op_assign
 l_string|&quot;Can&squot;t specify files with --stdin-paths&quot;
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|vpath
+)paren
+id|errstr
+op_assign
+l_string|&quot;Can&squot;t use --stdin-paths with --path&quot;
 suffix:semicolon
 )brace
 r_else
@@ -572,7 +630,7 @@ id|type
 comma
 id|write_object
 comma
-l_int|NULL
+id|vpath
 )paren
 suffix:semicolon
 r_for
@@ -627,6 +685,13 @@ comma
 id|type
 comma
 id|write_object
+comma
+id|vpath
+ques
+c_cond
+id|vpath
+suffix:colon
+id|arg
 )paren
 suffix:semicolon
 )brace
