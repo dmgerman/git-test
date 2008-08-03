@@ -305,7 +305,8 @@ id|hash_object_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git hash-object [ [-t &lt;type&gt;] [-w] [--stdin] &lt;file&gt;... | --stdin-paths &lt; &lt;list-of-paths&gt; ]&quot;
+l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--stdin] [--] &lt;file&gt;...&bslash;n&quot;
+l_string|&quot;   or: git hash-object  --stdin-paths &lt; &lt;list-of-paths&gt;&quot;
 suffix:semicolon
 DECL|function|main
 r_int
