@@ -316,7 +316,7 @@ id|hash_object_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--path=&lt;file&gt;] [--stdin] [--] &lt;file&gt;...&quot;
+l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--path=&lt;file&gt;|--no-filters] [--stdin] [--] &lt;file&gt;...&quot;
 comma
 l_string|&quot;git hash-object  --stdin-paths &lt; &lt;list-of-paths&gt;&quot;
 comma
@@ -344,6 +344,11 @@ DECL|variable|stdin_paths
 r_static
 r_int
 id|stdin_paths
+suffix:semicolon
+DECL|variable|no_filters
+r_static
+r_int
+id|no_filters
 suffix:semicolon
 DECL|variable|vpath
 r_static
@@ -414,6 +419,19 @@ op_amp
 id|stdin_paths
 comma
 l_string|&quot;read file names from stdin&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;no-filters&quot;
+comma
+op_amp
+id|no_filters
+comma
+l_string|&quot;store file as is without filters&quot;
 )paren
 comma
 id|OPT_STRING
@@ -583,8 +601,19 @@ id|errstr
 op_assign
 l_string|&quot;Can&squot;t use --stdin-paths with --path&quot;
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|no_filters
+)paren
+id|errstr
+op_assign
+l_string|&quot;Can&squot;t use --stdin-paths with --no-filters&quot;
+suffix:semicolon
 )brace
 r_else
+(brace
 r_if
 c_cond
 (paren
@@ -596,6 +625,18 @@ id|errstr
 op_assign
 l_string|&quot;Multiple --stdin arguments are not supported&quot;
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|vpath
+op_logical_and
+id|no_filters
+)paren
+id|errstr
+op_assign
+l_string|&quot;Can&squot;t use --path with --no-filters&quot;
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -686,6 +727,11 @@ id|type
 comma
 id|write_object
 comma
+id|no_filters
+ques
+c_cond
+l_int|NULL
+suffix:colon
 id|vpath
 ques
 c_cond
