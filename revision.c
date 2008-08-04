@@ -7792,6 +7792,15 @@ op_star
 op_star
 id|tail
 suffix:semicolon
+id|sort_in_topological_order
+c_func
+(paren
+op_amp
+id|revs-&gt;commits
+comma
+id|revs-&gt;lifo
+)paren
+suffix:semicolon
 multiline_comment|/* feed the list reversed */
 id|yet_to_do
 op_assign
@@ -7945,16 +7954,6 @@ op_member_access_from_pointer
 id|next
 suffix:semicolon
 )brace
-multiline_comment|/* sort topologically at the end */
-id|sort_in_topological_order
-c_func
-(paren
-op_amp
-id|revs-&gt;commits
-comma
-id|revs-&gt;lifo
-)paren
-suffix:semicolon
 )brace
 DECL|function|set_children
 r_static
