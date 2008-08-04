@@ -1658,6 +1658,13 @@ l_int|0
 )braket
 suffix:semicolon
 macro_line|#ifndef __MINGW32__
+multiline_comment|/* Flush stdio before fork() to avoid cloning buffers */
+id|fflush
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
 id|async-&gt;pid
 op_assign
 id|fork
