@@ -317,6 +317,12 @@ l_string|&quot;trace: run_command:&quot;
 )paren
 suffix:semicolon
 macro_line|#ifndef __MINGW32__
+id|fflush
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
 id|cmd-&gt;pid
 op_assign
 id|fork
