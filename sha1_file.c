@@ -10158,6 +10158,9 @@ r_struct
 id|pack_entry
 id|e
 suffix:semicolon
+r_int
+id|status
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -10174,6 +10177,28 @@ l_int|NULL
 )paren
 )paren
 (brace
+multiline_comment|/* Most likely it&squot;s a loose object. */
+id|status
+op_assign
+id|sha1_loose_object_info
+c_func
+(paren
+id|sha1
+comma
+id|sizep
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
+op_ge
+l_int|0
+)paren
+r_return
+id|status
+suffix:semicolon
+multiline_comment|/* Not a loose object; someone else may have just packed it. */
 id|reprepare_packed_git
 c_func
 (paren
@@ -10195,13 +10220,7 @@ l_int|NULL
 )paren
 )paren
 r_return
-id|sha1_loose_object_info
-c_func
-(paren
-id|sha1
-comma
-id|sizep
-)paren
+id|status
 suffix:semicolon
 )brace
 r_return
