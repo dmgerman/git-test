@@ -2048,6 +2048,7 @@ id|verify
 op_assign
 l_int|0
 suffix:semicolon
+r_const
 r_char
 op_star
 id|msgfile
@@ -2256,6 +2257,16 @@ comma
 id|git_tag_usage
 comma
 l_int|0
+)paren
+suffix:semicolon
+id|msgfile
+op_assign
+id|parse_options_fix_filename
+c_func
+(paren
+id|prefix
+comma
+id|msgfile
 )paren
 suffix:semicolon
 r_if
