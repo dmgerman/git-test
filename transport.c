@@ -2605,25 +2605,25 @@ op_amp
 id|results
 )paren
 )paren
-(brace
-r_return
-l_int|NULL
-suffix:semicolon
-)brace
-r_else
-(brace
-id|error
+id|die
 c_func
 (paren
-l_string|&quot;%s&quot;
+l_string|&quot;%s not found: did you run git update-server-info on the server?&quot;
+comma
+id|refs_url
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;%s download error - %s&quot;
+comma
+id|refs_url
 comma
 id|curl_errorstr
 )paren
 suffix:semicolon
-r_return
-l_int|NULL
-suffix:semicolon
-)brace
 )brace
 )brace
 r_else
@@ -2635,14 +2635,11 @@ op_amp
 id|buffer
 )paren
 suffix:semicolon
-id|error
+id|die
 c_func
 (paren
-l_string|&quot;Unable to start request&quot;
+l_string|&quot;Unable to start HTTP request&quot;
 )paren
-suffix:semicolon
-r_return
-l_int|NULL
 suffix:semicolon
 )brace
 id|data
