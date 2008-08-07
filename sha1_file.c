@@ -10904,7 +10904,19 @@ r_int
 id|fd
 )paren
 (brace
-multiline_comment|/* For safe-mode, we could fsync_or_die(fd, &quot;sha1 file&quot;) here */
+r_if
+c_cond
+(paren
+id|fsync_object_files
+)paren
+id|fsync_or_die
+c_func
+(paren
+id|fd
+comma
+l_string|&quot;sha1 file&quot;
+)paren
+suffix:semicolon
 id|fchmod
 c_func
 (paren
