@@ -1790,6 +1790,12 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|option_mirror
+)paren
 id|get_fetch_map
 c_func
 (paren
