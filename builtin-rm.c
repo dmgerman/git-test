@@ -596,7 +596,7 @@ c_func
 (paren
 l_char|&squot;f&squot;
 comma
-l_int|NULL
+l_string|&quot;force&quot;
 comma
 op_amp
 id|force
