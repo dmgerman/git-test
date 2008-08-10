@@ -1682,7 +1682,7 @@ id|dst
 id|buf
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * path = Canonical absolute path&n; * prefix_list = Colon-separated list of absolute paths&n; *&n; * Determines, for each path in parent_list, whether the &quot;prefix&quot; really&n; * is an ancestor directory of path.  Returns the length of the longest&n; * ancestor directory, excluding any trailing slashes, or -1 if no prefix&n; * is an ancestor.  (Note that this means 0 is returned if prefix_list is&n; * &quot;/&quot;.) &quot;/foo&quot; is not considered an ancestor of &quot;/foobar&quot;.  Directories&n; * are not considered to be their own ancestors.  path must be in a&n; * canonical form: empty components, or &quot;.&quot; or &quot;..&quot; components are not&n; * allowed.  prefix_list may be null, which is like &quot;&quot;.&n; */
+multiline_comment|/*&n; * path = Canonical absolute path&n; * prefix_list = Colon-separated list of absolute paths&n; *&n; * Determines, for each path in prefix_list, whether the &quot;prefix&quot; really&n; * is an ancestor directory of path.  Returns the length of the longest&n; * ancestor directory, excluding any trailing slashes, or -1 if no prefix&n; * is an ancestor.  (Note that this means 0 is returned if prefix_list is&n; * &quot;/&quot;.) &quot;/foo&quot; is not considered an ancestor of &quot;/foobar&quot;.  Directories&n; * are not considered to be their own ancestors.  path must be in a&n; * canonical form: empty components, or &quot;.&quot; or &quot;..&quot; components are not&n; * allowed.  prefix_list may be null, which is like &quot;&quot;.&n; */
 DECL|function|longest_ancestor_length
 r_int
 id|longest_ancestor_length
