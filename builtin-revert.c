@@ -11,6 +11,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;rerere.h&quot;
 multiline_comment|/*&n; * This implements the builtins revert and cherry-pick.&n; *&n; * Copyright (c) 2007 Johannes E. Schindelin&n; *&n; * Based on git-revert.sh, which is&n; *&n; * Copyright (c) 2005 Linus Torvalds&n; * Copyright (c) 2005 Junio C Hamano&n; */
 DECL|variable|revert_usage
 r_static
@@ -2166,6 +2167,11 @@ c_func
 (paren
 id|commit-&gt;object.sha1
 )paren
+)paren
+suffix:semicolon
+id|rerere
+c_func
+(paren
 )paren
 suffix:semicolon
 m_exit
