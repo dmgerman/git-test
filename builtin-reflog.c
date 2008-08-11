@@ -3281,7 +3281,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|dwim_ref
+id|dwim_log
 c_func
 (paren
 id|argv
@@ -3307,7 +3307,7 @@ op_or_assign
 id|error
 c_func
 (paren
-l_string|&quot;%s points nowhere!&quot;
+l_string|&quot;no reflog for &squot;%s&squot;&quot;
 comma
 id|argv
 (braket
