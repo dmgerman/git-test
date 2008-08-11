@@ -928,7 +928,7 @@ c_func
 id|rev
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * For --check, the exit code is based on CHECK_FAILED being&n;&t; * accumulated in rev-&gt;diffopt, so be careful to retain that state&n;&t; * information if replacing rev-&gt;diffopt in this loop&n;&t; */
+multiline_comment|/*&n;&t; * For --check and --exit-code, the exit code is based on CHECK_FAILED&n;&t; * and HAS_CHANGES being accumulated in rev-&gt;diffopt, so be careful to&n;&t; * retain that state information if replacing rev-&gt;diffopt in this loop&n;&t; */
 r_while
 c_loop
 (paren
@@ -1005,7 +1005,14 @@ l_int|02
 suffix:semicolon
 )brace
 r_return
+id|diff_result_code
+c_func
+(paren
+op_amp
+id|rev-&gt;diffopt
+comma
 l_int|0
+)paren
 suffix:semicolon
 )brace
 DECL|function|git_log_config
