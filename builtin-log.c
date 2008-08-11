@@ -928,6 +928,7 @@ c_func
 id|rev
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * For --check, the exit code is based on CHECK_FAILED being&n;&t; * accumulated in rev-&gt;diffopt, so be careful to retain that state&n;&t; * information if replacing rev-&gt;diffopt in this loop&n;&t; */
 r_while
 c_loop
 (paren
@@ -980,6 +981,27 @@ suffix:semicolon
 id|commit-&gt;parents
 op_assign
 l_int|NULL
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|rev-&gt;diffopt.output_format
+op_amp
+id|DIFF_FORMAT_CHECKDIFF
+op_logical_and
+id|DIFF_OPT_TST
+c_func
+(paren
+op_amp
+id|rev-&gt;diffopt
+comma
+id|CHECK_FAILED
+)paren
+)paren
+(brace
+r_return
+l_int|02
 suffix:semicolon
 )brace
 r_return
