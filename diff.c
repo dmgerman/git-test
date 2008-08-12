@@ -9019,6 +9019,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|data.ws_rule
+op_amp
+id|WS_TRAILING_SPACE
+)paren
+op_logical_and
 id|data.trailing_blanks_start
 )paren
 (brace
