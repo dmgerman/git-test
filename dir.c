@@ -268,6 +268,10 @@ op_logical_or
 id|c1
 op_eq
 l_char|&squot;?&squot;
+op_logical_or
+id|c1
+op_eq
+l_char|&squot;&bslash;&bslash;&squot;
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Does &squot;match&squot; matches the given name?&n; * A match is found if&n; *&n; * (1) the &squot;match&squot; string is leading directory of &squot;name&squot;, or&n; * (2) the &squot;match&squot; string is a wildcard and matches &squot;name&squot;, or&n; * (3) the &squot;match&squot; string is exactly the same as &squot;name&squot;.&n; *&n; * and the return value tells which case it was.&n; *&n; * It returns 0 when there is no match.&n; */
