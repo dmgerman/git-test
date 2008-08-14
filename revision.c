@@ -7950,6 +7950,12 @@ op_star
 op_star
 id|tail
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;topo_order
+)paren
 id|sort_in_topological_order
 c_func
 (paren
@@ -7958,6 +7964,14 @@ id|revs-&gt;commits
 comma
 id|revs-&gt;lifo
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;prune
+)paren
+r_return
 suffix:semicolon
 multiline_comment|/* feed the list reversed */
 id|yet_to_do
