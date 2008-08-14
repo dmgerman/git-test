@@ -796,11 +796,6 @@ DECL|struct|combine_diff_state
 r_struct
 id|combine_diff_state
 (brace
-DECL|member|xm
-r_struct
-id|xdiff_emit_state
-id|xm
-suffix:semicolon
 DECL|member|lno
 r_int
 r_int
@@ -1193,10 +1188,6 @@ id|state
 )paren
 )paren
 suffix:semicolon
-id|state.xm.consume
-op_assign
-id|consume_line
-suffix:semicolon
 id|state.nmask
 op_assign
 id|nmask
@@ -1225,8 +1216,10 @@ id|parent_file
 comma
 id|result_file
 comma
+id|consume_line
+comma
 op_amp
-id|state.xm
+id|state
 comma
 op_amp
 id|xpp

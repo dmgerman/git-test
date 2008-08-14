@@ -1543,11 +1543,6 @@ DECL|struct|blame_diff_state
 r_struct
 id|blame_diff_state
 (brace
-DECL|member|xm
-r_struct
-id|xdiff_emit_state
-id|xm
-suffix:semicolon
 DECL|member|ret
 r_struct
 id|patch
@@ -1886,10 +1881,6 @@ id|state
 )paren
 )paren
 suffix:semicolon
-id|state.xm.consume
-op_assign
-id|process_u_diff
-suffix:semicolon
 id|state.ret
 op_assign
 id|xmalloc
@@ -1917,8 +1908,10 @@ id|file_p
 comma
 id|file_o
 comma
+id|process_u_diff
+comma
 op_amp
-id|state.xm
+id|state
 comma
 op_amp
 id|xpp
