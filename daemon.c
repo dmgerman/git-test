@@ -3627,10 +3627,10 @@ op_ge
 id|FD_SETSIZE
 )paren
 (brace
-id|error
+id|logerror
 c_func
 (paren
-l_string|&quot;too large socket descriptor.&quot;
+l_string|&quot;Socket descriptor too large&quot;
 )paren
 suffix:semicolon
 id|close
@@ -4232,10 +4232,10 @@ op_ne
 id|EINTR
 )paren
 (brace
-id|error
+id|logerror
 c_func
 (paren
-l_string|&quot;poll failed, resuming: %s&quot;
+l_string|&quot;Poll failed, resuming: %s&quot;
 comma
 id|strerror
 c_func
