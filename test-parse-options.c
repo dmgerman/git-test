@@ -101,7 +101,6 @@ multiline_comment|/* do not support unset */
 op_star
 (paren
 r_int
-r_int
 op_star
 )paren
 id|opt-&gt;value
