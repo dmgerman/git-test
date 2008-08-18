@@ -264,7 +264,11 @@ op_add_assign
 id|xsize_t
 c_func
 (paren
-id|st.st_blocks
+id|on_disk_bytes
+c_func
+(paren
+id|st
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -728,7 +732,7 @@ l_string|&quot;size: %lu&bslash;n&quot;
 comma
 id|loose_size
 op_div
-l_int|2
+l_int|1024
 )paren
 suffix:semicolon
 id|printf
