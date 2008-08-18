@@ -7778,9 +7778,24 @@ c_cond
 (paren
 id|cnt
 )paren
+(brace
+id|tail
+op_assign
+op_amp
+id|commit_list_insert
+c_func
+(paren
+id|commit
+comma
+id|tail
+)paren
+op_member_access_from_pointer
+id|next
+suffix:semicolon
 r_return
 id|tail
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * Rewrite our list of parents.&n;&t; */
 r_for
 c_loop
