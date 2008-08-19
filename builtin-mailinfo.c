@@ -520,7 +520,17 @@ id|f.buf
 comma
 id|el
 op_plus
+(paren
+id|at
+(braket
+id|el
+)braket
+ques
+c_cond
 l_int|1
+suffix:colon
+l_int|0
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* The remainder is name.  It could be &quot;John Doe &lt;john.doe@xz&gt;&quot;&n;&t; * or &quot;john.doe@xz (John Doe)&quot;, but we have removed the&n;&t; * email part, so trim from both ends, possibly removing&n;&t; * the () pair at the end.&n;&t; */
