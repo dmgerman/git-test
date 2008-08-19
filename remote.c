@@ -3364,11 +3364,6 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|refspec
-)paren
 id|free
 c_func
 (paren
