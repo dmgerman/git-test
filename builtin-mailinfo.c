@@ -878,9 +878,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|content_top
 op_increment
-op_ge
+id|content_top
+OG
 op_amp
 id|content
 (braket
@@ -3183,6 +3183,9 @@ l_char|&squot;&bslash;n&squot;
 r_if
 c_cond
 (paren
+op_star
+id|content_top
+op_logical_and
 id|is_multipart_boundary
 c_func
 (paren
@@ -3282,8 +3285,8 @@ multiline_comment|/* technically won&squot;t happen as is_multipart_boundary()&n
 r_if
 c_cond
 (paren
-id|content_top
 op_decrement
+id|content_top
 OL
 id|content
 )paren
