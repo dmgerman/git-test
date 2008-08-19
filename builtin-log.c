@@ -2289,6 +2289,8 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+id|len
+op_logical_and
 id|value
 (braket
 id|len
