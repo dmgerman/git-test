@@ -366,6 +366,17 @@ comma
 id|path
 )paren
 suffix:semicolon
+id|diff_set_mnemonic_prefix
+c_func
+(paren
+op_amp
+id|revs-&gt;diffopt
+comma
+l_string|&quot;o/&quot;
+comma
+l_string|&quot;w/&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

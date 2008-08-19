@@ -3470,12 +3470,38 @@ l_int|40
 suffix:colon
 id|DEFAULT_ABBREV
 suffix:semicolon
+r_const
+r_char
+op_star
+id|a_prefix
+comma
+op_star
+id|b_prefix
+suffix:semicolon
 id|mmfile_t
 id|result_file
 suffix:semicolon
 id|context
 op_assign
 id|opt-&gt;context
+suffix:semicolon
+id|a_prefix
+op_assign
+id|opt-&gt;a_prefix
+ques
+c_cond
+id|opt-&gt;a_prefix
+suffix:colon
+l_string|&quot;a/&quot;
+suffix:semicolon
+id|b_prefix
+op_assign
+id|opt-&gt;b_prefix
+ques
+c_cond
+id|opt-&gt;b_prefix
+suffix:colon
+l_string|&quot;b/&quot;
 suffix:semicolon
 multiline_comment|/* Read the result of merge first */
 r_if
@@ -4633,7 +4659,7 @@ c_func
 (paren
 l_string|&quot;--- &quot;
 comma
-id|opt-&gt;a_prefix
+id|a_prefix
 comma
 id|elem-&gt;path
 comma
@@ -4667,7 +4693,7 @@ c_func
 (paren
 l_string|&quot;+++ &quot;
 comma
-id|opt-&gt;b_prefix
+id|b_prefix
 comma
 id|elem-&gt;path
 comma
