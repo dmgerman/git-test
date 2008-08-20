@@ -7655,6 +7655,12 @@ l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash
 )brace
 comma
 (brace
+l_string|&quot;python&quot;
+comma
+l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
+)brace
+comma
+(brace
 l_string|&quot;ruby&quot;
 comma
 l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|module&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
