@@ -2,13 +2,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
-multiline_comment|/* Stubs for functions that make no sense for git-shell. These stubs&n; * are provided here to avoid linking in external redundant modules.&n; */
-DECL|function|release_pack_memory
-r_void
-DECL|function|trace_argv_printf
-r_void
-DECL|function|trace_printf
-r_void
 DECL|function|do_generic_cmd
 r_static
 r_int
