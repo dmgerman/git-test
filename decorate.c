@@ -9,6 +9,7 @@ r_int
 id|hash_obj
 c_func
 (paren
+r_const
 r_struct
 id|object
 op_star
@@ -49,6 +50,7 @@ id|decoration
 op_star
 id|n
 comma
+r_const
 r_struct
 id|object
 op_star
@@ -240,6 +242,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|object
 op_star
@@ -301,6 +304,7 @@ id|decoration
 op_star
 id|n
 comma
+r_const
 r_struct
 id|object
 op_star
@@ -359,6 +363,7 @@ id|decoration
 op_star
 id|n
 comma
+r_const
 r_struct
 id|object
 op_star
