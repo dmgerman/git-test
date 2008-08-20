@@ -9015,6 +9015,11 @@ id|xecfg
 )paren
 )paren
 suffix:semicolon
+id|xecfg.ctxlen
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* at least one context line */
 id|xpp.flags
 op_assign
 id|XDF_NEED_MINIMAL

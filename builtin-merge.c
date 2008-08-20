@@ -3338,6 +3338,12 @@ c_func
 l_string|&quot;you need to resolve your current index first&quot;
 )paren
 suffix:semicolon
+id|refresh_cache
+c_func
+(paren
+id|REFRESH_QUIET
+)paren
+suffix:semicolon
 id|fd
 op_assign
 id|hold_locked_index
@@ -5399,12 +5405,6 @@ id|remoteheads-&gt;item-&gt;object.sha1
 comma
 id|DEFAULT_ABBREV
 )paren
-)paren
-suffix:semicolon
-id|refresh_cache
-c_func
-(paren
-id|REFRESH_QUIET
 )paren
 suffix:semicolon
 id|strbuf_init

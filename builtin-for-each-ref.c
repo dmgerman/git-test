@@ -2615,9 +2615,16 @@ c_cond
 op_logical_neg
 id|buf
 )paren
+(brace
+op_star
+id|body
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
 r_return
 suffix:semicolon
 multiline_comment|/* no body */
+)brace
 r_while
 c_loop
 (paren
