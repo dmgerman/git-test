@@ -4836,6 +4836,30 @@ l_string|&quot;Can merge only exactly one commit into &quot;
 l_string|&quot;empty head&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|squash
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Squash commit into empty head not supported yet&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|allow_fast_forward
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Non-fast-forward commit does not make sense into &quot;
+l_string|&quot;an empty head&quot;
+)paren
+suffix:semicolon
 id|remote_head
 op_assign
 id|peel_to_type
