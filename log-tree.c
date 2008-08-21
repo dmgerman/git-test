@@ -1849,6 +1849,16 @@ c_cond
 (paren
 op_logical_neg
 id|opt-&gt;diff
+op_logical_and
+op_logical_neg
+id|DIFF_OPT_TST
+c_func
+(paren
+op_amp
+id|opt-&gt;diffopt
+comma
+id|EXIT_WITH_STATUS
+)paren
 )paren
 r_return
 l_int|0
