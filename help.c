@@ -3085,6 +3085,15 @@ id|other_cmds
 comma
 id|s
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|s
+comma
+l_string|&quot;help&quot;
+)paren
 suffix:semicolon
 )brace
 DECL|function|prepend
