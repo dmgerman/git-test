@@ -5193,6 +5193,20 @@ c_func
 id|ondisk-&gt;flags
 )paren
 suffix:semicolon
+multiline_comment|/* For future extension: we do not understand this entry yet */
+r_if
+c_cond
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_EXTENDED
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Unknown index entry format&quot;
+)paren
+suffix:semicolon
 id|hashcpy
 c_func
 (paren
