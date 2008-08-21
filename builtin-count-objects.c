@@ -665,6 +665,12 @@ id|num_pack
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+r_int
+id|size_pack
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -713,6 +719,12 @@ id|packed
 op_add_assign
 id|p-&gt;num_objects
 suffix:semicolon
+id|size_pack
+op_add_assign
+id|p-&gt;pack_size
+op_plus
+id|p-&gt;index_size
+suffix:semicolon
 id|num_pack
 op_increment
 suffix:semicolon
@@ -749,6 +761,16 @@ c_func
 l_string|&quot;packs: %lu&bslash;n&quot;
 comma
 id|num_pack
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;size-pack: %lu&bslash;n&quot;
+comma
+id|size_pack
+op_div
+l_int|1024
 )paren
 suffix:semicolon
 id|printf
