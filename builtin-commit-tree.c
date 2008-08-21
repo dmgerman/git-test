@@ -211,6 +211,9 @@ id|ret
 )paren
 (brace
 r_int
+id|result
+suffix:semicolon
+r_int
 id|encoding_is_utf8
 suffix:semicolon
 r_struct
@@ -387,7 +390,8 @@ comma
 id|commit_utf8_warn
 )paren
 suffix:semicolon
-r_return
+id|result
+op_assign
 id|write_sha1_file
 c_func
 (paren
@@ -399,6 +403,16 @@ id|commit_type
 comma
 id|ret
 )paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buffer
+)paren
+suffix:semicolon
+r_return
+id|result
 suffix:semicolon
 )brace
 DECL|function|cmd_commit_tree
