@@ -5323,6 +5323,11 @@ c_func
 r_void
 )paren
 (brace
+id|discard_revindex
+c_func
+(paren
+)paren
+suffix:semicolon
 id|prepare_packed_git_run_once
 op_assign
 l_int|0
