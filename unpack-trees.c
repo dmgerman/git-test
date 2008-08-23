@@ -1772,6 +1772,10 @@ id|o-&gt;result
 )paren
 )paren
 suffix:semicolon
+id|o-&gt;result.initialized
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
