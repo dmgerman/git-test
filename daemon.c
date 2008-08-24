@@ -227,7 +227,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* Since stderr is set to linebuffered mode, the&n;&t;&t; * logging of different processes will not overlap&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Since stderr is set to linebuffered mode, the&n;&t;&t; * logging of different processes will not overlap&n;&t;&t; */
 id|fprintf
 c_func
 (paren
@@ -2637,7 +2637,12 @@ r_struct
 id|child
 op_star
 id|newborn
+comma
+op_star
+op_star
+id|cradle
 suffix:semicolon
+multiline_comment|/*&n;&t; * This must be xcalloc() -- we&squot;ll compare the whole sockaddr_storage&n;&t; * but individual address may be shorter.&n;&t; */
 id|newborn
 op_assign
 id|xcalloc
@@ -2646,21 +2651,11 @@ c_func
 l_int|1
 comma
 r_sizeof
-op_star
-id|newborn
-)paren
-suffix:semicolon
-r_if
-c_cond
 (paren
+op_star
 id|newborn
 )paren
-(brace
-r_struct
-id|child
-op_star
-op_star
-id|cradle
+)paren
 suffix:semicolon
 id|live_children
 op_increment
@@ -2720,7 +2715,9 @@ op_amp
 id|newborn-&gt;address
 comma
 r_sizeof
+(paren
 id|newborn-&gt;address
+)paren
 )paren
 )paren
 r_break
@@ -2736,15 +2733,6 @@ op_assign
 id|newborn
 suffix:semicolon
 )brace
-r_else
-id|logerror
-c_func
-(paren
-l_string|&quot;Out of memory spawning new child&quot;
-)paren
-suffix:semicolon
-)brace
-multiline_comment|/*&n; * Walk from &quot;deleted&quot; to &quot;spawned&quot;, and remove child &quot;pid&quot;.&n; *&n; * We move everything up by one, since the new &quot;deleted&quot; will&n; * be one higher.&n; */
 DECL|function|remove_child
 r_static
 r_void
@@ -2825,22 +2813,21 @@ r_struct
 id|child
 op_star
 id|blanket
+comma
+op_star
+id|next
 suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 (paren
 id|blanket
 op_assign
 id|firstborn
 )paren
 )paren
-(brace
-r_const
-r_struct
-id|child
-op_star
-id|next
+r_return
 suffix:semicolon
 r_for
 c_loop
@@ -2870,7 +2857,9 @@ op_amp
 id|next-&gt;address
 comma
 r_sizeof
+(paren
 id|next-&gt;address
+)paren
 )paren
 )paren
 (brace
@@ -2884,7 +2873,6 @@ id|SIGTERM
 suffix:semicolon
 r_break
 suffix:semicolon
-)brace
 )brace
 )brace
 DECL|function|check_dead_children
@@ -2946,6 +2934,7 @@ c_func
 id|status
 )paren
 op_logical_or
+(paren
 id|WEXITSTATUS
 c_func
 (paren
@@ -2953,6 +2942,7 @@ id|status
 )paren
 OG
 l_int|0
+)paren
 )paren
 id|dead
 op_assign
@@ -3142,7 +3132,7 @@ r_int
 id|signo
 )paren
 (brace
-multiline_comment|/* Otherwise empty handler because systemcalls will get interrupted&n;&t; * upon signal receipt&n;&t; * SysV needs the handler to be rearmed&n;&t; */
+multiline_comment|/*&n;&t; * Otherwise empty handler because systemcalls will get interrupted&n;&t; * upon signal receipt&n;&t; * SysV needs the handler to be rearmed&n;&t; */
 id|signal
 c_func
 (paren
