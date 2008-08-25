@@ -5346,6 +5346,10 @@ c_cond
 (paren
 op_logical_neg
 id|rev.diffopt.output_format
+op_logical_or
+id|rev.diffopt.output_format
+op_eq
+id|DIFF_FORMAT_PATCH
 )paren
 id|rev.diffopt.output_format
 op_assign
