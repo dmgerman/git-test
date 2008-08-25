@@ -15,11 +15,6 @@ macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;interpolate.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
-DECL|variable|subtree_merge
-r_static
-r_int
-id|subtree_merge
-suffix:semicolon
 DECL|function|shift_tree_object
 r_static
 r_struct
@@ -276,33 +271,6 @@ id|call_depth
 op_assign
 l_int|0
 suffix:semicolon
-DECL|variable|merge_recursive_verbosity
-r_int
-id|merge_recursive_verbosity
-op_assign
-l_int|2
-suffix:semicolon
-DECL|variable|diff_rename_limit
-r_static
-r_int
-id|diff_rename_limit
-op_assign
-l_int|1
-suffix:semicolon
-DECL|variable|merge_rename_limit
-r_static
-r_int
-id|merge_rename_limit
-op_assign
-l_int|1
-suffix:semicolon
-DECL|variable|buffer_output
-r_static
-r_int
-id|buffer_output
-op_assign
-l_int|1
-suffix:semicolon
 DECL|variable|obuf
 r_static
 r_struct
@@ -317,6 +285,11 @@ r_int
 id|show
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_int
 id|v
 )paren
@@ -326,12 +299,12 @@ r_return
 op_logical_neg
 id|call_depth
 op_logical_and
-id|merge_recursive_verbosity
+id|o-&gt;verbosity
 op_ge
 id|v
 )paren
 op_logical_or
-id|merge_recursive_verbosity
+id|o-&gt;verbosity
 op_ge
 l_int|5
 suffix:semicolon
@@ -374,6 +347,11 @@ r_void
 id|output
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_int
 id|v
 comma
@@ -400,6 +378,8 @@ op_logical_neg
 id|show
 c_func
 (paren
+id|o
+comma
 id|v
 )paren
 )paren
@@ -597,7 +577,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|buffer_output
+id|o-&gt;buffer_output
 )paren
 id|flush_output
 c_func
@@ -1051,7 +1031,10 @@ op_star
 id|write_tree_from_memory
 c_func
 (paren
-r_void
+r_struct
+id|merge_options
+op_star
+id|o
 )paren
 (brace
 r_struct
@@ -1076,6 +1059,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 l_string|&quot;There are unmerged index entries:&quot;
@@ -1118,6 +1103,8 @@ id|ce
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 l_string|&quot;%d %.*s&quot;
@@ -1725,6 +1712,11 @@ id|get_renames
 c_func
 (paren
 r_struct
+id|merge_options
+op_star
+id|o
+comma
+r_struct
 id|tree
 op_star
 id|tree
@@ -1798,19 +1790,19 @@ id|DIFF_DETECT_RENAME
 suffix:semicolon
 id|opts.rename_limit
 op_assign
-id|merge_rename_limit
+id|o-&gt;merge_rename_limit
 op_ge
 l_int|0
 ques
 c_cond
-id|merge_rename_limit
+id|o-&gt;merge_rename_limit
 suffix:colon
-id|diff_rename_limit
+id|o-&gt;diff_rename_limit
 op_ge
 l_int|0
 ques
 c_cond
-id|diff_rename_limit
+id|o-&gt;diff_rename_limit
 suffix:colon
 l_int|500
 suffix:semicolon
@@ -3873,6 +3865,11 @@ id|conflict_rename_rename
 c_func
 (paren
 r_struct
+id|merge_options
+op_star
+id|o
+comma
+r_struct
 id|rename
 op_star
 id|ren1
@@ -3965,6 +3962,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;%s is a directory in %s adding as %s instead&quot;
@@ -4019,6 +4018,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;%s is a directory in %s adding as %s instead&quot;
@@ -4115,6 +4116,11 @@ id|conflict_rename_dir
 c_func
 (paren
 r_struct
+id|merge_options
+op_star
+id|o
+comma
+r_struct
 id|rename
 op_star
 id|ren1
@@ -4140,6 +4146,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;Renaming %s to %s instead&quot;
@@ -4184,6 +4192,11 @@ r_void
 id|conflict_rename_rename_2
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_struct
 id|rename
 op_star
@@ -4232,6 +4245,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;Renaming %s to %s and %s to %s instead&quot;
@@ -4299,6 +4314,11 @@ id|process_renames
 c_func
 (paren
 r_struct
+id|merge_options
+op_star
+id|o
+comma
+r_struct
 id|string_list
 op_star
 id|a_renames
@@ -4307,16 +4327,6 @@ r_struct
 id|string_list
 op_star
 id|b_renames
-comma
-r_const
-r_char
-op_star
-id|a_branch
-comma
-r_const
-r_char
-op_star
-id|b_branch
 )paren
 (brace
 r_int
@@ -4629,11 +4639,11 @@ id|b_by_dst
 suffix:semicolon
 id|branch1
 op_assign
-id|a_branch
+id|o-&gt;branch1
 suffix:semicolon
 id|branch2
 op_assign
-id|b_branch
+id|o-&gt;branch2
 suffix:semicolon
 )brace
 r_else
@@ -4658,11 +4668,11 @@ id|a_by_dst
 suffix:semicolon
 id|branch1
 op_assign
-id|b_branch
+id|o-&gt;branch2
 suffix:semicolon
 id|branch2
 op_assign
-id|a_branch
+id|o-&gt;branch1
 suffix:semicolon
 id|tmp
 op_assign
@@ -4777,6 +4787,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (rename/rename): &quot;
@@ -4831,6 +4843,8 @@ suffix:semicolon
 id|conflict_rename_rename
 c_func
 (paren
+id|o
+comma
 id|ren1
 comma
 id|branch1
@@ -4884,6 +4898,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;Renaming %s-&gt;%s&quot;
@@ -4901,6 +4917,8 @@ id|mfi.merge
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|2
 comma
 l_string|&quot;Auto-merging %s&quot;
@@ -4918,6 +4936,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (content): merge conflict in %s&quot;
@@ -5076,6 +5096,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (rename/directory): Rename %s-&gt;%s in %s &quot;
@@ -5095,6 +5117,8 @@ suffix:semicolon
 id|conflict_rename_dir
 c_func
 (paren
+id|o
+comma
 id|ren1
 comma
 id|branch1
@@ -5121,6 +5145,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (rename/delete): Rename %s-&gt;%s in %s &quot;
@@ -5178,6 +5204,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (rename/add): Rename %s-&gt;%s in %s. &quot;
@@ -5207,6 +5235,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;Adding as %s instead&quot;
@@ -5259,9 +5289,12 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
-l_string|&quot;CONFLICT (rename/rename): Rename %s-&gt;%s in %s. &quot;
+l_string|&quot;CONFLICT (rename/rename): &quot;
+l_string|&quot;Rename %s-&gt;%s in %s. &quot;
 l_string|&quot;Rename %s-&gt;%s in %s&quot;
 comma
 id|ren1_src
@@ -5280,6 +5313,8 @@ suffix:semicolon
 id|conflict_rename_rename_2
 c_func
 (paren
+id|o
+comma
 id|ren1
 comma
 id|branch1
@@ -5304,7 +5339,7 @@ id|try_merge
 r_struct
 id|diff_filespec
 op_star
-id|o
+id|one
 comma
 op_star
 id|a
@@ -5324,7 +5359,7 @@ op_star
 )paren
 id|ren1_src
 suffix:semicolon
-id|o
+id|one
 op_assign
 id|ren1-&gt;pair-&gt;one
 suffix:semicolon
@@ -5363,15 +5398,15 @@ op_assign
 id|merge_file
 c_func
 (paren
-id|o
+id|one
 comma
 id|a
 comma
 id|b
 comma
-id|a_branch
+id|o-&gt;branch1
 comma
-id|b_branch
+id|o-&gt;branch2
 )paren
 suffix:semicolon
 r_if
@@ -5395,6 +5430,8 @@ multiline_comment|/*&n;&t;&t;&t;&t;&t; * This messaged is part of&n;&t;&t;&t;&t;
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|3
 comma
 l_string|&quot;Skipped %s (merged same as existing)&quot;
@@ -5415,6 +5452,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;Renaming %s =&gt; %s&quot;
@@ -5432,6 +5471,8 @@ id|mfi.merge
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|2
 comma
 l_string|&quot;Auto-merging %s&quot;
@@ -5449,6 +5490,8 @@ id|mfi.clean
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (rename/modify): Merge conflict in %s&quot;
@@ -5471,7 +5514,7 @@ c_func
 (paren
 id|ren1_dst
 comma
-id|o
+id|one
 comma
 id|a
 comma
@@ -5568,6 +5611,11 @@ r_int
 id|process_entry
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_const
 r_char
 op_star
@@ -5577,16 +5625,6 @@ r_struct
 id|stage_data
 op_star
 id|entry
-comma
-r_const
-r_char
-op_star
-id|branch1
-comma
-r_const
-r_char
-op_star
-id|branch2
 )paren
 (brace
 multiline_comment|/*&n;&t;printf(&quot;processing entry, clean cache: %s&bslash;n&quot;, index_only ? &quot;yes&quot;: &quot;no&quot;);&n;&t;print_index_entry(&quot;&bslash;tpath: &quot;, entry);&n;&t;*/
@@ -5741,6 +5779,8 @@ id|a_sha
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|2
 comma
 l_string|&quot;Removing %s&quot;
@@ -5778,6 +5818,8 @@ id|a_sha
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (delete/modify): %s deleted in %s &quot;
@@ -5785,11 +5827,11 @@ l_string|&quot;and modified in %s. Version %s of %s left in tree.&quot;
 comma
 id|path
 comma
-id|branch1
+id|o-&gt;branch1
 comma
-id|branch2
+id|o-&gt;branch2
 comma
-id|branch2
+id|o-&gt;branch2
 comma
 id|path
 )paren
@@ -5812,6 +5854,8 @@ r_else
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (delete/modify): %s deleted in %s &quot;
@@ -5819,11 +5863,11 @@ l_string|&quot;and modified in %s. Version %s of %s left in tree.&quot;
 comma
 id|path
 comma
-id|branch2
+id|o-&gt;branch2
 comma
-id|branch1
+id|o-&gt;branch1
 comma
-id|branch1
+id|o-&gt;branch1
 comma
 id|path
 )paren
@@ -5901,11 +5945,11 @@ id|a_sha
 (brace
 id|add_branch
 op_assign
-id|branch1
+id|o-&gt;branch1
 suffix:semicolon
 id|other_branch
 op_assign
-id|branch2
+id|o-&gt;branch2
 suffix:semicolon
 id|mode
 op_assign
@@ -5924,11 +5968,11 @@ r_else
 (brace
 id|add_branch
 op_assign
-id|branch2
+id|o-&gt;branch2
 suffix:semicolon
 id|other_branch
 op_assign
-id|branch1
+id|o-&gt;branch1
 suffix:semicolon
 id|mode
 op_assign
@@ -5976,6 +6020,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (%s): There is a directory with name %s in %s. &quot;
@@ -6020,6 +6066,8 @@ r_else
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|2
 comma
 l_string|&quot;Adding %s&quot;
@@ -6065,7 +6113,7 @@ id|mfi
 suffix:semicolon
 r_struct
 id|diff_filespec
-id|o
+id|one
 comma
 id|a
 comma
@@ -6095,6 +6143,8 @@ suffix:semicolon
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|2
 comma
 l_string|&quot;Auto-merging %s&quot;
@@ -6102,7 +6152,7 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|o.path
+id|one.path
 op_assign
 id|a.path
 op_assign
@@ -6117,12 +6167,12 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|o.sha1
+id|one.sha1
 comma
 id|o_sha
 )paren
 suffix:semicolon
-id|o.mode
+id|one.mode
 op_assign
 id|o_mode
 suffix:semicolon
@@ -6156,7 +6206,7 @@ id|merge_file
 c_func
 (paren
 op_amp
-id|o
+id|one
 comma
 op_amp
 id|a
@@ -6164,9 +6214,9 @@ comma
 op_amp
 id|b
 comma
-id|branch1
+id|o-&gt;branch1
 comma
-id|branch2
+id|o-&gt;branch2
 )paren
 suffix:semicolon
 id|clean_merge
@@ -6203,6 +6253,8 @@ id|mfi.mode
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (submodule): Merge conflict in %s &quot;
@@ -6222,6 +6274,8 @@ r_else
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (%s): Merge conflict in %s&quot;
@@ -6311,6 +6365,11 @@ id|merge_trees
 c_func
 (paren
 r_struct
+id|merge_options
+op_star
+id|o
+comma
+r_struct
 id|tree
 op_star
 id|head
@@ -6324,16 +6383,6 @@ r_struct
 id|tree
 op_star
 id|common
-comma
-r_const
-r_char
-op_star
-id|branch1
-comma
-r_const
-r_char
-op_star
-id|branch2
 comma
 r_struct
 id|tree
@@ -6350,7 +6399,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|subtree_merge
+id|o-&gt;subtree_merge
 )paren
 (brace
 id|merge
@@ -6389,6 +6438,8 @@ id|merge-&gt;object.sha1
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 l_string|&quot;Already uptodate!&quot;
@@ -6507,6 +6558,8 @@ op_assign
 id|get_renames
 c_func
 (paren
+id|o
+comma
 id|head
 comma
 id|common
@@ -6523,6 +6576,8 @@ op_assign
 id|get_renames
 c_func
 (paren
+id|o
+comma
 id|merge
 comma
 id|common
@@ -6539,13 +6594,11 @@ op_assign
 id|process_renames
 c_func
 (paren
+id|o
+comma
 id|re_head
 comma
 id|re_merge
-comma
-id|branch1
-comma
-id|branch2
 )paren
 suffix:semicolon
 r_for
@@ -6597,13 +6650,11 @@ op_logical_neg
 id|process_entry
 c_func
 (paren
+id|o
+comma
 id|path
 comma
 id|e
-comma
-id|branch1
-comma
-id|branch2
 )paren
 )paren
 id|clean
@@ -6652,6 +6703,7 @@ op_assign
 id|write_tree_from_memory
 c_func
 (paren
+id|o
 )paren
 suffix:semicolon
 r_return
@@ -6723,6 +6775,11 @@ id|merge_recursive
 c_func
 (paren
 r_struct
+id|merge_options
+op_star
+id|o
+comma
+r_struct
 id|commit
 op_star
 id|h1
@@ -6731,16 +6788,6 @@ r_struct
 id|commit
 op_star
 id|h2
-comma
-r_const
-r_char
-op_star
-id|branch1
-comma
-r_const
-r_char
-op_star
-id|branch2
 comma
 r_struct
 id|commit_list
@@ -6780,6 +6827,8 @@ c_cond
 id|show
 c_func
 (paren
+id|o
+comma
 l_int|4
 )paren
 )paren
@@ -6787,6 +6836,8 @@ l_int|4
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|4
 comma
 l_string|&quot;Merging:&quot;
@@ -6839,6 +6890,8 @@ c_cond
 id|show
 c_func
 (paren
+id|o
+comma
 l_int|5
 )paren
 )paren
@@ -6846,6 +6899,8 @@ l_int|5
 id|output
 c_func
 (paren
+id|o
+comma
 l_int|5
 comma
 l_string|&quot;found %u common ancestor(s):&quot;
@@ -6957,6 +7012,14 @@ op_assign
 id|iter-&gt;next
 )paren
 (brace
+r_const
+r_char
+op_star
+id|saved_b1
+comma
+op_star
+id|saved_b2
+suffix:semicolon
 id|call_depth
 op_increment
 suffix:semicolon
@@ -6966,22 +7029,44 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|saved_b1
+op_assign
+id|o-&gt;branch1
+suffix:semicolon
+id|saved_b2
+op_assign
+id|o-&gt;branch2
+suffix:semicolon
+id|o-&gt;branch1
+op_assign
+l_string|&quot;Temporary merge branch 1&quot;
+suffix:semicolon
+id|o-&gt;branch2
+op_assign
+l_string|&quot;Temporary merge branch 2&quot;
+suffix:semicolon
 id|merge_recursive
 c_func
 (paren
+id|o
+comma
 id|merged_common_ancestors
 comma
 id|iter-&gt;item
-comma
-l_string|&quot;Temporary merge branch 1&quot;
-comma
-l_string|&quot;Temporary merge branch 2&quot;
 comma
 l_int|NULL
 comma
 op_amp
 id|merged_common_ancestors
 )paren
+suffix:semicolon
+id|o-&gt;branch1
+op_assign
+id|saved_b1
+suffix:semicolon
+id|o-&gt;branch2
+op_assign
+id|saved_b2
 suffix:semicolon
 id|call_depth
 op_decrement
@@ -7031,15 +7116,13 @@ op_assign
 id|merge_trees
 c_func
 (paren
+id|o
+comma
 id|h1-&gt;tree
 comma
 id|h2-&gt;tree
 comma
 id|merged_common_ancestors-&gt;tree
-comma
-id|branch1
-comma
-id|branch2
 comma
 op_amp
 id|mrtree
@@ -7216,33 +7299,38 @@ r_int
 id|merge_recursive_generic
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_const
+r_int
+r_char
+op_star
+id|head
+comma
+r_const
+r_int
+r_char
+op_star
+id|merge
+comma
+r_int
+id|num_base_list
+comma
+r_const
+r_int
 r_char
 op_star
 op_star
 id|base_list
 comma
-r_const
-r_int
-r_char
+r_struct
+id|commit
 op_star
-id|head_sha1
-comma
-r_const
-r_char
 op_star
-id|head_name
-comma
-r_const
-r_int
-r_char
-op_star
-id|next_sha1
-comma
-r_const
-r_char
-op_star
-id|next_name
+id|result
 )paren
 (brace
 r_int
@@ -7270,19 +7358,14 @@ suffix:semicolon
 r_struct
 id|commit
 op_star
-id|result
-suffix:semicolon
-r_struct
-id|commit
-op_star
 id|head_commit
 op_assign
 id|get_ref
 c_func
 (paren
-id|head_sha1
+id|head
 comma
-id|head_name
+id|o-&gt;branch1
 )paren
 suffix:semicolon
 r_struct
@@ -7293,9 +7376,9 @@ op_assign
 id|get_ref
 c_func
 (paren
-id|next_sha1
+id|merge
 comma
-id|next_name
+id|o-&gt;branch2
 )paren
 suffix:semicolon
 r_struct
@@ -7321,52 +7404,18 @@ id|i
 op_assign
 l_int|0
 suffix:semicolon
-id|base_list
-(braket
 id|i
-)braket
+OL
+id|num_base_list
 suffix:semicolon
 op_increment
 id|i
 )paren
 (brace
-r_int
-r_char
-id|sha
-(braket
-l_int|20
-)braket
-suffix:semicolon
 r_struct
 id|commit
 op_star
 id|base
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|get_sha1
-c_func
-(paren
-id|base_list
-(braket
-id|i
-)braket
-comma
-id|sha
-)paren
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;Could not resolve ref &squot;%s&squot;&quot;
-comma
-id|base_list
-(braket
-id|i
-)braket
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -7378,12 +7427,19 @@ op_assign
 id|get_ref
 c_func
 (paren
-id|sha
-comma
 id|base_list
 (braket
 id|i
 )braket
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|base_list
+(braket
+id|i
+)braket
+)paren
 )paren
 )paren
 )paren
@@ -7393,10 +7449,14 @@ c_func
 (paren
 l_string|&quot;Could not parse object &squot;%s&squot;&quot;
 comma
+id|sha1_to_hex
+c_func
+(paren
 id|base_list
 (braket
 id|i
 )braket
+)paren
 )paren
 suffix:semicolon
 id|commit_list_insert
@@ -7425,17 +7485,14 @@ op_assign
 id|merge_recursive
 c_func
 (paren
+id|o
+comma
 id|head_commit
 comma
 id|next_commit
 comma
-id|head_name
-comma
-id|next_name
-comma
 id|ca
 comma
-op_amp
 id|result
 )paren
 suffix:semicolon
@@ -7479,6 +7536,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|merge_recursive_config
+r_static
 r_int
 id|merge_recursive_config
 c_func
@@ -7498,6 +7556,13 @@ op_star
 id|cb
 )paren
 (brace
+r_struct
+id|merge_options
+op_star
+id|o
+op_assign
+id|cb
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -7511,7 +7576,7 @@ l_string|&quot;merge.verbosity&quot;
 )paren
 )paren
 (brace
-id|merge_recursive_verbosity
+id|o-&gt;verbosity
 op_assign
 id|git_config_int
 c_func
@@ -7538,7 +7603,7 @@ l_string|&quot;diff.renamelimit&quot;
 )paren
 )paren
 (brace
-id|diff_rename_limit
+id|o-&gt;diff_rename_limit
 op_assign
 id|git_config_int
 c_func
@@ -7565,7 +7630,7 @@ l_string|&quot;merge.renamelimit&quot;
 )paren
 )paren
 (brace
-id|merge_rename_limit
+id|o-&gt;merge_rename_limit
 op_assign
 id|git_config_int
 c_func
@@ -7591,15 +7656,55 @@ id|cb
 )paren
 suffix:semicolon
 )brace
-DECL|function|merge_recursive_setup
+DECL|function|init_merge_options
 r_void
-id|merge_recursive_setup
+id|init_merge_options
 c_func
 (paren
-r_int
-id|is_subtree_merge
+r_struct
+id|merge_options
+op_star
+id|o
 )paren
 (brace
+id|memset
+c_func
+(paren
+id|o
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+r_struct
+id|merge_options
+)paren
+)paren
+suffix:semicolon
+id|o-&gt;verbosity
+op_assign
+l_int|2
+suffix:semicolon
+id|o-&gt;buffer_output
+op_assign
+l_int|1
+suffix:semicolon
+id|o-&gt;diff_rename_limit
+op_assign
+l_int|1
+suffix:semicolon
+id|o-&gt;merge_rename_limit
+op_assign
+l_int|1
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|merge_recursive_config
+comma
+id|o
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -7609,7 +7714,7 @@ c_func
 l_string|&quot;GIT_MERGE_VERBOSITY&quot;
 )paren
 )paren
-id|merge_recursive_verbosity
+id|o-&gt;verbosity
 op_assign
 id|strtol
 c_func
@@ -7628,17 +7733,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|merge_recursive_verbosity
+id|o-&gt;verbosity
 op_ge
 l_int|5
 )paren
-id|buffer_output
+id|o-&gt;buffer_output
 op_assign
 l_int|0
-suffix:semicolon
-id|subtree_merge
-op_assign
-id|is_subtree_merge
 suffix:semicolon
 )brace
 eof
