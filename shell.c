@@ -2,7 +2,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
-macro_line|#include &quot;builtin.h&quot;
 DECL|function|do_generic_cmd
 r_static
 r_int
@@ -229,24 +228,18 @@ l_int|NULL
 comma
 )brace
 suffix:semicolon
-DECL|function|cmd_shell
+DECL|function|main
 r_int
-id|cmd_shell
+id|main
 c_func
 (paren
 r_int
 id|argc
 comma
-r_const
 r_char
 op_star
 op_star
 id|argv
-comma
-r_const
-r_char
-op_star
-id|prefix
 )paren
 (brace
 r_char
@@ -309,14 +302,10 @@ l_string|&quot;What do you think I am? A shell?&quot;
 suffix:semicolon
 id|prog
 op_assign
-id|xstrdup
-c_func
-(paren
 id|argv
 (braket
 l_int|2
 )braket
-)paren
 suffix:semicolon
 r_if
 c_cond
