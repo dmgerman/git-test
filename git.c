@@ -2027,12 +2027,6 @@ id|RUN_SETUP
 )brace
 comma
 (brace
-l_string|&quot;shell&quot;
-comma
-id|cmd_shell
-)brace
-comma
-(brace
 l_string|&quot;shortlog&quot;
 comma
 id|cmd_shortlog
