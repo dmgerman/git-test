@@ -1,5 +1,12 @@
 multiline_comment|/*&n; * Sane locale-independent, ASCII ctype.&n; *&n; * No surprises, and works with signed and unsigned chars.&n; */
 macro_line|#include &quot;cache.h&quot;
+multiline_comment|/* Just so that no insane platform contaminate namespace with these symbols */
+DECL|macro|SS
+macro_line|#undef SS
+DECL|macro|AA
+macro_line|#undef AA
+DECL|macro|DD
+macro_line|#undef DD
 DECL|macro|SS
 mdefine_line|#define SS GIT_SPACE
 DECL|macro|AA
