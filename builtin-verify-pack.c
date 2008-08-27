@@ -1,6 +1,7 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
+macro_line|#include &quot;pack-revindex.h&quot;
 DECL|macro|MAX_CHAIN
 mdefine_line|#define MAX_CHAIN 50
 DECL|function|show_pack_info
@@ -720,6 +721,11 @@ id|verbose
 id|err
 op_assign
 l_int|1
+suffix:semicolon
+id|discard_revindex
+c_func
+(paren
+)paren
 suffix:semicolon
 id|nothing_done
 op_assign
