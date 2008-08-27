@@ -2458,14 +2458,6 @@ comma
 id|nr_written
 )paren
 suffix:semicolon
-id|fsync_or_die
-c_func
-(paren
-id|fd
-comma
-id|pack_tmp_name
-)paren
-suffix:semicolon
 id|close
 c_func
 (paren
