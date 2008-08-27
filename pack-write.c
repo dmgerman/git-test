@@ -1072,6 +1072,14 @@ comma
 l_int|20
 )paren
 suffix:semicolon
+id|fsync_or_die
+c_func
+(paren
+id|pack_fd
+comma
+id|pack_name
+)paren
+suffix:semicolon
 )brace
 DECL|function|index_pack_lockfile
 r_char
