@@ -2790,7 +2790,7 @@ id|save_commit_buffer
 op_assign
 id|revs.verbose_header
 op_logical_or
-id|revs.grep_filter
+id|revs.grep_filter.pattern_list
 suffix:semicolon
 r_if
 c_cond

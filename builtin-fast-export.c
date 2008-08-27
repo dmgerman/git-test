@@ -2209,7 +2209,9 @@ c_func
 (paren
 id|f
 comma
-l_string|&quot;:%u %s&bslash;n&quot;
+l_string|&quot;:%&quot;
+id|PRIu32
+l_string|&quot; %s&bslash;n&quot;
 comma
 id|mark
 comma
