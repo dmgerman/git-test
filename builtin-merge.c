@@ -308,7 +308,7 @@ id|other_cmds
 suffix:semicolon
 r_static
 r_int
-id|longest
+id|loaded
 suffix:semicolon
 r_if
 c_cond
@@ -365,12 +365,16 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|longest
+id|loaded
 )paren
 (brace
 r_struct
 id|cmdnames
 id|not_strategies
+suffix:semicolon
+id|loaded
+op_assign
+l_int|1
 suffix:semicolon
 id|memset
 c_func
@@ -417,8 +421,6 @@ id|cmdnames
 )paren
 )paren
 suffix:semicolon
-id|longest
-op_assign
 id|load_command_list
 c_func
 (paren

@@ -2315,10 +2315,6 @@ r_char
 op_star
 id|alias
 suffix:semicolon
-r_int
-r_int
-id|longest
-op_assign
 id|load_command_list
 c_func
 (paren
@@ -2380,8 +2376,6 @@ id|list_commands
 c_func
 (paren
 l_string|&quot;git commands&quot;
-comma
-id|longest
 comma
 op_amp
 id|main_cmds
