@@ -7,12 +7,16 @@ DECL|macro|AA
 macro_line|#undef AA
 DECL|macro|DD
 macro_line|#undef DD
+DECL|macro|GS
+macro_line|#undef GS
 DECL|macro|SS
 mdefine_line|#define SS GIT_SPACE
 DECL|macro|AA
 mdefine_line|#define AA GIT_ALPHA
 DECL|macro|DD
 mdefine_line|#define DD GIT_DIGIT
+DECL|macro|GS
+mdefine_line|#define GS GIT_SPECIAL  /* &bslash;0, *, ?, [, &bslash;&bslash; */
 DECL|variable|sane_ctype
 r_int
 r_char
@@ -22,7 +26,7 @@ l_int|256
 )braket
 op_assign
 (brace
-l_int|0
+id|GS
 comma
 l_int|0
 comma
@@ -108,7 +112,7 @@ l_int|0
 comma
 l_int|0
 comma
-l_int|0
+id|GS
 comma
 l_int|0
 comma
@@ -151,7 +155,7 @@ l_int|0
 comma
 l_int|0
 comma
-l_int|0
+id|GS
 comma
 multiline_comment|/* 48-15 */
 l_int|0
@@ -209,9 +213,9 @@ id|AA
 comma
 id|AA
 comma
-l_int|0
+id|GS
 comma
-l_int|0
+id|GS
 comma
 l_int|0
 comma
