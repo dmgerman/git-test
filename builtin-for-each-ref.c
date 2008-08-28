@@ -3666,6 +3666,15 @@ id|plen
 )braket
 op_eq
 l_char|&squot;/&squot;
+op_logical_or
+id|p
+(braket
+id|plen
+op_minus
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
 )paren
 )paren
 r_break
