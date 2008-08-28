@@ -1494,6 +1494,7 @@ suffix:semicolon
 )brace
 DECL|variable|main_cmds
 DECL|variable|other_cmds
+r_static
 r_struct
 id|cmdnames
 id|main_cmds
