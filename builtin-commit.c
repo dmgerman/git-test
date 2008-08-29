@@ -4747,6 +4747,8 @@ l_string|&quot;%h: %s&quot;
 comma
 op_amp
 id|buf
+comma
+id|DATE_NORMAL
 )paren
 suffix:semicolon
 id|printf

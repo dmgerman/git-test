@@ -1829,6 +1829,10 @@ id|msg
 comma
 r_int
 id|len
+comma
+r_enum
+id|date_mode
+id|dmode
 )paren
 (brace
 multiline_comment|/* currently all placeholders have same length */
@@ -2225,7 +2229,7 @@ id|date
 comma
 id|tz
 comma
-id|DATE_NORMAL
+id|dmode
 )paren
 )paren
 suffix:semicolon
@@ -2368,6 +2372,11 @@ r_struct
 id|commit
 op_star
 id|commit
+suffix:semicolon
+DECL|member|dmode
+r_enum
+id|date_mode
+id|dmode
 suffix:semicolon
 multiline_comment|/* These offsets are relative to the start of the commit message. */
 DECL|member|commit_header_parsed
@@ -3338,6 +3347,8 @@ op_plus
 id|c-&gt;author.off
 comma
 id|c-&gt;author.len
+comma
+id|c-&gt;dmode
 )paren
 suffix:semicolon
 r_case
@@ -3360,6 +3371,8 @@ op_plus
 id|c-&gt;committer.off
 comma
 id|c-&gt;committer.len
+comma
+id|c-&gt;dmode
 )paren
 suffix:semicolon
 r_case
@@ -3424,6 +3437,10 @@ r_struct
 id|strbuf
 op_star
 id|sb
+comma
+r_enum
+id|date_mode
+id|dmode
 )paren
 (brace
 r_struct
@@ -3447,6 +3464,10 @@ suffix:semicolon
 id|context.commit
 op_assign
 id|commit
+suffix:semicolon
+id|context.dmode
+op_assign
+id|dmode
 suffix:semicolon
 id|strbuf_expand
 c_func
@@ -4297,6 +4318,8 @@ comma
 id|user_format
 comma
 id|sb
+comma
+id|dmode
 )paren
 suffix:semicolon
 r_return

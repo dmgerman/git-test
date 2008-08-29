@@ -239,6 +239,8 @@ comma
 id|fmt.buf
 comma
 id|buf
+comma
+id|DATE_NORMAL
 )paren
 suffix:semicolon
 id|len
