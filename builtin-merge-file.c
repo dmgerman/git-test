@@ -217,16 +217,10 @@ comma
 l_string|&quot;--diff3&quot;
 )paren
 )paren
-(brace
 id|merge_style
 op_assign
 id|XDL_MERGE_DIFF3
 suffix:semicolon
-id|merge_level
-op_assign
-id|XDL_MERGE_EAGER
-suffix:semicolon
-)brace
 r_else
 id|usage
 c_func

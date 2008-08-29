@@ -2016,6 +2016,27 @@ id|flags
 op_amp
 id|XDL_MERGE_STYLE_MASK
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|style
+op_eq
+id|XDL_MERGE_DIFF3
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * &quot;diff3 -m&quot; output does not make sense for anything&n;&t;&t; * more aggressive than XDL_MERGE_EAGER.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|XDL_MERGE_EAGER
+OL
+id|level
+)paren
+id|level
+op_assign
+id|XDL_MERGE_EAGER
+suffix:semicolon
+)brace
 id|c
 op_assign
 id|changes
