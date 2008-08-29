@@ -7419,7 +7419,7 @@ l_int|0
 suffix:semicolon
 )brace
 r_return
-id|git_default_config
+id|git_xmerge_config
 c_func
 (paren
 id|var
