@@ -2423,7 +2423,7 @@ c_func
 (paren
 id|f
 comma
-l_int|NULL
+id|sha1
 comma
 l_int|0
 )paren
@@ -2439,9 +2439,9 @@ id|pack_tmp_name
 comma
 id|nr_written
 comma
-l_int|NULL
+id|sha1
 comma
-l_int|0
+id|offset
 )paren
 suffix:semicolon
 id|close
