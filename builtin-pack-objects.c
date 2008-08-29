@@ -2438,6 +2438,10 @@ comma
 id|pack_tmp_name
 comma
 id|nr_written
+comma
+l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|close
