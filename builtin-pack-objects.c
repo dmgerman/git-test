@@ -5317,25 +5317,7 @@ op_amp
 id|entry-&gt;size
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|entry-&gt;type
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to get type of object %s&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|entry-&gt;idx.sha1
-)paren
-)paren
-suffix:semicolon
+multiline_comment|/*&n;&t; * The error condition is checked in prepare_pack().  This is&n;&t; * to permit a missing preferred base object to be ignored&n;&t; * as a preferred base.  Doing so can result in a larger&n;&t; * pack file, but the transfer will still take place.&n;&t; */
 )brace
 DECL|function|pack_offset_sort
 r_static
@@ -8083,9 +8065,30 @@ c_cond
 op_logical_neg
 id|entry-&gt;preferred_base
 )paren
+(brace
 id|nr_deltas
 op_increment
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|entry-&gt;type
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to get type of object %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|entry-&gt;idx.sha1
+)paren
+)paren
+suffix:semicolon
+)brace
 id|delta_list
 (braket
 id|n
