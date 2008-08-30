@@ -1130,7 +1130,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;git-apply: read returned %s&quot;
+l_string|&quot;git apply: read returned %s&quot;
 comma
 id|strerror
 c_func

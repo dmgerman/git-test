@@ -1,7 +1,7 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;bundle.h&quot;
-multiline_comment|/*&n; * Basic handler for bundle files to connect repositories via sneakernet.&n; * Invocation must include action.&n; * This function can create a bundle or provide information on an existing&n; * bundle supporting git-fetch, git-pull, and git-ls-remote&n; */
+multiline_comment|/*&n; * Basic handler for bundle files to connect repositories via sneakernet.&n; * Invocation must include action.&n; * This function can create a bundle or provide information on an existing&n; * bundle supporting &quot;fetch&quot;, &quot;pull&quot;, and &quot;ls-remote&quot;.&n; */
 DECL|variable|bundle_usage
 r_static
 r_const
@@ -9,7 +9,7 @@ r_char
 op_star
 id|bundle_usage
 op_assign
-l_string|&quot;git-bundle (create &lt;bundle&gt; &lt;git-rev-list args&gt; | verify &lt;bundle&gt; | list-heads &lt;bundle&gt; [refname]... | unbundle &lt;bundle&gt; [refname]... )&quot;
+l_string|&quot;git bundle (create &lt;bundle&gt; &lt;git rev-list args&gt; | verify &lt;bundle&gt; | list-heads &lt;bundle&gt; [refname]... | unbundle &lt;bundle&gt; [refname]... )&quot;
 suffix:semicolon
 DECL|function|cmd_bundle
 r_int
