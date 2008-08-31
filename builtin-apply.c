@@ -9177,12 +9177,22 @@ id|trailing
 op_assign
 id|frag-&gt;trailing
 suffix:semicolon
-multiline_comment|/*&n;&t; * A hunk to change lines at the beginning would begin with&n;&t; * @@ -1,L +N,M @@&n;&t; *&n;&t; * And a hunk to add to an empty file would begin with&n;&t; * @@ -0,0 +N,M @@&n;&t; *&n;&t; * In other words, a hunk that is (frag-&gt;oldpos &lt;= 1) with or&n;&t; * without leading context must match at the beginning.&n;&t; */
+multiline_comment|/*&n;&t; * A hunk to change lines at the beginning would begin with&n;&t; * @@ -1,L +N,M @@&n;&t; * but we need to be careful.  -U0 that inserts before the second&n;&t; * line also has this pattern.&n;&t; *&n;&t; * And a hunk to add to an empty file would begin with&n;&t; * @@ -0,0 +N,M @@&n;&t; *&n;&t; * In other words, a hunk that is (frag-&gt;oldpos &lt;= 1) with or&n;&t; * without leading context must match at the beginning.&n;&t; */
 id|match_beginning
 op_assign
+(paren
+op_logical_neg
 id|frag-&gt;oldpos
-op_le
+op_logical_or
+(paren
+id|frag-&gt;oldpos
+op_eq
 l_int|1
+op_logical_and
+op_logical_neg
+id|unidiff_zero
+)paren
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * A hunk without trailing lines must match at the end.&n;&t; * However, we simply cannot tell if a hunk must match end&n;&t; * from the lack of trailing lines if the patch was generated&n;&t; * with unidiff without any context.&n;&t; */
 id|match_end
