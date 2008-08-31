@@ -3398,6 +3398,14 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+id|signal
+c_func
+(paren
+id|SIGCHLD
+comma
+id|child_handler
+)paren
+suffix:semicolon
 )brace
 DECL|function|set_reuse_addr
 r_static
