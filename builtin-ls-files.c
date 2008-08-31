@@ -355,7 +355,7 @@ id|ent-&gt;len
 id|die
 c_func
 (paren
-l_string|&quot;git-ls-files: internal error - directory entry not superset of prefix&quot;
+l_string|&quot;git ls-files: internal error - directory entry not superset of prefix&quot;
 )paren
 suffix:semicolon
 r_if
@@ -837,7 +837,7 @@ id|ce
 id|die
 c_func
 (paren
-l_string|&quot;git-ls-files: internal error - cache entry not superset of prefix&quot;
+l_string|&quot;git ls-files: internal error - cache entry not superset of prefix&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1676,7 +1676,7 @@ id|prefix_offset
 id|die
 c_func
 (paren
-l_string|&quot;git-ls-files: cannot generate relative filenames containing &squot;..&squot;&quot;
+l_string|&quot;git ls-files: cannot generate relative filenames containing &squot;..&squot;&quot;
 )paren
 suffix:semicolon
 id|prefix_len

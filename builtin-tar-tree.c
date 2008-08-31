@@ -344,7 +344,7 @@ id|HEADERSIZE
 id|die
 c_func
 (paren
-l_string|&quot;git-get-tar-commit-id: read error&quot;
+l_string|&quot;git get-tar-commit-id: read error&quot;
 )paren
 suffix:semicolon
 r_if
@@ -400,7 +400,7 @@ l_int|41
 id|die
 c_func
 (paren
-l_string|&quot;git-get-tar-commit-id: write error&quot;
+l_string|&quot;git get-tar-commit-id: write error&quot;
 )paren
 suffix:semicolon
 r_return

@@ -2220,7 +2220,7 @@ id|isnull
 id|die
 c_func
 (paren
-l_string|&quot;git-apply: bad git-diff - expected /dev/null, got %s on line %d&quot;
+l_string|&quot;git apply: bad git-diff - expected /dev/null, got %s on line %d&quot;
 comma
 id|name
 comma
@@ -2260,7 +2260,7 @@ id|len
 id|die
 c_func
 (paren
-l_string|&quot;git-apply: bad git-diff - inconsistent %s filename on line %d&quot;
+l_string|&quot;git apply: bad git-diff - inconsistent %s filename on line %d&quot;
 comma
 id|oldnew
 comma
@@ -2303,7 +2303,7 @@ l_char|&squot;&bslash;n&squot;
 id|die
 c_func
 (paren
-l_string|&quot;git-apply: bad git-diff - expected /dev/null on line %d&quot;
+l_string|&quot;git apply: bad git-diff - expected /dev/null on line %d&quot;
 comma
 id|linenr
 )paren

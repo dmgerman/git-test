@@ -347,7 +347,7 @@ id|sha1
 id|die
 c_func
 (paren
-l_string|&quot;git-show-ref: bad ref %s (%s)&quot;
+l_string|&quot;git show-ref: bad ref %s (%s)&quot;
 comma
 id|refname
 comma
@@ -454,7 +454,7 @@ id|obj
 id|die
 c_func
 (paren
-l_string|&quot;git-show-ref: bad ref %s (%s)&quot;
+l_string|&quot;git show-ref: bad ref %s (%s)&quot;
 comma
 id|refname
 comma
@@ -494,7 +494,7 @@ id|obj
 id|die
 c_func
 (paren
-l_string|&quot;git-show-ref: bad tag at ref %s (%s)&quot;
+l_string|&quot;git show-ref: bad tag at ref %s (%s)&quot;
 comma
 id|refname
 comma

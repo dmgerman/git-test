@@ -518,7 +518,7 @@ id|len
 id|die
 c_func
 (paren
-l_string|&quot;git-fetch-pack: expected ACK/NAK, got EOF&quot;
+l_string|&quot;git fetch-pack: expected ACK/NAK, got EOF&quot;
 )paren
 suffix:semicolon
 r_if
@@ -608,7 +608,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-fetch_pack: expected ACK/NAK, got &squot;%s&squot;&quot;
+l_string|&quot;git fetch_pack: expected ACK/NAK, got &squot;%s&squot;&quot;
 comma
 id|line
 )paren
