@@ -264,13 +264,6 @@ comma
 l_int|1
 )brace
 suffix:semicolon
-DECL|variable|call_depth
-r_static
-r_int
-id|call_depth
-op_assign
-l_int|0
-suffix:semicolon
 DECL|variable|obuf
 r_static
 r_struct
@@ -297,7 +290,7 @@ id|v
 r_return
 (paren
 op_logical_neg
-id|call_depth
+id|o-&gt;call_depth
 op_logical_and
 id|o-&gt;verbosity
 op_ge
@@ -391,7 +384,7 @@ c_func
 op_amp
 id|obuf
 comma
-id|call_depth
+id|o-&gt;call_depth
 op_star
 l_int|2
 op_plus
@@ -407,7 +400,7 @@ id|obuf.len
 comma
 l_char|&squot; &squot;
 comma
-id|call_depth
+id|o-&gt;call_depth
 op_star
 l_int|2
 )paren
@@ -420,7 +413,7 @@ id|obuf
 comma
 id|obuf.len
 op_plus
-id|call_depth
+id|o-&gt;call_depth
 op_star
 l_int|2
 )paren
@@ -592,6 +585,11 @@ id|output_commit_title
 c_func
 (paren
 r_struct
+id|merge_options
+op_star
+id|o
+comma
+r_struct
 id|commit
 op_star
 id|commit
@@ -610,7 +608,7 @@ c_loop
 (paren
 id|i
 op_assign
-id|call_depth
+id|o-&gt;call_depth
 suffix:semicolon
 id|i
 op_decrement
@@ -6846,12 +6844,16 @@ suffix:semicolon
 id|output_commit_title
 c_func
 (paren
+id|o
+comma
 id|h1
 )paren
 suffix:semicolon
 id|output_commit_title
 c_func
 (paren
+id|o
+comma
 id|h2
 )paren
 suffix:semicolon
@@ -6928,6 +6930,8 @@ id|iter-&gt;next
 id|output_commit_title
 c_func
 (paren
+id|o
+comma
 id|iter-&gt;item
 )paren
 suffix:semicolon
@@ -7020,7 +7024,7 @@ comma
 op_star
 id|saved_b2
 suffix:semicolon
-id|call_depth
+id|o-&gt;call_depth
 op_increment
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * When the merge fails, the result contains files&n;&t;&t; * with conflict markers. The cleanness flag is&n;&t;&t; * ignored, it was never actually used, as result of&n;&t;&t; * merge_trees has always overwritten it: the committed&n;&t;&t; * &quot;conflicts&quot; were already resolved.&n;&t;&t; */
@@ -7068,7 +7072,7 @@ id|o-&gt;branch2
 op_assign
 id|saved_b2
 suffix:semicolon
-id|call_depth
+id|o-&gt;call_depth
 op_decrement
 suffix:semicolon
 r_if
@@ -7093,7 +7097,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|call_depth
+id|o-&gt;call_depth
 )paren
 (brace
 id|read_cache
