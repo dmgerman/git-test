@@ -837,14 +837,6 @@ id|options
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This is a global variable which is used in a number of places but&n; * only written to in the &squot;merge&squot; function.&n; *&n; * index_only == 1    =&gt; Don&squot;t leave any non-stage 0 entries in the cache and&n; *                       don&squot;t update the working directory.&n; *               0    =&gt; Leave unmerged entries in the cache and update&n; *                       the working directory.&n; */
-DECL|variable|index_only
-r_static
-r_int
-id|index_only
-op_assign
-l_int|0
-suffix:semicolon
 DECL|function|init_tree_desc_from_tree
 r_static
 r_void
@@ -2266,6 +2258,11 @@ r_int
 id|remove_file
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_int
 id|clean
 comma
@@ -2281,7 +2278,7 @@ id|no_wd
 r_int
 id|update_cache
 op_assign
-id|index_only
+id|o-&gt;call_depth
 op_logical_or
 id|clean
 suffix:semicolon
@@ -2289,7 +2286,7 @@ r_int
 id|update_working_directory
 op_assign
 op_logical_neg
-id|index_only
+id|o-&gt;call_depth
 op_logical_and
 op_logical_neg
 id|no_wd
@@ -2728,6 +2725,11 @@ r_void
 id|update_file_flags
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_const
 r_int
 r_char
@@ -2752,7 +2754,7 @@ id|update_wd
 r_if
 c_cond
 (paren
-id|index_only
+id|o-&gt;call_depth
 )paren
 id|update_wd
 op_assign
@@ -3141,6 +3143,11 @@ r_void
 id|update_file
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 r_int
 id|clean
 comma
@@ -3162,18 +3169,20 @@ id|path
 id|update_file_flags
 c_func
 (paren
+id|o
+comma
 id|sha
 comma
 id|mode
 comma
 id|path
 comma
-id|index_only
+id|o-&gt;call_depth
 op_logical_or
 id|clean
 comma
 op_logical_neg
-id|index_only
+id|o-&gt;call_depth
 )paren
 suffix:semicolon
 )brace
@@ -3307,6 +3316,11 @@ r_int
 id|merge_3way
 c_func
 (paren
+r_struct
+id|merge_options
+op_star
+id|o
+comma
 id|mmbuffer_t
 op_star
 id|result_buf
@@ -3314,7 +3328,7 @@ comma
 r_struct
 id|diff_filespec
 op_star
-id|o
+id|one
 comma
 r_struct
 id|diff_filespec
@@ -3389,7 +3403,7 @@ suffix:semicolon
 id|fill_mm
 c_func
 (paren
-id|o-&gt;sha1
+id|one-&gt;sha1
 comma
 op_amp
 id|orig
@@ -3435,7 +3449,7 @@ id|src2
 comma
 id|name2
 comma
-id|index_only
+id|o-&gt;call_depth
 )paren
 suffix:semicolon
 id|free
@@ -3480,9 +3494,14 @@ id|merge_file
 c_func
 (paren
 r_struct
-id|diff_filespec
+id|merge_options
 op_star
 id|o
+comma
+r_struct
+id|diff_filespec
+op_star
+id|one
 comma
 r_struct
 id|diff_filespec
@@ -3587,7 +3606,7 @@ c_func
 (paren
 id|a-&gt;sha1
 comma
-id|o-&gt;sha1
+id|one-&gt;sha1
 )paren
 op_logical_and
 op_logical_neg
@@ -3596,7 +3615,7 @@ c_func
 (paren
 id|b-&gt;sha1
 comma
-id|o-&gt;sha1
+id|one-&gt;sha1
 )paren
 )paren
 id|result.merge
@@ -3613,7 +3632,7 @@ id|b-&gt;mode
 op_logical_or
 id|a-&gt;mode
 op_eq
-id|o-&gt;mode
+id|one-&gt;mode
 )paren
 id|result.mode
 op_assign
@@ -3630,7 +3649,7 @@ c_cond
 (paren
 id|b-&gt;mode
 op_ne
-id|o-&gt;mode
+id|one-&gt;mode
 )paren
 (brace
 id|result.clean
@@ -3659,7 +3678,7 @@ c_func
 (paren
 id|a-&gt;sha1
 comma
-id|o-&gt;sha1
+id|one-&gt;sha1
 )paren
 )paren
 id|hashcpy
@@ -3679,7 +3698,7 @@ c_func
 (paren
 id|b-&gt;sha1
 comma
-id|o-&gt;sha1
+id|one-&gt;sha1
 )paren
 )paren
 id|hashcpy
@@ -3712,10 +3731,12 @@ op_assign
 id|merge_3way
 c_func
 (paren
+id|o
+comma
 op_amp
 id|result_buf
 comma
-id|o
+id|one
 comma
 id|a
 comma
@@ -3976,6 +3997,8 @@ suffix:semicolon
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren1_dst
@@ -4032,6 +4055,8 @@ suffix:semicolon
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren2_dst
@@ -4043,7 +4068,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|index_only
+id|o-&gt;call_depth
 )paren
 (brace
 id|remove_file_from_cache
@@ -4058,7 +4083,7 @@ c_func
 id|dst_name2
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Uncomment to leave the conflicting names in the resulting tree&n;&t;&t; *&n;&t;&t; * update_file(0, ren1-&gt;pair-&gt;two-&gt;sha1, ren1-&gt;pair-&gt;two-&gt;mode, dst_name1);&n;&t;&t; * update_file(0, ren2-&gt;pair-&gt;two-&gt;sha1, ren2-&gt;pair-&gt;two-&gt;mode, dst_name2);&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Uncomment to leave the conflicting names in the resulting tree&n;&t;&t; *&n;&t;&t; * update_file(o, 0, ren1-&gt;pair-&gt;two-&gt;sha1, ren1-&gt;pair-&gt;two-&gt;mode, dst_name1);&n;&t;&t; * update_file(o, 0, ren2-&gt;pair-&gt;two-&gt;sha1, ren2-&gt;pair-&gt;two-&gt;mode, dst_name2);&n;&t;&t; */
 )brace
 r_else
 (brace
@@ -4158,6 +4183,8 @@ suffix:semicolon
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;two-&gt;path
@@ -4168,6 +4195,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;two-&gt;sha1
@@ -4261,6 +4290,8 @@ suffix:semicolon
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;two-&gt;path
@@ -4271,6 +4302,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;two-&gt;sha1
@@ -4283,6 +4316,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren2-&gt;pair-&gt;two-&gt;sha1
@@ -4805,7 +4840,7 @@ id|ren2_dst
 comma
 id|branch2
 comma
-id|index_only
+id|o-&gt;call_depth
 ques
 c_cond
 l_string|&quot; (left unresolved)&quot;
@@ -4816,7 +4851,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|index_only
+id|o-&gt;call_depth
 )paren
 (brace
 id|remove_file_from_cache
@@ -4828,6 +4863,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;one-&gt;sha1
@@ -4862,6 +4899,8 @@ suffix:semicolon
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 id|ren1_src
@@ -4874,6 +4913,8 @@ op_assign
 id|merge_file
 c_func
 (paren
+id|o
+comma
 id|ren1-&gt;pair-&gt;one
 comma
 id|ren1-&gt;pair-&gt;two
@@ -4951,7 +4992,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|index_only
+id|o-&gt;call_depth
 )paren
 id|update_stages
 c_func
@@ -4972,6 +5013,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 id|mfi.clean
 comma
 id|mfi.sha
@@ -5015,11 +5058,13 @@ suffix:semicolon
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 id|ren1_src
 comma
-id|index_only
+id|o-&gt;call_depth
 op_logical_or
 id|stage
 op_eq
@@ -5162,6 +5207,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|ren1-&gt;pair-&gt;two-&gt;sha1
@@ -5245,6 +5292,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|dst_other.sha1
@@ -5396,6 +5445,8 @@ op_assign
 id|merge_file
 c_func
 (paren
+id|o
+comma
 id|one
 comma
 id|a
@@ -5505,7 +5556,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|index_only
+id|o-&gt;call_depth
 )paren
 id|update_stages
 c_func
@@ -5525,6 +5576,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 id|mfi.clean
 comma
 id|mfi.sha
@@ -5790,6 +5843,8 @@ multiline_comment|/* do not touch working file if it did not exist */
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 id|path
@@ -5837,6 +5892,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|b_sha
@@ -5873,6 +5930,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|a_sha
@@ -6039,6 +6098,8 @@ suffix:semicolon
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|path
@@ -6049,6 +6110,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|sha
@@ -6076,6 +6139,8 @@ suffix:semicolon
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 id|sha
@@ -6203,6 +6268,8 @@ op_assign
 id|merge_file
 c_func
 (paren
+id|o
+comma
 op_amp
 id|one
 comma
@@ -6229,6 +6296,8 @@ id|mfi.clean
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 id|mfi.sha
@@ -6286,11 +6355,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|index_only
+id|o-&gt;call_depth
 )paren
 id|update_file
 c_func
 (paren
+id|o
+comma
 l_int|0
 comma
 id|mfi.sha
@@ -6304,6 +6375,8 @@ r_else
 id|update_file_flags
 c_func
 (paren
+id|o
+comma
 id|mfi.sha
 comma
 id|mfi.mode
@@ -6337,6 +6410,8 @@ multiline_comment|/*&n;&t;&t; * this entry was deleted altogether. a_mode == 0 m
 id|remove_file
 c_func
 (paren
+id|o
+comma
 l_int|1
 comma
 id|path
@@ -6457,7 +6532,7 @@ op_assign
 id|git_merge_trees
 c_func
 (paren
-id|index_only
+id|o-&gt;call_depth
 comma
 id|common
 comma
@@ -6693,7 +6768,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|index_only
+id|o-&gt;call_depth
 )paren
 op_star
 id|result
@@ -7099,21 +7174,10 @@ c_cond
 op_logical_neg
 id|o-&gt;call_depth
 )paren
-(brace
 id|read_cache
 c_func
 (paren
 )paren
-suffix:semicolon
-id|index_only
-op_assign
-l_int|0
-suffix:semicolon
-)brace
-r_else
-id|index_only
-op_assign
-l_int|1
 suffix:semicolon
 id|clean
 op_assign
@@ -7135,7 +7199,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|index_only
+id|o-&gt;call_depth
 )paren
 (brace
 op_star
