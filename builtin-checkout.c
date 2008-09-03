@@ -2040,28 +2040,10 @@ id|commit
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * If the new thing isn&squot;t a branch and isn&squot;t HEAD and we&squot;re&n;&t; * not starting a new branch, and we want messages, and we&n;&t; * weren&squot;t on a branch, and we&squot;re moving to a new commit,&n;&t; * describe the old commit.&n;&t; */
+multiline_comment|/*&n;&t; * If we were on a detached HEAD, but we are now moving to&n;&t; * a new commit, we want to mention the old commit once more&n;&t; * to remind the user that it might be lost.&n;&t; */
 r_if
 c_cond
 (paren
-op_logical_neg
-r_new
-op_member_access_from_pointer
-id|path
-op_logical_and
-id|strcmp
-c_func
-(paren
-r_new
-op_member_access_from_pointer
-id|name
-comma
-l_string|&quot;HEAD&quot;
-)paren
-op_logical_and
-op_logical_neg
-id|opts-&gt;new_branch
-op_logical_and
 op_logical_neg
 id|opts-&gt;quiet
 op_logical_and
