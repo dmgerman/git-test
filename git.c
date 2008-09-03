@@ -1638,6 +1638,8 @@ comma
 id|cmd_diff_files
 comma
 id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
 )brace
 comma
 (brace

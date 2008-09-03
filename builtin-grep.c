@@ -3996,6 +3996,18 @@ c_cond
 op_logical_neg
 id|list.nr
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cached
+)paren
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 op_logical_neg
 id|grep_cache
@@ -4009,6 +4021,7 @@ comma
 id|cached
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
