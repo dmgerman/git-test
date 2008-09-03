@@ -233,10 +233,12 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;[%d] &quot;
+l_string|&quot;[%&quot;
+id|PRIuMAX
+l_string|&quot;] &quot;
 comma
 (paren
-r_int
+r_uintmax
 )paren
 id|getpid
 c_func
@@ -2951,10 +2953,12 @@ suffix:semicolon
 id|loginfo
 c_func
 (paren
-l_string|&quot;[%d] Disconnected%s&quot;
+l_string|&quot;[%&quot;
+id|PRIuMAX
+l_string|&quot;] Disconnected%s&quot;
 comma
 (paren
-r_int
+r_uintmax
 )paren
 id|pid
 comma
@@ -4299,8 +4303,13 @@ c_func
 (paren
 id|f
 comma
-l_string|&quot;%d&bslash;n&quot;
+l_string|&quot;%&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
 comma
+(paren
+r_uintmax
+)paren
 id|getpid
 c_func
 (paren

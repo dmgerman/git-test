@@ -1514,8 +1514,12 @@ comma
 id|git_path
 c_func
 (paren
-l_string|&quot;next-index-%d&quot;
+l_string|&quot;next-index-%&quot;
+id|PRIuMAX
 comma
+(paren
+r_uintmax
+)paren
 id|getpid
 c_func
 (paren

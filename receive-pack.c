@@ -2162,8 +2162,13 @@ c_func
 (paren
 id|keep_arg
 comma
-l_string|&quot;--keep=receive-pack %i on &quot;
+l_string|&quot;--keep=receive-pack %&quot;
+id|PRIuMAX
+l_string|&quot; on &quot;
 comma
+(paren
+r_uintmax
+)paren
 id|getpid
 c_func
 (paren

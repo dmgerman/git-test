@@ -1098,8 +1098,12 @@ op_assign
 id|git_path
 c_func
 (paren
-l_string|&quot;fast_import_crash_%d&quot;
+l_string|&quot;fast_import_crash_%&quot;
+id|PRIuMAX
 comma
+(paren
+r_uintmax
+)paren
 id|getpid
 c_func
 (paren
@@ -1179,8 +1183,13 @@ c_func
 (paren
 id|rpt
 comma
-l_string|&quot;    fast-import process: %d&bslash;n&quot;
+l_string|&quot;    fast-import process: %&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
 comma
+(paren
+r_uintmax
+)paren
 id|getpid
 c_func
 (paren
@@ -1192,8 +1201,13 @@ c_func
 (paren
 id|rpt
 comma
-l_string|&quot;    parent process     : %d&bslash;n&quot;
+l_string|&quot;    parent process     : %&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
 comma
+(paren
+r_uintmax
+)paren
 id|getppid
 c_func
 (paren
