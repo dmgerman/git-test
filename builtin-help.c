@@ -2036,6 +2036,17 @@ c_func
 id|git_cmd
 )paren
 suffix:semicolon
+r_const
+r_char
+op_star
+id|fallback
+op_assign
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_MAN_VIEWER&quot;
+)paren
+suffix:semicolon
 id|setup_man_path
 c_func
 (paren
@@ -2065,6 +2076,19 @@ id|page
 suffix:semicolon
 multiline_comment|/* will return when unable */
 )brace
+r_if
+c_cond
+(paren
+id|fallback
+)paren
+id|exec_viewer
+c_func
+(paren
+id|fallback
+comma
+id|page
+)paren
+suffix:semicolon
 id|exec_viewer
 c_func
 (paren
