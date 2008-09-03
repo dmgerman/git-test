@@ -2076,7 +2076,15 @@ id|path
 )paren
 id|repo
 op_assign
-id|path
+id|xstrdup
+c_func
+(paren
+id|make_nonrelative_path
+c_func
+(paren
+id|repo_name
+)paren
+)paren
 suffix:semicolon
 r_else
 r_if
