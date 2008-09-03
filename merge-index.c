@@ -132,7 +132,7 @@ id|active_nr
 id|die
 c_func
 (paren
-l_string|&quot;git-merge-index: %s not in the cache&quot;
+l_string|&quot;git merge-index: %s not in the cache&quot;
 comma
 id|path
 )paren
@@ -330,7 +330,7 @@ id|found
 id|die
 c_func
 (paren
-l_string|&quot;git-merge-index: %s not in the cache&quot;
+l_string|&quot;git merge-index: %s not in the cache&quot;
 comma
 id|path
 )paren
@@ -643,7 +643,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-merge-index: unknown option %s&quot;
+l_string|&quot;git merge-index: unknown option %s&quot;
 comma
 id|arg
 )paren

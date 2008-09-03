@@ -32,7 +32,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-check-ref-format refname&quot;
+l_string|&quot;git check-ref-format refname&quot;
 )paren
 suffix:semicolon
 r_return

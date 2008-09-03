@@ -1253,7 +1253,7 @@ id|all
 id|die
 c_func
 (paren
-l_string|&quot;git-checkout-index: don&squot;t mix &squot;--all&squot; and explicit filenames&quot;
+l_string|&quot;git checkout-index: don&squot;t mix &squot;--all&squot; and explicit filenames&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1264,7 +1264,7 @@ id|read_from_stdin
 id|die
 c_func
 (paren
-l_string|&quot;git-checkout-index: don&squot;t mix &squot;--stdin&squot; and explicit filenames&quot;
+l_string|&quot;git checkout-index: don&squot;t mix &squot;--stdin&squot; and explicit filenames&quot;
 )paren
 suffix:semicolon
 id|p
@@ -1331,7 +1331,7 @@ id|all
 id|die
 c_func
 (paren
-l_string|&quot;git-checkout-index: don&squot;t mix &squot;--all&squot; and &squot;--stdin&squot;&quot;
+l_string|&quot;git checkout-index: don&squot;t mix &squot;--all&squot; and &squot;--stdin&squot;&quot;
 )paren
 suffix:semicolon
 id|strbuf_init

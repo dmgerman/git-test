@@ -1575,7 +1575,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-diff-tree: internal error&quot;
+l_string|&quot;git diff-tree: internal error&quot;
 )paren
 suffix:semicolon
 )brace

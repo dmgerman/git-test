@@ -783,7 +783,7 @@ id|rev_list
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: unable to fork git-rev-list&quot;
+l_string|&quot;git upload-pack: unable to fork git-rev-list&quot;
 )paren
 suffix:semicolon
 id|argv
@@ -898,7 +898,7 @@ id|pack_objects
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: unable to fork git-pack-objects&quot;
+l_string|&quot;git upload-pack: unable to fork git-pack-objects&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* We read from pack_objects.err to capture stderr output for&n;&t; * progress bar, and pack_objects.out to capture the pack data.&n;&t; */
@@ -1311,7 +1311,7 @@ id|pack_objects
 id|error
 c_func
 (paren
-l_string|&quot;git-upload-pack: git-pack-objects died with error.&quot;
+l_string|&quot;git upload-pack: git-pack-objects died with error.&quot;
 )paren
 suffix:semicolon
 r_goto
@@ -1410,7 +1410,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: %s&quot;
+l_string|&quot;git upload-pack: %s&quot;
 comma
 id|abort_msg
 )paren
@@ -1456,7 +1456,7 @@ id|sha1
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: expected SHA1 object, got &squot;%s&squot;&quot;
+l_string|&quot;git upload-pack: expected SHA1 object, got &squot;%s&squot;&quot;
 comma
 id|hex
 )paren
@@ -2201,7 +2201,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: expected SHA1 list, got &squot;%s&squot;&quot;
+l_string|&quot;git upload-pack: expected SHA1 list, got &squot;%s&squot;&quot;
 comma
 id|line
 )paren
@@ -2494,7 +2494,7 @@ id|sha1_buf
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: protocol error, &quot;
+l_string|&quot;git upload-pack: protocol error, &quot;
 l_string|&quot;expected to get sha, not &squot;%s&squot;&quot;
 comma
 id|line
@@ -2645,7 +2645,7 @@ id|OUR_REF
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: not our ref %s&quot;
+l_string|&quot;git upload-pack: not our ref %s&quot;
 comma
 id|line
 op_plus
@@ -3047,7 +3047,7 @@ id|o
 id|die
 c_func
 (paren
-l_string|&quot;git-upload-pack: cannot find object %s:&quot;
+l_string|&quot;git upload-pack: cannot find object %s:&quot;
 comma
 id|sha1_to_hex
 c_func

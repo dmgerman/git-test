@@ -3948,7 +3948,7 @@ id|opt.prefix_length
 id|die
 c_func
 (paren
-l_string|&quot;git-grep: cannot generate relative filenames containing &squot;..&squot;&quot;
+l_string|&quot;git grep: cannot generate relative filenames containing &squot;..&squot;&quot;
 )paren
 suffix:semicolon
 )brace
