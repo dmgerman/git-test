@@ -8067,7 +8067,7 @@ r_return
 id|sb-&gt;num_lines
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Add phony grafts for use with -S; this is primarily to&n; * support git-cvsserver that wants to give a linear history&n; * to its clients.&n; */
+multiline_comment|/*&n; * Add phony grafts for use with -S; this is primarily to&n; * support git&squot;s cvsserver that wants to give a linear history&n; * to its clients.&n; */
 DECL|function|read_ancestry
 r_static
 r_int

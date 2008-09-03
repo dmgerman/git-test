@@ -290,7 +290,7 @@ id|len
 id|die
 c_func
 (paren
-l_string|&quot;git-archive: expected ACK/NAK, got EOF&quot;
+l_string|&quot;git archive: expected ACK/NAK, got EOF&quot;
 )paren
 suffix:semicolon
 r_if
@@ -344,7 +344,7 @@ l_string|&quot;NACK &quot;
 id|die
 c_func
 (paren
-l_string|&quot;git-archive: NACK %s&quot;
+l_string|&quot;git archive: NACK %s&quot;
 comma
 id|buf
 op_plus
@@ -354,7 +354,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-archive: protocol error&quot;
+l_string|&quot;git archive: protocol error&quot;
 )paren
 suffix:semicolon
 )brace
@@ -384,7 +384,7 @@ id|len
 id|die
 c_func
 (paren
-l_string|&quot;git-archive: expected a flush&quot;
+l_string|&quot;git archive: expected a flush&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Now, start reading from fd[0] and spit it out to stdout */

@@ -638,7 +638,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to read sha1 file of %s (%s)&quot;
+l_string|&quot;git checkout-index: unable to read sha1 file of %s (%s)&quot;
 comma
 id|path
 comma
@@ -756,7 +756,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to create file %s (%s)&quot;
+l_string|&quot;git checkout-index: unable to create file %s (%s)&quot;
 comma
 id|path
 comma
@@ -803,7 +803,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to write file %s&quot;
+l_string|&quot;git checkout-index: unable to write file %s&quot;
 comma
 id|path
 )paren
@@ -836,7 +836,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to read sha1 file of %s (%s)&quot;
+l_string|&quot;git checkout-index: unable to read sha1 file of %s (%s)&quot;
 comma
 id|path
 comma
@@ -908,7 +908,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to create &quot;
+l_string|&quot;git checkout-index: unable to create &quot;
 l_string|&quot;file %s (%s)&quot;
 comma
 id|path
@@ -956,7 +956,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to write file %s&quot;
+l_string|&quot;git checkout-index: unable to write file %s&quot;
 comma
 id|path
 )paren
@@ -989,7 +989,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unable to create &quot;
+l_string|&quot;git checkout-index: unable to create &quot;
 l_string|&quot;symlink %s (%s)&quot;
 comma
 id|path
@@ -1016,7 +1016,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: cannot create temporary subproject %s&quot;
+l_string|&quot;git checkout-index: cannot create temporary subproject %s&quot;
 comma
 id|path
 )paren
@@ -1038,7 +1038,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: cannot create subproject directory %s&quot;
+l_string|&quot;git checkout-index: cannot create subproject directory %s&quot;
 comma
 id|path
 )paren
@@ -1051,7 +1051,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git-checkout-index: unknown file mode for %s&quot;
+l_string|&quot;git checkout-index: unknown file mode for %s&quot;
 comma
 id|path
 )paren

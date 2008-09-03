@@ -3094,7 +3094,7 @@ id|pack_lockfile
 id|die
 c_func
 (paren
-l_string|&quot;git-fetch-pack: fetch failed.&quot;
+l_string|&quot;git fetch-pack: fetch failed.&quot;
 )paren
 suffix:semicolon
 id|all_done

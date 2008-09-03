@@ -675,6 +675,17 @@ id|argc
 op_decrement
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cached
+)paren
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * Make sure there is one revision (i.e. pending object),&n;&t; * and there is no revision filtering parameters.&n;&t; */
 r_if
 c_cond
@@ -1269,6 +1280,11 @@ op_assign
 id|revs-&gt;dense_combined_merges
 op_assign
 l_int|1
+suffix:semicolon
+id|setup_work_tree
+c_func
+(paren
+)paren
 suffix:semicolon
 r_if
 c_cond

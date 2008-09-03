@@ -1188,7 +1188,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: cannot chmod %cx &squot;%s&squot;&quot;
+l_string|&quot;git update-index: cannot chmod %cx &squot;%s&squot;&quot;
 comma
 id|flip
 comma
@@ -1301,7 +1301,7 @@ id|p
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: unable to remove %s&quot;
+l_string|&quot;git update-index: unable to remove %s&quot;
 comma
 id|path
 )paren
@@ -1647,7 +1647,7 @@ l_int|NULL
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: bad quoting of path name&quot;
+l_string|&quot;git update-index: bad quoting of path name&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1700,7 +1700,7 @@ id|path_name
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: unable to remove %s&quot;
+l_string|&quot;git update-index: unable to remove %s&quot;
 comma
 id|ptr
 )paren
@@ -1739,7 +1739,7 @@ id|stage
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: unable to update %s&quot;
+l_string|&quot;git update-index: unable to update %s&quot;
 comma
 id|path_name
 )paren
@@ -2968,6 +2968,11 @@ l_string|&quot;--refresh&quot;
 )paren
 )paren
 (brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|has_errors
 op_or_assign
 id|refresh_cache
@@ -2992,6 +2997,11 @@ l_string|&quot;--really-refresh&quot;
 )paren
 )paren
 (brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|has_errors
 op_or_assign
 id|refresh_cache
@@ -3041,7 +3051,7 @@ id|argc
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
+l_string|&quot;git update-index: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3096,7 +3106,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: --cacheinfo&quot;
+l_string|&quot;git update-index: --cacheinfo&quot;
 l_string|&quot; cannot add %s&quot;
 comma
 id|argv
@@ -3148,7 +3158,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: %s &lt;path&gt;&quot;
+l_string|&quot;git update-index: %s &lt;path&gt;&quot;
 comma
 id|path
 )paren
@@ -3406,6 +3416,11 @@ l_string|&quot;-g&quot;
 )paren
 )paren
 (brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|has_errors
 op_assign
 id|do_reupdate
@@ -3512,6 +3527,11 @@ id|path
 )paren
 suffix:semicolon
 )brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|p
 op_assign
 id|prefix_path
@@ -3599,6 +3619,11 @@ op_amp
 id|nbuf
 comma
 l_int|0
+)paren
+suffix:semicolon
+id|setup_work_tree
+c_func
+(paren
 )paren
 suffix:semicolon
 r_while

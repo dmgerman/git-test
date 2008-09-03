@@ -175,6 +175,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|cached
+)paren
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|read_cache
 c_func
 (paren

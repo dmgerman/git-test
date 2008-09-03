@@ -3948,7 +3948,7 @@ id|opt.prefix_length
 id|die
 c_func
 (paren
-l_string|&quot;git-grep: cannot generate relative filenames containing &squot;..&squot;&quot;
+l_string|&quot;git grep: cannot generate relative filenames containing &squot;..&squot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -3996,6 +3996,18 @@ c_cond
 op_logical_neg
 id|list.nr
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cached
+)paren
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 op_logical_neg
 id|grep_cache
@@ -4009,6 +4021,7 @@ comma
 id|cached
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
