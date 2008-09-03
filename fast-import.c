@@ -4651,6 +4651,10 @@ comma
 id|pack_data-&gt;pack_name
 comma
 id|object_count
+comma
+l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|close
