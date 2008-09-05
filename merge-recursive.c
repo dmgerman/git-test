@@ -77,7 +77,7 @@ id|shifted
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * A virtual commit has&n; * - (const char *)commit-&gt;util set to the name, and&n; * - *(int *)commit-&gt;object.sha1 set to the virtual id.&n; */
+multiline_comment|/*&n; * A virtual commit has (const char *)commit-&gt;util set to the name.&n; */
 DECL|function|make_virtual_commit
 r_struct
 id|commit
@@ -113,12 +113,6 @@ id|commit
 )paren
 )paren
 suffix:semicolon
-r_static
-r_int
-id|virtual_id
-op_assign
-l_int|1
-suffix:semicolon
 id|commit-&gt;tree
 op_assign
 id|tree
@@ -130,16 +124,6 @@ r_void
 op_star
 )paren
 id|comment
-suffix:semicolon
-op_star
-(paren
-r_int
-op_star
-)paren
-id|commit-&gt;object.sha1
-op_assign
-id|virtual_id
-op_increment
 suffix:semicolon
 multiline_comment|/* avoid warnings */
 id|commit-&gt;object.parsed
