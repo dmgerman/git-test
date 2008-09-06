@@ -3409,6 +3409,12 @@ c_func
 )paren
 )paren
 suffix:semicolon
+id|rollback_lock_file
+c_func
+(paren
+id|lock
+)paren
+suffix:semicolon
 r_return
 id|clean
 ques
