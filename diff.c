@@ -18428,15 +18428,6 @@ r_if
 c_cond
 (paren
 id|options-&gt;skip_stat_unmatch
-op_logical_and
-op_logical_neg
-id|DIFF_OPT_TST
-c_func
-(paren
-id|options
-comma
-id|FIND_COPIES_HARDER
-)paren
 )paren
 id|diffcore_skip_stat_unmatch
 c_func
