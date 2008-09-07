@@ -434,6 +434,16 @@ id|s-&gt;fp
 comma
 id|c
 comma
+l_string|&quot;#   (use &bslash;&quot;git checkout -- &lt;file&gt;...&bslash;&quot; to discard changes in working directory)&quot;
+)paren
+suffix:semicolon
+id|color_fprintf_ln
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|c
+comma
 l_string|&quot;#&quot;
 )paren
 suffix:semicolon
