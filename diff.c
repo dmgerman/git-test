@@ -7720,6 +7720,12 @@ l_string|&quot;^&bslash;&bslash;(.*=[ &bslash;t]*&bslash;&bslash;(class&bslash;&
 )brace
 comma
 (brace
+l_string|&quot;php&quot;
+comma
+l_string|&quot;^[&bslash;t ]*&bslash;&bslash;(&bslash;&bslash;(function&bslash;&bslash;|class&bslash;&bslash;).*&bslash;&bslash;)&quot;
+)brace
+comma
+(brace
 l_string|&quot;python&quot;
 comma
 l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
