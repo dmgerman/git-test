@@ -800,7 +800,7 @@ id|loose
 comma
 id|loose_size
 op_div
-l_int|2
+l_int|1024
 )paren
 suffix:semicolon
 r_return
