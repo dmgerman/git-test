@@ -1851,7 +1851,7 @@ id|fill_chain
 op_star
 r_new
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof

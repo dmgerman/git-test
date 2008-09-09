@@ -316,7 +316,7 @@ id|url
 suffix:semicolon
 id|ret
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|rewrite
@@ -872,7 +872,7 @@ id|name
 suffix:semicolon
 id|refname
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|strlen
