@@ -1951,6 +1951,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;receive-pack&quot;
+comma
+id|cmd_receive_pack
+)brace
+comma
+(brace
 l_string|&quot;reflog&quot;
 comma
 id|cmd_reflog
