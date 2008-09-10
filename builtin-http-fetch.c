@@ -296,7 +296,7 @@ id|commits_on_stdin
 id|usage
 c_func
 (paren
-l_string|&quot;git-http-fetch [-c] [-t] [-a] [-v] [--recover] [-w ref] [--stdin] commit-id url&quot;
+l_string|&quot;git http-fetch [-c] [-t] [-a] [-v] [--recover] [-w ref] [--stdin] commit-id url&quot;
 )paren
 suffix:semicolon
 r_return
@@ -478,7 +478,7 @@ id|stderr
 comma
 l_string|&quot;Some loose object were found to be corrupt, but they might be just&bslash;n&quot;
 l_string|&quot;a false &squot;404 Not Found&squot; error message sent with incorrect HTTP&bslash;n&quot;
-l_string|&quot;status code.  Suggest running git-fsck.&bslash;n&quot;
+l_string|&quot;status code.  Suggest running &squot;git fsck&squot;.&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace

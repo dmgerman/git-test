@@ -3872,7 +3872,7 @@ op_logical_and
 id|nr_heads
 )paren
 (brace
-multiline_comment|/* If the heads to pull were given, we should have&n;&t;&t; * consumed all of them by matching the remote.&n;&t;&t; * Otherwise, &squot;git-fetch remote no-such-ref&squot; would&n;&t;&t; * silently succeed without issuing an error.&n;&t;&t; */
+multiline_comment|/* If the heads to pull were given, we should have&n;&t;&t; * consumed all of them by matching the remote.&n;&t;&t; * Otherwise, &squot;git fetch remote no-such-ref&squot; would&n;&t;&t; * silently succeed without issuing an error.&n;&t;&t; */
 r_for
 c_loop
 (paren
