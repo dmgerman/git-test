@@ -176,19 +176,6 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|flags
-op_amp
-(paren
-id|CSUM_CLOSE
-op_or
-id|CSUM_FSYNC
-)paren
-)paren
-(brace
-multiline_comment|/* write checksum and close fd */
 id|SHA1_Final
 c_func
 (paren
@@ -211,6 +198,19 @@ comma
 id|f-&gt;buffer
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+(paren
+id|CSUM_CLOSE
+op_or
+id|CSUM_FSYNC
+)paren
+)paren
+(brace
+multiline_comment|/* write checksum and close fd */
 id|sha1flush
 c_func
 (paren
