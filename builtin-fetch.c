@@ -399,7 +399,7 @@ id|rm
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Not fetched to a tracking branch?  We need to fetch&n;&t;&t; * it anyway to allow this branch&squot;s &quot;branch.$name.merge&quot;&n;&t;&t; * to be honored by git-pull, but we do not have to&n;&t;&t; * fail if branch.$name.merge is misconfigured to point&n;&t;&t; * at a nonexisting branch.  If we were indeed called by&n;&t;&t; * git-pull, it will notice the misconfiguration because&n;&t;&t; * there is no entry in the resulting FETCH_HEAD marked&n;&t;&t; * for merging.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Not fetched to a tracking branch?  We need to fetch&n;&t;&t; * it anyway to allow this branch&squot;s &quot;branch.$name.merge&quot;&n;&t;&t; * to be honored by &squot;git pull&squot;, but we do not have to&n;&t;&t; * fail if branch.$name.merge is misconfigured to point&n;&t;&t; * at a nonexisting branch.  If we were indeed called by&n;&t;&t; * &squot;git pull&squot;, it will notice the misconfiguration because&n;&t;&t; * there is no entry in the resulting FETCH_HEAD marked&n;&t;&t; * for merging.&n;&t;&t; */
 id|refspec.src
 op_assign
 id|branch-&gt;merge
@@ -2231,7 +2231,7 @@ r_return
 id|rc
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * We would want to bypass the object transfer altogether if&n; * everything we are going to fetch already exists and connected&n; * locally.&n; *&n; * The refs we are going to fetch are in to_fetch (nr_heads in&n; * total).  If running&n; *&n; *  $ git-rev-list --objects to_fetch[0] to_fetch[1] ... --not --all&n; *&n; * does not error out, that means everything reachable from the&n; * refs we are going to fetch exists and is connected to some of&n; * our existing refs.&n; */
+multiline_comment|/*&n; * We would want to bypass the object transfer altogether if&n; * everything we are going to fetch already exists and connected&n; * locally.&n; *&n; * The refs we are going to fetch are in to_fetch (nr_heads in&n; * total).  If running&n; *&n; *  $ git rev-list --objects to_fetch[0] to_fetch[1] ... --not --all&n; *&n; * does not error out, that means everything reachable from the&n; * refs we are going to fetch exists and is connected to some of&n; * our existing refs.&n; */
 DECL|function|quickfetch
 r_static
 r_int
