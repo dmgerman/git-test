@@ -74,7 +74,7 @@ id|nargc
 op_increment
 )braket
 op_assign
-l_string|&quot;git-archive&quot;
+l_string|&quot;archive&quot;
 suffix:semicolon
 id|nargv
 (braket
