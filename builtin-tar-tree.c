@@ -13,7 +13,7 @@ id|tar_tree_usage
 )braket
 op_assign
 l_string|&quot;git tar-tree [--remote=&lt;repo&gt;] &lt;tree-ish&gt; [basedir]&bslash;n&quot;
-l_string|&quot;*** Note that this command is now deprecated; use git-archive instead.&quot;
+l_string|&quot;*** Note that this command is now deprecated; use &bslash;&quot;git archive&bslash;&quot; instead.&quot;
 suffix:semicolon
 DECL|function|cmd_tar_tree
 r_int
@@ -35,7 +35,7 @@ op_star
 id|prefix
 )paren
 (brace
-multiline_comment|/*&n;&t; * git-tar-tree is now a wrapper around git-archive --format=tar&n;&t; *&n;&t; * $0 --remote=&lt;repo&gt; arg... ==&gt;&n;&t; *&t;git-archive --format=tar --remote=&lt;repo&gt; arg...&n;&t; * $0 tree-ish ==&gt;&n;&t; *&t;git-archive --format=tar tree-ish&n;&t; * $0 tree-ish basedir ==&gt;&n;&t; * &t;git-archive --format-tar --prefix=basedir tree-ish&n;&t; */
+multiline_comment|/*&n;&t; * &quot;git tar-tree&quot; is now a wrapper around &quot;git archive --format=tar&quot;&n;&t; *&n;&t; * $0 --remote=&lt;repo&gt; arg... ==&gt;&n;&t; *&t;git archive --format=tar --remote=&lt;repo&gt; arg...&n;&t; * $0 tree-ish ==&gt;&n;&t; *&t;git archive --format=tar tree-ish&n;&t; * $0 tree-ish basedir ==&gt;&n;&t; * &t;git archive --format-tar --prefix=basedir tree-ish&n;&t; */
 r_int
 id|i
 suffix:semicolon
@@ -209,8 +209,8 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;*** git-tar-tree is now deprecated.&bslash;n&quot;
-l_string|&quot;*** Running git-archive instead.&bslash;n***&quot;
+l_string|&quot;*** &bslash;&quot;git tar-tree&bslash;&quot; is now deprecated.&bslash;n&quot;
+l_string|&quot;*** Running &bslash;&quot;git archive&bslash;&quot; instead.&bslash;n***&quot;
 )paren
 suffix:semicolon
 r_for
