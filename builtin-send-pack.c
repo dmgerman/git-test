@@ -127,7 +127,7 @@ id|po
 id|die
 c_func
 (paren
-l_string|&quot;git-pack-objects failed (%s)&quot;
+l_string|&quot;git pack-objects failed (%s)&quot;
 comma
 id|strerror
 c_func

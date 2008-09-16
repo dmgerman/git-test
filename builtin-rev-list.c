@@ -617,7 +617,7 @@ op_star
 id|p
 )paren
 (brace
-multiline_comment|/* An object with name &quot;foo&bslash;n0000000...&quot; can be used to&n;&t; * confuse downstream git-pack-objects very badly.&n;&t; */
+multiline_comment|/* An object with name &quot;foo&bslash;n0000000...&quot; can be used to&n;&t; * confuse downstream &quot;git pack-objects&quot; very badly.&n;&t; */
 r_const
 r_char
 op_star

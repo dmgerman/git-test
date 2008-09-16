@@ -474,7 +474,7 @@ op_logical_neg
 id|index_only
 )paren
 (brace
-multiline_comment|/* It&squot;s not dangerous to git-rm --cached a&n;&t;&t;&t; * file if the index matches the file or the&n;&t;&t;&t; * HEAD, since it means the deleted content is&n;&t;&t;&t; * still available somewhere.&n;&t;&t;&t; */
+multiline_comment|/* It&squot;s not dangerous to &quot;git rm --cached&quot; a&n;&t;&t;&t; * file if the index matches the file or the&n;&t;&t;&t; * HEAD, since it means the deleted content is&n;&t;&t;&t; * still available somewhere.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren

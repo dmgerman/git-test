@@ -271,7 +271,7 @@ id|read_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-read-tree (&lt;sha&gt; | [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u | -i]] [--exclude-per-directory=&lt;gitignore&gt;] [--index-output=&lt;file&gt;] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
+l_string|&quot;git read-tree (&lt;sha&gt; | [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u | -i]] [--exclude-per-directory=&lt;gitignore&gt;] [--index-output=&lt;file&gt;] &lt;sha1&gt; [&lt;sha2&gt; [&lt;sha3&gt;]])&quot;
 suffix:semicolon
 DECL|variable|lock_file
 r_static

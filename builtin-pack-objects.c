@@ -28,7 +28,7 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;&bslash;&n;git-pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--max-pack-size=N] [--local] [--incremental] &bslash;n&bslash;&n;&t;[--window=N] [--window-memory=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--no-reuse-object] [--delta-base-offset] &bslash;n&bslash;&n;&t;[--threads=N] [--non-empty] [--revs [--unpacked | --all]*] [--reflog] &bslash;n&bslash;&n;&t;[--stdout | base-name] [--include-tag] &bslash;n&bslash;&n;&t;[--keep-unreachable | --unpack-unreachable] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;&bslash;&n;git pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--max-pack-size=N] [--local] [--incremental] &bslash;n&bslash;&n;&t;[--window=N] [--window-memory=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--no-reuse-object] [--delta-base-offset] &bslash;n&bslash;&n;&t;[--threads=N] [--non-empty] [--revs [--unpacked | --all]*] [--reflog] &bslash;n&bslash;&n;&t;[--stdout | base-name] [--include-tag] &bslash;n&bslash;&n;&t;[--keep-unreachable | --unpack-unreachable] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -8898,7 +8898,7 @@ id|in_pack-&gt;nr
 op_increment
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Compare the objects in the offset order, in order to emulate the&n; * &quot;git-rev-list --objects&quot; output that produced the pack originally.&n; */
+multiline_comment|/*&n; * Compare the objects in the offset order, in order to emulate the&n; * &quot;git rev-list --objects&quot; output that produced the pack originally.&n; */
 DECL|function|ofscmp
 r_static
 r_int
