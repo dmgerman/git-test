@@ -1413,6 +1413,21 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* 2-way merge to the new branch */
+id|topts.initial_checkout
+op_assign
+(paren
+op_logical_neg
+id|active_nr
+op_logical_and
+(paren
+id|old-&gt;commit
+op_eq
+r_new
+op_member_access_from_pointer
+id|commit
+)paren
+)paren
+suffix:semicolon
 id|topts.update
 op_assign
 l_int|1
