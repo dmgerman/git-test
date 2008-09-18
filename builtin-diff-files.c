@@ -229,12 +229,16 @@ c_func
 id|diff_files_usage
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * &quot;diff-files --base -p&quot; should not combine merges because it&n;&t; * was not asked to.  &quot;diff-files -c -p&quot; should not densify&n;&t; * (the user should ask with &quot;diff-files --cc&quot; explicitly).&n;&t; */
 r_if
 c_cond
 (paren
 id|rev.max_count
 op_eq
 l_int|1
+op_logical_and
+op_logical_neg
+id|rev.combine_merges
 op_logical_and
 (paren
 id|rev.diffopt.output_format
