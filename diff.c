@@ -427,6 +427,10 @@ r_char
 op_star
 id|pattern
 suffix:semicolon
+DECL|member|cflags
+r_int
+id|cflags
+suffix:semicolon
 )brace
 suffix:semicolon
 DECL|struct|funcname_pattern_list
@@ -470,6 +474,9 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_int
+id|cflags
 )paren
 (brace
 r_const
@@ -585,6 +592,10 @@ c_func
 (paren
 id|value
 )paren
+suffix:semicolon
+id|pp-&gt;e.cflags
+op_assign
+id|cflags
 suffix:semicolon
 r_return
 l_int|0
@@ -1018,6 +1029,8 @@ comma
 id|ep
 comma
 id|value
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -7695,6 +7708,8 @@ l_string|&quot;new&bslash;&bslash;|return&bslash;&bslash;|switch&bslash;&bslash;
 l_string|&quot;^[ &t;]*&bslash;&bslash;(&bslash;&bslash;([ &t;]*&quot;
 l_string|&quot;[A-Za-z_][A-Za-z_0-9]*&bslash;&bslash;)&bslash;&bslash;{2,&bslash;&bslash;}&quot;
 l_string|&quot;[ &t;]*([^;]*&bslash;&bslash;)$&quot;
+comma
+l_int|0
 )brace
 comma
 (brace
@@ -7705,24 +7720,32 @@ l_string|&quot;destructor&bslash;&bslash;|interface&bslash;&bslash;|implementati
 l_string|&quot;initialization&bslash;&bslash;|finalization&bslash;&bslash;)[ &bslash;t]*.*&bslash;&bslash;)$&quot;
 l_string|&quot;&bslash;&bslash;|&quot;
 l_string|&quot;^&bslash;&bslash;(.*=[ &bslash;t]*&bslash;&bslash;(class&bslash;&bslash;|record&bslash;&bslash;).*&bslash;&bslash;)$&quot;
+comma
+l_int|0
 )brace
 comma
 (brace
 l_string|&quot;bibtex&quot;
 comma
 l_string|&quot;&bslash;&bslash;(@[a-zA-Z]&bslash;&bslash;{1,&bslash;&bslash;}[ &bslash;t]*{&bslash;&bslash;{0,1&bslash;&bslash;}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*&bslash;&bslash;).*$&quot;
+comma
+l_int|0
 )brace
 comma
 (brace
 l_string|&quot;tex&quot;
 comma
 l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(&bslash;&bslash;(sub&bslash;&bslash;)*section&bslash;&bslash;|chapter&bslash;&bslash;|part&bslash;&bslash;)&bslash;&bslash;*&bslash;&bslash;{0,1&bslash;&bslash;}{.*&bslash;&bslash;)$&quot;
+comma
+l_int|0
 )brace
 comma
 (brace
 l_string|&quot;ruby&quot;
 comma
 l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|module&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
+comma
+l_int|0
 )brace
 comma
 )brace
@@ -8499,6 +8522,8 @@ op_amp
 id|xecfg
 comma
 id|pe-&gt;pattern
+comma
+id|pe-&gt;cflags
 )paren
 suffix:semicolon
 r_if
