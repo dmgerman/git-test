@@ -904,6 +904,11 @@ id|opts.fn
 op_assign
 id|twoway_merge
 suffix:semicolon
+id|opts.initial_checkout
+op_assign
+op_logical_neg
+id|active_nr
+suffix:semicolon
 r_break
 suffix:semicolon
 r_case
