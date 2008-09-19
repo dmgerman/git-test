@@ -36,7 +36,7 @@ id|unpack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-unpack-objects [-n] [-q] [-r] [--strict] &lt; pack-file&quot;
+l_string|&quot;git unpack-objects [-n] [-q] [-r] [--strict] &lt; pack-file&quot;
 suffix:semicolon
 multiline_comment|/* We always read in 4kB chunks. */
 DECL|variable|buffer

@@ -1319,6 +1319,9 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_int
+id|cflags
 )paren
 (brace
 r_int
@@ -1511,7 +1514,7 @@ id|reg-&gt;re
 comma
 id|expression
 comma
-l_int|0
+id|cflags
 )paren
 )paren
 id|die

@@ -87,7 +87,7 @@ id|commit_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
+l_string|&quot;git commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
 suffix:semicolon
 DECL|function|new_parent
 r_static
