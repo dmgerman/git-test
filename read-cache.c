@@ -5804,6 +5804,10 @@ id|istate-&gt;timestamp
 op_assign
 l_int|0
 suffix:semicolon
+id|istate-&gt;name_hash_initialized
+op_assign
+l_int|0
+suffix:semicolon
 id|free_hash
 c_func
 (paren
