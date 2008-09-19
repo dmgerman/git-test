@@ -5257,13 +5257,19 @@ id|daemon_die
 suffix:semicolon
 )brace
 r_else
-id|setlinebuf
+multiline_comment|/* avoid splitting a message in the middle */
+id|setvbuf
 c_func
 (paren
 id|stderr
+comma
+l_int|NULL
+comma
+id|_IOLBF
+comma
+l_int|0
 )paren
 suffix:semicolon
-multiline_comment|/* avoid splitting a message in the middle */
 r_if
 c_cond
 (paren
