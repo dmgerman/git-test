@@ -231,7 +231,7 @@ id|option_origin
 comma
 l_string|&quot;branch&quot;
 comma
-l_string|&quot;use &lt;branch&gt; instead or &squot;origin&squot; to track upstream&quot;
+l_string|&quot;use &lt;branch&gt; instead of &squot;origin&squot; to track upstream&quot;
 )paren
 comma
 id|OPT_STRING
