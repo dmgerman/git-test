@@ -11219,6 +11219,11 @@ id|filename
 r_int
 id|ret
 op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|link
 c_func
 (paren
@@ -11226,6 +11231,10 @@ id|tmpfile
 comma
 id|filename
 )paren
+)paren
+id|ret
+op_assign
+id|errno
 suffix:semicolon
 multiline_comment|/*&n;&t; * Coda hack - coda doesn&squot;t like cross-directory links,&n;&t; * so we fall back to a rename, which will mean that it&n;&t; * won&squot;t be able to check collisions, but that&squot;s not a&n;&t; * big deal.&n;&t; *&n;&t; * The same holds for FAT formatted media.&n;&t; *&n;&t; * When this succeeds, we just return 0. We have nothing&n;&t; * left to unlink.&n;&t; */
 r_if
