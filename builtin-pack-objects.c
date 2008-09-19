@@ -8075,6 +8075,21 @@ id|entry-&gt;idx.sha1
 )paren
 suffix:semicolon
 )brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|entry-&gt;type
+OL
+l_int|0
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t;&t; * This object is not found, but we&n;&t;&t;&t;&t; * don&squot;t have to include it anyway.&n;&t;&t;&t;&t; */
+r_continue
+suffix:semicolon
+)brace
+)brace
 id|delta_list
 (braket
 id|n
