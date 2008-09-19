@@ -1390,6 +1390,17 @@ m_exit
 l_int|1
 )paren
 suffix:semicolon
+id|diff_set_mnemonic_prefix
+c_func
+(paren
+op_amp
+id|revs-&gt;diffopt
+comma
+l_string|&quot;1/&quot;
+comma
+l_string|&quot;2/&quot;
+)paren
+suffix:semicolon
 id|diffcore_std
 c_func
 (paren
