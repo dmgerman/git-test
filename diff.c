@@ -7812,7 +7812,7 @@ l_string|&quot;pascal&quot;
 comma
 l_string|&quot;^((procedure|function|constructor|destructor|interface|&quot;
 l_string|&quot;implementation|initialization|finalization)[ &bslash;t]*.*)$&quot;
-l_string|&quot;|&quot;
+l_string|&quot;&bslash;n&quot;
 l_string|&quot;^(.*=[ &bslash;t]*(class|record).*)$&quot;
 comma
 id|REG_EXTENDED
