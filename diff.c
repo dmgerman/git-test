@@ -7764,7 +7764,7 @@ comma
 (brace
 l_string|&quot;bibtex&quot;
 comma
-l_string|&quot;(@[a-zA-Z]{1,}[ &bslash;t]*&bslash;{{0,1}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*).*$&quot;
+l_string|&quot;(@[a-zA-Z]{1,}[ &bslash;t]*&bslash;&bslash;{{0,1}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*).*$&quot;
 comma
 id|REG_EXTENDED
 )brace
@@ -7772,7 +7772,7 @@ comma
 (brace
 l_string|&quot;tex&quot;
 comma
-l_string|&quot;^(&bslash;&bslash;&bslash;&bslash;((sub)*section|chapter|part)&bslash;&bslash;*{0,1}&bslash;{.*)$&quot;
+l_string|&quot;^(&bslash;&bslash;&bslash;&bslash;((sub)*section|chapter|part)&bslash;&bslash;*{0,1}&bslash;&bslash;{.*)$&quot;
 comma
 id|REG_EXTENDED
 )brace
