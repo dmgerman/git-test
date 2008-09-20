@@ -7744,49 +7744,45 @@ op_assign
 (brace
 l_string|&quot;java&quot;
 comma
-l_string|&quot;!^[ &t;]*&bslash;&bslash;(catch&bslash;&bslash;|do&bslash;&bslash;|for&bslash;&bslash;|if&bslash;&bslash;|instanceof&bslash;&bslash;|&quot;
-l_string|&quot;new&bslash;&bslash;|return&bslash;&bslash;|switch&bslash;&bslash;|throw&bslash;&bslash;|while&bslash;&bslash;)&bslash;n&quot;
-l_string|&quot;^[ &t;]*&bslash;&bslash;(&bslash;&bslash;([ &t;]*&quot;
-l_string|&quot;[A-Za-z_][A-Za-z_0-9]*&bslash;&bslash;)&bslash;&bslash;{2,&bslash;&bslash;}&quot;
-l_string|&quot;[ &t;]*([^;]*&bslash;&bslash;)$&quot;
+l_string|&quot;!^[ &bslash;t]*(catch|do|for|if|instanceof|new|return|switch|throw|while)&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*(([ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*){2,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;pascal&quot;
 comma
-l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;(procedure&bslash;&bslash;|function&bslash;&bslash;|constructor&bslash;&bslash;|&quot;
-l_string|&quot;destructor&bslash;&bslash;|interface&bslash;&bslash;|implementation&bslash;&bslash;|&quot;
-l_string|&quot;initialization&bslash;&bslash;|finalization&bslash;&bslash;)[ &bslash;t]*.*&bslash;&bslash;)$&quot;
-l_string|&quot;&bslash;&bslash;|&quot;
-l_string|&quot;^&bslash;&bslash;(.*=[ &bslash;t]*&bslash;&bslash;(class&bslash;&bslash;|record&bslash;&bslash;).*&bslash;&bslash;)$&quot;
+l_string|&quot;^((procedure|function|constructor|destructor|interface|&quot;
+l_string|&quot;implementation|initialization|finalization)[ &bslash;t]*.*)$&quot;
+l_string|&quot;|&quot;
+l_string|&quot;^(.*=[ &bslash;t]*(class|record).*)$&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;bibtex&quot;
 comma
-l_string|&quot;&bslash;&bslash;(@[a-zA-Z]&bslash;&bslash;{1,&bslash;&bslash;}[ &bslash;t]*{&bslash;&bslash;{0,1&bslash;&bslash;}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*&bslash;&bslash;).*$&quot;
+l_string|&quot;(@[a-zA-Z]{1,}[ &bslash;t]*&bslash;{{0,1}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*).*$&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;tex&quot;
 comma
-l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(&bslash;&bslash;(sub&bslash;&bslash;)*section&bslash;&bslash;|chapter&bslash;&bslash;|part&bslash;&bslash;)&bslash;&bslash;*&bslash;&bslash;{0,1&bslash;&bslash;}{.*&bslash;&bslash;)$&quot;
+l_string|&quot;^(&bslash;&bslash;&bslash;&bslash;((sub)*section|chapter|part)&bslash;&bslash;*{0,1}&bslash;{.*)$&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;ruby&quot;
 comma
-l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|module&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
+l_string|&quot;^[ &bslash;t]*((class|module|def)[ &bslash;t].*)$&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 )brace
