@@ -7793,9 +7793,9 @@ comma
 (brace
 l_string|&quot;html&quot;
 comma
-l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&lt;[Hh][1-6]&bslash;&bslash;s.*&gt;.*&bslash;&bslash;)$&quot;
+l_string|&quot;^[ &bslash;t]*(&lt;[Hh][1-6][ &bslash;t].*&gt;.*)$&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 (brace
@@ -7821,17 +7821,17 @@ comma
 (brace
 l_string|&quot;php&quot;
 comma
-l_string|&quot;^[&bslash;t ]*&bslash;&bslash;(&bslash;&bslash;(function&bslash;&bslash;|class&bslash;&bslash;).*&bslash;&bslash;)&quot;
+l_string|&quot;^[&bslash;t ]*((function|class).*)&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;python&quot;
 comma
-l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
+l_string|&quot;^[ &bslash;t]*((class|def)[ &bslash;t].*)$&quot;
 comma
-l_int|0
+id|REG_EXTENDED
 )brace
 comma
 (brace
