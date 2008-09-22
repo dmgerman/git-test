@@ -2429,6 +2429,21 @@ op_amp
 id|argv
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Bad branch.%s.mergeoptions string&quot;
+comma
+id|branch
+)paren
+suffix:semicolon
 id|argv
 op_assign
 id|xrealloc
