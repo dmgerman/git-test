@@ -2330,6 +2330,11 @@ r_struct
 id|string_list
 op_star
 id|list
+comma
+r_const
+r_char
+op_star
+id|extra_arg
 )paren
 (brace
 r_int
@@ -2356,6 +2361,8 @@ c_cond
 l_string|&quot;es&quot;
 suffix:colon
 l_string|&quot;&quot;
+comma
+id|extra_arg
 )paren
 suffix:semicolon
 id|printf
@@ -2722,10 +2729,6 @@ id|argv
 op_increment
 )paren
 (brace
-r_struct
-id|strbuf
-id|buf
-suffix:semicolon
 r_int
 id|i
 suffix:semicolon
@@ -2873,43 +2876,18 @@ op_logical_neg
 id|no_query
 )paren
 (brace
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
-suffix:semicolon
-id|strbuf_addf
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_string|&quot;  New remote branch%%s (next fetch &quot;
-l_string|&quot;will store in remotes/%s)&quot;
-comma
-id|states.remote-&gt;name
-)paren
-suffix:semicolon
 id|show_list
 c_func
 (paren
-id|buf.buf
+l_string|&quot;  New remote branch%s (next fetch &quot;
+l_string|&quot;will store in remotes/%s)&quot;
 comma
 op_amp
 id|states
 dot
 r_new
-)paren
-suffix:semicolon
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|buf
+comma
+id|states.remote-&gt;name
 )paren
 suffix:semicolon
 id|show_list
@@ -2920,6 +2898,8 @@ l_string|&quot;prune&squot;)&quot;
 comma
 op_amp
 id|states.stale
+comma
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -2944,6 +2924,8 @@ l_string|&quot;  Tracked remote branch%s&quot;
 comma
 op_amp
 id|states.tracked
+comma
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_if
