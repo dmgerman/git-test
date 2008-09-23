@@ -1388,9 +1388,28 @@ r_if
 c_cond
 (paren
 id|timeout
-op_ne
-l_int|1
+op_ge
+l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|nfds
+op_eq
+l_int|0
+)paren
+(brace
+id|Sleep
+c_func
+(paren
+id|timeout
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_return
 id|errno
 op_assign
@@ -1402,6 +1421,7 @@ c_func
 l_string|&quot;poll timeout not supported&quot;
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/* When there is only one fd to wait for, then we pretend that&n;&t; * input is available and let the actual wait happen when the&n;&t; * caller invokes read().&n;&t; */
 r_if
 c_cond
