@@ -208,6 +208,11 @@ r_int
 r_char
 op_star
 id|ret
+comma
+r_const
+r_char
+op_star
+id|author
 )paren
 (brace
 r_int
@@ -303,6 +308,20 @@ id|next
 suffix:semicolon
 )brace
 multiline_comment|/* Person/date information */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|author
+)paren
+id|author
+op_assign
+id|git_author_info
+c_func
+(paren
+id|IDENT_ERROR_ON_NO_NAME
+)paren
+suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
@@ -311,11 +330,7 @@ id|buffer
 comma
 l_string|&quot;author %s&bslash;n&quot;
 comma
-id|git_author_info
-c_func
-(paren
-id|IDENT_ERROR_ON_NO_NAME
-)paren
+id|author
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -661,6 +676,8 @@ comma
 id|parents
 comma
 id|commit_sha1
+comma
+l_int|NULL
 )paren
 )paren
 (brace

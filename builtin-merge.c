@@ -4272,6 +4272,8 @@ comma
 id|parent
 comma
 id|result_commit
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|finish
@@ -4454,6 +4456,8 @@ comma
 id|parents
 comma
 id|result_commit
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|strbuf_addf
