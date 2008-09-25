@@ -2720,6 +2720,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * This function frees a refspec array.&n; * Warning: code paths should be checked to ensure that the src&n; *          and dst pointers are always freeable pointers as well&n; *          as the refspec pointer itself.&n; */
 DECL|function|free_refspecs
+r_static
 r_void
 id|free_refspecs
 c_func
@@ -3486,6 +3487,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|parse_push_refspec
+r_static
 r_struct
 id|refspec
 op_star
@@ -4515,6 +4517,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|free_ref
+r_static
 r_void
 id|free_ref
 c_func
