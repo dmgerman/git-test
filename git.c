@@ -949,6 +949,21 @@ op_amp
 id|new_argv
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|count
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Bad alias.%s string&quot;
+comma
+id|alias_command
+)paren
+suffix:semicolon
 id|option_count
 op_assign
 id|handle_options

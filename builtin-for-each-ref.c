@@ -1711,8 +1711,16 @@ c_cond
 op_logical_neg
 id|eol
 )paren
-r_return
-l_string|&quot;&quot;
+singleline_comment|// simulate strchrnul()
+id|eol
+op_assign
+id|buf
+op_plus
+id|strlen
+c_func
+(paren
+id|buf
+)paren
 suffix:semicolon
 r_return
 id|xmemdupz
