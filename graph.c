@@ -3,6 +3,59 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;graph.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+multiline_comment|/* Internal API */
+multiline_comment|/*&n; * Output the next line for a graph.&n; * This formats the next graph line into the specified strbuf.  It is not&n; * terminated with a newline.&n; *&n; * Returns 1 if the line includes the current commit, and 0 otherwise.&n; * graph_next_line() will return 1 exactly once for each time&n; * graph_update() is called.&n; */
+r_static
+r_int
+id|graph_next_line
+c_func
+(paren
+r_struct
+id|git_graph
+op_star
+id|graph
+comma
+r_struct
+id|strbuf
+op_star
+id|sb
+)paren
+suffix:semicolon
+multiline_comment|/*&n; * Output a padding line in the graph.&n; * This is similar to graph_next_line().  However, it is guaranteed to&n; * never print the current commit line.  Instead, if the commit line is&n; * next, it will simply output a line of vertical padding, extending the&n; * branch lines downwards, but leaving them otherwise unchanged.&n; */
+r_static
+r_void
+id|graph_padding_line
+c_func
+(paren
+r_struct
+id|git_graph
+op_star
+id|graph
+comma
+r_struct
+id|strbuf
+op_star
+id|sb
+)paren
+suffix:semicolon
+multiline_comment|/*&n; * Print a strbuf to stdout.  If the graph is non-NULL, all lines but the&n; * first will be prefixed with the graph output.&n; *&n; * If the strbuf ends with a newline, the output will end after this&n; * newline.  A new graph line will not be printed after the final newline.&n; * If the strbuf is empty, no output will be printed.&n; *&n; * Since the first line will not include the graph ouput, the caller is&n; * responsible for printing this line&squot;s graph (perhaps via&n; * graph_show_commit() or graph_show_oneline()) before calling&n; * graph_show_strbuf().&n; */
+r_static
+r_void
+id|graph_show_strbuf
+c_func
+(paren
+r_struct
+id|git_graph
+op_star
+id|graph
+comma
+r_struct
+id|strbuf
+r_const
+op_star
+id|sb
+)paren
+suffix:semicolon
 multiline_comment|/*&n; * TODO:&n; * - Add colors to the graph.&n; *   Pick a color for each column, and print all characters&n; *   in that column with the specified color.&n; *&n; * - Limit the number of columns, similar to the way gitk does.&n; *   If we reach more than a specified number of columns, omit&n; *   sections of some columns.&n; *&n; * - The output during the GRAPH_PRE_COMMIT and GRAPH_COLLAPSING states&n; *   could be made more compact by printing horizontal lines, instead of&n; *   long diagonal lines.  For example, during collapsing, something like&n; *   this:          instead of this:&n; *   | | | | |      | | | | |&n; *   | |_|_|/       | | | |/&n; *   |/| | |        | | |/|&n; *   | | | |        | |/| |&n; *                  |/| | |&n; *                  | | | |&n; *&n; *   If there are several parallel diagonal lines, they will need to be&n; *   replaced with horizontal lines on subsequent rows.&n; */
 DECL|struct|column
 r_struct
@@ -281,42 +334,6 @@ id|graph-&gt;column_capacity
 suffix:semicolon
 r_return
 id|graph
-suffix:semicolon
-)brace
-DECL|function|graph_release
-r_void
-id|graph_release
-c_func
-(paren
-r_struct
-id|git_graph
-op_star
-id|graph
-)paren
-(brace
-id|free
-c_func
-(paren
-id|graph-&gt;columns
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|graph-&gt;new_columns
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|graph-&gt;mapping
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|graph
-)paren
 suffix:semicolon
 )brace
 DECL|function|graph_update_state
@@ -1725,6 +1742,7 @@ l_char|&squot;*&squot;
 suffix:semicolon
 )brace
 DECL|function|graph_output_commit_line
+r_static
 r_void
 id|graph_output_commit_line
 c_func
@@ -2019,6 +2037,7 @@ id|GRAPH_COLLAPSING
 suffix:semicolon
 )brace
 DECL|function|graph_output_post_merge_line
+r_static
 r_void
 id|graph_output_post_merge_line
 c_func
@@ -2206,6 +2225,7 @@ id|GRAPH_COLLAPSING
 suffix:semicolon
 )brace
 DECL|function|graph_output_collapsing_line
+r_static
 r_void
 id|graph_output_collapsing_line
 c_func
@@ -2517,6 +2537,7 @@ id|GRAPH_PADDING
 suffix:semicolon
 )brace
 DECL|function|graph_next_line
+r_static
 r_int
 id|graph_next_line
 c_func
@@ -2633,6 +2654,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|graph_padding_line
+r_static
 r_void
 id|graph_padding_line
 c_func
@@ -3169,6 +3191,7 @@ id|shown
 suffix:semicolon
 )brace
 DECL|function|graph_show_strbuf
+r_static
 r_void
 id|graph_show_strbuf
 c_func
