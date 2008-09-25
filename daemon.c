@@ -5422,41 +5422,22 @@ r_if
 c_cond
 (paren
 id|base_path
-)paren
-(brace
-r_struct
-id|stat
-id|st
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|stat
+op_logical_and
+op_logical_neg
+id|is_directory
 c_func
 (paren
 id|base_path
-comma
-op_amp
-id|st
-)paren
-op_logical_or
-op_logical_neg
-id|S_ISDIR
-c_func
-(paren
-id|st.st_mode
 )paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;base-path &squot;%s&squot; does not exist or &quot;
-l_string|&quot;is not a directory&quot;
+l_string|&quot;base-path &squot;%s&squot; does not exist or is not a directory&quot;
 comma
 id|base_path
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren

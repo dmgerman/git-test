@@ -1,4 +1,40 @@
 macro_line|#include &quot;cache.h&quot;
+multiline_comment|/*&n; * Do not use this for inspecting *tracked* content.  When path is a&n; * symlink to a directory, we do not want to say it is a directory when&n; * dealing with tracked content in the working tree.&n; */
+DECL|function|is_directory
+r_int
+id|is_directory
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+)paren
+(brace
+r_struct
+id|stat
+id|st
+suffix:semicolon
+r_return
+(paren
+op_logical_neg
+id|stat
+c_func
+(paren
+id|path
+comma
+op_amp
+id|st
+)paren
+op_logical_and
+id|S_ISDIR
+c_func
+(paren
+id|st.st_mode
+)paren
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* We allow &quot;recursive&quot; symbolic links. Only within reason, though. */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
@@ -107,20 +143,11 @@ op_decrement
 r_if
 c_cond
 (paren
-id|stat
+op_logical_neg
+id|is_directory
 c_func
 (paren
 id|buf
-comma
-op_amp
-id|st
-)paren
-op_logical_or
-op_logical_neg
-id|S_ISDIR
-c_func
-(paren
-id|st.st_mode
 )paren
 )paren
 (brace
