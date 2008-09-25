@@ -54,36 +54,6 @@ comma
 multiline_comment|/* WT_STATUS_NOBRANCH: red */
 )brace
 suffix:semicolon
-DECL|variable|use_add_msg
-r_static
-r_const
-r_char
-id|use_add_msg
-(braket
-)braket
-op_assign
-l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to update what will be committed&quot;
-suffix:semicolon
-DECL|variable|use_add_rm_msg
-r_static
-r_const
-r_char
-id|use_add_rm_msg
-(braket
-)braket
-op_assign
-l_string|&quot;use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; to update what will be committed&quot;
-suffix:semicolon
-DECL|variable|use_add_to_include_msg
-r_static
-r_const
-r_char
-id|use_add_to_include_msg
-(braket
-)braket
-op_assign
-l_string|&quot;use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to include in what will be committed&quot;
-suffix:semicolon
 DECL|variable|show_untracked_files
 r_enum
 id|untracked_status_type
@@ -394,10 +364,10 @@ l_string|&quot;#&quot;
 )paren
 suffix:semicolon
 )brace
-DECL|function|wt_status_print_header
+DECL|function|wt_status_print_dirty_header
 r_static
 r_void
-id|wt_status_print_header
+id|wt_status_print_dirty_header
 c_func
 (paren
 r_struct
@@ -405,15 +375,8 @@ id|wt_status
 op_star
 id|s
 comma
-r_const
-r_char
-op_star
-id|main
-comma
-r_const
-r_char
-op_star
-id|sub
+r_int
+id|has_deleted
 )paren
 (brace
 r_const
@@ -434,9 +397,34 @@ id|s-&gt;fp
 comma
 id|c
 comma
-l_string|&quot;# %s:&quot;
+l_string|&quot;# Changed but not updated:&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|has_deleted
+)paren
+id|color_fprintf_ln
+c_func
+(paren
+id|s-&gt;fp
 comma
-id|main
+id|c
+comma
+l_string|&quot;#   (use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
+)paren
+suffix:semicolon
+r_else
+id|color_fprintf_ln
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|c
+comma
+l_string|&quot;#   (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
 )paren
 suffix:semicolon
 id|color_fprintf_ln
@@ -446,9 +434,61 @@ id|s-&gt;fp
 comma
 id|c
 comma
-l_string|&quot;#   (%s)&quot;
+l_string|&quot;#   (use &bslash;&quot;git checkout -- &lt;file&gt;...&bslash;&quot; to discard changes in working directory)&quot;
+)paren
+suffix:semicolon
+id|color_fprintf_ln
+c_func
+(paren
+id|s-&gt;fp
 comma
-id|sub
+id|c
+comma
+l_string|&quot;#&quot;
+)paren
+suffix:semicolon
+)brace
+DECL|function|wt_status_print_untracked_header
+r_static
+r_void
+id|wt_status_print_untracked_header
+c_func
+(paren
+r_struct
+id|wt_status
+op_star
+id|s
+)paren
+(brace
+r_const
+r_char
+op_star
+id|c
+op_assign
+id|color
+c_func
+(paren
+id|WT_STATUS_HEADER
+)paren
+suffix:semicolon
+id|color_fprintf_ln
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|c
+comma
+l_string|&quot;# Untracked files:&quot;
+)paren
+suffix:semicolon
+id|color_fprintf_ln
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|c
+comma
+l_string|&quot;#   (use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to include in what will be committed)&quot;
 )paren
 suffix:semicolon
 id|color_fprintf_ln
@@ -928,12 +968,10 @@ c_cond
 id|q-&gt;nr
 )paren
 (brace
-r_const
-r_char
-op_star
-id|msg
+r_int
+id|has_deleted
 op_assign
-id|use_add_msg
+l_int|0
 suffix:semicolon
 id|s-&gt;workdir_dirty
 op_assign
@@ -966,21 +1004,19 @@ op_eq
 id|DIFF_STATUS_DELETED
 )paren
 (brace
-id|msg
+id|has_deleted
 op_assign
-id|use_add_rm_msg
+l_int|1
 suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-id|wt_status_print_header
+id|wt_status_print_dirty_header
 c_func
 (paren
 id|s
 comma
-l_string|&quot;Changed but not updated&quot;
-comma
-id|msg
+id|has_deleted
 )paren
 suffix:semicolon
 )brace
@@ -1634,14 +1670,10 @@ id|s-&gt;workdir_untracked
 op_assign
 l_int|1
 suffix:semicolon
-id|wt_status_print_header
+id|wt_status_print_untracked_header
 c_func
 (paren
 id|s
-comma
-l_string|&quot;Untracked files&quot;
-comma
-id|use_add_to_include_msg
 )paren
 suffix:semicolon
 id|shown_header
