@@ -1679,6 +1679,9 @@ c_cond
 (paren
 op_logical_neg
 id|opts-&gt;force
+op_logical_and
+op_logical_neg
+id|opts-&gt;quiet
 )paren
 id|show_local_changes
 c_func
