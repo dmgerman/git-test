@@ -180,14 +180,6 @@ id|time_t
 id|winTime
 suffix:semicolon
 )brace
-r_extern
-r_int
-id|_getdrive
-c_func
-(paren
-r_void
-)paren
-suffix:semicolon
 multiline_comment|/* We keep the do_lstat code in a separate function to avoid recursion.&n; * When a path ends with a slash, the stat will fail with ENOENT. In&n; * this case, we strip the trailing slashes and stat again.&n; */
 DECL|function|do_lstat
 r_static
@@ -288,14 +280,9 @@ id|buf-&gt;st_dev
 op_assign
 id|buf-&gt;st_rdev
 op_assign
-(paren
-id|_getdrive
-c_func
-(paren
-)paren
-l_int|1
-)paren
+l_int|0
 suffix:semicolon
+multiline_comment|/* not used by Git */
 id|buf-&gt;st_atime
 op_assign
 id|filetime_to_time_t
@@ -675,14 +662,9 @@ id|buf-&gt;st_dev
 op_assign
 id|buf-&gt;st_rdev
 op_assign
-(paren
-id|_getdrive
-c_func
-(paren
-)paren
-l_int|1
-)paren
+l_int|0
 suffix:semicolon
+multiline_comment|/* not used by Git */
 id|buf-&gt;st_atime
 op_assign
 id|filetime_to_time_t
