@@ -3396,7 +3396,7 @@ l_int|0
 id|error
 c_func
 (paren
-l_string|&quot;Error building trees&quot;
+l_string|&quot;Error building trees; the index is unmerged?&quot;
 )paren
 suffix:semicolon
 r_return

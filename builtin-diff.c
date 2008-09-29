@@ -1262,12 +1262,16 @@ id|argc
 op_decrement
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * &quot;diff --base&quot; should not combine merges because it was not&n;&t; * asked to.  &quot;diff -c&quot; should not densify (if the user wants&n;&t; * dense one, --cc can be explicitly asked for, or just rely&n;&t; * on the default).&n;&t; */
 r_if
 c_cond
 (paren
 id|revs-&gt;max_count
 op_eq
 l_int|1
+op_logical_and
+op_logical_neg
+id|revs-&gt;combine_merges
 op_logical_and
 (paren
 id|revs-&gt;diffopt.output_format
