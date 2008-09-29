@@ -423,10 +423,9 @@ id|value
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * &squot;diff.&lt;what&gt;.funcname&squot; attribute can be specified in the configuration&n; * to define a customized regexp to find the beginning of a function to&n; * be used for hunk header lines of &quot;diff -p&quot; style output.&n; */
-DECL|struct|funcname_pattern
-r_static
+DECL|struct|funcname_pattern_entry
 r_struct
-id|funcname_pattern
+id|funcname_pattern_entry
 (brace
 DECL|member|name
 r_char
@@ -438,11 +437,27 @@ r_char
 op_star
 id|pattern
 suffix:semicolon
+DECL|member|cflags
+r_int
+id|cflags
+suffix:semicolon
+)brace
+suffix:semicolon
+DECL|struct|funcname_pattern_list
+r_static
+r_struct
+id|funcname_pattern_list
+(brace
 DECL|member|next
 r_struct
-id|funcname_pattern
+id|funcname_pattern_list
 op_star
 id|next
+suffix:semicolon
+DECL|member|e
+r_struct
+id|funcname_pattern_entry
+id|e
 suffix:semicolon
 DECL|variable|funcname_pattern_list
 )brace
@@ -469,6 +484,9 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_int
+id|cflags
 )paren
 (brace
 r_const
@@ -480,7 +498,7 @@ r_int
 id|namelen
 suffix:semicolon
 r_struct
-id|funcname_pattern
+id|funcname_pattern_list
 op_star
 id|pp
 suffix:semicolon
@@ -516,7 +534,7 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-id|pp-&gt;name
+id|pp-&gt;e.name
 comma
 id|name
 comma
@@ -524,7 +542,7 @@ id|namelen
 )paren
 op_logical_and
 op_logical_neg
-id|pp-&gt;name
+id|pp-&gt;e.name
 (braket
 id|namelen
 )braket
@@ -552,7 +570,7 @@ id|pp
 )paren
 )paren
 suffix:semicolon
-id|pp-&gt;name
+id|pp-&gt;e.name
 op_assign
 id|xmemdupz
 c_func
@@ -574,16 +592,20 @@ suffix:semicolon
 id|free
 c_func
 (paren
-id|pp-&gt;pattern
+id|pp-&gt;e.pattern
 )paren
 suffix:semicolon
-id|pp-&gt;pattern
+id|pp-&gt;e.pattern
 op_assign
 id|xstrdup
 c_func
 (paren
 id|value
 )paren
+suffix:semicolon
+id|pp-&gt;e.cflags
+op_assign
+id|cflags
 suffix:semicolon
 r_return
 l_int|0
@@ -1072,6 +1094,49 @@ comma
 id|ep
 comma
 id|value
+comma
+l_int|0
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|ep
+comma
+l_string|&quot;.xfuncname&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+r_return
+id|config_error_nonbool
+c_func
+(paren
+id|var
+)paren
+suffix:semicolon
+r_return
+id|parse_funcname_pattern
+c_func
+(paren
+id|var
+comma
+id|ep
+comma
+id|value
+comma
+id|REG_EXTENDED
 )paren
 suffix:semicolon
 )brace
@@ -7750,7 +7815,8 @@ suffix:semicolon
 DECL|function|funcname_pattern
 r_static
 r_const
-r_char
+r_struct
+id|funcname_pattern_entry
 op_star
 id|funcname_pattern
 c_func
@@ -7762,7 +7828,7 @@ id|ident
 )paren
 (brace
 r_struct
-id|funcname_pattern
+id|funcname_pattern_list
 op_star
 id|pp
 suffix:semicolon
@@ -7788,35 +7854,22 @@ c_func
 (paren
 id|ident
 comma
-id|pp-&gt;name
+id|pp-&gt;e.name
 )paren
 )paren
 r_return
-id|pp-&gt;pattern
+op_amp
+id|pp-&gt;e
 suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
 )brace
-DECL|struct|builtin_funcname_pattern
-r_static
-r_struct
-id|builtin_funcname_pattern
-(brace
-DECL|member|name
-r_const
-r_char
-op_star
-id|name
-suffix:semicolon
-DECL|member|pattern
-r_const
-r_char
-op_star
-id|pattern
-suffix:semicolon
 DECL|variable|builtin_funcname_pattern
-)brace
+r_static
+r_const
+r_struct
+id|funcname_pattern_entry
 id|builtin_funcname_pattern
 (braket
 )braket
@@ -7825,57 +7878,77 @@ op_assign
 (brace
 l_string|&quot;bibtex&quot;
 comma
-l_string|&quot;&bslash;&bslash;(@[a-zA-Z]&bslash;&bslash;{1,&bslash;&bslash;}[ &bslash;t]*{&bslash;&bslash;{0,1&bslash;&bslash;}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*&bslash;&bslash;).*$&quot;
+l_string|&quot;(@[a-zA-Z]{1,}[ &bslash;t]*&bslash;&bslash;{{0,1}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*).*$&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;html&quot;
 comma
-l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&lt;[Hh][1-6]&bslash;&bslash;s.*&gt;.*&bslash;&bslash;)$&quot;
+l_string|&quot;^[ &bslash;t]*(&lt;[Hh][1-6][ &bslash;t].*&gt;.*)$&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;java&quot;
 comma
-l_string|&quot;!^[ &t;]*&bslash;&bslash;(catch&bslash;&bslash;|do&bslash;&bslash;|for&bslash;&bslash;|if&bslash;&bslash;|instanceof&bslash;&bslash;|&quot;
-l_string|&quot;new&bslash;&bslash;|return&bslash;&bslash;|switch&bslash;&bslash;|throw&bslash;&bslash;|while&bslash;&bslash;)&bslash;n&quot;
-l_string|&quot;^[ &t;]*&bslash;&bslash;(&bslash;&bslash;([ &t;]*&quot;
-l_string|&quot;[A-Za-z_][A-Za-z_0-9]*&bslash;&bslash;)&bslash;&bslash;{2,&bslash;&bslash;}&quot;
-l_string|&quot;[ &t;]*([^;]*&bslash;&bslash;)$&quot;
+l_string|&quot;!^[ &bslash;t]*(catch|do|for|if|instanceof|new|return|switch|throw|while)&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*(([ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*){2,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;pascal&quot;
 comma
-l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;(procedure&bslash;&bslash;|function&bslash;&bslash;|constructor&bslash;&bslash;|&quot;
-l_string|&quot;destructor&bslash;&bslash;|interface&bslash;&bslash;|implementation&bslash;&bslash;|&quot;
-l_string|&quot;initialization&bslash;&bslash;|finalization&bslash;&bslash;)[ &bslash;t]*.*&bslash;&bslash;)$&quot;
-l_string|&quot;&bslash;&bslash;|&quot;
-l_string|&quot;^&bslash;&bslash;(.*=[ &bslash;t]*&bslash;&bslash;(class&bslash;&bslash;|record&bslash;&bslash;).*&bslash;&bslash;)$&quot;
+l_string|&quot;^((procedure|function|constructor|destructor|interface|&quot;
+l_string|&quot;implementation|initialization|finalization)[ &bslash;t]*.*)$&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;^(.*=[ &bslash;t]*(class|record).*)$&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;php&quot;
 comma
-l_string|&quot;^[&bslash;t ]*&bslash;&bslash;(&bslash;&bslash;(function&bslash;&bslash;|class&bslash;&bslash;).*&bslash;&bslash;)&quot;
+l_string|&quot;^[&bslash;t ]*((function|class).*)&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;python&quot;
 comma
-l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
+l_string|&quot;^[ &bslash;t]*((class|def)[ &bslash;t].*)$&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;ruby&quot;
 comma
-l_string|&quot;^&bslash;&bslash;s*&bslash;&bslash;(&bslash;&bslash;(class&bslash;&bslash;|module&bslash;&bslash;|def&bslash;&bslash;)&bslash;&bslash;s.*&bslash;&bslash;)$&quot;
+l_string|&quot;^[ &bslash;t]*((class|module|def)[ &bslash;t].*)$&quot;
+comma
+id|REG_EXTENDED
+)brace
+comma
+(brace
+l_string|&quot;bibtex&quot;
+comma
+l_string|&quot;(@[a-zA-Z]{1,}[ &bslash;t]*&bslash;&bslash;{{0,1}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*).*$&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 (brace
 l_string|&quot;tex&quot;
 comma
-l_string|&quot;^&bslash;&bslash;(&bslash;&bslash;&bslash;&bslash;&bslash;&bslash;(&bslash;&bslash;(sub&bslash;&bslash;)*section&bslash;&bslash;|chapter&bslash;&bslash;|part&bslash;&bslash;)&bslash;&bslash;*&bslash;&bslash;{0,1&bslash;&bslash;}{.*&bslash;&bslash;)$&quot;
+l_string|&quot;^(&bslash;&bslash;&bslash;&bslash;((sub)*section|chapter|part)&bslash;&bslash;*{0,1}&bslash;&bslash;{.*)$&quot;
+comma
+id|REG_EXTENDED
 )brace
 comma
 )brace
@@ -7883,7 +7956,8 @@ suffix:semicolon
 DECL|function|diff_funcname_pattern
 r_static
 r_const
-r_char
+r_struct
+id|funcname_pattern_entry
 op_star
 id|diff_funcname_pattern
 c_func
@@ -7898,9 +7972,12 @@ r_const
 r_char
 op_star
 id|ident
-comma
+suffix:semicolon
+r_const
+r_struct
+id|funcname_pattern_entry
 op_star
-id|pattern
+id|pe
 suffix:semicolon
 r_int
 id|i
@@ -7930,7 +8007,7 @@ l_string|&quot;default&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Look up custom &quot;funcname.$ident&quot; regexp from config. */
-id|pattern
+id|pe
 op_assign
 id|funcname_pattern
 c_func
@@ -7941,10 +8018,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pattern
+id|pe
 )paren
 r_return
-id|pattern
+id|pe
 suffix:semicolon
 multiline_comment|/*&n;&t; * And define built-in fallback patterns here.  Note that&n;&t; * these can be overridden by the user&squot;s config settings.&n;&t; */
 r_for
@@ -7983,12 +8060,11 @@ id|name
 )paren
 )paren
 r_return
+op_amp
 id|builtin_funcname_pattern
 (braket
 id|i
 )braket
-dot
-id|pattern
 suffix:semicolon
 r_return
 l_int|NULL
@@ -8624,11 +8700,12 @@ id|emit_callback
 id|ecbdata
 suffix:semicolon
 r_const
-r_char
+r_struct
+id|funcname_pattern_entry
 op_star
-id|funcname_pattern
+id|pe
 suffix:semicolon
-id|funcname_pattern
+id|pe
 op_assign
 id|diff_funcname_pattern
 c_func
@@ -8640,9 +8717,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|funcname_pattern
+id|pe
 )paren
-id|funcname_pattern
+id|pe
 op_assign
 id|diff_funcname_pattern
 c_func
@@ -8731,7 +8808,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|funcname_pattern
+id|pe
 )paren
 id|xdiff_set_find_func
 c_func
@@ -8739,7 +8816,9 @@ c_func
 op_amp
 id|xecfg
 comma
-id|funcname_pattern
+id|pe-&gt;pattern
+comma
+id|pe-&gt;cflags
 )paren
 suffix:semicolon
 r_if

@@ -6,6 +6,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;dir.h&quot;
 multiline_comment|/*&n; *  --check turns on checking that the working tree matches the&n; *    files that are being modified, but doesn&squot;t apply the patch&n; *  --stat does just a diffstat, and doesn&squot;t actually apply&n; *  --numstat does numeric diffstat, and doesn&squot;t actually apply&n; *  --index-info shows the old and new index info for paths if available.&n; *  --index updates the cache as well.&n; *  --cached updates only the cache without ever touching the working tree.&n; */
 DECL|variable|prefix
 r_static
@@ -12743,65 +12744,10 @@ op_logical_and
 id|rmdir_empty
 )paren
 (brace
-r_char
-op_star
-id|name
-op_assign
-id|xstrdup
+id|remove_path
 c_func
 (paren
 id|patch-&gt;old_name
-)paren
-suffix:semicolon
-r_char
-op_star
-id|end
-op_assign
-id|strrchr
-c_func
-(paren
-id|name
-comma
-l_char|&squot;/&squot;
-)paren
-suffix:semicolon
-r_while
-c_loop
-(paren
-id|end
-)paren
-(brace
-op_star
-id|end
-op_assign
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|rmdir
-c_func
-(paren
-id|name
-)paren
-)paren
-r_break
-suffix:semicolon
-id|end
-op_assign
-id|strrchr
-c_func
-(paren
-id|name
-comma
-l_char|&squot;/&squot;
-)paren
-suffix:semicolon
-)brace
-id|free
-c_func
-(paren
-id|name
 )paren
 suffix:semicolon
 )brace
