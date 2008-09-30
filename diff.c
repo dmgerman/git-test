@@ -7901,6 +7901,21 @@ id|REG_EXTENDED
 )brace
 comma
 (brace
+l_string|&quot;objc&quot;
+comma
+multiline_comment|/* Negate C statements that can look like functions */
+l_string|&quot;!^[ &bslash;t]*(do|for|if|else|return|switch|while)&bslash;n&quot;
+multiline_comment|/* Objective-C methods */
+l_string|&quot;^[ &bslash;t]*([-+][ &bslash;t]*&bslash;&bslash;([ &bslash;t]*[A-Za-z_][A-Za-z_0-9* &bslash;t]*&bslash;&bslash;)[ &bslash;t]*[A-Za-z_].*)$&bslash;n&quot;
+multiline_comment|/* C functions */
+l_string|&quot;^[ &bslash;t]*(([ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*){2,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&bslash;n&quot;
+multiline_comment|/* Objective-C class/protocol definitions */
+l_string|&quot;^(@(implementation|interface|protocol)[ &bslash;t].*)$&quot;
+comma
+id|REG_EXTENDED
+)brace
+comma
+(brace
 l_string|&quot;pascal&quot;
 comma
 l_string|&quot;^((procedure|function|constructor|destructor|interface|&quot;
