@@ -4799,20 +4799,15 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-id|strbuf_addstr
+multiline_comment|/* use shouty-caps if we&squot;re on detached HEAD */
+id|strbuf_addf
 c_func
 (paren
 op_amp
 id|buf
 comma
-l_string|&quot;format:%h&quot;
-)paren
-suffix:semicolon
-multiline_comment|/* Are we on a detached HEAD? */
-r_if
-c_cond
-(paren
-op_logical_neg
+l_string|&quot;format:%s&quot;
+comma
 id|strcmp
 c_func
 (paren
@@ -4820,17 +4815,22 @@ l_string|&quot;HEAD&quot;
 comma
 id|head
 )paren
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot;DETACHED commit&quot;
 )paren
+suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
 op_amp
 id|buf
 comma
-l_string|&quot; on detached HEAD&quot;
+l_string|&quot;%h (%s)&quot;
 )paren
 suffix:semicolon
-r_else
 r_if
 c_cond
 (paren
@@ -4904,15 +4904,6 @@ id|cp
 suffix:semicolon
 )brace
 )brace
-id|strbuf_addstr
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_string|&quot;: %s&quot;
-)paren
-suffix:semicolon
 r_return
 id|strbuf_detach
 c_func
@@ -5077,12 +5068,12 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;Created %scommit &quot;
+l_string|&quot;Created %s&quot;
 comma
 id|initial_commit
 ques
 c_cond
-l_string|&quot;initial &quot;
+l_string|&quot;root-commit &quot;
 suffix:colon
 l_string|&quot;&quot;
 )paren
