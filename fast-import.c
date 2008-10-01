@@ -3926,7 +3926,7 @@ id|tmpfile
 id|PATH_MAX
 )braket
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_struct
@@ -4188,7 +4188,7 @@ r_int
 )paren
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -4258,7 +4258,7 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -4304,7 +4304,7 @@ c_func
 id|idx
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|pack_data-&gt;sha1
@@ -5068,7 +5068,7 @@ id|hdrlen
 comma
 id|deltalen
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|c
 suffix:semicolon
 id|z_stream
@@ -5101,14 +5101,14 @@ id|dat-&gt;len
 op_plus
 l_int|1
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
 id|c
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -5119,7 +5119,7 @@ comma
 id|hdrlen
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -5130,7 +5130,7 @@ comma
 id|dat-&gt;len
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1

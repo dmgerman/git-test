@@ -212,7 +212,7 @@ id|consumed_bytes
 suffix:semicolon
 DECL|variable|input_ctx
 r_static
-id|SHA_CTX
+id|git_SHA_CTX
 id|input_ctx
 suffix:semicolon
 DECL|variable|input_crc32
@@ -454,7 +454,7 @@ comma
 id|input_offset
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -838,7 +838,7 @@ op_assign
 id|input_fd
 suffix:semicolon
 )brace
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -3129,7 +3129,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1

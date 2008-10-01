@@ -150,7 +150,7 @@ c_cond
 id|offset
 )paren
 (brace
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -176,7 +176,7 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|f-&gt;buffer
@@ -416,7 +416,7 @@ op_logical_neg
 id|left
 )paren
 (brace
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -539,7 +539,7 @@ id|f-&gt;do_crc
 op_assign
 l_int|0
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp

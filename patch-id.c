@@ -13,7 +13,7 @@ r_char
 op_star
 id|id
 comma
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|c
 )paren
@@ -39,7 +39,7 @@ id|patchlen
 )paren
 r_return
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|result
@@ -75,7 +75,7 @@ comma
 id|name
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 id|c
@@ -169,7 +169,7 @@ id|line
 l_int|1000
 )braket
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_int
@@ -177,7 +177,7 @@ id|patchlen
 op_assign
 l_int|0
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -361,7 +361,7 @@ id|patchlen
 op_add_assign
 id|len
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp

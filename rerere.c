@@ -449,7 +449,7 @@ op_star
 id|output
 )paren
 (brace
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_char
@@ -564,7 +564,7 @@ c_cond
 (paren
 id|sha1
 )paren
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -831,7 +831,7 @@ c_cond
 id|sha1
 )paren
 (brace
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -849,7 +849,7 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -989,7 +989,7 @@ c_cond
 (paren
 id|sha1
 )paren
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1
