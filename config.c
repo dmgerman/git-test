@@ -1264,6 +1264,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|git_parse_long
+r_static
 r_int
 id|git_parse_long
 c_func
@@ -1469,6 +1470,8 @@ id|value
 (brace
 r_int
 id|ret
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
