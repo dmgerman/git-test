@@ -11194,7 +11194,7 @@ op_star
 id|hdrlen
 )paren
 (brace
-id|SHA_CTX
+id|git_SHA_CTX
 id|c
 suffix:semicolon
 multiline_comment|/* Generate the header */
@@ -11216,14 +11216,14 @@ op_plus
 l_int|1
 suffix:semicolon
 multiline_comment|/* Sha1.. */
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
 id|c
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -11235,7 +11235,7 @@ op_star
 id|hdrlen
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -11246,7 +11246,7 @@ comma
 id|len
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1

@@ -128,7 +128,7 @@ l_int|20
 )braket
 suffix:semicolon
 DECL|member|c
-id|SHA_CTX
+id|git_SHA_CTX
 id|c
 suffix:semicolon
 DECL|member|stream
@@ -360,7 +360,7 @@ comma
 id|Z_SYNC_FLUSH
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -690,7 +690,7 @@ op_amp
 id|obj_req-&gt;stream
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -919,7 +919,7 @@ op_amp
 id|obj_req-&gt;stream
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -1225,7 +1225,7 @@ op_amp
 id|obj_req-&gt;stream
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|obj_req-&gt;real_sha1

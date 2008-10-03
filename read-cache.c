@@ -4884,7 +4884,7 @@ r_int
 id|size
 )paren
 (brace
-id|SHA_CTX
+id|git_SHA_CTX
 id|c
 suffix:semicolon
 r_int
@@ -4930,14 +4930,14 @@ c_func
 l_string|&quot;bad index version&quot;
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
 id|c
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -4949,7 +4949,7 @@ id|size
 l_int|20
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1
@@ -5935,7 +5935,7 @@ r_int
 id|ce_write_flush
 c_func
 (paren
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|context
 comma
@@ -5955,7 +5955,7 @@ c_cond
 id|buffered
 )paren
 (brace
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 id|context
@@ -5998,7 +5998,7 @@ r_int
 id|ce_write
 c_func
 (paren
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|context
 comma
@@ -6120,7 +6120,7 @@ r_int
 id|write_index_ext_header
 c_func
 (paren
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|context
 comma
@@ -6201,7 +6201,7 @@ r_int
 id|ce_flush
 c_func
 (paren
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|context
 comma
@@ -6225,7 +6225,7 @@ id|write_buffer_len
 op_assign
 l_int|0
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 id|context
@@ -6271,7 +6271,7 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* Append the SHA1 signature at the end */
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|write_buffer
@@ -6379,7 +6379,7 @@ r_int
 id|ce_write_entry
 c_func
 (paren
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|c
 comma
@@ -6545,7 +6545,7 @@ r_int
 id|newfd
 )paren
 (brace
-id|SHA_CTX
+id|git_SHA_CTX
 id|c
 suffix:semicolon
 r_struct
@@ -6628,7 +6628,7 @@ id|entries
 id|removed
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp

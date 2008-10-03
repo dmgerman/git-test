@@ -16973,7 +16973,7 @@ r_struct
 id|patch_id_t
 (brace
 DECL|member|ctx
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|ctx
 suffix:semicolon
@@ -17106,7 +17106,7 @@ comma
 id|len
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 id|data-&gt;ctx
@@ -17150,7 +17150,7 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_struct
@@ -17167,7 +17167,7 @@ op_plus
 l_int|20
 )braket
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -17515,7 +17515,7 @@ comma
 id|p-&gt;two-&gt;path
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -17563,7 +17563,7 @@ id|ecb
 )paren
 suffix:semicolon
 )brace
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1

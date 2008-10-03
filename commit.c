@@ -878,6 +878,7 @@ id|graft
 suffix:semicolon
 )brace
 DECL|function|read_graft_file
+r_static
 r_int
 id|read_graft_file
 c_func

@@ -13,7 +13,7 @@ op_star
 id|av
 )paren
 (brace
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_int
@@ -112,7 +112,7 @@ l_string|&quot;OOPS&quot;
 )paren
 suffix:semicolon
 )brace
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -213,7 +213,7 @@ l_int|0
 )paren
 r_break
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -225,7 +225,7 @@ id|this_sz
 )paren
 suffix:semicolon
 )brace
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1

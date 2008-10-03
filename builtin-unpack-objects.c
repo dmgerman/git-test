@@ -64,7 +64,7 @@ id|consumed_bytes
 suffix:semicolon
 DECL|variable|ctx
 r_static
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 multiline_comment|/*&n; * When running under --strict mode, objects whose reachability are&n; * suspect are kept in core without getting written in the object&n; * store.&n; */
@@ -237,7 +237,7 @@ c_cond
 id|offset
 )paren
 (brace
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -2865,7 +2865,7 @@ id|unpack_usage
 )paren
 suffix:semicolon
 )brace
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -2877,7 +2877,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -2888,7 +2888,7 @@ comma
 id|offset
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1

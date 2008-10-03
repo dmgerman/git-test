@@ -29,6 +29,7 @@ suffix:semicolon
 DECL|macro|USES_ZLIB_COMPRESSION
 mdefine_line|#define USES_ZLIB_COMPRESSION 1
 DECL|struct|archiver
+r_static
 r_const
 r_struct
 id|archiver

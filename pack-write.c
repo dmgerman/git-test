@@ -129,7 +129,7 @@ id|i
 comma
 id|fd
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_uint32
@@ -469,7 +469,7 @@ l_int|4
 )paren
 suffix:semicolon
 multiline_comment|/* compute the SHA1 hash of sorted object names. */
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -544,7 +544,7 @@ comma
 l_int|20
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -789,7 +789,7 @@ comma
 id|CSUM_FSYNC
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1
@@ -842,7 +842,7 @@ l_int|8
 op_star
 l_int|1024
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|old_sha1_ctx
 comma
 id|new_sha1_ctx
@@ -855,14 +855,14 @@ r_char
 op_star
 id|buf
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
 id|old_sha1_ctx
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -963,7 +963,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -986,7 +986,7 @@ c_func
 id|object_count
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -1106,7 +1106,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -1139,7 +1139,7 @@ id|partial_pack_sha1
 )paren
 r_continue
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -1169,7 +1169,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1
@@ -1201,7 +1201,7 @@ id|pack_name
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * Now let&squot;s compute the SHA1 of the remainder of the&n;&t;&t;&t; * pack, which also means making partial_pack_offset&n;&t;&t;&t; * big enough not to matter anymore.&n;&t;&t;&t; */
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -1236,7 +1236,7 @@ c_cond
 (paren
 id|partial_pack_sha1
 )paren
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|partial_pack_sha1
@@ -1245,7 +1245,7 @@ op_amp
 id|old_sha1_ctx
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|new_pack_sha1

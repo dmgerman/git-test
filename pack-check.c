@@ -248,7 +248,7 @@ id|index_base
 op_assign
 id|p-&gt;index_data
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_int
@@ -287,7 +287,7 @@ op_star
 id|entries
 suffix:semicolon
 multiline_comment|/* Note that the pack header checks are actually performed by&n;&t; * use_pack when it first opens the pack file.  If anything&n;&t; * goes wrong during those checks then the call will die out&n;&t; * immediately.&n;&t; */
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -346,7 +346,7 @@ id|offset
 id|pack_sig_ofs
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -358,7 +358,7 @@ id|remaining
 )paren
 suffix:semicolon
 )brace
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1
@@ -824,7 +824,7 @@ r_char
 op_star
 id|index_base
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_int
@@ -873,14 +873,14 @@ op_assign
 id|p-&gt;index_data
 suffix:semicolon
 multiline_comment|/* Verify SHA1 sum of the index file */
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
 id|ctx
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -898,7 +898,7 @@ l_int|20
 )paren
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1
