@@ -4705,6 +4705,18 @@ multiline_comment|/* does not exist in parent */
 r_if
 c_cond
 (paren
+id|S_ISGITLINK
+c_func
+(paren
+id|p-&gt;one-&gt;mode
+)paren
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* ignore git links */
+r_if
+c_cond
+(paren
 id|porigin
 op_logical_and
 op_logical_neg
