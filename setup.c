@@ -553,22 +553,13 @@ l_char|&squot;/&squot;
 (brace
 id|error_out
 suffix:colon
-id|error
+id|die
 c_func
 (paren
 l_string|&quot;&squot;%s&squot; is outside repository&quot;
 comma
 id|orig
 )paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|sanitized
-)paren
-suffix:semicolon
-r_return
-l_int|NULL
 suffix:semicolon
 )brace
 r_if
@@ -1107,11 +1098,6 @@ op_star
 id|src
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|p
-)paren
 op_star
 (paren
 id|dst
@@ -1120,13 +1106,6 @@ op_increment
 op_assign
 id|p
 suffix:semicolon
-r_else
-m_exit
-(paren
-l_int|128
-)paren
-suffix:semicolon
-multiline_comment|/* error message already given */
 id|src
 op_increment
 suffix:semicolon
