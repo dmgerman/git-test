@@ -1145,6 +1145,20 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ce
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;make_cache_entry failed for path &squot;%s&squot;&quot;
+comma
+id|path
+)paren
+suffix:semicolon
 id|status
 op_assign
 id|checkout_entry
