@@ -3602,8 +3602,6 @@ l_int|0
 suffix:semicolon
 id|args.quiet
 op_assign
-id|args.no_progress
-op_assign
 (paren
 id|transport-&gt;verbose
 OL
@@ -3612,6 +3610,8 @@ l_int|0
 suffix:semicolon
 id|args.no_progress
 op_assign
+id|args.quiet
+op_logical_or
 op_logical_neg
 id|isatty
 c_func
