@@ -1805,7 +1805,7 @@ r_if
 c_cond
 (paren
 id|n
-op_le
+OL
 l_int|0
 )paren
 id|die
@@ -1818,6 +1818,21 @@ c_func
 (paren
 id|errno
 )paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|n
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;premature end of pack file, %lu bytes missing&quot;
+comma
+id|len
+id|rdy
 )paren
 suffix:semicolon
 id|rdy
