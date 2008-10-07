@@ -13,6 +13,20 @@ macro_line|#else
 DECL|macro|TEST_FILEMODE
 mdefine_line|#define TEST_FILEMODE 1
 macro_line|#endif
+DECL|variable|init_is_bare_repository
+r_static
+r_int
+id|init_is_bare_repository
+op_assign
+l_int|0
+suffix:semicolon
+DECL|variable|init_shared_repository
+r_static
+r_int
+id|init_shared_repository
+op_assign
+l_int|1
+suffix:semicolon
 DECL|function|safe_create_dir
 r_static
 r_void
@@ -977,6 +991,21 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|is_bare_repository_cfg
+op_assign
+id|init_is_bare_repository
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|init_shared_repository
+op_ne
+l_int|1
+)paren
+id|shared_repository
+op_assign
+id|init_shared_repository
+suffix:semicolon
 multiline_comment|/*&n;&t; * We would have created the above under user&squot;s umask -- under&n;&t; * shared-repository settings, we would need to fix them up.&n;&t; */
 r_if
 c_cond
@@ -1453,6 +1482,13 @@ c_func
 )paren
 comma
 l_int|0
+)paren
+suffix:semicolon
+id|init_is_bare_repository
+op_assign
+id|is_bare_repository
+c_func
+(paren
 )paren
 suffix:semicolon
 multiline_comment|/* Check to see if the repository version is right.&n;&t; * Note that a newly created repository does not have&n;&t; * config file, so this will not fail.  What we are catching&n;&t; * is an attempt to reinitialize new repository with an old tool.&n;&t; */
@@ -1944,7 +1980,7 @@ comma
 l_string|&quot;--shared&quot;
 )paren
 )paren
-id|shared_repository
+id|init_shared_repository
 op_assign
 id|PERM_GROUP
 suffix:semicolon
@@ -1961,7 +1997,7 @@ comma
 l_string|&quot;--shared=&quot;
 )paren
 )paren
-id|shared_repository
+id|init_shared_repository
 op_assign
 id|git_config_perm
 c_func
