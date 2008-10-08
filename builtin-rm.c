@@ -633,6 +633,12 @@ c_func
 l_string|&quot;index file corrupt&quot;
 )paren
 suffix:semicolon
+id|refresh_cache
+c_func
+(paren
+id|REFRESH_QUIET
+)paren
+suffix:semicolon
 id|pathspec
 op_assign
 id|get_pathspec
