@@ -7883,7 +7883,7 @@ r_sizeof
 (paren
 id|tgtfixbuf
 )paren
-OL
+OG
 id|tgtlen
 )paren
 id|tgtfix
