@@ -1596,15 +1596,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|sb
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|sb
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|strbuf_addf
 c_func

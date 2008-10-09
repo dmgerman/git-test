@@ -275,6 +275,8 @@ id|prefix
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_int
 id|strip_comments
@@ -317,15 +319,6 @@ l_string|&quot;--strip-comments&quot;
 id|strip_comments
 op_assign
 l_int|1
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
 suffix:semicolon
 r_if
 c_cond

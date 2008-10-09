@@ -355,15 +355,8 @@ id|commit-&gt;buffer
 r_struct
 id|strbuf
 id|buf
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|pretty_print_commit
 c_func

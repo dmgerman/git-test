@@ -3836,15 +3836,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|sb
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|sb
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|dot
 op_assign
@@ -4039,6 +4032,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|sb
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 multiline_comment|/*&n;&t; * Check to see if the value needs to be surrounded with a dq pair.&n;&t; * Note that problematic characters are always backslash-quoted; this&n;&t; * check is about not losing leading or trailing SP and strings that&n;&t; * follow beginning-of-comment characters (i.e. &squot;;&squot; and &squot;#&squot;) by the&n;&t; * configuration parser.&n;&t; */
 r_if
@@ -4107,15 +4102,6 @@ l_char|&squot; &squot;
 id|quote
 op_assign
 l_string|&quot;&bslash;&quot;&quot;
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|sb
-comma
-l_int|0
-)paren
 suffix:semicolon
 id|strbuf_addf
 c_func

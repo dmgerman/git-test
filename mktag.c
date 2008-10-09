@@ -744,6 +744,8 @@ id|argv
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_int
 r_char
@@ -768,15 +770,6 @@ suffix:semicolon
 id|setup_git_directory
 c_func
 (paren
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_if

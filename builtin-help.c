@@ -1822,6 +1822,8 @@ r_void
 r_struct
 id|strbuf
 id|new_path
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1832,15 +1834,6 @@ id|getenv
 c_func
 (paren
 l_string|&quot;MANPATH&quot;
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|new_path
-comma
-l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/* We should always put &squot;:&squot; after our path. If there is no&n;&t; * old_path, the &squot;:&squot; at the end will let &squot;man&squot; to try&n;&t; * system-wide paths after ours to find the manual page. If&n;&t; * there is old_path, we need &squot;:&squot; as delimiter. */

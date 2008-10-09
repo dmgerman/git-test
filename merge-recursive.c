@@ -2735,15 +2735,8 @@ id|mode
 r_struct
 id|strbuf
 id|strbuf
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|strbuf
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond

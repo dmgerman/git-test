@@ -15,15 +15,8 @@ r_void
 r_struct
 id|strbuf
 id|buf
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond

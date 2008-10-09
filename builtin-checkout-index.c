@@ -1320,8 +1320,12 @@ id|read_from_stdin
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 comma
 id|nbuf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond
@@ -1332,24 +1336,6 @@ id|die
 c_func
 (paren
 l_string|&quot;git checkout-index: don&squot;t mix &squot;--all&squot; and &squot;--stdin&squot;&quot;
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|nbuf
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_while

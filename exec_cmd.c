@@ -257,15 +257,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|new_path
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|new_path
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|add_path
 c_func

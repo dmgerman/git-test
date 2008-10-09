@@ -1595,6 +1595,8 @@ id|verbose
 r_struct
 id|strbuf
 id|subject
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1608,15 +1610,6 @@ id|stat
 (braket
 l_int|128
 )braket
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|subject
-comma
-l_int|0
-)paren
 suffix:semicolon
 id|stat
 (braket

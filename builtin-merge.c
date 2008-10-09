@@ -1234,6 +1234,8 @@ r_void
 r_struct
 id|strbuf
 id|sb
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1269,15 +1271,6 @@ c_func
 id|head
 comma
 l_int|1
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|sb
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|args
@@ -1369,6 +1362,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|out
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_struct
 id|commit_list
@@ -1514,15 +1509,6 @@ id|die
 c_func
 (paren
 l_string|&quot;revision walk setup failed&quot;
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|out
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|strbuf_addstr
@@ -1808,15 +1794,8 @@ id|msg
 r_struct
 id|strbuf
 id|reflog_message
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|reflog_message
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond
@@ -2079,6 +2058,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -2129,15 +2110,6 @@ c_func
 l_string|&quot;&squot;%s&squot; does not point to a commit&quot;
 comma
 id|remote
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|strbuf_addstr
@@ -2461,19 +2433,12 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|line
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_char
 op_star
 id|ptr
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|line
-comma
-l_int|0
-)paren
 suffix:semicolon
 id|fp
 op_assign
@@ -3216,6 +3181,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_int
 id|index_fd
@@ -3527,15 +3494,6 @@ r_sizeof
 r_char
 op_star
 )paren
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -5149,6 +5107,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -5345,15 +5305,6 @@ id|builtin_merge_options
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * This could be traditional &quot;merge &lt;msg&gt; HEAD &lt;commit&gt;...&quot;  and&n;&t; * the way we can tell it is to see if the second token is HEAD,&n;&t; * but some people might have misused the interface and used a&n;&t; * committish that is the same as HEAD there instead.&n;&t; * Traditional format never would have &quot;-m&quot; so it is an&n;&t; * additional safety measure to check for it.&n;&t; */
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5515,6 +5466,8 @@ r_else
 r_struct
 id|strbuf
 id|msg
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 multiline_comment|/* We are invoked directly as the first-class UI. */
 id|head_arg
@@ -5522,15 +5475,6 @@ op_assign
 l_string|&quot;HEAD&quot;
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * All the rest are the commits being merged;&n;&t;&t; * prepare the standard merge summary message to&n;&t;&t; * be appended to the given message.  If remote&n;&t;&t; * is invalid we will die later in the common&n;&t;&t; * codepath so we discard the error in this&n;&t;&t; * loop.&n;&t;&t; */
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|msg
-comma
-l_int|0
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -5997,6 +5941,8 @@ multiline_comment|/* Again the most common case of merging one remote. */
 r_struct
 id|strbuf
 id|msg
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_struct
 id|object
@@ -6037,15 +5983,6 @@ id|remoteheads-&gt;item-&gt;object.sha1
 comma
 id|DEFAULT_ABBREV
 )paren
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|msg
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|strbuf_addstr

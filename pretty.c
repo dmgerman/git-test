@@ -1374,6 +1374,8 @@ id|encoding
 r_struct
 id|strbuf
 id|tmp
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_int
 id|start
@@ -1465,15 +1467,6 @@ l_int|1
 id|buf
 op_plus
 id|start
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|tmp
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|strbuf_attach

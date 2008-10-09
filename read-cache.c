@@ -6871,15 +6871,8 @@ id|istate-&gt;cache_tree
 r_struct
 id|strbuf
 id|sb
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|sb
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|cache_tree_write
 c_func

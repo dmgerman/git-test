@@ -1185,6 +1185,8 @@ id|opt
 r_struct
 id|strbuf
 id|msgbuf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_struct
 id|log_info
@@ -1699,15 +1701,6 @@ id|commit-&gt;buffer
 r_return
 suffix:semicolon
 multiline_comment|/*&n;&t; * And then the pretty-printed message itself&n;&t; */
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|msgbuf
-comma
-l_int|0
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren

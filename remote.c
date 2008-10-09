@@ -1434,6 +1434,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|branch
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_int
 id|n
@@ -1610,15 +1612,6 @@ id|slash
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * With &quot;slash&quot;, e.g. &quot;git fetch jgarzik/netdev-2.6&quot; when&n;&t; * reading from $GIT_DIR/branches/jgarzik fetches &quot;HEAD&quot; from&n;&t; * the partial URL obtained from the branches file plus&n;&t; * &quot;/netdev-2.6&quot; and does not store it in any tracking ref.&n;&t; * #branch specifier in the file is ignored.&n;&t; *&n;&t; * Otherwise, the branches file would have URL and optionally&n;&t; * #branch specified.  The &quot;master&quot; (or specified) branch is&n;&t; * fetched and stored in the local branch of the same name.&n;&t; */
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|branch
-comma
-l_int|0
-)paren
-suffix:semicolon
 id|frag
 op_assign
 id|strchr

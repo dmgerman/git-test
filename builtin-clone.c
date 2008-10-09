@@ -1434,6 +1434,8 @@ r_void
 r_struct
 id|strbuf
 id|sb
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond
@@ -1446,15 +1448,6 @@ op_ne
 id|junk_pid
 )paren
 r_return
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|sb
-comma
-l_int|0
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -1946,6 +1939,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|reflog_msg
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_struct
 id|transport
@@ -2177,15 +2172,6 @@ c_func
 l_string|&quot;destination directory &squot;%s&squot; already exists.&quot;
 comma
 id|dir
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|reflog_msg
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -2814,6 +2800,8 @@ id|option_bare
 r_struct
 id|strbuf
 id|head_ref
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -2854,15 +2842,6 @@ comma
 l_int|0
 comma
 id|DIE_ON_ERR
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|head_ref
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|strbuf_addstr

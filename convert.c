@@ -1173,6 +1173,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|nbuf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_struct
 id|async
@@ -1246,15 +1248,6 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* error was already reported */
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|nbuf
-comma
-l_int|0
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren

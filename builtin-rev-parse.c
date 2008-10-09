@@ -1424,8 +1424,12 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|sb
+op_assign
+id|STRBUF_INIT
 comma
 id|parsed
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1458,15 +1462,6 @@ comma
 id|usz
 op_assign
 l_int|0
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|parsed
-comma
-l_int|0
-)paren
 suffix:semicolon
 id|strbuf_addstr
 c_func
@@ -1517,15 +1512,6 @@ c_func
 id|parseopt_usage
 comma
 id|parseopt_opts
-)paren
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|sb
-comma
-l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/* get the usage up to the first line with a -- on it */

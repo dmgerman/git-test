@@ -1125,6 +1125,8 @@ id|no_name
 r_struct
 id|strbuf
 id|pretty
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1139,15 +1141,6 @@ op_star
 id|name
 op_assign
 id|commit-&gt;util
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|pretty
-comma
-l_int|0
-)paren
 suffix:semicolon
 r_if
 c_cond

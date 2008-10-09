@@ -1106,6 +1106,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 op_star
 id|target
@@ -1116,15 +1118,6 @@ op_star
 id|write_ref
 op_assign
 l_int|NULL
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
 suffix:semicolon
 r_while
 c_loop
