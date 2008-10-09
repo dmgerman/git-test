@@ -16,7 +16,7 @@ id|prune_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git prune [-n] [--expire &lt;time&gt;] [--] [&lt;head&gt;...]&quot;
+l_string|&quot;git prune [-n] [-v] [--expire &lt;time&gt;] [--] [&lt;head&gt;...]&quot;
 comma
 l_int|NULL
 )brace
@@ -25,6 +25,11 @@ DECL|variable|show_only
 r_static
 r_int
 id|show_only
+suffix:semicolon
+DECL|variable|verbose
+r_static
+r_int
+id|verbose
 suffix:semicolon
 DECL|variable|expire
 r_static
@@ -213,6 +218,8 @@ r_if
 c_cond
 (paren
 id|show_only
+op_logical_or
+id|verbose
 )paren
 (brace
 r_enum
@@ -254,7 +261,12 @@ l_string|&quot;unknown&quot;
 )paren
 suffix:semicolon
 )brace
-r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|show_only
+)paren
 id|unlink
 c_func
 (paren
@@ -699,6 +711,19 @@ op_amp
 id|show_only
 comma
 l_string|&quot;do not remove, show only&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;v&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|verbose
+comma
+l_string|&quot;report pruned objects&quot;
 )paren
 comma
 id|OPT_DATE
