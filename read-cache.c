@@ -10,6 +10,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;blob.h&quot;
 multiline_comment|/* Index extensions.&n; *&n; * The first letter should be &squot;A&squot;..&squot;Z&squot; for extensions that are not&n; * necessary for a correct operation (i.e. optimization data).&n; * When new extensions are added that _needs_ to be understood in&n; * order to correctly interpret the index file, pick character that&n; * is outside the range, to cause the reader to abort.&n; */
 DECL|macro|CACHE_EXT
 mdefine_line|#define CACHE_EXT(s) ( (s[0]&lt;&lt;24)|(s[1]&lt;&lt;16)|(s[2]&lt;&lt;8)|(s[3]) )
@@ -2333,6 +2334,55 @@ r_return
 r_new
 suffix:semicolon
 )brace
+DECL|function|record_intent_to_add
+r_static
+r_void
+id|record_intent_to_add
+c_func
+(paren
+r_struct
+id|cache_entry
+op_star
+id|ce
+)paren
+(brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|write_sha1_file
+c_func
+(paren
+l_string|&quot;&quot;
+comma
+l_int|0
+comma
+id|blob_type
+comma
+id|sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot create an empty blob in the object database&quot;
+)paren
+suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|ce-&gt;sha1
+comma
+id|sha1
+)paren
+suffix:semicolon
+)brace
 DECL|function|add_to_index
 r_int
 id|add_to_index
@@ -2401,6 +2451,31 @@ op_assign
 id|flags
 op_amp
 id|ADD_CACHE_PRETEND
+suffix:semicolon
+r_int
+id|intent_only
+op_assign
+id|flags
+op_amp
+id|ADD_CACHE_INTENT
+suffix:semicolon
+r_int
+id|add_option
+op_assign
+(paren
+id|ADD_CACHE_OK_TO_ADD
+op_or
+id|ADD_CACHE_OK_TO_REPLACE
+op_or
+(paren
+id|intent_only
+ques
+c_cond
+id|ADD_CACHE_NEW_ONLY
+suffix:colon
+l_int|0
+)paren
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -2503,6 +2578,12 @@ id|ce-&gt;ce_flags
 op_assign
 id|namelen
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|intent_only
+)paren
 id|fill_stat_cache_info
 c_func
 (paren
@@ -2642,6 +2723,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|intent_only
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|index_path
 c_func
 (paren
@@ -2661,6 +2749,14 @@ c_func
 l_string|&quot;unable to index file %s&quot;
 comma
 id|path
+)paren
+suffix:semicolon
+)brace
+r_else
+id|record_intent_to_add
+c_func
+(paren
+id|ce
 )paren
 suffix:semicolon
 r_if
@@ -2736,9 +2832,7 @@ id|istate
 comma
 id|ce
 comma
-id|ADD_CACHE_OK_TO_ADD
-op_or
-id|ADD_CACHE_OK_TO_REPLACE
+id|add_option
 )paren
 )paren
 r_return
@@ -3884,6 +3978,13 @@ id|option
 op_amp
 id|ADD_CACHE_SKIP_DFCHECK
 suffix:semicolon
+r_int
+id|new_only
+op_assign
+id|option
+op_amp
+id|ADD_CACHE_NEW_ONLY
+suffix:semicolon
 id|cache_tree_invalidate_path
 c_func
 (paren
@@ -3913,6 +4014,12 @@ op_ge
 l_int|0
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|new_only
+)paren
 id|replace_index_entry
 c_func
 (paren

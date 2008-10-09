@@ -911,11 +911,14 @@ l_int|0
 suffix:semicolon
 DECL|variable|ignore_add_errors
 DECL|variable|addremove
+DECL|variable|intent_to_add
 r_static
 r_int
 id|ignore_add_errors
 comma
 id|addremove
+comma
+id|intent_to_add
 suffix:semicolon
 DECL|variable|builtin_add_options
 r_static
@@ -996,6 +999,19 @@ op_amp
 id|take_worktree_changes
 comma
 l_string|&quot;update tracked files&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;N&squot;
+comma
+l_string|&quot;intent-to-add&quot;
+comma
+op_amp
+id|intent_to_add
+comma
+l_string|&quot;record only the fact that the path will be added later&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1425,6 +1441,15 @@ id|show_only
 ques
 c_cond
 id|ADD_CACHE_PRETEND
+suffix:colon
+l_int|0
+)paren
+op_or
+(paren
+id|intent_to_add
+ques
+c_cond
+id|ADD_CACHE_INTENT
 suffix:colon
 l_int|0
 )paren
