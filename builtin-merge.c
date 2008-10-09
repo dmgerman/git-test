@@ -3941,9 +3941,8 @@ c_func
 (paren
 r_sizeof
 (paren
-r_struct
-id|commit_list
 op_star
+id|parent
 )paren
 )paren
 suffix:semicolon
@@ -3974,9 +3973,8 @@ c_func
 (paren
 r_sizeof
 (paren
-r_struct
-id|commit_list
 op_star
+id|parent-&gt;next
 )paren
 )paren
 suffix:semicolon
