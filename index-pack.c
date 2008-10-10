@@ -3904,6 +3904,12 @@ c_func
 id|f
 )paren
 suffix:semicolon
+id|sha1flush
+c_func
+(paren
+id|f
+)paren
+suffix:semicolon
 id|hashcpy
 c_func
 (paren
