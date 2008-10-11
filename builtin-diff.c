@@ -966,7 +966,6 @@ id|parent
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/* Again, the revs are all reverse */
 r_for
 c_loop
 (paren
@@ -997,8 +996,6 @@ id|i
 comma
 id|ent
 (braket
-id|ents
-l_int|1
 id|i
 )braket
 dot
