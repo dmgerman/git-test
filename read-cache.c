@@ -2977,9 +2977,19 @@ c_func
 id|path
 )paren
 )paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;Invalid path &squot;%s&squot;&quot;
+comma
+id|path
+)paren
+suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
+)brace
 id|len
 op_assign
 id|strlen
@@ -4112,7 +4122,13 @@ id|ce-&gt;name
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;Invalid path &squot;%s&squot;&quot;
+comma
+id|ce-&gt;name
+)paren
 suffix:semicolon
 r_if
 c_cond

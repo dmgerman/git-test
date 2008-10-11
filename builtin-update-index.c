@@ -930,7 +930,13 @@ id|path
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;Invalid path &squot;%s&squot;&quot;
+comma
+id|path
+)paren
 suffix:semicolon
 id|len
 op_assign
