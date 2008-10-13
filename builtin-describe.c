@@ -36,13 +36,13 @@ r_static
 r_int
 id|all
 suffix:semicolon
-multiline_comment|/* Default to annotated tags only */
+multiline_comment|/* Any valid ref can be used */
 DECL|variable|tags
 r_static
 r_int
 id|tags
 suffix:semicolon
-multiline_comment|/* But allow any tags if --tags is specified */
+multiline_comment|/* Allow lightweight tags */
 DECL|variable|longformat
 r_static
 r_int
@@ -561,17 +561,6 @@ id|possible_tag
 op_star
 )paren
 id|b_
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|a-&gt;name-&gt;prio
-op_ne
-id|b-&gt;name-&gt;prio
-)paren
-r_return
-id|b-&gt;name-&gt;prio
-id|a-&gt;name-&gt;prio
 suffix:semicolon
 r_if
 c_cond
