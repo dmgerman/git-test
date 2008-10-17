@@ -1217,7 +1217,7 @@ id|lock
 comma
 id|path
 comma
-l_int|1
+id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
 multiline_comment|/* write signature */

@@ -2093,7 +2093,7 @@ id|write_lock
 comma
 id|merge_rr_path
 comma
-l_int|1
+id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
 id|read_rr
