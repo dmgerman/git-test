@@ -12171,6 +12171,9 @@ suffix:semicolon
 r_int
 id|hdrlen
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -12235,7 +12238,8 @@ id|len
 op_plus
 l_int|1
 suffix:semicolon
-r_return
+id|ret
+op_assign
 id|write_loose_object
 c_func
 (paren
@@ -12251,6 +12255,15 @@ id|len
 comma
 id|mtime
 )paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|has_pack_index
