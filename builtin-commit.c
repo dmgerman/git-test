@@ -4766,6 +4766,38 @@ id|commit
 op_star
 id|commit
 suffix:semicolon
+r_static
+r_const
+r_char
+op_star
+id|format
+op_assign
+l_string|&quot;format:%h: &bslash;&quot;%s&bslash;&quot;&quot;
+suffix:semicolon
+r_int
+r_char
+id|junk_sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_const
+r_char
+op_star
+id|head
+op_assign
+id|resolve_ref
+c_func
+(paren
+l_string|&quot;HEAD&quot;
+comma
+id|junk_sha1
+comma
+l_int|0
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|commit
 op_assign
 id|lookup_commit
@@ -4851,7 +4883,7 @@ suffix:semicolon
 id|get_commit_format
 c_func
 (paren
-l_string|&quot;format:%h: %s&quot;
+id|format
 comma
 op_amp
 id|rev
@@ -4883,12 +4915,40 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;Created %scommit &quot;
+l_string|&quot;[%s%s]: created &quot;
+comma
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|head
+comma
+l_string|&quot;refs/heads/&quot;
+)paren
+ques
+c_cond
+id|head
+op_plus
+l_int|11
+suffix:colon
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|head
+comma
+l_string|&quot;HEAD&quot;
+)paren
+ques
+c_cond
+l_string|&quot;detached HEAD&quot;
+suffix:colon
+id|head
 comma
 id|initial_commit
 ques
 c_cond
-l_string|&quot;initial &quot;
+l_string|&quot; (root-commit)&quot;
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -4918,7 +4978,9 @@ c_func
 (paren
 id|commit
 comma
-l_string|&quot;%h: %s&quot;
+id|format
+op_plus
+l_int|7
 comma
 op_amp
 id|buf
