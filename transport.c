@@ -327,7 +327,7 @@ r_continue
 suffix:semicolon
 id|next
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|path-&gt;buf
@@ -640,7 +640,7 @@ id|ref
 op_star
 id|next
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|buffer
@@ -2789,7 +2789,7 @@ id|buffer
 suffix:semicolon
 id|ref
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 l_string|&quot;HEAD&quot;
@@ -3005,7 +3005,7 @@ id|ref
 op_star
 id|ref
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|e-&gt;name
