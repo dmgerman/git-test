@@ -2035,7 +2035,7 @@ r_static
 r_int
 id|auto_number
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 DECL|variable|extra_hdr
 r_static
@@ -2451,6 +2451,12 @@ id|var
 comma
 id|value
 )paren
+suffix:semicolon
+id|auto_number
+op_assign
+id|auto_number
+op_logical_and
+id|numbered
 suffix:semicolon
 r_return
 l_int|0
