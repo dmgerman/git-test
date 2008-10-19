@@ -3580,24 +3580,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|opts.new_branch
-op_logical_and
-(paren
-id|opts.track
-op_ne
-id|git_branch_track
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;git checkout: --track and --no-track require -b&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|opts.force
 op_logical_and
 id|opts.merge
