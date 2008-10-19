@@ -3612,11 +3612,16 @@ id|args.no_progress
 op_assign
 id|args.quiet
 op_logical_or
+(paren
+op_logical_neg
+id|transport-&gt;progress
+op_logical_and
 op_logical_neg
 id|isatty
 c_func
 (paren
 l_int|1
+)paren
 )paren
 suffix:semicolon
 id|args.depth
