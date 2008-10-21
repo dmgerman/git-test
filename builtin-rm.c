@@ -338,6 +338,17 @@ c_cond
 id|local_changes
 op_logical_and
 id|staged_changes
+op_logical_and
+op_logical_neg
+(paren
+id|index_only
+op_logical_and
+id|is_empty_blob_sha1
+c_func
+(paren
+id|ce-&gt;sha1
+)paren
+)paren
 )paren
 id|errs
 op_assign

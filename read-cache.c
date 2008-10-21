@@ -685,7 +685,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|is_empty_blob_sha1
-r_static
 r_int
 id|is_empty_blob_sha1
 c_func
