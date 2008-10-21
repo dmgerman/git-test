@@ -6248,6 +6248,12 @@ id|tmp
 comma
 op_star
 id|endp
+comma
+op_star
+id|reencoded
+comma
+op_star
+id|message
 suffix:semicolon
 r_static
 r_char
@@ -6319,6 +6325,25 @@ id|commit-&gt;object.sha1
 )paren
 suffix:semicolon
 )brace
+id|reencoded
+op_assign
+id|reencode_commit_message
+c_func
+(paren
+id|commit
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+id|message
+op_assign
+id|reencoded
+ques
+c_cond
+id|reencoded
+suffix:colon
+id|commit-&gt;buffer
+suffix:semicolon
 id|ret-&gt;author
 op_assign
 id|author_buf
@@ -6326,7 +6351,7 @@ suffix:semicolon
 id|get_ac_line
 c_func
 (paren
-id|commit-&gt;buffer
+id|message
 comma
 l_string|&quot;&bslash;nauthor &quot;
 comma
@@ -6353,8 +6378,16 @@ c_cond
 op_logical_neg
 id|detailed
 )paren
+(brace
+id|free
+c_func
+(paren
+id|reencoded
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
+)brace
 id|ret-&gt;committer
 op_assign
 id|committer_buf
@@ -6362,7 +6395,7 @@ suffix:semicolon
 id|get_ac_line
 c_func
 (paren
-id|commit-&gt;buffer
+id|message
 comma
 l_string|&quot;&bslash;ncommitter &quot;
 comma
@@ -6392,7 +6425,7 @@ op_assign
 id|strstr
 c_func
 (paren
-id|commit-&gt;buffer
+id|message
 comma
 l_string|&quot;&bslash;n&bslash;n&quot;
 )paren
@@ -6418,6 +6451,12 @@ c_func
 (paren
 id|commit-&gt;object.sha1
 )paren
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|reencoded
 )paren
 suffix:semicolon
 r_return
@@ -6491,6 +6530,12 @@ id|len
 )braket
 op_assign
 l_int|0
+suffix:semicolon
+id|free
+c_func
+(paren
+id|reencoded
+)paren
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * To allow LF and other nonportable characters in pathnames,&n; * they are c-style quoted as needed.&n; */
