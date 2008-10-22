@@ -2938,7 +2938,7 @@ id|new_refs
 suffix:semicolon
 id|rm
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|ref_name
@@ -2946,7 +2946,7 @@ id|ref_name
 suffix:semicolon
 id|rm-&gt;peer_ref
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|ref_name

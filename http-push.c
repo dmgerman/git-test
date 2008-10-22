@@ -9223,7 +9223,7 @@ id|obj
 suffix:semicolon
 id|ref
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|refname
@@ -9731,7 +9731,7 @@ id|ref
 suffix:semicolon
 id|ref
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|ls-&gt;dentry_name
