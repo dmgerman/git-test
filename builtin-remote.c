@@ -2347,7 +2347,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;&bslash;n    &quot;
+l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 r_for
@@ -2367,14 +2367,7 @@ op_increment
 id|printf
 c_func
 (paren
-l_string|&quot;%s%s&quot;
-comma
-id|i
-ques
-c_cond
-l_string|&quot; &quot;
-suffix:colon
-l_string|&quot;&quot;
+l_string|&quot;    %s&bslash;n&quot;
 comma
 id|list-&gt;items
 (braket
@@ -2382,12 +2375,6 @@ id|i
 )braket
 dot
 id|string
-)paren
-suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
@@ -2916,7 +2903,7 @@ id|states.remote-&gt;push_refspec_nr
 id|printf
 c_func
 (paren
-l_string|&quot;  Local branch%s pushed with &squot;git push&squot;&bslash;n   &quot;
+l_string|&quot;  Local branch%s pushed with &squot;git push&squot;&bslash;n&quot;
 comma
 id|states.remote-&gt;push_refspec_nr
 OG
@@ -2955,7 +2942,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot; %s%s%s%s&quot;
+l_string|&quot;    %s%s%s%s&bslash;n&quot;
 comma
 id|spec-&gt;force
 ques
@@ -2990,12 +2977,6 @@ l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
-id|printf
-c_func
-(paren
-l_string|&quot;&bslash;n&quot;
-)paren
-suffix:semicolon
 )brace
 multiline_comment|/* NEEDSWORK: free remote */
 id|string_list_clear
