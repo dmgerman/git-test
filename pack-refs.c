@@ -446,7 +446,7 @@ c_func
 l_string|&quot;packed-refs&quot;
 )paren
 comma
-l_int|1
+id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
 id|cbdata.refs_file

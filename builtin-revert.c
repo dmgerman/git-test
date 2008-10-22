@@ -1784,7 +1784,7 @@ id|msg_file
 comma
 id|defmsg
 comma
-l_int|1
+id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
 id|encoding

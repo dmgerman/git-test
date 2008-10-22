@@ -397,6 +397,9 @@ r_const
 r_char
 op_star
 id|path
+comma
+r_int
+id|flags
 )paren
 (brace
 r_if
@@ -425,6 +428,16 @@ id|path
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * subtract 5 from size to make sure there&squot;s room for adding&n;&t; * &quot;.lock&quot; for the lock file name&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|LOCK_NODEREF
+)paren
+)paren
 id|resolve_symlink
 c_func
 (paren
@@ -590,7 +603,7 @@ op_star
 id|path
 comma
 r_int
-id|die_on_error
+id|flags
 )paren
 (brace
 r_int
@@ -602,6 +615,8 @@ c_func
 id|lk
 comma
 id|path
+comma
+id|flags
 )paren
 suffix:semicolon
 r_if
@@ -611,7 +626,11 @@ id|fd
 OL
 l_int|0
 op_logical_and
-id|die_on_error
+(paren
+id|flags
+op_amp
+id|LOCK_DIE_ON_ERROR
+)paren
 )paren
 id|die
 c_func
@@ -647,7 +666,7 @@ op_star
 id|path
 comma
 r_int
-id|die_on_error
+id|flags
 )paren
 (brace
 r_int
@@ -663,6 +682,8 @@ c_func
 id|lk
 comma
 id|path
+comma
+id|flags
 )paren
 suffix:semicolon
 r_if
@@ -676,7 +697,9 @@ l_int|0
 r_if
 c_cond
 (paren
-id|die_on_error
+id|flags
+op_amp
+id|LOCK_DIE_ON_ERROR
 )paren
 id|die
 c_func
@@ -725,7 +748,9 @@ id|ENOENT
 r_if
 c_cond
 (paren
-id|die_on_error
+id|flags
+op_amp
+id|LOCK_DIE_ON_ERROR
 )paren
 id|die
 c_func
@@ -768,7 +793,9 @@ id|fd
 r_if
 c_cond
 (paren
-id|die_on_error
+id|flags
+op_amp
+id|LOCK_DIE_ON_ERROR
 )paren
 m_exit
 (paren
@@ -929,6 +956,11 @@ c_func
 )paren
 comma
 id|die_on_error
+ques
+c_cond
+id|LOCK_DIE_ON_ERROR
+suffix:colon
+l_int|0
 )paren
 suffix:semicolon
 )brace

@@ -4009,6 +4009,8 @@ l_int|0
 suffix:semicolon
 r_int
 id|type
+comma
+id|lflags
 suffix:semicolon
 r_int
 id|mustexist
@@ -4203,6 +4205,10 @@ id|lock_file
 )paren
 )paren
 suffix:semicolon
+id|lflags
+op_assign
+id|LOCK_DIE_ON_ERROR
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4210,10 +4216,16 @@ id|flags
 op_amp
 id|REF_NODEREF
 )paren
+(brace
 id|ref
 op_assign
 id|orig_ref
 suffix:semicolon
+id|lflags
+op_or_assign
+id|LOCK_NODEREF
+suffix:semicolon
+)brace
 id|lock-&gt;ref_name
 op_assign
 id|xstrdup
@@ -4314,7 +4326,7 @@ id|lock-&gt;lk
 comma
 id|ref_file
 comma
-l_int|1
+id|lflags
 )paren
 suffix:semicolon
 r_return
