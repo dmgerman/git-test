@@ -6598,10 +6598,6 @@ r_struct
 id|object_entry
 op_star
 id|entry
-op_assign
-op_star
-id|list
-op_increment
 suffix:semicolon
 r_struct
 id|unpacked
@@ -6642,6 +6638,12 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+id|entry
+op_assign
+op_star
+id|list
+op_increment
+suffix:semicolon
 (paren
 op_star
 id|list_size
