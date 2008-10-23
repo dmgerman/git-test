@@ -2870,8 +2870,16 @@ id|ofs_last
 op_eq
 l_int|1
 )paren
+(brace
+id|free
+c_func
+(paren
+id|base-&gt;data
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
+)brace
 id|link_base_data
 c_func
 (paren
