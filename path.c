@@ -1638,7 +1638,7 @@ r_goto
 id|next
 suffix:semicolon
 )brace
-id|memcpy
+id|memmove
 c_func
 (paren
 id|dst
