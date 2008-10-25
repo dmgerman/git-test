@@ -694,14 +694,6 @@ id|remote
 op_assign
 l_int|NULL
 suffix:semicolon
-id|git_config
-c_func
-(paren
-id|git_default_config
-comma
-l_int|NULL
-)paren
-suffix:semicolon
 id|remote
 op_assign
 id|extract_remote_arg
