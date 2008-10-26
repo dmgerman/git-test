@@ -315,6 +315,8 @@ c_cond
 id|oldsha1
 suffix:colon
 l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_else

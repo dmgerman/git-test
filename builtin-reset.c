@@ -1533,6 +1533,8 @@ c_func
 l_string|&quot;ORIG_HEAD&quot;
 comma
 id|old_orig
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|prepend_reflog_action

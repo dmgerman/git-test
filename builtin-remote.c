@@ -1939,6 +1939,8 @@ c_func
 id|refname
 comma
 id|sha1
+comma
+l_int|0
 )paren
 )paren
 id|result
@@ -3254,6 +3256,8 @@ c_func
 id|refname
 comma
 l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|printf

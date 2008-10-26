@@ -1150,6 +1150,8 @@ c_func
 id|rs.dst
 comma
 l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
