@@ -1544,6 +1544,15 @@ comma
 id|RECURSIVE
 )paren
 suffix:semicolon
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|ALLOW_TEXTCONV
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * If the user asked for our exit code then don&squot;t start a&n;&t; * pager or we would end up reporting its exit code instead.&n;&t; */
 r_if
 c_cond
