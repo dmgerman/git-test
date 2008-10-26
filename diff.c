@@ -7139,6 +7139,7 @@ id|one
 suffix:semicolon
 )brace
 DECL|function|diff_filespec_load_driver
+r_static
 r_void
 id|diff_filespec_load_driver
 c_func
