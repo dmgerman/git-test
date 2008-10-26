@@ -1696,6 +1696,23 @@ id|rev.diffopt.close_file
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * If we&squot;re not going to stdout, then we definitely don&squot;t&n;&t; * want color, since we are going to the commit message&n;&t; * file (and even the &quot;auto&quot; setting won&squot;t work, since it&n;&t; * will have checked isatty on stdout).&n;&t; */
+r_if
+c_cond
+(paren
+id|s-&gt;fp
+op_ne
+id|stdout
+)paren
+id|DIFF_OPT_CLR
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|COLOR_DIFF
+)paren
+suffix:semicolon
 id|run_diff_index
 c_func
 (paren
@@ -2491,7 +2508,7 @@ l_int|0
 suffix:semicolon
 )brace
 r_return
-id|git_color_default_config
+id|git_diff_ui_config
 c_func
 (paren
 id|k
