@@ -1688,6 +1688,15 @@ id|rev.diffopt.detect_rename
 op_assign
 l_int|1
 suffix:semicolon
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|ALLOW_TEXTCONV
+)paren
+suffix:semicolon
 id|rev.diffopt.file
 op_assign
 id|s-&gt;fp
