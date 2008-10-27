@@ -1429,14 +1429,10 @@ suffix:semicolon
 multiline_comment|/* write the template message before editing: */
 id|path
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;TAG_EDITMSG&quot;
-)paren
 )paren
 suffix:semicolon
 id|fd

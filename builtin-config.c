@@ -530,14 +530,10 @@ id|local
 op_assign
 id|repo_config
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;config&quot;
-)paren
 )paren
 suffix:semicolon
 r_if

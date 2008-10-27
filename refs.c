@@ -6695,16 +6695,12 @@ r_char
 op_star
 id|git_HEAD
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;%s&quot;
 comma
 id|ref_target
-)paren
 )paren
 suffix:semicolon
 r_int
