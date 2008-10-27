@@ -307,6 +307,11 @@ id|show_decorations
 c_func
 (paren
 r_struct
+id|rev_info
+op_star
+id|opt
+comma
+r_struct
 id|commit
 op_star
 id|commit
@@ -321,6 +326,25 @@ r_struct
 id|name_decoration
 op_star
 id|decoration
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;show_source
+op_logical_and
+id|commit-&gt;util
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot; %s&quot;
+comma
+(paren
+r_char
+op_star
+)paren
+id|commit-&gt;util
+)paren
 suffix:semicolon
 id|decoration
 op_assign
@@ -1349,6 +1373,8 @@ suffix:semicolon
 id|show_decorations
 c_func
 (paren
+id|opt
+comma
 id|commit
 )paren
 suffix:semicolon
@@ -1614,6 +1640,8 @@ suffix:semicolon
 id|show_decorations
 c_func
 (paren
+id|opt
+comma
 id|commit
 )paren
 suffix:semicolon
