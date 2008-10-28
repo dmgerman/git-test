@@ -1502,7 +1502,6 @@ comma
 op_star
 id|encoding
 suffix:semicolon
-r_const
 r_char
 op_star
 id|defmsg
@@ -2297,6 +2296,12 @@ id|free
 c_func
 (paren
 id|reencoded_message
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|defmsg
 )paren
 suffix:semicolon
 r_return
