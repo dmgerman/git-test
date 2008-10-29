@@ -4964,7 +4964,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t;&t; * We want in_pack_type even if we do not reuse delta&n;&t;&t; * since non-delta representations could still be reused.&n;&t;&t; */
 id|used
 op_assign
-id|unpack_object_header_gently
+id|unpack_object_header_buffer
 c_func
 (paren
 id|buf

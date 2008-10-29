@@ -5951,10 +5951,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|unpack_object_header_gently
+DECL|function|unpack_object_header_buffer
 r_int
 r_int
-id|unpack_object_header_gently
+id|unpack_object_header_buffer
 c_func
 (paren
 r_const
@@ -6038,13 +6038,7 @@ c_cond
 id|len
 op_le
 id|used
-)paren
-r_return
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
+op_logical_or
 r_sizeof
 (paren
 r_int
@@ -6054,9 +6048,17 @@ l_int|8
 op_le
 id|shift
 )paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;bad object header&quot;
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
+)brace
 id|c
 op_assign
 id|buf
@@ -6213,7 +6215,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * There used to be a second loose object header format which&n;&t; * was meant to mimic the in-pack format, allowing for direct&n;&t; * copy of the object data.  This format turned up not to be&n;&t; * really worth it and we don&squot;t write it any longer.  But we&n;&t; * can still read it.&n;&t; */
 id|used
 op_assign
-id|unpack_object_header_gently
+id|unpack_object_header_buffer
 c_func
 (paren
 id|map
@@ -7340,7 +7342,7 @@ id|left
 suffix:semicolon
 id|used
 op_assign
-id|unpack_object_header_gently
+id|unpack_object_header_buffer
 c_func
 (paren
 id|base
@@ -7359,12 +7361,13 @@ c_cond
 op_logical_neg
 id|used
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;object offset outside of pack file&quot;
-)paren
+(brace
+id|type
+op_assign
+id|OBJ_BAD
 suffix:semicolon
+)brace
+r_else
 op_star
 id|curpos
 op_add_assign
