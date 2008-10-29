@@ -5222,6 +5222,15 @@ comma
 id|ofs
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revidx
+)paren
+r_goto
+id|give_up
+suffix:semicolon
 id|base_ref
 op_assign
 id|nth_packed_object_sha1

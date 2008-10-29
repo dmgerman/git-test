@@ -739,11 +739,14 @@ OL
 id|hi
 )paren
 suffix:semicolon
-id|die
+id|error
 c_func
 (paren
-l_string|&quot;internal error: pack revindex corrupt&quot;
+l_string|&quot;bad offset for revindex&quot;
 )paren
+suffix:semicolon
+r_return
+l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|discard_revindex
