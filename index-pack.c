@@ -1642,6 +1642,10 @@ r_if
 c_cond
 (paren
 id|delta_base-&gt;offset
+op_le
+l_int|0
+op_logical_or
+id|delta_base-&gt;offset
 op_ge
 id|obj-&gt;idx.offset
 )paren

@@ -7115,6 +7115,10 @@ r_if
 c_cond
 (paren
 id|base_offset
+op_le
+l_int|0
+op_logical_or
+id|base_offset
 op_ge
 id|delta_obj_offset
 )paren
