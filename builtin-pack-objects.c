@@ -4978,6 +4978,16 @@ op_amp
 id|entry-&gt;size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|used
+op_eq
+l_int|0
+)paren
+r_goto
+id|give_up
+suffix:semicolon
 multiline_comment|/*&n;&t;&t; * Determine if this is a delta and if so whether we can&n;&t;&t; * reuse it or not.  Otherwise let&squot;s find out as cheaply as&n;&t;&t; * possible what the actual type and size for this object is.&n;&t;&t; */
 r_switch
 c_cond
@@ -4995,6 +5005,16 @@ suffix:semicolon
 id|entry-&gt;in_pack_header_size
 op_assign
 id|used
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|entry-&gt;type
+template_param
+id|OBJ_BLOB
+)paren
+r_goto
+id|give_up
 suffix:semicolon
 id|unuse_pack
 c_func
@@ -5105,7 +5125,8 @@ comma
 l_int|7
 )paren
 )paren
-id|die
+(brace
+id|error
 c_func
 (paren
 l_string|&quot;delta base offset overflow in pack for %s&quot;
@@ -5117,6 +5138,10 @@ id|entry-&gt;idx.sha1
 )paren
 )paren
 suffix:semicolon
+r_goto
+id|give_up
+suffix:semicolon
+)brace
 id|c
 op_assign
 id|buf
@@ -5156,7 +5181,8 @@ id|ofs
 op_ge
 id|entry-&gt;in_pack_offset
 )paren
-id|die
+(brace
+id|error
 c_func
 (paren
 l_string|&quot;delta base offset out of bound for %s&quot;
@@ -5168,6 +5194,10 @@ id|entry-&gt;idx.sha1
 )paren
 )paren
 suffix:semicolon
+r_goto
+id|give_up
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -5277,6 +5307,16 @@ op_plus
 id|entry-&gt;in_pack_header_size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|entry-&gt;size
+op_eq
+l_int|0
+)paren
+r_goto
+id|give_up
+suffix:semicolon
 id|unuse_pack
 c_func
 (paren
@@ -5288,6 +5328,8 @@ r_return
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * No choice but to fall back to the recursive delta walk&n;&t;&t; * with sha1_object_info() to find about the object type&n;&t;&t; * at this point...&n;&t;&t; */
+id|give_up
+suffix:colon
 id|unuse_pack
 c_func
 (paren
