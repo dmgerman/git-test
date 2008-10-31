@@ -4763,6 +4763,10 @@ id|flag
 op_amp
 id|REF_ISPACKED
 )paren
+op_logical_or
+id|flag
+op_amp
+id|REF_ISSYMREF
 )paren
 (brace
 multiline_comment|/* loose */
