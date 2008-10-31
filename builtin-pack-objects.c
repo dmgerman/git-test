@@ -7949,6 +7949,17 @@ c_func
 (paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * If we&squot;re locally repacking then we need to be doubly careful&n;&t; * from now on in order to make sure no stealth corruption gets&n;&t; * propagated to the new pack.  Clients receiving streamed packs&n;&t; * should validate everything they get anyway so no need to incur&n;&t; * the additional cost here in that case.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pack_to_stdout
+)paren
+id|do_check_packed_object_crc
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
