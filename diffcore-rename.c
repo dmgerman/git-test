@@ -2130,7 +2130,11 @@ id|options-&gt;warn_on_too_large_rename
 id|warning
 c_func
 (paren
-l_string|&quot;too many files, skipping inexact rename detection&quot;
+l_string|&quot;too many files (created: %d deleted: %d), skipping inexact rename detection&quot;
+comma
+id|num_create
+comma
+id|num_src
 )paren
 suffix:semicolon
 r_goto
