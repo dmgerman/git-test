@@ -392,14 +392,10 @@ id|git_graft_file
 )paren
 id|git_graft_file
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;info/grafts&quot;
-)paren
 )paren
 suffix:semicolon
 )brace

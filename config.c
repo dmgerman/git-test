@@ -3381,14 +3381,10 @@ suffix:semicolon
 )brace
 id|repo_config
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;config&quot;
-)paren
 )paren
 suffix:semicolon
 id|ret
@@ -4492,14 +4488,10 @@ suffix:semicolon
 r_else
 id|config_filename
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;config&quot;
-)paren
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Since &quot;key&quot; actually contains the section name and the real&n;&t; * key name separated by a dot, we have to know where the dot is.&n;&t; */
@@ -5765,14 +5757,10 @@ suffix:semicolon
 r_else
 id|config_filename
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;config&quot;
-)paren
 )paren
 suffix:semicolon
 id|out_fd
