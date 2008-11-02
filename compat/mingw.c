@@ -2919,15 +2919,15 @@ op_eq
 id|INVALID_HANDLE_VALUE
 )paren
 (brace
-multiline_comment|/* There is no console associated with this process.&n;&t;&t; * Since the child is a console process, Windows&n;&t;&t; * would normally create a console window. But&n;&t;&t; * since we&squot;ll be redirecting std streams, we do&n;&t;&t; * not need the console.&n;&t;&t; */
+multiline_comment|/* There is no console associated with this process.&n;&t;&t; * Since the child is a console process, Windows&n;&t;&t; * would normally create a console window. But&n;&t;&t; * since we&squot;ll be redirecting std streams, we do&n;&t;&t; * not need the console.&n;&t;&t; * It is necessary to use DETACHED_PROCESS&n;&t;&t; * instead of CREATE_NO_WINDOW to make ssh&n;&t;&t; * recognize that it has no console.&n;&t;&t; */
 id|flags
 op_assign
-id|CREATE_NO_WINDOW
+id|DETACHED_PROCESS
 suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* There is already a console. If we specified&n;&t;&t; * CREATE_NO_WINDOW here, too, Windows would&n;&t;&t; * disassociate the child from the console.&n;&t;&t; * Go figure!&n;&t;&t; */
+multiline_comment|/* There is already a console. If we specified&n;&t;&t; * DETACHED_PROCESS here, too, Windows would&n;&t;&t; * disassociate the child from the console.&n;&t;&t; * The same is true for CREATE_NO_WINDOW.&n;&t;&t; * Go figure!&n;&t;&t; */
 id|flags
 op_assign
 l_int|0
