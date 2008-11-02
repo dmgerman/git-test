@@ -1802,13 +1802,11 @@ c_func
 (paren
 l_int|1
 comma
-r_sizeof
+id|cache_entry_size
+c_func
 (paren
-r_struct
-id|cache_entry
+l_int|0
 )paren
-op_plus
-l_int|1
 )paren
 suffix:semicolon
 id|o-&gt;df_conflict_entry

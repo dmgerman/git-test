@@ -692,6 +692,23 @@ id|ref
 suffix:semicolon
 r_int
 id|len
+suffix:semicolon
+multiline_comment|/* we already know it starts with refs/ to get here */
+r_if
+c_cond
+(paren
+id|check_ref_format
+c_func
+(paren
+id|refname
+op_plus
+l_int|5
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|len
 op_assign
 id|strlen
 c_func
