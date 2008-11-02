@@ -1522,7 +1522,7 @@ c_func
 )paren
 )paren
 comma
-l_int|1
+id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
 id|create_base_index

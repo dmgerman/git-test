@@ -639,7 +639,29 @@ suffix:semicolon
 r_case
 l_int|1
 suffix:colon
-multiline_comment|/* Unique completion -- good */
+multiline_comment|/* Unique completion -- good, only if it is a real ref */
+r_if
+c_cond
+(paren
+id|track
+op_eq
+id|BRANCH_TRACK_EXPLICIT
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|real_ref
+comma
+l_string|&quot;HEAD&quot;
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
+)paren
+suffix:semicolon
 r_break
 suffix:semicolon
 r_default

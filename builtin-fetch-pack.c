@@ -4195,7 +4195,7 @@ id|lock
 comma
 id|shallow
 comma
-l_int|1
+id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
 r_if
