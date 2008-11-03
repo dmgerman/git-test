@@ -73,11 +73,6 @@ id|rev
 r_int
 id|i
 suffix:semicolon
-r_int
-id|decorate
-op_assign
-l_int|0
-suffix:semicolon
 id|rev-&gt;abbrev
 op_assign
 id|DEFAULT_ABBREV
@@ -232,7 +227,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|decorate
+id|rev-&gt;show_decorations
 op_assign
 l_int|1
 suffix:semicolon

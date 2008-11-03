@@ -346,6 +346,14 @@ op_star
 id|commit-&gt;util
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opt-&gt;show_decorations
+)paren
+r_return
+suffix:semicolon
 id|decoration
 op_assign
 id|lookup_decoration
