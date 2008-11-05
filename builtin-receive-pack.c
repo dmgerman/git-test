@@ -1327,6 +1327,8 @@ c_func
 id|name
 comma
 id|old_sha1
+comma
+l_int|0
 )paren
 )paren
 (brace

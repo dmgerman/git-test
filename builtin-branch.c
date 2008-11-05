@@ -740,6 +740,8 @@ c_func
 id|name
 comma
 id|sha1
+comma
+l_int|0
 )paren
 )paren
 (brace
