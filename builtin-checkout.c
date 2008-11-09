@@ -167,7 +167,12 @@ c_func
 id|sha1_to_hex
 c_func
 (paren
+id|old
+ques
+c_cond
 id|old-&gt;object.sha1
+suffix:colon
+id|null_sha1
 )paren
 )paren
 suffix:semicolon
@@ -2671,6 +2676,8 @@ c_cond
 (paren
 op_logical_neg
 id|old_desc
+op_logical_and
+id|old-&gt;commit
 )paren
 id|old_desc
 op_assign
@@ -2689,6 +2696,11 @@ comma
 l_string|&quot;checkout: moving from %s to %s&quot;
 comma
 id|old_desc
+ques
+c_cond
+id|old_desc
+suffix:colon
+l_string|&quot;(invalid)&quot;
 comma
 r_new
 op_member_access_from_pointer
@@ -3049,6 +3061,8 @@ id|opts-&gt;quiet
 op_logical_and
 op_logical_neg
 id|old.path
+op_logical_and
+id|old.commit
 op_logical_and
 r_new
 op_member_access_from_pointer
