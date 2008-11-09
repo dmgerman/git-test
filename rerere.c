@@ -2073,14 +2073,10 @@ l_int|1
 suffix:semicolon
 id|merge_rr_path
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;MERGE_RR&quot;
-)paren
 )paren
 suffix:semicolon
 id|fd

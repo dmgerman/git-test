@@ -1506,14 +1506,10 @@ r_char
 op_star
 id|defmsg
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;MERGE_MSG&quot;
-)paren
 )paren
 suffix:semicolon
 id|git_config
