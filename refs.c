@@ -4006,10 +4006,6 @@ id|ref_lock
 op_star
 id|lock
 suffix:semicolon
-r_struct
-id|stat
-id|st
-suffix:semicolon
 r_int
 id|last_errno
 op_assign
@@ -4033,6 +4029,11 @@ c_func
 id|old_sha1
 )paren
 )paren
+suffix:semicolon
+r_int
+id|missing
+op_assign
+l_int|0
 suffix:semicolon
 id|lock
 op_assign
@@ -4170,15 +4171,19 @@ r_goto
 id|error_return
 suffix:semicolon
 )brace
-multiline_comment|/* When the ref did not exist and we are creating it,&n;&t; * make sure there is no existing ref that is packed&n;&t; * whose name begins with our refname, nor a ref whose&n;&t; * name is a proper prefix of our refname.&n;&t; */
-r_if
-c_cond
-(paren
+id|missing
+op_assign
 id|is_null_sha1
 c_func
 (paren
 id|lock-&gt;old_sha1
 )paren
+suffix:semicolon
+multiline_comment|/* When the ref did not exist and we are creating it,&n;&t; * make sure there is no existing ref that is packed&n;&t; * whose name begins with our refname, nor a ref whose&n;&t; * name is a proper prefix of our refname.&n;&t; */
+r_if
+c_cond
+(paren
+id|missing
 op_logical_and
 op_logical_neg
 id|is_refname_available
@@ -4263,18 +4268,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|lstat
-c_func
-(paren
-id|ref_file
-comma
-op_amp
-id|st
-)paren
-op_logical_and
-id|errno
-op_eq
-id|ENOENT
+id|missing
 )paren
 id|lock-&gt;force_write
 op_assign
