@@ -4829,6 +4829,8 @@ op_assign
 id|git_path
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|refname
 )paren
 suffix:semicolon

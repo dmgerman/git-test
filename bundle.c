@@ -716,6 +716,8 @@ l_int|1
 id|error
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|message
 )paren
 suffix:semicolon
@@ -899,6 +901,8 @@ l_int|1
 id|error
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|message
 )paren
 suffix:semicolon
