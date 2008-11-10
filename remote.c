@@ -1185,6 +1185,10 @@ id|f
 )paren
 r_return
 suffix:semicolon
+id|remote-&gt;origin
+op_assign
+id|REMOTE_REMOTES
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1533,6 +1537,10 @@ op_star
 id|s
 )paren
 r_return
+suffix:semicolon
+id|remote-&gt;origin
+op_assign
+id|REMOTE_BRANCHES
 suffix:semicolon
 id|p
 op_assign
@@ -2075,6 +2083,10 @@ comma
 id|subkey
 id|name
 )paren
+suffix:semicolon
+id|remote-&gt;origin
+op_assign
+id|REMOTE_CONFIG
 suffix:semicolon
 r_if
 c_cond
