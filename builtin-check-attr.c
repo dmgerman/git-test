@@ -563,7 +563,10 @@ id|errstr
 )paren
 (brace
 id|error
+c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|errstr
 )paren
 suffix:semicolon
