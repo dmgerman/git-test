@@ -10,7 +10,7 @@ id|ls_remote_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git ls-remote [--upload-pack=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt;&quot;
+l_string|&quot;git ls-remote [--heads] [--tags]  [-u &lt;exec&gt; | --upload-pack &lt;exec&gt;] &lt;repository&gt; &lt;refs&gt;...&quot;
 suffix:semicolon
 multiline_comment|/*&n; * Is there one among the list of patterns that match the tail part&n; * of the path?&n; */
 DECL|function|tail_match
