@@ -1746,6 +1746,8 @@ suffix:semicolon
 id|error
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|sb.buf
 )paren
 suffix:semicolon

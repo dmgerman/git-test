@@ -579,6 +579,8 @@ c_func
 id|git_path
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|work_tree
 )paren
 )paren
