@@ -906,8 +906,10 @@ id|twoway_merge
 suffix:semicolon
 id|opts.initial_checkout
 op_assign
-op_logical_neg
-id|active_nr
+id|is_cache_unborn
+c_func
+(paren
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
