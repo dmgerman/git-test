@@ -5593,6 +5593,12 @@ l_string|&quot;could not read commit message&quot;
 suffix:semicolon
 )brace
 multiline_comment|/* Truncate the message just before the diff, if any. */
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+(brace
 id|p
 op_assign
 id|strstr
@@ -5600,7 +5606,7 @@ c_func
 (paren
 id|sb.buf
 comma
-l_string|&quot;&bslash;ndiff --git a/&quot;
+l_string|&quot;&bslash;ndiff --git &quot;
 )paren
 suffix:semicolon
 r_if
@@ -5622,6 +5628,7 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
