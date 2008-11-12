@@ -1563,6 +1563,11 @@ comma
 op_amp
 id|rev
 comma
+id|s-&gt;is_initial
+ques
+c_cond
+id|EMPTY_TREE_SHA1_HEX
+suffix:colon
 id|s-&gt;reference
 )paren
 suffix:semicolon
@@ -1988,9 +1993,6 @@ r_if
 c_cond
 (paren
 id|s-&gt;verbose
-op_logical_and
-op_logical_neg
-id|s-&gt;is_initial
 )paren
 id|wt_status_print_verbose
 c_func
