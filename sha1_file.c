@@ -10462,9 +10462,7 @@ id|cached_object
 id|empty_tree
 op_assign
 (brace
-multiline_comment|/* empty tree sha1: 4b825dc642cb6eb9a060e54bf8d69288fbee4904 */
-l_string|&quot;&bslash;x4b&bslash;x82&bslash;x5d&bslash;xc6&bslash;x42&bslash;xcb&bslash;x6e&bslash;xb9&bslash;xa0&bslash;x60&quot;
-l_string|&quot;&bslash;xe5&bslash;x4b&bslash;xf8&bslash;xd6&bslash;x92&bslash;x88&bslash;xfb&bslash;xee&bslash;x49&bslash;x04&quot;
+id|EMPTY_TREE_SHA1_BIN
 comma
 id|OBJ_TREE
 comma
