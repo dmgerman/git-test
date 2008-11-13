@@ -4565,7 +4565,6 @@ r_sizeof
 r_const
 r_char
 op_star
-op_star
 )paren
 op_star
 (paren
