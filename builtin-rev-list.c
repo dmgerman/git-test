@@ -321,6 +321,9 @@ suffix:semicolon
 id|show_decorations
 c_func
 (paren
+op_amp
+id|revs
+comma
 id|commit
 )paren
 suffix:semicolon
