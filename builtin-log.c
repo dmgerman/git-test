@@ -247,6 +247,15 @@ id|arg
 )paren
 suffix:semicolon
 )brace
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|rev-&gt;diffopt
+comma
+id|ALLOW_TEXTCONV
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/*&n; * This gives a rough estimate for how many commits we&n; * will print out in the list.&n; */
 DECL|function|estimate_commit_count
