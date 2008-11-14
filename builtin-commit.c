@@ -1159,9 +1159,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_cache
+id|read_cache_preload
 c_func
 (paren
+l_int|NULL
 )paren
 OL
 l_int|0
@@ -1186,22 +1187,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_cache
-c_func
-(paren
-)paren
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;index file corrupt&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 op_star
 id|argv
 )paren
@@ -1213,6 +1198,23 @@ c_func
 id|prefix
 comma
 id|argv
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|read_cache_preload
+c_func
+(paren
+id|pathspec
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;index file corrupt&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Non partial, non as-is commit.&n;&t; *&n;&t; * (1) get the real index;&n;&t; * (2) update the_index as necessary;&n;&t; * (3) write the_index out to the real index (still locked);&n;&t; * (4) return the name of the locked index file.&n;&t; *&n;&t; * The caller should run hooks on the locked real index, and&n;&t; * (A) if all goes well, commit the real index;&n;&t; * (B) on failure, rollback the real index.&n;&t; */

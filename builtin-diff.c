@@ -735,9 +735,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_cache
+id|read_cache_preload
 c_func
 (paren
+id|revs-&gt;diffopt.paths
 )paren
 OL
 l_int|0
@@ -746,7 +747,7 @@ l_int|0
 id|perror
 c_func
 (paren
-l_string|&quot;read_cache&quot;
+l_string|&quot;read_cache_preload&quot;
 )paren
 suffix:semicolon
 r_return
@@ -1310,9 +1311,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_cache
+id|read_cache_preload
 c_func
 (paren
+id|revs-&gt;diffopt.paths
 )paren
 OL
 l_int|0
@@ -1321,7 +1323,7 @@ l_int|0
 id|perror
 c_func
 (paren
-l_string|&quot;read_cache&quot;
+l_string|&quot;read_cache_preload&quot;
 )paren
 suffix:semicolon
 r_return
