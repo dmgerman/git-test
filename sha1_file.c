@@ -11756,7 +11756,7 @@ c_cond
 (paren
 id|errno
 op_eq
-id|EPERM
+id|EACCES
 )paren
 r_return
 id|error
