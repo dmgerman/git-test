@@ -1,5 +1,28 @@
 multiline_comment|/*&n; * Copyright (C) 2008 Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#ifdef NO_PTHREADS
+DECL|function|preload_index
+r_static
+r_void
+id|preload_index
+c_func
+(paren
+r_struct
+id|index_state
+op_star
+id|index
+comma
+r_const
+r_char
+op_star
+op_star
+id|pathspec
+)paren
+(brace
+suffix:semicolon
+multiline_comment|/* nothing */
+)brace
+macro_line|#else
 macro_line|#include &lt;pthread.h&gt;
 multiline_comment|/*&n; * Mostly randomly chosen maximum thread counts: we&n; * cap the parallelism to 20 threads, and we want&n; * to have at least 500 lstat&squot;s per thread for it to&n; * be worth starting a thread.&n; */
 DECL|macro|MAX_PARALLEL
@@ -389,6 +412,7 @@ l_string|&quot;unable to join threaded lstat&quot;
 suffix:semicolon
 )brace
 )brace
+macro_line|#endif
 DECL|function|read_index_preload
 r_int
 id|read_index_preload
