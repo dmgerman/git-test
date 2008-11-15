@@ -337,7 +337,7 @@ id|commit-&gt;util
 id|printf
 c_func
 (paren
-l_string|&quot; %s&quot;
+l_string|&quot;&bslash;t%s&quot;
 comma
 (paren
 r_char
