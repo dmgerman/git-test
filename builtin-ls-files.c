@@ -1220,6 +1220,15 @@ id|dir-&gt;show_ignored
 )paren
 r_continue
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_UPDATE
+)paren
+r_continue
+suffix:semicolon
 id|err
 op_assign
 id|lstat
