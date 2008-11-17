@@ -1344,7 +1344,8 @@ r_void
 id|fill_tracking_info
 c_func
 (paren
-r_char
+r_struct
+id|strbuf
 op_star
 id|stat
 comma
@@ -1402,7 +1403,7 @@ c_cond
 op_logical_neg
 id|ours
 )paren
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|stat
@@ -1419,7 +1420,7 @@ c_cond
 op_logical_neg
 id|theirs
 )paren
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|stat
@@ -1430,7 +1431,7 @@ id|ours
 )paren
 suffix:semicolon
 r_else
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|stat
@@ -1602,6 +1603,10 @@ id|strbuf
 id|subject
 op_assign
 id|STRBUF_INIT
+comma
+id|stat
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1609,19 +1614,6 @@ op_star
 id|sub
 op_assign
 l_string|&quot; **** invalid ref ****&quot;
-suffix:semicolon
-r_char
-id|stat
-(braket
-l_int|128
-)braket
-suffix:semicolon
-id|stat
-(braket
-l_int|0
-)braket
-op_assign
-l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 id|commit
 op_assign
@@ -1676,6 +1668,7 @@ id|REF_LOCAL_BRANCH
 id|fill_tracking_info
 c_func
 (paren
+op_amp
 id|stat
 comma
 id|item-&gt;name
@@ -1712,9 +1705,16 @@ comma
 id|abbrev
 )paren
 comma
-id|stat
+id|stat.buf
 comma
 id|sub
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|stat
 )paren
 suffix:semicolon
 id|strbuf_release
