@@ -4657,11 +4657,7 @@ id|remote-&gt;skip_default_update
 id|string_list_append
 c_func
 (paren
-id|xstrdup
-c_func
-(paren
 id|remote-&gt;name
-)paren
 comma
 id|list
 )paren
