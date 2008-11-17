@@ -17,17 +17,17 @@ id|builtin_remote_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git remote&quot;
+l_string|&quot;git remote [-v | --verbose]&quot;
 comma
-l_string|&quot;git remote add &lt;name&gt; &lt;url&gt;&quot;
+l_string|&quot;git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--mirror] &lt;name&gt; &lt;url&gt;&quot;
 comma
 l_string|&quot;git remote rename &lt;old&gt; &lt;new&gt;&quot;
 comma
 l_string|&quot;git remote rm &lt;name&gt;&quot;
 comma
-l_string|&quot;git remote show &lt;name&gt;&quot;
+l_string|&quot;git remote show [-n] &lt;name&gt;&quot;
 comma
-l_string|&quot;git remote prune &lt;name&gt;&quot;
+l_string|&quot;git remote prune [-n | --dry-run] &lt;name&gt;&quot;
 comma
 l_string|&quot;git remote update [group]&quot;
 comma
