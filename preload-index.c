@@ -171,7 +171,7 @@ comma
 op_amp
 id|st
 comma
-l_int|0
+id|CE_MATCH_RACY_IS_DIRTY
 )paren
 )paren
 r_continue
