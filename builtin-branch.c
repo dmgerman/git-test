@@ -454,12 +454,6 @@ comma
 op_star
 id|remote
 suffix:semicolon
-r_char
-id|section
-(braket
-id|PATH_MAX
-)braket
-suffix:semicolon
 r_int
 id|i
 suffix:semicolon
@@ -765,6 +759,12 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -778,15 +778,11 @@ id|i
 )braket
 )paren
 suffix:semicolon
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
-id|section
-comma
-r_sizeof
-(paren
-id|section
-)paren
+op_amp
+id|buf
 comma
 l_string|&quot;branch.%s&quot;
 comma
@@ -802,7 +798,7 @@ c_cond
 id|git_config_rename_section
 c_func
 (paren
-id|section
+id|buf.buf
 comma
 l_int|NULL
 )paren
@@ -813,6 +809,13 @@ id|warning
 c_func
 (paren
 l_string|&quot;Update of config-file failed&quot;
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
 )paren
 suffix:semicolon
 )brace
