@@ -272,10 +272,13 @@ multiline_comment|/* deletion */
 r_if
 c_cond
 (paren
+id|row2
+(braket
 id|j
 op_plus
 l_int|1
-template_param
+)braket
+OG
 id|row1
 (braket
 id|j
