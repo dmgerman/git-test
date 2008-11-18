@@ -29,7 +29,7 @@ l_string|&quot;git remote show [-n] &lt;name&gt;&quot;
 comma
 l_string|&quot;git remote prune [-n | --dry-run] &lt;name&gt;&quot;
 comma
-l_string|&quot;git remote update [group]&quot;
+l_string|&quot;git remote [-v | --verbose] update [group]&quot;
 comma
 l_int|NULL
 )brace
@@ -184,8 +184,31 @@ comma
 id|name
 comma
 l_int|NULL
+comma
+l_int|NULL
 )brace
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+(brace
+id|argv
+(braket
+l_int|1
+)braket
+op_assign
+l_string|&quot;-v&quot;
+suffix:semicolon
+id|argv
+(braket
+l_int|2
+)braket
+op_assign
+id|name
+suffix:semicolon
+)brace
 id|printf
 c_func
 (paren
