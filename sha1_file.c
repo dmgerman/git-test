@@ -9128,6 +9128,13 @@ comma
 id|sha1
 )paren
 suffix:semicolon
+id|unuse_pack
+c_func
+(paren
+op_amp
+id|w_curs
+)paren
+suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
