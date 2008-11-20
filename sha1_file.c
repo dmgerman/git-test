@@ -11971,6 +11971,10 @@ OL
 l_int|0
 op_logical_and
 id|dirlen
+op_logical_and
+id|errno
+op_eq
+id|ENOENT
 )paren
 (brace
 multiline_comment|/* Make sure the directory exists */
