@@ -1709,6 +1709,10 @@ id|extra_args
 op_plus
 id|buflen
 suffix:semicolon
+r_char
+op_star
+id|hp
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1835,20 +1839,6 @@ id|vallen
 suffix:semicolon
 )brace
 )brace
-)brace
-DECL|function|fill_in_extra_table_entries
-r_static
-r_void
-id|fill_in_extra_table_entries
-c_func
-(paren
-r_void
-)paren
-(brace
-r_char
-op_star
-id|hp
-suffix:semicolon
 multiline_comment|/*&n;&t; * Replace literal host with lowercase-ized hostname.&n;&t; */
 id|hp
 op_assign
@@ -2492,7 +2482,6 @@ id|len
 op_ne
 id|pktlen
 )paren
-(brace
 id|parse_extra_args
 c_func
 (paren
@@ -2507,12 +2496,6 @@ id|len
 l_int|1
 )paren
 suffix:semicolon
-id|fill_in_extra_table_entries
-c_func
-(paren
-)paren
-suffix:semicolon
-)brace
 r_for
 c_loop
 (paren
