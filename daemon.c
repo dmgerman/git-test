@@ -132,12 +132,6 @@ r_char
 op_star
 id|tcp_port
 suffix:semicolon
-DECL|variable|directory
-r_static
-r_char
-op_star
-id|directory
-suffix:semicolon
 DECL|function|logreport
 r_static
 r_void
@@ -540,7 +534,9 @@ op_star
 id|path_ok
 c_func
 (paren
-r_void
+r_char
+op_star
+id|directory
 )paren
 (brace
 r_static
@@ -1207,6 +1203,10 @@ r_int
 id|run_service
 c_func
 (paren
+r_char
+op_star
+id|dir
+comma
 r_struct
 id|daemon_service
 op_star
@@ -1230,7 +1230,7 @@ l_string|&quot;Request %s for &squot;%s&squot;&quot;
 comma
 id|service-&gt;name
 comma
-id|directory
+id|dir
 )paren
 suffix:semicolon
 r_if
@@ -1269,6 +1269,7 @@ op_assign
 id|path_ok
 c_func
 (paren
+id|dir
 )paren
 )paren
 )paren
@@ -2457,12 +2458,6 @@ c_func
 id|tcp_port
 )paren
 suffix:semicolon
-id|free
-c_func
-(paren
-id|directory
-)paren
-suffix:semicolon
 id|hostname
 op_assign
 id|canon_hostname
@@ -2470,8 +2465,6 @@ op_assign
 id|ip_address
 op_assign
 id|tcp_port
-op_assign
-id|directory
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -2573,15 +2566,8 @@ l_char|&squot; &squot;
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * Note: The directory here is probably context sensitive,&n;&t;&t;&t; * and might depend on the actual service being performed.&n;&t;&t;&t; */
-id|free
-c_func
-(paren
-id|directory
-)paren
-suffix:semicolon
-id|directory
-op_assign
-id|xstrdup
+r_return
+id|run_service
 c_func
 (paren
 id|line
@@ -2589,12 +2575,7 @@ op_plus
 id|namelen
 op_plus
 l_int|5
-)paren
-suffix:semicolon
-r_return
-id|run_service
-c_func
-(paren
+comma
 id|s
 )paren
 suffix:semicolon
