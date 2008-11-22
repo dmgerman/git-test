@@ -12,7 +12,6 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
-macro_line|#include &quot;interpolate.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
 macro_line|#include &quot;dir.h&quot;
