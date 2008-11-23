@@ -1889,7 +1889,7 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
-id|string_list_insert
+id|string_list_append
 c_func
 (paren
 id|full_name
@@ -1977,7 +1977,7 @@ c_cond
 id|commit-&gt;util
 )paren
 multiline_comment|/* more than one name for the same object */
-id|string_list_insert
+id|string_list_append
 c_func
 (paren
 id|full_name
