@@ -2248,6 +2248,9 @@ c_cond
 (paren
 op_logical_neg
 id|old.commit
+op_logical_and
+op_logical_neg
+id|opts-&gt;force
 )paren
 (brace
 r_if
