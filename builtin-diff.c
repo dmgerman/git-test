@@ -1462,6 +1462,16 @@ op_logical_neg
 op_logical_neg
 id|diff_auto_refresh_index
 suffix:semicolon
+multiline_comment|/* Default to let external be used */
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|ALLOW_EXTERNAL
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1518,15 +1528,6 @@ l_string|&quot;diff_setup_done failed&quot;
 )paren
 suffix:semicolon
 )brace
-id|DIFF_OPT_SET
-c_func
-(paren
-op_amp
-id|rev.diffopt
-comma
-id|ALLOW_EXTERNAL
-)paren
-suffix:semicolon
 id|DIFF_OPT_SET
 c_func
 (paren
