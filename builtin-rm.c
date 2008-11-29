@@ -351,10 +351,10 @@ op_logical_neg
 id|index_only
 op_logical_or
 op_logical_neg
-id|is_empty_blob_sha1
-c_func
 (paren
-id|ce-&gt;sha1
+id|ce-&gt;ce_flags
+op_amp
+id|CE_INTENT_TO_ADD
 )paren
 )paren
 id|errs

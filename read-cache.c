@@ -2591,6 +2591,11 @@ comma
 id|st
 )paren
 suffix:semicolon
+r_else
+id|ce-&gt;ce_flags
+op_or_assign
+id|CE_INTENT_TO_ADD
+suffix:semicolon
 r_if
 c_cond
 (paren
