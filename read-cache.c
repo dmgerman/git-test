@@ -1149,6 +1149,21 @@ id|CE_VALID
 r_return
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * Intent-to-add entries have not been added, so the index entry&n;&t; * by definition never matches what is in the work tree until it&n;&t; * actually gets added.&n;&t; */
+r_if
+c_cond
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_INTENT_TO_ADD
+)paren
+r_return
+id|DATA_CHANGED
+op_or
+id|TYPE_CHANGED
+op_or
+id|MODE_CHANGED
+suffix:semicolon
 id|changed
 op_assign
 id|ce_match_stat_basic

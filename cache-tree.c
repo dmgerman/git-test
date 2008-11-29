@@ -781,6 +781,12 @@ c_func
 (paren
 id|ce
 )paren
+op_logical_or
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_INTENT_TO_ADD
+)paren
 )paren
 (brace
 r_if
@@ -803,6 +809,15 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+)paren
 id|fprintf
 c_func
 (paren
@@ -817,6 +832,17 @@ c_func
 (paren
 id|ce-&gt;sha1
 )paren
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;%s: not added yet&bslash;n&quot;
+comma
+id|ce-&gt;name
 )paren
 suffix:semicolon
 )brace
