@@ -626,6 +626,10 @@ l_char|&squot;&quot;&squot;
 op_logical_or
 id|c
 op_eq
+l_char|&squot;&bslash;&bslash;&squot;
+op_logical_or
+id|c
+op_eq
 l_char|&squot;&bslash;&squot;&squot;
 suffix:semicolon
 )brace
