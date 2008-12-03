@@ -203,7 +203,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;%s: error building trees; the index is unmerged?&quot;
+l_string|&quot;%s: error building trees&quot;
 comma
 id|me
 )paren

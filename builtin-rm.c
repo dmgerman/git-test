@@ -112,7 +112,7 @@ r_int
 id|index_only
 )paren
 (brace
-multiline_comment|/* items in list are already sorted in the cache order,&n;&t; * so we could do this a lot more efficiently by using&n;&t; * tree_desc based traversal if we wanted to, but I am&n;&t; * lazy, and who cares if removal of files is a tad&n;&t; * slower than the theoretical maximum speed?&n;&t; */
+multiline_comment|/*&n;&t; * Items in list are already sorted in the cache order,&n;&t; * so we could do this a lot more efficiently by using&n;&t; * tree_desc based traversal if we wanted to, but I am&n;&t; * lazy, and who cares if removal of files is a tad&n;&t; * slower than the theoretical maximum speed?&n;&t; */
 r_int
 id|i
 comma
@@ -276,6 +276,8 @@ multiline_comment|/* if a file was removed and it is now a&n;&t;&t;&t; * directo
 r_continue
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * &quot;rm&quot; of a path that has changes need to be treated&n;&t;&t; * carefully not to allow losing local changes&n;&t;&t; * accidentally.  A local change could be (1) file in&n;&t;&t; * work tree is different since the index; and/or (2)&n;&t;&t; * the user staged a content that is different from&n;&t;&t; * the current commit in the index.&n;&t;&t; *&n;&t;&t; * In such a case, you would need to --force the&n;&t;&t; * removal.  However, &quot;rm --cached&quot; (remove only from&n;&t;&t; * the index) is safe if the index matches the file in&n;&t;&t; * the work tree or the HEAD commit, as it means that&n;&t;&t; * the content being removed is available elsewhere.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Is the index different from the file in the work tree?&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -294,6 +296,7 @@ id|local_changes
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Is the index different from the HEAD commit?  By&n;&t;&t; * definition, before the very initial commit,&n;&t;&t; * anything staged in the index is treated by the same&n;&t;&t; * way as changed from the HEAD.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -332,22 +335,26 @@ id|staged_changes
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * If the index does not match the file in the work&n;&t;&t; * tree and if it does not match the HEAD commit&n;&t;&t; * either, (1) &quot;git rm&quot; without --cached definitely&n;&t;&t; * will lose information; (2) &quot;git rm --cached&quot; will&n;&t;&t; * lose information unless it is about removing an&n;&t;&t; * &quot;intent to add&quot; entry.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|local_changes
 op_logical_and
 id|staged_changes
-op_logical_and
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|index_only
+op_logical_or
 op_logical_neg
 (paren
-id|index_only
-op_logical_and
-id|is_empty_blob_sha1
-c_func
-(paren
-id|ce-&gt;sha1
-)paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_INTENT_TO_ADD
 )paren
 )paren
 id|errs
@@ -362,6 +369,7 @@ comma
 id|name
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -370,7 +378,6 @@ op_logical_neg
 id|index_only
 )paren
 (brace
-multiline_comment|/* It&squot;s not dangerous to &quot;git rm --cached&quot; a&n;&t;&t;&t; * file if the index matches the file or the&n;&t;&t;&t; * HEAD, since it means the deleted content is&n;&t;&t;&t; * still available somewhere.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
