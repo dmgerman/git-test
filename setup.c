@@ -2286,10 +2286,27 @@ l_string|&quot;Not a git repository&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|chdir
 c_func
 (paren
 l_string|&quot;..&quot;
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Cannot change to %s/..: %s&quot;
+comma
+id|cwd
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 )brace

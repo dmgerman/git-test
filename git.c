@@ -1138,11 +1138,25 @@ r_if
 c_cond
 (paren
 id|subdir
-)paren
+op_logical_and
 id|chdir
 c_func
 (paren
 id|subdir
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Cannot change to %s: %s&quot;
+comma
+id|subdir
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|errno
