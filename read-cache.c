@@ -7149,7 +7149,7 @@ id|newfd
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Read the index file that is potentially unmerged into given&n; * index_state, dropping any unmerged entries.  Returns true is&n; * the index is unmerged.  Callers who want to refuse to work&n; * from an unmerged state can call this and check its return value,&n; * instead of calling read_cache().&n; */
+multiline_comment|/*&n; * Read the index file that is potentially unmerged into given&n; * index_state, dropping any unmerged entries.  Returns true if&n; * the index is unmerged.  Callers who want to refuse to work&n; * from an unmerged state can call this and check its return value,&n; * instead of calling read_cache().&n; */
 DECL|function|read_index_unmerged
 r_int
 id|read_index_unmerged
