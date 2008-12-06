@@ -1275,9 +1275,21 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|read_cache
 c_func
 (paren
+)paren
+OL
+l_int|0
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;corrupt index file&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2117,9 +2129,21 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|read_cache
 c_func
 (paren
+)paren
+OL
+l_int|0
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;corrupt index file&quot;
 )paren
 suffix:semicolon
 r_if
