@@ -4013,6 +4013,14 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_amp
+id|args
+op_ne
+id|my_args
+)paren
 id|memcpy
 c_func
 (paren
