@@ -115,6 +115,15 @@ id|rev-&gt;subject_prefix
 op_assign
 id|fmt_patch_subject_prefix
 suffix:semicolon
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|rev-&gt;diffopt
+comma
+id|ALLOW_TEXTCONV
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -261,15 +270,6 @@ id|arg
 )paren
 suffix:semicolon
 )brace
-id|DIFF_OPT_SET
-c_func
-(paren
-op_amp
-id|rev-&gt;diffopt
-comma
-id|ALLOW_TEXTCONV
-)paren
-suffix:semicolon
 )brace
 multiline_comment|/*&n; * This gives a rough estimate for how many commits we&n; * will print out in the list.&n; */
 DECL|function|estimate_commit_count

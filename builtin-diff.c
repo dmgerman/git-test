@@ -1481,7 +1481,7 @@ op_logical_neg
 op_logical_neg
 id|diff_auto_refresh_index
 suffix:semicolon
-multiline_comment|/* Default to let external be used */
+multiline_comment|/* Default to let external and textconv be used */
 id|DIFF_OPT_SET
 c_func
 (paren
@@ -1489,6 +1489,15 @@ op_amp
 id|rev.diffopt
 comma
 id|ALLOW_EXTERNAL
+)paren
+suffix:semicolon
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|ALLOW_TEXTCONV
 )paren
 suffix:semicolon
 r_if
@@ -1554,15 +1563,6 @@ op_amp
 id|rev.diffopt
 comma
 id|RECURSIVE
-)paren
-suffix:semicolon
-id|DIFF_OPT_SET
-c_func
-(paren
-op_amp
-id|rev.diffopt
-comma
-id|ALLOW_TEXTCONV
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * If the user asked for our exit code then don&squot;t start a&n;&t; * pager or we would end up reporting its exit code instead.&n;&t; */
