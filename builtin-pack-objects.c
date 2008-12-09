@@ -2553,6 +2553,12 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+id|free_pack_by_name
+c_func
+(paren
+id|tmpname
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
