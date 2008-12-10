@@ -66,7 +66,7 @@ l_int|0
 comma
 id|i
 suffix:semicolon
-multiline_comment|/*&n;&t; * Since we are walking the index as if we are warlking the directory,&n;&t; * we have to mark the matched pathspec as seen; otherwise we will&n;&t; * mistakenly think that the user gave a pathspec that did not match&n;&t; * anything.&n;&t; */
+multiline_comment|/*&n;&t; * Since we are walking the index as if we were walking the directory,&n;&t; * we have to mark the matched pathspec as seen; otherwise we will&n;&t; * mistakenly think that the user gave a pathspec that did not match&n;&t; * anything.&n;&t; */
 r_for
 c_loop
 (paren
