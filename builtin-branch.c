@@ -768,7 +768,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;Deleted %sbranch %s.&bslash;n&quot;
+l_string|&quot;Deleted %sbranch %s (%s).&bslash;n&quot;
 comma
 id|remote
 comma
@@ -776,6 +776,14 @@ id|argv
 (braket
 id|i
 )braket
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|sha1
+comma
+id|DEFAULT_ABBREV
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addf
