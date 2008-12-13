@@ -7492,6 +7492,26 @@ id|delta_search_threads
 id|i
 )paren
 suffix:semicolon
+multiline_comment|/* don&squot;t use too small segments or no deltas will be found */
+r_if
+c_cond
+(paren
+id|sub_size
+OL
+l_int|2
+op_star
+id|window
+op_logical_and
+id|i
+op_plus
+l_int|1
+OL
+id|delta_search_threads
+)paren
+id|sub_size
+op_assign
+l_int|0
+suffix:semicolon
 id|p
 (braket
 id|i
