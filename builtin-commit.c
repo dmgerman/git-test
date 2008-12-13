@@ -5064,18 +5064,6 @@ id|cb
 )paren
 suffix:semicolon
 )brace
-DECL|variable|commit_utf8_warn
-r_static
-r_const
-r_char
-id|commit_utf8_warn
-(braket
-)braket
-op_assign
-l_string|&quot;Warning: commit message does not conform to UTF-8.&bslash;n&quot;
-l_string|&quot;You may want to amend it after fixing the message, or set the config&bslash;n&quot;
-l_string|&quot;variable i18n.commitencoding to the encoding your project uses.&bslash;n&quot;
-suffix:semicolon
 DECL|function|cmd_commit
 r_int
 id|cmd_commit
