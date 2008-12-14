@@ -3288,7 +3288,7 @@ id|home
 op_assign
 l_int|NULL
 suffix:semicolon
-multiline_comment|/* $GIT_CONFIG makes git read _only_ the given config file,&n;&t; * $GIT_CONFIG_LOCAL will make it process it in addition to the&n;&t; * global config file, the same way it would the per-repository&n;&t; * config file otherwise. */
+multiline_comment|/* Setting $GIT_CONFIG makes git read _only_ the given config file. */
 r_if
 c_cond
 (paren
