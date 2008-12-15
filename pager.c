@@ -467,6 +467,15 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|isatty
+c_func
+(paren
+l_int|2
+)paren
+)paren
 id|dup2
 c_func
 (paren
