@@ -382,6 +382,21 @@ comma
 id|buf
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|PATH_MAX
+op_le
+id|len
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;symbolic link too long: %s&quot;
+comma
+id|buf
+)paren
+suffix:semicolon
 id|next_buf
 (braket
 id|len
