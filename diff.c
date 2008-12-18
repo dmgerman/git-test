@@ -9806,6 +9806,10 @@ id|s-&gt;size
 r_goto
 id|err_empty
 suffix:semicolon
+id|s-&gt;size
+op_assign
+id|sb.len
+suffix:semicolon
 id|s-&gt;data
 op_assign
 id|strbuf_detach
@@ -9814,8 +9818,7 @@ c_func
 op_amp
 id|sb
 comma
-op_amp
-id|s-&gt;size
+l_int|NULL
 )paren
 suffix:semicolon
 id|s-&gt;should_free
