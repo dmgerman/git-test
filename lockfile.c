@@ -522,6 +522,14 @@ comma
 id|remove_lock_file_on_signal
 )paren
 suffix:semicolon
+id|signal
+c_func
+(paren
+id|SIGPIPE
+comma
+id|remove_lock_file_on_signal
+)paren
+suffix:semicolon
 id|atexit
 c_func
 (paren
