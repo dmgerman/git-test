@@ -52,6 +52,11 @@ id|signed_tag_mode
 op_assign
 id|ABORT
 suffix:semicolon
+DECL|variable|fake_missing_tagger
+r_static
+r_int
+id|fake_missing_tagger
+suffix:semicolon
 DECL|function|parse_opt_signed_tag_mode
 r_static
 r_int
@@ -1594,17 +1599,35 @@ c_cond
 op_logical_neg
 id|tagger
 )paren
-id|die
+(brace
+r_if
+c_cond
 (paren
-l_string|&quot;No tagger for tag %s&quot;
-comma
-id|sha1_to_hex
+id|fake_missing_tagger
+)paren
+id|tagger
+op_assign
+l_string|&quot;tagger Unspecified Tagger &quot;
+l_string|&quot;&lt;unspecified-tagger&gt; 0 +0000&quot;
+suffix:semicolon
+r_else
+id|tagger
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+id|tagger_end
+op_assign
+id|tagger
+op_plus
+id|strlen
 c_func
 (paren
-id|tag-&gt;object.sha1
-)paren
+id|tagger
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
 id|tagger
 op_increment
 suffix:semicolon
@@ -1618,6 +1641,7 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/* handle signed tags */
 r_if
 c_cond
@@ -1717,7 +1741,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;tag %s&bslash;nfrom :%d&bslash;n%.*s&bslash;ndata %d&bslash;n%.*s&bslash;n&quot;
+l_string|&quot;tag %s&bslash;nfrom :%d&bslash;n%.*s%sdata %d&bslash;n%.*s&bslash;n&quot;
 comma
 id|name
 comma
@@ -1736,6 +1760,15 @@ id|tagger
 )paren
 comma
 id|tagger
+comma
+id|tagger
+op_eq
+id|tagger_end
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot;&bslash;n&quot;
 comma
 (paren
 r_int
@@ -2627,6 +2660,19 @@ comma
 l_string|&quot;FILE&quot;
 comma
 l_string|&quot;Import marks from this file&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;fake-missing-tagger&quot;
+comma
+op_amp
+id|fake_missing_tagger
+comma
+l_string|&quot;Fake a tagger when tags lack one&quot;
 )paren
 comma
 id|OPT_END
