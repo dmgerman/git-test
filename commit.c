@@ -5,6 +5,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;notes.h&quot;
 DECL|variable|save_commit_buffer
 r_int
 id|save_commit_buffer
