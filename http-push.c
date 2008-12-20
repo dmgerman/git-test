@@ -2830,7 +2830,7 @@ c_func
 (paren
 id|if_header
 comma
-l_string|&quot;If: (&lt;opaquelocktoken:%s&gt;)&quot;
+l_string|&quot;If: (&lt;%s&gt;)&quot;
 comma
 id|lock-&gt;token
 )paren
@@ -5451,19 +5451,6 @@ id|DAV_ACTIVELOCK_TOKEN
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|prefixcmp
-c_func
-(paren
-id|ctx-&gt;cdata
-comma
-l_string|&quot;opaquelocktoken:&quot;
-)paren
-)paren
-(brace
 id|lock-&gt;token
 op_assign
 id|xmalloc
@@ -5474,7 +5461,8 @@ c_func
 (paren
 id|ctx-&gt;cdata
 )paren
-l_int|15
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|strcpy
@@ -5483,11 +5471,8 @@ c_func
 id|lock-&gt;token
 comma
 id|ctx-&gt;cdata
-op_plus
-l_int|16
 )paren
 suffix:semicolon
-)brace
 )brace
 )brace
 )brace
@@ -6531,7 +6516,7 @@ c_func
 (paren
 id|lock_token_header
 comma
-l_string|&quot;Lock-Token: &lt;opaquelocktoken:%s&gt;&quot;
+l_string|&quot;Lock-Token: &lt;%s&gt;&quot;
 comma
 id|lock-&gt;token
 )paren
@@ -8868,7 +8853,7 @@ c_func
 (paren
 id|if_header
 comma
-l_string|&quot;If: (&lt;opaquelocktoken:%s&gt;)&quot;
+l_string|&quot;If: (&lt;%s&gt;)&quot;
 comma
 id|lock-&gt;token
 )paren
@@ -10052,7 +10037,7 @@ c_func
 (paren
 id|if_header
 comma
-l_string|&quot;If: (&lt;opaquelocktoken:%s&gt;)&quot;
+l_string|&quot;If: (&lt;%s&gt;)&quot;
 comma
 id|lock-&gt;token
 )paren
