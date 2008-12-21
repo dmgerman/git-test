@@ -2282,7 +2282,9 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;Not a git repository&quot;
+l_string|&quot;Not a git repository (or any of the parent directories): %s&quot;
+comma
+id|DEFAULT_GIT_DIR_ENVIRONMENT
 )paren
 suffix:semicolon
 )brace
