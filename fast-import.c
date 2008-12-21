@@ -9174,6 +9174,16 @@ id|endp
 comma
 id|sign
 suffix:semicolon
+r_int
+r_int
+id|date
+suffix:semicolon
+id|errno
+op_assign
+l_int|0
+suffix:semicolon
+id|date
+op_assign
 id|strtoul
 c_func
 (paren
@@ -9188,6 +9198,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|errno
+op_logical_or
 id|endp
 op_eq
 id|src
@@ -9227,6 +9239,8 @@ op_assign
 op_star
 id|src
 suffix:semicolon
+id|date
+op_assign
 id|strtoul
 c_func
 (paren
@@ -9243,6 +9257,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|errno
+op_logical_or
 id|endp
 op_eq
 id|src
