@@ -825,6 +825,13 @@ c_func
 (paren
 id|n-&gt;tag-&gt;tag
 comma
+id|all
+ques
+c_cond
+id|n-&gt;path
+op_plus
+l_int|5
+suffix:colon
 id|n-&gt;path
 )paren
 )paren
