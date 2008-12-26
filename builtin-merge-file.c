@@ -313,6 +313,11 @@ c_cond
 (paren
 id|quiet
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
 id|freopen
 c_func
 (paren
@@ -322,7 +327,22 @@ l_string|&quot;w&quot;
 comma
 id|stderr
 )paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;failed to redirect stderr to /dev/null: &quot;
+l_string|&quot;%s&bslash;n&quot;
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
 suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
