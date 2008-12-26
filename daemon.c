@@ -5483,6 +5483,10 @@ r_sizeof
 id|ss
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|freopen
 c_func
 (paren
@@ -5491,6 +5495,18 @@ comma
 l_string|&quot;w&quot;
 comma
 id|stderr
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;failed to redirect stderr to /dev/null: %s&quot;
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 r_if
