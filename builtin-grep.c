@@ -16,6 +16,11 @@ DECL|macro|NO_EXTERNAL_GREP
 mdefine_line|#define NO_EXTERNAL_GREP 1
 macro_line|#endif
 macro_line|#endif
+DECL|variable|builtin_grep
+r_static
+r_int
+id|builtin_grep
+suffix:semicolon
 multiline_comment|/*&n; * git grep pathspecs are somewhat different from diff-tree pathspecs;&n; * pathname wildcards are allowed.&n; */
 DECL|function|pathspec_matches
 r_static
@@ -1796,6 +1801,9 @@ c_cond
 (paren
 op_logical_neg
 id|cached
+op_logical_and
+op_logical_neg
+id|builtin_grep
 )paren
 (brace
 id|hit
@@ -2642,6 +2650,26 @@ id|arg
 )paren
 (brace
 id|cached
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--no-ext-grep&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|builtin_grep
 op_assign
 l_int|1
 suffix:semicolon
