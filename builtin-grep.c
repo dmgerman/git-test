@@ -1881,10 +1881,17 @@ id|ce-&gt;name
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * If CE_VALID is on, we assume worktree file and its cache entry&n;&t;&t; * are identical, even if worktree file has been modified, so use&n;&t;&t; * cache version instead&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|cached
+op_logical_or
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_VALID
+)paren
 )paren
 (brace
 r_if
