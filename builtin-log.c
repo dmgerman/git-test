@@ -11,6 +11,7 @@ macro_line|#include &quot;reflog-walk.h&quot;
 macro_line|#include &quot;patch-ids.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;shortlog.h&quot;
+macro_line|#include &quot;remote.h&quot;
 multiline_comment|/* Set a default date-time format for git log (&quot;log.date&quot; config variable) */
 DECL|variable|default_date_mode
 r_static
@@ -5930,7 +5931,7 @@ id|cherry_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git cherry [-v] &lt;upstream&gt; [&lt;head&gt;] [&lt;limit&gt;]&quot;
+l_string|&quot;git cherry [-v] [&lt;upstream&gt;] [&lt;head&gt;] [&lt;limit&gt;]&quot;
 suffix:semicolon
 DECL|function|cmd_cherry
 r_int
@@ -5971,6 +5972,11 @@ op_star
 id|list
 op_assign
 l_int|NULL
+suffix:semicolon
+r_struct
+id|branch
+op_star
+id|current_branch
 suffix:semicolon
 r_const
 r_char
@@ -6069,11 +6075,63 @@ r_break
 suffix:semicolon
 r_default
 suffix:colon
+id|current_branch
+op_assign
+id|branch_get
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|current_branch
+op_logical_or
+op_logical_neg
+id|current_branch-&gt;merge
+op_logical_or
+op_logical_neg
+id|current_branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_logical_or
+op_logical_neg
+id|current_branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Could not find a tracked&quot;
+l_string|&quot; remote branch, please&quot;
+l_string|&quot; specify &lt;upstream&gt; manually.&bslash;n&quot;
+)paren
+suffix:semicolon
 id|usage
 c_func
 (paren
 id|cherry_usage
 )paren
+suffix:semicolon
+)brace
+id|upstream
+op_assign
+id|current_branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
 suffix:semicolon
 )brace
 id|init_revisions
