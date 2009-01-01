@@ -2729,7 +2729,7 @@ id|st
 )paren
 (brace
 r_int
-id|cnt
+id|ret
 suffix:semicolon
 r_int
 id|dtype
@@ -2796,7 +2796,7 @@ id|st.st_mode
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * We are checking out path &quot;foo&quot; and&n;&t;&t;&t; * found &quot;foo/.&quot; in the working tree.&n;&t;&t;&t; * This is tricky -- if we have modified&n;&t;&t;&t; * files that are in &quot;foo/&quot; we would lose&n;&t;&t;&t; * it.&n;&t;&t;&t; */
-id|cnt
+id|ret
 op_assign
 id|verify_clean_subdirectory
 c_func
@@ -2808,10 +2808,20 @@ comma
 id|o
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+OL
+l_int|0
+)paren
+r_return
+id|ret
+suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * If this removed entries from the index,&n;&t;&t;&t; * what that means is:&n;&t;&t;&t; *&n;&t;&t;&t; * (1) the caller unpack_trees_rec() saw path/foo&n;&t;&t;&t; * in the index, and it has not removed it because&n;&t;&t;&t; * it thinks it is handling &squot;path&squot; as blob with&n;&t;&t;&t; * D/F conflict;&n;&t;&t;&t; * (2) we will return &quot;ok, we placed a merged entry&n;&t;&t;&t; * in the index&quot; which would cause o-&gt;pos to be&n;&t;&t;&t; * incremented by one;&n;&t;&t;&t; * (3) however, original o-&gt;pos now has &squot;path/foo&squot;&n;&t;&t;&t; * marked with &quot;to be removed&quot;.&n;&t;&t;&t; *&n;&t;&t;&t; * We need to increment it by the number of&n;&t;&t;&t; * deleted entries here.&n;&t;&t;&t; */
 id|o-&gt;pos
 op_add_assign
-id|cnt
+id|ret
 suffix:semicolon
 r_return
 l_int|0
