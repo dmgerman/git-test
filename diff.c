@@ -13662,6 +13662,23 @@ id|options-&gt;xdl_opts
 op_or_assign
 id|XDF_IGNORE_WHITESPACE_AT_EOL
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--patience&quot;
+)paren
+)paren
+id|options-&gt;xdl_opts
+op_or_assign
+id|XDF_PATIENCE_DIFF
+suffix:semicolon
 multiline_comment|/* flags options */
 r_else
 r_if
