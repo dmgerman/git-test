@@ -2374,7 +2374,7 @@ op_le
 id|pos
 )paren
 r_return
-id|cnt
+l_int|0
 suffix:semicolon
 multiline_comment|/* we have it as nondirectory */
 id|pos
@@ -2400,7 +2400,7 @@ op_increment
 r_struct
 id|cache_entry
 op_star
-id|ce
+id|ce2
 op_assign
 id|o-&gt;src_index-&gt;cache
 (braket
@@ -2413,7 +2413,7 @@ op_assign
 id|ce_namelen
 c_func
 (paren
-id|ce
+id|ce2
 )paren
 suffix:semicolon
 r_if
@@ -2428,12 +2428,12 @@ c_func
 (paren
 id|ce-&gt;name
 comma
-id|ce-&gt;name
+id|ce2-&gt;name
 comma
 id|namelen
 )paren
 op_logical_or
-id|ce-&gt;name
+id|ce2-&gt;name
 (braket
 id|namelen
 )braket
@@ -2442,7 +2442,7 @@ l_char|&squot;/&squot;
 )paren
 r_break
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * ce-&gt;name is an entry in the subdirectory.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * ce2-&gt;name is an entry in the subdirectory.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2450,7 +2450,7 @@ op_logical_neg
 id|ce_stage
 c_func
 (paren
-id|ce
+id|ce2
 )paren
 )paren
 (brace
@@ -2460,7 +2460,7 @@ c_cond
 id|verify_uptodate
 c_func
 (paren
-id|ce
+id|ce2
 comma
 id|o
 )paren
@@ -2473,7 +2473,7 @@ c_func
 (paren
 id|o
 comma
-id|ce
+id|ce2
 comma
 id|CE_REMOVE
 comma
@@ -2818,7 +2818,7 @@ l_int|0
 r_return
 id|ret
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * If this removed entries from the index,&n;&t;&t;&t; * what that means is:&n;&t;&t;&t; *&n;&t;&t;&t; * (1) the caller unpack_trees_rec() saw path/foo&n;&t;&t;&t; * in the index, and it has not removed it because&n;&t;&t;&t; * it thinks it is handling &squot;path&squot; as blob with&n;&t;&t;&t; * D/F conflict;&n;&t;&t;&t; * (2) we will return &quot;ok, we placed a merged entry&n;&t;&t;&t; * in the index&quot; which would cause o-&gt;pos to be&n;&t;&t;&t; * incremented by one;&n;&t;&t;&t; * (3) however, original o-&gt;pos now has &squot;path/foo&squot;&n;&t;&t;&t; * marked with &quot;to be removed&quot;.&n;&t;&t;&t; *&n;&t;&t;&t; * We need to increment it by the number of&n;&t;&t;&t; * deleted entries here.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * If this removed entries from the index,&n;&t;&t;&t; * what that means is:&n;&t;&t;&t; *&n;&t;&t;&t; * (1) the caller unpack_callback() saw path/foo&n;&t;&t;&t; * in the index, and it has not removed it because&n;&t;&t;&t; * it thinks it is handling &squot;path&squot; as blob with&n;&t;&t;&t; * D/F conflict;&n;&t;&t;&t; * (2) we will return &quot;ok, we placed a merged entry&n;&t;&t;&t; * in the index&quot; which would cause o-&gt;pos to be&n;&t;&t;&t; * incremented by one;&n;&t;&t;&t; * (3) however, original o-&gt;pos now has &squot;path/foo&squot;&n;&t;&t;&t; * marked with &quot;to be removed&quot;.&n;&t;&t;&t; *&n;&t;&t;&t; * We need to increment it by the number of&n;&t;&t;&t; * deleted entries here.&n;&t;&t;&t; */
 id|o-&gt;pos
 op_add_assign
 id|ret
