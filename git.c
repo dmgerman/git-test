@@ -2575,10 +2575,6 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * Take the basename of argv[0] as the command&n;&t; * name, and the dirname as the default exec_path&n;&t; * if we don&squot;t have anything better.&n;&t; */
-r_do
-op_decrement
-id|slash
-suffix:semicolon
 r_while
 c_loop
 (paren
@@ -2594,6 +2590,8 @@ op_star
 id|slash
 )paren
 )paren
+id|slash
+op_decrement
 suffix:semicolon
 r_if
 c_cond
