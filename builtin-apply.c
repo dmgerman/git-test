@@ -2827,8 +2827,6 @@ id|ptr
 op_eq
 l_char|&squot; &squot;
 )paren
-id|patch-&gt;new_mode
-op_assign
 id|patch-&gt;old_mode
 op_assign
 id|strtoul
@@ -10664,6 +10662,16 @@ id|st_mode
 comma
 id|patch-&gt;old_mode
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|patch-&gt;new_mode
+)paren
+id|patch-&gt;new_mode
+op_assign
+id|st_mode
 suffix:semicolon
 r_return
 l_int|0
