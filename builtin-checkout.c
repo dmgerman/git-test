@@ -2664,6 +2664,12 @@ suffix:semicolon
 id|argc
 op_decrement
 suffix:semicolon
+r_new
+dot
+id|name
+op_assign
+id|arg
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2682,12 +2688,6 @@ l_int|1
 )paren
 )paren
 (brace
-r_new
-dot
-id|name
-op_assign
-id|arg
-suffix:semicolon
 id|setup_branch_path
 c_func
 (paren
