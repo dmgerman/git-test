@@ -16,7 +16,7 @@ id|receive_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-receive-pack &lt;git-dir&gt;&quot;
+l_string|&quot;git receive-pack &lt;git-dir&gt;&quot;
 suffix:semicolon
 DECL|enum|deny_action
 r_enum

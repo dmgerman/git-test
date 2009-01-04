@@ -18,7 +18,7 @@ id|upload_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-pack [--strict] [--timeout=nn] &lt;dir&gt;&quot;
+l_string|&quot;git upload-pack [--strict] [--timeout=nn] &lt;dir&gt;&quot;
 suffix:semicolon
 multiline_comment|/* bits #0..7 in revision.h, #8..10 in commit.c */
 DECL|macro|THEY_HAVE

@@ -765,7 +765,7 @@ l_int|1
 id|usage
 c_func
 (paren
-l_string|&quot;git-mktag &lt; signaturefile&quot;
+l_string|&quot;git mktag &lt; signaturefile&quot;
 )paren
 suffix:semicolon
 id|git_extract_argv0_path

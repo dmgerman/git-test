@@ -159,7 +159,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-unpack-file &lt;sha1&gt;&quot;
+l_string|&quot;git unpack-file &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
 r_if

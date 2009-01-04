@@ -11,7 +11,7 @@ id|merge_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-merge-tree &lt;base-tree&gt; &lt;branch1&gt; &lt;branch2&gt;&quot;
+l_string|&quot;git merge-tree &lt;base-tree&gt; &lt;branch1&gt; &lt;branch2&gt;&quot;
 suffix:semicolon
 DECL|variable|resolve_directories
 r_static

@@ -580,7 +580,7 @@ id|verify_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-verify-pack [-v] &lt;pack&gt;...&quot;
+l_string|&quot;git verify-pack [-v] &lt;pack&gt;...&quot;
 suffix:semicolon
 DECL|function|cmd_verify_pack
 r_int
