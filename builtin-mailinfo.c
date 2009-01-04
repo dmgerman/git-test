@@ -2625,7 +2625,7 @@ id|out
 id|die
 c_func
 (paren
-l_string|&quot;cannot convert from %s to %s&bslash;n&quot;
+l_string|&quot;cannot convert from %s to %s&quot;
 comma
 id|charset
 comma

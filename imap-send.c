@@ -415,7 +415,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;Fatal: Out of memory&bslash;n&quot;
+l_string|&quot;Fatal: Out of memory&quot;
 )paren
 suffix:semicolon
 r_if
@@ -431,7 +431,7 @@ id|tmp
 id|die
 c_func
 (paren
-l_string|&quot;imap command overflow !&bslash;n&quot;
+l_string|&quot;imap command overflow!&quot;
 )paren
 suffix:semicolon
 op_star
@@ -2069,7 +2069,7 @@ id|blen
 id|die
 c_func
 (paren
-l_string|&quot;Fatal: buffer too small. Please report a bug.&bslash;n&quot;
+l_string|&quot;Fatal: buffer too small. Please report a bug.&quot;
 )paren
 suffix:semicolon
 id|va_end

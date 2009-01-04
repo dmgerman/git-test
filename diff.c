@@ -11219,7 +11219,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;cannot hash %s&bslash;n&quot;
+l_string|&quot;cannot hash %s&quot;
 comma
 id|one-&gt;path
 )paren

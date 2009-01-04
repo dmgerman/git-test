@@ -92,7 +92,7 @@ id|dir
 id|die
 c_func
 (paren
-l_string|&quot;Could not make %s writable by group&bslash;n&quot;
+l_string|&quot;Could not make %s writable by group&quot;
 comma
 id|dir
 )paren

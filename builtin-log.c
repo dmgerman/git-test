@@ -4453,7 +4453,7 @@ id|endpos
 id|die
 c_func
 (paren
-l_string|&quot;bogus committer info %s&bslash;n&quot;
+l_string|&quot;bogus committer info %s&quot;
 comma
 id|committer
 )paren

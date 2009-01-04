@@ -2270,7 +2270,7 @@ id|head_sha1
 id|die
 c_func
 (paren
-l_string|&quot;No HEAD -- no initial commit yet?&bslash;n&quot;
+l_string|&quot;No HEAD -- no initial commit yet?&quot;
 )paren
 suffix:semicolon
 r_if

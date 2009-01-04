@@ -780,7 +780,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;unable to create %s: %s&bslash;n&quot;
+l_string|&quot;unable to create %s: %s&quot;
 comma
 id|pack_name
 comma

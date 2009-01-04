@@ -3325,7 +3325,7 @@ id|gai
 id|die
 c_func
 (paren
-l_string|&quot;getaddrinfo() failed: %s&bslash;n&quot;
+l_string|&quot;getaddrinfo() failed: %s&quot;
 comma
 id|gai_strerror
 c_func

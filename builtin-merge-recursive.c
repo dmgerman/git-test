@@ -197,7 +197,7 @@ l_int|4
 id|die
 c_func
 (paren
-l_string|&quot;Usage: %s &lt;base&gt;... -- &lt;head&gt; &lt;remote&gt; ...&bslash;n&quot;
+l_string|&quot;Usage: %s &lt;base&gt;... -- &lt;head&gt; &lt;remote&gt; ...&quot;
 comma
 id|argv
 (braket

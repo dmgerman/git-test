@@ -3430,7 +3430,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;Option &bslash;&quot;%s&bslash;&quot; value &bslash;&quot;%s&bslash;&quot; is not valid for %s&bslash;n&quot;
+l_string|&quot;Option &bslash;&quot;%s&bslash;&quot; value &bslash;&quot;%s&bslash;&quot; is not valid for %s&quot;
 comma
 id|name
 comma

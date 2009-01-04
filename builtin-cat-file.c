@@ -621,7 +621,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;git cat-file: unknown option: %s&bslash;n&quot;
+l_string|&quot;git cat-file: unknown option: %s&quot;
 comma
 id|exp_type
 )paren

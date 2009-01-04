@@ -928,7 +928,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;Failed to run &squot;%s&squot; when expanding alias &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;Failed to run &squot;%s&squot; when expanding alias &squot;%s&squot;&quot;
 comma
 id|alias_string
 op_plus

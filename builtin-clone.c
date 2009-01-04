@@ -1003,7 +1003,7 @@ id|dir
 id|die
 c_func
 (paren
-l_string|&quot;failed to open %s&bslash;n&quot;
+l_string|&quot;failed to open %s&quot;
 comma
 id|src-&gt;buf
 )paren
@@ -1030,7 +1030,7 @@ id|EEXIST
 id|die
 c_func
 (paren
-l_string|&quot;failed to create directory %s&bslash;n&quot;
+l_string|&quot;failed to create directory %s&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1051,7 +1051,7 @@ id|buf
 id|die
 c_func
 (paren
-l_string|&quot;failed to stat %s&bslash;n&quot;
+l_string|&quot;failed to stat %s&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1070,7 +1070,7 @@ id|buf.st_mode
 id|die
 c_func
 (paren
-l_string|&quot;%s exists and is not a directory&bslash;n&quot;
+l_string|&quot;%s exists and is not a directory&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1218,7 +1218,7 @@ id|ENOENT
 id|die
 c_func
 (paren
-l_string|&quot;failed to unlink %s&bslash;n&quot;
+l_string|&quot;failed to unlink %s&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1252,7 +1252,7 @@ id|option_local
 id|die
 c_func
 (paren
-l_string|&quot;failed to create link %s&bslash;n&quot;
+l_string|&quot;failed to create link %s&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1278,7 +1278,7 @@ l_int|0666
 id|die
 c_func
 (paren
-l_string|&quot;failed to copy file to %s&bslash;n&quot;
+l_string|&quot;failed to copy file to %s&quot;
 comma
 id|dest-&gt;buf
 )paren

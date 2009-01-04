@@ -2285,7 +2285,7 @@ l_int|NULL
 id|die
 c_func
 (paren
-l_string|&quot;Internal error: No complete sets found!&bslash;n&quot;
+l_string|&quot;Internal error: No complete sets found!&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* find the permutation with the smallest size */
@@ -2783,7 +2783,7 @@ l_int|40
 id|die
 c_func
 (paren
-l_string|&quot;Bad pack filename: %s&bslash;n&quot;
+l_string|&quot;Bad pack filename: %s&quot;
 comma
 id|filename
 )paren
@@ -2820,7 +2820,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;Filename %s not found in packed_git&bslash;n&quot;
+l_string|&quot;Filename %s not found in packed_git&quot;
 comma
 id|filename
 )paren
@@ -3084,7 +3084,7 @@ l_int|NULL
 id|die
 c_func
 (paren
-l_string|&quot;Zero packs found!&bslash;n&quot;
+l_string|&quot;Zero packs found!&quot;
 )paren
 suffix:semicolon
 id|load_all_objects

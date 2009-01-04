@@ -1727,7 +1727,7 @@ id|se
 id|die
 c_func
 (paren
-l_string|&quot;Unknown port %s&bslash;n&quot;
+l_string|&quot;Unknown port %s&quot;
 comma
 id|port
 )paren

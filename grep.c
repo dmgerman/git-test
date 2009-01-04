@@ -2101,7 +2101,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;Unexpected node type (internal error) %d&bslash;n&quot;
+l_string|&quot;Unexpected node type (internal error) %d&quot;
 comma
 id|x-&gt;node
 )paren
