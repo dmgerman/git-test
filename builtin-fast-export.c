@@ -2681,6 +2681,20 @@ c_func
 )paren
 )brace
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+op_eq
+l_int|1
+)paren
+id|usage_with_options
+(paren
+id|fast_export_usage
+comma
+id|options
+)paren
+suffix:semicolon
 multiline_comment|/* we handle encodings */
 id|git_config
 c_func
