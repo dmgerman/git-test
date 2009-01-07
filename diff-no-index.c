@@ -1158,10 +1158,15 @@ comma
 l_string|&quot;-q&quot;
 )paren
 )paren
+(brace
 id|options
 op_or_assign
 id|DIFF_SILENT_ON_REMOVED
 suffix:semicolon
+id|i
+op_increment
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
