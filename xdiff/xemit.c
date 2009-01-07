@@ -184,6 +184,15 @@ comma
 op_star
 id|xchp
 suffix:semicolon
+r_int
+id|max_common
+op_assign
+l_int|2
+op_star
+id|xecfg-&gt;ctxlen
+op_plus
+id|xecfg-&gt;interhunkctxlen
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -215,9 +224,7 @@ op_plus
 id|xchp-&gt;chg1
 )paren
 OG
-l_int|2
-op_star
-id|xecfg-&gt;ctxlen
+id|max_common
 )paren
 r_break
 suffix:semicolon
