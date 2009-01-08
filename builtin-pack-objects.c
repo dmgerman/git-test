@@ -782,7 +782,7 @@ id|stream
 )paren
 )paren
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -823,7 +823,7 @@ id|fakebuf
 suffix:semicolon
 id|st
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 op_amp
@@ -850,7 +850,7 @@ op_eq
 id|Z_BUF_ERROR
 )paren
 suffix:semicolon
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp
