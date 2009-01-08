@@ -4687,6 +4687,17 @@ id|wt_status_use_color
 op_assign
 id|git_use_color_default
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_use_color_default
+op_eq
+l_int|1
+)paren
+id|diff_use_color_default
+op_assign
+id|git_use_color_default
+suffix:semicolon
 id|argc
 op_assign
 id|parse_and_validate_options
