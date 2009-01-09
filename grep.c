@@ -1470,11 +1470,6 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
-id|at_true_bol
-op_assign
-l_int|1
-suffix:semicolon
-r_int
 id|saved_ch
 op_assign
 l_int|0
@@ -1719,8 +1714,6 @@ dot
 id|rm_so
 op_eq
 l_int|0
-op_logical_and
-id|at_true_bol
 )paren
 op_logical_or
 op_logical_neg
@@ -1799,7 +1792,7 @@ OL
 id|eol
 )paren
 (brace
-multiline_comment|/* There could be more than one match on the&n;&t;&t;&t; * line, and the first match might not be&n;&t;&t;&t; * strict word match.  But later ones could be!&n;&t;&t;&t; */
+multiline_comment|/* There could be more than one match on the&n;&t;&t;&t; * line, and the first match might not be&n;&t;&t;&t; * strict word match.  But later ones could be!&n;&t;&t;&t; * Forward to the next possible start, i.e. the&n;&t;&t;&t; * next position following a non-word char.&n;&t;&t;&t; */
 id|bol
 op_assign
 id|pmatch
@@ -1813,10 +1806,32 @@ id|bol
 op_plus
 l_int|1
 suffix:semicolon
-id|at_true_bol
-op_assign
-l_int|0
+r_while
+c_loop
+(paren
+id|word_char
+c_func
+(paren
+id|bol
+(braket
+l_int|1
+)braket
+)paren
+op_logical_and
+id|bol
+OL
+id|eol
+)paren
+id|bol
+op_increment
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|bol
+OL
+id|eol
+)paren
 r_goto
 id|again
 suffix:semicolon
