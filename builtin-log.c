@@ -5477,6 +5477,11 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * Otherwise, it is &quot;format-patch -22 HEAD&quot;, and/or&n;&t;&t; * &quot;format-patch --root HEAD&quot;.  The user wants&n;&t;&t; * get_revision() to do the usual traversal.&n;&t;&t; */
 )brace
+multiline_comment|/*&n;&t; * We cannot move this anywhere earlier because we do want to&n;&t; * know if --root was given explicitly from the comand line.&n;&t; */
+id|rev.show_root_diff
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
