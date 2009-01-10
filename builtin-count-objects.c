@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git count-objects&quot;.&n; *&n; * Copyright (c) 2006 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 DECL|function|count_objects
@@ -90,42 +91,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|is_dot_or_dotdot
+c_func
 (paren
 id|ent-&gt;d_name
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;.&squot;
-)paren
-op_logical_and
-(paren
-id|ent-&gt;d_name
-(braket
-l_int|1
-)braket
-op_eq
-l_int|0
-op_logical_or
-(paren
-(paren
-id|ent-&gt;d_name
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;.&squot;
-)paren
-op_logical_and
-(paren
-id|ent-&gt;d_name
-(braket
-l_int|2
-)braket
-op_eq
-l_int|0
-)paren
-)paren
 )paren
 )paren
 r_continue

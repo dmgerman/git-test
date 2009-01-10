@@ -1,5 +1,6 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;xdiff/xdiff.h&quot;
@@ -363,46 +364,13 @@ id|dir
 )paren
 )paren
 (brace
-r_const
-r_char
-op_star
-id|name
-op_assign
-id|e-&gt;d_name
-suffix:semicolon
 r_if
 c_cond
 (paren
-id|name
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;.&squot;
-op_logical_and
+id|is_dot_or_dotdot
+c_func
 (paren
-id|name
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;&bslash;0&squot;
-op_logical_or
-(paren
-id|name
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;.&squot;
-op_logical_and
-id|name
-(braket
-l_int|2
-)braket
-op_eq
-l_char|&squot;&bslash;0&squot;
-)paren
+id|e-&gt;d_name
 )paren
 )paren
 r_continue
@@ -412,7 +380,7 @@ op_assign
 id|rerere_created_at
 c_func
 (paren
-id|name
+id|e-&gt;d_name
 )paren
 suffix:semicolon
 r_if
@@ -429,7 +397,7 @@ op_assign
 id|has_resolution
 c_func
 (paren
-id|name
+id|e-&gt;d_name
 )paren
 ques
 c_cond
@@ -451,7 +419,7 @@ l_int|86400
 id|string_list_append
 c_func
 (paren
-id|name
+id|e-&gt;d_name
 comma
 op_amp
 id|to_remove

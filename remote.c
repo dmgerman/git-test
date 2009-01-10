@@ -4,6 +4,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;dir.h&quot;
 DECL|variable|s_tag_refspec
 r_static
 r_struct
@@ -3604,39 +3605,10 @@ id|name
 l_int|0
 )braket
 op_logical_or
-multiline_comment|/* not empty */
+id|is_dot_or_dotdot
+c_func
 (paren
 id|name
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;.&squot;
-op_logical_and
-multiline_comment|/* not &quot;.&quot; */
-(paren
-op_logical_neg
-id|name
-(braket
-l_int|1
-)braket
-op_logical_or
-multiline_comment|/* not &quot;..&quot; */
-(paren
-id|name
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;.&squot;
-op_logical_and
-op_logical_neg
-id|name
-(braket
-l_int|2
-)braket
-)paren
-)paren
 )paren
 )paren
 r_return
