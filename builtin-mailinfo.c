@@ -4388,6 +4388,12 @@ l_int|4
 )paren
 )paren
 (brace
+id|cleanup_space
+c_func
+(paren
+id|hdr
+)paren
+suffix:semicolon
 id|handle_from
 c_func
 (paren
