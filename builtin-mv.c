@@ -1292,6 +1292,9 @@ op_star
 )paren
 )paren
 suffix:semicolon
+id|i
+op_decrement
+suffix:semicolon
 )brace
 )brace
 r_else
