@@ -9806,6 +9806,16 @@ id|mode
 )paren
 (brace
 r_case
+l_int|0644
+suffix:colon
+r_case
+l_int|0755
+suffix:colon
+id|mode
+op_or_assign
+id|S_IFREG
+suffix:semicolon
+r_case
 id|S_IFREG
 op_or
 l_int|0644
@@ -9820,12 +9830,6 @@ id|S_IFLNK
 suffix:colon
 r_case
 id|S_IFGITLINK
-suffix:colon
-r_case
-l_int|0644
-suffix:colon
-r_case
-l_int|0755
 suffix:colon
 multiline_comment|/* ok */
 r_break
@@ -10209,8 +10213,6 @@ id|p
 comma
 id|sha1
 comma
-id|S_IFREG
-op_or
 id|mode
 comma
 l_int|NULL
