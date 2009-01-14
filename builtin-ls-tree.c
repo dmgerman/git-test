@@ -60,7 +60,7 @@ id|ls_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git ls-tree [-d] [-r] [-t] [-l] [-z] [--name-only] [--name-status] [--full-name] [--abbrev[=&lt;n&gt;]] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git ls-tree [-d] [-r] [-t] [-l] [-z] [--name-only] [--name-status] [--full-name] [--full-tree] [--abbrev[=&lt;n&gt;]] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon
 DECL|function|show_recursive
 r_static
@@ -728,6 +728,37 @@ l_string|&quot;full-name&quot;
 )paren
 )paren
 (brace
+id|chomp_prefix
+op_assign
+l_int|0
+suffix:semicolon
+r_break
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+op_plus
+l_int|2
+comma
+l_string|&quot;full-tree&quot;
+)paren
+)paren
+(brace
+id|ls_tree_prefix
+op_assign
+id|prefix
+op_assign
+l_int|NULL
+suffix:semicolon
 id|chomp_prefix
 op_assign
 l_int|0
