@@ -474,8 +474,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|retval
-op_logical_and
 op_star
 id|seen
 op_eq
