@@ -6632,6 +6632,16 @@ comma
 id|for_each_ref
 )paren
 suffix:semicolon
+id|handle_refs
+c_func
+(paren
+id|revs
+comma
+id|flags
+comma
+id|head_ref
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
