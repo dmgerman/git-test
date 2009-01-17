@@ -8824,6 +8824,8 @@ comma
 id|o-&gt;word_regex
 comma
 id|REG_EXTENDED
+op_or
+id|REG_NEWLINE
 )paren
 )paren
 id|die
