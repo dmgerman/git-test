@@ -23,6 +23,12 @@ op_assign
 id|GIT_GLOB_SPECIAL
 comma
 multiline_comment|/* *, ?, [, &bslash;&bslash; */
+DECL|enumerator|R
+id|R
+op_assign
+id|GIT_REGEX_SPECIAL
+comma
+multiline_comment|/* $, (, ), +, ., ^, {, | * */
 )brace
 suffix:semicolon
 DECL|variable|sane_ctype
@@ -108,7 +114,7 @@ l_int|0
 comma
 l_int|0
 comma
-l_int|0
+id|R
 comma
 l_int|0
 comma
@@ -116,19 +122,19 @@ l_int|0
 comma
 l_int|0
 comma
-l_int|0
+id|R
 comma
-l_int|0
+id|R
 comma
 id|G
 comma
-l_int|0
+id|R
 comma
 l_int|0
 comma
 l_int|0
 comma
-l_int|0
+id|R
 comma
 l_int|0
 comma
@@ -227,7 +233,7 @@ id|G
 comma
 l_int|0
 comma
-l_int|0
+id|R
 comma
 l_int|0
 comma
@@ -287,9 +293,9 @@ id|A
 comma
 id|A
 comma
-l_int|0
+id|R
 comma
-l_int|0
+id|R
 comma
 l_int|0
 comma
