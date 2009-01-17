@@ -160,7 +160,11 @@ id|c
 )paren
 (brace
 r_return
-id|isspecial
+id|c
+op_eq
+l_char|&squot;&bslash;0&squot;
+op_logical_or
+id|is_glob_special
 c_func
 (paren
 id|c

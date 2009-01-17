@@ -20,9 +20,9 @@ comma
 DECL|enumerator|G
 id|G
 op_assign
-id|GIT_SPECIAL
+id|GIT_GLOB_SPECIAL
 comma
-multiline_comment|/* &bslash;0, *, ?, [, &bslash;&bslash; */
+multiline_comment|/* *, ?, [, &bslash;&bslash; */
 )brace
 suffix:semicolon
 DECL|variable|sane_ctype
@@ -34,7 +34,7 @@ l_int|256
 )braket
 op_assign
 (brace
-id|G
+l_int|0
 comma
 l_int|0
 comma
