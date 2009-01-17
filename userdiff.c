@@ -18,8 +18,8 @@ r_static
 r_int
 id|drivers_alloc
 suffix:semicolon
-DECL|macro|FUNCNAME
-mdefine_line|#define FUNCNAME(name, pattern) &bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED } }
+DECL|macro|PATTERNS
+mdefine_line|#define PATTERNS(name, pattern, wordregex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED }, wordregex }
 DECL|variable|builtin_drivers
 r_static
 r_struct
@@ -29,24 +29,32 @@ id|builtin_drivers
 )braket
 op_assign
 (brace
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;html&quot;
 comma
 l_string|&quot;^[ &bslash;t]*(&lt;[Hh][1-6][ &bslash;t].*&gt;.*)$&quot;
+comma
+l_string|&quot;[^&lt;&gt;= &bslash;t]+|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;java&quot;
 comma
 l_string|&quot;!^[ &bslash;t]*(catch|do|for|if|instanceof|new|return|switch|throw|while)&bslash;n&quot;
 l_string|&quot;^[ &bslash;t]*(([ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*){2,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&quot;
+comma
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=&quot;
+l_string|&quot;|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;&gt;?=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;|&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;objc&quot;
@@ -59,9 +67,15 @@ multiline_comment|/* C functions */
 l_string|&quot;^[ &bslash;t]*(([ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*){2,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&bslash;n&quot;
 multiline_comment|/* Objective-C class/protocol definitions */
 l_string|&quot;^(@(implementation|interface|protocol)[ &bslash;t].*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;pascal&quot;
@@ -70,46 +84,94 @@ l_string|&quot;^((procedure|function|constructor|destructor|interface|&quot;
 l_string|&quot;implementation|initialization|finalization)[ &bslash;t]*.*)$&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;^(.*=[ &bslash;t]*(class|record).*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+|0[xXbB]?[0-9a-fA-F]+&quot;
+l_string|&quot;|&lt;&gt;|&lt;=|&gt;=|:=|&bslash;&bslash;.&bslash;&bslash;.&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;php&quot;
 comma
 l_string|&quot;^[&bslash;t ]*((function|class).*)&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+|0[xXbB]?[0-9a-fA-F]+&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!.]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|===|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;python&quot;
 comma
 l_string|&quot;^[ &bslash;t]*((class|def)[ &bslash;t].*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+[jJlL]?|0[xX]?[0-9a-fA-F]+[lL]?&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|//=?|&lt;&lt;=?|&gt;&gt;=?|&bslash;&bslash;*&bslash;&bslash;*=?&quot;
+l_string|&quot;|[^[:space:]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
-id|FUNCNAME
+multiline_comment|/* -- */
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;ruby&quot;
 comma
 l_string|&quot;^[ &bslash;t]*((class|module|def)[ &bslash;t].*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;(@|@@|&bslash;&bslash;$)?[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+|0[xXbB]?[0-9a-fA-F]+|&bslash;&bslash;?(&bslash;&bslash;&bslash;&bslash;C-)?(&bslash;&bslash;&bslash;&bslash;M-)?.&quot;
+l_string|&quot;|//=?|[-+*/&lt;&gt;%&amp;^|=!]=|&lt;&lt;=?|&gt;&gt;=?|===|&bslash;&bslash;.{1,3}|::|[!=]~&quot;
+l_string|&quot;|[^[:space:]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;bibtex&quot;
 comma
 l_string|&quot;(@[a-zA-Z]{1,}[ &bslash;t]*&bslash;&bslash;{{0,1}[ &bslash;t]*[^ &bslash;t&bslash;&quot;@&squot;,&bslash;&bslash;#}{~%]*).*$&quot;
+comma
+l_string|&quot;[={}&bslash;&quot;]|[^={}&bslash;&quot; &bslash;t]+&quot;
 )paren
 comma
-id|FUNCNAME
+id|PATTERNS
 c_func
 (paren
 l_string|&quot;tex&quot;
 comma
 l_string|&quot;^(&bslash;&bslash;&bslash;&bslash;((sub)*section|chapter|part)&bslash;&bslash;*{0,1}&bslash;&bslash;{.*)$&quot;
+comma
+l_string|&quot;&bslash;&bslash;&bslash;&bslash;[a-zA-Z@]+|&bslash;&bslash;&bslash;&bslash;.|[a-zA-Z0-9&bslash;x80-&bslash;xff]+|[^[:space:]]&quot;
+)paren
+comma
+id|PATTERNS
+c_func
+(paren
+l_string|&quot;cpp&quot;
+comma
+multiline_comment|/* Jump targets or access declarations */
+l_string|&quot;!^[ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*:.*$&bslash;n&quot;
+multiline_comment|/* C/++ functions/methods at top level */
+l_string|&quot;^([A-Za-z_][A-Za-z_0-9]*([ &bslash;t]+[A-Za-z_][A-Za-z_0-9]*([ &bslash;t]*::[ &bslash;t]*[^[:space:]]+)?){1,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&bslash;n&quot;
+multiline_comment|/* compound type at top level */
+l_string|&quot;^((struct|class|enum)[^;]*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 (brace
@@ -128,8 +190,8 @@ l_int|0
 comma
 )brace
 suffix:semicolon
-DECL|macro|FUNCNAME
-macro_line|#undef FUNCNAME
+DECL|macro|PATTERNS
+macro_line|#undef PATTERNS
 DECL|variable|driver_true
 r_static
 r_struct
@@ -787,6 +849,35 @@ c_func
 (paren
 op_amp
 id|drv-&gt;textconv
+comma
+id|k
+comma
+id|v
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|drv
+op_assign
+id|parse_driver
+c_func
+(paren
+id|k
+comma
+id|v
+comma
+l_string|&quot;wordregex&quot;
+)paren
+)paren
+)paren
+r_return
+id|parse_string
+c_func
+(paren
+op_amp
+id|drv-&gt;word_regex
 comma
 id|k
 comma
