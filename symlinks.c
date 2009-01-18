@@ -744,6 +744,24 @@ id|cache.prefix_len_stat_func
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n; * Completely clear the contents of the cache&n; */
+DECL|function|clear_lstat_cache
+r_void
+id|clear_lstat_cache
+c_func
+(paren
+r_void
+)paren
+(brace
+id|reset_lstat_cache
+c_func
+(paren
+l_int|0
+comma
+l_int|0
+)paren
+suffix:semicolon
+)brace
 DECL|macro|USE_ONLY_LSTAT
 mdefine_line|#define USE_ONLY_LSTAT  0
 multiline_comment|/*&n; * Return non-zero if path &squot;name&squot; has a leading symlink component&n; */
