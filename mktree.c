@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - the stupid content tracker&n; *&n; * Copyright (
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|struct|treeent
 r_static
 r_struct
@@ -430,6 +431,15 @@ r_int
 id|line_termination
 op_assign
 l_char|&squot;&bslash;n&squot;
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|av
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
 id|setup_git_directory
 c_func

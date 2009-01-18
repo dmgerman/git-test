@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Eric Biederman, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|var_usage
 r_static
 r_const
@@ -275,6 +276,15 @@ id|var_usage
 )paren
 suffix:semicolon
 )brace
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 id|setup_git_directory_gently
 c_func
 (paren

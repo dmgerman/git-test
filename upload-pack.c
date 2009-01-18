@@ -3252,6 +3252,15 @@ id|strict
 op_assign
 l_int|0
 suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren

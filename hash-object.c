@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|hash_fd
 r_static
 r_void
@@ -481,6 +482,15 @@ suffix:semicolon
 id|type
 op_assign
 id|blob_type
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
 id|git_config
 c_func

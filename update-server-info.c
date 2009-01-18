@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|update_server_info_usage
 r_static
 r_const
@@ -111,6 +112,15 @@ id|usage
 c_func
 (paren
 id|update_server_info_usage
+)paren
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|av
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 id|setup_git_directory

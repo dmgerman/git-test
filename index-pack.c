@@ -8,6 +8,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;fsck.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|index_pack_usage
 r_static
 r_const
@@ -4784,6 +4785,15 @@ id|pack_sha1
 (braket
 l_int|20
 )braket
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * We wish to read the repository&squot;s config file if any, and&n;&t; * for that it is necessary to call setup_git_directory_gently().&n;&t; * However if the cwd was inside .git/objects/pack/ then we need&n;&t; * to go back there or all the pack name arguments will be wrong.&n;&t; * And in that case we cannot rely on any prefix returned by&n;&t; * setup_git_directory_gently() either.&n;&t; */
 (brace
