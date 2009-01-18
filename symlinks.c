@@ -9,6 +9,8 @@ r_char
 id|path
 (braket
 id|PATH_MAX
+op_plus
+l_int|1
 )braket
 suffix:semicolon
 DECL|member|len
@@ -22,6 +24,10 @@ suffix:semicolon
 DECL|member|track_flags
 r_int
 id|track_flags
+suffix:semicolon
+DECL|member|prefix_len_stat_func
+r_int
+id|prefix_len_stat_func
 suffix:semicolon
 DECL|variable|cache
 )brace
@@ -174,6 +180,9 @@ c_func
 (paren
 r_int
 id|track_flags
+comma
+r_int
+id|prefix_len_stat_func
 )paren
 (brace
 id|cache.path
@@ -195,6 +204,10 @@ id|cache.track_flags
 op_assign
 id|track_flags
 suffix:semicolon
+id|cache.prefix_len_stat_func
+op_assign
+id|prefix_len_stat_func
+suffix:semicolon
 )brace
 DECL|macro|FL_DIR
 mdefine_line|#define FL_DIR      (1 &lt;&lt; 0)
@@ -206,7 +219,9 @@ DECL|macro|FL_LSTATERR
 mdefine_line|#define FL_LSTATERR (1 &lt;&lt; 3)
 DECL|macro|FL_ERR
 mdefine_line|#define FL_ERR      (1 &lt;&lt; 4)
-multiline_comment|/*&n; * Check if name &squot;name&squot; of length &squot;len&squot; has a symlink leading&n; * component, or if the directory exists and is real, or not.&n; *&n; * To speed up the check, some information is allowed to be cached.&n; * This can be indicated by the &squot;track_flags&squot; argument.&n; */
+DECL|macro|FL_FULLPATH
+mdefine_line|#define FL_FULLPATH (1 &lt;&lt; 5)
+multiline_comment|/*&n; * Check if name &squot;name&squot; of length &squot;len&squot; has a symlink leading&n; * component, or if the directory exists and is real, or not.&n; *&n; * To speed up the check, some information is allowed to be cached.&n; * This can be indicated by the &squot;track_flags&squot; argument, which also can&n; * be used to indicate that we should check the full path.&n; *&n; * The &squot;prefix_len_stat_func&squot; parameter can be used to set the length&n; * of the prefix, where the cache should use the stat() function&n; * instead of the lstat() function to test each path component.&n; */
 DECL|function|lstat_cache
 r_static
 r_int
@@ -223,6 +238,9 @@ id|name
 comma
 r_int
 id|track_flags
+comma
+r_int
+id|prefix_len_stat_func
 )paren
 (brace
 r_int
@@ -240,6 +258,8 @@ comma
 id|save_flags
 comma
 id|max_len
+comma
+id|ret
 suffix:semicolon
 r_struct
 id|stat
@@ -251,13 +271,19 @@ c_cond
 id|cache.track_flags
 op_ne
 id|track_flags
+op_logical_or
+id|cache.prefix_len_stat_func
+op_ne
+id|prefix_len_stat_func
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * As a safeguard we clear the cache if the value of&n;&t;&t; * track_flags does not match with the last supplied&n;&t;&t; * value.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * As a safeguard we clear the cache if the values of&n;&t;&t; * track_flags and/or prefix_len_stat_func does not&n;&t;&t; * match with the last supplied values.&n;&t;&t; */
 id|reset_lstat_cache
 c_func
 (paren
 id|track_flags
+comma
+id|prefix_len_stat_func
 )paren
 suffix:semicolon
 id|match_len
@@ -391,6 +417,13 @@ c_cond
 id|match_len
 op_ge
 id|max_len
+op_logical_and
+op_logical_neg
+(paren
+id|track_flags
+op_amp
+id|FL_FULLPATH
+)paren
 )paren
 r_break
 suffix:semicolon
@@ -408,6 +441,24 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|last_slash
+op_le
+id|prefix_len_stat_func
+)paren
+id|ret
+op_assign
+id|stat
+c_func
+(paren
+id|cache.path
+comma
+op_amp
+id|st
+)paren
+suffix:semicolon
+r_else
+id|ret
+op_assign
 id|lstat
 c_func
 (paren
@@ -416,6 +467,11 @@ comma
 op_amp
 id|st
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
 )paren
 (brace
 id|ret_flags
@@ -501,7 +557,7 @@ OG
 l_int|0
 op_logical_and
 id|last_slash
-OL
+op_le
 id|PATH_MAX
 )paren
 (brace
@@ -534,7 +590,7 @@ OG
 l_int|0
 op_logical_and
 id|last_slash_dir
-OL
+op_le
 id|PATH_MAX
 )paren
 (brace
@@ -561,6 +617,8 @@ id|reset_lstat_cache
 c_func
 (paren
 id|track_flags
+comma
+id|prefix_len_stat_func
 )paren
 suffix:semicolon
 )brace
@@ -568,6 +626,8 @@ r_return
 id|ret_flags
 suffix:semicolon
 )brace
+DECL|macro|USE_ONLY_LSTAT
+mdefine_line|#define USE_ONLY_LSTAT  0
 multiline_comment|/*&n; * Return non-zero if path &squot;name&squot; has a leading symlink component&n; */
 DECL|function|has_symlink_leading_path
 r_int
@@ -594,6 +654,8 @@ comma
 id|FL_SYMLINK
 op_or
 id|FL_DIR
+comma
+id|USE_ONLY_LSTAT
 )paren
 op_amp
 id|FL_SYMLINK
@@ -627,6 +689,8 @@ op_or
 id|FL_NOENT
 op_or
 id|FL_DIR
+comma
+id|USE_ONLY_LSTAT
 )paren
 op_amp
 (paren
@@ -634,6 +698,42 @@ id|FL_SYMLINK
 op_or
 id|FL_NOENT
 )paren
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * Return non-zero if all path components of &squot;name&squot; exists as a&n; * directory.  If prefix_len &gt; 0, we will test with the stat()&n; * function instead of the lstat() function for a prefix length of&n; * &squot;prefix_len&squot;, thus we then allow for symlinks in the prefix part as&n; * long as those points to real existing directories.&n; */
+DECL|function|has_dirs_only_path
+r_int
+id|has_dirs_only_path
+c_func
+(paren
+r_int
+id|len
+comma
+r_const
+r_char
+op_star
+id|name
+comma
+r_int
+id|prefix_len
+)paren
+(brace
+r_return
+id|lstat_cache
+c_func
+(paren
+id|len
+comma
+id|name
+comma
+id|FL_DIR
+op_or
+id|FL_FULLPATH
+comma
+id|prefix_len
+)paren
+op_amp
+id|FL_DIR
 suffix:semicolon
 )brace
 eof
