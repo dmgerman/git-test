@@ -1936,6 +1936,9 @@ comma
 op_star
 id|dir
 suffix:semicolon
+r_int
+id|dest_exists
+suffix:semicolon
 r_const
 r_struct
 id|ref
@@ -2182,9 +2185,8 @@ c_func
 id|dir
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|dest_exists
+op_assign
 op_logical_neg
 id|stat
 c_func
@@ -2194,11 +2196,24 @@ comma
 op_amp
 id|buf
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|dest_exists
+op_logical_and
+op_logical_neg
+id|is_empty_dir
+c_func
+(paren
+id|dir
+)paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;destination directory &squot;%s&squot; already exists.&quot;
+l_string|&quot;destination path &squot;%s&squot; already exists and is not &quot;
+l_string|&quot;an empty directory.&quot;
 comma
 id|dir
 )paren
@@ -2332,6 +2347,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|dest_exists
+op_logical_and
 id|mkdir
 c_func
 (paren
