@@ -19,6 +19,10 @@ DECL|member|flags
 r_int
 id|flags
 suffix:semicolon
+DECL|member|track_flags
+r_int
+id|track_flags
+suffix:semicolon
 DECL|variable|cache
 )brace
 id|cache
@@ -168,7 +172,8 @@ r_void
 id|reset_lstat_cache
 c_func
 (paren
-r_void
+r_int
+id|track_flags
 )paren
 (brace
 id|cache.path
@@ -186,16 +191,22 @@ id|cache.flags
 op_assign
 l_int|0
 suffix:semicolon
+id|cache.track_flags
+op_assign
+id|track_flags
+suffix:semicolon
 )brace
 DECL|macro|FL_DIR
 mdefine_line|#define FL_DIR      (1 &lt;&lt; 0)
+DECL|macro|FL_NOENT
+mdefine_line|#define FL_NOENT    (1 &lt;&lt; 1)
 DECL|macro|FL_SYMLINK
-mdefine_line|#define FL_SYMLINK  (1 &lt;&lt; 1)
+mdefine_line|#define FL_SYMLINK  (1 &lt;&lt; 2)
 DECL|macro|FL_LSTATERR
-mdefine_line|#define FL_LSTATERR (1 &lt;&lt; 2)
+mdefine_line|#define FL_LSTATERR (1 &lt;&lt; 3)
 DECL|macro|FL_ERR
-mdefine_line|#define FL_ERR      (1 &lt;&lt; 3)
-multiline_comment|/*&n; * Check if name &squot;name&squot; of length &squot;len&squot; has a symlink leading&n; * component, or if the directory exists and is real.&n; *&n; * To speed up the check, some information is allowed to be cached.&n; * This can be indicated by the &squot;track_flags&squot; argument.&n; */
+mdefine_line|#define FL_ERR      (1 &lt;&lt; 4)
+multiline_comment|/*&n; * Check if name &squot;name&squot; of length &squot;len&squot; has a symlink leading&n; * component, or if the directory exists and is real, or not.&n; *&n; * To speed up the check, some information is allowed to be cached.&n; * This can be indicated by the &squot;track_flags&squot; argument.&n; */
 DECL|function|lstat_cache
 r_static
 r_int
@@ -234,7 +245,31 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
-multiline_comment|/*&n;&t; * Check to see if we have a match from the cache for the&n;&t; * symlink path type.&n;&t; */
+r_if
+c_cond
+(paren
+id|cache.track_flags
+op_ne
+id|track_flags
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * As a safeguard we clear the cache if the value of&n;&t;&t; * track_flags does not match with the last supplied&n;&t;&t; * value.&n;&t;&t; */
+id|reset_lstat_cache
+c_func
+(paren
+id|track_flags
+)paren
+suffix:semicolon
+id|match_len
+op_assign
+id|last_slash
+op_assign
+l_int|0
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/*&n;&t;&t; * Check to see if we have a match from the cache for&n;&t;&t; * the 2 &quot;excluding&quot; path types.&n;&t;&t; */
 id|match_len
 op_assign
 id|last_slash
@@ -253,7 +288,11 @@ id|cache.flags
 op_amp
 id|track_flags
 op_amp
+(paren
+id|FL_NOENT
+op_or
 id|FL_SYMLINK
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -267,7 +306,7 @@ id|cache.len
 r_return
 id|match_flags
 suffix:semicolon
-multiline_comment|/*&n;&t; * If we now have match_len &gt; 0, we would know that the&n;&t; * matched part will always be a directory.&n;&t; *&n;&t; * Also, if we are tracking directories and &squot;name&squot; is a&n;&t; * substring of the cache on a path component basis, we can&n;&t; * return immediately.&n;&t; */
+multiline_comment|/*&n;&t;&t; * If we now have match_len &gt; 0, we would know that&n;&t;&t; * the matched part will always be a directory.&n;&t;&t; *&n;&t;&t; * Also, if we are tracking directories and &squot;name&squot; is&n;&t;&t; * a substring of the cache on a path component basis,&n;&t;&t; * we can return immediately.&n;&t;&t; */
 id|match_flags
 op_assign
 id|track_flags
@@ -286,6 +325,7 @@ id|match_len
 r_return
 id|match_flags
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * Okay, no match from the cache so far, so now we have to&n;&t; * check the rest of the path components.&n;&t; */
 id|ret_flags
 op_assign
@@ -382,6 +422,17 @@ id|ret_flags
 op_assign
 id|FL_LSTATERR
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|ENOENT
+)paren
+id|ret_flags
+op_or_assign
+id|FL_NOENT
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -427,14 +478,18 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * At the end update the cache.  Note that max 2 different&n;&t; * path types, FL_SYMLINK and FL_DIR, can be cached for the&n;&t; * moment!&n;&t; */
+multiline_comment|/*&n;&t; * At the end update the cache.  Note that max 3 different&n;&t; * path types, FL_NOENT, FL_SYMLINK and FL_DIR, can be cached&n;&t; * for the moment!&n;&t; */
 id|save_flags
 op_assign
 id|ret_flags
 op_amp
 id|track_flags
 op_amp
+(paren
+id|FL_NOENT
+op_or
 id|FL_SYMLINK
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -483,7 +538,7 @@ OL
 id|PATH_MAX
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We have a separate test for the directory case,&n;&t;&t; * since it could be that we have found a symlink and&n;&t;&t; * the track_flags says that we cannot cache this&n;&t;&t; * fact, so the cache would then have been left empty&n;&t;&t; * in this case.&n;&t;&t; *&n;&t;&t; * But if we are allowed to track real directories, we&n;&t;&t; * can still cache the path components before the last&n;&t;&t; * one (the found symlink component).&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We have a separate test for the directory case,&n;&t;&t; * since it could be that we have found a symlink or a&n;&t;&t; * non-existing directory and the track_flags says&n;&t;&t; * that we cannot cache this fact, so the cache would&n;&t;&t; * then have been left empty in this case.&n;&t;&t; *&n;&t;&t; * But if we are allowed to track real directories, we&n;&t;&t; * can still cache the path components before the last&n;&t;&t; * one (the found symlink or non-existing component).&n;&t;&t; */
 id|cache.path
 (braket
 id|last_slash_dir
@@ -505,6 +560,7 @@ r_else
 id|reset_lstat_cache
 c_func
 (paren
+id|track_flags
 )paren
 suffix:semicolon
 )brace
@@ -541,6 +597,43 @@ id|FL_DIR
 )paren
 op_amp
 id|FL_SYMLINK
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * Return non-zero if path &squot;name&squot; has a leading symlink component or&n; * if some leading path component does not exists.&n; */
+DECL|function|has_symlink_or_noent_leading_path
+r_int
+id|has_symlink_or_noent_leading_path
+c_func
+(paren
+r_int
+id|len
+comma
+r_const
+r_char
+op_star
+id|name
+)paren
+(brace
+r_return
+id|lstat_cache
+c_func
+(paren
+id|len
+comma
+id|name
+comma
+id|FL_SYMLINK
+op_or
+id|FL_NOENT
+op_or
+id|FL_DIR
+)paren
+op_amp
+(paren
+id|FL_SYMLINK
+op_or
+id|FL_NOENT
+)paren
 suffix:semicolon
 )brace
 eof
