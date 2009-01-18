@@ -3326,12 +3326,6 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|unlink
-c_func
-(paren
-id|commit_editmsg
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
