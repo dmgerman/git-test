@@ -1296,6 +1296,16 @@ c_cond
 (paren
 id|flags
 op_amp
+id|XDF_IGNORE_WHITESPACE
+)paren
+suffix:semicolon
+multiline_comment|/* already handled */
+r_else
+r_if
+c_cond
+(paren
+id|flags
+op_amp
 id|XDF_IGNORE_WHITESPACE_CHANGE
 op_logical_and
 id|ptr
@@ -1323,6 +1333,7 @@ r_int
 l_char|&squot; &squot;
 suffix:semicolon
 )brace
+r_else
 r_if
 c_cond
 (paren
