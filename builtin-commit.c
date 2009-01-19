@@ -4779,7 +4779,7 @@ r_char
 op_star
 id|format
 op_assign
-l_string|&quot;format:%h: &bslash;&quot;%s&bslash;&quot;&quot;
+l_string|&quot;format:%h] %s&quot;
 suffix:semicolon
 r_int
 r_char
@@ -4922,7 +4922,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;[%s%s]: created &quot;
+l_string|&quot;[%s%s &quot;
 comma
 op_logical_neg
 id|prefixcmp
