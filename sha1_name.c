@@ -4154,6 +4154,8 @@ id|nth
 suffix:semicolon
 r_int
 id|i
+comma
+id|retval
 suffix:semicolon
 r_struct
 id|grab_nth_branch_switch_cbdata
@@ -4297,6 +4299,10 @@ id|cb.cnt
 op_assign
 l_int|0
 suffix:semicolon
+id|retval
+op_assign
+l_int|0
+suffix:semicolon
 id|for_each_reflog_ent
 c_func
 (paren
@@ -4315,8 +4321,8 @@ id|cb.cnt
 OL
 id|nth
 )paren
-r_return
-l_int|0
+r_goto
+id|release_return
 suffix:semicolon
 id|i
 op_assign
@@ -4350,6 +4356,16 @@ dot
 id|len
 )paren
 suffix:semicolon
+id|retval
+op_assign
+id|brace
+op_minus
+id|name
+op_plus
+l_int|1
+suffix:semicolon
+id|release_return
+suffix:colon
 r_for
 c_loop
 (paren
@@ -4381,11 +4397,7 @@ id|cb.buf
 )paren
 suffix:semicolon
 r_return
-id|brace
-op_minus
-id|name
-op_plus
-l_int|1
+id|retval
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * This is like &quot;get_sha1_basic()&quot;, except it allows &quot;sha1 expressions&quot;,&n; * notably &quot;xyz^&quot; for &quot;parent of xyz&quot;&n; */
