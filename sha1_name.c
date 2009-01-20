@@ -4060,6 +4060,9 @@ c_cond
 (paren
 op_logical_neg
 id|match
+op_logical_or
+op_logical_neg
+id|target
 )paren
 r_return
 l_int|0
