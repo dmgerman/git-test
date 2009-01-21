@@ -19,7 +19,7 @@ r_int
 id|drivers_alloc
 suffix:semicolon
 DECL|macro|PATTERNS
-mdefine_line|#define PATTERNS(name, pattern, wordregex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED }, wordregex }
+mdefine_line|#define PATTERNS(name, pattern, word_regex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED }, word_regex }
 DECL|variable|builtin_drivers
 r_static
 r_struct
