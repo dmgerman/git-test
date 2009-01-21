@@ -4033,10 +4033,6 @@ c_func
 l_string|&quot;checkout: moving from &quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-(paren
 id|target
 op_assign
 id|strstr
@@ -4046,13 +4042,6 @@ id|match
 comma
 l_string|&quot; to &quot;
 )paren
-)paren
-op_ne
-l_int|NULL
-)paren
-id|target
-op_add_assign
-l_int|4
 suffix:semicolon
 )brace
 r_if
@@ -4071,31 +4060,6 @@ id|len
 op_assign
 id|target
 id|match
-l_int|4
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|target
-(braket
-id|len
-)braket
-op_eq
-l_char|&squot;&bslash;n&squot;
-op_logical_and
-op_logical_neg
-id|strncmp
-c_func
-(paren
-id|match
-comma
-id|target
-comma
-id|len
-)paren
-)paren
-r_return
-l_int|0
 suffix:semicolon
 id|nth
 op_assign
