@@ -634,6 +634,16 @@ c_func
 (paren
 id|var
 comma
+l_string|&quot;diff.suppressblankempty&quot;
+)paren
+op_logical_or
+multiline_comment|/* for backwards compatibility */
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
 l_string|&quot;diff.suppress-blank-empty&quot;
 )paren
 )paren
