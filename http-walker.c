@@ -351,7 +351,7 @@ id|expn
 suffix:semicolon
 id|obj_req-&gt;zret
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 op_amp
@@ -683,7 +683,7 @@ id|obj_req-&gt;stream
 )paren
 )paren
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -912,7 +912,7 @@ id|obj_req-&gt;stream
 )paren
 )paren
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -1218,7 +1218,7 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp
