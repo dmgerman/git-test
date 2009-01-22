@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Copyright (c) 2005, Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|variable|lock_file_list
 r_static
 r_struct
@@ -91,12 +92,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_pop
 c_func
 (paren
 id|signo
-comma
-id|SIG_DFL
 )paren
 suffix:semicolon
 id|raise
@@ -490,7 +489,7 @@ op_logical_neg
 id|lock_file_list
 )paren
 (brace
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGINT
@@ -498,7 +497,7 @@ comma
 id|remove_lock_file_on_signal
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGHUP
@@ -506,7 +505,7 @@ comma
 id|remove_lock_file_on_signal
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGTERM
@@ -514,7 +513,7 @@ comma
 id|remove_lock_file_on_signal
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGQUIT
@@ -522,7 +521,7 @@ comma
 id|remove_lock_file_on_signal
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGPIPE

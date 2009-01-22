@@ -10,6 +10,7 @@ macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 macro_line|#ifdef NO_FAST_WORKING_DIRECTORY
 DECL|macro|FAST_WORKING_DIRECTORY
 mdefine_line|#define FAST_WORKING_DIRECTORY 0
@@ -1047,12 +1048,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_pop
 c_func
 (paren
-id|SIGINT
-comma
-id|SIG_DFL
+id|signo
 )paren
 suffix:semicolon
 id|raise
@@ -10444,7 +10443,7 @@ c_func
 id|remove_tempfile
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGINT

@@ -10,6 +10,7 @@ macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;pack-refs.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 multiline_comment|/*&n; * Overall FIXMEs:&n; *  - respect DB_ENVIRONMENT for .git/objects.&n; *&n; * Implementation notes:&n; *  - dropping use-separate-remote and no-separate-remote compatibility&n; *&n; */
 DECL|variable|builtin_clone_usage
 r_static
@@ -1560,12 +1561,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_pop
 c_func
 (paren
-id|SIGINT
-comma
-id|SIG_DFL
+id|signo
 )paren
 suffix:semicolon
 id|raise
@@ -2371,7 +2370,7 @@ c_func
 id|remove_junk
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGINT

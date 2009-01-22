@@ -8,6 +8,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|variable|builtin_fetch_usage
 r_static
 r_const
@@ -265,12 +266,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_pop
 c_func
 (paren
-id|SIGINT
-comma
-id|SIG_DFL
+id|signo
 )paren
 suffix:semicolon
 id|raise
@@ -3841,7 +3840,7 @@ op_assign
 id|j
 suffix:semicolon
 )brace
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGINT

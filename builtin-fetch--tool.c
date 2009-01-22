@@ -2,6 +2,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|function|get_stdin
 r_static
 r_char
@@ -1147,12 +1148,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_pop
 c_func
 (paren
-id|SIGINT
-comma
-id|SIG_DFL
+id|signo
 )paren
 suffix:semicolon
 id|raise
@@ -1435,7 +1434,7 @@ id|err
 op_assign
 l_int|0
 suffix:semicolon
-id|signal
+id|sigchain_push
 c_func
 (paren
 id|SIGINT
