@@ -300,7 +300,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|isspecial
+id|c1
+op_eq
+l_char|&squot;&bslash;0&squot;
+op_logical_or
+id|is_glob_special
 c_func
 (paren
 id|c1
@@ -3156,7 +3160,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|isspecial
+id|c
+op_eq
+l_char|&squot;&bslash;0&squot;
+op_logical_or
+id|is_glob_special
 c_func
 (paren
 id|c
