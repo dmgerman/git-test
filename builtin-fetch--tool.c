@@ -1434,11 +1434,9 @@ id|err
 op_assign
 l_int|0
 suffix:semicolon
-id|sigchain_push
+id|sigchain_push_common
 c_func
 (paren
-id|SIGINT
-comma
 id|remove_keep_on_signal
 )paren
 suffix:semicolon

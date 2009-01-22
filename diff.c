@@ -10443,11 +10443,9 @@ c_func
 id|remove_tempfile
 )paren
 suffix:semicolon
-id|sigchain_push
+id|sigchain_push_common
 c_func
 (paren
-id|SIGINT
-comma
 id|remove_tempfile_on_signal
 )paren
 suffix:semicolon

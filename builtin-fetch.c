@@ -3840,11 +3840,9 @@ op_assign
 id|j
 suffix:semicolon
 )brace
-id|sigchain_push
+id|sigchain_push_common
 c_func
 (paren
-id|SIGINT
-comma
 id|unlock_pack_on_signal
 )paren
 suffix:semicolon
