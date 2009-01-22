@@ -686,10 +686,10 @@ id|code
 suffix:semicolon
 )brace
 )brace
-DECL|function|run_hook
+DECL|function|run_receive_hook
 r_static
 r_int
-id|run_hook
+id|run_receive_hook
 c_func
 (paren
 r_const
@@ -1911,7 +1911,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|run_hook
+id|run_receive_hook
 c_func
 (paren
 id|pre_receive_hook
@@ -3311,7 +3311,7 @@ c_func
 id|unpack_status
 )paren
 suffix:semicolon
-id|run_hook
+id|run_receive_hook
 c_func
 (paren
 id|post_receive_hook
