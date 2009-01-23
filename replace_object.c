@@ -458,6 +458,15 @@ id|cur
 op_assign
 id|sha1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|read_replace_refs
+)paren
+r_return
+id|sha1
+suffix:semicolon
 id|prepare_replace_object
 c_func
 (paren

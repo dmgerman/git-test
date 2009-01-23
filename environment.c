@@ -167,6 +167,12 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* 1: both ways, -1: only when adding git objects */
+DECL|variable|read_replace_refs
+r_int
+id|read_replace_refs
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|safe_crlf
 r_enum
 id|safe_crlf
