@@ -2275,8 +2275,6 @@ r_int
 id|namelen
 suffix:semicolon
 r_int
-id|pos
-comma
 id|i
 suffix:semicolon
 r_struct
@@ -2358,40 +2356,12 @@ c_func
 id|ce-&gt;name
 )paren
 suffix:semicolon
-id|pos
-op_assign
-id|index_name_pos
-c_func
-(paren
-id|o-&gt;src_index
-comma
-id|ce-&gt;name
-comma
-id|namelen
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-l_int|0
-op_le
-id|pos
-)paren
-r_return
-id|cnt
-suffix:semicolon
-multiline_comment|/* we have it as nondirectory */
-id|pos
-op_assign
-id|pos
-l_int|1
-suffix:semicolon
 r_for
 c_loop
 (paren
 id|i
 op_assign
-id|pos
+id|o-&gt;pos
 suffix:semicolon
 id|i
 OL
@@ -2404,7 +2374,7 @@ op_increment
 r_struct
 id|cache_entry
 op_star
-id|ce
+id|ce2
 op_assign
 id|o-&gt;src_index-&gt;cache
 (braket
@@ -2417,7 +2387,7 @@ op_assign
 id|ce_namelen
 c_func
 (paren
-id|ce
+id|ce2
 )paren
 suffix:semicolon
 r_if
@@ -2432,12 +2402,12 @@ c_func
 (paren
 id|ce-&gt;name
 comma
-id|ce-&gt;name
+id|ce2-&gt;name
 comma
 id|namelen
 )paren
 op_logical_or
-id|ce-&gt;name
+id|ce2-&gt;name
 (braket
 id|namelen
 )braket
@@ -2446,7 +2416,7 @@ l_char|&squot;/&squot;
 )paren
 r_break
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * ce-&gt;name is an entry in the subdirectory.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * ce2-&gt;name is an entry in the subdirectory.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2454,7 +2424,7 @@ op_logical_neg
 id|ce_stage
 c_func
 (paren
-id|ce
+id|ce2
 )paren
 )paren
 (brace
@@ -2464,7 +2434,7 @@ c_cond
 id|verify_uptodate
 c_func
 (paren
-id|ce
+id|ce2
 comma
 id|o
 )paren
@@ -2477,7 +2447,7 @@ c_func
 (paren
 id|o
 comma
-id|ce
+id|ce2
 comma
 id|CE_REMOVE
 comma
@@ -2733,7 +2703,7 @@ id|st
 )paren
 (brace
 r_int
-id|cnt
+id|ret
 suffix:semicolon
 r_int
 id|dtype
@@ -2800,7 +2770,7 @@ id|st.st_mode
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * We are checking out path &quot;foo&quot; and&n;&t;&t;&t; * found &quot;foo/.&quot; in the working tree.&n;&t;&t;&t; * This is tricky -- if we have modified&n;&t;&t;&t; * files that are in &quot;foo/&quot; we would lose&n;&t;&t;&t; * it.&n;&t;&t;&t; */
-id|cnt
+id|ret
 op_assign
 id|verify_clean_subdirectory
 c_func
@@ -2812,10 +2782,20 @@ comma
 id|o
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * If this removed entries from the index,&n;&t;&t;&t; * what that means is:&n;&t;&t;&t; *&n;&t;&t;&t; * (1) the caller unpack_trees_rec() saw path/foo&n;&t;&t;&t; * in the index, and it has not removed it because&n;&t;&t;&t; * it thinks it is handling &squot;path&squot; as blob with&n;&t;&t;&t; * D/F conflict;&n;&t;&t;&t; * (2) we will return &quot;ok, we placed a merged entry&n;&t;&t;&t; * in the index&quot; which would cause o-&gt;pos to be&n;&t;&t;&t; * incremented by one;&n;&t;&t;&t; * (3) however, original o-&gt;pos now has &squot;path/foo&squot;&n;&t;&t;&t; * marked with &quot;to be removed&quot;.&n;&t;&t;&t; *&n;&t;&t;&t; * We need to increment it by the number of&n;&t;&t;&t; * deleted entries here.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|ret
+OL
+l_int|0
+)paren
+r_return
+id|ret
+suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * If this removed entries from the index,&n;&t;&t;&t; * what that means is:&n;&t;&t;&t; *&n;&t;&t;&t; * (1) the caller unpack_callback() saw path/foo&n;&t;&t;&t; * in the index, and it has not removed it because&n;&t;&t;&t; * it thinks it is handling &squot;path&squot; as blob with&n;&t;&t;&t; * D/F conflict;&n;&t;&t;&t; * (2) we will return &quot;ok, we placed a merged entry&n;&t;&t;&t; * in the index&quot; which would cause o-&gt;pos to be&n;&t;&t;&t; * incremented by one;&n;&t;&t;&t; * (3) however, original o-&gt;pos now has &squot;path/foo&squot;&n;&t;&t;&t; * marked with &quot;to be removed&quot;.&n;&t;&t;&t; *&n;&t;&t;&t; * We need to increment it by the number of&n;&t;&t;&t; * deleted entries here.&n;&t;&t;&t; */
 id|o-&gt;pos
 op_add_assign
-id|cnt
+id|ret
 suffix:semicolon
 r_return
 l_int|0
