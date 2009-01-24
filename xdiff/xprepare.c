@@ -1524,6 +1524,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
+id|xpp-&gt;flags
+op_amp
+id|XDF_PATIENCE_DIFF
+)paren
+op_logical_and
 id|xdl_optimize_ctxs
 c_func
 (paren
