@@ -2721,7 +2721,6 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|format_subject
-r_static
 r_const
 r_char
 op_star
