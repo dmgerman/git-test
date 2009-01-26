@@ -163,7 +163,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_symlink_leading_path
+id|has_symlink_or_noent_leading_path
 c_func
 (paren
 id|ce_namelen
@@ -2673,7 +2673,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_symlink_leading_path
+id|has_symlink_or_noent_leading_path
 c_func
 (paren
 id|ce_namelen

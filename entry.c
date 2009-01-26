@@ -67,13 +67,6 @@ op_ne
 l_int|NULL
 )paren
 (brace
-r_struct
-id|stat
-id|st
-suffix:semicolon
-r_int
-id|stat_status
-suffix:semicolon
 id|len
 op_assign
 id|slash
@@ -96,54 +89,24 @@ id|len
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * For &squot;checkout-index --prefix=&lt;dir&gt;&squot;, &lt;dir&gt; is&n;&t;&t; * allowed to be a symlink to an existing directory,&n;&t;&t; * and we set &squot;state-&gt;base_dir_len&squot; below, such that&n;&t;&t; * we test the path components of the prefix with the&n;&t;&t; * stat() function instead of the lstat() function.&n;&t;&t; */
 r_if
 c_cond
+(paren
+id|has_dirs_only_path
+c_func
 (paren
 id|len
-op_le
+comma
+id|buf
+comma
 id|state-&gt;base_dir_len
-)paren
-multiline_comment|/*&n;&t;&t;&t; * checkout-index --prefix=&lt;dir&gt;; &lt;dir&gt; is&n;&t;&t;&t; * allowed to be a symlink to an existing&n;&t;&t;&t; * directory.&n;&t;&t;&t; */
-id|stat_status
-op_assign
-id|stat
-c_func
-(paren
-id|buf
-comma
-op_amp
-id|st
-)paren
-suffix:semicolon
-r_else
-multiline_comment|/*&n;&t;&t;&t; * if there currently is a symlink, we would&n;&t;&t;&t; * want to replace it with a real directory.&n;&t;&t;&t; */
-id|stat_status
-op_assign
-id|lstat
-c_func
-(paren
-id|buf
-comma
-op_amp
-id|st
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|stat_status
-op_logical_and
-id|S_ISDIR
-c_func
-(paren
-id|st.st_mode
 )paren
 )paren
 r_continue
 suffix:semicolon
 multiline_comment|/* ok, it is already a directory. */
-multiline_comment|/*&n;&t;&t; * We know stat_status == 0 means something exists&n;&t;&t; * there and this mkdir would fail, but that is an&n;&t;&t; * error codepath; we do not care, as we unlink and&n;&t;&t; * mkdir again in such a case.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * If this mkdir() would fail, it could be that there&n;&t;&t; * is already a symlink or something else exists&n;&t;&t; * there, therefore we then try to unlink it and try&n;&t;&t; * one more time to create the directory.&n;&t;&t; */
 r_if
 c_cond
 (paren
