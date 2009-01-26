@@ -1768,6 +1768,13 @@ id|i
 )paren
 suffix:semicolon
 )brace
+id|object_array_remove_duplicates
+c_func
+(paren
+op_amp
+id|revs.pending
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
