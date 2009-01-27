@@ -1754,6 +1754,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|str
 (braket
 id|len
