@@ -1218,10 +1218,10 @@ id|option
 suffix:semicolon
 )brace
 suffix:semicolon
-DECL|function|run_command
+DECL|function|run_builtin
 r_static
 r_int
-id|run_command
+id|run_builtin
 c_func
 (paren
 r_struct
@@ -2399,7 +2399,7 @@ r_continue
 suffix:semicolon
 m_exit
 (paren
-id|run_command
+id|run_builtin
 c_func
 (paren
 id|p
