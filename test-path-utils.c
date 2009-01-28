@@ -40,14 +40,7 @@ op_assign
 id|xmalloc
 c_func
 (paren
-id|strlen
-c_func
-(paren
-id|argv
-(braket
-l_int|2
-)braket
-)paren
+id|PATH_MAX
 op_plus
 l_int|1
 )paren
