@@ -831,6 +831,17 @@ c_cond
 op_logical_neg
 id|object
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|UNINTERESTING
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
 id|die
 c_func
 (paren
@@ -843,6 +854,7 @@ id|tag-&gt;tagged-&gt;sha1
 )paren
 )paren
 suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n;&t; * Commit object? Just return it, we&squot;ll do all the complex&n;&t; * reachability crud.&n;&t; */
 r_if
@@ -2002,6 +2014,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|p
+)paren
+id|p-&gt;object.flags
+op_or_assign
+id|UNINTERESTING
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|parse_commit
 c_func
 (paren
@@ -2010,12 +2031,7 @@ id|p
 OL
 l_int|0
 )paren
-r_return
-l_int|1
-suffix:semicolon
-id|p-&gt;object.flags
-op_or_assign
-id|UNINTERESTING
+r_continue
 suffix:semicolon
 r_if
 c_cond
