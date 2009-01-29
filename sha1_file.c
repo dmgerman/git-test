@@ -11867,9 +11867,10 @@ id|mtime
 r_int
 id|fd
 comma
-id|size
-comma
 id|ret
+suffix:semicolon
+r_int
+id|size
 suffix:semicolon
 r_int
 r_char
