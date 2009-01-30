@@ -36,7 +36,7 @@ id|argv
 id|sigchain_push
 c_func
 (paren
-id|SIGINT
+id|SIGTERM
 comma
 id|one
 )paren
@@ -44,7 +44,7 @@ suffix:semicolon
 id|sigchain_push
 c_func
 (paren
-id|SIGINT
+id|SIGTERM
 comma
 id|two
 )paren
@@ -52,7 +52,7 @@ suffix:semicolon
 id|sigchain_push
 c_func
 (paren
-id|SIGINT
+id|SIGTERM
 comma
 id|three
 )paren
@@ -60,7 +60,7 @@ suffix:semicolon
 id|raise
 c_func
 (paren
-id|SIGINT
+id|SIGTERM
 )paren
 suffix:semicolon
 r_return
