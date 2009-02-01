@@ -116,6 +116,17 @@ DECL|macro|MAX_HDR_PARSED
 mdefine_line|#define MAX_HDR_PARSED 10
 DECL|macro|MAX_BOUNDARIES
 mdefine_line|#define MAX_BOUNDARIES 5
+r_static
+r_void
+id|cleanup_space
+c_func
+(paren
+r_struct
+id|strbuf
+op_star
+id|sb
+)paren
+suffix:semicolon
 DECL|function|get_sane_name
 r_static
 r_void
@@ -533,7 +544,14 @@ l_int|0
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/* The remainder is name.  It could be &quot;John Doe &lt;john.doe@xz&gt;&quot;&n;&t; * or &quot;john.doe@xz (John Doe)&quot;, but we have removed the&n;&t; * email part, so trim from both ends, possibly removing&n;&t; * the () pair at the end.&n;&t; */
+multiline_comment|/* The remainder is name.  It could be&n;&t; *&n;&t; * - &quot;John Doe &lt;john.doe@xz&gt;&quot;&t;&t;&t;(a), or&n;&t; * - &quot;john.doe@xz (John Doe)&quot;&t;&t;&t;(b), or&n;&t; * - &quot;John (zzz) Doe &lt;john.doe@xz&gt; (Comment)&quot;&t;(c)&n;&t; *&n;&t; * but we have removed the email part, so&n;&t; *&n;&t; * - remove extra spaces which could stay after email (case &squot;c&squot;), and&n;&t; * - trim from both ends, possibly removing the () pair at the end&n;&t; *   (cases &squot;a&squot; and &squot;b&squot;).&n;&t; */
+id|cleanup_space
+c_func
+(paren
+op_amp
+id|f
+)paren
+suffix:semicolon
 id|strbuf_trim
 c_func
 (paren
