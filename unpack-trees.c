@@ -1114,10 +1114,8 @@ comma
 r_struct
 id|cache_entry
 op_star
+op_star
 id|src
-(braket
-l_int|5
-)braket
 comma
 r_const
 r_struct
@@ -1386,7 +1384,9 @@ id|cache_entry
 op_star
 id|src
 (braket
-l_int|5
+id|MAX_UNPACK_TREES
+op_plus
+l_int|1
 )braket
 op_assign
 (brace
