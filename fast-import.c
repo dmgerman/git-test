@@ -10,6 +10,7 @@ macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|macro|PACK_ID_BITS
 mdefine_line|#define PACK_ID_BITS 16
 DECL|macro|MAX_PACK_ID
@@ -13001,6 +13002,15 @@ comma
 id|show_stats
 op_assign
 l_int|1
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
 id|setup_git_directory
 c_func

@@ -1843,7 +1843,11 @@ c_func
 op_amp
 id|new_path
 comma
+id|system_path
+c_func
+(paren
 id|GIT_MAN_PATH
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addch
@@ -2125,7 +2129,11 @@ c_func
 (paren
 l_string|&quot;INFOPATH&quot;
 comma
+id|system_path
+c_func
+(paren
 id|GIT_INFO_PATH
+)paren
 comma
 l_int|1
 )paren

@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|flush_current_id
 r_static
 r_void
@@ -420,6 +421,15 @@ id|usage
 c_func
 (paren
 id|patch_id_usage
+)paren
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 id|generate_id_list
