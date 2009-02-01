@@ -10,6 +10,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &lt;expat.h&gt;
 DECL|variable|http_push_usage
 r_static
@@ -6875,12 +6876,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|signal
+id|sigchain_pop
 c_func
 (paren
 id|signo
-comma
-id|SIG_DFL
 )paren
 suffix:semicolon
 id|raise
@@ -11817,35 +11816,9 @@ r_goto
 id|cleanup
 suffix:semicolon
 )brace
-id|signal
+id|sigchain_push_common
 c_func
 (paren
-id|SIGINT
-comma
-id|remove_locks_on_signal
-)paren
-suffix:semicolon
-id|signal
-c_func
-(paren
-id|SIGHUP
-comma
-id|remove_locks_on_signal
-)paren
-suffix:semicolon
-id|signal
-c_func
-(paren
-id|SIGQUIT
-comma
-id|remove_locks_on_signal
-)paren
-suffix:semicolon
-id|signal
-c_func
-(paren
-id|SIGTERM
-comma
 id|remove_locks_on_signal
 )paren
 suffix:semicolon

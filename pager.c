@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 multiline_comment|/*&n; * This is split up from the rest of git so that we can do&n; * something different on Windows.&n; */
 DECL|variable|spawned_pager
 r_static
@@ -128,6 +129,34 @@ c_func
 (paren
 op_amp
 id|pager_process
+)paren
+suffix:semicolon
+)brace
+DECL|function|wait_for_pager_signal
+r_static
+r_void
+id|wait_for_pager_signal
+c_func
+(paren
+r_int
+id|signo
+)paren
+(brace
+id|wait_for_pager
+c_func
+(paren
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|signo
+)paren
+suffix:semicolon
+id|raise
+c_func
+(paren
+id|signo
 )paren
 suffix:semicolon
 )brace
@@ -303,6 +332,12 @@ id|pager_process.in
 )paren
 suffix:semicolon
 multiline_comment|/* this makes sure that the parent terminates after the pager */
+id|sigchain_push_common
+c_func
+(paren
+id|wait_for_pager_signal
+)paren
+suffix:semicolon
 id|atexit
 c_func
 (paren
