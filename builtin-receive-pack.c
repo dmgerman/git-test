@@ -22,6 +22,9 @@ DECL|enum|deny_action
 r_enum
 id|deny_action
 (brace
+DECL|enumerator|DENY_UNCONFIGURED
+id|DENY_UNCONFIGURED
+comma
 DECL|enumerator|DENY_IGNORE
 id|DENY_IGNORE
 comma
@@ -53,7 +56,7 @@ r_enum
 id|deny_action
 id|deny_current_branch
 op_assign
-id|DENY_WARN
+id|DENY_UNCONFIGURED
 suffix:semicolon
 DECL|variable|receive_fsck_objects
 r_static
@@ -1141,6 +1144,93 @@ id|ref
 )paren
 suffix:semicolon
 )brace
+DECL|variable|warn_unconfigured_deny_msg
+r_static
+r_char
+op_star
+id|warn_unconfigured_deny_msg
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;Updating the currently checked out branch may cause confusion,&quot;
+comma
+l_string|&quot;as the index and work tree do not reflect changes that are in HEAD.&quot;
+comma
+l_string|&quot;As a result, you may see the changes you just pushed into it&quot;
+comma
+l_string|&quot;reverted when you run &squot;git diff&squot; over there, and you may want&quot;
+comma
+l_string|&quot;to run &squot;git reset --hard&squot; before starting to work to recover.&quot;
+comma
+l_string|&quot;&quot;
+comma
+l_string|&quot;You can set &squot;receive.denyCurrentBranch&squot; configuration variable to&quot;
+comma
+l_string|&quot;&squot;refuse&squot; in the remote repository to forbid pushing into its&quot;
+comma
+l_string|&quot;current branch.&quot;
+l_string|&quot;&quot;
+comma
+l_string|&quot;To allow pushing into the current branch, you can set it to &squot;ignore&squot;;&quot;
+comma
+l_string|&quot;but this is not recommended unless you arranged to update its work&quot;
+comma
+l_string|&quot;tree to match what you pushed in some other way.&quot;
+comma
+l_string|&quot;&quot;
+comma
+l_string|&quot;To squelch this message, you can set it to &squot;warn&squot;.&quot;
+comma
+l_string|&quot;&quot;
+comma
+l_string|&quot;Note that the default will change in a future version of git&quot;
+comma
+l_string|&quot;to refuse updating the current branch unless you have the&quot;
+comma
+l_string|&quot;configuration variable set to either &squot;ignore&squot; or &squot;warn&squot;.&quot;
+)brace
+suffix:semicolon
+DECL|function|warn_unconfigured_deny
+r_static
+r_void
+id|warn_unconfigured_deny
+c_func
+(paren
+r_void
+)paren
+(brace
+r_int
+id|i
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|ARRAY_SIZE
+c_func
+(paren
+id|warn_unconfigured_deny_msg
+)paren
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|warning
+c_func
+(paren
+id|warn_unconfigured_deny_msg
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+)brace
 DECL|function|update
 r_static
 r_const
@@ -1214,6 +1304,16 @@ r_return
 l_string|&quot;funny refname&quot;
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|is_ref_checked_out
+c_func
+(paren
+id|name
+)paren
+)paren
+(brace
 r_switch
 c_cond
 (paren
@@ -1226,27 +1326,27 @@ suffix:colon
 r_break
 suffix:semicolon
 r_case
+id|DENY_UNCONFIGURED
+suffix:colon
+r_case
 id|DENY_WARN
 suffix:colon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|is_ref_checked_out
-c_func
-(paren
-id|name
-)paren
-)paren
-r_break
-suffix:semicolon
 id|warning
 c_func
 (paren
-l_string|&quot;updating the currently checked out branch; this may&quot;
-l_string|&quot; cause confusion,&bslash;n&quot;
-l_string|&quot;as the index and working tree do not reflect changes&quot;
-l_string|&quot; that are now in HEAD.&quot;
+l_string|&quot;updating the current branch&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|deny_current_branch
+op_eq
+id|DENY_UNCONFIGURED
+)paren
+id|warn_unconfigured_deny
+c_func
+(paren
 )paren
 suffix:semicolon
 r_break
@@ -1254,18 +1354,6 @@ suffix:semicolon
 r_case
 id|DENY_REFUSE
 suffix:colon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|is_ref_checked_out
-c_func
-(paren
-id|name
-)paren
-)paren
-r_break
-suffix:semicolon
 id|error
 c_func
 (paren
@@ -1277,6 +1365,7 @@ suffix:semicolon
 r_return
 l_string|&quot;branch is currently checked out&quot;
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
