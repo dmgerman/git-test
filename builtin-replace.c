@@ -690,9 +690,11 @@ id|list
 op_logical_and
 r_delete
 )paren
-id|usage_with_options
+id|usage_msg_opt
 c_func
 (paren
+l_string|&quot;-l and -d cannot be used together&quot;
+comma
 id|git_replace_usage
 comma
 id|options
@@ -709,9 +711,11 @@ op_logical_or
 r_delete
 )paren
 )paren
-id|usage_with_options
+id|usage_msg_opt
 c_func
 (paren
+l_string|&quot;-f cannot be used with -d or -l&quot;
+comma
 id|git_replace_usage
 comma
 id|options
@@ -731,9 +735,11 @@ id|argc
 OL
 l_int|1
 )paren
-id|usage_with_options
+id|usage_msg_opt
 c_func
 (paren
+l_string|&quot;-d needs at least one argument&quot;
+comma
 id|git_replace_usage
 comma
 id|options
@@ -766,9 +772,11 @@ id|argc
 op_ne
 l_int|2
 )paren
-id|usage_with_options
+id|usage_msg_opt
 c_func
 (paren
+l_string|&quot;bad number of arguments&quot;
+comma
 id|git_replace_usage
 comma
 id|options
@@ -800,9 +808,11 @@ id|argc
 OG
 l_int|1
 )paren
-id|usage_with_options
+id|usage_msg_opt
 c_func
 (paren
+l_string|&quot;only one pattern can be given with -l&quot;
+comma
 id|git_replace_usage
 comma
 id|options
@@ -813,9 +823,11 @@ c_cond
 (paren
 id|force
 )paren
-id|usage_with_options
+id|usage_msg_opt
 c_func
 (paren
+l_string|&quot;-f needs some arguments&quot;
+comma
 id|git_replace_usage
 comma
 id|options
