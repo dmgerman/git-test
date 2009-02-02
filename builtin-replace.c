@@ -674,6 +674,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|options
 comma
 id|git_replace_usage
