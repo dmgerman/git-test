@@ -2562,6 +2562,15 @@ c_func
 op_amp
 id|buf
 comma
+l_string|&quot;_&quot;
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|buf
+comma
 id|request-&gt;lock-&gt;token
 )paren
 suffix:semicolon
