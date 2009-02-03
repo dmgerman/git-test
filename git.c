@@ -2,6 +2,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;run-command.h&quot;
 DECL|variable|git_usage_string
 r_const
 r_char
@@ -1218,10 +1219,10 @@ id|option
 suffix:semicolon
 )brace
 suffix:semicolon
-DECL|function|run_command
+DECL|function|run_builtin
 r_static
 r_int
-id|run_command
+id|run_builtin
 c_func
 (paren
 r_struct
@@ -2399,7 +2400,7 @@ r_continue
 suffix:semicolon
 m_exit
 (paren
-id|run_command
+id|run_builtin
 c_func
 (paren
 id|p
@@ -2435,6 +2436,9 @@ r_const
 r_char
 op_star
 id|tmp
+suffix:semicolon
+r_int
+id|status
 suffix:semicolon
 id|strbuf_addf
 c_func
@@ -2473,32 +2477,56 @@ comma
 l_string|&quot;trace: exec:&quot;
 )paren
 suffix:semicolon
-multiline_comment|/* execvp() can only ever return if it fails */
-id|execvp
+multiline_comment|/*&n;&t; * if we fail because the command is not found, it is&n;&t; * OK to return. Otherwise, we just pass along the status code.&n;&t; */
+id|status
+op_assign
+id|run_command_v_opt
 c_func
 (paren
-id|cmd.buf
-comma
-(paren
-r_char
-op_star
-op_star
-)paren
 id|argv
-)paren
-suffix:semicolon
-id|trace_printf
-c_func
-(paren
-l_string|&quot;trace: exec failed: %s&bslash;n&quot;
 comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
+op_ne
+id|ERR_RUN_COMMAND_EXEC
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|IS_RUN_COMMAND_ERR
+c_func
+(paren
+id|status
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to run &squot;%s&squot;&quot;
+comma
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
+m_exit
+(paren
+id|status
+)paren
+suffix:semicolon
+)brace
+id|errno
+op_assign
+id|ENOENT
+suffix:semicolon
+multiline_comment|/* as if we called execvp */
 id|argv
 (braket
 l_int|0
