@@ -2038,6 +2038,8 @@ id|known_remotes
 suffix:semicolon
 r_int
 id|i
+comma
+id|result
 suffix:semicolon
 r_if
 c_cond
@@ -2273,7 +2275,7 @@ id|cb_data.remote
 op_assign
 id|remote
 suffix:semicolon
-id|i
+id|result
 op_assign
 id|for_each_ref
 c_func
@@ -2295,9 +2297,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|i
+id|result
 )paren
-id|i
+id|result
 op_assign
 id|remove_branches
 c_func
@@ -2316,7 +2318,7 @@ l_int|1
 )paren
 suffix:semicolon
 r_return
-id|i
+id|result
 suffix:semicolon
 )brace
 DECL|function|show_list
