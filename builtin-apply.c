@@ -11223,6 +11223,9 @@ c_cond
 (paren
 op_logical_neg
 id|cached
+op_logical_and
+op_logical_neg
+id|tpatch
 )paren
 id|st_mode
 op_assign
