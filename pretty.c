@@ -6,6 +6,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
+macro_line|#include &quot;notes.h&quot;
 macro_line|#include &quot;color.h&quot;
 DECL|variable|user_format
 r_static
@@ -4990,6 +4991,23 @@ c_func
 id|sb
 comma
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|fmt
+op_ne
+id|CMIT_FMT_ONELINE
+)paren
+id|get_commit_notes
+c_func
+(paren
+id|commit
+comma
+id|sb
+comma
+id|encoding
 )paren
 suffix:semicolon
 id|free
