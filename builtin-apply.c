@@ -11286,6 +11286,9 @@ c_cond
 (paren
 op_logical_neg
 id|patch-&gt;new_mode
+op_logical_and
+op_logical_neg
+id|patch-&gt;is_delete
 )paren
 id|patch-&gt;new_mode
 op_assign
