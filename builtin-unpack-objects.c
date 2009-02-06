@@ -447,7 +447,7 @@ id|stream.avail_in
 op_assign
 id|len
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -464,7 +464,7 @@ suffix:semicolon
 r_int
 id|ret
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 op_amp
@@ -550,7 +550,7 @@ op_assign
 id|len
 suffix:semicolon
 )brace
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp

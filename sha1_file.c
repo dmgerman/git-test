@@ -6366,14 +6366,14 @@ id|map
 )paren
 )paren
 (brace
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 id|stream
 )paren
 suffix:semicolon
 r_return
-id|inflate
+id|git_inflate
 c_func
 (paren
 id|stream
@@ -6431,7 +6431,7 @@ id|stream-&gt;avail_in
 op_assign
 id|mapsize
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 id|stream
@@ -6587,7 +6587,7 @@ id|Z_OK
 )paren
 id|status
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 id|stream
@@ -6614,7 +6614,7 @@ op_logical_neg
 id|stream-&gt;avail_in
 )paren
 (brace
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 id|stream
@@ -7013,7 +7013,7 @@ r_sizeof
 id|delta_head
 )paren
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -7043,7 +7043,7 @@ id|in
 suffix:semicolon
 id|st
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 op_amp
@@ -7079,7 +7079,7 @@ id|delta_head
 )paren
 )paren
 suffix:semicolon
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp
@@ -8192,7 +8192,7 @@ id|stream.avail_out
 op_assign
 id|size
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -8222,7 +8222,7 @@ id|in
 suffix:semicolon
 id|st
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 op_amp
@@ -8249,7 +8249,7 @@ op_eq
 id|Z_BUF_ERROR
 )paren
 suffix:semicolon
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp
@@ -10586,7 +10586,7 @@ id|sizep
 op_assign
 id|size
 suffix:semicolon
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp

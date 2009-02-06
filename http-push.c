@@ -690,7 +690,7 @@ id|expn
 suffix:semicolon
 id|request-&gt;zret
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 op_amp
@@ -1026,7 +1026,7 @@ id|request-&gt;stream
 )paren
 )paren
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -1255,7 +1255,7 @@ id|request-&gt;stream
 )paren
 )paren
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -3550,7 +3550,7 @@ comma
 l_string|&quot;Warning: requested range invalid; we may already have all the data.&bslash;n&quot;
 )paren
 suffix:semicolon
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp
