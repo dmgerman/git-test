@@ -2333,26 +2333,9 @@ id|up_one
 suffix:colon
 multiline_comment|/*&n;&t;&t; * dst0..dst is prefix portion, and dst[-1] is &squot;/&squot;;&n;&t;&t; * go up one level.&n;&t;&t; */
 id|dst
-op_sub_assign
-l_int|2
+op_decrement
 suffix:semicolon
-multiline_comment|/* go past trailing &squot;/&squot; if any */
-r_if
-c_cond
-(paren
-id|dst
-OL
-id|dst0
-)paren
-r_return
-l_int|1
-suffix:semicolon
-r_while
-c_loop
-(paren
-l_int|1
-)paren
-(brace
+multiline_comment|/* go to trailing &squot;/&squot; */
 r_if
 c_cond
 (paren
@@ -2360,31 +2343,27 @@ id|dst
 op_le
 id|dst0
 )paren
-r_break
+r_return
+l_int|1
 suffix:semicolon
-id|c
-op_assign
-op_star
+multiline_comment|/* Windows: dst[-1] cannot be backslash anymore */
+r_while
+c_loop
+(paren
+id|dst0
+OL
+id|dst
+op_logical_and
+id|dst
+(braket
+l_int|1
+)braket
+op_ne
+l_char|&squot;/&squot;
+)paren
 id|dst
 op_decrement
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|c
-op_eq
-l_char|&squot;/&squot;
-)paren
-(brace
-multiline_comment|/* MinGW: cannot be &squot;&bslash;&bslash;&squot; anymore */
-id|dst
-op_add_assign
-l_int|2
-suffix:semicolon
-r_break
-suffix:semicolon
-)brace
-)brace
 )brace
 op_star
 id|dst
