@@ -1337,8 +1337,6 @@ c_func
 op_amp
 id|log-&gt;mailmap
 comma
-l_string|&quot;.mailmap&quot;
-comma
 op_amp
 id|log-&gt;common_repo_prefix
 )paren
@@ -1479,6 +1477,14 @@ c_func
 (paren
 op_amp
 id|nongit
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|shortlog_init

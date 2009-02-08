@@ -1821,8 +1821,6 @@ c_func
 (paren
 id|mail_map
 comma
-l_string|&quot;.mailmap&quot;
-comma
 l_int|NULL
 )paren
 suffix:semicolon

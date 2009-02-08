@@ -11445,8 +11445,6 @@ c_func
 op_amp
 id|mailmap
 comma
-l_string|&quot;.mailmap&quot;
-comma
 l_int|NULL
 )paren
 suffix:semicolon
