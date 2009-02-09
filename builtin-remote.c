@@ -4569,6 +4569,11 @@ r_struct
 id|ref_states
 id|states
 suffix:semicolon
+r_const
+r_char
+op_star
+id|dangling_msg
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options
@@ -4598,6 +4603,17 @@ c_func
 id|builtin_remote_usage
 comma
 id|options
+)paren
+suffix:semicolon
+id|dangling_msg
+op_assign
+(paren
+id|dry_run
+ques
+c_cond
+l_string|&quot; %s will become dangling!&bslash;n&quot;
+suffix:colon
+l_string|&quot; %s has become dangling!&bslash;n&quot;
 )paren
 suffix:semicolon
 id|memset
@@ -4738,6 +4754,14 @@ id|refname
 comma
 l_string|&quot;refs/remotes/&quot;
 )paren
+)paren
+suffix:semicolon
+id|warn_dangling_symref
+c_func
+(paren
+id|dangling_msg
+comma
+id|refname
 )paren
 suffix:semicolon
 )brace
