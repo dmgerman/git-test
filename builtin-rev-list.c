@@ -2638,6 +2638,10 @@ id|bisect_find_all
 op_assign
 l_int|1
 suffix:semicolon
+id|revs.show_decorations
+op_assign
+l_int|1
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
