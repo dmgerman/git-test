@@ -40,15 +40,11 @@ DECL|variable|deny_deletes
 r_static
 r_int
 id|deny_deletes
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|deny_non_fast_forwards
 r_static
 r_int
 id|deny_non_fast_forwards
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|deny_current_branch
 r_static
