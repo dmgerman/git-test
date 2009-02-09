@@ -122,17 +122,19 @@ id|i
 op_increment
 suffix:semicolon
 )brace
-multiline_comment|/* Is the cached path string a substring of &squot;name&squot;? */
+multiline_comment|/*&n;&t; * Is the cached path string a substring of &squot;name&squot;, is &squot;name&squot;&n;&t; * a substring of the cached path string, or is &squot;name&squot; and the&n;&t; * cached path string the exact same string?&n;&t; */
 r_if
 c_cond
 (paren
 id|i
-op_eq
-id|cache.len
+op_ge
+id|max_len
 op_logical_and
-id|cache.len
-OL
+(paren
+(paren
 id|len
+OG
+id|cache.len
 op_logical_and
 id|name
 (braket
@@ -141,26 +143,8 @@ id|cache.len
 op_eq
 l_char|&squot;/&squot;
 )paren
-(brace
-id|match_len_prev
-op_assign
-id|match_len
-suffix:semicolon
-id|match_len
-op_assign
-id|cache.len
-suffix:semicolon
-multiline_comment|/* Is &squot;name&squot; a substring of the cached path string? */
-)brace
-r_else
-r_if
-c_cond
+op_logical_or
 (paren
-(paren
-id|i
-op_eq
-id|len
-op_logical_and
 id|len
 OL
 id|cache.len
@@ -174,13 +158,10 @@ l_char|&squot;/&squot;
 )paren
 op_logical_or
 (paren
-id|i
-op_eq
-id|len
-op_logical_and
 id|len
 op_eq
 id|cache.len
+)paren
 )paren
 )paren
 (brace
@@ -190,7 +171,7 @@ id|match_len
 suffix:semicolon
 id|match_len
 op_assign
-id|len
+id|i
 suffix:semicolon
 )brace
 op_star
@@ -209,11 +190,7 @@ r_void
 id|reset_lstat_cache
 c_func
 (paren
-r_int
-id|track_flags
-comma
-r_int
-id|prefix_len_stat_func
+r_void
 )paren
 (brace
 id|cache.path
@@ -231,14 +208,7 @@ id|cache.flags
 op_assign
 l_int|0
 suffix:semicolon
-id|cache.track_flags
-op_assign
-id|track_flags
-suffix:semicolon
-id|cache.prefix_len_stat_func
-op_assign
-id|prefix_len_stat_func
-suffix:semicolon
+multiline_comment|/*&n;&t; * The track_flags and prefix_len_stat_func members is only&n;&t; * set by the safeguard rule inside lstat_cache()&n;&t; */
 )brace
 DECL|macro|FL_DIR
 mdefine_line|#define FL_DIR      (1 &lt;&lt; 0)
@@ -310,14 +280,19 @@ op_ne
 id|prefix_len_stat_func
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * As a safeguard we clear the cache if the values of&n;&t;&t; * track_flags and/or prefix_len_stat_func does not&n;&t;&t; * match with the last supplied values.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * As a safeguard rule we clear the cache if the&n;&t;&t; * values of track_flags and/or prefix_len_stat_func&n;&t;&t; * does not match with the last supplied values.&n;&t;&t; */
 id|reset_lstat_cache
 c_func
 (paren
-id|track_flags
-comma
-id|prefix_len_stat_func
 )paren
+suffix:semicolon
+id|cache.track_flags
+op_assign
+id|track_flags
+suffix:semicolon
+id|cache.prefix_len_stat_func
+op_assign
+id|prefix_len_stat_func
 suffix:semicolon
 id|match_len
 op_assign
@@ -617,9 +592,11 @@ r_else
 r_if
 c_cond
 (paren
+(paren
 id|track_flags
 op_amp
 id|FL_DIR
+)paren
 op_logical_and
 id|last_slash_dir
 OG
@@ -652,9 +629,6 @@ r_else
 id|reset_lstat_cache
 c_func
 (paren
-id|track_flags
-comma
-id|prefix_len_stat_func
 )paren
 suffix:semicolon
 )brace
@@ -737,9 +711,6 @@ r_else
 id|reset_lstat_cache
 c_func
 (paren
-id|cache.track_flags
-comma
-id|cache.prefix_len_stat_func
 )paren
 suffix:semicolon
 )brace
@@ -756,9 +727,6 @@ r_void
 id|reset_lstat_cache
 c_func
 (paren
-l_int|0
-comma
-l_int|0
 )paren
 suffix:semicolon
 )brace
