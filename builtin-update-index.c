@@ -810,9 +810,9 @@ c_cond
 id|has_symlink_leading_path
 c_func
 (paren
-id|len
-comma
 id|path
+comma
+id|len
 )paren
 )paren
 r_return

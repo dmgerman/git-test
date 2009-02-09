@@ -96,9 +96,9 @@ c_cond
 id|has_dirs_only_path
 c_func
 (paren
-id|len
-comma
 id|buf
+comma
+id|len
 comma
 id|state-&gt;base_dir_len
 )paren
