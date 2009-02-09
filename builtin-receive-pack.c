@@ -1239,48 +1239,36 @@ id|i
 )paren
 suffix:semicolon
 )brace
-DECL|variable|warn_unconfigured_deny_delete_current_msg
+DECL|variable|refuse_unconfigured_deny_delete_current_msg
 r_static
 r_char
 op_star
-id|warn_unconfigured_deny_delete_current_msg
+id|refuse_unconfigured_deny_delete_current_msg
 (braket
 )braket
 op_assign
 (brace
-l_string|&quot;Deleting the current branch can cause confusion by making the next&quot;
+l_string|&quot;By default, deleting the current branch is denied, because the next&quot;
 comma
-l_string|&quot;&squot;git clone&squot; not check out any file.&quot;
+l_string|&quot;&squot;git clone&squot; won&squot;t result in any file checked out, causing confusion.&quot;
 comma
 l_string|&quot;&quot;
 comma
 l_string|&quot;You can set &squot;receive.denyDeleteCurrent&squot; configuration variable to&quot;
 comma
-l_string|&quot;&squot;refuse&squot; in the remote repository to disallow deleting the current&quot;
+l_string|&quot;&squot;warn&squot; or &squot;ignore&squot; in the remote repository to allow deleting the&quot;
 comma
-l_string|&quot;branch.&quot;
-comma
-l_string|&quot;&quot;
-comma
-l_string|&quot;You can set it to &squot;ignore&squot; to allow such a delete without a warning.&quot;
+l_string|&quot;current branch, with or without a warning message.&quot;
 comma
 l_string|&quot;&quot;
 comma
-l_string|&quot;To make this warning message less loud, you can set it to &squot;warn&squot;.&quot;
-comma
-l_string|&quot;&quot;
-comma
-l_string|&quot;Note that the default will change in a future version of git&quot;
-comma
-l_string|&quot;to refuse deleting the current branch unless you have the&quot;
-comma
-l_string|&quot;configuration variable set to either &squot;ignore&squot; or &squot;warn&squot;.&quot;
+l_string|&quot;To squelch this message, you can set it to &squot;refuse&squot;.&quot;
 )brace
 suffix:semicolon
-DECL|function|warn_unconfigured_deny_delete_current
+DECL|function|refuse_unconfigured_deny_delete_current
 r_static
 r_void
-id|warn_unconfigured_deny_delete_current
+id|refuse_unconfigured_deny_delete_current
 c_func
 (paren
 r_void
@@ -1301,18 +1289,18 @@ OL
 id|ARRAY_SIZE
 c_func
 (paren
-id|warn_unconfigured_deny_delete_current_msg
+id|refuse_unconfigured_deny_delete_current_msg
 )paren
 suffix:semicolon
 id|i
 op_increment
 )paren
-id|warning
+id|error
 c_func
 (paren
 l_string|&quot;%s&quot;
 comma
-id|warn_unconfigured_deny_delete_current_msg
+id|refuse_unconfigured_deny_delete_current_msg
 (braket
 id|i
 )braket
@@ -1561,21 +1549,6 @@ suffix:semicolon
 r_case
 id|DENY_WARN
 suffix:colon
-r_case
-id|DENY_UNCONFIGURED
-suffix:colon
-r_if
-c_cond
-(paren
-id|deny_delete_current
-op_eq
-id|DENY_UNCONFIGURED
-)paren
-id|warn_unconfigured_deny_delete_current
-c_func
-(paren
-)paren
-suffix:semicolon
 id|warning
 c_func
 (paren
@@ -1587,6 +1560,21 @@ suffix:semicolon
 r_case
 id|DENY_REFUSE
 suffix:colon
+r_case
+id|DENY_UNCONFIGURED
+suffix:colon
+r_if
+c_cond
+(paren
+id|deny_delete_current
+op_eq
+id|DENY_UNCONFIGURED
+)paren
+id|refuse_unconfigured_deny_delete_current
+c_func
+(paren
+)paren
+suffix:semicolon
 id|error
 c_func
 (paren
