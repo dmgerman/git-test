@@ -1471,6 +1471,9 @@ r_char
 op_star
 id|this_result
 suffix:semicolon
+r_int
+id|flag
+suffix:semicolon
 id|this_result
 op_assign
 id|refs_found
@@ -1509,7 +1512,8 @@ id|this_result
 comma
 l_int|1
 comma
-l_int|NULL
+op_amp
+id|flag
 )paren
 suffix:semicolon
 r_if
@@ -1543,6 +1547,22 @@ id|warn_ambiguous_refs
 r_break
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|flag
+op_amp
+id|REF_ISSYMREF
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;ignoring dangling symref %s.&quot;
+comma
+id|fullref
+)paren
+suffix:semicolon
 )brace
 id|free
 c_func
