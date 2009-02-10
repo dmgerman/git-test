@@ -4626,6 +4626,11 @@ comma
 op_star
 id|new_p
 suffix:semicolon
+id|clear_delta_base_cache
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
