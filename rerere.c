@@ -1894,7 +1894,6 @@ l_int|0755
 )paren
 r_continue
 suffix:semicolon
-suffix:semicolon
 id|handle_file
 c_func
 (paren

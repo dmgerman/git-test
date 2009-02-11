@@ -605,7 +605,6 @@ id|READ_TREE_RECURSIVE
 suffix:colon
 r_break
 suffix:semicolon
-suffix:semicolon
 r_default
 suffix:colon
 r_return

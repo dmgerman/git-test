@@ -4091,7 +4091,6 @@ id|next
 op_assign
 id|c
 suffix:semicolon
-suffix:semicolon
 r_while
 c_loop
 (paren

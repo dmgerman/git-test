@@ -83,7 +83,6 @@ id|obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
-suffix:semicolon
 id|fprintf
 c_func
 (paren
