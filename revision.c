@@ -7800,8 +7800,17 @@ l_int|NULL
 OL
 l_int|0
 )paren
-r_return
-l_int|NULL
+id|die
+c_func
+(paren
+l_string|&quot;Failed to traverse parents of commit %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
+)paren
 suffix:semicolon
 )brace
 r_switch
@@ -7824,8 +7833,17 @@ suffix:semicolon
 r_case
 id|commit_error
 suffix:colon
-r_return
-l_int|NULL
+id|die
+c_func
+(paren
+l_string|&quot;Failed to simplify parents of commit %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
+)paren
 suffix:semicolon
 r_default
 suffix:colon
