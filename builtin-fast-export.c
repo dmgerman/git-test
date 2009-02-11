@@ -2765,6 +2765,10 @@ op_amp
 id|extra_refs
 )paren
 suffix:semicolon
+id|revs.topo_order
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
