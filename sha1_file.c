@@ -3656,6 +3656,11 @@ op_eq
 l_int|0
 )paren
 (brace
+id|clear_delta_base_cache
+c_func
+(paren
+)paren
+suffix:semicolon
 id|close_pack_windows
 c_func
 (paren
