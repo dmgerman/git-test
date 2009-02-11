@@ -267,7 +267,7 @@ id|mode
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * Maybe we want to have some recursive version here?&n;&t;&t; *&n;&t;&t; * Something similar to this incomplete example:&n;&t;&t; *&n;&t;&t;if (show_subprojects(base, baselen, pathname)) {&n;&t;&t;&t;struct child_process ls_tree;&n;&n;&t;&t;&t;ls_tree.dir = base;&n;&t;&t;&t;ls_tree.argv = ls-tree;&n;&t;&t;&t;start_command(&amp;ls_tree);&n;&t;&t;}&n;&t;&t; *&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Maybe we want to have some recursive version here?&n;&t;&t; *&n;&t;&t; * Something similar to this incomplete example:&n;&t;&t; *&n;&t;&t;if (show_subprojects(base, baselen, pathname))&n;&t;&t;&t;retval = READ_TREE_RECURSIVE;&n;&t;&t; *&n;&t;&t; */
 id|type
 op_assign
 id|commit_type
