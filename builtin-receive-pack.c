@@ -1161,57 +1161,46 @@ id|ref
 )paren
 suffix:semicolon
 )brace
-DECL|variable|warn_unconfigured_deny_msg
+DECL|variable|refuse_unconfigured_deny_msg
 r_static
 r_char
 op_star
-id|warn_unconfigured_deny_msg
+id|refuse_unconfigured_deny_msg
 (braket
 )braket
 op_assign
 (brace
-l_string|&quot;Updating the currently checked out branch may cause confusion,&quot;
+l_string|&quot;By default, updating the current branch in a non-bare repository&quot;
 comma
-l_string|&quot;as the index and work tree do not reflect changes that are in HEAD.&quot;
+l_string|&quot;is denied, because it will make the index and work tree inconsistent&quot;
 comma
-l_string|&quot;As a result, you may see the changes you just pushed into it&quot;
+l_string|&quot;with what you pushed, and will require &squot;git reset --hard&squot; to match&quot;
 comma
-l_string|&quot;reverted when you run &squot;git diff&squot; over there, and you may want&quot;
-comma
-l_string|&quot;to run &squot;git reset --hard&squot; before starting to work to recover.&quot;
+l_string|&quot;the work tree to HEAD.&quot;
 comma
 l_string|&quot;&quot;
 comma
 l_string|&quot;You can set &squot;receive.denyCurrentBranch&squot; configuration variable to&quot;
 comma
-l_string|&quot;&squot;refuse&squot; in the remote repository to forbid pushing into its&quot;
+l_string|&quot;&squot;ignore&squot; or &squot;warn&squot; in the remote repository to allow pushing into&quot;
 comma
-l_string|&quot;current branch.&quot;
-l_string|&quot;&quot;
+l_string|&quot;its current branch; however, this is not recommended unless you&quot;
 comma
-l_string|&quot;To allow pushing into the current branch, you can set it to &squot;ignore&squot;;&quot;
+l_string|&quot;arranged to update its work tree to match what you pushed in some&quot;
 comma
-l_string|&quot;but this is not recommended unless you arranged to update its work&quot;
-comma
-l_string|&quot;tree to match what you pushed in some other way.&quot;
+l_string|&quot;other way.&quot;
 comma
 l_string|&quot;&quot;
 comma
-l_string|&quot;To squelch this message, you can set it to &squot;warn&squot;.&quot;
+l_string|&quot;To squelch this message and still keep the default behaviour, set&quot;
 comma
-l_string|&quot;&quot;
-comma
-l_string|&quot;Note that the default will change in a future version of git&quot;
-comma
-l_string|&quot;to refuse updating the current branch unless you have the&quot;
-comma
-l_string|&quot;configuration variable set to either &squot;ignore&squot; or &squot;warn&squot;.&quot;
+l_string|&quot;&squot;receive.denyCurrentBranch&squot; configuration variable to &squot;refuse&squot;.&quot;
 )brace
 suffix:semicolon
-DECL|function|warn_unconfigured_deny
+DECL|function|refuse_unconfigured_deny
 r_static
 r_void
-id|warn_unconfigured_deny
+id|refuse_unconfigured_deny
 c_func
 (paren
 r_void
@@ -1232,18 +1221,18 @@ OL
 id|ARRAY_SIZE
 c_func
 (paren
-id|warn_unconfigured_deny_msg
+id|refuse_unconfigured_deny_msg
 )paren
 suffix:semicolon
 id|i
 op_increment
 )paren
-id|warning
+id|error
 c_func
 (paren
 l_string|&quot;%s&quot;
 comma
-id|warn_unconfigured_deny_msg
+id|refuse_unconfigured_deny_msg
 (braket
 id|i
 )braket
@@ -1425,15 +1414,28 @@ suffix:colon
 r_break
 suffix:semicolon
 r_case
-id|DENY_UNCONFIGURED
-suffix:colon
-r_case
 id|DENY_WARN
 suffix:colon
 id|warning
 c_func
 (paren
 l_string|&quot;updating the current branch&quot;
+)paren
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|DENY_REFUSE
+suffix:colon
+r_case
+id|DENY_UNCONFIGURED
+suffix:colon
+id|error
+c_func
+(paren
+l_string|&quot;refusing to update checked out branch: %s&quot;
+comma
+id|name
 )paren
 suffix:semicolon
 r_if
@@ -1443,22 +1445,9 @@ id|deny_current_branch
 op_eq
 id|DENY_UNCONFIGURED
 )paren
-id|warn_unconfigured_deny
+id|refuse_unconfigured_deny
 c_func
 (paren
-)paren
-suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-id|DENY_REFUSE
-suffix:colon
-id|error
-c_func
-(paren
-l_string|&quot;refusing to update checked out branch: %s&quot;
-comma
-id|name
 )paren
 suffix:semicolon
 r_return
