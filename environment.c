@@ -201,11 +201,6 @@ id|core_preload_index
 op_assign
 l_int|0
 suffix:semicolon
-DECL|variable|notes_ref_name
-r_char
-op_star
-id|notes_ref_name
-suffix:semicolon
 multiline_comment|/* This is set by setup_git_dir_gently() and/or git_default_config() */
 DECL|variable|git_work_tree_cfg
 r_char
