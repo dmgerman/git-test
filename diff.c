@@ -1034,6 +1034,7 @@ suffix:semicolon
 id|i
 op_increment
 )paren
+(brace
 r_if
 c_cond
 (paren
@@ -1051,7 +1052,6 @@ id|i
 dot
 id|tmp_path
 )paren
-(brace
 id|unlink
 c_func
 (paren
