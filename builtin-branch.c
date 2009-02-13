@@ -69,21 +69,20 @@ id|COLOR_MAXLEN
 )braket
 op_assign
 (brace
-l_string|&quot;&bslash;033[m&quot;
+id|GIT_COLOR_RESET
 comma
-multiline_comment|/* reset */
-l_string|&quot;&quot;
+id|GIT_COLOR_NORMAL
 comma
-multiline_comment|/* PLAIN (normal) */
-l_string|&quot;&bslash;033[31m&quot;
+multiline_comment|/* PLAIN */
+id|GIT_COLOR_RED
 comma
-multiline_comment|/* REMOTE (red) */
-l_string|&quot;&quot;
+multiline_comment|/* REMOTE */
+id|GIT_COLOR_NORMAL
 comma
-multiline_comment|/* LOCAL (normal) */
-l_string|&quot;&bslash;033[32m&quot;
+multiline_comment|/* LOCAL */
+id|GIT_COLOR_GREEN
 comma
-multiline_comment|/* CURRENT (green) */
+multiline_comment|/* CURRENT */
 )brace
 suffix:semicolon
 DECL|enum|color_branch
