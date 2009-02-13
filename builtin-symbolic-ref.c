@@ -270,13 +270,13 @@ id|argv
 l_int|1
 )braket
 comma
-l_string|&quot;refs/heads/&quot;
+l_string|&quot;refs/&quot;
 )paren
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;Refusing to point HEAD outside of refs/heads/&quot;
+l_string|&quot;Refusing to point HEAD outside of refs/&quot;
 )paren
 suffix:semicolon
 id|create_symref
