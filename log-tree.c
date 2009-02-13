@@ -290,7 +290,7 @@ c_func
 (paren
 l_string|&quot; %s&quot;
 comma
-id|diff_unique_abbrev
+id|find_unique_abbrev
 c_func
 (paren
 id|parent-&gt;object.sha1
@@ -1354,7 +1354,7 @@ suffix:semicolon
 id|fputs
 c_func
 (paren
-id|diff_unique_abbrev
+id|find_unique_abbrev
 c_func
 (paren
 id|commit-&gt;object.sha1
@@ -1602,7 +1602,7 @@ suffix:semicolon
 id|fputs
 c_func
 (paren
-id|diff_unique_abbrev
+id|find_unique_abbrev
 c_func
 (paren
 id|commit-&gt;object.sha1
@@ -1636,7 +1636,7 @@ c_func
 (paren
 l_string|&quot; (from %s)&quot;
 comma
-id|diff_unique_abbrev
+id|find_unique_abbrev
 c_func
 (paren
 id|parent-&gt;object.sha1
