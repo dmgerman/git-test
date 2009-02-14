@@ -756,6 +756,8 @@ c_func
 (paren
 id|argv_repack
 comma
+id|prune_expire
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -827,11 +829,6 @@ id|prefix
 )paren
 (brace
 r_int
-id|prune
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|aggressive
 op_assign
 l_int|0
@@ -859,18 +856,29 @@ id|builtin_gc_options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_STRING
+comma
 l_int|0
 comma
 l_string|&quot;prune&quot;
 comma
 op_amp
-id|prune
+id|prune_expire
 comma
-l_string|&quot;prune unreferenced objects (deprecated)&quot;
+l_string|&quot;date&quot;
+comma
+l_string|&quot;prune unreferenced objects&quot;
+comma
+id|PARSE_OPT_OPTARG
+comma
+l_int|NULL
+comma
+(paren
+r_intptr
 )paren
+id|prune_expire
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -1069,6 +1077,8 @@ c_func
 (paren
 id|argv_repack
 comma
+id|prune_expire
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -1157,6 +1167,12 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|prune_expire
+)paren
+(brace
 id|argv_prune
 (braket
 l_int|2
@@ -1187,6 +1203,7 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
