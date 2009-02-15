@@ -1237,6 +1237,8 @@ op_increment
 id|warning
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|warn_unconfigured_deny_msg
 (braket
 id|i
@@ -1315,6 +1317,8 @@ op_increment
 id|warning
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|warn_unconfigured_deny_delete_current_msg
 (braket
 id|i
