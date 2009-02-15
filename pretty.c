@@ -1196,11 +1196,6 @@ id|hex
 op_assign
 l_int|NULL
 suffix:semicolon
-r_const
-r_char
-op_star
-id|dots
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1230,25 +1225,6 @@ c_func
 id|p-&gt;object.sha1
 )paren
 suffix:semicolon
-id|dots
-op_assign
-(paren
-id|abbrev
-op_logical_and
-id|strlen
-c_func
-(paren
-id|hex
-)paren
-op_ne
-l_int|40
-)paren
-ques
-c_cond
-l_string|&quot;...&quot;
-suffix:colon
-l_string|&quot;&quot;
-suffix:semicolon
 id|parent
 op_assign
 id|parent-&gt;next
@@ -1258,11 +1234,9 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot; %s%s&quot;
+l_string|&quot; %s&quot;
 comma
 id|hex
-comma
-id|dots
 )paren
 suffix:semicolon
 )brace
