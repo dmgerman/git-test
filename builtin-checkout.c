@@ -1692,6 +1692,24 @@ id|rev.diffopt.output_format
 op_or_assign
 id|DIFF_FORMAT_NAME_STATUS
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_setup_done
+c_func
+(paren
+op_amp
+id|rev.diffopt
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;diff_setup_done failed&quot;
+)paren
+suffix:semicolon
 id|add_pending_object
 c_func
 (paren
