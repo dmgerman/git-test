@@ -2294,9 +2294,21 @@ c_func
 l_string|&quot;(no branch)&quot;
 )paren
 suffix:semicolon
+id|item.len
+op_assign
+id|strlen
+c_func
+(paren
+id|item.name
+)paren
+suffix:semicolon
 id|item.kind
 op_assign
 id|REF_LOCAL_BRANCH
+suffix:semicolon
+id|item.dest
+op_assign
+l_int|NULL
 suffix:semicolon
 id|item.commit
 op_assign
