@@ -1354,6 +1354,10 @@ id|revs-&gt;diffopt.nr_paths
 op_assign
 l_int|2
 suffix:semicolon
+id|revs-&gt;diffopt.skip_stat_unmatch
+op_assign
+l_int|1
+suffix:semicolon
 id|DIFF_OPT_SET
 c_func
 (paren
