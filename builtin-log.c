@@ -5748,13 +5748,22 @@ c_cond
 id|rev.message_id
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t;&t; * If we&squot;ve got the ID to be a reply&n;&t;&t;&t;&t; * to, discard the current ID;&n;&t;&t;&t;&t; * otherwise, make everything a reply&n;&t;&t;&t;&t; * to that.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t;&t; * Without --cover-letter and&n;&t;&t;&t;&t; * --in-reply-to, make every mail a&n;&t;&t;&t;&t; * reply to the one before.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * With --in-reply-to but no&n;&t;&t;&t;&t; * --cover-letter, make every mail a&n;&t;&t;&t;&t; * reply to the &lt;reply-to&gt;.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * With --cover-letter, make every&n;&t;&t;&t;&t; * mail but the cover letter a reply&n;&t;&t;&t;&t; * to the cover letter.  The cover&n;&t;&t;&t;&t; * letter is a reply to the&n;&t;&t;&t;&t; * --in-reply-to, if specified.&n;&t;&t;&t;&t; */
 r_if
 c_cond
 (paren
 id|rev.ref_message_ids-&gt;nr
 OG
 l_int|0
+op_logical_and
+(paren
+op_logical_neg
+id|cover_letter
+op_logical_or
+id|rev.nr
+OG
+l_int|1
+)paren
 )paren
 id|free
 c_func
