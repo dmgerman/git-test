@@ -4150,9 +4150,9 @@ op_assign
 id|st.st_mtime
 suffix:semicolon
 macro_line|#ifdef USE_NSEC
-id|mtime.usec
+id|mtime.nsec
 op_assign
-id|st.st_mtim.usec
+id|st.st_mtim.tv_nsec
 suffix:semicolon
 macro_line|#endif
 r_if
@@ -4189,9 +4189,9 @@ op_ne
 id|mtime.sec
 macro_line|#ifdef USE_NSEC
 op_logical_or
-id|st.st_mtim.usec
+id|st.st_mtim.tv_nsec
 op_ne
-id|mtime.usec
+id|mtime.nsec
 macro_line|#endif
 )paren
 id|die
