@@ -6,6 +6,7 @@ macro_line|#include &quot;graph.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;reflog-walk.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|variable|name_decoration
 r_struct
 id|decoration
@@ -1064,17 +1065,73 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|opt-&gt;ref_message_id
+id|opt-&gt;ref_message_ids
+op_logical_and
+id|opt-&gt;ref_message_ids-&gt;nr
+OG
+l_int|0
 )paren
 (brace
+r_int
+id|i
+comma
+id|n
+suffix:semicolon
+id|n
+op_assign
+id|opt-&gt;ref_message_ids-&gt;nr
+suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;In-Reply-To: &lt;%s&gt;&bslash;nReferences: &lt;%s&gt;&bslash;n&quot;
+l_string|&quot;In-Reply-To: &lt;%s&gt;&bslash;n&quot;
 comma
-id|opt-&gt;ref_message_id
+id|opt-&gt;ref_message_ids-&gt;items
+(braket
+id|n
+op_minus
+l_int|1
+)braket
+dot
+id|string
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|n
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;%s&lt;%s&gt;&bslash;n&quot;
 comma
-id|opt-&gt;ref_message_id
+(paren
+id|i
+OG
+l_int|0
+ques
+c_cond
+l_string|&quot;&bslash;t&quot;
+suffix:colon
+l_string|&quot;References: &quot;
+)paren
+comma
+id|opt-&gt;ref_message_ids-&gt;items
+(braket
+id|i
+)braket
+dot
+id|string
 )paren
 suffix:semicolon
 id|graph_show_oneline

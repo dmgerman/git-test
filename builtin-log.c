@@ -12,6 +12,7 @@ macro_line|#include &quot;patch-ids.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;shortlog.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 multiline_comment|/* Set a default date-time format for git log (&quot;log.date&quot; config variable) */
 DECL|variable|default_date_mode
 r_static
@@ -5607,8 +5608,35 @@ r_if
 c_cond
 (paren
 id|in_reply_to
+op_logical_or
+id|thread
+op_logical_or
+id|cover_letter
 )paren
-id|rev.ref_message_id
+id|rev.ref_message_ids
+op_assign
+id|xcalloc
+c_func
+(paren
+l_int|1
+comma
+r_sizeof
+(paren
+r_struct
+id|string_list
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|in_reply_to
+)paren
+(brace
+r_const
+r_char
+op_star
+id|msgid
 op_assign
 id|clean_message_id
 c_func
@@ -5616,6 +5644,15 @@ c_func
 id|in_reply_to
 )paren
 suffix:semicolon
+id|string_list_append
+c_func
+(paren
+id|msgid
+comma
+id|rev.ref_message_ids
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -5715,7 +5752,9 @@ multiline_comment|/*&n;&t;&t;&t;&t; * If we&squot;ve got the ID to be a reply&n;
 r_if
 c_cond
 (paren
-id|rev.ref_message_id
+id|rev.ref_message_ids-&gt;nr
+OG
+l_int|0
 )paren
 id|free
 c_func
@@ -5724,9 +5763,13 @@ id|rev.message_id
 )paren
 suffix:semicolon
 r_else
-id|rev.ref_message_id
-op_assign
+id|string_list_append
+c_func
+(paren
 id|rev.message_id
+comma
+id|rev.ref_message_ids
+)paren
 suffix:semicolon
 )brace
 id|gen_message_id
