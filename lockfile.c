@@ -595,6 +595,65 @@ r_return
 id|lk-&gt;fd
 suffix:semicolon
 )brace
+DECL|function|unable_to_lock_index_die
+id|NORETURN
+r_void
+id|unable_to_lock_index_die
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+comma
+r_int
+id|err
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|EEXIST
+)paren
+(brace
+id|die
+c_func
+(paren
+l_string|&quot;Unable to create &squot;%s.lock&squot;: %s.&bslash;n&bslash;n&quot;
+l_string|&quot;If no other git process is currently running, this probably means a&bslash;n&quot;
+l_string|&quot;git process crashed in this repository earlier. Make sure no other git&bslash;n&quot;
+l_string|&quot;process is running and remove the file manually to continue.&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|err
+)paren
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|die
+c_func
+(paren
+l_string|&quot;Unable to create &squot;%s.lock&squot;: %s&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|err
+)paren
+)paren
+suffix:semicolon
+)brace
+)brace
 DECL|function|hold_lock_file_for_update
 r_int
 id|hold_lock_file_for_update
@@ -640,18 +699,12 @@ op_amp
 id|LOCK_DIE_ON_ERROR
 )paren
 )paren
-id|die
+id|unable_to_lock_index_die
 c_func
 (paren
-l_string|&quot;unable to create &squot;%s.lock&squot;: %s&quot;
-comma
 id|path
 comma
-id|strerror
-c_func
-(paren
 id|errno
-)paren
 )paren
 suffix:semicolon
 r_return
