@@ -2030,6 +2030,12 @@ c_cond
 id|o-&gt;index_only
 op_logical_or
 id|o-&gt;reset
+op_logical_or
+id|ce_uptodate
+c_func
+(paren
+id|ce
+)paren
 )paren
 r_return
 l_int|0
