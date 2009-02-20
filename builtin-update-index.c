@@ -3775,21 +3775,15 @@ m_exit
 l_int|128
 )paren
 suffix:semicolon
-id|die
+id|unable_to_lock_index_die
 c_func
 (paren
-l_string|&quot;unable to create &squot;%s.lock&squot;: %s&quot;
-comma
 id|get_index_file
 c_func
 (paren
 )paren
 comma
-id|strerror
-c_func
-(paren
 id|lock_error
-)paren
 )paren
 suffix:semicolon
 )brace
