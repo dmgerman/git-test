@@ -82,26 +82,6 @@ id|term
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
-DECL|enumerator|T_RAW
-DECL|enumerator|T_INT
-DECL|enumerator|T_BOOL
-DECL|enumerator|T_BOOL_OR_INT
-DECL|variable|type
-r_static
-r_enum
-(brace
-id|T_RAW
-comma
-id|T_INT
-comma
-id|T_BOOL
-comma
-id|T_BOOL_OR_INT
-)brace
-id|type
-op_assign
-id|T_RAW
-suffix:semicolon
 DECL|variable|use_global_config
 DECL|variable|use_system_config
 r_static
@@ -118,9 +98,12 @@ op_star
 id|given_config_file
 suffix:semicolon
 DECL|variable|actions
+DECL|variable|types
 r_static
 r_int
 id|actions
+comma
+id|types
 suffix:semicolon
 DECL|variable|get_color_slot
 DECL|variable|get_colorbool_slot
@@ -168,6 +151,12 @@ DECL|macro|ACTION_GET_COLOR
 mdefine_line|#define ACTION_GET_COLOR (1&lt;&lt;13)
 DECL|macro|ACTION_GET_COLORBOOL
 mdefine_line|#define ACTION_GET_COLORBOOL (1&lt;&lt;14)
+DECL|macro|TYPE_BOOL
+mdefine_line|#define TYPE_BOOL (1&lt;&lt;0)
+DECL|macro|TYPE_INT
+mdefine_line|#define TYPE_INT (1&lt;&lt;1)
+DECL|macro|TYPE_BOOL_OR_INT
+mdefine_line|#define TYPE_BOOL_OR_INT (1&lt;&lt;2)
 DECL|variable|builtin_config_options
 r_static
 r_struct
@@ -431,7 +420,7 @@ c_func
 l_string|&quot;Type&quot;
 )paren
 comma
-id|OPT_SET_INT
+id|OPT_BIT
 c_func
 (paren
 l_int|0
@@ -439,14 +428,14 @@ comma
 l_string|&quot;bool&quot;
 comma
 op_amp
-id|type
+id|types
 comma
 l_string|&quot;value is &bslash;&quot;true&bslash;&quot; or &bslash;&quot;false&bslash;&quot;&quot;
 comma
-id|T_BOOL
+id|TYPE_BOOL
 )paren
 comma
-id|OPT_SET_INT
+id|OPT_BIT
 c_func
 (paren
 l_int|0
@@ -454,14 +443,14 @@ comma
 l_string|&quot;int&quot;
 comma
 op_amp
-id|type
+id|types
 comma
 l_string|&quot;value is decimal number&quot;
 comma
-id|T_INT
+id|TYPE_INT
 )paren
 comma
-id|OPT_SET_INT
+id|OPT_BIT
 c_func
 (paren
 l_int|0
@@ -469,11 +458,11 @@ comma
 l_string|&quot;bool-or-int&quot;
 comma
 op_amp
-id|type
+id|types
 comma
 l_int|NULL
 comma
-id|T_BOOL_OR_INT
+id|TYPE_BOOL_OR_INT
 )paren
 comma
 id|OPT_GROUP
@@ -762,9 +751,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|type
+id|types
 op_eq
-id|T_INT
+id|TYPE_INT
 )paren
 id|sprintf
 c_func
@@ -791,9 +780,9 @@ r_else
 r_if
 c_cond
 (paren
-id|type
+id|types
 op_eq
-id|T_BOOL
+id|TYPE_BOOL
 )paren
 id|vptr
 op_assign
@@ -814,9 +803,9 @@ r_else
 r_if
 c_cond
 (paren
-id|type
+id|types
 op_eq
-id|T_BOOL_OR_INT
+id|TYPE_BOOL_OR_INT
 )paren
 (brace
 r_int
@@ -1413,9 +1402,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|type
+id|types
 op_eq
-id|T_RAW
+l_int|0
 )paren
 id|normalized
 op_assign
@@ -1438,9 +1427,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|type
+id|types
 op_eq
-id|T_INT
+id|TYPE_INT
 )paren
 (brace
 r_int
@@ -1469,9 +1458,9 @@ r_else
 r_if
 c_cond
 (paren
-id|type
+id|types
 op_eq
-id|T_BOOL
+id|TYPE_BOOL
 )paren
 id|sprintf
 c_func
@@ -1498,9 +1487,9 @@ r_else
 r_if
 c_cond
 (paren
-id|type
+id|types
 op_eq
-id|T_BOOL_OR_INT
+id|TYPE_BOOL_OR_INT
 )paren
 (brace
 r_int
@@ -2144,6 +2133,31 @@ suffix:semicolon
 id|key_delim
 op_assign
 l_char|&squot;&bslash;n&squot;
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|HAS_MULTI_BITS
+c_func
+(paren
+id|types
+)paren
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;only one type at a time.&quot;
+)paren
+suffix:semicolon
+id|usage_with_options
+c_func
+(paren
+id|builtin_config_usage
+comma
+id|builtin_config_options
+)paren
 suffix:semicolon
 )brace
 r_if
