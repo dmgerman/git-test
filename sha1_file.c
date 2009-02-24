@@ -4322,7 +4322,7 @@ comma
 id|p-&gt;pack_name
 )paren
 suffix:semicolon
-multiline_comment|/* Since packfiles end in a hash of their content and its&n;&t; * pointless to ask for an offset into the middle of that&n;&t; * hash, and the in_window function above wouldn&squot;t match&n;&t; * don&squot;t allow an offset too close to the end of the file.&n;&t; */
+multiline_comment|/* Since packfiles end in a hash of their content and it&squot;s&n;&t; * pointless to ask for an offset into the middle of that&n;&t; * hash, and the in_window function above wouldn&squot;t match&n;&t; * don&squot;t allow an offset too close to the end of the file.&n;&t; */
 r_if
 c_cond
 (paren
