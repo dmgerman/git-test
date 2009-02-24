@@ -27,12 +27,8 @@ DECL|variable|add_interactive
 r_static
 r_int
 id|patch_interactive
-op_assign
-l_int|0
 comma
 id|add_interactive
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|take_worktree_changes
 r_static
