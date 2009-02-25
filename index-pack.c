@@ -718,7 +718,9 @@ id|tmpfile
 id|PATH_MAX
 )braket
 suffix:semicolon
-id|snprintf
+id|output_fd
+op_assign
+id|odb_mkstemp
 c_func
 (paren
 id|tmpfile
@@ -728,20 +730,7 @@ r_sizeof
 id|tmpfile
 )paren
 comma
-l_string|&quot;%s/pack/tmp_pack_XXXXXX&quot;
-comma
-id|get_object_directory
-c_func
-(paren
-)paren
-)paren
-suffix:semicolon
-id|output_fd
-op_assign
-id|xmkstemp
-c_func
-(paren
-id|tmpfile
+l_string|&quot;pack/tmp_pack_XXXXXX&quot;
 )paren
 suffix:semicolon
 id|pack_name
@@ -4432,8 +4421,9 @@ c_cond
 op_logical_neg
 id|keep_name
 )paren
-(brace
-id|snprintf
+id|keep_fd
+op_assign
+id|odb_pack_keep
 c_func
 (paren
 id|name
@@ -4443,25 +4433,10 @@ r_sizeof
 id|name
 )paren
 comma
-l_string|&quot;%s/pack/pack-%s.keep&quot;
-comma
-id|get_object_directory
-c_func
-(paren
-)paren
-comma
-id|sha1_to_hex
-c_func
-(paren
 id|sha1
 )paren
-)paren
 suffix:semicolon
-id|keep_name
-op_assign
-id|name
-suffix:semicolon
-)brace
+r_else
 id|keep_fd
 op_assign
 id|open
@@ -4496,7 +4471,15 @@ id|EEXIST
 id|die
 c_func
 (paren
-l_string|&quot;cannot write keep file&quot;
+l_string|&quot;cannot write keep file &squot;%s&squot; (%s)&quot;
+comma
+id|keep_name
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -4545,7 +4528,15 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;cannot write keep file&quot;
+l_string|&quot;cannot close written keep file &squot;%s&squot; (%s)&quot;
+comma
+id|keep_name
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|report
