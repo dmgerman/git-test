@@ -234,7 +234,9 @@ id|tmpfile
 id|PATH_MAX
 )braket
 suffix:semicolon
-id|snprintf
+id|fd
+op_assign
+id|odb_mkstemp
 c_func
 (paren
 id|tmpfile
@@ -244,20 +246,7 @@ r_sizeof
 id|tmpfile
 )paren
 comma
-l_string|&quot;%s/pack/tmp_idx_XXXXXX&quot;
-comma
-id|get_object_directory
-c_func
-(paren
-)paren
-)paren
-suffix:semicolon
-id|fd
-op_assign
-id|xmkstemp
-c_func
-(paren
-id|tmpfile
+l_string|&quot;pack/tmp_idx_XXXXXX&quot;
 )paren
 suffix:semicolon
 id|index_name
@@ -1289,7 +1278,7 @@ id|packname
 l_int|46
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * The first thing we expects from index-pack&squot;s output&n;&t; * is &quot;pack&bslash;t%40s&bslash;n&quot; or &quot;keep&bslash;t%40s&bslash;n&quot; (46 bytes) where&n;&t; * %40s is the newly created pack SHA1 name.  In the &quot;keep&quot;&n;&t; * case, we need it to remove the corresponding .keep file&n;&t; * later on.  If we don&squot;t get that then tough luck with it.&n;&t; */
+multiline_comment|/*&n;&t; * The first thing we expect from index-pack&squot;s output&n;&t; * is &quot;pack&bslash;t%40s&bslash;n&quot; or &quot;keep&bslash;t%40s&bslash;n&quot; (46 bytes) where&n;&t; * %40s is the newly created pack SHA1 name.  In the &quot;keep&quot;&n;&t; * case, we need it to remove the corresponding .keep file&n;&t; * later on.  If we don&squot;t get that then tough luck with it.&n;&t; */
 r_if
 c_cond
 (paren
