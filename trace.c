@@ -178,7 +178,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;What does &squot;%s&squot; for GIT_TRACE means ?&bslash;n&quot;
+l_string|&quot;What does &squot;%s&squot; for GIT_TRACE mean?&bslash;n&quot;
 comma
 id|trace
 )paren
