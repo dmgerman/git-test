@@ -5785,6 +5785,9 @@ id|flags
 op_amp
 id|MATCH_REFS_MIRROR
 suffix:semicolon
+r_int
+id|errs
+suffix:semicolon
 r_static
 r_const
 r_char
@@ -5831,9 +5834,8 @@ op_star
 id|refspec
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|errs
+op_assign
 id|match_explicit_refs
 c_func
 (paren
@@ -5847,9 +5849,6 @@ id|rs
 comma
 id|nr_refspec
 )paren
-)paren
-r_return
-l_int|1
 suffix:semicolon
 multiline_comment|/* pick the remainder */
 r_for
@@ -6086,6 +6085,14 @@ id|dst_name
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|errs
+)paren
+r_return
+l_int|1
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
