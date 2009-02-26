@@ -1097,12 +1097,7 @@ r_return
 id|fd
 suffix:semicolon
 multiline_comment|/* slow path */
-id|safe_create_leading_directories
-c_func
-(paren
-r_template
-)paren
-suffix:semicolon
+multiline_comment|/* some mkstemp implementations erase template on failure */
 id|snprintf
 c_func
 (paren
@@ -1118,6 +1113,12 @@ c_func
 )paren
 comma
 id|pattern
+)paren
+suffix:semicolon
+id|safe_create_leading_directories
+c_func
+(paren
+r_template
 )paren
 suffix:semicolon
 r_return
