@@ -8007,6 +8007,25 @@ id|head
 r_return
 l_int|NULL
 suffix:semicolon
+multiline_comment|/*&n;&t; * Some transports support directly peeking at&n;&t; * where HEAD points; if that is the case, then&n;&t; * we don&squot;t have to guess.&n;&t; */
+r_if
+c_cond
+(paren
+id|head-&gt;symref
+)paren
+r_return
+id|copy_ref
+c_func
+(paren
+id|find_ref_by_name
+c_func
+(paren
+id|refs
+comma
+id|head-&gt;symref
+)paren
+)paren
+suffix:semicolon
 multiline_comment|/* If refs/heads/master could be right, it is. */
 r_if
 c_cond
