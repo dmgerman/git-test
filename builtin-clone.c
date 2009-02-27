@@ -2751,6 +2751,8 @@ c_func
 id|remote_head
 comma
 id|mapped_refs
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
