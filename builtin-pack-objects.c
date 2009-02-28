@@ -9104,8 +9104,6 @@ id|is_kept_pack
 c_func
 (paren
 id|p
-comma
-id|revs
 )paren
 )paren
 r_continue
@@ -9316,8 +9314,6 @@ id|is_kept_pack
 c_func
 (paren
 id|p
-comma
-id|revs
 )paren
 )paren
 r_continue
@@ -10491,12 +10487,12 @@ id|arg
 )paren
 op_logical_or
 op_logical_neg
-id|prefixcmp
+id|strcmp
 c_func
 (paren
-id|arg
+l_string|&quot;--kept-pack-only&quot;
 comma
-l_string|&quot;--unpacked=&quot;
+id|arg
 )paren
 op_logical_or
 op_logical_neg
