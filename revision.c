@@ -7930,7 +7930,7 @@ c_cond
 (paren
 id|revs-&gt;unpacked
 op_logical_and
-id|has_sha1_pack
+id|has_sha1_kept_pack
 c_func
 (paren
 id|commit-&gt;object.sha1
