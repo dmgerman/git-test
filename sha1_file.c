@@ -9,8 +9,6 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pack-revindex.h&quot;
 macro_line|#include &quot;sha1-lookup.h&quot;
-macro_line|#include &quot;diff.h&quot;
-macro_line|#include &quot;revision.h&quot;
 macro_line|#ifndef O_NOATIME
 macro_line|#if defined(__linux__) &amp;&amp; (defined(__i386__) || defined(__PPC__))
 DECL|macro|O_NOATIME
@@ -9721,22 +9719,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|is_kept_pack
-r_int
-id|is_kept_pack
-c_func
-(paren
-r_const
-r_struct
-id|packed_git
-op_star
-id|p
-)paren
-(brace
-r_return
-id|p-&gt;pack_keep
-suffix:semicolon
-)brace
 DECL|function|find_pack_ent
 r_static
 r_int
@@ -9754,11 +9736,8 @@ id|pack_entry
 op_star
 id|e
 comma
-r_const
-r_struct
-id|rev_info
-op_star
-id|revs
+r_int
+id|kept_pack_only
 )paren
 (brace
 r_static
@@ -9817,14 +9796,10 @@ r_do
 r_if
 c_cond
 (paren
-id|revs-&gt;kept_pack_only
+id|kept_pack_only
 op_logical_and
 op_logical_neg
-id|is_kept_pack
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;pack_keep
 )paren
 r_goto
 id|next
@@ -10005,7 +9980,7 @@ id|sha1
 comma
 id|e
 comma
-l_int|NULL
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -10025,12 +10000,6 @@ r_struct
 id|pack_entry
 op_star
 id|e
-comma
-r_const
-r_struct
-id|rev_info
-op_star
-id|revs
 )paren
 (brace
 r_return
@@ -10041,7 +10010,7 @@ id|sha1
 comma
 id|e
 comma
-id|revs
+l_int|1
 )paren
 suffix:semicolon
 )brace
@@ -12509,12 +12478,6 @@ r_int
 r_char
 op_star
 id|sha1
-comma
-r_const
-r_struct
-id|rev_info
-op_star
-id|revs
 )paren
 (brace
 r_struct
@@ -12529,8 +12492,6 @@ id|sha1
 comma
 op_amp
 id|e
-comma
-id|revs
 )paren
 suffix:semicolon
 )brace

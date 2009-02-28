@@ -9100,11 +9100,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|is_kept_pack
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;pack_keep
 )paren
 r_continue
 suffix:semicolon
@@ -9310,11 +9306,7 @@ id|p-&gt;next
 r_if
 c_cond
 (paren
-id|is_kept_pack
-c_func
-(paren
-id|p
-)paren
+id|p-&gt;pack_keep
 )paren
 r_continue
 suffix:semicolon
