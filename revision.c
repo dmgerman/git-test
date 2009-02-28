@@ -7935,7 +7935,7 @@ c_func
 (paren
 id|commit-&gt;object.sha1
 comma
-id|revs-&gt;ignore_packed
+id|revs
 )paren
 )paren
 r_return
