@@ -1712,12 +1712,10 @@ id|o-&gt;result.timestamp.sec
 op_assign
 id|o-&gt;src_index-&gt;timestamp.sec
 suffix:semicolon
-macro_line|#ifdef USE_NSEC
 id|o-&gt;result.timestamp.nsec
 op_assign
 id|o-&gt;src_index-&gt;timestamp.nsec
 suffix:semicolon
-macro_line|#endif
 )brace
 id|o-&gt;merge_size
 op_assign

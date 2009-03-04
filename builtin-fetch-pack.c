@@ -4149,12 +4149,14 @@ id|mtime.sec
 op_assign
 id|st.st_mtime
 suffix:semicolon
-macro_line|#ifdef USE_NSEC
 id|mtime.nsec
 op_assign
-id|st.st_mtim.tv_nsec
+id|ST_MTIME_NSEC
+c_func
+(paren
+id|st
+)paren
 suffix:semicolon
-macro_line|#endif
 r_if
 c_cond
 (paren
