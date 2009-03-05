@@ -69,49 +69,48 @@ id|COLOR_MAXLEN
 )braket
 op_assign
 (brace
-l_string|&quot;&bslash;033[m&quot;
+id|GIT_COLOR_RESET
 comma
-multiline_comment|/* reset */
-l_string|&quot;&quot;
+id|GIT_COLOR_NORMAL
 comma
-multiline_comment|/* PLAIN (normal) */
-l_string|&quot;&bslash;033[31m&quot;
+multiline_comment|/* PLAIN */
+id|GIT_COLOR_RED
 comma
-multiline_comment|/* REMOTE (red) */
-l_string|&quot;&quot;
+multiline_comment|/* REMOTE */
+id|GIT_COLOR_NORMAL
 comma
-multiline_comment|/* LOCAL (normal) */
-l_string|&quot;&bslash;033[32m&quot;
+multiline_comment|/* LOCAL */
+id|GIT_COLOR_GREEN
 comma
-multiline_comment|/* CURRENT (green) */
+multiline_comment|/* CURRENT */
 )brace
 suffix:semicolon
 DECL|enum|color_branch
 r_enum
 id|color_branch
 (brace
-DECL|enumerator|COLOR_BRANCH_RESET
-id|COLOR_BRANCH_RESET
+DECL|enumerator|BRANCH_COLOR_RESET
+id|BRANCH_COLOR_RESET
 op_assign
 l_int|0
 comma
-DECL|enumerator|COLOR_BRANCH_PLAIN
-id|COLOR_BRANCH_PLAIN
+DECL|enumerator|BRANCH_COLOR_PLAIN
+id|BRANCH_COLOR_PLAIN
 op_assign
 l_int|1
 comma
-DECL|enumerator|COLOR_BRANCH_REMOTE
-id|COLOR_BRANCH_REMOTE
+DECL|enumerator|BRANCH_COLOR_REMOTE
+id|BRANCH_COLOR_REMOTE
 op_assign
 l_int|2
 comma
-DECL|enumerator|COLOR_BRANCH_LOCAL
-id|COLOR_BRANCH_LOCAL
+DECL|enumerator|BRANCH_COLOR_LOCAL
+id|BRANCH_COLOR_LOCAL
 op_assign
 l_int|3
 comma
-DECL|enumerator|COLOR_BRANCH_CURRENT
-id|COLOR_BRANCH_CURRENT
+DECL|enumerator|BRANCH_COLOR_CURRENT
+id|BRANCH_COLOR_CURRENT
 op_assign
 l_int|4
 comma
@@ -176,7 +175,7 @@ l_string|&quot;plain&quot;
 )paren
 )paren
 r_return
-id|COLOR_BRANCH_PLAIN
+id|BRANCH_COLOR_PLAIN
 suffix:semicolon
 r_if
 c_cond
@@ -193,7 +192,7 @@ l_string|&quot;reset&quot;
 )paren
 )paren
 r_return
-id|COLOR_BRANCH_RESET
+id|BRANCH_COLOR_RESET
 suffix:semicolon
 r_if
 c_cond
@@ -210,7 +209,7 @@ l_string|&quot;remote&quot;
 )paren
 )paren
 r_return
-id|COLOR_BRANCH_REMOTE
+id|BRANCH_COLOR_REMOTE
 suffix:semicolon
 r_if
 c_cond
@@ -227,7 +226,7 @@ l_string|&quot;local&quot;
 )paren
 )paren
 r_return
-id|COLOR_BRANCH_LOCAL
+id|BRANCH_COLOR_LOCAL
 suffix:semicolon
 r_if
 c_cond
@@ -244,7 +243,7 @@ l_string|&quot;current&quot;
 )paren
 )paren
 r_return
-id|COLOR_BRANCH_CURRENT
+id|BRANCH_COLOR_CURRENT
 suffix:semicolon
 id|die
 c_func
@@ -1521,7 +1520,7 @@ id|REF_LOCAL_BRANCH
 suffix:colon
 id|color
 op_assign
-id|COLOR_BRANCH_LOCAL
+id|BRANCH_COLOR_LOCAL
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1530,7 +1529,7 @@ id|REF_REMOTE_BRANCH
 suffix:colon
 id|color
 op_assign
-id|COLOR_BRANCH_REMOTE
+id|BRANCH_COLOR_REMOTE
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1538,7 +1537,7 @@ r_default
 suffix:colon
 id|color
 op_assign
-id|COLOR_BRANCH_PLAIN
+id|BRANCH_COLOR_PLAIN
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1559,7 +1558,7 @@ l_char|&squot;*&squot;
 suffix:semicolon
 id|color
 op_assign
-id|COLOR_BRANCH_CURRENT
+id|BRANCH_COLOR_CURRENT
 suffix:semicolon
 )brace
 r_if
@@ -1664,7 +1663,7 @@ comma
 id|branch_get_color
 c_func
 (paren
-id|COLOR_BRANCH_RESET
+id|BRANCH_COLOR_RESET
 )paren
 comma
 id|find_unique_abbrev
@@ -1715,7 +1714,7 @@ comma
 id|branch_get_color
 c_func
 (paren
-id|COLOR_BRANCH_RESET
+id|BRANCH_COLOR_RESET
 )paren
 )paren
 suffix:semicolon

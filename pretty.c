@@ -3227,7 +3227,7 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;&bslash;033[31m&quot;
+id|GIT_COLOR_RED
 )paren
 suffix:semicolon
 r_return
@@ -3255,7 +3255,7 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;&bslash;033[32m&quot;
+id|GIT_COLOR_GREEN
 )paren
 suffix:semicolon
 r_return
@@ -3283,7 +3283,7 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;&bslash;033[34m&quot;
+id|GIT_COLOR_BLUE
 )paren
 suffix:semicolon
 r_return
@@ -3311,7 +3311,7 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;&bslash;033[m&quot;
+id|GIT_COLOR_RESET
 )paren
 suffix:semicolon
 r_return

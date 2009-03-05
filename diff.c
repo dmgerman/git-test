@@ -77,30 +77,29 @@ id|COLOR_MAXLEN
 )braket
 op_assign
 (brace
-l_string|&quot;&bslash;033[m&quot;
+id|GIT_COLOR_RESET
 comma
-multiline_comment|/* reset */
-l_string|&quot;&quot;
+id|GIT_COLOR_NORMAL
 comma
-multiline_comment|/* PLAIN (normal) */
-l_string|&quot;&bslash;033[1m&quot;
+multiline_comment|/* PLAIN */
+id|GIT_COLOR_BOLD
 comma
-multiline_comment|/* METAINFO (bold) */
-l_string|&quot;&bslash;033[36m&quot;
+multiline_comment|/* METAINFO */
+id|GIT_COLOR_CYAN
 comma
-multiline_comment|/* FRAGINFO (cyan) */
-l_string|&quot;&bslash;033[31m&quot;
+multiline_comment|/* FRAGINFO */
+id|GIT_COLOR_RED
 comma
-multiline_comment|/* OLD (red) */
-l_string|&quot;&bslash;033[32m&quot;
+multiline_comment|/* OLD */
+id|GIT_COLOR_GREEN
 comma
-multiline_comment|/* NEW (green) */
-l_string|&quot;&bslash;033[33m&quot;
+multiline_comment|/* NEW */
+id|GIT_COLOR_YELLOW
 comma
-multiline_comment|/* COMMIT (yellow) */
-l_string|&quot;&bslash;033[41m&quot;
+multiline_comment|/* COMMIT */
+id|GIT_COLOR_BG_RED
 comma
-multiline_comment|/* WHITESPACE (red background) */
+multiline_comment|/* WHITESPACE */
 )brace
 suffix:semicolon
 r_static

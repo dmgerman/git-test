@@ -1,7 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;color.h&quot;
-DECL|macro|COLOR_RESET
-mdefine_line|#define COLOR_RESET &quot;&bslash;033[m&quot;
 DECL|variable|git_use_color_default
 r_int
 id|git_use_color_default
@@ -374,7 +372,7 @@ c_func
 (paren
 id|dst
 comma
-l_string|&quot;&bslash;033[m&quot;
+id|GIT_COLOR_RESET
 )paren
 suffix:semicolon
 r_return
@@ -1028,7 +1026,7 @@ id|fp
 comma
 l_string|&quot;%s&quot;
 comma
-id|COLOR_RESET
+id|GIT_COLOR_RESET
 )paren
 suffix:semicolon
 r_if
@@ -1287,7 +1285,7 @@ op_logical_or
 id|fputs
 c_func
 (paren
-id|COLOR_RESET
+id|GIT_COLOR_RESET
 comma
 id|fp
 )paren
