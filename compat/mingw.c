@@ -247,8 +247,18 @@ suffix:semicolon
 id|buf-&gt;st_size
 op_assign
 id|fdata.nFileSizeLow
+op_or
+(paren
+(paren
+(paren
+id|off_t
+)paren
+id|fdata.nFileSizeHigh
+)paren
+op_lshift
+l_int|32
+)paren
 suffix:semicolon
-multiline_comment|/* Can&squot;t use nFileSizeHigh, since it&squot;s not a stat64 */
 id|buf-&gt;st_dev
 op_assign
 id|buf-&gt;st_rdev
@@ -492,7 +502,7 @@ op_ne
 id|FILE_TYPE_DISK
 )paren
 r_return
-id|fstat
+id|_fstati64
 c_func
 (paren
 id|fd
@@ -540,8 +550,18 @@ suffix:semicolon
 id|buf-&gt;st_size
 op_assign
 id|fdata.nFileSizeLow
+op_or
+(paren
+(paren
+(paren
+id|off_t
+)paren
+id|fdata.nFileSizeHigh
+)paren
+op_lshift
+l_int|32
+)paren
 suffix:semicolon
-multiline_comment|/* Can&squot;t use nFileSizeHigh, since it&squot;s not a stat64 */
 id|buf-&gt;st_dev
 op_assign
 id|buf-&gt;st_rdev
