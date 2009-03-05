@@ -578,7 +578,7 @@ id|err
 r_if
 c_cond
 (paren
-id|errno
+id|err
 op_eq
 id|EEXIST
 )paren
@@ -727,18 +727,12 @@ id|flags
 op_amp
 id|LOCK_DIE_ON_ERROR
 )paren
-id|die
+id|unable_to_lock_index_die
 c_func
 (paren
-l_string|&quot;unable to create &squot;%s.lock&squot;: %s&quot;
-comma
 id|path
 comma
-id|strerror
-c_func
-(paren
 id|errno
-)paren
 )paren
 suffix:semicolon
 r_return
