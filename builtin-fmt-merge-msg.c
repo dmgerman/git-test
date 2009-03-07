@@ -1575,17 +1575,6 @@ op_assign
 l_int|0
 suffix:semicolon
 r_char
-id|line
-(braket
-l_int|1024
-)braket
-suffix:semicolon
-r_char
-op_star
-id|p
-op_assign
-id|line
-comma
 op_star
 id|sep
 op_assign
@@ -1661,7 +1650,8 @@ suffix:semicolon
 r_char
 op_star
 id|newline
-suffix:semicolon
+comma
+op_star
 id|p
 op_assign
 id|in-&gt;buf

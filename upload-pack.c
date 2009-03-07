@@ -1944,9 +1944,6 @@ id|last_hex
 l_int|41
 )braket
 suffix:semicolon
-r_int
-id|len
-suffix:semicolon
 id|save_commit_buffer
 op_assign
 l_int|0
@@ -1958,6 +1955,7 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
+r_int
 id|len
 op_assign
 id|packet_read_line
@@ -2005,8 +2003,6 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|len
-op_assign
 id|strip
 c_func
 (paren

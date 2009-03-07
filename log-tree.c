@@ -426,8 +426,6 @@ id|size
 )paren
 (brace
 r_char
-id|ch
-comma
 op_star
 id|cp
 suffix:semicolon
@@ -465,12 +463,8 @@ op_le
 op_decrement
 id|cp
 op_logical_and
-(paren
-id|ch
-op_assign
 op_star
 id|cp
-)paren
 op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
@@ -484,6 +478,7 @@ op_le
 id|cp
 )paren
 (brace
+r_char
 id|ch
 op_assign
 op_star
