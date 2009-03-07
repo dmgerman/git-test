@@ -460,7 +460,7 @@ comma
 op_amp
 id|types
 comma
-l_int|NULL
+l_string|&quot;value is --bool or --int&quot;
 comma
 id|TYPE_BOOL_OR_INT
 )paren
