@@ -2081,6 +2081,13 @@ comma
 id|me
 )paren
 suffix:semicolon
+id|rollback_lock_file
+c_func
+(paren
+op_amp
+id|index_lock
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
