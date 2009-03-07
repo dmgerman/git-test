@@ -4979,8 +4979,6 @@ id|add
 comma
 id|del
 comma
-id|total
-comma
 id|adds
 op_assign
 l_int|0
@@ -5526,12 +5524,6 @@ id|del
 op_assign
 id|deleted
 suffix:semicolon
-id|total
-op_assign
-id|add
-op_plus
-id|del
-suffix:semicolon
 id|adds
 op_add_assign
 id|add
@@ -5571,12 +5563,6 @@ id|width
 comma
 id|max_change
 )paren
-suffix:semicolon
-id|total
-op_assign
-id|add
-op_plus
-id|del
 suffix:semicolon
 )brace
 id|show_name

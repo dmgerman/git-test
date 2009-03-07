@@ -52,9 +52,6 @@ id|num
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-id|read_some
-suffix:semicolon
 r_while
 c_loop
 (paren
@@ -84,8 +81,6 @@ c_cond
 (paren
 op_logical_neg
 (paren
-id|read_some
-op_assign
 id|cp
 op_star
 id|cp_p

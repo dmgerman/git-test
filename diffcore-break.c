@@ -31,8 +31,6 @@ r_int
 r_int
 id|delta_size
 comma
-id|base_size
-comma
 id|max_size
 suffix:semicolon
 r_int
@@ -121,21 +119,6 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* error but caught downstream */
-id|base_size
-op_assign
-(paren
-(paren
-id|src-&gt;size
-OL
-id|dst-&gt;size
-)paren
-ques
-c_cond
-id|src-&gt;size
-suffix:colon
-id|dst-&gt;size
-)paren
-suffix:semicolon
 id|max_size
 op_assign
 (paren

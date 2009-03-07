@@ -2931,13 +2931,6 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_const
-r_char
-op_star
-id|symref
-suffix:semicolon
-id|symref
-op_assign
 id|resolve_ref
 c_func
 (paren

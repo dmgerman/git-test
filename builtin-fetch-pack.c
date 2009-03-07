@@ -950,15 +950,9 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_int
-id|len
-suffix:semicolon
 r_while
 c_loop
 (paren
-(paren
-id|len
-op_assign
 id|packet_read_line
 c_func
 (paren
@@ -972,7 +966,6 @@ comma
 r_sizeof
 (paren
 id|line
-)paren
 )paren
 )paren
 )paren
