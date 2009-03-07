@@ -149,6 +149,26 @@ id|mode
 op_assign
 l_int|0
 suffix:semicolon
+macro_line|#ifdef _WIN32
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|path
+comma
+l_string|&quot;nul&quot;
+)paren
+)paren
+op_star
+id|mode
+op_assign
+l_int|0
+suffix:semicolon
+macro_line|#endif
 r_else
 r_if
 c_cond
