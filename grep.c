@@ -204,6 +204,10 @@ id|opt
 r_int
 id|err
 suffix:semicolon
+id|p-&gt;word_regexp
+op_assign
+id|opt-&gt;word_regexp
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1506,11 +1510,6 @@ id|match_one_pattern
 c_func
 (paren
 r_struct
-id|grep_opt
-op_star
-id|opt
-comma
-r_struct
 id|grep_pat
 op_star
 id|p
@@ -1706,7 +1705,7 @@ c_cond
 (paren
 id|hit
 op_logical_and
-id|opt-&gt;word_regexp
+id|p-&gt;word_regexp
 )paren
 (brace
 r_if
@@ -1926,11 +1925,6 @@ id|match_expr_eval
 c_func
 (paren
 r_struct
-id|grep_opt
-op_star
-id|o
-comma
-r_struct
 id|grep_expr
 op_star
 id|x
@@ -1970,8 +1964,6 @@ op_assign
 id|match_one_pattern
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.atom
 comma
 id|bol
@@ -1992,8 +1984,6 @@ op_logical_neg
 id|match_expr_eval
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.unary
 comma
 id|bol
@@ -2017,8 +2007,6 @@ op_logical_neg
 id|match_expr_eval
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.binary.left
 comma
 id|bol
@@ -2038,8 +2026,6 @@ op_assign
 id|match_expr_eval
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.binary.right
 comma
 id|bol
@@ -2067,8 +2053,6 @@ r_return
 id|match_expr_eval
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.binary.left
 comma
 id|bol
@@ -2083,8 +2067,6 @@ op_logical_or
 id|match_expr_eval
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.binary.right
 comma
 id|bol
@@ -2102,8 +2084,6 @@ op_assign
 id|match_expr_eval
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.binary.left
 comma
 id|bol
@@ -2124,8 +2104,6 @@ op_or_assign
 id|match_expr_eval
 c_func
 (paren
-id|o
-comma
 id|x-&gt;u.binary.right
 comma
 id|bol
@@ -2201,8 +2179,6 @@ r_return
 id|match_expr_eval
 c_func
 (paren
-id|opt
-comma
 id|x
 comma
 id|bol
@@ -2288,8 +2264,6 @@ c_cond
 id|match_one_pattern
 c_func
 (paren
-id|opt
-comma
 id|p
 comma
 id|bol
