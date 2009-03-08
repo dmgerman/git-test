@@ -1452,6 +1452,16 @@ id|usagestr
 )braket
 )paren
 (brace
+r_int
+id|internal_help
+op_assign
+op_logical_neg
+(paren
+id|ctx-&gt;flags
+op_amp
+id|PARSE_OPT_NO_INTERNAL_HELP
+)paren
+suffix:semicolon
 multiline_comment|/* we must reset -&gt;opt, unknown short option leave it dangling */
 id|ctx-&gt;opt
 op_assign
@@ -1538,6 +1548,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|internal_help
+op_logical_and
 op_star
 id|ctx-&gt;opt
 op_eq
@@ -1607,6 +1619,8 @@ id|ctx-&gt;opt
 r_if
 c_cond
 (paren
+id|internal_help
+op_logical_and
 op_star
 id|ctx-&gt;opt
 op_eq
@@ -1716,6 +1730,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|internal_help
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -1741,6 +1757,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|internal_help
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
