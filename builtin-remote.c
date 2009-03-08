@@ -1935,7 +1935,6 @@ id|info-&gt;status
 op_assign
 id|PUSH_STATUS_OUTOFDATE
 suffix:semicolon
-singleline_comment|// ref-&gt;peer_ref = NULL; /* local ref which is freed below */
 )brace
 id|free_refs
 c_func
