@@ -2061,6 +2061,15 @@ r_int
 id|full
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|usagestr
+)paren
+r_return
+id|PARSE_OPT_HELP
+suffix:semicolon
 id|fprintf
 c_func
 (paren
