@@ -4191,7 +4191,11 @@ op_ne
 id|mtime.sec
 macro_line|#ifdef USE_NSEC
 op_logical_or
-id|st.st_mtim.tv_nsec
+id|ST_CTIME_NSEC
+c_func
+(paren
+id|st
+)paren
 op_ne
 id|mtime.nsec
 macro_line|#endif
