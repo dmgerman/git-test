@@ -9119,6 +9119,7 @@ op_star
 id|find_ref_by_name
 c_func
 (paren
+r_const
 r_struct
 id|ref
 op_star
@@ -9153,6 +9154,11 @@ id|name
 )paren
 )paren
 r_return
+(paren
+r_struct
+id|ref
+op_star
+)paren
 id|list
 suffix:semicolon
 r_return
