@@ -2372,12 +2372,12 @@ c_func
 (paren
 l_int|0
 comma
-l_string|&quot;empty-directory&quot;
+l_string|&quot;no-empty-directory&quot;
 comma
 op_amp
 id|dir.flags
 comma
-l_string|&quot;list empty directories&quot;
+l_string|&quot;don&squot;t show empty directories&quot;
 comma
 id|DIR_HIDE_EMPTY_DIRECTORIES
 )paren
