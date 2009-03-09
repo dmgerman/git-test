@@ -1407,6 +1407,27 @@ id|ctx-&gt;flags
 op_assign
 id|flags
 suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|flags
+op_amp
+id|PARSE_OPT_KEEP_UNKNOWN
+)paren
+op_logical_and
+(paren
+id|flags
+op_amp
+id|PARSE_OPT_STOP_AT_NON_OPTION
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;STOP_AT_NON_OPTION and KEEP_UNKNOWN don&squot;t go together&quot;
+)paren
+suffix:semicolon
 )brace
 r_static
 r_int
