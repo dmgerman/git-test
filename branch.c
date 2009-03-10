@@ -299,12 +299,19 @@ id|flag
 op_amp
 id|BRANCH_CONFIG_VERBOSE
 )paren
-id|printf
+(brace
+id|strbuf_reset
 c_func
 (paren
-l_string|&quot;Branch %s set up to track %s branch %s %s.&bslash;n&quot;
-comma
-id|local
+op_amp
+id|key
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|key
 comma
 id|origin
 ques
@@ -312,17 +319,82 @@ c_cond
 l_string|&quot;remote&quot;
 suffix:colon
 l_string|&quot;local&quot;
+)paren
+suffix:semicolon
+multiline_comment|/* Are we tracking a proper &quot;branch&quot;? */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|remote
+comma
+l_string|&quot;refs/heads/&quot;
+)paren
+)paren
+(brace
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|key
+comma
+l_string|&quot; branch %s&quot;
 comma
 id|remote
+op_plus
+l_int|11
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|origin
+)paren
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|key
+comma
+l_string|&quot; from %s&quot;
+comma
+id|origin
+)paren
+suffix:semicolon
+)brace
+r_else
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|key
+comma
+l_string|&quot; ref %s&quot;
+comma
+id|remote
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;Branch %s set up to track %s%s.&bslash;n&quot;
+comma
+id|local
+comma
+id|key.buf
 comma
 id|rebasing
 ques
 c_cond
-l_string|&quot;by rebasing&quot;
+l_string|&quot; by rebasing&quot;
 suffix:colon
-l_string|&quot;by merging&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
+)brace
 id|strbuf_release
 c_func
 (paren
