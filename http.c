@@ -6,8 +6,6 @@ suffix:semicolon
 DECL|variable|active_requests
 r_int
 id|active_requests
-op_assign
-l_int|0
 suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 DECL|variable|max_requests
@@ -52,8 +50,6 @@ r_const
 r_char
 op_star
 id|ssl_cert
-op_assign
-l_int|NULL
 suffix:semicolon
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070902
 DECL|variable|ssl_key
@@ -62,8 +58,6 @@ r_const
 r_char
 op_star
 id|ssl_key
-op_assign
-l_int|NULL
 suffix:semicolon
 macro_line|#endif
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070908
@@ -73,8 +67,6 @@ r_const
 r_char
 op_star
 id|ssl_capath
-op_assign
-l_int|NULL
 suffix:semicolon
 macro_line|#endif
 DECL|variable|ssl_cainfo
@@ -83,8 +75,6 @@ r_const
 r_char
 op_star
 id|ssl_cainfo
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|curl_low_speed_limit
 r_static
@@ -104,8 +94,6 @@ DECL|variable|curl_ftp_no_epsv
 r_static
 r_int
 id|curl_ftp_no_epsv
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|curl_http_proxy
 r_static
@@ -113,8 +101,6 @@ r_const
 r_char
 op_star
 id|curl_http_proxy
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|variable|pragma_header
 r_static
@@ -129,8 +115,6 @@ r_struct
 id|active_request_slot
 op_star
 id|active_queue_head
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|fread_buffer
 r_int
@@ -473,7 +457,6 @@ id|curl_ssl_verify
 op_eq
 l_int|1
 )paren
-(brace
 id|curl_ssl_verify
 op_assign
 id|git_config_bool
@@ -484,7 +467,6 @@ comma
 id|value
 )paren
 suffix:semicolon
-)brace
 r_return
 l_int|0
 suffix:semicolon
@@ -1535,13 +1517,11 @@ id|num_transfers
 OL
 id|active_requests
 )paren
-(brace
 id|process_curl_messages
 c_func
 (paren
 )paren
 suffix:semicolon
-)brace
 )brace
 macro_line|#endif
 r_while
@@ -1553,12 +1533,10 @@ l_int|NULL
 op_logical_and
 id|slot-&gt;in_use
 )paren
-(brace
 id|slot
 op_assign
 id|slot-&gt;next
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -1617,12 +1595,10 @@ id|slot-&gt;next
 op_ne
 l_int|NULL
 )paren
-(brace
 id|slot
 op_assign
 id|slot-&gt;next
 suffix:semicolon
-)brace
 id|slot-&gt;next
 op_assign
 id|newslot
@@ -1860,8 +1836,6 @@ r_struct
 id|fill_chain
 op_star
 id|fill_cfg
-op_assign
-l_int|NULL
 suffix:semicolon
 DECL|function|add_fill_function
 r_void
@@ -2426,7 +2400,6 @@ id|slot-&gt;callback_func
 op_ne
 l_int|NULL
 )paren
-(brace
 id|slot
 op_member_access_from_pointer
 id|callback_func
@@ -2435,7 +2408,6 @@ c_func
 id|slot-&gt;callback_data
 )paren
 suffix:semicolon
-)brace
 )brace
 DECL|function|finish_all_active_slots
 r_void
