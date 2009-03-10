@@ -2382,8 +2382,6 @@ l_int|0
 )braket
 comma
 id|fd
-comma
-l_int|2
 )paren
 suffix:semicolon
 )brace
