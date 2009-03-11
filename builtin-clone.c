@@ -11,6 +11,7 @@ macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;pack-refs.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#include &quot;run-command.h&quot;
 multiline_comment|/*&n; * Overall FIXMEs:&n; *  - respect DB_ENVIRONMENT for .git/objects.&n; *&n; * Implementation notes:&n; *  - dropping use-separate-remote and no-separate-remote compatibility&n; *&n; */
 DECL|variable|builtin_clone_usage
 r_static
@@ -2057,6 +2058,11 @@ id|src_ref_prefix
 op_assign
 l_string|&quot;refs/heads/&quot;
 suffix:semicolon
+r_int
+id|err
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|refspec
 id|refspec
@@ -3277,6 +3283,32 @@ c_func
 l_string|&quot;unable to write new index file&quot;
 )paren
 suffix:semicolon
+id|err
+op_or_assign
+id|run_hook
+c_func
+(paren
+l_int|NULL
+comma
+l_string|&quot;post-checkout&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|null_sha1
+)paren
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|remote_head-&gt;old_sha1
+)paren
+comma
+l_string|&quot;1&quot;
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 )brace
 id|strbuf_release
 c_func
@@ -3311,7 +3343,7 @@ op_assign
 l_int|0
 suffix:semicolon
 r_return
-l_int|0
+id|err
 suffix:semicolon
 )brace
 eof
