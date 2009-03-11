@@ -9955,8 +9955,6 @@ id|has_sha1_pack
 c_func
 (paren
 id|sha1
-comma
-l_int|NULL
 )paren
 )paren
 r_return
