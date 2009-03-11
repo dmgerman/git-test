@@ -580,7 +580,7 @@ c_func
 (paren
 id|string
 comma
-l_string|&quot;*?[{&quot;
+l_string|&quot;*?[{&bslash;&bslash;&quot;
 )paren
 )braket
 op_eq
