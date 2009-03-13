@@ -7388,6 +7388,20 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_UNMERGED
 suffix:colon
+multiline_comment|/*&n;&t;&t;&t; * ADD_CACHE_IGNORE_REMOVAL is unset if &quot;git&n;&t;&t;&t; * add -u&quot; is calling us, In such a case, a&n;&t;&t;&t; * missing work tree file needs to be removed&n;&t;&t;&t; * if there is an unmerged entry at stage #2,&n;&t;&t;&t; * but such a diff record is followed by&n;&t;&t;&t; * another with DIFF_STATUS_DELETED (and if&n;&t;&t;&t; * there is no stage #2, we won&squot;t see DELETED&n;&t;&t;&t; * nor MODIFIED).  We can simply continue&n;&t;&t;&t; * either way.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|data-&gt;flags
+op_amp
+id|ADD_CACHE_IGNORE_REMOVAL
+)paren
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Otherwise, it is &quot;git add path&quot; is asking&n;&t;&t;&t; * to explicitly add it; we fall through.  A&n;&t;&t;&t; * missing work tree file is an error and is&n;&t;&t;&t; * caught by add_file_to_index() in such a&n;&t;&t;&t; * case.&n;&t;&t;&t; */
 r_case
 id|DIFF_STATUS_MODIFIED
 suffix:colon
