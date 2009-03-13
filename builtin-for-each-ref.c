@@ -5119,11 +5119,6 @@ id|s
 )paren
 )paren
 suffix:semicolon
-id|sort_tail
-op_assign
-op_amp
-id|s-&gt;next
-suffix:semicolon
 r_if
 c_cond
 (paren

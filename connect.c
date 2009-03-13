@@ -2676,8 +2676,6 @@ id|host
 comma
 op_star
 id|path
-op_assign
-id|url
 suffix:semicolon
 r_char
 op_star

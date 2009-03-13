@@ -755,13 +755,6 @@ suffix:semicolon
 r_int
 id|tz
 suffix:semicolon
-r_const
-r_char
-op_star
-id|filler
-op_assign
-l_string|&quot;    &quot;
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -875,10 +868,6 @@ op_assign
 id|name_tail
 id|line
 suffix:semicolon
-id|filler
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
@@ -941,7 +930,7 @@ l_int|4
 suffix:colon
 l_int|0
 comma
-id|filler
+l_string|&quot;    &quot;
 comma
 id|namelen
 comma

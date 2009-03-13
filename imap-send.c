@@ -2666,9 +2666,6 @@ id|n
 op_ne
 id|cmd-&gt;cb.dlen
 op_logical_or
-(paren
-id|n
-op_assign
 id|socket_write
 c_func
 (paren
@@ -2678,7 +2675,6 @@ comma
 l_string|&quot;&bslash;r&bslash;n&quot;
 comma
 l_int|2
-)paren
 )paren
 op_ne
 l_int|2

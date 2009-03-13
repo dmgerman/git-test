@@ -2932,8 +2932,6 @@ comma
 op_star
 id|rhs
 suffix:semicolon
-id|llen
-op_assign
 id|is_glob
 op_assign
 l_int|0
