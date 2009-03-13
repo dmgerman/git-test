@@ -14,6 +14,7 @@ macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|variable|blame_usage
 r_static
 r_char
@@ -7360,16 +7361,27 @@ op_amp
 id|OUTPUT_NO_AUTHOR
 )paren
 )paren
+(brace
+r_int
+id|pad
+op_assign
+id|longest_author
+id|utf8_strwidth
+c_func
+(paren
+id|ci.author
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot; (%-*.*s %10s&quot;
-comma
-id|longest_author
-comma
-id|longest_author
+l_string|&quot; (%s%*s %10s&quot;
 comma
 id|ci.author
+comma
+id|pad
+comma
+l_string|&quot;&quot;
 comma
 id|format_time
 c_func
@@ -7382,6 +7394,7 @@ id|show_raw_time
 )paren
 )paren
 suffix:semicolon
+)brace
 id|printf
 c_func
 (paren
@@ -8025,7 +8038,7 @@ l_int|1
 suffix:semicolon
 id|num
 op_assign
-id|strlen
+id|utf8_strwidth
 c_func
 (paren
 id|ci.author
