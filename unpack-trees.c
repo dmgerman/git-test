@@ -8,6 +8,7 @@ macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;attr.h&quot;
 multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; replaces not_uptodate_file to&n; * explain why it does not allow switching between branches when you have&n; * local changes, for example.&n; */
 DECL|variable|unpack_plumbing_errors
 r_static
@@ -381,6 +382,15 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+id|git_attr_set_direction
+c_func
+(paren
+id|GIT_ATTR_CHECKOUT
+comma
+op_amp
+id|o-&gt;result
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -524,6 +534,14 @@ c_func
 (paren
 op_amp
 id|progress
+)paren
+suffix:semicolon
+id|git_attr_set_direction
+c_func
+(paren
+id|GIT_ATTR_CHECKIN
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_return
