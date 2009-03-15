@@ -7341,11 +7341,11 @@ op_assign
 r_int
 r_int
 )paren
-id|st.st_ctime
+id|st.st_mtime
 suffix:semicolon
 id|istate-&gt;timestamp.nsec
 op_assign
-id|ST_CTIME_NSEC
+id|ST_MTIME_NSEC
 c_func
 (paren
 id|st

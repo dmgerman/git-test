@@ -4191,7 +4191,7 @@ op_ne
 id|mtime.sec
 macro_line|#ifdef USE_NSEC
 op_logical_or
-id|ST_CTIME_NSEC
+id|ST_MTIME_NSEC
 c_func
 (paren
 id|st
