@@ -4512,9 +4512,6 @@ id|b_renames-&gt;nr
 suffix:semicolon
 )paren
 (brace
-r_int
-id|compare
-suffix:semicolon
 r_char
 op_star
 id|src
@@ -4523,9 +4520,6 @@ r_struct
 id|string_list
 op_star
 id|renames1
-comma
-op_star
-id|renames2
 comma
 op_star
 id|renames2Dst
@@ -4566,10 +4560,6 @@ op_ge
 id|a_renames-&gt;nr
 )paren
 (brace
-id|compare
-op_assign
-l_int|1
-suffix:semicolon
 id|ren2
 op_assign
 id|b_renames-&gt;items
@@ -4590,10 +4580,6 @@ op_ge
 id|b_renames-&gt;nr
 )paren
 (brace
-id|compare
-op_assign
-l_int|1
-suffix:semicolon
 id|ren1
 op_assign
 id|a_renames-&gt;items
@@ -4607,6 +4593,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_int
 id|compare
 op_assign
 id|strcmp
@@ -4673,10 +4660,6 @@ id|renames1
 op_assign
 id|a_renames
 suffix:semicolon
-id|renames2
-op_assign
-id|b_renames
-suffix:semicolon
 id|renames2Dst
 op_assign
 op_amp
@@ -4701,10 +4684,6 @@ suffix:semicolon
 id|renames1
 op_assign
 id|b_renames
-suffix:semicolon
-id|renames2
-op_assign
-id|a_renames
 suffix:semicolon
 id|renames2Dst
 op_assign

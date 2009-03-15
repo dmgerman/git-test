@@ -1077,8 +1077,6 @@ r_struct
 id|base_data
 op_star
 id|b
-op_assign
-id|base_cache
 suffix:semicolon
 r_for
 c_loop

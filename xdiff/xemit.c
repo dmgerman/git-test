@@ -617,8 +617,6 @@ c_loop
 (paren
 id|xch
 op_assign
-id|xche
-op_assign
 id|xscr
 suffix:semicolon
 id|xch
