@@ -321,6 +321,83 @@ id|refspec.buf
 )paren
 suffix:semicolon
 )brace
+DECL|variable|warn_unconfigured_push_msg
+r_static
+r_const
+r_char
+op_star
+id|warn_unconfigured_push_msg
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;You did not specify any refspecs to push, and the current remote&quot;
+comma
+l_string|&quot;has not configured any push refspecs. The default action in this&quot;
+comma
+l_string|&quot;case is to push all matching refspecs, that is, all branches&quot;
+comma
+l_string|&quot;that exist both locally and remotely will be updated.  This may&quot;
+comma
+l_string|&quot;not necessarily be what you want to happen.&quot;
+comma
+l_string|&quot;&quot;
+comma
+l_string|&quot;You can specify what action you want to take in this case, and&quot;
+comma
+l_string|&quot;avoid seeing this message again, by configuring &squot;push.default&squot; to:&quot;
+comma
+l_string|&quot;  &squot;nothing&squot;  : Do not push anythig&quot;
+comma
+l_string|&quot;  &squot;matching&squot; : Push all matching branches (default)&quot;
+comma
+l_string|&quot;  &squot;tracking&squot; : Push the current branch to whatever it is tracking&quot;
+comma
+l_string|&quot;  &squot;current&squot;  : Push the current branch&quot;
+)brace
+suffix:semicolon
+DECL|function|warn_unconfigured_push
+r_static
+r_void
+id|warn_unconfigured_push
+c_func
+(paren
+r_void
+)paren
+(brace
+r_int
+id|i
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|ARRAY_SIZE
+c_func
+(paren
+id|warn_unconfigured_push_msg
+)paren
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|warn_unconfigured_push_msg
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+)brace
 DECL|function|setup_default_push_refspecs
 r_static
 r_void
@@ -347,6 +424,11 @@ id|push_default
 r_case
 id|PUSH_DEFAULT_UNSPECIFIED
 suffix:colon
+id|warn_unconfigured_push
+c_func
+(paren
+)paren
+suffix:semicolon
 multiline_comment|/* fallthrough */
 r_case
 id|PUSH_DEFAULT_MATCHING
