@@ -2239,6 +2239,10 @@ id|show_deleted
 op_assign
 l_int|1
 suffix:semicolon
+id|require_work_tree
+op_assign
+l_int|1
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
