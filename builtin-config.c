@@ -274,7 +274,7 @@ comma
 op_amp
 id|actions
 comma
-l_string|&quot;replace all matching variables: name [value [value_regex]&quot;
+l_string|&quot;replace all matching variables: name value [value_regex]&quot;
 comma
 id|ACTION_REPLACE_ALL
 )paren
