@@ -15209,7 +15209,7 @@ l_int|NULL
 comma
 l_string|&quot;path&quot;
 comma
-l_string|&quot;don&acute;t apply changes matching the given path&quot;
+l_string|&quot;don&squot;t apply changes matching the given path&quot;
 comma
 l_int|0
 comma
