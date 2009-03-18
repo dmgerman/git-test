@@ -959,6 +959,11 @@ id|p
 op_assign
 id|opt-&gt;pattern_list
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|p
+)paren
 id|opt-&gt;pattern_expression
 op_assign
 id|compile_pattern_expr
