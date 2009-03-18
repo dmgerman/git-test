@@ -3403,13 +3403,13 @@ c_cond
 id|has_symlink_leading_path
 c_func
 (paren
+id|path
+comma
 id|strlen
 c_func
 (paren
 id|path
 )paren
-comma
-id|path
 )paren
 )paren
 r_return

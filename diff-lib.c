@@ -66,13 +66,13 @@ c_cond
 id|has_symlink_leading_path
 c_func
 (paren
+id|ce-&gt;name
+comma
 id|ce_namelen
 c_func
 (paren
 id|ce
 )paren
-comma
-id|ce-&gt;name
 )paren
 )paren
 r_return

@@ -3708,16 +3708,6 @@ comma
 id|O_RDONLY
 )paren
 )paren
-op_logical_and
-op_logical_neg
-id|fstat
-c_func
-(paren
-id|fd
-comma
-op_amp
-id|st
-)paren
 )paren
 (brace
 r_int
