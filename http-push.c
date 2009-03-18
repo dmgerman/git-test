@@ -210,12 +210,12 @@ id|locks
 suffix:semicolon
 )brace
 suffix:semicolon
-DECL|variable|remote
+DECL|variable|repo
 r_static
 r_struct
 id|repo
 op_star
-id|remote
+id|repo
 suffix:semicolon
 DECL|enum|transfer_state
 r_enum
@@ -1344,7 +1344,7 @@ op_assign
 id|get_remote_object_url
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|hex
 comma
@@ -1672,7 +1672,7 @@ comma
 l_string|&quot;Unable to start GET request&bslash;n&quot;
 )paren
 suffix:semicolon
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0
 suffix:semicolon
@@ -1716,7 +1716,7 @@ op_assign
 id|get_remote_object_url
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|hex
 comma
@@ -1893,7 +1893,7 @@ c_func
 (paren
 id|request-&gt;obj-&gt;sha1
 comma
-id|remote-&gt;packs
+id|repo-&gt;packs
 )paren
 suffix:semicolon
 r_if
@@ -1917,7 +1917,7 @@ id|request-&gt;obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0
 suffix:semicolon
@@ -2004,7 +2004,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 l_int|64
@@ -2017,7 +2017,7 @@ id|url
 comma
 l_string|&quot;%sobjects/pack/pack-%s.pack&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|sha1_to_hex
 c_func
@@ -2097,7 +2097,7 @@ comma
 id|request-&gt;tmpfile
 )paren
 suffix:semicolon
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0
 suffix:semicolon
@@ -2278,7 +2278,7 @@ comma
 l_string|&quot;Unable to start GET request&bslash;n&quot;
 )paren
 suffix:semicolon
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0
 suffix:semicolon
@@ -2533,7 +2533,7 @@ c_func
 op_amp
 id|buf
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|hex
 comma
@@ -2557,7 +2557,7 @@ c_func
 op_amp
 id|buf
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|hex
 comma
@@ -3064,7 +3064,7 @@ id|remote_lock
 op_star
 id|lock
 op_assign
-id|remote-&gt;locks
+id|repo-&gt;locks
 suffix:semicolon
 id|time_t
 id|current_time
@@ -3730,7 +3730,7 @@ comma
 id|curl_errorstr
 )paren
 suffix:semicolon
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0
 suffix:semicolon
@@ -3785,7 +3785,7 @@ suffix:semicolon
 id|lst
 op_assign
 op_amp
-id|remote-&gt;packs
+id|repo-&gt;packs
 suffix:semicolon
 r_while
 c_loop
@@ -3834,7 +3834,7 @@ id|target
 )paren
 suffix:semicolon
 r_else
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0
 suffix:semicolon
@@ -4170,7 +4170,7 @@ c_func
 (paren
 id|obj-&gt;sha1
 comma
-id|remote-&gt;packs
+id|repo-&gt;packs
 )paren
 suffix:semicolon
 r_if
@@ -4331,7 +4331,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 l_int|64
@@ -4344,7 +4344,7 @@ id|url
 comma
 l_string|&quot;%sobjects/pack/pack-%s.pack&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|hex
 )paren
@@ -4480,7 +4480,7 @@ id|url
 comma
 l_string|&quot;%sobjects/pack/pack-%s.idx&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|hex
 )paren
@@ -4814,9 +4814,9 @@ id|sha1
 suffix:semicolon
 id|new_pack-&gt;next
 op_assign
-id|remote-&gt;packs
+id|repo-&gt;packs
 suffix:semicolon
-id|remote-&gt;packs
+id|repo-&gt;packs
 op_assign
 id|new_pack
 suffix:semicolon
@@ -4889,7 +4889,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 l_int|20
@@ -4902,7 +4902,7 @@ id|url
 comma
 l_string|&quot;%sobjects/info/packs&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 id|slot
@@ -5965,7 +5965,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 id|strlen
@@ -5984,7 +5984,7 @@ id|url
 comma
 l_string|&quot;%s%s&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|path
 )paren
@@ -6000,7 +6000,7 @@ op_plus
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 l_int|1
@@ -6570,9 +6570,9 @@ l_int|NULL
 suffix:semicolon
 id|lock-&gt;next
 op_assign
-id|remote-&gt;locks
+id|repo-&gt;locks
 suffix:semicolon
-id|remote-&gt;locks
+id|repo-&gt;locks
 op_assign
 id|lock
 suffix:semicolon
@@ -6607,7 +6607,7 @@ id|remote_lock
 op_star
 id|prev
 op_assign
-id|remote-&gt;locks
+id|repo-&gt;locks
 suffix:semicolon
 r_struct
 id|curl_slist
@@ -6740,12 +6740,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote-&gt;locks
+id|repo-&gt;locks
 op_eq
 id|lock
 )paren
 (brace
-id|remote-&gt;locks
+id|repo-&gt;locks
 op_assign
 id|lock-&gt;next
 suffix:semicolon
@@ -6817,7 +6817,7 @@ id|remote_lock
 op_star
 id|lock
 op_assign
-id|remote-&gt;locks
+id|repo-&gt;locks
 suffix:semicolon
 id|fprintf
 c_func
@@ -7284,7 +7284,7 @@ id|path
 (brace
 id|path
 op_add_assign
-id|remote-&gt;path_len
+id|repo-&gt;path_len
 suffix:semicolon
 id|ls-&gt;dentry_name
 op_assign
@@ -7388,7 +7388,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 id|strlen
@@ -7475,7 +7475,7 @@ id|url
 comma
 l_string|&quot;%s%s&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|path
 )paren
@@ -7943,7 +7943,7 @@ id|out_buffer.buf
 comma
 id|PROPFIND_SUPPORTEDLOCK_REQUEST
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 id|dav_headers
@@ -8037,7 +8037,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_URL
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 id|curl_easy_setopt
@@ -8221,7 +8221,7 @@ c_func
 (paren
 l_string|&quot;Error: no DAV locking support on %s&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 )brace
@@ -8232,7 +8232,7 @@ c_func
 (paren
 l_string|&quot;Cannot access URL %s, return code %d&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|results.curl_result
 )paren
@@ -8250,7 +8250,7 @@ c_func
 (paren
 l_string|&quot;Unable to start PROPFIND request on %s&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 )brace
@@ -9308,7 +9308,7 @@ c_cond
 id|http_fetch_ref
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|ref
 )paren
@@ -9325,7 +9325,7 @@ l_string|&quot;Unable to fetch ref %s from %s&bslash;n&quot;
 comma
 id|refname
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 id|free
@@ -9341,7 +9341,7 @@ multiline_comment|/*&n;&t; * Fetch a copy of the object if it doesn&squot;t exis
 r_if
 c_cond
 (paren
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_logical_and
 op_logical_neg
 id|has_sha1_file
@@ -9816,7 +9816,7 @@ c_cond
 id|http_fetch_ref
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|ref
 )paren
@@ -9833,7 +9833,7 @@ l_string|&quot;Unable to fetch ref %s from %s&bslash;n&quot;
 comma
 id|ls-&gt;dentry_name
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 id|aborted
@@ -10282,7 +10282,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 id|strlen
@@ -10315,7 +10315,7 @@ id|url
 comma
 l_string|&quot;%s%s&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|path
 )paren
@@ -10473,7 +10473,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 id|strlen
@@ -10492,7 +10492,7 @@ id|url
 comma
 l_string|&quot;%s%s&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|path
 )paren
@@ -11135,7 +11135,7 @@ l_string|&quot; run:&bslash;n&bslash;t&squot;git http-push -D %s %s&squot;&quot;
 comma
 id|remote_ref-&gt;name
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|pattern
 )paren
@@ -11169,7 +11169,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 id|strlen
@@ -11188,7 +11188,7 @@ id|url
 comma
 l_string|&quot;%s%s&quot;
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 comma
 id|remote_ref-&gt;name
 )paren
@@ -11409,7 +11409,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|remote
+id|repo
 op_assign
 id|xcalloc
 c_func
@@ -11417,7 +11417,7 @@ c_func
 r_sizeof
 (paren
 op_star
-id|remote
+id|repo
 )paren
 comma
 l_int|1
@@ -11589,7 +11589,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 (brace
 r_char
@@ -11604,11 +11604,11 @@ comma
 l_string|&quot;//&quot;
 )paren
 suffix:semicolon
-id|remote-&gt;url
+id|repo-&gt;url
 op_assign
 id|arg
 suffix:semicolon
-id|remote-&gt;path_len
+id|repo-&gt;path_len
 op_assign
 id|strlen
 c_func
@@ -11622,7 +11622,7 @@ c_cond
 id|path
 )paren
 (brace
-id|remote-&gt;path
+id|repo-&gt;path
 op_assign
 id|strchr
 c_func
@@ -11637,14 +11637,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote-&gt;path
+id|repo-&gt;path
 )paren
-id|remote-&gt;path_len
+id|repo-&gt;path_len
 op_assign
 id|strlen
 c_func
 (paren
-id|remote-&gt;path
+id|repo-&gt;path
 )paren
 suffix:semicolon
 )brace
@@ -11675,7 +11675,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 id|usage
 c_func
@@ -11727,14 +11727,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 op_logical_and
-id|remote-&gt;url
+id|repo-&gt;url
 (braket
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_minus
 l_int|1
@@ -11751,7 +11751,7 @@ c_func
 id|strlen
 c_func
 (paren
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 op_plus
 l_int|2
@@ -11762,7 +11762,7 @@ c_func
 (paren
 id|rewritten_url
 comma
-id|remote-&gt;url
+id|repo-&gt;url
 )paren
 suffix:semicolon
 id|strcat
@@ -11773,19 +11773,19 @@ comma
 l_string|&quot;/&quot;
 )paren
 suffix:semicolon
-id|remote-&gt;path
+id|repo-&gt;path
 op_assign
 id|rewritten_url
 op_plus
 (paren
-id|remote-&gt;path
-id|remote-&gt;url
+id|repo-&gt;path
+id|repo-&gt;url
 )paren
 suffix:semicolon
-id|remote-&gt;path_len
+id|repo-&gt;path_len
 op_increment
 suffix:semicolon
-id|remote-&gt;url
+id|repo-&gt;url
 op_assign
 id|rewritten_url
 suffix:semicolon
@@ -11816,11 +11816,11 @@ id|remove_locks_on_signal
 )paren
 suffix:semicolon
 multiline_comment|/* Check whether the remote has server info files */
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0
 suffix:semicolon
-id|remote-&gt;has_info_refs
+id|repo-&gt;has_info_refs
 op_assign
 id|remote_exists
 c_func
@@ -11828,7 +11828,7 @@ c_func
 l_string|&quot;info/refs&quot;
 )paren
 suffix:semicolon
-id|remote-&gt;has_info_packs
+id|repo-&gt;has_info_packs
 op_assign
 id|remote_exists
 c_func
@@ -11839,7 +11839,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote-&gt;has_info_refs
+id|repo-&gt;has_info_refs
 )paren
 (brace
 id|info_ref_lock
@@ -11857,7 +11857,7 @@ c_cond
 (paren
 id|info_ref_lock
 )paren
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 op_assign
 l_int|1
 suffix:semicolon
@@ -11883,7 +11883,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote-&gt;has_info_packs
+id|repo-&gt;has_info_packs
 )paren
 id|fetch_indices
 c_func
@@ -12618,7 +12618,7 @@ multiline_comment|/* Update remote server info if appropriate */
 r_if
 c_cond
 (paren
-id|remote-&gt;has_info_refs
+id|repo-&gt;has_info_refs
 op_logical_and
 id|new_refs
 )paren
@@ -12628,7 +12628,7 @@ c_cond
 (paren
 id|info_ref_lock
 op_logical_and
-id|remote-&gt;can_update_info_refs
+id|repo-&gt;can_update_info_refs
 )paren
 (brace
 id|fprintf
@@ -12686,7 +12686,7 @@ suffix:semicolon
 id|free
 c_func
 (paren
-id|remote
+id|repo
 )paren
 suffix:semicolon
 id|curl_slist_free_all
