@@ -3582,6 +3582,18 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|remote
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Where do you want to fetch from today?&quot;
+)paren
+suffix:semicolon
 id|transport
 op_assign
 id|transport_get
@@ -3654,18 +3666,6 @@ c_func
 id|TRANS_OPT_DEPTH
 comma
 id|depth
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|transport-&gt;url
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Where do you want to fetch from today?&quot;
 )paren
 suffix:semicolon
 r_if

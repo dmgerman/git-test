@@ -265,6 +265,12 @@ c_cond
 op_logical_neg
 id|remote
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|repo
+)paren
 id|die
 c_func
 (paren
@@ -273,6 +279,13 @@ comma
 id|repo
 )paren
 suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;No destination configured to push to.&quot;
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
