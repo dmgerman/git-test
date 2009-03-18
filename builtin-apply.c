@@ -15278,9 +15278,9 @@ comma
 l_string|&quot;instead of applying the patch, output diffstat for the input&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;allow-binary-replacement&quot;
@@ -15288,12 +15288,16 @@ comma
 op_amp
 id|binary
 comma
-l_string|&quot;now no-op&quot;
-)paren
+l_int|NULL
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+l_string|&quot;old option, now no-op&quot;
+comma
+id|PARSE_OPT_HIDDEN
+)brace
+comma
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;binary&quot;
@@ -15301,8 +15305,12 @@ comma
 op_amp
 id|binary
 comma
-l_string|&quot;now no-op&quot;
-)paren
+l_int|NULL
+comma
+l_string|&quot;old option, now no-op&quot;
+comma
+id|PARSE_OPT_HIDDEN
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
