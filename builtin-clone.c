@@ -11,6 +11,7 @@ macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;pack-refs.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 multiline_comment|/*&n; * Overall FIXMEs:&n; *  - respect DB_ENVIRONMENT for .git/objects.&n; *&n; * Implementation notes:&n; *  - dropping use-separate-remote and no-separate-remote compatibility&n; *&n; */
@@ -1692,87 +1693,6 @@ r_return
 id|local_refs
 suffix:semicolon
 )brace
-DECL|function|install_branch_config
-r_static
-r_void
-id|install_branch_config
-c_func
-(paren
-r_const
-r_char
-op_star
-id|local
-comma
-r_const
-r_char
-op_star
-id|origin
-comma
-r_const
-r_char
-op_star
-id|remote
-)paren
-(brace
-r_struct
-id|strbuf
-id|key
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
-id|strbuf_addf
-c_func
-(paren
-op_amp
-id|key
-comma
-l_string|&quot;branch.%s.remote&quot;
-comma
-id|local
-)paren
-suffix:semicolon
-id|git_config_set
-c_func
-(paren
-id|key.buf
-comma
-id|origin
-)paren
-suffix:semicolon
-id|strbuf_reset
-c_func
-(paren
-op_amp
-id|key
-)paren
-suffix:semicolon
-id|strbuf_addf
-c_func
-(paren
-op_amp
-id|key
-comma
-l_string|&quot;branch.%s.merge&quot;
-comma
-id|local
-)paren
-suffix:semicolon
-id|git_config_set
-c_func
-(paren
-id|key.buf
-comma
-id|remote
-)paren
-suffix:semicolon
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|key
-)paren
-suffix:semicolon
-)brace
 DECL|function|cmd_clone
 r_int
 id|cmd_clone
@@ -2768,6 +2688,8 @@ id|option_bare
 id|install_branch_config
 c_func
 (paren
+l_int|0
+comma
 l_string|&quot;master&quot;
 comma
 id|option_origin
@@ -2879,6 +2801,8 @@ suffix:semicolon
 id|install_branch_config
 c_func
 (paren
+l_int|0
+comma
 id|head
 comma
 id|option_origin
