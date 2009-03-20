@@ -9100,6 +9100,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|p-&gt;pack_local
+op_logical_or
 id|p-&gt;pack_keep
 )paren
 r_continue
@@ -9306,6 +9309,9 @@ id|p-&gt;next
 r_if
 c_cond
 (paren
+op_logical_neg
+id|p-&gt;pack_local
+op_logical_or
 id|p-&gt;pack_keep
 )paren
 r_continue
