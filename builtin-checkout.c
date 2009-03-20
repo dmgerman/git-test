@@ -2291,9 +2291,9 @@ id|topts.dir
 )paren
 )paren
 suffix:semicolon
-id|topts.dir-&gt;show_ignored
-op_assign
-l_int|1
+id|topts.dir-&gt;flags
+op_or_assign
+id|DIR_SHOW_IGNORED
 suffix:semicolon
 id|topts.dir-&gt;exclude_per_dir
 op_assign
