@@ -10488,15 +10488,6 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-l_string|&quot;--kept-pack-only&quot;
-comma
-id|arg
-)paren
-op_logical_or
-op_logical_neg
-id|strcmp
-c_func
-(paren
 l_string|&quot;--reflog&quot;
 comma
 id|arg
