@@ -2496,6 +2496,11 @@ id|newsection
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_int
+id|recovery
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2520,6 +2525,28 @@ comma
 id|oldname
 )paren
 )paren
+(brace
+multiline_comment|/*&n;&t;&t; * Bad name --- this could be an attempt to rename a&n;&t;&t; * ref that we used to allow to be created by accident.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|resolve_ref
+c_func
+(paren
+id|oldref.buf
+comma
+id|sha1
+comma
+l_int|1
+comma
+l_int|NULL
+)paren
+)paren
+id|recovery
+op_assign
+l_int|1
+suffix:semicolon
+r_else
 id|die
 c_func
 (paren
@@ -2528,6 +2555,7 @@ comma
 id|oldname
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2613,6 +2641,21 @@ c_func
 (paren
 op_amp
 id|logmsg
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|recovery
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;Renamed a misnamed branch &squot;%s&squot; away&quot;
+comma
+id|oldref.buf
+op_plus
+l_int|11
 )paren
 suffix:semicolon
 multiline_comment|/* no need to pass logmsg here as HEAD didn&squot;t really move */
