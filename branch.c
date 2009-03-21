@@ -642,7 +642,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|interpret_nth_last_branch
+id|interpret_branch_name
 c_func
 (paren
 id|name

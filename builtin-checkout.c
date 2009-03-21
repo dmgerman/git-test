@@ -1998,7 +1998,7 @@ c_cond
 (paren
 id|ret
 op_assign
-id|interpret_nth_last_branch
+id|interpret_branch_name
 c_func
 (paren
 id|branch-&gt;name
