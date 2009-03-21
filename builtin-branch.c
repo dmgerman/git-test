@@ -2508,15 +2508,28 @@ c_func
 l_string|&quot;cannot rename the current branch while not on any.&quot;
 )paren
 suffix:semicolon
-id|strbuf_addf
+id|strbuf_branchname
 c_func
 (paren
 op_amp
 id|oldref
 comma
-l_string|&quot;refs/heads/%s&quot;
-comma
 id|oldname
+)paren
+suffix:semicolon
+id|strbuf_splice
+c_func
+(paren
+op_amp
+id|oldref
+comma
+l_int|0
+comma
+l_int|0
+comma
+l_string|&quot;refs/heads/&quot;
+comma
+l_int|11
 )paren
 suffix:semicolon
 r_if
@@ -2531,20 +2544,33 @@ id|oldref.buf
 id|die
 c_func
 (paren
-l_string|&quot;Invalid branch name: %s&quot;
+l_string|&quot;Invalid branch name: &squot;%s&squot;&quot;
 comma
-id|oldref.buf
+id|oldname
 )paren
 suffix:semicolon
-id|strbuf_addf
+id|strbuf_branchname
 c_func
 (paren
 op_amp
 id|newref
 comma
-l_string|&quot;refs/heads/%s&quot;
-comma
 id|newname
+)paren
+suffix:semicolon
+id|strbuf_splice
+c_func
+(paren
+op_amp
+id|newref
+comma
+l_int|0
+comma
+l_int|0
+comma
+l_string|&quot;refs/heads/&quot;
+comma
+l_int|11
 )paren
 suffix:semicolon
 r_if
@@ -2559,9 +2585,9 @@ id|newref.buf
 id|die
 c_func
 (paren
-l_string|&quot;Invalid branch name: %s&quot;
+l_string|&quot;Invalid branch name: &squot;%s&squot;&quot;
 comma
-id|newref.buf
+id|newname
 )paren
 suffix:semicolon
 r_if
@@ -2587,7 +2613,9 @@ c_func
 (paren
 l_string|&quot;A branch named &squot;%s&squot; already exists.&quot;
 comma
-id|newname
+id|newref.buf
+op_plus
+l_int|11
 )paren
 suffix:semicolon
 id|strbuf_addf
