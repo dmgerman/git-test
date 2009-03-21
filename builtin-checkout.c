@@ -3962,20 +3962,22 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-id|strbuf_addstr
+r_if
+c_cond
+(paren
+id|strbuf_check_branch_ref
 c_func
 (paren
 op_amp
 id|buf
 comma
-l_string|&quot;refs/heads/&quot;
+id|opts.new_branch
 )paren
-suffix:semicolon
-id|strbuf_addstr
+)paren
+id|die
 c_func
 (paren
-op_amp
-id|buf
+l_string|&quot;git checkout: we do not like &squot;%s&squot; as a branch name.&quot;
 comma
 id|opts.new_branch
 )paren
@@ -3996,23 +3998,6 @@ id|die
 c_func
 (paren
 l_string|&quot;git checkout: branch %s already exists&quot;
-comma
-id|opts.new_branch
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|check_ref_format
-c_func
-(paren
-id|buf.buf
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;git checkout: we do not like &squot;%s&squot; as a branch name.&quot;
 comma
 id|opts.new_branch
 )paren
