@@ -3059,7 +3059,10 @@ id|ref_map-&gt;peer_ref-&gt;name
 id|die
 c_func
 (paren
-l_string|&quot;Refusing to fetch into current branch&quot;
+l_string|&quot;Refusing to fetch into current branch %s &quot;
+l_string|&quot;of non-bare repository&quot;
+comma
+id|current_branch-&gt;refname
 )paren
 suffix:semicolon
 )brace
