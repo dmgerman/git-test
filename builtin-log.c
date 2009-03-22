@@ -5396,18 +5396,6 @@ id|die
 l_string|&quot;--subject-prefix and -k are mutually exclusive.&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|numbered_files
-op_logical_and
-id|use_stdout
-)paren
-id|die
-(paren
-l_string|&quot;--numbered-files and --stdout are mutually exclusive.&quot;
-)paren
-suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions
