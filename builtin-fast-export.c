@@ -1993,15 +1993,20 @@ r_break
 suffix:semicolon
 r_default
 suffix:colon
-id|die
+id|warning
+c_func
 (paren
-l_string|&quot;Unexpected object of type %s&quot;
+l_string|&quot;%s: Unexpected object of type %s, skipping.&quot;
+comma
+id|e-&gt;name
 comma
 r_typename
 (paren
 id|e-&gt;item-&gt;type
 )paren
 )paren
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 r_if
