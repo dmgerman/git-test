@@ -1988,6 +1988,21 @@ id|tag-&gt;object.sha1
 suffix:semicolon
 r_continue
 suffix:semicolon
+r_default
+suffix:colon
+id|warning
+c_func
+(paren
+l_string|&quot;Tag points to object of unexpected type %s, skipping.&quot;
+comma
+r_typename
+(paren
+id|tag-&gt;object.type
+)paren
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
 r_break
 suffix:semicolon
