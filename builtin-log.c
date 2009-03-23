@@ -3139,10 +3139,6 @@ r_char
 op_star
 id|committer
 suffix:semicolon
-r_char
-op_star
-id|head_sha1
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -3226,14 +3222,6 @@ c_func
 l_int|0
 )paren
 suffix:semicolon
-id|head_sha1
-op_assign
-id|sha1_to_hex
-c_func
-(paren
-id|head-&gt;object.sha1
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3277,7 +3265,11 @@ l_string|&quot;author %s&bslash;n&quot;
 l_string|&quot;committer %s&bslash;n&bslash;n&quot;
 l_string|&quot;cover letter&bslash;n&quot;
 comma
-id|head_sha1
+id|sha1_to_hex
+c_func
+(paren
+id|head-&gt;object.sha1
+)paren
 comma
 id|committer
 comma
@@ -3325,7 +3317,7 @@ c_func
 (paren
 id|rev
 comma
-id|head_sha1
+id|head
 comma
 op_amp
 id|subject_start
@@ -5549,6 +5541,14 @@ id|rev.ref_message_ids
 )paren
 suffix:semicolon
 )brace
+id|rev.numbered_files
+op_assign
+id|numbered_files
+suffix:semicolon
+id|rev.patch_suffix
+op_assign
+id|fmt_patch_suffix
+suffix:semicolon
 r_if
 c_cond
 (paren

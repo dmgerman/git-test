@@ -1000,10 +1000,10 @@ id|rev_info
 op_star
 id|opt
 comma
-r_const
-r_char
+r_struct
+id|commit
 op_star
-id|name
+id|commit
 comma
 r_const
 r_char
@@ -1035,6 +1035,17 @@ op_star
 id|extra_headers
 op_assign
 id|opt-&gt;extra_headers
+suffix:semicolon
+r_const
+r_char
+op_star
+id|name
+op_assign
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
 suffix:semicolon
 op_star
 id|need_8bit_cte_p
@@ -1269,6 +1280,12 @@ id|buffer
 l_int|1024
 )braket
 suffix:semicolon
+r_struct
+id|strbuf
+id|filename
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 op_star
 id|need_8bit_cte_p
 op_assign
@@ -1318,6 +1335,24 @@ id|extra_headers
 op_assign
 id|subject_buffer
 suffix:semicolon
+id|get_patch_filename
+c_func
+(paren
+id|opt-&gt;numbered_files
+ques
+c_cond
+l_int|NULL
+suffix:colon
+id|commit
+comma
+id|opt-&gt;nr
+comma
+id|opt-&gt;patch_suffix
+comma
+op_amp
+id|filename
+)paren
+suffix:semicolon
 id|snprintf
 c_func
 (paren
@@ -1331,16 +1366,16 @@ l_int|1
 comma
 l_string|&quot;&bslash;n--%s%s&bslash;n&quot;
 l_string|&quot;Content-Type: text/x-patch;&quot;
-l_string|&quot; name=&bslash;&quot;%s.diff&bslash;&quot;&bslash;n&quot;
+l_string|&quot; name=&bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
 l_string|&quot;Content-Transfer-Encoding: 8bit&bslash;n&quot;
 l_string|&quot;Content-Disposition: %s;&quot;
-l_string|&quot; filename=&bslash;&quot;%s.diff&bslash;&quot;&bslash;n&bslash;n&quot;
+l_string|&quot; filename=&bslash;&quot;%s&bslash;&quot;&bslash;n&bslash;n&quot;
 comma
 id|mime_boundary_leader
 comma
 id|opt-&gt;mime_boundary
 comma
-id|name
+id|filename.buf
 comma
 id|opt-&gt;no_inline
 ques
@@ -1349,12 +1384,19 @@ l_string|&quot;attachment&quot;
 suffix:colon
 l_string|&quot;inline&quot;
 comma
-id|name
+id|filename.buf
 )paren
 suffix:semicolon
 id|opt-&gt;diffopt.stat_sep
 op_assign
 id|buffer
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|filename
+)paren
 suffix:semicolon
 )brace
 op_star
@@ -1645,11 +1687,7 @@ c_func
 (paren
 id|opt
 comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
+id|commit
 comma
 op_amp
 id|subject
