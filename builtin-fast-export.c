@@ -1912,6 +1912,7 @@ op_star
 )paren
 id|e-&gt;item
 suffix:semicolon
+multiline_comment|/* handle nested tags */
 r_while
 c_loop
 (paren
@@ -1922,6 +1923,12 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
+id|parse_object
+c_func
+(paren
+id|tag-&gt;object.sha1
+)paren
+suffix:semicolon
 id|string_list_append
 c_func
 (paren
@@ -1990,6 +1997,7 @@ r_continue
 suffix:semicolon
 r_default
 suffix:colon
+multiline_comment|/* OBJ_TAG (nested tags) is already handled */
 id|warning
 c_func
 (paren
