@@ -6107,6 +6107,9 @@ suffix:semicolon
 )brace
 id|max_size
 op_assign
+(paren
+r_uint64
+)paren
 id|max_size
 op_star
 (paren

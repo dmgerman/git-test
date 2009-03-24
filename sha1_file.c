@@ -11994,7 +11994,13 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;unable to write sha1 file&quot;
+l_string|&quot;error when closing sha1 file (%s)&quot;
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 )brace
