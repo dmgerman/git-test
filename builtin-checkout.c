@@ -3109,20 +3109,16 @@ op_logical_neg
 id|opts-&gt;quiet
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: You appear to be on a branch yet to be born.&bslash;n&quot;
+l_string|&quot;You appear to be on a branch yet to be born.&quot;
 )paren
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: Forcing checkout of %s.&bslash;n&quot;
+l_string|&quot;Forcing checkout of %s.&quot;
 comma
 r_new
 op_member_access_from_pointer
