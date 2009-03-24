@@ -1695,13 +1695,10 @@ op_le
 id|ref_name_cnt
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: ignoring %s; &quot;
-l_string|&quot;cannot handle more than %d refs&bslash;n&quot;
+l_string|&quot;ignoring %s; cannot handle more than %d refs&quot;
 comma
 id|refname
 comma
