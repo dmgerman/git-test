@@ -3468,7 +3468,7 @@ id|cb_data
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Make sure &quot;ref&quot; is something reasonable to have under &quot;.git/refs/&quot;;&n; * We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; */
+multiline_comment|/*&n; * Make sure &quot;ref&quot; is something reasonable to have under &quot;.git/refs/&quot;;&n; * We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; */
 DECL|function|bad_ref_char
 r_static
 r_inline
@@ -3775,6 +3775,20 @@ l_int|2
 )paren
 r_return
 id|CHECK_REF_FORMAT_ONELEVEL
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|has_extension
+c_func
+(paren
+id|ref
+comma
+l_string|&quot;.lock&quot;
+)paren
+)paren
+r_return
+id|CHECK_REF_FORMAT_ERROR
 suffix:semicolon
 r_return
 id|ret
