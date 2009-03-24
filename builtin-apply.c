@@ -11286,12 +11286,10 @@ id|st_mode
 op_ne
 id|patch-&gt;old_mode
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: %s has type %o, expected %o&bslash;n&quot;
+l_string|&quot;%s has type %o, expected %o&quot;
 comma
 id|old_name
 comma
@@ -13817,12 +13815,10 @@ id|namebuf
 )paren
 l_int|5
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: truncating .rej filename to %.*s.rej&quot;
+l_string|&quot;truncating .rej filename to %.*s.rej&quot;
 comma
 id|cnt
 l_int|1
@@ -15865,13 +15861,11 @@ op_assign
 id|whitespace_error
 id|squelch_whitespace_errors
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: squelched %d &quot;
-l_string|&quot;whitespace error%s&bslash;n&quot;
+l_string|&quot;squelched %d &quot;
+l_string|&quot;whitespace error%s&quot;
 comma
 id|squelched
 comma
@@ -15926,13 +15920,11 @@ id|applied_after_fixing_ws
 op_logical_and
 id|apply
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: %d line%s applied after&quot;
-l_string|&quot; fixing whitespace errors.&bslash;n&quot;
+l_string|&quot;%d line%s applied after&quot;
+l_string|&quot; fixing whitespace errors.&quot;
 comma
 id|applied_after_fixing_ws
 comma
@@ -15952,12 +15944,10 @@ c_cond
 (paren
 id|whitespace_error
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: %d line%s add%s whitespace errors.&bslash;n&quot;
+l_string|&quot;%d line%s add%s whitespace errors.&quot;
 comma
 id|whitespace_error
 comma
