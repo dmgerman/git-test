@@ -241,12 +241,10 @@ id|errno
 op_ne
 id|ENOENT
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: &squot;%s&squot;: %s&quot;
+l_string|&quot;&squot;%s&squot;: %s&quot;
 comma
 id|ce-&gt;name
 comma
