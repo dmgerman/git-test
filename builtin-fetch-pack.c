@@ -3063,12 +3063,10 @@ op_logical_neg
 id|args.keep_pack
 )paren
 multiline_comment|/* When cloning, it is not unusual to have&n;&t;&t;&t; * no common commit.&n;&t;&t;&t; */
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: no common commits&bslash;n&quot;
+l_string|&quot;no common commits&quot;
 )paren
 suffix:semicolon
 r_if
