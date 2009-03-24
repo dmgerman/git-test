@@ -23,7 +23,7 @@ id|params
 r_char
 id|msg
 (braket
-l_int|256
+l_int|1024
 )braket
 suffix:semicolon
 id|vsnprintf
