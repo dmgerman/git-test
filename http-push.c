@@ -3589,12 +3589,10 @@ id|request-&gt;http_code
 op_eq
 l_int|416
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Warning: requested range invalid; we may already have all the data.&bslash;n&quot;
+l_string|&quot;requested range invalid; we may already have all the data.&quot;
 )paren
 suffix:semicolon
 id|git_inflate_end
@@ -8217,7 +8215,7 @@ id|lock_flags
 id|error
 c_func
 (paren
-l_string|&quot;Error: no DAV locking support on %s&quot;
+l_string|&quot;no DAV locking support on %s&quot;
 comma
 id|remote-&gt;url
 )paren
@@ -11481,12 +11479,10 @@ l_int|1
 suffix:semicolon
 r_else
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Error: cannot lock existing info/refs&bslash;n&quot;
+l_string|&quot;cannot lock existing info/refs&quot;
 )paren
 suffix:semicolon
 id|rc
