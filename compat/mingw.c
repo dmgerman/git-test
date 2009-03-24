@@ -2842,6 +2842,11 @@ op_star
 id|p
 op_eq
 l_char|&squot;{&squot;
+op_logical_or
+op_star
+id|p
+op_eq
+l_char|&squot;&bslash;&squot;&squot;
 )paren
 id|force_quotes
 op_assign
