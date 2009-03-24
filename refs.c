@@ -5140,12 +5140,10 @@ id|errno
 op_ne
 id|ENOENT
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: unlink(%s) failed: %s&quot;
+l_string|&quot;unlink(%s) failed: %s&quot;
 comma
 id|git_path
 c_func
@@ -7828,12 +7826,10 @@ id|sha1
 )paren
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: Log %s has gap after %s.&bslash;n&quot;
+l_string|&quot;Log %s has gap after %s.&quot;
 comma
 id|logfile
 comma
@@ -7916,12 +7912,10 @@ id|sha1
 )paren
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: Log %s unexpectedly ended on %s.&bslash;n&quot;
+l_string|&quot;Log %s unexpectedly ended on %s.&quot;
 comma
 id|logfile
 comma
