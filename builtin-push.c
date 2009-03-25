@@ -347,7 +347,7 @@ l_string|&quot;You can specify what action you want to take in this case, and&qu
 comma
 l_string|&quot;avoid seeing this message again, by configuring &squot;push.default&squot; to:&quot;
 comma
-l_string|&quot;  &squot;nothing&squot;  : Do not push anythig&quot;
+l_string|&quot;  &squot;nothing&squot;  : Do not push anything&quot;
 comma
 l_string|&quot;  &squot;matching&squot; : Push all matching branches (default)&quot;
 comma
