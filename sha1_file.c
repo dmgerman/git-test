@@ -11757,7 +11757,7 @@ id|c
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Move the just written object into its final resting place&n; */
+multiline_comment|/*&n; * Move the just written object into its final resting place.&n; * NEEDSWORK: this should be renamed to finalize_temp_file() as&n; * &quot;moving&quot; is only a part of what it does, when no patch between&n; * master to pu changes the call sites of this function.&n; */
 DECL|function|move_temp_to_file
 r_int
 id|move_temp_to_file
@@ -11863,6 +11863,24 @@ suffix:semicolon
 )brace
 multiline_comment|/* FIXME!!! Collision check here ? */
 )brace
+r_if
+c_cond
+(paren
+id|adjust_shared_perm
+c_func
+(paren
+id|filename
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;unable to set permission to &squot;%s&squot;&quot;
+comma
+id|filename
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
