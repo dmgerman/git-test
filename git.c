@@ -1529,6 +1529,16 @@ id|cmd_archive
 )brace
 comma
 (brace
+l_string|&quot;bisect--helper&quot;
+comma
+id|cmd_bisect__helper
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
 l_string|&quot;blame&quot;
 comma
 id|cmd_blame
