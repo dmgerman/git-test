@@ -11866,6 +11866,14 @@ multiline_comment|/* FIXME!!! Collision check here ? */
 r_if
 c_cond
 (paren
+id|chmod
+c_func
+(paren
+id|filename
+comma
+l_int|0444
+)paren
+op_logical_or
 id|adjust_shared_perm
 c_func
 (paren
@@ -12012,14 +12020,6 @@ c_func
 id|fd
 comma
 l_string|&quot;sha1 file&quot;
-)paren
-suffix:semicolon
-id|fchmod
-c_func
-(paren
-id|fd
-comma
-l_int|0444
 )paren
 suffix:semicolon
 r_if
