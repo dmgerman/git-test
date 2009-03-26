@@ -809,7 +809,6 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|show_bisect_vars
-r_static
 r_int
 id|show_bisect_vars
 c_func
@@ -821,7 +820,7 @@ r_int
 id|all
 comma
 r_int
-id|bisect_find_all
+id|show_all
 )paren
 (brace
 r_int
@@ -874,7 +873,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|bisect_find_all
+id|show_all
 )paren
 (brace
 id|traverse_commit_list
