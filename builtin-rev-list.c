@@ -813,6 +813,11 @@ r_int
 id|show_bisect_vars
 c_func
 (paren
+r_struct
+id|rev_info
+op_star
+id|revs
+comma
 r_int
 id|reaches
 comma
@@ -836,12 +841,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|revs.commits
+id|revs-&gt;commits
 )paren
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * revs.commits can reach &quot;reaches&quot; commits among&n;&t; * &quot;all&quot; commits.  If it is good, then there are&n;&t; * (all-reaches) commits left to be bisected.&n;&t; * On the other hand, if it is bad, then the set&n;&t; * to bisect is &quot;reaches&quot;.&n;&t; * A bisect set of size N has (N-1) commits further&n;&t; * to test, as we already know one bad one.&n;&t; */
+multiline_comment|/*&n;&t; * revs-&gt;commits can reach &quot;reaches&quot; commits among&n;&t; * &quot;all&quot; commits.  If it is good, then there are&n;&t; * (all-reaches) commits left to be bisected.&n;&t; * On the other hand, if it is bad, then the set&n;&t; * to bisect is &quot;reaches&quot;.&n;&t; * A bisect set of size N has (N-1) commits further&n;&t; * to test, as we already know one bad one.&n;&t; */
 id|cnt
 op_assign
 id|all
@@ -866,7 +871,7 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|revs.commits-&gt;item-&gt;object.sha1
+id|revs-&gt;commits-&gt;item-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
@@ -879,7 +884,6 @@ id|show_all
 id|traverse_commit_list
 c_func
 (paren
-op_amp
 id|revs
 comma
 id|show_commit
@@ -1374,6 +1378,9 @@ r_return
 id|show_bisect_vars
 c_func
 (paren
+op_amp
+id|revs
+comma
 id|reaches
 comma
 id|all
