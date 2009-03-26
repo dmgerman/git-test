@@ -194,6 +194,13 @@ id|autorebase
 op_assign
 id|AUTOREBASE_NEVER
 suffix:semicolon
+DECL|variable|push_default
+r_enum
+id|push_default_type
+id|push_default
+op_assign
+id|PUSH_DEFAULT_UNSPECIFIED
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int
