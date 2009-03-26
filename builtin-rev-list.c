@@ -60,11 +60,6 @@ r_struct
 id|rev_info
 id|revs
 suffix:semicolon
-DECL|variable|bisect_list
-r_static
-r_int
-id|bisect_list
-suffix:semicolon
 DECL|variable|show_timestamp
 r_static
 r_int
@@ -2580,6 +2575,11 @@ id|i
 suffix:semicolon
 r_int
 id|read_from_stdin
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|bisect_list
 op_assign
 l_int|0
 suffix:semicolon
