@@ -21,9 +21,6 @@ r_static
 r_struct
 id|send_pack_args
 id|args
-op_assign
-(brace
-)brace
 suffix:semicolon
 DECL|function|feed_object
 r_static
