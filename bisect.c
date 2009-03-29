@@ -2616,9 +2616,7 @@ id|reaches
 comma
 id|all
 comma
-l_int|0
-comma
-l_int|1
+id|BISECT_SHOW_TRIED
 )paren
 suffix:semicolon
 )brace

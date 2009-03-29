@@ -885,10 +885,7 @@ r_int
 id|all
 comma
 r_int
-id|show_all
-comma
-r_int
-id|show_tried
+id|flags
 )paren
 (brace
 r_int
@@ -914,7 +911,11 @@ op_logical_neg
 id|revs-&gt;commits
 op_logical_and
 op_logical_neg
-id|show_tried
+(paren
+id|flags
+op_amp
+id|BISECT_SHOW_TRIED
+)paren
 )paren
 r_return
 l_int|1
@@ -929,7 +930,9 @@ comma
 op_amp
 id|tried
 comma
-id|show_all
+id|flags
+op_amp
+id|BISECT_SHOW_ALL
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * revs-&gt;commits can reach &quot;reaches&quot; commits among&n;&t; * &quot;all&quot; commits.  If it is good, then there are&n;&t; * (all-reaches) commits left to be bisected.&n;&t; * On the other hand, if it is bad, then the set&n;&t; * to bisect is &quot;reaches&quot;.&n;&t; * A bisect set of size N has (N-1) commits further&n;&t; * to test, as we already know one bad one.&n;&t; */
@@ -969,7 +972,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|show_all
+id|flags
+op_amp
+id|BISECT_SHOW_ALL
 )paren
 (brace
 id|traverse_commit_list
@@ -992,7 +997,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|show_tried
+id|flags
+op_amp
+id|BISECT_SHOW_TRIED
 )paren
 id|show_tried_revs
 c_func
@@ -1497,7 +1504,10 @@ comma
 id|all
 comma
 id|bisect_show_all
-comma
+ques
+c_cond
+id|BISECT_SHOW_ALL
+suffix:colon
 l_int|0
 )paren
 suffix:semicolon
