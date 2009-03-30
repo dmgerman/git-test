@@ -2617,6 +2617,8 @@ comma
 id|all
 comma
 id|BISECT_SHOW_TRIED
+op_or
+id|BISECT_SHOW_STRINGED
 )paren
 suffix:semicolon
 )brace

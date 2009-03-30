@@ -818,6 +818,9 @@ r_struct
 id|commit_list
 op_star
 id|tried
+comma
+r_int
+id|stringed
 )paren
 (brace
 id|printf
@@ -864,6 +867,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|stringed
+ques
+c_cond
+l_string|&quot;&squot; &amp;&amp;&bslash;n&quot;
+suffix:colon
 l_string|&quot;&squot;&bslash;n&quot;
 )paren
 suffix:semicolon
@@ -898,6 +906,9 @@ l_int|41
 )braket
 op_assign
 l_string|&quot;&quot;
+comma
+op_star
+id|format
 suffix:semicolon
 r_struct
 id|commit_list
@@ -1005,17 +1016,39 @@ id|show_tried_revs
 c_func
 (paren
 id|tried
+comma
+id|flags
+op_amp
+id|BISECT_SHOW_STRINGED
 )paren
 suffix:semicolon
-id|printf
-c_func
+id|format
+op_assign
 (paren
+id|flags
+op_amp
+id|BISECT_SHOW_STRINGED
+)paren
+ques
+c_cond
+l_string|&quot;bisect_rev=%s &amp;&amp;&bslash;n&quot;
+l_string|&quot;bisect_nr=%d &amp;&amp;&bslash;n&quot;
+l_string|&quot;bisect_good=%d &amp;&amp;&bslash;n&quot;
+l_string|&quot;bisect_bad=%d &amp;&amp;&bslash;n&quot;
+l_string|&quot;bisect_all=%d &amp;&amp;&bslash;n&quot;
+l_string|&quot;bisect_steps=%d&bslash;n&quot;
+suffix:colon
 l_string|&quot;bisect_rev=%s&bslash;n&quot;
 l_string|&quot;bisect_nr=%d&bslash;n&quot;
 l_string|&quot;bisect_good=%d&bslash;n&quot;
 l_string|&quot;bisect_bad=%d&bslash;n&quot;
 l_string|&quot;bisect_all=%d&bslash;n&quot;
 l_string|&quot;bisect_steps=%d&bslash;n&quot;
+suffix:semicolon
+id|printf
+c_func
+(paren
+id|format
 comma
 id|hex
 comma
