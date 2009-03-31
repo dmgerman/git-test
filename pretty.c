@@ -2873,6 +2873,11 @@ r_int
 id|trimlen
 suffix:semicolon
 r_int
+id|start_len
+op_assign
+id|sb-&gt;len
+suffix:semicolon
+r_int
 id|space
 op_assign
 l_int|2
@@ -2970,6 +2975,12 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+id|sb-&gt;len
+id|trimlen
+OG
+id|start_len
+op_logical_and
+(paren
 id|sb-&gt;buf
 (braket
 id|sb-&gt;len
@@ -2987,6 +2998,7 @@ id|trimlen
 )braket
 op_eq
 l_char|&squot;-&squot;
+)paren
 )paren
 id|trimlen
 op_increment
