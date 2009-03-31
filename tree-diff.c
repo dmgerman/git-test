@@ -740,9 +740,33 @@ id|matchlen
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * The base is a subdirectory of a path which&n;&t;&t;&t; * was specified, so all of them are interesting.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * If the base is a subdirectory of a path which&n;&t;&t;&t; * was specified, all of them are interesting.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|matchlen
+op_logical_or
+id|base
+(braket
+id|matchlen
+)braket
+op_eq
+l_char|&squot;/&squot;
+op_logical_or
+id|match
+(braket
+id|matchlen
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+)paren
 r_return
 l_int|2
+suffix:semicolon
+multiline_comment|/* Just a random prefix match */
+r_continue
 suffix:semicolon
 )brace
 multiline_comment|/* Does the base match? */
