@@ -7587,7 +7587,7 @@ id|ours
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/* Run &quot;rev-list --left-right ours...theirs&quot; internally... */
+multiline_comment|/* Run &quot;rev-list --no-merges --left-right ours...theirs&quot; internally... */
 id|rev_argc
 op_assign
 l_int|0
@@ -7599,6 +7599,14 @@ op_increment
 )braket
 op_assign
 l_int|NULL
+suffix:semicolon
+id|rev_argv
+(braket
+id|rev_argc
+op_increment
+)braket
+op_assign
+l_string|&quot;--no-merges&quot;
 suffix:semicolon
 id|rev_argv
 (braket

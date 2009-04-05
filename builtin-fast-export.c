@@ -1108,6 +1108,15 @@ r_if
 c_cond
 (paren
 id|commit-&gt;parents
+op_logical_and
+id|get_object_mark
+c_func
+(paren
+op_amp
+id|commit-&gt;parents-&gt;item-&gt;object
+)paren
+op_ne
+l_int|0
 )paren
 (brace
 id|parse_commit
@@ -1912,6 +1921,7 @@ op_star
 )paren
 id|e-&gt;item
 suffix:semicolon
+multiline_comment|/* handle nested tags */
 r_while
 c_loop
 (paren
@@ -1922,6 +1932,12 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
+id|parse_object
+c_func
+(paren
+id|tag-&gt;object.sha1
+)paren
+suffix:semicolon
 id|string_list_append
 c_func
 (paren
@@ -1988,20 +2004,41 @@ id|tag-&gt;object.sha1
 suffix:semicolon
 r_continue
 suffix:semicolon
+r_default
+suffix:colon
+multiline_comment|/* OBJ_TAG (nested tags) is already handled */
+id|warning
+c_func
+(paren
+l_string|&quot;Tag points to object of unexpected type %s, skipping.&quot;
+comma
+r_typename
+(paren
+id|tag-&gt;object.type
+)paren
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
 )brace
 r_break
 suffix:semicolon
 r_default
 suffix:colon
-id|die
+id|warning
+c_func
 (paren
-l_string|&quot;Unexpected object of type %s&quot;
+l_string|&quot;%s: Unexpected object of type %s, skipping.&quot;
+comma
+id|e-&gt;name
 comma
 r_typename
 (paren
 id|e-&gt;item-&gt;type
 )paren
 )paren
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 r_if

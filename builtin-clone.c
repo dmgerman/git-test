@@ -1454,6 +1454,7 @@ op_star
 id|junk_git_dir
 suffix:semicolon
 DECL|variable|junk_pid
+r_static
 id|pid_t
 id|junk_pid
 suffix:semicolon
@@ -2205,16 +2206,12 @@ c_func
 (paren
 id|CONFIG_ENVIRONMENT
 comma
-id|xstrdup
-c_func
-(paren
 id|mkpath
 c_func
 (paren
 l_string|&quot;%s/config&quot;
 comma
 id|git_dir
-)paren
 )paren
 comma
 l_int|1
