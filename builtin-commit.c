@@ -1152,6 +1152,9 @@ c_cond
 id|interactive
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|interactive_add
 c_func
 (paren
@@ -1160,6 +1163,14 @@ comma
 id|argv
 comma
 id|prefix
+)paren
+op_ne
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;interactive add failed&quot;
 )paren
 suffix:semicolon
 r_if
