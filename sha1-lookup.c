@@ -218,7 +218,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;oops&quot;
+l_string|&quot;BUG: assertion failed in binary search&quot;
 )paren
 suffix:semicolon
 )brace
