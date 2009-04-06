@@ -4682,6 +4682,9 @@ r_struct
 id|timeval
 id|tv
 suffix:semicolon
+id|time_t
+id|time_sec
+suffix:semicolon
 r_char
 id|buffer
 (braket
@@ -4726,11 +4729,15 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|time_sec
+op_assign
+id|tv.tv_sec
+suffix:semicolon
 id|localtime_r
 c_func
 (paren
 op_amp
-id|tv.tv_sec
+id|time_sec
 comma
 op_amp
 id|tm
