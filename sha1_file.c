@@ -11606,7 +11606,7 @@ id|c
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Move the just written object into its final resting place&n; */
+multiline_comment|/*&n; * Move the just written object into its final resting place.&n; * NEEDSWORK: this should be renamed to finalize_temp_file() as&n; * &quot;moving&quot; is only a part of what it does, when no patch between&n; * master to pu changes the call sites of this function.&n; */
 DECL|function|move_temp_to_file
 r_int
 id|move_temp_to_file
@@ -11643,7 +11643,7 @@ id|ret
 op_assign
 id|errno
 suffix:semicolon
-multiline_comment|/*&n;&t; * Coda hack - coda doesn&squot;t like cross-directory links,&n;&t; * so we fall back to a rename, which will mean that it&n;&t; * won&squot;t be able to check collisions, but that&squot;s not a&n;&t; * big deal.&n;&t; *&n;&t; * The same holds for FAT formatted media.&n;&t; *&n;&t; * When this succeeds, we just return 0. We have nothing&n;&t; * left to unlink.&n;&t; */
+multiline_comment|/*&n;&t; * Coda hack - coda doesn&squot;t like cross-directory links,&n;&t; * so we fall back to a rename, which will mean that it&n;&t; * won&squot;t be able to check collisions, but that&squot;s not a&n;&t; * big deal.&n;&t; *&n;&t; * The same holds for FAT formatted media.&n;&t; *&n;&t; * When this succeeds, we just return.  We have nothing&n;&t; * left to unlink.&n;&t; */
 r_if
 c_cond
 (paren
@@ -11666,8 +11666,8 @@ comma
 id|filename
 )paren
 )paren
-r_return
-l_int|0
+r_goto
+id|out
 suffix:semicolon
 id|ret
 op_assign
@@ -11712,6 +11712,32 @@ suffix:semicolon
 )brace
 multiline_comment|/* FIXME!!! Collision check here ? */
 )brace
+id|out
+suffix:colon
+r_if
+c_cond
+(paren
+id|set_shared_perm
+c_func
+(paren
+id|filename
+comma
+(paren
+id|S_IFREG
+op_or
+l_int|0444
+)paren
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;unable to set permission to &squot;%s&squot;&quot;
+comma
+id|filename
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -11843,14 +11869,6 @@ c_func
 id|fd
 comma
 l_string|&quot;sha1 file&quot;
-)paren
-suffix:semicolon
-id|fchmod
-c_func
-(paren
-id|fd
-comma
-l_int|0444
 )paren
 suffix:semicolon
 r_if

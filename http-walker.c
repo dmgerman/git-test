@@ -1144,14 +1144,6 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
-id|fchmod
-c_func
-(paren
-id|obj_req-&gt;local
-comma
-l_int|0444
-)paren
-suffix:semicolon
 id|close
 c_func
 (paren

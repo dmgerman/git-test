@@ -2181,7 +2181,7 @@ id|PERM_GROUP
 suffix:colon
 id|PERM_UMASK
 suffix:semicolon
-multiline_comment|/*&n;&t; * Treat values 0, 1 and 2 as compatibility cases, otherwise it is&n;&t; * a chmod value.&n;&t; */
+multiline_comment|/*&n;&t; * Treat values 0, 1 and 2 as compatibility cases, otherwise it is&n;&t; * a chmod value to restrict to.&n;&t; */
 r_switch
 c_cond
 (paren
@@ -2234,9 +2234,11 @@ id|i
 suffix:semicolon
 multiline_comment|/*&n;&t; * Mask filemode value. Others can not get write permission.&n;&t; * x flags for directories are handled separately.&n;&t; */
 r_return
+(paren
 id|i
 op_amp
 l_int|0666
+)paren
 suffix:semicolon
 )brace
 DECL|function|check_repository_format_version

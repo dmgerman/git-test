@@ -991,6 +991,7 @@ id|is_bare_repository_cfg
 op_assign
 id|init_is_bare_repository
 suffix:semicolon
+multiline_comment|/* reading existing config may have overwrote it */
 r_if
 c_cond
 (paren
@@ -1597,6 +1598,25 @@ r_if
 c_cond
 (paren
 id|shared_repository
+OL
+l_int|0
+)paren
+multiline_comment|/* force to the mode value */
+id|sprintf
+c_func
+(paren
+id|buf
+comma
+l_string|&quot;0%o&quot;
+comma
+id|shared_repository
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|shared_repository
 op_eq
 id|PERM_GROUP
 )paren
@@ -1629,14 +1649,10 @@ id|OLD_PERM_EVERYBODY
 )paren
 suffix:semicolon
 r_else
-id|sprintf
+id|die
 c_func
 (paren
-id|buf
-comma
-l_string|&quot;0%o&quot;
-comma
-id|shared_repository
+l_string|&quot;oops&quot;
 )paren
 suffix:semicolon
 id|git_config_set
@@ -2039,6 +2055,17 @@ id|init_db_usage
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|init_shared_repository
+op_ne
+l_int|1
+)paren
+id|shared_repository
+op_assign
+id|init_shared_repository
+suffix:semicolon
 multiline_comment|/*&n;&t; * GIT_WORK_TREE makes sense only in conjunction with GIT_DIR&n;&t; * without --bare.  Catch the error early.&n;&t; */
 id|git_dir
 op_assign
