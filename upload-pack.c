@@ -255,6 +255,10 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_if
@@ -330,6 +334,10 @@ r_struct
 id|object_array_entry
 op_star
 id|p
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 multiline_comment|/* An object with name &quot;foo&bslash;n0000000...&quot; can be used to&n;&t; * confuse downstream git-pack-objects very badly.&n;&t; */
@@ -668,6 +676,8 @@ comma
 id|show_commit
 comma
 id|show_object
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|fflush

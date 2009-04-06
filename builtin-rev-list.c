@@ -47,12 +47,6 @@ l_string|&quot;    --bisect&bslash;n&quot;
 l_string|&quot;    --bisect-vars&bslash;n&quot;
 l_string|&quot;    --bisect-all&quot;
 suffix:semicolon
-DECL|variable|revs
-r_static
-r_struct
-id|rev_info
-id|revs
-suffix:semicolon
 DECL|variable|show_timestamp
 r_static
 r_int
@@ -79,6 +73,10 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_void
+op_star
+id|data
 )paren
 suffix:semicolon
 DECL|function|show_commit
@@ -91,12 +89,23 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
+r_struct
+id|rev_info
+op_star
+id|revs
+op_assign
+id|data
+suffix:semicolon
 id|graph_show_commit
 c_func
 (paren
-id|revs.graph
+id|revs-&gt;graph
 )paren
 suffix:semicolon
 r_if
@@ -129,7 +138,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|revs.graph
+id|revs-&gt;graph
 )paren
 (brace
 r_if
@@ -163,7 +172,7 @@ r_else
 r_if
 c_cond
 (paren
-id|revs.left_right
+id|revs-&gt;left_right
 )paren
 (brace
 r_if
@@ -191,9 +200,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.abbrev_commit
+id|revs-&gt;abbrev_commit
 op_logical_and
-id|revs.abbrev
+id|revs-&gt;abbrev
 )paren
 id|fputs
 c_func
@@ -203,7 +212,7 @@ c_func
 (paren
 id|commit-&gt;object.sha1
 comma
-id|revs.abbrev
+id|revs-&gt;abbrev
 )paren
 comma
 id|stdout
@@ -225,7 +234,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.print_parents
+id|revs-&gt;print_parents
 )paren
 (brace
 r_struct
@@ -262,7 +271,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.children.name
+id|revs-&gt;children.name
 )paren
 (brace
 r_struct
@@ -276,7 +285,7 @@ id|lookup_decoration
 c_func
 (paren
 op_amp
-id|revs.children
+id|revs-&gt;children
 comma
 op_amp
 id|commit-&gt;object
@@ -309,7 +318,6 @@ suffix:semicolon
 id|show_decorations
 c_func
 (paren
-op_amp
 id|revs
 comma
 id|commit
@@ -318,7 +326,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.commit_format
+id|revs-&gt;commit_format
 op_eq
 id|CMIT_FMT_ONELINE
 )paren
@@ -338,7 +346,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.verbose_header
+id|revs-&gt;verbose_header
 op_logical_and
 id|commit-&gt;buffer
 )paren
@@ -352,20 +360,20 @@ suffix:semicolon
 id|pretty_print_commit
 c_func
 (paren
-id|revs.commit_format
+id|revs-&gt;commit_format
 comma
 id|commit
 comma
 op_amp
 id|buf
 comma
-id|revs.abbrev
+id|revs-&gt;abbrev
 comma
 l_int|NULL
 comma
 l_int|NULL
 comma
-id|revs.date_mode
+id|revs-&gt;date_mode
 comma
 l_int|0
 )paren
@@ -373,7 +381,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.graph
+id|revs-&gt;graph
 )paren
 (brace
 r_if
@@ -385,20 +393,20 @@ id|buf.len
 r_if
 c_cond
 (paren
-id|revs.commit_format
+id|revs-&gt;commit_format
 op_ne
 id|CMIT_FMT_ONELINE
 )paren
 id|graph_show_oneline
 c_func
 (paren
-id|revs.graph
+id|revs-&gt;graph
 )paren
 suffix:semicolon
 id|graph_show_commit_msg
 c_func
 (paren
-id|revs.graph
+id|revs-&gt;graph
 comma
 op_amp
 id|buf
@@ -421,7 +429,7 @@ l_char|&squot;&bslash;n&squot;
 id|graph_show_padding
 c_func
 (paren
-id|revs.graph
+id|revs-&gt;graph
 )paren
 suffix:semicolon
 id|putchar
@@ -440,7 +448,7 @@ c_cond
 id|graph_show_remainder
 c_func
 (paren
-id|revs.graph
+id|revs-&gt;graph
 )paren
 )paren
 id|putchar
@@ -485,7 +493,7 @@ c_cond
 id|graph_show_remainder
 c_func
 (paren
-id|revs.graph
+id|revs-&gt;graph
 )paren
 )paren
 id|putchar
@@ -507,6 +515,8 @@ id|finish_commit
 c_func
 (paren
 id|commit
+comma
+id|data
 )paren
 suffix:semicolon
 )brace
@@ -520,6 +530,10 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_if
@@ -560,6 +574,10 @@ r_struct
 id|object_array_entry
 op_star
 id|p
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_if
@@ -599,6 +617,10 @@ r_struct
 id|object_array_entry
 op_star
 id|p
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 multiline_comment|/* An object with name &quot;foo&bslash;n0000000...&quot; can be used to&n;&t; * confuse downstream &quot;git pack-objects&quot; very badly.&n;&t; */
@@ -619,6 +641,8 @@ id|finish_object
 c_func
 (paren
 id|p
+comma
+id|data
 )paren
 suffix:semicolon
 r_if
@@ -996,6 +1020,8 @@ comma
 id|show_commit
 comma
 id|show_object
+comma
+id|revs
 )paren
 suffix:semicolon
 id|printf
@@ -1095,6 +1121,10 @@ op_star
 id|prefix
 )paren
 (brace
+r_struct
+id|rev_info
+id|revs
+suffix:semicolon
 r_struct
 id|commit_list
 op_star
@@ -1564,6 +1594,9 @@ c_cond
 id|finish_object
 suffix:colon
 id|show_object
+comma
+op_amp
+id|revs
 )paren
 suffix:semicolon
 r_return
