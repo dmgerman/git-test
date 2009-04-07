@@ -2569,6 +2569,12 @@ op_assign
 op_amp
 id|revs
 suffix:semicolon
+id|info.bisect_show_flags
+op_assign
+id|BISECT_SHOW_TRIED
+op_or
+id|BISECT_SHOW_STRINGED
+suffix:semicolon
 id|bisect_rev_setup
 c_func
 (paren
@@ -2638,10 +2644,6 @@ comma
 id|reaches
 comma
 id|all
-comma
-id|BISECT_SHOW_TRIED
-op_or
-id|BISECT_SHOW_STRINGED
 )paren
 suffix:semicolon
 )brace
