@@ -1516,6 +1516,9 @@ r_const
 r_char
 op_star
 id|branch_name
+comma
+r_int
+id|show_upstream_ref
 )paren
 (brace
 r_int
@@ -1549,17 +1552,78 @@ comma
 op_amp
 id|theirs
 )paren
-op_logical_or
+)paren
+(brace
+r_if
+c_cond
 (paren
-op_logical_neg
-id|ours
+id|branch
 op_logical_and
-op_logical_neg
-id|theirs
+id|branch-&gt;merge
+op_logical_and
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
+op_logical_and
+id|show_upstream_ref
+)paren
+id|strbuf_addf
+c_func
+(paren
+id|stat
+comma
+l_string|&quot;[%s] &quot;
+comma
+id|shorten_unambiguous_ref
+c_func
+(paren
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
 )paren
 )paren
+suffix:semicolon
 r_return
 suffix:semicolon
+)brace
+id|strbuf_addch
+c_func
+(paren
+id|stat
+comma
+l_char|&squot;[&squot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_upstream_ref
+)paren
+id|strbuf_addf
+c_func
+(paren
+id|stat
+comma
+l_string|&quot;%s: &quot;
+comma
+id|shorten_unambiguous_ref
+c_func
+(paren
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
+)paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1571,7 +1635,7 @@ c_func
 (paren
 id|stat
 comma
-l_string|&quot;[behind %d] &quot;
+l_string|&quot;behind %d] &quot;
 comma
 id|theirs
 )paren
@@ -1588,7 +1652,7 @@ c_func
 (paren
 id|stat
 comma
-l_string|&quot;[ahead %d] &quot;
+l_string|&quot;ahead %d] &quot;
 comma
 id|ours
 )paren
@@ -1599,7 +1663,7 @@ c_func
 (paren
 id|stat
 comma
-l_string|&quot;[ahead %d, behind %d] &quot;
+l_string|&quot;ahead %d, behind %d] &quot;
 comma
 id|ours
 comma
@@ -1937,6 +2001,10 @@ op_amp
 id|stat
 comma
 id|item-&gt;name
+comma
+id|verbose
+OG
+l_int|1
 )paren
 suffix:semicolon
 id|strbuf_addf
