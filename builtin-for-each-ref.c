@@ -3207,8 +3207,8 @@ op_star
 id|get_short_ref
 c_func
 (paren
-r_struct
-id|refinfo
+r_const
+r_char
 op_star
 id|ref
 )paren
@@ -3355,15 +3355,19 @@ op_logical_neg
 id|nr_rules
 )paren
 r_return
-id|ref-&gt;refname
+id|xstrdup
+c_func
+(paren
+id|ref
+)paren
 suffix:semicolon
-multiline_comment|/* buffer for scanf result, at most ref-&gt;refname must fit */
+multiline_comment|/* buffer for scanf result, at most ref must fit */
 id|short_name
 op_assign
 id|xstrdup
 c_func
 (paren
-id|ref-&gt;refname
+id|ref
 )paren
 suffix:semicolon
 multiline_comment|/* skip first rule, it will always match */
@@ -3397,7 +3401,7 @@ op_ne
 id|sscanf
 c_func
 (paren
-id|ref-&gt;refname
+id|ref
 comma
 id|scanf_fmts
 (braket
@@ -3508,7 +3512,11 @@ id|short_name
 )paren
 suffix:semicolon
 r_return
-id|ref-&gt;refname
+id|xstrdup
+c_func
+(paren
+id|ref
+)paren
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Parse the object referred by ref, and grab needed value.&n; */
@@ -3738,7 +3746,7 @@ op_assign
 id|get_short_ref
 c_func
 (paren
-id|ref
+id|ref-&gt;refname
 )paren
 suffix:semicolon
 r_else
