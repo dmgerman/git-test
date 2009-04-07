@@ -3669,6 +3669,16 @@ id|deref
 op_assign
 l_int|0
 suffix:semicolon
+r_const
+r_char
+op_star
+id|refname
+suffix:semicolon
+r_const
+r_char
+op_star
+id|formatp
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3698,10 +3708,13 @@ comma
 l_string|&quot;refname&quot;
 )paren
 )paren
-(brace
-r_const
-r_char
-op_star
+id|refname
+op_assign
+id|ref-&gt;refname
+suffix:semicolon
+r_else
+r_continue
+suffix:semicolon
 id|formatp
 op_assign
 id|strchr
@@ -3711,13 +3724,6 @@ id|name
 comma
 l_char|&squot;:&squot;
 )paren
-suffix:semicolon
-r_const
-r_char
-op_star
-id|refname
-op_assign
-id|ref-&gt;refname
 suffix:semicolon
 multiline_comment|/* look for &quot;short&quot; refname format */
 r_if
@@ -3746,14 +3752,24 @@ op_assign
 id|get_short_ref
 c_func
 (paren
-id|ref-&gt;refname
+id|refname
 )paren
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
-l_string|&quot;unknown refname format %s&quot;
+l_string|&quot;unknown %.*s format %s&quot;
+comma
+(paren
+r_int
+)paren
+(paren
+id|formatp
+id|name
+)paren
+comma
+id|name
 comma
 id|formatp
 )paren
@@ -3806,7 +3822,6 @@ id|v-&gt;s
 op_assign
 id|s
 suffix:semicolon
-)brace
 )brace
 )brace
 id|grab_values
