@@ -8,6 +8,7 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;remote.h&quot;
 multiline_comment|/* Quoting styles */
 DECL|macro|QUOTE_NONE
 mdefine_line|#define QUOTE_NONE 0
@@ -238,6 +239,10 @@ l_string|&quot;body&quot;
 comma
 (brace
 l_string|&quot;contents&quot;
+)brace
+comma
+(brace
+l_string|&quot;upstream&quot;
 )brace
 comma
 )brace
@@ -3712,6 +3717,84 @@ id|refname
 op_assign
 id|ref-&gt;refname
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|name
+comma
+l_string|&quot;upstream&quot;
+)paren
+)paren
+(brace
+r_struct
+id|branch
+op_star
+id|branch
+suffix:semicolon
+multiline_comment|/* only local branches may have an upstream */
+r_if
+c_cond
+(paren
+id|prefixcmp
+c_func
+(paren
+id|ref-&gt;refname
+comma
+l_string|&quot;refs/heads/&quot;
+)paren
+)paren
+r_continue
+suffix:semicolon
+id|branch
+op_assign
+id|branch_get
+c_func
+(paren
+id|ref-&gt;refname
+op_plus
+l_int|11
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|branch
+op_logical_or
+op_logical_neg
+id|branch-&gt;merge
+op_logical_or
+op_logical_neg
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_logical_or
+op_logical_neg
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
+)paren
+r_continue
+suffix:semicolon
+id|refname
+op_assign
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
+suffix:semicolon
+)brace
 r_else
 r_continue
 suffix:semicolon
