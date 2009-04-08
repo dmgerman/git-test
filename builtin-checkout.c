@@ -2727,7 +2727,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Already on &bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
+l_string|&quot;Already on &squot;%s&squot;&bslash;n&quot;
 comma
 r_new
 op_member_access_from_pointer
@@ -2740,7 +2740,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Switched to%s branch &bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
+l_string|&quot;Switched to%s branch &squot;%s&squot;&bslash;n&quot;
 comma
 id|opts-&gt;new_branch
 ques
@@ -2806,7 +2806,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Note: moving to &bslash;&quot;%s&bslash;&quot; which isn&squot;t a local branch&bslash;nIf you want to create a new branch from this checkout, you may do so&bslash;n(now or later) by using -b with the checkout command again. Example:&bslash;n  git checkout -b &lt;new_branch_name&gt;&bslash;n&quot;
+l_string|&quot;Note: moving to &squot;%s&squot; which isn&squot;t a local branch&bslash;nIf you want to create a new branch from this checkout, you may do so&bslash;n(now or later) by using -b with the checkout command again. Example:&bslash;n  git checkout -b &lt;new_branch_name&gt;&bslash;n&quot;
 comma
 r_new
 op_member_access_from_pointer
