@@ -115,6 +115,17 @@ id|argv_exec_path
 op_assign
 id|exec_path
 suffix:semicolon
+multiline_comment|/*&n;&t; * Propagate this setting to external programs.&n;&t; */
+id|setenv
+c_func
+(paren
+id|EXEC_PATH_ENVIRONMENT
+comma
+id|exec_path
+comma
+l_int|1
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/* Returns the highest-priority, location to look for git programs. */
 DECL|function|git_exec_path
