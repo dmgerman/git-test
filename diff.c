@@ -9946,7 +9946,7 @@ id|pos
 comma
 id|len
 suffix:semicolon
-multiline_comment|/* We do not read the cache ourselves here, because the&n;&t; * benchmark with my previous version that always reads cache&n;&t; * shows that it makes things worse for diff-tree comparing&n;&t; * two linux-2.6 kernel trees in an already checked out work&n;&t; * tree.  This is because most diff-tree comparisons deal with&n;&t; * only a small number of files, while reading the cache is&n;&t; * expensive for a large project, and its cost outweighs the&n;&t; * savings we get by not inflating the object to a temporary&n;&t; * file.  Practically, this code only helps when we are used&n;&t; * by diff-cache --cached, which does read the cache before&n;&t; * calling us.&n;&t; */
+multiline_comment|/*&n;&t; * We do not read the cache ourselves here, because the&n;&t; * benchmark with my previous version that always reads cache&n;&t; * shows that it makes things worse for diff-tree comparing&n;&t; * two linux-2.6 kernel trees in an already checked out work&n;&t; * tree.  This is because most diff-tree comparisons deal with&n;&t; * only a small number of files, while reading the cache is&n;&t; * expensive for a large project, and its cost outweighs the&n;&t; * savings we get by not inflating the object to a temporary&n;&t; * file.  Practically, this code only helps when we are used&n;&t; * by diff-cache --cached, which does read the cache before&n;&t; * calling us.&n;&t; */
 r_if
 c_cond
 (paren
@@ -10028,6 +10028,17 @@ c_func
 (paren
 id|ce-&gt;ce_mode
 )paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * If ce is marked as &quot;assume unchanged&quot;, there is no&n;&t; * guarantee that work tree matches what we are looking for.&n;&t; */
+r_if
+c_cond
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_VALID
 )paren
 r_return
 l_int|0
