@@ -768,7 +768,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;Deleted %sbranch %s (%s).&bslash;n&quot;
+l_string|&quot;Deleted %sbranch %s (was %s).&bslash;n&quot;
 comma
 id|remote
 comma
