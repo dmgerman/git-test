@@ -217,6 +217,12 @@ id|do_generic_cmd
 )brace
 comma
 (brace
+l_string|&quot;git-upload-archive&quot;
+comma
+id|do_generic_cmd
+)brace
+comma
+(brace
 l_string|&quot;cvs&quot;
 comma
 id|do_cvs_cmd
