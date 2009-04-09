@@ -4440,6 +4440,7 @@ l_string|&quot;cannot store pack file&quot;
 )paren
 suffix:semicolon
 )brace
+r_else
 r_if
 c_cond
 (paren
@@ -4515,6 +4516,7 @@ l_string|&quot;cannot store index file&quot;
 )paren
 suffix:semicolon
 )brace
+r_else
 id|chmod
 c_func
 (paren

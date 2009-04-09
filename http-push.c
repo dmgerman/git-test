@@ -3520,14 +3520,6 @@ op_eq
 id|RUN_FETCH_LOOSE
 )paren
 (brace
-id|fchmod
-c_func
-(paren
-id|request-&gt;local_fileno
-comma
-l_int|0444
-)paren
-suffix:semicolon
 id|close
 c_func
 (paren
