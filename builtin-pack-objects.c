@@ -7453,7 +7453,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Delta compression using %d threads.&bslash;n&quot;
+l_string|&quot;Delta compression using up to %d threads.&bslash;n&quot;
 comma
 id|delta_search_threads
 )paren
