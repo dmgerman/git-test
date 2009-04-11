@@ -327,9 +327,14 @@ id|show_object
 c_func
 (paren
 r_struct
-id|object_array_entry
+id|object
 op_star
-id|p
+id|obj
+comma
+r_const
+r_char
+op_star
+id|name
 )paren
 (brace
 multiline_comment|/* An object with name &quot;foo&bslash;n0000000...&quot; can be used to&n;&t; * confuse downstream git-pack-objects very badly.&n;&t; */
@@ -341,7 +346,7 @@ op_assign
 id|strchr
 c_func
 (paren
-id|p-&gt;name
+id|name
 comma
 l_char|&squot;&bslash;n&squot;
 )paren
@@ -362,7 +367,7 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|p-&gt;item-&gt;sha1
+id|obj-&gt;sha1
 )paren
 comma
 (paren
@@ -370,10 +375,10 @@ r_int
 )paren
 (paren
 id|ep
-id|p-&gt;name
+id|name
 )paren
 comma
-id|p-&gt;name
+id|name
 )paren
 suffix:semicolon
 )brace
@@ -388,10 +393,10 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|p-&gt;item-&gt;sha1
+id|obj-&gt;sha1
 )paren
 comma
-id|p-&gt;name
+id|name
 )paren
 suffix:semicolon
 )brace

@@ -17,7 +17,6 @@ id|show_early_output_fn_t
 id|show_early_output
 suffix:semicolon
 DECL|function|path_name
-r_static
 r_char
 op_star
 id|path_name
