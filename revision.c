@@ -22,6 +22,7 @@ op_star
 id|path_name
 c_func
 (paren
+r_const
 r_struct
 id|name_path
 op_star
@@ -33,6 +34,7 @@ op_star
 id|name
 )paren
 (brace
+r_const
 r_struct
 id|name_path
 op_star
