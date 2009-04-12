@@ -8951,6 +8951,10 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 id|add_object_entry
@@ -8980,6 +8984,10 @@ r_struct
 id|object_array_entry
 op_star
 id|p
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 id|add_preferred_base_object
@@ -9882,6 +9890,8 @@ comma
 id|show_commit
 comma
 id|show_object
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
