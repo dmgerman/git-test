@@ -3419,7 +3419,7 @@ c_func
 (paren
 id|refname
 comma
-l_int|0
+id|warn_ambiguous_refs
 )paren
 suffix:semicolon
 r_else
@@ -5153,6 +5153,15 @@ suffix:semicolon
 id|sort_atom_limit
 op_assign
 id|used_atom_cnt
+suffix:semicolon
+multiline_comment|/* for warn_ambiguous_refs */
+id|git_config
+c_func
+(paren
+id|git_default_config
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 id|memset
 c_func
