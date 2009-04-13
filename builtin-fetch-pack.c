@@ -950,15 +950,9 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_int
-id|len
-suffix:semicolon
 r_while
 c_loop
 (paren
-(paren
-id|len
-op_assign
 id|packet_read_line
 c_func
 (paren
@@ -972,7 +966,6 @@ comma
 r_sizeof
 (paren
 id|line
-)paren
 )paren
 )paren
 )paren
@@ -2389,8 +2382,6 @@ l_int|0
 )braket
 comma
 id|fd
-comma
-l_int|2
 )paren
 suffix:semicolon
 )brace
@@ -3072,12 +3063,10 @@ op_logical_neg
 id|args.keep_pack
 )paren
 multiline_comment|/* When cloning, it is not unusual to have&n;&t;&t;&t; * no common commit.&n;&t;&t;&t; */
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: no common commits&bslash;n&quot;
+l_string|&quot;no common commits&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4149,12 +4138,14 @@ id|mtime.sec
 op_assign
 id|st.st_mtime
 suffix:semicolon
-macro_line|#ifdef USE_NSEC
-id|mtime.usec
+id|mtime.nsec
 op_assign
-id|st.st_mtim.usec
+id|ST_MTIME_NSEC
+c_func
+(paren
+id|st
+)paren
 suffix:semicolon
-macro_line|#endif
 r_if
 c_cond
 (paren
@@ -4189,9 +4180,13 @@ op_ne
 id|mtime.sec
 macro_line|#ifdef USE_NSEC
 op_logical_or
-id|st.st_mtim.usec
+id|ST_MTIME_NSEC
+c_func
+(paren
+id|st
+)paren
 op_ne
-id|mtime.usec
+id|mtime.nsec
 macro_line|#endif
 )paren
 id|die

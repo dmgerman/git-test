@@ -1302,11 +1302,11 @@ id|slash
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * *string and *len will only be substituted, and *string returned (for&n; * later free()ing) if the string passed in is of the form @{-&lt;n&gt;}.&n; */
-DECL|function|substitute_nth_last_branch
+DECL|function|substitute_branch_name
 r_static
 r_char
 op_star
-id|substitute_nth_last_branch
+id|substitute_branch_name
 c_func
 (paren
 r_const
@@ -1329,7 +1329,7 @@ suffix:semicolon
 r_int
 id|ret
 op_assign
-id|interpret_nth_last_branch
+id|interpret_branch_name
 c_func
 (paren
 op_star
@@ -1410,7 +1410,7 @@ r_char
 op_star
 id|last_branch
 op_assign
-id|substitute_nth_last_branch
+id|substitute_branch_name
 c_func
 (paren
 op_amp
@@ -1618,7 +1618,7 @@ r_char
 op_star
 id|last_branch
 op_assign
-id|substitute_nth_last_branch
+id|substitute_branch_name
 c_func
 (paren
 op_amp
@@ -2039,7 +2039,7 @@ suffix:semicolon
 multiline_comment|/* try the @{-N} syntax for n-th checkout */
 id|ret
 op_assign
-id|interpret_nth_last_branch
+id|interpret_branch_name
 c_func
 (paren
 id|str
@@ -4135,9 +4135,9 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * This reads &quot;@{-N}&quot; syntax, finds the name of the Nth previous&n; * branch we were on, and places the name of the branch in the given&n; * buf and returns the number of characters parsed if successful.&n; *&n; * If the input is not of the accepted format, it returns a negative&n; * number to signal an error.&n; *&n; * If the input was ok but there are not N branch switches in the&n; * reflog, it returns 0.&n; */
-DECL|function|interpret_nth_last_branch
+DECL|function|interpret_branch_name
 r_int
-id|interpret_nth_last_branch
+id|interpret_branch_name
 c_func
 (paren
 r_const

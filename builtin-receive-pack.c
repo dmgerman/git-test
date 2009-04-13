@@ -3452,7 +3452,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;&squot;%s&squot;: unable to chdir or not a git archive&quot;
+l_string|&quot;&squot;%s&squot; does not appear to be a git repository&quot;
 comma
 id|dir
 )paren

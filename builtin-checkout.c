@@ -187,18 +187,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|S_ISGITLINK
-c_func
-(paren
-id|mode
-)paren
-)paren
-r_return
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|S_ISDIR
 c_func
 (paren
@@ -1692,6 +1680,24 @@ id|rev.diffopt.output_format
 op_or_assign
 id|DIFF_FORMAT_NAME_STATUS
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|diff_setup_done
+c_func
+(paren
+op_amp
+id|rev.diffopt
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;diff_setup_done failed&quot;
+)paren
+suffix:semicolon
 id|add_pending_object
 c_func
 (paren
@@ -1971,34 +1977,26 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-r_int
-id|ret
+id|strbuf_branchname
+c_func
+(paren
+op_amp
+id|buf
+comma
+id|branch-&gt;name
+)paren
 suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
-id|ret
-op_assign
-id|interpret_nth_last_branch
+id|strcmp
 c_func
 (paren
-id|branch-&gt;name
+id|buf.buf
 comma
-op_amp
-id|buf
-)paren
-)paren
-op_logical_and
-id|ret
-op_eq
-id|strlen
-c_func
-(paren
 id|branch-&gt;name
 )paren
 )paren
-(brace
 id|branch-&gt;name
 op_assign
 id|xstrdup
@@ -2022,28 +2020,6 @@ comma
 l_int|11
 )paren
 suffix:semicolon
-)brace
-r_else
-(brace
-id|strbuf_addstr
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_string|&quot;refs/heads/&quot;
-)paren
-suffix:semicolon
-id|strbuf_addstr
-c_func
-(paren
-op_amp
-id|buf
-comma
-id|branch-&gt;name
-)paren
-suffix:semicolon
-)brace
 id|branch-&gt;path
 op_assign
 id|strbuf_detach
@@ -2273,9 +2249,9 @@ id|topts.dir
 )paren
 )paren
 suffix:semicolon
-id|topts.dir-&gt;show_ignored
-op_assign
-l_int|1
+id|topts.dir-&gt;flags
+op_or_assign
+id|DIR_SHOW_IGNORED
 suffix:semicolon
 id|topts.dir-&gt;exclude_per_dir
 op_assign
@@ -2751,7 +2727,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Already on &bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
+l_string|&quot;Already on &squot;%s&squot;&bslash;n&quot;
 comma
 r_new
 op_member_access_from_pointer
@@ -2764,7 +2740,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Switched to%s branch &bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
+l_string|&quot;Switched to%s branch &squot;%s&squot;&bslash;n&quot;
 comma
 id|opts-&gt;new_branch
 ques
@@ -2830,7 +2806,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Note: moving to &bslash;&quot;%s&bslash;&quot; which isn&squot;t a local branch&bslash;nIf you want to create a new branch from this checkout, you may do so&bslash;n(now or later) by using -b with the checkout command again. Example:&bslash;n  git checkout -b &lt;new_branch_name&gt;&bslash;n&quot;
+l_string|&quot;Note: moving to &squot;%s&squot; which isn&squot;t a local branch&bslash;nIf you want to create a new branch from this checkout, you may do so&bslash;n(now or later) by using -b with the checkout command again. Example:&bslash;n  git checkout -b &lt;new_branch_name&gt;&bslash;n&quot;
 comma
 r_new
 op_member_access_from_pointer
@@ -3091,20 +3067,16 @@ op_logical_neg
 id|opts-&gt;quiet
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: You appear to be on a branch yet to be born.&bslash;n&quot;
+l_string|&quot;You appear to be on a branch yet to be born.&quot;
 )paren
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: Forcing checkout of %s.&bslash;n&quot;
+l_string|&quot;Forcing checkout of %s.&quot;
 comma
 r_new
 op_member_access_from_pointer
@@ -3974,20 +3946,22 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-id|strbuf_addstr
+r_if
+c_cond
+(paren
+id|strbuf_check_branch_ref
 c_func
 (paren
 op_amp
 id|buf
 comma
-l_string|&quot;refs/heads/&quot;
+id|opts.new_branch
 )paren
-suffix:semicolon
-id|strbuf_addstr
+)paren
+id|die
 c_func
 (paren
-op_amp
-id|buf
+l_string|&quot;git checkout: we do not like &squot;%s&squot; as a branch name.&quot;
 comma
 id|opts.new_branch
 )paren
@@ -4008,23 +3982,6 @@ id|die
 c_func
 (paren
 l_string|&quot;git checkout: branch %s already exists&quot;
-comma
-id|opts.new_branch
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|check_ref_format
-c_func
-(paren
-id|buf.buf
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;git checkout: we do not like &squot;%s&squot; as a branch name.&quot;
 comma
 id|opts.new_branch
 )paren

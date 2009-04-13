@@ -1418,6 +1418,13 @@ id|exec
 op_assign
 l_int|NULL
 suffix:semicolon
+r_const
+r_char
+op_star
+id|output
+op_assign
+l_int|NULL
+suffix:semicolon
 r_int
 id|compression_level
 op_assign
@@ -1477,6 +1484,21 @@ comma
 l_string|&quot;prefix&quot;
 comma
 l_string|&quot;prepend prefix to each pathname in the archive&quot;
+)paren
+comma
+id|OPT_STRING
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;output&quot;
+comma
+op_amp
+id|output
+comma
+l_string|&quot;file&quot;
+comma
+l_string|&quot;write the archive to this file&quot;
 )paren
 comma
 id|OPT__VERBOSE
@@ -1699,6 +1721,17 @@ id|die
 c_func
 (paren
 l_string|&quot;Option --exec can only be used together with --remote&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|output
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Unexpected option --output&quot;
 )paren
 suffix:semicolon
 r_if

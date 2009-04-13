@@ -37,21 +37,21 @@ id|COLOR_MAXLEN
 )braket
 op_assign
 (brace
-l_string|&quot;&quot;
+id|GIT_COLOR_NORMAL
 comma
-multiline_comment|/* WT_STATUS_HEADER: normal */
-l_string|&quot;&bslash;033[32m&quot;
+multiline_comment|/* WT_STATUS_HEADER */
+id|GIT_COLOR_GREEN
 comma
-multiline_comment|/* WT_STATUS_UPDATED: green */
-l_string|&quot;&bslash;033[31m&quot;
+multiline_comment|/* WT_STATUS_UPDATED */
+id|GIT_COLOR_RED
 comma
-multiline_comment|/* WT_STATUS_CHANGED: red */
-l_string|&quot;&bslash;033[31m&quot;
+multiline_comment|/* WT_STATUS_CHANGED */
+id|GIT_COLOR_RED
 comma
-multiline_comment|/* WT_STATUS_UNTRACKED: red */
-l_string|&quot;&bslash;033[31m&quot;
+multiline_comment|/* WT_STATUS_UNTRACKED */
+id|GIT_COLOR_RED
 comma
-multiline_comment|/* WT_STATUS_NOBRANCH: red */
+multiline_comment|/* WT_STATUS_NOBRANCH */
 )brace
 suffix:semicolon
 DECL|variable|show_untracked_files
@@ -1385,16 +1385,12 @@ c_cond
 op_logical_neg
 id|s-&gt;untracked
 )paren
-(brace
-id|dir.show_other_directories
-op_assign
-l_int|1
+id|dir.flags
+op_or_assign
+id|DIR_SHOW_OTHER_DIRECTORIES
+op_or
+id|DIR_HIDE_EMPTY_DIRECTORIES
 suffix:semicolon
-id|dir.hide_empty_directories
-op_assign
-l_int|1
-suffix:semicolon
-)brace
 id|setup_standard_excludes
 c_func
 (paren

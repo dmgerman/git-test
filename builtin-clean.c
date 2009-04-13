@@ -321,9 +321,9 @@ c_cond
 (paren
 id|ignored_only
 )paren
-id|dir.show_ignored
-op_assign
-l_int|1
+id|dir.flags
+op_or_assign
+id|DIR_SHOW_IGNORED
 suffix:semicolon
 r_if
 c_cond
@@ -361,9 +361,9 @@ suffix:colon
 l_string|&quot; not&quot;
 )paren
 suffix:semicolon
-id|dir.show_other_directories
-op_assign
-l_int|1
+id|dir.flags
+op_or_assign
+id|DIR_SHOW_OTHER_DIRECTORIES
 suffix:semicolon
 r_if
 c_cond
