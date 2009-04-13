@@ -9411,6 +9411,9 @@ r_const
 r_char
 op_star
 id|ref
+comma
+r_int
+id|strict
 )paren
 (brace
 r_int
@@ -9591,6 +9594,11 @@ r_int
 id|j
 suffix:semicolon
 r_int
+id|rules_to_fail
+op_assign
+id|i
+suffix:semicolon
+r_int
 id|short_name_len
 suffix:semicolon
 r_if
@@ -9621,6 +9629,16 @@ c_func
 id|short_name
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * in strict mode, all (except the matched one) rules&n;&t;&t; * must fail to resolve to a valid non-ambiguous ref&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|strict
+)paren
+id|rules_to_fail
+op_assign
+id|nr_rules
+suffix:semicolon
 multiline_comment|/*&n;&t;&t; * check if the short name resolves to a valid ref,&n;&t;&t; * but use only rules prior to the matched one&n;&t;&t; */
 r_for
 c_loop
@@ -9631,7 +9649,7 @@ l_int|0
 suffix:semicolon
 id|j
 OL
-id|i
+id|rules_to_fail
 suffix:semicolon
 id|j
 op_increment
@@ -9659,6 +9677,16 @@ id|refname
 (braket
 id|PATH_MAX
 )braket
+suffix:semicolon
+multiline_comment|/* skip matched rule */
+r_if
+c_cond
+(paren
+id|i
+op_eq
+id|j
+)paren
+r_continue
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * the short name is ambiguous, if it resolves&n;&t;&t;&t; * (with this previous rule) to a valid ref&n;&t;&t;&t; * read_ref() returns 0 on success&n;&t;&t;&t; */
 id|mksnpath
@@ -9699,7 +9727,7 @@ c_cond
 (paren
 id|j
 op_eq
-id|i
+id|rules_to_fail
 )paren
 r_return
 id|short_name

@@ -3418,6 +3418,8 @@ id|shorten_unambiguous_ref
 c_func
 (paren
 id|refname
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_else
