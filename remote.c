@@ -8182,6 +8182,8 @@ r_struct
 id|ref
 op_star
 id|local_refs
+op_assign
+l_int|NULL
 comma
 op_star
 op_star
