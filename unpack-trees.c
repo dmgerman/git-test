@@ -306,6 +306,11 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|o-&gt;update
+)paren
 id|git_attr_set_direction
 c_func
 (paren
@@ -458,6 +463,11 @@ op_amp
 id|progress
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;update
+)paren
 id|git_attr_set_direction
 c_func
 (paren
