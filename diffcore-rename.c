@@ -1193,7 +1193,7 @@ id|source
 op_assign
 id|p-&gt;filespec
 suffix:semicolon
-multiline_comment|/* False hash collission? */
+multiline_comment|/* False hash collision? */
 r_if
 c_cond
 (paren

@@ -2682,7 +2682,7 @@ comma
 id|argv
 )paren
 suffix:semicolon
-multiline_comment|/* be nice with submodule patsh ending in a slash */
+multiline_comment|/* be nice with submodule paths ending in a slash */
 id|read_cache
 c_func
 (paren

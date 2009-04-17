@@ -940,7 +940,7 @@ r_return
 id|commit
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Tree object? Either mark it uniniteresting, or add it&n;&t; * to the list of objects to look at later..&n;&t; */
+multiline_comment|/*&n;&t; * Tree object? Either mark it uninteresting, or add it&n;&t; * to the list of objects to look at later..&n;&t; */
 r_if
 c_cond
 (paren

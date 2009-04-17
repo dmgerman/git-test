@@ -39,7 +39,7 @@ op_star
 id|sb
 )paren
 suffix:semicolon
-multiline_comment|/*&n; * Print a strbuf to stdout.  If the graph is non-NULL, all lines but the&n; * first will be prefixed with the graph output.&n; *&n; * If the strbuf ends with a newline, the output will end after this&n; * newline.  A new graph line will not be printed after the final newline.&n; * If the strbuf is empty, no output will be printed.&n; *&n; * Since the first line will not include the graph ouput, the caller is&n; * responsible for printing this line&squot;s graph (perhaps via&n; * graph_show_commit() or graph_show_oneline()) before calling&n; * graph_show_strbuf().&n; */
+multiline_comment|/*&n; * Print a strbuf to stdout.  If the graph is non-NULL, all lines but the&n; * first will be prefixed with the graph output.&n; *&n; * If the strbuf ends with a newline, the output will end after this&n; * newline.  A new graph line will not be printed after the final newline.&n; * If the strbuf is empty, no output will be printed.&n; *&n; * Since the first line will not include the graph output, the caller is&n; * responsible for printing this line&squot;s graph (perhaps via&n; * graph_show_commit() or graph_show_oneline()) before calling&n; * graph_show_strbuf().&n; */
 r_static
 r_void
 id|graph_show_strbuf

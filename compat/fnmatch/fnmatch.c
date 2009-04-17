@@ -18,7 +18,7 @@ macro_line|#endif
 macro_line|#if defined STDC_HEADERS || defined _LIBC
 macro_line|# include &lt;stdlib.h&gt;
 macro_line|#endif
-multiline_comment|/* For platform which support the ISO C amendement 1 functionality we&n;   support user defined character classes.  */
+multiline_comment|/* For platform which support the ISO C amendment 1 functionality we&n;   support user defined character classes.  */
 macro_line|#if defined _LIBC || (defined HAVE_WCTYPE_H &amp;&amp; defined HAVE_WCHAR_H)
 multiline_comment|/* Solaris 2.5 has a bug: &lt;wchar.h&gt; must be included before &lt;wctype.h&gt;.  */
 macro_line|# include &lt;wchar.h&gt;
@@ -70,7 +70,7 @@ macro_line|# define ISXDIGIT(c) (ISASCII (c) &amp;&amp; isxdigit (c))
 DECL|macro|STREQ
 macro_line|# define STREQ(s1, s2) ((strcmp (s1, s2) == 0))
 macro_line|# if defined _LIBC || (defined HAVE_WCTYPE_H &amp;&amp; defined HAVE_WCHAR_H)
-multiline_comment|/* The GNU C library provides support for user-defined character classes&n;   and the functions from ISO C amendement 1.  */
+multiline_comment|/* The GNU C library provides support for user-defined character classes&n;   and the functions from ISO C amendment 1.  */
 macro_line|#  ifdef CHARCLASS_NAME_MAX
 DECL|macro|CHAR_CLASS_MAX_LENGTH
 macro_line|#   define CHAR_CLASS_MAX_LENGTH CHARCLASS_NAME_MAX

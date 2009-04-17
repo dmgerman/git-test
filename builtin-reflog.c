@@ -980,7 +980,7 @@ r_int
 id|expire_limit
 )paren
 (brace
-multiline_comment|/*&n;&t; * We need to compute if commit on either side of an reflog&n;&t; * entry is reachable from the tip of the ref for all entries.&n;&t; * Mark commits that are reachable from the tip down to the&n;&t; * time threashold first; we know a commit marked thusly is&n;&t; * reachable from the tip without running in_merge_bases()&n;&t; * at all.&n;&t; */
+multiline_comment|/*&n;&t; * We need to compute if commit on either side of an reflog&n;&t; * entry is reachable from the tip of the ref for all entries.&n;&t; * Mark commits that are reachable from the tip down to the&n;&t; * time threshold first; we know a commit marked thusly is&n;&t; * reachable from the tip without running in_merge_bases()&n;&t; * at all.&n;&t; */
 r_struct
 id|commit_list
 op_star

@@ -1252,7 +1252,7 @@ id|entry-&gt;idx.sha1
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * make sure no cached delta data remains from a&n;&t;&t;&t; * previous attempt before a pack split occured.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * make sure no cached delta data remains from a&n;&t;&t;&t; * previous attempt before a pack split occurred.&n;&t;&t;&t; */
 id|free
 c_func
 (paren

@@ -2136,7 +2136,7 @@ id|ixo
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t;&t; * Record the end-of-group position in case we are matched&n;&t;&t;&t; * with a group of changes in the other file (that is, the&n;&t;&t;&t; * change record before the enf-of-group index in the other&n;&t;&t;&t; * file is set).&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * Record the end-of-group position in case we are matched&n;&t;&t;&t; * with a group of changes in the other file (that is, the&n;&t;&t;&t; * change record before the end-of-group index in the other&n;&t;&t;&t; * file is set).&n;&t;&t;&t; */
 id|ixref
 op_assign
 id|rchgo

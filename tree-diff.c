@@ -1894,7 +1894,7 @@ r_break
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Then, discard all the non-relevane file pairs...&n;&t; */
+multiline_comment|/*&n;&t; * Then, discard all the non-relevant file pairs...&n;&t; */
 r_for
 c_loop
 (paren

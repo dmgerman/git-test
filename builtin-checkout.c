@@ -994,7 +994,7 @@ id|path
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * NEEDSWORK:&n;&t; * There is absolutely no reason to write this as a blob object&n;&t; * and create a phoney cache entry just to leak.  This hack is&n;&t; * primarily to get to the write_entry() machinery that massages&n;&t; * the contents to work-tree format and writes out which only&n;&t; * allows it for a cache entry.  The code in write_entry() needs&n;&t; * to be refactored to allow us to feed a &lt;buffer, size, mode&gt;&n;&t; * instead of a cache entry.  Such a refactoring would help&n;&t; * merge_recursive as well (it also writes the merge result to the&n;&t; * object database even when it may contain conflicts).&n;&t; */
+multiline_comment|/*&n;&t; * NEEDSWORK:&n;&t; * There is absolutely no reason to write this as a blob object&n;&t; * and create a phony cache entry just to leak.  This hack is&n;&t; * primarily to get to the write_entry() machinery that massages&n;&t; * the contents to work-tree format and writes out which only&n;&t; * allows it for a cache entry.  The code in write_entry() needs&n;&t; * to be refactored to allow us to feed a &lt;buffer, size, mode&gt;&n;&t; * instead of a cache entry.  Such a refactoring would help&n;&t; * merge_recursive as well (it also writes the merge result to the&n;&t; * object database even when it may contain conflicts).&n;&t; */
 r_if
 c_cond
 (paren

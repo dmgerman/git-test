@@ -2515,7 +2515,7 @@ op_logical_neg
 id|pending
 )paren
 (brace
-multiline_comment|/* The only times that we spin here is when the process&n;&t;&t; * that is connected through the pipes is waiting for&n;&t;&t; * its own input data to become available. But since&n;&t;&t; * the process (pack-objects) is itself CPU intensive,&n;&t;&t; * it will happily pick up the time slice that we are&n;&t;&t; * relinguishing here.&n;&t;&t; */
+multiline_comment|/* The only times that we spin here is when the process&n;&t;&t; * that is connected through the pipes is waiting for&n;&t;&t; * its own input data to become available. But since&n;&t;&t; * the process (pack-objects) is itself CPU intensive,&n;&t;&t; * it will happily pick up the time slice that we are&n;&t;&t; * relinquishing here.&n;&t;&t; */
 id|Sleep
 c_func
 (paren

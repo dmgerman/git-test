@@ -2831,7 +2831,7 @@ id|argv
 l_int|0
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * We use PATH to find git commands, but we prepend some higher&n;&t; * precidence paths: the &quot;--exec-path&quot; option, the GIT_EXEC_PATH&n;&t; * environment, and the $(gitexecdir) from the Makefile at build&n;&t; * time.&n;&t; */
+multiline_comment|/*&n;&t; * We use PATH to find git commands, but we prepend some higher&n;&t; * precedence paths: the &quot;--exec-path&quot; option, the GIT_EXEC_PATH&n;&t; * environment, and the $(gitexecdir) from the Makefile at build&n;&t; * time.&n;&t; */
 id|setup_path
 c_func
 (paren
