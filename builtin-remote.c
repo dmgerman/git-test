@@ -7319,7 +7319,7 @@ comma
 op_amp
 id|prune
 comma
-l_string|&quot;prune remotes after fecthing&quot;
+l_string|&quot;prune remotes after fetching&quot;
 )paren
 comma
 id|OPT_END
