@@ -56,7 +56,7 @@ id|nargv
 comma
 id|argc
 op_plus
-l_int|2
+l_int|3
 )paren
 suffix:semicolon
 r_char
@@ -122,6 +122,15 @@ id|argc
 op_decrement
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Because it&squot;s just a compatibility wrapper, tar-tree supports only&n;&t; * the old behaviour of reading attributes from the work tree.&n;&t; */
+id|nargv
+(braket
+id|nargc
+op_increment
+)braket
+op_assign
+l_string|&quot;--worktree-attributes&quot;
+suffix:semicolon
 r_switch
 c_cond
 (paren
