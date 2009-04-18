@@ -1586,6 +1586,8 @@ l_int|0
 )braket
 op_member_access_from_pointer
 id|dst
+comma
+l_int|0
 )paren
 )paren
 suffix:semicolon
@@ -1621,6 +1623,8 @@ l_int|0
 )braket
 op_member_access_from_pointer
 id|dst
+comma
+l_int|0
 )paren
 )paren
 suffix:semicolon
