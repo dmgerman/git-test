@@ -208,6 +208,7 @@ r_sizeof
 (paren
 id|value
 )paren
+l_int|1
 )paren
 r_return
 l_int|NULL
