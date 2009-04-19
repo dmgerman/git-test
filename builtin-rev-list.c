@@ -793,7 +793,6 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Estimate the number of bisect steps left (after the current step)&n; *&n; * For any x between 0 included and 2^n excluded, the probability for&n; * n - 1 steps left looks like:&n; *&n; * P(2^n + x) == (2^n - x) / (2^n + x)&n; *&n; * and P(2^n + x) &lt; 0.5 means 2^n &lt; 3x&n; */
 DECL|function|estimate_bisect_steps
-r_static
 r_int
 id|estimate_bisect_steps
 c_func
