@@ -819,6 +819,11 @@ multiline_comment|/* use fstat() only when path == ce-&gt;name */
 r_if
 c_cond
 (paren
+id|fstat_is_reliable
+c_func
+(paren
+)paren
+op_logical_and
 id|state-&gt;refresh_cache
 op_logical_and
 op_logical_neg
