@@ -832,7 +832,7 @@ id|opts
 r_return
 l_int|128
 suffix:semicolon
-multiline_comment|/*&n;&t; * When reading only one tree (either the most basic form,&n;&t; * &quot;-m ent&quot; or &quot;--reset ent&quot; form), we can obtain a fully&n;&t; * valid cache-tree because the index must match exactly&n;&t; * what came from the tree.&n;&t; */
+multiline_comment|/*&n;&t; * When reading only one tree (either the most basic form,&n;&t; * &quot;-m ent&quot; or &quot;--reset ent&quot; form), we can obtain a fully&n;&t; * valid cache-tree because the index must match exactly&n;&t; * what came from the tree.&n;&t; *&n;&t; * The same holds true if we are switching between two trees&n;&t; * using read-tree -m A B.  The index must match B after that.&n;&t; */
 r_if
 c_cond
 (paren
@@ -852,6 +852,28 @@ comma
 id|trees
 (braket
 l_int|0
+)braket
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|nr_trees
+op_eq
+l_int|2
+op_logical_and
+id|opts.merge
+)paren
+id|prime_cache_tree
+c_func
+(paren
+op_amp
+id|active_cache_tree
+comma
+id|trees
+(braket
+l_int|1
 )braket
 )paren
 suffix:semicolon
