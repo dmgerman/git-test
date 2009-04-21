@@ -923,9 +923,6 @@ r_struct
 id|commit_list
 op_star
 id|tried
-comma
-r_int
-id|stringed
 )paren
 (brace
 id|printf
@@ -947,11 +944,6 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-id|stringed
-ques
-c_cond
-l_string|&quot;&squot; &amp;&amp;&bslash;n&quot;
-suffix:colon
 l_string|&quot;&squot;&bslash;n&quot;
 )paren
 suffix:semicolon
@@ -971,26 +963,16 @@ r_const
 r_char
 op_star
 id|val
-comma
-r_int
-id|stringed
 )paren
 (brace
 id|printf
 c_func
 (paren
-l_string|&quot;%s=&squot;%s&squot;%s&bslash;n&quot;
+l_string|&quot;%s=&squot;%s&squot;&bslash;n&quot;
 comma
 id|var
 comma
 id|val
-comma
-id|stringed
-ques
-c_cond
-l_string|&quot; &amp;&amp;&quot;
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1007,26 +989,16 @@ id|var
 comma
 r_int
 id|val
-comma
-r_int
-id|stringed
 )paren
 (brace
 id|printf
 c_func
 (paren
-l_string|&quot;%s=%d%s&bslash;n&quot;
+l_string|&quot;%s=%d&bslash;n&quot;
 comma
 id|var
 comma
 id|val
-comma
-id|stringed
-ques
-c_cond
-l_string|&quot; &amp;&amp;&quot;
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1049,8 +1021,6 @@ id|all
 (brace
 r_int
 id|cnt
-comma
-id|stringed
 comma
 id|flags
 op_assign
@@ -1168,12 +1138,6 @@ l_string|&quot;------&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
-id|stringed
-op_assign
-id|flags
-op_amp
-id|BISECT_SHOW_STRINGED
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1185,8 +1149,6 @@ id|show_tried_revs
 c_func
 (paren
 id|tried
-comma
-id|stringed
 )paren
 suffix:semicolon
 id|print_var_str
@@ -1195,8 +1157,6 @@ c_func
 l_string|&quot;bisect_rev&quot;
 comma
 id|hex
-comma
-id|stringed
 )paren
 suffix:semicolon
 id|print_var_int
@@ -1206,8 +1166,6 @@ l_string|&quot;bisect_nr&quot;
 comma
 id|cnt
 l_int|1
-comma
-id|stringed
 )paren
 suffix:semicolon
 id|print_var_int
@@ -1218,8 +1176,6 @@ comma
 id|all
 id|reaches
 l_int|1
-comma
-id|stringed
 )paren
 suffix:semicolon
 id|print_var_int
@@ -1229,8 +1185,6 @@ l_string|&quot;bisect_bad&quot;
 comma
 id|reaches
 l_int|1
-comma
-id|stringed
 )paren
 suffix:semicolon
 id|print_var_int
@@ -1239,8 +1193,6 @@ c_func
 l_string|&quot;bisect_all&quot;
 comma
 id|all
-comma
-id|stringed
 )paren
 suffix:semicolon
 id|print_var_int
@@ -1253,8 +1205,6 @@ c_func
 (paren
 id|all
 )paren
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_return
