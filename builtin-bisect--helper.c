@@ -13,8 +13,6 @@ id|git_bisect_helper_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git bisect--helper --next-vars&quot;
-comma
 l_string|&quot;git bisect--helper --next-exit&quot;
 comma
 l_int|NULL
@@ -41,11 +39,6 @@ id|prefix
 )paren
 (brace
 r_int
-id|next_vars
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|next_exit
 op_assign
 l_int|0
@@ -57,19 +50,6 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
-c_func
-(paren
-l_int|0
-comma
-l_string|&quot;next-vars&quot;
-comma
-op_amp
-id|next_vars
-comma
-l_string|&quot;output next bisect step variables&quot;
-)paren
-comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -108,19 +88,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
-id|next_vars
-op_logical_and
-id|next_exit
-)paren
-op_logical_or
-(paren
-op_logical_neg
-id|next_vars
-op_logical_and
 op_logical_neg
 id|next_exit
-)paren
 )paren
 id|usage_with_options
 c_func
@@ -130,19 +99,6 @@ comma
 id|options
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|next_vars
-)paren
-r_return
-id|bisect_next_vars
-c_func
-(paren
-id|prefix
-)paren
-suffix:semicolon
-r_else
 multiline_comment|/* next-exit */
 r_return
 id|bisect_next_exit
