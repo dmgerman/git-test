@@ -386,6 +386,10 @@ c_cond
 op_logical_neg
 id|matchlen
 op_logical_or
+id|baselen
+op_eq
+id|matchlen
+op_logical_or
 id|base
 (braket
 id|matchlen
