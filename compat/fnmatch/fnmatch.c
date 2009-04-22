@@ -18,7 +18,7 @@ macro_line|#endif
 macro_line|#if defined STDC_HEADERS || defined _LIBC
 macro_line|# include &lt;stdlib.h&gt;
 macro_line|#endif
-multiline_comment|/* For platform which support the ISO C amendment 1 functionality we&n;   support user defined character classes.  */
+multiline_comment|/* For platforms which support the ISO C amendment 1 functionality we&n;   support user defined character classes.  */
 macro_line|#if defined _LIBC || (defined HAVE_WCTYPE_H &amp;&amp; defined HAVE_WCHAR_H)
 multiline_comment|/* Solaris 2.5 has a bug: &lt;wchar.h&gt; must be included before &lt;wctype.h&gt;.  */
 macro_line|# include &lt;wchar.h&gt;
