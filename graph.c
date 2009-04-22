@@ -1882,7 +1882,7 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot; %*s&quot;
+l_string|&quot;%*s&quot;
 comma
 id|graph-&gt;expansion_row
 comma
@@ -1891,7 +1891,7 @@ l_string|&quot;&quot;
 suffix:semicolon
 id|chars_written
 op_add_assign
-l_int|2
+l_int|1
 op_plus
 id|graph-&gt;expansion_row
 suffix:semicolon
