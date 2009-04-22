@@ -2359,7 +2359,7 @@ c_cond
 (paren
 id|graph-&gt;num_parents
 OG
-l_int|3
+l_int|2
 )paren
 id|chars_written
 op_add_assign
