@@ -2138,13 +2138,7 @@ op_logical_neg
 id|subkey
 )paren
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;Config with no key for remote %s&quot;
-comma
-id|name
-)paren
+l_int|0
 suffix:semicolon
 id|remote
 op_assign
