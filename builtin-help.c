@@ -1266,13 +1266,7 @@ op_logical_neg
 id|subkey
 )paren
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;Config with no key for man viewer: %s&quot;
-comma
-id|name
-)paren
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -1352,14 +1346,6 @@ id|value
 )paren
 suffix:semicolon
 )brace
-id|warning
-c_func
-(paren
-l_string|&quot;&squot;%s&squot;: unsupported man viewer sub key.&quot;
-comma
-id|subkey
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
