@@ -4776,16 +4776,6 @@ id|name
 comma
 r_int
 id|len
-comma
-r_const
-r_char
-op_star
-id|reset
-comma
-r_const
-r_char
-op_star
-id|set
 )paren
 (brace
 id|fprintf
@@ -4793,17 +4783,13 @@ c_func
 (paren
 id|file
 comma
-l_string|&quot; %s%s%-*s%s |&quot;
-comma
-id|set
+l_string|&quot; %s%-*s |&quot;
 comma
 id|prefix
 comma
 id|len
 comma
 id|name
-comma
-id|reset
 )paren
 suffix:semicolon
 )brace
@@ -5403,10 +5389,6 @@ comma
 id|name
 comma
 id|len
-comma
-id|reset
-comma
-id|set
 )paren
 suffix:semicolon
 id|fprintf
@@ -5494,10 +5476,6 @@ comma
 id|name
 comma
 id|len
-comma
-id|reset
-comma
-id|set
 )paren
 suffix:semicolon
 id|fprintf
@@ -5598,10 +5576,6 @@ comma
 id|name
 comma
 id|len
-comma
-id|reset
-comma
-id|set
 )paren
 suffix:semicolon
 id|fprintf
@@ -5667,17 +5641,13 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;%s %d files changed, %d insertions(+), %d deletions(-)%s&bslash;n&quot;
-comma
-id|set
+l_string|&quot; %d files changed, %d insertions(+), %d deletions(-)&bslash;n&quot;
 comma
 id|total_files
 comma
 id|adds
 comma
 id|dels
-comma
-id|reset
 )paren
 suffix:semicolon
 )brace
