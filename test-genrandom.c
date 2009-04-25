@@ -42,7 +42,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Usage: %s &lt;seed_string&gt; [&lt;size&gt;]&quot;
+l_string|&quot;Usage: %s &lt;seed_string&gt; [&lt;size&gt;]&bslash;n&quot;
 comma
 id|argv
 (braket
