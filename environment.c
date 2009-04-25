@@ -201,6 +201,16 @@ id|push_default
 op_assign
 id|PUSH_DEFAULT_UNSPECIFIED
 suffix:semicolon
+macro_line|#ifndef UNRELIABLE_HARDLINKS
+DECL|macro|UNRELIABLE_HARDLINKS
+mdefine_line|#define UNRELIABLE_HARDLINKS 0
+macro_line|#endif
+DECL|variable|unreliable_hardlinks
+r_int
+id|unreliable_hardlinks
+op_assign
+id|UNRELIABLE_HARDLINKS
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int

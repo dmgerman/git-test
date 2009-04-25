@@ -11631,6 +11631,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|unreliable_hardlinks
+)paren
+r_goto
+id|try_rename
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 id|link
 c_func
 (paren
@@ -11654,6 +11663,8 @@ op_ne
 id|EEXIST
 )paren
 (brace
+id|try_rename
+suffix:colon
 r_if
 c_cond
 (paren
