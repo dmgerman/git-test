@@ -11631,7 +11631,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|unreliable_hardlinks
+id|object_creation_mode
+op_eq
+id|OBJECT_CREATION_USES_RENAMES
 )paren
 r_goto
 id|try_rename

@@ -201,15 +201,16 @@ id|push_default
 op_assign
 id|PUSH_DEFAULT_UNSPECIFIED
 suffix:semicolon
-macro_line|#ifndef UNRELIABLE_HARDLINKS
-DECL|macro|UNRELIABLE_HARDLINKS
-mdefine_line|#define UNRELIABLE_HARDLINKS 0
+macro_line|#ifndef OBJECT_CREATION_MODE
+DECL|macro|OBJECT_CREATION_MODE
+mdefine_line|#define OBJECT_CREATION_MODE OBJECT_CREATION_USES_HARDLINKS
 macro_line|#endif
-DECL|variable|unreliable_hardlinks
-r_int
-id|unreliable_hardlinks
+DECL|variable|object_creation_mode
+r_enum
+id|object_creation_mode
+id|object_creation_mode
 op_assign
-id|UNRELIABLE_HARDLINKS
+id|OBJECT_CREATION_MODE
 suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
