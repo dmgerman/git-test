@@ -336,6 +336,16 @@ id|DIR
 op_star
 id|d
 suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+id|i
+op_plus
+l_int|1
+)paren
+suffix:semicolon
 id|sprintf
 c_func
 (paren
