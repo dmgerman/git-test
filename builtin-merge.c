@@ -4747,7 +4747,7 @@ id|fp
 id|die
 c_func
 (paren
-l_string|&quot;Could open %s for writing&quot;
+l_string|&quot;Could not open %s for writing&quot;
 comma
 id|git_path
 c_func
