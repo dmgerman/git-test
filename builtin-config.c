@@ -2360,6 +2360,20 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|config_exclusive_filename
+op_logical_and
+id|nongit
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;not in a git directory&quot;
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
