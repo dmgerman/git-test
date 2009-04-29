@@ -4221,7 +4221,7 @@ l_int|0
 )paren
 )paren
 (brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|shallow

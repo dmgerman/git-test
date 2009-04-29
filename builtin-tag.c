@@ -1751,7 +1751,7 @@ c_cond
 id|path
 )paren
 (brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|path

@@ -3570,7 +3570,7 @@ c_cond
 (paren
 id|pack_lockfile
 )paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|pack_lockfile

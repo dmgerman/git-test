@@ -1144,7 +1144,7 @@ c_cond
 (paren
 id|output
 )paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|output

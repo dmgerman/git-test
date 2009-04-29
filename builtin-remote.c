@@ -3087,18 +3087,10 @@ r_if
 c_cond
 (paren
 id|path
-op_logical_and
-id|unlink
+)paren
+id|unlink_or_warn
 c_func
 (paren
-id|path
-)paren
-)paren
-id|warning
-c_func
-(paren
-l_string|&quot;failed to remove &squot;%s&squot;&quot;
-comma
 id|path
 )paren
 suffix:semicolon

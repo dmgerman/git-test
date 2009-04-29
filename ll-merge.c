@@ -1075,7 +1075,7 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|temp
