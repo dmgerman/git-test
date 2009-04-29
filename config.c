@@ -4831,9 +4831,15 @@ l_int|0
 id|error
 c_func
 (paren
-l_string|&quot;could not lock config file %s&quot;
+l_string|&quot;could not lock config file %s: %s&quot;
 comma
 id|config_filename
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|free
