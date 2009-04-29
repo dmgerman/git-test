@@ -2779,19 +2779,9 @@ c_func
 id|mode
 )paren
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;cannot read object %s &squot;%s&squot;: It is a submodule!&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|sha
-)paren
-comma
-id|path
-)paren
+multiline_comment|/*&n;&t;&t;&t; * We may later decide to recursively descend into&n;&t;&t;&t; * the submodule directory and update its index&n;&t;&t;&t; * and/or work tree, but we do not do that now.&n;&t;&t;&t; */
+r_goto
+id|update_index
 suffix:semicolon
 id|buf
 op_assign
