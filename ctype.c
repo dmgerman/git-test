@@ -28,7 +28,7 @@ id|R
 op_assign
 id|GIT_REGEX_SPECIAL
 comma
-multiline_comment|/* $, (, ), +, ., ^, {, | * */
+multiline_comment|/* $, (, ), +, ., ^, {, | */
 )brace
 suffix:semicolon
 DECL|variable|sane_ctype
