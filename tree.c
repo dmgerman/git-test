@@ -379,9 +379,32 @@ id|matchlen
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* The base is a subdirectory of a path which was specified. */
+multiline_comment|/* pathspecs match only at the directory boundaries */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|matchlen
+op_logical_or
+id|base
+(braket
+id|matchlen
+)braket
+op_eq
+l_char|&squot;/&squot;
+op_logical_or
+id|match
+(braket
+id|matchlen
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+)paren
 r_return
 l_int|1
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 multiline_comment|/* Does the base match? */
