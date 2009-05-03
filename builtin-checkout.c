@@ -5,6 +5,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
+macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;run-command.h&quot;
@@ -2097,6 +2098,11 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+r_int
+id|reprime_cache_tree
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2112,6 +2118,13 @@ id|error
 c_func
 (paren
 l_string|&quot;corrupt index file&quot;
+)paren
+suffix:semicolon
+id|cache_tree_free
+c_func
+(paren
+op_amp
+id|active_cache_tree
 )paren
 suffix:semicolon
 r_if
@@ -2141,6 +2154,10 @@ id|ret
 )paren
 r_return
 id|ret
+suffix:semicolon
+id|reprime_cache_tree
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -2332,9 +2349,16 @@ r_if
 c_cond
 (paren
 id|ret
-op_eq
+op_ne
 l_int|1
 )paren
+(brace
+id|reprime_cache_tree
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_else
 (brace
 multiline_comment|/*&n;&t;&t;&t; * Unpack couldn&squot;t do a trivial merge; either&n;&t;&t;&t; * give up or do a real merge, depending on&n;&t;&t;&t; * whether the merge flag was used.&n;&t;&t;&t; */
 r_struct
@@ -2472,6 +2496,22 @@ id|ret
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|reprime_cache_tree
+)paren
+id|prime_cache_tree
+c_func
+(paren
+op_amp
+id|active_cache_tree
+comma
+r_new
+op_member_access_from_pointer
+id|commit-&gt;tree
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
