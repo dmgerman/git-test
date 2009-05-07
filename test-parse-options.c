@@ -421,6 +421,27 @@ comma
 id|number_callback
 )paren
 comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_char|&squot;+&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|boolean
+comma
+l_int|NULL
+comma
+l_string|&quot;same as -b&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_NONEG
+op_or
+id|PARSE_OPT_NODASH
+)brace
+comma
 id|OPT_GROUP
 c_func
 (paren
