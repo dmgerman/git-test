@@ -16,11 +16,6 @@ DECL|macro|NO_EXTERNAL_GREP
 mdefine_line|#define NO_EXTERNAL_GREP 1
 macro_line|#endif
 macro_line|#endif
-DECL|variable|builtin_grep
-r_static
-r_int
-id|builtin_grep
-suffix:semicolon
 DECL|function|grep_config
 r_static
 r_int
@@ -2126,6 +2121,9 @@ id|paths
 comma
 r_int
 id|cached
+comma
+r_int
+id|external_grep_allowed
 )paren
 (brace
 r_int
@@ -2149,8 +2147,7 @@ c_cond
 op_logical_neg
 id|cached
 op_logical_and
-op_logical_neg
-id|builtin_grep
+id|external_grep_allowed
 )paren
 (brace
 id|hit
@@ -2885,6 +2882,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|external_grep_allowed
+op_assign
+l_int|1
+suffix:semicolon
+r_int
 id|seen_dashdash
 op_assign
 l_int|0
@@ -3056,9 +3058,9 @@ id|arg
 )paren
 )paren
 (brace
-id|builtin_grep
+id|external_grep_allowed
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -4206,9 +4208,9 @@ op_logical_and
 op_logical_neg
 id|opt.color_external
 )paren
-id|builtin_grep
+id|external_grep_allowed
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -4527,6 +4529,8 @@ comma
 id|paths
 comma
 id|cached
+comma
+id|external_grep_allowed
 )paren
 suffix:semicolon
 )brace
