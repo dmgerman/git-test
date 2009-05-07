@@ -1008,6 +1008,10 @@ id|header.mtime
 comma
 l_string|&quot;%011lo&quot;
 comma
+(paren
+r_int
+r_int
+)paren
 id|args-&gt;time
 )paren
 suffix:semicolon
