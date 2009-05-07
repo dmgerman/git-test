@@ -178,6 +178,21 @@ comma
 l_int|4
 )paren
 comma
+id|OPT_NEGBIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;neg-or4&quot;
+comma
+op_amp
+id|boolean
+comma
+l_string|&quot;same as --no-or4&quot;
+comma
+l_int|4
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
