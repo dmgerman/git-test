@@ -2367,12 +2367,12 @@ comma
 id|DIR_SHOW_OTHER_DIRECTORIES
 )paren
 comma
-id|OPT_BIT
+id|OPT_NEGBIT
 c_func
 (paren
 l_int|0
 comma
-l_string|&quot;no-empty-directory&quot;
+l_string|&quot;empty-directory&quot;
 comma
 op_amp
 id|dir.flags
