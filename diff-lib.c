@@ -939,6 +939,13 @@ c_cond
 (paren
 op_logical_neg
 id|cached
+op_logical_and
+op_logical_neg
+id|ce_uptodate
+c_func
+(paren
+id|ce
+)paren
 )paren
 (brace
 r_int
