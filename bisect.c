@@ -4038,9 +4038,9 @@ id|fd
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * We use the convention that exiting with an exit code 10 means that&n; * the bisection process finished successfully.&n; * In this case the calling shell script should exit 0.&n; */
-DECL|function|bisect_next_exit
+DECL|function|bisect_next_all
 r_int
-id|bisect_next_exit
+id|bisect_next_all
 c_func
 (paren
 r_const
@@ -4093,6 +4093,12 @@ id|die
 c_func
 (paren
 l_string|&quot;reading bisect refs failed&quot;
+)paren
+suffix:semicolon
+id|check_good_are_ancestors_of_bad
+c_func
+(paren
+id|prefix
 )paren
 suffix:semicolon
 id|bisect_rev_setup
