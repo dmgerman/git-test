@@ -241,7 +241,7 @@ r_return
 id|prefix
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Does &squot;match&squot; matches the given name?&n; * A match is found if&n; *&n; * (1) the &squot;match&squot; string is leading directory of &squot;name&squot;, or&n; * (2) the &squot;match&squot; string is a wildcard and matches &squot;name&squot;, or&n; * (3) the &squot;match&squot; string is exactly the same as &squot;name&squot;.&n; *&n; * and the return value tells which case it was.&n; *&n; * It returns 0 when there is no match.&n; */
+multiline_comment|/*&n; * Does &squot;match&squot; match the given name?&n; * A match is found if&n; *&n; * (1) the &squot;match&squot; string is leading directory of &squot;name&squot;, or&n; * (2) the &squot;match&squot; string is a wildcard and matches &squot;name&squot;, or&n; * (3) the &squot;match&squot; string is exactly the same as &squot;name&squot;.&n; *&n; * and the return value tells which case it was.&n; *&n; * It returns 0 when there is no match.&n; */
 DECL|function|match_one
 r_static
 r_int
@@ -1435,7 +1435,7 @@ op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
-multiline_comment|/* Scan the list and let the last match determines the fate.&n; * Return 1 for exclude, 0 for include and -1 for undecided.&n; */
+multiline_comment|/* Scan the list and let the last match determine the fate.&n; * Return 1 for exclude, 0 for include and -1 for undecided.&n; */
 DECL|function|excluded_1
 r_static
 r_int
