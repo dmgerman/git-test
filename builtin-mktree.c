@@ -1,8 +1,7 @@
-multiline_comment|/*&n; * GIT - the stupid content tracker&n; *&n; * Copyright (c) Junio C Hamano, 2006&n; */
-macro_line|#include &quot;cache.h&quot;
+multiline_comment|/*&n; * GIT - the stupid content tracker&n; *&n; * Copyright (c) Junio C Hamano, 2006, 2009&n; */
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;tree.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
 DECL|struct|treeent
 r_static
 r_struct
@@ -394,18 +393,24 @@ id|mktree_usage
 op_assign
 l_string|&quot;git mktree [-z]&quot;
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_mktree
 r_int
-id|main
+id|cmd_mktree
 c_func
 (paren
 r_int
 id|ac
 comma
+r_const
 r_char
 op_star
 op_star
 id|av
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_struct
@@ -432,20 +437,6 @@ id|line_termination
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
-id|git_extract_argv0_path
-c_func
-(paren
-id|av
-(braket
-l_int|0
-)braket
-)paren
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
-)paren
-suffix:semicolon
 r_while
 c_loop
 (paren
@@ -466,6 +457,7 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
+r_const
 r_char
 op_star
 id|arg
@@ -544,7 +536,7 @@ id|ptr
 op_assign
 id|sb.buf
 suffix:semicolon
-multiline_comment|/* Input is non-recursive ls-tree output format&n;&t;&t; * mode SP type SP sha1 TAB name&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Read non-recursive ls-tree output format:&n;&t;&t; *     mode SP type SP sha1 TAB name&n;&t;&t; */
 id|mode
 op_assign
 id|strtoul
