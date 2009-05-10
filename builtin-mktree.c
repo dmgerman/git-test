@@ -538,6 +538,17 @@ comma
 id|buf
 )paren
 suffix:semicolon
+multiline_comment|/* It is perfectly normal if we do not have a commit from a submodule */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|mode
+)paren
+)paren
 id|type
 op_assign
 id|sha1_object_info
@@ -547,6 +558,11 @@ id|sha1
 comma
 l_int|NULL
 )paren
+suffix:semicolon
+r_else
+id|type
+op_assign
+id|OBJ_COMMIT
 suffix:semicolon
 r_if
 c_cond
