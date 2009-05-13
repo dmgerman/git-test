@@ -1031,10 +1031,10 @@ r_char
 op_star
 id|pretty_ref
 op_assign
-id|prettify_ref
+id|prettify_refname
 c_func
 (paren
-id|ref
+id|ref-&gt;name
 )paren
 suffix:semicolon
 op_star
