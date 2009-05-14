@@ -2712,7 +2712,13 @@ op_assign
 id|opendir
 c_func
 (paren
+op_star
 id|path
+ques
+c_cond
+id|path
+suffix:colon
+l_string|&quot;.&quot;
 )paren
 suffix:semicolon
 r_int
