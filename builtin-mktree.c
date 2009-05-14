@@ -394,7 +394,7 @@ id|mktree_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git mktree [-z]&quot;
+l_string|&quot;git mktree [-z] [--missing]&quot;
 comma
 l_int|NULL
 )brace
