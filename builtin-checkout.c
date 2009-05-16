@@ -3025,32 +3025,6 @@ id|commit
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * If we were on a detached HEAD, but we are now moving to&n;&t; * a new commit, we want to mention the old commit once more&n;&t; * to remind the user that it might be lost.&n;&t; */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|opts-&gt;quiet
-op_logical_and
-op_logical_neg
-id|old.path
-op_logical_and
-id|old.commit
-op_logical_and
-r_new
-op_member_access_from_pointer
-id|commit
-op_ne
-id|old.commit
-)paren
-id|describe_detached_head
-c_func
-(paren
-l_string|&quot;Previous HEAD position was&quot;
-comma
-id|old.commit
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3110,6 +3084,32 @@ id|ret
 )paren
 r_return
 id|ret
+suffix:semicolon
+multiline_comment|/*&n;&t; * If we were on a detached HEAD, but have now moved to&n;&t; * a new commit, we want to mention the old commit once more&n;&t; * to remind the user that it might be lost.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts-&gt;quiet
+op_logical_and
+op_logical_neg
+id|old.path
+op_logical_and
+id|old.commit
+op_logical_and
+r_new
+op_member_access_from_pointer
+id|commit
+op_ne
+id|old.commit
+)paren
+id|describe_detached_head
+c_func
+(paren
+l_string|&quot;Previous HEAD position was&quot;
+comma
+id|old.commit
+)paren
 suffix:semicolon
 id|update_refs_for_switch
 c_func
