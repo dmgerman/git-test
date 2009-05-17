@@ -3015,8 +3015,6 @@ c_func
 l_string|&quot;unrecognized reflog param &squot;%s&squot;&quot;
 comma
 id|arg
-op_plus
-l_int|9
 )paren
 suffix:semicolon
 r_else
