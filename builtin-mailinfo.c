@@ -2529,7 +2529,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 r_return
-l_string|&quot;latin1&quot;
+l_string|&quot;ISO8859-1&quot;
 suffix:semicolon
 )brace
 DECL|function|convert_to_utf8
