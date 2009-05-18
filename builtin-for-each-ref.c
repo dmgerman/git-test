@@ -1819,6 +1819,17 @@ r_const
 r_char
 op_star
 id|eoemail
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|email
+)paren
+r_return
+l_string|&quot;&quot;
+suffix:semicolon
+id|eoemail
 op_assign
 id|strchr
 c_func
@@ -1831,9 +1842,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|email
-op_logical_or
 op_logical_neg
 id|eoemail
 )paren
