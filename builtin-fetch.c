@@ -1609,7 +1609,7 @@ c_func
 r_const
 r_char
 op_star
-id|url
+id|raw_url
 comma
 r_const
 r_char
@@ -1667,6 +1667,9 @@ id|rm
 suffix:semicolon
 r_char
 op_star
+id|url
+comma
+op_star
 id|filename
 op_assign
 id|git_path
@@ -1704,6 +1707,14 @@ c_func
 (paren
 id|errno
 )paren
+)paren
+suffix:semicolon
+id|url
+op_assign
+id|transport_anonymize_url
+c_func
+(paren
+id|raw_url
 )paren
 suffix:semicolon
 r_for
@@ -2208,6 +2219,12 @@ id|note
 suffix:semicolon
 )brace
 )brace
+id|free
+c_func
+(paren
+id|url
+)paren
+suffix:semicolon
 id|fclose
 c_func
 (paren
