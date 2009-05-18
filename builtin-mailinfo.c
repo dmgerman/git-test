@@ -4728,7 +4728,7 @@ ques
 c_cond
 id|git_commit_encoding
 suffix:colon
-l_string|&quot;utf-8&quot;
+l_string|&quot;UTF-8&quot;
 )paren
 suffix:semicolon
 id|metainfo_charset

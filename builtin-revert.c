@@ -1726,7 +1726,7 @@ id|encoding
 )paren
 id|encoding
 op_assign
-l_string|&quot;utf-8&quot;
+l_string|&quot;UTF-8&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -1736,7 +1736,7 @@ id|git_commit_encoding
 )paren
 id|git_commit_encoding
 op_assign
-l_string|&quot;utf-8&quot;
+l_string|&quot;UTF-8&quot;
 suffix:semicolon
 r_if
 c_cond
