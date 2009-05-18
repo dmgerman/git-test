@@ -5936,7 +5936,7 @@ c_cond
 id|transport-&gt;pack_lockfile
 )paren
 (brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|transport-&gt;pack_lockfile

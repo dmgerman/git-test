@@ -4536,7 +4536,7 @@ id|p-&gt;sha1
 )paren
 )paren
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|name
@@ -4809,7 +4809,7 @@ c_func
 id|old_p-&gt;pack_fd
 )paren
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|old_p-&gt;pack_name

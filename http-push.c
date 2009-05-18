@@ -1292,7 +1292,7 @@ comma
 id|request-&gt;filename
 )paren
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|prevfile
@@ -1306,7 +1306,7 @@ comma
 id|prevfile
 )paren
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|request-&gt;tmpfile
@@ -1577,7 +1577,7 @@ id|prevlocal
 )paren
 suffix:semicolon
 )brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|prevfile
@@ -3717,7 +3717,7 @@ id|st.st_size
 op_eq
 l_int|0
 )paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|request-&gt;tmpfile
@@ -3764,7 +3764,7 @@ op_ne
 id|Z_STREAM_END
 )paren
 (brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|request-&gt;tmpfile
@@ -3784,7 +3784,7 @@ id|request-&gt;real_sha1
 )paren
 )paren
 (brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|request-&gt;tmpfile

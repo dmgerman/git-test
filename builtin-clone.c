@@ -1354,9 +1354,15 @@ id|ENOENT
 id|die
 c_func
 (paren
-l_string|&quot;failed to unlink %s&quot;
+l_string|&quot;failed to unlink %s: %s&quot;
 comma
 id|dest-&gt;buf
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 r_if
