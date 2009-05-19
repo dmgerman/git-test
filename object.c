@@ -235,6 +235,7 @@ id|size
 )paren
 (brace
 r_int
+r_int
 id|j
 op_assign
 id|hash_obj
@@ -280,6 +281,7 @@ suffix:semicolon
 DECL|function|hashtable_index
 r_static
 r_int
+r_int
 id|hashtable_index
 c_func
 (paren
@@ -310,14 +312,9 @@ r_int
 )paren
 suffix:semicolon
 r_return
-(paren
-r_int
-)paren
-(paren
 id|i
 op_mod
 id|obj_hash_size
-)paren
 suffix:semicolon
 )brace
 DECL|function|lookup_object
@@ -334,6 +331,7 @@ op_star
 id|sha1
 )paren
 (brace
+r_int
 r_int
 id|i
 suffix:semicolon

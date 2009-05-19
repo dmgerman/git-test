@@ -81,6 +81,7 @@ op_assign
 id|n-&gt;hash
 suffix:semicolon
 r_int
+r_int
 id|j
 op_assign
 id|hash_obj
@@ -377,6 +378,7 @@ op_star
 id|obj
 )paren
 (brace
+r_int
 r_int
 id|j
 suffix:semicolon
