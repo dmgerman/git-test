@@ -1936,6 +1936,10 @@ id|opts.index_only
 op_assign
 id|cached
 suffix:semicolon
+id|opts.diff_index_cached
+op_assign
+id|cached
+suffix:semicolon
 id|opts.merge
 op_assign
 l_int|1
@@ -2215,6 +2219,10 @@ op_assign
 l_int|1
 suffix:semicolon
 id|opts.index_only
+op_assign
+l_int|1
+suffix:semicolon
+id|opts.diff_index_cached
 op_assign
 l_int|1
 suffix:semicolon
