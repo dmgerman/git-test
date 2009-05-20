@@ -2579,6 +2579,15 @@ op_star
 id|path
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|it
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
 r_while
 c_loop
 (paren
