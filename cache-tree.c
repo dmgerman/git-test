@@ -2704,7 +2704,7 @@ op_star
 id|sha1
 comma
 r_int
-id|missing_ok
+id|flags
 comma
 r_const
 r_char
@@ -2719,10 +2719,12 @@ id|was_valid
 comma
 id|newfd
 suffix:semicolon
-multiline_comment|/*&n;&t; * We can&squot;t free this memory, it becomes part of a linked list&n;&t; * parsed atexit()&n;&t; */
 r_struct
 id|lock_file
 op_star
+id|lock_file
+suffix:semicolon
+multiline_comment|/*&n;&t; * We can&squot;t free this memory, it becomes part of a linked list&n;&t; * parsed atexit()&n;&t; */
 id|lock_file
 op_assign
 id|xcalloc
@@ -2767,6 +2769,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|flags
+op_amp
+id|WRITE_TREE_IGNORE_CACHE_TREE
+)paren
+id|cache_tree_free
+c_func
+(paren
+op_amp
+(paren
+id|active_cache_tree
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|active_cache_tree
 )paren
@@ -2792,6 +2810,13 @@ op_logical_neg
 id|was_valid
 )paren
 (brace
+r_int
+id|missing_ok
+op_assign
+id|flags
+op_amp
+id|WRITE_TREE_MISSING_OK
+suffix:semicolon
 r_if
 c_cond
 (paren
