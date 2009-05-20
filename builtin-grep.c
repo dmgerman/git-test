@@ -2829,6 +2829,7 @@ id|obj-&gt;type
 suffix:semicolon
 )brace
 DECL|function|context_callback
+r_static
 r_int
 id|context_callback
 c_func
@@ -2925,6 +2926,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|file_callback
+r_static
 r_int
 id|file_callback
 c_func
@@ -3062,6 +3064,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|not_callback
+r_static
 r_int
 id|not_callback
 c_func
@@ -3107,6 +3110,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|and_callback
+r_static
 r_int
 id|and_callback
 c_func
@@ -3152,6 +3156,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|open_callback
+r_static
 r_int
 id|open_callback
 c_func
@@ -3197,6 +3202,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|close_callback
+r_static
 r_int
 id|close_callback
 c_func
@@ -3242,6 +3248,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|pattern_callback
+r_static
 r_int
 id|pattern_callback
 c_func
@@ -3287,6 +3294,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|help_callback
+r_static
 r_int
 id|help_callback
 c_func
