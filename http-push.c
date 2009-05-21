@@ -12003,7 +12003,7 @@ r_char
 op_star
 id|commit_argv
 (braket
-l_int|4
+l_int|5
 )braket
 suffix:semicolon
 r_int
@@ -12358,6 +12358,13 @@ id|commit_argc
 op_increment
 suffix:semicolon
 )brace
+id|commit_argv
+(braket
+id|commit_argc
+)braket
+op_assign
+l_int|NULL
+suffix:semicolon
 id|init_revisions
 c_func
 (paren
