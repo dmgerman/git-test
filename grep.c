@@ -1805,6 +1805,10 @@ id|eol
 id|bol
 op_increment
 suffix:semicolon
+id|eflags
+op_or_assign
+id|REG_NOTBOL
+suffix:semicolon
 r_if
 c_cond
 (paren
