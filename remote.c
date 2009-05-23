@@ -7604,7 +7604,7 @@ l_int|0
 suffix:semicolon
 id|theirs
 op_assign
-id|lookup_commit
+id|lookup_commit_reference
 c_func
 (paren
 id|sha1
@@ -7640,7 +7640,7 @@ l_int|0
 suffix:semicolon
 id|ours
 op_assign
-id|lookup_commit
+id|lookup_commit_reference
 c_func
 (paren
 id|sha1
