@@ -5199,6 +5199,12 @@ comma
 id|ren1_dst
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|o-&gt;call_depth
+)paren
 id|update_stages
 c_func
 (paren
