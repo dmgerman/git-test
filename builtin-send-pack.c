@@ -922,16 +922,16 @@ id|stderr
 comma
 l_string|&quot;%s -&gt; %s&quot;
 comma
-id|prettify_ref
+id|prettify_refname
 c_func
 (paren
-id|from
+id|from-&gt;name
 )paren
 comma
-id|prettify_ref
+id|prettify_refname
 c_func
 (paren
-id|to
+id|to-&gt;name
 )paren
 )paren
 suffix:semicolon
@@ -939,10 +939,10 @@ r_else
 id|fputs
 c_func
 (paren
-id|prettify_ref
+id|prettify_refname
 c_func
 (paren
-id|to
+id|to-&gt;name
 )paren
 comma
 id|stderr

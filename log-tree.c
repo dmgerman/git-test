@@ -158,6 +158,14 @@ id|obj
 r_return
 l_int|0
 suffix:semicolon
+id|refname
+op_assign
+id|prettify_refname
+c_func
+(paren
+id|refname
+)paren
+suffix:semicolon
 id|add_name_decoration
 c_func
 (paren
