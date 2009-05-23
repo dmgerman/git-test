@@ -13287,7 +13287,7 @@ c_func
 (paren
 id|options
 comma
-id|QUIET
+id|QUICK
 )paren
 )paren
 (brace
@@ -14660,7 +14660,7 @@ c_func
 (paren
 id|options
 comma
-id|QUIET
+id|QUICK
 )paren
 suffix:semicolon
 r_else

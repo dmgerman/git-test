@@ -2705,7 +2705,7 @@ c_func
 op_amp
 id|rev-&gt;diffopt
 comma
-id|QUIET
+id|QUICK
 )paren
 )paren
 id|fprintf
