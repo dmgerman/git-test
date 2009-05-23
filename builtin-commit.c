@@ -340,7 +340,7 @@ c_func
 l_string|&quot;Commit message options&quot;
 )paren
 comma
-id|OPT_STRING
+id|OPT_FILENAME
 c_func
 (paren
 l_char|&squot;F&squot;
@@ -349,8 +349,6 @@ l_string|&quot;file&quot;
 comma
 op_amp
 id|logfile
-comma
-l_string|&quot;FILE&quot;
 comma
 l_string|&quot;read log from file&quot;
 )paren
@@ -430,7 +428,7 @@ comma
 l_string|&quot;add Signed-off-by:&quot;
 )paren
 comma
-id|OPT_STRING
+id|OPT_FILENAME
 c_func
 (paren
 l_char|&squot;t&squot;
@@ -439,8 +437,6 @@ l_string|&quot;template&quot;
 comma
 op_amp
 id|template_file
-comma
-l_string|&quot;FILE&quot;
 comma
 l_string|&quot;use specified template file&quot;
 )paren
@@ -3694,52 +3690,6 @@ comma
 id|usage
 comma
 l_int|0
-)paren
-suffix:semicolon
-id|logfile
-op_assign
-id|parse_options_fix_filename
-c_func
-(paren
-id|prefix
-comma
-id|logfile
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|logfile
-)paren
-id|logfile
-op_assign
-id|xstrdup
-c_func
-(paren
-id|logfile
-)paren
-suffix:semicolon
-id|template_file
-op_assign
-id|parse_options_fix_filename
-c_func
-(paren
-id|prefix
-comma
-id|template_file
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|template_file
-)paren
-id|template_file
-op_assign
-id|xstrdup
-c_func
-(paren
-id|template_file
 )paren
 suffix:semicolon
 r_if
