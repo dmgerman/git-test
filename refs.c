@@ -3494,7 +3494,7 @@ id|cb_data
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Make sure &quot;ref&quot; is something reasonable to have under &quot;.git/refs/&quot;;&n; * We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; */
+multiline_comment|/*&n; * Make sure &quot;ref&quot; is something reasonable to have under &quot;.git/refs/&quot;;&n; * We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
 DECL|function|bad_ref_char
 r_static
 r_inline
@@ -3529,6 +3529,10 @@ op_logical_or
 id|ch
 op_eq
 l_char|&squot;:&squot;
+op_logical_or
+id|ch
+op_eq
+l_char|&squot;&bslash;&bslash;&squot;
 )paren
 r_return
 l_int|1
