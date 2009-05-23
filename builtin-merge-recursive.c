@@ -300,9 +300,12 @@ r_else
 id|warning
 c_func
 (paren
-l_string|&quot;Cannot handle more than %zu bases. &quot;
+l_string|&quot;Cannot handle more than %d bases. &quot;
 l_string|&quot;Ignoring %s.&quot;
 comma
+(paren
+r_int
+)paren
 id|ARRAY_SIZE
 c_func
 (paren
