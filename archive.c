@@ -1804,6 +1804,8 @@ id|argc
 comma
 id|argv
 comma
+l_int|NULL
+comma
 id|opts
 comma
 id|archive_usage

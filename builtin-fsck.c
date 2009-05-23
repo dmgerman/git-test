@@ -2839,6 +2839,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|fsck_opts
 comma
 id|fsck_usage

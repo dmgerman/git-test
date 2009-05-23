@@ -419,6 +419,8 @@ id|argc
 comma
 id|argv
 comma
+l_int|NULL
+comma
 id|options
 comma
 id|builtin_remote_usage
@@ -5839,6 +5841,8 @@ id|argc
 comma
 id|argv
 comma
+l_int|NULL
+comma
 id|options
 comma
 id|builtin_remote_usage
@@ -6398,6 +6402,8 @@ id|argc
 comma
 id|argv
 comma
+l_int|NULL
+comma
 id|options
 comma
 id|builtin_remote_usage
@@ -6814,6 +6820,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+l_int|NULL
 comma
 id|options
 comma
@@ -7328,6 +7336,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+l_int|NULL
 comma
 id|options
 comma
@@ -7854,6 +7864,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|prefix
 comma
 id|options
 comma

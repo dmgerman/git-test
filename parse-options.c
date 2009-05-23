@@ -1636,6 +1636,11 @@ op_star
 op_star
 id|argv
 comma
+r_const
+r_char
+op_star
+id|prefix
+comma
 r_int
 id|flags
 )paren
@@ -1668,6 +1673,10 @@ suffix:semicolon
 id|ctx-&gt;out
 op_assign
 id|argv
+suffix:semicolon
+id|ctx-&gt;prefix
+op_assign
+id|prefix
 suffix:semicolon
 id|ctx-&gt;cpidx
 op_assign
@@ -2226,6 +2235,11 @@ op_star
 id|argv
 comma
 r_const
+r_char
+op_star
+id|prefix
+comma
+r_const
 r_struct
 id|option
 op_star
@@ -2256,6 +2270,8 @@ comma
 id|argc
 comma
 id|argv
+comma
+id|prefix
 comma
 id|flags
 )paren

@@ -590,6 +590,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_rm_options
 comma
 id|builtin_rm_usage

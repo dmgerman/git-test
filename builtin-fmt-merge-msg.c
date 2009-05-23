@@ -2202,6 +2202,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|options
 comma
 id|fmt_merge_msg_usage

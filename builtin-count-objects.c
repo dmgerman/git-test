@@ -484,6 +484,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|opts
 comma
 id|count_objects_usage

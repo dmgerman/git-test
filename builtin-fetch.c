@@ -3575,6 +3575,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_fetch_options
 comma
 id|builtin_fetch_usage

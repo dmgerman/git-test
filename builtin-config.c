@@ -1970,6 +1970,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_config_options
 comma
 id|builtin_config_usage

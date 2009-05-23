@@ -1512,6 +1512,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|parseopt_opts
 comma
 id|parseopt_usage
@@ -1962,6 +1964,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|prefix
 comma
 id|opts
 comma

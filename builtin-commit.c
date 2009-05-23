@@ -3687,6 +3687,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_commit_options
 comma
 id|usage

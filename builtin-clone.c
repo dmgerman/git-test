@@ -1964,6 +1964,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_clone_options
 comma
 id|builtin_clone_usage

@@ -475,6 +475,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_mv_options
 comma
 id|builtin_mv_usage

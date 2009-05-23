@@ -501,6 +501,8 @@ id|argc
 comma
 id|argv
 comma
+l_int|NULL
+comma
 id|hash_object_options
 comma
 id|hash_object_usage

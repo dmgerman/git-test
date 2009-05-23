@@ -957,6 +957,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_gc_options
 comma
 id|builtin_gc_usage

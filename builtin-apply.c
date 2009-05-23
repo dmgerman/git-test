@@ -15736,6 +15736,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_apply_options
 comma
 id|apply_usage
