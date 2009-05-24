@@ -6758,6 +6758,13 @@ c_loop
 id|lock
 )paren
 (brace
+r_struct
+id|remote_lock
+op_star
+id|next
+op_assign
+id|lock-&gt;next
+suffix:semicolon
 id|unlock_remote
 c_func
 (paren
@@ -6766,7 +6773,7 @@ id|lock
 suffix:semicolon
 id|lock
 op_assign
-id|lock-&gt;next
+id|next
 suffix:semicolon
 )brace
 )brace
