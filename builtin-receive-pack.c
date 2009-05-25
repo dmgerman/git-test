@@ -93,6 +93,13 @@ r_static
 r_int
 id|report_status
 suffix:semicolon
+DECL|variable|prefer_ofs_delta
+r_static
+r_int
+id|prefer_ofs_delta
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|head_name
 r_static
 r_const
@@ -100,19 +107,11 @@ r_char
 op_star
 id|head_name
 suffix:semicolon
-DECL|variable|capabilities
+DECL|variable|capabilities_to_send
 r_static
 r_char
-id|capabilities
-(braket
-)braket
-op_assign
-l_string|&quot; report-status delete-refs &quot;
-suffix:semicolon
-DECL|variable|capabilities_sent
-r_static
-r_int
-id|capabilities_sent
+op_star
+id|capabilities_to_send
 suffix:semicolon
 DECL|function|parse_deny_action
 r_static
@@ -418,6 +417,34 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;repack.usedeltabaseoffset&quot;
+)paren
+op_eq
+l_int|0
+)paren
+(brace
+id|prefer_ofs_delta
+op_assign
+id|git_config_bool
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_return
 id|git_default_config
 c_func
@@ -458,7 +485,8 @@ id|cb_data
 r_if
 c_cond
 (paren
-id|capabilities_sent
+op_logical_neg
+id|capabilities_to_send
 )paren
 id|packet_write
 c_func
@@ -494,12 +522,12 @@ id|path
 comma
 l_int|0
 comma
-id|capabilities
+id|capabilities_to_send
 )paren
 suffix:semicolon
-id|capabilities_sent
+id|capabilities_to_send
 op_assign
-l_int|1
+l_int|NULL
 suffix:semicolon
 r_return
 l_int|0
@@ -525,8 +553,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|capabilities_sent
+id|capabilities_to_send
 )paren
 id|show_ref
 c_func
@@ -3452,7 +3479,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;&squot;%s&squot;: unable to chdir or not a git archive&quot;
+l_string|&quot;&squot;%s&squot; does not appear to be a git repository&quot;
 comma
 id|dir
 )paren
@@ -3501,6 +3528,17 @@ id|receive_unpack_limit
 id|unpack_limit
 op_assign
 id|receive_unpack_limit
+suffix:semicolon
+id|capabilities_to_send
+op_assign
+(paren
+id|prefer_ofs_delta
+)paren
+ques
+c_cond
+l_string|&quot; report-status delete-refs ofs-delta &quot;
+suffix:colon
+l_string|&quot; report-status delete-refs &quot;
 suffix:semicolon
 id|add_alternate_refs
 c_func
@@ -3570,7 +3608,7 @@ c_cond
 (paren
 id|pack_lockfile
 )paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|pack_lockfile

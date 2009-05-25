@@ -2684,17 +2684,6 @@ c_loop
 l_int|1
 )paren
 (brace
-r_struct
-id|sline
-op_star
-id|sl
-op_assign
-op_amp
-id|sline
-(braket
-id|lno
-)braket
-suffix:semicolon
 r_int
 r_int
 id|hunk_end
@@ -3091,6 +3080,9 @@ r_int
 r_int
 id|p_mask
 suffix:semicolon
+r_struct
+id|sline
+op_star
 id|sl
 op_assign
 op_amp

@@ -194,6 +194,24 @@ id|autorebase
 op_assign
 id|AUTOREBASE_NEVER
 suffix:semicolon
+DECL|variable|push_default
+r_enum
+id|push_default_type
+id|push_default
+op_assign
+id|PUSH_DEFAULT_UNSPECIFIED
+suffix:semicolon
+macro_line|#ifndef OBJECT_CREATION_MODE
+DECL|macro|OBJECT_CREATION_MODE
+mdefine_line|#define OBJECT_CREATION_MODE OBJECT_CREATION_USES_HARDLINKS
+macro_line|#endif
+DECL|variable|object_creation_mode
+r_enum
+id|object_creation_mode
+id|object_creation_mode
+op_assign
+id|OBJECT_CREATION_MODE
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int

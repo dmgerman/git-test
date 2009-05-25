@@ -2816,10 +2816,6 @@ id|in
 )paren
 suffix:semicolon
 )brace
-id|in
-op_assign
-id|ep
-suffix:semicolon
 )brace
 multiline_comment|/* E.g.&n;&t;&t; * ep : &quot;=?iso-2022-jp?B?GyR...?= foo&quot;&n;&t;&t; * ep : &quot;=?ISO-8859-1?Q?Foo=FCbar?= baz&quot;&n;&t;&t; */
 id|ep

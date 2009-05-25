@@ -801,12 +801,10 @@ id|ref
 )paren
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: ref &squot;%s&squot; ignored&bslash;n&quot;
+l_string|&quot;ref &squot;%s&squot; ignored&quot;
 comma
 id|ref
 )paren

@@ -1252,7 +1252,7 @@ id|entry-&gt;idx.sha1
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * make sure no cached delta data remains from a&n;&t;&t;&t; * previous attempt before a pack split occured.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * make sure no cached delta data remains from a&n;&t;&t;&t; * previous attempt before a pack split occurred.&n;&t;&t;&t; */
 id|free
 c_func
 (paren
@@ -7453,7 +7453,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Delta compression using %d threads.&bslash;n&quot;
+l_string|&quot;Delta compression using up to %d threads.&bslash;n&quot;
 comma
 id|delta_search_threads
 )paren
@@ -8951,6 +8951,10 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 id|add_object_entry
@@ -9902,6 +9906,8 @@ comma
 id|show_commit
 comma
 id|show_object
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

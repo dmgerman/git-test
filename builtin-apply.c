@@ -10847,13 +10847,13 @@ c_cond
 id|has_symlink_leading_path
 c_func
 (paren
+id|new_name
+comma
 id|strlen
 c_func
 (paren
 id|new_name
 )paren
-comma
-id|new_name
 )paren
 )paren
 r_return
@@ -11399,12 +11399,10 @@ id|st_mode
 op_ne
 id|patch-&gt;old_mode
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: %s has type %o, expected %o&bslash;n&quot;
+l_string|&quot;%s has type %o, expected %o&quot;
 comma
 id|old_name
 comma
@@ -12927,7 +12925,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|patch-&gt;old_name
@@ -13591,7 +13589,7 @@ id|path
 )paren
 r_return
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|newpath
@@ -13952,12 +13950,10 @@ id|namebuf
 )paren
 l_int|5
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: truncating .rej filename to %.*s.rej&quot;
+l_string|&quot;truncating .rej filename to %.*s.rej&quot;
 comma
 id|cnt
 l_int|1
@@ -15413,9 +15409,9 @@ comma
 l_string|&quot;instead of applying the patch, output diffstat for the input&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;allow-binary-replacement&quot;
@@ -15423,12 +15419,16 @@ comma
 op_amp
 id|binary
 comma
-l_string|&quot;now no-op&quot;
-)paren
+l_int|NULL
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+l_string|&quot;old option, now no-op&quot;
+comma
+id|PARSE_OPT_HIDDEN
+)brace
+comma
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;binary&quot;
@@ -15436,8 +15436,12 @@ comma
 op_amp
 id|binary
 comma
-l_string|&quot;now no-op&quot;
-)paren
+l_int|NULL
+comma
+l_string|&quot;old option, now no-op&quot;
+comma
+id|PARSE_OPT_HIDDEN
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -16015,13 +16019,11 @@ op_assign
 id|whitespace_error
 id|squelch_whitespace_errors
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: squelched %d &quot;
-l_string|&quot;whitespace error%s&bslash;n&quot;
+l_string|&quot;squelched %d &quot;
+l_string|&quot;whitespace error%s&quot;
 comma
 id|squelched
 comma
@@ -16076,13 +16078,11 @@ id|applied_after_fixing_ws
 op_logical_and
 id|apply
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: %d line%s applied after&quot;
-l_string|&quot; fixing whitespace errors.&bslash;n&quot;
+l_string|&quot;%d line%s applied after&quot;
+l_string|&quot; fixing whitespace errors.&quot;
 comma
 id|applied_after_fixing_ws
 comma
@@ -16102,12 +16102,10 @@ c_cond
 (paren
 id|whitespace_error
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: %d line%s add%s whitespace errors.&bslash;n&quot;
+l_string|&quot;%d line%s add%s whitespace errors.&quot;
 comma
 id|whitespace_error
 comma

@@ -555,6 +555,14 @@ op_lshift
 l_int|20
 )paren
 (brace
+r_int
+id|x
+op_assign
+id|total
+op_plus
+l_int|5243
+suffix:semicolon
+multiline_comment|/* for rounding */
 id|l
 op_sub_assign
 id|snprintf
@@ -566,21 +574,13 @@ id|l
 comma
 l_string|&quot;, %u.%2.2u MiB&quot;
 comma
-(paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_rshift
 l_int|20
-)paren
 comma
 (paren
 (paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_amp
 (paren
 (paren
@@ -610,6 +610,14 @@ op_lshift
 l_int|10
 )paren
 (brace
+r_int
+id|x
+op_assign
+id|total
+op_plus
+l_int|5
+suffix:semicolon
+multiline_comment|/* for rounding */
 id|l
 op_sub_assign
 id|snprintf
@@ -621,21 +629,13 @@ id|l
 comma
 l_string|&quot;, %u.%2.2u KiB&quot;
 comma
-(paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_rshift
 l_int|10
-)paren
 comma
 (paren
 (paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_amp
 (paren
 (paren

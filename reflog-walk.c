@@ -1341,8 +1341,9 @@ comma
 r_int
 id|oneline
 comma
-r_int
-id|relative_date
+r_enum
+id|date_mode
+id|dmode
 )paren
 (brace
 r_if
@@ -1394,7 +1395,7 @@ c_cond
 (paren
 id|commit_reflog-&gt;flag
 op_logical_or
-id|relative_date
+id|dmode
 )paren
 id|printf
 c_func
@@ -1406,9 +1407,9 @@ c_func
 (paren
 id|info-&gt;timestamp
 comma
-l_int|0
+id|info-&gt;tz
 comma
-l_int|1
+id|dmode
 )paren
 )paren
 suffix:semicolon
@@ -1447,7 +1448,7 @@ c_cond
 (paren
 id|commit_reflog-&gt;flag
 op_logical_or
-id|relative_date
+id|dmode
 )paren
 id|printf
 c_func
@@ -1461,7 +1462,7 @@ id|info-&gt;timestamp
 comma
 id|info-&gt;tz
 comma
-id|relative_date
+id|dmode
 )paren
 )paren
 suffix:semicolon

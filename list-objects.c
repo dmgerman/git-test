@@ -573,6 +573,10 @@ id|show_commit
 comma
 id|show_object_fn
 id|show_object
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_int
@@ -611,6 +615,8 @@ id|show_commit
 c_func
 (paren
 id|commit
+comma
+id|data
 )paren
 suffix:semicolon
 )brace

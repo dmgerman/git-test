@@ -615,10 +615,6 @@ l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* no &quot;diff&quot; UI options */
-id|nr_sha1
-op_assign
-l_int|0
-suffix:semicolon
 id|opt-&gt;abbrev
 op_assign
 l_int|0

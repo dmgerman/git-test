@@ -255,6 +255,10 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_if
@@ -702,6 +706,8 @@ comma
 id|show_commit
 comma
 id|show_object
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|fflush
@@ -1978,9 +1984,6 @@ id|last_hex
 l_int|41
 )braket
 suffix:semicolon
-r_int
-id|len
-suffix:semicolon
 id|save_commit_buffer
 op_assign
 l_int|0
@@ -1992,6 +1995,7 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
+r_int
 id|len
 op_assign
 id|packet_read_line
@@ -2039,8 +2043,6 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|len
-op_assign
 id|strip
 c_func
 (paren
@@ -3439,7 +3441,7 @@ id|strict
 id|die
 c_func
 (paren
-l_string|&quot;&squot;%s&squot;: unable to chdir or not a git archive&quot;
+l_string|&quot;&squot;%s&squot; does not appear to be a git repository&quot;
 comma
 id|dir
 )paren

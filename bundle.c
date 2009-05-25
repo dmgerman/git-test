@@ -610,6 +610,8 @@ op_assign
 l_int|NULL
 comma
 l_string|&quot;--all&quot;
+comma
+l_int|NULL
 )brace
 suffix:semicolon
 r_struct

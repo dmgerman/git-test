@@ -126,7 +126,7 @@ c_cond
 op_logical_neg
 id|show_only
 )paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|fullpath
@@ -268,7 +268,7 @@ c_cond
 op_logical_neg
 id|show_only
 )paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|fullpath

@@ -1248,7 +1248,7 @@ op_add_assign
 l_int|2
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * Otherwise, argv[i] could be either &lt;rev&gt; or &lt;paths&gt; and&n;&t;&t; * has to be unambigous.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Otherwise, argv[i] could be either &lt;rev&gt; or &lt;paths&gt; and&n;&t;&t; * has to be unambiguous.&n;&t;&t; */
 r_else
 r_if
 c_cond

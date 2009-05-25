@@ -1421,9 +1421,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-r_int
-id|ec
-suffix:semicolon
 id|xdpsplit_t
 id|spl
 suffix:semicolon
@@ -1437,9 +1434,6 @@ multiline_comment|/*&n;&t;&t; * Divide ...&n;&t;&t; */
 r_if
 c_cond
 (paren
-(paren
-id|ec
-op_assign
 id|xdl_split
 c_func
 (paren
@@ -1465,7 +1459,6 @@ op_amp
 id|spl
 comma
 id|xenv
-)paren
 )paren
 OL
 l_int|0
@@ -2143,7 +2136,7 @@ id|ixo
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t;&t; * Record the end-of-group position in case we are matched&n;&t;&t;&t; * with a group of changes in the other file (that is, the&n;&t;&t;&t; * change record before the enf-of-group index in the other&n;&t;&t;&t; * file is set).&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * Record the end-of-group position in case we are matched&n;&t;&t;&t; * with a group of changes in the other file (that is, the&n;&t;&t;&t; * change record before the end-of-group index in the other&n;&t;&t;&t; * file is set).&n;&t;&t;&t; */
 id|ixref
 op_assign
 id|rchgo

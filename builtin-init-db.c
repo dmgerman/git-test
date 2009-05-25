@@ -714,12 +714,10 @@ op_logical_neg
 id|dir
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: templates not found %s&bslash;n&quot;
+l_string|&quot;templates not found %s&quot;
 comma
 id|template_dir
 )paren
@@ -769,13 +767,11 @@ op_ne
 id|GIT_REPO_VERSION
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: not copying templates of &quot;
-l_string|&quot;a wrong format version %d from &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;not copying templates of &quot;
+l_string|&quot;a wrong format version %d from &squot;%s&squot;&quot;
 comma
 id|repository_format_version
 comma

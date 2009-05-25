@@ -599,11 +599,6 @@ l_char|&squot;&bslash;n&squot;
 id|oneline
 op_increment
 suffix:semicolon
-id|len
-op_assign
-id|eol
-id|oneline
-suffix:semicolon
 id|format_subject
 c_func
 (paren

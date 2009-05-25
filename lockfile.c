@@ -64,7 +64,7 @@ c_func
 id|lock_file_list-&gt;fd
 )paren
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|lock_file_list-&gt;filename
@@ -1100,7 +1100,7 @@ c_func
 id|lk-&gt;fd
 )paren
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|lk-&gt;filename

@@ -2001,7 +2001,7 @@ id|c
 comma
 id|c1
 suffix:semicolon
-multiline_comment|/* A random tempory spot in PATTERN.  */
+multiline_comment|/* A random temporary spot in PATTERN.  */
 r_const
 r_char
 op_star
@@ -4328,7 +4328,7 @@ op_add_assign
 l_int|3
 suffix:semicolon
 )brace
-multiline_comment|/* Otherwise, we have a nontrivial interval.  When&n;&t;&t;    we&squot;re all done, the pattern will look like:&n;&t;&t;      set_number_at &lt;jump count&gt; &lt;upper bound&gt;&n;&t;&t;      set_number_at &lt;succeed_n count&gt; &lt;lower bound&gt;&n;&t;&t;      succeed_n &lt;after jump addr&gt; &lt;succed_n count&gt;&n;&t;&t;      &lt;body of loop&gt;&n;&t;&t;      jump_n &lt;succeed_n addr&gt; &lt;jump count&gt;&n;&t;&t;    (The upper bound and `jump_n&squot; are omitted if&n;&t;&t;    `upper_bound&squot; is 1, though.)  */
+multiline_comment|/* Otherwise, we have a nontrivial interval.  When&n;&t;&t;    we&squot;re all done, the pattern will look like:&n;&t;&t;      set_number_at &lt;jump count&gt; &lt;upper bound&gt;&n;&t;&t;      set_number_at &lt;succeed_n count&gt; &lt;lower bound&gt;&n;&t;&t;      succeed_n &lt;after jump addr&gt; &lt;succeed_n count&gt;&n;&t;&t;      &lt;body of loop&gt;&n;&t;&t;      jump_n &lt;succeed_n addr&gt; &lt;jump count&gt;&n;&t;&t;    (The upper bound and `jump_n&squot; are omitted if&n;&t;&t;    `upper_bound&squot; is 1, though.)  */
 r_else
 (brace
 multiline_comment|/* If the upper bound is &gt; 1, we need to insert&n;&t;&t;&t;more at the end of the loop.  */

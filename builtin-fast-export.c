@@ -1108,6 +1108,15 @@ r_if
 c_cond
 (paren
 id|commit-&gt;parents
+op_logical_and
+id|get_object_mark
+c_func
+(paren
+op_amp
+id|commit-&gt;parents-&gt;item-&gt;object
+)paren
+op_ne
+l_int|0
 )paren
 (brace
 id|parse_commit

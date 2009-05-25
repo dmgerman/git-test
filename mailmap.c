@@ -570,6 +570,9 @@ r_char
 op_star
 op_star
 id|email
+comma
+r_int
+id|allow_empty_email
 )paren
 (brace
 r_char
@@ -638,11 +641,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|allow_empty_email
+op_logical_and
+(paren
 id|left
 op_plus
 l_int|1
 op_eq
 id|right
+)paren
 )paren
 r_return
 l_int|NULL
@@ -998,6 +1006,8 @@ id|name1
 comma
 op_amp
 id|email1
+comma
+l_int|0
 )paren
 )paren
 op_ne
@@ -1013,6 +1023,8 @@ id|name2
 comma
 op_amp
 id|email2
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_if

@@ -2779,19 +2779,9 @@ c_func
 id|mode
 )paren
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;cannot read object %s &squot;%s&squot;: It is a submodule!&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|sha
-)paren
-comma
-id|path
-)paren
+multiline_comment|/*&n;&t;&t;&t; * We may later decide to recursively descend into&n;&t;&t;&t; * the submodule directory and update its index&n;&t;&t;&t; * and/or work tree, but we do not do that now.&n;&t;&t;&t; */
+r_goto
+id|update_index
 suffix:semicolon
 id|buf
 op_assign
@@ -4512,9 +4502,6 @@ id|b_renames-&gt;nr
 suffix:semicolon
 )paren
 (brace
-r_int
-id|compare
-suffix:semicolon
 r_char
 op_star
 id|src
@@ -4523,9 +4510,6 @@ r_struct
 id|string_list
 op_star
 id|renames1
-comma
-op_star
-id|renames2
 comma
 op_star
 id|renames2Dst
@@ -4566,10 +4550,6 @@ op_ge
 id|a_renames-&gt;nr
 )paren
 (brace
-id|compare
-op_assign
-l_int|1
-suffix:semicolon
 id|ren2
 op_assign
 id|b_renames-&gt;items
@@ -4590,10 +4570,6 @@ op_ge
 id|b_renames-&gt;nr
 )paren
 (brace
-id|compare
-op_assign
-l_int|1
-suffix:semicolon
 id|ren1
 op_assign
 id|a_renames-&gt;items
@@ -4607,6 +4583,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_int
 id|compare
 op_assign
 id|strcmp
@@ -4673,10 +4650,6 @@ id|renames1
 op_assign
 id|a_renames
 suffix:semicolon
-id|renames2
-op_assign
-id|b_renames
-suffix:semicolon
 id|renames2Dst
 op_assign
 op_amp
@@ -4701,10 +4674,6 @@ suffix:semicolon
 id|renames1
 op_assign
 id|b_renames
-suffix:semicolon
-id|renames2
-op_assign
-id|a_renames
 suffix:semicolon
 id|renames2Dst
 op_assign
@@ -5230,6 +5199,12 @@ comma
 id|ren1_dst
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|o-&gt;call_depth
+)paren
 id|update_stages
 c_func
 (paren
