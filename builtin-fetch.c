@@ -859,6 +859,10 @@ r_return
 id|ref_map
 suffix:semicolon
 )brace
+DECL|macro|STORE_REF_ERROR_OTHER
+mdefine_line|#define STORE_REF_ERROR_OTHER 1
+DECL|macro|STORE_REF_ERROR_DF_CONFLICT
+mdefine_line|#define STORE_REF_ERROR_DF_CONFLICT 2
 DECL|function|s_update_ref
 r_static
 r_int
@@ -952,7 +956,14 @@ op_logical_neg
 id|lock
 )paren
 r_return
-l_int|2
+id|errno
+op_eq
+id|ENOTDIR
+ques
+c_cond
+id|STORE_REF_ERROR_DF_CONFLICT
+suffix:colon
+id|STORE_REF_ERROR_OTHER
 suffix:semicolon
 r_if
 c_cond
@@ -970,7 +981,14 @@ OL
 l_int|0
 )paren
 r_return
-l_int|2
+id|errno
+op_eq
+id|ENOTDIR
+ques
+c_cond
+id|STORE_REF_ERROR_DF_CONFLICT
+suffix:colon
+id|STORE_REF_ERROR_OTHER
 suffix:semicolon
 r_return
 l_int|0
@@ -2176,7 +2194,7 @@ c_cond
 (paren
 id|rc
 op_amp
-l_int|2
+id|STORE_REF_ERROR_DF_CONFLICT
 )paren
 id|error
 c_func
