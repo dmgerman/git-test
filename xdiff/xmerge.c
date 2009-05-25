@@ -2531,14 +2531,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|xscr1
-op_logical_or
-id|xscr2
-)paren
-(brace
-r_if
-c_cond
-(paren
 op_logical_neg
 id|xscr1
 )paren
@@ -2638,7 +2630,6 @@ c_func
 id|xscr2
 )paren
 suffix:semicolon
-)brace
 id|xdl_free_env
 c_func
 (paren
