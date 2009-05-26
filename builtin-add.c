@@ -300,6 +300,14 @@ id|seen
 id|i
 )braket
 op_logical_and
+id|pathspec
+(braket
+id|i
+)braket
+(braket
+l_int|0
+)braket
+op_logical_and
 op_logical_neg
 id|file_exists
 c_func
