@@ -925,9 +925,9 @@ id|cat_file_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git cat-file [-t|-s|-e|-p|&lt;type&gt;] &lt;sha1&gt;&quot;
+l_string|&quot;git cat-file (-t|-s|-e|-p|&lt;type&gt;) &lt;object&gt;&quot;
 comma
-l_string|&quot;git cat-file [--batch|--batch-check] &lt; &lt;list_of_sha1s&gt;&quot;
+l_string|&quot;git cat-file (--batch|--batch-check) &lt; &lt;list_of_objects&gt;&quot;
 comma
 l_int|NULL
 )brace

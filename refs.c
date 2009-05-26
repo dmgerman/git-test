@@ -4558,9 +4558,15 @@ comma
 l_int|0
 )paren
 )paren
+(brace
+id|last_errno
+op_assign
+id|ENOTDIR
+suffix:semicolon
 r_goto
 id|error_return
 suffix:semicolon
+)brace
 id|lock-&gt;lk
 op_assign
 id|xcalloc
