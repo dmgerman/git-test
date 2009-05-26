@@ -1174,9 +1174,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_cache
+id|read_cache_preload
 c_func
 (paren
+id|pathspec
 )paren
 OL
 l_int|0
@@ -2089,9 +2090,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|read_cache
+id|read_cache_preload
 c_func
 (paren
+l_int|NULL
 )paren
 OL
 l_int|0
