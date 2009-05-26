@@ -166,7 +166,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|ce-&gt;name

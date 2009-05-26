@@ -168,22 +168,9 @@ id|pathname
 )paren
 suffix:semicolon
 r_else
-r_if
-c_cond
-(paren
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
-id|pathname
-)paren
-OL
-l_int|0
-)paren
-id|error
-c_func
-(paren
-l_string|&quot;unable to unlink %s&quot;
-comma
 id|pathname
 )paren
 suffix:semicolon

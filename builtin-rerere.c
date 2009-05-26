@@ -760,7 +760,7 @@ id|name
 )paren
 suffix:semicolon
 )brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|git_path

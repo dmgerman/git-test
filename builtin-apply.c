@@ -12925,7 +12925,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|patch-&gt;old_name
@@ -13589,7 +13589,7 @@ id|path
 )paren
 r_return
 suffix:semicolon
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|newpath
