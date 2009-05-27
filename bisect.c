@@ -3814,7 +3814,7 @@ id|i
 dot
 id|item
 suffix:semicolon
-id|unparse_commit
+id|clear_commit_marks
 c_func
 (paren
 (paren
@@ -3823,6 +3823,8 @@ id|commit
 op_star
 )paren
 id|o
+comma
+id|ALL_REV_FLAGS
 )paren
 suffix:semicolon
 )brace
