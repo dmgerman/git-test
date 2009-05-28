@@ -7,6 +7,7 @@ macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;sha1-lookup.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;bisect.h&quot;
 DECL|struct|sha1_array
 r_struct
@@ -76,25 +77,6 @@ DECL|member|argv_alloc
 r_int
 id|argv_alloc
 suffix:semicolon
-)brace
-suffix:semicolon
-DECL|variable|argv_diff_tree
-r_static
-r_const
-r_char
-op_star
-id|argv_diff_tree
-(braket
-)braket
-op_assign
-(brace
-l_string|&quot;diff-tree&quot;
-comma
-l_string|&quot;--pretty&quot;
-comma
-l_int|NULL
-comma
-l_int|NULL
 )brace
 suffix:semicolon
 DECL|variable|argv_checkout
@@ -3968,6 +3950,89 @@ id|fd
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * This does &quot;git diff-tree --pretty COMMIT&quot; without one fork+exec.&n; */
+DECL|function|show_diff_tree
+r_static
+r_void
+id|show_diff_tree
+c_func
+(paren
+r_const
+r_char
+op_star
+id|prefix
+comma
+r_struct
+id|commit
+op_star
+id|commit
+)paren
+(brace
+r_struct
+id|rev_info
+id|opt
+suffix:semicolon
+multiline_comment|/* diff-tree init */
+id|init_revisions
+c_func
+(paren
+op_amp
+id|opt
+comma
+id|prefix
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_diff_basic_config
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+multiline_comment|/* no &quot;diff&quot; UI options */
+id|opt.abbrev
+op_assign
+l_int|0
+suffix:semicolon
+id|opt.diff
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* This is what &quot;--pretty&quot; does */
+id|opt.verbose_header
+op_assign
+l_int|1
+suffix:semicolon
+id|opt.use_terminator
+op_assign
+l_int|0
+suffix:semicolon
+id|opt.commit_format
+op_assign
+id|CMIT_FMT_DEFAULT
+suffix:semicolon
+multiline_comment|/* diff-tree init */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opt.diffopt.output_format
+)paren
+id|opt.diffopt.output_format
+op_assign
+id|DIFF_FORMAT_RAW
+suffix:semicolon
+id|log_tree_commit
+c_func
+(paren
+op_amp
+id|opt
+comma
+id|commit
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/*&n; * We use the convention that exiting with an exit code 10 means that&n; * the bisection process finished successfully.&n; * In this case the calling shell script should exit 0.&n; */
 DECL|function|bisect_next_all
 r_int
@@ -4170,19 +4235,12 @@ comma
 id|bisect_rev_hex
 )paren
 suffix:semicolon
-id|argv_diff_tree
-(braket
-l_int|2
-)braket
-op_assign
-id|bisect_rev_hex
-suffix:semicolon
-id|run_command_v_opt
+id|show_diff_tree
 c_func
 (paren
-id|argv_diff_tree
+id|prefix
 comma
-id|RUN_GIT_CMD
+id|revs.commits-&gt;item
 )paren
 suffix:semicolon
 multiline_comment|/* This means the bisection process succeeded. */
