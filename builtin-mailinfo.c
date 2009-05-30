@@ -940,9 +940,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
 id|slurp_attr
 c_func
 (paren
@@ -950,13 +947,6 @@ id|line-&gt;buf
 comma
 l_string|&quot;charset=&quot;
 comma
-op_amp
-id|charset
-)paren
-)paren
-id|strbuf_tolower
-c_func
-(paren
 op_amp
 id|charset
 )paren
@@ -2539,7 +2529,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 r_return
-l_string|&quot;latin1&quot;
+l_string|&quot;ISO8859-1&quot;
 suffix:semicolon
 )brace
 DECL|function|convert_to_utf8
@@ -2597,7 +2587,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|strcasecmp
 c_func
 (paren
 id|metainfo_charset
@@ -2869,13 +2859,6 @@ id|ep
 comma
 id|cp
 id|ep
-)paren
-suffix:semicolon
-id|strbuf_tolower
-c_func
-(paren
-op_amp
-id|charset_q
 )paren
 suffix:semicolon
 id|encoding
@@ -4728,7 +4711,7 @@ ques
 c_cond
 id|git_commit_encoding
 suffix:colon
-l_string|&quot;utf-8&quot;
+l_string|&quot;UTF-8&quot;
 )paren
 suffix:semicolon
 id|metainfo_charset
