@@ -2054,15 +2054,14 @@ id|len
 r_if
 c_cond
 (paren
-id|cache_name_pos
+op_logical_neg
+id|cache_name_is_other
 c_func
 (paren
 id|pathname
 comma
 id|len
 )paren
-op_ge
-l_int|0
 )paren
 r_return
 l_int|NULL
