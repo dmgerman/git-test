@@ -240,6 +240,8 @@ id|argc
 comma
 id|argv
 comma
+l_int|NULL
+comma
 id|options
 comma
 id|usage_str

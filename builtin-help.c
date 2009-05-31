@@ -2363,6 +2363,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_help_options
 comma
 id|builtin_help_usage

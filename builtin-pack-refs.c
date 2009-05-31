@@ -97,6 +97,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|opts
 comma
 id|pack_refs_usage

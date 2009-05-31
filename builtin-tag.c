@@ -2070,7 +2070,7 @@ comma
 id|parse_msg_arg
 )paren
 comma
-id|OPT_STRING
+id|OPT_FILENAME
 c_func
 (paren
 l_char|&squot;F&squot;
@@ -2079,8 +2079,6 @@ l_int|NULL
 comma
 op_amp
 id|msgfile
-comma
-l_string|&quot;file&quot;
 comma
 l_string|&quot;message in a file&quot;
 )paren
@@ -2180,21 +2178,13 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|options
 comma
 id|git_tag_usage
 comma
 l_int|0
-)paren
-suffix:semicolon
-id|msgfile
-op_assign
-id|parse_options_fix_filename
-c_func
-(paren
-id|prefix
-comma
-id|msgfile
 )paren
 suffix:semicolon
 r_if

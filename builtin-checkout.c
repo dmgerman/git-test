@@ -3417,6 +3417,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|options
 comma
 id|checkout_usage

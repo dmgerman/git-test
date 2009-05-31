@@ -4881,6 +4881,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_format_patch_options
 comma
 id|builtin_format_patch_usage

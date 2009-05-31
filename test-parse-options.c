@@ -52,6 +52,14 @@ id|string
 op_assign
 l_int|NULL
 suffix:semicolon
+DECL|variable|file
+r_static
+r_char
+op_star
+id|file
+op_assign
+l_int|NULL
+suffix:semicolon
 DECL|function|length_callback
 r_int
 id|length_callback
@@ -171,6 +179,13 @@ op_star
 id|argv
 )paren
 (brace
+r_const
+r_char
+op_star
+id|prefix
+op_assign
+l_string|&quot;prefix/&quot;
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -309,6 +324,19 @@ comma
 l_string|&quot;get length of &lt;str&gt;&quot;
 comma
 id|length_callback
+)paren
+comma
+id|OPT_FILENAME
+c_func
+(paren
+l_char|&squot;F&squot;
+comma
+l_string|&quot;file&quot;
+comma
+op_amp
+id|file
+comma
+l_string|&quot;set file to &lt;FILE&gt;&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -495,6 +523,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|options
 comma
 id|usage
@@ -579,6 +609,19 @@ c_cond
 l_string|&quot;yes&quot;
 suffix:colon
 l_string|&quot;no&quot;
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;file: %s&bslash;n&quot;
+comma
+id|file
+ques
+c_cond
+id|file
+suffix:colon
+l_string|&quot;(not set)&quot;
 )paren
 suffix:semicolon
 r_for

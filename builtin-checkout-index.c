@@ -1172,6 +1172,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_checkout_index_options
 comma
 id|builtin_checkout_index_usage

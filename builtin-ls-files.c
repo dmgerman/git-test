@@ -2576,6 +2576,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_ls_files_options
 comma
 id|ls_files_usage

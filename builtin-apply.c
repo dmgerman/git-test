@@ -15620,7 +15620,7 @@ comma
 l_string|&quot;also apply the patch (use with --stat/--summary/--check)&quot;
 )paren
 comma
-id|OPT_STRING
+id|OPT_FILENAME
 c_func
 (paren
 l_int|0
@@ -15629,8 +15629,6 @@ l_string|&quot;build-fake-ancestor&quot;
 comma
 op_amp
 id|fake_ancestor
-comma
-l_string|&quot;file&quot;
 comma
 l_string|&quot;build a temporary index based on embedded index information&quot;
 )paren
@@ -15835,34 +15833,13 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_apply_options
 comma
 id|apply_usage
 comma
 l_int|0
-)paren
-suffix:semicolon
-id|fake_ancestor
-op_assign
-id|parse_options_fix_filename
-c_func
-(paren
-id|prefix
-comma
-id|fake_ancestor
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|fake_ancestor
-)paren
-id|fake_ancestor
-op_assign
-id|xstrdup
-c_func
-(paren
-id|fake_ancestor
 )paren
 suffix:semicolon
 r_if

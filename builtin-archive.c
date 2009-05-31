@@ -480,6 +480,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|local_opts
 comma
 l_int|NULL

@@ -2686,6 +2686,8 @@ id|argc
 comma
 id|argv
 comma
+l_int|NULL
+comma
 id|builtin_merge_options
 comma
 id|builtin_merge_usage
@@ -5221,6 +5223,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|prefix
 comma
 id|builtin_merge_options
 comma

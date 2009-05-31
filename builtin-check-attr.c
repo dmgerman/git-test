@@ -423,6 +423,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|check_attr_options
 comma
 id|check_attr_usage

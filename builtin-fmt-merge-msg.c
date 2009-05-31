@@ -2145,7 +2145,7 @@ comma
 l_string|&quot;alias for --log&quot;
 )paren
 comma
-id|OPT_STRING
+id|OPT_FILENAME
 c_func
 (paren
 l_char|&squot;F&squot;
@@ -2154,8 +2154,6 @@ l_string|&quot;file&quot;
 comma
 op_amp
 id|inpath
-comma
-l_string|&quot;file&quot;
 comma
 l_string|&quot;file to read from&quot;
 )paren
@@ -2202,6 +2200,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|options
 comma
 id|fmt_merge_msg_usage
@@ -2222,16 +2222,6 @@ c_func
 id|fmt_merge_msg_usage
 comma
 id|options
-)paren
-suffix:semicolon
-id|inpath
-op_assign
-id|parse_options_fix_filename
-c_func
-(paren
-id|prefix
-comma
-id|inpath
 )paren
 suffix:semicolon
 r_if

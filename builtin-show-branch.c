@@ -3627,6 +3627,8 @@ id|ac
 comma
 id|av
 comma
+id|prefix
+comma
 id|builtin_show_branch_options
 comma
 id|show_branch_usage

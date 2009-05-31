@@ -1780,6 +1780,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_add_options
 comma
 id|builtin_add_usage

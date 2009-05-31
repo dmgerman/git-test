@@ -878,6 +878,8 @@ id|ac
 comma
 id|av
 comma
+id|prefix
+comma
 id|option
 comma
 id|mktree_usage
