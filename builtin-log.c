@@ -3217,7 +3217,7 @@ r_char
 op_star
 id|encoding
 op_assign
-l_string|&quot;utf-8&quot;
+l_string|&quot;UTF-8&quot;
 suffix:semicolon
 r_struct
 id|diff_options

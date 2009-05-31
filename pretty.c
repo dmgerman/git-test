@@ -1654,7 +1654,7 @@ r_char
 op_star
 id|utf8
 op_assign
-l_string|&quot;utf-8&quot;
+l_string|&quot;UTF-8&quot;
 suffix:semicolon
 r_const
 r_char
@@ -4919,7 +4919,7 @@ id|encoding
 )paren
 id|encoding
 op_assign
-l_string|&quot;utf-8&quot;
+l_string|&quot;UTF-8&quot;
 suffix:semicolon
 r_if
 c_cond
