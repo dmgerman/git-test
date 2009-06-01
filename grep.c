@@ -2622,6 +2622,15 @@ id|eflags
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|match.rm_so
+op_eq
+id|match.rm_eo
+)paren
+r_break
+suffix:semicolon
 id|printf
 c_func
 (paren
