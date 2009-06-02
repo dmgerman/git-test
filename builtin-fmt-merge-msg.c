@@ -2224,6 +2224,16 @@ comma
 id|options
 )paren
 suffix:semicolon
+id|inpath
+op_assign
+id|parse_options_fix_filename
+c_func
+(paren
+id|prefix
+comma
+id|inpath
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
