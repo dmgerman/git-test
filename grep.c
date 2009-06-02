@@ -1805,6 +1805,10 @@ id|eol
 id|bol
 op_increment
 suffix:semicolon
+id|eflags
+op_or_assign
+id|REG_NOTBOL
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2618,6 +2622,15 @@ id|eflags
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|match.rm_so
+op_eq
+id|match.rm_eo
+)paren
+r_break
+suffix:semicolon
 id|printf
 c_func
 (paren
