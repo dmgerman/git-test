@@ -1126,7 +1126,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * The goal is to get REV_TREE_NEW as the result only if the&n; * diff consists of all &squot;+&squot; (and no other changes), and&n; * REV_TREE_DIFFERENT otherwise (of course if the trees are&n; * the same we want REV_TREE_SAME).  That means that once we&n; * get to REV_TREE_DIFFERENT, we do not have to look any further.&n; */
+multiline_comment|/*&n; * The goal is to get REV_TREE_NEW as the result only if the&n; * diff consists of all &squot;+&squot; (and no other changes), REV_TREE_OLD&n; * if the whole diff is removal of old data, and otherwise&n; * REV_TREE_DIFFERENT (of course if the trees are the same we&n; * want REV_TREE_SAME).&n; * That means that once we get to REV_TREE_DIFFERENT, we do not&n; * have to look any further.&n; */
 DECL|variable|tree_difference
 r_static
 r_int
@@ -1166,37 +1166,17 @@ id|fullpath
 r_int
 id|diff
 op_assign
-id|REV_TREE_DIFFERENT
-suffix:semicolon
-multiline_comment|/*&n;&t; * Is it an add of a new file? It means that the old tree&n;&t; * didn&squot;t have it at all, so we will turn &quot;REV_TREE_SAME&quot; -&gt;&n;&t; * &quot;REV_TREE_NEW&quot;, but leave any &quot;REV_TREE_DIFFERENT&quot; alone&n;&t; * (and if it already was &quot;REV_TREE_NEW&quot;, we&squot;ll keep it&n;&t; * &quot;REV_TREE_NEW&quot; of course).&n;&t; */
-r_if
-c_cond
-(paren
 id|addremove
 op_eq
 l_char|&squot;+&squot;
-)paren
-(brace
-id|diff
-op_assign
-id|tree_difference
-suffix:semicolon
-r_if
+ques
 c_cond
-(paren
-id|diff
-op_ne
-id|REV_TREE_SAME
-)paren
-r_return
-suffix:semicolon
-id|diff
-op_assign
 id|REV_TREE_NEW
+suffix:colon
+id|REV_TREE_OLD
 suffix:semicolon
-)brace
 id|tree_difference
-op_assign
+op_or_assign
 id|diff
 suffix:semicolon
 r_if
@@ -1311,6 +1291,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|t2
+)paren
+r_return
+id|REV_TREE_OLD
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|revs-&gt;simplify_by_decoration
 )paren
 (brace
@@ -1342,15 +1331,6 @@ r_return
 id|REV_TREE_SAME
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|t2
-)paren
-r_return
-id|REV_TREE_DIFFERENT
-suffix:semicolon
 id|tree_difference
 op_assign
 id|REV_TREE_SAME
@@ -1786,6 +1766,9 @@ l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/* fallthrough */
+r_case
+id|REV_TREE_OLD
+suffix:colon
 r_case
 id|REV_TREE_DIFFERENT
 suffix:colon
