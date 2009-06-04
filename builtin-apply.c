@@ -15523,6 +15523,8 @@ comma
 l_string|&quot;old option, now no-op&quot;
 comma
 id|PARSE_OPT_HIDDEN
+op_or
+id|PARSE_OPT_NOARG
 )brace
 comma
 (brace
@@ -15540,6 +15542,8 @@ comma
 l_string|&quot;old option, now no-op&quot;
 comma
 id|PARSE_OPT_HIDDEN
+op_or
+id|PARSE_OPT_NOARG
 )brace
 comma
 id|OPT_BOOLEAN
