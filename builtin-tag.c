@@ -1997,9 +1997,9 @@ comma
 op_amp
 id|lines
 comma
-l_int|NULL
+l_string|&quot;n&quot;
 comma
-l_string|&quot;print n lines of each tag message&quot;
+l_string|&quot;print &lt;n&gt; lines of each tag message&quot;
 comma
 id|PARSE_OPT_OPTARG
 comma
