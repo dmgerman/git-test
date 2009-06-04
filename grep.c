@@ -1643,7 +1643,7 @@ op_logical_or
 id|eol
 id|bol
 )paren
-op_le
+OL
 id|pmatch
 (braket
 l_int|0
@@ -1748,6 +1748,18 @@ id|rm_eo
 )paren
 suffix:semicolon
 r_else
+id|hit
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* Words consist of at least one character. */
+r_if
+c_cond
+(paren
+id|pmatch-&gt;rm_so
+op_eq
+id|pmatch-&gt;rm_eo
+)paren
 id|hit
 op_assign
 l_int|0
