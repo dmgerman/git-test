@@ -1714,11 +1714,11 @@ r_return
 id|dup
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Separate the &quot;extra args&quot; information as supplied by the client connection.&n; */
-DECL|function|parse_extra_args
+multiline_comment|/*&n; * Read the host as supplied by the client connection.&n; */
+DECL|function|parse_host_arg
 r_static
 r_void
-id|parse_extra_args
+id|parse_host_arg
 c_func
 (paren
 r_char
@@ -1744,8 +1744,8 @@ id|extra_args
 op_plus
 id|buflen
 suffix:semicolon
-r_while
-c_loop
+r_if
+c_cond
 (paren
 id|extra_args
 OL
@@ -1869,6 +1869,22 @@ op_plus
 id|vallen
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|extra_args
+OL
+id|end
+op_logical_and
+op_star
+id|extra_args
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Invalid request&quot;
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Locate canonical hostname and its IP address.&n;&t; */
 r_if
@@ -2460,7 +2476,7 @@ id|len
 op_ne
 id|pktlen
 )paren
-id|parse_extra_args
+id|parse_host_arg
 c_func
 (paren
 id|line

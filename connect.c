@@ -2954,7 +2954,7 @@ comma
 id|flags
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Separate original protocol components prog and path&n;&t;&t; * from extended components with a NUL byte.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Separate original protocol components prog and path&n;&t;&t; * from extended host header with a NUL byte.&n;&t;&t; *&n;&t;&t; * Note: Do not add any other headers here!  Doing so&n;&t;&t; * will cause older git-daemon servers to crash.&n;&t;&t; */
 id|packet_write
 c_func
 (paren
