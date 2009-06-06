@@ -5951,21 +5951,50 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;* remote %s&bslash;n  URL: %s&bslash;n&quot;
+l_string|&quot;* remote %s&bslash;n&quot;
 comma
 op_star
 id|argv
-comma
-id|states.remote-&gt;url_nr
-OG
-l_int|0
-ques
+)paren
+suffix:semicolon
+r_if
 c_cond
+(paren
+id|states.remote-&gt;url_nr
+)paren
+(brace
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|states.remote-&gt;url_nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;  URL: %s&bslash;n&quot;
+comma
 id|states.remote-&gt;url
 (braket
-l_int|0
+id|i
 )braket
-suffix:colon
+)paren
+suffix:semicolon
+)brace
+r_else
+id|printf
+c_func
+(paren
+l_string|&quot;  URL: %s&bslash;n&quot;
+comma
 l_string|&quot;(no URL)&quot;
 )paren
 suffix:semicolon
