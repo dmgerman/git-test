@@ -45,8 +45,6 @@ mdefine_line|#define XML_STATUS_ERROR 0
 macro_line|#endif
 DECL|macro|PREV_BUF_SIZE
 mdefine_line|#define PREV_BUF_SIZE 4096
-DECL|macro|RANGE_HEADER_SIZE
-mdefine_line|#define RANGE_HEADER_SIZE 30
 multiline_comment|/* DAV methods */
 DECL|macro|DAV_LOCK
 mdefine_line|#define DAV_LOCK &quot;LOCK&quot;
@@ -129,13 +127,6 @@ id|remote_dir_exists
 (braket
 l_int|256
 )braket
-suffix:semicolon
-DECL|variable|no_pragma_header
-r_static
-r_struct
-id|curl_slist
-op_star
-id|no_pragma_header
 suffix:semicolon
 DECL|variable|push_verbosely
 r_static
@@ -11540,6 +11531,10 @@ id|push_verbosely
 op_assign
 l_int|1
 suffix:semicolon
+id|http_is_verbose
+op_assign
+l_int|1
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
@@ -11750,16 +11745,6 @@ id|http_init
 c_func
 (paren
 id|remote
-)paren
-suffix:semicolon
-id|no_pragma_header
-op_assign
-id|curl_slist_append
-c_func
-(paren
-id|no_pragma_header
-comma
-l_string|&quot;Pragma:&quot;
 )paren
 suffix:semicolon
 r_if
@@ -12702,12 +12687,6 @@ id|free
 c_func
 (paren
 id|repo
-)paren
-suffix:semicolon
-id|curl_slist_free_all
-c_func
-(paren
-id|no_pragma_header
 )paren
 suffix:semicolon
 id|http_cleanup

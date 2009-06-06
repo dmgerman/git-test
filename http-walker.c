@@ -5,8 +5,6 @@ macro_line|#include &quot;walker.h&quot;
 macro_line|#include &quot;http.h&quot;
 DECL|macro|PREV_BUF_SIZE
 mdefine_line|#define PREV_BUF_SIZE 4096
-DECL|macro|RANGE_HEADER_SIZE
-mdefine_line|#define RANGE_HEADER_SIZE 30
 DECL|struct|alt_base
 r_struct
 id|alt_base
@@ -215,12 +213,6 @@ r_struct
 id|alt_base
 op_star
 id|alt
-suffix:semicolon
-DECL|member|no_pragma_header
-r_struct
-id|curl_slist
-op_star
-id|no_pragma_header
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -497,13 +489,6 @@ r_struct
 id|active_request_slot
 op_star
 id|slot
-suffix:semicolon
-r_struct
-id|walker_data
-op_star
-id|data
-op_assign
-id|walker-&gt;data
 suffix:semicolon
 id|snprintf
 c_func
@@ -1020,7 +1005,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_HTTPHEADER
 comma
-id|data-&gt;no_pragma_header
+id|no_pragma_header
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * If we have successfully processed data from a previous fetch&n;&t; * attempt, only fetch the data we don&squot;t already have.&n;&t; */
@@ -1697,6 +1682,10 @@ id|newreq-&gt;next
 op_assign
 l_int|NULL
 suffix:semicolon
+id|http_is_verbose
+op_assign
+id|walker-&gt;get_verbosely
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1817,13 +1806,6 @@ op_star
 id|range_header
 op_assign
 l_int|NULL
-suffix:semicolon
-r_struct
-id|walker_data
-op_star
-id|data
-op_assign
-id|walker-&gt;data
 suffix:semicolon
 id|FILE
 op_star
@@ -2118,7 +2100,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_HTTPHEADER
 comma
-id|data-&gt;no_pragma_header
+id|no_pragma_header
 )paren
 suffix:semicolon
 id|slot-&gt;local
@@ -3670,13 +3652,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_struct
-id|walker_data
-op_star
-id|data
-op_assign
-id|walker-&gt;data
-suffix:semicolon
-r_struct
 id|active_request_slot
 op_star
 id|slot
@@ -3880,7 +3855,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_HTTPHEADER
 comma
-id|data-&gt;no_pragma_header
+id|no_pragma_header
 )paren
 suffix:semicolon
 id|slot-&gt;local
@@ -4620,22 +4595,9 @@ op_star
 id|walker
 )paren
 (brace
-r_struct
-id|walker_data
-op_star
-id|data
-op_assign
-id|walker-&gt;data
-suffix:semicolon
 id|http_cleanup
 c_func
 (paren
-)paren
-suffix:semicolon
-id|curl_slist_free_all
-c_func
-(paren
-id|data-&gt;no_pragma_header
 )paren
 suffix:semicolon
 )brace
@@ -4695,16 +4657,6 @@ id|http_init
 c_func
 (paren
 id|remote
-)paren
-suffix:semicolon
-id|data-&gt;no_pragma_header
-op_assign
-id|curl_slist_append
-c_func
-(paren
-l_int|NULL
-comma
-l_string|&quot;Pragma:&quot;
 )paren
 suffix:semicolon
 id|data-&gt;alt

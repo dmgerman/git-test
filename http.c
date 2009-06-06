@@ -7,6 +7,10 @@ DECL|variable|active_requests
 r_int
 id|active_requests
 suffix:semicolon
+DECL|variable|http_is_verbose
+r_int
+id|http_is_verbose
+suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 DECL|variable|max_requests
 r_static
@@ -118,6 +122,12 @@ r_struct
 id|curl_slist
 op_star
 id|pragma_header
+suffix:semicolon
+DECL|variable|no_pragma_header
+r_struct
+id|curl_slist
+op_star
+id|no_pragma_header
 suffix:semicolon
 DECL|variable|active_queue_head
 r_static
@@ -1409,6 +1419,10 @@ r_char
 op_star
 id|low_speed_time
 suffix:semicolon
+id|http_is_verbose
+op_assign
+l_int|0
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -1446,6 +1460,16 @@ c_func
 id|pragma_header
 comma
 l_string|&quot;Pragma: no-cache&quot;
+)paren
+suffix:semicolon
+id|no_pragma_header
+op_assign
+id|curl_slist_append
+c_func
+(paren
+id|no_pragma_header
+comma
+l_string|&quot;Pragma:&quot;
 )paren
 suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
@@ -1779,6 +1803,16 @@ id|pragma_header
 )paren
 suffix:semicolon
 id|pragma_header
+op_assign
+l_int|NULL
+suffix:semicolon
+id|curl_slist_free_all
+c_func
+(paren
+id|no_pragma_header
+)paren
+suffix:semicolon
+id|no_pragma_header
 op_assign
 l_int|NULL
 suffix:semicolon
