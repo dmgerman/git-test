@@ -4971,6 +4971,16 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|new_pack
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* parse_pack_index() already issued error message */
 id|new_pack-&gt;next
 op_assign
 id|repo-&gt;packs
