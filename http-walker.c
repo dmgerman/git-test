@@ -2087,6 +2087,10 @@ c_func
 id|indexfile
 )paren
 suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -2108,6 +2112,10 @@ c_func
 id|indexfile
 )paren
 suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -2121,6 +2129,10 @@ c_func
 (paren
 id|indexfile
 )paren
+suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
 suffix:semicolon
 r_return
 id|move_temp_to_file
@@ -3833,6 +3845,10 @@ c_func
 id|packfile
 )paren
 suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -3853,6 +3869,10 @@ c_func
 (paren
 id|packfile
 )paren
+suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
 suffix:semicolon
 r_return
 id|error
@@ -3875,6 +3895,10 @@ c_func
 (paren
 id|packfile
 )paren
+suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
 suffix:semicolon
 id|ret
 op_assign

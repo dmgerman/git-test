@@ -3415,6 +3415,11 @@ op_star
 op_star
 id|lst
 suffix:semicolon
+r_struct
+id|active_request_slot
+op_star
+id|slot
+suffix:semicolon
 id|request-&gt;curl_result
 op_assign
 id|request-&gt;slot-&gt;curl_result
@@ -3422,6 +3427,10 @@ suffix:semicolon
 id|request-&gt;http_code
 op_assign
 id|request-&gt;slot-&gt;http_code
+suffix:semicolon
+id|slot
+op_assign
+id|request-&gt;slot
 suffix:semicolon
 id|request-&gt;slot
 op_assign
@@ -3896,6 +3905,10 @@ id|request-&gt;local_stream
 )paren
 suffix:semicolon
 id|request-&gt;local_stream
+op_assign
+l_int|NULL
+suffix:semicolon
+id|slot-&gt;local
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -4859,6 +4872,10 @@ c_func
 id|indexfile
 )paren
 suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -4886,6 +4903,10 @@ c_func
 id|indexfile
 )paren
 suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -4905,6 +4926,10 @@ c_func
 (paren
 id|indexfile
 )paren
+suffix:semicolon
+id|slot-&gt;local
+op_assign
+l_int|NULL
 suffix:semicolon
 r_return
 id|move_temp_to_file
