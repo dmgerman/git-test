@@ -1343,7 +1343,7 @@ comma
 l_int|0666
 )paren
 suffix:semicolon
-multiline_comment|/* This could have failed due to the &quot;lazy directory creation&quot;;&n;&t; * try to mkdir the last path component.&n;&t; */
+multiline_comment|/*&n;&t; * This could have failed due to the &quot;lazy directory creation&quot;;&n;&t; * try to mkdir the last path component.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1489,7 +1489,7 @@ c_func
 id|url
 )paren
 suffix:semicolon
-multiline_comment|/* If a previous temp file is present, process what was already&n;&t;   fetched. */
+multiline_comment|/*&n;&t; * If a previous temp file is present, process what was already&n;&t; * fetched.&n;&t; */
 id|prevlocal
 op_assign
 id|open
@@ -1547,19 +1547,15 @@ id|request
 op_eq
 id|prev_read
 )paren
-(brace
 id|prev_posn
 op_add_assign
 id|prev_read
 suffix:semicolon
-)brace
 r_else
-(brace
 id|prev_read
 op_assign
 l_int|1
 suffix:semicolon
-)brace
 )brace
 )brace
 r_while
@@ -1583,7 +1579,7 @@ c_func
 id|prevfile
 )paren
 suffix:semicolon
-multiline_comment|/* Reset inflate/SHA1 if there was an error reading the previous temp&n;&t;   file; also rewind to the beginning of the local file. */
+multiline_comment|/*&n;&t; * Reset inflate/SHA1 if there was an error reading the previous temp&n;&t; * file; also rewind to the beginning of the local file.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1721,7 +1717,7 @@ comma
 id|no_pragma_header
 )paren
 suffix:semicolon
-multiline_comment|/* If we have successfully processed data from a previous fetch&n;&t;   attempt, only fetch the data we don&squot;t already have. */
+multiline_comment|/*&n;&t; * If we have successfully processed data from a previous fetch&n;&t; * attempt, only fetch the data we don&squot;t already have.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2315,7 +2311,7 @@ id|slot-&gt;local
 op_assign
 id|packfile
 suffix:semicolon
-multiline_comment|/* If there is data present from a previous transfer attempt,&n;&t;   resume where it left off */
+multiline_comment|/*&n;&t; * If there is data present from a previous transfer attempt,&n;&t; * resume where it left off&n;&t; */
 id|prev_posn
 op_assign
 id|ftell
@@ -3819,7 +3815,6 @@ id|request-&gt;rename
 op_eq
 l_int|0
 )paren
-(brace
 id|request-&gt;obj-&gt;flags
 op_or_assign
 (paren
@@ -3828,7 +3823,6 @@ op_or
 id|REMOTE
 )paren
 suffix:semicolon
-)brace
 )brace
 )brace
 multiline_comment|/* Try fetching packed if necessary */
@@ -4779,7 +4773,7 @@ id|slot-&gt;local
 op_assign
 id|indexfile
 suffix:semicolon
-multiline_comment|/* If there is data present from a previous transfer attempt,&n;&t;   resume where it left off */
+multiline_comment|/*&n;&t; * If there is data present from a previous transfer attempt,&n;&t; * resume where it left off&n;&t; */
 id|prev_posn
 op_assign
 id|ftell

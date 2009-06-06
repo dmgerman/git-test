@@ -571,7 +571,7 @@ comma
 l_int|0666
 )paren
 suffix:semicolon
-multiline_comment|/* This could have failed due to the &quot;lazy directory creation&quot;;&n;&t; * try to mkdir the last path component.&n;&t; */
+multiline_comment|/*&n;&t; * This could have failed due to the &quot;lazy directory creation&quot;;&n;&t; * try to mkdir the last path component.&n;&t; */
 r_if
 c_cond
 (paren
@@ -795,7 +795,7 @@ comma
 id|url
 )paren
 suffix:semicolon
-multiline_comment|/* If a previous temp file is present, process what was already&n;&t;   fetched. */
+multiline_comment|/*&n;&t; * If a previous temp file is present, process what was already&n;&t; * fetched.&n;&t; */
 id|prevlocal
 op_assign
 id|open
@@ -853,19 +853,15 @@ id|obj_req
 op_eq
 id|prev_read
 )paren
-(brace
 id|prev_posn
 op_add_assign
 id|prev_read
 suffix:semicolon
-)brace
 r_else
-(brace
 id|prev_read
 op_assign
 l_int|1
 suffix:semicolon
-)brace
 )brace
 )brace
 r_while
@@ -889,7 +885,7 @@ c_func
 id|prevfile
 )paren
 suffix:semicolon
-multiline_comment|/* Reset inflate/SHA1 if there was an error reading the previous temp&n;&t;   file; also rewind to the beginning of the local file. */
+multiline_comment|/*&n;&t; * Reset inflate/SHA1 if there was an error reading the previous temp&n;&t; * file; also rewind to the beginning of the local file.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1027,7 +1023,7 @@ comma
 id|data-&gt;no_pragma_header
 )paren
 suffix:semicolon
-multiline_comment|/* If we have successfully processed data from a previous fetch&n;&t;   attempt, only fetch the data we don&squot;t already have. */
+multiline_comment|/*&n;&t; * If we have successfully processed data from a previous fetch&n;&t; * attempt, only fetch the data we don&squot;t already have.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1727,12 +1723,10 @@ id|tail-&gt;next
 op_ne
 l_int|NULL
 )paren
-(brace
 id|tail
 op_assign
 id|tail-&gt;next
 suffix:semicolon
-)brace
 id|tail-&gt;next
 op_assign
 id|newreq
@@ -1992,7 +1986,7 @@ id|slot-&gt;local
 op_assign
 id|indexfile
 suffix:semicolon
-multiline_comment|/* If there is data present from a previous transfer attempt,&n;&t;   resume where it left off */
+multiline_comment|/*&n;&t; * If there is data present from a previous transfer attempt,&n;&t; * resume where it left off&n;&t; */
 id|prev_posn
 op_assign
 id|ftell
@@ -2526,7 +2520,7 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 (brace
-multiline_comment|/* This counts&n;&t;&t;&t;&t; * http://git.host/pub/scm/linux.git/&n;&t;&t;&t;&t; * -----------here^&n;&t;&t;&t;&t; * so memcpy(dst, base, serverlen) will&n;&t;&t;&t;&t; * copy up to &quot;...git.host&quot;.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t;&t; * This counts&n;&t;&t;&t;&t; * http://git.host/pub/scm/linux.git/&n;&t;&t;&t;&t; * -----------here^&n;&t;&t;&t;&t; * so memcpy(dst, base, serverlen) will&n;&t;&t;&t;&t; * copy up to &quot;...git.host&quot;.&n;&t;&t;&t;&t; */
 r_const
 r_char
 op_star
@@ -2585,7 +2579,7 @@ l_int|3
 )paren
 )paren
 (brace
-multiline_comment|/* Relative URL; chop the corresponding&n;&t;&t;&t;&t; * number of subpath from base (and ../&n;&t;&t;&t;&t; * from data), and concatenate the result.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * The code first drops ../ from data, and&n;&t;&t;&t;&t; * then drops one ../ from data and one path&n;&t;&t;&t;&t; * from base.  IOW, one extra ../ is dropped&n;&t;&t;&t;&t; * from data than path is dropped from base.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * This is not wrong.  The alternate in&n;&t;&t;&t;&t; *     http://git.host/pub/scm/linux.git/&n;&t;&t;&t;&t; * to borrow from&n;&t;&t;&t;&t; *     http://git.host/pub/scm/linus.git/&n;&t;&t;&t;&t; * is ../../linus.git/objects/.  You need&n;&t;&t;&t;&t; * two ../../ to borrow from your direct&n;&t;&t;&t;&t; * neighbour.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t;&t; * Relative URL; chop the corresponding&n;&t;&t;&t;&t; * number of subpath from base (and ../&n;&t;&t;&t;&t; * from data), and concatenate the result.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * The code first drops ../ from data, and&n;&t;&t;&t;&t; * then drops one ../ from data and one path&n;&t;&t;&t;&t; * from base.  IOW, one extra ../ is dropped&n;&t;&t;&t;&t; * from data than path is dropped from base.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * This is not wrong.  The alternate in&n;&t;&t;&t;&t; *     http://git.host/pub/scm/linux.git/&n;&t;&t;&t;&t; * to borrow from&n;&t;&t;&t;&t; *     http://git.host/pub/scm/linus.git/&n;&t;&t;&t;&t; * is ../../linus.git/objects/.  You need&n;&t;&t;&t;&t; * two ../../ to borrow from your direct&n;&t;&t;&t;&t; * neighbour.&n;&t;&t;&t;&t; */
 id|i
 op_add_assign
 l_int|3
@@ -2899,7 +2893,7 @@ id|cdata
 op_assign
 id|walker-&gt;data
 suffix:semicolon
-multiline_comment|/* If another request has already started fetching alternates,&n;&t;   wait for them to arrive and return to processing this request&squot;s&n;&t;   curl message */
+multiline_comment|/*&n;&t; * If another request has already started fetching alternates,&n;&t; * wait for them to arrive and return to processing this request&squot;s&n;&t; * curl message&n;&t; */
 macro_line|#ifdef USE_CURL_MULTI
 r_while
 c_loop
@@ -2970,7 +2964,7 @@ comma
 id|base
 )paren
 suffix:semicolon
-multiline_comment|/* Use a callback to process the result, since another request&n;&t;   may fail and need to have alternates loaded before continuing */
+multiline_comment|/*&n;&t; * Use a callback to process the result, since another request&n;&t; * may fail and need to have alternates loaded before continuing&n;&t; */
 id|slot
 op_assign
 id|get_active_slot
@@ -3746,7 +3740,7 @@ id|slot-&gt;local
 op_assign
 id|packfile
 suffix:semicolon
-multiline_comment|/* If there is data present from a previous transfer attempt,&n;&t;   resume where it left off */
+multiline_comment|/*&n;&t; * If there is data present from a previous transfer attempt,&n;&t; * resume where it left off&n;&t; */
 id|prev_posn
 op_assign
 id|ftell
@@ -4143,13 +4137,11 @@ id|obj_req-&gt;state
 op_eq
 id|WAITING
 )paren
-(brace
 id|step_active_slots
 c_func
 (paren
 )paren
 suffix:semicolon
-)brace
 macro_line|#else
 id|start_object_request
 c_func
@@ -4167,14 +4159,12 @@ id|obj_req-&gt;state
 op_eq
 id|ACTIVE
 )paren
-(brace
 id|run_active_slot
 c_func
 (paren
 id|obj_req-&gt;slot
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
