@@ -2896,6 +2896,12 @@ id|ref
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|refs_url
+)paren
+suffix:semicolon
 r_return
 id|refs
 suffix:semicolon
