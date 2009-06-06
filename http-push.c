@@ -11833,10 +11833,12 @@ op_assign
 id|rewritten_url
 suffix:semicolon
 )brace
+macro_line|#ifdef USE_CURL_MULTI
 id|is_running_queue
 op_assign
 l_int|0
 suffix:semicolon
+macro_line|#endif
 multiline_comment|/* Verify DAV compliance/lock support */
 r_if
 c_cond
