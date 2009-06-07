@@ -3399,8 +3399,6 @@ comma
 l_string|&quot;show &lt;n&gt; more commits after the common ancestor&quot;
 comma
 id|PARSE_OPT_OPTARG
-op_or
-id|PARSE_OPT_LASTARG_DEFAULT
 comma
 l_int|NULL
 comma
