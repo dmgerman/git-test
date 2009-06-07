@@ -723,11 +723,13 @@ id|FL_DIR
 suffix:semicolon
 )brace
 r_else
+(brace
 id|reset_lstat_cache
 c_func
 (paren
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 multiline_comment|/*&n; * Completely clear the contents of the cache&n; */
@@ -937,8 +939,6 @@ id|removal.len
 op_assign
 id|new_len
 suffix:semicolon
-r_return
-suffix:semicolon
 )brace
 DECL|function|schedule_dir_for_removal
 r_void
@@ -1062,8 +1062,6 @@ op_assign
 id|last_slash
 suffix:semicolon
 )brace
-r_return
-suffix:semicolon
 )brace
 DECL|function|remove_scheduled_dirs
 r_void
@@ -1078,8 +1076,6 @@ c_func
 (paren
 l_int|0
 )paren
-suffix:semicolon
-r_return
 suffix:semicolon
 )brace
 eof
