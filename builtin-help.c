@@ -381,19 +381,13 @@ op_amp
 id|ec_process
 )paren
 )paren
-(brace
-id|fprintf
+r_return
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Failed to start emacsclient.&bslash;n&quot;
+l_string|&quot;Failed to start emacsclient.&quot;
 )paren
 suffix:semicolon
-r_return
-l_int|1
-suffix:semicolon
-)brace
 id|strbuf_read
 c_func
 (paren
@@ -431,14 +425,6 @@ l_string|&quot;emacsclient&quot;
 )paren
 )paren
 (brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Failed to parse emacsclient version.&bslash;n&quot;
-)paren
-suffix:semicolon
 id|strbuf_release
 c_func
 (paren
@@ -447,7 +433,11 @@ id|buffer
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;Failed to parse emacsclient version.&quot;
+)paren
 suffix:semicolon
 )brace
 id|strbuf_remove
@@ -481,16 +471,6 @@ OL
 l_int|22
 )paren
 (brace
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;emacsclient version &squot;%d&squot; too old (&lt; 22).&bslash;n&quot;
-comma
-id|version
-)paren
-suffix:semicolon
 id|strbuf_release
 c_func
 (paren
@@ -499,7 +479,13 @@ id|buffer
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;emacsclient version &squot;%d&squot; too old (&lt; 22).&quot;
+comma
+id|version
+)paren
 suffix:semicolon
 )brace
 id|strbuf_release
