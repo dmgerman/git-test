@@ -5,7 +5,7 @@ multiline_comment|/*#pragma optimize(&quot;a&quot;, on)*/
 macro_line|#endif
 multiline_comment|/*#define FULLSANITYCHECKS*/
 macro_line|#include &quot;nedmalloc.h&quot;
-macro_line|#if defined(WIN32) &amp;&amp; !defined(__MINGW32__)
+macro_line|#if defined(WIN32)
 macro_line|#include &lt;malloc.h&gt;
 macro_line|#endif
 DECL|macro|MSPACES
