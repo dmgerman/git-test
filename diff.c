@@ -19772,6 +19772,13 @@ op_ne
 l_int|0
 )paren
 (brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
 id|remove_tempfile
 c_func
 (paren

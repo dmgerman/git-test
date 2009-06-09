@@ -2384,7 +2384,9 @@ id|xd
 op_assign
 id|data
 suffix:semicolon
-r_return
+r_int
+id|ret
+op_assign
 id|recv_sideband
 c_func
 (paren
@@ -2397,6 +2399,15 @@ l_int|0
 comma
 id|fd
 )paren
+suffix:semicolon
+id|close
+c_func
+(paren
+id|fd
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|get_pack
