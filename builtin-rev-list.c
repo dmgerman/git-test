@@ -1075,6 +1075,10 @@ comma
 id|flags
 op_amp
 id|BISECT_SHOW_ALL
+comma
+l_int|NULL
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * revs-&gt;commits can reach &quot;reaches&quot; commits among&n;&t; * &quot;all&quot; commits.  If it is good, then there are&n;&t; * (all-reaches) commits left to be bisected.&n;&t; * On the other hand, if it is bad, then the set&n;&t; * to bisect is &quot;reaches&quot;.&n;&t; * A bisect set of size N has (N-1) commits further&n;&t; * to test, as we already know one bad one.&n;&t; */
