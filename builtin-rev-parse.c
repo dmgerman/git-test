@@ -1408,6 +1408,10 @@ r_int
 id|keep_dashdash
 op_assign
 l_int|0
+comma
+id|stop_at_non_option
+op_assign
+l_int|0
 suffix:semicolon
 r_static
 r_char
@@ -1443,6 +1447,20 @@ op_amp
 id|keep_dashdash
 comma
 l_string|&quot;keep the `--` passed as an arg&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;stop-at-non-option&quot;
+comma
+op_amp
+id|stop_at_non_option
+comma
+l_string|&quot;stop parsing after the &quot;
+l_string|&quot;first non-option argument&quot;
 )paren
 comma
 id|OPT_END
@@ -1975,6 +1993,13 @@ id|keep_dashdash
 ques
 c_cond
 id|PARSE_OPT_KEEP_DASHDASH
+suffix:colon
+l_int|0
+op_or
+id|stop_at_non_option
+ques
+c_cond
+id|PARSE_OPT_STOP_AT_NON_OPTION
 suffix:colon
 l_int|0
 )paren
