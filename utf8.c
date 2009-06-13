@@ -2018,7 +2018,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Given a buffer and its encoding, return it re-encoded&n; * with iconv.  If the conversion fails, returns NULL.&n; */
 macro_line|#ifndef NO_ICONV
-macro_line|#ifdef OLD_ICONV
+macro_line|#if defined(OLD_ICONV) || (defined(__sun__) &amp;&amp; !defined(_XPG6))
 DECL|typedef|iconv_ibp
 r_typedef
 r_const
