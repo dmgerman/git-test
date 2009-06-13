@@ -5940,6 +5940,15 @@ op_increment
 r_int
 id|i
 suffix:semicolon
+r_const
+r_char
+op_star
+op_star
+id|url
+suffix:semicolon
+r_int
+id|url_nr
+suffix:semicolon
 id|get_remote_ref_states
 c_func
 (paren
@@ -5961,12 +5970,50 @@ op_star
 id|argv
 )paren
 suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;  Fetch URL: %s&bslash;n&quot;
+comma
+id|states.remote-&gt;url_nr
+OG
+l_int|0
+ques
+c_cond
+id|states.remote-&gt;url
+(braket
+l_int|0
+)braket
+suffix:colon
+l_string|&quot;(no URL)&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|states.remote-&gt;url_nr
+id|states.remote-&gt;pushurl_nr
 )paren
 (brace
+id|url
+op_assign
+id|states.remote-&gt;pushurl
+suffix:semicolon
+id|url_nr
+op_assign
+id|states.remote-&gt;pushurl_nr
+suffix:semicolon
+)brace
+r_else
+(brace
+id|url
+op_assign
+id|states.remote-&gt;url
+suffix:semicolon
+id|url_nr
+op_assign
+id|states.remote-&gt;url_nr
+suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
@@ -5976,7 +6023,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|states.remote-&gt;url_nr
+id|url_nr
 suffix:semicolon
 id|i
 op_increment
@@ -5984,20 +6031,24 @@ op_increment
 id|printf
 c_func
 (paren
-l_string|&quot;  URL: %s&bslash;n&quot;
+l_string|&quot;  Push  URL: %s&bslash;n&quot;
 comma
-id|states.remote-&gt;url
+id|url
 (braket
 id|i
 )braket
 )paren
 suffix:semicolon
-)brace
-r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|i
+)paren
 id|printf
 c_func
 (paren
-l_string|&quot;  URL: %s&bslash;n&quot;
+l_string|&quot;  Push  URL: %s&bslash;n&quot;
 comma
 l_string|&quot;(no URL)&quot;
 )paren
