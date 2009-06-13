@@ -5137,6 +5137,25 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|file_exists
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;MERGE_HEAD&quot;
+)paren
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;You have not concluded your merge. (MERGE_HEAD exists)&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|read_cache_unmerged
 c_func
 (paren
@@ -5146,6 +5165,7 @@ id|die
 c_func
 (paren
 l_string|&quot;You are in the middle of a conflicted merge.&quot;
+l_string|&quot; (index unmerged)&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Check if we are _not_ on a detached HEAD, i.e. if there is a&n;&t; * current branch.&n;&t; */
