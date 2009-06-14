@@ -7743,7 +7743,7 @@ suffix:semicolon
 op_star
 id|utilp
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|strlen
@@ -7866,7 +7866,7 @@ suffix:semicolon
 op_star
 id|utilp
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|strlen
