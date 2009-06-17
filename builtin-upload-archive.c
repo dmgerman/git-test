@@ -420,7 +420,7 @@ suffix:semicolon
 )brace
 DECL|function|process_input
 r_static
-r_void
+id|ssize_t
 id|process_input
 c_func
 (paren
@@ -485,6 +485,7 @@ id|errno
 )paren
 suffix:semicolon
 r_return
+id|sz
 suffix:semicolon
 )brace
 id|send_sideband
@@ -500,6 +501,9 @@ id|sz
 comma
 id|LARGE_PACKET_MAX
 )paren
+suffix:semicolon
+r_return
+id|sz
 suffix:semicolon
 )brace
 DECL|function|cmd_upload_archive
@@ -752,6 +756,18 @@ id|pfd
 l_int|2
 )braket
 suffix:semicolon
+id|ssize_t
+id|processed
+(braket
+l_int|2
+)braket
+op_assign
+(brace
+l_int|0
+comma
+l_int|0
+)brace
+suffix:semicolon
 r_int
 id|status
 suffix:semicolon
@@ -856,6 +872,11 @@ op_amp
 id|POLLIN
 )paren
 multiline_comment|/* Data stream ready */
+id|processed
+(braket
+l_int|0
+)braket
+op_assign
 id|process_input
 c_func
 (paren
@@ -882,6 +903,11 @@ op_amp
 id|POLLIN
 )paren
 multiline_comment|/* Status stream ready */
+id|processed
+(braket
+l_int|1
+)braket
+op_assign
 id|process_input
 c_func
 (paren
@@ -899,23 +925,15 @@ multiline_comment|/* Always finish to read data when available */
 r_if
 c_cond
 (paren
-(paren
-id|pfd
+id|processed
 (braket
 l_int|0
 )braket
-dot
-id|revents
-op_or
-id|pfd
+op_logical_or
+id|processed
 (braket
 l_int|1
 )braket
-dot
-id|revents
-)paren
-op_amp
-id|POLLIN
 )paren
 r_continue
 suffix:semicolon
