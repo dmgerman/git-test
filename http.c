@@ -60,7 +60,7 @@ r_char
 op_star
 id|ssl_cert
 suffix:semicolon
-macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070902
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070903
 DECL|variable|ssl_key
 r_static
 r_const
@@ -569,7 +569,7 @@ comma
 id|value
 )paren
 suffix:semicolon
-macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070902
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070903
 r_if
 c_cond
 (paren
@@ -978,7 +978,7 @@ comma
 id|ssl_cert
 )paren
 suffix:semicolon
-macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070902
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070903
 r_if
 c_cond
 (paren
@@ -1558,7 +1558,7 @@ comma
 l_string|&quot;GIT_SSL_CERT&quot;
 )paren
 suffix:semicolon
-macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070902
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070903
 id|set_from_env
 c_func
 (paren
