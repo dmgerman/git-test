@@ -115,9 +115,7 @@ r_int
 id|val
 op_assign
 l_int|0
-suffix:semicolon
-r_int
-r_char
+comma
 id|c
 suffix:semicolon
 r_while

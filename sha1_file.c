@@ -6212,12 +6212,10 @@ r_int
 id|shift
 suffix:semicolon
 r_int
-r_char
-id|c
-suffix:semicolon
-r_int
 r_int
 id|size
+comma
+id|c
 suffix:semicolon
 r_int
 r_int
