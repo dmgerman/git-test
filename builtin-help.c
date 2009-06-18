@@ -2215,6 +2215,7 @@ suffix:semicolon
 multiline_comment|/*&n; * If open_html is not defined in a platform-specific way (see for&n; * example compat/mingw.h), we use the script web--browse to display&n; * HTML.&n; */
 macro_line|#ifndef open_html
 DECL|function|open_html
+r_static
 r_void
 id|open_html
 c_func

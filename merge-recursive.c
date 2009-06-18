@@ -79,6 +79,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * A virtual commit has (const char *)commit-&gt;util set to the name.&n; */
 DECL|function|make_virtual_commit
+r_static
 r_struct
 id|commit
 op_star

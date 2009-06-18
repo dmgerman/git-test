@@ -1768,7 +1768,7 @@ c_func
 op_amp
 id|branch
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 suffix:semicolon
@@ -1828,7 +1828,7 @@ c_func
 op_amp
 id|branch
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 suffix:semicolon
@@ -6195,7 +6195,7 @@ op_assign
 (brace
 l_string|&quot;:&quot;
 comma
-l_int|0
+l_int|NULL
 )brace
 suffix:semicolon
 r_struct

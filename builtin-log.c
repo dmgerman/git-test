@@ -398,6 +398,7 @@ id|stage
 suffix:semicolon
 )brace
 DECL|variable|early_output_timer
+r_static
 r_struct
 id|itimerval
 id|early_output_timer
@@ -5165,7 +5166,7 @@ c_func
 op_amp
 id|buf
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

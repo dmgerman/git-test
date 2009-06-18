@@ -606,6 +606,7 @@ id|o
 suffix:semicolon
 )brace
 DECL|function|traverse_trees_recursive
+r_static
 r_int
 id|traverse_trees_recursive
 c_func

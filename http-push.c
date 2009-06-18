@@ -8890,6 +8890,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|run_request_queue
+r_static
 r_void
 id|run_request_queue
 c_func

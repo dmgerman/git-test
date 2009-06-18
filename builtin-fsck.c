@@ -516,7 +516,7 @@ id|obj
 comma
 id|OBJ_ANY
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -1285,7 +1285,7 @@ id|obj
 comma
 id|mark_used
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 id|objerror

@@ -717,6 +717,7 @@ op_star
 id|obj_list
 suffix:semicolon
 DECL|variable|nr_objects
+r_static
 r_int
 id|nr_objects
 suffix:semicolon
@@ -926,7 +927,7 @@ id|obj
 comma
 id|check_object
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 id|die
@@ -989,7 +990,7 @@ id|obj
 comma
 id|OBJ_ANY
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 )brace

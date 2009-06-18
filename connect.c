@@ -2483,6 +2483,7 @@ multiline_comment|/* write to proxy stdin */
 DECL|macro|MAX_CMD_LEN
 mdefine_line|#define MAX_CMD_LEN 1024
 DECL|function|get_port
+r_static
 r_char
 op_star
 id|get_port

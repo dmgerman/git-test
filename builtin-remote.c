@@ -4504,6 +4504,7 @@ id|result
 suffix:semicolon
 )brace
 DECL|function|clear_push_info
+r_static
 r_void
 id|clear_push_info
 c_func
@@ -4903,6 +4904,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|add_remote_to_show_info
+r_static
 r_int
 id|add_remote_to_show_info
 c_func
@@ -4957,6 +4959,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|show_remote_info_item
+r_static
 r_int
 id|show_remote_info_item
 c_func
@@ -5114,6 +5117,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|add_local_to_show_info
+r_static
 r_int
 id|add_local_to_show_info
 c_func
@@ -5224,6 +5228,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|show_local_info_item
+r_static
 r_int
 id|show_local_info_item
 c_func
@@ -5406,6 +5411,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|add_push_to_show_info
+r_static
 r_int
 id|add_push_to_show_info
 c_func
@@ -5575,6 +5581,7 @@ id|b_push-&gt;dest
 suffix:semicolon
 )brace
 DECL|function|show_push_info_item
+r_static
 r_int
 id|show_push_info_item
 c_func
@@ -7152,6 +7159,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|struct|remote_group
+r_static
 r_struct
 id|remote_group
 (brace

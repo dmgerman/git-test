@@ -932,7 +932,7 @@ c_func
 (paren
 )paren
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 suffix:semicolon

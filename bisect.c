@@ -2107,6 +2107,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|read_bisect_paths
+r_static
 r_void
 id|read_bisect_paths
 c_func
@@ -3734,6 +3735,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|handle_skipped_merge_base
+r_static
 r_void
 id|handle_skipped_merge_base
 c_func

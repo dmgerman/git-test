@@ -23,6 +23,7 @@ op_assign
 l_int|1
 suffix:semicolon
 DECL|variable|wt_status_submodule_summary
+r_static
 r_int
 id|wt_status_submodule_summary
 suffix:semicolon

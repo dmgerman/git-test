@@ -2075,7 +2075,7 @@ id|branch_head
 comma
 l_int|0
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -2302,7 +2302,7 @@ id|buf_sha
 comma
 l_int|0
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 (brace

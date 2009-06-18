@@ -2459,7 +2459,7 @@ id|obj
 comma
 id|mark_link
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 id|die

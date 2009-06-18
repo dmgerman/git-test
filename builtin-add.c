@@ -1057,6 +1057,7 @@ id|status
 suffix:semicolon
 )brace
 DECL|function|edit_patch
+r_static
 r_int
 id|edit_patch
 c_func

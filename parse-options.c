@@ -2727,6 +2727,7 @@ mdefine_line|#define USAGE_OPTS_WIDTH 24
 DECL|macro|USAGE_GAP
 mdefine_line|#define USAGE_GAP         2
 DECL|function|usage_with_options_internal
+r_static
 r_int
 id|usage_with_options_internal
 c_func

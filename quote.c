@@ -1378,7 +1378,6 @@ id|fp
 suffix:semicolon
 )brace
 DECL|function|write_name_quotedpfx
-r_extern
 r_void
 id|write_name_quotedpfx
 c_func

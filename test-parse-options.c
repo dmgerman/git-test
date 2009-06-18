@@ -61,6 +61,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 DECL|function|length_callback
+r_static
 r_int
 id|length_callback
 c_func
@@ -124,6 +125,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|number_callback
+r_static
 r_int
 id|number_callback
 c_func
