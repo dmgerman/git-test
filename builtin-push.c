@@ -507,6 +507,15 @@ c_func
 id|repo
 )paren
 suffix:semicolon
+r_const
+r_char
+op_star
+op_star
+id|url
+suffix:semicolon
+r_int
+id|url_nr
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -705,6 +714,32 @@ id|errs
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|remote-&gt;pushurl_nr
+)paren
+(brace
+id|url
+op_assign
+id|remote-&gt;pushurl
+suffix:semicolon
+id|url_nr
+op_assign
+id|remote-&gt;pushurl_nr
+suffix:semicolon
+)brace
+r_else
+(brace
+id|url
+op_assign
+id|remote-&gt;url
+suffix:semicolon
+id|url_nr
+op_assign
+id|remote-&gt;url_nr
+suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
@@ -714,7 +749,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|remote-&gt;url_nr
+id|url_nr
 suffix:semicolon
 id|i
 op_increment
@@ -730,7 +765,7 @@ c_func
 (paren
 id|remote
 comma
-id|remote-&gt;url
+id|url
 (braket
 id|i
 )braket
@@ -783,7 +818,7 @@ id|stderr
 comma
 l_string|&quot;Pushing to %s&bslash;n&quot;
 comma
-id|remote-&gt;url
+id|url
 (braket
 id|i
 )braket
@@ -824,7 +859,7 @@ c_func
 (paren
 l_string|&quot;failed to push some refs to &squot;%s&squot;&quot;
 comma
-id|remote-&gt;url
+id|url
 (braket
 id|i
 )braket
