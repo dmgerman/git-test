@@ -34,7 +34,7 @@ id|unused_prefix
 )paren
 (brace
 r_int
-id|missing_ok
+id|flags
 op_assign
 l_int|0
 comma
@@ -99,9 +99,9 @@ comma
 l_string|&quot;--missing-ok&quot;
 )paren
 )paren
-id|missing_ok
-op_assign
-l_int|1
+id|flags
+op_or_assign
+id|WRITE_TREE_MISSING_OK
 suffix:semicolon
 r_else
 r_if
@@ -121,6 +121,24 @@ op_assign
 id|arg
 op_plus
 l_int|9
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--ignore-cache-tree&quot;
+)paren
+)paren
+multiline_comment|/*&n;&t;&t;&t; * This is only useful for debugging, so I&n;&t;&t;&t; * do not bother documenting it.&n;&t;&t;&t; */
+id|flags
+op_or_assign
+id|WRITE_TREE_IGNORE_CACHE_TREE
 suffix:semicolon
 r_else
 id|usage
@@ -156,7 +174,7 @@ c_func
 (paren
 id|sha1
 comma
-id|missing_ok
+id|flags
 comma
 id|prefix
 )paren
