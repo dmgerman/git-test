@@ -2225,12 +2225,12 @@ r_int
 r_char
 op_star
 id|pack
-comma
-id|c
 suffix:semicolon
 r_int
 r_int
 id|size
+comma
+id|c
 suffix:semicolon
 r_enum
 id|object_type

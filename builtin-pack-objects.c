@@ -3240,10 +3240,8 @@ id|name
 )paren
 (brace
 r_int
-r_char
 id|c
-suffix:semicolon
-r_int
+comma
 id|hash
 op_assign
 l_int|0
