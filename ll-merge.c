@@ -1172,7 +1172,7 @@ id|value
 )paren
 id|default_ll_merge
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
@@ -1341,7 +1341,7 @@ id|var
 suffix:semicolon
 id|fn-&gt;description
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
@@ -1382,7 +1382,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t;&t; * merge.&lt;name&gt;.driver specifies the command line:&n;&t;&t; *&n;&t;&t; *&t;command-line&n;&t;&t; *&n;&t;&t; * The command-line will be interpolated with the following&n;&t;&t; * tokens and is given to the shell:&n;&t;&t; *&n;&t;&t; *    %O - temporary file name for the merge base.&n;&t;&t; *    %A - temporary file name for our version.&n;&t;&t; *    %B - temporary file name for the other branches&squot; version.&n;&t;&t; *&n;&t;&t; * The external merge driver should write the results in the&n;&t;&t; * file named by %A, and signal that it has done with zero exit&n;&t;&t; * status.&n;&t;&t; */
 id|fn-&gt;cmdline
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
@@ -1422,7 +1422,7 @@ id|var
 suffix:semicolon
 id|fn-&gt;recursive
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|value
