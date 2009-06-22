@@ -1380,12 +1380,12 @@ r_int
 r_char
 op_star
 id|p
-comma
-id|c
 suffix:semicolon
 r_int
 r_int
 id|size
+comma
+id|c
 suffix:semicolon
 id|off_t
 id|base_offset
@@ -1486,7 +1486,7 @@ op_add_assign
 (paren
 id|c
 op_amp
-l_int|0x7fUL
+l_int|0x7f
 )paren
 op_lshift
 id|shift
