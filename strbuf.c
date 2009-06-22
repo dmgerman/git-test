@@ -1574,10 +1574,6 @@ r_else
 r_if
 c_cond
 (paren
-id|res
-OL
-l_int|0
-op_logical_and
 id|oldalloc
 op_eq
 l_int|0
