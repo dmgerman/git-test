@@ -17,7 +17,7 @@ id|push_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git push [--all | --mirror] [--dry-run] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=&lt;repository&gt;] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
+l_string|&quot;git push [--all | --mirror] [--dry-run] [--porcelain] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=&lt;repository&gt;] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 comma
 l_int|NULL
 comma
@@ -1013,6 +1013,21 @@ comma
 l_string|&quot;dry run&quot;
 comma
 id|TRANSPORT_PUSH_DRY_RUN
+)paren
+comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;porcelain&quot;
+comma
+op_amp
+id|flags
+comma
+l_string|&quot;machine-readable output&quot;
+comma
+id|TRANSPORT_PUSH_PORCELAIN
 )paren
 comma
 id|OPT_BIT
