@@ -568,7 +568,6 @@ multiline_comment|/* We do not need to nor want to do read-directory&n;&t;&t;&t;
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* using -u and -i at the same time makes no sense */
 r_if
 c_cond
 (paren
@@ -578,10 +577,10 @@ id|opts.index_only
 op_plus
 id|opts.update
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|read_tree_usage
+l_string|&quot;-u and -i at the same time makes no sense&quot;
 )paren
 suffix:semicolon
 r_if
@@ -638,10 +637,17 @@ op_logical_and
 op_logical_neg
 id|opts.merge
 )paren
-id|usage
+id|die
 c_func
 (paren
-id|read_tree_usage
+l_string|&quot;%s is meaningless without -m, --reset, or --prefix&quot;
+comma
+id|opts.update
+ques
+c_cond
+l_string|&quot;-u&quot;
+suffix:colon
+l_string|&quot;-i&quot;
 )paren
 suffix:semicolon
 r_if
