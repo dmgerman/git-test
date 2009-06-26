@@ -2750,6 +2750,10 @@ comma
 id|prefix
 )paren
 suffix:semicolon
+id|revs.topo_order
+op_assign
+l_int|1
+suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions
@@ -2817,10 +2821,6 @@ comma
 op_amp
 id|extra_refs
 )paren
-suffix:semicolon
-id|revs.topo_order
-op_assign
-l_int|1
 suffix:semicolon
 r_if
 c_cond
