@@ -2813,6 +2813,10 @@ id|revs.show_source
 op_assign
 l_int|1
 suffix:semicolon
+id|revs.rewrite_parents
+op_assign
+l_int|1
+suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions
