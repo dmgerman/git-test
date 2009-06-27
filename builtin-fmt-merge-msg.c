@@ -2254,10 +2254,10 @@ c_cond
 op_logical_neg
 id|in
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot open %s&quot;
+l_string|&quot;cannot open &squot;%s&squot;&quot;
 comma
 id|inpath
 )paren

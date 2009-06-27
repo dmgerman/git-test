@@ -569,9 +569,9 @@ id|stdout
 op_ne
 l_int|1
 )paren
-id|die
+id|die_errno
 (paren
-l_string|&quot;Could not write blob %s&quot;
+l_string|&quot;Could not write blob &squot;%s&squot;&quot;
 comma
 id|sha1_to_hex
 c_func

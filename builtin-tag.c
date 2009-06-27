@@ -2424,10 +2424,10 @@ l_int|1024
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot read %s&quot;
+l_string|&quot;cannot read &squot;%s&squot;&quot;
 comma
 id|msgfile
 )paren

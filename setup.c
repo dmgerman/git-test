@@ -1647,9 +1647,9 @@ id|work_tree_env
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 (paren
-l_string|&quot;Could not chdir to %s&quot;
+l_string|&quot;Could not chdir to &squot;%s&squot;&quot;
 comma
 id|work_tree_env
 )paren
@@ -1707,7 +1707,7 @@ op_minus
 l_int|1
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;Unable to read current working directory&quot;
@@ -1911,7 +1911,7 @@ c_func
 id|cwd
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;Cannot come back to cwd&quot;
@@ -2442,7 +2442,7 @@ c_func
 id|retval
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not jump back into original cwd&quot;
 )paren
@@ -2479,7 +2479,7 @@ c_func
 )paren
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not jump to working directory&quot;
 )paren

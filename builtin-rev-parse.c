@@ -3162,7 +3162,7 @@ comma
 id|PATH_MAX
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;unable to get current working directory&quot;

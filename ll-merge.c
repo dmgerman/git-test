@@ -691,7 +691,7 @@ id|src-&gt;size
 op_ne
 id|src-&gt;size
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;unable to write temp-file&quot;

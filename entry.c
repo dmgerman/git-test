@@ -151,10 +151,10 @@ l_int|0777
 )paren
 r_continue
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot create directory at %s&quot;
+l_string|&quot;cannot create directory at &squot;%s&squot;&quot;
 comma
 id|buf
 )paren

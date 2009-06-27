@@ -13192,10 +13192,10 @@ id|st
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to stat newly created file %s&quot;
+l_string|&quot;unable to stat newly created file &squot;%s&squot;&quot;
 comma
 id|path
 )paren
@@ -13699,10 +13699,10 @@ id|nr
 suffix:semicolon
 )brace
 )brace
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to write file %s mode %o&quot;
+l_string|&quot;unable to write file &squot;%s&squot; mode %o&quot;
 comma
 id|path
 comma

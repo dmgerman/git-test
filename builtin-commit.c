@@ -2191,7 +2191,7 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;could not read log from standard input&quot;
@@ -5257,6 +5257,11 @@ OL
 l_int|0
 )paren
 (brace
+r_int
+id|saved_errno
+op_assign
+id|errno
+suffix:semicolon
 id|rollback_index_files
 c_func
 (paren
@@ -5265,7 +5270,13 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;could not read commit message&quot;
+l_string|&quot;could not read commit message: %s&quot;
+comma
+id|strerror
+c_func
+(paren
+id|saved_errno
+)paren
 )paren
 suffix:semicolon
 )brace

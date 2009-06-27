@@ -1433,10 +1433,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not write to %s&quot;
+l_string|&quot;Could not write to &squot;%s&squot;&quot;
 comma
 id|git_path
 c_func
@@ -4728,10 +4728,10 @@ c_cond
 op_logical_neg
 id|fp
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not open %s for writing&quot;
+l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
 comma
 id|git_path
 c_func
@@ -6593,10 +6593,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could open %s for writing&quot;
+l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
 comma
 id|git_path
 c_func
@@ -6620,10 +6620,10 @@ id|buf.len
 op_ne
 id|buf.len
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not write to %s&quot;
+l_string|&quot;Could not write to &squot;%s&squot;&quot;
 comma
 id|git_path
 c_func
@@ -6672,10 +6672,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could open %s for writing&quot;
+l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
 comma
 id|git_path
 c_func
@@ -6699,10 +6699,10 @@ id|merge_msg.len
 op_ne
 id|merge_msg.len
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not write to %s&quot;
+l_string|&quot;Could not write to &squot;%s&squot;&quot;
 comma
 id|git_path
 c_func
@@ -6744,10 +6744,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could open %s for writing&quot;
+l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
 comma
 id|git_path
 c_func
@@ -6793,10 +6793,10 @@ id|buf.len
 op_ne
 id|buf.len
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not write to %s&quot;
+l_string|&quot;Could not write to &squot;%s&squot;&quot;
 comma
 id|git_path
 c_func

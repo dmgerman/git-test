@@ -4347,7 +4347,7 @@ id|keep_fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;cannot create keep file&quot;
@@ -4376,7 +4376,7 @@ c_func
 id|keep_fd
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;failed to write keep file&quot;

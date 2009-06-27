@@ -748,7 +748,7 @@ id|len
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not write to MERGE_MSG&quot;
 )paren

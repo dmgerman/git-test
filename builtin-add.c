@@ -1261,7 +1261,7 @@ op_amp
 id|st
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;Could not stat &squot;%s&squot;&quot;

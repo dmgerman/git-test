@@ -9277,10 +9277,10 @@ id|st
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Cannot stat %s&quot;
+l_string|&quot;Cannot stat &squot;%s&squot;&quot;
 comma
 id|contents_from
 )paren
@@ -9306,10 +9306,10 @@ id|st
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Cannot lstat %s&quot;
+l_string|&quot;Cannot lstat &squot;%s&squot;&quot;
 comma
 id|path
 )paren
@@ -9354,10 +9354,10 @@ id|st.st_size
 op_ne
 id|st.st_size
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot open or read %s&quot;
+l_string|&quot;cannot open or read &squot;%s&squot;&quot;
 comma
 id|read_from
 )paren
@@ -9383,10 +9383,10 @@ id|st.st_size
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot readlink %s&quot;
+l_string|&quot;cannot readlink &squot;%s&squot;&quot;
 comma
 id|read_from
 )paren

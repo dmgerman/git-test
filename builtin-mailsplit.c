@@ -356,10 +356,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot open output file %s&quot;
+l_string|&quot;cannot open output file &squot;%s&squot;&quot;
 comma
 id|name
 )paren
@@ -413,7 +413,7 @@ id|output
 op_ne
 id|len
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;cannot write output&quot;
@@ -459,7 +459,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;cannot read mbox&quot;

@@ -1136,10 +1136,10 @@ c_cond
 op_logical_neg
 id|dir
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to open %s&quot;
+l_string|&quot;failed to open &squot;%s&squot;&quot;
 comma
 id|src-&gt;buf
 )paren
@@ -1163,10 +1163,10 @@ id|errno
 op_ne
 id|EEXIST
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to create directory %s&quot;
+l_string|&quot;failed to create directory &squot;%s&squot;&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1184,10 +1184,10 @@ op_amp
 id|buf
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to stat %s&quot;
+l_string|&quot;failed to stat &squot;%s&squot;&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1385,10 +1385,10 @@ c_cond
 (paren
 id|option_local
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to create link %s&quot;
+l_string|&quot;failed to create link &squot;%s&squot;&quot;
 comma
 id|dest-&gt;buf
 )paren
@@ -1411,10 +1411,10 @@ comma
 l_int|0666
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to copy file to %s&quot;
+l_string|&quot;failed to copy file to &squot;%s&squot;&quot;
 comma
 id|dest-&gt;buf
 )paren

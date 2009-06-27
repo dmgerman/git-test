@@ -925,10 +925,10 @@ l_string|&quot;w&quot;
 )paren
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not open %s&quot;
+l_string|&quot;Could not open &squot;%s&squot;&quot;
 comma
 id|filename
 )paren

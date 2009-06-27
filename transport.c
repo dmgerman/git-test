@@ -807,7 +807,7 @@ c_func
 id|temp_dir.buf
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not make temporary directory&quot;
 )paren
@@ -1774,7 +1774,7 @@ c_func
 id|temp_dir.buf
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not make temporary directory&quot;
 )paren

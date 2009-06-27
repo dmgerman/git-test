@@ -5835,7 +5835,7 @@ id|mmap
 op_eq
 id|MAP_FAILED
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;unable to map index file&quot;

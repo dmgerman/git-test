@@ -262,10 +262,10 @@ id|errno
 op_ne
 id|ENOENT
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot stat %s&quot;
+l_string|&quot;cannot stat &squot;%s&squot;&quot;
 comma
 id|path
 )paren
@@ -288,10 +288,10 @@ op_amp
 id|st_template
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot stat template %s&quot;
+l_string|&quot;cannot stat template &squot;%s&squot;&quot;
 comma
 r_template
 )paren
@@ -336,10 +336,10 @@ c_cond
 op_logical_neg
 id|subdir
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot opendir %s&quot;
+l_string|&quot;cannot opendir &squot;%s&squot;&quot;
 comma
 r_template
 )paren
@@ -441,10 +441,10 @@ id|len
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot readlink %s&quot;
+l_string|&quot;cannot readlink &squot;%s&squot;&quot;
 comma
 r_template
 )paren
@@ -485,10 +485,10 @@ comma
 id|path
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot symlink %s %s&quot;
+l_string|&quot;cannot symlink &squot;%s&squot; &squot;%s&squot;&quot;
 comma
 id|lnk
 comma
@@ -520,10 +520,10 @@ comma
 id|st_template.st_mode
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot copy %s to %s&quot;
+l_string|&quot;cannot copy &squot;%s&squot; to &squot;%s&squot;&quot;
 comma
 r_template
 comma
@@ -1788,7 +1788,7 @@ id|cwd
 )paren
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;cannot tell cwd&quot;
@@ -2247,9 +2247,9 @@ comma
 id|PATH_MAX
 )paren
 )paren
-id|die
+id|die_errno
 (paren
-l_string|&quot;Cannot access current working directory.&quot;
+l_string|&quot;Cannot access current working directory&quot;
 )paren
 suffix:semicolon
 )brace
@@ -2267,7 +2267,7 @@ comma
 id|X_OK
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Cannot access work tree &squot;%s&squot;&quot;
 comma

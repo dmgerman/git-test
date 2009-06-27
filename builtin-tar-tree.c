@@ -406,7 +406,7 @@ id|n
 OL
 l_int|41
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;git get-tar-commit-id: write error&quot;
