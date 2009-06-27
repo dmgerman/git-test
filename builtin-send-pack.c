@@ -243,16 +243,10 @@ op_amp
 id|po
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;git pack-objects failed (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;git pack-objects failed&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * We feed the pack-objects we just spawned with revision&n;&t; * parameters by writing to the pipe.&n;&t; */

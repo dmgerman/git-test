@@ -2611,16 +2611,10 @@ comma
 id|mode
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to make temporary pack file readable: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to make temporary pack file readable&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2634,16 +2628,10 @@ comma
 id|tmpname
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to rename temporary pack file: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to rename temporary pack file&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * Packs are runtime accessed in their mtime&n;&t;&t;&t; * order since newer packs are more likely to contain&n;&t;&t;&t; * younger objects.  So if we are creating multiple&n;&t;&t;&t; * packs then we should modify the mtime of later ones&n;&t;&t;&t; * to preserve this property.&n;&t;&t;&t; */
@@ -2766,16 +2754,10 @@ comma
 id|mode
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to make temporary index file readable: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to make temporary index file readable&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2789,16 +2771,10 @@ comma
 id|tmpname
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to rename temporary index file: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to rename temporary index file&quot;
 )paren
 suffix:semicolon
 id|free
@@ -8834,16 +8810,10 @@ id|errno
 op_ne
 id|EINTR
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;fgets: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;fgets&quot;
 )paren
 suffix:semicolon
 id|clearerr

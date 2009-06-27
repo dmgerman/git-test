@@ -2170,18 +2170,12 @@ c_cond
 op_logical_neg
 id|fp
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not open file &squot;%s&squot;: %s&quot;
+l_string|&quot;Could not open file &squot;%s&squot;&quot;
 comma
 id|filename
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_while
@@ -3088,18 +3082,12 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not create file &squot;%s&squot;: %s&quot;
+l_string|&quot;could not create file &squot;%s&squot;&quot;
 comma
 id|filename
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|bisect_rev_hex

@@ -1351,18 +1351,12 @@ id|errno
 op_ne
 id|ENOENT
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to unlink %s: %s&quot;
+l_string|&quot;failed to unlink &squot;%s&squot;&quot;
 comma
 id|dest-&gt;buf
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -2276,18 +2270,12 @@ id|work_tree
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not create leading directories of &squot;%s&squot;: %s&quot;
+l_string|&quot;could not create leading directories of &squot;%s&squot;&quot;
 comma
 id|work_tree
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -2304,18 +2292,12 @@ comma
 l_int|0755
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not create work tree dir &squot;%s&squot;: %s.&quot;
+l_string|&quot;could not create work tree dir &squot;%s&squot;.&quot;
 comma
 id|work_tree
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|set_git_work_tree

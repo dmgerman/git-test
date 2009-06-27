@@ -1591,18 +1591,12 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not create file &squot;%s&squot;: %s&quot;
+l_string|&quot;could not create file &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -2457,18 +2451,12 @@ l_int|1024
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not open or read &squot;%s&squot;: %s&quot;
+l_string|&quot;could not open or read &squot;%s&squot;&quot;
 comma
 id|msgfile
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace

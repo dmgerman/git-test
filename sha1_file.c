@@ -11950,16 +11950,10 @@ id|fd
 op_ne
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;error when closing sha1 file (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;error when closing sha1 file&quot;
 )paren
 suffix:semicolon
 )brace

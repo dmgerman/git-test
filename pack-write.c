@@ -290,18 +290,12 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to create %s: %s&quot;
+l_string|&quot;unable to create &squot;%s&squot;&quot;
 comma
 id|index_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|f
@@ -873,18 +867,12 @@ id|SEEK_SET
 op_ne
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Failed seeking to start of %s: %s&quot;
+l_string|&quot;Failed seeking to start of &squot;%s&squot;&quot;
 comma
 id|pack_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -909,18 +897,12 @@ r_sizeof
 id|hdr
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Unable to reread header of %s: %s&quot;
+l_string|&quot;Unable to reread header of &squot;%s&squot;&quot;
 comma
 id|pack_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -938,18 +920,12 @@ id|SEEK_SET
 op_ne
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Failed seeking to start of %s: %s&quot;
+l_string|&quot;Failed seeking to start of &squot;%s&squot;&quot;
 comma
 id|pack_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|git_SHA1_Update
@@ -1081,18 +1057,12 @@ id|n
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Failed to checksum %s: %s&quot;
+l_string|&quot;Failed to checksum &squot;%s&squot;&quot;
 comma
 id|pack_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|git_SHA1_Update

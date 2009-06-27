@@ -4065,16 +4065,10 @@ r_continue
 suffix:semicolon
 r_default
 suffix:colon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;accept returned %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;accept returned&quot;
 )paren
 suffix:semicolon
 )brace
@@ -4148,16 +4142,10 @@ id|fd
 op_eq
 l_int|1
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;open /dev/null or dup failed: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;open /dev/null or dup failed&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4200,16 +4188,10 @@ suffix:semicolon
 r_case
 l_int|1
 suffix:colon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;fork failed: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;fork failed&quot;
 )paren
 suffix:semicolon
 r_default
@@ -4230,16 +4212,10 @@ c_func
 op_eq
 l_int|1
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;setsid failed: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;setsid failed&quot;
 )paren
 suffix:semicolon
 id|close
@@ -4296,18 +4272,12 @@ c_cond
 op_logical_neg
 id|f
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot open pid file %s: %s&quot;
+l_string|&quot;cannot open pid file &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -4341,18 +4311,12 @@ id|f
 op_ne
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to write pid file %s: %s&quot;
+l_string|&quot;failed to write pid file &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -5466,16 +5430,10 @@ comma
 id|stderr
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to redirect stderr to /dev/null: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;failed to redirect stderr to /dev/null&quot;
 )paren
 suffix:semicolon
 r_if

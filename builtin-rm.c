@@ -1043,18 +1043,12 @@ c_cond
 op_logical_neg
 id|removed
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;git rm: %s: %s&quot;
+l_string|&quot;git rm: &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace

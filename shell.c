@@ -297,16 +297,10 @@ id|devnull_fd
 op_eq
 l_int|1
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;opening /dev/null failed (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;opening /dev/null failed&quot;
 )paren
 suffix:semicolon
 id|close

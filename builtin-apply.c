@@ -1147,16 +1147,10 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;git apply: read returned %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;git apply: failed to read&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Make sure that we have some slop in the buffer&n;&t; * so that we can do speculative &quot;memcmp&quot; etc, and&n;&t; * see to it that it is NUL-filled.&n;&t; */
@@ -13454,18 +13448,12 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;closing file %s: %s&quot;
+l_string|&quot;closing file &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_return
@@ -16007,18 +15995,12 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;can&squot;t open patch &squot;%s&squot;: %s&quot;
+l_string|&quot;can&squot;t open patch &squot;%s&squot;&quot;
 comma
 id|arg
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|read_stdin

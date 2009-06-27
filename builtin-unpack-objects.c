@@ -306,16 +306,10 @@ c_func
 l_string|&quot;early EOF&quot;
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;read error on input: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;read error on input&quot;
 )paren
 suffix:semicolon
 )brace

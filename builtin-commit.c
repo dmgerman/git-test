@@ -2225,18 +2225,12 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not read log file &squot;%s&squot;: %s&quot;
+l_string|&quot;could not read log file &squot;%s&squot;&quot;
 comma
 id|logfile
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -2347,16 +2341,10 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not read MERGE_MSG: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;could not read MERGE_MSG&quot;
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -2403,16 +2391,10 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not read SQUASH_MSG: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;could not read SQUASH_MSG&quot;
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -2453,18 +2435,12 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not read %s: %s&quot;
+l_string|&quot;could not read &squot;%s&squot;&quot;
 comma
 id|template_file
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -2504,21 +2480,15 @@ id|fp
 op_eq
 l_int|NULL
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not open %s: %s&quot;
+l_string|&quot;could not open &squot;%s&squot;&quot;
 comma
 id|git_path
 c_func
 (paren
 id|commit_editmsg
-)paren
-comma
-id|strerror
-c_func
-(paren
-id|errno
 )paren
 )paren
 suffix:semicolon
@@ -2691,16 +2661,10 @@ id|fp
 OL
 id|sb.len
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not write commit template: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;could not write commit template&quot;
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -5077,21 +5041,15 @@ id|fp
 op_eq
 l_int|NULL
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not open %s for reading: %s&quot;
+l_string|&quot;could not open &squot;%s&squot; for reading&quot;
 comma
 id|git_path
 c_func
 (paren
 l_string|&quot;MERGE_HEAD&quot;
-)paren
-comma
-id|strerror
-c_func
-(paren
-id|errno
 )paren
 )paren
 suffix:semicolon
@@ -5209,16 +5167,10 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not read MERGE_MODE: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;could not read MERGE_MODE&quot;
 )paren
 suffix:semicolon
 r_if

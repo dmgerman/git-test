@@ -1627,16 +1627,10 @@ id|out.len
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Writing SQUASH_MSG: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;Writing SQUASH_MSG&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1648,16 +1642,10 @@ c_func
 id|fd
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Finishing SQUASH_MSG: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;Finishing SQUASH_MSG&quot;
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -2405,21 +2393,15 @@ c_cond
 op_logical_neg
 id|fp
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not open %s for reading: %s&quot;
+l_string|&quot;could not open &squot;%s&squot; for reading&quot;
 comma
 id|git_path
 c_func
 (paren
 l_string|&quot;FETCH_HEAD&quot;
-)paren
-comma
-id|strerror
-c_func
-(paren
-id|errno
 )paren
 )paren
 suffix:semicolon

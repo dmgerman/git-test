@@ -149,18 +149,12 @@ m_exit
 l_int|0
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;write failure on %s: %s&quot;
+l_string|&quot;write failure on &squot;%s&squot;&quot;
 comma
 id|desc
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -191,18 +185,12 @@ OL
 l_int|0
 )paren
 (brace
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;%s: fsync error (%s)&quot;
+l_string|&quot;fsync error on &squot;%s&squot;&quot;
 comma
 id|msg
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -252,16 +240,10 @@ m_exit
 l_int|0
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;write error (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;write error&quot;
 )paren
 suffix:semicolon
 )brace

@@ -2982,18 +2982,12 @@ c_cond
 op_logical_neg
 id|patterns
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;&squot;%s&squot;: %s&quot;
+l_string|&quot;cannot open &squot;%s&squot;&quot;
 comma
 id|arg
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_while

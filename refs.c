@@ -7615,18 +7615,12 @@ id|logfd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Unable to read log %s: %s&quot;
+l_string|&quot;Unable to read log &squot;%s&squot;&quot;
 comma
 id|logfile
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|fstat

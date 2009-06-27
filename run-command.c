@@ -516,10 +516,10 @@ c_func
 id|cmd-&gt;dir
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;exec %s: cd to %s failed (%s)&quot;
+l_string|&quot;exec &squot;%s&squot;: cd to &squot;%s&squot; failed&quot;
 comma
 id|cmd-&gt;argv
 (braket
@@ -527,12 +527,6 @@ l_int|0
 )braket
 comma
 id|cmd-&gt;dir
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if

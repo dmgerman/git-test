@@ -2356,18 +2356,12 @@ c_cond
 op_logical_neg
 id|f
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot read %s: %s&quot;
+l_string|&quot;cannot read &squot;%s&squot;&quot;
 comma
 id|input_file
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_while
