@@ -1099,6 +1099,11 @@ suffix:semicolon
 r_int
 id|remove
 suffix:semicolon
+r_int
+id|brackets_removed
+op_assign
+l_int|0
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1183,6 +1188,14 @@ suffix:semicolon
 r_case
 l_char|&squot;[&squot;
 suffix:colon
+multiline_comment|/* remove only one set of square brackets */
+r_if
+c_cond
+(paren
+id|brackets_removed
+)paren
+r_break
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1228,6 +1241,10 @@ id|remove
 op_plus
 l_int|1
 )paren
+suffix:semicolon
+id|brackets_removed
+op_assign
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
