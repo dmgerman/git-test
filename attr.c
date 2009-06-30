@@ -2666,6 +2666,13 @@ id|elem
 suffix:semicolon
 )brace
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|pathbuf
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * Finally push the &quot;info&quot; one at the top of the stack.&n;&t; */
 id|info-&gt;prev
 op_assign
