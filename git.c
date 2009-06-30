@@ -1111,8 +1111,6 @@ id|count
 op_plus
 op_star
 id|argcp
-op_plus
-l_int|1
 )paren
 )paren
 suffix:semicolon
@@ -1138,16 +1136,6 @@ op_star
 op_star
 id|argcp
 )paren
-suffix:semicolon
-id|new_argv
-(braket
-id|count
-op_plus
-op_star
-id|argcp
-)braket
-op_assign
-l_int|NULL
 suffix:semicolon
 op_star
 id|argv
