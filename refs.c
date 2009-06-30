@@ -4159,7 +4159,7 @@ c_func
 op_amp
 id|path
 comma
-l_int|1
+id|REMOVE_DIR_EMPTY_ONLY
 )paren
 suffix:semicolon
 id|strbuf_release
