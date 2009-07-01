@@ -189,7 +189,7 @@ comma
 r_const
 r_char
 op_star
-id|path_unused
+id|path
 comma
 id|mmfile_t
 op_star
@@ -256,7 +256,9 @@ id|src2-&gt;size
 id|warning
 c_func
 (paren
-l_string|&quot;Cannot merge binary files: %s vs. %s&bslash;n&quot;
+l_string|&quot;Cannot merge binary files: %s (%s vs. %s)&bslash;n&quot;
+comma
+id|path
 comma
 id|name1
 comma
@@ -271,7 +273,7 @@ id|drv_unused
 comma
 id|result
 comma
-id|path_unused
+id|path
 comma
 id|orig
 comma
