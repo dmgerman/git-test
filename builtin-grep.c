@@ -1186,6 +1186,8 @@ c_cond
 id|opt-&gt;pre_context
 op_logical_or
 id|opt-&gt;post_context
+op_logical_or
+id|opt-&gt;funcname
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * grep handles hunk marks between files, but we need to&n;&t;&t; * do that ourselves between multiple calls.&n;&t;&t; */
@@ -1199,6 +1201,11 @@ c_func
 (paren
 l_int|1
 comma
+id|opt-&gt;funcname
+ques
+c_cond
+l_string|&quot;==&bslash;n&quot;
+suffix:colon
 l_string|&quot;--&bslash;n&quot;
 comma
 l_int|3
@@ -3768,6 +3775,19 @@ comma
 id|context_callback
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;p&squot;
+comma
+l_string|&quot;show-function&quot;
+comma
+op_amp
+id|opt.funcname
+comma
+l_string|&quot;show a line with the function name before matches&quot;
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
@@ -4131,10 +4151,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|opt.color
 op_logical_and
 op_logical_neg
 id|opt.color_external
+)paren
+op_logical_or
+id|opt.funcname
 )paren
 id|external_grep_allowed
 op_assign
