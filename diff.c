@@ -9141,6 +9141,13 @@ c_func
 id|mf2.ptr
 )paren
 suffix:semicolon
+id|xdiff_clear_find_func
+c_func
+(paren
+op_amp
+id|xecfg
+)paren
+suffix:semicolon
 )brace
 id|free_ab_and_return
 suffix:colon
