@@ -7,6 +7,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;grep.h&quot;
 macro_line|#ifndef NO_EXTERNAL_GREP
 macro_line|#ifdef __unix__
@@ -61,6 +62,35 @@ id|opt
 op_assign
 id|cb
 suffix:semicolon
+r_switch
+c_cond
+(paren
+id|userdiff_config
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+)paren
+(brace
+r_case
+l_int|0
+suffix:colon
+r_break
+suffix:semicolon
+r_case
+l_int|1
+suffix:colon
+r_return
+l_int|1
+suffix:semicolon
+r_default
+suffix:colon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
