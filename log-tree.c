@@ -1629,7 +1629,7 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * If use_terminator is set, add a newline at the end of the entry.&n;&t; * Otherwise, add a diffopt.line_termination character before all&n;&t; * entries but the first.  (IOW, as a separator between entries)&n;&t; */
+multiline_comment|/*&n;&t; * If use_terminator is set, we already handled any record termination&n;&t; * at the end of the last record.&n;&t; * Otherwise, add a diffopt.line_termination character before all&n;&t; * entries but the first.  (IOW, as a separator between entries)&n;&t; */
 r_if
 c_cond
 (paren
