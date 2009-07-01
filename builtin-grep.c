@@ -1216,8 +1216,6 @@ c_cond
 id|opt-&gt;pre_context
 op_logical_or
 id|opt-&gt;post_context
-op_logical_or
-id|opt-&gt;funcname
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * grep handles hunk marks between files, but we need to&n;&t;&t; * do that ourselves between multiple calls.&n;&t;&t; */
@@ -1231,11 +1229,6 @@ c_func
 (paren
 l_int|1
 comma
-id|opt-&gt;funcname
-ques
-c_cond
-l_string|&quot;==&bslash;n&quot;
-suffix:colon
 l_string|&quot;--&bslash;n&quot;
 comma
 l_int|3
