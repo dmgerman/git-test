@@ -637,10 +637,10 @@ id|post_receive_hook
 op_assign
 l_string|&quot;hooks/post-receive&quot;
 suffix:semicolon
-DECL|function|hook_status
+DECL|function|run_status
 r_static
 r_int
-id|hook_status
+id|run_status
 c_func
 (paren
 r_int
@@ -649,7 +649,7 @@ comma
 r_const
 r_char
 op_star
-id|hook_name
+id|cmd_name
 )paren
 (brace
 r_switch
@@ -671,7 +671,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;hook fork failed&quot;
+l_string|&quot;fork of %s failed&quot;
+comma
+id|cmd_name
 )paren
 suffix:semicolon
 r_case
@@ -681,7 +683,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;hook execute failed&quot;
+l_string|&quot;execute of %s failed&quot;
+comma
+id|cmd_name
 )paren
 suffix:semicolon
 r_case
@@ -691,7 +695,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;hook pipe failed&quot;
+l_string|&quot;pipe failed&quot;
 )paren
 suffix:semicolon
 r_case
@@ -723,7 +727,7 @@ c_func
 (paren
 l_string|&quot;%s died of signal&quot;
 comma
-id|hook_name
+id|cmd_name
 )paren
 suffix:semicolon
 r_case
@@ -735,7 +739,7 @@ c_func
 (paren
 l_string|&quot;%s died strangely&quot;
 comma
-id|hook_name
+id|cmd_name
 )paren
 suffix:semicolon
 r_default
@@ -745,7 +749,7 @@ c_func
 (paren
 l_string|&quot;%s exited with error code %d&quot;
 comma
-id|hook_name
+id|cmd_name
 comma
 id|code
 )paren
@@ -909,7 +913,7 @@ c_cond
 id|code
 )paren
 r_return
-id|hook_status
+id|run_status
 c_func
 (paren
 id|code
@@ -994,7 +998,7 @@ id|proc.in
 )paren
 suffix:semicolon
 r_return
-id|hook_status
+id|run_status
 c_func
 (paren
 id|finish_command
@@ -1097,7 +1101,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-id|hook_status
+id|run_status
 c_func
 (paren
 id|run_command_v_opt
@@ -1961,6 +1965,8 @@ id|cmd_p
 suffix:semicolon
 r_int
 id|argc
+comma
+id|status
 suffix:semicolon
 r_const
 r_char
@@ -2109,6 +2115,8 @@ id|argc
 op_assign
 l_int|NULL
 suffix:semicolon
+id|status
+op_assign
 id|run_command_v_opt
 c_func
 (paren
@@ -2117,6 +2125,14 @@ comma
 id|RUN_COMMAND_NO_STDIN
 op_or
 id|RUN_COMMAND_STDOUT_TO_STDERR
+)paren
+suffix:semicolon
+id|run_status
+c_func
+(paren
+id|status
+comma
+id|update_post_hook
 )paren
 suffix:semicolon
 )brace
@@ -2697,60 +2713,29 @@ comma
 id|RUN_GIT_CMD
 )paren
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
+op_logical_neg
 id|code
 )paren
-(brace
-r_case
-l_int|0
-suffix:colon
 r_return
 l_int|NULL
 suffix:semicolon
-r_case
-id|ERR_RUN_COMMAND_FORK
-suffix:colon
-r_return
-l_string|&quot;unpack fork failed&quot;
+id|run_status
+c_func
+(paren
+id|code
+comma
+id|unpacker
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
-r_case
-id|ERR_RUN_COMMAND_EXEC
-suffix:colon
 r_return
-l_string|&quot;unpack execute failed&quot;
+l_string|&quot;unpack-objects abnormal exit&quot;
 suffix:semicolon
-r_case
-id|ERR_RUN_COMMAND_WAITPID
-suffix:colon
-r_return
-l_string|&quot;waitpid failed&quot;
-suffix:semicolon
-r_case
-id|ERR_RUN_COMMAND_WAITPID_WRONG_PID
-suffix:colon
-r_return
-l_string|&quot;waitpid is confused&quot;
-suffix:semicolon
-r_case
-id|ERR_RUN_COMMAND_WAITPID_SIGNAL
-suffix:colon
-r_return
-l_string|&quot;unpacker died of signal&quot;
-suffix:semicolon
-r_case
-id|ERR_RUN_COMMAND_WAITPID_NOEXIT
-suffix:colon
-r_return
-l_string|&quot;unpacker died strangely&quot;
-suffix:semicolon
-r_default
-suffix:colon
-r_return
-l_string|&quot;unpacker exited with error code&quot;
-suffix:semicolon
-)brace
 )brace
 r_else
 (brace
@@ -2915,19 +2900,36 @@ id|ip.git_cmd
 op_assign
 l_int|1
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|status
+op_assign
 id|start_command
 c_func
 (paren
 op_amp
 id|ip
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
 )paren
+(brace
+id|run_status
+c_func
+(paren
+id|status
+comma
+id|keeper
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 r_return
 l_string|&quot;index-pack fork failed&quot;
 suffix:semicolon
+)brace
 id|pack_lockfile
 op_assign
 id|index_pack_lockfile
@@ -2967,6 +2969,17 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+id|run_status
+c_func
+(paren
+id|status
+comma
+id|keeper
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 r_return
 l_string|&quot;index-pack abnormal exit&quot;
 suffix:semicolon
