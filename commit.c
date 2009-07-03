@@ -252,10 +252,6 @@ op_star
 id|tail
 )paren
 (brace
-r_int
-r_int
-id|date
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -387,8 +383,7 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* dateptr &lt; buf &amp;&amp; buf[-1] == &squot;&bslash;n&squot;, so strtoul will stop at buf-1 */
-id|date
-op_assign
+r_return
 id|strtoul
 c_func
 (paren
@@ -398,20 +393,6 @@ l_int|NULL
 comma
 l_int|10
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|date
-op_eq
-id|ULONG_MAX
-)paren
-id|date
-op_assign
-l_int|0
-suffix:semicolon
-r_return
-id|date
 suffix:semicolon
 )brace
 DECL|variable|commit_graft

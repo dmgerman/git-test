@@ -1074,8 +1074,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|commit-&gt;date
+op_eq
+id|ULONG_MAX
 )paren
 r_return
 id|error_func
