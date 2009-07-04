@@ -2533,11 +2533,9 @@ id|ERR_RUN_COMMAND_EXEC
 r_if
 c_cond
 (paren
-id|IS_RUN_COMMAND_ERR
-c_func
-(paren
 id|status
-)paren
+OL
+l_int|0
 )paren
 id|die
 c_func
