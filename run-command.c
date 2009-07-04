@@ -1052,9 +1052,14 @@ id|cmd-&gt;pid
 OL
 l_int|0
 op_logical_and
+(paren
+op_logical_neg
+id|cmd-&gt;silent_exec_failure
+op_logical_or
 id|errno
 op_ne
 id|ENOENT
+)paren
 )paren
 id|error
 c_func
@@ -1319,6 +1324,9 @@ r_const
 r_char
 op_star
 id|argv0
+comma
+r_int
+id|silent_exec_failure
 )paren
 (brace
 r_int
@@ -1478,6 +1486,26 @@ id|failed_errno
 op_assign
 id|ENOENT
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|silent_exec_failure
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;cannot run %s: %s&quot;
+comma
+id|argv0
+comma
+id|strerror
+c_func
+(paren
+id|ENOENT
+)paren
+)paren
+suffix:semicolon
 )brace
 )brace
 r_else
@@ -1520,6 +1548,8 @@ id|cmd-&gt;argv
 (braket
 l_int|0
 )braket
+comma
+id|cmd-&gt;silent_exec_failure
 )paren
 suffix:semicolon
 )brace
@@ -1625,6 +1655,17 @@ op_assign
 id|opt
 op_amp
 id|RUN_COMMAND_STDOUT_TO_STDERR
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+suffix:semicolon
+id|cmd-&gt;silent_exec_failure
+op_assign
+id|opt
+op_amp
+id|RUN_SILENT_EXEC_FAILURE
 ques
 c_cond
 l_int|1
@@ -1984,6 +2025,8 @@ c_func
 id|async-&gt;pid
 comma
 l_string|&quot;child process&quot;
+comma
+l_int|0
 )paren
 suffix:semicolon
 macro_line|#else

@@ -656,27 +656,6 @@ r_if
 c_cond
 (paren
 id|code
-OL
-l_int|0
-op_logical_and
-id|errno
-op_eq
-id|ENOENT
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;execute of %s failed&quot;
-comma
-id|cmd_name
-)paren
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-id|code
 OG
 l_int|0
 )paren

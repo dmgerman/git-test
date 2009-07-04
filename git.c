@@ -2519,7 +2519,7 @@ c_func
 (paren
 id|argv
 comma
-l_int|0
+id|RUN_SILENT_EXEC_FAILURE
 )paren
 suffix:semicolon
 r_if
