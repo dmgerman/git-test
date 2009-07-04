@@ -1418,13 +1418,28 @@ id|status
 )paren
 )paren
 (brace
+id|code
+op_assign
+id|WTERMSIG
+c_func
+(paren
+id|status
+)paren
+suffix:semicolon
 id|error
 c_func
 (paren
-l_string|&quot;%s died of signal&quot;
+l_string|&quot;%s died of signal %d&quot;
 comma
 id|argv0
+comma
+id|code
 )paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * This return value is chosen so that code &amp; 0xff&n;&t;&t; * mimics the exit code that a POSIX shell would report for&n;&t;&t; * a program that died from this signal.&n;&t;&t; */
+id|code
+op_sub_assign
+l_int|128
 suffix:semicolon
 )brace
 r_else
