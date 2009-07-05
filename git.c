@@ -1368,8 +1368,6 @@ id|status
 )paren
 r_return
 id|status
-op_amp
-l_int|0xff
 suffix:semicolon
 multiline_comment|/* Somebody closed stdout? */
 r_if
