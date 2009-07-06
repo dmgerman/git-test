@@ -587,16 +587,10 @@ id|ret
 op_eq
 id|MAP_FAILED
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Out of memory? mmap failed: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;Out of memory? mmap failed&quot;
 )paren
 suffix:semicolon
 )brace
@@ -930,16 +924,10 @@ id|ret
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;dup failed: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;dup failed&quot;
 )paren
 suffix:semicolon
 r_return
@@ -980,16 +968,10 @@ id|stream
 op_eq
 l_int|NULL
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Out of memory? fdopen failed: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;Out of memory? fdopen failed&quot;
 )paren
 suffix:semicolon
 r_return
@@ -1024,16 +1006,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Unable to create temporary file: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;Unable to create temporary file&quot;
 )paren
 suffix:semicolon
 r_return

@@ -326,18 +326,12 @@ op_amp
 id|st
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;&squot;%s&squot;: %s&quot;
+l_string|&quot;failed to stat &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if

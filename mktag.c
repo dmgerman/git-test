@@ -799,7 +799,7 @@ OL
 l_int|0
 )paren
 (brace
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;could not read from stdin&quot;

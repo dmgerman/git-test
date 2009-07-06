@@ -650,16 +650,10 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;git commit-tree: read returned %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;git commit-tree: failed to read&quot;
 )paren
 suffix:semicolon
 r_if

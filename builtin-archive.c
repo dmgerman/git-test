@@ -41,10 +41,10 @@ id|output_fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;could not create archive file: %s &quot;
+l_string|&quot;could not create archive file &squot;%s&squot;&quot;
 comma
 id|output_file
 )paren
@@ -70,7 +70,7 @@ l_int|1
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;could not redirect output&quot;

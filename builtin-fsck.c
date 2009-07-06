@@ -925,10 +925,10 @@ l_string|&quot;w&quot;
 )paren
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not open %s&quot;
+l_string|&quot;Could not open &squot;%s&squot;&quot;
 comma
 id|filename
 )paren
@@ -988,18 +988,12 @@ id|f
 op_ne
 l_int|1
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not write %s: %s&quot;
+l_string|&quot;Could not write &squot;%s&squot;&quot;
 comma
 id|filename
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|free
@@ -1034,18 +1028,12 @@ c_func
 id|f
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not finish %s: %s&quot;
+l_string|&quot;Could not finish &squot;%s&squot;&quot;
 comma
 id|filename
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace

@@ -861,16 +861,10 @@ c_cond
 op_logical_neg
 id|lock
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Failed to lock ref for update: %s.&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;Failed to lock ref for update&quot;
 )paren
 suffix:semicolon
 r_if
@@ -946,16 +940,10 @@ id|msg
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Failed to write ref: %s.&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;Failed to write ref&quot;
 )paren
 suffix:semicolon
 id|strbuf_release

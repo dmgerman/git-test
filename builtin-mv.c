@@ -1384,17 +1384,11 @@ op_logical_and
 op_logical_neg
 id|ignore_errors
 )paren
-id|die
+id|die_errno
 (paren
-l_string|&quot;renaming %s failed: %s&quot;
+l_string|&quot;renaming &squot;%s&squot; failed&quot;
 comma
 id|src
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if

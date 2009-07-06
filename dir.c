@@ -3593,16 +3593,10 @@ comma
 id|size
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;can&squot;t find the current directory: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;can&squot;t find the current directory&quot;
 )paren
 suffix:semicolon
 r_if

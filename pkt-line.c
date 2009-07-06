@@ -79,16 +79,10 @@ c_func
 l_string|&quot;write error (disk full?)&quot;
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;write error (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;write error&quot;
 )paren
 suffix:semicolon
 )brace
@@ -312,16 +306,10 @@ id|ret
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;read error (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;read error&quot;
 )paren
 suffix:semicolon
 r_else

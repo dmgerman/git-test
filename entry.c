@@ -151,10 +151,10 @@ l_int|0777
 )paren
 r_continue
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot create directory at %s&quot;
+l_string|&quot;cannot create directory at &squot;%s&squot;&quot;
 comma
 id|buf
 )paren
@@ -211,18 +211,12 @@ c_cond
 op_logical_neg
 id|dir
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot opendir %s (%s)&quot;
+l_string|&quot;cannot opendir &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|strcpy
@@ -300,18 +294,12 @@ op_amp
 id|st
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot lstat %s (%s)&quot;
+l_string|&quot;cannot lstat &squot;%s&squot;&quot;
 comma
 id|pathbuf
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -339,18 +327,12 @@ c_func
 id|pathbuf
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot unlink %s (%s)&quot;
+l_string|&quot;cannot unlink &squot;%s&squot;&quot;
 comma
 id|pathbuf
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -369,18 +351,12 @@ c_func
 id|path
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot rmdir %s (%s)&quot;
+l_string|&quot;cannot rmdir &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace

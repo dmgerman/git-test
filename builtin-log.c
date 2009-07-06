@@ -5344,10 +5344,10 @@ id|errno
 op_ne
 id|EEXIST
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Could not create directory %s&quot;
+l_string|&quot;Could not create directory &squot;%s&squot;&quot;
 comma
 id|output_directory
 )paren

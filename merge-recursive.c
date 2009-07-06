@@ -2450,16 +2450,10 @@ id|EPIPE
 )paren
 r_break
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;merge-recursive: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;merge-recursive&quot;
 )paren
 suffix:semicolon
 )brace
@@ -2984,18 +2978,12 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to open %s: %s&quot;
+l_string|&quot;failed to open &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|flush_buffer
@@ -3061,18 +3049,12 @@ comma
 id|path
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to symlink %s: %s&quot;
+l_string|&quot;failed to symlink &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|free

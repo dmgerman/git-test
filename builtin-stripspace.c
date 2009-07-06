@@ -336,7 +336,7 @@ l_int|1024
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;could not read the input&quot;

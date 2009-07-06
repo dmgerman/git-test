@@ -3048,18 +3048,12 @@ op_amp
 id|st
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;%s: unable to stat (%s)&quot;
+l_string|&quot;unable to stat &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_return
@@ -5752,16 +5746,10 @@ id|ENOENT
 r_return
 l_int|0
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;index file open failed (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;index file open failed&quot;
 )paren
 suffix:semicolon
 )brace
@@ -5777,16 +5765,10 @@ op_amp
 id|st
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot stat the open index (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;cannot stat the open index&quot;
 )paren
 suffix:semicolon
 id|errno
@@ -5853,7 +5835,7 @@ id|mmap
 op_eq
 id|MAP_FAILED
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;unable to map index file&quot;

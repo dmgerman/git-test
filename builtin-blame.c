@@ -9277,10 +9277,10 @@ id|st
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Cannot stat %s&quot;
+l_string|&quot;Cannot stat &squot;%s&squot;&quot;
 comma
 id|contents_from
 )paren
@@ -9306,10 +9306,10 @@ id|st
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Cannot lstat %s&quot;
+l_string|&quot;Cannot lstat &squot;%s&squot;&quot;
 comma
 id|path
 )paren
@@ -9354,10 +9354,10 @@ id|st.st_size
 op_ne
 id|st.st_size
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot open or read %s&quot;
+l_string|&quot;cannot open or read &squot;%s&squot;&quot;
 comma
 id|read_from
 )paren
@@ -9383,10 +9383,10 @@ id|st.st_size
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot readlink %s&quot;
+l_string|&quot;cannot readlink &squot;%s&squot;&quot;
 comma
 id|read_from
 )paren
@@ -9432,16 +9432,10 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;read error %s from stdin&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;failed to read from stdin&quot;
 )paren
 suffix:semicolon
 )brace
@@ -10748,18 +10742,12 @@ c_func
 id|revs_file
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;reading graft file %s failed: %s&quot;
+l_string|&quot;reading graft file &squot;%s&squot; failed&quot;
 comma
 id|revs_file
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -11102,18 +11090,12 @@ c_func
 id|path
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot stat path %s: %s&quot;
+l_string|&quot;cannot stat path &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace

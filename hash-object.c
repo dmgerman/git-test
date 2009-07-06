@@ -152,10 +152,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Cannot open %s&quot;
+l_string|&quot;Cannot open &squot;%s&squot;&quot;
 comma
 id|path
 )paren

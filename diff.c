@@ -10842,16 +10842,10 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to create temp-file: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to create temp-file&quot;
 )paren
 suffix:semicolon
 r_if
@@ -10903,7 +10897,7 @@ id|size
 op_ne
 id|size
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;unable to write temp-file&quot;
@@ -11106,18 +11100,12 @@ id|ENOENT
 r_goto
 id|not_a_valid_file
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;stat(%s): %s&quot;
+l_string|&quot;stat(%s)&quot;
 comma
 id|name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -11153,7 +11141,7 @@ id|st.st_size
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;readlink(%s)&quot;
@@ -12228,10 +12216,10 @@ id|st
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;stat %s&quot;
+l_string|&quot;stat &squot;%s&squot;&quot;
 comma
 id|one-&gt;path
 )paren

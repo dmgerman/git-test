@@ -2320,18 +2320,12 @@ c_cond
 (paren
 id|config_exclusive_filename
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to read config file %s: %s&quot;
+l_string|&quot;unable to read config file &squot;%s&squot;&quot;
 comma
 id|config_exclusive_filename
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_else

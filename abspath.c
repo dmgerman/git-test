@@ -228,7 +228,7 @@ id|cwd
 )paren
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not get current working directory&quot;
 )paren
@@ -242,7 +242,7 @@ c_func
 id|buf
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not switch to &squot;%s&squot;&quot;
 comma
@@ -262,7 +262,7 @@ comma
 id|PATH_MAX
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not get current working directory&quot;
 )paren
@@ -375,9 +375,9 @@ id|len
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 (paren
-l_string|&quot;Invalid symlink: %s&quot;
+l_string|&quot;Invalid symlink &squot;%s&squot;&quot;
 comma
 id|buf
 )paren
@@ -437,7 +437,7 @@ c_func
 id|cwd
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not change back to &squot;%s&squot;&quot;
 comma
@@ -639,7 +639,7 @@ c_cond
 op_logical_neg
 id|cwd
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;Cannot determine the current working directory&quot;

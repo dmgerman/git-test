@@ -467,18 +467,12 @@ comma
 id|arg
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;&squot;%s&squot;: %s&quot;
+l_string|&quot;failed to stat &squot;%s&squot;&quot;
 comma
 id|arg
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -589,18 +583,12 @@ id|errno
 op_ne
 id|ENOTDIR
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;&squot;%s&squot;: %s&quot;
+l_string|&quot;failed to stat &squot;%s&squot;&quot;
 comma
 id|arg
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -1268,18 +1256,12 @@ id|fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Error opening %s: %s&quot;
+l_string|&quot;Error opening &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|buf
@@ -1665,9 +1647,9 @@ id|work_tree_env
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 (paren
-l_string|&quot;Could not chdir to %s&quot;
+l_string|&quot;Could not chdir to &squot;%s&squot;&quot;
 comma
 id|work_tree_env
 )paren
@@ -1725,7 +1707,7 @@ op_minus
 l_int|1
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;Unable to read current working directory&quot;
@@ -1929,7 +1911,7 @@ c_func
 id|cwd
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;Cannot come back to cwd&quot;
@@ -1962,18 +1944,12 @@ c_func
 l_string|&quot;..&quot;
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Cannot change to %s/..: %s&quot;
+l_string|&quot;Cannot change to &squot;%s/..&squot;&quot;
 comma
 id|cwd
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -2466,7 +2442,7 @@ c_func
 id|retval
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not jump back into original cwd&quot;
 )paren
@@ -2503,7 +2479,7 @@ c_func
 )paren
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not jump to working directory&quot;
 )paren

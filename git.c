@@ -1164,18 +1164,12 @@ c_func
 id|subdir
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;Cannot change to %s: %s&quot;
+l_string|&quot;Cannot change to &squot;%s&squot;&quot;
 comma
 id|subdir
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|errno
@@ -1420,16 +1414,10 @@ c_func
 id|stdout
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;write failure on standard output: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;write failure on standard output&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1456,16 +1444,10 @@ c_func
 id|stdout
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;close failed on standard output: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;close failed on standard output&quot;
 )paren
 suffix:semicolon
 r_return

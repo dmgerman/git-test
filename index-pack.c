@@ -572,16 +572,10 @@ c_func
 l_string|&quot;early EOF&quot;
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;read error on input: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;read error on input&quot;
 )paren
 suffix:semicolon
 )brace
@@ -767,18 +761,12 @@ id|output_fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to create %s: %s&quot;
+l_string|&quot;unable to create &squot;%s&squot;&quot;
 comma
 id|pack_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|pack_fd
@@ -805,18 +793,12 @@ id|input_fd
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot open packfile &squot;%s&squot;: %s&quot;
+l_string|&quot;cannot open packfile &squot;%s&squot;&quot;
 comma
 id|pack_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|output_fd
@@ -1818,16 +1800,10 @@ id|n
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot pread pack file: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;cannot pread pack file&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3305,16 +3281,10 @@ op_amp
 id|st
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot fstat packfile: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;cannot fstat packfile&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4216,16 +4186,10 @@ c_cond
 (paren
 id|err
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;error while closing pack file: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;error while closing pack file&quot;
 )paren
 suffix:semicolon
 )brace
@@ -4299,18 +4263,12 @@ id|errno
 op_ne
 id|EEXIST
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot write keep file &squot;%s&squot; (%s)&quot;
+l_string|&quot;cannot write keep file &squot;%s&squot;&quot;
 comma
 id|keep_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -4356,18 +4314,12 @@ id|keep_fd
 op_ne
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;cannot close written keep file &squot;%s&squot; (%s)&quot;
+l_string|&quot;cannot close written keep file &squot;%s&squot;&quot;
 comma
 id|keep_name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|report
