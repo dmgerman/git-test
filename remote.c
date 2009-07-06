@@ -7021,6 +7021,13 @@ c_cond
 (paren
 op_logical_neg
 id|name
+op_logical_or
+id|name
+(braket
+l_int|0
+)braket
+op_eq
+l_char|&squot;&bslash;0&squot;
 )paren
 r_return
 l_int|NULL
