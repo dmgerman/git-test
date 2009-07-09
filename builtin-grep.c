@@ -7,6 +7,7 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;grep.h&quot;
 macro_line|#ifndef NO_EXTERNAL_GREP
 macro_line|#ifdef __unix__
@@ -61,6 +62,35 @@ id|opt
 op_assign
 id|cb
 suffix:semicolon
+r_switch
+c_cond
+(paren
+id|userdiff_config
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+)paren
+(brace
+r_case
+l_int|0
+suffix:colon
+r_break
+suffix:semicolon
+r_case
+l_int|1
+suffix:colon
+r_return
+l_int|1
+suffix:semicolon
+r_default
+suffix:colon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1178,6 +1208,36 @@ suffix:semicolon
 id|argc
 op_sub_assign
 l_int|2
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|opt-&gt;pre_context
+op_logical_or
+id|opt-&gt;post_context
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * grep handles hunk marks between files, but we need to&n;&t;&t; * do that ourselves between multiple calls.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|opt-&gt;show_hunk_mark
+)paren
+id|write_or_die
+c_func
+(paren
+l_int|1
+comma
+l_string|&quot;--&bslash;n&quot;
+comma
+l_int|3
+)paren
+suffix:semicolon
+r_else
+id|opt-&gt;show_hunk_mark
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 id|status
@@ -3732,6 +3792,19 @@ comma
 id|context_callback
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;p&squot;
+comma
+l_string|&quot;show-function&quot;
+comma
+op_amp
+id|opt.funcname
+comma
+l_string|&quot;show a line with the function name before matches&quot;
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
@@ -4095,10 +4168,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|opt.color
 op_logical_and
 op_logical_neg
 id|opt.color_external
+)paren
+op_logical_or
+id|opt.funcname
 )paren
 id|external_grep_allowed
 op_assign
