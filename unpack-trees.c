@@ -2547,8 +2547,6 @@ c_func
 op_amp
 id|d
 comma
-id|ce-&gt;name
-comma
 id|pathbuf
 comma
 id|namelen
