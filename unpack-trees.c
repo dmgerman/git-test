@@ -557,6 +557,8 @@ op_assign
 (brace
 id|ce
 comma
+l_int|NULL
+comma
 )brace
 suffix:semicolon
 id|o-&gt;pos
