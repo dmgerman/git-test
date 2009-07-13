@@ -526,11 +526,9 @@ op_amp
 id|UNINTERESTING
 )paren
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;object ranges do not make sense when not walking revisions&quot;
-)paren
+id|revs-&gt;no_walk
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
