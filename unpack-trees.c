@@ -4557,6 +4557,13 @@ r_if
 c_cond
 (paren
 id|o-&gt;reset
+op_logical_and
+op_logical_neg
+id|ce_uptodate
+c_func
+(paren
+id|old
+)paren
 )paren
 (brace
 r_struct
