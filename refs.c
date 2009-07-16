@@ -8365,9 +8365,17 @@ comma
 id|logfp
 )paren
 )paren
+(brace
+id|fclose
+c_func
+(paren
+id|logfp
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 )brace
 r_while
 c_loop
