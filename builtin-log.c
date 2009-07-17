@@ -1110,7 +1110,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s&quot;
 comma
 id|out.buf
 )paren
