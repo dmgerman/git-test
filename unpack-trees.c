@@ -4522,6 +4522,10 @@ c_cond
 (paren
 op_logical_neg
 id|a
+op_logical_or
+id|a
+op_eq
+id|o-&gt;df_conflict_entry
 )paren
 r_return
 id|deleted_entry
