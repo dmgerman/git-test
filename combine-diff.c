@@ -942,22 +942,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|state-&gt;nb
-)paren
-multiline_comment|/* @@ -1,2 +0,0 @@ to remove the&n;&t;&t;&t; * first two lines...&n;&t;&t;&t; */
-id|state-&gt;nb
-op_assign
-l_int|1
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|state-&gt;nn
 op_eq
 l_int|0
 )paren
-multiline_comment|/* @@ -X,Y +N,0 @@ removed Y lines&n;&t;&t;&t; * that would have come *after* line N&n;&t;&t;&t; * in the result.  Our lost buckets hang&n;&t;&t;&t; * to the line after the removed lines,&n;&t;&t;&t; */
+(brace
+multiline_comment|/* @@ -X,Y +N,0 @@ removed Y lines&n;&t;&t;&t; * that would have come *after* line N&n;&t;&t;&t; * in the result.  Our lost buckets hang&n;&t;&t;&t; * to the line after the removed lines,&n;&t;&t;&t; *&n;&t;&t;&t; * Note that this is correct even when N == 0,&n;&t;&t;&t; * in which case the hunk removes the first&n;&t;&t;&t; * line in the file.&n;&t;&t;&t; */
 id|state-&gt;lost_bucket
 op_assign
 op_amp
@@ -966,7 +956,19 @@ id|state-&gt;sline
 id|state-&gt;nb
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|state-&gt;nb
+)paren
+id|state-&gt;nb
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_else
+(brace
 id|state-&gt;lost_bucket
 op_assign
 op_amp
@@ -977,6 +979,7 @@ op_minus
 l_int|1
 )braket
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
