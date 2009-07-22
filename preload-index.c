@@ -331,14 +331,13 @@ l_int|0
 suffix:semicolon
 id|work
 op_assign
+id|DIV_ROUND_UP
+c_func
 (paren
 id|index-&gt;cache_nr
-op_plus
+comma
 id|threads
-l_int|1
 )paren
-op_div
-id|threads
 suffix:semicolon
 r_for
 c_loop
