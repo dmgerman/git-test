@@ -6267,12 +6267,11 @@ id|len
 op_le
 id|used
 op_logical_or
-r_sizeof
+id|bitsizeof
+c_func
 (paren
 r_int
 )paren
-op_star
-l_int|8
 op_le
 id|shift
 )paren

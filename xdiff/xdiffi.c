@@ -5,7 +5,7 @@ mdefine_line|#define XDL_MAX_COST_MIN 256
 DECL|macro|XDL_HEUR_MIN_COST
 mdefine_line|#define XDL_HEUR_MIN_COST 256
 DECL|macro|XDL_LINE_MAX
-mdefine_line|#define XDL_LINE_MAX (long)((1UL &lt;&lt; (8 * sizeof(long) - 1)) - 1)
+mdefine_line|#define XDL_LINE_MAX (long)((1UL &lt;&lt; (CHAR_BIT * sizeof(long) - 1)) - 1)
 DECL|macro|XDL_SNAKE_CNT
 mdefine_line|#define XDL_SNAKE_CNT 20
 DECL|macro|XDL_K_HEUR
