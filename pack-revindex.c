@@ -780,16 +780,6 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-r_if
-c_cond
-(paren
-id|pack_revindex
-(braket
-id|i
-)braket
-dot
-id|revindex
-)paren
 id|free
 c_func
 (paren

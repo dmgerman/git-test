@@ -1323,11 +1323,6 @@ r_if
 c_cond
 (paren
 id|write_ref
-op_logical_and
-id|write_ref
-(braket
-id|targets
-)braket
 )paren
 id|free
 c_func
