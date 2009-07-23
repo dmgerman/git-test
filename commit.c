@@ -1512,10 +1512,19 @@ id|bufptr
 op_add_assign
 l_int|48
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * The clone is shallow if nr_parent &lt; 0, and we must&n;&t;&t; * not traverse its real parents even when we unhide them.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|graft
+op_logical_and
+(paren
+id|graft-&gt;nr_parent
+OL
+l_int|0
+op_logical_or
+id|grafts_replace_parents
+)paren
 )paren
 r_continue
 suffix:semicolon
