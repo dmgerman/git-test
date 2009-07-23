@@ -1185,6 +1185,21 @@ id|i
 r_return
 l_int|0
 suffix:semicolon
+multiline_comment|/* Don&squot;t add types the caller doesn&squot;t want */
+r_if
+c_cond
+(paren
+(paren
+id|kind
+op_amp
+id|ref_list-&gt;kinds
+)paren
+op_eq
+l_int|0
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|commit
 op_assign
 id|lookup_commit_reference_gently
@@ -1222,21 +1237,6 @@ id|commit
 comma
 id|ref_list-&gt;with_commit
 )paren
-)paren
-r_return
-l_int|0
-suffix:semicolon
-multiline_comment|/* Don&squot;t add types the caller doesn&squot;t want */
-r_if
-c_cond
-(paren
-(paren
-id|kind
-op_amp
-id|ref_list-&gt;kinds
-)paren
-op_eq
-l_int|0
 )paren
 r_return
 l_int|0
@@ -2229,7 +2229,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|for_each_ref
+id|for_each_rawref
 c_func
 (paren
 id|append_ref
