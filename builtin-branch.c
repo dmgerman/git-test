@@ -877,12 +877,15 @@ suffix:semicolon
 DECL|member|index
 DECL|member|alloc
 DECL|member|maxwidth
+DECL|member|verbose
 r_int
 id|index
 comma
 id|alloc
 comma
 id|maxwidth
+comma
+id|verbose
 suffix:semicolon
 DECL|member|list
 r_struct
@@ -1202,6 +1205,22 @@ l_int|0
 suffix:semicolon
 id|commit
 op_assign
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ref_list-&gt;verbose
+op_logical_or
+id|ref_list-&gt;with_commit
+op_logical_or
+id|merge_filter
+op_ne
+id|NO_FILTER
+)paren
+(brace
+id|commit
+op_assign
 id|lookup_commit_reference_gently
 c_func
 (paren
@@ -1264,6 +1283,7 @@ comma
 id|refname
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/* Resize buffer */
 r_if
 c_cond
@@ -2208,6 +2228,10 @@ suffix:semicolon
 id|ref_list.kinds
 op_assign
 id|kinds
+suffix:semicolon
+id|ref_list.verbose
+op_assign
+id|verbose
 suffix:semicolon
 id|ref_list.with_commit
 op_assign
