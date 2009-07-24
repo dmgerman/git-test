@@ -2737,17 +2737,7 @@ id|trim
 r_return
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-(paren
-id|flags
-op_amp
-id|DO_FOR_EACH_INCLUDE_BROKEN
-)paren
-)paren
-(brace
+multiline_comment|/* Is this a &quot;negative ref&quot; that represents a deleted ref? */
 r_if
 c_cond
 (paren
@@ -2760,6 +2750,17 @@ id|entry-&gt;sha1
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|DO_FOR_EACH_INCLUDE_BROKEN
+)paren
+)paren
+(brace
 r_if
 c_cond
 (paren
