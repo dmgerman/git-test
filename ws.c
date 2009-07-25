@@ -1288,7 +1288,7 @@ id|WS_TRAILING_SPACE
 r_if
 c_cond
 (paren
-l_int|1
+l_int|0
 OL
 id|len
 op_logical_and
@@ -1311,7 +1311,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-l_int|1
+l_int|0
 OL
 id|len
 op_logical_and
