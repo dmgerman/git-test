@@ -212,6 +212,12 @@ id|object_creation_mode
 op_assign
 id|OBJECT_CREATION_MODE
 suffix:semicolon
+DECL|variable|grafts_replace_parents
+r_int
+id|grafts_replace_parents
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int
