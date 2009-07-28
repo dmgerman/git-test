@@ -74,6 +74,11 @@ r_static
 r_int
 id|fake_missing_tagger
 suffix:semicolon
+DECL|variable|no_data
+r_static
+r_int
+id|no_data
+suffix:semicolon
 DECL|function|parse_opt_signed_tag_mode
 r_static
 r_int
@@ -563,6 +568,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|no_data
+)paren
+r_return
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|is_null_sha1
 c_func
 (paren
@@ -848,6 +860,8 @@ multiline_comment|/*&n;&t;&t;&t; * Links refer to objects in another repositorie
 r_if
 c_cond
 (paren
+id|no_data
+op_logical_or
 id|S_ISGITLINK
 c_func
 (paren
@@ -3063,6 +3077,29 @@ id|fake_missing_tagger
 comma
 l_string|&quot;Fake a tagger when tags lack one&quot;
 )paren
+comma
+(brace
+id|OPTION_NEGBIT
+comma
+l_int|0
+comma
+l_string|&quot;data&quot;
+comma
+op_amp
+id|no_data
+comma
+l_int|NULL
+comma
+l_string|&quot;Skip output of blob data&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_NEGHELP
+comma
+l_int|NULL
+comma
+l_int|1
+)brace
 comma
 id|OPT_END
 c_func
