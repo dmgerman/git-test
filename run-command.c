@@ -107,6 +107,8 @@ l_int|2
 suffix:semicolon
 r_int
 id|failed_errno
+op_assign
+id|failed_errno
 suffix:semicolon
 multiline_comment|/*&n;&t; * In case of errors we must keep the promise to close FDs&n;&t; * that have been passed in via -&gt;in and -&gt;out.&n;&t; */
 id|need_in
