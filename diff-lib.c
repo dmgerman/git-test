@@ -1558,11 +1558,6 @@ id|idx
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|tree
-)paren
 id|diff_unmerge
 c_func
 (paren
