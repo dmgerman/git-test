@@ -102,7 +102,7 @@ id|merge_base_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git merge-base [--all] &lt;commit-id&gt; &lt;commit-id&gt;...&quot;
+l_string|&quot;git merge-base [-a|--all] &lt;commit&gt; &lt;commit&gt;...&quot;
 comma
 l_int|NULL
 )brace

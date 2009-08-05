@@ -14,9 +14,9 @@ id|show_branch_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base] [--topics] [--color] [&lt;refs&gt;...]&quot;
+l_string|&quot;git show-branch [-a|--all] [-r|--remotes] [--topo-order | --date-order] [--current] [--color | --no-color] [--sparse] [--more=&lt;n&gt; | --list | --independent | --merge-base] [--no-name | --sha1-name] [--topics] [&lt;rev&gt; | &lt;glob&gt;]...&quot;
 comma
-l_string|&quot;--reflog[=n[,b]] [--list] [--color] &lt;branch&gt;&quot;
+l_string|&quot;git show-branch (-g|--reflog)[=&lt;n&gt;[,&lt;base&gt;]] [--list] [&lt;ref&gt;]&quot;
 comma
 l_int|NULL
 )brace
