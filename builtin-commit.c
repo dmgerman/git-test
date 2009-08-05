@@ -1125,6 +1125,9 @@ r_const
 r_char
 op_star
 id|prefix
+comma
+r_int
+id|is_status
 )paren
 (brace
 r_int
@@ -1141,6 +1144,20 @@ op_star
 id|pathspec
 op_assign
 l_int|NULL
+suffix:semicolon
+r_int
+id|refresh_flags
+op_assign
+id|REFRESH_QUIET
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_status
+)paren
+id|refresh_flags
+op_or_assign
+id|REFRESH_UNMERGED
 suffix:semicolon
 r_if
 c_cond
@@ -1276,7 +1293,7 @@ suffix:semicolon
 id|refresh_cache
 c_func
 (paren
-id|REFRESH_QUIET
+id|refresh_flags
 )paren
 suffix:semicolon
 r_if
@@ -1339,7 +1356,7 @@ suffix:semicolon
 id|refresh_cache
 c_func
 (paren
-id|REFRESH_QUIET
+id|refresh_flags
 )paren
 suffix:semicolon
 r_if
@@ -4399,6 +4416,8 @@ comma
 id|argv
 comma
 id|prefix
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|commitable
@@ -4871,6 +4890,8 @@ comma
 id|argv
 comma
 id|prefix
+comma
+l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/* Set up everything for writing the commit object.  This includes&n;&t;   running hooks, writing the trees, and interacting with the user.  */
