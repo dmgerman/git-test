@@ -5001,6 +5001,16 @@ op_amp
 id|TRANSPORT_PUSH_VERBOSE
 )paren
 suffix:semicolon
+id|args.quiet
+op_assign
+op_logical_neg
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_QUIET
+)paren
+suffix:semicolon
 id|args.dry_run
 op_assign
 op_logical_neg
