@@ -1808,16 +1808,6 @@ comma
 id|cmd_help
 )brace
 comma
-macro_line|#ifndef NO_CURL
-(brace
-l_string|&quot;http-fetch&quot;
-comma
-id|cmd_http_fetch
-comma
-id|RUN_SETUP
-)brace
-comma
-macro_line|#endif
 (brace
 l_string|&quot;init&quot;
 comma
