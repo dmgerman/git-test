@@ -3472,7 +3472,7 @@ comma
 op_amp
 id|merge_base
 comma
-l_string|&quot;act like git merge-base -a&quot;
+l_string|&quot;show possible merge bases&quot;
 )paren
 comma
 id|OPT_BOOLEAN
