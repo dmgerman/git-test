@@ -3627,7 +3627,7 @@ id|reflog_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git reflog (expire | ...)&quot;
+l_string|&quot;git reflog [ show | expire | delete ]&quot;
 suffix:semicolon
 DECL|function|cmd_reflog
 r_int
