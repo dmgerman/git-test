@@ -100,7 +100,14 @@ id|ctx-&gt;lenW
 suffix:semicolon
 id|ctx-&gt;size
 op_add_assign
+(paren
+r_int
+r_int
+r_int
+)paren
 id|len
+op_lshift
+l_int|3
 suffix:semicolon
 multiline_comment|/* Read the data into W and process blocks as they get full&n;&t; */
 r_if
@@ -278,10 +285,7 @@ c_func
 (paren
 id|ctx-&gt;size
 op_rshift
-(paren
 l_int|32
-l_int|3
-)paren
 )paren
 suffix:semicolon
 id|padlen
@@ -293,8 +297,6 @@ id|htonl
 c_func
 (paren
 id|ctx-&gt;size
-op_lshift
-l_int|3
 )paren
 suffix:semicolon
 id|blk_SHA1_Update
