@@ -367,14 +367,14 @@ suffix:semicolon
 )brace
 macro_line|#if defined(__i386__) || defined(__x86_64__)
 DECL|macro|SHA_ASM
-mdefine_line|#define SHA_ASM(op, x, n) ({ unsigned int __res; asm(op &quot; %1,%0&quot;:&quot;=r&quot; (__res):&quot;i&quot; (n), &quot;0&quot; (x)); __res; })
+mdefine_line|#define SHA_ASM(op, x, n) ({ unsigned int __res; __asm__(op &quot; %1,%0&quot;:&quot;=r&quot; (__res):&quot;i&quot; (n), &quot;0&quot; (x)); __res; })
 DECL|macro|SHA_ROL
 mdefine_line|#define SHA_ROL(x,n)&t;SHA_ASM(&quot;rol&quot;, x, n)
 DECL|macro|SHA_ROR
 mdefine_line|#define SHA_ROR(x,n)&t;SHA_ASM(&quot;ror&quot;, x, n)
 macro_line|#else
 DECL|macro|SHA_ROT
-mdefine_line|#define SHA_ROT(X,n)&t;(((X) &lt;&lt; (l)) | ((X) &gt;&gt; (r)))
+mdefine_line|#define SHA_ROT(X,l,r)&t;(((X) &lt;&lt; (l)) | ((X) &gt;&gt; (r)))
 DECL|macro|SHA_ROL
 mdefine_line|#define SHA_ROL(X,n)&t;SHA_ROT(X,n,32-(n))
 DECL|macro|SHA_ROR
