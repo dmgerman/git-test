@@ -397,7 +397,7 @@ mdefine_line|#define T_16_19(t) SHA_ROUND(t, SHA_MIX, (((C^D)&amp;B)^D) , 0x5a82
 DECL|macro|T_20_39
 mdefine_line|#define T_20_39(t) SHA_ROUND(t, SHA_MIX, (B^C^D) , 0x6ed9eba1 )
 DECL|macro|T_40_59
-mdefine_line|#define T_40_59(t) SHA_ROUND(t, SHA_MIX, ((B&amp;C)|(D&amp;(B|C))) , 0x8f1bbcdc )
+mdefine_line|#define T_40_59(t) SHA_ROUND(t, SHA_MIX, ((B&amp;C)+(D&amp;(B^C))) , 0x8f1bbcdc )
 DECL|macro|T_60_79
 mdefine_line|#define T_60_79(t) SHA_ROUND(t, SHA_MIX, (B^C^D) ,  0xca62c1d6 )
 DECL|function|blk_SHA1Block
