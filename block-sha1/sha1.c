@@ -365,8 +365,21 @@ id|i
 )paren
 suffix:semicolon
 )brace
+macro_line|#if defined(__i386__) || defined(__x86_64__)
+DECL|macro|SHA_ASM
+mdefine_line|#define SHA_ASM(op, x, n) ({ unsigned int __res; asm(op &quot; %1,%0&quot;:&quot;=r&quot; (__res):&quot;i&quot; (n), &quot;0&quot; (x)); __res; })
+DECL|macro|SHA_ROL
+mdefine_line|#define SHA_ROL(x,n)&t;SHA_ASM(&quot;rol&quot;, x, n)
+DECL|macro|SHA_ROR
+mdefine_line|#define SHA_ROR(x,n)&t;SHA_ASM(&quot;ror&quot;, x, n)
+macro_line|#else
 DECL|macro|SHA_ROT
-mdefine_line|#define SHA_ROT(X,n) (((X) &lt;&lt; (n)) | ((X) &gt;&gt; (32-(n))))
+mdefine_line|#define SHA_ROT(X,n)&t;(((X) &lt;&lt; (l)) | ((X) &gt;&gt; (r)))
+DECL|macro|SHA_ROL
+mdefine_line|#define SHA_ROL(X,n)&t;SHA_ROT(X,n,32-(n))
+DECL|macro|SHA_ROR
+mdefine_line|#define SHA_ROR(X,n)&t;SHA_ROT(X,32-(n),n)
+macro_line|#endif
 DECL|function|blk_SHA1Block
 r_static
 r_void
@@ -456,7 +469,7 @@ id|W
 id|t
 )braket
 op_assign
-id|SHA_ROT
+id|SHA_ROL
 c_func
 (paren
 id|W
@@ -526,7 +539,7 @@ l_int|4
 )braket
 suffix:semicolon
 DECL|macro|T_0_19
-mdefine_line|#define T_0_19(t) &bslash;&n;&t;TEMP = SHA_ROT(A,5) + (((C^D)&amp;B)^D)     + E + W[t] + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROT(B, 30); B = A; A = TEMP;
+mdefine_line|#define T_0_19(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + (((C^D)&amp;B)^D)     + E + W[t] + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
 id|T_0_19
 c_func
 (paren
@@ -648,7 +661,7 @@ l_int|19
 )paren
 suffix:semicolon
 DECL|macro|T_20_39
-mdefine_line|#define T_20_39(t) &bslash;&n;&t;TEMP = SHA_ROT(A,5) + (B^C^D)           + E + W[t] + 0x6ed9eba1; &bslash;&n;&t;E = D; D = C; C = SHA_ROT(B, 30); B = A; A = TEMP;
+mdefine_line|#define T_20_39(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + (B^C^D)           + E + W[t] + 0x6ed9eba1; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
 id|T_20_39
 c_func
 (paren
@@ -770,7 +783,7 @@ l_int|39
 )paren
 suffix:semicolon
 DECL|macro|T_40_59
-mdefine_line|#define T_40_59(t) &bslash;&n;&t;TEMP = SHA_ROT(A,5) + ((B&amp;C)|(D&amp;(B|C))) + E + W[t] + 0x8f1bbcdc; &bslash;&n;&t;E = D; D = C; C = SHA_ROT(B, 30); B = A; A = TEMP;
+mdefine_line|#define T_40_59(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + ((B&amp;C)|(D&amp;(B|C))) + E + W[t] + 0x8f1bbcdc; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
 id|T_40_59
 c_func
 (paren
@@ -892,7 +905,7 @@ l_int|59
 )paren
 suffix:semicolon
 DECL|macro|T_60_79
-mdefine_line|#define T_60_79(t) &bslash;&n;&t;TEMP = SHA_ROT(A,5) + (B^C^D)           + E + W[t] + 0xca62c1d6; &bslash;&n;&t;E = D; D = C; C = SHA_ROT(B, 30); B = A; A = TEMP;
+mdefine_line|#define T_60_79(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + (B^C^D)           + E + W[t] + 0xca62c1d6; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
 id|T_60_79
 c_func
 (paren
