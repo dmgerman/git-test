@@ -29,10 +29,6 @@ op_star
 id|ctx
 )paren
 (brace
-id|ctx-&gt;lenW
-op_assign
-l_int|0
-suffix:semicolon
 id|ctx-&gt;size
 op_assign
 l_int|0
@@ -96,18 +92,13 @@ id|len
 r_int
 id|lenW
 op_assign
-id|ctx-&gt;lenW
+id|ctx-&gt;size
+op_amp
+l_int|63
 suffix:semicolon
 id|ctx-&gt;size
 op_add_assign
-(paren
-r_int
-r_int
-r_int
-)paren
 id|len
-op_lshift
-l_int|3
 suffix:semicolon
 multiline_comment|/* Read the data into W and process blocks as they get full&n;&t; */
 r_if
@@ -167,10 +158,6 @@ id|data
 op_add_assign
 id|left
 suffix:semicolon
-id|ctx-&gt;lenW
-op_assign
-id|lenW
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -217,7 +204,6 @@ c_cond
 (paren
 id|len
 )paren
-(brace
 id|memcpy
 c_func
 (paren
@@ -228,11 +214,6 @@ comma
 id|len
 )paren
 suffix:semicolon
-id|ctx-&gt;lenW
-op_assign
-id|len
-suffix:semicolon
-)brace
 )brace
 DECL|function|blk_SHA1_Final
 r_void
@@ -285,7 +266,7 @@ c_func
 (paren
 id|ctx-&gt;size
 op_rshift
-l_int|32
+l_int|29
 )paren
 suffix:semicolon
 id|padlen
@@ -297,7 +278,15 @@ id|htonl
 c_func
 (paren
 id|ctx-&gt;size
+op_lshift
+l_int|3
 )paren
+suffix:semicolon
+id|i
+op_assign
+id|ctx-&gt;size
+op_amp
+l_int|63
 suffix:semicolon
 id|blk_SHA1_Update
 c_func
@@ -313,7 +302,7 @@ l_int|63
 op_amp
 (paren
 l_int|55
-id|ctx-&gt;lenW
+id|i
 )paren
 )paren
 )paren
