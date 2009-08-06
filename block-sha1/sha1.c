@@ -398,9 +398,6 @@ id|data
 )paren
 (brace
 r_int
-id|t
-suffix:semicolon
-r_int
 r_int
 id|A
 comma
@@ -416,9 +413,9 @@ id|TEMP
 suffix:semicolon
 r_int
 r_int
-id|W
+id|array
 (braket
-l_int|80
+l_int|16
 )braket
 suffix:semicolon
 id|A
@@ -457,7 +454,7 @@ l_int|4
 )braket
 suffix:semicolon
 DECL|macro|T_0_15
-mdefine_line|#define T_0_15(t) &bslash;&n;&t;TEMP = htonl(data[t]); W[t] = TEMP; &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (((C^D)&amp;B)^D)     + E + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP; &bslash;&n;
+mdefine_line|#define T_0_15(t) &bslash;&n;&t;TEMP = htonl(data[t]); array[t] = TEMP; &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (((C^D)&amp;B)^D) + E + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP; &bslash;&n;
 id|T_0_15
 c_func
 (paren
@@ -554,62 +551,13 @@ c_func
 l_int|15
 )paren
 suffix:semicolon
-multiline_comment|/* Unroll it? */
-r_for
-c_loop
-(paren
-id|t
-op_assign
-l_int|16
-suffix:semicolon
-id|t
-op_le
-l_int|79
-suffix:semicolon
-id|t
-op_increment
-)paren
-id|W
-(braket
-id|t
-)braket
-op_assign
-id|SHA_ROL
-c_func
-(paren
-id|W
-(braket
-id|t
-op_minus
-l_int|3
-)braket
-op_xor
-id|W
-(braket
-id|t
-op_minus
-l_int|8
-)braket
-op_xor
-id|W
-(braket
-id|t
-op_minus
-l_int|14
-)braket
-op_xor
-id|W
-(braket
-id|t
-op_minus
-l_int|16
-)braket
-comma
-l_int|1
-)paren
-suffix:semicolon
+multiline_comment|/* This &quot;rolls&quot; over the 512-bit array */
+DECL|macro|W
+mdefine_line|#define W(x) (array[(x)&amp;15])
+DECL|macro|SHA_XOR
+mdefine_line|#define SHA_XOR(t) &bslash;&n;&t;TEMP = SHA_ROL(W(t+13) ^ W(t+8) ^ W(t+2) ^ W(t), 1); W(t) = TEMP;
 DECL|macro|T_16_19
-mdefine_line|#define T_16_19(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + (((C^D)&amp;B)^D)     + E + W[t] + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
+mdefine_line|#define T_16_19(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (((C^D)&amp;B)^D) + E + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP; &bslash;&n;
 id|T_16_19
 c_func
 (paren
@@ -635,7 +583,7 @@ l_int|19
 )paren
 suffix:semicolon
 DECL|macro|T_20_39
-mdefine_line|#define T_20_39(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + (B^C^D)           + E + W[t] + 0x6ed9eba1; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
+mdefine_line|#define T_20_39(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (B^C^D) + E + 0x6ed9eba1; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
 id|T_20_39
 c_func
 (paren
@@ -757,7 +705,7 @@ l_int|39
 )paren
 suffix:semicolon
 DECL|macro|T_40_59
-mdefine_line|#define T_40_59(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + ((B&amp;C)|(D&amp;(B|C))) + E + W[t] + 0x8f1bbcdc; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
+mdefine_line|#define T_40_59(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + ((B&amp;C)|(D&amp;(B|C))) + E + 0x8f1bbcdc; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
 id|T_40_59
 c_func
 (paren
@@ -879,7 +827,7 @@ l_int|59
 )paren
 suffix:semicolon
 DECL|macro|T_60_79
-mdefine_line|#define T_60_79(t) &bslash;&n;&t;TEMP = SHA_ROL(A,5) + (B^C^D)           + E + W[t] + 0xca62c1d6; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
+mdefine_line|#define T_60_79(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (B^C^D) + E + 0xca62c1d6; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
 id|T_60_79
 c_func
 (paren
