@@ -47,6 +47,17 @@ r_char
 op_star
 id|fmt_pretty
 suffix:semicolon
+DECL|variable|builtin_log_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_log_usage
+op_assign
+l_string|&quot;git log [&lt;options&gt;] [&lt;since&gt;..&lt;until&gt;] [[--] &lt;path&gt;...]&bslash;n&quot;
+l_string|&quot;   or: git show [options] &lt;object&gt;...&quot;
+suffix:semicolon
 DECL|function|cmd_log_init
 r_static
 r_void
@@ -261,6 +272,27 @@ l_string|&quot;--source&quot;
 id|rev-&gt;show_source
 op_assign
 l_int|1
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;-h&quot;
+)paren
+)paren
+(brace
+id|usage
+c_func
+(paren
+id|builtin_log_usage
+)paren
 suffix:semicolon
 )brace
 r_else
