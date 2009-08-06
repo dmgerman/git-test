@@ -62,6 +62,11 @@ id|max_candidates
 op_assign
 l_int|10
 suffix:semicolon
+DECL|variable|found_names
+r_static
+r_int
+id|found_names
+suffix:semicolon
 DECL|variable|pattern
 r_static
 r_const
@@ -231,6 +236,10 @@ op_assign
 id|e
 suffix:semicolon
 )brace
+id|found_names
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 DECL|function|get_name
 r_static
@@ -1026,6 +1035,24 @@ l_int|NULL
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|found_names
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot describe &squot;%s&squot;&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
 id|n
 op_assign
 id|cmit-&gt;util
