@@ -380,6 +380,26 @@ mdefine_line|#define SHA_ROL(X,n)&t;SHA_ROT(X,n,32-(n))
 DECL|macro|SHA_ROR
 mdefine_line|#define SHA_ROR(X,n)&t;SHA_ROT(X,32-(n),n)
 macro_line|#endif
+multiline_comment|/* This &quot;rolls&quot; over the 512-bit array */
+DECL|macro|W
+mdefine_line|#define W(x) (array[(x)&amp;15])
+multiline_comment|/*&n; * Where do we get the source from? The first 16 iterations get it from&n; * the input data, the next mix it from the 512-bit array.&n; */
+DECL|macro|SHA_SRC
+mdefine_line|#define SHA_SRC(t) htonl(data[t])
+DECL|macro|SHA_MIX
+mdefine_line|#define SHA_MIX(t) SHA_ROL(W(t+13) ^ W(t+8) ^ W(t+2) ^ W(t), 1)
+DECL|macro|SHA_ROUND
+mdefine_line|#define SHA_ROUND(t, input, fn, constant) &bslash;&n;&t;TEMP = input(t); W(t) = TEMP; &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (fn) + E + (constant); &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP
+DECL|macro|T_0_15
+mdefine_line|#define T_0_15(t)  SHA_ROUND(t, SHA_SRC, (((C^D)&amp;B)^D) , 0x5a827999 )
+DECL|macro|T_16_19
+mdefine_line|#define T_16_19(t) SHA_ROUND(t, SHA_MIX, (((C^D)&amp;B)^D) , 0x5a827999 )
+DECL|macro|T_20_39
+mdefine_line|#define T_20_39(t) SHA_ROUND(t, SHA_MIX, (B^C^D) , 0x6ed9eba1 )
+DECL|macro|T_40_59
+mdefine_line|#define T_40_59(t) SHA_ROUND(t, SHA_MIX, ((B&amp;C)|(D&amp;(B|C))) , 0x8f1bbcdc )
+DECL|macro|T_60_79
+mdefine_line|#define T_60_79(t) SHA_ROUND(t, SHA_MIX, (B^C^D) ,  0xca62c1d6 )
 DECL|function|blk_SHA1Block
 r_static
 r_void
@@ -453,8 +473,7 @@ id|ctx-&gt;H
 l_int|4
 )braket
 suffix:semicolon
-DECL|macro|T_0_15
-mdefine_line|#define T_0_15(t) &bslash;&n;&t;TEMP = htonl(data[t]); array[t] = TEMP; &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (((C^D)&amp;B)^D) + E + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP; &bslash;&n;
+multiline_comment|/* Round 1 - iterations 0-16 take their input from &squot;data&squot; */
 id|T_0_15
 c_func
 (paren
@@ -551,13 +570,7 @@ c_func
 l_int|15
 )paren
 suffix:semicolon
-multiline_comment|/* This &quot;rolls&quot; over the 512-bit array */
-DECL|macro|W
-mdefine_line|#define W(x) (array[(x)&amp;15])
-DECL|macro|SHA_XOR
-mdefine_line|#define SHA_XOR(t) &bslash;&n;&t;TEMP = SHA_ROL(W(t+13) ^ W(t+8) ^ W(t+2) ^ W(t), 1); W(t) = TEMP;
-DECL|macro|T_16_19
-mdefine_line|#define T_16_19(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (((C^D)&amp;B)^D) + E + 0x5a827999; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP; &bslash;&n;
+multiline_comment|/* Round 1 - tail. Input from 512-bit mixing array */
 id|T_16_19
 c_func
 (paren
@@ -582,8 +595,7 @@ c_func
 l_int|19
 )paren
 suffix:semicolon
-DECL|macro|T_20_39
-mdefine_line|#define T_20_39(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (B^C^D) + E + 0x6ed9eba1; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
+multiline_comment|/* Round 2 */
 id|T_20_39
 c_func
 (paren
@@ -704,8 +716,7 @@ c_func
 l_int|39
 )paren
 suffix:semicolon
-DECL|macro|T_40_59
-mdefine_line|#define T_40_59(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + ((B&amp;C)|(D&amp;(B|C))) + E + 0x8f1bbcdc; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
+multiline_comment|/* Round 3 */
 id|T_40_59
 c_func
 (paren
@@ -826,8 +837,7 @@ c_func
 l_int|59
 )paren
 suffix:semicolon
-DECL|macro|T_60_79
-mdefine_line|#define T_60_79(t) &bslash;&n;&t;SHA_XOR(t); &bslash;&n;&t;TEMP += SHA_ROL(A,5) + (B^C^D) + E + 0xca62c1d6; &bslash;&n;&t;E = D; D = C; C = SHA_ROR(B, 2); B = A; A = TEMP;
+multiline_comment|/* Round 4 */
 id|T_60_79
 c_func
 (paren
