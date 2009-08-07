@@ -2026,7 +2026,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;WARNING: You called a Git program named &squot;%s&squot;, &quot;
+l_string|&quot;WARNING: You called a Git command named &squot;%s&squot;, &quot;
 l_string|&quot;which does not exist.&bslash;n&quot;
 l_string|&quot;Continuing under the assumption that you meant &squot;%s&squot;&bslash;n&quot;
 comma
