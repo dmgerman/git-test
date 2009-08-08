@@ -372,13 +372,15 @@ macro_line|#endif
 multiline_comment|/* This &quot;rolls&quot; over the 512-bit array */
 DECL|macro|W
 mdefine_line|#define W(x) (array[(x)&amp;15])
+DECL|macro|setW
+mdefine_line|#define setW(x, val) (*(volatile unsigned int *)&amp;W(x) = (val))
 multiline_comment|/*&n; * Where do we get the source from? The first 16 iterations get it from&n; * the input data, the next mix it from the 512-bit array.&n; */
 DECL|macro|SHA_SRC
 mdefine_line|#define SHA_SRC(t) htonl(data[t])
 DECL|macro|SHA_MIX
 mdefine_line|#define SHA_MIX(t) SHA_ROL(W(t+13) ^ W(t+8) ^ W(t+2) ^ W(t), 1)
 DECL|macro|SHA_ROUND
-mdefine_line|#define SHA_ROUND(t, input, fn, constant, A, B, C, D, E) do { &bslash;&n;&t;unsigned int TEMP = input(t); W(t) = TEMP; &bslash;&n;&t;TEMP += E + SHA_ROL(A,5) + (fn) + (constant); &bslash;&n;&t;B = SHA_ROR(B, 2); E = TEMP; } while (0)
+mdefine_line|#define SHA_ROUND(t, input, fn, constant, A, B, C, D, E) do { &bslash;&n;&t;unsigned int TEMP = input(t); setW(t, TEMP); &bslash;&n;&t;E += TEMP + SHA_ROL(A,5) + (fn) + (constant); &bslash;&n;&t;B = SHA_ROR(B, 2); } while (0)
 DECL|macro|T_0_15
 mdefine_line|#define T_0_15(t, A, B, C, D, E)  SHA_ROUND(t, SHA_SRC, (((C^D)&amp;B)^D) , 0x5a827999, A, B, C, D, E )
 DECL|macro|T_16_19
