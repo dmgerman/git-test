@@ -2117,6 +2117,16 @@ id|USE_PAGER
 )brace
 comma
 (brace
+l_string|&quot;stat&quot;
+comma
+id|cmd_stat
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
 l_string|&quot;status&quot;
 comma
 id|cmd_status
