@@ -199,7 +199,7 @@ r_enum
 id|push_default_type
 id|push_default
 op_assign
-id|PUSH_DEFAULT_UNSPECIFIED
+id|PUSH_DEFAULT_MATCHING
 suffix:semicolon
 macro_line|#ifndef OBJECT_CREATION_MODE
 DECL|macro|OBJECT_CREATION_MODE
@@ -211,6 +211,12 @@ id|object_creation_mode
 id|object_creation_mode
 op_assign
 id|OBJECT_CREATION_MODE
+suffix:semicolon
+DECL|variable|grafts_replace_parents
+r_int
+id|grafts_replace_parents
+op_assign
+l_int|1
 suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index

@@ -557,6 +557,8 @@ op_assign
 (brace
 id|ce
 comma
+l_int|NULL
+comma
 )brace
 suffix:semicolon
 id|o-&gt;pos
@@ -2547,8 +2549,6 @@ c_func
 op_amp
 id|d
 comma
-id|ce-&gt;name
-comma
 id|pathbuf
 comma
 id|namelen
@@ -4522,6 +4522,10 @@ c_cond
 (paren
 op_logical_neg
 id|a
+op_logical_or
+id|a
+op_eq
+id|o-&gt;df_conflict_entry
 )paren
 r_return
 id|deleted_entry
@@ -4557,6 +4561,13 @@ r_if
 c_cond
 (paren
 id|o-&gt;reset
+op_logical_and
+op_logical_neg
+id|ce_uptodate
+c_func
+(paren
+id|old
+)paren
 )paren
 (brace
 r_struct

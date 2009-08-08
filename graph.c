@@ -2589,7 +2589,7 @@ id|i
 suffix:semicolon
 )brace
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|graph_output_post_merge_line

@@ -546,14 +546,13 @@ id|space
 suffix:semicolon
 id|rows
 op_assign
+id|DIV_ROUND_UP
+c_func
 (paren
 id|cmds-&gt;cnt
-op_plus
+comma
 id|cols
-l_int|1
 )paren
-op_div
-id|cols
 suffix:semicolon
 r_for
 c_loop

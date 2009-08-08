@@ -1639,13 +1639,21 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;invalid object %s&quot;
+l_string|&quot;invalid object %06o %s for &squot;%.*s&squot;&quot;
+comma
+id|mode
 comma
 id|sha1_to_hex
 c_func
 (paren
 id|sha1
 )paren
+comma
+id|entlen
+op_plus
+id|baselen
+comma
+id|path
 )paren
 suffix:semicolon
 r_if
