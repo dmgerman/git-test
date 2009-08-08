@@ -20,13 +20,20 @@ r_uint32
 id|nr_objects
 comma
 id|i
-comma
+suffix:semicolon
+r_int
+id|cnt
+suffix:semicolon
+r_int
+r_int
 id|chain_histogram
 (braket
 id|MAX_CHAIN
 op_plus
 l_int|1
 )braket
+comma
+id|baseobjects
 suffix:semicolon
 id|nr_objects
 op_assign
@@ -44,6 +51,10 @@ r_sizeof
 id|chain_histogram
 )paren
 )paren
+suffix:semicolon
+id|baseobjects
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
@@ -164,6 +175,7 @@ c_cond
 op_logical_neg
 id|delta_chain_length
 )paren
+(brace
 id|printf
 c_func
 (paren
@@ -183,6 +195,10 @@ r_uintmax
 id|offset
 )paren
 suffix:semicolon
+id|baseobjects
+op_increment
+suffix:semicolon
+)brace
 r_else
 (brace
 id|printf
@@ -234,18 +250,40 @@ op_increment
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|baseobjects
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;non delta: %lu object%s&bslash;n&quot;
+comma
+id|baseobjects
+comma
+id|baseobjects
+OG
+l_int|1
+ques
+c_cond
+l_string|&quot;s&quot;
+suffix:colon
+l_string|&quot;&quot;
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
-id|i
+id|cnt
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
-id|i
+id|cnt
 op_le
 id|MAX_CHAIN
 suffix:semicolon
-id|i
+id|cnt
 op_increment
 )paren
 (brace
@@ -255,7 +293,7 @@ c_cond
 op_logical_neg
 id|chain_histogram
 (braket
-id|i
+id|cnt
 )braket
 )paren
 r_continue
@@ -263,22 +301,18 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;chain length = %&quot;
-id|PRIu32
-l_string|&quot;: %&quot;
-id|PRIu32
-l_string|&quot; object%s&bslash;n&quot;
+l_string|&quot;chain length = %d: %lu object%s&bslash;n&quot;
 comma
-id|i
+id|cnt
 comma
 id|chain_histogram
 (braket
-id|i
+id|cnt
 )braket
 comma
 id|chain_histogram
 (braket
-id|i
+id|cnt
 )braket
 OG
 l_int|1
@@ -301,9 +335,7 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;chain length &gt; %d: %&quot;
-id|PRIu32
-l_string|&quot; object%s&bslash;n&quot;
+l_string|&quot;chain length &gt; %d: %lu object%s&bslash;n&quot;
 comma
 id|MAX_CHAIN
 comma
