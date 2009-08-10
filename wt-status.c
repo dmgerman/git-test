@@ -10,23 +10,6 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;remote.h&quot;
-DECL|variable|wt_status_relative_paths
-r_int
-id|wt_status_relative_paths
-op_assign
-l_int|1
-suffix:semicolon
-DECL|variable|wt_status_use_color
-r_int
-id|wt_status_use_color
-op_assign
-l_int|1
-suffix:semicolon
-DECL|variable|wt_status_submodule_summary
-r_static
-r_int
-id|wt_status_submodule_summary
-suffix:semicolon
 DECL|variable|wt_status_colors
 r_static
 r_char
@@ -57,13 +40,6 @@ id|GIT_COLOR_RED
 comma
 multiline_comment|/* WT_STATUS_UNMERGED */
 )brace
-suffix:semicolon
-DECL|variable|show_untracked_files
-r_enum
-id|untracked_status_type
-id|show_untracked_files
-op_assign
-id|SHOW_NORMAL_UNTRACKED_FILES
 suffix:semicolon
 DECL|function|parse_status_slot
 r_static
@@ -212,10 +188,15 @@ c_func
 (paren
 r_int
 id|slot
+comma
+r_struct
+id|wt_status
+op_star
+id|s
 )paren
 (brace
 r_return
-id|wt_status_use_color
+id|s-&gt;use_color
 OG
 l_int|0
 ques
@@ -264,6 +245,18 @@ op_star
 id|s
 )paren
 )paren
+suffix:semicolon
+id|s-&gt;show_untracked_files
+op_assign
+id|SHOW_NORMAL_UNTRACKED_FILES
+suffix:semicolon
+id|s-&gt;use_color
+op_assign
+l_int|1
+suffix:semicolon
+id|s-&gt;relative_paths
+op_assign
+l_int|1
 suffix:semicolon
 id|head
 op_assign
@@ -333,6 +326,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 suffix:semicolon
 id|color_fprintf_ln
@@ -416,6 +411,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 suffix:semicolon
 id|color_fprintf_ln
@@ -496,6 +493,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 suffix:semicolon
 id|color_fprintf_ln
@@ -577,6 +576,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 suffix:semicolon
 id|color_fprintf_ln
@@ -631,6 +632,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;#&quot;
@@ -665,6 +668,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_UNMERGED
+comma
+id|s
 )paren
 suffix:semicolon
 r_struct
@@ -714,6 +719,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;#&bslash;t&quot;
@@ -847,6 +854,8 @@ id|color
 c_func
 (paren
 id|change_type
+comma
+id|s
 )paren
 suffix:semicolon
 r_int
@@ -959,6 +968,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;#&bslash;t&quot;
@@ -2339,7 +2350,7 @@ id|summary_limit
 comma
 l_string|&quot;%d&quot;
 comma
-id|wt_status_submodule_summary
+id|s-&gt;submodule_summary
 )paren
 suffix:semicolon
 id|snprintf
@@ -2461,8 +2472,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|s-&gt;untracked
+id|s-&gt;show_untracked_files
+op_ne
+id|SHOW_ALL_UNTRACKED_FILES
 )paren
 id|dir.flags
 op_or_assign
@@ -2556,6 +2568,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;#&bslash;t&quot;
@@ -2570,6 +2584,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_UNTRACKED
+comma
+id|s
 )paren
 comma
 l_string|&quot;%s&quot;
@@ -2805,6 +2821,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;# %.*s&quot;
@@ -2829,6 +2847,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;#&quot;
@@ -2862,6 +2882,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 suffix:semicolon
 id|s-&gt;is_initial
@@ -2939,6 +2961,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_NOBRANCH
+comma
+id|s
 )paren
 suffix:semicolon
 id|on_what
@@ -2955,6 +2979,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;# &quot;
@@ -3008,6 +3034,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;#&quot;
@@ -3022,6 +3050,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;# Initial commit&quot;
@@ -3036,6 +3066,8 @@ id|color
 c_func
 (paren
 id|WT_STATUS_HEADER
+comma
+id|s
 )paren
 comma
 l_string|&quot;#&quot;
@@ -3063,7 +3095,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|wt_status_submodule_summary
+id|s-&gt;submodule_summary
 )paren
 id|wt_status_print_submodule_summary
 c_func
@@ -3074,7 +3106,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|show_untracked_files
+id|s-&gt;show_untracked_files
 )paren
 id|wt_status_print_untracked
 c_func
@@ -3176,7 +3208,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|show_untracked_files
+id|s-&gt;show_untracked_files
 )paren
 id|printf
 c_func
@@ -3213,6 +3245,13 @@ op_star
 id|cb
 )paren
 (brace
+r_struct
+id|wt_status
+op_star
+id|s
+op_assign
+id|cb
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3229,7 +3268,7 @@ l_string|&quot;status.submodulesummary&quot;
 r_int
 id|is_bool
 suffix:semicolon
-id|wt_status_submodule_summary
+id|s-&gt;submodule_summary
 op_assign
 id|git_config_bool_or_int
 c_func
@@ -3247,9 +3286,9 @@ c_cond
 (paren
 id|is_bool
 op_logical_and
-id|wt_status_submodule_summary
+id|s-&gt;submodule_summary
 )paren
-id|wt_status_submodule_summary
+id|s-&gt;submodule_summary
 op_assign
 l_int|1
 suffix:semicolon
@@ -3279,7 +3318,7 @@ l_string|&quot;color.status&quot;
 )paren
 )paren
 (brace
-id|wt_status_use_color
+id|s-&gt;use_color
 op_assign
 id|git_config_colorbool
 c_func
@@ -3371,7 +3410,7 @@ l_string|&quot;status.relativepaths&quot;
 )paren
 )paren
 (brace
-id|wt_status_relative_paths
+id|s-&gt;relative_paths
 op_assign
 id|git_config_bool
 c_func
@@ -3424,7 +3463,7 @@ comma
 l_string|&quot;no&quot;
 )paren
 )paren
-id|show_untracked_files
+id|s-&gt;show_untracked_files
 op_assign
 id|SHOW_NO_UNTRACKED_FILES
 suffix:semicolon
@@ -3441,7 +3480,7 @@ comma
 l_string|&quot;normal&quot;
 )paren
 )paren
-id|show_untracked_files
+id|s-&gt;show_untracked_files
 op_assign
 id|SHOW_NORMAL_UNTRACKED_FILES
 suffix:semicolon
@@ -3458,7 +3497,7 @@ comma
 l_string|&quot;all&quot;
 )paren
 )paren
-id|show_untracked_files
+id|s-&gt;show_untracked_files
 op_assign
 id|SHOW_ALL_UNTRACKED_FILES
 suffix:semicolon
@@ -3484,7 +3523,7 @@ id|k
 comma
 id|v
 comma
-id|cb
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
