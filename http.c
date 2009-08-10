@@ -5098,6 +5098,12 @@ c_func
 id|filename
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|preq
+)paren
+suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
