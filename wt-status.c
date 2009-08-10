@@ -1,6 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;wt-status.h&quot;
-macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;commit.h&quot;
@@ -10,10 +9,10 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;remote.h&quot;
-DECL|variable|wt_status_colors
+DECL|variable|default_wt_status_colors
 r_static
 r_char
-id|wt_status_colors
+id|default_wt_status_colors
 (braket
 )braket
 (braket
@@ -201,7 +200,7 @@ OG
 l_int|0
 ques
 c_cond
-id|wt_status_colors
+id|s-&gt;color_palette
 (braket
 id|slot
 )braket
@@ -243,6 +242,19 @@ r_sizeof
 (paren
 op_star
 id|s
+)paren
+)paren
+suffix:semicolon
+id|memcpy
+c_func
+(paren
+id|s-&gt;color_palette
+comma
+id|default_wt_status_colors
+comma
+r_sizeof
+(paren
+id|default_wt_status_colors
 )paren
 )paren
 suffix:semicolon
@@ -3387,7 +3399,7 @@ id|v
 comma
 id|k
 comma
-id|wt_status_colors
+id|s-&gt;color_palette
 (braket
 id|slot
 )braket
