@@ -292,7 +292,11 @@ r_int
 r_int
 id|max_delta_cache_size
 op_assign
-l_int|0
+l_int|256
+op_star
+l_int|1024
+op_star
+l_int|1024
 suffix:semicolon
 DECL|variable|cache_max_small_delta_size
 r_static
