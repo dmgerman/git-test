@@ -1803,7 +1803,7 @@ l_int|0
 comma
 r_sizeof
 (paren
-id|main_cmds
+id|other_cmds
 )paren
 )paren
 suffix:semicolon
