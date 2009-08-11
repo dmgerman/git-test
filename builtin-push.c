@@ -842,6 +842,21 @@ op_assign
 id|OPT_BIT
 c_func
 (paren
+l_char|&squot;q&squot;
+comma
+l_string|&quot;quiet&quot;
+comma
+op_amp
+id|flags
+comma
+l_string|&quot;be quiet&quot;
+comma
+id|TRANSPORT_PUSH_QUIET
+)paren
+comma
+id|OPT_BIT
+c_func
+(paren
 l_char|&squot;v&squot;
 comma
 l_string|&quot;verbose&quot;
