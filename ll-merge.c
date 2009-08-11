@@ -923,20 +923,6 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|status
-OL
-id|ERR_RUN_COMMAND_FORK
-)paren
-suffix:semicolon
-multiline_comment|/* failure in run-command */
-r_else
-id|status
-op_assign
-id|status
-suffix:semicolon
 id|fd
 op_assign
 id|open
