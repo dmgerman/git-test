@@ -29,12 +29,24 @@ macro_line|#else
 DECL|macro|setW
 mdefine_line|#define setW(x, val) (W(x) = (val))
 macro_line|#endif
+multiline_comment|/*&n; * Performance might be improved if the CPU architecture is OK with&n; * unaligned 32-bit loads and a fast ntohl() is available.&n; * Otherwise fall back to byte loads and shifts which is portable,&n; * and is faster on architectures with memory alignment issues.&n; */
+macro_line|#if defined(__i386__) || defined(__x86_64__)
+DECL|macro|get_be32
+mdefine_line|#define get_be32(p)&t;ntohl(*(unsigned int *)(p))
+DECL|macro|put_be32
+mdefine_line|#define put_be32(p, v)&t;do { *(unsigned int *)(p) = htonl(v); } while (0)
+macro_line|#else
+DECL|macro|get_be32
+mdefine_line|#define get_be32(p)&t;( &bslash;&n;&t;(*((unsigned char *)(p) + 0) &lt;&lt; 24) | &bslash;&n;&t;(*((unsigned char *)(p) + 1) &lt;&lt; 16) | &bslash;&n;&t;(*((unsigned char *)(p) + 2) &lt;&lt;  8) | &bslash;&n;&t;(*((unsigned char *)(p) + 3) &lt;&lt;  0) )
+DECL|macro|put_be32
+mdefine_line|#define put_be32(p, v)&t;do { &bslash;&n;&t;unsigned int __v = (v); &bslash;&n;&t;*((unsigned char *)(p) + 0) = __v &gt;&gt; 24; &bslash;&n;&t;*((unsigned char *)(p) + 1) = __v &gt;&gt; 16; &bslash;&n;&t;*((unsigned char *)(p) + 2) = __v &gt;&gt;  8; &bslash;&n;&t;*((unsigned char *)(p) + 3) = __v &gt;&gt;  0; } while (0)
+macro_line|#endif
 multiline_comment|/* This &quot;rolls&quot; over the 512-bit array */
 DECL|macro|W
 mdefine_line|#define W(x) (array[(x)&amp;15])
 multiline_comment|/*&n; * Where do we get the source from? The first 16 iterations get it from&n; * the input data, the next mix it from the 512-bit array.&n; */
 DECL|macro|SHA_SRC
-mdefine_line|#define SHA_SRC(t) htonl(data[t])
+mdefine_line|#define SHA_SRC(t) get_be32(data + t)
 DECL|macro|SHA_MIX
 mdefine_line|#define SHA_MIX(t) SHA_ROL(W(t+13) ^ W(t+8) ^ W(t+2) ^ W(t), 1)
 DECL|macro|SHA_ROUND
@@ -1754,21 +1766,15 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-(paren
-(paren
-r_int
-r_int
-op_star
-)paren
-id|hashout
-)paren
-(braket
-id|i
-)braket
-op_assign
-id|htonl
+id|put_be32
 c_func
 (paren
+id|hashout
+op_plus
+id|i
+op_star
+l_int|4
+comma
 id|ctx-&gt;H
 (braket
 id|i
