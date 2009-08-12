@@ -690,6 +690,9 @@ suffix:semicolon
 r_int
 id|err
 suffix:semicolon
+r_int
+id|nonfastforward
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -752,6 +755,9 @@ comma
 id|refspec
 comma
 id|flags
+comma
+op_amp
+id|nonfastforward
 )paren
 suffix:semicolon
 id|err
@@ -781,6 +787,21 @@ id|i
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|nonfastforward
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;To prevent you from losing history, non-fast-forward updates were rejected.&bslash;n&quot;
+l_string|&quot;Merge the remote changes before pushing again.&bslash;n&quot;
+l_string|&quot;See &squot;non-fast forward&squot; section of &squot;git push --help&squot; for details.&bslash;n&quot;
+)paren
+suffix:semicolon
+)brace
 id|errs
 op_increment
 suffix:semicolon
