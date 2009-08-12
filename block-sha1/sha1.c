@@ -3,14 +3,13 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
 macro_line|#include &quot;sha1.h&quot;
 macro_line|#if defined(__i386__) || defined(__x86_64__)
+multiline_comment|/*&n; * Force usage of rol or ror by selecting the one with the smaller constant.&n; * It _can_ generate slightly smaller code (a constant of 1 is special), but&n; * perhaps more importantly it&squot;s possibly faster on any uarch that does a&n; * rotate with a loop.&n; */
 DECL|macro|SHA_ASM
 mdefine_line|#define SHA_ASM(op, x, n) ({ unsigned int __res; __asm__(op &quot; %1,%0&quot;:&quot;=r&quot; (__res):&quot;i&quot; (n), &quot;0&quot; (x)); __res; })
 DECL|macro|SHA_ROL
 mdefine_line|#define SHA_ROL(x,n)&t;SHA_ASM(&quot;rol&quot;, x, n)
 DECL|macro|SHA_ROR
 mdefine_line|#define SHA_ROR(x,n)&t;SHA_ASM(&quot;ror&quot;, x, n)
-DECL|macro|SMALL_REGISTER_SET
-mdefine_line|#define SMALL_REGISTER_SET
 macro_line|#else
 DECL|macro|SHA_ROT
 mdefine_line|#define SHA_ROT(X,l,r)&t;(((X) &lt;&lt; (l)) | ((X) &gt;&gt; (r)))
@@ -19,17 +18,20 @@ mdefine_line|#define SHA_ROL(X,n)&t;SHA_ROT(X,n,32-(n))
 DECL|macro|SHA_ROR
 mdefine_line|#define SHA_ROR(X,n)&t;SHA_ROT(X,32-(n),n)
 macro_line|#endif
-multiline_comment|/* This &quot;rolls&quot; over the 512-bit array */
-DECL|macro|W
-mdefine_line|#define W(x) (array[(x)&amp;15])
-multiline_comment|/*&n; * If you have 32 registers or more, the compiler can (and should)&n; * try to change the array[] accesses into registers. However, on&n; * machines with less than ~25 registers, that won&squot;t really work,&n; * and at least gcc will make an unholy mess of it.&n; *&n; * So to avoid that mess which just slows things down, we force&n; * the stores to memory to actually happen (we might be better off&n; * with a &squot;W(t)=(val);asm(&quot;&quot;:&quot;+m&quot; (W(t))&squot; there instead, as&n; * suggested by Artur Skawina - that will also make gcc unable to&n; * try to do the silly &quot;optimize away loads&quot; part because it won&squot;t&n; * see what the value will be).&n; *&n; * Ben Herrenschmidt reports that on PPC, the C version comes close&n; * to the optimized asm with this (ie on PPC you don&squot;t want that&n; * &squot;volatile&squot;, since there are lots of registers).&n; */
-macro_line|#ifdef SMALL_REGISTER_SET
+multiline_comment|/*&n; * If you have 32 registers or more, the compiler can (and should)&n; * try to change the array[] accesses into registers. However, on&n; * machines with less than ~25 registers, that won&squot;t really work,&n; * and at least gcc will make an unholy mess of it.&n; *&n; * So to avoid that mess which just slows things down, we force&n; * the stores to memory to actually happen (we might be better off&n; * with a &squot;W(t)=(val);asm(&quot;&quot;:&quot;+m&quot; (W(t))&squot; there instead, as&n; * suggested by Artur Skawina - that will also make gcc unable to&n; * try to do the silly &quot;optimize away loads&quot; part because it won&squot;t&n; * see what the value will be).&n; *&n; * Ben Herrenschmidt reports that on PPC, the C version comes close&n; * to the optimized asm with this (ie on PPC you don&squot;t want that&n; * &squot;volatile&squot;, since there are lots of registers).&n; *&n; * On ARM we get the best code generation by forcing a full memory barrier&n; * between each SHA_ROUND, otherwise gcc happily get wild with spilling and&n; * the stack frame size simply explode and performance goes down the drain.&n; */
+macro_line|#if defined(__i386__) || defined(__x86_64__)
 DECL|macro|setW
 mdefine_line|#define setW(x, val) (*(volatile unsigned int *)&amp;W(x) = (val))
+macro_line|#elif defined(__arm__)
+DECL|macro|setW
+mdefine_line|#define setW(x, val) do { W(x) = (val); __asm__(&quot;&quot;:::&quot;memory&quot;); } while (0)
 macro_line|#else
 DECL|macro|setW
 mdefine_line|#define setW(x, val) (W(x) = (val))
 macro_line|#endif
+multiline_comment|/* This &quot;rolls&quot; over the 512-bit array */
+DECL|macro|W
+mdefine_line|#define W(x) (array[(x)&amp;15])
 multiline_comment|/*&n; * Where do we get the source from? The first 16 iterations get it from&n; * the input data, the next mix it from the 512-bit array.&n; */
 DECL|macro|SHA_SRC
 mdefine_line|#define SHA_SRC(t) htonl(data[t])
