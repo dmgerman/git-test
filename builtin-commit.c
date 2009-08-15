@@ -5420,6 +5420,18 @@ c_cond
 (paren
 id|dry_run
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|diff_use_color_default
+op_eq
+l_int|1
+)paren
+id|diff_use_color_default
+op_assign
+id|git_use_color_default
+suffix:semicolon
 r_return
 id|dry_run_commit
 c_func
@@ -5434,6 +5446,7 @@ op_amp
 id|s
 )paren
 suffix:semicolon
+)brace
 id|index_file
 op_assign
 id|prepare_index
