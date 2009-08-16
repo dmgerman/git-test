@@ -141,6 +141,11 @@ id|errors
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|rm_flags
+op_assign
+id|REMOVE_DIR_KEEP_NESTED_GIT
+suffix:semicolon
 r_struct
 id|strbuf
 id|directory
@@ -354,6 +359,17 @@ l_string|&quot;&quot;
 suffix:colon
 l_string|&quot; not&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|force
+OG
+l_int|1
+)paren
+id|rm_flags
+op_assign
+l_int|0
 suffix:semicolon
 id|dir.flags
 op_or_assign
@@ -698,7 +714,7 @@ c_func
 op_amp
 id|directory
 comma
-l_int|0
+id|rm_flags
 )paren
 op_ne
 l_int|0
