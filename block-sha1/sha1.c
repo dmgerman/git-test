@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Based on the Mozilla SHA1 (see mozilla-sha1/sha1.c),&n; * optimized to do word accesses rather than byte accesses,&n; * and to avoid unnecessary copies into the context array.&n; */
+multiline_comment|/*&n; * SHA1 routine optimized to do word accesses rather than byte accesses,&n; * and to avoid unnecessary copies into the context array.&n; *&n; * This was initially based on the Mozilla SHA1 implementation, although&n; * none of the original Mozilla code remains.&n; */
 multiline_comment|/* this is only to get definitions for memcpy(), ntohl() and htonl() */
 macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#include &quot;sha1.h&quot;
