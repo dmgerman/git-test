@@ -413,9 +413,11 @@ id|graph-&gt;mapping_size
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * Start the column color at the maximum value, since we&squot;ll&n;&t; * always increment it for the first commit we output.&n;&t; * This way we start at 0 for the first commit.&n;&t; */
 id|graph-&gt;default_column_color
 op_assign
-l_int|0
+id|COLUMN_COLORS_MAX
+l_int|1
 suffix:semicolon
 multiline_comment|/*&n;&t; * Allocate a reasonably large default number of columns&n;&t; * We&squot;ll automatically grow columns later if we need more room.&n;&t; */
 id|graph-&gt;column_capacity
@@ -1296,20 +1298,25 @@ id|parent
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t;&t; * If this is a merge increment the current&n;&t;&t;&t;&t; * color.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t;&t; * If this is a merge, or the start of a new&n;&t;&t;&t;&t; * childless column, increment the current&n;&t;&t;&t;&t; * color.&n;&t;&t;&t;&t; */
 r_if
 c_cond
 (paren
 id|graph-&gt;num_parents
 OG
 l_int|1
+op_logical_or
+op_logical_neg
+id|is_commit_in_columns
 )paren
+(brace
 id|graph_increment_column_color
 c_func
 (paren
 id|graph
 )paren
 suffix:semicolon
+)brace
 id|graph_insert_into_new_columns
 c_func
 (paren
