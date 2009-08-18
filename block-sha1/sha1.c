@@ -1,6 +1,6 @@
 multiline_comment|/*&n; * Based on the Mozilla SHA1 (see mozilla-sha1/sha1.c),&n; * optimized to do word accesses rather than byte accesses,&n; * and to avoid unnecessary copies into the context array.&n; */
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;arpa/inet.h&gt;
+multiline_comment|/* this is only to get definitions for memcpy(), ntohl() and htonl() */
+macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#include &quot;sha1.h&quot;
 macro_line|#if defined(__i386__) || defined(__x86_64__)
 multiline_comment|/*&n; * Force usage of rol or ror by selecting the one with the smaller constant.&n; * It _can_ generate slightly smaller code (a constant of 1 is special), but&n; * perhaps more importantly it&squot;s possibly faster on any uarch that does a&n; * rotate with a loop.&n; */
