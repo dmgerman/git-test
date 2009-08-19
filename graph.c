@@ -653,22 +653,17 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Uninteresting and pruned commits won&squot;t be printed&n;&t; */
+multiline_comment|/*&n;&t; * Otherwise, use get_commit_action() to see if this commit is&n;&t; * interesting&n;&t; */
 r_return
+id|get_commit_action
+c_func
 (paren
-id|commit-&gt;object.flags
-op_amp
-(paren
-id|UNINTERESTING
-op_or
-id|TREESAME
+id|graph-&gt;revs
+comma
+id|commit
 )paren
-)paren
-ques
-c_cond
-l_int|0
-suffix:colon
-l_int|1
+op_eq
+id|commit_show
 suffix:semicolon
 )brace
 DECL|function|next_interesting_parent
