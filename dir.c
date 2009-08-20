@@ -1071,14 +1071,6 @@ id|buf_p
 op_assign
 id|buf
 suffix:semicolon
-id|buf
-(braket
-id|size
-op_increment
-)braket
-op_assign
-l_char|&squot;&bslash;n&squot;
-suffix:semicolon
 id|entry
 op_assign
 id|buf
@@ -1091,7 +1083,7 @@ op_assign
 l_int|0
 suffix:semicolon
 id|i
-OL
+op_le
 id|size
 suffix:semicolon
 id|i
@@ -1101,6 +1093,10 @@ op_increment
 r_if
 c_cond
 (paren
+id|i
+op_eq
+id|size
+op_logical_or
 id|buf
 (braket
 id|i
