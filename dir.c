@@ -1054,10 +1054,9 @@ r_return
 id|data
 suffix:semicolon
 )brace
-DECL|function|add_excludes_from_file_1
-r_static
+DECL|function|add_excludes_from_file_to_list
 r_int
-id|add_excludes_from_file_1
+id|add_excludes_from_file_to_list
 c_func
 (paren
 r_const
@@ -1368,7 +1367,7 @@ id|fname
 r_if
 c_cond
 (paren
-id|add_excludes_from_file_1
+id|add_excludes_from_file_to_list
 c_func
 (paren
 id|fname
@@ -1659,7 +1658,7 @@ comma
 id|dir-&gt;exclude_per_dir
 )paren
 suffix:semicolon
-id|add_excludes_from_file_1
+id|add_excludes_from_file_to_list
 c_func
 (paren
 id|dir-&gt;basebuf
@@ -1694,10 +1693,9 @@ l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
 multiline_comment|/* Scan the list and let the last match determine the fate.&n; * Return 1 for exclude, 0 for include and -1 for undecided.&n; */
-DECL|function|excluded_1
-r_static
+DECL|function|excluded_from_list
 r_int
-id|excluded_1
+id|excluded_from_list
 c_func
 (paren
 r_const
@@ -2124,7 +2122,7 @@ op_increment
 r_switch
 c_cond
 (paren
-id|excluded_1
+id|excluded_from_list
 c_func
 (paren
 id|pathname
