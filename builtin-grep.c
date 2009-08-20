@@ -2458,6 +2458,12 @@ id|ce-&gt;ce_flags
 op_amp
 id|CE_VALID
 )paren
+op_logical_or
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
 )paren
 (brace
 r_if

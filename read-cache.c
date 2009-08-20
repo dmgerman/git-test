@@ -1185,9 +1185,17 @@ op_logical_neg
 id|ignore_valid
 op_logical_and
 (paren
+(paren
 id|ce-&gt;ce_flags
 op_amp
 id|CE_VALID
+)paren
+op_logical_or
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
 )paren
 )paren
 r_return
@@ -4550,7 +4558,6 @@ id|ce
 r_return
 id|ce
 suffix:semicolon
-multiline_comment|/*&n;&t; * CE_VALID means the user promised us that the change to&n;&t; * the work tree does not matter and told us not to worry.&n;&t; */
 r_if
 c_cond
 (paren
@@ -4558,9 +4565,17 @@ op_logical_neg
 id|ignore_valid
 op_logical_and
 (paren
+(paren
 id|ce-&gt;ce_flags
 op_amp
 id|CE_VALID
+)paren
+op_logical_or
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
 )paren
 )paren
 (brace
