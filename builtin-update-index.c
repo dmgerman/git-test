@@ -41,10 +41,10 @@ r_static
 r_int
 id|mark_valid_only
 suffix:semicolon
-DECL|macro|MARK_VALID
-mdefine_line|#define MARK_VALID 1
-DECL|macro|UNMARK_VALID
-mdefine_line|#define UNMARK_VALID 2
+DECL|macro|MARK_FLAG
+mdefine_line|#define MARK_FLAG 1
+DECL|macro|UNMARK_FLAG
+mdefine_line|#define UNMARK_FLAG 2
 DECL|function|report
 r_static
 r_void
@@ -101,16 +101,22 @@ id|vp
 )paren
 suffix:semicolon
 )brace
-DECL|function|mark_valid
+DECL|function|mark_ce_flags
 r_static
 r_int
-id|mark_valid
+id|mark_ce_flags
 c_func
 (paren
 r_const
 r_char
 op_star
 id|path
+comma
+r_int
+id|flag
+comma
+r_int
+id|mark
 )paren
 (brace
 r_int
@@ -141,15 +147,11 @@ op_le
 id|pos
 )paren
 (brace
-r_switch
+r_if
 c_cond
 (paren
-id|mark_valid_only
+id|mark
 )paren
-(brace
-r_case
-id|MARK_VALID
-suffix:colon
 id|active_cache
 (braket
 id|pos
@@ -157,13 +159,9 @@ id|pos
 op_member_access_from_pointer
 id|ce_flags
 op_or_assign
-id|CE_VALID
+id|flag
 suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-id|UNMARK_VALID
-suffix:colon
+r_else
 id|active_cache
 (braket
 id|pos
@@ -172,11 +170,8 @@ op_member_access_from_pointer
 id|ce_flags
 op_and_assign
 op_complement
-id|CE_VALID
+id|flag
 suffix:semicolon
-r_break
-suffix:semicolon
-)brace
 id|cache_tree_invalidate_path
 c_func
 (paren
@@ -1271,10 +1266,16 @@ id|mark_valid_only
 r_if
 c_cond
 (paren
-id|mark_valid
+id|mark_ce_flags
 c_func
 (paren
 id|p
+comma
+id|CE_VALID
+comma
+id|mark_valid_only
+op_eq
+id|MARK_FLAG
 )paren
 )paren
 id|die
@@ -3180,7 +3181,7 @@ l_string|&quot;--assume-unchanged&quot;
 (brace
 id|mark_valid_only
 op_assign
-id|MARK_VALID
+id|MARK_FLAG
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -3200,7 +3201,7 @@ l_string|&quot;--no-assume-unchanged&quot;
 (brace
 id|mark_valid_only
 op_assign
-id|UNMARK_VALID
+id|UNMARK_FLAG
 suffix:semicolon
 r_continue
 suffix:semicolon
