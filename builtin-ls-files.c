@@ -2564,6 +2564,22 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|read_cache
+c_func
+(paren
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;index file corrupt&quot;
+)paren
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options
@@ -2686,11 +2702,6 @@ id|argv
 )paren
 suffix:semicolon
 multiline_comment|/* be nice with submodule paths ending in a slash */
-id|read_cache
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
