@@ -152,6 +152,15 @@ id|tag_modified
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
+DECL|variable|tag_skip_worktree
+r_static
+r_const
+r_char
+op_star
+id|tag_skip_worktree
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
 DECL|function|show_dir_entry
 r_static
 r_void
@@ -956,7 +965,18 @@ ques
 c_cond
 id|tag_unmerged
 suffix:colon
+(paren
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
+ques
+c_cond
+id|tag_skip_worktree
+suffix:colon
 id|tag_cached
+)paren
 comma
 id|ce
 )paren
@@ -2582,6 +2602,10 @@ suffix:semicolon
 id|tag_killed
 op_assign
 l_string|&quot;K &quot;
+suffix:semicolon
+id|tag_skip_worktree
+op_assign
+l_string|&quot;S &quot;
 suffix:semicolon
 )brace
 r_if
