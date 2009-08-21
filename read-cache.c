@@ -4857,7 +4857,7 @@ op_assign
 (paren
 id|flags
 op_amp
-id|REFRESH_SAY_CHANGED
+id|REFRESH_IN_PORCELAIN
 )paren
 ques
 c_cond

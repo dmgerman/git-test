@@ -1412,7 +1412,7 @@ ques
 c_cond
 id|REFRESH_QUIET
 suffix:colon
-id|REFRESH_SAY_CHANGED
+id|REFRESH_IN_PORCELAIN
 )paren
 suffix:semicolon
 )brace
@@ -1663,7 +1663,7 @@ ques
 c_cond
 id|REFRESH_QUIET
 suffix:colon
-id|REFRESH_SAY_CHANGED
+id|REFRESH_IN_PORCELAIN
 )paren
 suffix:semicolon
 r_break
