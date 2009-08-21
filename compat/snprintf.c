@@ -1,5 +1,5 @@
 macro_line|#include &quot;../git-compat-util.h&quot;
-multiline_comment|/*&n; * The size parameter specifies the available space, i.e. includes&n; * the trailing NUL byte; but Windows&squot;s vsnprintf expects the&n; * number of characters to write without the trailing NUL.&n; */
+multiline_comment|/*&n; * The size parameter specifies the available space, i.e. includes&n; * the trailing NUL byte; but Windows&squot;s vsnprintf expects the&n; * number of characters to write, and does not necessarily write the&n; * trailing NUL.&n; */
 macro_line|#ifndef SNPRINTF_SIZE_CORR
 macro_line|#if defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; __GNUC__ &lt; 4
 DECL|macro|SNPRINTF_SIZE_CORR
