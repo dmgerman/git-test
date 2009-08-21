@@ -586,6 +586,8 @@ comma
 id|pathspec
 comma
 id|seen
+comma
+l_string|&quot;Unstaged changes after refreshing the index:&quot;
 )paren
 suffix:semicolon
 r_for
