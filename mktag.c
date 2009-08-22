@@ -9,6 +9,7 @@ r_int
 id|verify_object
 c_func
 (paren
+r_const
 r_int
 r_char
 op_star
@@ -33,11 +34,17 @@ r_int
 r_int
 id|size
 suffix:semicolon
+r_const
+r_int
+r_char
+op_star
+id|repl
+suffix:semicolon
 r_void
 op_star
 id|buffer
 op_assign
-id|read_sha1_file
+id|read_sha1_file_repl
 c_func
 (paren
 id|sha1
@@ -47,6 +54,9 @@ id|type
 comma
 op_amp
 id|size
+comma
+op_amp
+id|repl
 )paren
 suffix:semicolon
 r_if
@@ -71,7 +81,7 @@ op_assign
 id|check_sha1_signature
 c_func
 (paren
-id|sha1
+id|repl
 comma
 id|buffer
 comma

@@ -979,11 +979,17 @@ suffix:semicolon
 r_int
 id|eaten
 suffix:semicolon
+r_const
+r_int
+r_char
+op_star
+id|repl
+suffix:semicolon
 r_void
 op_star
 id|buffer
 op_assign
-id|read_sha1_file
+id|read_sha1_file_repl
 c_func
 (paren
 id|sha1
@@ -993,6 +999,9 @@ id|type
 comma
 op_amp
 id|size
+comma
+op_amp
+id|repl
 )paren
 suffix:semicolon
 r_if
@@ -1012,7 +1021,7 @@ c_cond
 id|check_sha1_signature
 c_func
 (paren
-id|sha1
+id|repl
 comma
 id|buffer
 comma
@@ -1041,7 +1050,7 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|sha1
+id|repl
 )paren
 )paren
 suffix:semicolon
@@ -1054,7 +1063,7 @@ op_assign
 id|parse_object_buffer
 c_func
 (paren
-id|sha1
+id|repl
 comma
 id|type
 comma

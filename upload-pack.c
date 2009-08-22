@@ -3496,6 +3496,10 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+id|read_replace_refs
+op_assign
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren

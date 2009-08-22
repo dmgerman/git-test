@@ -2029,6 +2029,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;replace&quot;
+comma
+id|cmd_replace
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;repo-config&quot;
 comma
 id|cmd_config
