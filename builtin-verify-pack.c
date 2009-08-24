@@ -5,6 +5,10 @@ macro_line|#include &quot;pack-revindex.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 DECL|macro|MAX_CHAIN
 mdefine_line|#define MAX_CHAIN 50
+DECL|macro|VERIFY_PACK_VERBOSE
+mdefine_line|#define VERIFY_PACK_VERBOSE 01
+DECL|macro|VERIFY_PACK_STAT_ONLY
+mdefine_line|#define VERIFY_PACK_STAT_ONLY 02
 DECL|function|show_pack_info
 r_static
 r_void
@@ -15,6 +19,10 @@ r_struct
 id|packed_git
 op_star
 id|p
+comma
+r_int
+r_int
+id|flags
 )paren
 (brace
 r_uint32
@@ -24,6 +32,13 @@ id|i
 suffix:semicolon
 r_int
 id|cnt
+suffix:semicolon
+r_int
+id|stat_only
+op_assign
+id|flags
+op_amp
+id|VERIFY_PACK_STAT_ONLY
 suffix:semicolon
 r_int
 r_int
@@ -158,6 +173,12 @@ comma
 id|base_sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|stat_only
+)paren
 id|printf
 c_func
 (paren
@@ -177,6 +198,12 @@ op_logical_neg
 id|delta_chain_length
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|stat_only
+)paren
 id|printf
 c_func
 (paren
@@ -202,6 +229,12 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|stat_only
+)paren
 id|printf
 c_func
 (paren
@@ -371,7 +404,8 @@ op_star
 id|path
 comma
 r_int
-id|verbose
+r_int
+id|flags
 )paren
 (brace
 r_char
@@ -382,6 +416,20 @@ id|PATH_MAX
 suffix:semicolon
 r_int
 id|len
+suffix:semicolon
+r_int
+id|verbose
+op_assign
+id|flags
+op_amp
+id|VERIFY_PACK_VERBOSE
+suffix:semicolon
+r_int
+id|stat_only
+op_assign
+id|flags
+op_amp
+id|VERIFY_PACK_STAT_ONLY
 suffix:semicolon
 r_struct
 id|packed_git
@@ -556,9 +604,24 @@ c_func
 id|pack
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|stat_only
+)paren
 id|err
 op_assign
 id|verify_pack
+c_func
+(paren
+id|pack
+)paren
+suffix:semicolon
+r_else
+id|err
+op_assign
+id|open_pack_index
 c_func
 (paren
 id|pack
@@ -568,6 +631,8 @@ r_if
 c_cond
 (paren
 id|verbose
+op_logical_or
+id|stat_only
 )paren
 (brace
 r_if
@@ -589,8 +654,16 @@ id|show_pack_info
 c_func
 (paren
 id|pack
+comma
+id|flags
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|stat_only
+)paren
 id|printf
 c_func
 (paren
@@ -616,7 +689,7 @@ id|verify_pack_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git verify-pack [-v|--verbose] &lt;pack&gt;...&quot;
+l_string|&quot;git verify-pack [-v|--verbose] [-s|--stat-only] &lt;pack&gt;...&quot;
 comma
 l_int|NULL
 )brace
@@ -647,7 +720,8 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
-id|verbose
+r_int
+id|flags
 op_assign
 l_int|0
 suffix:semicolon
@@ -662,11 +736,34 @@ id|verify_pack_options
 )braket
 op_assign
 (brace
-id|OPT__VERBOSE
+id|OPT_BIT
 c_func
 (paren
+l_char|&squot;v&squot;
+comma
+l_string|&quot;verbose&quot;
+comma
 op_amp
-id|verbose
+id|flags
+comma
+l_string|&quot;verbose&quot;
+comma
+id|VERIFY_PACK_VERBOSE
+)paren
+comma
+id|OPT_BIT
+c_func
+(paren
+l_char|&squot;s&squot;
+comma
+l_string|&quot;stat-only&quot;
+comma
+op_amp
+id|flags
+comma
+l_string|&quot;show statistics only&quot;
+comma
+id|VERIFY_PACK_STAT_ONLY
 )paren
 comma
 id|OPT_END
@@ -742,7 +839,7 @@ id|argv
 id|i
 )braket
 comma
-id|verbose
+id|flags
 )paren
 )paren
 id|err
