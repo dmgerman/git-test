@@ -5246,6 +5246,7 @@ suffix:semicolon
 id|load_ref_decorations
 c_func
 (paren
+id|DECORATE_SHORT_REFS
 )paren
 suffix:semicolon
 )brace
