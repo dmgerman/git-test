@@ -4639,7 +4639,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s is first bad commit&bslash;n&quot;
+l_string|&quot;%s is the first bad commit&bslash;n&quot;
 comma
 id|bisect_rev_hex
 )paren
