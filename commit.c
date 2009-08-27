@@ -2846,7 +2846,7 @@ suffix:semicolon
 r_struct
 id|commit_list
 op_star
-id|n
+id|next
 suffix:semicolon
 r_int
 id|flags
@@ -2855,7 +2855,7 @@ id|commit
 op_assign
 id|list-&gt;item
 suffix:semicolon
-id|n
+id|next
 op_assign
 id|list-&gt;next
 suffix:semicolon
@@ -2867,7 +2867,7 @@ id|list
 suffix:semicolon
 id|list
 op_assign
-id|n
+id|next
 suffix:semicolon
 id|flags
 op_assign
@@ -3009,7 +3009,7 @@ id|list
 r_struct
 id|commit_list
 op_star
-id|n
+id|next
 op_assign
 id|list-&gt;next
 suffix:semicolon
@@ -3040,7 +3040,7 @@ id|list
 suffix:semicolon
 id|list
 op_assign
-id|n
+id|next
 suffix:semicolon
 )brace
 r_return
