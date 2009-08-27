@@ -91,8 +91,6 @@ r_int
 id|buf_index
 op_assign
 l_int|1
-comma
-id|len
 suffix:semicolon
 r_int
 id|depth
@@ -356,6 +354,7 @@ id|st.st_mode
 )paren
 )paren
 (brace
+id|ssize_t
 id|len
 op_assign
 id|readlink
