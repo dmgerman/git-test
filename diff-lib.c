@@ -642,8 +642,18 @@ id|ce
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/* If CE_VALID is set, don&squot;t look at workdir for file removal */
 id|changed
 op_assign
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_VALID
+)paren
+ques
+c_cond
+l_int|0
+suffix:colon
 id|check_removed
 c_func
 (paren
@@ -1534,11 +1544,22 @@ id|match_missing
 comma
 id|cached
 suffix:semicolon
-multiline_comment|/*&n;&t; * Backward compatibility wart - &quot;diff-index -m&quot; does&n;&t; * not mean &quot;do not ignore merges&quot;, but &quot;match_missing&quot;.&n;&t; *&n;&t; * But with the revision flag parsing, that&squot;s found in&n;&t; * &quot;!revs-&gt;ignore_merges&quot;.&n;&t; */
+multiline_comment|/* if the entry is not checked out, don&squot;t examine work tree */
 id|cached
 op_assign
 id|o-&gt;index_only
+op_logical_or
+(paren
+id|idx
+op_logical_and
+(paren
+id|idx-&gt;ce_flags
+op_amp
+id|CE_VALID
+)paren
+)paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Backward compatibility wart - &quot;diff-index -m&quot; does&n;&t; * not mean &quot;do not ignore merges&quot;, but &quot;match_missing&quot;.&n;&t; *&n;&t; * But with the revision flag parsing, that&squot;s found in&n;&t; * &quot;!revs-&gt;ignore_merges&quot;.&n;&t; */
 id|match_missing
 op_assign
 op_logical_neg
