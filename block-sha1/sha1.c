@@ -1,8 +1,8 @@
-multiline_comment|/*&n; * Based on the Mozilla SHA1 (see mozilla-sha1/sha1.c),&n; * optimized to do word accesses rather than byte accesses,&n; * and to avoid unnecessary copies into the context array.&n; */
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;arpa/inet.h&gt;
+multiline_comment|/*&n; * SHA1 routine optimized to do word accesses rather than byte accesses,&n; * and to avoid unnecessary copies into the context array.&n; *&n; * This was initially based on the Mozilla SHA1 implementation, although&n; * none of the original Mozilla code remains.&n; */
+multiline_comment|/* this is only to get definitions for memcpy(), ntohl() and htonl() */
+macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#include &quot;sha1.h&quot;
-macro_line|#if defined(__i386__) || defined(__x86_64__)
+macro_line|#if defined(__GNUC__) &amp;&amp; (defined(__i386__) || defined(__x86_64__))
 multiline_comment|/*&n; * Force usage of rol or ror by selecting the one with the smaller constant.&n; * It _can_ generate slightly smaller code (a constant of 1 is special), but&n; * perhaps more importantly it&squot;s possibly faster on any uarch that does a&n; * rotate with a loop.&n; */
 DECL|macro|SHA_ASM
 mdefine_line|#define SHA_ASM(op, x, n) ({ unsigned int __res; __asm__(op &quot; %1,%0&quot;:&quot;=r&quot; (__res):&quot;i&quot; (n), &quot;0&quot; (x)); __res; })
@@ -22,7 +22,7 @@ multiline_comment|/*&n; * If you have 32 registers or more, the compiler can (an
 macro_line|#if defined(__i386__) || defined(__x86_64__)
 DECL|macro|setW
 mdefine_line|#define setW(x, val) (*(volatile unsigned int *)&amp;W(x) = (val))
-macro_line|#elif defined(__arm__)
+macro_line|#elif defined(__GNUC__) &amp;&amp; defined(__arm__)
 DECL|macro|setW
 mdefine_line|#define setW(x, val) do { W(x) = (val); __asm__(&quot;&quot;:::&quot;memory&quot;); } while (0)
 macro_line|#else
