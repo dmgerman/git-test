@@ -733,11 +733,7 @@ r_int
 r_int
 id|years
 op_assign
-(paren
 id|diff
-op_plus
-l_int|183
-)paren
 op_div
 l_int|365
 suffix:semicolon
