@@ -2187,6 +2187,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;update-server-info&quot;
+comma
+id|cmd_update_server_info
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;upload-archive&quot;
 comma
 id|cmd_upload_archive
