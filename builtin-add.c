@@ -579,13 +579,15 @@ comma
 id|verbose
 ques
 c_cond
-id|REFRESH_SAY_CHANGED
+id|REFRESH_IN_PORCELAIN
 suffix:colon
 id|REFRESH_QUIET
 comma
 id|pathspec
 comma
 id|seen
+comma
+l_string|&quot;Unstaged changes after refreshing the index:&quot;
 )paren
 suffix:semicolon
 r_for

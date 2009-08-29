@@ -531,10 +531,21 @@ l_string|&quot;Could not read index&quot;
 suffix:semicolon
 id|result
 op_assign
-id|refresh_cache
+id|refresh_index
 c_func
 (paren
+op_amp
+id|the_index
+comma
+(paren
 id|flags
+)paren
+comma
+l_int|NULL
+comma
+l_int|NULL
+comma
+l_string|&quot;Unstaged changes after reset:&quot;
 )paren
 ques
 c_cond
@@ -1412,7 +1423,7 @@ ques
 c_cond
 id|REFRESH_QUIET
 suffix:colon
-id|REFRESH_SAY_CHANGED
+id|REFRESH_IN_PORCELAIN
 )paren
 suffix:semicolon
 )brace
@@ -1663,7 +1674,7 @@ ques
 c_cond
 id|REFRESH_QUIET
 suffix:colon
-id|REFRESH_SAY_CHANGED
+id|REFRESH_IN_PORCELAIN
 )paren
 suffix:semicolon
 r_break
