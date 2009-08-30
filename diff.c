@@ -13056,7 +13056,7 @@ c_func
 l_string|&quot;--name-only, --name-status, --check and -s are mutually exclusive&quot;
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Most of the time we can say &quot;there are changes&quot;&n;&t; * only by checking if there are changed paths, but&n;&t; * --ignore-whitespace* options force us to look&n;&t; * inside contets.&n;&t; */
+multiline_comment|/*&n;&t; * Most of the time we can say &quot;there are changes&quot;&n;&t; * only by checking if there are changed paths, but&n;&t; * --ignore-whitespace* options force us to look&n;&t; * inside contents.&n;&t; */
 r_if
 c_cond
 (paren
@@ -18482,7 +18482,7 @@ c_func
 id|options-&gt;file
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Report the contents level differences with HAS_CHANGES;&n;&t; * diff_addremove/diff_change does not set the bit when&n;&t; * DIFF_FROM_CONTENTS is in effect (e.g. with -w).&n;&t; */
+multiline_comment|/*&n;&t; * Report the content-level differences with HAS_CHANGES;&n;&t; * diff_addremove/diff_change does not set the bit when&n;&t; * DIFF_FROM_CONTENTS is in effect (e.g. with -w).&n;&t; */
 r_if
 c_cond
 (paren
