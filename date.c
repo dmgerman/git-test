@@ -4605,6 +4605,19 @@ l_int|5
 (brace
 r_int
 id|n
+suffix:semicolon
+id|update_tm
+c_func
+(paren
+id|tm
+comma
+id|now
+comma
+l_int|0
+)paren
+suffix:semicolon
+multiline_comment|/* fill in date fields if needed */
+id|n
 op_assign
 id|tm-&gt;tm_mon
 op_star
@@ -4653,6 +4666,17 @@ op_ge
 l_int|4
 )paren
 (brace
+id|update_tm
+c_func
+(paren
+id|tm
+comma
+id|now
+comma
+l_int|0
+)paren
+suffix:semicolon
+multiline_comment|/* fill in date fields if needed */
 id|tm-&gt;tm_year
 op_sub_assign
 op_star
