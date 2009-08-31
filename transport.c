@@ -5796,6 +5796,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|quiet
+op_logical_and
+op_logical_neg
 id|ret
 op_logical_and
 op_logical_neg
