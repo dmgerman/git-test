@@ -3018,13 +3018,13 @@ l_string|&quot;#&quot;
 )paren
 suffix:semicolon
 )brace
-id|wt_status_print_unmerged
+id|wt_status_print_updated
 c_func
 (paren
 id|s
 )paren
 suffix:semicolon
-id|wt_status_print_updated
+id|wt_status_print_unmerged
 c_func
 (paren
 id|s
