@@ -7379,10 +7379,8 @@ id|processed
 (brace
 r_struct
 id|thread_params
+op_star
 id|p
-(braket
-id|delta_search_threads
-)braket
 suffix:semicolon
 r_int
 id|i
@@ -7434,6 +7432,20 @@ comma
 l_string|&quot;Delta compression using up to %d threads.&bslash;n&quot;
 comma
 id|delta_search_threads
+)paren
+suffix:semicolon
+id|p
+op_assign
+id|xcalloc
+c_func
+(paren
+id|delta_search_threads
+comma
+r_sizeof
+(paren
+op_star
+id|p
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Partition the work amongst work threads. */
@@ -8004,6 +8016,12 @@ op_decrement
 suffix:semicolon
 )brace
 )brace
+id|free
+c_func
+(paren
+id|p
+)paren
+suffix:semicolon
 )brace
 macro_line|#else
 DECL|macro|ll_find_deltas
