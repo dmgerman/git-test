@@ -5791,7 +5791,6 @@ id|matched_src
 )paren
 )paren
 )paren
-(brace
 id|matched_dst
 op_assign
 id|make_linked_ref
@@ -5802,7 +5801,6 @@ comma
 id|dst_tail
 )paren
 suffix:semicolon
-)brace
 r_else
 id|error
 c_func

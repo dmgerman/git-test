@@ -2259,7 +2259,6 @@ id|ref
 op_assign
 id|ref-&gt;next
 )paren
-(brace
 id|string_list_append
 c_func
 (paren
@@ -2273,7 +2272,6 @@ op_amp
 id|states-&gt;heads
 )paren
 suffix:semicolon
-)brace
 id|free_refs
 c_func
 (paren

@@ -90,7 +90,6 @@ suffix:semicolon
 id|ptr
 op_increment
 )paren
-(brace
 id|printf
 c_func
 (paren
@@ -107,7 +106,6 @@ id|IDENT_WARN_ON_NO_NAME
 )paren
 )paren
 suffix:semicolon
-)brace
 )brace
 DECL|function|read_var
 r_static

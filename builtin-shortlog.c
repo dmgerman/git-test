@@ -265,11 +265,9 @@ l_int|1
 )braket
 )paren
 )paren
-(brace
 id|len
 op_decrement
 suffix:semicolon
-)brace
 id|namebuf
 (braket
 id|len

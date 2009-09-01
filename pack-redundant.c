@@ -223,7 +223,6 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-(brace
 id|llist_item_put
 c_func
 (paren
@@ -234,7 +233,6 @@ id|i
 )braket
 )paren
 suffix:semicolon
-)brace
 )brace
 r_return
 r_new
@@ -2094,7 +2092,6 @@ c_cond
 (paren
 id|pl-&gt;unique_objects-&gt;size
 )paren
-(brace
 id|pack_list_insert
 c_func
 (paren
@@ -2104,7 +2101,6 @@ comma
 id|pl
 )paren
 suffix:semicolon
-)brace
 r_else
 id|pack_list_insert
 c_func
@@ -2500,7 +2496,6 @@ op_assign
 id|subset-&gt;next
 )paren
 )paren
-(brace
 id|cmp_two_packs
 c_func
 (paren
@@ -2509,7 +2504,6 @@ comma
 id|subset
 )paren
 suffix:semicolon
-)brace
 id|pl
 op_assign
 id|pl-&gt;next
@@ -3032,14 +3026,12 @@ id|arg
 op_eq
 l_char|&squot;-&squot;
 )paren
-(brace
 id|usage
 c_func
 (paren
 id|pack_redundant_usage
 )paren
 suffix:semicolon
-)brace
 r_else
 r_break
 suffix:semicolon

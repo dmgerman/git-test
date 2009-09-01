@@ -2762,7 +2762,6 @@ c_cond
 (paren
 id|refs
 )paren
-(brace
 id|transport_fetch_refs
 c_func
 (paren
@@ -2771,7 +2770,6 @@ comma
 id|refs
 )paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
