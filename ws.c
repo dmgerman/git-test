@@ -47,6 +47,12 @@ comma
 id|WS_CR_AT_EOL
 )brace
 comma
+(brace
+l_string|&quot;blank-at-eof&quot;
+comma
+id|WS_BLANK_AT_EOF
+)brace
+comma
 )brace
 suffix:semicolon
 DECL|function|parse_whitespace_rule
@@ -526,6 +532,38 @@ op_amp
 id|err
 comma
 l_string|&quot;indent with spaces&quot;
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|ws
+op_amp
+id|WS_BLANK_AT_EOF
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|err.len
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|err
+comma
+l_string|&quot;, &quot;
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|err
+comma
+l_string|&quot;new blank line at EOF&quot;
 )paren
 suffix:semicolon
 )brace
