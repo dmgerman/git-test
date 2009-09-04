@@ -4654,6 +4654,8 @@ id|transport_helper_init
 c_func
 (paren
 id|ret
+comma
+l_string|&quot;curl&quot;
 )paren
 suffix:semicolon
 macro_line|#ifdef NO_CURL
