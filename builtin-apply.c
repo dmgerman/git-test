@@ -9444,7 +9444,7 @@ id|correct_ws_error
 op_logical_and
 id|new_blank_lines_at_end
 op_logical_and
-id|postimage.nr
+id|preimage.nr
 op_plus
 id|applied_pos
 op_eq
