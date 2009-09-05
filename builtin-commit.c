@@ -5512,6 +5512,8 @@ id|STATUS_FORMAT_LONG
 comma
 id|STATUS_FORMAT_SHORT
 comma
+id|STATUS_FORMAT_PORCELAIN
+comma
 )brace
 id|status_format
 op_assign
@@ -5552,6 +5554,21 @@ comma
 l_string|&quot;show status concisely&quot;
 comma
 id|STATUS_FORMAT_SHORT
+)paren
+comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;porcelain&quot;
+comma
+op_amp
+id|status_format
+comma
+l_string|&quot;show porcelain output format&quot;
+comma
+id|STATUS_FORMAT_PORCELAIN
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5609,7 +5626,7 @@ id|STATUS_FORMAT_LONG
 )paren
 id|status_format
 op_assign
-id|STATUS_FORMAT_SHORT
+id|STATUS_FORMAT_PORCELAIN
 suffix:semicolon
 id|wt_status_prepare
 c_func
@@ -5711,6 +5728,20 @@ id|status_format
 (brace
 r_case
 id|STATUS_FORMAT_SHORT
+suffix:colon
+id|short_print
+c_func
+(paren
+op_amp
+id|s
+comma
+id|null_termination
+)paren
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|STATUS_FORMAT_PORCELAIN
 suffix:colon
 id|short_print
 c_func
