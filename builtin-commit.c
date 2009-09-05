@@ -5416,7 +5416,7 @@ comma
 op_amp
 id|shortstatus
 comma
-l_string|&quot;show status concicely&quot;
+l_string|&quot;show status concisely&quot;
 )paren
 comma
 id|OPT_BOOLEAN
