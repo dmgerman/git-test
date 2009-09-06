@@ -796,9 +796,9 @@ id|nonfastforward
 id|printf
 c_func
 (paren
-l_string|&quot;To prevent you from losing history, non-fast-forward updates were rejected.&bslash;n&quot;
-l_string|&quot;Merge the remote changes before pushing again.&bslash;n&quot;
-l_string|&quot;See the &squot;non-fast forward&squot; section of &squot;git push --help&squot; for details.&bslash;n&quot;
+l_string|&quot;To prevent you from losing history, non-fast-forward updates were rejected&bslash;n&quot;
+l_string|&quot;Merge the remote changes before pushing again.  See the &squot;non-fast forward&squot;&bslash;n&quot;
+l_string|&quot;section of &squot;git push --help&squot; for details.&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
