@@ -2175,6 +2175,10 @@ l_int|0
 r_return
 id|hit
 suffix:semicolon
+id|hit
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 macro_line|#endif
 r_for
