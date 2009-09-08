@@ -860,6 +860,30 @@ r_struct
 id|unpack_trees_options
 id|opts
 suffix:semicolon
+r_static
+r_const
+r_struct
+id|unpack_trees_error_msgs
+id|msgs
+op_assign
+(brace
+multiline_comment|/* would_overwrite */
+l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
+comma
+multiline_comment|/* not_uptodate_file */
+l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
+comma
+multiline_comment|/* not_uptodate_dir */
+l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it.  Aborting.&quot;
+comma
+multiline_comment|/* would_lose_untracked */
+l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.  Aborting&quot;
+comma
+multiline_comment|/* bind_overlap -- will not happen here */
+l_int|NULL
+comma
+)brace
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -909,6 +933,10 @@ id|opts.dst_index
 op_assign
 op_amp
 id|the_index
+suffix:semicolon
+id|opts.msgs
+op_assign
+id|msgs
 suffix:semicolon
 id|init_tree_desc_from_tree
 c_func
@@ -6657,6 +6685,20 @@ id|code
 op_ne
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|show
+c_func
+(paren
+id|o
+comma
+l_int|4
+)paren
+op_logical_or
+id|o-&gt;call_depth
+)paren
 id|die
 c_func
 (paren
@@ -6675,6 +6717,13 @@ id|merge-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
+r_else
+m_exit
+(paren
+l_int|128
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
