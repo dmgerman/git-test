@@ -5,6 +5,12 @@ id|advice_push_nonfastforward
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_status_hints
+r_int
+id|advice_status_hints
+op_assign
+l_int|1
+suffix:semicolon
 r_static
 r_struct
 (brace
@@ -31,6 +37,13 @@ l_string|&quot;pushnonfastforward&quot;
 comma
 op_amp
 id|advice_push_nonfastforward
+)brace
+comma
+(brace
+l_string|&quot;statushints&quot;
+comma
+op_amp
+id|advice_status_hints
 )brace
 comma
 )brace
