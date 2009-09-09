@@ -791,6 +791,8 @@ r_if
 c_cond
 (paren
 id|nonfastforward
+op_logical_and
+id|advice_push_nonfastforward
 )paren
 (brace
 id|printf
