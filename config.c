@@ -5675,14 +5675,12 @@ c_cond
 (paren
 id|new_line
 op_logical_and
-id|write_in_full
+id|write_str_in_full
 c_func
 (paren
 id|fd
 comma
 l_string|&quot;&bslash;n&quot;
-comma
-l_int|1
 )paren
 op_ne
 l_int|1

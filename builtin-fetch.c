@@ -2437,14 +2437,12 @@ l_int|40
 OL
 l_int|0
 op_logical_or
-id|write_in_full
+id|write_str_in_full
 c_func
 (paren
 id|revlist.in
 comma
 l_string|&quot;&bslash;n&quot;
-comma
-l_int|1
 )paren
 OL
 l_int|0

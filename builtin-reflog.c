@@ -1655,14 +1655,12 @@ l_int|40
 op_ne
 l_int|40
 op_logical_or
-id|write_in_full
+id|write_str_in_full
 c_func
 (paren
 id|lock-&gt;lock_fd
 comma
 l_string|&quot;&bslash;n&quot;
-comma
-l_int|1
 )paren
 op_ne
 l_int|1
