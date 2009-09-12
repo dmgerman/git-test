@@ -497,7 +497,7 @@ id|revs
 suffix:semicolon
 id|pack_pipe
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|fd
@@ -1463,7 +1463,7 @@ id|FILE
 op_star
 id|pipe_fd
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|pack_objects.in

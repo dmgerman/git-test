@@ -1534,7 +1534,7 @@ l_int|1
 suffix:semicolon
 id|rls_fout
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|rls.out

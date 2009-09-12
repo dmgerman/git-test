@@ -1154,7 +1154,7 @@ id|file
 suffix:semicolon
 id|rev.diffopt.file
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|out

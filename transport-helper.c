@@ -189,7 +189,7 @@ l_string|&quot;capabilities&bslash;n&quot;
 suffix:semicolon
 id|file
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|helper-&gt;out
@@ -371,7 +371,7 @@ id|FILE
 op_star
 id|file
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|helper-&gt;out
@@ -654,7 +654,7 @@ l_string|&quot;list&bslash;n&quot;
 suffix:semicolon
 id|file
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|helper-&gt;out

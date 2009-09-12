@@ -278,7 +278,7 @@ id|name
 suffix:semicolon
 id|output
 op_assign
-id|fdopen
+id|xfdopen
 c_func
 (paren
 id|fd
