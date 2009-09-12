@@ -10,7 +10,10 @@ id|git_usage_string
 (braket
 )braket
 op_assign
-l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path] [-p|--paginate|--no-pager] [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE] [--help] COMMAND [ARGS]&quot;
+l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]&bslash;n&quot;
+l_string|&quot;           [-p|--paginate|--no-pager]&bslash;n&quot;
+l_string|&quot;           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]&bslash;n&quot;
+l_string|&quot;           [--help] COMMAND [ARGS]&quot;
 suffix:semicolon
 DECL|variable|git_more_info_string
 r_const
