@@ -1461,7 +1461,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|copy_file
+id|copy_file_with_time
 c_func
 (paren
 id|dest-&gt;buf
