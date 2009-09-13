@@ -1,8 +1,8 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;walker.h&quot;
-DECL|function|cmd_http_fetch
+DECL|function|main
 r_int
-id|cmd_http_fetch
+id|main
 c_func
 (paren
 r_int
@@ -13,13 +13,13 @@ r_char
 op_star
 op_star
 id|argv
-comma
+)paren
+(brace
 r_const
 r_char
 op_star
 id|prefix
-)paren
-(brace
+suffix:semicolon
 r_struct
 id|walker
 op_star
@@ -91,6 +91,13 @@ r_int
 id|get_recover
 op_assign
 l_int|0
+suffix:semicolon
+id|prefix
+op_assign
+id|setup_git_directory
+c_func
+(paren
+)paren
 suffix:semicolon
 id|git_config
 c_func
