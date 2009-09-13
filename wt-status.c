@@ -223,6 +223,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|advice_status_hints
+)paren
+r_return
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|s-&gt;is_initial
 )paren
 id|color_fprintf_ln
@@ -303,6 +311,14 @@ id|c
 comma
 l_string|&quot;# Changes to be committed:&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|advice_status_hints
+)paren
+r_return
 suffix:semicolon
 r_if
 c_cond
@@ -390,6 +406,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|advice_status_hints
+)paren
+r_return
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|has_deleted
 )paren
 id|color_fprintf_ln
@@ -468,6 +492,14 @@ id|c
 comma
 l_string|&quot;# Untracked files:&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|advice_status_hints
+)paren
+r_return
 suffix:semicolon
 id|color_fprintf_ln
 c_func
