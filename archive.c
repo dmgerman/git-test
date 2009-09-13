@@ -1586,7 +1586,7 @@ comma
 id|OPT_STRING
 c_func
 (paren
-l_int|0
+l_char|&squot;o&squot;
 comma
 l_string|&quot;output&quot;
 comma
