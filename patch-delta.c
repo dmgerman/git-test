@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * patch-delta.c:&n; * recreate a buffer from a source and the delta produced by diff-delta.c&n; *&n; * (C) 2005 Nicolas Pitre &lt;nico@cam.org&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
+multiline_comment|/*&n; * patch-delta.c:&n; * recreate a buffer from a source and the delta produced by diff-delta.c&n; *&n; * (C) 2005 Nicolas Pitre &lt;nico@fluxnic.net&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;delta.h&quot;
 DECL|function|patch_delta
