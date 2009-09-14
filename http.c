@@ -4124,6 +4124,8 @@ suffix:semicolon
 r_char
 op_star
 id|url
+op_assign
+l_int|NULL
 suffix:semicolon
 r_struct
 id|strbuf
