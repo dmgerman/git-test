@@ -2322,11 +2322,8 @@ id|ws_blank_line
 c_func
 (paren
 id|line
-op_plus
-l_int|1
 comma
 id|len
-l_int|1
 comma
 id|ecbdata-&gt;ws_rule
 )paren
@@ -2390,7 +2387,7 @@ op_logical_neg
 op_star
 id|ws
 )paren
-id|emit_line
+id|emit_line_0
 c_func
 (paren
 id|ecbdata-&gt;file
@@ -2398,6 +2395,8 @@ comma
 id|set
 comma
 id|reset
+comma
+l_char|&squot;+&squot;
 comma
 id|line
 comma
@@ -2419,7 +2418,7 @@ id|len
 )paren
 )paren
 multiline_comment|/* Blank line at EOF - paint &squot;+&squot; as well */
-id|emit_line
+id|emit_line_0
 c_func
 (paren
 id|ecbdata-&gt;file
@@ -2427,6 +2426,8 @@ comma
 id|ws
 comma
 id|reset
+comma
+l_char|&squot;+&squot;
 comma
 id|line
 comma
@@ -2436,7 +2437,7 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/* Emit just the prefix, then the rest. */
-id|emit_line
+id|emit_line_0
 c_func
 (paren
 id|ecbdata-&gt;file
@@ -2445,20 +2446,19 @@ id|set
 comma
 id|reset
 comma
-id|line
+l_char|&squot;+&squot;
 comma
-l_int|1
+l_string|&quot;&quot;
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|ws_check_emit
 c_func
 (paren
 id|line
-op_plus
-l_int|1
 comma
 id|len
-l_int|1
 comma
 id|ecbdata-&gt;ws_rule
 comma
@@ -4191,8 +4191,11 @@ comma
 id|ecbdata
 comma
 id|line
+op_plus
+l_int|1
 comma
 id|len
+l_int|1
 )paren
 suffix:semicolon
 )brace
