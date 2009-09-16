@@ -695,7 +695,7 @@ id|st.st_mode
 r_return
 l_int|0
 suffix:semicolon
-macro_line|#ifdef __MINGW32__
+macro_line|#ifdef WIN32
 (brace
 multiline_comment|/* cannot trust the executable bit, peek into the file instead */
 r_char

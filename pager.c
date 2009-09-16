@@ -7,7 +7,7 @@ r_static
 r_int
 id|spawned_pager
 suffix:semicolon
-macro_line|#ifndef __MINGW32__
+macro_line|#ifndef WIN32
 DECL|function|pager_preexec
 r_static
 r_void
@@ -301,7 +301,7 @@ op_assign
 id|env
 suffix:semicolon
 )brace
-macro_line|#ifndef __MINGW32__
+macro_line|#ifndef WIN32
 id|pager_process.preexec_cb
 op_assign
 id|pager_preexec

@@ -260,7 +260,7 @@ id|path
 id|PATH_MAX
 )braket
 suffix:semicolon
-macro_line|#ifndef __MINGW32__
+macro_line|#ifndef WIN32
 r_if
 c_cond
 (paren

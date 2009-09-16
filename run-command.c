@@ -356,7 +356,7 @@ comma
 l_string|&quot;trace: run_command:&quot;
 )paren
 suffix:semicolon
-macro_line|#ifndef __MINGW32__
+macro_line|#ifndef WIN32
 id|fflush
 c_func
 (paren
@@ -1747,7 +1747,7 @@ id|cmd
 )paren
 suffix:semicolon
 )brace
-macro_line|#ifdef __MINGW32__
+macro_line|#ifdef WIN32
 DECL|function|run_thread
 r_static
 r_int
@@ -1828,7 +1828,7 @@ id|pipe_out
 l_int|0
 )braket
 suffix:semicolon
-macro_line|#ifndef __MINGW32__
+macro_line|#ifndef WIN32
 multiline_comment|/* Flush stdio before fork() to avoid cloning buffers */
 id|fflush
 c_func
@@ -1991,7 +1991,7 @@ op_star
 id|async
 )paren
 (brace
-macro_line|#ifndef __MINGW32__
+macro_line|#ifndef WIN32
 r_int
 id|ret
 op_assign
