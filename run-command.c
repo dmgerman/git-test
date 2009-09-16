@@ -714,6 +714,7 @@ id|errno
 )paren
 suffix:semicolon
 macro_line|#else
+(brace
 r_int
 id|s0
 op_assign
@@ -1141,6 +1142,7 @@ c_func
 id|s2
 )paren
 suffix:semicolon
+)brace
 macro_line|#endif
 r_if
 c_cond

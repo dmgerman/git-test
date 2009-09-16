@@ -1005,6 +1005,9 @@ suffix:semicolon
 r_int
 id|mode
 suffix:semicolon
+r_int
+id|fd
+suffix:semicolon
 id|va_start
 c_func
 (paren
@@ -1045,7 +1048,6 @@ id|filename
 op_assign
 l_string|&quot;nul&quot;
 suffix:semicolon
-r_int
 id|fd
 op_assign
 id|open
@@ -3522,6 +3524,13 @@ op_star
 id|path
 )paren
 (brace
+r_char
+op_star
+op_star
+id|p
+op_assign
+id|path
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3529,13 +3538,6 @@ op_logical_neg
 id|path
 )paren
 r_return
-suffix:semicolon
-r_char
-op_star
-op_star
-id|p
-op_assign
-id|path
 suffix:semicolon
 r_while
 c_loop
@@ -6462,6 +6464,11 @@ id|sig_handler_t
 id|handler
 )paren
 (brace
+id|sig_handler_t
+id|old
+op_assign
+id|timer_fn
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6477,11 +6484,6 @@ id|sig
 comma
 id|handler
 )paren
-suffix:semicolon
-id|sig_handler_t
-id|old
-op_assign
-id|timer_fn
 suffix:semicolon
 id|timer_fn
 op_assign
@@ -6936,6 +6938,9 @@ op_eq
 l_int|0
 )paren
 (brace
+id|DWORD
+id|lasterr
+suffix:semicolon
 id|handle
 op_assign
 id|FindFirstFileA
@@ -6947,7 +6952,6 @@ op_amp
 id|buf
 )paren
 suffix:semicolon
-id|DWORD
 id|lasterr
 op_assign
 id|GetLastError
