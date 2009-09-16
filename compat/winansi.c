@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * Copyright 2008 Peter Harris &lt;git@peter.is-a-geek.org&gt;&n; */
-macro_line|#include &lt;windows.h&gt;
 macro_line|#include &quot;../git-compat-util.h&quot;
 multiline_comment|/*&n; Functions to be wrapped:&n;*/
 DECL|macro|printf

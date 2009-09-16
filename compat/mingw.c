@@ -2,6 +2,7 @@ macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#include &quot;win32.h&quot;
 macro_line|#include &lt;conio.h&gt;
 macro_line|#include &quot;../strbuf.h&quot;
+macro_line|#include &lt;shellapi.h&gt;
 DECL|function|err_win_to_posix
 r_static
 r_int
