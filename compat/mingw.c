@@ -2,13 +2,6 @@ macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#include &quot;win32.h&quot;
 macro_line|#include &lt;conio.h&gt;
 macro_line|#include &quot;../strbuf.h&quot;
-DECL|variable|_CRT_fmode
-r_int
-r_int
-id|_CRT_fmode
-op_assign
-id|_O_BINARY
-suffix:semicolon
 DECL|function|err_win_to_posix
 r_static
 r_int
