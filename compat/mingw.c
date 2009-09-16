@@ -5941,8 +5941,8 @@ suffix:semicolon
 multiline_comment|/* The timer works like this:&n; * The thread, ticktack(), is a trivial routine that most of the time&n; * only waits to receive the signal to terminate. The main thread tells&n; * the thread to terminate by setting the timer_event to the signalled&n; * state.&n; * But ticktack() interrupts the wait state after the timer&squot;s interval&n; * length to call the signal handler.&n; */
 DECL|function|ticktack
 r_static
-id|__stdcall
 r_int
+id|__stdcall
 id|ticktack
 c_func
 (paren
@@ -6633,8 +6633,8 @@ id|newpath
 (brace
 r_typedef
 id|BOOL
-id|WINAPI
 (paren
+id|WINAPI
 op_star
 id|T
 )paren

@@ -1750,8 +1750,8 @@ suffix:semicolon
 macro_line|#ifdef __MINGW32__
 DECL|function|run_thread
 r_static
-id|__stdcall
 r_int
+id|__stdcall
 id|run_thread
 c_func
 (paren
