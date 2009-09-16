@@ -810,7 +810,7 @@ op_logical_neg
 id|obj
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -820,7 +820,7 @@ op_amp
 id|FLAG_WRITTEN
 )paren
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -888,7 +888,7 @@ op_or_assign
 id|FLAG_WRITTEN
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 r_if
@@ -913,7 +913,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|fsck_walk
 c_func
 (paren
@@ -943,7 +942,7 @@ id|obj
 )paren
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|write_rest
@@ -972,6 +971,17 @@ suffix:semicolon
 id|i
 op_increment
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|obj_list
+(braket
+id|i
+)braket
+dot
+id|obj
+)paren
 id|check_object
 c_func
 (paren
@@ -987,6 +997,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+)brace
 )brace
 r_static
 r_void
