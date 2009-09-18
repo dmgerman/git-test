@@ -28,7 +28,14 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;&bslash;&n;git pack-objects [{ -q | --progress | --all-progress }] &bslash;n&bslash;&n;&t;[--max-pack-size=N] [--local] [--incremental] &bslash;n&bslash;&n;&t;[--window=N] [--window-memory=N] [--depth=N] &bslash;n&bslash;&n;&t;[--no-reuse-delta] [--no-reuse-object] [--delta-base-offset] &bslash;n&bslash;&n;&t;[--threads=N] [--non-empty] [--revs [--unpacked | --all]*] [--reflog] &bslash;n&bslash;&n;&t;[--stdout | base-name] [--include-tag] &bslash;n&bslash;&n;&t;[--keep-unreachable | --unpack-unreachable] &bslash;n&bslash;&n;&t;[&lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;git pack-objects [{ -q | --progress | --all-progress }]&bslash;n&quot;
+l_string|&quot;        [--max-pack-size=N] [--local] [--incremental]&bslash;n&quot;
+l_string|&quot;        [--window=N] [--window-memory=N] [--depth=N]&bslash;n&quot;
+l_string|&quot;        [--no-reuse-delta] [--no-reuse-object] [--delta-base-offset]&bslash;n&quot;
+l_string|&quot;        [--threads=N] [--non-empty] [--revs [--unpacked | --all]*]&bslash;n&quot;
+l_string|&quot;        [--reflog] [--stdout | base-name] [--include-tag]&bslash;n&quot;
+l_string|&quot;        [--keep-unreachable | --unpack-unreachable &bslash;n&quot;
+l_string|&quot;        [&lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
