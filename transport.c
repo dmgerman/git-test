@@ -5583,6 +5583,11 @@ op_star
 id|nonfastforward
 )paren
 (brace
+op_star
+id|nonfastforward
+op_assign
+l_int|0
+suffix:semicolon
 id|verify_remote_names
 c_func
 (paren
