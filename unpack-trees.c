@@ -2795,7 +2795,7 @@ id|st.st_mode
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t; * We are checking out path &quot;foo&quot; and&n;&t;&t;&t; * found &quot;foo/.&quot; in the working tree.&n;&t;&t;&t; * This is tricky -- if we have modified&n;&t;&t;&t; * files that are in &quot;foo/&quot; we would lose&n;&t;&t;&t; * it.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * We are checking out path &quot;foo&quot; and&n;&t;&t;&t; * found &quot;foo/.&quot; in the working tree.&n;&t;&t;&t; * This is tricky -- if we have modified&n;&t;&t;&t; * files that are in &quot;foo/&quot; we would lose&n;&t;&t;&t; * them.&n;&t;&t;&t; */
 id|ret
 op_assign
 id|verify_clean_subdirectory
