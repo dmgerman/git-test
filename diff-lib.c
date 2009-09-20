@@ -1877,6 +1877,13 @@ suffix:colon
 l_string|&quot;w/&quot;
 )paren
 suffix:semicolon
+id|diffcore_fix_diff_index
+c_func
+(paren
+op_amp
+id|revs-&gt;diffopt
+)paren
+suffix:semicolon
 id|diffcore_std
 c_func
 (paren
