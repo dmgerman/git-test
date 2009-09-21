@@ -1,6 +1,5 @@
 multiline_comment|/*&n; * Simple random data generator used to create reproducible test files.&n; * This is inspired from POSIX.1-2001 implementation example for rand().&n; * Copyright (C) 2007 by Nicolas Pitre, licensed under the GPL version 2.&n; */
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;stdlib.h&gt;
+macro_line|#include &quot;git-compat-util.h&quot;
 DECL|function|main
 r_int
 id|main
