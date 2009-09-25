@@ -1372,6 +1372,16 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+multiline_comment|/* negation allowed? */
+r_if
+c_cond
+(paren
+id|options-&gt;flags
+op_amp
+id|PARSE_OPT_NONEG
+)paren
+r_continue
+suffix:semicolon
 multiline_comment|/* negated and abbreviated very much? */
 r_if
 c_cond
