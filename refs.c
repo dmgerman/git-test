@@ -4988,6 +4988,19 @@ id|fd
 OL
 l_int|0
 )paren
+(brace
+id|unable_to_lock_error
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;packed-refs&quot;
+)paren
+comma
+id|errno
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -4997,6 +5010,7 @@ comma
 id|refname
 )paren
 suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
