@@ -3936,12 +3936,28 @@ id|line
 r_int
 id|i
 suffix:semicolon
-id|rewind
+r_if
+c_cond
+(paren
+id|fseek
 c_func
 (paren
 id|cmitmsg
+comma
+l_int|0L
+comma
+id|SEEK_SET
+)paren
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;Could not rewind output message file&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|ftruncate
 c_func
 (paren
@@ -3952,6 +3968,12 @@ id|cmitmsg
 )paren
 comma
 l_int|0
+)paren
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;Could not truncate output message file at scissors&quot;
 )paren
 suffix:semicolon
 id|still_looking
