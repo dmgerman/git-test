@@ -170,7 +170,7 @@ suffix:semicolon
 multiline_comment|/* If we are in a dlopen()ed .so write to a global variable would segfault&n; * (ugh), so keep things static. */
 DECL|variable|usage_routine
 r_static
-id|NORETURN
+id|NORETURN_PTR
 r_void
 (paren
 op_star
@@ -187,7 +187,7 @@ id|usage_builtin
 suffix:semicolon
 DECL|variable|die_routine
 r_static
-id|NORETURN
+id|NORETURN_PTR
 r_void
 (paren
 op_star
@@ -248,7 +248,7 @@ r_void
 id|set_die_routine
 c_func
 (paren
-id|NORETURN
+id|NORETURN_PTR
 r_void
 (paren
 op_star
