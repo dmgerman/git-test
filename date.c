@@ -642,7 +642,7 @@ c_cond
 (paren
 id|diff
 OL
-l_int|360
+l_int|365
 )paren
 (brace
 id|snprintf
