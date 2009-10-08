@@ -9114,10 +9114,16 @@ r_char
 op_star
 id|endp
 suffix:semicolon
+r_int
+r_int
+id|num
+suffix:semicolon
 id|errno
 op_assign
 l_int|0
 suffix:semicolon
+id|num
+op_assign
 id|strtoul
 c_func
 (paren
@@ -9129,6 +9135,7 @@ comma
 l_int|10
 )paren
 suffix:semicolon
+multiline_comment|/* NEEDSWORK: perhaps check for reasonable values? */
 r_if
 c_cond
 (paren
@@ -9168,6 +9175,8 @@ l_char|&squot;+&squot;
 r_return
 l_int|1
 suffix:semicolon
+id|num
+op_assign
 id|strtoul
 c_func
 (paren
@@ -9189,6 +9198,8 @@ op_logical_or
 id|endp
 op_eq
 id|src
+op_plus
+l_int|1
 op_logical_or
 op_star
 id|endp
@@ -9199,6 +9210,10 @@ id|orig_src
 )paren
 op_ge
 id|maxlen
+op_logical_or
+l_int|1400
+OL
+id|num
 )paren
 r_return
 l_int|1
