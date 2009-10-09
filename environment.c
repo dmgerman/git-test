@@ -224,6 +224,11 @@ id|object_creation_mode
 op_assign
 id|OBJECT_CREATION_MODE
 suffix:semicolon
+DECL|variable|notes_ref_name
+r_char
+op_star
+id|notes_ref_name
+suffix:semicolon
 DECL|variable|grafts_replace_parents
 r_int
 id|grafts_replace_parents
