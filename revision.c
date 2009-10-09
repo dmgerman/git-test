@@ -6136,6 +6136,10 @@ id|revs-&gt;date_mode
 op_assign
 id|DATE_RELATIVE
 suffix:semicolon
+id|revs-&gt;date_mode_explicit
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -6162,6 +6166,10 @@ id|arg
 op_plus
 l_int|7
 )paren
+suffix:semicolon
+id|revs-&gt;date_mode_explicit
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 r_else
