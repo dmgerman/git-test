@@ -907,6 +907,7 @@ id|pack_header
 suffix:semicolon
 )brace
 r_static
+id|NORETURN
 r_void
 id|bad_object
 c_func
@@ -924,7 +925,6 @@ dot
 dot
 dot
 )paren
-id|NORETURN
 id|__attribute__
 c_func
 (paren
