@@ -5374,6 +5374,10 @@ comma
 id|sb
 comma
 id|encoding
+comma
+id|NOTES_SHOW_HEADER
+op_or
+id|NOTES_INDENT
 )paren
 suffix:semicolon
 id|free

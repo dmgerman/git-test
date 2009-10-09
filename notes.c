@@ -573,6 +573,9 @@ r_const
 r_char
 op_star
 id|output_encoding
+comma
+r_int
+id|flags
 )paren
 (brace
 r_static
@@ -786,6 +789,13 @@ l_char|&squot;&bslash;n&squot;
 id|msglen
 op_decrement
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|NOTES_SHOW_HEADER
+)paren
 id|strbuf_addstr
 c_func
 (paren
@@ -825,6 +835,13 @@ l_char|&squot;&bslash;n&squot;
 )paren
 id|msg_p
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|NOTES_INDENT
+)paren
 id|strbuf_addstr
 c_func
 (paren
