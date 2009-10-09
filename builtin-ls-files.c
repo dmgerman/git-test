@@ -2731,26 +2731,12 @@ op_logical_and
 op_logical_neg
 id|exc_given
 )paren
-(brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;%s: --ignored needs some exclude pattern&bslash;n&quot;
-comma
-id|argv
-(braket
-l_int|0
-)braket
+l_string|&quot;ls-files --ignored needs some exclude pattern&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 multiline_comment|/* With no flags, we default to showing the cached files */
 r_if
 c_cond
