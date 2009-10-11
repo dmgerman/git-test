@@ -3378,7 +3378,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/* First, if there&squot;s a #16 situation, note that to prevent #13&n;&t; * and #14.&n;&t; */
+multiline_comment|/*&n;&t; * First, if there&squot;s a #16 situation, note that to prevent #13&n;&t; * and #14.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3449,7 +3449,7 @@ suffix:semicolon
 )brace
 )brace
 )brace
-multiline_comment|/* We start with cases where the index is allowed to match&n;&t; * something other than the head: #14(ALT) and #2ALT, where it&n;&t; * is permitted to match the result instead.&n;&t; */
+multiline_comment|/*&n;&t; * We start with cases where the index is allowed to match&n;&t; * something other than the head: #14(ALT) and #2ALT, where it&n;&t; * is permitted to match the result instead.&n;&t; */
 multiline_comment|/* #14, #14ALT, #2ALT */
 r_if
 c_cond
@@ -3611,7 +3611,7 @@ id|any_anc_missing
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/* Under the new &quot;aggressive&quot; rule, we resolve mostly trivial&n;&t; * cases that we historically had git-merge-one-file resolve.&n;&t; */
+multiline_comment|/*&n;&t; * Under the &quot;aggressive&quot; rule, we resolve mostly trivial&n;&t; * cases that we historically had git-merge-one-file resolve.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3623,18 +3623,12 @@ id|head_deleted
 op_assign
 op_logical_neg
 id|head
-op_logical_and
-op_logical_neg
-id|df_conflict_head
 suffix:semicolon
 r_int
 id|remote_deleted
 op_assign
 op_logical_neg
 id|remote
-op_logical_and
-op_logical_neg
-id|df_conflict_remote
 suffix:semicolon
 r_struct
 id|cache_entry
