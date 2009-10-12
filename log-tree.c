@@ -268,6 +268,15 @@ op_amp
 id|flags
 )paren
 suffix:semicolon
+id|head_ref
+c_func
+(paren
+id|add_ref_decoration
+comma
+op_amp
+id|flags
+)paren
+suffix:semicolon
 )brace
 )brace
 DECL|function|show_parents
