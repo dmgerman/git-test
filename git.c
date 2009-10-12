@@ -11,7 +11,7 @@ id|git_usage_string
 )braket
 op_assign
 l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]&bslash;n&quot;
-l_string|&quot;           [-p|--paginate|--no-pager]&bslash;n&quot;
+l_string|&quot;           [-p|--paginate|--no-pager] [--no-replace-objects]&bslash;n&quot;
 l_string|&quot;           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]&bslash;n&quot;
 l_string|&quot;           [--help] COMMAND [ARGS]&quot;
 suffix:semicolon
@@ -417,6 +417,25 @@ op_star
 id|envchanged
 op_assign
 l_int|1
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|cmd
+comma
+l_string|&quot;--no-replace-objects&quot;
+)paren
+)paren
+(brace
+id|read_replace_refs
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 r_else
