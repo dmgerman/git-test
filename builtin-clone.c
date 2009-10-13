@@ -3359,7 +3359,7 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|remote_head-&gt;old_sha1
+id|our_head_points_at-&gt;old_sha1
 )paren
 comma
 l_string|&quot;1&quot;
