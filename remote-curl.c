@@ -424,6 +424,15 @@ id|walker
 op_assign
 l_int|NULL
 suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 id|setup_git_directory
 c_func
 (paren
