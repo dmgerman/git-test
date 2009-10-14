@@ -703,8 +703,13 @@ id|graft
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
+(paren
+id|len
+op_logical_and
+id|isspace
+c_func
 (paren
 id|buf
 (braket
@@ -712,8 +717,7 @@ id|len
 op_minus
 l_int|1
 )braket
-op_eq
-l_char|&squot;&bslash;n&squot;
+)paren
 )paren
 id|buf
 (braket
@@ -721,7 +725,7 @@ op_decrement
 id|len
 )braket
 op_assign
-l_int|0
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 r_if
 c_cond
