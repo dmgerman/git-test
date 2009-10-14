@@ -3,6 +3,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;walker.h&quot;
 macro_line|#include &quot;http.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|get_refs
 r_static
 r_struct
@@ -423,6 +424,15 @@ op_star
 id|walker
 op_assign
 l_int|NULL
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
 id|setup_git_directory
 c_func
