@@ -4196,7 +4196,7 @@ op_star
 id|commit
 comma
 r_const
-r_void
+r_char
 op_star
 id|format
 comma
