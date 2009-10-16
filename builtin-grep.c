@@ -2997,6 +2997,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|sb
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|patterns
 op_assign
