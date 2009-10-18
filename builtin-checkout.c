@@ -3423,6 +3423,11 @@ id|patch_mode
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|dwim_new_local_branch
+op_assign
+l_int|1
+suffix:semicolon
 r_struct
 id|option
 id|options
@@ -3563,6 +3568,25 @@ id|patch_mode
 comma
 l_string|&quot;select hunks interactively&quot;
 )paren
+comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_int|0
+comma
+l_string|&quot;guess&quot;
+comma
+op_amp
+id|dwim_new_local_branch
+comma
+l_int|NULL
+comma
+l_string|&quot;second guess &squot;git checkout no-such-branch&squot;&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
 comma
 id|OPT_END
 c_func
@@ -3907,6 +3931,8 @@ c_cond
 (paren
 op_logical_neg
 id|patch_mode
+op_logical_and
+id|dwim_new_local_branch
 op_logical_and
 id|opts.track
 op_eq
