@@ -1402,6 +1402,14 @@ suffix:semicolon
 r_int
 id|fd
 suffix:semicolon
+r_struct
+id|pretty_print_context
+id|ctx
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -1540,6 +1548,14 @@ c_func
 l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
+id|ctx.abbrev
+op_assign
+id|rev.abbrev
+suffix:semicolon
+id|ctx.date_mode
+op_assign
+id|rev.date_mode
+suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
@@ -1600,15 +1616,8 @@ comma
 op_amp
 id|out
 comma
-id|rev.abbrev
-comma
-l_int|NULL
-comma
-l_int|NULL
-comma
-id|rev.date_mode
-comma
-l_int|0
+op_amp
+id|ctx
 )paren
 suffix:semicolon
 )brace
