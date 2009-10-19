@@ -17,7 +17,7 @@ id|push_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git push [--all | --mirror] [-n | --dry-run] [--porcelain] [--tags] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=&lt;repository&gt;] [-f | --force] [-v] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
+l_string|&quot;git push [&lt;options&gt;] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 comma
 l_int|NULL
 comma
