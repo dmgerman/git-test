@@ -7,6 +7,7 @@ macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;color.h&quot;
+macro_line|#include &quot;reflog-walk.h&quot;
 DECL|variable|user_format
 r_static
 r_char
@@ -4014,6 +4015,78 @@ suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+r_case
+l_char|&squot;g&squot;
+suffix:colon
+multiline_comment|/* reflog info */
+r_switch
+c_cond
+(paren
+id|placeholder
+(braket
+l_int|1
+)braket
+)paren
+(brace
+r_case
+l_char|&squot;d&squot;
+suffix:colon
+multiline_comment|/* reflog selector */
+r_case
+l_char|&squot;D&squot;
+suffix:colon
+r_if
+c_cond
+(paren
+id|c-&gt;pretty_ctx-&gt;reflog_info
+)paren
+id|get_reflog_selector
+c_func
+(paren
+id|sb
+comma
+id|c-&gt;pretty_ctx-&gt;reflog_info
+comma
+id|c-&gt;pretty_ctx-&gt;date_mode
+comma
+(paren
+id|placeholder
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;d&squot;
+)paren
+)paren
+suffix:semicolon
+r_return
+l_int|2
+suffix:semicolon
+r_case
+l_char|&squot;s&squot;
+suffix:colon
+multiline_comment|/* reflog message */
+r_if
+c_cond
+(paren
+id|c-&gt;pretty_ctx-&gt;reflog_info
+)paren
+id|get_reflog_message
+c_func
+(paren
+id|sb
+comma
+id|c-&gt;pretty_ctx-&gt;reflog_info
+)paren
+suffix:semicolon
+r_return
+l_int|2
+suffix:semicolon
+)brace
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* unknown %g placeholder */
 )brace
 multiline_comment|/* For the rest we have to parse the commit header. */
 r_if
