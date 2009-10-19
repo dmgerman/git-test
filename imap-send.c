@@ -275,6 +275,8 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|macro|DRV_OK
+macro_line|#undef DRV_OK
+DECL|macro|DRV_OK
 mdefine_line|#define DRV_OK          0
 DECL|macro|DRV_MSG_BAD
 mdefine_line|#define DRV_MSG_BAD     -1
