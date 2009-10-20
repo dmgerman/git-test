@@ -41,6 +41,8 @@ DECL|variable|check_full
 r_static
 r_int
 id|check_full
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|check_strict
 r_static
