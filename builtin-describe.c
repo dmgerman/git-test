@@ -1040,6 +1040,9 @@ c_cond
 (paren
 op_logical_neg
 id|found_names
+op_logical_and
+op_logical_neg
+id|always
 )paren
 id|die
 c_func
