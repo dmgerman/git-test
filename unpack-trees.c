@@ -3982,7 +3982,7 @@ r_return
 id|count
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Two-way merge.&n; *&n; * The rule is to &quot;carry forward&quot; what is in the index without losing&n; * information across a &quot;fast forward&quot;, favoring a successful merge&n; * over a merge failure when it makes sense.  For details of the&n; * &quot;carry forward&quot; rule, please see &lt;Documentation/git-read-tree.txt&gt;.&n; *&n; */
+multiline_comment|/*&n; * Two-way merge.&n; *&n; * The rule is to &quot;carry forward&quot; what is in the index without losing&n; * information across a &quot;fast-forward&quot;, favoring a successful merge&n; * over a merge failure when it makes sense.  For details of the&n; * &quot;carry forward&quot; rule, please see &lt;Documentation/git-read-tree.txt&gt;.&n; *&n; */
 DECL|function|twoway_merge
 r_int
 id|twoway_merge

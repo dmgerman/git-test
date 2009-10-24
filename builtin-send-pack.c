@@ -1303,7 +1303,7 @@ id|ref
 comma
 id|ref-&gt;peer_ref
 comma
-l_string|&quot;non-fast forward&quot;
+l_string|&quot;non-fast-forward&quot;
 )paren
 suffix:semicolon
 r_break

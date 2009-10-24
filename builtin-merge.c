@@ -892,7 +892,7 @@ comma
 op_amp
 id|allow_fast_forward
 comma
-l_string|&quot;allow fast forward (default)&quot;
+l_string|&quot;allow fast-forward (default)&quot;
 )paren
 comma
 id|OPT_CALLBACK
@@ -6008,7 +6008,7 @@ c_func
 op_amp
 id|msg
 comma
-l_string|&quot;Fast forward&quot;
+l_string|&quot;Fast-forward&quot;
 )paren
 suffix:semicolon
 r_if
@@ -6093,7 +6093,7 @@ op_logical_and
 id|common-&gt;next
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We are not doing octopus and not fast forward.  Need&n;&t;&t; * a real merge.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are not doing octopus and not fast-forward.  Need&n;&t;&t; * a real merge.&n;&t;&t; */
 r_else
 r_if
 c_cond
@@ -6107,7 +6107,7 @@ op_logical_and
 id|option_commit
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We are not doing octopus, not fast forward, and have&n;&t;&t; * only one common.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are not doing octopus, not fast-forward, and have&n;&t;&t; * only one common.&n;&t;&t; */
 id|refresh_cache
 c_func
 (paren

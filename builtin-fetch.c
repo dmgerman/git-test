@@ -1448,7 +1448,7 @@ op_assign
 id|s_update_ref
 c_func
 (paren
-l_string|&quot;fast forward&quot;
+l_string|&quot;fast-forward&quot;
 comma
 id|ref
 comma
@@ -1600,7 +1600,7 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;! %-*s %-*s -&gt; %s  (non fast forward)&quot;
+l_string|&quot;! %-*s %-*s -&gt; %s  (non-fast-forward)&quot;
 comma
 id|SUMMARY_WIDTH
 comma
