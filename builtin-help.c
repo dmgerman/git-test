@@ -2124,6 +2124,12 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;no info viewer handled the request&quot;
+)paren
+suffix:semicolon
 )brace
 DECL|function|get_html_page_path
 r_static
