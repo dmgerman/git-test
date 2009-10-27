@@ -1330,6 +1330,15 @@ op_assign
 op_amp
 id|revs
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs.bisect
+)paren
+id|bisect_list
+op_assign
+l_int|1
+suffix:semicolon
 id|quiet
 op_assign
 id|DIFF_OPT_TST
