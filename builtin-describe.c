@@ -467,19 +467,6 @@ id|prio
 r_return
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|tags
-op_logical_and
-id|prio
-OL
-l_int|2
-)paren
-r_return
-l_int|0
-suffix:semicolon
 )brace
 id|add_to_known_names
 c_func
@@ -966,6 +953,12 @@ id|seen_commits
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+r_int
+id|unannotated_cnt
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1141,6 +1134,25 @@ c_cond
 id|n
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|tags
+op_logical_and
+op_logical_neg
+id|all
+op_logical_and
+id|n-&gt;prio
+OL
+l_int|2
+)paren
+(brace
+id|unannotated_cnt
+op_increment
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren
@@ -1362,10 +1374,30 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|unannotated_cnt
+)paren
 id|die
 c_func
 (paren
-l_string|&quot;cannot describe &squot;%s&squot;&quot;
+l_string|&quot;No annotated tags can describe &squot;%s&squot;.&bslash;n&quot;
+l_string|&quot;However, there were unannotated tags: try --tags.&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;No tags can describe &squot;%s&squot;.&bslash;n&quot;
+l_string|&quot;Try --always, or create some tags.&quot;
 comma
 id|sha1_to_hex
 c_func
