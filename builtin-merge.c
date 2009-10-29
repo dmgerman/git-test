@@ -84,6 +84,11 @@ id|allow_fast_forward
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|fast_forward_only
+r_static
+r_int
+id|fast_forward_only
+suffix:semicolon
 DECL|variable|allow_trivial
 DECL|variable|have_message
 r_static
@@ -893,6 +898,19 @@ op_amp
 id|allow_fast_forward
 comma
 l_string|&quot;allow fast forward (default)&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ff-only&quot;
+comma
+op_amp
+id|fast_forward_only
+comma
+l_string|&quot;abort if fast forward is not possible&quot;
 )paren
 comma
 id|OPT_CALLBACK
@@ -5304,6 +5322,20 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|allow_fast_forward
+op_logical_and
+id|fast_forward_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;You cannot combine --no-ff with --ff-only.&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|argc
 )paren
 id|usage_with_options
@@ -6118,6 +6150,9 @@ r_if
 c_cond
 (paren
 id|allow_trivial
+op_logical_and
+op_logical_neg
+id|fast_forward_only
 )paren
 (brace
 multiline_comment|/* See if it is really trivial. */
@@ -6247,6 +6282,17 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|fast_forward_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Not possible to fast forward, aborting.&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* We are going to make a new commit. */
 id|git_committer_info
 c_func
