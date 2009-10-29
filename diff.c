@@ -3738,6 +3738,24 @@ op_eq
 l_char|&squot; &squot;
 )paren
 (brace
+multiline_comment|/* flush --color-words even for --unified=0 */
+r_if
+c_cond
+(paren
+id|ecbdata-&gt;diff_words
+op_logical_and
+(paren
+id|ecbdata-&gt;diff_words-&gt;minus.text.size
+op_logical_or
+id|ecbdata-&gt;diff_words-&gt;plus.text.size
+)paren
+)paren
+id|diff_words_show
+c_func
+(paren
+id|ecbdata-&gt;diff_words
+)paren
+suffix:semicolon
 id|ecbdata-&gt;nparents
 op_assign
 id|i
