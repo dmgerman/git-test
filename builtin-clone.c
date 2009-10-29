@@ -2056,13 +2056,34 @@ r_if
 c_cond
 (paren
 id|argc
+OG
+l_int|2
+)paren
+id|usage_msg_opt
+c_func
+(paren
+l_string|&quot;Too many arguments.&quot;
+comma
+id|builtin_clone_usage
+comma
+id|builtin_clone_options
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
 op_eq
 l_int|0
 )paren
-id|die
+id|usage_msg_opt
 c_func
 (paren
 l_string|&quot;You must specify a repository to clone.&quot;
+comma
+id|builtin_clone_usage
+comma
+id|builtin_clone_options
 )paren
 suffix:semicolon
 r_if
