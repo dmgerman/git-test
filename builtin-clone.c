@@ -151,9 +151,9 @@ comma
 l_string|&quot;create a bare repository&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;naked&quot;
@@ -161,8 +161,14 @@ comma
 op_amp
 id|option_bare
 comma
+l_int|NULL
+comma
 l_string|&quot;create a bare repository&quot;
-)paren
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -226,7 +232,7 @@ comma
 op_amp
 id|option_recursive
 comma
-l_string|&quot;setup as shared repository&quot;
+l_string|&quot;initialize submodules in the clone&quot;
 )paren
 comma
 id|OPT_STRING
