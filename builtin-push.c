@@ -951,7 +951,7 @@ comma
 op_amp
 id|tags
 comma
-l_string|&quot;push tags (can&squot;t be used with --all or --mirror&quot;
+l_string|&quot;push tags (can&squot;t be used with --all or --mirror)&quot;
 )paren
 comma
 id|OPT_BIT
