@@ -1,6 +1,10 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#ifndef DEFAULT_PAGER
+DECL|macro|DEFAULT_PAGER
+mdefine_line|#define DEFAULT_PAGER &quot;less&quot;
+macro_line|#endif
 multiline_comment|/*&n; * This is split up from the rest of git so that we can do&n; * something different on Windows.&n; */
 DECL|variable|spawned_pager
 r_static
@@ -234,7 +238,7 @@ id|pager
 )paren
 id|pager
 op_assign
-l_string|&quot;less&quot;
+id|DEFAULT_PAGER
 suffix:semicolon
 r_else
 r_if
