@@ -2666,11 +2666,6 @@ l_int|20
 )braket
 suffix:semicolon
 r_char
-id|hex
-(braket
-l_int|41
-)braket
-comma
 id|last_hex
 (braket
 l_int|41
@@ -2784,6 +2779,36 @@ c_func
 (paren
 )paren
 )paren
+(brace
+r_const
+r_char
+op_star
+id|hex
+op_assign
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|multi_ack
+op_eq
+l_int|2
+)paren
+id|packet_write
+c_func
+(paren
+l_int|1
+comma
+l_string|&quot;ACK %s ready&bslash;n&quot;
+comma
+id|hex
+)paren
+suffix:semicolon
+r_else
 id|packet_write
 c_func
 (paren
@@ -2791,13 +2816,10 @@ l_int|1
 comma
 l_string|&quot;ACK %s continue&bslash;n&quot;
 comma
-id|sha1_to_hex
-c_func
-(paren
-id|sha1
-)paren
+id|hex
 )paren
 suffix:semicolon
+)brace
 r_break
 suffix:semicolon
 r_default
@@ -2805,7 +2827,7 @@ suffix:colon
 id|memcpy
 c_func
 (paren
-id|hex
+id|last_hex
 comma
 id|sha1_to_hex
 c_func
@@ -2820,36 +2842,35 @@ r_if
 c_cond
 (paren
 id|multi_ack
+op_eq
+l_int|2
 )paren
-(brace
-r_const
-r_char
-op_star
-id|msg
-op_assign
-l_string|&quot;ACK %s continue&bslash;n&quot;
-suffix:semicolon
 id|packet_write
 c_func
 (paren
 l_int|1
 comma
-id|msg
+l_string|&quot;ACK %s common&bslash;n&quot;
 comma
-id|hex
+id|last_hex
 )paren
 suffix:semicolon
-id|memcpy
+r_else
+r_if
+c_cond
+(paren
+id|multi_ack
+)paren
+id|packet_write
 c_func
 (paren
+l_int|1
+comma
+l_string|&quot;ACK %s continue&bslash;n&quot;
+comma
 id|last_hex
-comma
-id|hex
-comma
-l_int|41
 )paren
 suffix:semicolon
-)brace
 r_else
 r_if
 c_cond
@@ -2865,7 +2886,7 @@ l_int|1
 comma
 l_string|&quot;ACK %s&bslash;n&quot;
 comma
-id|hex
+id|last_hex
 )paren
 suffix:semicolon
 r_break
@@ -3222,6 +3243,24 @@ comma
 id|line
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|line
+op_plus
+l_int|45
+comma
+l_string|&quot;multi_ack_detailed&quot;
+)paren
+)paren
+id|multi_ack
+op_assign
+l_int|2
+suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -3775,7 +3814,7 @@ id|capabilities
 op_assign
 l_string|&quot;multi_ack thin-pack side-band&quot;
 l_string|&quot; side-band-64k ofs-delta shallow no-progress&quot;
-l_string|&quot; include-tag&quot;
+l_string|&quot; include-tag multi_ack_detailed&quot;
 suffix:semicolon
 r_struct
 id|object
