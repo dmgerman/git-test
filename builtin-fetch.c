@@ -3644,7 +3644,14 @@ l_int|2
 )paren
 id|transport-&gt;verbose
 op_assign
-l_int|1
+id|verbosity
+op_le
+l_int|3
+ques
+c_cond
+id|verbosity
+suffix:colon
+l_int|3
 suffix:semicolon
 r_if
 c_cond
