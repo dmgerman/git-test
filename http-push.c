@@ -2690,7 +2690,7 @@ c_func
 (paren
 id|preq
 )paren
-OG
+op_eq
 l_int|0
 )paren
 id|fail
