@@ -1,6 +1,10 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#ifndef DEFAULT_EDITOR
+DECL|macro|DEFAULT_EDITOR
+mdefine_line|#define DEFAULT_EDITOR &quot;vi&quot;
+macro_line|#endif
 DECL|function|git_editor
 r_const
 r_char
@@ -110,7 +114,7 @@ id|editor
 )paren
 id|editor
 op_assign
-l_string|&quot;vi&quot;
+id|DEFAULT_EDITOR
 suffix:semicolon
 r_return
 id|editor
