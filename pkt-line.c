@@ -616,7 +616,9 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;protocol error: bad line length character&quot;
+l_string|&quot;protocol error: bad line length character: %.4s&quot;
+comma
+id|linelen
 )paren
 suffix:semicolon
 r_if
