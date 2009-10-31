@@ -1452,6 +1452,16 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|buf.len
+op_eq
+l_int|0
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|transport-&gt;verbose
 op_assign
 id|flags
