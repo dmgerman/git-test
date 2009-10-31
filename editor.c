@@ -176,7 +176,7 @@ c_func
 (paren
 id|editor
 comma
-l_string|&quot;$ &bslash;t&squot;&quot;
+l_string|&quot;|&amp;;&lt;&gt;()$`&bslash;&bslash;&bslash;&quot;&squot; &bslash;t&bslash;n*?[#~=%&quot;
 )paren
 op_ne
 id|len
