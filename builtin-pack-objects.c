@@ -7531,6 +7531,20 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|delta_search_threads
+)paren
+multiline_comment|/* --threads=0 means autodetect */
+id|delta_search_threads
+op_assign
+id|online_cpus
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|delta_search_threads
 op_le
 l_int|1
@@ -11223,22 +11237,6 @@ c_func
 l_string|&quot;--keep-unreachable and --unpack-unreachable are incompatible.&quot;
 )paren
 suffix:semicolon
-macro_line|#ifdef THREADED_DELTA_SEARCH
-r_if
-c_cond
-(paren
-op_logical_neg
-id|delta_search_threads
-)paren
-multiline_comment|/* --threads=0 means autodetect */
-id|delta_search_threads
-op_assign
-id|online_cpus
-c_func
-(paren
-)paren
-suffix:semicolon
-macro_line|#endif
 id|prepare_packed_git
 c_func
 (paren
