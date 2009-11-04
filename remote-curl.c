@@ -425,6 +425,9 @@ id|walker
 op_assign
 l_int|NULL
 suffix:semicolon
+r_int
+id|nongit
+suffix:semicolon
 id|git_extract_argv0_path
 c_func
 (paren
@@ -434,9 +437,11 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-id|setup_git_directory
+id|setup_git_directory_gently
 c_func
 (paren
+op_amp
+id|nongit
 )paren
 suffix:semicolon
 r_if
@@ -539,6 +544,17 @@ id|strlen
 c_func
 (paren
 l_string|&quot;fetch &quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|nongit
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Fetch attempted without a local repo&quot;
 )paren
 suffix:semicolon
 r_if
