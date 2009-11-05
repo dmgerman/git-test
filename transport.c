@@ -4599,6 +4599,18 @@ id|ret
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|remote
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;No remote provided to transport_get()&quot;
+)paren
+suffix:semicolon
 id|ret-&gt;remote
 op_assign
 id|remote
@@ -4796,8 +4808,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote
-op_logical_and
 id|remote-&gt;uploadpack
 )paren
 id|data-&gt;uploadpack
@@ -4811,8 +4821,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote
-op_logical_and
 id|remote-&gt;receivepack
 )paren
 id|data-&gt;receivepack
