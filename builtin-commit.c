@@ -2862,6 +2862,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|i
+op_logical_or
+op_logical_neg
 id|ends_rfc2822_footer
 c_func
 (paren
