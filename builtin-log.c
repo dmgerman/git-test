@@ -4864,19 +4864,6 @@ comma
 id|OPT_BOOLEAN
 c_func
 (paren
-l_char|&squot;p&squot;
-comma
-l_int|NULL
-comma
-op_amp
-id|use_patch_format
-comma
-l_string|&quot;show patch format instead of default (patch + stat)&quot;
-)paren
-comma
-id|OPT_BOOLEAN
-c_func
-(paren
 l_int|0
 comma
 l_string|&quot;ignore-if-in-upstream&quot;
@@ -4885,6 +4872,19 @@ op_amp
 id|ignore_if_in_upstream
 comma
 l_string|&quot;don&squot;t include a patch matching a commit upstream&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;p&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|use_patch_format
+comma
+l_string|&quot;show patch format instead of default (patch + stat)&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -5456,15 +5456,48 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|use_patch_format
-)paren
 id|rev.diffopt.output_format
-op_or_assign
-id|DIFF_FORMAT_PATCH
+op_amp
+id|DIFF_FORMAT_NAME
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--name-only does not make sense&quot;
+)paren
 suffix:semicolon
-r_else
 r_if
 c_cond
+(paren
+id|rev.diffopt.output_format
+op_amp
+id|DIFF_FORMAT_NAME_STATUS
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--name-status does not make sense&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|rev.diffopt.output_format
+op_amp
+id|DIFF_FORMAT_CHECKDIFF
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--check does not make sense&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|use_patch_format
+op_logical_and
 (paren
 op_logical_neg
 id|rev.diffopt.output_format
@@ -5473,12 +5506,16 @@ id|rev.diffopt.output_format
 op_eq
 id|DIFF_FORMAT_PATCH
 )paren
+)paren
 id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_DIFFSTAT
 op_or
 id|DIFF_FORMAT_SUMMARY
-op_or
+suffix:semicolon
+multiline_comment|/* Always generate a patch */
+id|rev.diffopt.output_format
+op_or_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
 r_if
