@@ -4874,18 +4874,24 @@ comma
 l_string|&quot;don&squot;t include a patch matching a commit upstream&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_char|&squot;p&squot;
 comma
-l_int|NULL
+l_string|&quot;no-stat&quot;
 comma
 op_amp
 id|use_patch_format
 comma
+l_int|NULL
+comma
 l_string|&quot;show patch format instead of default (patch + stat)&quot;
-)paren
+comma
+id|PARSE_OPT_NONEG
+op_or
+id|PARSE_OPT_NOARG
+)brace
 comma
 id|OPT_GROUP
 c_func
