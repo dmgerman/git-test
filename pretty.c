@@ -3511,8 +3511,6 @@ r_if
 c_cond
 (paren
 id|c-&gt;wrap_start
-op_logical_and
-id|c-&gt;wrap_start
 OL
 id|sb-&gt;len
 )paren
