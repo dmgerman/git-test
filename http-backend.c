@@ -1093,10 +1093,10 @@ id|buf-&gt;len
 )paren
 suffix:semicolon
 )brace
-DECL|function|send_file
+DECL|function|send_local_file
 r_static
 r_void
-id|send_file
+id|send_local_file
 c_func
 (paren
 r_const
@@ -1325,7 +1325,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|send_file
+id|send_local_file
 c_func
 (paren
 l_string|&quot;text/plain&quot;
@@ -1355,7 +1355,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|send_file
+id|send_local_file
 c_func
 (paren
 l_string|&quot;application/x-git-loose-object&quot;
@@ -1385,7 +1385,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|send_file
+id|send_local_file
 c_func
 (paren
 l_string|&quot;application/x-git-packed-objects&quot;
@@ -1415,7 +1415,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|send_file
+id|send_local_file
 c_func
 (paren
 l_string|&quot;application/x-git-packed-objects-toc&quot;
