@@ -3,6 +3,17 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
+DECL|variable|builtin_check_ref_format_usage
+r_static
+r_const
+r_char
+id|builtin_check_ref_format_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git check-ref-format [--print] &lt;refname&gt;&bslash;n&quot;
+l_string|&quot;   or: git check-ref-format --branch &lt;branchname-shorthand&gt;&quot;
+suffix:semicolon
 DECL|function|cmd_check_ref_format
 r_int
 id|cmd_check_ref_format
@@ -101,7 +112,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git check-ref-format refname&quot;
+id|builtin_check_ref_format_usage
 )paren
 suffix:semicolon
 r_return
