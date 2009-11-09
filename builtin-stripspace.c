@@ -287,8 +287,8 @@ r_if
 c_cond
 (paren
 id|argc
-OG
-l_int|1
+op_eq
+l_int|2
 op_logical_and
 (paren
 op_logical_neg
@@ -319,6 +319,20 @@ l_string|&quot;--strip-comments&quot;
 id|strip_comments
 op_assign
 l_int|1
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|argc
+OG
+l_int|1
+)paren
+id|usage
+c_func
+(paren
+l_string|&quot;git stripspace [-s | --strip-comments] &lt; &lt;stream&gt;&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
