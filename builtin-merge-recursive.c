@@ -194,10 +194,10 @@ id|argc
 OL
 l_int|4
 )paren
-id|die
+id|usagef
 c_func
 (paren
-l_string|&quot;Usage: %s &lt;base&gt;... -- &lt;head&gt; &lt;remote&gt; ...&quot;
+l_string|&quot;%s &lt;base&gt;... -- &lt;head&gt; &lt;remote&gt; ...&quot;
 comma
 id|argv
 (braket
