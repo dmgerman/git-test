@@ -24,6 +24,8 @@ l_string|&quot;git fetch [options] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
 comma
 l_string|&quot;git fetch [options] &lt;group&gt;&quot;
 comma
+l_string|&quot;git fetch --multiple [options] [&lt;repository&gt; | &lt;group&gt;]...&quot;
+comma
 l_string|&quot;git fetch --all [options]&quot;
 comma
 l_int|NULL
@@ -51,6 +53,7 @@ DECL|variable|all
 DECL|variable|append
 DECL|variable|force
 DECL|variable|keep
+DECL|variable|multiple
 DECL|variable|update_head_ok
 DECL|variable|verbosity
 r_static
@@ -62,6 +65,8 @@ comma
 id|force
 comma
 id|keep
+comma
+id|multiple
 comma
 id|update_head_ok
 comma
@@ -171,6 +176,19 @@ op_amp
 id|force
 comma
 l_string|&quot;force overwrite of local branch&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;m&squot;
+comma
+l_string|&quot;multiple&quot;
+comma
+op_amp
+id|multiple
+comma
+l_string|&quot;fetch from multiple remotes&quot;
 )paren
 comma
 id|OPT_SET_INT
@@ -4463,6 +4481,65 @@ comma
 id|argc
 comma
 id|argv
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|multiple
+)paren
+(brace
+multiline_comment|/* All arguments are assumed to be remotes or groups */
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|argc
+suffix:semicolon
+id|i
+op_increment
+)paren
+r_if
+c_cond
+(paren
+op_logical_neg
+id|add_remote_or_group
+c_func
+(paren
+id|argv
+(braket
+id|i
+)braket
+comma
+op_amp
+id|list
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;No such remote or remote group: %s&quot;
+comma
+id|argv
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+id|result
+op_assign
+id|fetch_multiple
+c_func
+(paren
+op_amp
+id|list
 )paren
 suffix:semicolon
 )brace
