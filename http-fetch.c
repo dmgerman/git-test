@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;walker.h&quot;
 DECL|function|main
 r_int
@@ -91,6 +92,15 @@ r_int
 id|get_recover
 op_assign
 l_int|0
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
 suffix:semicolon
 id|prefix
 op_assign
