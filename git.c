@@ -1753,14 +1753,6 @@ id|RUN_SETUP
 )brace
 comma
 (brace
-l_string|&quot;fetch--tool&quot;
-comma
-id|cmd_fetch__tool
-comma
-id|RUN_SETUP
-)brace
-comma
-(brace
 l_string|&quot;fmt-merge-msg&quot;
 comma
 id|cmd_fmt_merge_msg
