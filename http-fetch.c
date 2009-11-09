@@ -1,6 +1,17 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;walker.h&quot;
+DECL|variable|http_fetch_usage
+r_static
+r_const
+r_char
+id|http_fetch_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git http-fetch &quot;
+l_string|&quot;[-c] [-t] [-a] [-v] [--recover] [-w ref] [--stdin] commit-id url&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -100,21 +111,6 @@ id|argv
 (braket
 l_int|0
 )braket
-)paren
-suffix:semicolon
-id|prefix
-op_assign
-id|setup_git_directory
-c_func
-(paren
-)paren
-suffix:semicolon
-id|git_config
-c_func
-(paren
-id|git_default_config
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 r_while
@@ -255,6 +251,28 @@ r_else
 r_if
 c_cond
 (paren
+id|argv
+(braket
+id|arg
+)braket
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;h&squot;
+)paren
+(brace
+id|usage
+c_func
+(paren
+id|http_fetch_usage
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 op_logical_neg
 id|strcmp
 c_func
@@ -303,23 +321,18 @@ r_if
 c_cond
 (paren
 id|argc
-OL
+op_ne
 id|arg
 op_plus
 l_int|2
 id|commits_on_stdin
 )paren
-(brace
 id|usage
 c_func
 (paren
-l_string|&quot;git http-fetch [-c] [-t] [-a] [-v] [--recover] [-w ref] [--stdin] commit-id url&quot;
+id|http_fetch_usage
 )paren
 suffix:semicolon
-r_return
-l_int|1
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -366,6 +379,21 @@ id|argv
 (braket
 id|arg
 )braket
+suffix:semicolon
+id|prefix
+op_assign
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 r_if
 c_cond
