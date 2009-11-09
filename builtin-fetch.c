@@ -3543,6 +3543,12 @@ id|list
 op_assign
 id|priv
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|remote-&gt;skip_default_update
+)paren
 id|string_list_append
 c_func
 (paren
