@@ -7005,6 +7005,8 @@ suffix:semicolon
 id|warn_dangling_symref
 c_func
 (paren
+id|stdout
+comma
 id|dangling_msg
 comma
 id|refname
