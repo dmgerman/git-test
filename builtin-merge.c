@@ -5151,11 +5151,6 @@ op_assign
 op_amp
 id|remoteheads
 suffix:semicolon
-id|setup_work_tree
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
