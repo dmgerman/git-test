@@ -4658,6 +4658,11 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_int
+id|use_patch_format
+op_assign
+l_int|0
+suffix:semicolon
 r_const
 r_struct
 id|option
@@ -4854,6 +4859,19 @@ op_amp
 id|no_binary_diff
 comma
 l_string|&quot;don&squot;t output binary diffs&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;p&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|use_patch_format
+comma
+l_string|&quot;show patch format instead of default (patch + stat)&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5435,6 +5453,16 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|use_patch_format
+)paren
+id|rev.diffopt.output_format
+op_or_assign
+id|DIFF_FORMAT_PATCH
+suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
