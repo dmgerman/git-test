@@ -102,7 +102,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
-id|IDENT_WARN_ON_NO_NAME
+l_int|0
 )paren
 )paren
 suffix:semicolon
