@@ -11,7 +11,7 @@ id|builtin_check_ref_format_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git check-ref-format [--print] &lt;refname&gt;&bslash;n&quot;
+l_string|&quot;git check-ref-format &lt;refname&gt;&bslash;n&quot;
 l_string|&quot;   or: git check-ref-format --branch &lt;branchname-shorthand&gt;&quot;
 suffix:semicolon
 DECL|function|cmd_check_ref_format
