@@ -4345,6 +4345,13 @@ c_func
 id|ref_map
 )paren
 suffix:semicolon
+id|ref_map
+op_assign
+id|prev
+suffix:semicolon
+multiline_comment|/* skip this; we freed it */
+r_continue
+suffix:semicolon
 )brace
 id|item
 op_assign
