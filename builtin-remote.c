@@ -31,7 +31,7 @@ l_string|&quot;git remote show [-n] &lt;name&gt;&quot;
 comma
 l_string|&quot;git remote prune [-n | --dry-run] &lt;name&gt;&quot;
 comma
-l_string|&quot;git remote [-v | --verbose] update [-p | --prune] [group]&quot;
+l_string|&quot;git remote [-v | --verbose] update [-p | --prune] [group | remote]&quot;
 comma
 l_int|NULL
 )brace
