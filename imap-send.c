@@ -1070,10 +1070,18 @@ r_return
 l_int|1
 suffix:semicolon
 macro_line|#else
+macro_line|#if (OPENSSL_VERSION_NUMBER &gt;= 0x10000000L)
+r_const
 id|SSL_METHOD
 op_star
 id|meth
 suffix:semicolon
+macro_line|#else
+id|SSL_METHOD
+op_star
+id|meth
+suffix:semicolon
+macro_line|#endif
 id|SSL_CTX
 op_star
 id|ctx
