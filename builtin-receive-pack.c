@@ -1712,14 +1712,14 @@ id|ent
 id|error
 c_func
 (paren
-l_string|&quot;denying non-fast forward %s&quot;
+l_string|&quot;denying non-fast-forward %s&quot;
 l_string|&quot; (you should pull first)&quot;
 comma
 id|name
 )paren
 suffix:semicolon
 r_return
-l_string|&quot;non-fast forward&quot;
+l_string|&quot;non-fast-forward&quot;
 suffix:semicolon
 )brace
 )brace

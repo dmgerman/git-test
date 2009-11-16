@@ -5661,7 +5661,7 @@ id|PUSH_STATUS_FASTFORWARD
 suffix:colon
 id|status
 op_assign
-l_string|&quot;fast forwardable&quot;
+l_string|&quot;fast-forwardable&quot;
 suffix:semicolon
 r_break
 suffix:semicolon

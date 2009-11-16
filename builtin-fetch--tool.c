@@ -590,7 +590,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;* %s: fast forward to %s&bslash;n&quot;
+l_string|&quot;* %s: fast-forward to %s&bslash;n&quot;
 comma
 id|name
 comma
@@ -613,7 +613,7 @@ r_return
 id|update_ref_env
 c_func
 (paren
-l_string|&quot;fast forward&quot;
+l_string|&quot;fast-forward&quot;
 comma
 id|name
 comma
@@ -635,7 +635,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;* %s: not updating to non-fast forward %s&bslash;n&quot;
+l_string|&quot;* %s: not updating to non-fast-forward %s&bslash;n&quot;
 comma
 id|name
 comma
@@ -663,7 +663,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;* %s: forcing update to non-fast forward %s&bslash;n&quot;
+l_string|&quot;* %s: forcing update to non-fast-forward %s&bslash;n&quot;
 comma
 id|name
 comma
