@@ -1957,9 +1957,6 @@ id|refs
 comma
 op_star
 id|remote_head
-comma
-op_star
-id|mapped_refs
 suffix:semicolon
 r_const
 r_struct
@@ -1972,6 +1969,11 @@ r_struct
 id|ref
 op_star
 id|our_head_points_at
+suffix:semicolon
+r_struct
+id|ref
+op_star
+id|mapped_refs
 suffix:semicolon
 r_struct
 id|strbuf

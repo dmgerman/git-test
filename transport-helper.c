@@ -376,7 +376,6 @@ comma
 r_int
 id|nr_heads
 comma
-r_const
 r_struct
 id|ref
 op_star
@@ -526,7 +525,6 @@ comma
 r_int
 id|nr_heads
 comma
-r_const
 r_struct
 id|ref
 op_star

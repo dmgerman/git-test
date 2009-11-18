@@ -1083,7 +1083,6 @@ comma
 r_int
 id|nr_objs
 comma
-r_const
 r_struct
 id|ref
 op_star
@@ -2299,7 +2298,6 @@ comma
 r_int
 id|nr_heads
 comma
-r_const
 r_struct
 id|ref
 op_star
@@ -2746,7 +2744,6 @@ comma
 r_int
 id|nr_heads
 comma
-r_const
 r_struct
 id|ref
 op_star
@@ -5209,7 +5206,6 @@ id|transport
 op_star
 id|transport
 comma
-r_const
 r_struct
 id|ref
 op_star
@@ -5232,7 +5228,6 @@ id|nr_refs
 op_assign
 l_int|0
 suffix:semicolon
-r_const
 r_struct
 id|ref
 op_star
@@ -5241,7 +5236,6 @@ id|heads
 op_assign
 l_int|NULL
 suffix:semicolon
-r_const
 r_struct
 id|ref
 op_star
@@ -5268,6 +5262,13 @@ r_if
 c_cond
 (paren
 id|rm-&gt;peer_ref
+op_logical_and
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|rm-&gt;old_sha1
+)paren
 op_logical_and
 op_logical_neg
 id|hashcmp
