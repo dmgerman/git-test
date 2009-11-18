@@ -513,15 +513,7 @@ c_func
 (paren
 id|remote
 comma
-id|remote
-ques
-c_cond
-id|remote-&gt;url
-(braket
-l_int|0
-)braket
-suffix:colon
-id|dest
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
