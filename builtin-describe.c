@@ -1042,6 +1042,16 @@ r_if
 c_cond
 (paren
 id|n
+op_logical_and
+(paren
+id|tags
+op_logical_or
+id|all
+op_logical_or
+id|n-&gt;prio
+op_eq
+l_int|2
+)paren
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * Exact match to an existing ref.&n;&t;&t; */
