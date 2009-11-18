@@ -3213,6 +3213,8 @@ id|GRAFT_ENVIRONMENT
 comma
 id|INDEX_ENVIRONMENT
 comma
+id|NO_REPLACE_OBJECTS_ENVIRONMENT
+comma
 l_int|NULL
 )brace
 suffix:semicolon
