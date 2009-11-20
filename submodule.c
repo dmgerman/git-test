@@ -214,6 +214,8 @@ id|left
 comma
 op_star
 id|right
+op_assign
+id|right
 suffix:semicolon
 r_struct
 id|commit_list
