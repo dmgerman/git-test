@@ -1,6 +1,10 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#ifndef DEFAULT_PAGER
+DECL|macro|DEFAULT_PAGER
+mdefine_line|#define DEFAULT_PAGER &quot;less&quot;
+macro_line|#endif
 multiline_comment|/*&n; * This is split up from the rest of git so that we can do&n; * something different on Windows.&n; */
 DECL|variable|spawned_pager
 r_static
@@ -150,9 +154,11 @@ id|signo
 )paren
 suffix:semicolon
 )brace
-DECL|function|setup_pager
-r_void
-id|setup_pager
+DECL|function|git_pager
+r_const
+r_char
+op_star
+id|git_pager
 c_func
 (paren
 r_void
@@ -162,12 +168,6 @@ r_const
 r_char
 op_star
 id|pager
-op_assign
-id|getenv
-c_func
-(paren
-l_string|&quot;GIT_PAGER&quot;
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -180,6 +180,15 @@ l_int|1
 )paren
 )paren
 r_return
+l_int|NULL
+suffix:semicolon
+id|pager
+op_assign
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_PAGER&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -229,7 +238,7 @@ id|pager
 )paren
 id|pager
 op_assign
-l_string|&quot;less&quot;
+id|DEFAULT_PAGER
 suffix:semicolon
 r_else
 r_if
@@ -247,6 +256,38 @@ id|pager
 comma
 l_string|&quot;cat&quot;
 )paren
+)paren
+id|pager
+op_assign
+l_int|NULL
+suffix:semicolon
+r_return
+id|pager
+suffix:semicolon
+)brace
+DECL|function|setup_pager
+r_void
+id|setup_pager
+c_func
+(paren
+r_void
+)paren
+(brace
+r_const
+r_char
+op_star
+id|pager
+op_assign
+id|git_pager
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|pager
 )paren
 r_return
 suffix:semicolon
