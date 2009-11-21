@@ -149,6 +149,11 @@ r_static
 r_int
 id|dry_run
 suffix:semicolon
+DECL|variable|helper_status
+r_static
+r_int
+id|helper_status
+suffix:semicolon
 DECL|variable|objects
 r_static
 r_struct
@@ -2690,7 +2695,7 @@ c_func
 (paren
 id|preq
 )paren
-OG
+op_eq
 l_int|0
 )paren
 id|fail
@@ -9187,6 +9192,26 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--helper-status&quot;
+)paren
+)paren
+(brace
+id|helper_status
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--verbose&quot;
 )paren
 )paren
@@ -9653,6 +9678,7 @@ id|force_delete
 op_eq
 l_int|1
 )paren
+(brace
 id|fprintf
 c_func
 (paren
@@ -9666,6 +9692,23 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;error %s cannot remove&bslash;n&quot;
+comma
+id|refspec
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
+)brace
 r_goto
 id|cleanup
 suffix:semicolon
@@ -9717,6 +9760,17 @@ c_func
 id|stderr
 comma
 l_string|&quot;No refs in common and none specified; doing nothing.&bslash;n&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;error null no match&bslash;n&quot;
 )paren
 suffix:semicolon
 id|rc
@@ -9812,11 +9866,38 @@ comma
 id|ref-&gt;name
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;error %s cannot remove&bslash;n&quot;
+comma
+id|ref-&gt;name
+)paren
+suffix:semicolon
 id|rc
 op_assign
 l_int|4
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;ok %s&bslash;n&quot;
+comma
+id|ref-&gt;name
+)paren
+suffix:semicolon
 id|new_refs
 op_increment
 suffix:semicolon
@@ -9849,6 +9930,19 @@ c_func
 id|stderr
 comma
 l_string|&quot;&squot;%s&squot;: up-to-date&bslash;n&quot;
+comma
+id|ref-&gt;name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;ok %s up to date&bslash;n&quot;
 comma
 id|ref-&gt;name
 )paren
@@ -9905,6 +9999,19 @@ comma
 id|ref-&gt;name
 comma
 id|ref-&gt;peer_ref-&gt;name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;error %s non-fast forward&bslash;n&quot;
+comma
+id|ref-&gt;name
 )paren
 suffix:semicolon
 id|rc
@@ -9994,8 +10101,23 @@ c_cond
 (paren
 id|dry_run
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;ok %s&bslash;n&quot;
+comma
+id|ref-&gt;name
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
+)brace
 multiline_comment|/* Lock remote branch ref */
 id|ref_lock
 op_assign
@@ -10021,6 +10143,19 @@ c_func
 id|stderr
 comma
 l_string|&quot;Unable to lock remote branch %s&bslash;n&quot;
+comma
+id|ref-&gt;name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;error %s lock error&bslash;n&quot;
 comma
 id|ref-&gt;name
 )paren
@@ -10281,6 +10416,27 @@ c_func
 id|stderr
 comma
 l_string|&quot;    done&bslash;n&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|helper_status
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;%s %s&bslash;n&quot;
+comma
+op_logical_neg
+id|rc
+ques
+c_cond
+l_string|&quot;ok&quot;
+suffix:colon
+l_string|&quot;error&quot;
+comma
+id|ref-&gt;name
 )paren
 suffix:semicolon
 id|unlock_remote
