@@ -274,6 +274,16 @@ l_int|1
 suffix:semicolon
 )brace
 suffix:semicolon
+DECL|variable|imap_send_usage
+r_static
+r_const
+r_char
+id|imap_send_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git imap-send &lt; &lt;mbox&gt;&quot;
+suffix:semicolon
 DECL|macro|DRV_OK
 macro_line|#undef DRV_OK
 DECL|macro|DRV_OK
@@ -7406,6 +7416,19 @@ id|argv
 (braket
 l_int|0
 )braket
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+op_ne
+l_int|1
+)paren
+id|usage
+c_func
+(paren
+id|imap_send_usage
 )paren
 suffix:semicolon
 id|setup_git_directory_gently

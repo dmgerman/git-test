@@ -2158,6 +2158,20 @@ l_string|&quot;Needed a single revision&quot;
 )paren
 suffix:semicolon
 )brace
+DECL|variable|builtin_rev_parse_usage
+r_static
+r_const
+r_char
+id|builtin_rev_parse_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git rev-parse --parseopt [options] -- [&lt;args&gt;...]&bslash;n&quot;
+l_string|&quot;   or: git rev-parse --sq-quote [&lt;arg&gt;...]&bslash;n&quot;
+l_string|&quot;   or: git rev-parse [options] [&lt;arg&gt;...]&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;Run &bslash;&quot;git rev-parse --parseopt -h&bslash;&quot; for more information on the first usage.&quot;
+suffix:semicolon
 DECL|function|cmd_rev_parse
 r_int
 id|cmd_rev_parse
@@ -2277,6 +2291,31 @@ comma
 id|argv
 op_plus
 l_int|2
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+OG
+l_int|1
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;-h&quot;
+comma
+id|argv
+(braket
+l_int|1
+)braket
+)paren
+)paren
+id|usage
+c_func
+(paren
+id|builtin_rev_parse_usage
 )paren
 suffix:semicolon
 id|prefix
