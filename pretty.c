@@ -6,6 +6,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
+macro_line|#include &quot;notes.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;reflog-walk.h&quot;
 DECL|variable|user_format
@@ -4442,6 +4443,29 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* unknown %g placeholder */
+r_case
+l_char|&squot;N&squot;
+suffix:colon
+id|get_commit_notes
+c_func
+(paren
+id|commit
+comma
+id|sb
+comma
+id|git_log_output_encoding
+ques
+c_cond
+id|git_log_output_encoding
+suffix:colon
+id|git_commit_encoding
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
 )brace
 multiline_comment|/* For the rest we have to parse the commit header. */
 r_if
@@ -5798,6 +5822,27 @@ c_func
 id|sb
 comma
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|fmt
+op_ne
+id|CMIT_FMT_ONELINE
+)paren
+id|get_commit_notes
+c_func
+(paren
+id|commit
+comma
+id|sb
+comma
+id|encoding
+comma
+id|NOTES_SHOW_HEADER
+op_or
+id|NOTES_INDENT
 )paren
 suffix:semicolon
 id|free
