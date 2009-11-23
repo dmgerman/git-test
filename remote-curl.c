@@ -1826,9 +1826,9 @@ c_func
 (paren
 id|slot-&gt;curl
 comma
-id|CURLOPT_POST
+id|CURLOPT_NOBODY
 comma
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 id|curl_easy_setopt
@@ -1836,9 +1836,9 @@ c_func
 (paren
 id|slot-&gt;curl
 comma
-id|CURLOPT_NOBODY
+id|CURLOPT_POST
 comma
-l_int|0
+l_int|1
 )paren
 suffix:semicolon
 id|curl_easy_setopt
