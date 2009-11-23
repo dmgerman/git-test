@@ -45,6 +45,20 @@ DECL|macro|MARK_VALID
 mdefine_line|#define MARK_VALID 1
 DECL|macro|UNMARK_VALID
 mdefine_line|#define UNMARK_VALID 2
+id|__attribute__
+c_func
+(paren
+(paren
+id|format
+(paren
+id|printf
+comma
+l_int|1
+comma
+l_int|2
+)paren
+)paren
+)paren
 DECL|function|report
 r_static
 r_void
