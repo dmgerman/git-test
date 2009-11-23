@@ -2341,20 +2341,20 @@ op_amp
 id|this_src
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Once we run estimate_similarity,&n;&t;&t;&t; * We do not need the text anymore.&n;&t;&t;&t; */
 id|diff_free_filespec_blob
 c_func
 (paren
 id|one
 )paren
 suffix:semicolon
-)brace
-multiline_comment|/* We do not need the text anymore */
 id|diff_free_filespec_blob
 c_func
 (paren
 id|two
 )paren
 suffix:semicolon
+)brace
 id|dst_cnt
 op_increment
 suffix:semicolon
