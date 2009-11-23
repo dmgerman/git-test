@@ -25,13 +25,125 @@ l_string|&quot;git remote rename &lt;old&gt; &lt;new&gt;&quot;
 comma
 l_string|&quot;git remote rm &lt;name&gt;&quot;
 comma
-l_string|&quot;git remote set-head &lt;name&gt; [-a | -d | &lt;branch&gt;]&quot;
+l_string|&quot;git remote set-head &lt;name&gt; (-a | -d | &lt;branch&gt;)&quot;
 comma
-l_string|&quot;git remote show [-n] &lt;name&gt;&quot;
+l_string|&quot;git remote [-v | --verbose] show [-n] &lt;name&gt;&quot;
 comma
 l_string|&quot;git remote prune [-n | --dry-run] &lt;name&gt;&quot;
 comma
 l_string|&quot;git remote [-v | --verbose] update [-p | --prune] [group]&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|builtin_remote_add_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_remote_add_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git remote add [&lt;options&gt;] &lt;name&gt; &lt;url&gt;&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|builtin_remote_rename_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_remote_rename_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git remote rename &lt;old&gt; &lt;new&gt;&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|builtin_remote_rm_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_remote_rm_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git remote rm &lt;name&gt;&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|builtin_remote_sethead_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_remote_sethead_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git remote set-head &lt;name&gt; (-a | -d | &lt;branch&gt;])&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|builtin_remote_show_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_remote_show_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git remote show [&lt;options&gt;] &lt;name&gt;&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|builtin_remote_prune_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_remote_prune_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git remote prune [&lt;options&gt;] &lt;name&gt;&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|builtin_remote_update_usage
+r_static
+r_const
+r_char
+op_star
+r_const
+id|builtin_remote_update_usage
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;git remote update [&lt;options&gt;] [&lt;group&gt; | &lt;remote&gt;]...&quot;
 comma
 l_int|NULL
 )brace
@@ -340,12 +452,6 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_GROUP
-c_func
-(paren
-l_string|&quot;add specific options&quot;
-)paren
-comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -423,7 +529,7 @@ l_int|NULL
 comma
 id|options
 comma
-id|builtin_remote_usage
+id|builtin_remote_add_usage
 comma
 l_int|0
 )paren
@@ -438,7 +544,7 @@ l_int|2
 id|usage_with_options
 c_func
 (paren
-id|builtin_remote_usage
+id|builtin_remote_add_usage
 comma
 id|options
 )paren
@@ -3158,7 +3264,7 @@ l_int|3
 id|usage_with_options
 c_func
 (paren
-id|builtin_remote_usage
+id|builtin_remote_rename_usage
 comma
 id|options
 )paren
@@ -4178,7 +4284,7 @@ l_int|2
 id|usage_with_options
 c_func
 (paren
-id|builtin_remote_usage
+id|builtin_remote_rm_usage
 comma
 id|options
 )paren
@@ -5768,12 +5874,6 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_GROUP
-c_func
-(paren
-l_string|&quot;show specific options&quot;
-)paren
-comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -5828,7 +5928,7 @@ l_int|NULL
 comma
 id|options
 comma
-id|builtin_remote_usage
+id|builtin_remote_show_usage
 comma
 l_int|0
 )paren
@@ -6418,12 +6518,6 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_GROUP
-c_func
-(paren
-l_string|&quot;set-head specific options&quot;
-)paren
-comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -6469,7 +6563,7 @@ l_int|NULL
 comma
 id|options
 comma
-id|builtin_remote_usage
+id|builtin_remote_sethead_usage
 comma
 l_int|0
 )paren
@@ -6696,7 +6790,7 @@ r_else
 id|usage_with_options
 c_func
 (paren
-id|builtin_remote_usage
+id|builtin_remote_sethead_usage
 comma
 id|options
 )paren
@@ -6856,12 +6950,6 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_GROUP
-c_func
-(paren
-l_string|&quot;prune specific options&quot;
-)paren
-comma
 id|OPT__DRY_RUN
 c_func
 (paren
@@ -6888,7 +6976,7 @@ l_int|NULL
 comma
 id|options
 comma
-id|builtin_remote_usage
+id|builtin_remote_prune_usage
 comma
 l_int|0
 )paren
@@ -6903,7 +6991,7 @@ l_int|1
 id|usage_with_options
 c_func
 (paren
-id|builtin_remote_usage
+id|builtin_remote_prune_usage
 comma
 id|options
 )paren
@@ -7367,12 +7455,6 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_GROUP
-c_func
-(paren
-l_string|&quot;update specific options&quot;
-)paren
-comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -7405,7 +7487,7 @@ l_int|NULL
 comma
 id|options
 comma
-id|builtin_remote_usage
+id|builtin_remote_update_usage
 comma
 id|PARSE_OPT_KEEP_ARGV0
 )paren
@@ -8008,11 +8090,17 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT__VERBOSE
+id|OPT_BOOLEAN
 c_func
 (paren
+l_char|&squot;v&squot;
+comma
+l_string|&quot;verbose&quot;
+comma
 op_amp
 id|verbose
+comma
+l_string|&quot;be verbose; must be placed before a subcommand&quot;
 )paren
 comma
 id|OPT_END
