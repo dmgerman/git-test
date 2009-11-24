@@ -154,7 +154,7 @@ op_assign
 (brace
 l_string|&quot;pack-objects&quot;
 comma
-l_string|&quot;--all-progress&quot;
+l_string|&quot;--all-progress-implied&quot;
 comma
 l_string|&quot;--revs&quot;
 comma
