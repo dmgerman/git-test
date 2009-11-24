@@ -11135,6 +11135,10 @@ id|path
 )paren
 suffix:semicolon
 )brace
+id|revs.disable_stdin
+op_assign
+l_int|1
+suffix:semicolon
 id|setup_revisions
 c_func
 (paren
