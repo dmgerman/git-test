@@ -1618,7 +1618,6 @@ id|max
 OL
 id|avail
 )paren
-suffix:semicolon
 id|avail
 op_assign
 id|max
