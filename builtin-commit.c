@@ -5853,6 +5853,15 @@ id|status_format
 r_case
 id|STATUS_FORMAT_SHORT
 suffix:colon
+r_if
+c_cond
+(paren
+id|s.relative_paths
+)paren
+id|s.prefix
+op_assign
+id|prefix
+suffix:semicolon
 id|short_print
 c_func
 (paren
