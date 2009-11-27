@@ -21,6 +21,18 @@ l_int|16
 op_star
 id|LARGE_PACKET_MAX
 suffix:semicolon
+DECL|variable|min_curl_sessions
+r_static
+r_int
+id|min_curl_sessions
+op_assign
+l_int|1
+suffix:semicolon
+DECL|variable|curl_session_count
+r_static
+r_int
+id|curl_session_count
+suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 DECL|variable|max_requests
 r_static
@@ -691,6 +703,46 @@ id|ssl_cert_password_required
 op_assign
 l_int|1
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;http.minsessions&quot;
+comma
+id|var
+)paren
+)paren
+(brace
+id|min_curl_sessions
+op_assign
+id|git_config_int
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
+macro_line|#ifndef USE_CURL_MULTI
+r_if
+c_cond
+(paren
+id|min_curl_sessions
+OG
+l_int|1
+)paren
+id|min_curl_sessions
+op_assign
+l_int|1
+suffix:semicolon
+macro_line|#endif
 r_return
 l_int|0
 suffix:semicolon
@@ -1831,6 +1883,10 @@ id|curl_ssl_verify
 op_assign
 l_int|1
 suffix:semicolon
+id|curl_session_count
+op_assign
+l_int|0
+suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 r_if
 c_cond
@@ -2257,6 +2313,9 @@ id|curl_default
 )paren
 suffix:semicolon
 macro_line|#endif
+id|curl_session_count
+op_increment
+suffix:semicolon
 )brace
 id|active_requests
 op_increment
@@ -2623,6 +2682,10 @@ op_logical_and
 id|slot-&gt;curl
 op_ne
 l_int|NULL
+op_logical_and
+id|curl_session_count
+OG
+id|min_curl_sessions
 )paren
 (brace
 id|curl_easy_cleanup
@@ -2634,6 +2697,9 @@ suffix:semicolon
 id|slot-&gt;curl
 op_assign
 l_int|NULL
+suffix:semicolon
+id|curl_session_count
+op_decrement
 suffix:semicolon
 )brace
 id|slot
@@ -2922,6 +2988,10 @@ r_if
 c_cond
 (paren
 id|slot-&gt;curl
+op_logical_and
+id|curl_session_count
+OG
+id|min_curl_sessions
 )paren
 (brace
 macro_line|#ifdef USE_CURL_MULTI
@@ -2943,6 +3013,9 @@ suffix:semicolon
 id|slot-&gt;curl
 op_assign
 l_int|NULL
+suffix:semicolon
+id|curl_session_count
+op_decrement
 suffix:semicolon
 )brace
 macro_line|#ifdef USE_CURL_MULTI
