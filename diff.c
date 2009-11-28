@@ -1585,6 +1585,15 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|len
+op_logical_or
+op_logical_neg
+id|nofirst
+)paren
+(brace
 id|fputs
 c_func
 (paren
@@ -1627,6 +1636,7 @@ comma
 id|file
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
