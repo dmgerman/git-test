@@ -117,6 +117,13 @@ r_static
 r_int
 id|use_scissors
 suffix:semicolon
+DECL|variable|use_inbody_headers
+r_static
+r_int
+id|use_inbody_headers
+op_assign
+l_int|1
+suffix:semicolon
 DECL|macro|MAX_HDR_PARSED
 mdefine_line|#define MAX_HDR_PARSED 10
 DECL|macro|MAX_BOUNDARIES
@@ -3886,6 +3893,15 @@ id|line-&gt;len
 r_return
 l_int|0
 suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|use_inbody_headers
+op_logical_and
+id|still_looking
+)paren
+(brace
 id|still_looking
 op_assign
 id|check_header
@@ -3907,6 +3923,12 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_else
+multiline_comment|/* Only trim the first (blank) line of the commit message&n;&t;&t; * when ignoring in-body headers.&n;&t;&t; */
+id|still_looking
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/* normalize the log message to UTF-8. */
 r_if
 c_cond
@@ -5200,6 +5222,26 @@ l_string|&quot;--no-scissors&quot;
 )paren
 )paren
 id|use_scissors
+op_assign
+l_int|0
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;--no-inbody-headers&quot;
+)paren
+)paren
+id|use_inbody_headers
 op_assign
 l_int|0
 suffix:semicolon

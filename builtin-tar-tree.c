@@ -15,6 +15,16 @@ op_assign
 l_string|&quot;git tar-tree [--remote=&lt;repo&gt;] &lt;tree-ish&gt; [basedir]&bslash;n&quot;
 l_string|&quot;*** Note that this command is now deprecated; use &bslash;&quot;git archive&bslash;&quot; instead.&quot;
 suffix:semicolon
+DECL|variable|builtin_get_tar_commit_id_usage
+r_static
+r_const
+r_char
+id|builtin_get_tar_commit_id_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git get-tar-commit-id &lt; &lt;tarfile&gt;&quot;
+suffix:semicolon
 DECL|function|cmd_tar_tree
 r_int
 id|cmd_tar_tree
@@ -330,6 +340,19 @@ id|RECORDSIZE
 suffix:semicolon
 id|ssize_t
 id|n
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+op_ne
+l_int|1
+)paren
+id|usage
+c_func
+(paren
+id|builtin_get_tar_commit_id_usage
+)paren
 suffix:semicolon
 id|n
 op_assign

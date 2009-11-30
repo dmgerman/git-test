@@ -1691,7 +1691,7 @@ op_increment
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * The unpack_trees() interface is designed for merging, so&n; * the different source entries are designed primarily for&n; * the source trees, with the old index being really mainly&n; * used for being replaced by the result.&n; *&n; * For diffing, the index is more important, and we only have a&n; * single tree.&n; *&n; * We&squot;re supposed to return how many index entries we want to skip.&n; *&n; * This wrapper makes it all more readable, and takes care of all&n; * the fairly complex unpack_trees() semantic requirements, including&n; * the skipping, the path matching, the type conflict cases etc.&n; */
+multiline_comment|/*&n; * The unpack_trees() interface is designed for merging, so&n; * the different source entries are designed primarily for&n; * the source trees, with the old index being really mainly&n; * used for being replaced by the result.&n; *&n; * For diffing, the index is more important, and we only have a&n; * single tree.&n; *&n; * We&squot;re supposed to advance o-&gt;pos to skip what we have already processed.&n; *&n; * This wrapper makes it all more readable, and takes care of all&n; * the fairly complex unpack_trees() semantic requirements, including&n; * the skipping, the path matching, the type conflict cases etc.&n; */
 DECL|function|oneway_diff
 r_static
 r_int

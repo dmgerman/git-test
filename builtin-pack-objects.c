@@ -29,6 +29,7 @@ id|pack_usage
 )braket
 op_assign
 l_string|&quot;git pack-objects [{ -q | --progress | --all-progress }]&bslash;n&quot;
+l_string|&quot;        [--all-progress-implied]&bslash;n&quot;
 l_string|&quot;        [--max-pack-size=N] [--local] [--incremental]&bslash;n&quot;
 l_string|&quot;        [--window=N] [--window-memory=N] [--depth=N]&bslash;n&quot;
 l_string|&quot;        [--no-reuse-delta] [--no-reuse-object] [--delta-base-offset]&bslash;n&quot;
@@ -7531,6 +7532,20 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|delta_search_threads
+)paren
+multiline_comment|/* --threads=0 means autodetect */
+id|delta_search_threads
+op_assign
+id|online_cpus
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|delta_search_threads
 op_le
 l_int|1
@@ -10129,6 +10144,11 @@ id|thin
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|all_progress_implied
+op_assign
+l_int|0
+suffix:semicolon
 r_uint32
 id|i
 suffix:semicolon
@@ -10737,6 +10757,26 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
+l_string|&quot;--all-progress-implied&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|all_progress_implied
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
 l_string|&quot;-q&quot;
 comma
 id|arg
@@ -11223,22 +11263,17 @@ c_func
 l_string|&quot;--keep-unreachable and --unpack-unreachable are incompatible.&quot;
 )paren
 suffix:semicolon
-macro_line|#ifdef THREADED_DELTA_SEARCH
 r_if
 c_cond
 (paren
-op_logical_neg
-id|delta_search_threads
+id|progress
+op_logical_and
+id|all_progress_implied
 )paren
-multiline_comment|/* --threads=0 means autodetect */
-id|delta_search_threads
+id|progress
 op_assign
-id|online_cpus
-c_func
-(paren
-)paren
+l_int|2
 suffix:semicolon
-macro_line|#endif
 id|prepare_packed_git
 c_func
 (paren

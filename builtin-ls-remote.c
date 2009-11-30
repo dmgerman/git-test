@@ -479,11 +479,6 @@ suffix:semicolon
 )brace
 id|remote
 op_assign
-id|nongit
-ques
-c_cond
-l_int|NULL
-suffix:colon
 id|remote_get
 c_func
 (paren
@@ -493,8 +488,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote
-op_logical_and
 op_logical_neg
 id|remote-&gt;url_nr
 )paren
@@ -513,15 +506,10 @@ c_func
 (paren
 id|remote
 comma
-id|remote
-ques
-c_cond
 id|remote-&gt;url
 (braket
 l_int|0
 )braket
-suffix:colon
-id|dest
 )paren
 suffix:semicolon
 r_if

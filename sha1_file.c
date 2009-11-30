@@ -8248,6 +8248,8 @@ suffix:semicolon
 id|stream.avail_out
 op_assign
 id|size
+op_plus
+l_int|1
 suffix:semicolon
 id|git_inflate_init
 c_func
@@ -8288,6 +8290,15 @@ comma
 id|Z_FINISH
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|stream.avail_out
+)paren
+r_break
+suffix:semicolon
+multiline_comment|/* the payload is larger than it should be */
 id|curpos
 op_add_assign
 id|stream.next_in

@@ -1076,10 +1076,18 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Auto packing your repository for optimum &quot;
-l_string|&quot;performance. You may also&bslash;n&quot;
+l_string|&quot;Auto packing the repository for optimum performance.%s&bslash;n&quot;
+comma
+id|quiet
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+(paren
+l_string|&quot; You may also&bslash;n&quot;
 l_string|&quot;run &bslash;&quot;git gc&bslash;&quot; manually. See &quot;
-l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&bslash;n&quot;
+l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace

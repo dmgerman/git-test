@@ -84,6 +84,11 @@ id|allow_fast_forward
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|fast_forward_only
+r_static
+r_int
+id|fast_forward_only
+suffix:semicolon
 DECL|variable|allow_trivial
 DECL|variable|have_message
 r_static
@@ -892,7 +897,20 @@ comma
 op_amp
 id|allow_fast_forward
 comma
-l_string|&quot;allow fast forward (default)&quot;
+l_string|&quot;allow fast-forward (default)&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ff-only&quot;
+comma
+op_amp
+id|fast_forward_only
+comma
+l_string|&quot;abort if fast-forward is not possible&quot;
 )paren
 comma
 id|OPT_CALLBACK
@@ -1402,6 +1420,14 @@ suffix:semicolon
 r_int
 id|fd
 suffix:semicolon
+r_struct
+id|pretty_print_context
+id|ctx
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -1540,6 +1566,14 @@ c_func
 l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
+id|ctx.abbrev
+op_assign
+id|rev.abbrev
+suffix:semicolon
+id|ctx.date_mode
+op_assign
+id|rev.date_mode
+suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
@@ -1600,15 +1634,8 @@ comma
 op_amp
 id|out
 comma
-id|rev.abbrev
-comma
-l_int|NULL
-comma
-l_int|NULL
-comma
-id|rev.date_mode
-comma
-l_int|0
+op_amp
+id|ctx
 )paren
 suffix:semicolon
 )brace
@@ -5142,11 +5169,6 @@ op_assign
 op_amp
 id|remoteheads
 suffix:semicolon
-id|setup_work_tree
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5300,6 +5322,20 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|allow_fast_forward
+op_logical_and
+id|fast_forward_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;You cannot combine --no-ff with --ff-only.&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6008,7 +6044,7 @@ c_func
 op_amp
 id|msg
 comma
-l_string|&quot;Fast forward&quot;
+l_string|&quot;Fast-forward&quot;
 )paren
 suffix:semicolon
 r_if
@@ -6093,7 +6129,7 @@ op_logical_and
 id|common-&gt;next
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We are not doing octopus and not fast forward.  Need&n;&t;&t; * a real merge.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are not doing octopus and not fast-forward.  Need&n;&t;&t; * a real merge.&n;&t;&t; */
 r_else
 r_if
 c_cond
@@ -6107,7 +6143,7 @@ op_logical_and
 id|option_commit
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We are not doing octopus, not fast forward, and have&n;&t;&t; * only one common.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are not doing octopus, not fast-forward, and have&n;&t;&t; * only one common.&n;&t;&t; */
 id|refresh_cache
 c_func
 (paren
@@ -6118,6 +6154,9 @@ r_if
 c_cond
 (paren
 id|allow_trivial
+op_logical_and
+op_logical_neg
+id|fast_forward_only
 )paren
 (brace
 multiline_comment|/* See if it is really trivial. */
@@ -6247,6 +6286,17 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|fast_forward_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Not possible to fast-forward, aborting.&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* We are going to make a new commit. */
 id|git_committer_info
 c_func

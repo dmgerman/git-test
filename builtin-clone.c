@@ -151,9 +151,9 @@ comma
 l_string|&quot;create a bare repository&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;naked&quot;
@@ -161,8 +161,14 @@ comma
 op_amp
 id|option_bare
 comma
+l_int|NULL
+comma
 l_string|&quot;create a bare repository&quot;
-)paren
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -226,7 +232,7 @@ comma
 op_amp
 id|option_recursive
 comma
-l_string|&quot;setup as shared repository&quot;
+l_string|&quot;initialize submodules in the clone&quot;
 )paren
 comma
 id|OPT_STRING
@@ -2050,13 +2056,34 @@ r_if
 c_cond
 (paren
 id|argc
+OG
+l_int|2
+)paren
+id|usage_msg_opt
+c_func
+(paren
+l_string|&quot;Too many arguments.&quot;
+comma
+id|builtin_clone_usage
+comma
+id|builtin_clone_options
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
 op_eq
 l_int|0
 )paren
-id|die
+id|usage_msg_opt
 c_func
 (paren
 l_string|&quot;You must specify a repository to clone.&quot;
+comma
+id|builtin_clone_usage
+comma
+id|builtin_clone_options
 )paren
 suffix:semicolon
 r_if
@@ -3359,7 +3386,7 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|remote_head-&gt;old_sha1
+id|our_head_points_at-&gt;old_sha1
 )paren
 comma
 l_string|&quot;1&quot;

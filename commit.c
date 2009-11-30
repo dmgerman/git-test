@@ -5,6 +5,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;notes.h&quot;
 DECL|variable|save_commit_buffer
 r_int
 id|save_commit_buffer
@@ -684,8 +685,13 @@ id|graft
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
+(paren
+id|len
+op_logical_and
+id|isspace
+c_func
 (paren
 id|buf
 (braket
@@ -693,8 +699,7 @@ id|len
 op_minus
 l_int|1
 )braket
-op_eq
-l_char|&squot;&bslash;n&squot;
+)paren
 )paren
 id|buf
 (braket
@@ -702,7 +707,7 @@ op_decrement
 id|len
 )braket
 op_assign
-l_int|0
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 r_if
 c_cond
@@ -1075,8 +1080,10 @@ r_int
 id|write_shallow_commits
 c_func
 (paren
-r_int
-id|fd
+r_struct
+id|strbuf
+op_star
+id|out
 comma
 r_int
 id|use_pack_protocol
@@ -1140,10 +1147,10 @@ c_cond
 (paren
 id|use_pack_protocol
 )paren
-id|packet_write
+id|packet_buf_write
 c_func
 (paren
-id|fd
+id|out
 comma
 l_string|&quot;shallow %s&quot;
 comma
@@ -1152,37 +1159,21 @@ id|hex
 suffix:semicolon
 r_else
 (brace
-r_if
-c_cond
-(paren
-id|write_in_full
+id|strbuf_addstr
 c_func
 (paren
-id|fd
+id|out
 comma
 id|hex
-comma
-l_int|40
 )paren
-op_ne
-l_int|40
-)paren
-r_break
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|write_str_in_full
+id|strbuf_addch
 c_func
 (paren
-id|fd
+id|out
 comma
-l_string|&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
 )paren
-op_ne
-l_int|1
-)paren
-r_break
 suffix:semicolon
 )brace
 )brace
