@@ -515,6 +515,7 @@ comma
 id|ent-&gt;len
 )paren
 suffix:semicolon
+)brace
 id|exclude_cmds
 c_func
 (paren
@@ -525,7 +526,6 @@ op_amp
 id|not_strategies
 )paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
