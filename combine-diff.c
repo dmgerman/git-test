@@ -2604,6 +2604,19 @@ suffix:semicolon
 r_const
 r_char
 op_star
+id|c_func
+op_assign
+id|diff_get_color
+c_func
+(paren
+id|use_color
+comma
+id|DIFF_FUNCINFO
+)paren
+suffix:semicolon
+r_const
+r_char
+op_star
 id|c_new
 op_assign
 id|diff_get_color
@@ -3006,10 +3019,18 @@ c_cond
 (paren
 id|comment_end
 )paren
-id|putchar
+id|printf
 c_func
 (paren
-l_char|&squot; &squot;
+l_string|&quot;%s%s %s%s&quot;
+comma
+id|c_reset
+comma
+id|c_plain
+comma
+id|c_reset
+comma
+id|c_func
 )paren
 suffix:semicolon
 r_for
