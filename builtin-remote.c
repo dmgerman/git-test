@@ -1502,7 +1502,13 @@ r_new
 dot
 id|strdup_strings
 op_assign
+l_int|1
+suffix:semicolon
 id|states-&gt;tracked.strdup_strings
+op_assign
+l_int|1
+suffix:semicolon
+id|states-&gt;stale.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
@@ -4579,7 +4585,7 @@ c_func
 op_amp
 id|states-&gt;stale
 comma
-l_int|0
+l_int|1
 )paren
 suffix:semicolon
 id|string_list_clear
