@@ -199,10 +199,14 @@ comma
 id|renew_authorship
 suffix:semicolon
 DECL|variable|untracked_files_arg
+DECL|variable|force_date
 r_static
 r_char
 op_star
 id|untracked_files_arg
+comma
+op_star
+id|force_date
 suffix:semicolon
 multiline_comment|/*&n; * The default commit message cleanup mode will remove the lines&n; * beginning with # (shell comments) and leading and trailing&n; * whitespaces (empty lines or containing only whitespaces)&n; * if editor is used, and only the whitespaces if the message&n; * is specified explicitly.&n; */
 r_static
@@ -372,6 +376,21 @@ comma
 l_string|&quot;AUTHOR&quot;
 comma
 l_string|&quot;override author for commit&quot;
+)paren
+comma
+id|OPT_STRING
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;date&quot;
+comma
+op_amp
+id|force_date
+comma
+l_string|&quot;DATE&quot;
+comma
+l_string|&quot;override date for commit&quot;
 )paren
 comma
 id|OPT_CALLBACK
@@ -2067,6 +2086,15 @@ l_int|2
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|force_date
+)paren
+id|date
+op_assign
+id|force_date
+suffix:semicolon
 id|author_name
 op_assign
 id|name
