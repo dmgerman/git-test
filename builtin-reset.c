@@ -1135,6 +1135,13 @@ id|options
 )braket
 op_assign
 (brace
+id|OPT__QUIET
+c_func
+(paren
+op_amp
+id|quiet
+)paren
+comma
 id|OPT_SET_INT
 c_func
 (paren
@@ -1193,19 +1200,6 @@ comma
 l_string|&quot;reset HEAD, index and working tree&quot;
 comma
 id|MERGE
-)paren
-comma
-id|OPT_BOOLEAN
-c_func
-(paren
-l_char|&squot;q&squot;
-comma
-l_int|NULL
-comma
-op_amp
-id|quiet
-comma
-l_string|&quot;disable showing new HEAD in hard reset and progress message&quot;
 )paren
 comma
 id|OPT_BOOLEAN
