@@ -4906,7 +4906,7 @@ c_cond
 (paren
 id|argc
 OG
-l_int|1
+l_int|2
 )paren
 (brace
 r_int
