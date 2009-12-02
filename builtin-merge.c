@@ -266,7 +266,14 @@ c_func
 (paren
 id|buf
 comma
-l_string|&quot;%s&bslash;n&bslash;n&quot;
+l_string|&quot;%s%s&quot;
+comma
+id|buf-&gt;len
+ques
+c_cond
+l_string|&quot;&bslash;n&bslash;n&quot;
+suffix:colon
+l_string|&quot;&quot;
 comma
 id|arg
 )paren
@@ -4952,7 +4959,7 @@ c_cond
 (paren
 id|argc
 OG
-l_int|1
+l_int|2
 )paren
 (brace
 r_int
@@ -5546,6 +5553,13 @@ op_assign
 l_string|&quot;HEAD&quot;
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * All the rest are the commits being merged;&n;&t;&t; * prepare the standard merge summary message to&n;&t;&t; * be appended to the given message.  If remote&n;&t;&t; * is invalid we will die later in the common&n;&t;&t; * codepath so we discard the error in this&n;&t;&t; * loop.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|have_message
+)paren
+(brace
 r_for
 c_loop
 (paren
@@ -5600,6 +5614,7 @@ op_minus
 l_int|1
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
