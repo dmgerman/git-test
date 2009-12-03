@@ -477,6 +477,21 @@ op_amp
 id|nonfastforward
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+op_ne
+l_int|0
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;failed to push some refs to &squot;%s&squot;&quot;
+comma
+id|transport-&gt;url
+)paren
+suffix:semicolon
 id|err
 op_or_assign
 id|transport_disconnect
@@ -493,14 +508,6 @@ id|err
 )paren
 r_return
 l_int|0
-suffix:semicolon
-id|error
-c_func
-(paren
-l_string|&quot;failed to push some refs to &squot;%s&squot;&quot;
-comma
-id|transport-&gt;url
-)paren
 suffix:semicolon
 r_if
 c_cond
