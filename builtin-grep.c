@@ -1625,9 +1625,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|opt-&gt;regflags
-op_amp
-id|REG_ICASE
+id|opt-&gt;ignore_case
 )paren
 id|push_arg
 c_func
@@ -3602,7 +3600,7 @@ comma
 l_string|&quot;show non-matching lines&quot;
 )paren
 comma
-id|OPT_BIT
+id|OPT_BOOLEAN
 c_func
 (paren
 l_char|&squot;i&squot;
@@ -3610,11 +3608,9 @@ comma
 l_string|&quot;ignore-case&quot;
 comma
 op_amp
-id|opt.regflags
+id|opt.ignore_case
 comma
 l_string|&quot;case insensitive matching&quot;
-comma
-id|REG_ICASE
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4342,6 +4338,18 @@ c_func
 (paren
 l_string|&quot;no pattern given.&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opt.fixed
+op_logical_and
+id|opt.ignore_case
+)paren
+id|opt.regflags
+op_or_assign
+id|REG_ICASE
 suffix:semicolon
 r_if
 c_cond
