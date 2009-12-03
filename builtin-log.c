@@ -5093,6 +5093,8 @@ comma
 id|PARSE_OPT_KEEP_ARGV0
 op_or
 id|PARSE_OPT_KEEP_UNKNOWN
+op_or
+id|PARSE_OPT_KEEP_DASHDASH
 )paren
 suffix:semicolon
 r_if
