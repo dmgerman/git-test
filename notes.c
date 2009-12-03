@@ -1523,6 +1523,19 @@ OL
 l_int|20
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISDIR
+c_func
+(paren
+id|entry.mode
+)paren
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* entry cannot be subtree */
 id|l-&gt;key_sha1
 (braket
 l_int|19
