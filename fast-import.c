@@ -705,6 +705,11 @@ r_char
 op_star
 id|import_marks_file
 suffix:semicolon
+DECL|variable|import_marks_file_from_stream
+r_static
+r_int
+id|import_marks_file_from_stream
+suffix:semicolon
 multiline_comment|/* Our last blob */
 DECL|variable|last_blob
 r_static
@@ -13363,8 +13368,43 @@ r_const
 r_char
 op_star
 id|marks
+comma
+r_int
+id|from_stream
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|import_marks_file
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|from_stream
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Only one import-marks command allowed per stream&quot;
+)paren
+suffix:semicolon
+multiline_comment|/* read previous mark file */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|import_marks_file_from_stream
+)paren
+(brace
+id|read_marks
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
+)brace
 id|import_marks_file
 op_assign
 id|xstrdup
@@ -13372,6 +13412,10 @@ c_func
 (paren
 id|marks
 )paren
+suffix:semicolon
+id|import_marks_file_from_stream
+op_assign
+id|from_stream
 suffix:semicolon
 )brace
 DECL|function|option_date_format
@@ -13770,6 +13814,9 @@ r_const
 r_char
 op_star
 id|feature
+comma
+r_int
+id|from_stream
 )paren
 (brace
 r_if
@@ -13814,6 +13861,8 @@ c_func
 id|feature
 op_plus
 l_int|13
+comma
+id|from_stream
 )paren
 suffix:semicolon
 )brace
@@ -13906,6 +13955,8 @@ id|parse_one_feature
 c_func
 (paren
 id|feature
+comma
+l_int|1
 )paren
 )paren
 r_return
@@ -14192,6 +14243,8 @@ c_func
 id|a
 op_plus
 l_int|2
+comma
+l_int|0
 )paren
 )paren
 r_continue
