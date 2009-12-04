@@ -82,6 +82,11 @@ id|commit
 op_star
 id|commit
 suffix:semicolon
+DECL|variable|allow_rerere_auto
+r_static
+r_int
+id|allow_rerere_auto
+suffix:semicolon
 DECL|variable|me
 r_static
 r_const
@@ -221,6 +226,13 @@ op_amp
 id|mainline
 comma
 l_string|&quot;parent number&quot;
+)paren
+comma
+id|OPT_RERERE_AUTOUPDATE
+c_func
+(paren
+op_amp
+id|allow_rerere_auto
 )paren
 comma
 id|OPT_END
@@ -2147,6 +2159,7 @@ suffix:semicolon
 id|rerere
 c_func
 (paren
+id|allow_rerere_auto
 )paren
 suffix:semicolon
 m_exit

@@ -6494,6 +6494,7 @@ suffix:semicolon
 id|rerere
 c_func
 (paren
+l_int|0
 )paren
 suffix:semicolon
 id|run_hook
