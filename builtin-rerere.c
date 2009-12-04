@@ -285,6 +285,18 @@ l_string|&quot;rr-cache&quot;
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dir
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;unable to open rr-cache directory&quot;
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
