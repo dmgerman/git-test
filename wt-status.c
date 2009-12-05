@@ -3294,10 +3294,20 @@ r_break
 suffix:semicolon
 multiline_comment|/* both modified */
 )brace
-id|printf
+id|color_fprintf
 c_func
 (paren
-l_string|&quot;%s &quot;
+id|s-&gt;fp
+comma
+id|color
+c_func
+(paren
+id|WT_STATUS_UNMERGED
+comma
+id|s
+)paren
+comma
+l_string|&quot;%s&quot;
 comma
 id|how
 )paren
@@ -3313,7 +3323,7 @@ c_func
 (paren
 id|stdout
 comma
-l_string|&quot;%s%c&quot;
+l_string|&quot; %s%c&quot;
 comma
 id|it-&gt;string
 comma
@@ -3352,7 +3362,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot; %s&bslash;n&quot;
 comma
 id|one
 )paren
@@ -3393,26 +3403,70 @@ id|d
 op_assign
 id|it-&gt;util
 suffix:semicolon
-id|printf
+r_if
+c_cond
+(paren
+id|d-&gt;index_status
+)paren
+id|color_fprintf
 c_func
 (paren
-l_string|&quot;%c%c &quot;
+id|s-&gt;fp
 comma
-op_logical_neg
-id|d-&gt;index_status
-ques
-c_cond
-l_char|&squot; &squot;
-suffix:colon
-id|d-&gt;index_status
+id|color
+c_func
+(paren
+id|WT_STATUS_UPDATED
 comma
-op_logical_neg
-id|d-&gt;worktree_status
-ques
-c_cond
+id|s
+)paren
+comma
+l_string|&quot;%c&quot;
+comma
+id|d-&gt;index_status
+)paren
+suffix:semicolon
+r_else
+id|putchar
+c_func
+(paren
 l_char|&squot; &squot;
-suffix:colon
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|d-&gt;worktree_status
+)paren
+id|color_fprintf
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|color
+c_func
+(paren
+id|WT_STATUS_CHANGED
+comma
+id|s
+)paren
+comma
+l_string|&quot;%c&quot;
+comma
+id|d-&gt;worktree_status
+)paren
+suffix:semicolon
+r_else
+id|putchar
+c_func
+(paren
+l_char|&squot; &squot;
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
+l_char|&squot; &squot;
 )paren
 suffix:semicolon
 r_if
@@ -3600,10 +3654,26 @@ comma
 id|s-&gt;prefix
 )paren
 suffix:semicolon
+id|color_fprintf
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|color
+c_func
+(paren
+id|WT_STATUS_UNTRACKED
+comma
+id|s
+)paren
+comma
+l_string|&quot;??&quot;
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;?? %s&bslash;n&quot;
+l_string|&quot; %s&bslash;n&quot;
 comma
 id|one
 )paren
