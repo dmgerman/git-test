@@ -3830,6 +3830,14 @@ id|s-&gt;use_color
 op_assign
 l_int|0
 suffix:semicolon
+id|s-&gt;relative_paths
+op_assign
+l_int|0
+suffix:semicolon
+id|s-&gt;prefix
+op_assign
+l_int|NULL
+suffix:semicolon
 id|wt_shortstatus_print
 c_func
 (paren
