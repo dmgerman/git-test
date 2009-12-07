@@ -1,4 +1,5 @@
 multiline_comment|/*&n; * Recursive Merge algorithm stolen from git-merge-recursive.py by&n; * Fredrik Kuivinen.&n; * The thieves were Alex Riesen and Johannes Schindelin, in June/July 2006&n; */
+macro_line|#include &quot;advice.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;commit.h&quot;
@@ -282,6 +283,20 @@ id|o-&gt;obuf
 suffix:semicolon
 )brace
 )brace
+id|__attribute__
+c_func
+(paren
+(paren
+id|format
+(paren
+id|printf
+comma
+l_int|3
+comma
+l_int|4
+)paren
+)paren
+)paren
 DECL|function|output
 r_static
 r_void
@@ -860,30 +875,6 @@ r_struct
 id|unpack_trees_options
 id|opts
 suffix:semicolon
-r_static
-r_const
-r_struct
-id|unpack_trees_error_msgs
-id|msgs
-op_assign
-(brace
-multiline_comment|/* would_overwrite */
-l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
-comma
-multiline_comment|/* not_uptodate_file */
-l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
-comma
-multiline_comment|/* not_uptodate_dir */
-l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it.  Aborting.&quot;
-comma
-multiline_comment|/* would_lose_untracked */
-l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.  Aborting&quot;
-comma
-multiline_comment|/* bind_overlap -- will not happen here */
-l_int|NULL
-comma
-)brace
-suffix:semicolon
 id|memset
 c_func
 (paren
@@ -936,7 +927,10 @@ id|the_index
 suffix:semicolon
 id|opts.msgs
 op_assign
-id|msgs
+id|get_porcelain_error_msgs
+c_func
+(paren
+)paren
 suffix:semicolon
 id|init_tree_desc_from_tree
 c_func
@@ -1083,6 +1077,9 @@ c_func
 id|ce
 )paren
 comma
+(paren
+r_int
+)paren
 id|ce_namelen
 c_func
 (paren
@@ -6567,6 +6564,55 @@ l_string|&quot;Fatal merge failure, shouldn&squot;t happen.&quot;
 suffix:semicolon
 r_return
 id|clean_merge
+suffix:semicolon
+)brace
+DECL|function|get_porcelain_error_msgs
+r_struct
+id|unpack_trees_error_msgs
+id|get_porcelain_error_msgs
+c_func
+(paren
+r_void
+)paren
+(brace
+r_struct
+id|unpack_trees_error_msgs
+id|msgs
+op_assign
+(brace
+multiline_comment|/* would_overwrite */
+l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
+comma
+multiline_comment|/* not_uptodate_file */
+l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
+comma
+multiline_comment|/* not_uptodate_dir */
+l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it.  Aborting.&quot;
+comma
+multiline_comment|/* would_lose_untracked */
+l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.  Aborting&quot;
+comma
+multiline_comment|/* bind_overlap -- will not happen here */
+l_int|NULL
+comma
+)brace
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_commit_before_merge
+)paren
+(brace
+id|msgs.would_overwrite
+op_assign
+id|msgs.not_uptodate_file
+op_assign
+l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&bslash;n&quot;
+l_string|&quot;Please, commit your changes or stash them before you can merge.&quot;
+suffix:semicolon
+)brace
+r_return
+id|msgs
 suffix:semicolon
 )brace
 DECL|function|merge_trees

@@ -16,7 +16,7 @@ id|show_ref_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--dereference] [-s|--hash[=&lt;n&gt;]] [--abbrev[=&lt;n&gt;]] [--tags] [--heads] [--] [pattern*] &quot;
+l_string|&quot;git show-ref [-q|--quiet] [--verify] [--head] [-d|--dereference] [-s|--hash[=&lt;n&gt;]] [--abbrev[=&lt;n&gt;]] [--tags] [--heads] [--] [pattern*] &quot;
 comma
 l_string|&quot;git show-ref --exclude-existing[=pattern] &lt; ref-list&quot;
 comma
@@ -1003,10 +1003,29 @@ l_string|&quot;stricter reference checking, &quot;
 l_string|&quot;requires exact ref path&quot;
 )paren
 comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_char|&squot;h&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|show_head
+comma
+l_int|NULL
+comma
+l_string|&quot;show the HEAD reference&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
+comma
 id|OPT_BOOLEAN
 c_func
 (paren
-l_char|&squot;h&squot;
+l_int|0
 comma
 l_string|&quot;head&quot;
 comma
@@ -1130,6 +1149,33 @@ op_star
 id|prefix
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|argc
+op_eq
+l_int|2
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;-h&quot;
+)paren
+)paren
+id|usage_with_options
+c_func
+(paren
+id|show_ref_usage
+comma
+id|show_ref_options
+)paren
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options

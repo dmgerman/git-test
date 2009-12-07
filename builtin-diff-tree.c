@@ -623,6 +623,10 @@ id|opt-&gt;diff
 op_assign
 l_int|1
 suffix:semicolon
+id|opt-&gt;disable_stdin
+op_assign
+l_int|1
+suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions

@@ -422,7 +422,16 @@ id|prefix
 r_int
 id|opts
 op_assign
+id|isatty
+c_func
+(paren
+l_int|2
+)paren
+ques
+c_cond
 id|VERBOSE
+suffix:colon
+l_int|0
 suffix:semicolon
 r_const
 r_struct

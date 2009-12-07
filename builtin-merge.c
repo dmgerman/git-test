@@ -84,6 +84,11 @@ id|allow_fast_forward
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|fast_forward_only
+r_static
+r_int
+id|fast_forward_only
+suffix:semicolon
 DECL|variable|allow_trivial
 DECL|variable|have_message
 r_static
@@ -261,7 +266,14 @@ c_func
 (paren
 id|buf
 comma
-l_string|&quot;%s&bslash;n&bslash;n&quot;
+l_string|&quot;%s%s&quot;
+comma
+id|buf-&gt;len
+ques
+c_cond
+l_string|&quot;&bslash;n&bslash;n&quot;
+suffix:colon
+l_string|&quot;&quot;
 comma
 id|arg
 )paren
@@ -510,6 +522,7 @@ comma
 id|ent-&gt;len
 )paren
 suffix:semicolon
+)brace
 id|exclude_cmds
 c_func
 (paren
@@ -520,7 +533,6 @@ op_amp
 id|not_strategies
 )paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -892,7 +904,20 @@ comma
 op_amp
 id|allow_fast_forward
 comma
-l_string|&quot;allow fast forward (default)&quot;
+l_string|&quot;allow fast-forward (default)&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ff-only&quot;
+comma
+op_amp
+id|fast_forward_only
+comma
+l_string|&quot;abort if fast-forward is not possible&quot;
 )paren
 comma
 id|OPT_CALLBACK
@@ -1402,6 +1427,14 @@ suffix:semicolon
 r_int
 id|fd
 suffix:semicolon
+r_struct
+id|pretty_print_context
+id|ctx
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -1540,6 +1573,14 @@ c_func
 l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
+id|ctx.abbrev
+op_assign
+id|rev.abbrev
+suffix:semicolon
+id|ctx.date_mode
+op_assign
+id|rev.date_mode
+suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
@@ -1600,15 +1641,8 @@ comma
 op_amp
 id|out
 comma
-id|rev.abbrev
-comma
-l_int|NULL
-comma
-l_int|NULL
-comma
-id|rev.date_mode
-comma
-l_int|0
+op_amp
+id|ctx
 )paren
 suffix:semicolon
 )brace
@@ -3958,6 +3992,13 @@ id|opts.fn
 op_assign
 id|twoway_merge
 suffix:semicolon
+id|opts.msgs
+op_assign
+id|get_porcelain_error_msgs
+c_func
+(paren
+)paren
+suffix:semicolon
 id|trees
 (braket
 id|nr_trees
@@ -4876,6 +4917,18 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|variable|deprecation_warning
+r_static
+r_const
+r_char
+id|deprecation_warning
+(braket
+)braket
+op_assign
+l_string|&quot;&squot;git merge &lt;msg&gt; HEAD &lt;commit&gt;&squot; is deprecated. Please update&bslash;n&quot;
+l_string|&quot;your script to use &squot;git merge -m &lt;msg&gt; &lt;commit&gt;&squot; instead.&bslash;n&quot;
+l_string|&quot;In future versions of git, this syntax will be removed.&quot;
+suffix:semicolon
 DECL|function|is_old_style_invocation
 r_static
 r_struct
@@ -4906,7 +4959,7 @@ c_cond
 (paren
 id|argc
 OG
-l_int|1
+l_int|2
 )paren
 (brace
 r_int
@@ -4973,6 +5026,12 @@ id|head
 )paren
 r_return
 l_int|NULL
+suffix:semicolon
+id|warning
+c_func
+(paren
+id|deprecation_warning
+)paren
 suffix:semicolon
 )brace
 r_return
@@ -5142,11 +5201,6 @@ op_assign
 op_amp
 id|remoteheads
 suffix:semicolon
-id|setup_work_tree
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5300,6 +5354,20 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|allow_fast_forward
+op_logical_and
+id|fast_forward_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;You cannot combine --no-ff with --ff-only.&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5485,6 +5553,13 @@ op_assign
 l_string|&quot;HEAD&quot;
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * All the rest are the commits being merged;&n;&t;&t; * prepare the standard merge summary message to&n;&t;&t; * be appended to the given message.  If remote&n;&t;&t; * is invalid we will die later in the common&n;&t;&t; * codepath so we discard the error in this&n;&t;&t; * loop.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|have_message
+)paren
+(brace
 r_for
 c_loop
 (paren
@@ -5539,6 +5614,7 @@ op_minus
 l_int|1
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -6008,7 +6084,7 @@ c_func
 op_amp
 id|msg
 comma
-l_string|&quot;Fast forward&quot;
+l_string|&quot;Fast-forward&quot;
 )paren
 suffix:semicolon
 r_if
@@ -6093,7 +6169,7 @@ op_logical_and
 id|common-&gt;next
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We are not doing octopus and not fast forward.  Need&n;&t;&t; * a real merge.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are not doing octopus and not fast-forward.  Need&n;&t;&t; * a real merge.&n;&t;&t; */
 r_else
 r_if
 c_cond
@@ -6107,7 +6183,7 @@ op_logical_and
 id|option_commit
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We are not doing octopus, not fast forward, and have&n;&t;&t; * only one common.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are not doing octopus, not fast-forward, and have&n;&t;&t; * only one common.&n;&t;&t; */
 id|refresh_cache
 c_func
 (paren
@@ -6118,6 +6194,9 @@ r_if
 c_cond
 (paren
 id|allow_trivial
+op_logical_and
+op_logical_neg
+id|fast_forward_only
 )paren
 (brace
 multiline_comment|/* See if it is really trivial. */
@@ -6247,6 +6326,17 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|fast_forward_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Not possible to fast-forward, aborting.&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* We are going to make a new commit. */
 id|git_committer_info
 c_func

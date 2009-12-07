@@ -183,6 +183,7 @@ DECL|variable|verbose
 DECL|variable|no_verify
 DECL|variable|allow_empty
 DECL|variable|dry_run
+DECL|variable|renew_authorship
 r_static
 r_int
 id|quiet
@@ -194,6 +195,8 @@ comma
 id|allow_empty
 comma
 id|dry_run
+comma
+id|renew_authorship
 suffix:semicolon
 DECL|variable|untracked_files_arg
 r_static
@@ -400,7 +403,7 @@ id|edit_message
 comma
 l_string|&quot;COMMIT&quot;
 comma
-l_string|&quot;reuse and edit message from specified commit &quot;
+l_string|&quot;reuse and edit message from specified commit&quot;
 )paren
 comma
 id|OPT_STRING
@@ -416,6 +419,19 @@ comma
 l_string|&quot;COMMIT&quot;
 comma
 l_string|&quot;reuse message from specified commit&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;reset-author&quot;
+comma
+op_amp
+id|renew_authorship
+comma
+l_string|&quot;the commit is authored by me now (used with -C-c/--amend)&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1824,6 +1840,9 @@ r_if
 c_cond
 (paren
 id|use_message
+op_logical_and
+op_logical_neg
+id|renew_authorship
 )paren
 (brace
 r_const
@@ -2862,6 +2881,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|i
+op_logical_or
+op_logical_neg
 id|ends_rfc2822_footer
 c_func
 (paren
@@ -3820,6 +3842,18 @@ c_cond
 id|commit
 )paren
 (brace
+r_struct
+id|pretty_print_context
+id|ctx
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
+id|ctx.date_mode
+op_assign
+id|DATE_NORMAL
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
@@ -3837,7 +3871,8 @@ comma
 op_amp
 id|buf
 comma
-id|DATE_NORMAL
+op_amp
+id|ctx
 )paren
 suffix:semicolon
 r_return
@@ -3938,6 +3973,19 @@ id|find_author_by_nickname
 c_func
 (paren
 id|force_author
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|force_author
+op_logical_and
+id|renew_authorship
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Using both --reset-author and --author does not make sense&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4108,6 +4156,20 @@ id|use_message
 id|use_message
 op_assign
 l_string|&quot;HEAD&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|use_message
+op_logical_and
+id|renew_authorship
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--reset-author can be used only with -C, -c or --amend.&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -5420,10 +5482,22 @@ id|commit
 )paren
 (brace
 r_struct
+id|pretty_print_context
+id|ctx
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
+r_struct
 id|strbuf
 id|buf
 op_assign
 id|STRBUF_INIT
+suffix:semicolon
+id|ctx.date_mode
+op_assign
+id|DATE_NORMAL
 suffix:semicolon
 id|format_commit_message
 c_func
@@ -5437,7 +5511,8 @@ comma
 op_amp
 id|buf
 comma
-id|DATE_NORMAL
+op_amp
+id|ctx
 )paren
 suffix:semicolon
 id|printf
@@ -5498,7 +5573,7 @@ l_string|&quot;commit.template&quot;
 )paren
 )paren
 r_return
-id|git_config_string
+id|git_config_pathname
 c_func
 (paren
 op_amp

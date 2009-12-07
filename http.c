@@ -1,5 +1,6 @@
 macro_line|#include &quot;http.h&quot;
 macro_line|#include &quot;pack.h&quot;
+macro_line|#include &quot;sideband.h&quot;
 DECL|variable|data_received
 r_int
 id|data_received
@@ -11,6 +12,14 @@ suffix:semicolon
 DECL|variable|http_is_verbose
 r_int
 id|http_is_verbose
+suffix:semicolon
+DECL|variable|http_post_buffer
+r_int
+id|http_post_buffer
+op_assign
+l_int|16
+op_star
+id|LARGE_PACKET_MAX
 suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 DECL|variable|max_requests
@@ -366,17 +375,6 @@ op_star
 id|nmemb
 suffix:semicolon
 )brace
-r_static
-r_void
-id|finish_active_slot
-c_func
-(paren
-r_struct
-id|active_request_slot
-op_star
-id|slot
-)paren
-suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
 DECL|function|process_curl_messages
 r_static
@@ -837,6 +835,44 @@ comma
 id|value
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;http.postbuffer&quot;
+comma
+id|var
+)paren
+)paren
+(brace
+id|http_post_buffer
+op_assign
+id|git_config_int
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|http_post_buffer
+OL
+id|LARGE_PACKET_MAX
+)paren
+id|http_post_buffer
+op_assign
+id|LARGE_PACKET_MAX
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 multiline_comment|/* Fall back on the default ones */
 r_return
 id|git_default_config
@@ -2918,7 +2954,6 @@ suffix:semicolon
 macro_line|#endif
 )brace
 DECL|function|finish_active_slot
-r_static
 r_void
 id|finish_active_slot
 c_func

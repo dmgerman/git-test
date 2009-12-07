@@ -1712,14 +1712,14 @@ id|ent
 id|error
 c_func
 (paren
-l_string|&quot;denying non-fast forward %s&quot;
+l_string|&quot;denying non-fast-forward %s&quot;
 l_string|&quot; (you should pull first)&quot;
 comma
 id|name
 )paren
 suffix:semicolon
 r_return
-l_string|&quot;non-fast forward&quot;
+l_string|&quot;non-fast-forward&quot;
 suffix:semicolon
 )brace
 )brace
@@ -3248,6 +3248,16 @@ id|prefix
 )paren
 (brace
 r_int
+id|advertise_refs
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|stateless_rpc
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|i
 suffix:semicolon
 r_char
@@ -3292,7 +3302,46 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
-multiline_comment|/* Do flag handling here */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--advertise-refs&quot;
+)paren
+)paren
+(brace
+id|advertise_refs
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--stateless-rpc&quot;
+)paren
+)paren
+(brace
+id|stateless_rpc
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|usage
 c_func
 (paren
@@ -3413,6 +3462,15 @@ l_string|&quot; report-status delete-refs ofs-delta &quot;
 suffix:colon
 l_string|&quot; report-status delete-refs &quot;
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|advertise_refs
+op_logical_or
+op_logical_neg
+id|stateless_rpc
+)paren
+(brace
 id|add_alternate_refs
 c_func
 (paren
@@ -3434,6 +3492,15 @@ c_func
 (paren
 l_int|1
 )paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|advertise_refs
+)paren
+r_return
+l_int|0
 suffix:semicolon
 id|read_head_info
 c_func

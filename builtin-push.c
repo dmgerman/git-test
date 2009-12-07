@@ -330,14 +330,6 @@ c_func
 r_void
 )paren
 (brace
-id|git_config
-c_func
-(paren
-id|git_default_config
-comma
-l_int|NULL
-)paren
-suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -1020,7 +1012,7 @@ comma
 op_amp
 id|tags
 comma
-l_string|&quot;push tags (can&squot;t be used with --all or --mirror&quot;
+l_string|&quot;push tags (can&squot;t be used with --all or --mirror)&quot;
 )paren
 comma
 id|OPT_BIT
@@ -1116,6 +1108,14 @@ c_func
 (paren
 )paren
 )brace
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 id|argc
 op_assign

@@ -1418,6 +1418,11 @@ DECL|struct|warn_if_dangling_data
 r_struct
 id|warn_if_dangling_data
 (brace
+DECL|member|fp
+id|FILE
+op_star
+id|fp
+suffix:semicolon
 DECL|member|refname
 r_const
 r_char
@@ -1520,9 +1525,11 @@ id|d-&gt;refname
 r_return
 l_int|0
 suffix:semicolon
-id|printf
+id|fprintf
 c_func
 (paren
+id|d-&gt;fp
+comma
 id|d-&gt;msg_fmt
 comma
 id|refname
@@ -1537,6 +1544,10 @@ r_void
 id|warn_dangling_symref
 c_func
 (paren
+id|FILE
+op_star
+id|fp
+comma
 r_const
 r_char
 op_star
@@ -1553,6 +1564,8 @@ id|warn_if_dangling_data
 id|data
 op_assign
 (brace
+id|fp
+comma
 id|refname
 comma
 id|msg_fmt
