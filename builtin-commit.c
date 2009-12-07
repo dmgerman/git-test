@@ -1822,7 +1822,7 @@ suffix:semicolon
 r_case
 id|STATUS_FORMAT_PORCELAIN
 suffix:colon
-id|wt_shortstatus_print
+id|wt_porcelain_print
 c_func
 (paren
 id|s
@@ -5322,7 +5322,7 @@ suffix:semicolon
 r_case
 id|STATUS_FORMAT_PORCELAIN
 suffix:colon
-id|wt_shortstatus_print
+id|wt_porcelain_print
 c_func
 (paren
 op_amp
