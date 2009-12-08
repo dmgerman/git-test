@@ -4917,18 +4917,6 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|variable|deprecation_warning
-r_static
-r_const
-r_char
-id|deprecation_warning
-(braket
-)braket
-op_assign
-l_string|&quot;&squot;git merge &lt;msg&gt; HEAD &lt;commit&gt;&squot; is deprecated. Please update&bslash;n&quot;
-l_string|&quot;your script to use &squot;git merge -m &lt;msg&gt; &lt;commit&gt;&squot; instead.&bslash;n&quot;
-l_string|&quot;In future versions of git, this syntax will be removed.&quot;
-suffix:semicolon
 DECL|function|is_old_style_invocation
 r_static
 r_struct
@@ -5026,12 +5014,6 @@ id|head
 )paren
 r_return
 l_int|NULL
-suffix:semicolon
-id|warning
-c_func
-(paren
-id|deprecation_warning
-)paren
 suffix:semicolon
 )brace
 r_return
