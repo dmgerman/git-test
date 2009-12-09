@@ -5082,56 +5082,6 @@ l_int|0
 suffix:semicolon
 )brace
 r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|prefixcmp
-c_func
-(paren
-id|url
-comma
-l_string|&quot;http://&quot;
-)paren
-op_logical_or
-op_logical_neg
-id|prefixcmp
-c_func
-(paren
-id|url
-comma
-l_string|&quot;https://&quot;
-)paren
-op_logical_or
-op_logical_neg
-id|prefixcmp
-c_func
-(paren
-id|url
-comma
-l_string|&quot;ftp://&quot;
-)paren
-)paren
-(brace
-multiline_comment|/* These three are just plain special. */
-id|transport_helper_init
-c_func
-(paren
-id|ret
-comma
-l_string|&quot;curl&quot;
-)paren
-suffix:semicolon
-macro_line|#ifdef NO_CURL
-id|error
-c_func
-(paren
-l_string|&quot;git was compiled without libcurl support.&quot;
-)paren
-suffix:semicolon
-macro_line|#endif
-)brace
-r_else
 (brace
 multiline_comment|/* Unknown protocol in URL. Pass to external handler. */
 r_int
