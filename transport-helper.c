@@ -494,6 +494,16 @@ c_loop
 l_int|1
 )paren
 (brace
+r_const
+r_char
+op_star
+id|capname
+suffix:semicolon
+r_int
+id|mandatory
+op_assign
+l_int|0
+suffix:semicolon
 id|recvline
 c_func
 (paren
@@ -515,6 +525,31 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_star
+id|buf.buf
+op_eq
+l_char|&squot;*&squot;
+)paren
+(brace
+id|capname
+op_assign
+id|buf.buf
+op_plus
+l_int|1
+suffix:semicolon
+id|mandatory
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_else
+id|capname
+op_assign
+id|buf.buf
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|debug
 )paren
 id|fprintf
@@ -524,7 +559,7 @@ id|stderr
 comma
 l_string|&quot;Debug: Got cap %s&bslash;n&quot;
 comma
-id|buf.buf
+id|capname
 )paren
 suffix:semicolon
 r_if
@@ -534,7 +569,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|buf.buf
+id|capname
 comma
 l_string|&quot;fetch&quot;
 )paren
@@ -543,6 +578,7 @@ id|data-&gt;fetch
 op_assign
 l_int|1
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -550,7 +586,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|buf.buf
+id|capname
 comma
 l_string|&quot;option&quot;
 )paren
@@ -559,6 +595,7 @@ id|data-&gt;option
 op_assign
 l_int|1
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -566,7 +603,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|buf.buf
+id|capname
 comma
 l_string|&quot;push&quot;
 )paren
@@ -575,6 +612,7 @@ id|data-&gt;push
 op_assign
 l_int|1
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -582,7 +620,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|buf.buf
+id|capname
 comma
 l_string|&quot;import&quot;
 )paren
@@ -591,6 +629,7 @@ id|data-&gt;import
 op_assign
 l_int|1
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
@@ -601,7 +640,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|buf.buf
+id|capname
 comma
 l_string|&quot;refspec &quot;
 )paren
@@ -635,6 +674,23 @@ c_func
 (paren
 l_string|&quot;refspec &quot;
 )paren
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|mandatory
+)paren
+(brace
+id|die
+c_func
+(paren
+l_string|&quot;Unknown madatory capability %s. This remote &quot;
+l_string|&quot;helper probably needs newer version of Git.&bslash;n&quot;
+comma
+id|capname
 )paren
 suffix:semicolon
 )brace
