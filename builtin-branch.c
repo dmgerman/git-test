@@ -245,13 +245,8 @@ l_string|&quot;current&quot;
 r_return
 id|BRANCH_COLOR_CURRENT
 suffix:semicolon
-id|die
-c_func
-(paren
-l_string|&quot;bad config variable &squot;%s&squot;&quot;
-comma
-id|var
-)paren
+r_return
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|git_branch_config
@@ -327,6 +322,16 @@ id|var
 comma
 l_int|13
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|slot
+OL
+l_int|0
+)paren
+r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
