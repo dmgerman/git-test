@@ -255,7 +255,7 @@ id|s-&gt;fp
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to mark resolution)&quot;
+l_string|&quot;#   (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; as appropriate to mark resolution)&quot;
 )paren
 suffix:semicolon
 id|color_fprintf_ln
