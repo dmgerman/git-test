@@ -222,6 +222,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|s-&gt;in_merge
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 op_logical_neg
 id|s-&gt;is_initial
 )paren
@@ -307,10 +314,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|s-&gt;in_merge
+)paren
+suffix:semicolon
+multiline_comment|/* NEEDSWORK: use &quot;git reset --unresolve&quot;??? */
+r_else
+r_if
+c_cond
+(paren
 op_logical_neg
 id|s-&gt;is_initial
 )paren
-(brace
 id|color_fprintf_ln
 c_func
 (paren
@@ -323,9 +337,7 @@ comma
 id|s-&gt;reference
 )paren
 suffix:semicolon
-)brace
 r_else
-(brace
 id|color_fprintf_ln
 c_func
 (paren
@@ -336,7 +348,6 @@ comma
 l_string|&quot;#   (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 )paren
 suffix:semicolon
-)brace
 id|color_fprintf_ln
 c_func
 (paren

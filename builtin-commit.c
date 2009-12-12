@@ -5243,6 +5243,10 @@ l_int|1
 suffix:colon
 l_int|0
 suffix:semicolon
+id|s.in_merge
+op_assign
+id|in_merge
+suffix:semicolon
 id|wt_status_collect
 c_func
 (paren
@@ -5773,6 +5777,10 @@ c_func
 l_string|&quot;MERGE_HEAD&quot;
 )paren
 )paren
+suffix:semicolon
+id|s.in_merge
+op_assign
+id|in_merge
 suffix:semicolon
 r_if
 c_cond
