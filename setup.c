@@ -129,6 +129,11 @@ id|orig
 )paren
 )paren
 (brace
+r_int
+id|len
+comma
+id|total
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -139,7 +144,15 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_int
+r_if
+c_cond
+(paren
+op_logical_neg
+id|work_tree
+)paren
+r_goto
+id|error_out
+suffix:semicolon
 id|len
 op_assign
 id|strlen
@@ -148,7 +161,6 @@ c_func
 id|work_tree
 )paren
 suffix:semicolon
-r_int
 id|total
 op_assign
 id|strlen
