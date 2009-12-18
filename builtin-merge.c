@@ -3762,15 +3762,6 @@ c_func
 r_void
 )paren
 (brace
-r_const
-r_struct
-id|index_state
-op_star
-id|state
-op_assign
-op_amp
-id|the_index
-suffix:semicolon
 r_int
 id|i
 comma
@@ -3787,7 +3778,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|state-&gt;cache_nr
+id|active_nr
 suffix:semicolon
 id|i
 op_increment
@@ -3798,7 +3789,7 @@ c_cond
 id|ce_stage
 c_func
 (paren
-id|state-&gt;cache
+id|active_cache
 (braket
 id|i
 )braket
