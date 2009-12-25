@@ -2706,7 +2706,7 @@ op_logical_neg
 id|isatty
 c_func
 (paren
-l_int|1
+l_int|2
 )paren
 )paren
 suffix:semicolon
