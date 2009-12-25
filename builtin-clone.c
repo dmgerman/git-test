@@ -2811,10 +2811,16 @@ c_cond
 (paren
 id|option_verbose
 )paren
+(brace
+id|transport-&gt;verbose
+op_assign
+l_int|1
+suffix:semicolon
 id|transport-&gt;progress
 op_assign
 l_int|1
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
