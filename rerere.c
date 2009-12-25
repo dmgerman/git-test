@@ -543,12 +543,6 @@ id|output
 id|git_SHA_CTX
 id|ctx
 suffix:semicolon
-r_char
-id|buf
-(braket
-l_int|1024
-)braket
-suffix:semicolon
 r_int
 id|hunk_no
 op_assign
@@ -578,6 +572,12 @@ op_assign
 id|STRBUF_INIT
 comma
 id|two
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|strbuf
+id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
@@ -674,17 +674,16 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|fgets
+op_logical_neg
+id|strbuf_getwholeline
 c_func
 (paren
+op_amp
 id|buf
-comma
-r_sizeof
-(paren
-id|buf
-)paren
 comma
 id|f
+comma
+l_char|&squot;&bslash;n&squot;
 )paren
 )paren
 (brace
@@ -695,7 +694,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|buf
+id|buf.buf
 comma
 l_string|&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt; &quot;
 )paren
@@ -724,7 +723,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|buf
+id|buf.buf
 comma
 l_string|&quot;|||||||&quot;
 )paren
@@ -732,7 +731,7 @@ op_logical_and
 id|isspace
 c_func
 (paren
-id|buf
+id|buf.buf
 (braket
 l_int|7
 )braket
@@ -762,7 +761,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|buf
+id|buf.buf
 comma
 l_string|&quot;=======&quot;
 )paren
@@ -770,7 +769,7 @@ op_logical_and
 id|isspace
 c_func
 (paren
-id|buf
+id|buf.buf
 (braket
 l_int|7
 )braket
@@ -804,7 +803,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|buf
+id|buf.buf
 comma
 l_string|&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;
 )paren
@@ -990,7 +989,7 @@ c_func
 op_amp
 id|one
 comma
-id|buf
+id|buf.buf
 )paren
 suffix:semicolon
 r_else
@@ -1017,7 +1016,7 @@ c_func
 op_amp
 id|two
 comma
-id|buf
+id|buf.buf
 )paren
 suffix:semicolon
 r_else
@@ -1029,7 +1028,7 @@ id|out
 id|ferr_puts
 c_func
 (paren
-id|buf
+id|buf.buf
 comma
 id|out
 comma
@@ -1061,6 +1060,13 @@ c_func
 (paren
 op_amp
 id|two
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
 )paren
 suffix:semicolon
 id|fclose
