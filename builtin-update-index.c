@@ -5,6 +5,7 @@ macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -3493,6 +3494,27 @@ l_string|&quot;--verbose&quot;
 id|verbose
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|path
+comma
+l_string|&quot;--clear-resolve-undo&quot;
+)paren
+)paren
+(brace
+id|resolve_undo_clear
+c_func
+(paren
+)paren
 suffix:semicolon
 r_continue
 suffix:semicolon
