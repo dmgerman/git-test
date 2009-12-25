@@ -1289,6 +1289,18 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* &quot;checkout -m path&quot; to recreate conflicted state */
+r_if
+c_cond
+(paren
+id|opts-&gt;merge
+)paren
+id|unmerge_cache
+c_func
+(paren
+id|pathspec
+)paren
+suffix:semicolon
 multiline_comment|/* Any unmerged paths? */
 r_for
 c_loop
