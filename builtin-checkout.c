@@ -17,6 +17,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 DECL|variable|checkout_usage
 r_static
 r_const
@@ -2104,6 +2105,11 @@ id|error
 c_func
 (paren
 l_string|&quot;corrupt index file&quot;
+)paren
+suffix:semicolon
+id|resolve_undo_clear
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if

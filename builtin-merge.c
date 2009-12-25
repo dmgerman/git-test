@@ -17,6 +17,7 @@ macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;help.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 DECL|macro|DEFAULT_TWOHEAD
 mdefine_line|#define DEFAULT_TWOHEAD (1&lt;&lt;0)
 DECL|macro|DEFAULT_OCTOPUS
@@ -3713,6 +3714,11 @@ c_func
 l_string|&quot;failed to read the cache&quot;
 )paren
 suffix:semicolon
+id|resolve_undo_clear
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
@@ -5206,6 +5212,11 @@ c_func
 (paren
 l_string|&quot;You are in the middle of a conflicted merge.&quot;
 l_string|&quot; (index unmerged)&quot;
+)paren
+suffix:semicolon
+id|resolve_undo_clear
+c_func
+(paren
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Check if we are _not_ on a detached HEAD, i.e. if there is a&n;&t; * current branch.&n;&t; */

@@ -8,6 +8,7 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 DECL|variable|nr_trees
 r_static
 r_int
@@ -572,6 +573,11 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+id|resolve_undo_clear
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
