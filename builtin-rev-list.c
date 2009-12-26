@@ -1351,7 +1351,7 @@ c_func
 op_amp
 id|revs.diffopt
 comma
-id|QUIET
+id|QUICK
 )paren
 suffix:semicolon
 r_for

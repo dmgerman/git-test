@@ -245,7 +245,7 @@ c_func
 op_amp
 id|revs-&gt;diffopt
 comma
-id|QUIET
+id|QUICK
 )paren
 op_logical_and
 id|DIFF_OPT_TST
@@ -2311,7 +2311,7 @@ c_func
 op_amp
 id|rev.diffopt
 comma
-id|QUIET
+id|QUICK
 )paren
 suffix:semicolon
 id|DIFF_OPT_SET

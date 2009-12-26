@@ -3465,7 +3465,7 @@ c_func
 op_amp
 id|revs-&gt;pruning
 comma
-id|QUIET
+id|QUICK
 )paren
 suffix:semicolon
 id|revs-&gt;pruning.add_remove

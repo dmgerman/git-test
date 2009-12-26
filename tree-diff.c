@@ -1481,7 +1481,7 @@ c_func
 (paren
 id|opt
 comma
-id|QUIET
+id|QUICK
 )paren
 op_logical_and
 id|DIFF_OPT_TST
