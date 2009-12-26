@@ -506,10 +506,7 @@ c_func
 (paren
 id|remote
 comma
-id|remote-&gt;url
-(braket
-l_int|0
-)braket
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
