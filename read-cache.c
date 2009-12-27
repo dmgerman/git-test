@@ -4645,8 +4645,7 @@ l_int|8
 )paren
 (brace
 multiline_comment|/* After an array of active_nr index entries,&n;&t;&t; * there can be arbitrary number of extended&n;&t;&t; * sections, each of which is prefixed with&n;&t;&t; * extension name (4-byte) and section length&n;&t;&t; * in 4-byte network byte order.&n;&t;&t; */
-r_int
-r_int
+r_uint32
 id|extsize
 suffix:semicolon
 id|memcpy
