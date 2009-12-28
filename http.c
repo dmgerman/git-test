@@ -146,15 +146,6 @@ comma
 op_star
 id|user_pass
 suffix:semicolon
-macro_line|#ifdef LIBCURL_CAN_HANDLE_AUTH_ANY
-DECL|variable|curl_http_auth_any
-r_static
-r_int
-id|curl_http_auth_any
-op_assign
-l_int|0
-suffix:semicolon
-macro_line|#endif
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071700
 multiline_comment|/* Use CURLOPT_KEYPASSWD as is */
 macro_line|#elif LIBCURL_VERSION_NUM &gt;= 0x070903
@@ -938,35 +929,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-macro_line|#ifdef LIBCURL_CAN_HANDLE_AUTH_ANY
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
-l_string|&quot;http.authany&quot;
-comma
-id|var
-)paren
-)paren
-(brace
-id|curl_http_auth_any
-op_assign
-id|git_config_bool
-c_func
-(paren
-id|var
-comma
-id|value
-)paren
-suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
-)brace
-macro_line|#endif
 multiline_comment|/* Fall back on the default ones */
 r_return
 id|git_default_config
@@ -1209,11 +1171,6 @@ id|CURL_NETRC_OPTIONAL
 suffix:semicolon
 macro_line|#endif
 macro_line|#ifdef LIBCURL_CAN_HANDLE_AUTH_ANY
-r_if
-c_cond
-(paren
-id|curl_http_auth_any
-)paren
 id|curl_easy_setopt
 c_func
 (paren
@@ -1972,21 +1929,6 @@ id|curl_ftp_no_epsv
 op_assign
 l_int|1
 suffix:semicolon
-macro_line|#ifdef LIBCURL_CAN_HANDLE_AUTH_ANY
-r_if
-c_cond
-(paren
-id|getenv
-c_func
-(paren
-l_string|&quot;GIT_HTTP_AUTH_ANY&quot;
-)paren
-)paren
-id|curl_http_auth_any
-op_assign
-l_int|1
-suffix:semicolon
-macro_line|#endif
 r_if
 c_cond
 (paren
