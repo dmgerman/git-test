@@ -27,8 +27,7 @@ r_int
 op_star
 id|loose
 comma
-r_int
-r_int
+id|off_t
 op_star
 id|loose_size
 comma
@@ -479,8 +478,7 @@ id|garbage
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|loose_size
 op_assign
 l_int|0
@@ -663,8 +661,7 @@ id|num_pack
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|size_pack
 op_assign
 l_int|0
@@ -740,9 +737,15 @@ c_func
 (paren
 l_string|&quot;size: %lu&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|loose_size
 op_div
 l_int|1024
+)paren
 )paren
 suffix:semicolon
 id|printf
@@ -766,9 +769,15 @@ c_func
 (paren
 l_string|&quot;size-pack: %lu&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|size_pack
 op_div
 l_int|1024
+)paren
 )paren
 suffix:semicolon
 id|printf
@@ -796,9 +805,15 @@ l_string|&quot;%lu objects, %lu kilobytes&bslash;n&quot;
 comma
 id|loose
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|loose_size
 op_div
 l_int|1024
+)paren
 )paren
 suffix:semicolon
 r_return
