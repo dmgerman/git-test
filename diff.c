@@ -20833,6 +20833,10 @@ id|child
 )paren
 )paren
 suffix:semicolon
+id|child.use_shell
+op_assign
+l_int|1
+suffix:semicolon
 id|child.argv
 op_assign
 id|argv
