@@ -151,6 +151,30 @@ c_func
 l_string|&quot;BUG: shell command is empty&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|strcspn
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+l_string|&quot;|&amp;;&lt;&gt;()$`&bslash;&bslash;&bslash;&quot;&squot; &bslash;t&bslash;n*?[#~=%&quot;
+)paren
+op_ne
+id|strlen
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+)paren
+(brace
 id|nargv
 (braket
 id|nargc
@@ -222,6 +246,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+)brace
 )brace
 r_for
 c_loop
