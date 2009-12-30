@@ -12556,7 +12556,7 @@ c_func
 (paren
 id|spawn_arg
 comma
-l_int|0
+id|RUN_USING_SHELL
 )paren
 suffix:semicolon
 id|remove_tempfile
