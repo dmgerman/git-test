@@ -1006,10 +1006,6 @@ id|argv
 )braket
 op_assign
 (brace
-l_string|&quot;sh&quot;
-comma
-l_string|&quot;-c&quot;
-comma
 id|params-&gt;cmd
 comma
 l_int|NULL
@@ -1032,6 +1028,10 @@ suffix:semicolon
 id|child_process.argv
 op_assign
 id|argv
+suffix:semicolon
+id|child_process.use_shell
+op_assign
+l_int|1
 suffix:semicolon
 id|child_process.in
 op_assign

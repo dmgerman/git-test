@@ -69,10 +69,6 @@ id|pager_argv
 )braket
 op_assign
 (brace
-l_string|&quot;sh&quot;
-comma
-l_string|&quot;-c&quot;
-comma
 l_int|NULL
 comma
 l_int|NULL
@@ -299,10 +295,14 @@ multiline_comment|/* means we are emitting to terminal */
 multiline_comment|/* spawn the pager */
 id|pager_argv
 (braket
-l_int|2
+l_int|0
 )braket
 op_assign
 id|pager
+suffix:semicolon
+id|pager_process.use_shell
+op_assign
+l_int|1
 suffix:semicolon
 id|pager_process.argv
 op_assign
