@@ -20876,6 +20876,12 @@ op_ne
 l_int|0
 )paren
 (brace
+id|close
+c_func
+(paren
+id|child.out
+)paren
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
@@ -20900,6 +20906,12 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+id|close
+c_func
+(paren
+id|child.out
+)paren
+suffix:semicolon
 id|remove_tempfile
 c_func
 (paren
