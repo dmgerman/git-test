@@ -5989,12 +5989,10 @@ op_eq
 l_int|416
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Warning: requested range invalid; we may already have all the data.&bslash;n&quot;
+l_string|&quot;requested range invalid; we may already have all the data.&quot;
 )paren
 suffix:semicolon
 )brace

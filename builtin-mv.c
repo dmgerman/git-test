@@ -1159,13 +1159,10 @@ id|st.st_mode
 )paren
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Warning: %s;&quot;
-l_string|&quot; will overwrite!&bslash;n&quot;
+l_string|&quot;%s; will overwrite!&quot;
 comma
 id|bad
 )paren

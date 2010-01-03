@@ -3880,16 +3880,14 @@ comma
 l_char|&squot; &squot;
 )paren
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Warning: the merge base between %s and [%s] &quot;
+l_string|&quot;the merge base between %s and [%s] &quot;
 l_string|&quot;must be skipped.&bslash;n&quot;
 l_string|&quot;So we cannot be sure the first bad commit is &quot;
 l_string|&quot;between %s and %s.&bslash;n&quot;
-l_string|&quot;We continue anyway.&bslash;n&quot;
+l_string|&quot;We continue anyway.&quot;
 comma
 id|bad_hex
 comma
