@@ -1105,6 +1105,14 @@ id|argc
 op_assign
 l_int|NULL
 suffix:semicolon
+id|trace_argv_printf
+c_func
+(paren
+id|argv
+comma
+l_string|&quot;trace: grep:&quot;
+)paren
+suffix:semicolon
 id|pid
 op_assign
 id|fork
