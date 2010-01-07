@@ -661,9 +661,17 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;Deleted tag &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;Deleted tag &squot;%s&squot; (was %s)&bslash;n&quot;
 comma
 id|name
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|sha1
+comma
+id|DEFAULT_ABBREV
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2676,6 +2684,35 @@ c_func
 l_string|&quot;%s: cannot update the ref&quot;
 comma
 id|ref
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|force
+op_logical_and
+id|hashcmp
+c_func
+(paren
+id|prev
+comma
+id|object
+)paren
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;Updated tag &squot;%s&squot; (was %s)&bslash;n&quot;
+comma
+id|tag
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|prev
+comma
+id|DEFAULT_ABBREV
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
