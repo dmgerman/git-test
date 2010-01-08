@@ -2395,6 +2395,25 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|ref-&gt;status
+op_ne
+id|REF_STATUS_NONE
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * Earlier, the ref was marked not to be pushed, so ignore the ref&n;&t;&t;&t; * status reported by the remote helper if the latter is &squot;no match&squot;.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|status
+op_eq
+id|REF_STATUS_NONE
+)paren
+r_continue
+suffix:semicolon
+)brace
 id|ref-&gt;status
 op_assign
 id|status
