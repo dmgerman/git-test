@@ -401,11 +401,13 @@ comma
 id|ch
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Detect overflow.  The largest&n;&t;&t; * 5-letter possible is &quot;|NsC0&quot; to&n;&t;&t; * encode 0xffffffff, and &quot;|NsC&quot; gives&n;&t;&t; * 0x03030303 at this point (i.e.&n;&t;&t; * 0xffffffff = 0x03030303 * 85).&n;&t;&t; */
+multiline_comment|/* Detect overflow. */
 r_if
 c_cond
 (paren
-l_int|0x03030303
+l_int|0xffffffff
+op_div
+l_int|85
 OL
 id|acc
 op_logical_or
