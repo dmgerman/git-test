@@ -518,11 +518,6 @@ r_int
 id|bytes
 )paren
 (brace
-id|prep_base85
-c_func
-(paren
-)paren
-suffix:semicolon
 id|say
 c_func
 (paren
