@@ -445,6 +445,7 @@ id|email
 l_int|0
 )braket
 )paren
+(brace
 id|strlcpy
 c_func
 (paren
@@ -458,6 +459,11 @@ id|git_default_email
 )paren
 )paren
 suffix:semicolon
+id|user_ident_explicitly_given
+op_or_assign
+id|IDENT_MAIL_GIVEN
+suffix:semicolon
+)brace
 r_else
 (brace
 r_if
