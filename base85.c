@@ -728,7 +728,6 @@ id|len
 op_plus
 l_char|&squot;a&squot;
 l_int|26
-op_plus
 l_int|1
 suffix:semicolon
 id|printf
