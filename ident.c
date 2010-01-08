@@ -1271,7 +1271,14 @@ c_func
 (paren
 l_string|&quot;GIT_COMMITTER_NAME&quot;
 )paren
-op_logical_and
+)paren
+id|user_ident_explicitly_given
+op_or_assign
+id|IDENT_NAME_GIVEN
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|getenv
 c_func
 (paren
@@ -1279,8 +1286,8 @@ l_string|&quot;GIT_COMMITTER_EMAIL&quot;
 )paren
 )paren
 id|user_ident_explicitly_given
-op_assign
-l_int|1
+op_or_assign
+id|IDENT_MAIL_GIVEN
 suffix:semicolon
 r_return
 id|fmt_ident
