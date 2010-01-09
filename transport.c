@@ -4808,6 +4808,11 @@ id|ret-&gt;url
 op_assign
 id|url
 suffix:semicolon
+multiline_comment|/* In case previous URL had helper forced, reset it. */
+id|remote-&gt;foreign_vcs
+op_assign
+l_int|NULL
+suffix:semicolon
 multiline_comment|/* maybe it is a foreign URL? */
 r_if
 c_cond
