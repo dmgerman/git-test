@@ -856,6 +856,13 @@ id|builtin_gc_options
 )braket
 op_assign
 (brace
+id|OPT__QUIET
+c_func
+(paren
+op_amp
+id|quiet
+)paren
+comma
 (brace
 id|OPTION_STRING
 comma
@@ -904,19 +911,6 @@ op_amp
 id|auto_gc
 comma
 l_string|&quot;enable auto-gc mode&quot;
-)paren
-comma
-id|OPT_BOOLEAN
-c_func
-(paren
-l_char|&squot;q&squot;
-comma
-l_string|&quot;quiet&quot;
-comma
-op_amp
-id|quiet
-comma
-l_string|&quot;suppress progress reports&quot;
 )paren
 comma
 id|OPT_END
