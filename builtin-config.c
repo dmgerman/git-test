@@ -157,6 +157,8 @@ DECL|macro|TYPE_INT
 mdefine_line|#define TYPE_INT (1&lt;&lt;1)
 DECL|macro|TYPE_BOOL_OR_INT
 mdefine_line|#define TYPE_BOOL_OR_INT (1&lt;&lt;2)
+DECL|macro|TYPE_PATH
+mdefine_line|#define TYPE_PATH (1&lt;&lt;3)
 DECL|variable|builtin_config_options
 r_static
 r_struct
@@ -465,6 +467,21 @@ comma
 id|TYPE_BOOL_OR_INT
 )paren
 comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;path&quot;
+comma
+op_amp
+id|types
+comma
+l_string|&quot;value is a path (file or directory name)&quot;
+comma
+id|TYPE_PATH
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
@@ -623,6 +640,11 @@ op_star
 id|vptr
 op_assign
 id|value
+suffix:semicolon
+r_int
+id|must_free_vptr
+op_assign
+l_int|0
 suffix:semicolon
 r_int
 id|dup_error
@@ -853,6 +875,31 @@ id|v
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+id|types
+op_eq
+id|TYPE_PATH
+)paren
+(brace
+id|git_config_pathname
+c_func
+(paren
+op_amp
+id|vptr
+comma
+id|key_
+comma
+id|value_
+)paren
+suffix:semicolon
+id|must_free_vptr
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_else
 id|vptr
 op_assign
 id|value_
@@ -891,6 +938,22 @@ comma
 id|vptr
 comma
 id|term
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|must_free_vptr
+)paren
+multiline_comment|/* If vptr must be freed, it&squot;s a pointer to a&n;&t;&t; * dynamically allocated buffer, it&squot;s safe to cast to&n;&t;&t; * const.&n;&t;&t;*/
+id|free
+c_func
+(paren
+(paren
+r_char
+op_star
+)paren
+id|vptr
 )paren
 suffix:semicolon
 r_return
@@ -1405,7 +1468,12 @@ c_cond
 id|types
 op_eq
 l_int|0
+op_logical_or
+id|types
+op_eq
+id|TYPE_PATH
 )paren
+multiline_comment|/*&n;&t;&t; * We don&squot;t do normalization for TYPE_PATH here: If&n;&t;&t; * the path is like ~/foobar/, we prefer to store&n;&t;&t; * &quot;~/foobar/&quot; in the config file, and to expand the ~&n;&t;&t; * when retrieving the value.&n;&t;&t; */
 id|normalized
 op_assign
 id|xstrdup
