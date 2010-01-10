@@ -1546,7 +1546,6 @@ multiline_comment|/* by default */
 r_if
 c_cond
 (paren
-(paren
 id|reset_type
 op_eq
 id|HARD
@@ -1555,22 +1554,9 @@ id|reset_type
 op_eq
 id|MERGE
 )paren
-op_logical_and
-op_logical_neg
-id|is_inside_work_tree
+id|setup_work_tree
 c_func
 (paren
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;%s reset requires a work tree&quot;
-comma
-id|reset_type_names
-(braket
-id|reset_type
-)braket
 )paren
 suffix:semicolon
 multiline_comment|/* Soft reset does not touch the index file nor the working tree&n;&t; * at all, but requires them in a good order.  Other resets reset&n;&t; * the index file to the tree object we are switching to. */
