@@ -2229,6 +2229,8 @@ suffix:semicolon
 id|topts.gently
 op_assign
 id|opts-&gt;merge
+op_logical_and
+id|old-&gt;commit
 suffix:semicolon
 id|topts.verbose_update
 op_assign
@@ -2362,11 +2364,15 @@ id|opts-&gt;merge
 r_return
 l_int|1
 suffix:semicolon
-id|parse_commit
-c_func
+multiline_comment|/*&n;&t;&t;&t; * Without old-&gt;commit, the below is the same as&n;&t;&t;&t; * the two-tree unpack we already tried and failed.&n;&t;&t;&t; */
+r_if
+c_cond
 (paren
+op_logical_neg
 id|old-&gt;commit
 )paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* Do more real merge */
 multiline_comment|/*&n;&t;&t;&t; * We update the index fully, then write the&n;&t;&t;&t; * tree from the index, then merge the new&n;&t;&t;&t; * branch with the current tree, with the old&n;&t;&t;&t; * branch as the base. Then we reset the index&n;&t;&t;&t; * (but not the working tree) to the new&n;&t;&t;&t; * branch, leaving the working tree as the&n;&t;&t;&t; * merged version, but skipping unmerged&n;&t;&t;&t; * entries in the index.&n;&t;&t;&t; */
