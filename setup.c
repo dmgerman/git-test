@@ -472,6 +472,61 @@ id|arg
 )paren
 suffix:semicolon
 )brace
+DECL|function|die_verify_filename
+r_static
+r_void
+id|NORETURN
+id|die_verify_filename
+c_func
+(paren
+r_const
+r_char
+op_star
+id|prefix
+comma
+r_const
+r_char
+op_star
+id|arg
+)paren
+(brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_int
+id|mode
+suffix:semicolon
+multiline_comment|/* try a detailed diagnostic ... */
+id|get_sha1_with_mode_1
+c_func
+(paren
+id|arg
+comma
+id|sha1
+comma
+op_amp
+id|mode
+comma
+l_int|0
+comma
+id|prefix
+)paren
+suffix:semicolon
+multiline_comment|/* ... or fall back the most general message. */
+id|die
+c_func
+(paren
+l_string|&quot;ambiguous argument &squot;%s&squot;: unknown revision or path not in the working tree.&bslash;n&quot;
+l_string|&quot;Use &squot;--&squot; to separate paths from revisions&quot;
+comma
+id|arg
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/*&n; * Verify a filename that we got as an argument for a pathspec&n; * entry. Note that a filename that begins with &quot;-&quot; never verifies&n; * as true, because even if such a filename were to exist, we want&n; * it to be preceded by the &quot;--&quot; marker (or we want the user to&n; * use a format like &quot;./-filename&quot;)&n; */
 DECL|function|verify_filename
 r_void
@@ -518,11 +573,10 @@ id|arg
 )paren
 r_return
 suffix:semicolon
-id|die
+id|die_verify_filename
 c_func
 (paren
-l_string|&quot;ambiguous argument &squot;%s&squot;: unknown revision or path not in the working tree.&bslash;n&quot;
-l_string|&quot;Use &squot;--&squot; to separate paths from revisions&quot;
+id|prefix
 comma
 id|arg
 )paren
