@@ -2705,6 +2705,7 @@ DECL|macro|PRN_MODULO
 mdefine_line|#define PRN_MODULO 32768
 multiline_comment|/*&n; * This is a pseudo random number generator based on &quot;man 3 rand&quot;.&n; * It is not used properly because the seed is the argument and it&n; * is increased by one between each call, but that should not matter&n; * for this application.&n; */
 DECL|function|get_prn
+r_static
 r_int
 id|get_prn
 c_func
