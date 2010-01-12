@@ -2514,7 +2514,7 @@ c_func
 op_amp
 id|buf
 comma
-l_string|&quot;Accept: application/x-%s-response&quot;
+l_string|&quot;Accept: application/x-%s-result&quot;
 comma
 id|svc
 )paren
