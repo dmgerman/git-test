@@ -2,6 +2,25 @@ macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
+r_static
+r_int
+id|parse_options_usage
+c_func
+(paren
+r_const
+r_char
+op_star
+r_const
+op_star
+id|usagestr
+comma
+r_const
+r_struct
+id|option
+op_star
+id|opts
+)paren
+suffix:semicolon
 DECL|macro|OPT_SHORT
 mdefine_line|#define OPT_SHORT 1
 DECL|macro|OPT_UNSET
@@ -3186,6 +3205,7 @@ id|options
 suffix:semicolon
 )brace
 DECL|function|parse_options_usage
+r_static
 r_int
 id|parse_options_usage
 c_func
