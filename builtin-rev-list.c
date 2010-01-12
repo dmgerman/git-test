@@ -1012,6 +1012,7 @@ id|val
 suffix:semicolon
 )brace
 DECL|function|show_bisect_vars
+r_static
 r_int
 id|show_bisect_vars
 c_func
