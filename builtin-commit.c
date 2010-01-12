@@ -1137,6 +1137,35 @@ l_int|128
 suffix:semicolon
 multiline_comment|/* We&squot;ve already reported the error, finish dying */
 )brace
+DECL|function|refresh_cache_or_die
+r_static
+r_void
+id|refresh_cache_or_die
+c_func
+(paren
+r_int
+id|refresh_flags
+)paren
+(brace
+multiline_comment|/*&n;&t; * refresh_flags contains REFRESH_QUIET, so the only errors&n;&t; * are for unmerged entries.&n;&t; */
+r_if
+c_cond
+(paren
+id|refresh_cache
+c_func
+(paren
+id|refresh_flags
+op_or
+id|REFRESH_IN_PORCELAIN
+)paren
+)paren
+id|die_resolve_conflict
+c_func
+(paren
+l_string|&quot;commit&quot;
+)paren
+suffix:semicolon
+)brace
 DECL|function|prepare_index
 r_static
 r_char
@@ -1322,7 +1351,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|refresh_cache
+id|refresh_cache_or_die
 c_func
 (paren
 id|refresh_flags
@@ -1385,7 +1414,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|refresh_cache
+id|refresh_cache_or_die
 c_func
 (paren
 id|refresh_flags
