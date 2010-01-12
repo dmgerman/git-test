@@ -881,16 +881,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|st.st_size
-)paren
-r_return
-l_int|0
-suffix:semicolon
-multiline_comment|/* empty file -- no grep hit */
-r_if
-c_cond
-(paren
-op_logical_neg
 id|S_ISREG
 c_func
 (paren
