@@ -1654,6 +1654,7 @@ suffix:semicolon
 )brace
 macro_line|#ifndef NO_CURL_IOCTL
 DECL|function|rpc_ioctl
+r_static
 id|curlioerr
 id|rpc_ioctl
 c_func
