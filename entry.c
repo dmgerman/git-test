@@ -943,6 +943,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * This is like &squot;lstat()&squot;, except it refuses to follow symlinks&n; * in the path, after skipping &quot;skiplen&quot;.&n; */
 DECL|function|check_path
+r_static
 r_int
 id|check_path
 c_func
