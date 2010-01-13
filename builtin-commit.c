@@ -5489,6 +5489,12 @@ op_amp
 id|committer_ident
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_implicit_identity
+)paren
+(brace
 id|strbuf_addch
 c_func
 (paren
@@ -5507,6 +5513,7 @@ comma
 id|implicit_ident_advice
 )paren
 suffix:semicolon
+)brace
 )brace
 id|strbuf_release
 c_func
