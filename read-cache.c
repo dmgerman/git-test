@@ -7597,14 +7597,6 @@ comma
 id|size
 )paren
 suffix:semicolon
-id|hashcpy
-c_func
-(paren
-id|new_ce-&gt;sha1
-comma
-id|ce-&gt;sha1
-)paren
-suffix:semicolon
 id|memcpy
 c_func
 (paren
@@ -7624,6 +7616,8 @@ id|len
 comma
 l_int|0
 )paren
+op_or
+id|CE_CONFLICTED
 suffix:semicolon
 id|new_ce-&gt;ce_mode
 op_assign
