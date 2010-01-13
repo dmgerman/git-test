@@ -930,6 +930,11 @@ id|active_cache
 id|i
 )braket
 suffix:semicolon
+r_struct
+id|string_list_item
+op_star
+id|item
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -963,6 +968,8 @@ id|m
 )paren
 r_continue
 suffix:semicolon
+id|item
+op_assign
 id|string_list_insert
 c_func
 (paren
@@ -971,6 +978,20 @@ comma
 id|list
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
+)paren
+id|item-&gt;util
+op_assign
+id|item
+suffix:semicolon
+multiline_comment|/* better a valid pointer than a fake one */
 )brace
 r_return
 id|report_path_error
@@ -1039,6 +1060,14 @@ id|list-&gt;items
 id|i
 )braket
 )paren
+suffix:semicolon
+multiline_comment|/* p-&gt;util is skip-worktree */
+r_if
+c_cond
+(paren
+id|p-&gt;util
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond

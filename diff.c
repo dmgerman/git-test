@@ -11201,9 +11201,17 @@ multiline_comment|/*&n;&t; * If ce is marked as &quot;assume unchanged&quot;, th
 r_if
 c_cond
 (paren
+(paren
 id|ce-&gt;ce_flags
 op_amp
 id|CE_VALID
+)paren
+op_logical_or
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
 )paren
 r_return
 l_int|0

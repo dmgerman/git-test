@@ -152,6 +152,15 @@ id|tag_modified
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
+DECL|variable|tag_skip_worktree
+r_static
+r_const
+r_char
+op_star
+id|tag_skip_worktree
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
 DECL|function|show_dir_entry
 r_static
 r_void
@@ -953,7 +962,18 @@ ques
 c_cond
 id|tag_unmerged
 suffix:colon
+(paren
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
+ques
+c_cond
+id|tag_skip_worktree
+suffix:colon
 id|tag_cached
+)paren
 comma
 id|ce
 )paren
@@ -1036,6 +1056,17 @@ c_cond
 id|ce-&gt;ce_flags
 op_amp
 id|CE_UPDATE
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
 )paren
 r_continue
 suffix:semicolon
@@ -2527,6 +2558,22 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|read_cache
+c_func
+(paren
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;index file corrupt&quot;
+)paren
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options
@@ -2576,6 +2623,10 @@ suffix:semicolon
 id|tag_killed
 op_assign
 l_string|&quot;K &quot;
+suffix:semicolon
+id|tag_skip_worktree
+op_assign
+l_string|&quot;S &quot;
 suffix:semicolon
 )brace
 r_if
@@ -2645,11 +2696,6 @@ id|argv
 )paren
 suffix:semicolon
 multiline_comment|/* be nice with submodule paths ending in a slash */
-id|read_cache
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren

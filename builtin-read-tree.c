@@ -95,7 +95,7 @@ id|read_tree_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git read-tree [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u [--exclude-per-directory=&lt;gitignore&gt;] | -i]]  [--index-output=&lt;file&gt;] &lt;tree-ish1&gt; [&lt;tree-ish2&gt; [&lt;tree-ish3&gt;]]&quot;
+l_string|&quot;git read-tree [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u [--exclude-per-directory=&lt;gitignore&gt;] | -i]] [--no-sparse-checkout] [--index-output=&lt;file&gt;] &lt;tree-ish1&gt; [&lt;tree-ish2&gt; [&lt;tree-ish3&gt;]]&quot;
 comma
 l_int|NULL
 )brace
@@ -434,6 +434,21 @@ op_amp
 id|opts.index_only
 comma
 l_string|&quot;don&squot;t check the working tree after merging&quot;
+comma
+l_int|1
+)paren
+comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;no-sparse-checkout&quot;
+comma
+op_amp
+id|opts.skip_sparse_checkout
+comma
+l_string|&quot;skip applying sparse checkout filter&quot;
 comma
 l_int|1
 )paren

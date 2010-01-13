@@ -1137,6 +1137,8 @@ op_amp
 id|st
 comma
 id|CE_MATCH_IGNORE_VALID
+op_or
+id|CE_MATCH_IGNORE_SKIP_WORKTREE
 )paren
 suffix:semicolon
 r_if
