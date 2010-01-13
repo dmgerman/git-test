@@ -3830,7 +3830,7 @@ c_func
 l_string|&quot;git checkout: -f and -m are incompatible&quot;
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * case 1: git checkout &lt;ref&gt; -- [&lt;paths&gt;]&n;&t; *&n;&t; *   &lt;ref&gt; must be a valid tree, everything after the &squot;--&squot; must be&n;&t; *   a path.&n;&t; *&n;&t; * case 2: git checkout -- [&lt;paths&gt;]&n;&t; *&n;&t; *   everything after the &squot;--&squot; must be paths.&n;&t; *&n;&t; * case 3: git checkout &lt;something&gt; [&lt;paths&gt;]&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is a commit, that is to&n;&t; *   switch to the branch or detach HEAD at it.&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is _not_ a commit, no -t nor -b&n;&t; *   was given, and there is a tracking branch whose name is&n;&t; *   &lt;something&gt; in one and only one remote, then this is a short-hand&n;&t; *   to fork local &lt;something&gt; from that remote tracking branch.&n;&t; *&n;&t; *   Otherwise &lt;something&gt; shall not be ambiguous.&n;&t; *   - If it&squot;s *only* a reference, treat it like case (1).&n;&t; *   - If it&squot;s only a path, treat it like case (2).&n;&t; *   - else: fail.&n;&t; *&n;&t; */
+multiline_comment|/*&n;&t; * case 1: git checkout &lt;ref&gt; -- [&lt;paths&gt;]&n;&t; *&n;&t; *   &lt;ref&gt; must be a valid tree, everything after the &squot;--&squot; must be&n;&t; *   a path.&n;&t; *&n;&t; * case 2: git checkout -- [&lt;paths&gt;]&n;&t; *&n;&t; *   everything after the &squot;--&squot; must be paths.&n;&t; *&n;&t; * case 3: git checkout &lt;something&gt; [&lt;paths&gt;]&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is a commit, that is to&n;&t; *   switch to the branch or detach HEAD at it.  As a special case,&n;&t; *   if &lt;something&gt; is A...B (missing A or B means HEAD but you can&n;&t; *   omit at most one side), and if there is a unique merge base&n;&t; *   between A and B, A...B names that merge base.&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is _not_ a commit, no -t nor -b&n;&t; *   was given, and there is a tracking branch whose name is&n;&t; *   &lt;something&gt; in one and only one remote, then this is a short-hand&n;&t; *   to fork local &lt;something&gt; from that remote tracking branch.&n;&t; *&n;&t; *   Otherwise &lt;something&gt; shall not be ambiguous.&n;&t; *   - If it&squot;s *only* a reference, treat it like case (1).&n;&t; *   - If it&squot;s only a path, treat it like case (2).&n;&t; *   - else: fail.&n;&t; *&n;&t; */
 r_if
 c_cond
 (paren
@@ -3910,7 +3910,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_mb
 c_func
 (paren
 id|arg
