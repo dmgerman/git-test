@@ -1833,7 +1833,7 @@ c_func
 op_amp
 id|dir
 comma
-l_int|NULL
+id|s-&gt;pathspec
 )paren
 suffix:semicolon
 r_for
