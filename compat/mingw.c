@@ -3,7 +3,6 @@ macro_line|#include &quot;win32.h&quot;
 macro_line|#include &lt;conio.h&gt;
 macro_line|#include &quot;../strbuf.h&quot;
 DECL|function|err_win_to_posix
-r_static
 r_int
 id|err_win_to_posix
 c_func
