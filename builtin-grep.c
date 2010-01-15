@@ -2237,6 +2237,15 @@ suffix:semicolon
 r_int
 id|dummy
 suffix:semicolon
+r_int
+id|nongit
+op_assign
+l_int|0
+comma
+id|use_index
+op_assign
+l_int|1
+suffix:semicolon
 r_struct
 id|option
 id|options
@@ -2821,6 +2830,15 @@ c_func
 )paren
 )brace
 suffix:semicolon
+id|prefix
+op_assign
+id|setup_git_directory_gently
+c_func
+(paren
+op_amp
+id|nongit
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * &squot;git grep -h&squot;, unlike &squot;git grep -h &lt;pattern&gt;&squot;, is a request&n;&t; * to show usage information and exit.&n;&t; */
 r_if
 c_cond
@@ -2960,6 +2978,19 @@ op_or
 id|PARSE_OPT_STOP_AT_NON_OPTION
 op_or
 id|PARSE_OPT_NO_INTERNAL_HELP
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|use_index
+op_logical_and
+id|nongit
+)paren
+multiline_comment|/* die the same way as if we did it at the beginning */
+id|setup_git_directory
+c_func
+(paren
 )paren
 suffix:semicolon
 multiline_comment|/* First unrecognized non-option token */
