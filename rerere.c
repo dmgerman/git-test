@@ -1,7 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;rerere.h&quot;
-macro_line|#include &quot;xdiff/xdiff.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
@@ -2078,15 +2077,6 @@ comma
 l_int|0
 )brace
 suffix:semicolon
-id|xmparam_t
-id|xmp
-op_assign
-(brace
-(brace
-id|XDF_NEED_MINIMAL
-)brace
-)brace
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2164,9 +2154,14 @@ l_int|1
 suffix:semicolon
 id|ret
 op_assign
-id|xdl_merge
+id|ll_merge
 c_func
 (paren
+op_amp
+id|result
+comma
+id|path
+comma
 op_amp
 id|base
 comma
@@ -2180,13 +2175,7 @@ id|other
 comma
 l_string|&quot;&quot;
 comma
-op_amp
-id|xmp
-comma
-id|XDL_MERGE_ZEALOUS
-comma
-op_amp
-id|result
+l_int|0
 )paren
 suffix:semicolon
 r_if
