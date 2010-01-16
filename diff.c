@@ -11364,6 +11364,28 @@ c_func
 (paren
 l_int|100
 )paren
+comma
+op_star
+id|dirty
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+multiline_comment|/* Are we looking at the work tree? */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|s-&gt;sha1_valid
+op_logical_and
+id|is_submodule_modified
+c_func
+(paren
+id|s-&gt;path
+)paren
+)paren
+id|dirty
+op_assign
+l_string|&quot;-dirty&quot;
 suffix:semicolon
 id|len
 op_assign
@@ -11374,13 +11396,15 @@ id|data
 comma
 l_int|100
 comma
-l_string|&quot;Subproject commit %s&bslash;n&quot;
+l_string|&quot;Subproject commit %s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
 (paren
 id|s-&gt;sha1
 )paren
+comma
+id|dirty
 )paren
 suffix:semicolon
 id|s-&gt;data
