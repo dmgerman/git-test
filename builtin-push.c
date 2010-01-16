@@ -1221,6 +1221,21 @@ comma
 l_string|&quot;receive pack program&quot;
 )paren
 comma
+id|OPT_BIT
+c_func
+(paren
+l_char|&squot;u&squot;
+comma
+l_string|&quot;set-upstream&quot;
+comma
+op_amp
+id|flags
+comma
+l_string|&quot;set upstream for git pull/status&quot;
+comma
+id|TRANSPORT_PUSH_SET_UPSTREAM
+)paren
+comma
 id|OPT_END
 c_func
 (paren
