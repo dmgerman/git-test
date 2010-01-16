@@ -8,6 +8,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 multiline_comment|/*&n; * diff-files&n; */
 multiline_comment|/*&n; * Has the work tree entity been removed?&n; *&n; * Return 1 if it was removed from the work tree, 0 if an entity to be&n; * compared with the cache entry ce still exists (the latter includes&n; * the case where a directory that is not a submodule repository&n; * exists for ce that is a submodule -- it is a submodule that is not&n; * checked out).  Return negative for an error.&n; */
 DECL|function|check_removed
@@ -634,10 +635,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|ce_uptodate
 c_func
 (paren
 id|ce
+)paren
+op_logical_and
+op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
 )paren
 op_logical_or
 id|ce_skip_worktree
@@ -728,6 +738,26 @@ op_amp
 id|st
 comma
 id|ce_option
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+op_logical_and
+op_logical_neg
+id|changed
+)paren
+id|changed
+op_assign
+id|is_submodule_modified
+c_func
+(paren
+id|ce-&gt;name
 )paren
 suffix:semicolon
 r_if
@@ -1003,6 +1033,20 @@ r_if
 c_cond
 (paren
 id|changed
+op_logical_or
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+op_logical_and
+id|is_submodule_modified
+c_func
+(paren
+id|ce-&gt;name
+)paren
+)paren
 )paren
 (brace
 id|mode
