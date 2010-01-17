@@ -5582,13 +5582,6 @@ op_amp
 id|rev
 )paren
 suffix:semicolon
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|format
-)paren
-suffix:semicolon
 id|rev.always_show_header
 op_assign
 l_int|0
@@ -5717,6 +5710,13 @@ id|buf
 )paren
 suffix:semicolon
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|format
+)paren
+suffix:semicolon
 )brace
 DECL|function|git_commit_config
 r_static
