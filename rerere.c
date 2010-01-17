@@ -5,6 +5,7 @@ macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
+macro_line|#include &quot;attr.h&quot;
 multiline_comment|/* if rerere_enabled == -1, fall back to detection of .git/rr-cache */
 DECL|variable|rerere_enabled
 r_static
@@ -1377,7 +1378,11 @@ suffix:semicolon
 r_int
 id|marker_size
 op_assign
-l_int|7
+id|ll_merge_marker_size
+c_func
+(paren
+id|path
+)paren
 suffix:semicolon
 id|memset
 c_func
@@ -1753,7 +1758,11 @@ suffix:semicolon
 r_int
 id|marker_size
 op_assign
-l_int|7
+id|ll_merge_marker_size
+c_func
+(paren
+id|path
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Reproduce the conflicted merge in-core&n;&t; */
 id|len
