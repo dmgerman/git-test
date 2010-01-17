@@ -217,8 +217,8 @@ r_int
 id|virtual_ancestor
 )paren
 (brace
-id|xpparam_t
-id|xpp
+id|xmparam_t
+id|xmp
 suffix:semicolon
 r_int
 id|style
@@ -293,13 +293,13 @@ id|memset
 c_func
 (paren
 op_amp
-id|xpp
+id|xmp
 comma
 l_int|0
 comma
 r_sizeof
 (paren
-id|xpp
+id|xmp
 )paren
 )paren
 suffix:semicolon
@@ -329,7 +329,7 @@ comma
 id|name2
 comma
 op_amp
-id|xpp
+id|xmp
 comma
 id|XDL_MERGE_ZEALOUS
 op_or

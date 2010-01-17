@@ -121,8 +121,8 @@ id|size
 id|mmbuffer_t
 id|res
 suffix:semicolon
-id|xpparam_t
-id|xpp
+id|xmparam_t
+id|xmp
 suffix:semicolon
 r_int
 id|merge_status
@@ -131,13 +131,13 @@ id|memset
 c_func
 (paren
 op_amp
-id|xpp
+id|xmp
 comma
 l_int|0
 comma
 r_sizeof
 (paren
-id|xpp
+id|xmp
 )paren
 )paren
 suffix:semicolon
@@ -157,7 +157,7 @@ comma
 l_string|&quot;.their&quot;
 comma
 op_amp
-id|xpp
+id|xmp
 comma
 id|XDL_MERGE_ZEALOUS
 comma

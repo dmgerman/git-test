@@ -2754,10 +2754,10 @@ r_char
 op_star
 id|name2
 comma
-id|xpparam_t
+id|xmparam_t
 r_const
 op_star
-id|xpp
+id|xmp
 comma
 r_int
 id|flags
@@ -2781,6 +2781,14 @@ id|xe2
 suffix:semicolon
 r_int
 id|status
+suffix:semicolon
+id|xpparam_t
+r_const
+op_star
+id|xpp
+op_assign
+op_amp
+id|xmp-&gt;xpp
 suffix:semicolon
 id|result-&gt;ptr
 op_assign
