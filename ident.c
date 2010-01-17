@@ -1332,4 +1332,16 @@ id|flag
 )paren
 suffix:semicolon
 )brace
+DECL|function|user_ident_sufficiently_given
+r_int
+id|user_ident_sufficiently_given
+c_func
+(paren
+r_void
+)paren
+(brace
+r_return
+id|user_ident_explicitly_given
+suffix:semicolon
+)brace
 eof
