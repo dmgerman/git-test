@@ -3274,9 +3274,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|user_ident_explicitly_given
-op_ne
-id|IDENT_ALL_GIVEN
+op_logical_neg
+id|user_ident_sufficiently_given
+c_func
+(paren
+)paren
 )paren
 id|fprintf
 c_func
