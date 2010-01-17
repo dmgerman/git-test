@@ -750,6 +750,10 @@ suffix:semicolon
 r_struct
 id|ref
 id|dummy
+op_assign
+(brace
+l_int|0
+)brace
 comma
 op_star
 id|tail
