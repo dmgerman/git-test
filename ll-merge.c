@@ -1632,8 +1632,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;merge&quot;
-comma
-l_int|5
 )paren
 suffix:semicolon
 r_if
