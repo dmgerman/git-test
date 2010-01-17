@@ -213,6 +213,10 @@ op_star
 id|merge_file
 c_func
 (paren
+r_const
+r_char
+op_star
+comma
 r_struct
 id|blob
 op_star
@@ -342,6 +346,8 @@ r_return
 id|merge_file
 c_func
 (paren
+id|entry-&gt;path
+comma
 id|base
 comma
 id|our
