@@ -816,10 +816,6 @@ id|args
 )braket
 op_assign
 (brace
-l_string|&quot;sh&quot;
-comma
-l_string|&quot;-c&quot;
-comma
 l_int|NULL
 comma
 l_int|NULL
@@ -908,7 +904,7 @@ id|dict
 suffix:semicolon
 id|args
 (braket
-l_int|2
+l_int|0
 )braket
 op_assign
 id|cmd.buf
@@ -920,7 +916,7 @@ c_func
 (paren
 id|args
 comma
-l_int|0
+id|RUN_USING_SHELL
 )paren
 suffix:semicolon
 id|fd

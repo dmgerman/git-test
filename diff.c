@@ -12693,7 +12693,7 @@ c_func
 (paren
 id|spawn_arg
 comma
-l_int|0
+id|RUN_USING_SHELL
 )paren
 suffix:semicolon
 id|remove_tempfile
@@ -21083,6 +21083,10 @@ r_sizeof
 id|child
 )paren
 )paren
+suffix:semicolon
+id|child.use_shell
+op_assign
+l_int|1
 suffix:semicolon
 id|child.argv
 op_assign
