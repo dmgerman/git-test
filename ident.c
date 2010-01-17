@@ -948,12 +948,12 @@ op_logical_and
 id|env_hint
 )paren
 (brace
-id|fprintf
+id|fputs
 c_func
 (paren
-id|stderr
-comma
 id|env_hint
+comma
+id|stderr
 )paren
 suffix:semicolon
 id|env_hint
