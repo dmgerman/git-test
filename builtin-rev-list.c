@@ -1575,9 +1575,13 @@ id|rev_list_usage
 suffix:semicolon
 id|save_commit_buffer
 op_assign
+(paren
 id|revs.verbose_header
 op_logical_or
 id|revs.grep_filter.pattern_list
+op_logical_or
+id|revs.grep_filter.header_list
+)paren
 suffix:semicolon
 r_if
 c_cond
