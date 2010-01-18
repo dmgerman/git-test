@@ -229,6 +229,7 @@ suffix:semicolon
 DECL|variable|use_editor
 DECL|variable|initial_commit
 DECL|variable|in_merge
+DECL|variable|include_status
 r_static
 r_int
 id|use_editor
@@ -238,6 +239,10 @@ comma
 id|initial_commit
 comma
 id|in_merge
+comma
+id|include_status
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|only_include_assumed
 r_static
@@ -523,6 +528,19 @@ comma
 l_string|&quot;default&quot;
 comma
 l_string|&quot;how to strip spaces and #comments from message&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;status&quot;
+comma
+op_amp
+id|include_status
+comma
+l_string|&quot;include status in commit message template&quot;
 )paren
 comma
 multiline_comment|/* end commit message options */
@@ -3143,6 +3161,8 @@ r_if
 c_cond
 (paren
 id|use_editor
+op_logical_and
+id|include_status
 )paren
 (brace
 r_char
@@ -6027,6 +6047,33 @@ comma
 id|v
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|k
+comma
+l_string|&quot;commit.status&quot;
+)paren
+)paren
+(brace
+id|include_status
+op_assign
+id|git_config_bool
+c_func
+(paren
+id|k
+comma
+id|v
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_return
 id|git_status_config
 c_func
