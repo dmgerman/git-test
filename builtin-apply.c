@@ -3151,6 +3151,8 @@ comma
 id|name
 comma
 id|len
+op_plus
+l_int|1
 )paren
 )paren
 id|die
