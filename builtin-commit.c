@@ -457,6 +457,22 @@ comma
 l_string|&quot;force edit of commit&quot;
 )paren
 comma
+id|OPT_STRING
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;cleanup&quot;
+comma
+op_amp
+id|cleanup_arg
+comma
+l_string|&quot;default&quot;
+comma
+l_string|&quot;how to strip spaces and #comments from message&quot;
+)paren
+comma
+multiline_comment|/* end commit message options */
 id|OPT_GROUP
 c_func
 (paren
@@ -591,21 +607,7 @@ comma
 l_string|&quot;ok to record an empty change&quot;
 )paren
 comma
-id|OPT_STRING
-c_func
-(paren
-l_int|0
-comma
-l_string|&quot;cleanup&quot;
-comma
-op_amp
-id|cleanup_arg
-comma
-l_string|&quot;default&quot;
-comma
-l_string|&quot;how to strip spaces and #comments from message&quot;
-)paren
-comma
+multiline_comment|/* end commit contents options */
 id|OPT_END
 c_func
 (paren
