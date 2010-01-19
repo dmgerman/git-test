@@ -155,6 +155,11 @@ r_static
 r_int
 id|verbosity
 suffix:semicolon
+DECL|variable|allow_rerere_auto
+r_static
+r_int
+id|allow_rerere_auto
+suffix:semicolon
 DECL|variable|all_strategy
 r_static
 r_struct
@@ -918,6 +923,13 @@ op_amp
 id|fast_forward_only
 comma
 l_string|&quot;abort if fast-forward is not possible&quot;
+)paren
+comma
+id|OPT_RERERE_AUTOUPDATE
+c_func
+(paren
+op_amp
+id|allow_rerere_auto
 )paren
 comma
 id|OPT_CALLBACK
@@ -4904,6 +4916,7 @@ suffix:semicolon
 id|rerere
 c_func
 (paren
+id|allow_rerere_auto
 )paren
 suffix:semicolon
 id|printf
