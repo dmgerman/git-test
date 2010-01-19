@@ -1720,12 +1720,12 @@ r_if
 c_cond
 (paren
 id|reset_type
-op_eq
-id|HARD
-op_logical_or
+op_ne
+id|SOFT
+op_logical_and
 id|reset_type
-op_eq
-id|MERGE
+op_ne
+id|MIXED
 )paren
 id|setup_work_tree
 c_func
