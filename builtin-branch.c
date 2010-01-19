@@ -3587,6 +3587,20 @@ id|argc
 op_le
 l_int|2
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|kinds
+op_ne
+id|REF_LOCAL_BRANCH
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;-a and -r options to &squot;git branch&squot; do not make sense with a branch name&quot;
+)paren
+suffix:semicolon
 id|create_branch
 c_func
 (paren
@@ -3618,6 +3632,7 @@ comma
 id|track
 )paren
 suffix:semicolon
+)brace
 r_else
 id|usage_with_options
 c_func
