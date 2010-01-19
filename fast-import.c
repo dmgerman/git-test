@@ -12435,6 +12435,10 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+r_enum
+id|object_type
+id|type
+suffix:semicolon
 multiline_comment|/* Obtain the new tag name from the rest of our command */
 id|sp
 op_assign
@@ -12549,6 +12553,10 @@ comma
 id|s-&gt;sha1
 )paren
 suffix:semicolon
+id|type
+op_assign
+id|OBJ_COMMIT
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -12587,22 +12595,9 @@ c_func
 id|from_mark
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|type
+op_assign
 id|oe-&gt;type
-op_ne
-id|OBJ_COMMIT
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Mark :%&quot;
-id|PRIuMAX
-l_string|&quot; not a commit&quot;
-comma
-id|from_mark
-)paren
 suffix:semicolon
 id|hashcpy
 c_func
@@ -12637,17 +12632,16 @@ id|buf
 suffix:semicolon
 id|buf
 op_assign
-id|read_object_with_reference
+id|read_sha1_file
 c_func
 (paren
 id|sha1
 comma
-id|commit_type
+op_amp
+id|type
 comma
 op_amp
 id|size
-comma
-id|sha1
 )paren
 suffix:semicolon
 r_if
@@ -12756,7 +12750,10 @@ c_func
 id|sha1
 )paren
 comma
-id|commit_type
+r_typename
+(paren
+id|type
+)paren
 comma
 id|t-&gt;name
 )paren
