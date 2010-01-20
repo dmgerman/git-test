@@ -418,6 +418,7 @@ suffix:semicolon
 )brace
 multiline_comment|/* High bit set, or ISO-2022-INT */
 DECL|function|non_ascii
+r_static
 r_int
 id|non_ascii
 c_func

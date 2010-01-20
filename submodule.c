@@ -5,6 +5,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;revision.h&quot;
 DECL|function|add_submodule_odb
+r_static
 r_int
 id|add_submodule_odb
 c_func

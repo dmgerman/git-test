@@ -11,6 +11,22 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;blob.h&quot;
+r_static
+r_struct
+id|cache_entry
+op_star
+id|refresh_cache_entry
+c_func
+(paren
+r_struct
+id|cache_entry
+op_star
+id|ce
+comma
+r_int
+id|really
+)paren
+suffix:semicolon
 multiline_comment|/* Index extensions.&n; *&n; * The first letter should be &squot;A&squot;..&squot;Z&squot; for extensions that are not&n; * necessary for a correct operation (i.e. optimization data).&n; * When new extensions are added that _needs_ to be understood in&n; * order to correctly interpret the index file, pick character that&n; * is outside the range, to cause the reader to abort.&n; */
 DECL|macro|CACHE_EXT
 mdefine_line|#define CACHE_EXT(s) ( (s[0]&lt;&lt;24)|(s[1]&lt;&lt;16)|(s[2]&lt;&lt;8)|(s[3]) )
@@ -680,6 +696,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|is_empty_blob_sha1
+r_static
 r_int
 id|is_empty_blob_sha1
 c_func
@@ -5262,6 +5279,7 @@ id|has_errors
 suffix:semicolon
 )brace
 DECL|function|refresh_cache_entry
+r_static
 r_struct
 id|cache_entry
 op_star

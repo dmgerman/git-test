@@ -2984,6 +2984,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|release_active_slot
+r_static
 r_void
 id|release_active_slot
 c_func
@@ -3909,7 +3910,9 @@ id|options
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Downloads an url and stores the result in the given file.&n; *&n; * If a previous interrupted download is detected (i.e. a previous temporary&n; * file is still around) the download is resumed.&n; */
 DECL|function|http_get_file
+r_static
 r_int
 id|http_get_file
 c_func
