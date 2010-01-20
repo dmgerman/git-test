@@ -4473,6 +4473,8 @@ op_assign
 l_int|0
 comma
 id|nr
+comma
+id|steps
 suffix:semicolon
 r_const
 r_int
@@ -4663,18 +4665,44 @@ id|all
 id|reaches
 l_int|1
 suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;Bisecting: %d revisions left to test after this &quot;
-l_string|&quot;(roughly %d steps)&bslash;n&quot;
-comma
-id|nr
-comma
+id|steps
+op_assign
 id|estimate_bisect_steps
 c_func
 (paren
 id|all
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;Bisecting: %d revision%s left to test after this &quot;
+l_string|&quot;(roughly %d step%s)&bslash;n&quot;
+comma
+id|nr
+comma
+(paren
+id|nr
+op_eq
+l_int|1
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot;s&quot;
+)paren
+comma
+id|steps
+comma
+(paren
+id|steps
+op_eq
+l_int|1
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot;s&quot;
 )paren
 )paren
 suffix:semicolon
