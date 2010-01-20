@@ -5199,6 +5199,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|read_cache_unmerged
+c_func
+(paren
+)paren
+)paren
+(brace
+id|die_resolve_conflict
+c_func
+(paren
+l_string|&quot;merge&quot;
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|file_exists
 c_func
 (paren
@@ -5209,27 +5225,28 @@ l_string|&quot;MERGE_HEAD&quot;
 )paren
 )paren
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;You have not concluded your merge. (MERGE_HEAD exists)&quot;
-)paren
-suffix:semicolon
+(brace
+multiline_comment|/*&n;&t;&t; * There is no unmerged entry, don&squot;t advise &squot;git&n;&t;&t; * add/rm &lt;file&gt;&squot;, just &squot;git commit&squot;.&n;&t;&t; */
 r_if
 c_cond
 (paren
-id|read_cache_unmerged
-c_func
-(paren
-)paren
+id|advice_resolve_conflict
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;You are in the middle of a conflicted merge.&quot;
-l_string|&quot; (index unmerged)&quot;
+l_string|&quot;You have not concluded your merge (MERGE_HEAD exists).&bslash;n&quot;
+l_string|&quot;Please, commit your changes before you can merge.&quot;
 )paren
 suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;You have not concluded your merge (MERGE_HEAD exists).&quot;
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * Check if we are _not_ on a detached HEAD, i.e. if there is a&n;&t; * current branch.&n;&t; */
 id|branch
 op_assign

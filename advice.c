@@ -17,6 +17,12 @@ id|advice_commit_before_merge
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_resolve_conflict
+r_int
+id|advice_resolve_conflict
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|advice_implicit_identity
 r_int
 id|advice_implicit_identity
@@ -63,6 +69,13 @@ l_string|&quot;commitbeforemerge&quot;
 comma
 op_amp
 id|advice_commit_before_merge
+)brace
+comma
+(brace
+l_string|&quot;resolveconflict&quot;
+comma
+op_amp
+id|advice_resolve_conflict
 )brace
 comma
 (brace
@@ -165,6 +178,44 @@ suffix:semicolon
 )brace
 r_return
 l_int|0
+suffix:semicolon
+)brace
+DECL|function|die_resolve_conflict
+r_void
+id|NORETURN
+id|die_resolve_conflict
+c_func
+(paren
+r_const
+r_char
+op_star
+id|me
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|advice_resolve_conflict
+)paren
+multiline_comment|/*&n;&t;&t; * Message used both when &squot;git commit&squot; fails and when&n;&t;&t; * other commands doing a merge do.&n;&t;&t; */
+id|die
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; is not possible because you have unmerged files.&bslash;n&quot;
+l_string|&quot;Please, fix them up in the work tree, and then use &squot;git add/rm &lt;file&gt;&squot; as&bslash;n&quot;
+l_string|&quot;appropriate to mark resolution and make a commit, or use &squot;git commit -a&squot;.&quot;
+comma
+id|me
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; is not possible because you have unmerged files.&quot;
+comma
+id|me
+)paren
 suffix:semicolon
 )brace
 eof
