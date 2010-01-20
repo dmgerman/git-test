@@ -622,12 +622,6 @@ id|directory
 )brace
 comma
 (brace
-l_string|&quot;%&quot;
-comma
-l_string|&quot;%&quot;
-)brace
-comma
-(brace
 l_int|NULL
 )brace
 )brace

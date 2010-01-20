@@ -17,6 +17,12 @@ id|advice_commit_before_merge
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_implicit_identity
+r_int
+id|advice_implicit_identity
+op_assign
+l_int|1
+suffix:semicolon
 r_static
 r_struct
 (brace
@@ -57,6 +63,13 @@ l_string|&quot;commitbeforemerge&quot;
 comma
 op_amp
 id|advice_commit_before_merge
+)brace
+comma
+(brace
+l_string|&quot;implicitidentity&quot;
+comma
+op_amp
+id|advice_implicit_identity
 )brace
 comma
 )brace
