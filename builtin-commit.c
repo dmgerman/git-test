@@ -3324,7 +3324,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|user_ident_explicitly_given
+id|user_ident_sufficiently_given
+c_func
+(paren
+)paren
 )paren
 id|fprintf
 c_func
