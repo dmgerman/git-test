@@ -17,6 +17,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 DECL|variable|checkout_usage
 r_static
 r_const
@@ -1288,6 +1289,18 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* &quot;checkout -m path&quot; to recreate conflicted state */
+r_if
+c_cond
+(paren
+id|opts-&gt;merge
+)paren
+id|unmerge_cache
+c_func
+(paren
+id|pathspec
+)paren
+suffix:semicolon
 multiline_comment|/* Any unmerged paths? */
 r_for
 c_loop
@@ -2104,6 +2117,11 @@ id|error
 c_func
 (paren
 l_string|&quot;corrupt index file&quot;
+)paren
+suffix:semicolon
+id|resolve_undo_clear
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if

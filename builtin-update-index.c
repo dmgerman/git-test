@@ -5,6 +5,7 @@ macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -2078,10 +2079,73 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+l_int|0
+op_le
+id|pos
+)paren
+(brace
+multiline_comment|/* already merged */
+id|pos
+op_assign
+id|unmerge_cache_entry_at
+c_func
+(paren
+id|pos
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|pos
 OL
-l_int|0
+id|active_nr
 )paren
+(brace
+r_struct
+id|cache_entry
+op_star
+id|ce
+op_assign
+id|active_cache
+(braket
+id|pos
+)braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+op_logical_and
+id|ce_namelen
+c_func
+(paren
+id|ce
+)paren
+op_eq
+id|namelen
+op_logical_and
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|ce-&gt;name
+comma
+id|path
+comma
+id|namelen
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+)brace
+multiline_comment|/* no resolve-undo information; fall back */
+)brace
+r_else
 (brace
 multiline_comment|/* If there isn&squot;t, either it is unmerged, or&n;&t;&t; * resolved as &quot;removed&quot; by mistake.  We do not&n;&t;&t; * want to do anything in the former case.&n;&t;&t; */
 id|pos
@@ -3580,6 +3644,27 @@ l_string|&quot;--verbose&quot;
 id|verbose
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|path
+comma
+l_string|&quot;--clear-resolve-undo&quot;
+)paren
+)paren
+(brace
+id|resolve_undo_clear
+c_func
+(paren
+)paren
 suffix:semicolon
 r_continue
 suffix:semicolon

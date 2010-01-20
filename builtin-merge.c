@@ -17,6 +17,7 @@ macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;help.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 DECL|macro|DEFAULT_TWOHEAD
 mdefine_line|#define DEFAULT_TWOHEAD (1&lt;&lt;0)
 DECL|macro|DEFAULT_OCTOPUS
@@ -3725,6 +3726,11 @@ c_func
 l_string|&quot;failed to read the cache&quot;
 )paren
 suffix:semicolon
+id|resolve_undo_clear
+c_func
+(paren
+)paren
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
@@ -3774,15 +3780,6 @@ c_func
 r_void
 )paren
 (brace
-r_const
-r_struct
-id|index_state
-op_star
-id|state
-op_assign
-op_amp
-id|the_index
-suffix:semicolon
 r_int
 id|i
 comma
@@ -3799,7 +3796,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|state-&gt;cache_nr
+id|active_nr
 suffix:semicolon
 id|i
 op_increment
@@ -3810,7 +3807,7 @@ c_cond
 id|ce_stage
 c_func
 (paren
-id|state-&gt;cache
+id|active_cache
 (braket
 id|i
 )braket
@@ -5247,6 +5244,11 @@ l_string|&quot;You have not concluded your merge (MERGE_HEAD exists).&quot;
 )paren
 suffix:semicolon
 )brace
+id|resolve_undo_clear
+c_func
+(paren
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * Check if we are _not_ on a detached HEAD, i.e. if there is a&n;&t; * current branch.&n;&t; */
 id|branch
 op_assign
