@@ -52,7 +52,7 @@ op_star
 id|name2
 comma
 r_int
-id|virtual_ancestor
+id|flag
 )paren
 suffix:semicolon
 DECL|struct|ll_merge_driver
@@ -139,7 +139,7 @@ op_star
 id|name2
 comma
 r_int
-id|virtual_ancestor
+id|flag
 )paren
 (brace
 multiline_comment|/*&n;&t; * The tentative merge result is &quot;ours&quot; for the final round,&n;&t; * or common ancestor for an internal merge.  Still return&n;&t; * &quot;conflicted merge&quot; status.&n;&t; */
@@ -147,7 +147,11 @@ id|mmfile_t
 op_star
 id|stolen
 op_assign
-id|virtual_ancestor
+(paren
+id|flag
+op_amp
+l_int|01
+)paren
 ques
 c_cond
 id|orig
@@ -214,7 +218,7 @@ op_star
 id|name2
 comma
 r_int
-id|virtual_ancestor
+id|flag
 )paren
 (brace
 id|xpparam_t
@@ -224,6 +228,17 @@ r_int
 id|style
 op_assign
 l_int|0
+suffix:semicolon
+r_int
+id|favor
+op_assign
+(paren
+id|flag
+op_rshift
+l_int|1
+)paren
+op_amp
+l_int|03
 suffix:semicolon
 r_if
 c_cond
@@ -285,7 +300,7 @@ id|src2
 comma
 id|name2
 comma
-id|virtual_ancestor
+id|flag
 )paren
 suffix:semicolon
 )brace
@@ -331,9 +346,15 @@ comma
 op_amp
 id|xpp
 comma
+id|XDL_MERGE_FLAGS
+c_func
+(paren
 id|XDL_MERGE_ZEALOUS
-op_or
+comma
 id|style
+comma
+id|favor
+)paren
 comma
 id|result
 )paren
@@ -383,7 +404,7 @@ op_star
 id|name2
 comma
 r_int
-id|virtual_ancestor
+id|flag
 )paren
 (brace
 r_char
@@ -437,7 +458,7 @@ id|src2
 comma
 l_int|NULL
 comma
-id|virtual_ancestor
+id|flag
 )paren
 suffix:semicolon
 id|git_xmerge_style
@@ -751,7 +772,7 @@ op_star
 id|name2
 comma
 r_int
-id|virtual_ancestor
+id|flag
 )paren
 (brace
 r_char
@@ -1690,7 +1711,7 @@ op_star
 id|their_label
 comma
 r_int
-id|virtual_ancestor
+id|flag
 )paren
 (brace
 r_const
@@ -1703,6 +1724,13 @@ r_struct
 id|ll_merge_driver
 op_star
 id|driver
+suffix:semicolon
+r_int
+id|virtual_ancestor
+op_assign
+id|flag
+op_amp
+l_int|01
 suffix:semicolon
 id|ll_driver_name
 op_assign
@@ -1757,7 +1785,7 @@ id|theirs
 comma
 id|their_label
 comma
-id|virtual_ancestor
+id|flag
 )paren
 suffix:semicolon
 )brace
