@@ -6169,6 +6169,10 @@ comma
 id|revs
 )paren
 suffix:semicolon
+id|revs-&gt;pretty_given
+op_assign
+l_int|1
+suffix:semicolon
 id|revs-&gt;abbrev_commit
 op_assign
 l_int|1
