@@ -1648,8 +1648,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;crlf&quot;
-comma
-l_int|4
 )paren
 suffix:semicolon
 id|attr_ident
@@ -1658,8 +1656,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;ident&quot;
-comma
-l_int|5
 )paren
 suffix:semicolon
 id|attr_filter
@@ -1668,8 +1664,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;filter&quot;
-comma
-l_int|6
 )paren
 suffix:semicolon
 id|user_convert_tail

@@ -291,8 +291,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;whitespace&quot;
-comma
-l_int|10
 )paren
 suffix:semicolon
 id|check

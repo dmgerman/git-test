@@ -137,11 +137,13 @@ comma
 l_int|0
 )brace
 suffix:semicolon
-id|xpparam_t
-id|xpp
+id|xmparam_t
+id|xmp
 op_assign
 (brace
+(brace
 id|XDF_NEED_MINIMAL
+)brace
 )brace
 suffix:semicolon
 r_int
@@ -495,7 +497,7 @@ l_int|2
 )braket
 comma
 op_amp
-id|xpp
+id|xmp
 comma
 id|XDL_MERGE_FLAGS
 c_func

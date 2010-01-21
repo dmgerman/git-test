@@ -633,12 +633,6 @@ id|git_attr
 c_func
 (paren
 id|name
-comma
-id|strlen
-c_func
-(paren
-id|name
-)paren
 )paren
 suffix:semicolon
 r_if

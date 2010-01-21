@@ -3318,8 +3318,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;delta&quot;
-comma
-l_int|5
 )paren
 suffix:semicolon
 id|check

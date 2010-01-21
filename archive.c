@@ -474,8 +474,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;export-ignore&quot;
-comma
-l_int|13
 )paren
 suffix:semicolon
 id|attr_export_subst
@@ -484,8 +482,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;export-subst&quot;
-comma
-l_int|12
 )paren
 suffix:semicolon
 )brace
