@@ -1384,7 +1384,8 @@ c_func
 op_amp
 id|index_lock
 comma
-l_int|1
+op_logical_neg
+id|is_status
 )paren
 suffix:semicolon
 id|refresh_cache
@@ -1393,6 +1394,14 @@ c_func
 id|refresh_flags
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+l_int|0
+op_le
+id|fd
+)paren
+(brace
 r_if
 c_cond
 (paren
@@ -1419,6 +1428,7 @@ c_func
 l_string|&quot;unable to write new_index file&quot;
 )paren
 suffix:semicolon
+)brace
 id|commit_style
 op_assign
 id|COMMIT_AS_IS
