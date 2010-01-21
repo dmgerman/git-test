@@ -1745,6 +1745,15 @@ id|j
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|name
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1827,6 +1836,17 @@ suffix:semicolon
 r_const
 r_char
 op_star
+id|start
+op_assign
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|p_value
+op_eq
+l_int|0
+)paren
 id|start
 op_assign
 id|line
@@ -5729,7 +5749,10 @@ id|patch-&gt;def_name
 id|die
 c_func
 (paren
-l_string|&quot;git diff header lacks filename information (line %d)&quot;
+l_string|&quot;git diff header lacks filename information when removing &quot;
+l_string|&quot;%d leading pathname components (line %d)&quot;
+comma
+id|p_value
 comma
 id|linenr
 )paren
