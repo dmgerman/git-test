@@ -2048,6 +2048,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;patch-id&quot;
+comma
+id|cmd_patch_id
+)brace
+comma
+(brace
 l_string|&quot;peek-remote&quot;
 comma
 id|cmd_ls_remote
