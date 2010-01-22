@@ -1866,6 +1866,12 @@ id|USE_PAGER
 )brace
 comma
 (brace
+l_string|&quot;hash-object&quot;
+comma
+id|cmd_hash_object
+)brace
+comma
+(brace
 l_string|&quot;help&quot;
 comma
 id|cmd_help
