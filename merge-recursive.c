@@ -1046,14 +1046,12 @@ c_func
 r_int
 id|i
 suffix:semicolon
-id|output
+id|fprintf
 c_func
 (paren
-id|o
+id|stderr
 comma
-l_int|0
-comma
-l_string|&quot;There are unmerged index entries:&quot;
+l_string|&quot;BUG: There are unmerged index entries:&bslash;n&quot;
 )paren
 suffix:semicolon
 r_for
@@ -1090,14 +1088,12 @@ c_func
 id|ce
 )paren
 )paren
-id|output
+id|fprintf
 c_func
 (paren
-id|o
+id|stderr
 comma
-l_int|0
-comma
-l_string|&quot;%d %.*s&quot;
+l_string|&quot;BUG: %d %.*s&quot;
 comma
 id|ce_stage
 c_func
@@ -1118,8 +1114,11 @@ id|ce-&gt;name
 )paren
 suffix:semicolon
 )brace
-r_return
-l_int|NULL
+id|die
+c_func
+(paren
+l_string|&quot;Bug in merge-recursive.c&quot;
+)paren
 suffix:semicolon
 )brace
 r_if
