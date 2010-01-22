@@ -1741,15 +1741,6 @@ c_func
 id|merge_tree_usage
 )paren
 suffix:semicolon
-id|git_extract_argv0_path
-c_func
-(paren
-id|argv
-(braket
-l_int|0
-)braket
-)paren
-suffix:semicolon
 id|buf1
 op_assign
 id|get_tree_descriptor
