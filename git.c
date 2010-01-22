@@ -2064,6 +2064,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;pack-redundant&quot;
+comma
+id|cmd_pack_redundant
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;patch-id&quot;
 comma
 id|cmd_patch_id
