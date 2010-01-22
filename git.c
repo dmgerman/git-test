@@ -2288,6 +2288,12 @@ id|cmd_upload_archive
 )brace
 comma
 (brace
+l_string|&quot;var&quot;
+comma
+id|cmd_var
+)brace
+comma
+(brace
 l_string|&quot;verify-tag&quot;
 comma
 id|cmd_verify_tag
