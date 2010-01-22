@@ -2000,6 +2000,14 @@ id|NEED_WORK_TREE
 )brace
 comma
 (brace
+l_string|&quot;merge-tree&quot;
+comma
+id|cmd_merge_tree
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;mktree&quot;
 comma
 id|cmd_mktree
