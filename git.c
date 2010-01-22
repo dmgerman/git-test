@@ -2022,6 +2022,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;mktag&quot;
+comma
+id|cmd_mktag
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;mktree&quot;
 comma
 id|cmd_mktree

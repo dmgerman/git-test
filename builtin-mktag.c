@@ -738,18 +738,24 @@ suffix:semicolon
 )brace
 DECL|macro|PD_FMT
 macro_line|#undef PD_FMT
-DECL|function|main
+DECL|function|cmd_mktag
 r_int
-id|main
+id|cmd_mktag
 c_func
 (paren
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_struct
@@ -776,20 +782,6 @@ id|usage
 c_func
 (paren
 l_string|&quot;git mktag &lt; signaturefile&quot;
-)paren
-suffix:semicolon
-id|git_extract_argv0_path
-c_func
-(paren
-id|argv
-(braket
-l_int|0
-)braket
-)paren
-suffix:semicolon
-id|setup_git_directory
-c_func
-(paren
 )paren
 suffix:semicolon
 r_if
