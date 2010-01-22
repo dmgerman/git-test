@@ -2549,10 +2549,12 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
+r_const
 r_char
 op_star
 id|idx_tmp_name
-comma
+suffix:semicolon
+r_char
 id|tmpname
 (braket
 id|PATH_MAX
@@ -2792,6 +2794,10 @@ suffix:semicolon
 id|free
 c_func
 (paren
+(paren
+r_void
+op_star
+)paren
 id|idx_tmp_name
 )paren
 suffix:semicolon

@@ -1878,6 +1878,12 @@ id|cmd_help
 )brace
 comma
 (brace
+l_string|&quot;index-pack&quot;
+comma
+id|cmd_index_pack
+)brace
+comma
+(brace
 l_string|&quot;init&quot;
 comma
 id|cmd_init_db
