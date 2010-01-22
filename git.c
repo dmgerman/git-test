@@ -1958,6 +1958,14 @@ id|cmd_merge_file
 )brace
 comma
 (brace
+l_string|&quot;merge-index&quot;
+comma
+id|cmd_merge_index
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;merge-ours&quot;
 comma
 id|cmd_merge_ours
