@@ -1159,6 +1159,9 @@ r_const
 r_char
 op_star
 id|fullpath
+comma
+r_int
+id|dirty_submodule
 )paren
 (brace
 r_int
@@ -1226,6 +1229,12 @@ r_const
 r_char
 op_star
 id|fullpath
+comma
+r_int
+id|old_dirty_submodule
+comma
+r_int
+id|new_dirty_submodule
 )paren
 (brace
 id|tree_difference
