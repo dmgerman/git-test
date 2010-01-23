@@ -3079,6 +3079,21 @@ comma
 id|BRANCH_TRACK_EXPLICIT
 )paren
 comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;set-upstream&quot;
+comma
+op_amp
+id|track
+comma
+l_string|&quot;change upstream info&quot;
+comma
+id|BRANCH_TRACK_OVERRIDE
+)paren
+comma
 id|OPT_BOOLEAN
 c_func
 (paren
