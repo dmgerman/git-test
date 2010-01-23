@@ -1460,6 +1460,10 @@ id|opt-&gt;loginfo
 op_assign
 l_int|NULL
 suffix:semicolon
+id|ctx.show_notes
+op_assign
+id|opt-&gt;show_notes
+suffix:semicolon
 r_if
 c_cond
 (paren

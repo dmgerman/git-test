@@ -6007,9 +6007,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fmt
-op_ne
-id|CMIT_FMT_ONELINE
+id|context-&gt;show_notes
 )paren
 id|get_commit_notes
 c_func
