@@ -9108,6 +9108,8 @@ id|one-&gt;sha1
 comma
 id|two-&gt;sha1
 comma
+id|two-&gt;dirty_submodule
+comma
 id|del
 comma
 id|add
