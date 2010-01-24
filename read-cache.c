@@ -2904,6 +2904,16 @@ c_func
 id|ce
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|alias-&gt;ce_mode
+)paren
+)paren
 id|ce_mark_uptodate
 c_func
 (paren
@@ -4724,6 +4734,16 @@ multiline_comment|/* mark this one VALID again */
 r_else
 (brace
 multiline_comment|/*&n;&t;&t;&t; * We do not mark the index itself &quot;modified&quot;&n;&t;&t;&t; * because CE_UPTODATE flag is in-core only;&n;&t;&t;&t; * we are not going to write this change out.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+)paren
 id|ce_mark_uptodate
 c_func
 (paren
