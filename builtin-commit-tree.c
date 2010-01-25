@@ -4,8 +4,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;utf8.h&quot;
-DECL|macro|BLOCKING
-mdefine_line|#define BLOCKING (1ul &lt;&lt; 14)
 multiline_comment|/*&n; * FIXME! Share the code with &quot;write-tree.c&quot;&n; */
 DECL|function|check_valid
 r_static
