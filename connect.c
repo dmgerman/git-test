@@ -2719,6 +2719,7 @@ op_assign
 l_char|&squot;:&squot;
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Don&squot;t do destructive transforms with git:// as that&n;&t; * protocol code does &squot;[]&squot; dewrapping of its own.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2748,15 +2749,24 @@ c_cond
 id|end
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|protocol
+op_ne
+id|PROTO_GIT
+)paren
+(brace
 op_star
 id|end
 op_assign
 l_int|0
 suffix:semicolon
-id|end
+id|host
 op_increment
 suffix:semicolon
-id|host
+)brace
+id|end
 op_increment
 suffix:semicolon
 )brace
