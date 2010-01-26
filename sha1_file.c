@@ -6562,11 +6562,9 @@ r_char
 op_star
 id|buf
 op_assign
-id|xmalloc
+id|xmallocz
 c_func
 (paren
-l_int|1
-op_plus
 id|size
 )paren
 suffix:semicolon
@@ -6653,13 +6651,6 @@ id|Z_FINISH
 )paren
 suffix:semicolon
 )brace
-id|buf
-(braket
-id|size
-)braket
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
