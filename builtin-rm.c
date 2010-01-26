@@ -651,12 +651,6 @@ c_func
 l_string|&quot;index file corrupt&quot;
 )paren
 suffix:semicolon
-id|refresh_cache
-c_func
-(paren
-id|REFRESH_QUIET
-)paren
-suffix:semicolon
 id|pathspec
 op_assign
 id|get_pathspec
@@ -665,6 +659,21 @@ c_func
 id|prefix
 comma
 id|argv
+)paren
+suffix:semicolon
+id|refresh_index
+c_func
+(paren
+op_amp
+id|the_index
+comma
+id|REFRESH_QUIET
+comma
+id|pathspec
+comma
+l_int|NULL
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|seen

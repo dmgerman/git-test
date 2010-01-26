@@ -342,6 +342,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|sq_dequote_step
+r_static
 r_char
 op_star
 id|sq_dequote_step

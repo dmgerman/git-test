@@ -956,8 +956,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;diff&quot;
-comma
-l_int|4
 )paren
 suffix:semicolon
 id|check.attr

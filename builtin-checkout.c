@@ -17,6 +17,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
+macro_line|#include &quot;resolve-undo.h&quot;
 DECL|variable|checkout_usage
 r_static
 r_const
@@ -947,7 +948,7 @@ id|theirs
 comma
 l_string|&quot;theirs&quot;
 comma
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 id|free
@@ -1287,6 +1288,18 @@ l_int|0
 )paren
 r_return
 l_int|1
+suffix:semicolon
+multiline_comment|/* &quot;checkout -m path&quot; to recreate conflicted state */
+r_if
+c_cond
+(paren
+id|opts-&gt;merge
+)paren
+id|unmerge_cache
+c_func
+(paren
+id|pathspec
+)paren
 suffix:semicolon
 multiline_comment|/* Any unmerged paths? */
 r_for
@@ -2104,6 +2117,11 @@ id|error
 c_func
 (paren
 l_string|&quot;corrupt index file&quot;
+)paren
+suffix:semicolon
+id|resolve_undo_clear
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if
@@ -3830,7 +3848,7 @@ c_func
 l_string|&quot;git checkout: -f and -m are incompatible&quot;
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * case 1: git checkout &lt;ref&gt; -- [&lt;paths&gt;]&n;&t; *&n;&t; *   &lt;ref&gt; must be a valid tree, everything after the &squot;--&squot; must be&n;&t; *   a path.&n;&t; *&n;&t; * case 2: git checkout -- [&lt;paths&gt;]&n;&t; *&n;&t; *   everything after the &squot;--&squot; must be paths.&n;&t; *&n;&t; * case 3: git checkout &lt;something&gt; [&lt;paths&gt;]&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is a commit, that is to&n;&t; *   switch to the branch or detach HEAD at it.&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is _not_ a commit, no -t nor -b&n;&t; *   was given, and there is a tracking branch whose name is&n;&t; *   &lt;something&gt; in one and only one remote, then this is a short-hand&n;&t; *   to fork local &lt;something&gt; from that remote tracking branch.&n;&t; *&n;&t; *   Otherwise &lt;something&gt; shall not be ambiguous.&n;&t; *   - If it&squot;s *only* a reference, treat it like case (1).&n;&t; *   - If it&squot;s only a path, treat it like case (2).&n;&t; *   - else: fail.&n;&t; *&n;&t; */
+multiline_comment|/*&n;&t; * case 1: git checkout &lt;ref&gt; -- [&lt;paths&gt;]&n;&t; *&n;&t; *   &lt;ref&gt; must be a valid tree, everything after the &squot;--&squot; must be&n;&t; *   a path.&n;&t; *&n;&t; * case 2: git checkout -- [&lt;paths&gt;]&n;&t; *&n;&t; *   everything after the &squot;--&squot; must be paths.&n;&t; *&n;&t; * case 3: git checkout &lt;something&gt; [&lt;paths&gt;]&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is a commit, that is to&n;&t; *   switch to the branch or detach HEAD at it.  As a special case,&n;&t; *   if &lt;something&gt; is A...B (missing A or B means HEAD but you can&n;&t; *   omit at most one side), and if there is a unique merge base&n;&t; *   between A and B, A...B names that merge base.&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is _not_ a commit, no -t nor -b&n;&t; *   was given, and there is a tracking branch whose name is&n;&t; *   &lt;something&gt; in one and only one remote, then this is a short-hand&n;&t; *   to fork local &lt;something&gt; from that remote tracking branch.&n;&t; *&n;&t; *   Otherwise &lt;something&gt; shall not be ambiguous.&n;&t; *   - If it&squot;s *only* a reference, treat it like case (1).&n;&t; *   - If it&squot;s only a path, treat it like case (2).&n;&t; *   - else: fail.&n;&t; *&n;&t; */
 r_if
 c_cond
 (paren
@@ -3910,7 +3928,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_mb
 c_func
 (paren
 id|arg
@@ -4046,6 +4064,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|check_ref_format
+c_func
+(paren
+r_new
+dot
+id|path
+)paren
+op_eq
+id|CHECK_REF_FORMAT_OK
+)paren
+op_logical_and
 id|resolve_ref
 c_func
 (paren
@@ -4059,15 +4089,6 @@ l_int|1
 comma
 l_int|NULL
 )paren
-)paren
-r_new
-dot
-id|commit
-op_assign
-id|lookup_commit_reference
-c_func
-(paren
-id|rev
 )paren
 suffix:semicolon
 r_else

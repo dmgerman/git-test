@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 multiline_comment|/*&n; * This is like mktime, but without normalization of tm_wday and tm_yday.&n; */
 DECL|function|tm_to_time_t
+r_static
 id|time_t
 id|tm_to_time_t
 c_func

@@ -2705,6 +2705,7 @@ DECL|macro|PRN_MODULO
 mdefine_line|#define PRN_MODULO 32768
 multiline_comment|/*&n; * This is a pseudo random number generator based on &quot;man 3 rand&quot;.&n; * It is not used properly because the seed is the argument and it&n; * is increased by one between each call, but that should not matter&n; * for this application.&n; */
 DECL|function|get_prn
+r_static
 r_int
 id|get_prn
 c_func
@@ -3880,16 +3881,14 @@ comma
 l_char|&squot; &squot;
 )paren
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Warning: the merge base between %s and [%s] &quot;
+l_string|&quot;the merge base between %s and [%s] &quot;
 l_string|&quot;must be skipped.&bslash;n&quot;
 l_string|&quot;So we cannot be sure the first bad commit is &quot;
 l_string|&quot;between %s and %s.&bslash;n&quot;
-l_string|&quot;We continue anyway.&bslash;n&quot;
+l_string|&quot;We continue anyway.&quot;
 comma
 id|bad_hex
 comma

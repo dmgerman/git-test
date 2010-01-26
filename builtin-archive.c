@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Copyright (c) 2006 Franck Bui-Huu&n; * Copyright (c) 2
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;archive.h&quot;
+macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;sideband.h&quot;
@@ -112,9 +113,6 @@ id|exec
 )paren
 (brace
 r_char
-op_star
-id|url
-comma
 id|buf
 (braket
 id|LARGE_PACKET_MAX
@@ -133,30 +131,61 @@ comma
 id|rv
 suffix:semicolon
 r_struct
-id|child_process
+id|transport
 op_star
-id|conn
+id|transport
 suffix:semicolon
-id|url
+r_struct
+id|remote
+op_star
+id|_remote
+suffix:semicolon
+id|_remote
 op_assign
-id|xstrdup
+id|remote_get
 c_func
 (paren
 id|remote
 )paren
 suffix:semicolon
-id|conn
-op_assign
-id|git_connect
+r_if
+c_cond
+(paren
+op_logical_neg
+id|_remote-&gt;url
+(braket
+l_int|0
+)braket
+)paren
+id|die
 c_func
 (paren
-id|fd
+l_string|&quot;git archive: Remote with no URL&quot;
+)paren
+suffix:semicolon
+id|transport
+op_assign
+id|transport_get
+c_func
+(paren
+id|_remote
 comma
-id|url
+id|_remote-&gt;url
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
+id|transport_connect
+c_func
+(paren
+id|transport
+comma
+l_string|&quot;git-upload-archive&quot;
 comma
 id|exec
 comma
-l_int|0
+id|fd
 )paren
 suffix:semicolon
 r_for
@@ -338,30 +367,12 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|close
-c_func
-(paren
-id|fd
-(braket
-l_int|0
-)braket
-)paren
-suffix:semicolon
-id|close
-c_func
-(paren
-id|fd
-(braket
-l_int|1
-)braket
-)paren
-suffix:semicolon
 id|rv
 op_or_assign
-id|finish_connect
+id|transport_disconnect
 c_func
 (paren
-id|conn
+id|transport
 )paren
 suffix:semicolon
 r_return

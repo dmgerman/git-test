@@ -1012,6 +1012,7 @@ id|val
 suffix:semicolon
 )brace
 DECL|function|show_bisect_vars
+r_static
 r_int
 id|show_bisect_vars
 c_func
@@ -1351,7 +1352,7 @@ c_func
 op_amp
 id|revs.diffopt
 comma
-id|QUIET
+id|QUICK
 )paren
 suffix:semicolon
 r_for

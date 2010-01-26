@@ -6710,6 +6710,7 @@ id|regs-&gt;end
 op_assign
 (paren
 id|regoff_t
+op_star
 )paren
 l_int|0
 suffix:semicolon

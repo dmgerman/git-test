@@ -352,7 +352,7 @@ suffix:semicolon
 op_star
 id|entries
 op_assign
-id|xmalloc
+id|malloc
 c_func
 (paren
 id|nr

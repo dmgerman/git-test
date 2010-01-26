@@ -1057,6 +1057,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Pick one ucs character starting from the location *start points at,&n; * and return it, while updating the *start pointer to point at the&n; * end of that character.  When remainder_p is not NULL, the location&n; * holds the number of bytes remaining in the string that we are allowed&n; * to pick from.  Otherwise we are allowed to pick up to the NUL that&n; * would eventually appear in the string.  *remainder_p is also reduced&n; * by the number of bytes we have consumed.&n; *&n; * If the string was not a valid UTF-8, *start pointer is set to NULL&n; * and the return value is undefined.&n; */
 DECL|function|pick_one_utf8_char
+r_static
 id|ucs_char_t
 id|pick_one_utf8_char
 c_func
