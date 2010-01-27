@@ -163,6 +163,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|S_ISGITLINK
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|ce_uptodate
 c_func
 (paren
