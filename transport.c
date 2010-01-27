@@ -5027,8 +5027,6 @@ c_cond
 op_logical_neg
 id|url
 op_logical_and
-id|remote
-op_logical_and
 id|remote-&gt;url
 )paren
 id|url
