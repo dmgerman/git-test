@@ -4979,6 +4979,11 @@ op_star
 id|url
 )paren
 (brace
+r_const
+r_char
+op_star
+id|helper
+suffix:semicolon
 r_struct
 id|transport
 op_star
@@ -5012,6 +5017,10 @@ id|ret-&gt;remote
 op_assign
 id|remote
 suffix:semicolon
+id|helper
+op_assign
+id|remote-&gt;foreign_vcs
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5032,11 +5041,6 @@ suffix:semicolon
 id|ret-&gt;url
 op_assign
 id|url
-suffix:semicolon
-multiline_comment|/* In case previous URL had helper forced, reset it. */
-id|remote-&gt;foreign_vcs
-op_assign
-l_int|NULL
 suffix:semicolon
 multiline_comment|/* maybe it is a foreign URL? */
 r_if
@@ -5077,7 +5081,7 @@ comma
 l_string|&quot;::&quot;
 )paren
 )paren
-id|remote-&gt;foreign_vcs
+id|helper
 op_assign
 id|xstrndup
 c_func
@@ -5092,9 +5096,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote
-op_logical_and
-id|remote-&gt;foreign_vcs
+id|helper
 )paren
 (brace
 id|transport_helper_init
@@ -5102,7 +5104,7 @@ c_func
 (paren
 id|ret
 comma
-id|remote-&gt;foreign_vcs
+id|helper
 )paren
 suffix:semicolon
 )brace
