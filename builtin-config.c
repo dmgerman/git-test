@@ -2174,10 +2174,7 @@ c_func
 id|prefix
 )paren
 comma
-id|argv
-(braket
-l_int|2
-)braket
+id|given_config_file
 )paren
 suffix:semicolon
 r_else
