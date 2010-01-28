@@ -2034,7 +2034,6 @@ l_int|0
 comma
 r_sizeof
 (paren
-op_amp
 id|io
 )paren
 )paren
