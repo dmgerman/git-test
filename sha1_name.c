@@ -2302,6 +2302,22 @@ id|co_tz
 comma
 id|co_cnt
 suffix:semicolon
+multiline_comment|/* a @{-N} placed anywhere except the start is an error */
+r_if
+c_cond
+(paren
+id|str
+(braket
+id|at
+op_plus
+l_int|2
+)braket
+op_eq
+l_char|&squot;-&squot;
+)paren
+r_return
+l_int|1
+suffix:semicolon
 multiline_comment|/* Is it asking for N-th entry, or approxidate? */
 r_for
 c_loop
