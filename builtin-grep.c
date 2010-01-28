@@ -4306,7 +4306,7 @@ c_func
 (paren
 l_char|&squot;q&squot;
 comma
-l_string|&quot;quick&quot;
+l_string|&quot;quiet&quot;
 comma
 op_amp
 id|opt.status_only
