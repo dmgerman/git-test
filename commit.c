@@ -1234,7 +1234,7 @@ l_int|1
 OL
 id|commit_graft_nr
 )paren
-id|memcpy
+id|memmove
 c_func
 (paren
 id|commit_graft
