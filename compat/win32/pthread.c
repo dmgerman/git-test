@@ -195,6 +195,17 @@ id|cond-&gt;waiters
 op_assign
 l_int|0
 suffix:semicolon
+id|cond-&gt;was_broadcast
+op_assign
+l_int|0
+suffix:semicolon
+id|InitializeCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
+suffix:semicolon
 id|cond-&gt;sema
 op_assign
 id|CreateSemaphore
@@ -221,6 +232,36 @@ c_func
 l_string|&quot;CreateSemaphore() failed&quot;
 )paren
 suffix:semicolon
+id|cond-&gt;continue_broadcast
+op_assign
+id|CreateEvent
+c_func
+(paren
+l_int|NULL
+comma
+multiline_comment|/* security */
+id|FALSE
+comma
+multiline_comment|/* auto-reset */
+id|FALSE
+comma
+multiline_comment|/* not signaled */
+l_int|NULL
+)paren
+suffix:semicolon
+multiline_comment|/* name */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cond-&gt;continue_broadcast
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;CreateEvent() failed&quot;
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -241,9 +282,18 @@ c_func
 id|cond-&gt;sema
 )paren
 suffix:semicolon
-id|cond-&gt;sema
-op_assign
-l_int|NULL
+id|CloseHandle
+c_func
+(paren
+id|cond-&gt;continue_broadcast
+)paren
+suffix:semicolon
+id|DeleteCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
 suffix:semicolon
 r_return
 l_int|0
@@ -263,11 +313,24 @@ op_star
 id|mutex
 )paren
 (brace
-id|InterlockedIncrement
+r_int
+id|last_waiter
+suffix:semicolon
+id|EnterCriticalSection
 c_func
 (paren
 op_amp
+id|cond-&gt;waiters_lock
+)paren
+suffix:semicolon
 id|cond-&gt;waiters
+op_increment
+suffix:semicolon
+id|LeaveCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Unlock external mutex and wait for signal.&n;&t; * NOTE: we&squot;ve held mutex locked long enough to increment&n;&t; * waiters count above, so there&squot;s no problem with&n;&t; * leaving mutex unlocked before we wait on semaphore.&n;&t; */
@@ -286,14 +349,47 @@ comma
 id|INFINITE
 )paren
 suffix:semicolon
-multiline_comment|/* we&squot;re done waiting, so make sure we decrease waiters count */
-id|InterlockedDecrement
+multiline_comment|/*&n;&t; * Decrease waiters count. If we are the last waiter, then we must&n;&t; * notify the broadcasting thread that it can continue.&n;&t; * But if we continued due to cond_signal, we do not have to do that&n;&t; * because the signaling thread knows that only one waiter continued.&n;&t; */
+id|EnterCriticalSection
 c_func
 (paren
 op_amp
-id|cond-&gt;waiters
+id|cond-&gt;waiters_lock
 )paren
 suffix:semicolon
+id|cond-&gt;waiters
+op_decrement
+suffix:semicolon
+id|last_waiter
+op_assign
+id|cond-&gt;was_broadcast
+op_logical_and
+id|cond-&gt;waiters
+op_eq
+l_int|0
+suffix:semicolon
+id|LeaveCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|last_waiter
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * cond_broadcast was issued while mutex was held. This means&n;&t;&t; * that all other waiters have continued, but are contending&n;&t;&t; * for the mutex at the end of this function because the&n;&t;&t; * broadcasting thread did not leave cond_broadcast, yet.&n;&t;&t; * (This is so that it can be sure that each waiter has&n;&t;&t; * consumed exactly one slice of the semaphor.)&n;&t;&t; * The last waiter must tell the broadcasting thread that it&n;&t;&t; * can go on.&n;&t;&t; */
+id|SetEvent
+c_func
+(paren
+id|cond-&gt;continue_broadcast
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Now we go on to contend with all other waiters for&n;&t;&t; * the mutex. Auf in den Kampf!&n;&t;&t; */
+)brace
 multiline_comment|/* lock external mutex again */
 id|EnterCriticalSection
 c_func
@@ -305,6 +401,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * IMPORTANT: This implementation requires that pthread_cond_signal&n; * is called while the mutex is held that is used in the corresponding&n; * pthread_cond_wait calls!&n; */
 DECL|function|pthread_cond_signal
 r_int
 id|pthread_cond_signal
@@ -315,13 +412,28 @@ op_star
 id|cond
 )paren
 (brace
-multiline_comment|/*&n;&t; * Access to waiters count is atomic; see &quot;Interlocked Variable Access&quot;&n;&t; * http://msdn.microsoft.com/en-us/library/ms684122(VS.85).aspx&n;&t; */
 r_int
+id|have_waiters
+suffix:semicolon
+id|EnterCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
+suffix:semicolon
 id|have_waiters
 op_assign
 id|cond-&gt;waiters
 OG
 l_int|0
+suffix:semicolon
+id|LeaveCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Signal only when there are waiters&n;&t; */
 r_if
@@ -353,6 +465,83 @@ c_func
 )paren
 suffix:semicolon
 r_else
+r_return
+l_int|0
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * DOUBLY IMPORTANT: This implementation requires that pthread_cond_broadcast&n; * is called while the mutex is held that is used in the corresponding&n; * pthread_cond_wait calls!&n; */
+DECL|function|pthread_cond_broadcast
+r_int
+id|pthread_cond_broadcast
+c_func
+(paren
+id|pthread_cond_t
+op_star
+id|cond
+)paren
+(brace
+id|EnterCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|cond-&gt;was_broadcast
+op_assign
+id|cond-&gt;waiters
+OG
+l_int|0
+)paren
+)paren
+(brace
+multiline_comment|/* wake up all waiters */
+id|ReleaseSemaphore
+c_func
+(paren
+id|cond-&gt;sema
+comma
+id|cond-&gt;waiters
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+id|LeaveCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * At this point all waiters continue. Each one takes its&n;&t;&t; * slice of the semaphor. Now it&squot;s our turn to wait: Since&n;&t;&t; * the external mutex is held, no thread can leave cond_wait,&n;&t;&t; * yet. For this reason, we can be sure that no thread gets&n;&t;&t; * a chance to eat *more* than one slice. OTOH, it means&n;&t;&t; * that the last waiter must send us a wake-up.&n;&t;&t; */
+id|WaitForSingleObject
+c_func
+(paren
+id|cond-&gt;continue_broadcast
+comma
+id|INFINITE
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Since the external mutex is held, no thread can enter&n;&t;&t; * cond_wait, and, hence, it is safe to reset this flag&n;&t;&t; * without cond-&gt;waiters_lock held.&n;&t;&t; */
+id|cond-&gt;was_broadcast
+op_assign
+l_int|0
+suffix:semicolon
+)brace
+r_else
+(brace
+id|LeaveCriticalSection
+c_func
+(paren
+op_amp
+id|cond-&gt;waiters_lock
+)paren
+suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
