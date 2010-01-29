@@ -290,6 +290,8 @@ id|xmalloc
 c_func
 (paren
 id|len
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|strcpy
