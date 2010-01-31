@@ -16,7 +16,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#ifdef THREADED_DELTA_SEARCH
+macro_line|#ifndef NO_PTHREADS
 macro_line|#include &quot;thread-utils.h&quot;
 macro_line|#include &lt;pthread.h&gt;
 macro_line|#endif
@@ -6031,7 +6031,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-macro_line|#ifdef THREADED_DELTA_SEARCH
+macro_line|#ifndef NO_PTHREADS
 DECL|variable|read_mutex
 r_static
 id|pthread_mutex_t
@@ -6556,7 +6556,7 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Handle memory allocation outside of the cache&n;&t; * accounting lock.  Compiler will optimize the strangeness&n;&t; * away when THREADED_DELTA_SEARCH is not defined.&n;&t; */
+multiline_comment|/*&n;&t; * Handle memory allocation outside of the cache&n;&t; * accounting lock.  Compiler will optimize the strangeness&n;&t; * away when NO_PTHREADS is defined.&n;&t; */
 id|free
 c_func
 (paren
@@ -7322,7 +7322,7 @@ id|array
 )paren
 suffix:semicolon
 )brace
-macro_line|#ifdef THREADED_DELTA_SEARCH
+macro_line|#ifndef NO_PTHREADS
 multiline_comment|/*&n; * The main thread waits on the condition that (at least) one of the workers&n; * has stopped working (which is indicated in the .working member of&n; * struct thread_params).&n; * When a work thread has completed its work, it sets .working to 0 and&n; * signals the main thread and waits on the condition that .data_ready&n; * becomes 1.&n; */
 DECL|struct|thread_params
 r_struct
@@ -8888,7 +8888,7 @@ comma
 id|delta_search_threads
 )paren
 suffix:semicolon
-macro_line|#ifndef THREADED_DELTA_SEARCH
+macro_line|#ifdef NO_PTHREADS
 r_if
 c_cond
 (paren
@@ -10732,7 +10732,7 @@ c_func
 id|pack_usage
 )paren
 suffix:semicolon
-macro_line|#ifndef THREADED_DELTA_SEARCH
+macro_line|#ifdef NO_PTHREADS
 r_if
 c_cond
 (paren
