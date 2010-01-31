@@ -224,6 +224,9 @@ l_int|0x08
 id|cp_off
 op_or_assign
 (paren
+(paren
+r_int
+)paren
 op_star
 id|data
 op_increment

@@ -1,6 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
-multiline_comment|/*&n; * Write a packetized stream, where each line is preceded by&n; * its length (including the header) as a 4-byte hex number.&n; * A length of &squot;zero&squot; means end of stream (and a length of 1-3&n; * would be an error). &n; *&n; * This is all pretty stupid, but we use this packetized line&n; * format to make a streaming format possible without ever&n; * over-running the read buffers. That way we&squot;ll never read&n; * into what might be the pack data (which should go to another&n; * process entirely).&n; *&n; * The writing side could use stdio, but since the reading&n; * side can&squot;t, we stay with pure read/write interfaces.&n; */
+multiline_comment|/*&n; * Write a packetized stream, where each line is preceded by&n; * its length (including the header) as a 4-byte hex number.&n; * A length of &squot;zero&squot; means end of stream (and a length of 1-3&n; * would be an error).&n; *&n; * This is all pretty stupid, but we use this packetized line&n; * format to make a streaming format possible without ever&n; * over-running the read buffers. That way we&squot;ll never read&n; * into what might be the pack data (which should go to another&n; * process entirely).&n; *&n; * The writing side could use stdio, but since the reading&n; * side can&squot;t, we stay with pure read/write interfaces.&n; */
 DECL|function|safe_write
 id|ssize_t
 id|safe_write
@@ -79,16 +79,10 @@ c_func
 l_string|&quot;write error (disk full?)&quot;
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;write error (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;write error&quot;
 )paren
 suffix:semicolon
 )brace
@@ -292,37 +286,17 @@ r_int
 id|size
 )paren
 (brace
-r_int
-id|n
-op_assign
-l_int|0
-suffix:semicolon
-r_while
-c_loop
-(paren
-id|n
-OL
-id|size
-)paren
-(brace
-r_int
+id|ssize_t
 id|ret
 op_assign
-id|xread
+id|read_in_full
 c_func
 (paren
 id|fd
 comma
-(paren
-r_char
-op_star
-)paren
 id|buffer
-op_plus
-id|n
 comma
 id|size
-id|n
 )paren
 suffix:semicolon
 r_if
@@ -332,23 +306,19 @@ id|ret
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;read error (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;read error&quot;
 )paren
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
-op_logical_neg
 id|ret
+OL
+id|size
 )paren
 id|die
 c_func
@@ -356,11 +326,6 @@ c_func
 l_string|&quot;The remote end hung up unexpectedly&quot;
 )paren
 suffix:semicolon
-id|n
-op_add_assign
-id|ret
-suffix:semicolon
-)brace
 )brace
 DECL|function|packet_read_line
 r_int

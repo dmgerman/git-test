@@ -273,6 +273,7 @@ r_char
 op_star
 id|dst
 comma
+r_const
 r_char
 op_star
 id|buffer
@@ -417,6 +418,7 @@ op_mul_assign
 l_int|85
 )paren
 )paren
+r_return
 id|error
 c_func
 (paren
@@ -506,6 +508,7 @@ r_char
 op_star
 id|buf
 comma
+r_const
 r_int
 r_char
 op_star

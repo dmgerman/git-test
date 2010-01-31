@@ -2,7 +2,6 @@ multiline_comment|/*&n; * Copyright (C) 1996-2001  Internet Software Consortium.
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &lt;sys/socket.h&gt;
-macro_line|#include &lt;sys/socket.h&gt;
 macro_line|#include &lt;netinet/in.h&gt;
 macro_line|#include &lt;arpa/inet.h&gt;
 macro_line|#include &lt;stdio.h&gt;

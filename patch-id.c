@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|flush_current_id
 r_static
 r_void
@@ -13,7 +14,7 @@ r_char
 op_star
 id|id
 comma
-id|SHA_CTX
+id|git_SHA_CTX
 op_star
 id|c
 )paren
@@ -39,7 +40,7 @@ id|patchlen
 )paren
 r_return
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|result
@@ -75,7 +76,7 @@ comma
 id|name
 )paren
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 id|c
@@ -169,7 +170,7 @@ id|line
 l_int|1000
 )braket
 suffix:semicolon
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 r_int
@@ -177,7 +178,7 @@ id|patchlen
 op_assign
 l_int|0
 suffix:semicolon
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -361,7 +362,7 @@ id|patchlen
 op_add_assign
 id|len
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -393,7 +394,7 @@ id|patch_id_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-patch-id &lt; patch&quot;
+l_string|&quot;git patch-id &lt; patch&quot;
 suffix:semicolon
 DECL|function|main
 r_int
@@ -420,6 +421,15 @@ id|usage
 c_func
 (paren
 id|patch_id_usage
+)paren
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 id|generate_id_list

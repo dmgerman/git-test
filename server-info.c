@@ -131,14 +131,10 @@ r_char
 op_star
 id|path0
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;info/refs&quot;
-)paren
 )paren
 suffix:semicolon
 r_int
@@ -208,7 +204,7 @@ c_func
 (paren
 l_string|&quot;unable to update %s&quot;
 comma
-id|path0
+id|path1
 )paren
 suffix:semicolon
 id|for_each_ref
@@ -223,6 +219,12 @@ id|fclose
 c_func
 (paren
 id|info_ref_fp
+)paren
+suffix:semicolon
+id|adjust_shared_perm
+c_func
+(paren
+id|path1
 )paren
 suffix:semicolon
 id|rename
@@ -511,6 +513,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|line
 (braket
 id|len
@@ -1204,6 +1208,12 @@ c_func
 id|fp
 )paren
 suffix:semicolon
+id|adjust_shared_perm
+c_func
+(paren
+id|name
+)paren
+suffix:semicolon
 id|rename
 c_func
 (paren
@@ -1253,7 +1263,7 @@ id|force
 )paren
 suffix:semicolon
 multiline_comment|/* remove leftover rev-cache file if there is any */
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|git_path

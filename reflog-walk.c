@@ -3,7 +3,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;reflog-walk.h&quot;
 DECL|struct|complete_reflogs
 r_struct
@@ -703,7 +703,7 @@ id|reflogs
 suffix:semicolon
 DECL|member|complete_reflogs
 r_struct
-id|path_list
+id|string_list
 id|complete_reflogs
 suffix:semicolon
 DECL|member|last_commit_reflog
@@ -743,7 +743,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|add_reflog_for_walk
-r_void
+r_int
 id|add_reflog_for_walk
 c_func
 (paren
@@ -775,7 +775,7 @@ op_assign
 l_int|1
 suffix:semicolon
 r_struct
-id|path_list_item
+id|string_list_item
 op_star
 id|item
 suffix:semicolon
@@ -898,7 +898,7 @@ l_int|0
 suffix:semicolon
 id|item
 op_assign
-id|path_list_lookup
+id|string_list_lookup
 c_func
 (paren
 id|branch
@@ -1079,15 +1079,10 @@ id|reflogs-&gt;nr
 op_eq
 l_int|0
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;No reflogs found for &squot;%s&squot;&quot;
-comma
-id|branch
-)paren
+r_return
+l_int|1
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|branch
@@ -1158,6 +1153,7 @@ id|commit_reflog
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 )brace
 )brace
@@ -1182,6 +1178,9 @@ comma
 op_amp
 id|info-&gt;reflogs
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|fake_reflog_parent
@@ -1342,8 +1341,9 @@ comma
 r_int
 id|oneline
 comma
-r_int
-id|relative_date
+r_enum
+id|date_mode
+id|dmode
 )paren
 (brace
 r_if
@@ -1395,7 +1395,7 @@ c_cond
 (paren
 id|commit_reflog-&gt;flag
 op_logical_or
-id|relative_date
+id|dmode
 )paren
 id|printf
 c_func
@@ -1407,9 +1407,9 @@ c_func
 (paren
 id|info-&gt;timestamp
 comma
-l_int|0
+id|info-&gt;tz
 comma
-l_int|1
+id|dmode
 )paren
 )paren
 suffix:semicolon
@@ -1448,7 +1448,7 @@ c_cond
 (paren
 id|commit_reflog-&gt;flag
 op_logical_or
-id|relative_date
+id|dmode
 )paren
 id|printf
 c_func
@@ -1462,7 +1462,7 @@ id|info-&gt;timestamp
 comma
 id|info-&gt;tz
 comma
-id|relative_date
+id|dmode
 )paren
 )paren
 suffix:semicolon

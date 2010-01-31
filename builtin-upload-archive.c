@@ -12,7 +12,7 @@ id|upload_archive_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-archive &lt;repo&gt;&quot;
+l_string|&quot;git upload-archive &lt;repo&gt;&quot;
 suffix:semicolon
 DECL|variable|deadchild
 r_static
@@ -22,7 +22,7 @@ id|deadchild
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-archive: archiver died with error&quot;
+l_string|&quot;git upload-archive: archiver died with error&quot;
 suffix:semicolon
 DECL|variable|lostchild
 r_static
@@ -32,8 +32,10 @@ id|lostchild
 (braket
 )braket
 op_assign
-l_string|&quot;git-upload-archive: archiver process was lost&quot;
+l_string|&quot;git upload-archive: archiver process was lost&quot;
 suffix:semicolon
+DECL|macro|MAX_ARGS
+mdefine_line|#define MAX_ARGS (64)
 DECL|function|run_upload_archive
 r_static
 r_int
@@ -55,10 +57,6 @@ op_star
 id|prefix
 )paren
 (brace
-r_struct
-id|archiver
-id|ar
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -82,9 +80,6 @@ id|buf
 (braket
 l_int|4096
 )braket
-suffix:semicolon
-r_int
-id|treeish_idx
 suffix:semicolon
 r_int
 id|sent_argc
@@ -116,6 +111,8 @@ id|argv
 l_int|1
 )braket
 )paren
+op_plus
+l_int|1
 OG
 r_sizeof
 (paren
@@ -155,7 +152,9 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;not a git archive&quot;
+l_string|&quot;&squot;%s&squot; does not appear to be a git repository&quot;
+comma
+id|buf
 )paren
 suffix:semicolon
 multiline_comment|/* put received options in sent_argv[] */
@@ -220,7 +219,10 @@ l_int|2
 id|die
 c_func
 (paren
-l_string|&quot;Too many options (&gt;29)&quot;
+l_string|&quot;Too many options (&gt;%d)&quot;
+comma
+id|MAX_ARGS
+l_int|2
 )paren
 suffix:semicolon
 r_if
@@ -327,53 +329,17 @@ op_assign
 l_int|NULL
 suffix:semicolon
 multiline_comment|/* parse all options sent by the client */
-id|treeish_idx
-op_assign
-id|parse_archive_args
+r_return
+id|write_archive
 c_func
 (paren
 id|sent_argc
 comma
 id|sent_argv
 comma
-op_amp
-id|ar
-)paren
-suffix:semicolon
-id|parse_treeish_arg
-c_func
-(paren
-id|sent_argv
-op_plus
-id|treeish_idx
-comma
-op_amp
-id|ar.args
-comma
 id|prefix
-)paren
-suffix:semicolon
-id|parse_pathspec_arg
-c_func
-(paren
-id|sent_argv
-op_plus
-id|treeish_idx
-op_plus
-l_int|1
 comma
-op_amp
-id|ar.args
-)paren
-suffix:semicolon
-r_return
-id|ar
-dot
-id|write_archive
-c_func
-(paren
-op_amp
-id|ar.args
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -456,7 +422,7 @@ suffix:semicolon
 )brace
 DECL|function|process_input
 r_static
-r_void
+id|ssize_t
 id|process_input
 c_func
 (paren
@@ -521,6 +487,7 @@ id|errno
 )paren
 suffix:semicolon
 r_return
+id|sz
 suffix:semicolon
 )brace
 id|send_sideband
@@ -536,6 +503,9 @@ id|sz
 comma
 id|LARGE_PACKET_MAX
 )paren
+suffix:semicolon
+r_return
+id|sz
 suffix:semicolon
 )brace
 DECL|function|cmd_upload_archive
@@ -788,6 +758,18 @@ id|pfd
 l_int|2
 )braket
 suffix:semicolon
+id|ssize_t
+id|processed
+(braket
+l_int|2
+)braket
+op_assign
+(brace
+l_int|0
+comma
+l_int|0
+)brace
+suffix:semicolon
 r_int
 id|status
 suffix:semicolon
@@ -892,6 +874,11 @@ op_amp
 id|POLLIN
 )paren
 multiline_comment|/* Data stream ready */
+id|processed
+(braket
+l_int|0
+)braket
+op_assign
 id|process_input
 c_func
 (paren
@@ -918,6 +905,11 @@ op_amp
 id|POLLIN
 )paren
 multiline_comment|/* Status stream ready */
+id|processed
+(braket
+l_int|1
+)braket
+op_assign
 id|process_input
 c_func
 (paren
@@ -935,23 +927,15 @@ multiline_comment|/* Always finish to read data when available */
 r_if
 c_cond
 (paren
-(paren
-id|pfd
+id|processed
 (braket
 l_int|0
 )braket
-dot
-id|revents
-op_or
-id|pfd
+op_logical_or
+id|processed
 (braket
 l_int|1
 )braket
-dot
-id|revents
-)paren
-op_amp
-id|POLLIN
 )paren
 r_continue
 suffix:semicolon

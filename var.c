@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Eric Biederman, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|var_usage
 r_static
 r_const
@@ -8,7 +9,7 @@ id|var_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-var [-l | &lt;variable&gt;]&quot;
+l_string|&quot;git var [-l | &lt;variable&gt;]&quot;
 suffix:semicolon
 DECL|struct|git_var
 r_struct
@@ -102,7 +103,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
-l_int|0
+id|IDENT_WARN_ON_NO_NAME
 )paren
 )paren
 suffix:semicolon
@@ -170,7 +171,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
-l_int|1
+id|IDENT_ERROR_ON_NO_NAME
 )paren
 suffix:semicolon
 r_break
@@ -196,6 +197,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -229,6 +234,8 @@ c_func
 id|var
 comma
 id|value
+comma
+id|cb
 )paren
 suffix:semicolon
 )brace
@@ -251,6 +258,9 @@ r_char
 op_star
 id|val
 suffix:semicolon
+r_int
+id|nongit
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -266,9 +276,20 @@ id|var_usage
 )paren
 suffix:semicolon
 )brace
-id|setup_git_directory
+id|git_extract_argv0_path
 c_func
 (paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
+id|setup_git_directory_gently
+c_func
+(paren
+op_amp
+id|nongit
 )paren
 suffix:semicolon
 id|val
@@ -296,6 +317,8 @@ id|git_config
 c_func
 (paren
 id|show_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|list_vars
@@ -311,6 +334,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|val

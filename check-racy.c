@@ -124,7 +124,7 @@ comma
 op_amp
 id|st
 comma
-l_int|2
+id|CE_MATCH_RACY_IS_DIRTY
 )paren
 )paren
 id|racy

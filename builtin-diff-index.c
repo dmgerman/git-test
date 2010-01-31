@@ -11,7 +11,7 @@ id|diff_cache_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-diff-index [-m] [--cached] &quot;
+l_string|&quot;git diff-index [-m] [--cached] &quot;
 l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 id|COMMON_DIFF_OPTIONS_HELP
 suffix:semicolon
@@ -62,7 +62,9 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_default_config
+id|git_diff_basic_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* no &quot;diff&quot; UI options */
@@ -173,6 +175,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|cached
+)paren
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|read_cache
 c_func
 (paren
@@ -203,12 +216,14 @@ id|cached
 )paren
 suffix:semicolon
 r_return
-id|rev.diffopt.exit_with_status
-ques
-c_cond
-id|rev.diffopt.has_changes
-suffix:colon
+id|diff_result_code
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
 id|result
+)paren
 suffix:semicolon
 )brace
 eof

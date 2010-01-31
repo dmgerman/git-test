@@ -1,21 +1,21 @@
-multiline_comment|/* &n; * The contents of this file are subject to the Mozilla Public&n; * License Version 1.1 (the &quot;License&quot;); you may not use this file&n; * except in compliance with the License. You may obtain a copy of&n; * the License at http://www.mozilla.org/MPL/&n; * &n; * Software distributed under the License is distributed on an &quot;AS&n; * IS&quot; basis, WITHOUT WARRANTY OF ANY KIND, either express or&n; * implied. See the License for the specific language governing&n; * rights and limitations under the License.&n; * &n; * The Original Code is SHA 180-1 Reference Implementation (Compact version)&n; * &n; * The Initial Developer of the Original Code is Paul Kocher of&n; * Cryptography Research.  Portions created by Paul Kocher are &n; * Copyright (C) 1995-9 by Cryptography Research, Inc.  All&n; * Rights Reserved.&n; * &n; * Contributor(s):&n; *&n; *     Paul Kocher&n; * &n; * Alternatively, the contents of this file may be used under the&n; * terms of the GNU General Public License Version 2 or later (the&n; * &quot;GPL&quot;), in which case the provisions of the GPL are applicable &n; * instead of those above.  If you wish to allow use of your &n; * version of this file only under the terms of the GPL and not to&n; * allow others to use your version of this file under the MPL,&n; * indicate your decision by deleting the provisions above and&n; * replace them with the notice and other provisions required by&n; * the GPL.  If you do not delete the provisions above, a recipient&n; * may use your version of this file under either the MPL or the&n; * GPL.&n; */
+multiline_comment|/*&n; * The contents of this file are subject to the Mozilla Public&n; * License Version 1.1 (the &quot;License&quot;); you may not use this file&n; * except in compliance with the License. You may obtain a copy of&n; * the License at http://www.mozilla.org/MPL/&n; *&n; * Software distributed under the License is distributed on an &quot;AS&n; * IS&quot; basis, WITHOUT WARRANTY OF ANY KIND, either express or&n; * implied. See the License for the specific language governing&n; * rights and limitations under the License.&n; *&n; * The Original Code is SHA 180-1 Reference Implementation (Compact version)&n; *&n; * The Initial Developer of the Original Code is Paul Kocher of&n; * Cryptography Research.  Portions created by Paul Kocher are&n; * Copyright (C) 1995-9 by Cryptography Research, Inc.  All&n; * Rights Reserved.&n; *&n; * Contributor(s):&n; *&n; *     Paul Kocher&n; *&n; * Alternatively, the contents of this file may be used under the&n; * terms of the GNU General Public License Version 2 or later (the&n; * &quot;GPL&quot;), in which case the provisions of the GPL are applicable&n; * instead of those above.  If you wish to allow use of your&n; * version of this file only under the terms of the GPL and not to&n; * allow others to use your version of this file under the MPL,&n; * indicate your decision by deleting the provisions above and&n; * replace them with the notice and other provisions required by&n; * the GPL.  If you do not delete the provisions above, a recipient&n; * may use your version of this file under either the MPL or the&n; * GPL.&n; */
 macro_line|#include &quot;sha1.h&quot;
 r_static
 r_void
 id|shaHashBlock
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren
 suffix:semicolon
-DECL|function|SHA1_Init
+DECL|function|moz_SHA1_Init
 r_void
-id|SHA1_Init
+id|moz_SHA1_Init
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren
@@ -91,12 +91,12 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|SHA1_Update
+DECL|function|moz_SHA1_Update
 r_void
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 comma
@@ -199,9 +199,9 @@ l_int|8
 suffix:semicolon
 )brace
 )brace
-DECL|function|SHA1_Final
+DECL|function|moz_SHA1_Final
 r_void
-id|SHA1_Final
+id|moz_SHA1_Final
 c_func
 (paren
 r_int
@@ -211,7 +211,7 @@ id|hashout
 l_int|20
 )braket
 comma
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren
@@ -391,7 +391,7 @@ op_amp
 l_int|255
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
 id|ctx
@@ -409,7 +409,7 @@ id|ctx-&gt;lenW
 op_ne
 l_int|56
 )paren
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
 id|ctx
@@ -420,7 +420,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
 id|ctx
@@ -477,7 +477,7 @@ l_int|8
 suffix:semicolon
 )brace
 multiline_comment|/*&n;   *  Re-initialize the context (also zeroizes contents)&n;   */
-id|SHA1_Init
+id|moz_SHA1_Init
 c_func
 (paren
 id|ctx
@@ -492,7 +492,7 @@ r_void
 id|shaHashBlock
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren

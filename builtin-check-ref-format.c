@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
 DECL|function|cmd_check_ref_format
 r_int
 id|cmd_check_ref_format
@@ -26,13 +27,81 @@ r_if
 c_cond
 (paren
 id|argc
+op_eq
+l_int|3
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;--branch&quot;
+)paren
+)paren
+(brace
+r_struct
+id|strbuf
+id|sb
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|strbuf_check_branch_ref
+c_func
+(paren
+op_amp
+id|sb
+comma
+id|argv
+(braket
+l_int|2
+)braket
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; is not a valid branch name&quot;
+comma
+id|argv
+(braket
+l_int|2
+)braket
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;%s&bslash;n&quot;
+comma
+id|sb.buf
+op_plus
+l_int|11
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|0
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|argc
 op_ne
 l_int|2
 )paren
 id|usage
 c_func
 (paren
-l_string|&quot;git-check-ref-format refname&quot;
+l_string|&quot;git check-ref-format refname&quot;
 )paren
 suffix:semicolon
 r_return

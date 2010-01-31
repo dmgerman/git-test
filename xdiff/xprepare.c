@@ -4,6 +4,8 @@ DECL|macro|XDL_KPDIS_RUN
 mdefine_line|#define XDL_KPDIS_RUN 4
 DECL|macro|XDL_MAX_EQLIMIT
 mdefine_line|#define XDL_MAX_EQLIMIT 1024
+DECL|macro|XDL_SIMSCAN_WINDOW
+mdefine_line|#define XDL_SIMSCAN_WINDOW 100
 DECL|struct|s_xdlclass
 r_typedef
 r_struct
@@ -1522,6 +1524,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
+id|xpp-&gt;flags
+op_amp
+id|XDF_PATIENCE_DIFF
+)paren
+op_logical_and
 id|xdl_optimize_ctxs
 c_func
 (paren
@@ -1613,6 +1622,34 @@ comma
 id|rdis1
 comma
 id|rpdis1
+suffix:semicolon
+multiline_comment|/*&n;&t; * Limits the window the is examined during the similar-lines&n;&t; * scan. The loops below stops when dis[i - r] == 1 (line that&n;&t; * has no match), but there are corner cases where the loop&n;&t; * proceed all the way to the extremities by causing huge&n;&t; * performance penalties in case of big files.&n;&t; */
+r_if
+c_cond
+(paren
+id|i
+id|s
+OG
+id|XDL_SIMSCAN_WINDOW
+)paren
+id|s
+op_assign
+id|i
+id|XDL_SIMSCAN_WINDOW
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|e
+id|i
+OG
+id|XDL_SIMSCAN_WINDOW
+)paren
+id|e
+op_assign
+id|i
+op_plus
+id|XDL_SIMSCAN_WINDOW
 suffix:semicolon
 multiline_comment|/*&n;&t; * Scans the lines before &squot;i&squot; to find a run of lines that either&n;&t; * have no match (dis[j] == 0) or have multiple matches (dis[j] &gt; 1).&n;&t; * Note that we always call this function with dis[i] &gt; 1, so the&n;&t; * current line (i) is already a multimatch line.&n;&t; */
 r_for
