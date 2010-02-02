@@ -31,7 +31,7 @@ mdefine_line|#define CACHE_EXT(s) ( (s[0]&lt;&lt;24)|(s[1]&lt;&lt;16)|(s[2]&lt;&
 DECL|macro|CACHE_EXT_TREE
 mdefine_line|#define CACHE_EXT_TREE 0x54524545&t;/* &quot;TREE&quot; */
 DECL|macro|CACHE_EXT_RESOLVE_UNDO
-mdefine_line|#define CACHE_EXT_RESOLVE_UNDO 0x52455543 /* &quot;REUN&quot; */
+mdefine_line|#define CACHE_EXT_RESOLVE_UNDO 0x52455543 /* &quot;REUC&quot; */
 DECL|variable|the_index
 r_struct
 id|index_state
