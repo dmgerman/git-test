@@ -305,7 +305,8 @@ op_star
 id|resolve_undo_read
 c_func
 (paren
-r_void
+r_const
+r_char
 op_star
 id|data
 comma
@@ -548,6 +549,12 @@ id|ui-&gt;sha1
 id|i
 )braket
 comma
+(paren
+r_const
+r_int
+r_char
+op_star
+)paren
 id|data
 )paren
 suffix:semicolon
