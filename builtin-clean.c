@@ -349,15 +349,15 @@ id|force
 id|die
 c_func
 (paren
-l_string|&quot;clean.requireForce%s set and -n or -f not given; &quot;
+l_string|&quot;clean.requireForce %s to true and neither -n nor -f given; &quot;
 l_string|&quot;refusing to clean&quot;
 comma
 id|config_set
 ques
 c_cond
-l_string|&quot;&quot;
+l_string|&quot;set&quot;
 suffix:colon
-l_string|&quot; not&quot;
+l_string|&quot;defaults&quot;
 )paren
 suffix:semicolon
 r_if
