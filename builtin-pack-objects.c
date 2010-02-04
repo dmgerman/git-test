@@ -1055,7 +1055,7 @@ id|type
 op_assign
 id|entry-&gt;type
 suffix:semicolon
-multiline_comment|/* write limit if limited packsize and not first object */
+multiline_comment|/* apply size limit if limited packsize and not first object */
 r_if
 c_cond
 (paren
@@ -2112,13 +2112,12 @@ id|e-&gt;preferred_base
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* if we are deltified, write out base object first. */
+multiline_comment|/*&n;&t; * If we are deltified, attempt to write out base object first.&n;&t; * If that fails due to the pack size limit then the current&n;&t; * object might still possibly fit undeltified within that limit.&n;&t; */
 r_if
 c_cond
 (paren
 id|e-&gt;delta
-op_logical_and
-op_logical_neg
+)paren
 id|write_one
 c_func
 (paren
@@ -2128,9 +2127,6 @@ id|e-&gt;delta
 comma
 id|offset
 )paren
-)paren
-r_return
-l_int|0
 suffix:semicolon
 id|e-&gt;idx.offset
 op_assign
@@ -2416,6 +2412,9 @@ suffix:semicolon
 r_for
 c_loop
 (paren
+id|i
+op_assign
+l_int|0
 suffix:semicolon
 id|i
 OL
@@ -2424,11 +2423,9 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-(brace
 r_if
 c_cond
 (paren
-op_logical_neg
 id|write_one
 c_func
 (paren
@@ -2441,9 +2438,9 @@ comma
 op_amp
 id|offset
 )paren
+op_eq
+l_int|1
 )paren
-r_break
-suffix:semicolon
 id|display_progress
 c_func
 (paren
@@ -2452,7 +2449,6 @@ comma
 id|written
 )paren
 suffix:semicolon
-)brace
 multiline_comment|/*&n;&t;&t; * Did we write the wrong # entries in the header?&n;&t;&t; * If so, rewrite it like in fast-import&n;&t;&t; */
 r_if
 c_cond
@@ -2857,10 +2853,6 @@ r_while
 c_loop
 (paren
 id|nr_remaining
-op_logical_and
-id|i
-OL
-id|nr_objects
 )paren
 suffix:semicolon
 id|free
@@ -2894,59 +2886,6 @@ comma
 id|written
 comma
 id|nr_result
-)paren
-suffix:semicolon
-multiline_comment|/*&n;&t; * We have scanned through [0 ... i).  Since we have written&n;&t; * the correct number of objects,  the remaining [i ... nr_objects)&n;&t; * items must be either already written (due to out-of-order delta base)&n;&t; * or a preferred base.  Count those which are neither and complain if any.&n;&t; */
-r_for
-c_loop
-(paren
-id|j
-op_assign
-l_int|0
-suffix:semicolon
-id|i
-OL
-id|nr_objects
-suffix:semicolon
-id|i
-op_increment
-)paren
-(brace
-r_struct
-id|object_entry
-op_star
-id|e
-op_assign
-id|objects
-op_plus
-id|i
-suffix:semicolon
-id|j
-op_add_assign
-op_logical_neg
-id|e-&gt;idx.offset
-op_logical_and
-op_logical_neg
-id|e-&gt;preferred_base
-suffix:semicolon
-)brace
-r_if
-c_cond
-(paren
-id|j
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;wrote %&quot;
-id|PRIu32
-l_string|&quot; objects as expected but %&quot;
-id|PRIu32
-l_string|&quot; unwritten&quot;
-comma
-id|written
-comma
-id|j
 )paren
 suffix:semicolon
 )brace
