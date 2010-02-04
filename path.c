@@ -2980,7 +2980,7 @@ id|sl
 comma
 id|ndot
 suffix:semicolon
-multiline_comment|/*&n;&t; * This resurrects the belts and suspenders paranoia check by HPA&n;&t; * done in &lt;435560F7.4080006@zytor.com&gt; thread, now enter_repo()&n;&t; * does not do getcwd() based path canonicalizations.&n;&t; *&n;&t; * sl becomes true immediately after seeing &squot;/&squot; and continues to&n;&t; * be true as long as dots continue after that without intervening&n;&t; * non-dot character.&n;&t; */
+multiline_comment|/*&n;&t; * This resurrects the belts and suspenders paranoia check by HPA&n;&t; * done in &lt;435560F7.4080006@zytor.com&gt; thread, now enter_repo()&n;&t; * does not do getcwd() based path canonicalization.&n;&t; *&n;&t; * sl becomes true immediately after seeing &squot;/&squot; and continues to&n;&t; * be true as long as dots continue after that without intervening&n;&t; * non-dot character.&n;&t; */
 r_if
 c_cond
 (paren

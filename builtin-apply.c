@@ -9257,7 +9257,7 @@ id|img-&gt;nr
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * If match_begining or match_end is specified, there is no&n;&t; * point starting from a wrong line that will never match and&n;&t; * wander around and wait for a match at the specified end.&n;&t; */
+multiline_comment|/*&n;&t; * If match_beginning or match_end is specified, there is no&n;&t; * point starting from a wrong line that will never match and&n;&t; * wander around and wait for a match at the specified end.&n;&t; */
 r_if
 c_cond
 (paren

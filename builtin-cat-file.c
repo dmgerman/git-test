@@ -1057,7 +1057,7 @@ comma
 op_amp
 id|batch
 comma
-l_string|&quot;show info and content of objects feeded on stdin&quot;
+l_string|&quot;show info and content of objects fed from the standard input&quot;
 comma
 id|BATCH
 )paren
@@ -1072,7 +1072,7 @@ comma
 op_amp
 id|batch
 comma
-l_string|&quot;show info about objects feeded on stdin&quot;
+l_string|&quot;show info about objects fed from the standard input&quot;
 comma
 id|BATCH_CHECK
 )paren

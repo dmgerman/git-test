@@ -20212,7 +20212,7 @@ id|q-&gt;queue
 id|i
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * 1. Entries that come from stat info dirtyness&n;&t;&t; *    always have both sides (iow, not create/delete),&n;&t;&t; *    one side of the object name is unknown, with&n;&t;&t; *    the same mode and size.  Keep the ones that&n;&t;&t; *    do not match these criteria.  They have real&n;&t;&t; *    differences.&n;&t;&t; *&n;&t;&t; * 2. At this point, the file is known to be modified,&n;&t;&t; *    with the same mode and size, and the object&n;&t;&t; *    name of one side is unknown.  Need to inspect&n;&t;&t; *    the identical contents.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * 1. Entries that come from stat info dirtiness&n;&t;&t; *    always have both sides (iow, not create/delete),&n;&t;&t; *    one side of the object name is unknown, with&n;&t;&t; *    the same mode and size.  Keep the ones that&n;&t;&t; *    do not match these criteria.  They have real&n;&t;&t; *    differences.&n;&t;&t; *&n;&t;&t; * 2. At this point, the file is known to be modified,&n;&t;&t; *    with the same mode and size, and the object&n;&t;&t; *    name of one side is unknown.  Need to inspect&n;&t;&t; *    the identical contents.&n;&t;&t; */
 r_if
 c_cond
 (paren
