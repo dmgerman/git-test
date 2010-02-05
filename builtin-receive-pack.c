@@ -119,11 +119,10 @@ r_char
 op_star
 id|head_name
 suffix:semicolon
-DECL|variable|capabilities_to_send
+DECL|variable|sent_capabilities
 r_static
-r_char
-op_star
-id|capabilities_to_send
+r_int
+id|sent_capabilities
 suffix:semicolon
 DECL|function|parse_deny_action
 r_static
@@ -553,8 +552,7 @@ id|cb_data
 r_if
 c_cond
 (paren
-op_logical_neg
-id|capabilities_to_send
+id|sent_capabilities
 )paren
 id|packet_write
 c_func
@@ -578,7 +576,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s %s%c%s&bslash;n&quot;
+l_string|&quot;%s %s%c%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -590,12 +588,19 @@ id|path
 comma
 l_int|0
 comma
-id|capabilities_to_send
+l_string|&quot; report-status delete-refs&quot;
+comma
+id|prefer_ofs_delta
+ques
+c_cond
+l_string|&quot; ofs-delta&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|capabilities_to_send
+id|sent_capabilities
 op_assign
-l_int|NULL
+l_int|1
 suffix:semicolon
 r_return
 l_int|0
@@ -621,7 +626,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|capabilities_to_send
+op_logical_neg
+id|sent_capabilities
 )paren
 id|show_ref
 c_func
@@ -3450,17 +3456,6 @@ id|receive_unpack_limit
 id|unpack_limit
 op_assign
 id|receive_unpack_limit
-suffix:semicolon
-id|capabilities_to_send
-op_assign
-(paren
-id|prefer_ofs_delta
-)paren
-ques
-c_cond
-l_string|&quot; report-status delete-refs ofs-delta &quot;
-suffix:colon
-l_string|&quot; report-status delete-refs &quot;
 suffix:semicolon
 r_if
 c_cond
