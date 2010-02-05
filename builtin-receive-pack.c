@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
+macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;commit.h&quot;
@@ -92,6 +93,11 @@ DECL|variable|report_status
 r_static
 r_int
 id|report_status
+suffix:semicolon
+DECL|variable|use_sideband
+r_static
+r_int
+id|use_sideband
 suffix:semicolon
 DECL|variable|prefer_ofs_delta
 r_static
@@ -588,7 +594,7 @@ id|path
 comma
 l_int|0
 comma
-l_string|&quot; report-status delete-refs&quot;
+l_string|&quot; report-status delete-refs side-band-64k&quot;
 comma
 id|prefer_ofs_delta
 ques
@@ -2365,6 +2371,25 @@ id|report_status
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|refname
+op_plus
+id|reflen
+op_plus
+l_int|1
+comma
+l_string|&quot;side-band-64k&quot;
+)paren
+)paren
+id|use_sideband
+op_assign
+id|LARGE_PACKET_MAX
+suffix:semicolon
 )brace
 id|cmd
 op_assign
@@ -2895,10 +2920,17 @@ id|command
 op_star
 id|cmd
 suffix:semicolon
-id|packet_write
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|packet_buf_write
 c_func
 (paren
-l_int|1
+op_amp
+id|buf
 comma
 l_string|&quot;unpack %s&bslash;n&quot;
 comma
@@ -2930,10 +2962,11 @@ c_cond
 op_logical_neg
 id|cmd-&gt;error_string
 )paren
-id|packet_write
+id|packet_buf_write
 c_func
 (paren
-l_int|1
+op_amp
+id|buf
 comma
 l_string|&quot;ok %s&bslash;n&quot;
 comma
@@ -2941,10 +2974,11 @@ id|cmd-&gt;ref_name
 )paren
 suffix:semicolon
 r_else
-id|packet_write
+id|packet_buf_write
 c_func
 (paren
-l_int|1
+op_amp
+id|buf
 comma
 l_string|&quot;ng %s %s&bslash;n&quot;
 comma
@@ -2954,10 +2988,48 @@ id|cmd-&gt;error_string
 )paren
 suffix:semicolon
 )brace
-id|packet_flush
+id|packet_buf_flush
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|use_sideband
+)paren
+id|send_sideband
 c_func
 (paren
 l_int|1
+comma
+l_int|1
+comma
+id|buf.buf
+comma
+id|buf.len
+comma
+id|use_sideband
+)paren
+suffix:semicolon
+r_else
+id|safe_write
+c_func
+(paren
+l_int|1
+comma
+id|buf.buf
+comma
+id|buf.len
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
 )paren
 suffix:semicolon
 )brace
@@ -3617,6 +3689,17 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|use_sideband
+)paren
+id|packet_flush
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
