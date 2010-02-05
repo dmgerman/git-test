@@ -964,7 +964,10 @@ id|write_discovery
 c_func
 (paren
 r_int
-id|fd
+id|in
+comma
+r_int
+id|out
 comma
 r_void
 op_star
@@ -989,7 +992,7 @@ c_cond
 id|write_in_full
 c_func
 (paren
-id|fd
+id|out
 comma
 id|heads-&gt;buf
 comma
@@ -1005,7 +1008,7 @@ suffix:semicolon
 id|close
 c_func
 (paren
-id|fd
+id|out
 )paren
 suffix:semicolon
 r_return
@@ -1058,6 +1061,10 @@ suffix:semicolon
 id|async.data
 op_assign
 id|heads
+suffix:semicolon
+id|async.out
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
