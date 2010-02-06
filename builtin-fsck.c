@@ -2778,7 +2778,7 @@ comma
 op_amp
 id|check_full
 comma
-l_string|&quot;also consider alternate objects&quot;
+l_string|&quot;also consider packs and alternate objects&quot;
 )paren
 comma
 id|OPT_BOOLEAN
