@@ -1862,8 +1862,6 @@ l_string|&quot;grep&quot;
 comma
 id|cmd_grep
 comma
-id|RUN_SETUP
-op_or
 id|USE_PAGER
 )brace
 comma
