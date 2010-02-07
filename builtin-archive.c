@@ -433,7 +433,7 @@ l_string|&quot;zip&quot;
 )paren
 )paren
 r_return
-l_string|&quot;zip&quot;
+l_string|&quot;--format=zip&quot;
 suffix:semicolon
 r_return
 l_int|NULL
@@ -485,7 +485,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|format
+id|format_option
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -541,32 +541,11 @@ comma
 l_string|&quot;path to the remote git-upload-archive command&quot;
 )paren
 comma
-id|OPT_STRING
-c_func
-(paren
-l_int|0
-comma
-l_string|&quot;format&quot;
-comma
-op_amp
-id|format
-comma
-l_string|&quot;fmt&quot;
-comma
-l_string|&quot;archive format&quot;
-)paren
-comma
 id|OPT_END
 c_func
 (paren
 )paren
 )brace
-suffix:semicolon
-r_char
-id|fmt_opt
-(braket
-l_int|32
-)braket
 suffix:semicolon
 id|argc
 op_assign
@@ -598,13 +577,7 @@ c_func
 id|output
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|format
-)paren
-id|format
+id|format_option
 op_assign
 id|format_from_name
 c_func
@@ -613,23 +586,13 @@ id|output
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * We have enough room in argv[] to muck it in place, because&n;&t; * --output must have been given on the original command line&n;&t; * if we get to this point, and parse_options() must have eaten&n;&t; * it, i.e. we can add back one element to the array.&n;&t; *&n;&t; * We add a fake --format option at the beginning, with the&n;&t; * format inferred from our output filename.  This way explicit&n;&t; * --format options can override it, and the fake option is&n;&t; * inserted before any &quot;--&quot; that might have been given.&n;&t; */
 r_if
 c_cond
 (paren
-id|format
+id|format_option
 )paren
 (brace
-id|sprintf
-c_func
-(paren
-id|fmt_opt
-comma
-l_string|&quot;--format=%s&quot;
-comma
-id|format
-)paren
-suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We have enough room in argv[] to muck it in place,&n;&t;&t; * because either --format and/or --output must have&n;&t;&t; * been given on the original command line if we get&n;&t;&t; * to this point, and parse_options() must have eaten&n;&t;&t; * it, i.e. we can add back one element to the array.&n;&t;&t; * But argv[] may contain &quot;--&quot;; we should make it the&n;&t;&t; * first option.&n;&t;&t; */
 id|memmove
 c_func
 (paren
@@ -655,7 +618,7 @@ id|argv
 l_int|1
 )braket
 op_assign
-id|fmt_opt
+id|format_option
 suffix:semicolon
 id|argv
 (braket
