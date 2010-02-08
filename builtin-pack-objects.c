@@ -2113,12 +2113,13 @@ id|e-&gt;preferred_base
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * If we are deltified, attempt to write out base object first.&n;&t; * If that fails due to the pack size limit then the current&n;&t; * object might still possibly fit undeltified within that limit.&n;&t; */
+multiline_comment|/* if we are deltified, write out base object first. */
 r_if
 c_cond
 (paren
 id|e-&gt;delta
-)paren
+op_logical_and
+op_logical_neg
 id|write_one
 c_func
 (paren
@@ -2128,6 +2129,9 @@ id|e-&gt;delta
 comma
 id|offset
 )paren
+)paren
+r_return
+l_int|0
 suffix:semicolon
 id|e-&gt;idx.offset
 op_assign
@@ -2413,9 +2417,6 @@ suffix:semicolon
 r_for
 c_loop
 (paren
-id|i
-op_assign
-l_int|0
 suffix:semicolon
 id|i
 OL
@@ -2424,9 +2425,11 @@ suffix:semicolon
 id|i
 op_increment
 )paren
+(brace
 r_if
 c_cond
 (paren
+op_logical_neg
 id|write_one
 c_func
 (paren
@@ -2439,9 +2442,9 @@ comma
 op_amp
 id|offset
 )paren
-op_eq
-l_int|1
 )paren
+r_break
+suffix:semicolon
 id|display_progress
 c_func
 (paren
@@ -2450,6 +2453,7 @@ comma
 id|written
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t;&t; * Did we write the wrong # entries in the header?&n;&t;&t; * If so, rewrite it like in fast-import&n;&t;&t; */
 r_if
 c_cond
@@ -2854,6 +2858,10 @@ r_while
 c_loop
 (paren
 id|nr_remaining
+op_logical_and
+id|i
+OL
+id|nr_objects
 )paren
 suffix:semicolon
 id|free
