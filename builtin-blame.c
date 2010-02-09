@@ -11542,6 +11542,10 @@ c_cond
 id|lno
 OL
 id|top
+op_logical_or
+id|lno
+OL
+id|bottom
 )paren
 id|die
 c_func
