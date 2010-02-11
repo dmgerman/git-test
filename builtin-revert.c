@@ -1134,7 +1134,7 @@ id|helpbuf
 comma
 l_string|&quot;  After resolving the conflicts,&bslash;n&quot;
 l_string|&quot;mark the corrected paths with &squot;git add &lt;paths&gt;&squot; or &squot;git rm &lt;paths&gt;&squot;&bslash;n&quot;
-l_string|&quot;and commit the result.&quot;
+l_string|&quot;and commit the result&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1151,13 +1151,24 @@ c_func
 op_amp
 id|helpbuf
 comma
-l_string|&quot;  When committing, use the option &squot;-c %s&squot;&bslash;n&quot;
-l_string|&quot;to retain authorship and message.&quot;
+l_string|&quot; with: &bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;        git commit -c %s&bslash;n&quot;
 comma
 id|name
 )paren
 suffix:semicolon
 )brace
+r_else
+id|strbuf_addch
+c_func
+(paren
+op_amp
+id|helpbuf
+comma
+l_char|&squot;.&squot;
+)paren
+suffix:semicolon
 r_return
 id|strbuf_detach
 c_func
