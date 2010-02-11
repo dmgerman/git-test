@@ -1192,8 +1192,8 @@ c_func
 id|helpbuf
 comma
 l_string|&quot;  After resolving the conflicts,&bslash;n&quot;
-l_string|&quot;mark the corrected paths with &squot;git add &lt;paths&gt;&squot; &quot;
-l_string|&quot;or &squot;git rm &lt;paths&gt;&squot; and commit the result.&quot;
+l_string|&quot;mark the corrected paths with &squot;git add &lt;paths&gt;&squot; or &squot;git rm &lt;paths&gt;&squot;&bslash;n&quot;
+l_string|&quot;and commit the result.&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1215,8 +1215,8 @@ c_func
 id|helpbuf
 )paren
 comma
-l_string|&quot;&bslash;nWhen commiting, use the option &quot;
-l_string|&quot;&squot;-c %s&squot; to retain authorship and message.&quot;
+l_string|&quot;  When committing, use the option &squot;-c %s&squot;&bslash;n&quot;
+l_string|&quot;to retain authorship and message.&quot;
 comma
 id|find_unique_abbrev
 c_func
