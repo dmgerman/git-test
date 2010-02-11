@@ -1101,12 +1101,11 @@ op_star
 id|sha1
 )paren
 (brace
-r_static
-r_char
+r_struct
+id|strbuf
 id|helpbuf
-(braket
-l_int|1024
-)braket
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_char
 op_star
@@ -1126,9 +1125,10 @@ id|msg
 r_return
 id|msg
 suffix:semicolon
-id|strcpy
+id|strbuf_addstr
 c_func
 (paren
+op_amp
 id|helpbuf
 comma
 l_string|&quot;  After resolving the conflicts,&bslash;n&quot;
@@ -1144,16 +1144,11 @@ op_eq
 id|CHERRY_PICK
 )paren
 (brace
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|helpbuf
-op_plus
-id|strlen
-c_func
-(paren
-id|helpbuf
-)paren
 comma
 l_string|&quot;  When committing, use the option &squot;-c %s&squot;&bslash;n&quot;
 l_string|&quot;to retain authorship and message.&quot;
@@ -1169,7 +1164,14 @@ id|DEFAULT_ABBREV
 suffix:semicolon
 )brace
 r_return
+id|strbuf_detach
+c_func
+(paren
+op_amp
 id|helpbuf
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 )brace
 DECL|function|empty_tree
