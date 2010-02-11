@@ -82,6 +82,13 @@ id|commit
 op_star
 id|commit
 suffix:semicolon
+DECL|variable|commit_name
+r_static
+r_const
+r_char
+op_star
+id|commit_name
+suffix:semicolon
 DECL|variable|allow_rerere_auto
 r_static
 r_int
@@ -134,11 +141,6 @@ id|sha1
 (braket
 l_int|20
 )braket
-suffix:semicolon
-r_const
-r_char
-op_star
-id|arg
 suffix:semicolon
 r_int
 id|noop
@@ -271,7 +273,7 @@ comma
 id|options
 )paren
 suffix:semicolon
-id|arg
+id|commit_name
 op_assign
 id|argv
 (braket
@@ -284,7 +286,7 @@ c_cond
 id|get_sha1
 c_func
 (paren
-id|arg
+id|commit_name
 comma
 id|sha1
 )paren
@@ -293,7 +295,7 @@ id|die
 (paren
 l_string|&quot;Cannot find &squot;%s&squot;&quot;
 comma
-id|arg
+id|commit_name
 )paren
 suffix:semicolon
 id|commit
@@ -1095,10 +1097,9 @@ id|help_msg
 c_func
 (paren
 r_const
-r_int
 r_char
 op_star
-id|sha1
+id|name
 )paren
 (brace
 r_struct
@@ -1153,13 +1154,7 @@ comma
 l_string|&quot;  When committing, use the option &squot;-c %s&squot;&bslash;n&quot;
 l_string|&quot;to retain authorship and message.&quot;
 comma
-id|find_unique_abbrev
-c_func
-(paren
-id|sha1
-comma
-id|DEFAULT_ABBREV
-)paren
+id|name
 )paren
 suffix:semicolon
 )brace
@@ -2149,7 +2144,7 @@ comma
 id|help_msg
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit_name
 )paren
 )paren
 suffix:semicolon
