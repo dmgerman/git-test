@@ -1712,14 +1712,10 @@ op_eq
 l_int|0
 )paren
 (brace
-id|setenv
+id|set_git_dir
 c_func
 (paren
-id|GIT_DIR_ENVIRONMENT
-comma
 l_string|&quot;.&quot;
-comma
-l_int|1
 )paren
 suffix:semicolon
 id|check_repository_format
