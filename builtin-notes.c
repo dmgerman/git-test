@@ -21,6 +21,8 @@ op_assign
 (brace
 l_string|&quot;git notes [list [&lt;object&gt;]]&quot;
 comma
+l_string|&quot;git notes add [-f] [-m &lt;msg&gt; | -F &lt;file&gt;] [&lt;object&gt;]&quot;
+comma
 l_string|&quot;git notes edit [-m &lt;msg&gt; | -F &lt;file&gt;] [&lt;object&gt;]&quot;
 comma
 l_string|&quot;git notes show [&lt;object&gt;]&quot;
@@ -1042,6 +1044,10 @@ id|list
 op_assign
 l_int|0
 comma
+id|add
+op_assign
+l_int|0
+comma
 id|edit
 op_assign
 l_int|0
@@ -1055,6 +1061,10 @@ op_assign
 l_int|0
 comma
 id|prune
+op_assign
+l_int|0
+comma
+id|force
 op_assign
 l_int|0
 suffix:semicolon
@@ -1121,6 +1131,19 @@ comma
 l_string|&quot;note contents in a file&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;f&squot;
+comma
+l_string|&quot;force&quot;
+comma
+op_amp
+id|force
+comma
+l_string|&quot;replace existing notes&quot;
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -1171,6 +1194,28 @@ l_string|&quot;list&quot;
 )paren
 )paren
 id|list
+op_assign
+l_int|1
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|argc
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+l_string|&quot;add&quot;
+)paren
+)paren
+id|add
 op_assign
 l_int|1
 suffix:semicolon
@@ -1279,6 +1324,8 @@ c_cond
 (paren
 id|list
 op_plus
+id|add
+op_plus
 id|edit
 op_plus
 id|show
@@ -1307,7 +1354,11 @@ id|msgfile
 )paren
 op_logical_and
 op_logical_neg
+(paren
+id|add
+op_logical_or
 id|edit
+)paren
 )paren
 (brace
 id|error
@@ -1342,6 +1393,35 @@ id|error
 c_func
 (paren
 l_string|&quot;mixing -m and -F options is not allowed.&quot;
+)paren
+suffix:semicolon
+id|usage_with_options
+c_func
+(paren
+id|git_notes_usage
+comma
+id|options
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|force
+op_logical_and
+op_logical_neg
+id|add
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;cannot use -f option with %s subcommand.&quot;
+comma
+id|argv
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -1586,7 +1666,54 @@ id|show_args
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* edit/remove/prune command */
+multiline_comment|/* add/edit/remove/prune command */
+r_if
+c_cond
+(paren
+id|add
+op_logical_and
+id|note
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|force
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Overwriting existing notes for object %s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|object
+)paren
+)paren
+suffix:semicolon
+r_else
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;Cannot add notes. Found existing notes for object %s. &quot;
+l_string|&quot;Use &squot;-f&squot; to overwrite existing notes&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|object
+)paren
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
+)brace
 r_if
 c_cond
 (paren
