@@ -4450,6 +4450,8 @@ suffix:colon
 id|format_note
 c_func
 (paren
+l_int|NULL
+comma
 id|commit-&gt;object.sha1
 comma
 id|sb
@@ -6012,6 +6014,8 @@ id|context-&gt;show_notes
 id|format_note
 c_func
 (paren
+l_int|NULL
+comma
 id|commit-&gt;object.sha1
 comma
 id|sb
