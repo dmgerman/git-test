@@ -1578,6 +1578,16 @@ l_int|0
 suffix:semicolon
 r_int
 id|given_object
+op_assign
+l_int|0
+comma
+id|i
+op_assign
+l_int|1
+comma
+id|retval
+op_assign
+l_int|0
 suffix:semicolon
 r_struct
 id|msg_arg
@@ -1877,11 +1887,17 @@ c_cond
 op_logical_neg
 id|argc
 )paren
+(brace
 id|list
 op_assign
 l_int|1
 suffix:semicolon
 multiline_comment|/* Default to &squot;list&squot; if no other subcommand given */
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1995,8 +2011,8 @@ suffix:semicolon
 id|given_object
 op_assign
 id|argc
-op_eq
-l_int|2
+OG
+id|i
 suffix:semicolon
 id|object_ref
 op_assign
@@ -2005,7 +2021,8 @@ ques
 c_cond
 id|argv
 (braket
-l_int|1
+id|i
+op_increment
 )braket
 suffix:colon
 l_string|&quot;HEAD&quot;
@@ -2015,14 +2032,12 @@ c_cond
 (paren
 id|argc
 OG
-l_int|2
+id|i
 op_logical_or
 (paren
 id|prune
 op_logical_and
-id|argc
-OG
-l_int|1
+id|given_object
 )paren
 )paren
 (brace
@@ -2140,13 +2155,15 @@ id|note
 )paren
 )paren
 suffix:semicolon
-r_return
-l_int|0
+r_goto
+id|end
 suffix:semicolon
 )brace
 )brace
 r_else
-r_return
+(brace
+id|retval
+op_assign
 id|for_each_note
 c_func
 (paren
@@ -2159,6 +2176,10 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_goto
+id|end
+suffix:semicolon
+)brace
 )brace
 multiline_comment|/* show command */
 r_if
@@ -2186,8 +2207,12 @@ id|object
 )paren
 )paren
 suffix:semicolon
-r_return
+id|retval
+op_assign
 l_int|1
+suffix:semicolon
+r_goto
+id|end
 suffix:semicolon
 )brace
 r_else
@@ -2217,12 +2242,16 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-r_return
+id|retval
+op_assign
 id|execv_git_cmd
 c_func
 (paren
 id|show_args
 )paren
+suffix:semicolon
+r_goto
+id|end
 suffix:semicolon
 )brace
 multiline_comment|/* add/append/edit/remove/prune command */
@@ -2237,8 +2266,31 @@ id|note
 r_if
 c_cond
 (paren
+op_logical_neg
 id|force
 )paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;Cannot add notes. Found existing notes for object&quot;
+l_string|&quot; %s. Use &squot;-f&squot; to overwrite existing notes&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|object
+)paren
+)paren
+suffix:semicolon
+id|retval
+op_assign
+l_int|1
+suffix:semicolon
+r_goto
+id|end
+suffix:semicolon
+)brace
 id|fprintf
 c_func
 (paren
@@ -2253,25 +2305,6 @@ id|object
 )paren
 )paren
 suffix:semicolon
-r_else
-(brace
-id|error
-c_func
-(paren
-l_string|&quot;Cannot add notes. Found existing notes for object %s. &quot;
-l_string|&quot;Use &squot;-f&squot; to overwrite existing notes&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|object
-)paren
-)paren
-suffix:semicolon
-r_return
-l_int|1
-suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -2315,9 +2348,11 @@ c_func
 id|t
 )paren
 suffix:semicolon
+r_goto
+id|commit
+suffix:semicolon
 )brace
 r_else
-(brace
 id|create_note
 c_func
 (paren
@@ -2363,7 +2398,8 @@ comma
 id|combine_notes_overwrite
 )paren
 suffix:semicolon
-)brace
+id|commit
+suffix:colon
 id|snprintf
 c_func
 (paren
@@ -2374,7 +2410,7 @@ r_sizeof
 id|logmsg
 )paren
 comma
-l_string|&quot;Note %s by &squot;git notes %s&squot;&quot;
+l_string|&quot;Notes %s by &squot;git notes %s&squot;&quot;
 comma
 id|is_null_sha1
 c_func
@@ -2401,6 +2437,8 @@ comma
 id|logmsg
 )paren
 suffix:semicolon
+id|end
+suffix:colon
 id|free_notes
 c_func
 (paren
@@ -2417,7 +2455,7 @@ id|msg.buf
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|retval
 suffix:semicolon
 )brace
 eof
