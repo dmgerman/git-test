@@ -1,7 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;notes.h&quot;
-macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
@@ -1177,7 +1176,7 @@ suffix:semicolon
 )brace
 )brace
 )brace
-multiline_comment|/*&n; * Convert a partial SHA1 hex string to the corresponding partial SHA1 value.&n; * - hex      - Partial SHA1 segment in ASCII hex format&n; * - hex_len  - Length of above segment. Must be multiple of 2 between 0 and 40&n; * - sha1     - Partial SHA1 value is written here&n; * - sha1_len - Max #bytes to store in sha1, Must be &gt;= hex_len / 2, and &lt; 20&n; * Returns -1 on error (invalid arguments or invalid SHA1 (not in hex format).&n; * Otherwise, returns number of bytes written to sha1 (i.e. hex_len / 2).&n; * Pads sha1 with NULs up to sha1_len (not included in returned length).&n; */
+multiline_comment|/*&n; * Convert a partial SHA1 hex string to the corresponding partial SHA1 value.&n; * - hex      - Partial SHA1 segment in ASCII hex format&n; * - hex_len  - Length of above segment. Must be multiple of 2 between 0 and 40&n; * - sha1     - Partial SHA1 value is written here&n; * - sha1_len - Max #bytes to store in sha1, Must be &gt;= hex_len / 2, and &lt; 20&n; * Returns -1 on error (invalid arguments or invalid SHA1 (not in hex format)).&n; * Otherwise, returns number of bytes written to sha1 (i.e. hex_len / 2).&n; * Pads sha1 with NULs up to sha1_len (not included in returned length).&n; */
 DECL|function|get_sha1_hex_segment
 r_static
 r_int
