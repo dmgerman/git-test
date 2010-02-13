@@ -25,6 +25,8 @@ l_string|&quot;git notes show [&lt;object&gt;]&quot;
 comma
 l_string|&quot;git notes remove [&lt;object&gt;]&quot;
 comma
+l_string|&quot;git notes prune&quot;
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -996,6 +998,10 @@ comma
 id|remove
 op_assign
 l_int|0
+comma
+id|prune
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -1154,6 +1160,28 @@ id|remove
 op_assign
 l_int|1
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|argc
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+l_string|&quot;prune&quot;
+)paren
+)paren
+id|prune
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1162,6 +1190,8 @@ op_plus
 id|show
 op_plus
 id|remove
+op_plus
+id|prune
 op_ne
 l_int|1
 )paren
@@ -1249,6 +1279,14 @@ c_cond
 id|argc
 OG
 l_int|2
+op_logical_or
+(paren
+id|prune
+op_logical_and
+id|argc
+OG
+l_int|1
+)paren
 )paren
 (brace
 id|error
@@ -1397,7 +1435,7 @@ id|show_args
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* edit/remove command */
+multiline_comment|/* edit/remove/prune command */
 r_if
 c_cond
 (paren
@@ -1499,6 +1537,27 @@ id|msgfile
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|prune
+)paren
+(brace
+id|hashclr
+c_func
+(paren
+id|new_note
+)paren
+suffix:semicolon
+id|prune_notes
+c_func
+(paren
+id|t
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|create_note
 c_func
 (paren
@@ -1548,6 +1607,7 @@ comma
 id|combine_notes_overwrite
 )paren
 suffix:semicolon
+)brace
 id|snprintf
 c_func
 (paren
