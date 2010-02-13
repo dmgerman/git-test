@@ -2062,6 +2062,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;notes&quot;
+comma
+id|cmd_notes
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;pack-objects&quot;
 comma
 id|cmd_pack_objects
