@@ -1,5 +1,4 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;notes.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
@@ -19,7 +18,7 @@ l_int|16
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Leaf nodes come in two variants, note entries and subtree entries,&n; * distinguished by the LSb of the leaf node pointer (see above).&n; * As a note entry, the key is the SHA1 of the referenced commit, and the&n; * value is the SHA1 of the note object.&n; * As a subtree entry, the key is the prefix SHA1 (w/trailing NULs) of the&n; * referenced commit, using the last byte of the key to store the length of&n; * the prefix. The value is the SHA1 of the tree object containing the notes&n; * subtree.&n; */
+multiline_comment|/*&n; * Leaf nodes come in two variants, note entries and subtree entries,&n; * distinguished by the LSb of the leaf node pointer (see above).&n; * As a note entry, the key is the SHA1 of the referenced object, and the&n; * value is the SHA1 of the note object.&n; * As a subtree entry, the key is the prefix SHA1 (w/trailing NULs) of the&n; * referenced object, using the last byte of the key to store the length of&n; * the prefix. The value is the SHA1 of the tree object containing the notes&n; * subtree.&n; */
 DECL|struct|leaf_node
 r_struct
 id|leaf_node
@@ -877,7 +876,7 @@ id|die
 c_func
 (paren
 l_string|&quot;failed to concatenate note %s &quot;
-l_string|&quot;into note %s for commit %s&quot;
+l_string|&quot;into note %s for object %s&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -1335,7 +1334,7 @@ id|n
 (brace
 r_int
 r_char
-id|commit_sha1
+id|object_sha1
 (braket
 l_int|20
 )braket
@@ -1404,7 +1403,7 @@ suffix:semicolon
 id|memcpy
 c_func
 (paren
-id|commit_sha1
+id|object_sha1
 comma
 id|subtree-&gt;key_sha1
 comma
@@ -1439,7 +1438,7 @@ c_func
 id|entry.path
 )paren
 comma
-id|commit_sha1
+id|object_sha1
 op_plus
 id|prefix_len
 comma
@@ -1461,7 +1460,7 @@ id|len
 op_add_assign
 id|prefix_len
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * If commit SHA1 is complete (len == 20), assume note object&n;&t;&t; * If commit SHA1 is incomplete (len &lt; 20), assume note subtree&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * If object SHA1 is complete (len == 20), assume note object&n;&t;&t; * If object SHA1 is incomplete (len &lt; 20), assume note subtree&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1503,7 +1502,7 @@ c_func
 (paren
 id|l-&gt;key_sha1
 comma
-id|commit_sha1
+id|object_sha1
 )paren
 suffix:semicolon
 id|hashcpy
@@ -1591,7 +1590,7 @@ id|sha1
 l_int|20
 )braket
 comma
-id|commit_sha1
+id|object_sha1
 (braket
 l_int|20
 )braket
@@ -1614,13 +1613,13 @@ c_func
 (paren
 id|notes_ref_name
 comma
-id|commit_sha1
+id|object_sha1
 )paren
 op_logical_or
 id|get_tree_entry
 c_func
 (paren
-id|commit_sha1
+id|object_sha1
 comma
 l_string|&quot;&quot;
 comma
@@ -1671,7 +1670,7 @@ r_const
 r_int
 r_char
 op_star
-id|commit_sha1
+id|object_sha1
 )paren
 (brace
 r_struct
@@ -1687,7 +1686,7 @@ id|root_node
 comma
 l_int|0
 comma
-id|commit_sha1
+id|object_sha1
 )paren
 suffix:semicolon
 r_if
@@ -1737,16 +1736,16 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|get_commit_notes
+DECL|function|format_note
 r_void
-id|get_commit_notes
+id|format_note
 c_func
 (paren
 r_const
-r_struct
-id|commit
+r_int
+r_char
 op_star
-id|commit
+id|object_sha1
 comma
 r_struct
 id|strbuf
@@ -1851,7 +1850,7 @@ op_assign
 id|lookup_notes
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|object_sha1
 )paren
 suffix:semicolon
 r_if
