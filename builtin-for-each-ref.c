@@ -619,7 +619,7 @@ op_eq
 l_char|&squot;%&squot;
 )paren
 (brace
-multiline_comment|/* %( is the start of an atom;&n;&t;&t;&t; * %% is a quoted per-cent.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * %( is the start of an atom;&n;&t;&t;&t; * %% is a quoted per-cent.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2337,7 +2337,7 @@ id|name
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* For a tag or a commit object, if &quot;creator&quot; or &quot;creatordate&quot; is&n;&t; * requested, do something special.&n;&t; */
+multiline_comment|/*&n;&t; * For a tag or a commit object, if &quot;creator&quot; or &quot;creatordate&quot; is&n;&t; * requested, do something special.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2872,7 +2872,7 @@ id|subpos
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/* We want to have empty print-string for field requests&n; * that do not apply (e.g. &quot;authordate&quot; for a tag object)&n; */
+multiline_comment|/*&n; * We want to have empty print-string for field requests&n; * that do not apply (e.g. &quot;authordate&quot; for a tag object)&n; */
 DECL|function|fill_missing_values
 r_static
 r_void
@@ -3566,7 +3566,7 @@ c_func
 id|buf
 )paren
 suffix:semicolon
-multiline_comment|/* If there is no atom that wants to know about tagged&n;&t; * object, we are done.&n;&t; */
+multiline_comment|/*&n;&t; * If there is no atom that wants to know about tagged&n;&t; * object, we are done.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3581,7 +3581,7 @@ id|OBJ_TAG
 )paren
 r_return
 suffix:semicolon
-multiline_comment|/* If it is a tag object, see if we use a value that derefs&n;&t; * the object, and if we do grab the object it refers to.&n;&t; */
+multiline_comment|/*&n;&t; * If it is a tag object, see if we use a value that derefs&n;&t; * the object, and if we do grab the object it refers to.&n;&t; */
 id|tagged
 op_assign
 (paren
@@ -3595,7 +3595,7 @@ id|obj
 op_member_access_from_pointer
 id|tagged-&gt;sha1
 suffix:semicolon
-multiline_comment|/* NEEDSWORK: This derefs tag only once, which&n;&t; * is good to deal with chains of trust, but&n;&t; * is not consistent with what deref_tag() does&n;&t; * which peels the onion to the core.&n;&t; */
+multiline_comment|/*&n;&t; * NEEDSWORK: This derefs tag only once, which&n;&t; * is good to deal with chains of trust, but&n;&t; * is not consistent with what deref_tag() does&n;&t; * which peels the onion to the core.&n;&t; */
 id|buf
 op_assign
 id|get_obj
@@ -3756,7 +3756,7 @@ id|grab_cnt
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * A call-back given to for_each_ref().  It is unfortunate that we&n; * need to use global variables to pass extra information to this&n; * function.&n; */
+multiline_comment|/*&n; * A call-back given to for_each_ref().  Filter refs and keep them for&n; * later object processing.&n; */
 DECL|function|grab_single_ref
 r_static
 r_int
@@ -3925,7 +3925,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* We do not open the object yet; sort may only need refname&n;&t; * to do its job and the resulting list may yet to be pruned&n;&t; * by maxcount logic.&n;&t; */
+multiline_comment|/*&n;&t; * We do not open the object yet; sort may only need refname&n;&t; * to do its job and the resulting list may yet to be pruned&n;&t; * by maxcount logic.&n;&t; */
 id|ref
 op_assign
 id|xcalloc
