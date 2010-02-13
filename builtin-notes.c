@@ -25,7 +25,7 @@ l_string|&quot;git notes add [-f] [-m &lt;msg&gt; | -F &lt;file&gt;] [&lt;object
 comma
 l_string|&quot;git notes append [-m &lt;msg&gt; | -F &lt;file&gt;] [&lt;object&gt;]&quot;
 comma
-l_string|&quot;git notes edit [-m &lt;msg&gt; | -F &lt;file&gt;] [&lt;object&gt;]&quot;
+l_string|&quot;git notes edit [&lt;object&gt;]&quot;
 comma
 l_string|&quot;git notes show [&lt;object&gt;]&quot;
 comma
@@ -1200,7 +1200,7 @@ op_assign
 id|OPT_GROUP
 c_func
 (paren
-l_string|&quot;Notes edit options&quot;
+l_string|&quot;Notes options&quot;
 )paren
 comma
 id|OPT_CALLBACK
@@ -1506,6 +1506,29 @@ c_func
 id|git_notes_usage
 comma
 id|options
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+(paren
+id|msg.given
+op_logical_or
+id|msgfile
+)paren
+op_logical_and
+id|edit
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;The -m and -F options has been deprecated for&quot;
+l_string|&quot; the &squot;edit&squot; subcommand.&bslash;n&quot;
+l_string|&quot;Please use &squot;git notes add -f -m/-F&squot; instead.&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
