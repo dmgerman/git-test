@@ -1096,7 +1096,7 @@ c_func
 (paren
 l_char|&squot;m&squot;
 comma
-l_int|NULL
+l_string|&quot;message&quot;
 comma
 op_amp
 id|msg
@@ -1113,7 +1113,7 @@ c_func
 (paren
 l_char|&squot;F&squot;
 comma
-l_int|NULL
+l_string|&quot;file&quot;
 comma
 op_amp
 id|msgfile
