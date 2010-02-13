@@ -508,9 +508,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|skip_editor
-op_logical_and
-op_logical_neg
 id|buf-&gt;len
 )paren
 (brace
@@ -978,6 +975,9 @@ r_const
 r_char
 op_star
 id|object_ref
+comma
+op_star
+id|logmsg
 suffix:semicolon
 r_int
 id|edit
@@ -1445,6 +1445,31 @@ comma
 id|new_note
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_null_sha1
+c_func
+(paren
+id|new_note
+)paren
+)paren
+(brace
+id|remove_note
+c_func
+(paren
+id|t
+comma
+id|object
+)paren
+suffix:semicolon
+id|logmsg
+op_assign
+l_string|&quot;Note removed by &squot;git notes edit&squot;&quot;
+suffix:semicolon
+)brace
+r_else
+(brace
 id|add_note
 c_func
 (paren
@@ -1457,12 +1482,17 @@ comma
 id|combine_notes_overwrite
 )paren
 suffix:semicolon
+id|logmsg
+op_assign
+l_string|&quot;Note added by &squot;git notes edit&squot;&quot;
+suffix:semicolon
+)brace
 id|commit_notes
 c_func
 (paren
 id|t
 comma
-l_string|&quot;Note added by &squot;git notes edit&squot;&quot;
+id|logmsg
 )paren
 suffix:semicolon
 id|free_notes
