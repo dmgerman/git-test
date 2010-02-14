@@ -73,6 +73,7 @@ op_assign
 id|git_pager
 c_func
 (paren
+l_int|1
 )paren
 suffix:semicolon
 r_if
