@@ -2103,6 +2103,12 @@ comma
 id|root
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|tree
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
