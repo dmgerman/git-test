@@ -3172,10 +3172,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|refs_pushed
-r_static
+DECL|function|transport_refs_pushed
 r_int
-id|refs_pushed
+id|transport_refs_pushed
 c_func
 (paren
 r_struct
@@ -3220,10 +3219,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|update_tracking_ref
-r_static
+DECL|function|transport_update_tracking_ref
 r_void
-id|update_tracking_ref
+id|transport_update_tracking_ref
 c_func
 (paren
 r_struct
@@ -3336,8 +3334,6 @@ id|rs.dst
 suffix:semicolon
 )brace
 )brace
-DECL|macro|SUMMARY_WIDTH
-mdefine_line|#define SUMMARY_WIDTH (2 * DEFAULT_ABBREV + 3)
 DECL|function|print_ref_status
 r_static
 r_void
@@ -3449,7 +3445,7 @@ l_string|&quot; %c %-*s &quot;
 comma
 id|flag
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 id|summary
 )paren
@@ -3934,10 +3930,9 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|print_push_status
-r_static
+DECL|function|transport_print_push_status
 r_void
-id|print_push_status
+id|transport_print_push_status
 c_func
 (paren
 r_const
@@ -4108,10 +4103,9 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
-DECL|function|verify_remote_names
-r_static
+DECL|function|transport_verify_remote_names
 r_void
-id|verify_remote_names
+id|transport_verify_remote_names
 c_func
 (paren
 r_int
@@ -5537,7 +5531,7 @@ id|nonfastforward
 op_assign
 l_int|0
 suffix:semicolon
-id|verify_remote_names
+id|transport_verify_remote_names
 c_func
 (paren
 id|refspec_nr
@@ -5744,7 +5738,7 @@ id|quiet
 op_logical_or
 id|err
 )paren
-id|print_push_status
+id|transport_print_push_status
 c_func
 (paren
 id|transport-&gt;url
@@ -5806,7 +5800,7 @@ id|ref
 op_assign
 id|ref-&gt;next
 )paren
-id|update_tracking_ref
+id|transport_update_tracking_ref
 c_func
 (paren
 id|transport-&gt;remote
@@ -5827,7 +5821,7 @@ op_logical_neg
 id|ret
 op_logical_and
 op_logical_neg
-id|refs_pushed
+id|transport_refs_pushed
 c_func
 (paren
 id|remote_refs

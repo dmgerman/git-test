@@ -9,6 +9,7 @@ macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#include &quot;transport.h&quot;
 DECL|variable|builtin_fetch_usage
 r_static
 r_const
@@ -1072,8 +1073,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|macro|SUMMARY_WIDTH
-mdefine_line|#define SUMMARY_WIDTH (2 * DEFAULT_ABBREV + 3)
 DECL|macro|REFCOL_WIDTH
 mdefine_line|#define REFCOL_WIDTH  10
 DECL|function|update_local_ref
@@ -1194,7 +1193,7 @@ id|display
 comma
 l_string|&quot;= %-*s %-*s -&gt; %s&quot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 l_string|&quot;[up to date]&quot;
 comma
@@ -1249,7 +1248,7 @@ id|display
 comma
 l_string|&quot;! %-*s %-*s -&gt; %s  (can&squot;t fetch in current branch)&quot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 l_string|&quot;[rejected]&quot;
 comma
@@ -1313,7 +1312,7 @@ l_char|&squot;!&squot;
 suffix:colon
 l_char|&squot;-&squot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 l_string|&quot;[tag update]&quot;
 comma
@@ -1439,7 +1438,7 @@ l_char|&squot;!&squot;
 suffix:colon
 l_char|&squot;*&squot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 id|what
 comma
@@ -1547,7 +1546,7 @@ l_char|&squot;!&squot;
 suffix:colon
 l_char|&squot; &squot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 id|quickref
 comma
@@ -1649,7 +1648,7 @@ l_char|&squot;!&squot;
 suffix:colon
 l_char|&squot;+&squot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 id|quickref
 comma
@@ -1680,7 +1679,7 @@ id|display
 comma
 l_string|&quot;! %-*s %-*s -&gt; %s  (non-fast-forward)&quot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 l_string|&quot;[rejected]&quot;
 comma
@@ -2259,7 +2258,7 @@ id|note
 comma
 l_string|&quot;* %-*s %-*s -&gt; FETCH_HEAD&quot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 op_star
 id|kind
@@ -2786,7 +2785,7 @@ id|stderr
 comma
 l_string|&quot; x %-*s %-*s -&gt; %s&bslash;n&quot;
 comma
-id|SUMMARY_WIDTH
+id|TRANSPORT_SUMMARY_WIDTH
 comma
 l_string|&quot;[deleted]&quot;
 comma
