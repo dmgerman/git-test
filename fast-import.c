@@ -23,15 +23,16 @@ DECL|struct|object_entry
 r_struct
 id|object_entry
 (brace
+DECL|member|idx
+r_struct
+id|pack_idx_entry
+id|idx
+suffix:semicolon
 DECL|member|next
 r_struct
 id|object_entry
 op_star
 id|next
-suffix:semicolon
-DECL|member|offset
-r_uint32
-id|offset
 suffix:semicolon
 DECL|member|type
 r_uint32
@@ -48,14 +49,6 @@ DECL|member|depth
 id|depth
 suffix:colon
 id|DEPTH_BITS
-suffix:semicolon
-DECL|member|sha1
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -1973,7 +1966,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|e-&gt;sha1
+id|e-&gt;idx.sha1
 comma
 id|sha1
 )paren
@@ -2042,7 +2035,7 @@ c_func
 (paren
 id|sha1
 comma
-id|e-&gt;sha1
+id|e-&gt;idx.sha1
 )paren
 )paren
 r_return
@@ -2114,7 +2107,7 @@ c_func
 (paren
 id|sha1
 comma
-id|e-&gt;sha1
+id|e-&gt;idx.sha1
 )paren
 )paren
 r_return
@@ -2141,7 +2134,7 @@ id|e-&gt;next
 op_assign
 l_int|NULL
 suffix:semicolon
-id|e-&gt;offset
+id|e-&gt;idx.offset
 op_assign
 l_int|0
 suffix:semicolon
@@ -3963,9 +3956,9 @@ r_return
 id|hashcmp
 c_func
 (paren
-id|a-&gt;sha1
+id|a-&gt;idx.sha1
 comma
-id|b-&gt;sha1
+id|b-&gt;idx.sha1
 )paren
 suffix:semicolon
 )brace
@@ -4166,7 +4159,7 @@ op_star
 id|next
 )paren
 op_member_access_from_pointer
-id|sha1
+id|idx.sha1
 (braket
 l_int|0
 )braket
@@ -4269,7 +4262,7 @@ op_star
 id|c
 )paren
 op_member_access_from_pointer
-id|offset
+id|idx.offset
 )paren
 suffix:semicolon
 id|sha1write
@@ -4293,7 +4286,7 @@ op_star
 id|c
 )paren
 op_member_access_from_pointer
-id|sha1
+id|idx.sha1
 comma
 r_sizeof
 (paren
@@ -4302,7 +4295,7 @@ op_star
 id|c
 )paren
 op_member_access_from_pointer
-id|sha1
+id|idx.sha1
 )paren
 )paren
 suffix:semicolon
@@ -4317,7 +4310,7 @@ op_star
 id|c
 )paren
 op_member_access_from_pointer
-id|sha1
+id|idx.sha1
 comma
 l_int|20
 )paren
@@ -5196,7 +5189,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|e-&gt;offset
+id|e-&gt;idx.offset
 )paren
 (brace
 id|duplicate_count_by_type
@@ -5230,7 +5223,7 @@ id|e-&gt;pack_id
 op_assign
 id|MAX_PACK_ID
 suffix:semicolon
-id|e-&gt;offset
+id|e-&gt;idx.offset
 op_assign
 l_int|1
 suffix:semicolon
@@ -5545,7 +5538,7 @@ id|e-&gt;pack_id
 op_assign
 id|pack_id
 suffix:semicolon
-id|e-&gt;offset
+id|e-&gt;idx.offset
 op_assign
 id|pack_size
 suffix:semicolon
@@ -5568,7 +5561,7 @@ r_int
 r_int
 id|ofs
 op_assign
-id|e-&gt;offset
+id|e-&gt;idx.offset
 id|last-&gt;offset
 suffix:semicolon
 r_int
@@ -5765,7 +5758,7 @@ suffix:semicolon
 )brace
 id|last-&gt;offset
 op_assign
-id|e-&gt;offset
+id|e-&gt;idx.offset
 suffix:semicolon
 id|last-&gt;depth
 op_assign
@@ -6280,7 +6273,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|e-&gt;offset
+id|e-&gt;idx.offset
 )paren
 (brace
 id|duplicate_count_by_type
@@ -6317,7 +6310,7 @@ id|e-&gt;pack_id
 op_assign
 id|MAX_PACK_ID
 suffix:semicolon
-id|e-&gt;offset
+id|e-&gt;idx.offset
 op_assign
 l_int|1
 suffix:semicolon
@@ -6349,7 +6342,7 @@ id|e-&gt;pack_id
 op_assign
 id|pack_id
 suffix:semicolon
-id|e-&gt;offset
+id|e-&gt;idx.offset
 op_assign
 id|offset
 suffix:semicolon
@@ -6446,7 +6439,7 @@ c_func
 (paren
 id|p
 comma
-id|oe-&gt;offset
+id|oe-&gt;idx.offset
 comma
 op_amp
 id|type
@@ -7392,7 +7385,7 @@ id|old_tree
 suffix:semicolon
 id|lo.offset
 op_assign
-id|le-&gt;offset
+id|le-&gt;idx.offset
 suffix:semicolon
 id|lo.depth
 op_assign
@@ -9048,7 +9041,7 @@ id|m-&gt;data.marked
 id|k
 )braket
 op_member_access_from_pointer
-id|sha1
+id|idx.sha1
 )paren
 )paren
 suffix:semicolon
@@ -9502,7 +9495,7 @@ id|e-&gt;pack_id
 op_assign
 id|MAX_PACK_ID
 suffix:semicolon
-id|e-&gt;offset
+id|e-&gt;idx.offset
 op_assign
 l_int|1
 suffix:semicolon
@@ -11432,7 +11425,7 @@ c_func
 (paren
 id|sha1
 comma
-id|oe-&gt;sha1
+id|oe-&gt;idx.sha1
 )paren
 suffix:semicolon
 id|p
@@ -12237,7 +12230,7 @@ c_func
 (paren
 id|sha1
 comma
-id|oe-&gt;sha1
+id|oe-&gt;idx.sha1
 )paren
 suffix:semicolon
 id|p
@@ -12401,7 +12394,7 @@ c_func
 (paren
 id|commit_sha1
 comma
-id|commit_oe-&gt;sha1
+id|commit_oe-&gt;idx.sha1
 )paren
 suffix:semicolon
 )brace
@@ -13134,7 +13127,7 @@ c_func
 (paren
 id|b-&gt;sha1
 comma
-id|oe-&gt;sha1
+id|oe-&gt;idx.sha1
 )paren
 suffix:semicolon
 r_if
@@ -13384,7 +13377,7 @@ c_func
 (paren
 id|n-&gt;sha1
 comma
-id|oe-&gt;sha1
+id|oe-&gt;idx.sha1
 )paren
 suffix:semicolon
 )brace
@@ -14312,7 +14305,7 @@ c_func
 (paren
 id|sha1
 comma
-id|oe-&gt;sha1
+id|oe-&gt;idx.sha1
 )paren
 suffix:semicolon
 )brace
