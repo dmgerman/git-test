@@ -130,7 +130,7 @@ id|strbuf
 id|data
 suffix:semicolon
 DECL|member|offset
-r_uint32
+id|off_t
 id|offset
 suffix:semicolon
 DECL|member|depth
@@ -457,13 +457,6 @@ DECL|variable|max_packsize
 r_static
 id|off_t
 id|max_packsize
-op_assign
-(paren
-l_int|1LL
-op_lshift
-l_int|32
-)paren
-l_int|1
 suffix:semicolon
 DECL|variable|big_file_threshold
 r_static
@@ -667,8 +660,7 @@ id|all_packs
 suffix:semicolon
 DECL|variable|pack_size
 r_static
-r_int
-r_int
+id|off_t
 id|pack_size
 suffix:semicolon
 multiline_comment|/* Table of objects we&squot;ve written. */
@@ -5131,6 +5123,9 @@ r_if
 c_cond
 (paren
 (paren
+id|max_packsize
+op_logical_and
+(paren
 id|pack_size
 op_plus
 l_int|60
@@ -5139,6 +5134,7 @@ id|s.total_out
 )paren
 OG
 id|max_packsize
+)paren
 op_logical_or
 (paren
 id|pack_size
@@ -5296,8 +5292,7 @@ c_cond
 id|delta
 )paren
 (brace
-r_int
-r_int
+id|off_t
 id|ofs
 op_assign
 id|e-&gt;idx.offset
@@ -5669,6 +5664,9 @@ r_if
 c_cond
 (paren
 (paren
+id|max_packsize
+op_logical_and
+(paren
 id|pack_size
 op_plus
 l_int|60
@@ -5677,6 +5675,7 @@ id|len
 )paren
 OG
 id|max_packsize
+)paren
 op_logical_or
 (paren
 id|pack_size
