@@ -3293,13 +3293,9 @@ comma
 id|BRANCH_TRACK_OVERRIDE
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__COLOR
 c_func
 (paren
-l_int|0
-comma
-l_string|&quot;color&quot;
-comma
 op_amp
 id|branch_use_color
 comma

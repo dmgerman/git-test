@@ -14,7 +14,7 @@ id|show_branch_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git show-branch [-a|--all] [-r|--remotes] [--topo-order | --date-order] [--current] [--color | --no-color] [--sparse] [--more=&lt;n&gt; | --list | --independent | --merge-base] [--no-name | --sha1-name] [--topics] [&lt;rev&gt; | &lt;glob&gt;]...&quot;
+l_string|&quot;git show-branch [-a|--all] [-r|--remotes] [--topo-order | --date-order] [--current] [--color[=&lt;when&gt;] | --no-color] [--sparse] [--more=&lt;n&gt; | --list | --independent | --merge-base] [--no-name | --sha1-name] [--topics] [&lt;rev&gt; | &lt;glob&gt;]...&quot;
 comma
 l_string|&quot;git show-branch (-g|--reflog)[=&lt;n&gt;[,&lt;base&gt;]] [--list] [&lt;ref&gt;]&quot;
 comma
@@ -3408,13 +3408,9 @@ comma
 l_string|&quot;show remote-tracking branches&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__COLOR
 c_func
 (paren
-l_int|0
-comma
-l_string|&quot;color&quot;
-comma
 op_amp
 id|showbranch_use_color
 comma

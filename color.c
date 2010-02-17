@@ -806,6 +806,15 @@ r_goto
 id|auto_color
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|var
+)paren
+r_return
+l_int|1
+suffix:semicolon
 multiline_comment|/* Missing or explicit false to turn off colorization */
 r_if
 c_cond
