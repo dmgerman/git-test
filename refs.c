@@ -3705,7 +3705,7 @@ op_logical_neg
 id|has_glob_specials
 )paren
 (brace
-multiline_comment|/* Append impiled &squot;/&squot; &squot;*&squot; if not present. */
+multiline_comment|/* Append implied &squot;/&squot; &squot;*&squot; if not present. */
 r_if
 c_cond
 (paren

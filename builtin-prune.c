@@ -548,7 +548,7 @@ id|dir
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * Write errors (particularly out of space) can result in&n; * failed temporary packs (and more rarely indexes and other&n; * files begining with &quot;tmp_&quot;) accumulating in the object&n; * and the pack directories.&n; */
+multiline_comment|/*&n; * Write errors (particularly out of space) can result in&n; * failed temporary packs (and more rarely indexes and other&n; * files beginning with &quot;tmp_&quot;) accumulating in the object&n; * and the pack directories.&n; */
 DECL|function|remove_temporary_files
 r_static
 r_void

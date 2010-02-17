@@ -909,7 +909,7 @@ id|mandatory
 id|die
 c_func
 (paren
-l_string|&quot;Unknown madatory capability %s. This remote &quot;
+l_string|&quot;Unknown mandatory capability %s. This remote &quot;
 l_string|&quot;helper probably needs newer version of Git.&bslash;n&quot;
 comma
 id|capname

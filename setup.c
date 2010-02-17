@@ -1015,7 +1015,7 @@ r_return
 id|inside_work_tree
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * set_work_tree() is only ever called if you set GIT_DIR explicitely.&n; * The old behaviour (which we retain here) is to set the work tree root&n; * to the cwd, unless overridden by the config, the command line, or&n; * GIT_WORK_TREE.&n; */
+multiline_comment|/*&n; * set_work_tree() is only ever called if you set GIT_DIR explicitly.&n; * The old behaviour (which we retain here) is to set the work tree root&n; * to the cwd, unless overridden by the config, the command line, or&n; * GIT_WORK_TREE.&n; */
 DECL|function|set_work_tree
 r_static
 r_const

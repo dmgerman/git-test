@@ -2851,7 +2851,7 @@ c_func
 id|var
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * default_arg is now passed to parse_options(), so we need to&n;&t;&t; * mimick the real argv a bit better.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * default_arg is now passed to parse_options(), so we need to&n;&t;&t; * mimic the real argv a bit better.&n;&t;&t; */
 r_if
 c_cond
 (paren

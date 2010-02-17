@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Copyright (C) 2009 Andrzej K. Haczewski &lt;ahaczewski@gmail.com&gt;&n; *&n; * DISCLAMER: The implementation is Git-specific, it is subset of original&n; * Pthreads API, without lots of other features that Git doesn&squot;t use.&n; * Git also makes sure that the passed arguments are valid, so there&squot;s&n; * no need for double-checking.&n; */
+multiline_comment|/*&n; * Copyright (C) 2009 Andrzej K. Haczewski &lt;ahaczewski@gmail.com&gt;&n; *&n; * DISCLAIMER: The implementation is Git-specific, it is subset of original&n; * Pthreads API, without lots of other features that Git doesn&squot;t use.&n; * Git also makes sure that the passed arguments are valid, so there&squot;s&n; * no need for double-checking.&n; */
 macro_line|#include &quot;../../git-compat-util.h&quot;
 macro_line|#include &quot;pthread.h&quot;
 macro_line|#include &lt;errno.h&gt;

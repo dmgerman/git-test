@@ -2577,7 +2577,7 @@ op_assign
 l_char|&squot;:&squot;
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Don&squot;t do destructive transforms with git:// as that&n;&t; * protocol code does &squot;[]&squot; dewrapping of its own.&n;&t; */
+multiline_comment|/*&n;&t; * Don&squot;t do destructive transforms with git:// as that&n;&t; * protocol code does &squot;[]&squot; unwrapping of its own.&n;&t; */
 r_if
 c_cond
 (paren

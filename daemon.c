@@ -1834,7 +1834,7 @@ id|end
 id|die
 c_func
 (paren
-l_string|&quot;Invalid reqeuest (&squot;[&squot; without &squot;]&squot;)&quot;
+l_string|&quot;Invalid request (&squot;[&squot; without &squot;]&squot;)&quot;
 )paren
 suffix:semicolon
 op_star
