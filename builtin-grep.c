@@ -4448,6 +4448,37 @@ op_or
 id|PARSE_OPT_NO_INTERNAL_HELP
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * skip a -- separator; we know it cannot be&n;&t; * separating revisions from pathnames if&n;&t; * we haven&squot;t even had any patterns yet&n;&t; */
+r_if
+c_cond
+(paren
+id|argc
+OG
+l_int|0
+op_logical_and
+op_logical_neg
+id|opt.pattern_list
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+l_string|&quot;--&quot;
+)paren
+)paren
+(brace
+id|argv
+op_increment
+suffix:semicolon
+id|argc
+op_decrement
+suffix:semicolon
+)brace
 multiline_comment|/* First unrecognized non-option token */
 r_if
 c_cond
