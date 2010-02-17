@@ -16346,6 +16346,26 @@ comma
 l_string|&quot;w&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|options-&gt;file
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;Could not open &squot;%s&squot;&quot;
+comma
+id|arg
+op_plus
+id|strlen
+c_func
+(paren
+l_string|&quot;--output=&quot;
+)paren
+)paren
+suffix:semicolon
 id|options-&gt;close_file
 op_assign
 l_int|1

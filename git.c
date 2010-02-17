@@ -2994,7 +2994,7 @@ c_func
 id|stderr
 comma
 l_string|&quot;Expansion of alias &squot;%s&squot; failed; &quot;
-l_string|&quot;&squot;%s&squot; is not a git-command&bslash;n&quot;
+l_string|&quot;&squot;%s&squot; is not a git command&bslash;n&quot;
 comma
 id|cmd
 comma
