@@ -5078,6 +5078,8 @@ c_func
 (paren
 id|dirs
 )paren
+op_eq
+l_int|0
 op_logical_and
 (paren
 id|slash
