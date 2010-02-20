@@ -2181,6 +2181,17 @@ id|right_count
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|left_count
+op_logical_or
+op_logical_neg
+id|right_count
+)paren
+r_return
+suffix:semicolon
 id|left_first
 op_assign
 id|left_count
