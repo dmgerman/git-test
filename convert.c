@@ -969,7 +969,10 @@ id|filter_buffer
 c_func
 (paren
 r_int
-id|fd
+id|in
+comma
+r_int
+id|out
 comma
 r_void
 op_star
@@ -1039,7 +1042,7 @@ l_int|1
 suffix:semicolon
 id|child_process.out
 op_assign
-id|fd
+id|out
 suffix:semicolon
 r_if
 c_cond
@@ -1215,6 +1218,10 @@ id|async.data
 op_assign
 op_amp
 id|params
+suffix:semicolon
+id|async.out
+op_assign
+l_int|1
 suffix:semicolon
 id|params.src
 op_assign
