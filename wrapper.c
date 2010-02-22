@@ -1337,6 +1337,12 @@ id|pattern
 r_int
 id|fd
 suffix:semicolon
+multiline_comment|/*&n;&t; * we let the umask do its job, don&squot;t try to be more&n;&t; * restrictive except to remove write permission.&n;&t; */
+r_int
+id|mode
+op_assign
+l_int|0444
+suffix:semicolon
 id|snprintf
 c_func
 (paren
@@ -1356,10 +1362,12 @@ id|pattern
 suffix:semicolon
 id|fd
 op_assign
-id|mkstemp
+id|git_mkstemp_mode
 c_func
 (paren
 r_template
+comma
+id|mode
 )paren
 suffix:semicolon
 r_if
@@ -1398,10 +1406,12 @@ r_template
 )paren
 suffix:semicolon
 r_return
-id|xmkstemp
+id|xmkstemp_mode
 c_func
 (paren
 r_template
+comma
+id|mode
 )paren
 suffix:semicolon
 )brace
