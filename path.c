@@ -1157,10 +1157,6 @@ l_int|0
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
-id|errno
-op_assign
-id|EINVAL
-suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
