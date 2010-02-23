@@ -136,11 +136,9 @@ id|prefix
 op_assign
 id|PREFIX
 suffix:semicolon
-id|fprintf
+id|trace_printf
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;RUNTIME_PREFIX requested, &quot;
 l_string|&quot;but prefix computation failed.  &quot;
 l_string|&quot;Using static fallback &squot;%s&squot;.&bslash;n&quot;
