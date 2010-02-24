@@ -78,6 +78,11 @@ id|update_head_ok
 comma
 id|verbosity
 suffix:semicolon
+DECL|variable|progress
+r_static
+r_int
+id|progress
+suffix:semicolon
 DECL|variable|tags
 r_static
 r_int
@@ -277,6 +282,19 @@ op_amp
 id|update_head_ok
 comma
 l_string|&quot;allow updating of HEAD ref&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;progress&quot;
+comma
+op_amp
+id|progress
+comma
+l_string|&quot;force progress reporting&quot;
 )paren
 comma
 id|OPT_STRING
@@ -4430,7 +4448,7 @@ id|transport
 comma
 id|verbosity
 comma
-l_int|0
+id|progress
 )paren
 suffix:semicolon
 r_if
