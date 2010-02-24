@@ -2816,16 +2816,9 @@ c_func
 id|transport
 comma
 id|option_verbosity
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
+comma
 id|option_progress
 )paren
-id|transport-&gt;progress
-op_assign
-l_int|1
 suffix:semicolon
 r_if
 c_cond

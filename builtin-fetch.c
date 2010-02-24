@@ -4429,6 +4429,8 @@ c_func
 id|transport
 comma
 id|verbosity
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
