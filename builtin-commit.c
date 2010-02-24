@@ -63,7 +63,7 @@ l_string|&quot;Your name and email address were configured automatically based&b
 l_string|&quot;on your username and hostname. Please check that they are accurate.&bslash;n&quot;
 l_string|&quot;You can suppress this message by setting them explicitly:&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;    git config --global user.name Your Name&bslash;n&quot;
+l_string|&quot;    git config --global user.name &bslash;&quot;Your Name&bslash;&quot;&bslash;n&quot;
 l_string|&quot;    git config --global user.email you@example.com&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;If the identity used for this commit is wrong, you can fix it with:&bslash;n&quot;
