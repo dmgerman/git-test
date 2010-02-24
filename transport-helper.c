@@ -2999,17 +2999,6 @@ l_int|0
 r_return
 l_int|0
 suffix:semicolon
-id|transport-&gt;verbose
-op_assign
-id|flags
-op_amp
-id|TRANSPORT_PUSH_VERBOSE
-ques
-c_cond
-l_int|1
-suffix:colon
-l_int|0
-suffix:semicolon
 id|standard_options
 c_func
 (paren
