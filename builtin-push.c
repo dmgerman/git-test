@@ -45,6 +45,11 @@ r_static
 r_int
 id|verbosity
 suffix:semicolon
+DECL|variable|progress
+r_static
+r_int
+id|progress
+suffix:semicolon
 DECL|variable|refspec
 r_static
 r_const
@@ -524,7 +529,7 @@ id|transport
 comma
 id|verbosity
 comma
-l_int|0
+id|progress
 )paren
 suffix:semicolon
 r_if
@@ -1228,6 +1233,19 @@ comma
 l_string|&quot;set upstream for git pull/status&quot;
 comma
 id|TRANSPORT_PUSH_SET_UPSTREAM
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;progress&quot;
+comma
+op_amp
+id|progress
+comma
+l_string|&quot;force progress reporting&quot;
 )paren
 comma
 id|OPT_END
