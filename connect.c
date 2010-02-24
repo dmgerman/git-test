@@ -3060,35 +3060,10 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* remove these from the environment */
-r_const
-r_char
-op_star
-id|env
-(braket
-)braket
-op_assign
-(brace
-id|ALTERNATE_DB_ENVIRONMENT
-comma
-id|DB_ENVIRONMENT
-comma
-id|GIT_DIR_ENVIRONMENT
-comma
-id|GIT_WORK_TREE_ENVIRONMENT
-comma
-id|GRAFT_ENVIRONMENT
-comma
-id|INDEX_ENVIRONMENT
-comma
-id|NO_REPLACE_OBJECTS_ENVIRONMENT
-comma
-l_int|NULL
-)brace
-suffix:semicolon
+multiline_comment|/* remove repo-local variables from the environment */
 id|conn-&gt;env
 op_assign
-id|env
+id|local_repo_env
 suffix:semicolon
 id|conn-&gt;use_shell
 op_assign
