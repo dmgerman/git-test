@@ -2819,7 +2819,7 @@ c_func
 (paren
 id|buf
 comma
-l_string|&quot;%06o %.*s%c&quot;
+l_string|&quot;%o %.*s%c&quot;
 comma
 id|mode
 comma
