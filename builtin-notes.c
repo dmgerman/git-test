@@ -839,15 +839,6 @@ id|msg
 op_assign
 id|opt-&gt;value
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|arg
-)paren
-r_return
-l_int|1
-suffix:semicolon
 id|strbuf_grow
 c_func
 (paren
@@ -870,7 +861,7 @@ c_cond
 (paren
 id|msg-&gt;buf.len
 )paren
-id|strbuf_addstr
+id|strbuf_addch
 c_func
 (paren
 op_amp
@@ -878,7 +869,7 @@ op_amp
 id|msg-&gt;buf
 )paren
 comma
-l_string|&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 id|strbuf_addstr
@@ -942,18 +933,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|arg
-)paren
-r_return
-l_int|1
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|msg-&gt;buf.len
 )paren
-id|strbuf_addstr
+id|strbuf_addch
 c_func
 (paren
 op_amp
@@ -961,7 +943,7 @@ op_amp
 id|msg-&gt;buf
 )paren
 comma
-l_string|&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 r_if
@@ -1100,18 +1082,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|arg
-)paren
-r_return
-l_int|1
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|msg-&gt;buf.len
 )paren
-id|strbuf_addstr
+id|strbuf_addch
 c_func
 (paren
 op_amp
@@ -1119,7 +1092,7 @@ op_amp
 id|msg-&gt;buf
 )paren
 comma
-l_string|&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 r_if
@@ -1622,12 +1595,12 @@ op_assign
 id|OPT_GROUP
 c_func
 (paren
-l_string|&quot;Notes options&quot;
+l_string|&quot;Notes contents options&quot;
 )paren
 comma
-id|OPT_CALLBACK
-c_func
-(paren
+(brace
+id|OPTION_CALLBACK
+comma
 l_char|&squot;m&squot;
 comma
 l_string|&quot;message&quot;
@@ -1639,12 +1612,14 @@ l_string|&quot;MSG&quot;
 comma
 l_string|&quot;note contents as a string&quot;
 comma
-id|parse_msg_arg
-)paren
+id|PARSE_OPT_NONEG
 comma
-id|OPT_CALLBACK
-c_func
-(paren
+id|parse_msg_arg
+)brace
+comma
+(brace
+id|OPTION_CALLBACK
+comma
 l_char|&squot;F&squot;
 comma
 l_string|&quot;file&quot;
@@ -1656,12 +1631,14 @@ l_string|&quot;FILE&quot;
 comma
 l_string|&quot;note contents in a file&quot;
 comma
-id|parse_file_arg
-)paren
+id|PARSE_OPT_NONEG
 comma
-id|OPT_CALLBACK
-c_func
-(paren
+id|parse_file_arg
+)brace
+comma
+(brace
+id|OPTION_CALLBACK
+comma
 l_char|&squot;c&squot;
 comma
 l_string|&quot;reedit-message&quot;
@@ -1673,12 +1650,14 @@ l_string|&quot;OBJECT&quot;
 comma
 l_string|&quot;reuse and edit specified note object&quot;
 comma
-id|parse_reedit_arg
-)paren
+id|PARSE_OPT_NONEG
 comma
-id|OPT_CALLBACK
-c_func
-(paren
+id|parse_reedit_arg
+)brace
+comma
+(brace
+id|OPTION_CALLBACK
+comma
 l_char|&squot;C&squot;
 comma
 l_string|&quot;reuse-message&quot;
@@ -1690,7 +1669,15 @@ l_string|&quot;OBJECT&quot;
 comma
 l_string|&quot;reuse specified note object&quot;
 comma
+id|PARSE_OPT_NONEG
+comma
 id|parse_reuse_arg
+)brace
+comma
+id|OPT_GROUP
+c_func
+(paren
+l_string|&quot;Other options&quot;
 )paren
 comma
 id|OPT_BOOLEAN
