@@ -3767,6 +3767,11 @@ id|count
 id|fprintf
 c_func
 (paren
+id|porcelain
+ques
+c_cond
+id|stdout
+suffix:colon
 id|stderr
 comma
 l_string|&quot;To %s&bslash;n&quot;
