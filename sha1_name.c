@@ -5423,6 +5423,14 @@ op_assign
 id|pos
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|pos
+OL
+id|active_nr
+)paren
+(brace
 id|ce
 op_assign
 id|active_cache
@@ -5471,6 +5479,7 @@ comma
 id|filename
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/* Confusion between relative and absolute filenames? */
 id|fullnamelen
 op_assign
@@ -5530,6 +5539,14 @@ op_assign
 id|pos
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|pos
+OL
+id|active_nr
+)paren
+(brace
 id|ce
 op_assign
 id|active_cache
@@ -5578,6 +5595,7 @@ comma
 id|fullname
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
