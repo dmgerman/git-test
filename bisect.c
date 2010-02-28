@@ -4597,6 +4597,28 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|all
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;No testable commit found.&bslash;n&quot;
+l_string|&quot;Maybe you started with bad path parameters?&bslash;n&quot;
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|4
+)paren
+suffix:semicolon
+)brace
 id|bisect_rev
 op_assign
 id|revs.commits-&gt;item-&gt;object.sha1
