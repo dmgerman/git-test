@@ -232,6 +232,19 @@ comma
 id|XDL_MERGE_FAVOR_THEIRS
 )paren
 comma
+id|OPT_INTEGER
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;marker-size&quot;
+comma
+op_amp
+id|xmp.marker_size
+comma
+l_string|&quot;for conflicts, use this marker size&quot;
+)paren
+comma
 id|OPT__QUIET
 c_func
 (paren
