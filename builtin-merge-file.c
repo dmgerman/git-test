@@ -232,6 +232,21 @@ comma
 id|XDL_MERGE_FAVOR_THEIRS
 )paren
 comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;union&quot;
+comma
+op_amp
+id|xmp.favor
+comma
+l_string|&quot;for conflicts, use a union version&quot;
+comma
+id|XDL_MERGE_FAVOR_UNION
+)paren
+comma
 id|OPT_INTEGER
 c_func
 (paren
