@@ -11,7 +11,7 @@ id|s_xdmerge
 op_star
 id|next
 suffix:semicolon
-multiline_comment|/*&n;&t; * 0 = conflict,&n;&t; * 1 = no conflict, take first,&n;&t; * 2 = no conflict, take second.&n;&t; */
+multiline_comment|/*&n;&t; * 0 = conflict,&n;&t; * 1 = no conflict, take first,&n;&t; * 2 = no conflict, take second.&n;&t; * 3 = no conflict, take both.&n;&t; */
 DECL|member|mode
 r_int
 id|mode
@@ -1214,9 +1214,11 @@ r_if
 c_cond
 (paren
 id|m-&gt;mode
-op_eq
-l_int|1
+op_amp
+l_int|3
 )paren
+(brace
+multiline_comment|/* Before conflicting part */
 id|size
 op_add_assign
 id|xdl_recs_copy
@@ -1227,8 +1229,6 @@ comma
 id|i
 comma
 id|m-&gt;i1
-op_plus
-id|m-&gt;chg1
 id|i
 comma
 l_int|0
@@ -1243,12 +1243,43 @@ suffix:colon
 l_int|NULL
 )paren
 suffix:semicolon
-r_else
+multiline_comment|/* Postimage from side #1 */
 r_if
 c_cond
 (paren
 id|m-&gt;mode
-op_eq
+op_amp
+l_int|1
+)paren
+id|size
+op_add_assign
+id|xdl_recs_copy
+c_func
+(paren
+id|xe1
+comma
+id|m-&gt;i1
+comma
+id|m-&gt;chg1
+comma
+l_int|1
+comma
+id|dest
+ques
+c_cond
+id|dest
+op_plus
+id|size
+suffix:colon
+l_int|NULL
+)paren
+suffix:semicolon
+multiline_comment|/* Postimage from side #2 */
+r_if
+c_cond
+(paren
+id|m-&gt;mode
+op_amp
 l_int|2
 )paren
 id|size
@@ -1259,16 +1290,10 @@ c_func
 id|xe2
 comma
 id|m-&gt;i2
-id|m-&gt;i1
-op_plus
-id|i
 comma
-id|m-&gt;i1
-op_plus
 id|m-&gt;chg2
-id|i
 comma
-l_int|0
+l_int|1
 comma
 id|dest
 ques
@@ -1280,6 +1305,7 @@ suffix:colon
 l_int|NULL
 )paren
 suffix:semicolon
+)brace
 r_else
 r_continue
 suffix:semicolon
