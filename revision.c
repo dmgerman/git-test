@@ -3630,6 +3630,13 @@ op_amp
 id|revs-&gt;grep_filter.pattern_list
 )paren
 suffix:semicolon
+id|revs-&gt;grep_filter.header_tail
+op_assign
+op_amp
+(paren
+id|revs-&gt;grep_filter.header_list
+)paren
+suffix:semicolon
 id|revs-&gt;grep_filter.regflags
 op_assign
 id|REG_NEWLINE
@@ -9521,6 +9528,9 @@ c_cond
 (paren
 op_logical_neg
 id|opt-&gt;grep_filter.pattern_list
+op_logical_and
+op_logical_neg
+id|opt-&gt;grep_filter.header_list
 )paren
 r_return
 l_int|1
