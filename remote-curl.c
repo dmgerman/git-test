@@ -91,8 +91,6 @@ id|get_http_walker
 c_func
 (paren
 id|url
-comma
-id|remote
 )paren
 suffix:semicolon
 )brace
@@ -4434,6 +4432,12 @@ l_int|0
 )braket
 suffix:semicolon
 )brace
+id|http_init
+c_func
+(paren
+id|remote
+)paren
+suffix:semicolon
 r_do
 (brace
 r_if
@@ -4727,6 +4731,11 @@ r_while
 c_loop
 (paren
 l_int|1
+)paren
+suffix:semicolon
+id|http_cleanup
+c_func
+(paren
 )paren
 suffix:semicolon
 r_return

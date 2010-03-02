@@ -2431,11 +2431,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
-id|http_cleanup
-c_func
-(paren
-)paren
-suffix:semicolon
 )brace
 DECL|function|get_http_walker
 r_struct
@@ -2448,11 +2443,6 @@ r_const
 r_char
 op_star
 id|url
-comma
-r_struct
-id|remote
-op_star
-id|remote
 )paren
 (brace
 r_char
@@ -2487,12 +2477,6 @@ r_sizeof
 r_struct
 id|walker
 )paren
-)paren
-suffix:semicolon
-id|http_init
-c_func
-(paren
-id|remote
 )paren
 suffix:semicolon
 id|data-&gt;alt
