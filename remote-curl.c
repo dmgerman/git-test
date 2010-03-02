@@ -1330,11 +1330,6 @@ id|i
 op_increment
 suffix:semicolon
 )brace
-id|init_walker
-c_func
-(paren
-)paren
-suffix:semicolon
 id|ref
 op_assign
 id|alloc_ref
@@ -1347,12 +1342,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|walker
-op_member_access_from_pointer
-id|fetch_ref
+id|http_fetch_ref
 c_func
 (paren
-id|walker
+id|url
 comma
 id|ref
 )paren
