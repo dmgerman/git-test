@@ -5642,9 +5642,10 @@ comma
 id|argv
 )paren
 suffix:semicolon
-id|read_cache
+id|read_cache_preload
 c_func
 (paren
+id|s.pathspec
 )paren
 suffix:semicolon
 id|refresh_index
