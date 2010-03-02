@@ -4136,19 +4136,13 @@ comma
 l_string|&quot;show the number of matches instead of matching lines&quot;
 )paren
 comma
-id|OPT_SET_INT
+id|OPT__COLOR
 c_func
 (paren
-l_int|0
-comma
-l_string|&quot;color&quot;
-comma
 op_amp
 id|opt.color
 comma
 l_string|&quot;highlight matches&quot;
-comma
-l_int|1
 )paren
 comma
 id|OPT_GROUP
