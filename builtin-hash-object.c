@@ -173,6 +173,11 @@ id|vpath
 )paren
 suffix:semicolon
 )brace
+DECL|variable|no_filters
+r_static
+r_int
+id|no_filters
+suffix:semicolon
 DECL|function|hash_stdin_paths
 r_static
 r_void
@@ -273,6 +278,11 @@ id|type
 comma
 id|write_objects
 comma
+id|no_filters
+ques
+c_cond
+l_int|NULL
+suffix:colon
 id|buf.buf
 )paren
 suffix:semicolon
@@ -331,11 +341,6 @@ DECL|variable|stdin_paths
 r_static
 r_int
 id|stdin_paths
-suffix:semicolon
-DECL|variable|no_filters
-r_static
-r_int
-id|no_filters
 suffix:semicolon
 DECL|variable|vpath
 r_static
@@ -587,16 +592,6 @@ id|vpath
 id|errstr
 op_assign
 l_string|&quot;Can&squot;t use --stdin-paths with --path&quot;
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-id|no_filters
-)paren
-id|errstr
-op_assign
-l_string|&quot;Can&squot;t use --stdin-paths with --no-filters&quot;
 suffix:semicolon
 )brace
 r_else
