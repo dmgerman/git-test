@@ -5013,6 +5013,10 @@ c_func
 l_string|&quot;No remote provided to transport_get()&quot;
 )paren
 suffix:semicolon
+id|ret-&gt;got_remote_refs
+op_assign
+l_int|0
+suffix:semicolon
 id|ret-&gt;remote
 op_assign
 id|remote
@@ -5867,8 +5871,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|transport-&gt;remote_refs
+id|transport-&gt;got_remote_refs
 )paren
+(brace
 id|transport-&gt;remote_refs
 op_assign
 id|transport
@@ -5881,6 +5886,11 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+id|transport-&gt;got_remote_refs
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_return
 id|transport-&gt;remote_refs
 suffix:semicolon
