@@ -5928,7 +5928,7 @@ id|srvc-&gt;host
 suffix:semicolon
 id|arg
 op_assign
-id|getpass
+id|git_getpass
 c_func
 (paren
 id|prompt
