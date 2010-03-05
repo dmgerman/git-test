@@ -9,7 +9,7 @@ id|var_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git var [-l | &lt;variable&gt;]&quot;
+l_string|&quot;git var (-l | &lt;variable&gt;)&quot;
 suffix:semicolon
 DECL|function|editor
 r_static
@@ -73,6 +73,7 @@ op_assign
 id|git_pager
 c_func
 (paren
+l_int|1
 )paren
 suffix:semicolon
 r_if

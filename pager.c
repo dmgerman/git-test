@@ -157,7 +157,8 @@ op_star
 id|git_pager
 c_func
 (paren
-r_void
+r_int
+id|stdout_is_tty
 )paren
 (brace
 r_const
@@ -169,11 +170,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|isatty
-c_func
-(paren
-l_int|1
-)paren
+id|stdout_is_tty
 )paren
 r_return
 l_int|NULL
@@ -277,6 +274,11 @@ op_assign
 id|git_pager
 c_func
 (paren
+id|isatty
+c_func
+(paren
+l_int|1
+)paren
 )paren
 suffix:semicolon
 r_if
