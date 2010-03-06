@@ -2973,12 +2973,6 @@ id|va_list
 id|params
 )paren
 (brace
-r_char
-id|buffer
-(braket
-l_int|1000
-)braket
-suffix:semicolon
 id|http_status
 c_func
 (paren
@@ -2997,29 +2991,14 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|vsnprintf
+id|vreportf
 c_func
 (paren
-id|buffer
-comma
-r_sizeof
-(paren
-id|buffer
-)paren
+l_string|&quot;fatal: &quot;
 comma
 id|err
 comma
 id|params
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;fatal: %s&bslash;n&quot;
-comma
-id|buffer
 )paren
 suffix:semicolon
 m_exit
