@@ -9216,17 +9216,7 @@ id|forwards_lno
 comma
 id|try_lno
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|preimage-&gt;nr
-OG
-id|img-&gt;nr
-)paren
-r_return
-l_int|1
-suffix:semicolon
-multiline_comment|/*&n;&t; * If match_begining or match_end is specified, there is no&n;&t; * point starting from a wrong line that will never match and&n;&t; * wander around and wait for a match at the specified end.&n;&t; */
+multiline_comment|/*&n;&t; * If match_beginning or match_end is specified, there is no&n;&t; * point starting from a wrong line that will never match and&n;&t; * wander around and wait for a match at the specified end.&n;&t; */
 r_if
 c_cond
 (paren
@@ -9247,9 +9237,13 @@ op_assign
 id|img-&gt;nr
 id|preimage-&gt;nr
 suffix:semicolon
+multiline_comment|/*&n;&t; * Because the comparison is unsigned, the following test&n;&t; * will also take care of a negative line number that can&n;&t; * result when match_end and preimage is larger than the target.&n;&t; */
 r_if
 c_cond
 (paren
+(paren
+r_int
+)paren
 id|line
 OG
 id|img-&gt;nr
