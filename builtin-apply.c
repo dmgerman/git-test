@@ -8890,7 +8890,7 @@ op_add_assign
 id|prelen
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * Ok, the preimage matches with whitespace fuzz. Update it and&n;&t;&t; * the common postimage lines to use the same whitespace as the&n;&t;&t; * target. imgoff now holds the true length of the target that&n;&t;&t; * matches the preimage, and we need to update the line lengths&n;&t;&t; * of the preimage to match the target ones.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Ok, the preimage matches with whitespace fuzz.&n;&t;&t; *&n;&t;&t; * imgoff now holds the true length of the target that&n;&t;&t; * matches the preimage.  Update the preimage and&n;&t;&t; * the common postimage context lines to use the same&n;&t;&t; * whitespace as the target.&n;&t;&t; */
 id|fixed_buf
 op_assign
 id|xmalloc
@@ -8911,37 +8911,6 @@ comma
 id|imgoff
 )paren
 suffix:semicolon
-r_for
-c_loop
-(paren
-id|i
-op_assign
-l_int|0
-suffix:semicolon
-id|i
-OL
-id|preimage-&gt;nr
-suffix:semicolon
-id|i
-op_increment
-)paren
-id|preimage-&gt;line
-(braket
-id|i
-)braket
-dot
-id|len
-op_assign
-id|img-&gt;line
-(braket
-id|try_lno
-op_plus
-id|i
-)braket
-dot
-id|len
-suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Update the preimage buffer and the postimage context lines.&n;&t;&t; */
 id|update_pre_post_images
 c_func
 (paren
