@@ -378,6 +378,9 @@ c_cond
 (paren
 op_logical_neg
 id|branch-&gt;merge_nr
+op_logical_or
+op_logical_neg
+id|branch-&gt;merge
 )paren
 id|die
 c_func
