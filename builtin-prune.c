@@ -70,12 +70,6 @@ comma
 id|filename
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|expire
-)paren
-(brace
 r_struct
 id|stat
 id|st
@@ -111,7 +105,6 @@ id|expire
 r_return
 l_int|0
 suffix:semicolon
-)brace
 id|printf
 c_func
 (paren
@@ -173,12 +166,6 @@ comma
 id|filename
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|expire
-)paren
-(brace
 r_struct
 id|stat
 id|st
@@ -214,7 +201,6 @@ id|expire
 r_return
 l_int|0
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -720,6 +706,10 @@ suffix:semicolon
 r_char
 op_star
 id|s
+suffix:semicolon
+id|expire
+op_assign
+id|ULONG_MAX
 suffix:semicolon
 id|save_commit_buffer
 op_assign
