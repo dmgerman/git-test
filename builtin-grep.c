@@ -4538,8 +4538,7 @@ c_func
 (paren
 id|opt.color_match
 comma
-id|GIT_COLOR_RED
-id|GIT_COLOR_BOLD
+id|GIT_COLOR_BOLD_RED
 )paren
 suffix:semicolon
 id|opt.color
