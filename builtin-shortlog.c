@@ -1779,6 +1779,23 @@ op_eq
 l_int|0
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|isatty
+c_func
+(paren
+l_int|0
+)paren
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;(reading log message from standard input)&bslash;n&quot;
+)paren
+suffix:semicolon
 id|read_from_stdin
 c_func
 (paren
