@@ -4384,6 +4384,11 @@ op_assign
 op_amp
 id|opt.pattern_list
 suffix:semicolon
+id|opt.header_tail
+op_assign
+op_amp
+id|opt.header_list
+suffix:semicolon
 id|opt.regflags
 op_assign
 id|REG_NEWLINE
