@@ -7203,10 +7203,10 @@ id|rev_info
 op_star
 id|revs
 comma
-r_const
-r_char
+r_struct
+id|setup_revision_opt
 op_star
-id|def
+id|opt
 )paren
 (brace
 r_int
@@ -7984,7 +7984,12 @@ l_int|NULL
 )paren
 id|revs-&gt;def
 op_assign
-id|def
+id|opt
+ques
+c_cond
+id|opt-&gt;def
+suffix:colon
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
