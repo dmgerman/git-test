@@ -2362,7 +2362,7 @@ id|cmd
 )paren
 suffix:semicolon
 )brace
-macro_line|#ifdef ASYNC_AS_THREAD
+macro_line|#ifndef NO_PTHREADS
 DECL|variable|main_thread
 r_static
 id|pthread_t
@@ -2397,6 +2397,9 @@ id|async
 op_assign
 id|data
 suffix:semicolon
+r_intptr
+id|ret
+suffix:semicolon
 id|pthread_setspecific
 c_func
 (paren
@@ -2405,7 +2408,6 @@ comma
 id|async
 )paren
 suffix:semicolon
-r_intptr
 id|ret
 op_assign
 id|async
@@ -2739,7 +2741,7 @@ id|proc_out
 op_assign
 l_int|1
 suffix:semicolon
-macro_line|#ifndef ASYNC_AS_THREAD
+macro_line|#ifdef NO_PTHREADS
 multiline_comment|/* Flush stdio before fork() to avoid cloning buffers */
 id|fflush
 c_func
@@ -3060,7 +3062,7 @@ op_star
 id|async
 )paren
 (brace
-macro_line|#ifndef ASYNC_AS_THREAD
+macro_line|#ifdef NO_PTHREADS
 r_return
 id|wait_or_whine
 c_func
