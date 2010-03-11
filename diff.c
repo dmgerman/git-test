@@ -14438,6 +14438,22 @@ comma
 id|RECURSIVE
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * When patches are generated, submodules diffed against the work tree&n;&t; * must be checked for dirtiness too so it can be shown in the output&n;&t; */
+r_if
+c_cond
+(paren
+id|options-&gt;output_format
+op_amp
+id|DIFF_FORMAT_PATCH
+)paren
+id|DIFF_OPT_SET
+c_func
+(paren
+id|options
+comma
+id|DIRTY_SUBMODULES
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
