@@ -3633,11 +3633,6 @@ r_struct
 id|ref_filter
 id|filter
 suffix:semicolon
-r_const
-r_char
-op_star
-id|has_glob_specials
-suffix:semicolon
 r_int
 id|ret
 suffix:semicolon
@@ -3688,24 +3683,18 @@ comma
 id|pattern
 )paren
 suffix:semicolon
-id|has_glob_specials
-op_assign
-id|strpbrk
-c_func
-(paren
-id|pattern
-comma
-l_string|&quot;?*[&quot;
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
 op_logical_neg
 id|has_glob_specials
+c_func
+(paren
+id|pattern
+)paren
 )paren
 (brace
-multiline_comment|/* Append impiled &squot;/&squot; &squot;*&squot; if not present. */
+multiline_comment|/* Append implied &squot;/&squot; &squot;*&squot; if not present. */
 r_if
 c_cond
 (paren
