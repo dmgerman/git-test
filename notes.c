@@ -4534,6 +4534,10 @@ id|t-&gt;initialized
 op_assign
 l_int|1
 suffix:semicolon
+id|t-&gt;dirty
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4941,6 +4945,10 @@ m_assert
 id|t-&gt;initialized
 )paren
 suffix:semicolon
+id|t-&gt;dirty
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5037,6 +5045,10 @@ m_assert
 (paren
 id|t-&gt;initialized
 )paren
+suffix:semicolon
+id|t-&gt;dirty
+op_assign
+l_int|1
 suffix:semicolon
 id|hashcpy
 c_func

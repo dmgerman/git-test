@@ -1327,6 +1327,16 @@ c_func
 l_string|&quot;Cannot commit uninitialized/unreferenced notes tree&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|t-&gt;dirty
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* don&squot;t have to commit an unchanged tree */
 multiline_comment|/* Prepare commit message and reflog message */
 id|strbuf_addstr
 c_func
