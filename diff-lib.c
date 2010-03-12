@@ -209,16 +209,6 @@ c_func
 id|ce-&gt;name
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_star
-id|dirty_submodule
-)paren
-id|changed
-op_assign
-l_int|1
-suffix:semicolon
 )brace
 r_return
 id|changed
@@ -848,6 +838,9 @@ c_cond
 (paren
 op_logical_neg
 id|changed
+op_logical_and
+op_logical_neg
+id|dirty_submodule
 )paren
 (brace
 id|ce_mark_uptodate
@@ -1585,6 +1578,9 @@ id|sha1
 comma
 id|old-&gt;sha1
 )paren
+op_logical_and
+op_logical_neg
+id|dirty_submodule
 op_logical_and
 op_logical_neg
 id|DIFF_OPT_TST

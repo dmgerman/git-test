@@ -11376,9 +11376,6 @@ multiline_comment|/* Are we looking at the work tree? */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|s-&gt;sha1_valid
-op_logical_and
 id|s-&gt;dirty_submodule
 )paren
 id|dirty
@@ -17296,6 +17293,12 @@ id|one-&gt;sha1
 comma
 id|two-&gt;sha1
 )paren
+op_logical_and
+op_logical_neg
+id|one-&gt;dirty_submodule
+op_logical_and
+op_logical_neg
+id|two-&gt;dirty_submodule
 )paren
 r_return
 l_int|1
@@ -17993,6 +17996,10 @@ op_logical_or
 id|p-&gt;one-&gt;mode
 op_ne
 id|p-&gt;two-&gt;mode
+op_logical_or
+id|p-&gt;one-&gt;dirty_submodule
+op_logical_or
+id|p-&gt;two-&gt;dirty_submodule
 op_logical_or
 id|is_null_sha1
 c_func
