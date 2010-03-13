@@ -207,6 +207,14 @@ id|is_submodule_modified
 c_func
 (paren
 id|ce-&gt;name
+comma
+id|DIFF_OPT_TST
+c_func
+(paren
+id|diffopt
+comma
+id|IGNORE_UNTRACKED_IN_SUBMODULES
+)paren
 )paren
 suffix:semicolon
 )brace
