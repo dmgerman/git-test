@@ -7237,6 +7237,10 @@ comma
 id|seen_dashdash
 comma
 id|read_from_stdin
+comma
+id|got_rev_arg
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -7977,6 +7981,11 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+r_else
+id|got_rev_arg
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -8022,6 +8031,9 @@ id|revs-&gt;def
 op_logical_and
 op_logical_neg
 id|revs-&gt;pending.nr
+op_logical_and
+op_logical_neg
+id|got_rev_arg
 )paren
 (brace
 r_int
