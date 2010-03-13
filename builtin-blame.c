@@ -8049,8 +8049,6 @@ suffix:semicolon
 id|i
 op_le
 id|lines
-op_plus
-l_int|1
 suffix:semicolon
 id|width
 op_increment
