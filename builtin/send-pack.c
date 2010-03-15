@@ -1710,6 +1710,14 @@ l_int|0
 r_return
 id|ret
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|args-&gt;porcelain
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren

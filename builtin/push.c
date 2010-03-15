@@ -619,9 +619,11 @@ op_logical_and
 id|advice_push_nonfastforward
 )paren
 (brace
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot;To prevent you from losing history, non-fast-forward updates were rejected&bslash;n&quot;
 l_string|&quot;Merge the remote changes before pushing again.  See the &squot;Note about&bslash;n&quot;
 l_string|&quot;fast-forwards&squot; section of &squot;git push --help&squot; for details.&bslash;n&quot;
