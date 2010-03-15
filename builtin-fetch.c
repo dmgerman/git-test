@@ -2241,6 +2241,7 @@ c_cond
 (paren
 id|ref
 )paren
+(brace
 id|rc
 op_or_assign
 id|update_local_ref
@@ -2253,6 +2254,13 @@ comma
 id|note
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|ref
+)paren
+suffix:semicolon
+)brace
 r_else
 id|sprintf
 c_func
