@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;http.h&quot;
 macro_line|#include &quot;walker.h&quot;
 DECL|variable|http_fetch_usage
 r_static
@@ -449,14 +450,18 @@ op_assign
 id|rewritten_url
 suffix:semicolon
 )brace
+id|http_init
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
 id|walker
 op_assign
 id|get_http_walker
 c_func
 (paren
 id|url
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 id|walker-&gt;get_tree
@@ -531,6 +536,11 @@ id|walker_free
 c_func
 (paren
 id|walker
+)paren
+suffix:semicolon
+id|http_cleanup
+c_func
+(paren
 )paren
 suffix:semicolon
 id|free

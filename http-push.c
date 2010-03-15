@@ -9921,8 +9921,6 @@ r_if
 c_cond
 (paren
 id|push_verbosely
-op_logical_or
-l_int|1
 )paren
 id|fprintf
 c_func
