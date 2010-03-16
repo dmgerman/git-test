@@ -6,6 +6,8 @@ macro_line|#include &quot;dir.h&quot;
 multiline_comment|/* ISSYMREF=01 and ISPACKED=02 are public interfaces */
 DECL|macro|REF_KNOWS_PEELED
 mdefine_line|#define REF_KNOWS_PEELED 04
+DECL|macro|REF_BROKEN
+mdefine_line|#define REF_BROKEN 010
 DECL|struct|ref_list
 r_struct
 id|ref_list
@@ -1370,12 +1372,18 @@ op_amp
 id|flag
 )paren
 )paren
+(brace
 id|hashclr
 c_func
 (paren
 id|sha1
 )paren
 suffix:semicolon
+id|flag
+op_or_assign
+id|REF_BROKEN
+suffix:semicolon
+)brace
 id|list
 op_assign
 id|add_ref
@@ -2737,19 +2745,6 @@ id|trim
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/* Is this a &quot;negative ref&quot; that represents a deleted ref? */
-r_if
-c_cond
-(paren
-id|is_null_sha1
-c_func
-(paren
-id|entry-&gt;sha1
-)paren
-)paren
-r_return
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2761,6 +2756,17 @@ id|DO_FOR_EACH_INCLUDE_BROKEN
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|entry-&gt;flag
+op_amp
+id|REF_BROKEN
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* ignore dangling symref */
 r_if
 c_cond
 (paren
