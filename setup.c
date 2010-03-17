@@ -2126,6 +2126,14 @@ c_func
 l_string|&quot;..&quot;
 )paren
 )paren
+(brace
+id|cwd
+(braket
+id|offset
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
 id|die_errno
 c_func
 (paren
@@ -2134,6 +2142,7 @@ comma
 id|cwd
 )paren
 suffix:semicolon
+)brace
 )brace
 id|inside_git_dir
 op_assign
