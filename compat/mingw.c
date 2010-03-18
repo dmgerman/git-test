@@ -7936,6 +7936,9 @@ suffix:semicolon
 id|HMODULE
 id|shell32
 suffix:semicolon
+r_int
+id|r
+suffix:semicolon
 id|shell32
 op_assign
 id|LoadLibrary
@@ -7987,6 +7990,11 @@ c_func
 l_string|&quot;Launching default browser to display HTML ...&bslash;n&quot;
 )paren
 suffix:semicolon
+id|r
+op_assign
+(paren
+r_int
+)paren
 id|ShellExecute
 c_func
 (paren
@@ -8000,7 +8008,7 @@ l_int|NULL
 comma
 l_string|&quot;&bslash;&bslash;&quot;
 comma
-l_int|0
+id|SW_SHOWNORMAL
 )paren
 suffix:semicolon
 id|FreeLibrary
@@ -8009,6 +8017,26 @@ c_func
 id|shell32
 )paren
 suffix:semicolon
+multiline_comment|/* see the MSDN documentation referring to the result codes here */
+r_if
+c_cond
+(paren
+id|r
+op_le
+l_int|32
+)paren
+(brace
+id|die
+c_func
+(paren
+l_string|&quot;failed to launch browser for %.*s&quot;
+comma
+id|MAX_PATH
+comma
+id|unixpath
+)paren
+suffix:semicolon
+)brace
 )brace
 DECL|function|link
 r_int
