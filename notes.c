@@ -4320,7 +4320,6 @@ c_func
 id|l.val_sha1
 )paren
 suffix:semicolon
-r_return
 id|note_tree_remove
 c_func
 (paren
