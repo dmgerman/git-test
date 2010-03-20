@@ -1915,6 +1915,7 @@ id|port
 )paren
 (brace
 op_star
+op_star
 id|port
 op_assign
 l_char|&squot;&bslash;0&squot;
