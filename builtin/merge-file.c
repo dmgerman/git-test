@@ -160,21 +160,7 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
-id|level
-op_assign
-id|XDL_MERGE_ZEALOUS_ALNUM
-suffix:semicolon
-r_int
-id|style
-op_assign
-l_int|0
-comma
 id|quiet
-op_assign
-l_int|0
-suffix:semicolon
-r_int
-id|favor
 op_assign
 l_int|0
 suffix:semicolon
@@ -209,7 +195,7 @@ comma
 l_string|&quot;diff3&quot;
 comma
 op_amp
-id|style
+id|xmp.style
 comma
 l_string|&quot;use a diff3 based merge&quot;
 comma
@@ -224,7 +210,7 @@ comma
 l_string|&quot;ours&quot;
 comma
 op_amp
-id|favor
+id|xmp.favor
 comma
 l_string|&quot;for conflicts, use our version&quot;
 comma
@@ -239,11 +225,39 @@ comma
 l_string|&quot;theirs&quot;
 comma
 op_amp
-id|favor
+id|xmp.favor
 comma
 l_string|&quot;for conflicts, use their version&quot;
 comma
 id|XDL_MERGE_FAVOR_THEIRS
+)paren
+comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;union&quot;
+comma
+op_amp
+id|xmp.favor
+comma
+l_string|&quot;for conflicts, use a union version&quot;
+comma
+id|XDL_MERGE_FAVOR_UNION
+)paren
+comma
+id|OPT_INTEGER
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;marker-size&quot;
+comma
+op_amp
+id|xmp.marker_size
+comma
+l_string|&quot;for conflicts, use this marker size&quot;
 )paren
 comma
 id|OPT__QUIET
@@ -277,6 +291,18 @@ c_func
 comma
 )brace
 suffix:semicolon
+id|xmp.level
+op_assign
+id|XDL_MERGE_ZEALOUS_ALNUM
+suffix:semicolon
+id|xmp.style
+op_assign
+l_int|0
+suffix:semicolon
+id|xmp.favor
+op_assign
+l_int|0
+suffix:semicolon
 id|prefix
 op_assign
 id|setup_git_directory_gently
@@ -309,7 +335,7 @@ l_int|0
 op_le
 id|git_xmerge_style
 )paren
-id|style
+id|xmp.style
 op_assign
 id|git_xmerge_style
 suffix:semicolon
@@ -498,16 +524,6 @@ l_int|2
 comma
 op_amp
 id|xmp
-comma
-id|XDL_MERGE_FLAGS
-c_func
-(paren
-id|level
-comma
-id|style
-comma
-id|favor
-)paren
 comma
 op_amp
 id|result
