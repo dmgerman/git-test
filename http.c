@@ -976,7 +976,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|getpass
+id|git_getpass
 c_func
 (paren
 l_string|&quot;Password: &quot;
@@ -1055,7 +1055,7 @@ l_int|1
 suffix:semicolon
 id|ssl_cert_password
 op_assign
-id|getpass
+id|git_getpass
 c_func
 (paren
 l_string|&quot;Certificate Password: &quot;
