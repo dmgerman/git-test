@@ -1487,6 +1487,9 @@ suffix:semicolon
 r_const
 r_char
 op_star
+id|base_label
+comma
+op_star
 id|next_label
 suffix:semicolon
 r_int
@@ -1910,6 +1913,10 @@ id|base
 op_assign
 id|commit
 suffix:semicolon
+id|base_label
+op_assign
+id|msg.label
+suffix:semicolon
 id|next
 op_assign
 id|parent
@@ -1982,6 +1989,10 @@ id|base
 op_assign
 id|parent
 suffix:semicolon
+id|base_label
+op_assign
+id|msg.parent_label
+suffix:semicolon
 id|next
 op_assign
 id|commit
@@ -2043,6 +2054,15 @@ c_func
 op_amp
 id|o
 )paren
+suffix:semicolon
+id|o.ancestor
+op_assign
+id|base
+ques
+c_cond
+id|base_label
+suffix:colon
+l_string|&quot;(empty tree)&quot;
 suffix:semicolon
 id|o.branch1
 op_assign
