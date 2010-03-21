@@ -7447,6 +7447,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|o-&gt;ancestor
+op_assign
+l_string|&quot;merged common ancestors&quot;
+suffix:semicolon
 id|clean
 op_assign
 id|merge_trees
