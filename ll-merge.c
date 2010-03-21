@@ -349,6 +349,14 @@ id|xmp.marker_size
 op_assign
 id|marker_size
 suffix:semicolon
+id|xmp.file1
+op_assign
+id|name1
+suffix:semicolon
+id|xmp.file2
+op_assign
+id|name2
+suffix:semicolon
 r_return
 id|xdl_merge
 c_func
@@ -357,11 +365,7 @@ id|orig
 comma
 id|src1
 comma
-id|name1
-comma
 id|src2
-comma
-id|name2
 comma
 op_amp
 id|xmp
