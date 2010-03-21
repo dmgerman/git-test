@@ -843,6 +843,8 @@ comma
 op_amp
 id|ancestor
 comma
+l_int|NULL
+comma
 op_amp
 id|ours
 comma

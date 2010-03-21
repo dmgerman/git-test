@@ -3464,6 +3464,8 @@ comma
 op_amp
 id|orig
 comma
+l_int|NULL
+comma
 op_amp
 id|src1
 comma
