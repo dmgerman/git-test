@@ -130,6 +130,7 @@ suffix:semicolon
 id|mmbuffer_t
 id|res
 suffix:semicolon
+multiline_comment|/*&n;&t; * This function is only used by cmd_merge_tree, which&n;&t; * does not respect the merge.conflictstyle option.&n;&t; * There is no need to worry about a label for the&n;&t; * common ancestor.&n;&t; */
 id|merge_status
 op_assign
 id|ll_merge
