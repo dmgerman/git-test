@@ -495,6 +495,13 @@ id|i
 )paren
 suffix:semicolon
 )brace
+id|xmp.ancestor
+op_assign
+id|names
+(braket
+l_int|1
+)braket
+suffix:semicolon
 id|xmp.file1
 op_assign
 id|names
