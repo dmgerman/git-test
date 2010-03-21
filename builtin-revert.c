@@ -1493,11 +1493,7 @@ r_char
 op_star
 id|defmsg
 op_assign
-id|git_pathdup
-c_func
-(paren
-l_string|&quot;MERGE_MSG&quot;
-)paren
+l_int|NULL
 suffix:semicolon
 r_struct
 id|merge_options
@@ -1920,6 +1916,14 @@ id|parent-&gt;object.sha1
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * &quot;commit&quot; is an existing commit.  We would want to apply&n;&t; * the difference it introduces since its first parent &quot;prev&quot;&n;&t; * on top of the current HEAD if we are cherry-pick.  Or the&n;&t; * reverse of it if we are revert.&n;&t; */
+id|defmsg
+op_assign
+id|git_pathdup
+c_func
+(paren
+l_string|&quot;MERGE_MSG&quot;
+)paren
+suffix:semicolon
 id|msg_fd
 op_assign
 id|hold_lock_file_for_update
