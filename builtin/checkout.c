@@ -2353,6 +2353,10 @@ id|ret
 r_return
 id|ret
 suffix:semicolon
+id|o.ancestor
+op_assign
+id|old-&gt;name
+suffix:semicolon
 id|o.branch1
 op_assign
 r_new
