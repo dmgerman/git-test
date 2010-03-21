@@ -843,7 +843,7 @@ comma
 op_amp
 id|ancestor
 comma
-l_int|NULL
+l_string|&quot;base&quot;
 comma
 op_amp
 id|ours
