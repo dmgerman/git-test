@@ -1295,7 +1295,7 @@ id|prefix
 suffix:semicolon
 id|revs.abbrev
 op_assign
-l_int|0
+id|DEFAULT_ABBREV
 suffix:semicolon
 id|revs.commit_format
 op_assign
