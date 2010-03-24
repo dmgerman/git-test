@@ -4447,11 +4447,9 @@ multiline_comment|/* unknown %g placeholder */
 r_case
 l_char|&squot;N&squot;
 suffix:colon
-id|format_note
+id|format_display_notes
 c_func
 (paren
-l_int|NULL
-comma
 id|commit-&gt;object.sha1
 comma
 id|sb
@@ -6011,11 +6009,9 @@ c_cond
 (paren
 id|context-&gt;show_notes
 )paren
-id|format_note
+id|format_display_notes
 c_func
 (paren
-l_int|NULL
-comma
 id|commit-&gt;object.sha1
 comma
 id|sb
