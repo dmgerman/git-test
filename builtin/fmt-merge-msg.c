@@ -1721,6 +1721,15 @@ id|p
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|srcs.nr
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
