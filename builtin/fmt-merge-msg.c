@@ -1846,9 +1846,9 @@ comma
 l_string|&quot;populate log with the shortlog&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;summary&quot;
@@ -1856,8 +1856,14 @@ comma
 op_amp
 id|merge_summary
 comma
-l_string|&quot;alias for --log&quot;
-)paren
+l_int|NULL
+comma
+l_string|&quot;alias for --log (deprecated)&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
 comma
 id|OPT_FILENAME
 c_func
