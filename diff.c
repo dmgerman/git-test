@@ -11376,9 +11376,6 @@ multiline_comment|/* Are we looking at the work tree? */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|s-&gt;sha1_valid
-op_logical_and
 id|s-&gt;dirty_submodule
 )paren
 id|dirty
@@ -14438,6 +14435,22 @@ comma
 id|RECURSIVE
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * When patches are generated, submodules diffed against the work tree&n;&t; * must be checked for dirtiness too so it can be shown in the output&n;&t; */
+r_if
+c_cond
+(paren
+id|options-&gt;output_format
+op_amp
+id|DIFF_FORMAT_PATCH
+)paren
+id|DIFF_OPT_SET
+c_func
+(paren
+id|options
+comma
+id|DIRTY_SUBMODULES
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -17369,6 +17382,12 @@ id|one-&gt;sha1
 comma
 id|two-&gt;sha1
 )paren
+op_logical_and
+op_logical_neg
+id|one-&gt;dirty_submodule
+op_logical_and
+op_logical_neg
+id|two-&gt;dirty_submodule
 )paren
 r_return
 l_int|1
@@ -18066,6 +18085,10 @@ op_logical_or
 id|p-&gt;one-&gt;mode
 op_ne
 id|p-&gt;two-&gt;mode
+op_logical_or
+id|p-&gt;one-&gt;dirty_submodule
+op_logical_or
+id|p-&gt;two-&gt;dirty_submodule
 op_logical_or
 id|is_null_sha1
 c_func
