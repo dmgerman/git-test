@@ -13,6 +13,7 @@ op_assign
 l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]&bslash;n&quot;
 l_string|&quot;           [-p|--paginate|--no-pager] [--no-replace-objects]&bslash;n&quot;
 l_string|&quot;           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]&bslash;n&quot;
+l_string|&quot;           [-c name=value&bslash;n&quot;
 l_string|&quot;           [--help] COMMAND [ARGS]&quot;
 suffix:semicolon
 DECL|variable|git_more_info_string
@@ -774,6 +775,69 @@ op_star
 id|envchanged
 op_assign
 l_int|1
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|cmd
+comma
+l_string|&quot;-c&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_star
+id|argc
+OL
+l_int|2
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;-c expects a configuration string&bslash;n&quot;
+)paren
+suffix:semicolon
+id|usage
+c_func
+(paren
+id|git_usage_string
+)paren
+suffix:semicolon
+)brace
+id|git_config_parse_parameter
+c_func
+(paren
+(paren
+op_star
+id|argv
+)paren
+(braket
+l_int|1
+)braket
+)paren
+suffix:semicolon
+(paren
+op_star
+id|argv
+)paren
+op_increment
+suffix:semicolon
+(paren
+op_star
+id|argc
+)paren
+op_decrement
 suffix:semicolon
 )brace
 r_else
