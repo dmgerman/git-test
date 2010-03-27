@@ -6559,19 +6559,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|imap-&gt;buf.sock.ssl
-)paren
-id|imap_warn
-c_func
-(paren
-l_string|&quot;*** IMAP Warning *** Password is being &quot;
-l_string|&quot;sent in the clear&bslash;n&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|srvc-&gt;auth_method
 )paren
 (brace
@@ -6687,6 +6674,19 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|imap-&gt;buf.sock.ssl
+)paren
+id|imap_warn
+c_func
+(paren
+l_string|&quot;*** IMAP Warning *** Password is being &quot;
+l_string|&quot;sent in the clear&bslash;n&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
