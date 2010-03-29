@@ -2649,6 +2649,7 @@ id|key
 )paren
 suffix:semicolon
 )brace
+)brace
 id|strbuf_addf
 c_func
 (paren
@@ -2675,7 +2676,6 @@ op_amp
 id|key
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
