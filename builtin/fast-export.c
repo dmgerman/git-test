@@ -2569,7 +2569,7 @@ c_cond
 op_logical_neg
 id|f
 )paren
-id|error
+id|die_errno
 c_func
 (paren
 l_string|&quot;Unable to open marks file %s for writing.&quot;
