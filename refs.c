@@ -6712,6 +6712,15 @@ l_string|&quot;refs/remotes/&quot;
 )paren
 op_logical_or
 op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|ref_name
+comma
+l_string|&quot;refs/notes/&quot;
+)paren
+op_logical_or
+op_logical_neg
 id|strcmp
 c_func
 (paren
