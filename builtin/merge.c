@@ -3253,7 +3253,6 @@ l_string|&quot;git write-tree failed to write a tree&quot;
 suffix:semicolon
 )brace
 DECL|function|try_merge_command
-r_static
 r_int
 id|try_merge_command
 c_func
