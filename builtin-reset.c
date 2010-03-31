@@ -25,7 +25,9 @@ op_assign
 (brace
 l_string|&quot;git reset [--mixed | --soft | --hard | --merge] [-q] [&lt;commit&gt;]&quot;
 comma
-l_string|&quot;git reset [--mixed] &lt;commit&gt; [--] &lt;paths&gt;...&quot;
+l_string|&quot;git reset [-q] &lt;commit&gt; [--] &lt;paths&gt;...&quot;
+comma
+l_string|&quot;git reset --patch [&lt;commit&gt;] [--] [&lt;paths&gt;...]&quot;
 comma
 l_int|NULL
 )brace
