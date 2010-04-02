@@ -11427,6 +11427,7 @@ comma
 r_int
 id|hdrlen
 comma
+r_const
 r_void
 op_star
 id|buf
@@ -11662,6 +11663,10 @@ suffix:semicolon
 multiline_comment|/* Then the data itself.. */
 id|stream.next_in
 op_assign
+(paren
+r_void
+op_star
+)paren
 id|buf
 suffix:semicolon
 id|stream.avail_in
@@ -11895,6 +11900,7 @@ r_int
 id|write_sha1_file
 c_func
 (paren
+r_const
 r_void
 op_star
 id|buf
