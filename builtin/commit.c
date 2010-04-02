@@ -1490,7 +1490,6 @@ id|pathspec
 )paren
 )paren
 (brace
-r_int
 id|fd
 op_assign
 id|hold_locked_index
