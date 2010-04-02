@@ -1557,7 +1557,7 @@ r_return
 id|index_lock.filename
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * As-is commit.&n;&t; *&n;&t; * (1) return the name of the real index file.&n;&t; *&n;&t; * The caller should run hooks on the real index, and run&n;&t; * hooks on the real index, and create commit from the_index.&n;&t; * We still need to refresh the index here.&n;&t; */
+multiline_comment|/*&n;&t; * As-is commit.&n;&t; *&n;&t; * (1) return the name of the real index file.&n;&t; *&n;&t; * The caller should run hooks on the real index,&n;&t; * and create commit from the_index.&n;&t; * We still need to refresh the index here.&n;&t; */
 r_if
 c_cond
 (paren
