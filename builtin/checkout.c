@@ -843,6 +843,8 @@ comma
 op_amp
 id|ancestor
 comma
+l_string|&quot;base&quot;
+comma
 op_amp
 id|ours
 comma
@@ -2350,6 +2352,10 @@ id|ret
 )paren
 r_return
 id|ret
+suffix:semicolon
+id|o.ancestor
+op_assign
+id|old-&gt;name
 suffix:semicolon
 id|o.branch1
 op_assign
