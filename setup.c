@@ -1941,10 +1941,11 @@ id|cwd
 suffix:semicolon
 id|one_filesystem
 op_assign
+op_logical_neg
 id|git_env_bool
 c_func
 (paren
-l_string|&quot;GIT_ONE_FILESYSTEM&quot;
+l_string|&quot;GIT_DISCOVERY_ACROSS_FILESYSTEM&quot;
 comma
 l_int|0
 )paren
@@ -2253,7 +2254,7 @@ id|die
 c_func
 (paren
 l_string|&quot;Not a git repository (or any parent up to mount parent %s)&bslash;n&quot;
-l_string|&quot;Stopping at filesystem boundary since GIT_ONE_FILESYSTEM is true.&quot;
+l_string|&quot;Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).&quot;
 comma
 id|cwd
 )paren
