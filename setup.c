@@ -1662,7 +1662,7 @@ l_int|0
 comma
 id|one_filesystem
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 r_struct
 id|stat
@@ -2253,7 +2253,7 @@ id|die
 c_func
 (paren
 l_string|&quot;Not a git repository (or any parent up to mount parent %s)&bslash;n&quot;
-l_string|&quot;Stopping at filesystem boundary since GIT_ONE_FILESYSTEM is set.&quot;
+l_string|&quot;Stopping at filesystem boundary since GIT_ONE_FILESYSTEM is true.&quot;
 comma
 id|cwd
 )paren
