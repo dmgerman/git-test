@@ -2169,6 +2169,9 @@ l_int|NULL
 comma
 op_star
 id|dollar
+comma
+op_star
+id|spc
 suffix:semicolon
 r_int
 id|cnt
@@ -2350,7 +2353,7 @@ op_eq
 l_char|&squot;:&squot;
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t; * It&squot;s possible that an expanded Id has crept its way into the&n;&t;&t;&t; * repository, we cope with that by stripping the expansion out&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * It&squot;s possible that an expanded Id has crept its way into the&n;&t;&t;&t; * repository, we cope with that by stripping the expansion out.&n;&t;&t;&t; * This is probably not a good idea, since it will cause changes&n;&t;&t;&t; * on checkout, which won&squot;t go away by stash, but let&squot;s keep it&n;&t;&t;&t; * for git-style ids.&n;&t;&t;&t; */
 id|dollar
 op_assign
 id|memchr
@@ -2396,6 +2399,38 @@ l_int|3
 )paren
 (brace
 multiline_comment|/* Line break before the next dollar. */
+r_continue
+suffix:semicolon
+)brace
+id|spc
+op_assign
+id|memchr
+c_func
+(paren
+id|src
+op_plus
+l_int|4
+comma
+l_char|&squot; &squot;
+comma
+id|dollar
+id|src
+l_int|4
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|spc
+op_logical_and
+id|spc
+OL
+id|dollar
+op_minus
+l_int|1
+)paren
+(brace
+multiline_comment|/* There are spaces in unexpected places.&n;&t;&t;&t;&t; * This is probably an id from some other&n;&t;&t;&t;&t; * versioning system. Keep it for now.&n;&t;&t;&t;&t; */
 r_continue
 suffix:semicolon
 )brace
