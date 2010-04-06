@@ -213,9 +213,12 @@ comma
 id|renew_authorship
 suffix:semicolon
 DECL|variable|no_post_rewrite
+DECL|variable|allow_empty_message
 r_static
 r_int
 id|no_post_rewrite
+comma
+id|allow_empty_message
 suffix:semicolon
 DECL|variable|untracked_files_arg
 DECL|variable|force_date
@@ -745,9 +748,10 @@ r_intptr
 l_string|&quot;all&quot;
 )brace
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+multiline_comment|/* end commit contents options */
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;allow-empty&quot;
@@ -755,10 +759,34 @@ comma
 op_amp
 id|allow_empty
 comma
-l_string|&quot;ok to record an empty change&quot;
-)paren
+l_int|NULL
 comma
-multiline_comment|/* end commit contents options */
+l_string|&quot;ok to record an empty change&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
+comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_int|0
+comma
+l_string|&quot;allow-empty-message&quot;
+comma
+op_amp
+id|allow_empty_message
+comma
+l_int|NULL
+comma
+l_string|&quot;ok to record a change with an empty message&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
+comma
 id|OPT_END
 c_func
 (paren
@@ -7188,6 +7216,9 @@ c_func
 op_amp
 id|sb
 )paren
+op_logical_and
+op_logical_neg
+id|allow_empty_message
 )paren
 (brace
 id|rollback_index_files
