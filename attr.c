@@ -2965,6 +2965,11 @@ c_func
 (paren
 id|what
 comma
+id|a-&gt;is_macro
+ques
+c_cond
+id|a-&gt;u.attr-&gt;name
+suffix:colon
 id|a-&gt;u.pattern
 comma
 id|attr
