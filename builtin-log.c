@@ -173,6 +173,11 @@ id|rev
 r_int
 id|i
 suffix:semicolon
+r_int
+id|decoration_given
+op_assign
+l_int|0
+suffix:semicolon
 id|rev-&gt;abbrev
 op_assign
 id|DEFAULT_ABBREV
@@ -374,6 +379,10 @@ id|decoration_style
 op_assign
 id|DECORATE_SHORT_REFS
 suffix:semicolon
+id|decoration_given
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -426,6 +435,10 @@ l_string|&quot;invalid --decorate option: %s&quot;
 comma
 id|arg
 )paren
+suffix:semicolon
+id|decoration_given
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -497,6 +510,19 @@ id|arg
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * defeat log.decorate configuration interacting with --pretty&n;&t; * from the command line.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|decoration_given
+op_logical_and
+id|rev-&gt;pretty_given
+)paren
+id|decoration_style
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
