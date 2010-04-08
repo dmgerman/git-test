@@ -510,7 +510,7 @@ id|arg
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * defeat log.decorate configuration interacting with --pretty&n;&t; * from the command line.&n;&t; */
+multiline_comment|/*&n;&t; * defeat log.decorate configuration interacting with --pretty=raw&n;&t; * from the command line.&n;&t; */
 r_if
 c_cond
 (paren
@@ -518,6 +518,10 @@ op_logical_neg
 id|decoration_given
 op_logical_and
 id|rev-&gt;pretty_given
+op_logical_and
+id|rev-&gt;commit_format
+op_eq
+id|CMIT_FMT_RAW
 )paren
 id|decoration_style
 op_assign
