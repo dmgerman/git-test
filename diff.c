@@ -3208,6 +3208,10 @@ id|textconv_one
 id|free
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|data_one
 )paren
 suffix:semicolon
@@ -3219,6 +3223,10 @@ id|textconv_two
 id|free
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 id|data_two
 )paren
 suffix:semicolon
