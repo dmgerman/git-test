@@ -21,13 +21,13 @@ id|builtin_fetch_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git fetch [options] [&lt;repository&gt; &lt;refspec&gt;...]&quot;
+l_string|&quot;git fetch [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]&quot;
 comma
-l_string|&quot;git fetch [options] &lt;group&gt;&quot;
+l_string|&quot;git fetch [&lt;options&gt;] &lt;group&gt;&quot;
 comma
-l_string|&quot;git fetch --multiple [options] [&lt;repository&gt; | &lt;group&gt;]...&quot;
+l_string|&quot;git fetch --multiple [&lt;options&gt;] [&lt;repository&gt; | &lt;group&gt;]...&quot;
 comma
-l_string|&quot;git fetch --all [options]&quot;
+l_string|&quot;git fetch --all [&lt;options&gt;]&quot;
 comma
 l_int|NULL
 )brace
