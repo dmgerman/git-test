@@ -12,6 +12,7 @@ macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;submodule.h&quot;
+macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#ifdef NO_FAST_WORKING_DIRECTORY
 DECL|macro|FAST_WORKING_DIRECTORY
 mdefine_line|#define FAST_WORKING_DIRECTORY 0
@@ -7705,6 +7706,10 @@ DECL|member|lineno
 r_int
 id|lineno
 suffix:semicolon
+DECL|member|conflict_marker_size
+r_int
+id|conflict_marker_size
+suffix:semicolon
 DECL|member|o
 r_struct
 id|diff_options
@@ -7733,6 +7738,9 @@ op_star
 id|line
 comma
 r_int
+id|marker_size
+comma
+r_int
 r_int
 id|len
 )paren
@@ -7748,7 +7756,9 @@ c_cond
 (paren
 id|len
 OL
-l_int|8
+id|marker_size
+op_plus
+l_int|1
 )paren
 r_return
 l_int|0
@@ -7775,6 +7785,9 @@ suffix:colon
 r_case
 l_char|&squot;&lt;&squot;
 suffix:colon
+r_case
+l_char|&squot;|&squot;
+suffix:colon
 r_break
 suffix:semicolon
 r_default
@@ -7792,7 +7805,7 @@ l_int|1
 suffix:semicolon
 id|cnt
 OL
-l_int|7
+id|marker_size
 suffix:semicolon
 id|cnt
 op_increment
@@ -7810,41 +7823,15 @@ id|firstchar
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/* line[0] thru line[6] are same as firstchar */
-r_if
-c_cond
-(paren
-id|firstchar
-op_eq
-l_char|&squot;=&squot;
-)paren
-(brace
-multiline_comment|/* divider between ours and theirs? */
-r_if
-c_cond
-(paren
-id|len
-op_ne
-l_int|8
-op_logical_or
-id|line
-(braket
-l_int|7
-)braket
-op_ne
-l_char|&squot;&bslash;n&squot;
-)paren
-r_return
-l_int|0
-suffix:semicolon
-)brace
-r_else
+multiline_comment|/* line[1] thru line[marker_size-1] are same as firstchar */
 r_if
 c_cond
 (paren
 id|len
 OL
-l_int|8
+id|marker_size
+op_plus
+l_int|1
 op_logical_or
 op_logical_neg
 id|isspace
@@ -7852,16 +7839,13 @@ c_func
 (paren
 id|line
 (braket
-l_int|7
+id|marker_size
 )braket
 )paren
 )paren
-(brace
-multiline_comment|/* not divider before ours nor after theirs */
 r_return
 l_int|0
 suffix:semicolon
-)brace
 r_return
 l_int|1
 suffix:semicolon
@@ -7902,6 +7886,11 @@ id|data-&gt;o
 comma
 id|COLOR_DIFF
 )paren
+suffix:semicolon
+r_int
+id|marker_size
+op_assign
+id|data-&gt;conflict_marker_size
 suffix:semicolon
 r_const
 r_char
@@ -7972,6 +7961,8 @@ c_func
 id|line
 op_plus
 l_int|1
+comma
+id|marker_size
 comma
 id|len
 l_int|1
@@ -10666,6 +10657,14 @@ suffix:semicolon
 id|data.ws_rule
 op_assign
 id|whitespace_rule
+c_func
+(paren
+id|attr_path
+)paren
+suffix:semicolon
+id|data.conflict_marker_size
+op_assign
+id|ll_merge_marker_size
 c_func
 (paren
 id|attr_path
