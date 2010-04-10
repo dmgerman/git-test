@@ -2106,10 +2106,6 @@ l_int|NULL
 )paren
 r_continue
 suffix:semicolon
-id|s-&gt;workdir_untracked
-op_assign
-l_int|1
-suffix:semicolon
 id|string_list_insert
 c_func
 (paren
