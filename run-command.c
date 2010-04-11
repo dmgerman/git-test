@@ -1789,17 +1789,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|cmd-&gt;dir
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;chdir in start_command() not implemented&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|cmd-&gt;env
 )paren
 id|env
@@ -1854,6 +1843,8 @@ comma
 id|cmd-&gt;argv
 comma
 id|env
+comma
+id|cmd-&gt;dir
 comma
 id|fhin
 comma

@@ -3855,6 +3855,11 @@ op_star
 op_star
 id|env
 comma
+r_const
+r_char
+op_star
+id|dir
+comma
 r_int
 id|prepend_cmd
 comma
@@ -4291,7 +4296,7 @@ id|envblk.buf
 suffix:colon
 l_int|NULL
 comma
-l_int|NULL
+id|dir
 comma
 op_amp
 id|si
@@ -4383,6 +4388,8 @@ id|argv
 comma
 id|env
 comma
+l_int|NULL
+comma
 id|prepend_cmd
 comma
 l_int|0
@@ -4413,6 +4420,11 @@ r_char
 op_star
 op_star
 id|env
+comma
+r_const
+r_char
+op_star
+id|dir
 comma
 r_int
 id|fhin
@@ -4546,6 +4558,8 @@ id|argv
 comma
 id|env
 comma
+id|dir
+comma
 l_int|1
 comma
 id|fhin
@@ -4581,6 +4595,8 @@ comma
 id|argv
 comma
 id|env
+comma
+id|dir
 comma
 l_int|0
 comma
