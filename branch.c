@@ -979,7 +979,7 @@ comma
 r_sizeof
 id|msg
 comma
-l_string|&quot;branch: Reset from %s&quot;
+l_string|&quot;branch: Reset to %s&quot;
 comma
 id|start_name
 )paren
