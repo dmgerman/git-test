@@ -709,7 +709,7 @@ id|argv_verify_tag
 )braket
 op_assign
 (brace
-l_string|&quot;git-verify-tag&quot;
+l_string|&quot;verify-tag&quot;
 comma
 l_string|&quot;-v&quot;
 comma
@@ -737,7 +737,7 @@ c_func
 (paren
 id|argv_verify_tag
 comma
-l_int|0
+id|RUN_GIT_CMD
 )paren
 )paren
 r_return
