@@ -5158,12 +5158,6 @@ suffix:colon
 id|free
 c_func
 (paren
-id|filename
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
 id|preq-&gt;url
 )paren
 suffix:semicolon
