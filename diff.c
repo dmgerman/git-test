@@ -5425,8 +5425,7 @@ l_int|1
 suffix:semicolon
 DECL|member|added
 DECL|member|deleted
-r_int
-r_int
+r_uintmax
 id|added
 comma
 id|deleted
@@ -5933,7 +5932,7 @@ id|dels
 op_assign
 l_int|0
 suffix:semicolon
-r_int
+r_uintmax
 id|max_change
 op_assign
 l_int|0
@@ -6097,7 +6096,7 @@ id|data-&gt;files
 id|i
 )braket
 suffix:semicolon
-r_int
+r_uintmax
 id|change
 op_assign
 id|file-&gt;added
@@ -6224,7 +6223,7 @@ id|i
 op_member_access_from_pointer
 id|print_name
 suffix:semicolon
-r_int
+r_uintmax
 id|added
 op_assign
 id|data-&gt;files
@@ -6234,7 +6233,7 @@ id|i
 op_member_access_from_pointer
 id|added
 suffix:semicolon
-r_int
+r_uintmax
 id|deleted
 op_assign
 id|data-&gt;files
@@ -6341,7 +6340,9 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;%s%d%s&quot;
+l_string|&quot;%s%&quot;
+id|PRIuMAX
+l_string|&quot;%s&quot;
 comma
 id|del_c
 comma
@@ -6363,7 +6364,9 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;%s%d%s&quot;
+l_string|&quot;%s%&quot;
+id|PRIuMAX
+l_string|&quot;%s&quot;
 comma
 id|add_c
 comma
@@ -6520,7 +6523,9 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;%5d%s&quot;
+l_string|&quot;%5&quot;
+id|PRIuMAX
+l_string|&quot;%s&quot;
 comma
 id|added
 op_plus
@@ -6809,7 +6814,11 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;%d&bslash;t%d&bslash;t&quot;
+l_string|&quot;%&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;t%&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;t&quot;
 comma
 id|file-&gt;added
 comma
