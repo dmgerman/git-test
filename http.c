@@ -4829,7 +4829,11 @@ c_func
 (paren
 id|preq-&gt;tmpfile
 comma
-id|preq-&gt;filename
+id|sha1_pack_name
+c_func
+(paren
+id|p-&gt;sha1
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4967,21 +4971,6 @@ id|sha1_pack_name
 c_func
 (paren
 id|target-&gt;sha1
-)paren
-suffix:semicolon
-id|snprintf
-c_func
-(paren
-id|preq-&gt;filename
-comma
-r_sizeof
-(paren
-id|preq-&gt;filename
-)paren
-comma
-l_string|&quot;%s&quot;
-comma
-id|filename
 )paren
 suffix:semicolon
 id|snprintf
@@ -5443,21 +5432,6 @@ suffix:semicolon
 id|snprintf
 c_func
 (paren
-id|freq-&gt;filename
-comma
-r_sizeof
-(paren
-id|freq-&gt;filename
-)paren
-comma
-l_string|&quot;%s&quot;
-comma
-id|filename
-)paren
-suffix:semicolon
-id|snprintf
-c_func
-(paren
 id|freq-&gt;tmpfile
 comma
 r_sizeof
@@ -5614,11 +5588,9 @@ l_int|0
 id|error
 c_func
 (paren
-l_string|&quot;Couldn&squot;t create temporary file %s for %s: %s&quot;
+l_string|&quot;Couldn&squot;t create temporary file %s: %s&quot;
 comma
 id|freq-&gt;tmpfile
-comma
-id|freq-&gt;filename
 comma
 id|strerror
 c_func
@@ -5841,11 +5813,9 @@ l_int|0
 id|error
 c_func
 (paren
-l_string|&quot;Couldn&squot;t truncate temporary file %s for %s: %s&quot;
+l_string|&quot;Couldn&squot;t truncate temporary file %s: %s&quot;
 comma
 id|freq-&gt;tmpfile
-comma
-id|freq-&gt;filename
 comma
 id|strerror
 c_func
@@ -6183,7 +6153,11 @@ c_func
 (paren
 id|freq-&gt;tmpfile
 comma
-id|freq-&gt;filename
+id|sha1_file_name
+c_func
+(paren
+id|freq-&gt;sha1
+)paren
 )paren
 suffix:semicolon
 r_return
