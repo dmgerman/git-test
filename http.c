@@ -4774,14 +4774,6 @@ c_func
 id|preq-&gt;packfile
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|preq-&gt;packfile
-op_ne
-l_int|NULL
-)paren
-(brace
 id|fclose
 c_func
 (paren
@@ -4796,7 +4788,6 @@ id|preq-&gt;slot-&gt;local
 op_assign
 l_int|NULL
 suffix:semicolon
-)brace
 id|lst
 op_assign
 id|preq-&gt;lst
