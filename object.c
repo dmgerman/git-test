@@ -1351,6 +1351,7 @@ id|array
 )paren
 (brace
 r_int
+r_int
 id|ref
 comma
 id|src
@@ -1372,9 +1373,10 @@ op_assign
 l_int|0
 suffix:semicolon
 id|ref
+op_plus
+l_int|1
 OL
 id|array-&gt;nr
-l_int|1
 suffix:semicolon
 id|ref
 op_increment
