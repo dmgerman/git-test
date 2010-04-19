@@ -4411,6 +4411,12 @@ id|parse_pack_index
 c_func
 (paren
 id|sha1
+comma
+id|sha1_pack_index_name
+c_func
+(paren
+id|sha1
+)paren
 )paren
 suffix:semicolon
 r_if
