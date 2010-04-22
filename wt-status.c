@@ -3422,7 +3422,14 @@ c_func
 (paren
 id|s-&gt;fp
 comma
-l_string|&quot;# Untracked files not listed (use -u option to show untracked files)&bslash;n&quot;
+l_string|&quot;# Untracked files not listed%s&bslash;n&quot;
+comma
+id|advice_status_hints
+ques
+c_cond
+l_string|&quot; (use -u option to show untracked files)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3473,7 +3480,14 @@ id|s-&gt;workdir_dirty
 id|printf
 c_func
 (paren
-l_string|&quot;no changes added to commit (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit -a&bslash;&quot;)&bslash;n&quot;
+l_string|&quot;no changes added to commit%s&bslash;n&quot;
+comma
+id|advice_status_hints
+ques
+c_cond
+l_string|&quot; (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit -a&bslash;&quot;)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_else
@@ -3485,7 +3499,14 @@ id|s-&gt;untracked.nr
 id|printf
 c_func
 (paren
-l_string|&quot;nothing added to commit but untracked files present (use &bslash;&quot;git add&bslash;&quot; to track)&bslash;n&quot;
+l_string|&quot;nothing added to commit but untracked files present%s&bslash;n&quot;
+comma
+id|advice_status_hints
+ques
+c_cond
+l_string|&quot; (use &bslash;&quot;git add&bslash;&quot; to track)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_else
@@ -3497,7 +3518,14 @@ id|s-&gt;is_initial
 id|printf
 c_func
 (paren
-l_string|&quot;nothing to commit (create/copy files and use &bslash;&quot;git add&bslash;&quot; to track)&bslash;n&quot;
+l_string|&quot;nothing to commit%s&bslash;n&quot;
+comma
+id|advice_status_hints
+ques
+c_cond
+l_string|&quot; (create/copy files and use &bslash;&quot;git add&bslash;&quot; to track)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_else
@@ -3510,14 +3538,28 @@ id|s-&gt;show_untracked_files
 id|printf
 c_func
 (paren
-l_string|&quot;nothing to commit (use -u to show untracked files)&bslash;n&quot;
+l_string|&quot;nothing to commit%s&bslash;n&quot;
+comma
+id|advice_status_hints
+ques
+c_cond
+l_string|&quot; (use -u to show untracked files)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_else
 id|printf
 c_func
 (paren
-l_string|&quot;nothing to commit (working directory clean)&bslash;n&quot;
+l_string|&quot;nothing to commit%s&bslash;n&quot;
+comma
+id|advice_status_hints
+ques
+c_cond
+l_string|&quot; (working directory clean)&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
