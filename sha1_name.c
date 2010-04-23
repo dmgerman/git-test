@@ -3817,7 +3817,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This interprets names like &squot;:/Initial revision of &quot;git&quot;&squot; by searching&n; * through history and returning the first commit whose message starts&n; * with the given string.&n; *&n; * For future extension, &squot;:/!&squot; is reserved. If you want to match a message&n; * beginning with a &squot;!&squot;, you have to repeat the exclamation mark.&n; */
+multiline_comment|/*&n; * This interprets names like &squot;:/Initial revision of &quot;git&quot;&squot; by searching&n; * through history and returning the first commit whose message matches&n; * the given regular expression.&n; *&n; * For future extension, &squot;:/!&squot; is reserved. If you want to match a message&n; * beginning with a &squot;!&squot;, you have to repeat the exclamation mark.&n; */
 DECL|macro|ONELINE_SEEN
 mdefine_line|#define ONELINE_SEEN (1u&lt;&lt;20)
 DECL|function|get_sha1_oneline
@@ -3863,6 +3863,9 @@ id|temp_commit_buffer
 op_assign
 l_int|NULL
 suffix:semicolon
+id|regex_t
+id|regex
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3895,6 +3898,28 @@ id|prefix
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|regcomp
+c_func
+(paren
+op_amp
+id|regex
+comma
+id|prefix
+comma
+id|REG_EXTENDED
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Invalid search pattern: %s&quot;
+comma
+id|prefix
+)paren
+suffix:semicolon
 id|for_each_ref
 c_func
 (paren
@@ -4038,14 +4063,21 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|prefixcmp
+id|regexec
 c_func
 (paren
+op_amp
+id|regex
+comma
 id|p
 op_plus
 l_int|2
 comma
-id|prefix
+l_int|0
+comma
+l_int|NULL
+comma
+l_int|0
 )paren
 )paren
 (brace
@@ -4065,6 +4097,13 @@ r_break
 suffix:semicolon
 )brace
 )brace
+id|regfree
+c_func
+(paren
+op_amp
+id|regex
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
