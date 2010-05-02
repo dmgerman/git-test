@@ -92,8 +92,6 @@ DECL|variable|xdl_opts
 r_static
 r_int
 id|xdl_opts
-op_assign
-id|XDF_NEED_MINIMAL
 suffix:semicolon
 DECL|variable|blame_date_mode
 r_static

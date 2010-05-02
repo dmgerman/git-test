@@ -4102,7 +4102,7 @@ id|diff_words-&gt;word_regex
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+l_int|0
 suffix:semicolon
 multiline_comment|/* as only the hunk header will be parsed, we need a 0-context */
 id|xecfg.ctxlen
@@ -9994,8 +9994,6 @@ l_int|NULL
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
-op_or
 id|o-&gt;xdl_opts
 suffix:semicolon
 id|xecfg.ctxlen
@@ -10535,8 +10533,6 @@ id|xecfg
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
-op_or
 id|o-&gt;xdl_opts
 suffix:semicolon
 id|xdi_diff_outf
@@ -10770,7 +10766,7 @@ suffix:semicolon
 multiline_comment|/* at least one context line */
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+l_int|0
 suffix:semicolon
 id|xdi_diff_outf
 c_func
@@ -19099,7 +19095,7 @@ id|len1
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+l_int|0
 suffix:semicolon
 id|xecfg.ctxlen
 op_assign
