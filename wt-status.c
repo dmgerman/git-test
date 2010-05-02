@@ -4186,6 +4186,8 @@ comma
 id|s
 )paren
 comma
+l_string|&quot;%s&quot;
+comma
 id|sign
 )paren
 suffix:semicolon
