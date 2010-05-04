@@ -1159,9 +1159,6 @@ suffix:semicolon
 id|mmfile_t
 id|parent_file
 suffix:semicolon
-id|xdemitcb_t
-id|ecb
-suffix:semicolon
 r_struct
 id|combine_diff_state
 id|state
@@ -1279,9 +1276,6 @@ id|xpp
 comma
 op_amp
 id|xecfg
-comma
-op_amp
-id|ecb
 )paren
 suffix:semicolon
 id|free

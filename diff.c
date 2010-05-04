@@ -4003,9 +4003,6 @@ suffix:semicolon
 id|xdemitconf_t
 id|xecfg
 suffix:semicolon
-id|xdemitcb_t
-id|ecb
-suffix:semicolon
 id|mmfile_t
 id|minus
 comma
@@ -4127,9 +4124,6 @@ id|xpp
 comma
 op_amp
 id|xecfg
-comma
-op_amp
-id|ecb
 )paren
 suffix:semicolon
 id|free
@@ -9740,9 +9734,6 @@ suffix:semicolon
 id|xdemitconf_t
 id|xecfg
 suffix:semicolon
-id|xdemitcb_t
-id|ecb
-suffix:semicolon
 r_struct
 id|emit_callback
 id|ecbdata
@@ -10219,9 +10210,6 @@ id|xpp
 comma
 op_amp
 id|xecfg
-comma
-op_amp
-id|ecb
 )paren
 suffix:semicolon
 r_if
@@ -10502,9 +10490,6 @@ suffix:semicolon
 id|xdemitconf_t
 id|xecfg
 suffix:semicolon
-id|xdemitcb_t
-id|ecb
-suffix:semicolon
 id|memset
 c_func
 (paren
@@ -10557,9 +10542,6 @@ id|xpp
 comma
 op_amp
 id|xecfg
-comma
-op_amp
-id|ecb
 )paren
 suffix:semicolon
 )brace
@@ -10732,9 +10714,6 @@ suffix:semicolon
 id|xdemitconf_t
 id|xecfg
 suffix:semicolon
-id|xdemitcb_t
-id|ecb
-suffix:semicolon
 id|memset
 c_func
 (paren
@@ -10791,9 +10770,6 @@ id|xpp
 comma
 op_amp
 id|xecfg
-comma
-op_amp
-id|ecb
 )paren
 suffix:semicolon
 r_if
@@ -18772,9 +18748,6 @@ suffix:semicolon
 id|xdemitconf_t
 id|xecfg
 suffix:semicolon
-id|xdemitcb_t
-id|ecb
-suffix:semicolon
 id|mmfile_t
 id|mf1
 comma
@@ -19128,9 +19101,6 @@ id|xpp
 comma
 op_amp
 id|xecfg
-comma
-op_amp
-id|ecb
 )paren
 suffix:semicolon
 )brace
