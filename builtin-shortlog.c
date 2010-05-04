@@ -1013,7 +1013,7 @@ l_int|0
 suffix:semicolon
 id|ctx.abbrev
 op_assign
-id|DEFAULT_ABBREV
+id|log-&gt;abbrev
 suffix:semicolon
 id|ctx.subject
 op_assign
@@ -1747,6 +1747,10 @@ op_assign
 id|rev.commit_format
 op_eq
 id|CMIT_FMT_USERFORMAT
+suffix:semicolon
+id|log.abbrev
+op_assign
+id|rev.abbrev
 suffix:semicolon
 multiline_comment|/* assume HEAD if from a tty */
 r_if
