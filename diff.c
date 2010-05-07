@@ -20693,6 +20693,14 @@ op_star
 id|options
 )paren
 (brace
+multiline_comment|/* We never run this function more than one time, because the&n;&t; * rename/copy detection logic can only run once.&n;&t; */
+r_if
+c_cond
+(paren
+id|diff_queued_diff.run
+)paren
+r_return
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -20805,6 +20813,10 @@ id|options
 comma
 id|HAS_CHANGES
 )paren
+suffix:semicolon
+id|diff_queued_diff.run
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|diff_result_code
