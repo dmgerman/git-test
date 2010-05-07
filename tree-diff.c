@@ -1779,9 +1779,14 @@ comma
 id|RECURSIVE
 )paren
 suffix:semicolon
-id|diff_opts.detect_rename
-op_assign
-id|DIFF_DETECT_RENAME
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|diff_opts
+comma
+id|FIND_COPIES_HARDER
+)paren
 suffix:semicolon
 id|diff_opts.output_format
 op_assign
