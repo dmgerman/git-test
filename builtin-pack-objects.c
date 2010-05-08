@@ -7259,6 +7259,10 @@ c_func
 )paren
 suffix:semicolon
 )brace
+DECL|variable|old_try_to_free_routine
+id|try_to_free_t
+id|old_try_to_free_routine
+suffix:semicolon
 multiline_comment|/*&n; * The main thread waits on the condition that (at least) one of the workers&n; * has stopped working (which is indicated in the .working member of&n; * struct thread_params).&n; * When a work thread has completed its work, it sets .working to 0 and&n; * signals the main thread and waits on the condition that .data_ready&n; * becomes 1.&n; */
 DECL|struct|thread_params
 r_struct
@@ -7363,6 +7367,8 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|old_try_to_free_routine
+op_assign
 id|set_try_to_free_routine
 c_func
 (paren
@@ -7382,7 +7388,7 @@ r_void
 id|set_try_to_free_routine
 c_func
 (paren
-l_int|NULL
+id|old_try_to_free_routine
 )paren
 suffix:semicolon
 id|pthread_cond_destroy
