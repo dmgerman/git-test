@@ -3281,7 +3281,6 @@ l_int|10
 suffix:semicolon
 )brace
 DECL|function|end_url_with_slash
-r_static
 r_void
 id|end_url_with_slash
 c_func
