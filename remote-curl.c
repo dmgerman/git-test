@@ -695,6 +695,15 @@ comma
 id|refs_url
 )paren
 suffix:semicolon
+r_case
+id|HTTP_NOAUTH
+suffix:colon
+id|die
+c_func
+(paren
+l_string|&quot;Authentication failed&quot;
+)paren
+suffix:semicolon
 r_default
 suffix:colon
 id|http_error
