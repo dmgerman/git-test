@@ -8719,11 +8719,9 @@ id|ws_rule
 op_amp
 id|WS_BLANK_AT_EOF
 )paren
-op_logical_and
-id|match_end
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * This hunk that matches at the end extends beyond&n;&t;&t; * the end of img, and we are removing blank lines&n;&t;&t; * at the end of the file.  This many lines from the&n;&t;&t; * beginning of the preimage must match with img, and&n;&t;&t; * the remainder of the preimage must be blank.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * This hunk extends beyond the end of img, and we are&n;&t;&t; * removing blank lines at the end of the file.  This&n;&t;&t; * many lines from the beginning of the preimage must&n;&t;&t; * match with img, and the remainder of the preimage&n;&t;&t; * must be blank.&n;&t;&t; */
 id|preimage_limit
 op_assign
 id|img-&gt;nr
