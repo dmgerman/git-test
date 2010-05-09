@@ -10,7 +10,8 @@ id|ls_remote_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git ls-remote [--heads] [--tags]  [-u &lt;exec&gt; | --upload-pack &lt;exec&gt;] &lt;repository&gt; &lt;refs&gt;...&quot;
+l_string|&quot;git ls-remote [--heads] [--tags]  [-u &lt;exec&gt; | --upload-pack &lt;exec&gt;]&bslash;n&quot;
+l_string|&quot;                     [&lt;repository&gt; [&lt;refs&gt;...]]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * Is there one among the list of patterns that match the tail part&n; * of the path?&n; */
 DECL|function|tail_match
@@ -376,18 +377,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|dest
-)paren
-id|usage
-c_func
-(paren
-id|ls_remote_usage
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|argv
 (braket
 id|i
@@ -485,6 +474,33 @@ c_func
 id|dest
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|remote
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|dest
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad repository &squot;%s&squot;&quot;
+comma
+id|dest
+)paren
+suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;No remote configured to list refs from.&quot;
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
