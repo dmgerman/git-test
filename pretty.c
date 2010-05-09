@@ -4567,6 +4567,26 @@ suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+r_case
+l_char|&squot;B&squot;
+suffix:colon
+multiline_comment|/* raw body */
+multiline_comment|/* message_off is always left at the initial newline */
+id|strbuf_addstr
+c_func
+(paren
+id|sb
+comma
+id|msg
+op_plus
+id|c-&gt;message_off
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
 )brace
 multiline_comment|/* Now we need to parse the commit message. */
 r_if
