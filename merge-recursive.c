@@ -2258,10 +2258,6 @@ c_func
 (paren
 id|path
 )paren
-op_logical_and
-id|errno
-op_ne
-id|ENOENT
 )paren
 r_return
 l_int|1
