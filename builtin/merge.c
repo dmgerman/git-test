@@ -5869,7 +5869,7 @@ id|head_arg
 op_assign
 l_string|&quot;HEAD&quot;
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * All the rest are the commits being merged;&n;&t;&t; * prepare the standard merge summary message to&n;&t;&t; * be appended to the given message.  If remote&n;&t;&t; * is invalid we will die later in the common&n;&t;&t; * codepath so we discard the error in this&n;&t;&t; * loop.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * All the rest are the commits being merged;&n;&t;&t; * prepare the standard merge summary message to&n;&t;&t; * used as the merge message.  If remote&n;&t;&t; * is invalid we will die later in the common&n;&t;&t; * codepath so we discard the error in this&n;&t;&t; * loop.&n;&t;&t; */
 r_if
 c_cond
 (paren
