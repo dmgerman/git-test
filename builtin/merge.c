@@ -5860,7 +5860,7 @@ r_else
 (brace
 r_struct
 id|strbuf
-id|msg
+id|merge_names
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
@@ -5900,7 +5900,7 @@ id|i
 )braket
 comma
 op_amp
-id|msg
+id|merge_names
 )paren
 suffix:semicolon
 id|fmt_merge_msg
@@ -5909,7 +5909,7 @@ c_func
 id|option_log
 comma
 op_amp
-id|msg
+id|merge_names
 comma
 op_amp
 id|merge_msg
