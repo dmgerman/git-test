@@ -2366,6 +2366,8 @@ id|git_dir
 )paren
 )paren
 comma
+id|argc
+OG
 l_int|0
 )paren
 suffix:semicolon
