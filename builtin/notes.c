@@ -34,7 +34,7 @@ l_string|&quot;git notes [--ref &lt;notes_ref&gt;] show [&lt;object&gt;]&quot;
 comma
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] remove [&lt;object&gt;]&quot;
 comma
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] prune&quot;
+l_string|&quot;git notes [--ref &lt;notes_ref&gt;] prune [-n | -v]&quot;
 comma
 l_int|NULL
 )brace
@@ -164,7 +164,7 @@ id|git_notes_prune_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git notes prune&quot;
+l_string|&quot;git notes prune [&lt;options&gt;]&quot;
 comma
 l_int|NULL
 )brace
@@ -4434,6 +4434,15 @@ id|notes_tree
 op_star
 id|t
 suffix:semicolon
+r_int
+id|show_only
+op_assign
+l_int|0
+comma
+id|verbose
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|option
 id|options
@@ -4441,6 +4450,32 @@ id|options
 )braket
 op_assign
 (brace
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;n&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|show_only
+comma
+l_string|&quot;do not remove, show only&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;v&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|verbose
+comma
+l_string|&quot;report pruned notes&quot;
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -4498,8 +4533,34 @@ id|prune_notes
 c_func
 (paren
 id|t
+comma
+(paren
+id|verbose
+ques
+c_cond
+id|NOTES_PRUNE_VERBOSE
+suffix:colon
+l_int|0
+)paren
+op_or
+(paren
+id|show_only
+ques
+c_cond
+id|NOTES_PRUNE_VERBOSE
+op_or
+id|NOTES_PRUNE_DRYRUN
+suffix:colon
+l_int|0
+)paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|show_only
+)paren
 id|commit_notes
 c_func
 (paren
