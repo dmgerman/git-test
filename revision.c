@@ -9492,7 +9492,6 @@ id|rewrite_one_noparents
 comma
 DECL|enumerator|rewrite_one_error
 id|rewrite_one_error
-comma
 )brace
 suffix:semicolon
 DECL|function|rewrite_one

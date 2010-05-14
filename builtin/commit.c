@@ -122,7 +122,6 @@ id|COMMIT_NORMAL
 comma
 DECL|enumerator|COMMIT_PARTIAL
 id|COMMIT_PARTIAL
-comma
 DECL|variable|commit_style
 )brace
 id|commit_style
@@ -239,7 +238,6 @@ id|CLEANUP_NONE
 comma
 DECL|enumerator|CLEANUP_ALL
 id|CLEANUP_ALL
-comma
 DECL|variable|cleanup_mode
 )brace
 id|cleanup_mode
@@ -297,7 +295,6 @@ id|STATUS_FORMAT_SHORT
 comma
 DECL|enumerator|STATUS_FORMAT_PORCELAIN
 id|STATUS_FORMAT_PORCELAIN
-comma
 DECL|variable|status_format
 )brace
 id|status_format

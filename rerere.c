@@ -914,7 +914,6 @@ comma
 id|RR_SIDE_2
 comma
 id|RR_ORIGINAL
-comma
 )brace
 id|hunk
 op_assign

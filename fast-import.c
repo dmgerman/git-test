@@ -416,7 +416,6 @@ id|WHENSPEC_RFC2822
 comma
 DECL|enumerator|WHENSPEC_NOW
 id|WHENSPEC_NOW
-comma
 DECL|typedef|whenspec_type
 )brace
 id|whenspec_type

@@ -34,7 +34,6 @@ id|DENY_WARN
 comma
 DECL|enumerator|DENY_REFUSE
 id|DENY_REFUSE
-comma
 )brace
 suffix:semicolon
 DECL|variable|deny_deletes

@@ -163,7 +163,6 @@ id|die_on_ws_error
 comma
 DECL|enumerator|correct_ws_error
 id|correct_ws_error
-comma
 DECL|variable|ws_error_action
 )brace
 id|ws_error_action
@@ -197,7 +196,6 @@ id|ignore_ws_none
 comma
 DECL|enumerator|ignore_ws_change
 id|ignore_ws_change
-comma
 DECL|variable|ws_ignore_action
 )brace
 id|ws_ignore_action

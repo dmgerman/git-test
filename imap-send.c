@@ -917,7 +917,6 @@ id|STARTTLS
 comma
 DECL|enumerator|AUTH_CRAM_MD5
 id|AUTH_CRAM_MD5
-comma
 )brace
 suffix:semicolon
 DECL|variable|cap_list

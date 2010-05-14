@@ -1727,7 +1727,6 @@ id|PUSH_STATUS_OUTOFDATE
 comma
 DECL|enumerator|PUSH_STATUS_NOTQUERIED
 id|PUSH_STATUS_NOTQUERIED
-comma
 DECL|member|status
 )brace
 id|status

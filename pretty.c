@@ -4683,7 +4683,6 @@ comma
 id|ADD_LF_BEFORE_NON_EMPTY
 comma
 id|DEL_LF_BEFORE_EMPTY
-comma
 )brace
 id|magic
 op_assign

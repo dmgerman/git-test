@@ -73,7 +73,6 @@ comma
 id|TE_QP
 comma
 id|TE_BASE64
-comma
 DECL|variable|transfer_encoding
 )brace
 id|transfer_encoding
@@ -86,7 +85,6 @@ DECL|enumerator|TYPE_OTHER
 id|TYPE_TEXT
 comma
 id|TYPE_OTHER
-comma
 DECL|variable|message_type
 )brace
 id|message_type
