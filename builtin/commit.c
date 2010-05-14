@@ -3678,10 +3678,15 @@ l_int|2
 )braket
 op_assign
 (brace
-id|index
-comma
 l_int|NULL
 )brace
+suffix:semicolon
+id|env
+(braket
+l_int|0
+)braket
+op_assign
+id|index
 suffix:semicolon
 id|snprintf
 c_func

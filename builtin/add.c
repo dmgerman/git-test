@@ -1353,7 +1353,7 @@ l_string|&quot;--recount&quot;
 comma
 l_string|&quot;--cached&quot;
 comma
-id|file
+l_int|NULL
 comma
 l_int|NULL
 )brace
@@ -1372,6 +1372,13 @@ suffix:semicolon
 r_struct
 id|stat
 id|st
+suffix:semicolon
+id|apply_argv
+(braket
+l_int|3
+)braket
+op_assign
+id|file
 suffix:semicolon
 id|git_config
 c_func

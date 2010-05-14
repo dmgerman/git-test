@@ -3821,17 +3821,6 @@ op_star
 id|fetch_refspec_str
 )paren
 (brace
-r_const
-r_char
-op_star
-id|fetch_refspec
-(braket
-)braket
-op_assign
-(brace
-id|fetch_refspec_str
-)brace
-suffix:semicolon
 r_struct
 id|refspec
 op_star
@@ -3844,7 +3833,8 @@ c_func
 (paren
 l_int|1
 comma
-id|fetch_refspec
+op_amp
+id|fetch_refspec_str
 comma
 l_int|1
 comma
