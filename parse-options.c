@@ -20,6 +20,9 @@ r_struct
 id|option
 op_star
 id|opts
+comma
+r_int
+id|err
 )paren
 suffix:semicolon
 DECL|macro|OPT_SHORT
@@ -2024,6 +2027,8 @@ id|option
 op_star
 comma
 r_int
+comma
+r_int
 )paren
 suffix:semicolon
 DECL|function|parse_options_step
@@ -2184,6 +2189,8 @@ c_func
 id|usagestr
 comma
 id|options
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_switch
@@ -2208,6 +2215,8 @@ c_func
 id|usagestr
 comma
 id|options
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_case
@@ -2255,6 +2264,8 @@ c_func
 id|usagestr
 comma
 id|options
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_switch
@@ -2279,6 +2290,8 @@ c_func
 id|usagestr
 comma
 id|options
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_case
@@ -2374,6 +2387,8 @@ comma
 id|options
 comma
 l_int|1
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -2399,6 +2414,8 @@ c_func
 id|usagestr
 comma
 id|options
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_switch
@@ -2427,6 +2444,8 @@ c_func
 id|usagestr
 comma
 id|options
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_case
@@ -2675,6 +2694,10 @@ r_struct
 id|option
 op_star
 id|opts
+comma
+id|FILE
+op_star
+id|outfile
 )paren
 (brace
 r_const
@@ -2739,7 +2762,7 @@ r_return
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 id|s
 comma
@@ -2777,8 +2800,22 @@ id|opts
 comma
 r_int
 id|full
+comma
+r_int
+id|err
 )paren
 (brace
+id|FILE
+op_star
+id|outfile
+op_assign
+id|err
+ques
+c_cond
+id|stderr
+suffix:colon
+id|stdout
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2791,7 +2828,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;usage: %s&bslash;n&quot;
 comma
@@ -2813,7 +2850,7 @@ id|usagestr
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;   or: %s&bslash;n&quot;
 comma
@@ -2832,7 +2869,7 @@ id|usagestr
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;%s%s&bslash;n&quot;
 comma
@@ -2865,7 +2902,7 @@ c_func
 (paren
 l_char|&squot;&bslash;n&squot;
 comma
-id|stderr
+id|outfile
 )paren
 suffix:semicolon
 r_for
@@ -2899,7 +2936,7 @@ c_func
 (paren
 l_char|&squot;&bslash;n&squot;
 comma
-id|stderr
+id|outfile
 )paren
 suffix:semicolon
 r_if
@@ -2911,7 +2948,7 @@ id|opts-&gt;help
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;%s&bslash;n&quot;
 comma
@@ -2940,7 +2977,7 @@ op_assign
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;    &quot;
 )paren
@@ -2970,7 +3007,7 @@ op_add_assign
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;%c&quot;
 comma
@@ -2983,7 +3020,7 @@ op_add_assign
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;-%c&quot;
 comma
@@ -3003,7 +3040,7 @@ op_add_assign
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;, &quot;
 )paren
@@ -3018,7 +3055,7 @@ op_add_assign
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;--%s%s&quot;
 comma
@@ -3048,7 +3085,7 @@ op_add_assign
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;-NUM&quot;
 )paren
@@ -3069,6 +3106,8 @@ id|usage_argh
 c_func
 (paren
 id|opts
+comma
+id|outfile
 )paren
 suffix:semicolon
 r_if
@@ -3090,7 +3129,7 @@ c_func
 (paren
 l_char|&squot;&bslash;n&squot;
 comma
-id|stderr
+id|outfile
 )paren
 suffix:semicolon
 id|pad
@@ -3101,7 +3140,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|stderr
+id|outfile
 comma
 l_string|&quot;%*s%s&bslash;n&quot;
 comma
@@ -3120,7 +3159,7 @@ c_func
 (paren
 l_char|&squot;&bslash;n&squot;
 comma
-id|stderr
+id|outfile
 )paren
 suffix:semicolon
 r_return
@@ -3154,6 +3193,8 @@ comma
 id|opts
 comma
 l_int|0
+comma
+l_int|1
 )paren
 suffix:semicolon
 m_exit
@@ -3223,6 +3264,9 @@ r_struct
 id|option
 op_star
 id|opts
+comma
+r_int
+id|err
 )paren
 (brace
 r_return
@@ -3234,6 +3278,8 @@ comma
 id|opts
 comma
 l_int|0
+comma
+id|err
 )paren
 suffix:semicolon
 )brace
