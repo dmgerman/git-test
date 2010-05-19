@@ -2373,7 +2373,7 @@ l_string|&quot;input&quot;
 (brace
 id|auto_crlf
 op_assign
-l_int|1
+id|AUTO_CRLF_INPUT
 suffix:semicolon
 r_return
 l_int|0
