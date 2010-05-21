@@ -2202,7 +2202,11 @@ c_func
 (paren
 l_string|&quot;unable to write sha1 filename %s&quot;
 comma
-id|req-&gt;filename
+id|sha1_file_name
+c_func
+(paren
+id|req-&gt;sha1
+)paren
 )paren
 suffix:semicolon
 )brace
