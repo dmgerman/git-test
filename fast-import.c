@@ -14544,6 +14544,12 @@ c_func
 id|marks
 )paren
 suffix:semicolon
+id|safe_create_leading_directories_const
+c_func
+(paren
+id|import_marks_file
+)paren
+suffix:semicolon
 id|import_marks_file_from_stream
 op_assign
 id|from_stream
@@ -14704,6 +14710,12 @@ id|make_fast_import_path
 c_func
 (paren
 id|marks
+)paren
+suffix:semicolon
+id|safe_create_leading_directories_const
+c_func
+(paren
+id|export_marks_file
 )paren
 suffix:semicolon
 )brace
