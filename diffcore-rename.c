@@ -2604,15 +2604,12 @@ suffix:semicolon
 id|cleanup
 suffix:colon
 multiline_comment|/* At this point, we have found some renames and copies and they&n;&t; * are recorded in rename_dst.  The original list is still in *q.&n;&t; */
-id|outq.queue
-op_assign
-l_int|NULL
-suffix:semicolon
-id|outq.nr
-op_assign
-id|outq.alloc
-op_assign
-l_int|0
+id|DIFF_QUEUE_CLEAR
+c_func
+(paren
+op_amp
+id|outq
+)paren
 suffix:semicolon
 r_for
 c_loop
