@@ -17,8 +17,8 @@ macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#ifndef NO_PTHREADS
-macro_line|#include &quot;thread-utils.h&quot;
 macro_line|#include &lt;pthread.h&gt;
+macro_line|#include &quot;thread-utils.h&quot;
 macro_line|#endif
 DECL|variable|pack_usage
 r_static
@@ -7130,6 +7130,35 @@ id|array
 suffix:semicolon
 )brace
 macro_line|#ifndef NO_PTHREADS
+DECL|function|try_to_free_from_threads
+r_static
+r_void
+id|try_to_free_from_threads
+c_func
+(paren
+r_int
+id|size
+)paren
+(brace
+id|read_lock
+c_func
+(paren
+)paren
+suffix:semicolon
+id|release_pack_memory
+c_func
+(paren
+id|size
+comma
+l_int|1
+)paren
+suffix:semicolon
+id|read_unlock
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/*&n; * The main thread waits on the condition that (at least) one of the workers&n; * has stopped working (which is indicated in the .working member of&n; * struct thread_params).&n; * When a work thread has completed its work, it sets .working to 0 and&n; * signals the main thread and waits on the condition that .data_ready&n; * becomes 1.&n; */
 DECL|struct|thread_params
 r_struct
@@ -7200,13 +7229,11 @@ c_func
 r_void
 )paren
 (brace
-id|pthread_mutex_init
+id|init_recursive_mutex
 c_func
 (paren
 op_amp
 id|read_mutex
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 id|pthread_mutex_init
@@ -7236,6 +7263,12 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|set_try_to_free_routine
+c_func
+(paren
+id|try_to_free_from_threads
+)paren
+suffix:semicolon
 )brace
 DECL|function|cleanup_threaded_search
 r_static
@@ -7246,6 +7279,12 @@ c_func
 r_void
 )paren
 (brace
+id|set_try_to_free_routine
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
 id|pthread_cond_destroy
 c_func
 (paren
