@@ -4133,7 +4133,7 @@ c_func
 (paren
 id|commit-&gt;object.sha1
 comma
-id|DEFAULT_ABBREV
+id|c-&gt;pretty_ctx-&gt;abbrev
 )paren
 )paren
 suffix:semicolon
@@ -4193,7 +4193,7 @@ c_func
 (paren
 id|commit-&gt;tree-&gt;object.sha1
 comma
-id|DEFAULT_ABBREV
+id|c-&gt;pretty_ctx-&gt;abbrev
 )paren
 )paren
 suffix:semicolon
@@ -4312,7 +4312,7 @@ c_func
 (paren
 id|p-&gt;item-&gt;object.sha1
 comma
-id|DEFAULT_ABBREV
+id|c-&gt;pretty_ctx-&gt;abbrev
 )paren
 )paren
 suffix:semicolon
