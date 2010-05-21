@@ -271,6 +271,11 @@ id|include_status
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|show_ignored_in_status
+r_static
+r_int
+id|show_ignored_in_status
+suffix:semicolon
 DECL|variable|only_include_assumed
 r_static
 r_const
@@ -5601,6 +5606,19 @@ r_intptr
 l_string|&quot;all&quot;
 )brace
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ignored&quot;
+comma
+op_amp
+id|show_ignored_in_status
+comma
+l_string|&quot;show ignored files&quot;
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -5673,6 +5691,15 @@ c_func
 op_amp
 id|s
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_ignored_in_status
+)paren
+id|s.show_ignored_files
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
