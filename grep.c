@@ -4546,6 +4546,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|opt-&gt;count
+)paren
+r_goto
+id|next_line
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|binary_match_only
 )paren
 (brace
@@ -4611,7 +4619,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/* Hit at this line.  If we haven&squot;t shown the&n;&t;&t;&t; * pre-context lines, we would need to show them.&n;&t;&t;&t; * When asked to do &quot;count&quot;, this still show&n;&t;&t;&t; * the context which is nonsense, but the user&n;&t;&t;&t; * deserves to get that ;-).&n;&t;&t;&t; */
+multiline_comment|/* Hit at this line.  If we haven&squot;t shown the&n;&t;&t;&t; * pre-context lines, we would need to show them.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -4651,12 +4659,6 @@ comma
 id|lno
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|opt-&gt;count
-)paren
 id|show_line
 c_func
 (paren
@@ -4847,6 +4849,9 @@ c_func
 id|buf
 )paren
 )paren
+suffix:semicolon
+r_return
+l_int|1
 suffix:semicolon
 )brace
 r_return
