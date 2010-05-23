@@ -5,6 +5,7 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;url.h&quot;
 DECL|variable|server_capabilities
 r_static
 r_char
@@ -2351,12 +2352,6 @@ id|flags
 r_char
 op_star
 id|url
-op_assign
-id|xstrdup
-c_func
-(paren
-id|url_orig
-)paren
 suffix:semicolon
 r_char
 op_star
@@ -2411,6 +2406,32 @@ c_func
 id|SIGCHLD
 comma
 id|SIG_DFL
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_url
+c_func
+(paren
+id|url_orig
+)paren
+)paren
+id|url
+op_assign
+id|url_decode
+c_func
+(paren
+id|url_orig
+)paren
+suffix:semicolon
+r_else
+id|url
+op_assign
+id|xstrdup
+c_func
+(paren
+id|url_orig
 )paren
 suffix:semicolon
 id|host
