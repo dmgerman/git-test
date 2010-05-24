@@ -1344,7 +1344,7 @@ c_func
 (paren
 id|commit-&gt;object.sha1
 comma
-l_int|7
+id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
