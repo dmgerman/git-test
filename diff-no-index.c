@@ -852,7 +852,6 @@ op_star
 id|path
 )paren
 (brace
-multiline_comment|/*&n;&t; * We have already done setup_git_directory_gently() so we&n;&t; * know we are inside a git work tree already.&n;&t; */
 r_const
 r_char
 op_star
@@ -880,6 +879,15 @@ id|get_git_work_tree
 c_func
 (paren
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|work_tree
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|len
 op_assign
