@@ -2816,6 +2816,42 @@ r_struct
 id|emit_callback
 id|ecbdata
 suffix:semicolon
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_struct
+id|strbuf
+op_star
+id|msgbuf
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o
+op_logical_and
+id|o-&gt;output_prefix
+)paren
+(brace
+id|msgbuf
+op_assign
+id|o
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|o
+comma
+id|o-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|msgbuf-&gt;buf
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -3088,7 +3124,9 @@ c_func
 (paren
 id|o-&gt;file
 comma
-l_string|&quot;%s--- %s%s%s&bslash;n%s+++ %s%s%s&bslash;n%s@@ -&quot;
+l_string|&quot;%s%s--- %s%s%s&bslash;n%s%s+++ %s%s%s&bslash;n%s%s@@ -&quot;
+comma
+id|line_prefix
 comma
 id|metainfo
 comma
@@ -3098,6 +3136,8 @@ id|name_a_tab
 comma
 id|reset
 comma
+id|line_prefix
+comma
 id|metainfo
 comma
 id|b_name.buf
@@ -3105,6 +3145,8 @@ comma
 id|name_b_tab
 comma
 id|reset
+comma
+id|line_prefix
 comma
 id|fraginfo
 )paren
@@ -4897,6 +4939,49 @@ comma
 id|DIFF_RESET
 )paren
 suffix:semicolon
+r_struct
+id|diff_options
+op_star
+id|o
+op_assign
+id|ecbdata-&gt;opt
+suffix:semicolon
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_struct
+id|strbuf
+op_star
+id|msgbuf
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o
+op_logical_and
+id|o-&gt;output_prefix
+)paren
+(brace
+id|msgbuf
+op_assign
+id|o
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|o
+comma
+id|o-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|msgbuf-&gt;buf
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -4989,7 +5074,9 @@ c_func
 (paren
 id|ecbdata-&gt;opt-&gt;file
 comma
-l_string|&quot;%s--- %s%s%s&bslash;n&quot;
+l_string|&quot;%s%s--- %s%s%s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|meta
 comma
@@ -5008,7 +5095,9 @@ c_func
 (paren
 id|ecbdata-&gt;opt-&gt;file
 comma
-l_string|&quot;%s+++ %s%s%s&bslash;n&quot;
+l_string|&quot;%s%s+++ %s%s%s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|meta
 comma
@@ -6395,6 +6484,20 @@ comma
 op_star
 id|del_c
 suffix:semicolon
+r_const
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_struct
+id|strbuf
+op_star
+id|msg
+op_assign
+l_int|NULL
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6404,6 +6507,29 @@ l_int|0
 )paren
 r_return
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|options-&gt;output_prefix
+)paren
+(brace
+id|msg
+op_assign
+id|options
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|options
+comma
+id|options-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|msg-&gt;buf
+suffix:semicolon
+)brace
 id|width
 op_assign
 id|options-&gt;stat_width
@@ -6745,6 +6871,16 @@ op_member_access_from_pointer
 id|is_binary
 )paren
 (brace
+id|fprintf
+c_func
+(paren
+id|options-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|line_prefix
+)paren
+suffix:semicolon
 id|show_name
 c_func
 (paren
@@ -6836,6 +6972,16 @@ op_member_access_from_pointer
 id|is_unmerged
 )paren
 (brace
+id|fprintf
+c_func
+(paren
+id|options-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|line_prefix
+)paren
+suffix:semicolon
 id|show_name
 c_func
 (paren
@@ -6936,6 +7082,16 @@ id|max_change
 )paren
 suffix:semicolon
 )brace
+id|fprintf
+c_func
+(paren
+id|options-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|line_prefix
+)paren
+suffix:semicolon
 id|show_name
 c_func
 (paren
@@ -7008,6 +7164,16 @@ l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
+id|fprintf
+c_func
+(paren
+id|options-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|line_prefix
+)paren
+suffix:semicolon
 id|fprintf
 c_func
 (paren
@@ -7156,6 +7322,42 @@ suffix:semicolon
 )brace
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|options-&gt;output_prefix
+)paren
+(brace
+r_struct
+id|strbuf
+op_star
+id|msg
+op_assign
+l_int|NULL
+suffix:semicolon
+id|msg
+op_assign
+id|options
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|options
+comma
+id|options-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|options-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|msg-&gt;buf
+)paren
+suffix:semicolon
+)brace
 id|fprintf
 c_func
 (paren
@@ -7225,6 +7427,42 @@ id|data-&gt;files
 id|i
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|options-&gt;output_prefix
+)paren
+(brace
+r_struct
+id|strbuf
+op_star
+id|msg
+op_assign
+l_int|NULL
+suffix:semicolon
+id|msg
+op_assign
+id|options
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|options
+comma
+id|options-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|options-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|msg-&gt;buf
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -7391,9 +7629,10 @@ r_int
 id|gather_dirstat
 c_func
 (paren
-id|FILE
+r_struct
+id|diff_options
 op_star
-id|file
+id|opt
 comma
 r_struct
 id|dirstat_dir
@@ -7425,6 +7664,43 @@ id|sources
 op_assign
 l_int|0
 suffix:semicolon
+r_const
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_struct
+id|strbuf
+op_star
+id|msg
+op_assign
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;output_prefix
+)paren
+(brace
+id|msg
+op_assign
+id|opt
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|opt
+comma
+id|opt-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|msg-&gt;buf
+suffix:semicolon
+)brace
 r_while
 c_loop
 (paren
@@ -7510,7 +7786,7 @@ op_assign
 id|gather_dirstat
 c_func
 (paren
-id|file
+id|opt
 comma
 id|dir
 comma
@@ -7591,9 +7867,11 @@ id|dir-&gt;percent
 id|fprintf
 c_func
 (paren
-id|file
+id|opt-&gt;file
 comma
-l_string|&quot;%4d.%01d%% %.*s&bslash;n&quot;
+l_string|&quot;%s%4d.%01d%% %.*s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|percent
 comma
@@ -8005,7 +8283,7 @@ suffix:semicolon
 id|gather_dirstat
 c_func
 (paren
-id|options-&gt;file
+id|options
 comma
 op_amp
 id|dir
@@ -8340,6 +8618,45 @@ r_char
 op_star
 id|err
 suffix:semicolon
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_struct
+id|strbuf
+op_star
+id|msgbuf
+suffix:semicolon
+m_assert
+(paren
+id|data-&gt;o
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|data-&gt;o-&gt;output_prefix
+)paren
+(brace
+id|msgbuf
+op_assign
+id|data-&gt;o
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|data-&gt;o
+comma
+id|data-&gt;o-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|msgbuf-&gt;buf
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -8383,7 +8700,9 @@ c_func
 (paren
 id|data-&gt;o-&gt;file
 comma
-l_string|&quot;%s:%d: leftover conflict marker&bslash;n&quot;
+l_string|&quot;%s%s:%d: leftover conflict marker&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|data-&gt;filename
 comma
@@ -8431,7 +8750,9 @@ c_func
 (paren
 id|data-&gt;o-&gt;file
 comma
-l_string|&quot;%s:%d: %s.&bslash;n&quot;
+l_string|&quot;%s%s:%d: %s.&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|data-&gt;filename
 comma
@@ -8694,6 +9015,10 @@ comma
 id|mmfile_t
 op_star
 id|two
+comma
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_void
@@ -8825,7 +9150,9 @@ c_func
 (paren
 id|file
 comma
-l_string|&quot;delta %lu&bslash;n&quot;
+l_string|&quot;%sdelta %lu&bslash;n&quot;
+comma
+id|prefix
 comma
 id|orig_size
 )paren
@@ -8852,7 +9179,9 @@ c_func
 (paren
 id|file
 comma
-l_string|&quot;literal %lu&bslash;n&quot;
+l_string|&quot;%sliteral %lu&bslash;n&quot;
+comma
+id|prefix
 comma
 id|two-&gt;size
 )paren
@@ -8958,6 +9287,16 @@ id|cp
 op_plus
 id|bytes
 suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|file
+comma
+l_string|&quot;%s&quot;
+comma
+id|prefix
+)paren
+suffix:semicolon
 id|fputs
 c_func
 (paren
@@ -8980,7 +9319,9 @@ c_func
 (paren
 id|file
 comma
-l_string|&quot;&bslash;n&quot;
+l_string|&quot;%s&bslash;n&quot;
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|free
@@ -9007,6 +9348,10 @@ comma
 id|mmfile_t
 op_star
 id|two
+comma
+r_char
+op_star
+id|prefix
 )paren
 (brace
 id|fprintf
@@ -9014,7 +9359,9 @@ c_func
 (paren
 id|file
 comma
-l_string|&quot;GIT binary patch&bslash;n&quot;
+l_string|&quot;%sGIT binary patch&bslash;n&quot;
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|emit_binary_diff_body
@@ -9025,6 +9372,8 @@ comma
 id|one
 comma
 id|two
+comma
+id|prefix
 )paren
 suffix:semicolon
 id|emit_binary_diff_body
@@ -9035,6 +9384,8 @@ comma
 id|two
 comma
 id|one
+comma
+id|prefix
 )paren
 suffix:semicolon
 )brace
@@ -9495,6 +9846,40 @@ id|header
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_struct
+id|strbuf
+op_star
+id|msgbuf
+suffix:semicolon
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;output_prefix
+)paren
+(brace
+id|msgbuf
+op_assign
+id|o
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|o
+comma
+id|o-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|msgbuf-&gt;buf
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -9753,7 +10138,9 @@ c_func
 op_amp
 id|header
 comma
-l_string|&quot;%sdiff --git %s %s%s&bslash;n&quot;
+l_string|&quot;%s%sdiff --git %s %s%s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|set
 comma
@@ -9785,7 +10172,9 @@ c_func
 op_amp
 id|header
 comma
-l_string|&quot;%snew file mode %06o%s&bslash;n&quot;
+l_string|&quot;%s%snew file mode %06o%s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|set
 comma
@@ -9841,7 +10230,9 @@ c_func
 op_amp
 id|header
 comma
-l_string|&quot;%sdeleted file mode %06o%s&bslash;n&quot;
+l_string|&quot;%s%sdeleted file mode %06o%s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|set
 comma
@@ -9892,7 +10283,9 @@ c_func
 op_amp
 id|header
 comma
-l_string|&quot;%sold mode %06o%s&bslash;n&quot;
+l_string|&quot;%s%sold mode %06o%s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|set
 comma
@@ -9907,7 +10300,9 @@ c_func
 op_amp
 id|header
 comma
-l_string|&quot;%snew mode %06o%s&bslash;n&quot;
+l_string|&quot;%s%snew mode %06o%s&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|set
 comma
@@ -10157,6 +10552,8 @@ id|mf1
 comma
 op_amp
 id|mf2
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 r_else
@@ -10165,7 +10562,9 @@ c_func
 (paren
 id|o-&gt;file
 comma
-l_string|&quot;Binary files %s and %s differ&bslash;n&quot;
+l_string|&quot;%sBinary files %s and %s differ&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|lbl
 (braket
@@ -13299,6 +13698,40 @@ op_star
 id|p
 )paren
 (brace
+r_struct
+id|strbuf
+op_star
+id|msgbuf
+suffix:semicolon
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;output_prefix
+)paren
+(brace
+id|msgbuf
+op_assign
+id|o
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|o
+comma
+id|o-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|msgbuf-&gt;buf
+suffix:semicolon
+)brace
 id|strbuf_init
 c_func
 (paren
@@ -13325,7 +13758,9 @@ c_func
 (paren
 id|msg
 comma
-l_string|&quot;similarity index %d%%&quot;
+l_string|&quot;%ssimilarity index %d%%&quot;
+comma
+id|line_prefix
 comma
 id|similarity_index
 c_func
@@ -13334,12 +13769,14 @@ id|p
 )paren
 )paren
 suffix:semicolon
-id|strbuf_addstr
+id|strbuf_addf
 c_func
 (paren
 id|msg
 comma
-l_string|&quot;&bslash;ncopy from &quot;
+l_string|&quot;&bslash;n%scopy from &quot;
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 id|quote_c_style
@@ -13354,12 +13791,14 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|strbuf_addstr
+id|strbuf_addf
 c_func
 (paren
 id|msg
 comma
-l_string|&quot;&bslash;ncopy to &quot;
+l_string|&quot;&bslash;n%scopy to &quot;
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 id|quote_c_style
@@ -13392,7 +13831,9 @@ c_func
 (paren
 id|msg
 comma
-l_string|&quot;similarity index %d%%&quot;
+l_string|&quot;%ssimilarity index %d%%&quot;
+comma
+id|line_prefix
 comma
 id|similarity_index
 c_func
@@ -13401,12 +13842,14 @@ id|p
 )paren
 )paren
 suffix:semicolon
-id|strbuf_addstr
+id|strbuf_addf
 c_func
 (paren
 id|msg
 comma
-l_string|&quot;&bslash;nrename from &quot;
+l_string|&quot;&bslash;n%srename from &quot;
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 id|quote_c_style
@@ -13421,12 +13864,14 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|strbuf_addstr
+id|strbuf_addf
 c_func
 (paren
 id|msg
 comma
-l_string|&quot;&bslash;nrename to &quot;
+l_string|&quot;&bslash;n%srename to &quot;
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 id|quote_c_style
@@ -13465,7 +13910,9 @@ c_func
 (paren
 id|msg
 comma
-l_string|&quot;dissimilarity index %d%%&bslash;n&quot;
+l_string|&quot;%sdissimilarity index %d%%&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|similarity_index
 c_func
@@ -13579,7 +14026,9 @@ c_func
 (paren
 id|msg
 comma
-l_string|&quot;index %.*s..%.*s&quot;
+l_string|&quot;%sindex %.*s..%.*s&quot;
+comma
+id|line_prefix
 comma
 id|abbrev
 comma
@@ -17780,6 +18229,42 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|opt-&gt;output_prefix
+)paren
+(brace
+r_struct
+id|strbuf
+op_star
+id|msg
+op_assign
+l_int|NULL
+suffix:semicolon
+id|msg
+op_assign
+id|opt
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|opt
+comma
+id|opt-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|opt-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|msg-&gt;buf
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 op_logical_neg
 (paren
 id|opt-&gt;output_format
@@ -19026,6 +19511,11 @@ id|p
 comma
 r_int
 id|show_name
+comma
+r_const
+r_char
+op_star
+id|line_prefix
 )paren
 (brace
 r_if
@@ -19045,7 +19535,9 @@ c_func
 (paren
 id|file
 comma
-l_string|&quot; mode change %06o =&gt; %06o%c&quot;
+l_string|&quot;%s mode change %06o =&gt; %06o%c&quot;
+comma
+id|line_prefix
 comma
 id|p-&gt;one-&gt;mode
 comma
@@ -19097,6 +19589,11 @@ r_struct
 id|diff_filepair
 op_star
 id|p
+comma
+r_const
+r_char
+op_star
+id|line_prefix
 )paren
 (brace
 r_char
@@ -19143,6 +19640,8 @@ comma
 id|p
 comma
 l_int|0
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 )brace
@@ -19152,9 +19651,10 @@ r_void
 id|diff_summary
 c_func
 (paren
-id|FILE
+r_struct
+id|diff_options
 op_star
-id|file
+id|opt
 comma
 r_struct
 id|diff_filepair
@@ -19162,6 +19662,44 @@ op_star
 id|p
 )paren
 (brace
+id|FILE
+op_star
+id|file
+op_assign
+id|opt-&gt;file
+suffix:semicolon
+r_char
+op_star
+id|line_prefix
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;output_prefix
+)paren
+(brace
+r_struct
+id|strbuf
+op_star
+id|buf
+op_assign
+id|opt
+op_member_access_from_pointer
+id|output_prefix
+c_func
+(paren
+id|opt
+comma
+id|opt-&gt;output_prefix_data
+)paren
+suffix:semicolon
+id|line_prefix
+op_assign
+id|buf-&gt;buf
+suffix:semicolon
+)brace
 r_switch
 c_cond
 (paren
@@ -19171,6 +19709,14 @@ id|p-&gt;status
 r_case
 id|DIFF_STATUS_DELETED
 suffix:colon
+id|fputs
+c_func
+(paren
+id|line_prefix
+comma
+id|file
+)paren
+suffix:semicolon
 id|show_file_mode_name
 c_func
 (paren
@@ -19186,6 +19732,14 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_ADDED
 suffix:colon
+id|fputs
+c_func
+(paren
+id|line_prefix
+comma
+id|file
+)paren
+suffix:semicolon
 id|show_file_mode_name
 c_func
 (paren
@@ -19201,6 +19755,14 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_COPIED
 suffix:colon
+id|fputs
+c_func
+(paren
+id|line_prefix
+comma
+id|file
+)paren
+suffix:semicolon
 id|show_rename_copy
 c_func
 (paren
@@ -19209,6 +19771,8 @@ comma
 l_string|&quot;copy&quot;
 comma
 id|p
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 r_break
@@ -19216,6 +19780,14 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_RENAMED
 suffix:colon
+id|fputs
+c_func
+(paren
+id|line_prefix
+comma
+id|file
+)paren
+suffix:semicolon
 id|show_rename_copy
 c_func
 (paren
@@ -19224,6 +19796,8 @@ comma
 l_string|&quot;rename&quot;
 comma
 id|p
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 r_break
@@ -19238,12 +19812,14 @@ c_cond
 id|p-&gt;score
 )paren
 (brace
-id|fputs
+id|fprintf
 c_func
 (paren
-l_string|&quot; rewrite &quot;
-comma
 id|file
+comma
+l_string|&quot;%s rewrite &quot;
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 id|write_name_quoted
@@ -19280,6 +19856,8 @@ id|p
 comma
 op_logical_neg
 id|p-&gt;score
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 r_break
@@ -20360,10 +20938,11 @@ suffix:semicolon
 id|i
 op_increment
 )paren
+(brace
 id|diff_summary
 c_func
 (paren
-id|options-&gt;file
+id|options
 comma
 id|q-&gt;queue
 (braket
@@ -20371,6 +20950,7 @@ id|i
 )braket
 )paren
 suffix:semicolon
+)brace
 id|separator
 op_increment
 suffix:semicolon
