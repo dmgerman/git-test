@@ -1326,10 +1326,7 @@ op_star
 id|help_msg
 c_func
 (paren
-r_const
-r_char
-op_star
-id|name
+r_void
 )paren
 (brace
 r_struct
@@ -1385,7 +1382,11 @@ l_string|&quot; with: &bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;        git commit -c %s&bslash;n&quot;
 comma
-id|name
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1999,7 +2000,6 @@ comma
 id|help_msg
 c_func
 (paren
-id|commit_name
 )paren
 )paren
 suffix:semicolon
@@ -2694,7 +2694,6 @@ comma
 id|help_msg
 c_func
 (paren
-id|commit_name
 )paren
 )paren
 suffix:semicolon
