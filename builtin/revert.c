@@ -204,19 +204,6 @@ comma
 id|OPT_BOOLEAN
 c_func
 (paren
-l_char|&squot;x&squot;
-comma
-l_int|NULL
-comma
-op_amp
-id|no_replay
-comma
-l_string|&quot;append commit name when cherry-picking&quot;
-)paren
-comma
-id|OPT_BOOLEAN
-c_func
-(paren
 l_char|&squot;r&squot;
 comma
 l_int|NULL
@@ -307,6 +294,19 @@ id|cp_extra
 )braket
 op_assign
 (brace
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;x&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|no_replay
+comma
+l_string|&quot;append commit name&quot;
+)paren
+comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -2141,23 +2141,6 @@ comma
 id|argv
 )paren
 suffix:semicolon
-multiline_comment|/* this is copied from the shell script, but it&squot;s never triggered... */
-r_if
-c_cond
-(paren
-id|action
-op_eq
-id|REVERT
-op_logical_and
-op_logical_neg
-id|no_replay
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;revert is incompatible with replay&quot;
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2981,10 +2964,6 @@ id|edit
 op_assign
 l_int|1
 suffix:semicolon
-id|no_replay
-op_assign
-l_int|1
-suffix:semicolon
 id|action
 op_assign
 id|REVERT
@@ -3019,10 +2998,6 @@ op_star
 id|prefix
 )paren
 (brace
-id|no_replay
-op_assign
-l_int|0
-suffix:semicolon
 id|action
 op_assign
 id|CHERRY_PICK
