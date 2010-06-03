@@ -5809,6 +5809,10 @@ id|revs-&gt;ancestry_path
 op_assign
 l_int|1
 suffix:semicolon
+id|revs-&gt;simplify_history
+op_assign
+l_int|0
+suffix:semicolon
 id|revs-&gt;limited
 op_assign
 l_int|1
