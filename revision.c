@@ -3039,7 +3039,7 @@ id|bottom
 id|die
 c_func
 (paren
-l_string|&quot;--ancestry-path given but there is no bottom commits&quot;
+l_string|&quot;--ancestry-path given but there are no bottom commits&quot;
 )paren
 suffix:semicolon
 )brace
