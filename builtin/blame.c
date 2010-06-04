@@ -7076,7 +7076,7 @@ l_char|&squot; &squot;
 suffix:colon
 l_char|&squot;*&squot;
 comma
-singleline_comment|// purely for debugging
+multiline_comment|/* purely for debugging */
 id|ent-&gt;s_lno
 op_plus
 l_int|1
