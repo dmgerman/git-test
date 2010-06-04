@@ -179,6 +179,13 @@ id|read_replace_refs
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|eol
+r_enum
+id|eol
+id|eol
+op_assign
+id|EOL_UNSET
+suffix:semicolon
 DECL|variable|safe_crlf
 r_enum
 id|safe_crlf
