@@ -1477,7 +1477,7 @@ id|refname
 )paren
 suffix:semicolon
 r_return
-id|cb-&gt;ret
+l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* Filter with with_commit if specified */
@@ -2815,6 +2815,17 @@ c_func
 (paren
 op_amp
 id|ref_list
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|cb.ret
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;some refs could not be read&quot;
 )paren
 suffix:semicolon
 r_return
