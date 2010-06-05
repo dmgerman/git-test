@@ -2585,6 +2585,7 @@ l_int|NULL
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Returns the &quot;prefix&quot;, a path to the current working directory&n; * relative to the work tree root, or NULL, if the current working&n; * directory is not a strict subdirectory of the work tree root. The&n; * prefix always ends with a &squot;/&squot; character.&n; */
 DECL|function|setup_git_directory
 r_const
 r_char
