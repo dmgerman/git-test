@@ -3170,13 +3170,13 @@ suffix:semicolon
 r_case
 id|OBJ_TREE
 suffix:colon
-singleline_comment|// grab_tree_values(val, deref, obj, buf, sz);
+multiline_comment|/* grab_tree_values(val, deref, obj, buf, sz); */
 r_break
 suffix:semicolon
 r_case
 id|OBJ_BLOB
 suffix:colon
-singleline_comment|// grab_blob_values(val, deref, obj, buf, sz);
+multiline_comment|/* grab_blob_values(val, deref, obj, buf, sz); */
 r_break
 suffix:semicolon
 r_default

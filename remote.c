@@ -3034,7 +3034,7 @@ c_cond
 (paren
 id|default_remote_name
 )paren
-singleline_comment|// did this already
+multiline_comment|/* did this already */
 r_return
 suffix:semicolon
 id|default_remote_name
