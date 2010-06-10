@@ -6606,8 +6606,10 @@ id|ref_name
 comma
 r_char
 op_star
-op_star
-id|log_file
+id|logfile
+comma
+r_int
+id|bufsize
 )paren
 (brace
 r_int
@@ -6619,31 +6621,17 @@ id|O_APPEND
 op_or
 id|O_WRONLY
 suffix:semicolon
-r_char
-id|logfile
-(braket
-id|PATH_MAX
-)braket
-suffix:semicolon
 id|git_snpath
 c_func
 (paren
 id|logfile
 comma
-r_sizeof
-(paren
-id|logfile
-)paren
+id|bufsize
 comma
 l_string|&quot;logs/%s&quot;
 comma
 id|ref_name
 )paren
-suffix:semicolon
-op_star
-id|log_file
-op_assign
-id|logfile
 suffix:semicolon
 r_if
 c_cond
@@ -6695,8 +6683,7 @@ c_cond
 id|safe_create_leading_directories
 c_func
 (paren
-op_star
-id|log_file
+id|logfile
 )paren
 OL
 l_int|0
@@ -6707,8 +6694,7 @@ c_func
 (paren
 l_string|&quot;unable to create directory for %s&quot;
 comma
-op_star
-id|log_file
+id|logfile
 )paren
 suffix:semicolon
 id|oflags
@@ -6721,8 +6707,7 @@ op_assign
 id|open
 c_func
 (paren
-op_star
-id|log_file
+id|logfile
 comma
 id|oflags
 comma
@@ -6774,8 +6759,7 @@ c_cond
 id|remove_empty_directories
 c_func
 (paren
-op_star
-id|log_file
+id|logfile
 )paren
 )paren
 (brace
@@ -6785,8 +6769,7 @@ c_func
 (paren
 l_string|&quot;There are still logs under &squot;%s&squot;&quot;
 comma
-op_star
-id|log_file
+id|logfile
 )paren
 suffix:semicolon
 )brace
@@ -6795,8 +6778,7 @@ op_assign
 id|open
 c_func
 (paren
-op_star
-id|log_file
+id|logfile
 comma
 id|oflags
 comma
@@ -6817,8 +6799,7 @@ c_func
 (paren
 l_string|&quot;Unable to append to %s: %s&quot;
 comma
-op_star
-id|log_file
+id|logfile
 comma
 id|strerror
 c_func
@@ -6831,8 +6812,7 @@ suffix:semicolon
 id|adjust_shared_perm
 c_func
 (paren
-op_star
-id|log_file
+id|logfile
 )paren
 suffix:semicolon
 id|close
@@ -6896,8 +6876,10 @@ r_int
 id|msglen
 suffix:semicolon
 r_char
-op_star
 id|log_file
+(braket
+id|PATH_MAX
+)braket
 suffix:semicolon
 r_char
 op_star
@@ -6930,8 +6912,12 @@ c_func
 (paren
 id|ref_name
 comma
-op_amp
 id|log_file
+comma
+r_sizeof
+(paren
+id|log_file
+)paren
 )paren
 suffix:semicolon
 r_if

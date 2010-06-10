@@ -2624,8 +2624,10 @@ r_int
 id|temp
 suffix:semicolon
 r_char
-op_star
 id|log_file
+(braket
+id|PATH_MAX
+)braket
 suffix:semicolon
 r_char
 op_star
@@ -2655,8 +2657,12 @@ c_func
 (paren
 id|ref_name
 comma
-op_amp
 id|log_file
+comma
+r_sizeof
+(paren
+id|log_file
+)paren
 )paren
 )paren
 (brace
