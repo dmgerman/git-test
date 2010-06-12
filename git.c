@@ -1955,8 +1955,6 @@ comma
 l_string|&quot;grep&quot;
 comma
 id|cmd_grep
-comma
-id|USE_PAGER
 )brace
 comma
 (brace
