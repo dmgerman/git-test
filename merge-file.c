@@ -320,7 +320,7 @@ id|xpp
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+l_int|0
 suffix:semicolon
 id|memset
 c_func
