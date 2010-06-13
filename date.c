@@ -1308,6 +1308,16 @@ comma
 comma
 multiline_comment|/* Universal (Coordinated) */
 (brace
+l_string|&quot;Z&quot;
+comma
+l_int|0
+comma
+l_int|0
+comma
+)brace
+comma
+multiline_comment|/* Zulu, alias for UTC */
+(brace
 l_string|&quot;WET&quot;
 comma
 l_int|0
@@ -1851,6 +1861,19 @@ c_cond
 id|match
 op_ge
 l_int|3
+op_logical_or
+id|match
+op_eq
+id|strlen
+c_func
+(paren
+id|timezone_names
+(braket
+id|i
+)braket
+dot
+id|name
+)paren
 )paren
 (brace
 r_int
