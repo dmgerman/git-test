@@ -99,7 +99,8 @@ c_func
 (paren
 l_string|&quot;php&quot;
 comma
-l_string|&quot;^[&bslash;t ]*((function|class).*)&quot;
+l_string|&quot;^[&bslash;t ]*(((public|protected|private|static)[&bslash;t ]+)*function.*)$&bslash;n&quot;
+l_string|&quot;^[&bslash;t ]*(class.*)$&quot;
 comma
 multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
