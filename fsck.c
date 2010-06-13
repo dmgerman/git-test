@@ -1782,26 +1782,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_star
-id|buffer
-op_ne
-l_char|&squot;&bslash;n&squot;
-)paren
-r_return
-id|error_func
-c_func
-(paren
-op_amp
-id|commit-&gt;object
-comma
-id|FSCK_ERROR
-comma
-l_string|&quot;invalid format - expected blank line&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 op_logical_neg
 id|commit-&gt;tree
 )paren
