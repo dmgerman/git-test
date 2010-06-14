@@ -365,7 +365,7 @@ id|options
 comma
 id|usage_str
 comma
-l_int|0
+id|PARSE_OPT_KEEP_UNKNOWN
 )paren
 suffix:semicolon
 r_if
