@@ -5,6 +5,8 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;userdiff.h&quot;
 DECL|macro|BATCH
 mdefine_line|#define BATCH 1
 DECL|macro|BATCH_CHECK
@@ -356,7 +358,7 @@ r_enum
 id|object_type
 id|type
 suffix:semicolon
-r_void
+r_char
 op_star
 id|buf
 suffix:semicolon
@@ -364,15 +366,22 @@ r_int
 r_int
 id|size
 suffix:semicolon
+r_struct
+id|object_context
+id|obj_context
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_with_context
 c_func
 (paren
 id|obj_name
 comma
 id|sha1
+comma
+op_amp
+id|obj_context
 )paren
 )paren
 id|die
@@ -594,6 +603,54 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* otherwise just spit out the data */
+r_break
+suffix:semicolon
+r_case
+l_char|&squot;c&squot;
+suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|obj_context.path
+(braket
+l_int|0
+)braket
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git cat-file --textconv %s: &lt;object&gt; must be &lt;sha1:path&gt;&quot;
+comma
+id|obj_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|textconv_object
+c_func
+(paren
+id|obj_context.path
+comma
+id|sha1
+comma
+op_amp
+id|buf
+comma
+op_amp
+id|size
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git cat-file --textconv: unable to run textconv on %s&quot;
+comma
+id|obj_name
+)paren
+suffix:semicolon
 r_break
 suffix:semicolon
 r_case
@@ -925,13 +982,75 @@ id|cat_file_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git cat-file (-t|-s|-e|-p|&lt;type&gt;) &lt;object&gt;&quot;
+l_string|&quot;git cat-file (-t|-s|-e|-p|&lt;type&gt;|--textconv) &lt;object&gt;&quot;
 comma
 l_string|&quot;git cat-file (--batch|--batch-check) &lt; &lt;list_of_objects&gt;&quot;
 comma
 l_int|NULL
 )brace
 suffix:semicolon
+DECL|function|git_cat_file_config
+r_static
+r_int
+id|git_cat_file_config
+c_func
+(paren
+r_const
+r_char
+op_star
+id|var
+comma
+r_const
+r_char
+op_star
+id|value
+comma
+r_void
+op_star
+id|cb
+)paren
+(brace
+r_switch
+c_cond
+(paren
+id|userdiff_config
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+)paren
+(brace
+r_case
+l_int|0
+suffix:colon
+r_break
+suffix:semicolon
+r_case
+l_int|1
+suffix:colon
+r_return
+l_int|1
+suffix:semicolon
+r_default
+suffix:colon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_return
+id|git_default_config
+c_func
+(paren
+id|var
+comma
+id|value
+comma
+id|cb
+)paren
+suffix:semicolon
+)brace
 DECL|function|cmd_cat_file
 r_int
 id|cmd_cat_file
@@ -1052,6 +1171,21 @@ c_func
 (paren
 l_int|0
 comma
+l_string|&quot;textconv&quot;
+comma
+op_amp
+id|opt
+comma
+l_string|&quot;for blob objects, run textconv on object&squot;s content&quot;
+comma
+l_char|&squot;c&squot;
+)paren
+comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
 l_string|&quot;batch&quot;
 comma
 op_amp
@@ -1086,7 +1220,7 @@ suffix:semicolon
 id|git_config
 c_func
 (paren
-id|git_default_config
+id|git_cat_file_config
 comma
 l_int|NULL
 )paren
