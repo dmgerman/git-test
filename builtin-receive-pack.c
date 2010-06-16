@@ -2772,7 +2772,7 @@ id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
-id|strcat
+id|strcpy
 c_func
 (paren
 id|cmd_newh
@@ -2800,7 +2800,7 @@ id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
-id|strcat
+id|strcpy
 c_func
 (paren
 id|dst_newh
