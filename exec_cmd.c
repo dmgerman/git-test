@@ -477,7 +477,7 @@ c_func
 op_amp
 id|new_path
 comma
-l_string|&quot;/usr/local/bin:/usr/bin:/bin&quot;
+id|_PATH_DEFPATH
 )paren
 suffix:semicolon
 id|setenv
