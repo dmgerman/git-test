@@ -2227,6 +2227,8 @@ r_struct
 id|notes_tree
 op_star
 id|t
+op_assign
+l_int|NULL
 suffix:semicolon
 r_int
 id|ret
