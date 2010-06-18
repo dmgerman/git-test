@@ -2507,12 +2507,16 @@ id|option_verbosity
 id|printf
 c_func
 (paren
-l_string|&quot;Cloning into %s...&bslash;n&quot;
+l_string|&quot;Cloning into %s%s...&bslash;n&quot;
 comma
-id|get_git_dir
-c_func
-(paren
-)paren
+id|option_bare
+ques
+c_cond
+l_string|&quot;bare repository &quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|dir
 )paren
 suffix:semicolon
 id|init_db
