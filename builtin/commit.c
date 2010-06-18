@@ -312,6 +312,11 @@ id|status_format
 op_assign
 id|STATUS_FORMAT_LONG
 suffix:semicolon
+DECL|variable|status_show_branch
+r_static
+r_int
+id|status_show_branch
+suffix:semicolon
 DECL|function|opt_parse_m
 r_static
 r_int
@@ -673,6 +678,19 @@ comma
 l_string|&quot;show status concisely&quot;
 comma
 id|STATUS_FORMAT_SHORT
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;branch&quot;
+comma
+op_amp
+id|status_show_branch
+comma
+l_string|&quot;show branch information&quot;
 )paren
 comma
 id|OPT_SET_INT
@@ -1983,6 +2001,8 @@ c_func
 id|s
 comma
 id|null_termination
+comma
+id|status_show_branch
 )paren
 suffix:semicolon
 r_break
@@ -5613,6 +5633,19 @@ comma
 id|STATUS_FORMAT_SHORT
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;b&squot;
+comma
+l_string|&quot;branch&quot;
+comma
+op_amp
+id|status_show_branch
+comma
+l_string|&quot;show branch information&quot;
+)paren
+comma
 id|OPT_SET_INT
 c_func
 (paren
@@ -5920,6 +5953,8 @@ op_amp
 id|s
 comma
 id|null_termination
+comma
+id|status_show_branch
 )paren
 suffix:semicolon
 r_break
