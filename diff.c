@@ -13579,24 +13579,30 @@ c_func
 (paren
 id|msg
 comma
-l_string|&quot;%sindex %.*s..%.*s&quot;
+l_string|&quot;%sindex %s..&quot;
 comma
 id|set
 comma
-id|abbrev
-comma
-id|sha1_to_hex
+id|find_unique_abbrev
 c_func
 (paren
 id|one-&gt;sha1
-)paren
 comma
 id|abbrev
+)paren
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+id|msg
 comma
-id|sha1_to_hex
+id|find_unique_abbrev
 c_func
 (paren
 id|two-&gt;sha1
+comma
+id|abbrev
 )paren
 )paren
 suffix:semicolon
