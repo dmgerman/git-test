@@ -7,6 +7,7 @@ macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;reflog-walk.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;color.h&quot;
 DECL|variable|name_decoration
 r_struct
 id|decoration
@@ -42,6 +43,70 @@ id|DECORATION_REF_HEAD
 comma
 )brace
 suffix:semicolon
+DECL|variable|decoration_colors
+r_static
+r_char
+id|decoration_colors
+(braket
+)braket
+(braket
+id|COLOR_MAXLEN
+)braket
+op_assign
+(brace
+id|GIT_COLOR_RESET
+comma
+id|GIT_COLOR_BOLD_GREEN
+comma
+multiline_comment|/* REF_LOCAL */
+id|GIT_COLOR_BOLD_RED
+comma
+multiline_comment|/* REF_REMOTE */
+id|GIT_COLOR_BOLD_YELLOW
+comma
+multiline_comment|/* REF_TAG */
+id|GIT_COLOR_BOLD_MAGENTA
+comma
+multiline_comment|/* REF_STASH */
+id|GIT_COLOR_BOLD_CYAN
+comma
+multiline_comment|/* REF_HEAD */
+)brace
+suffix:semicolon
+DECL|function|decorate_get_color
+r_static
+r_const
+r_char
+op_star
+id|decorate_get_color
+c_func
+(paren
+r_int
+id|decorate_use_color
+comma
+r_enum
+id|decoration_type
+id|ix
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|decorate_use_color
+)paren
+r_return
+id|decoration_colors
+(braket
+id|ix
+)braket
+suffix:semicolon
+r_return
+l_string|&quot;&quot;
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * log-tree.c uses DIFF_OPT_TST for determining whether to use color&n; * for showing the commit sha1, use the same check for --decorate&n; */
+DECL|macro|decorate_get_color_opt
+mdefine_line|#define decorate_get_color_opt(o, ix) &bslash;&n;&t;decorate_get_color(DIFF_OPT_TST((o), COLOR_DIFF), ix)
 DECL|function|add_name_decoration
 r_static
 r_void
@@ -458,6 +523,34 @@ id|name_decoration
 op_star
 id|decoration
 suffix:semicolon
+r_const
+r_char
+op_star
+id|color_commit
+op_assign
+id|diff_get_color_opt
+c_func
+(paren
+op_amp
+id|opt-&gt;diffopt
+comma
+id|DIFF_COMMIT
+)paren
+suffix:semicolon
+r_const
+r_char
+op_star
+id|color_reset
+op_assign
+id|decorate_get_color_opt
+c_func
+(paren
+op_amp
+id|opt-&gt;diffopt
+comma
+id|DECORATION_NONE
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -523,6 +616,21 @@ comma
 id|prefix
 )paren
 suffix:semicolon
+id|fputs
+c_func
+(paren
+id|decorate_get_color_opt
+c_func
+(paren
+op_amp
+id|opt-&gt;diffopt
+comma
+id|decoration-&gt;type
+)paren
+comma
+id|stdout
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -530,10 +638,12 @@ id|decoration-&gt;type
 op_eq
 id|DECORATION_REF_TAG
 )paren
-id|printf
+id|fputs
 c_func
 (paren
 l_string|&quot;tag: &quot;
+comma
+id|stdout
 )paren
 suffix:semicolon
 id|printf
@@ -542,6 +652,22 @@ c_func
 l_string|&quot;%s&quot;
 comma
 id|decoration-&gt;name
+)paren
+suffix:semicolon
+id|fputs
+c_func
+(paren
+id|color_reset
+comma
+id|stdout
+)paren
+suffix:semicolon
+id|fputs
+c_func
+(paren
+id|color_commit
+comma
+id|stdout
 )paren
 suffix:semicolon
 id|prefix
