@@ -6936,12 +6936,26 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* Determine parents */
+id|reflog_msg
+op_assign
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_REFLOG_ACTION&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|initial_commit
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|reflog_msg
+)paren
 id|reflog_msg
 op_assign
 l_string|&quot;commit (initial)&quot;
@@ -6964,6 +6978,12 @@ id|commit
 op_star
 id|commit
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|reflog_msg
+)paren
 id|reflog_msg
 op_assign
 l_string|&quot;commit (amend)&quot;
@@ -7038,6 +7058,12 @@ id|FILE
 op_star
 id|fp
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|reflog_msg
+)paren
 id|reflog_msg
 op_assign
 l_string|&quot;commit (merge)&quot;
@@ -7245,6 +7271,12 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|reflog_msg
+)paren
 id|reflog_msg
 op_assign
 l_string|&quot;commit&quot;
