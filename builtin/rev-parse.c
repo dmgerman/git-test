@@ -2049,6 +2049,8 @@ c_cond
 id|PARSE_OPT_STOP_AT_NON_OPTION
 suffix:colon
 l_int|0
+op_or
+id|PARSE_OPT_SHELL_EVAL
 )paren
 suffix:semicolon
 id|strbuf_addf
