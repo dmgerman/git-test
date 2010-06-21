@@ -70,6 +70,18 @@ l_string|&quot;If the identity used for this commit is wrong, you can fix it wit
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;    git commit --amend --author=&squot;Your Name &lt;you@example.com&gt;&squot;&bslash;n&quot;
 suffix:semicolon
+DECL|variable|empty_amend_advice
+r_static
+r_const
+r_char
+id|empty_amend_advice
+(braket
+)braket
+op_assign
+l_string|&quot;You asked to amend the most recent commit, but doing so would make&bslash;n&quot;
+l_string|&quot;it empty. You can repeat your command with --allow-empty, or you can&bslash;n&quot;
+l_string|&quot;remove the commit entirely with &bslash;&quot;git reset HEAD^&bslash;&quot;.&bslash;n&quot;
+suffix:semicolon
 DECL|variable|head_sha1
 r_static
 r_int
@@ -3679,6 +3691,19 @@ comma
 l_int|0
 comma
 id|s
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|amend
+)paren
+id|fputs
+c_func
+(paren
+id|empty_amend_advice
+comma
+id|stderr
 )paren
 suffix:semicolon
 r_return
