@@ -142,7 +142,7 @@ id|xmp
 op_assign
 (brace
 (brace
-id|XDF_NEED_MINIMAL
+l_int|0
 )brace
 )brace
 suffix:semicolon
