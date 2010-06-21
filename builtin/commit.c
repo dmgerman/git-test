@@ -122,7 +122,6 @@ id|COMMIT_NORMAL
 comma
 DECL|enumerator|COMMIT_PARTIAL
 id|COMMIT_PARTIAL
-comma
 DECL|variable|commit_style
 )brace
 id|commit_style
@@ -242,7 +241,6 @@ id|CLEANUP_NONE
 comma
 DECL|enumerator|CLEANUP_ALL
 id|CLEANUP_ALL
-comma
 DECL|variable|cleanup_mode
 )brace
 id|cleanup_mode
@@ -305,7 +303,6 @@ id|STATUS_FORMAT_SHORT
 comma
 DECL|enumerator|STATUS_FORMAT_PORCELAIN
 id|STATUS_FORMAT_PORCELAIN
-comma
 DECL|variable|status_format
 )brace
 id|status_format
@@ -3790,10 +3787,15 @@ l_int|2
 )braket
 op_assign
 (brace
-id|index
-comma
 l_int|NULL
 )brace
+suffix:semicolon
+id|env
+(braket
+l_int|0
+)braket
+op_assign
+id|index
 suffix:semicolon
 id|snprintf
 c_func

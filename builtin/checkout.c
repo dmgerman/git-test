@@ -3472,12 +3472,16 @@ id|tracking_name_data
 id|cb_data
 op_assign
 (brace
-id|name
+l_int|NULL
 comma
 l_int|NULL
 comma
 l_int|1
 )brace
+suffix:semicolon
+id|cb_data.name
+op_assign
+id|name
 suffix:semicolon
 id|for_each_ref
 c_func

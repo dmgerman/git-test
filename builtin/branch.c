@@ -113,7 +113,6 @@ DECL|enumerator|BRANCH_COLOR_CURRENT
 id|BRANCH_COLOR_CURRENT
 op_assign
 l_int|4
-comma
 )brace
 suffix:semicolon
 DECL|enum|merge_filter
@@ -131,7 +130,6 @@ id|SHOW_NOT_MERGED
 comma
 DECL|enumerator|SHOW_MERGED
 id|SHOW_MERGED
-comma
 DECL|variable|merge_filter
 )brace
 id|merge_filter

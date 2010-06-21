@@ -44,7 +44,6 @@ id|ACTIVE
 comma
 DECL|enumerator|COMPLETE
 id|COMPLETE
-comma
 )brace
 suffix:semicolon
 DECL|struct|object_request

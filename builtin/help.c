@@ -73,7 +73,6 @@ id|HELP_FORMAT_INFO
 comma
 DECL|enumerator|HELP_FORMAT_WEB
 id|HELP_FORMAT_WEB
-comma
 )brace
 suffix:semicolon
 DECL|variable|show_all

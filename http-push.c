@@ -242,7 +242,6 @@ id|ABORTED
 comma
 DECL|enumerator|COMPLETE
 id|COMPLETE
-comma
 )brace
 suffix:semicolon
 DECL|struct|transfer_request

@@ -2431,7 +2431,6 @@ id|index_directory
 comma
 DECL|enumerator|index_gitdir
 id|index_gitdir
-comma
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * The index sorts alphabetically by entry name, which&n; * means that a gitlink sorts as &squot;&bslash;0&squot; at the end, while&n; * a directory (which is defined not as an entry, but as&n; * the files it contains) will sort with the &squot;/&squot; at the&n; * end.&n; */
@@ -2572,7 +2571,6 @@ id|ignore_directory
 comma
 DECL|enumerator|recurse_into_directory
 id|recurse_into_directory
-comma
 )brace
 suffix:semicolon
 DECL|function|treat_directory
@@ -3228,7 +3226,6 @@ id|path_handled
 comma
 DECL|enumerator|path_recurse
 id|path_recurse
-comma
 )brace
 suffix:semicolon
 DECL|function|treat_one_path

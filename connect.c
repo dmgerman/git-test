@@ -715,7 +715,6 @@ id|PROTO_SSH
 comma
 DECL|enumerator|PROTO_GIT
 id|PROTO_GIT
-comma
 )brace
 suffix:semicolon
 DECL|function|get_protocol
