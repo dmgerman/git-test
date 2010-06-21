@@ -3335,6 +3335,8 @@ id|d-&gt;next_non_note
 suffix:semicolon
 r_int
 id|cmp
+op_assign
+l_int|0
 comma
 id|ret
 suffix:semicolon
