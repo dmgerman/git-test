@@ -167,17 +167,24 @@ op_star
 id|excludes_file
 suffix:semicolon
 DECL|variable|auto_crlf
-r_int
+r_enum
+id|auto_crlf
 id|auto_crlf
 op_assign
-l_int|0
+id|AUTO_CRLF_FALSE
 suffix:semicolon
-multiline_comment|/* 1: both ways, -1: only when adding git objects */
 DECL|variable|read_replace_refs
 r_int
 id|read_replace_refs
 op_assign
 l_int|1
+suffix:semicolon
+DECL|variable|eol
+r_enum
+id|eol
+id|eol
+op_assign
+id|EOL_UNSET
 suffix:semicolon
 DECL|variable|safe_crlf
 r_enum
