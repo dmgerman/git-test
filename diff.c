@@ -8975,6 +8975,9 @@ r_char
 op_star
 id|xfrm_msg
 comma
+r_int
+id|must_show_header
+comma
 r_struct
 id|diff_options
 op_star
@@ -9369,6 +9372,10 @@ comma
 id|xfrm_msg
 )paren
 suffix:semicolon
+id|must_show_header
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -9414,6 +9421,10 @@ comma
 id|xfrm_msg
 )paren
 suffix:semicolon
+id|must_show_header
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 r_else
 (brace
@@ -9454,6 +9465,10 @@ id|two-&gt;mode
 comma
 id|reset
 )paren
+suffix:semicolon
+id|must_show_header
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -9644,9 +9659,26 @@ comma
 id|mf1.size
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|must_show_header
+)paren
+id|fprintf
+c_func
+(paren
+id|o-&gt;file
+comma
+l_string|&quot;%s&quot;
+comma
+id|header.buf
+)paren
+suffix:semicolon
 r_goto
 id|free_ab_and_return
 suffix:semicolon
+)brace
 id|fprintf
 c_func
 (paren
@@ -9752,6 +9784,8 @@ id|o
 comma
 id|WHITESPACE_FLAGS
 )paren
+op_logical_or
+id|must_show_header
 )paren
 (brace
 id|fprintf
@@ -12782,6 +12816,10 @@ op_star
 id|p
 comma
 r_int
+op_star
+id|must_show_header
+comma
+r_int
 id|use_color
 )paren
 (brace
@@ -12810,6 +12848,11 @@ id|use_color
 comma
 id|DIFF_RESET
 )paren
+suffix:semicolon
+op_star
+id|must_show_header
+op_assign
+l_int|1
 suffix:semicolon
 id|strbuf_init
 c_func
@@ -13020,7 +13063,10 @@ suffix:semicolon
 multiline_comment|/* fallthru */
 r_default
 suffix:colon
-multiline_comment|/* nothing */
+op_star
+id|must_show_header
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 r_if
@@ -13239,6 +13285,11 @@ id|DIFF_STATUS_MODIFIED
 op_logical_and
 id|p-&gt;score
 suffix:semicolon
+r_int
+id|must_show_header
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -13303,6 +13354,9 @@ comma
 id|o
 comma
 id|p
+comma
+op_amp
+id|must_show_header
 comma
 id|DIFF_OPT_TST
 c_func
@@ -13377,6 +13431,8 @@ comma
 id|two
 comma
 id|xfrm_msg
+comma
+id|must_show_header
 comma
 id|o
 comma
