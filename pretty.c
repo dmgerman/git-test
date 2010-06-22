@@ -5239,6 +5239,8 @@ comma
 id|ADD_LF_BEFORE_NON_EMPTY
 comma
 id|DEL_LF_BEFORE_EMPTY
+comma
+id|ADD_SP_BEFORE_NON_EMPTY
 )brace
 id|magic
 op_assign
@@ -5268,6 +5270,15 @@ suffix:colon
 id|magic
 op_assign
 id|ADD_LF_BEFORE_NON_EMPTY
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+l_char|&squot; &squot;
+suffix:colon
+id|magic
+op_assign
+id|ADD_SP_BEFORE_NON_EMPTY
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -5353,17 +5364,18 @@ r_else
 r_if
 c_cond
 (paren
-(paren
 id|orig_len
 op_ne
 id|sb-&gt;len
 )paren
-op_logical_and
+(brace
+r_if
+c_cond
+(paren
 id|magic
 op_eq
 id|ADD_LF_BEFORE_NON_EMPTY
 )paren
-(brace
 id|strbuf_insert
 c_func
 (paren
@@ -5372,6 +5384,26 @@ comma
 id|orig_len
 comma
 l_string|&quot;&bslash;n&quot;
+comma
+l_int|1
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|magic
+op_eq
+id|ADD_SP_BEFORE_NON_EMPTY
+)paren
+id|strbuf_insert
+c_func
+(paren
+id|sb
+comma
+id|orig_len
+comma
+l_string|&quot; &quot;
 comma
 l_int|1
 )paren
@@ -5423,6 +5455,11 @@ op_star
 id|placeholder
 op_eq
 l_char|&squot;-&squot;
+op_logical_or
+op_star
+id|placeholder
+op_eq
+l_char|&squot; &squot;
 )paren
 id|placeholder
 op_increment
