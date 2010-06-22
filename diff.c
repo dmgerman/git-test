@@ -14457,7 +14457,6 @@ suffix:semicolon
 multiline_comment|/* fallthru */
 r_default
 suffix:colon
-multiline_comment|/* nothing */
 op_star
 id|must_show_header
 op_assign
