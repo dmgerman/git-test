@@ -3597,9 +3597,9 @@ comma
 op_amp
 id|opts.new_branch
 comma
-l_string|&quot;new branch&quot;
-comma
 l_string|&quot;branch&quot;
+comma
+l_string|&quot;create and checkout a new branch&quot;
 )paren
 comma
 id|OPT_BOOLEAN
