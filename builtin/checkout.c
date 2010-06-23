@@ -61,11 +61,22 @@ DECL|member|writeout_error
 r_int
 id|writeout_error
 suffix:semicolon
+multiline_comment|/* not set by parse_options */
+DECL|member|branch_exists
+r_int
+id|branch_exists
+suffix:semicolon
 DECL|member|new_branch
 r_const
 r_char
 op_star
 id|new_branch
+suffix:semicolon
+DECL|member|new_branch_force
+r_const
+r_char
+op_star
+id|new_branch_force
 suffix:semicolon
 DECL|member|new_orphan_branch
 r_const
@@ -2701,6 +2712,11 @@ r_new
 op_member_access_from_pointer
 id|name
 comma
+id|opts-&gt;new_branch_force
+ques
+c_cond
+l_int|1
+suffix:colon
 l_int|0
 comma
 id|opts-&gt;new_branch_log
@@ -2824,12 +2840,12 @@ id|stderr
 comma
 l_string|&quot;Switched to%s branch &squot;%s&squot;&bslash;n&quot;
 comma
-id|opts-&gt;new_branch
+id|opts-&gt;branch_exists
 ques
 c_cond
-l_string|&quot; a new&quot;
+l_string|&quot; and reset&quot;
 suffix:colon
-l_string|&quot;&quot;
+l_string|&quot; a new&quot;
 comma
 r_new
 op_member_access_from_pointer
@@ -3602,6 +3618,21 @@ comma
 l_string|&quot;create and checkout a new branch&quot;
 )paren
 comma
+id|OPT_STRING
+c_func
+(paren
+l_char|&squot;B&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|opts.new_branch_force
+comma
+l_string|&quot;branch&quot;
+comma
+l_string|&quot;create/reset and checkout a branch&quot;
+)paren
+comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -3816,6 +3847,30 @@ comma
 id|PARSE_OPT_KEEP_DASHDASH
 )paren
 suffix:semicolon
+multiline_comment|/* we can assume from now on new_branch = !new_branch_force */
+r_if
+c_cond
+(paren
+id|opts.new_branch
+op_logical_and
+id|opts.new_branch_force
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;-B cannot be used with -b&quot;
+)paren
+suffix:semicolon
+multiline_comment|/* copy -B over to -b, so that we can just check the latter */
+r_if
+c_cond
+(paren
+id|opts.new_branch_force
+)paren
+id|opts.new_branch
+op_assign
+id|opts.new_branch_force
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3962,7 +4017,7 @@ id|opts.new_branch
 id|die
 c_func
 (paren
-l_string|&quot;--orphan and -b are mutually exclusive&quot;
+l_string|&quot;--orphan and -b|-B are mutually exclusive&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4540,6 +4595,17 @@ comma
 id|rev
 )paren
 )paren
+(brace
+id|opts.branch_exists
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts.new_branch_force
+)paren
 id|die
 c_func
 (paren
@@ -4548,6 +4614,7 @@ comma
 id|opts.new_branch
 )paren
 suffix:semicolon
+)brace
 id|strbuf_release
 c_func
 (paren
