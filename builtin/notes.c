@@ -1607,7 +1607,6 @@ suffix:semicolon
 )brace
 DECL|function|parse_combine_notes_fn
 id|combine_notes_fn
-op_star
 id|parse_combine_notes_fn
 c_func
 (paren
