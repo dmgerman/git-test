@@ -1524,6 +1524,7 @@ id|len
 )paren
 (brace
 r_int
+r_int
 id|lenW
 op_assign
 id|ctx-&gt;size
@@ -1541,6 +1542,7 @@ c_cond
 id|lenW
 )paren
 (brace
+r_int
 r_int
 id|left
 op_assign
@@ -1716,9 +1718,14 @@ op_assign
 id|htonl
 c_func
 (paren
+(paren
+r_uint32
+)paren
+(paren
 id|ctx-&gt;size
 op_rshift
 l_int|29
+)paren
 )paren
 suffix:semicolon
 id|padlen
@@ -1729,9 +1736,14 @@ op_assign
 id|htonl
 c_func
 (paren
+(paren
+r_uint32
+)paren
+(paren
 id|ctx-&gt;size
 op_lshift
 l_int|3
+)paren
 )paren
 suffix:semicolon
 id|i
