@@ -499,13 +499,13 @@ r_int
 id|for_each_string_list
 c_func
 (paren
-id|string_list_each_func_t
-id|fn
-comma
 r_struct
 id|string_list
 op_star
 id|list
+comma
+id|string_list_each_func_t
+id|fn
 comma
 r_void
 op_star

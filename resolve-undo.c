@@ -290,9 +290,9 @@ id|resolve_undo
 id|for_each_string_list
 c_func
 (paren
-id|write_one
-comma
 id|resolve_undo
+comma
+id|write_one
 comma
 id|sb
 )paren

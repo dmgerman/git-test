@@ -4747,9 +4747,9 @@ suffix:semicolon
 id|for_each_string_list
 c_func
 (paren
-id|load_one_display_note_ref
-comma
 id|refs
+comma
+id|load_one_display_note_ref
 comma
 op_amp
 id|cb_data
@@ -4871,9 +4871,9 @@ id|opt-&gt;extra_notes_refs
 id|for_each_string_list
 c_func
 (paren
-id|string_list_add_refs_from_list
-comma
 id|opt-&gt;extra_notes_refs
+comma
+id|string_list_add_refs_from_list
 comma
 op_amp
 id|display_notes_refs

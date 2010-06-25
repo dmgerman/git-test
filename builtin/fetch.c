@@ -3366,10 +3366,10 @@ multiline_comment|/*&n;&t; * For all the tags in the remote_refs string list, ca
 id|for_each_string_list
 c_func
 (paren
-id|add_to_tail
-comma
 op_amp
 id|remote_refs
+comma
+id|add_to_tail
 comma
 op_amp
 id|data
