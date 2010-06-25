@@ -6362,6 +6362,8 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
+id|revs-&gt;notes_opt.extra_notes_refs
+comma
 id|strbuf_detach
 c_func
 (paren
@@ -6370,8 +6372,6 @@ id|buf
 comma
 l_int|NULL
 )paren
-comma
-id|revs-&gt;notes_opt.extra_notes_refs
 )paren
 suffix:semicolon
 )brace

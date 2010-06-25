@@ -986,9 +986,9 @@ suffix:semicolon
 id|for_each_string_list
 c_func
 (paren
-id|show_one_ru
-comma
 id|the_index.resolve_undo
+comma
+id|show_one_ru
 comma
 l_int|NULL
 )paren

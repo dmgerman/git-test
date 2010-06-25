@@ -2661,6 +2661,8 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
+id|path_list
+comma
 id|xstrndup
 c_func
 (paren
@@ -2668,8 +2670,6 @@ id|data
 comma
 id|len
 )paren
-comma
-id|path_list
 )paren
 suffix:semicolon
 )brace
@@ -5256,10 +5256,10 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
-id|show_in_pager
-comma
 op_amp
 id|path_list
+comma
+id|show_in_pager
 )paren
 suffix:semicolon
 id|use_threads
@@ -5698,10 +5698,10 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
-id|buf.buf
-comma
 op_amp
 id|path_list
+comma
+id|buf.buf
 )paren
 suffix:semicolon
 id|strbuf_detach

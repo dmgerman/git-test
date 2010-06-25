@@ -366,10 +366,10 @@ l_int|86400
 id|string_list_append
 c_func
 (paren
-id|e-&gt;d_name
-comma
 op_amp
 id|to_remove
+comma
+id|e-&gt;d_name
 )paren
 suffix:semicolon
 )brace

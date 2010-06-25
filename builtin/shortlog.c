@@ -460,10 +460,10 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|namebuf
-comma
 op_amp
 id|log-&gt;list
+comma
+id|namebuf
 )paren
 suffix:semicolon
 r_if
@@ -702,9 +702,9 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
-id|buffer
-comma
 id|item-&gt;util
+comma
+id|buffer
 )paren
 suffix:semicolon
 )brace
