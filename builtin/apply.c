@@ -11836,10 +11836,10 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|name
-comma
 op_amp
 id|fn_table
+comma
+id|name
 )paren
 suffix:semicolon
 r_if

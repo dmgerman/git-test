@@ -3711,10 +3711,10 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|rm-&gt;peer_ref-&gt;name
-comma
 op_amp
 id|existing_refs
+comma
+id|rm-&gt;peer_ref-&gt;name
 )paren
 suffix:semicolon
 r_if

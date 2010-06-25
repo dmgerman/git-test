@@ -473,9 +473,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|name
-comma
 id|query_params
+comma
+id|name
 )paren
 suffix:semicolon
 r_if
@@ -535,12 +535,12 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|name
-comma
 id|get_parameters
 c_func
 (paren
 )paren
+comma
+id|name
 )paren
 suffix:semicolon
 r_return

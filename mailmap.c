@@ -1313,9 +1313,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|mailbuf
-comma
 id|map
+comma
+id|mailbuf
 )paren
 suffix:semicolon
 r_if
@@ -1351,10 +1351,10 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|name
-comma
 op_amp
 id|me-&gt;namemap
+comma
+id|name
 )paren
 suffix:semicolon
 r_if

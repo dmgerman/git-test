@@ -1611,9 +1611,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|ce-&gt;name
-comma
 id|unmerged
+comma
+id|ce-&gt;name
 )paren
 suffix:semicolon
 r_if
@@ -1944,9 +1944,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|re-&gt;pair-&gt;one-&gt;path
-comma
 id|entries
+comma
+id|re-&gt;pair-&gt;one-&gt;path
 )paren
 suffix:semicolon
 r_if
@@ -1981,9 +1981,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|re-&gt;pair-&gt;two-&gt;path
-comma
 id|entries
+comma
+id|re-&gt;pair-&gt;two-&gt;path
 )paren
 suffix:semicolon
 r_if
@@ -5552,9 +5552,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|ren1_dst
-comma
 id|renames2Dst
+comma
+id|ren1_dst
 )paren
 )paren
 )paren

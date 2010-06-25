@@ -2708,9 +2708,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|dst_name
-comma
 id|list
+comma
+id|dst_name
 )paren
 )paren
 op_eq

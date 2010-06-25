@@ -907,10 +907,10 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|branch
-comma
 op_amp
 id|info-&gt;complete_reflogs
+comma
+id|branch
 )paren
 suffix:semicolon
 r_if

@@ -4448,10 +4448,10 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|ref_map-&gt;peer_ref-&gt;name
-comma
 op_amp
 id|refs
+comma
+id|ref_map-&gt;peer_ref-&gt;name
 )paren
 suffix:semicolon
 r_if
