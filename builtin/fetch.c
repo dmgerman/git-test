@@ -3973,9 +3973,9 @@ id|remote-&gt;skip_default_update
 id|string_list_append
 c_func
 (paren
-id|remote-&gt;name
-comma
 id|list
+comma
+id|remote-&gt;name
 )paren
 suffix:semicolon
 r_return
@@ -4082,6 +4082,8 @@ l_int|1
 id|string_list_append
 c_func
 (paren
+id|g-&gt;list
+comma
 id|xstrndup
 c_func
 (paren
@@ -4089,8 +4091,6 @@ id|value
 comma
 id|space
 )paren
-comma
-id|g-&gt;list
 )paren
 suffix:semicolon
 )brace
@@ -4201,9 +4201,9 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
-id|remote-&gt;name
-comma
 id|list
+comma
+id|remote-&gt;name
 )paren
 suffix:semicolon
 )brace

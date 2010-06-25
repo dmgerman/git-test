@@ -9368,10 +9368,10 @@ id|ref-&gt;next
 id|string_list_append
 c_func
 (paren
-id|ref-&gt;name
-comma
 op_amp
 id|ref_names
+comma
+id|ref-&gt;name
 )paren
 suffix:semicolon
 id|sort_string_list

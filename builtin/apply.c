@@ -15779,10 +15779,10 @@ op_assign
 id|string_list_append
 c_func
 (paren
-id|name
-comma
 op_amp
 id|limit_by_name
+comma
+id|name
 )paren
 suffix:semicolon
 id|it-&gt;util

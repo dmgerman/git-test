@@ -702,9 +702,9 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
-id|buffer
-comma
 id|item-&gt;util
+comma
+id|buffer
 )paren
 suffix:semicolon
 )brace

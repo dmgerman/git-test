@@ -2272,9 +2272,9 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
-id|full_name
-comma
 id|extra_refs
+comma
+id|full_name
 )paren
 op_member_access_from_pointer
 id|util
@@ -2381,9 +2381,9 @@ multiline_comment|/* more than one name for the same object */
 id|string_list_append
 c_func
 (paren
-id|full_name
-comma
 id|extra_refs
+comma
+id|full_name
 )paren
 op_member_access_from_pointer
 id|util
