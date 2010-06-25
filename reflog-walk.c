@@ -1091,10 +1091,10 @@ suffix:semicolon
 id|string_list_insert
 c_func
 (paren
-id|branch
-comma
 op_amp
 id|info-&gt;complete_reflogs
+comma
+id|branch
 )paren
 op_member_access_from_pointer
 id|util

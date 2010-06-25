@@ -572,9 +572,9 @@ suffix:semicolon
 id|string_list_insert
 c_func
 (paren
-id|refname
-comma
 id|list
+comma
+id|refname
 )paren
 suffix:semicolon
 r_return

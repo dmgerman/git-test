@@ -1308,10 +1308,10 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|name
-comma
 op_amp
 id|branch_list
+comma
+id|name
 )paren
 suffix:semicolon
 r_if
@@ -5092,9 +5092,9 @@ suffix:semicolon
 id|string_list_insert
 c_func
 (paren
-id|item-&gt;string
-comma
 id|info-&gt;list
+comma
+id|item-&gt;string
 )paren
 suffix:semicolon
 r_return
@@ -5357,9 +5357,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|branch_item-&gt;string
-comma
 id|show_info-&gt;list
+comma
+id|branch_item-&gt;string
 )paren
 suffix:semicolon
 id|item-&gt;util

@@ -489,9 +489,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|name
-comma
 id|query_params
+comma
+id|name
 )paren
 suffix:semicolon
 r_else

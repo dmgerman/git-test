@@ -2895,9 +2895,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|refname
-comma
 id|list
+comma
+id|refname
 )paren
 suffix:semicolon
 id|item-&gt;util
@@ -3312,10 +3312,10 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|ref-&gt;name
-comma
 op_amp
 id|remote_refs
+comma
+id|ref-&gt;name
 )paren
 suffix:semicolon
 id|item-&gt;util

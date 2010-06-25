@@ -90,9 +90,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|ce-&gt;name
-comma
 id|resolve_undo
+comma
+id|ce-&gt;name
 )paren
 suffix:semicolon
 r_if
@@ -389,9 +389,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|data
-comma
 id|resolve_undo
+comma
+id|data
 )paren
 suffix:semicolon
 r_if

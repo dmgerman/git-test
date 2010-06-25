@@ -94,9 +94,9 @@ id|e-&gt;d_name
 id|string_list_insert
 c_func
 (paren
-id|e-&gt;d_name
-comma
 id|list
+comma
+id|e-&gt;d_name
 )paren
 suffix:semicolon
 id|closedir
