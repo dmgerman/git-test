@@ -292,11 +292,11 @@ r_return
 id|string_list_insert_at_index
 c_func
 (paren
+id|list
+comma
 l_int|1
 comma
 id|string
-comma
-id|list
 )paren
 suffix:semicolon
 )brace
@@ -307,6 +307,11 @@ op_star
 id|string_list_insert_at_index
 c_func
 (paren
+r_struct
+id|string_list
+op_star
+id|list
+comma
 r_int
 id|insert_at
 comma
@@ -314,11 +319,6 @@ r_const
 r_char
 op_star
 id|string
-comma
-r_struct
-id|string_list
-op_star
-id|list
 )paren
 (brace
 r_int

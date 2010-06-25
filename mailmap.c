@@ -349,11 +349,11 @@ op_assign
 id|string_list_insert_at_index
 c_func
 (paren
+id|map
+comma
 id|index
 comma
 id|old_email
-comma
-id|map
 )paren
 suffix:semicolon
 id|item-&gt;util
