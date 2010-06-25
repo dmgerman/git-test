@@ -219,6 +219,7 @@ id|no_post_rewrite
 suffix:semicolon
 DECL|variable|untracked_files_arg
 DECL|variable|force_date
+DECL|variable|ignore_submodule_arg
 r_static
 r_char
 op_star
@@ -226,6 +227,9 @@ id|untracked_files_arg
 comma
 op_star
 id|force_date
+comma
+op_star
+id|ignore_submodule_arg
 suffix:semicolon
 multiline_comment|/*&n; * The default commit message cleanup mode will remove the lines&n; * beginning with # (shell comments) and leading and trailing&n; * whitespaces (empty lines or containing only whitespaces)&n; * if editor is used, and only the whitespaces if the message&n; * is specified explicitly.&n; */
 r_static
@@ -5570,6 +5574,30 @@ r_intptr
 l_string|&quot;all&quot;
 )brace
 comma
+(brace
+id|OPTION_STRING
+comma
+l_int|0
+comma
+l_string|&quot;ignore-submodules&quot;
+comma
+op_amp
+id|ignore_submodule_arg
+comma
+l_string|&quot;when&quot;
+comma
+l_string|&quot;ignore changes to submodules, optional when: all, dirty, untracked. (Default: all)&quot;
+comma
+id|PARSE_OPT_OPTARG
+comma
+l_int|NULL
+comma
+(paren
+r_intptr
+)paren
+l_string|&quot;all&quot;
+)brace
+comma
 id|OPT_END
 c_func
 (paren
@@ -5701,6 +5729,10 @@ id|s.in_merge
 op_assign
 id|in_merge
 suffix:semicolon
+id|s.ignore_submodule_arg
+op_assign
+id|ignore_submodule_arg
+suffix:semicolon
 id|wt_status_collect
 c_func
 (paren
@@ -5779,6 +5811,10 @@ suffix:colon
 id|s.verbose
 op_assign
 id|verbose
+suffix:semicolon
+id|s.ignore_submodule_arg
+op_assign
+id|ignore_submodule_arg
 suffix:semicolon
 id|wt_status_print
 c_func
