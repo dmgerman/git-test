@@ -205,7 +205,6 @@ suffix:semicolon
 suffix:semicolon
 multiline_comment|/*&n; * Prepare diff_filespec and convert it using diff textconv API&n; * if the textconv driver exists.&n; * Return 1 if the conversion succeeds, 0 otherwise.&n; */
 DECL|function|textconv_object
-r_static
 r_int
 id|textconv_object
 c_func
