@@ -5495,6 +5495,10 @@ op_plus
 l_int|12
 )paren
 suffix:semicolon
+id|revs-&gt;no_walk
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -5553,6 +5557,10 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
+id|revs-&gt;no_walk
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -5593,6 +5601,10 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
+id|revs-&gt;no_walk
+op_assign
+l_int|0
+suffix:semicolon
 r_return
 l_int|2
 suffix:semicolon
@@ -5620,6 +5632,10 @@ id|arg
 op_plus
 l_int|2
 )paren
+suffix:semicolon
+id|revs-&gt;no_walk
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 r_else
