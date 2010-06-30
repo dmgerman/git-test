@@ -10,6 +10,7 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|variable|default_wt_status_colors
 r_static
 r_char
@@ -1734,6 +1735,20 @@ comma
 id|IGNORE_UNTRACKED_IN_SUBMODULES
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|s-&gt;ignore_submodule_arg
+)paren
+id|handle_ignore_submodules_arg
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|s-&gt;ignore_submodule_arg
+)paren
+suffix:semicolon
 id|rev.diffopt.format_callback
 op_assign
 id|wt_status_collect_changed_cb
@@ -1820,6 +1835,20 @@ id|rev
 comma
 op_amp
 id|opt
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|s-&gt;ignore_submodule_arg
+)paren
+id|handle_ignore_submodules_arg
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|s-&gt;ignore_submodule_arg
 )paren
 suffix:semicolon
 id|rev.diffopt.output_format
@@ -3578,6 +3607,19 @@ r_if
 c_cond
 (paren
 id|s-&gt;submodule_summary
+op_logical_and
+(paren
+op_logical_neg
+id|s-&gt;ignore_submodule_arg
+op_logical_or
+id|strcmp
+c_func
+(paren
+id|s-&gt;ignore_submodule_arg
+comma
+l_string|&quot;all&quot;
+)paren
+)paren
 )paren
 (brace
 id|wt_status_print_submodule_summary
