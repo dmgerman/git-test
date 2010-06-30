@@ -186,6 +186,15 @@ comma
 id|IGNORE_SUBMODULES
 )paren
 op_logical_and
+op_logical_neg
+id|DIFF_OPT_TST
+c_func
+(paren
+id|diffopt
+comma
+id|IGNORE_DIRTY_SUBMODULES
+)paren
+op_logical_and
 (paren
 op_logical_neg
 id|changed
