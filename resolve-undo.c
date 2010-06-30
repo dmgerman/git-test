@@ -90,9 +90,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|ce-&gt;name
-comma
 id|resolve_undo
+comma
+id|ce-&gt;name
 )paren
 suffix:semicolon
 r_if
@@ -290,9 +290,9 @@ id|resolve_undo
 id|for_each_string_list
 c_func
 (paren
-id|write_one
-comma
 id|resolve_undo
+comma
+id|write_one
 comma
 id|sb
 )paren
@@ -389,9 +389,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|data
-comma
 id|resolve_undo
+comma
+id|data
 )paren
 suffix:semicolon
 r_if
@@ -740,9 +740,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|ce-&gt;name
-comma
 id|istate-&gt;resolve_undo
+comma
+id|ce-&gt;name
 )paren
 suffix:semicolon
 r_if

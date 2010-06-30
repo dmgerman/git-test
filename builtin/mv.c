@@ -1214,10 +1214,10 @@ r_else
 id|string_list_insert
 c_func
 (paren
-id|dst
-comma
 op_amp
 id|src_for_dst
+comma
+id|dst
 )paren
 suffix:semicolon
 r_if

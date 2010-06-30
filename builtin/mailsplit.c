@@ -641,9 +641,9 @@ suffix:semicolon
 id|string_list_insert
 c_func
 (paren
-id|name
-comma
 id|list
+comma
+id|name
 )paren
 suffix:semicolon
 )brace

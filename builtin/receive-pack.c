@@ -2707,9 +2707,9 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|dst_name
-comma
 id|list
+comma
+id|dst_name
 )paren
 )paren
 op_eq
@@ -2892,10 +2892,10 @@ op_assign
 id|string_list_append
 c_func
 (paren
-id|cmd-&gt;ref_name
-comma
 op_amp
 id|ref_list
+comma
+id|cmd-&gt;ref_name
 )paren
 suffix:semicolon
 id|item-&gt;util

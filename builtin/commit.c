@@ -1088,9 +1088,9 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|ce-&gt;name
-comma
 id|list
+comma
+id|ce-&gt;name
 )paren
 suffix:semicolon
 r_if
