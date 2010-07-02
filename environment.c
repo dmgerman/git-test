@@ -246,6 +246,10 @@ DECL|variable|core_apply_sparse_checkout
 r_int
 id|core_apply_sparse_checkout
 suffix:semicolon
+DECL|variable|merge_renormalize
+r_int
+id|merge_renormalize
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int
