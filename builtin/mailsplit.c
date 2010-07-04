@@ -705,15 +705,7 @@ r_struct
 id|string_list
 id|list
 op_assign
-(brace
-l_int|NULL
-comma
-l_int|0
-comma
-l_int|0
-comma
-l_int|1
-)brace
+id|STRING_LIST_INIT_DUP
 suffix:semicolon
 r_if
 c_cond
