@@ -3351,6 +3351,9 @@ op_star
 id|offset
 op_assign
 (paren
+(paren
+id|time_t
+)paren
 op_star
 id|timestamp
 id|mktime
