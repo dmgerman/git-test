@@ -119,7 +119,8 @@ id|result
 l_int|100
 )braket
 suffix:semicolon
-id|time_t
+r_int
+r_int
 id|t
 suffix:semicolon
 r_int
@@ -154,7 +155,7 @@ c_func
 (paren
 id|result
 comma
-l_string|&quot;%ld %d&quot;
+l_string|&quot;%lu %d&quot;
 comma
 op_amp
 id|t
