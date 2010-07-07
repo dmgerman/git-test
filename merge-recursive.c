@@ -16,6 +16,7 @@ macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|function|shift_tree_object
 r_static
 r_struct
@@ -2822,10 +2823,16 @@ c_func
 id|mode
 )paren
 )paren
+(brace
 multiline_comment|/*&n;&t;&t;&t; * We may later decide to recursively descend into&n;&t;&t;&t; * the submodule directory and update its index&n;&t;&t;&t; * and/or work tree, but we do not do that now.&n;&t;&t;&t; */
+id|update_wd
+op_assign
+l_int|0
+suffix:semicolon
 r_goto
 id|update_index
 suffix:semicolon
+)brace
 id|buf
 op_assign
 id|read_sha1_file
@@ -3912,14 +3919,18 @@ id|a-&gt;mode
 (brace
 id|result.clean
 op_assign
-l_int|0
-suffix:semicolon
-id|hashcpy
+id|merge_submodule
 c_func
 (paren
 id|result.sha
 comma
+id|one-&gt;path
+comma
+id|one-&gt;sha1
+comma
 id|a-&gt;sha1
+comma
+id|b-&gt;sha1
 )paren
 suffix:semicolon
 )brace
