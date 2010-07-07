@@ -5621,6 +5621,9 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * People using contrib&squot;s git-new-workdir have .git/logs/refs -&gt;&n; * /some/other/path/.git/logs/refs, and that may live on another device.&n; *&n; * IOW, to avoid cross device rename errors, the temporary renamed log must&n; * live into logs/refs.&n; */
+DECL|macro|TMP_RENAMED_LOG
+mdefine_line|#define TMP_RENAMED_LOG  &quot;logs/refs/.tmp-renamed-log&quot;
 DECL|function|rename_ref
 r_int
 id|rename_ref
@@ -5891,7 +5894,7 @@ comma
 id|git_path
 c_func
 (paren
-l_string|&quot;tmp-renamed-log&quot;
+id|TMP_RENAMED_LOG
 )paren
 )paren
 )paren
@@ -5899,7 +5902,9 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;unable to move logfile logs/%s to tmp-renamed-log: %s&quot;
+l_string|&quot;unable to move logfile logs/%s to &quot;
+id|TMP_RENAMED_LOG
+l_string|&quot;: %s&quot;
 comma
 id|oldref
 comma
@@ -6058,7 +6063,7 @@ c_func
 id|git_path
 c_func
 (paren
-l_string|&quot;tmp-renamed-log&quot;
+id|TMP_RENAMED_LOG
 )paren
 comma
 id|git_path
@@ -6121,7 +6126,9 @@ r_else
 id|error
 c_func
 (paren
-l_string|&quot;unable to move logfile tmp-renamed-log to logs/%s: %s&quot;
+l_string|&quot;unable to move logfile &quot;
+id|TMP_RENAMED_LOG
+l_string|&quot; to logs/%s: %s&quot;
 comma
 id|newref
 comma
@@ -6344,7 +6351,7 @@ c_func
 id|git_path
 c_func
 (paren
-l_string|&quot;tmp-renamed-log&quot;
+id|TMP_RENAMED_LOG
 )paren
 comma
 id|git_path
@@ -6359,7 +6366,9 @@ id|oldref
 id|error
 c_func
 (paren
-l_string|&quot;unable to restore logfile %s from tmp-renamed-log: %s&quot;
+l_string|&quot;unable to restore logfile %s from &quot;
+id|TMP_RENAMED_LOG
+l_string|&quot;: %s&quot;
 comma
 id|oldref
 comma
