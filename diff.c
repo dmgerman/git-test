@@ -14528,9 +14528,9 @@ id|msg
 comma
 l_string|&quot;%s%sindex %s..&quot;
 comma
-id|set
-comma
 id|line_prefix
+comma
+id|set
 comma
 id|find_unique_abbrev
 c_func
