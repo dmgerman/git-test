@@ -136,11 +136,9 @@ id|prefix
 op_assign
 id|PREFIX
 suffix:semicolon
-id|fprintf
+id|trace_printf
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;RUNTIME_PREFIX requested, &quot;
 l_string|&quot;but prefix computation failed.  &quot;
 l_string|&quot;Using static fallback &squot;%s&squot;.&bslash;n&quot;
@@ -479,7 +477,7 @@ c_func
 op_amp
 id|new_path
 comma
-l_string|&quot;/usr/local/bin:/usr/bin:/bin&quot;
+id|_PATH_DEFPATH
 )paren
 suffix:semicolon
 id|setenv

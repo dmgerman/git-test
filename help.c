@@ -695,7 +695,8 @@ id|st.st_mode
 r_return
 l_int|0
 suffix:semicolon
-macro_line|#ifdef __MINGW32__
+macro_line|#ifdef WIN32
+(brace
 multiline_comment|/* cannot trust the executable bit, peek into the file instead */
 r_char
 id|buf
@@ -785,6 +786,7 @@ c_func
 id|fd
 )paren
 suffix:semicolon
+)brace
 )brace
 macro_line|#endif
 r_return
@@ -1750,6 +1752,9 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
+multiline_comment|/* An empirically derived magic number */
+DECL|macro|SIMILAR_ENOUGH
+mdefine_line|#define SIMILAR_ENOUGH(x) ((x) &lt; 6)
 DECL|function|help_unknown_cmd
 r_const
 r_char
@@ -1992,6 +1997,12 @@ op_logical_and
 id|n
 op_eq
 l_int|1
+op_logical_and
+id|SIMILAR_ENOUGH
+c_func
+(paren
+id|best_similarity
+)paren
 )paren
 (brace
 r_const
@@ -2079,7 +2090,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git: &squot;%s&squot; is not a git-command. See &squot;git --help&squot;.&bslash;n&quot;
+l_string|&quot;git: &squot;%s&squot; is not a git command. See &squot;git --help&squot;.&bslash;n&quot;
 comma
 id|cmd
 )paren
@@ -2087,9 +2098,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|SIMILAR_ENOUGH
+c_func
+(paren
 id|best_similarity
-OL
-l_int|6
+)paren
 )paren
 (brace
 id|fprintf

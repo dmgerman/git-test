@@ -1,3 +1,4 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
@@ -98,7 +99,8 @@ c_func
 (paren
 l_string|&quot;php&quot;
 comma
-l_string|&quot;^[&bslash;t ]*((function|class).*)&quot;
+l_string|&quot;^[&bslash;t ]*(((public|protected|private|static)[&bslash;t ]+)*function.*)$&bslash;n&quot;
+l_string|&quot;^[&bslash;t ]*(class.*)$&quot;
 comma
 multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
@@ -686,6 +688,42 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|function|parse_bool
+r_static
+r_int
+id|parse_bool
+c_func
+(paren
+r_int
+op_star
+id|b
+comma
+r_const
+r_char
+op_star
+id|k
+comma
+r_const
+r_char
+op_star
+id|v
+)paren
+(brace
+op_star
+id|b
+op_assign
+id|git_config_bool
+c_func
+(paren
+id|k
+comma
+id|v
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 DECL|function|userdiff_config
 r_int
 id|userdiff_config
@@ -869,6 +907,35 @@ id|k
 comma
 id|v
 comma
+l_string|&quot;cachetextconv&quot;
+)paren
+)paren
+)paren
+r_return
+id|parse_bool
+c_func
+(paren
+op_amp
+id|drv-&gt;textconv_want_cache
+comma
+id|k
+comma
+id|v
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|drv
+op_assign
+id|parse_driver
+c_func
+(paren
+id|k
+comma
+id|v
+comma
 l_string|&quot;wordregex&quot;
 )paren
 )paren
@@ -956,8 +1023,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;diff&quot;
-comma
-l_int|4
 )paren
 suffix:semicolon
 id|check.attr

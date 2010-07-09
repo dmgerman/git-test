@@ -515,6 +515,10 @@ comma
 id|sha2
 comma
 id|newbase
+comma
+l_int|0
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|newbase
@@ -581,6 +585,10 @@ comma
 id|sha2
 comma
 id|fullname
+comma
+l_int|0
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|free
@@ -1223,6 +1231,8 @@ comma
 id|sha1
 comma
 id|newbase
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|newbase
@@ -1313,6 +1323,8 @@ comma
 id|sha1
 comma
 id|fullname
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|free
@@ -1481,7 +1493,7 @@ c_func
 (paren
 id|opt
 comma
-id|QUIET
+id|QUICK
 )paren
 op_logical_and
 id|DIFF_OPT_TST
@@ -1767,9 +1779,14 @@ comma
 id|RECURSIVE
 )paren
 suffix:semicolon
-id|diff_opts.detect_rename
-op_assign
-id|DIFF_DETECT_RENAME
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|diff_opts
+comma
+id|FIND_COPIES_HARDER
+)paren
 suffix:semicolon
 id|diff_opts.output_format
 op_assign

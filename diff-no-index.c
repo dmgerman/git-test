@@ -94,9 +94,9 @@ id|e-&gt;d_name
 id|string_list_insert
 c_func
 (paren
-id|e-&gt;d_name
-comma
 id|list
+comma
+id|e-&gt;d_name
 )paren
 suffix:semicolon
 id|closedir
@@ -852,7 +852,6 @@ op_star
 id|path
 )paren
 (brace
-multiline_comment|/*&n;&t; * We have already done setup_git_directory_gently() so we&n;&t; * know we are inside a git work tree already.&n;&t; */
 r_const
 r_char
 op_star
@@ -880,6 +879,15 @@ id|get_git_work_tree
 c_func
 (paren
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|work_tree
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|len
 op_assign
@@ -1097,10 +1105,10 @@ id|i
 op_plus
 l_int|2
 )paren
-id|die
+id|usagef
 c_func
 (paren
-l_string|&quot;git diff %s takes two paths&quot;
+l_string|&quot;git diff %s &lt;path&gt; &lt;path&gt;&quot;
 comma
 id|no_index
 ques

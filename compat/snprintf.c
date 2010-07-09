@@ -1,7 +1,7 @@
 macro_line|#include &quot;../git-compat-util.h&quot;
-multiline_comment|/*&n; * The size parameter specifies the available space, i.e. includes&n; * the trailing NUL byte; but Windows&squot;s vsnprintf expects the&n; * number of characters to write without the trailing NUL.&n; */
+multiline_comment|/*&n; * The size parameter specifies the available space, i.e. includes&n; * the trailing NUL byte; but Windows&squot;s vsnprintf uses the entire&n; * buffer and avoids the trailing NUL, should the buffer be exactly&n; * big enough for the result. Defining SNPRINTF_SIZE_CORR to 1 will&n; * therefore remove 1 byte from the reported buffer size, so we&n; * always have room for a trailing NUL byte.&n; */
 macro_line|#ifndef SNPRINTF_SIZE_CORR
-macro_line|#if defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; __GNUC__ &lt; 4
+macro_line|#if defined(WIN32) &amp;&amp; (!defined(__GNUC__) || __GNUC__ &lt; 4)
 DECL|macro|SNPRINTF_SIZE_CORR
 mdefine_line|#define SNPRINTF_SIZE_CORR 1
 macro_line|#else

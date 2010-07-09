@@ -1,5 +1,15 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
+DECL|variable|show_index_usage
+r_static
+r_const
+r_char
+id|show_index_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git show-index &lt; &lt;packed archive index&gt;&quot;
+suffix:semicolon
 DECL|function|main
 r_int
 id|main
@@ -31,6 +41,19 @@ id|top_index
 (braket
 l_int|256
 )braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+op_ne
+l_int|1
+)paren
+id|usage
+c_func
+(paren
+id|show_index_usage
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -329,7 +352,7 @@ suffix:semicolon
 op_star
 id|entries
 op_assign
-id|xmalloc
+id|malloc
 c_func
 (paren
 id|nr

@@ -2341,20 +2341,20 @@ op_amp
 id|this_src
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Once we run estimate_similarity,&n;&t;&t;&t; * We do not need the text anymore.&n;&t;&t;&t; */
 id|diff_free_filespec_blob
 c_func
 (paren
 id|one
 )paren
 suffix:semicolon
-)brace
-multiline_comment|/* We do not need the text anymore */
 id|diff_free_filespec_blob
 c_func
 (paren
 id|two
 )paren
 suffix:semicolon
+)brace
 id|dst_cnt
 op_increment
 suffix:semicolon
@@ -2604,15 +2604,12 @@ suffix:semicolon
 id|cleanup
 suffix:colon
 multiline_comment|/* At this point, we have found some renames and copies and they&n;&t; * are recorded in rename_dst.  The original list is still in *q.&n;&t; */
-id|outq.queue
-op_assign
-l_int|NULL
-suffix:semicolon
-id|outq.nr
-op_assign
-id|outq.alloc
-op_assign
-l_int|0
+id|DIFF_QUEUE_CLEAR
+c_func
+(paren
+op_amp
+id|outq
+)paren
 suffix:semicolon
 r_for
 c_loop
