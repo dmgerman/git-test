@@ -5,23 +5,6 @@ macro_line|#include &quot;graph.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 multiline_comment|/* Internal API */
-multiline_comment|/*&n; * Output the next line for a graph.&n; * This formats the next graph line into the specified strbuf.  It is not&n; * terminated with a newline.&n; *&n; * Returns 1 if the line includes the current commit, and 0 otherwise.&n; * graph_next_line() will return 1 exactly once for each time&n; * graph_update() is called.&n; */
-r_static
-r_int
-id|graph_next_line
-c_func
-(paren
-r_struct
-id|git_graph
-op_star
-id|graph
-comma
-r_struct
-id|strbuf
-op_star
-id|sb
-)paren
-suffix:semicolon
 multiline_comment|/*&n; * Output a padding line in the graph.&n; * This is similar to graph_next_line().  However, it is guaranteed to&n; * never print the current commit line.  Instead, if the commit line is&n; * next, it will simply output a line of vertical padding, extending the&n; * branch lines downwards, but leaving them otherwise unchanged.&n; */
 r_static
 r_void
@@ -3469,7 +3452,6 @@ id|GRAPH_PADDING
 suffix:semicolon
 )brace
 DECL|function|graph_next_line
-r_static
 r_int
 id|graph_next_line
 c_func
