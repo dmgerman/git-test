@@ -2599,13 +2599,23 @@ l_string|&quot;)&bslash;n&quot;
 suffix:semicolon
 )brace
 )brace
-id|strbuf_addstr
+id|strbuf_addf
 c_func
 (paren
 op_amp
 id|mebuf
 comma
+l_string|&quot;%s of commit %s&quot;
+comma
 id|me
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|commit-&gt;object.sha1
+comma
+id|DEFAULT_ABBREV
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2797,7 +2807,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Finished one %s.&bslash;n&quot;
+l_string|&quot;Finished %s.&bslash;n&quot;
 comma
 id|mebuf.buf
 )paren
