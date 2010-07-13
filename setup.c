@@ -1655,11 +1655,12 @@ id|ceil_offset
 comma
 id|root_len
 suffix:semicolon
-r_int
+id|dev_t
 id|current_device
 op_assign
 l_int|0
-comma
+suffix:semicolon
+r_int
 id|one_filesystem
 op_assign
 l_int|1
