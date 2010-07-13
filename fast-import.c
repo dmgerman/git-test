@@ -8664,13 +8664,13 @@ c_func
 (paren
 id|f
 comma
-(paren
 id|base
 op_plus
+(paren
 id|k
-)paren
 op_lshift
 id|m-&gt;shift
+)paren
 comma
 id|m-&gt;data.sets
 (braket
