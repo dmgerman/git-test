@@ -982,6 +982,11 @@ op_eq
 l_char|&squot;!&squot;
 )paren
 (brace
+id|commit_pager_choice
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2710,6 +2715,11 @@ id|tmp
 suffix:semicolon
 r_int
 id|status
+suffix:semicolon
+id|commit_pager_choice
+c_func
+(paren
+)paren
 suffix:semicolon
 id|strbuf_addf
 c_func
