@@ -267,6 +267,13 @@ comma
 op_star
 id|their
 suffix:semicolon
+r_const
+r_char
+op_star
+id|path
+op_assign
+id|entry-&gt;path
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -346,7 +353,7 @@ r_return
 id|merge_file
 c_func
 (paren
-id|entry-&gt;path
+id|path
 comma
 id|base
 comma
