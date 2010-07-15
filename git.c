@@ -982,6 +982,11 @@ op_eq
 l_char|&squot;!&squot;
 )paren
 (brace
+id|commit_pager_choice
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2709,6 +2714,11 @@ suffix:semicolon
 r_int
 id|status
 suffix:semicolon
+id|commit_pager_choice
+c_func
+(paren
+)paren
+suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
@@ -2964,11 +2974,6 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|commit_pager_choice
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3003,6 +3008,11 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/* The user didn&squot;t specify a command; give them help */
+id|commit_pager_choice
+c_func
+(paren
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
