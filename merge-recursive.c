@@ -6754,7 +6754,7 @@ id|o
 comma
 l_int|0
 comma
-l_string|&quot;Already uptodate!&quot;
+l_string|&quot;Already up-to-date!&quot;
 )paren
 suffix:semicolon
 op_star
