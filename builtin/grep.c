@@ -5250,6 +5250,10 @@ c_cond
 id|show_in_pager
 )paren
 (brace
+id|opt.color
+op_assign
+l_int|0
+suffix:semicolon
 id|opt.name_only
 op_assign
 l_int|1
