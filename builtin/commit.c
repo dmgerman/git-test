@@ -1652,6 +1652,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|active_cache_changed
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|write_cache
 c_func
 (paren
@@ -1675,6 +1681,17 @@ c_func
 l_string|&quot;unable to write new_index file&quot;
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+id|rollback_lock_file
+c_func
+(paren
+op_amp
+id|index_lock
+)paren
+suffix:semicolon
+)brace
 id|commit_style
 op_assign
 id|COMMIT_AS_IS
@@ -5909,6 +5926,8 @@ id|fd
 r_if
 c_cond
 (paren
+id|active_cache_changed
+op_logical_and
 op_logical_neg
 id|write_cache
 c_func
@@ -5927,6 +5946,7 @@ op_amp
 id|index_lock
 )paren
 suffix:semicolon
+r_else
 id|rollback_lock_file
 c_func
 (paren
