@@ -83,8 +83,6 @@ DECL|variable|full_tree
 r_static
 r_int
 id|full_tree
-op_assign
-l_int|0
 suffix:semicolon
 DECL|function|parse_opt_signed_tag_mode
 r_static
@@ -3097,6 +3095,19 @@ op_amp
 id|fake_missing_tagger
 comma
 l_string|&quot;Fake a tagger when tags lack one&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;full-tree&quot;
+comma
+op_amp
+id|full_tree
+comma
+l_string|&quot;Output full tree for each commit&quot;
 )paren
 comma
 (brace
