@@ -2335,7 +2335,6 @@ id|len
 suffix:semicolon
 )brace
 DECL|function|dir_add_ignored
-r_static
 r_struct
 id|dir_entry
 op_star
