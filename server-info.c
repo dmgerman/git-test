@@ -574,19 +574,12 @@ r_case
 l_char|&squot;D&squot;
 suffix:colon
 multiline_comment|/* we used to emit D but that was misguided. */
-r_goto
-id|out_stale
-suffix:semicolon
-r_break
-suffix:semicolon
 r_case
 l_char|&squot;T&squot;
 suffix:colon
 multiline_comment|/* we used to emit T but nobody uses it. */
 r_goto
 id|out_stale
-suffix:semicolon
-r_break
 suffix:semicolon
 r_default
 suffix:colon
