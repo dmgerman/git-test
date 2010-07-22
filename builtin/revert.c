@@ -619,8 +619,6 @@ c_loop
 id|eol
 op_assign
 id|p
-op_plus
-l_int|1
 suffix:semicolon
 op_star
 id|eol
