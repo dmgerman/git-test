@@ -462,19 +462,19 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|p
+id|abbrev
 comma
 op_star
-id|abbrev
-suffix:semicolon
-r_char
-op_star
-id|q
+id|subject
 suffix:semicolon
 r_int
 id|abbrev_len
 comma
-id|oneline_len
+id|subject_len
+suffix:semicolon
+r_char
+op_star
+id|q
 suffix:semicolon
 r_if
 c_cond
@@ -571,7 +571,7 @@ c_func
 id|abbrev
 )paren
 suffix:semicolon
-id|oneline_len
+id|subject_len
 op_assign
 id|find_commit_subject
 c_func
@@ -579,7 +579,7 @@ c_func
 id|out-&gt;message
 comma
 op_amp
-id|p
+id|subject
 )paren
 suffix:semicolon
 id|out-&gt;parent_label
@@ -601,7 +601,7 @@ c_func
 l_string|&quot;... &quot;
 )paren
 op_plus
-id|oneline_len
+id|subject_len
 op_plus
 l_int|1
 )paren
@@ -669,9 +669,9 @@ c_func
 (paren
 id|q
 comma
-id|p
+id|subject
 comma
-id|oneline_len
+id|subject_len
 )paren
 suffix:semicolon
 op_star
