@@ -567,6 +567,10 @@ l_string|&quot;-e&quot;
 comma
 id|man_page.buf
 comma
+(paren
+r_char
+op_star
+)paren
 l_int|NULL
 )paren
 suffix:semicolon
@@ -748,6 +752,10 @@ l_string|&quot;newTab&quot;
 comma
 id|man_page.buf
 comma
+(paren
+r_char
+op_star
+)paren
 l_int|NULL
 )paren
 suffix:semicolon
@@ -803,6 +811,10 @@ l_string|&quot;man&quot;
 comma
 id|page
 comma
+(paren
+r_char
+op_star
+)paren
 l_int|NULL
 )paren
 suffix:semicolon
@@ -868,6 +880,10 @@ l_string|&quot;-c&quot;
 comma
 id|shell_cmd.buf
 comma
+(paren
+r_char
+op_star
+)paren
 l_int|NULL
 )paren
 suffix:semicolon
@@ -2123,6 +2139,10 @@ l_string|&quot;gitman&quot;
 comma
 id|page
 comma
+(paren
+r_char
+op_star
+)paren
 l_int|NULL
 )paren
 suffix:semicolon
@@ -2245,6 +2265,10 @@ l_string|&quot;help.browser&quot;
 comma
 id|path
 comma
+(paren
+r_char
+op_star
+)paren
 l_int|NULL
 )paren
 suffix:semicolon
