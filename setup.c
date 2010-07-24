@@ -1938,6 +1938,21 @@ op_ne
 id|len
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|chdir
+c_func
+(paren
+id|cwd
+)paren
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;Cannot come back to cwd&quot;
+)paren
+suffix:semicolon
 id|root_len
 op_assign
 id|offset_1st_component
