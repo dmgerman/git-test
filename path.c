@@ -1622,6 +1622,15 @@ c_func
 l_string|&quot;HOME&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|home
+)paren
+r_goto
+id|return_null
+suffix:semicolon
 id|strbuf_add
 c_func
 (paren
