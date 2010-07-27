@@ -123,6 +123,10 @@ id|ctx.date_mode
 op_assign
 id|DATE_NORMAL
 suffix:semicolon
+id|ctx.abbrev
+op_assign
+id|DEFAULT_ABBREV
+suffix:semicolon
 r_if
 c_cond
 (paren
