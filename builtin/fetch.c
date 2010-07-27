@@ -4529,7 +4529,8 @@ id|remote
 id|die
 c_func
 (paren
-l_string|&quot;Where do you want to fetch from today?&quot;
+l_string|&quot;No remote repository specified.  Please, specify either a URL or a&bslash;n&quot;
+l_string|&quot;remote name from which new revisions should be fetched.&quot;
 )paren
 suffix:semicolon
 id|transport
