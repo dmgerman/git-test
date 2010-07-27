@@ -6354,10 +6354,6 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|rev.abbrev
-op_assign
-l_int|0
-suffix:semicolon
 id|rev.diff
 op_assign
 l_int|1
