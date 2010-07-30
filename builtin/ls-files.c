@@ -64,6 +64,11 @@ id|line_terminator
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
+DECL|variable|debug_mode
+r_static
+r_int
+id|debug_mode
+suffix:semicolon
 DECL|variable|prefix
 r_static
 r_const
@@ -835,6 +840,63 @@ id|ce
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|debug_mode
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;  ctime: %d:%d&bslash;n&quot;
+comma
+id|ce-&gt;ce_ctime.sec
+comma
+id|ce-&gt;ce_ctime.nsec
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;  mtime: %d:%d&bslash;n&quot;
+comma
+id|ce-&gt;ce_mtime.sec
+comma
+id|ce-&gt;ce_mtime.nsec
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;  dev: %d&bslash;tino: %d&bslash;n&quot;
+comma
+id|ce-&gt;ce_dev
+comma
+id|ce-&gt;ce_ino
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;  uid: %d&bslash;tgid: %d&bslash;n&quot;
+comma
+id|ce-&gt;ce_uid
+comma
+id|ce-&gt;ce_gid
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;  size: %d&bslash;tflags: %x&bslash;n&quot;
+comma
+id|ce-&gt;ce_size
+comma
+id|ce-&gt;ce_flags
+)paren
+suffix:semicolon
+)brace
 )brace
 DECL|function|show_one_ru
 r_static
@@ -2732,6 +2794,19 @@ c_func
 (paren
 op_amp
 id|abbrev
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;debug&quot;
+comma
+op_amp
+id|debug_mode
+comma
+l_string|&quot;show debugging data&quot;
 )paren
 comma
 id|OPT_END
