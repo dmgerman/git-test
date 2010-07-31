@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Copyright 2008 Peter Harris &lt;git@peter.is-a-geek.org&gt;&n; */
 macro_line|#include &quot;../git-compat-util.h&quot;
+macro_line|#include &lt;malloc.h&gt;
 multiline_comment|/*&n; Functions to be wrapped:&n;*/
 DECL|macro|printf
 macro_line|#undef printf
@@ -7,6 +8,8 @@ DECL|macro|fprintf
 macro_line|#undef fprintf
 DECL|macro|fputs
 macro_line|#undef fputs
+DECL|macro|vfprintf
+macro_line|#undef vfprintf
 multiline_comment|/* TODO: write */
 multiline_comment|/*&n; ANSI codes used by git: m, K&n;&n; This file is git-specific. Therefore, this file does not attempt&n; to implement any codes that are not used by git.&n;*/
 DECL|variable|console
@@ -103,6 +106,95 @@ suffix:semicolon
 id|initialized
 op_assign
 l_int|1
+suffix:semicolon
+)brace
+DECL|function|write_console
+r_static
+r_int
+id|write_console
+c_func
+(paren
+r_const
+r_char
+op_star
+id|str
+comma
+r_int
+id|len
+)paren
+(brace
+multiline_comment|/* convert utf-8 to utf-16, write directly to console */
+r_int
+id|wlen
+op_assign
+id|MultiByteToWideChar
+c_func
+(paren
+id|CP_UTF8
+comma
+l_int|0
+comma
+id|str
+comma
+id|len
+comma
+l_int|NULL
+comma
+l_int|0
+)paren
+suffix:semicolon
+m_wchar_t
+op_star
+id|wbuf
+op_assign
+(paren
+m_wchar_t
+op_star
+)paren
+id|alloca
+c_func
+(paren
+id|wlen
+op_star
+r_sizeof
+(paren
+m_wchar_t
+)paren
+)paren
+suffix:semicolon
+id|MultiByteToWideChar
+c_func
+(paren
+id|CP_UTF8
+comma
+l_int|0
+comma
+id|str
+comma
+id|len
+comma
+id|wbuf
+comma
+id|wlen
+)paren
+suffix:semicolon
+id|WriteConsoleW
+c_func
+(paren
+id|console
+comma
+id|wbuf
+comma
+id|wlen
+comma
+l_int|NULL
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+multiline_comment|/* return original (utf-8 encoded) length */
+r_return
+id|len
 suffix:semicolon
 )brace
 DECL|macro|FOREGROUND_ALL
@@ -833,6 +925,12 @@ id|pos
 op_assign
 id|str
 suffix:semicolon
+id|fflush
+c_func
+(paren
+id|stream
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -871,16 +969,12 @@ id|len
 r_int
 id|out_len
 op_assign
-id|fwrite
+id|write_console
 c_func
 (paren
 id|str
 comma
-l_int|1
-comma
 id|len
-comma
-id|stream
 )paren
 suffix:semicolon
 id|rv
@@ -908,12 +1002,6 @@ id|rv
 op_add_assign
 l_int|2
 suffix:semicolon
-id|fflush
-c_func
-(paren
-id|stream
-)paren
-suffix:semicolon
 id|pos
 op_assign
 id|set_attr
@@ -934,20 +1022,23 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|rv
-op_add_assign
+r_int
+id|len
+op_assign
 id|strlen
 c_func
 (paren
 id|str
 )paren
 suffix:semicolon
-id|fputs
+id|rv
+op_add_assign
+id|write_console
 c_func
 (paren
 id|str
 comma
-id|stream
+id|len
 )paren
 suffix:semicolon
 r_return
@@ -1046,7 +1137,6 @@ id|EOF
 suffix:semicolon
 )brace
 DECL|function|winansi_vfprintf
-r_static
 r_int
 id|winansi_vfprintf
 c_func
