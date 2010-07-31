@@ -2938,9 +2938,11 @@ c_func
 (paren
 l_string|&quot;git upload-pack: not our ref %s&quot;
 comma
-id|line
-op_plus
-l_int|5
+id|sha1_to_hex
+c_func
+(paren
+id|sha1_buf
+)paren
 )paren
 suffix:semicolon
 r_if
