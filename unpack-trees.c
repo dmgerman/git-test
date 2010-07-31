@@ -722,16 +722,27 @@ op_and_assign
 op_complement
 id|CE_SKIP_WORKTREE
 suffix:semicolon
-multiline_comment|/*&n;&t; * We only care about files getting into the checkout area&n;&t; * If merge strategies want to remove some, go ahead, this&n;&t; * flag will be removed eventually in unpack_trees() if it&squot;s&n;&t; * outside checkout area.&n;&t; */
+multiline_comment|/*&n;&t; * if (!was_skip_worktree &amp;&amp; !ce_skip_worktree()) {&n;&t; *&t;This is perfectly normal. Move on;&n;&t; * }&n;&t; */
+multiline_comment|/*&n;&t; * Merge strategies may set CE_UPDATE|CE_REMOVE outside checkout&n;&t; * area as a result of ce_skip_worktree() shortcuts in&n;&t; * verify_absent() and verify_uptodate(). Clear them.&n;&t; */
 r_if
 c_cond
 (paren
+id|was_skip_worktree
+op_logical_and
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
+)paren
 id|ce-&gt;ce_flags
-op_amp
+op_and_assign
+op_complement
+(paren
+id|CE_UPDATE
+op_or
 id|CE_REMOVE
 )paren
-r_return
-l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -3803,26 +3814,16 @@ r_goto
 id|done
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t;&t; * Merge strategies may set CE_UPDATE|CE_REMOVE outside checkout&n;&t;&t;&t; * area as a result of ce_skip_worktree() shortcuts in&n;&t;&t;&t; * verify_absent() and verify_uptodate(). Clear them.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
+op_logical_neg
 id|ce_skip_worktree
 c_func
 (paren
 id|ce
 )paren
 )paren
-id|ce-&gt;ce_flags
-op_and_assign
-op_complement
-(paren
-id|CE_UPDATE
-op_or
-id|CE_REMOVE
-)paren
-suffix:semicolon
-r_else
 id|empty_worktree
 op_assign
 l_int|0
