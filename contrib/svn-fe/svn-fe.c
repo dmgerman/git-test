@@ -1,6 +1,6 @@
 multiline_comment|/*&n; * This file is in the public domain.&n; * You may freely use, modify, distribute, and relicense it.&n; */
 macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &quot;vcs-svn/svndump.h&quot;
+macro_line|#include &quot;svndump.h&quot;
 DECL|function|main
 r_int
 id|main
