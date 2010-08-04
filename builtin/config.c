@@ -84,11 +84,14 @@ l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 DECL|variable|use_global_config
 DECL|variable|use_system_config
+DECL|variable|use_local_config
 r_static
 r_int
 id|use_global_config
 comma
 id|use_system_config
+comma
+id|use_local_config
 suffix:semicolon
 DECL|variable|given_config_file
 r_static
@@ -198,6 +201,19 @@ op_amp
 id|use_system_config
 comma
 l_string|&quot;use system config file&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;local&quot;
+comma
+op_amp
+id|use_local_config
+comma
+l_string|&quot;use repository config file&quot;
 )paren
 comma
 id|OPT_STRING
@@ -2086,6 +2102,8 @@ id|use_global_config
 op_plus
 id|use_system_config
 op_plus
+id|use_local_config
+op_plus
 op_logical_neg
 op_logical_neg
 id|given_config_file
@@ -2172,6 +2190,20 @@ op_assign
 id|git_etc_gitconfig
 c_func
 (paren
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|use_local_config
+)paren
+id|config_exclusive_filename
+op_assign
+id|git_pathdup
+c_func
+(paren
+l_string|&quot;config&quot;
 )paren
 suffix:semicolon
 r_else
