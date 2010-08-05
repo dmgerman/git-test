@@ -3545,6 +3545,15 @@ suffix:colon
 l_int|0
 )paren
 op_or
+(paren
+id|o-&gt;renormalize
+ques
+c_cond
+id|LL_OPT_RENORMALIZE
+suffix:colon
+l_int|0
+)paren
+op_or
 id|create_ll_flag
 c_func
 (paren

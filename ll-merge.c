@@ -450,13 +450,12 @@ id|marker_size
 (brace
 multiline_comment|/* Use union favor */
 id|flag
-op_assign
-(paren
+op_and_assign
+op_complement
+id|LL_OPT_FAVOR_MASK
+suffix:semicolon
 id|flag
-op_amp
-id|LL_OPT_VIRTUAL_ANCESTOR
-)paren
-op_or
+op_or_assign
 id|create_ll_flag
 c_func
 (paren
@@ -1792,7 +1791,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|merge_renormalize
+id|flag
+op_amp
+id|LL_OPT_RENORMALIZE
 )paren
 (brace
 id|normalize_file

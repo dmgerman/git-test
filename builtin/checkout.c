@@ -836,6 +836,7 @@ op_member_access_from_pointer
 id|sha1
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK: re-create conflicts from merges with&n;&t; * merge.renormalize set, too&n;&t; */
 id|status
 op_assign
 id|ll_merge
