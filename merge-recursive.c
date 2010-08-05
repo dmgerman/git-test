@@ -6020,6 +6020,9 @@ r_char
 op_star
 id|a_sha
 comma
+r_int
+id|renormalize
+comma
 r_const
 r_char
 op_star
@@ -6062,7 +6065,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|merge_renormalize
+id|renormalize
 )paren
 r_return
 l_int|0
@@ -6197,6 +6200,11 @@ op_assign
 l_int|1
 suffix:semicolon
 r_int
+id|normalize
+op_assign
+id|merge_renormalize
+suffix:semicolon
+r_int
 id|o_mode
 op_assign
 id|entry-&gt;stages
@@ -6317,6 +6325,8 @@ id|o_sha
 comma
 id|a_sha
 comma
+id|normalize
+comma
 id|path
 )paren
 )paren
@@ -6331,6 +6341,8 @@ c_func
 id|o_sha
 comma
 id|b_sha
+comma
+id|normalize
 comma
 id|path
 )paren
