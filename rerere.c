@@ -2271,9 +2271,6 @@ r_char
 op_star
 id|name
 comma
-r_int
-id|renormalize
-comma
 r_const
 r_char
 op_star
@@ -2423,11 +2420,6 @@ id|other
 comma
 l_string|&quot;&quot;
 comma
-id|renormalize
-ques
-c_cond
-id|LL_OPT_RENORMALIZE
-suffix:colon
 l_int|0
 )paren
 suffix:semicolon
@@ -2715,9 +2707,6 @@ id|rr
 comma
 r_int
 id|fd
-comma
-r_int
-id|renormalize
 )paren
 (brace
 r_struct
@@ -2971,8 +2960,6 @@ id|merge
 c_func
 (paren
 id|name
-comma
-id|renormalize
 comma
 id|path
 )paren
@@ -3406,8 +3393,6 @@ op_amp
 id|merge_rr
 comma
 id|fd
-comma
-id|merge_renormalize
 )paren
 suffix:semicolon
 )brace
