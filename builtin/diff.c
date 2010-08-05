@@ -9,6 +9,7 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|struct|blobinfo
 r_struct
 id|blobinfo
@@ -1444,6 +1445,11 @@ c_func
 (paren
 op_amp
 id|nongit
+)paren
+suffix:semicolon
+id|gitmodules_config
+c_func
+(paren
 )paren
 suffix:semicolon
 id|git_config
