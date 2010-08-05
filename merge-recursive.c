@@ -6202,7 +6202,7 @@ suffix:semicolon
 r_int
 id|normalize
 op_assign
-id|merge_renormalize
+id|o-&gt;renormalize
 suffix:semicolon
 r_int
 id|o_mode
@@ -8323,6 +8323,10 @@ suffix:semicolon
 id|o-&gt;merge_rename_limit
 op_assign
 l_int|1
+suffix:semicolon
+id|o-&gt;renormalize
+op_assign
+id|merge_renormalize
 suffix:semicolon
 id|git_config
 c_func
