@@ -2318,6 +2318,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * NEEDSWORK: carrying over local changes&n;&t;&t;&t; * when branches have different end-of-line&n;&t;&t;&t; * normalization (or clean+smudge rules) is&n;&t;&t;&t; * a pain; plumb in an option to set&n;&t;&t;&t; * o.renormalize?&n;&t;&t;&t; */
 id|init_merge_options
 c_func
 (paren

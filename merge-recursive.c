@@ -8340,7 +8340,7 @@ l_int|1
 suffix:semicolon
 id|o-&gt;renormalize
 op_assign
-id|merge_renormalize
+l_int|0
 suffix:semicolon
 id|git_config
 c_func
