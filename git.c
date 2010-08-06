@@ -1337,12 +1337,14 @@ op_assign
 id|GIT_VERSION
 suffix:semicolon
 DECL|macro|RUN_SETUP
-mdefine_line|#define RUN_SETUP&t;(1&lt;&lt;0)
+mdefine_line|#define RUN_SETUP&t;&t;(1&lt;&lt;0)
+DECL|macro|RUN_SETUP_GENTLY
+mdefine_line|#define RUN_SETUP_GENTLY&t;(1&lt;&lt;1)
 DECL|macro|USE_PAGER
-mdefine_line|#define USE_PAGER&t;(1&lt;&lt;1)
+mdefine_line|#define USE_PAGER&t;&t;(1&lt;&lt;2)
 multiline_comment|/*&n; * require working tree to be present -- anything uses this needs&n; * RUN_SETUP for reading from the configuration file.&n; */
 DECL|macro|NEED_WORK_TREE
-mdefine_line|#define NEED_WORK_TREE&t;(1&lt;&lt;2)
+mdefine_line|#define NEED_WORK_TREE&t;&t;(1&lt;&lt;3)
 DECL|struct|cmd_struct
 r_struct
 id|cmd_struct
@@ -1459,13 +1461,38 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|p-&gt;option
+op_amp
+id|RUN_SETUP_GENTLY
+)paren
+(brace
+r_int
+id|nongit_ok
+suffix:semicolon
+id|prefix
+op_assign
+id|setup_git_directory_gently
+c_func
+(paren
+op_amp
+id|nongit_ok
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|use_pager
 op_eq
 l_int|1
 op_logical_and
 id|p-&gt;option
 op_amp
+(paren
 id|RUN_SETUP
+op_or
+id|RUN_SETUP_GENTLY
+)paren
 )paren
 id|use_pager
 op_assign
