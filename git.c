@@ -25,6 +25,12 @@ id|git_more_info_string
 op_assign
 l_string|&quot;See &squot;git help COMMAND&squot; for more information on a specific command.&quot;
 suffix:semicolon
+DECL|variable|git_startup_info
+r_static
+r_struct
+id|startup_info
+id|git_startup_info
+suffix:semicolon
 DECL|variable|use_pager
 r_static
 r_int
@@ -2891,6 +2897,11 @@ r_const
 r_char
 op_star
 id|cmd
+suffix:semicolon
+id|startup_info
+op_assign
+op_amp
+id|git_startup_info
 suffix:semicolon
 id|cmd
 op_assign
