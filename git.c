@@ -1865,6 +1865,8 @@ comma
 l_string|&quot;config&quot;
 comma
 id|cmd_config
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2307,6 +2309,8 @@ comma
 l_string|&quot;repo-config&quot;
 comma
 id|cmd_config
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
