@@ -2019,6 +2019,8 @@ comma
 l_string|&quot;index-pack&quot;
 comma
 id|cmd_index_pack
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace

@@ -4744,9 +4744,6 @@ id|pack_sha1
 l_int|20
 )braket
 suffix:semicolon
-r_int
-id|nongit
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4770,15 +4767,6 @@ id|usage
 c_func
 (paren
 id|index_pack_usage
-)paren
-suffix:semicolon
-id|prefix
-op_assign
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|nongit
 )paren
 suffix:semicolon
 id|git_config
