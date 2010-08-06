@@ -1763,6 +1763,8 @@ comma
 l_string|&quot;bundle&quot;
 comma
 id|cmd_bundle
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
