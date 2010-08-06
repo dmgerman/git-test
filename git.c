@@ -2065,6 +2065,8 @@ comma
 l_string|&quot;ls-remote&quot;
 comma
 id|cmd_ls_remote
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2235,6 +2237,8 @@ comma
 l_string|&quot;peek-remote&quot;
 comma
 id|cmd_ls_remote
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace

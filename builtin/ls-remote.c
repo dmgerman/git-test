@@ -156,9 +156,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_int
-id|nongit
-suffix:semicolon
-r_int
 id|flags
 op_assign
 l_int|0
@@ -198,13 +195,6 @@ r_struct
 id|ref
 op_star
 id|ref
-suffix:semicolon
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|nongit
-)paren
 suffix:semicolon
 r_for
 c_loop
