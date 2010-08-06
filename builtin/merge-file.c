@@ -164,9 +164,6 @@ id|quiet
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-id|nongit
-suffix:semicolon
 r_struct
 id|option
 id|options
@@ -303,20 +300,10 @@ id|xmp.favor
 op_assign
 l_int|0
 suffix:semicolon
-id|prefix
-op_assign
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|nongit
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|nongit
+id|startup_info-&gt;have_repository
 )paren
 (brace
 multiline_comment|/* Read the configuration file */

@@ -2103,6 +2103,8 @@ comma
 l_string|&quot;merge-file&quot;
 comma
 id|cmd_merge_file
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
