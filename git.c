@@ -2491,6 +2491,8 @@ comma
 l_string|&quot;var&quot;
 comma
 id|cmd_var
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
