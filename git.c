@@ -2364,6 +2364,8 @@ l_string|&quot;shortlog&quot;
 comma
 id|cmd_shortlog
 comma
+id|RUN_SETUP_GENTLY
+op_or
 id|USE_PAGER
 )brace
 comma
