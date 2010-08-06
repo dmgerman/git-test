@@ -1993,6 +1993,8 @@ comma
 l_string|&quot;grep&quot;
 comma
 id|cmd_grep
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
