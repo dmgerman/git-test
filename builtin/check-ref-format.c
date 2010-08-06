@@ -101,6 +101,16 @@ id|sb
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_int
+id|nongit
+suffix:semicolon
+id|setup_git_directory_gently
+c_func
+(paren
+op_amp
+id|nongit
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
