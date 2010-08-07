@@ -2383,6 +2383,12 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cmd-&gt;cb.data
+)paren
 id|bufl
 op_assign
 id|nfsnprintf
@@ -2395,9 +2401,34 @@ r_sizeof
 id|buf
 )paren
 comma
-id|cmd-&gt;cb.data
-ques
-c_cond
+l_string|&quot;%d %s&bslash;r&bslash;n&quot;
+comma
+id|cmd-&gt;tag
+comma
+id|cmd-&gt;cmd
+)paren
+suffix:semicolon
+r_else
+id|bufl
+op_assign
+id|nfsnprintf
+c_func
+(paren
+id|buf
+comma
+r_sizeof
+(paren
+id|buf
+)paren
+comma
+l_string|&quot;%d %s{%d%s}&bslash;r&bslash;n&quot;
+comma
+id|cmd-&gt;tag
+comma
+id|cmd-&gt;cmd
+comma
+id|cmd-&gt;cb.dlen
+comma
 id|CAP
 c_func
 (paren
@@ -2405,17 +2436,9 @@ id|LITERALPLUS
 )paren
 ques
 c_cond
-l_string|&quot;%d %s{%d+}&bslash;r&bslash;n&quot;
+l_string|&quot;+&quot;
 suffix:colon
-l_string|&quot;%d %s{%d}&bslash;r&bslash;n&quot;
-suffix:colon
-l_string|&quot;%d %s&bslash;r&bslash;n&quot;
-comma
-id|cmd-&gt;tag
-comma
-id|cmd-&gt;cmd
-comma
-id|cmd-&gt;cb.dlen
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -5759,7 +5782,7 @@ r_sizeof
 id|portstr
 )paren
 comma
-l_string|&quot;%hu&quot;
+l_string|&quot;%d&quot;
 comma
 id|srvc-&gt;port
 )paren
