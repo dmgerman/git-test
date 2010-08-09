@@ -663,7 +663,7 @@ c_func
 (paren
 l_char|&squot;n&squot;
 comma
-l_int|NULL
+l_string|&quot;dry-run&quot;
 comma
 op_amp
 id|show_only
@@ -676,7 +676,7 @@ c_func
 (paren
 l_char|&squot;v&squot;
 comma
-l_int|NULL
+l_string|&quot;verbose&quot;
 comma
 op_amp
 id|verbose
