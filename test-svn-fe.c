@@ -1,6 +1,6 @@
-multiline_comment|/*&n; * This file is in the public domain.&n; * You may freely use, modify, distribute, and relicense it.&n; */
-macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &quot;svndump.h&quot;
+multiline_comment|/*&n; * test-svn-fe: Code to exercise the svn import lib&n; */
+macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;vcs-svn/svndump.h&quot;
 DECL|function|main
 r_int
 id|main
@@ -11,31 +11,36 @@ id|argc
 comma
 r_char
 op_star
-op_star
 id|argv
+(braket
+)braket
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|argc
+op_ne
+l_int|2
+)paren
+id|usage
+c_func
+(paren
+l_string|&quot;test-svn-fe &lt;file&gt;&quot;
+)paren
+suffix:semicolon
 id|svndump_init
 c_func
 (paren
-l_int|NULL
+id|argv
+(braket
+l_int|1
+)braket
 )paren
 suffix:semicolon
 id|svndump_read
 c_func
 (paren
-(paren
-id|argc
-OG
-l_int|1
-)paren
-ques
-c_cond
-id|argv
-(braket
-l_int|1
-)braket
-suffix:colon
 l_int|NULL
 )paren
 suffix:semicolon
