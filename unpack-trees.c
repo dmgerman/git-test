@@ -29,8 +29,11 @@ comma
 multiline_comment|/* ERROR_NOT_UPTODATE_DIR */
 l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it&quot;
 comma
-multiline_comment|/* ERROR_WOULD_LOSE_UNTRACKED */
-l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.&quot;
+multiline_comment|/* ERROR_WOULD_LOSE_UNTRACKED_OVERWRITTEN */
+l_string|&quot;Untracked working tree file &squot;%s&squot; would be overwritten by merge.&quot;
+comma
+multiline_comment|/* ERROR_WOULD_LOSE_UNTRACKED_REMOVED */
+l_string|&quot;Untracked working tree file &squot;%s&squot; would be removed by merge.&quot;
 comma
 multiline_comment|/* ERROR_BIND_OVERLAP */
 l_string|&quot;Entry &squot;%s&squot; overlaps with &squot;%s&squot;.  Cannot bind.&quot;
@@ -38,8 +41,11 @@ comma
 multiline_comment|/* ERROR_SPARSE_NOT_UPTODATE_FILE */
 l_string|&quot;Entry &squot;%s&squot; not uptodate. Cannot update sparse checkout.&quot;
 comma
-multiline_comment|/* ERROR_WOULD_LOSE_ORPHANED */
-l_string|&quot;Working tree file &squot;%s&squot; would be %s by sparse checkout update.&quot;
+multiline_comment|/* ERROR_WOULD_LOSE_ORPHANED_OVERWRITTEN */
+l_string|&quot;Working tree file &squot;%s&squot; would be overwritten by sparse checkout update.&quot;
+comma
+multiline_comment|/* ERROR_WOULD_LOSE_ORPHANED_REMOVED */
+l_string|&quot;Working tree file &squot;%s&squot; would be removed by sparse checkout update.&quot;
 comma
 )brace
 suffix:semicolon
@@ -552,10 +558,8 @@ id|cache_entry
 op_star
 id|ce
 comma
-r_const
-r_char
-op_star
-id|action
+r_enum
+id|unpack_trees_error_types
 comma
 r_struct
 id|unpack_trees_options
@@ -760,7 +764,7 @@ c_func
 (paren
 id|ce
 comma
-l_string|&quot;overwritten&quot;
+id|ERROR_WOULD_LOSE_UNTRACKED_OVERWRITTEN
 comma
 id|o
 )paren
@@ -4047,10 +4051,9 @@ id|unpack_trees_options
 op_star
 id|o
 comma
-r_const
-r_char
-op_star
-id|error_msg
+r_enum
+id|unpack_trees_error_types
+id|error_type
 )paren
 (brace
 r_struct
@@ -4170,7 +4173,13 @@ suffix:colon
 id|error
 c_func
 (paren
-id|error_msg
+id|ERRORMSG
+c_func
+(paren
+id|o
+comma
+id|error_type
+)paren
 comma
 id|ce-&gt;name
 )paren
@@ -4218,13 +4227,7 @@ id|ce
 comma
 id|o
 comma
-id|ERRORMSG
-c_func
-(paren
-id|o
-comma
 id|ERROR_NOT_UPTODATE_FILE
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -4253,13 +4256,7 @@ id|ce
 comma
 id|o
 comma
-id|ERRORMSG
-c_func
-(paren
-id|o
-comma
 id|ERROR_SPARSE_NOT_UPTODATE_FILE
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -4306,10 +4303,9 @@ id|cache_entry
 op_star
 id|ce
 comma
-r_const
-r_char
-op_star
-id|action
+r_enum
+id|unpack_trees_error_types
+id|error_type
 comma
 r_struct
 id|unpack_trees_options
@@ -4332,10 +4328,9 @@ id|cache_entry
 op_star
 id|ce
 comma
-r_const
-r_char
-op_star
-id|action
+r_enum
+id|unpack_trees_error_types
+id|error_type
 comma
 r_struct
 id|unpack_trees_options
@@ -4414,7 +4409,7 @@ c_func
 (paren
 id|ce
 comma
-id|action
+id|error_type
 comma
 id|o
 )paren
@@ -4729,20 +4724,14 @@ id|cache_entry
 op_star
 id|ce
 comma
-r_const
-r_char
-op_star
-id|action
+r_enum
+id|unpack_trees_error_types
+id|error_type
 comma
 r_struct
 id|unpack_trees_options
 op_star
 id|o
-comma
-r_const
-r_char
-op_star
-id|error_msg
 )paren
 (brace
 r_struct
@@ -4867,7 +4856,7 @@ c_func
 (paren
 id|ce
 comma
-id|action
+id|error_type
 comma
 id|o
 )paren
@@ -4932,12 +4921,10 @@ c_func
 (paren
 id|o
 comma
-id|ERROR_WOULD_LOSE_UNTRACKED
+id|error_type
 )paren
 comma
 id|ce-&gt;name
-comma
-id|action
 )paren
 suffix:semicolon
 )brace
@@ -4956,10 +4943,9 @@ id|cache_entry
 op_star
 id|ce
 comma
-r_const
-r_char
-op_star
-id|action
+r_enum
+id|unpack_trees_error_types
+id|error_type
 comma
 r_struct
 id|unpack_trees_options
@@ -4990,17 +4976,9 @@ c_func
 (paren
 id|ce
 comma
-id|action
+id|error_type
 comma
 id|o
-comma
-id|ERRORMSG
-c_func
-(paren
-id|o
-comma
-id|ERROR_WOULD_LOSE_UNTRACKED
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -5015,10 +4993,9 @@ id|cache_entry
 op_star
 id|ce
 comma
-r_const
-r_char
-op_star
-id|action
+r_enum
+id|unpack_trees_error_types
+id|error_type
 comma
 r_struct
 id|unpack_trees_options
@@ -5026,23 +5003,32 @@ op_star
 id|o
 )paren
 (brace
+r_enum
+id|unpack_trees_error_types
+id|orphaned_error
+op_assign
+id|error_type
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|orphaned_error
+op_eq
+id|ERROR_WOULD_LOSE_UNTRACKED_OVERWRITTEN
+)paren
+id|orphaned_error
+op_assign
+id|ERROR_WOULD_LOSE_ORPHANED_OVERWRITTEN
+suffix:semicolon
 r_return
 id|verify_absent_1
 c_func
 (paren
 id|ce
 comma
-id|action
+id|orphaned_error
 comma
 id|o
-comma
-id|ERRORMSG
-c_func
-(paren
-id|o
-comma
-id|ERROR_WOULD_LOSE_ORPHANED
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -5088,7 +5074,7 @@ c_func
 (paren
 id|merge
 comma
-l_string|&quot;overwritten&quot;
+id|ERROR_WOULD_LOSE_UNTRACKED_OVERWRITTEN
 comma
 id|o
 )paren
@@ -5248,7 +5234,7 @@ c_func
 (paren
 id|ce
 comma
-l_string|&quot;removed&quot;
+id|ERROR_WOULD_LOSE_UNTRACKED_REMOVED
 comma
 id|o
 )paren
@@ -5963,7 +5949,7 @@ c_func
 (paren
 id|ce
 comma
-l_string|&quot;removed&quot;
+id|ERROR_WOULD_LOSE_UNTRACKED_REMOVED
 comma
 id|o
 )paren
