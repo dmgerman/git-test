@@ -2796,22 +2796,6 @@ c_func
 id|defmsg
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|res
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Finished %s.&bslash;n&quot;
-comma
-id|mebuf.buf
-)paren
-suffix:semicolon
 )brace
 id|strbuf_release
 c_func
