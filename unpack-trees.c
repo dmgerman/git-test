@@ -9,39 +9,42 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;attr.h&quot;
-multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; replaces not_uptodate_file to&n; * explain why it does not allow switching between branches when you have&n; * local changes, for example.&n; */
+multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; replaces ERROR_NOT_UPTODATE_FILE to&n; * explain why it does not allow switching between branches when you have&n; * local changes, for example.&n; */
 DECL|variable|unpack_plumbing_errors
-r_static
-r_struct
-id|unpack_trees_error_msgs
+r_const
+r_char
+op_star
 id|unpack_plumbing_errors
+(braket
+id|NB_UNPACK_TREES_ERROR_TYPES
+)braket
 op_assign
 (brace
-multiline_comment|/* would_overwrite */
+multiline_comment|/* ERROR_WOULD_OVERWRITE */
 l_string|&quot;Entry &squot;%s&squot; would be overwritten by merge. Cannot merge.&quot;
 comma
-multiline_comment|/* not_uptodate_file */
+multiline_comment|/* ERROR_NOT_UPTODATE_FILE */
 l_string|&quot;Entry &squot;%s&squot; not uptodate. Cannot merge.&quot;
 comma
-multiline_comment|/* not_uptodate_dir */
+multiline_comment|/* ERROR_NOT_UPTODATE_DIR */
 l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it&quot;
 comma
-multiline_comment|/* would_lose_untracked */
+multiline_comment|/* ERROR_WOULD_LOSE_UNTRACKED */
 l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.&quot;
 comma
-multiline_comment|/* bind_overlap */
+multiline_comment|/* ERROR_BIND_OVERLAP */
 l_string|&quot;Entry &squot;%s&squot; overlaps with &squot;%s&squot;.  Cannot bind.&quot;
 comma
-multiline_comment|/* sparse_not_uptodate_file */
+multiline_comment|/* ERROR_SPARSE_NOT_UPTODATE_FILE */
 l_string|&quot;Entry &squot;%s&squot; not uptodate. Cannot update sparse checkout.&quot;
 comma
-multiline_comment|/* would_lose_orphaned */
+multiline_comment|/* ERROR_WOULD_LOSE_ORPHANED */
 l_string|&quot;Working tree file &squot;%s&squot; would be %s by sparse checkout update.&quot;
 comma
 )brace
 suffix:semicolon
 DECL|macro|ERRORMSG
-mdefine_line|#define ERRORMSG(o,fld) &bslash;&n;&t;( ((o) &amp;&amp; (o)-&gt;msgs.fld) &bslash;&n;&t;? ((o)-&gt;msgs.fld) &bslash;&n;&t;: (unpack_plumbing_errors.fld) )
+mdefine_line|#define ERRORMSG(o,type) &bslash;&n;&t;( ((o) &amp;&amp; (o)-&gt;msgs[(type)]) &bslash;&n;&t;  ? ((o)-&gt;msgs[(type)])      &bslash;&n;&t;  : (unpack_plumbing_errors[(type)]) )
 DECL|function|add_entry
 r_static
 r_void
@@ -3948,7 +3951,7 @@ c_func
 (paren
 id|o
 comma
-id|would_overwrite
+id|ERROR_WOULD_OVERWRITE
 )paren
 comma
 id|ce-&gt;name
@@ -4220,7 +4223,7 @@ c_func
 (paren
 id|o
 comma
-id|not_uptodate_file
+id|ERROR_NOT_UPTODATE_FILE
 )paren
 )paren
 suffix:semicolon
@@ -4255,7 +4258,7 @@ c_func
 (paren
 id|o
 comma
-id|sparse_not_uptodate_file
+id|ERROR_SPARSE_NOT_UPTODATE_FILE
 )paren
 )paren
 suffix:semicolon
@@ -4633,7 +4636,7 @@ c_func
 (paren
 id|o
 comma
-id|not_uptodate_dir
+id|ERROR_NOT_UPTODATE_DIR
 )paren
 comma
 id|ce-&gt;name
@@ -4929,7 +4932,7 @@ c_func
 (paren
 id|o
 comma
-id|would_lose_untracked
+id|ERROR_WOULD_LOSE_UNTRACKED
 )paren
 comma
 id|ce-&gt;name
@@ -4996,7 +4999,7 @@ c_func
 (paren
 id|o
 comma
-id|would_lose_untracked
+id|ERROR_WOULD_LOSE_UNTRACKED
 )paren
 )paren
 suffix:semicolon
@@ -5038,7 +5041,7 @@ c_func
 (paren
 id|o
 comma
-id|would_lose_orphaned
+id|ERROR_WOULD_LOSE_ORPHANED
 )paren
 )paren
 suffix:semicolon
@@ -6616,7 +6619,7 @@ c_func
 (paren
 id|o
 comma
-id|bind_overlap
+id|ERROR_BIND_OVERLAP
 )paren
 comma
 id|a-&gt;name

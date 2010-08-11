@@ -953,11 +953,10 @@ op_assign
 op_amp
 id|the_index
 suffix:semicolon
-id|opts.msgs
-op_assign
-id|get_porcelain_error_msgs
+id|set_porcelain_error_msgs
 c_func
 (paren
+id|opts.msgs
 )paren
 suffix:semicolon
 id|init_tree_desc_from_tree
@@ -6618,53 +6617,62 @@ r_return
 id|clean_merge
 suffix:semicolon
 )brace
-DECL|function|get_porcelain_error_msgs
-r_struct
-id|unpack_trees_error_msgs
-id|get_porcelain_error_msgs
+DECL|function|set_porcelain_error_msgs
+r_void
+id|set_porcelain_error_msgs
 c_func
 (paren
-r_void
+r_const
+r_char
+op_star
+op_star
+id|msgs
 )paren
 (brace
-r_struct
-id|unpack_trees_error_msgs
-id|msgs
-op_assign
-(brace
-multiline_comment|/* would_overwrite */
-l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
-comma
-multiline_comment|/* not_uptodate_file */
-l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
-comma
-multiline_comment|/* not_uptodate_dir */
-l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it.  Aborting.&quot;
-comma
-multiline_comment|/* would_lose_untracked */
-l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.  Aborting&quot;
-comma
-multiline_comment|/* bind_overlap -- will not happen here */
-l_int|NULL
-comma
-)brace
-suffix:semicolon
 r_if
 c_cond
 (paren
 id|advice_commit_before_merge
 )paren
-(brace
-id|msgs.would_overwrite
+id|msgs
+(braket
+id|ERROR_WOULD_OVERWRITE
+)braket
 op_assign
-id|msgs.not_uptodate_file
+id|msgs
+(braket
+id|ERROR_NOT_UPTODATE_FILE
+)braket
 op_assign
 l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&bslash;n&quot;
 l_string|&quot;Please, commit your changes or stash them before you can merge.&quot;
 suffix:semicolon
-)brace
-r_return
+r_else
 id|msgs
+(braket
+id|ERROR_WOULD_OVERWRITE
+)braket
+op_assign
+id|msgs
+(braket
+id|ERROR_NOT_UPTODATE_FILE
+)braket
+op_assign
+l_string|&quot;Your local changes to &squot;%s&squot; would be overwritten by merge.  Aborting.&quot;
+suffix:semicolon
+id|msgs
+(braket
+id|ERROR_NOT_UPTODATE_DIR
+)braket
+op_assign
+l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it.  Aborting.&quot;
+suffix:semicolon
+id|msgs
+(braket
+id|ERROR_WOULD_LOSE_UNTRACKED
+)braket
+op_assign
+l_string|&quot;Untracked working tree file &squot;%s&squot; would be %s by merge.  Aborting&quot;
 suffix:semicolon
 )brace
 DECL|function|merge_trees

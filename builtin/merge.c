@@ -4351,11 +4351,10 @@ id|opts.fn
 op_assign
 id|twoway_merge
 suffix:semicolon
-id|opts.msgs
-op_assign
-id|get_porcelain_error_msgs
+id|set_porcelain_error_msgs
 c_func
 (paren
+id|opts.msgs
 )paren
 suffix:semicolon
 id|trees
