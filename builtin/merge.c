@@ -4351,6 +4351,10 @@ id|opts.fn
 op_assign
 id|twoway_merge
 suffix:semicolon
+id|opts.show_all_errors
+op_assign
+l_int|1
+suffix:semicolon
 id|set_porcelain_error_msgs
 c_func
 (paren

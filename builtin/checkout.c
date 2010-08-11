@@ -2198,6 +2198,10 @@ id|topts.dir-&gt;exclude_per_dir
 op_assign
 l_string|&quot;.gitignore&quot;
 suffix:semicolon
+id|topts.show_all_errors
+op_assign
+l_int|1
+suffix:semicolon
 id|tree
 op_assign
 id|parse_tree_indirect

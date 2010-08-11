@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
+macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;tree.h&quot;
 DECL|function|get_mode
 r_static
@@ -1317,6 +1318,11 @@ id|ret
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|error
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|name_entry
 op_star
@@ -1715,8 +1721,20 @@ id|ret
 OL
 l_int|0
 )paren
+(brace
+id|error
+op_assign
+id|ret
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|info-&gt;show_all_errors
+)paren
 r_break
 suffix:semicolon
+)brace
 id|mask
 op_and_assign
 id|ret
@@ -1798,7 +1816,7 @@ id|tx
 )paren
 suffix:semicolon
 r_return
-id|ret
+id|error
 suffix:semicolon
 )brace
 DECL|function|find_tree_entry

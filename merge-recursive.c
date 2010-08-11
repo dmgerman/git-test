@@ -6670,13 +6670,13 @@ id|advice_commit_before_merge
 )paren
 id|msg
 op_assign
-l_string|&quot;Your local changes to &squot;%%s&squot; would be overwritten by %s.  Aborting.&bslash;n&quot;
+l_string|&quot;Your local changes to the following files would be overwritten by %s:&bslash;n%%s&quot;
 l_string|&quot;Please, commit your changes or stash them before you can %s.&quot;
 suffix:semicolon
 r_else
 id|msg
 op_assign
-l_string|&quot;Your local changes to &squot;%%s&squot; would be overwritten by %s.  Aborting.&quot;
+l_string|&quot;Your local changes to the following files would be overwritten by %s:&bslash;n%%s&quot;
 suffix:semicolon
 id|tmp
 op_assign
@@ -6700,7 +6700,7 @@ c_func
 (paren
 id|cmd2
 )paren
-l_int|3
+l_int|2
 )paren
 suffix:semicolon
 id|sprintf
@@ -6734,7 +6734,7 @@ id|msgs
 id|ERROR_NOT_UPTODATE_DIR
 )braket
 op_assign
-l_string|&quot;Updating &squot;%s&squot; would lose untracked files in it.  Aborting.&quot;
+l_string|&quot;Updating the following directories would lose untracked files in it:&bslash;n%s&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -6743,13 +6743,13 @@ id|advice_commit_before_merge
 )paren
 id|msg
 op_assign
-l_string|&quot;Untracked working tree file &squot;%%s&squot; would be %s by %s.  Aborting&quot;
+l_string|&quot;The following untracked working tree files would be %s by %s:&bslash;n%%s&quot;
 l_string|&quot;Please move or remove them before you can %s.&quot;
 suffix:semicolon
 r_else
 id|msg
 op_assign
-l_string|&quot;Untracked working tree file &squot;%%s&squot; would be %s by %s.  Aborting&quot;
+l_string|&quot;The following untracked working tree files would be %s by %s:&bslash;n%%s&quot;
 suffix:semicolon
 id|tmp
 op_assign
@@ -6854,6 +6854,35 @@ id|ERROR_WOULD_LOSE_UNTRACKED_OVERWRITTEN
 )braket
 op_assign
 id|tmp
+suffix:semicolon
+multiline_comment|/*&n;&t; * Special case: ERROR_BIND_OVERLAP refers to a pair of paths, we&n;&t; * cannot easily display it as a list.&n;&t; */
+id|msgs
+(braket
+id|ERROR_BIND_OVERLAP
+)braket
+op_assign
+l_string|&quot;Entry &squot;%s&squot; overlaps with &squot;%s&squot;.  Cannot bind.&quot;
+suffix:semicolon
+id|msgs
+(braket
+id|ERROR_SPARSE_NOT_UPTODATE_FILE
+)braket
+op_assign
+l_string|&quot;Cannot update sparse checkout: the following entries are not up-to-date:&bslash;n%s&quot;
+suffix:semicolon
+id|msgs
+(braket
+id|ERROR_WOULD_LOSE_ORPHANED_OVERWRITTEN
+)braket
+op_assign
+l_string|&quot;The following Working tree files would be overwritten by sparse checkout update:&bslash;n%s&quot;
+suffix:semicolon
+id|msgs
+(braket
+id|ERROR_WOULD_LOSE_ORPHANED_REMOVED
+)braket
+op_assign
+l_string|&quot;The following Working tree files would be removed by sparse checkout update:&bslash;n%s&quot;
 suffix:semicolon
 )brace
 DECL|function|merge_trees
