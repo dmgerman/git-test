@@ -2112,12 +2112,13 @@ op_assign
 op_amp
 id|the_index
 suffix:semicolon
+id|set_porcelain_error_msgs
+c_func
+(paren
 id|topts.msgs
-(braket
-id|ERROR_NOT_UPTODATE_FILE
-)braket
-op_assign
-l_string|&quot;You have local changes to &squot;%s&squot;; cannot switch branches.&quot;
+comma
+l_string|&quot;checkout&quot;
+)paren
 suffix:semicolon
 id|refresh_cache
 c_func

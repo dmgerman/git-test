@@ -4355,6 +4355,8 @@ id|set_porcelain_error_msgs
 c_func
 (paren
 id|opts.msgs
+comma
+l_string|&quot;merge&quot;
 )paren
 suffix:semicolon
 id|trees

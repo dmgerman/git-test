@@ -9,7 +9,7 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;attr.h&quot;
-multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; replaces ERROR_NOT_UPTODATE_FILE to&n; * explain why it does not allow switching between branches when you have&n; * local changes, for example.&n; */
+multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; and &quot;git merge&quot; replaces&n; * them using set_porcelain_error_msgs(), for example.&n; */
 DECL|variable|unpack_plumbing_errors
 r_const
 r_char
