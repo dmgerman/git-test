@@ -10,11 +10,11 @@ DECL|macro|say2
 mdefine_line|#define say2(a,b,c) fprintf(stderr, a, b, c)
 macro_line|#else
 DECL|macro|say
-mdefine_line|#define say(a) do {} while(0)
+mdefine_line|#define say(a) do { /* nothing */ } while (0)
 DECL|macro|say1
-mdefine_line|#define say1(a,b) do {} while(0)
+mdefine_line|#define say1(a,b) do { /* nothing */ } while (0)
 DECL|macro|say2
-mdefine_line|#define say2(a,b,c) do {} while(0)
+mdefine_line|#define say2(a,b,c) do { /* nothing */ } while (0)
 macro_line|#endif
 DECL|variable|en85
 r_static

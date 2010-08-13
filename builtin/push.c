@@ -636,8 +636,8 @@ c_func
 id|stderr
 comma
 l_string|&quot;To prevent you from losing history, non-fast-forward updates were rejected&bslash;n&quot;
-l_string|&quot;Merge the remote changes before pushing again.  See the &squot;Note about&bslash;n&quot;
-l_string|&quot;fast-forwards&squot; section of &squot;git push --help&squot; for details.&bslash;n&quot;
+l_string|&quot;Merge the remote changes (e.g. &squot;git pull&squot;) before pushing again.  See the&bslash;n&quot;
+l_string|&quot;&squot;Note about fast-forwards&squot; section of &squot;git push --help&squot; for details.&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
