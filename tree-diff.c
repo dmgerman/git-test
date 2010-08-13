@@ -2162,6 +2162,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+op_star
+id|base
+op_logical_and
 id|DIFF_OPT_TST
 c_func
 (paren
