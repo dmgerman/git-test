@@ -1865,6 +1865,10 @@ id|diff_opts
 )paren
 suffix:semicolon
 multiline_comment|/* Go through the new set of filepairing, and see if we find a more interesting one */
+id|opt-&gt;found_follow
+op_assign
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1954,6 +1958,11 @@ id|opt-&gt;paths
 comma
 id|opt
 )paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * The caller expects us to return a set of vanilla&n;&t;&t;&t; * filepairs to let a later call to diffcore_std()&n;&t;&t;&t; * it makes to sort the renames out (among other&n;&t;&t;&t; * things), but we already have found renames&n;&t;&t;&t; * ourselves; signal diffcore_std() not to muck with&n;&t;&t;&t; * rename information.&n;&t;&t;&t; */
+id|opt-&gt;found_follow
+op_assign
+l_int|1
 suffix:semicolon
 r_break
 suffix:semicolon
