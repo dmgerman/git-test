@@ -244,8 +244,14 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;data %zd&bslash;n%s%s&bslash;n&quot;
+l_string|&quot;data %&quot;
+id|PRIu32
+l_string|&quot;&bslash;n%s%s&bslash;n&quot;
 comma
+(paren
+r_uint32
+)paren
+(paren
 id|strlen
 c_func
 (paren
@@ -256,6 +262,7 @@ id|strlen
 c_func
 (paren
 id|gitsvnline
+)paren
 )paren
 comma
 id|log
