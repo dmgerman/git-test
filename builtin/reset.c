@@ -1705,7 +1705,7 @@ id|MIXED
 id|warning
 c_func
 (paren
-l_string|&quot;--mixed option is deprecated with paths.&quot;
+l_string|&quot;--mixed with paths is deprecated; use &squot;git reset -- &lt;paths&gt;&squot; instead.&quot;
 )paren
 suffix:semicolon
 r_else
