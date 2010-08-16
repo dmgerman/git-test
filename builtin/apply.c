@@ -16854,7 +16854,7 @@ comma
 r_const
 r_char
 op_star
-id|unused_prefix
+id|prefix_
 )paren
 (brace
 r_int
@@ -16867,6 +16867,9 @@ l_int|0
 suffix:semicolon
 r_int
 id|is_not_gitdir
+op_assign
+op_logical_neg
+id|startup_info-&gt;have_repository
 suffix:semicolon
 r_int
 id|binary
@@ -17287,12 +17290,7 @@ c_func
 suffix:semicolon
 id|prefix
 op_assign
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|is_not_gitdir
-)paren
+id|prefix_
 suffix:semicolon
 id|prefix_length
 op_assign

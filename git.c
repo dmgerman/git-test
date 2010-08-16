@@ -1723,6 +1723,8 @@ comma
 l_string|&quot;apply&quot;
 comma
 id|cmd_apply
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
