@@ -177,6 +177,29 @@ l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|
 l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
+id|PATTERNS
+c_func
+(paren
+l_string|&quot;csharp&quot;
+comma
+multiline_comment|/* Keywords */
+l_string|&quot;!^[ &bslash;t]*(do|while|for|if|else|instanceof|new|return|switch|case|throw|catch|using)&bslash;n&quot;
+multiline_comment|/* Methods and constructors */
+l_string|&quot;^[ &bslash;t]*(((static|public|internal|private|protected|new|virtual|sealed|override|unsafe)[ &bslash;t]+)*[][&lt;&gt;@.~_[:alnum:]]+[ &bslash;t]+[&lt;&gt;@._[:alnum:]]+[ &bslash;t]*&bslash;&bslash;(.*&bslash;&bslash;))[ &bslash;t]*$&bslash;n&quot;
+multiline_comment|/* Properties */
+l_string|&quot;^[ &bslash;t]*(((static|public|internal|private|protected|new|virtual|sealed|override|unsafe)[ &bslash;t]+)*[][&lt;&gt;@.~_[:alnum:]]+[ &bslash;t]+[@._[:alnum:]]+)[ &bslash;t]*$&bslash;n&quot;
+multiline_comment|/* Type definitions */
+l_string|&quot;^[ &bslash;t]*(((static|public|internal|private|protected|new|unsafe|sealed|abstract|partial)[ &bslash;t]+)*(class|enum|interface|struct)[ &bslash;t]+.*)$&bslash;n&quot;
+multiline_comment|/* Namespace */
+l_string|&quot;^[ &bslash;t]*(namespace[ &bslash;t]+.*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
+)paren
+comma
 (brace
 l_string|&quot;default&quot;
 comma
