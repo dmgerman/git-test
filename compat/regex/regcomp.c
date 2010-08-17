@@ -2262,6 +2262,7 @@ id|ret
 suffix:semicolon
 )brace
 macro_line|#ifdef _LIBC
+DECL|function|weak_alias
 id|weak_alias
 (paren
 id|__regcomp
@@ -2272,34 +2273,25 @@ macro_line|#endif
 multiline_comment|/* Returns a message corresponding to an error code, ERRCODE, returned&n;   from either regcomp or regexec.   We don&squot;t use PREG here.  */
 r_int
 id|regerror
+c_func
 (paren
-id|errcode
-comma
-id|preg
-comma
-id|errbuf
-comma
-id|errbuf_size
-)paren
 r_int
 id|errcode
-suffix:semicolon
+comma
 r_const
 id|regex_t
 op_star
 id|__restrict
 id|preg
-suffix:semicolon
-DECL|variable|errbuf
+comma
 r_char
 op_star
 id|__restrict
 id|errbuf
-suffix:semicolon
-DECL|variable|errbuf_size
+comma
 r_int
 id|errbuf_size
-suffix:semicolon
+)paren
 (brace
 r_const
 r_char
