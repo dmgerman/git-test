@@ -104,6 +104,8 @@ op_assign
 (brace
 l_string|&quot;git merge-base [-a|--all] [--octopus] &lt;commit&gt; &lt;commit&gt;...&quot;
 comma
+l_string|&quot;git merge-base --independent &lt;commit&gt;...&quot;
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -178,10 +180,10 @@ r_return
 id|r
 suffix:semicolon
 )brace
-DECL|function|show_octopus_merge_bases
+DECL|function|handle_octopus
 r_static
 r_int
-id|show_octopus_merge_bases
+id|handle_octopus
 c_func
 (paren
 r_int
@@ -192,6 +194,9 @@ r_char
 op_star
 op_star
 id|args
+comma
+r_int
+id|reduce
 comma
 r_int
 id|show_all
@@ -212,6 +217,15 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|reduce
+)paren
+id|show_all
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -225,7 +239,7 @@ op_ge
 l_int|0
 suffix:semicolon
 id|i
-op_increment
+op_decrement
 )paren
 id|commit_list_insert
 c_func
@@ -245,6 +259,15 @@ id|revs
 suffix:semicolon
 id|result
 op_assign
+id|reduce
+ques
+c_cond
+id|reduce_heads
+c_func
+(paren
+id|revs
+)paren
+suffix:colon
 id|get_octopus_merge_bases
 c_func
 (paren
@@ -337,6 +360,11 @@ id|octopus
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|reduce
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|option
 id|options
@@ -368,6 +396,19 @@ op_amp
 id|octopus
 comma
 l_string|&quot;find ancestors for a single n-way merge&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;independent&quot;
+comma
+op_amp
+id|reduce
+comma
+l_string|&quot;list revs not reachable from others&quot;
 )paren
 comma
 id|OPT_END
@@ -408,6 +449,9 @@ c_cond
 op_logical_neg
 id|octopus
 op_logical_and
+op_logical_neg
+id|reduce
+op_logical_and
 id|argc
 OL
 l_int|2
@@ -423,15 +467,36 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|reduce
+op_logical_and
+(paren
+id|show_all
+op_logical_or
 id|octopus
 )paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--independent cannot be used with other options&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|octopus
+op_logical_or
+id|reduce
+)paren
 r_return
-id|show_octopus_merge_bases
+id|handle_octopus
 c_func
 (paren
 id|argc
 comma
 id|argv
+comma
+id|reduce
 comma
 id|show_all
 )paren
