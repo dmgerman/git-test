@@ -5718,6 +5718,9 @@ op_eq
 id|ren1-&gt;pair-&gt;two-&gt;mode
 )paren
 (brace
+r_int
+id|i
+suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t;&t;&t; * This message is part of&n;&t;&t;&t;&t;&t; * t6022 test. If you change&n;&t;&t;&t;&t;&t; * it update the test too.&n;&t;&t;&t;&t;&t; */
 id|output
 c_func
