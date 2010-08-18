@@ -1635,6 +1635,14 @@ c_func
 id|sha1
 )paren
 )paren
+(brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buffer
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -1656,6 +1664,7 @@ comma
 id|path
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren

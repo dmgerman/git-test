@@ -7017,6 +7017,9 @@ r_char
 op_star
 id|name
 suffix:semicolon
+r_int
+id|result
+suffix:semicolon
 id|ondisk-&gt;ctime.sec
 op_assign
 id|htonl
@@ -7173,7 +7176,8 @@ id|ce
 )paren
 )paren
 suffix:semicolon
-r_return
+id|result
+op_assign
 id|ce_write
 c_func
 (paren
@@ -7185,6 +7189,15 @@ id|ondisk
 comma
 id|size
 )paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|ondisk
+)paren
+suffix:semicolon
+r_return
+id|result
 suffix:semicolon
 )brace
 DECL|function|write_index
