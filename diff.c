@@ -22562,14 +22562,6 @@ op_star
 id|options
 )paren
 (brace
-multiline_comment|/* We never run this function more than one time, because the&n;&t; * rename/copy detection logic can only run once.&n;&t; */
-r_if
-c_cond
-(paren
-id|diff_queued_diff.run
-)paren
-r_return
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -22581,6 +22573,14 @@ c_func
 id|options
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|options-&gt;found_follow
+)paren
+(brace
+multiline_comment|/* See try_to_follow_renames() in tree-diff.c */
 r_if
 c_cond
 (paren
@@ -22617,6 +22617,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -22641,6 +22642,13 @@ c_func
 id|options-&gt;orderfile
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|options-&gt;found_follow
+)paren
+multiline_comment|/* See try_to_follow_renames() in tree-diff.c */
 id|diff_resolve_rename_copy
 c_func
 (paren
@@ -22683,9 +22691,9 @@ comma
 id|HAS_CHANGES
 )paren
 suffix:semicolon
-id|diff_queued_diff.run
+id|options-&gt;found_follow
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|diff_result_code
