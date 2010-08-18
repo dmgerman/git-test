@@ -3,6 +3,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|variable|diff_cache_usage
 r_static
 r_const
@@ -57,6 +58,11 @@ op_amp
 id|rev
 comma
 id|prefix
+)paren
+suffix:semicolon
+id|gitmodules_config
+c_func
+(paren
 )paren
 suffix:semicolon
 id|git_config
