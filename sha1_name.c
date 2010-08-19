@@ -3703,6 +3703,9 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * This interprets names like &squot;:/Initial revision of &quot;git&quot;&squot; by searching&n; * through history and returning the first commit whose message starts&n; * the given regular expression.&n; *&n; * For future extension, &squot;:/!&squot; is reserved. If you want to match a message&n; * beginning with a &squot;!&squot;, you have to repeat the exclamation mark.&n; */
+DECL|macro|ONELINE_SEEN
+mdefine_line|#define ONELINE_SEEN (1u&lt;&lt;20)
 DECL|function|handle_one_ref
 r_static
 r_int
@@ -3813,13 +3816,14 @@ comma
 id|list
 )paren
 suffix:semicolon
+id|object-&gt;flags
+op_or_assign
+id|ONELINE_SEEN
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This interprets names like &squot;:/Initial revision of &quot;git&quot;&squot; by searching&n; * through history and returning the first commit whose message matches&n; * the given regular expression.&n; *&n; * For future extension, &squot;:/!&squot; is reserved. If you want to match a message&n; * beginning with a &squot;!&squot;, you have to repeat the exclamation mark.&n; */
-DECL|macro|ONELINE_SEEN
-mdefine_line|#define ONELINE_SEEN (1u&lt;&lt;20)
 DECL|function|get_sha1_oneline
 r_static
 r_int
