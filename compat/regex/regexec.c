@@ -13683,11 +13683,13 @@ suffix:semicolon
 r_int
 id|cur_idx
 suffix:semicolon
+macro_line|#ifdef RE_ENABLE_I18N
 id|reg_errcode_t
 id|err
 op_assign
 id|REG_NOERROR
 suffix:semicolon
+macro_line|#endif
 id|re_node_set
 id|union_set
 suffix:semicolon

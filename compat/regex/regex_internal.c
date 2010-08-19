@@ -3094,13 +3094,13 @@ macro_line|#endif
 )brace
 r_else
 (brace
+macro_line|#ifdef RE_ENABLE_I18N
 multiline_comment|/* No, skip all characters until IDX.  */
 r_int
 id|prev_valid_len
 op_assign
 id|pstr-&gt;valid_len
 suffix:semicolon
-macro_line|#ifdef RE_ENABLE_I18N
 r_if
 c_cond
 (paren
