@@ -13569,14 +13569,6 @@ c_cond
 id|get_current_sha1
 c_func
 (paren
-id|patch-&gt;new_name
-comma
-id|sha1
-)paren
-op_logical_or
-id|get_current_sha1
-c_func
-(paren
 id|patch-&gt;old_name
 comma
 id|sha1
