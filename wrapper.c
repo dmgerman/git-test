@@ -205,7 +205,13 @@ id|ret
 id|die
 c_func
 (paren
-l_string|&quot;Out of memory, malloc failed&quot;
+l_string|&quot;Out of memory, malloc failed (tried to allocate %lu bytes)&quot;
+comma
+(paren
+r_int
+r_int
+)paren
+id|size
 )paren
 suffix:semicolon
 )brace
