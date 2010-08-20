@@ -2829,6 +2829,11 @@ id|name
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|opts-&gt;new_branch
+)paren
 id|fprintf
 c_func
 (paren
@@ -2842,6 +2847,19 @@ c_cond
 l_string|&quot; and reset&quot;
 suffix:colon
 l_string|&quot; a new&quot;
+comma
+r_new
+op_member_access_from_pointer
+id|name
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Switched to branch &squot;%s&squot;&bslash;n&quot;
 comma
 r_new
 op_member_access_from_pointer
