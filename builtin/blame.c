@@ -11233,7 +11233,7 @@ id|blame_copy_score
 op_assign
 id|BLAME_DEFAULT_COPY_SCORE
 suffix:semicolon
-multiline_comment|/*&n;&t; * We have collected options unknown to us in argv[1..unk]&n;&t; * which are to be passed to revision machinery if we are&n;&t; * going to do the &quot;bottom&quot; processing.&n;&t; *&n;&t; * The remaining are:&n;&t; *&n;&t; * (1) if dashdash_pos != 0, its either&n;&t; *     &quot;blame [revisions] -- &lt;path&gt;&quot; or&n;&t; *     &quot;blame -- &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *&n;&t; * (2) otherwise, its one of the two:&n;&t; *     &quot;blame [revisions] &lt;path&gt;&quot;&n;&t; *     &quot;blame &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *&n;&t; * Note that we must strip out &lt;path&gt; from the arguments: we do not&n;&t; * want the path pruning but we may want &quot;bottom&quot; processing.&n;&t; */
+multiline_comment|/*&n;&t; * We have collected options unknown to us in argv[1..unk]&n;&t; * which are to be passed to revision machinery if we are&n;&t; * going to do the &quot;bottom&quot; processing.&n;&t; *&n;&t; * The remaining are:&n;&t; *&n;&t; * (1) if dashdash_pos != 0, it is either&n;&t; *     &quot;blame [revisions] -- &lt;path&gt;&quot; or&n;&t; *     &quot;blame -- &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *&n;&t; * (2) otherwise, it is one of the two:&n;&t; *     &quot;blame [revisions] &lt;path&gt;&quot;&n;&t; *     &quot;blame &lt;path&gt; &lt;rev&gt;&quot;&n;&t; *&n;&t; * Note that we must strip out &lt;path&gt; from the arguments: we do not&n;&t; * want the path pruning but we may want &quot;bottom&quot; processing.&n;&t; */
 r_if
 c_cond
 (paren

@@ -1124,7 +1124,7 @@ l_int|1
 id|max_cols
 op_increment
 suffix:semicolon
-multiline_comment|/*&n;&t; * We added a column for the the current commit as part of&n;&t; * graph-&gt;num_parents.  If the current commit was already in&n;&t; * graph-&gt;columns, then we have double counted it.&n;&t; */
+multiline_comment|/*&n;&t; * We added a column for the current commit as part of&n;&t; * graph-&gt;num_parents.  If the current commit was already in&n;&t; * graph-&gt;columns, then we have double counted it.&n;&t; */
 r_if
 c_cond
 (paren
