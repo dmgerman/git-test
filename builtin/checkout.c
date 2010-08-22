@@ -2119,9 +2119,13 @@ op_assign
 op_amp
 id|the_index
 suffix:semicolon
-id|topts.msgs.not_uptodate_file
-op_assign
-l_string|&quot;You have local changes to &squot;%s&squot;; cannot switch branches.&quot;
+id|set_porcelain_error_msgs
+c_func
+(paren
+id|topts.msgs
+comma
+l_string|&quot;checkout&quot;
+)paren
 suffix:semicolon
 id|refresh_cache
 c_func
@@ -2200,6 +2204,10 @@ suffix:semicolon
 id|topts.dir-&gt;exclude_per_dir
 op_assign
 l_string|&quot;.gitignore&quot;
+suffix:semicolon
+id|topts.show_all_errors
+op_assign
+l_int|1
 suffix:semicolon
 id|tree
 op_assign
