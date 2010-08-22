@@ -147,6 +147,13 @@ comma
 op_star
 id|user_pass
 suffix:semicolon
+DECL|variable|user_agent
+r_static
+r_const
+r_char
+op_star
+id|user_agent
+suffix:semicolon
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071700
 multiline_comment|/* Use CURLOPT_KEYPASSWD as is */
 macro_line|#elif LIBCURL_VERSION_NUM &gt;= 0x070903
@@ -930,6 +937,30 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;http.useragent&quot;
+comma
+id|var
+)paren
+)paren
+r_return
+id|git_config_string
+c_func
+(paren
+op_amp
+id|user_agent
+comma
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
 multiline_comment|/* Fall back on the default ones */
 r_return
 id|git_default_config
@@ -1358,7 +1389,12 @@ id|result
 comma
 id|CURLOPT_USERAGENT
 comma
-id|GIT_USER_AGENT
+id|user_agent
+ques
+c_cond
+id|user_agent
+suffix:colon
+id|GIT_HTTP_USER_AGENT
 )paren
 suffix:semicolon
 r_if
@@ -1833,6 +1869,15 @@ op_amp
 id|ssl_cainfo
 comma
 l_string|&quot;GIT_SSL_CAINFO&quot;
+)paren
+suffix:semicolon
+id|set_from_env
+c_func
+(paren
+op_amp
+id|user_agent
+comma
+l_string|&quot;GIT_HTTP_USER_AGENT&quot;
 )paren
 suffix:semicolon
 id|low_speed_limit
