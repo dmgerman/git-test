@@ -1947,6 +1947,8 @@ r_int
 id|is_bundle
 op_assign
 l_int|0
+comma
+id|is_local
 suffix:semicolon
 r_struct
 id|stat
@@ -2216,6 +2218,26 @@ r_else
 id|repo
 op_assign
 id|repo_name
+suffix:semicolon
+id|is_local
+op_assign
+id|path
+op_logical_and
+op_logical_neg
+id|is_bundle
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_local
+op_logical_and
+id|option_depth
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;--depth is ignored in local clones; use file:// instead.&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -2738,10 +2760,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|path
-op_logical_and
-op_logical_neg
-id|is_bundle
+id|is_local
 )paren
 (brace
 id|refs
