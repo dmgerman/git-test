@@ -3717,7 +3717,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Determines the absolute path of cmd using the the split path in path.&n; * If cmd contains a slash or backslash, no lookup is performed.&n; */
+multiline_comment|/*&n; * Determines the absolute path of cmd using the split path in path.&n; * If cmd contains a slash or backslash, no lookup is performed.&n; */
 DECL|function|path_lookup
 r_static
 r_char

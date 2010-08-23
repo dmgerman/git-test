@@ -433,7 +433,7 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;%s SHA1 does not match its inddex&quot;
+l_string|&quot;%s SHA1 does not match its index&quot;
 comma
 id|p-&gt;pack_name
 )paren

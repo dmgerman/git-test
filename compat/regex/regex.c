@@ -7447,7 +7447,7 @@ id|size
 suffix:semicolon
 )brace
 macro_line|#endif /* not emacs */
-multiline_comment|/* re_match_2 matches the compiled pattern in BUFP against the&n;   the (virtual) concatenation of STRING1 and STRING2 (of length SIZE1&n;   and SIZE2, respectively).  We start matching at POS, and stop&n;   matching at STOP.&n;&n;   If REGS is non-null and the `no_sub&squot; field of BUFP is nonzero, we&n;   store offsets for the substring each group matched in REGS.  See the&n;   documentation for exactly how many groups we fill.&n;&n;   We return -1 if no match, -2 if an internal error (such as the&n;   failure stack overflowing).  Otherwise, we return the length of the&n;   matched substring.  */
+multiline_comment|/* re_match_2 matches the compiled pattern in BUFP against the&n;   (virtual) concatenation of STRING1 and STRING2 (of length SIZE1&n;   and SIZE2, respectively).  We start matching at POS, and stop&n;   matching at STOP.&n;&n;   If REGS is non-null and the `no_sub&squot; field of BUFP is nonzero, we&n;   store offsets for the substring each group matched in REGS.  See the&n;   documentation for exactly how many groups we fill.&n;&n;   We return -1 if no match, -2 if an internal error (such as the&n;   failure stack overflowing).  Otherwise, we return the length of the&n;   matched substring.  */
 r_int
 DECL|function|re_match_2
 id|re_match_2
