@@ -2506,13 +2506,17 @@ id|DATE_RFC2822
 )paren
 suffix:semicolon
 r_else
-id|fprintf
+(brace
+id|free
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: Log for &squot;%.*s&squot; only has &quot;
-l_string|&quot;%d entries.&bslash;n&quot;
+id|real_ref
+)paren
+suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;Log for &squot;%.*s&squot; only has %d entries.&quot;
 comma
 id|len
 comma
@@ -2521,6 +2525,7 @@ comma
 id|co_cnt
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 id|free
