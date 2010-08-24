@@ -592,6 +592,11 @@ id|decoration_style
 )paren
 suffix:semicolon
 )brace
+id|setup_pager
+c_func
+(paren
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/*&n; * This gives a rough estimate for how many commits we&n; * will print out in the list.&n; */
 DECL|function|estimate_commit_count
@@ -2387,12 +2392,6 @@ suffix:semicolon
 id|rev.always_show_header
 op_assign
 l_int|1
-suffix:semicolon
-multiline_comment|/*&n;&t; * We get called through &quot;git reflog&quot;, so unlike the other log&n;&t; * routines, we need to set up our pager manually..&n;&t; */
-id|setup_pager
-c_func
-(paren
-)paren
 suffix:semicolon
 r_return
 id|cmd_log_walk
