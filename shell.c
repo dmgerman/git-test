@@ -836,12 +836,18 @@ id|X_OK
 op_eq
 l_int|1
 )paren
+(brace
 id|die
 c_func
 (paren
-l_string|&quot;Sorry, the interactive git-shell is not enabled&quot;
+l_string|&quot;Interactive git shell is not enabled.&bslash;n&quot;
+l_string|&quot;hint: ~/&quot;
+id|COMMAND_DIR
+l_string|&quot; should exist &quot;
+l_string|&quot;and have read and execute access.&quot;
 )paren
 suffix:semicolon
+)brace
 id|run_shell
 c_func
 (paren
