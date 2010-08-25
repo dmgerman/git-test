@@ -18,6 +18,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|variable|checkout_usage
 r_static
 r_const
@@ -81,6 +82,11 @@ DECL|member|track
 r_enum
 id|branch_track
 id|track
+suffix:semicolon
+DECL|member|diff_options
+r_struct
+id|diff_options
+id|diff_options
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -1584,6 +1590,11 @@ r_struct
 id|object
 op_star
 id|head
+comma
+r_struct
+id|diff_options
+op_star
+id|opts
 )paren
 (brace
 r_struct
@@ -1603,6 +1614,10 @@ suffix:semicolon
 id|rev.abbrev
 op_assign
 l_int|0
+suffix:semicolon
+id|rev.diffopt.flags
+op_assign
+id|opts-&gt;flags
 suffix:semicolon
 id|rev.diffopt.output_format
 op_or_assign
@@ -2456,6 +2471,9 @@ op_amp
 r_new
 op_member_access_from_pointer
 id|commit-&gt;object
+comma
+op_amp
+id|opts-&gt;diff_options
 )paren
 suffix:semicolon
 r_return
@@ -3277,6 +3295,39 @@ op_star
 id|cb
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;diff.ignoresubmodules&quot;
+)paren
+)paren
+(brace
+r_struct
+id|checkout_opts
+op_star
+id|opts
+op_assign
+id|cb
+suffix:semicolon
+id|handle_ignore_submodules_arg
+c_func
+(paren
+op_amp
+id|opts-&gt;diff_options
+comma
+id|value
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_return
 id|git_xmerge_config
 c_func
@@ -3285,7 +3336,7 @@ id|var
 comma
 id|value
 comma
-id|cb
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -3791,7 +3842,8 @@ c_func
 (paren
 id|git_checkout_config
 comma
-l_int|NULL
+op_amp
+id|opts
 )paren
 suffix:semicolon
 id|opts.track
