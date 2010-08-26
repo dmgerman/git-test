@@ -355,6 +355,10 @@ id|xmp.favor
 op_assign
 id|opts-&gt;variant
 suffix:semicolon
+id|xmp.xpp.flags
+op_assign
+id|opts-&gt;xdl_opts
+suffix:semicolon
 r_if
 c_cond
 (paren

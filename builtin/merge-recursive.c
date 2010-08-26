@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
+macro_line|#include &quot;xdiff-interface.h&quot;
 DECL|function|better_branch_name
 r_static
 r_const
