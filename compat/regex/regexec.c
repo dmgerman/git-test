@@ -167,7 +167,6 @@ comma
 r_int
 id|eflags
 )paren
-id|internal_function
 suffix:semicolon
 r_static
 r_int
@@ -211,7 +210,6 @@ comma
 r_int
 id|ret_len
 )paren
-id|internal_function
 suffix:semicolon
 r_static
 r_int
@@ -247,7 +245,6 @@ comma
 r_int
 id|ret_len
 )paren
-id|internal_function
 suffix:semicolon
 r_static
 r_int
@@ -268,7 +265,6 @@ comma
 r_int
 id|regs_allocated
 )paren
-id|internal_function
 suffix:semicolon
 r_static
 id|reg_errcode_t
@@ -278,7 +274,6 @@ id|re_match_context_t
 op_star
 id|mctx
 )paren
-id|internal_function
 suffix:semicolon
 r_static
 r_int
