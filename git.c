@@ -2004,8 +2004,6 @@ comma
 id|cmd_log
 comma
 id|RUN_SETUP
-op_or
-id|USE_PAGER
 )brace
 comma
 (brace
@@ -2354,8 +2352,6 @@ comma
 id|cmd_show
 comma
 id|RUN_SETUP
-op_or
-id|USE_PAGER
 )brace
 comma
 (brace
@@ -2468,8 +2464,6 @@ comma
 id|cmd_whatchanged
 comma
 id|RUN_SETUP
-op_or
-id|USE_PAGER
 )brace
 comma
 (brace
