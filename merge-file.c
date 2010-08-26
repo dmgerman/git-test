@@ -153,7 +153,7 @@ id|their
 comma
 l_string|&quot;.their&quot;
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
