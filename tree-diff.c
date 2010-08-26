@@ -601,7 +601,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Return:&n; *  - 2 for &quot;yes, and all subsequent entries will be&quot;&n; *  - 1 for yes&n; *  - zero for no&n; *  - negative for &quot;no, and no subsequent entries will be either&quot;&n; */
+multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Pre-condition: baselen == 0 || base[baselen-1] == &squot;/&squot;&n; *&n; * Return:&n; *  - 2 for &quot;yes, and all subsequent entries will be&quot;&n; *  - 1 for yes&n; *  - zero for no&n; *  - negative for &quot;no, and no subsequent entries will be either&quot;&n; */
 DECL|function|tree_entry_interesting
 r_static
 r_int
