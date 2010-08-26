@@ -659,7 +659,7 @@ op_logical_neg
 id|opt-&gt;nr_paths
 )paren
 r_return
-l_int|1
+l_int|2
 suffix:semicolon
 id|sha1
 op_assign
