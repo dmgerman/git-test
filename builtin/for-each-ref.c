@@ -1096,12 +1096,16 @@ l_string|&quot;objectname:short&quot;
 (brace
 id|v-&gt;s
 op_assign
+id|xstrdup
+c_func
+(paren
 id|find_unique_abbrev
 c_func
 (paren
 id|obj-&gt;sha1
 comma
 id|DEFAULT_ABBREV
+)paren
 )paren
 suffix:semicolon
 )brace
