@@ -5367,11 +5367,7 @@ id|rev.diff
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.combine_merges
-op_assign
-l_int|0
-suffix:semicolon
-id|rev.ignore_merges
+id|rev.no_merges
 op_assign
 l_int|1
 suffix:semicolon
@@ -6228,16 +6224,6 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* ignore merges */
-r_if
-c_cond
-(paren
-id|commit-&gt;parents
-op_logical_and
-id|commit-&gt;parents-&gt;next
-)paren
-r_continue
-suffix:semicolon
 r_if
 c_cond
 (paren
