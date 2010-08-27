@@ -1131,9 +1131,15 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;Bad alias.%s string&quot;
+l_string|&quot;Bad alias.%s string: %s&quot;
 comma
 id|alias_command
+comma
+id|split_cmdline_strerror
+c_func
+(paren
+id|count
+)paren
 )paren
 suffix:semicolon
 id|option_count

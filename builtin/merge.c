@@ -2779,9 +2779,15 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;Bad branch.%s.mergeoptions string&quot;
+l_string|&quot;Bad branch.%s.mergeoptions string: %s&quot;
 comma
 id|branch
+comma
+id|split_cmdline_strerror
+c_func
+(paren
+id|argc
+)paren
 )paren
 suffix:semicolon
 id|argv
