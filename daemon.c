@@ -3,6 +3,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &lt;syslog.h&gt;
 macro_line|#ifndef HOST_NAME_MAX
 DECL|macro|HOST_NAME_MAX
@@ -4274,7 +4275,8 @@ r_void
 id|socksetup
 c_func
 (paren
-r_char
+r_struct
+id|string_list
 op_star
 id|listen_addr
 comma
@@ -4287,16 +4289,85 @@ op_star
 id|socklist
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|listen_addr-&gt;nr
+)paren
 id|setup_named_sock
 c_func
 (paren
-id|listen_addr
+l_int|NULL
 comma
 id|listen_port
 comma
 id|socklist
 )paren
 suffix:semicolon
+r_else
+(brace
+r_int
+id|i
+comma
+id|socknum
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|listen_addr-&gt;nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+(brace
+id|socknum
+op_assign
+id|setup_named_sock
+c_func
+(paren
+id|listen_addr-&gt;items
+(braket
+id|i
+)braket
+dot
+id|string
+comma
+id|listen_port
+comma
+id|socklist
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|socknum
+op_eq
+l_int|0
+)paren
+id|logerror
+c_func
+(paren
+l_string|&quot;unable to allocate any listen sockets for host %s on port %u&quot;
+comma
+id|listen_addr-&gt;items
+(braket
+id|i
+)braket
+dot
+id|string
+comma
+id|listen_port
+)paren
+suffix:semicolon
+)brace
+)brace
 )brace
 DECL|function|service_loop
 r_static
@@ -4792,7 +4863,8 @@ r_int
 id|serve
 c_func
 (paren
-r_char
+r_struct
+id|string_list
 op_star
 id|listen_addr
 comma
@@ -4841,9 +4913,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;unable to allocate any listen sockets on host %s port %u&quot;
-comma
-id|listen_addr
+l_string|&quot;unable to allocate any listen sockets on port %u&quot;
 comma
 id|listen_port
 )paren
@@ -4910,11 +4980,11 @@ id|listen_port
 op_assign
 l_int|0
 suffix:semicolon
-r_char
-op_star
+r_struct
+id|string_list
 id|listen_addr
 op_assign
-l_int|NULL
+id|STRING_LIST_INIT_NODUP
 suffix:semicolon
 r_int
 id|inetd_mode
@@ -5009,14 +5079,19 @@ l_string|&quot;--listen=&quot;
 )paren
 )paren
 (brace
+id|string_list_append
+c_func
+(paren
+op_amp
 id|listen_addr
-op_assign
+comma
 id|xstrdup_tolower
 c_func
 (paren
 id|arg
 op_plus
 l_int|9
+)paren
 )paren
 suffix:semicolon
 r_continue
@@ -5711,7 +5786,11 @@ op_logical_and
 (paren
 id|listen_port
 op_logical_or
-id|listen_addr
+(paren
+id|listen_addr.nr
+OG
+l_int|0
+)paren
 )paren
 )paren
 id|die
@@ -5970,6 +6049,7 @@ r_return
 id|serve
 c_func
 (paren
+op_amp
 id|listen_addr
 comma
 id|listen_port
