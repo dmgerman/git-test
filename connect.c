@@ -3109,6 +3109,7 @@ op_star
 id|prompt
 )paren
 (brace
+r_const
 r_char
 op_star
 id|askpass
@@ -3139,6 +3140,16 @@ c_func
 (paren
 l_string|&quot;GIT_ASKPASS&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|askpass
+)paren
+id|askpass
+op_assign
+id|askpass_program
 suffix:semicolon
 r_if
 c_cond
