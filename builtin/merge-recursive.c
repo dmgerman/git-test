@@ -2,6 +2,16 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
+DECL|variable|builtin_merge_recursive_usage
+r_static
+r_const
+r_char
+id|builtin_merge_recursive_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git %s &lt;base&gt;... -- &lt;head&gt; &lt;remote&gt; ...&quot;
+suffix:semicolon
 DECL|function|better_branch_name
 r_static
 r_const
@@ -173,7 +183,7 @@ l_int|4
 id|usagef
 c_func
 (paren
-l_string|&quot;%s &lt;base&gt;... -- &lt;head&gt; &lt;remote&gt; ...&quot;
+id|builtin_merge_recursive_usage
 comma
 id|argv
 (braket
