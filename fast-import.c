@@ -7821,6 +7821,27 @@ id|n
 r_if
 c_cond
 (paren
+id|slash1
+op_logical_and
+op_logical_neg
+id|S_ISDIR
+c_func
+(paren
+id|e-&gt;versions
+(braket
+l_int|1
+)braket
+dot
+id|mode
+)paren
+)paren
+multiline_comment|/*&n;&t;&t;&t;&t; * If p names a file in some subdirectory, and a&n;&t;&t;&t;&t; * file or symlink matching the name of the&n;&t;&t;&t;&t; * parent directory of p exists, then p cannot&n;&t;&t;&t;&t; * exist and need not be deleted.&n;&t;&t;&t;&t; */
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|slash1
 op_logical_or
