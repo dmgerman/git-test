@@ -322,6 +322,9 @@ r_struct
 id|strbuf
 op_star
 id|out
+comma
+r_int
+id|decode_plus
 )paren
 (brace
 r_const
@@ -415,6 +418,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|decode_plus
+op_logical_and
 id|c
 op_eq
 l_char|&squot;+&squot;
@@ -531,6 +536,8 @@ l_int|NULL
 comma
 op_amp
 id|out
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -563,6 +570,8 @@ l_string|&quot;&amp;=&quot;
 comma
 op_amp
 id|out
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
@@ -595,6 +604,8 @@ l_string|&quot;&amp;&quot;
 comma
 op_amp
 id|out
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
