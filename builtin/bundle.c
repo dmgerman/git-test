@@ -39,9 +39,6 @@ r_struct
 id|bundle_header
 id|header
 suffix:semicolon
-r_int
-id|nongit
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -95,15 +92,6 @@ suffix:semicolon
 id|argv
 op_add_assign
 l_int|2
-suffix:semicolon
-id|prefix
-op_assign
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|nongit
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -281,7 +269,8 @@ l_string|&quot;create&quot;
 r_if
 c_cond
 (paren
-id|nongit
+op_logical_neg
+id|startup_info-&gt;have_repository
 )paren
 id|die
 c_func
@@ -323,7 +312,8 @@ l_string|&quot;unbundle&quot;
 r_if
 c_cond
 (paren
-id|nongit
+op_logical_neg
+id|startup_info-&gt;have_repository
 )paren
 id|die
 c_func

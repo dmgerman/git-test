@@ -246,6 +246,12 @@ DECL|variable|core_apply_sparse_checkout
 r_int
 id|core_apply_sparse_checkout
 suffix:semicolon
+DECL|variable|startup_info
+r_struct
+id|startup_info
+op_star
+id|startup_info
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int

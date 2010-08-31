@@ -1510,6 +1510,9 @@ id|rev
 suffix:semicolon
 r_int
 id|nongit
+op_assign
+op_logical_neg
+id|startup_info-&gt;have_repository
 suffix:semicolon
 r_static
 r_const
@@ -1589,15 +1592,6 @@ suffix:semicolon
 r_struct
 id|parse_opt_ctx_t
 id|ctx
-suffix:semicolon
-id|prefix
-op_assign
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|nongit
-)paren
 suffix:semicolon
 id|git_config
 c_func
