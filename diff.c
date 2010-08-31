@@ -23132,9 +23132,7 @@ id|options-&gt;pickaxe
 id|diffcore_pickaxe
 c_func
 (paren
-id|options-&gt;pickaxe
-comma
-id|options-&gt;pickaxe_opts
+id|options
 )paren
 suffix:semicolon
 r_if
