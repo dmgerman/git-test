@@ -79,6 +79,11 @@ r_static
 r_int
 id|no_data
 suffix:semicolon
+DECL|variable|full_tree
+r_static
+r_int
+id|full_tree
+suffix:semicolon
 DECL|function|parse_opt_signed_tag_mode
 r_static
 r_int
@@ -1235,6 +1240,9 @@ id|commit-&gt;parents-&gt;item-&gt;object
 )paren
 op_ne
 l_int|0
+op_logical_and
+op_logical_neg
+id|full_tree
 )paren
 (brace
 id|parse_commit
@@ -1502,6 +1510,17 @@ id|i
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|full_tree
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;deleteall&bslash;n&quot;
+)paren
+suffix:semicolon
 id|log_tree_diff_flush
 c_func
 (paren
@@ -3064,6 +3083,19 @@ comma
 l_string|&quot;Fake a tagger when tags lack one&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;full-tree&quot;
+comma
+op_amp
+id|full_tree
+comma
+l_string|&quot;Output full tree for each commit&quot;
+)paren
+comma
 (brace
 id|OPTION_NEGBIT
 comma
@@ -3194,6 +3226,17 @@ c_func
 (paren
 id|import_filename
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|import_filename
+op_logical_and
+id|revs.prune_data
+)paren
+id|full_tree
+op_assign
+l_int|1
 suffix:semicolon
 id|get_tags_and_duplicates
 c_func
