@@ -956,7 +956,8 @@ suffix:semicolon
 id|setup_unpack_trees_porcelain
 c_func
 (paren
-id|opts.msgs
+op_amp
+id|opts
 comma
 l_string|&quot;merge&quot;
 )paren

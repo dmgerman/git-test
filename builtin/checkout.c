@@ -2115,7 +2115,8 @@ suffix:semicolon
 id|setup_unpack_trees_porcelain
 c_func
 (paren
-id|topts.msgs
+op_amp
+id|topts
 comma
 l_string|&quot;checkout&quot;
 )paren
