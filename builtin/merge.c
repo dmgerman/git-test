@@ -4355,7 +4355,7 @@ id|opts.show_all_errors
 op_assign
 l_int|1
 suffix:semicolon
-id|set_porcelain_error_msgs
+id|setup_unpack_trees_porcelain
 c_func
 (paren
 id|opts.msgs

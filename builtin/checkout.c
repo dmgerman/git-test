@@ -2112,7 +2112,7 @@ op_assign
 op_amp
 id|the_index
 suffix:semicolon
-id|set_porcelain_error_msgs
+id|setup_unpack_trees_porcelain
 c_func
 (paren
 id|topts.msgs
