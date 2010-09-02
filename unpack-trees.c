@@ -323,6 +323,10 @@ id|ERROR_WOULD_LOSE_ORPHANED_REMOVED
 op_assign
 l_string|&quot;The following Working tree files would be removed by sparse checkout update:&bslash;n%s&quot;
 suffix:semicolon
+id|opts-&gt;show_all_errors
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 DECL|function|add_entry
 r_static
@@ -447,31 +451,6 @@ r_struct
 id|rejected_paths_list
 op_star
 id|newentry
-suffix:semicolon
-r_int
-id|porcelain
-op_assign
-id|o
-op_logical_and
-(paren
-id|o
-)paren
-op_member_access_from_pointer
-id|msgs
-(braket
-id|e
-)braket
-suffix:semicolon
-multiline_comment|/*&n;&t; * simply display the given error message if in plumbing mode&n;&t; */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|porcelain
-)paren
-id|o-&gt;show_all_errors
-op_assign
-l_int|0
 suffix:semicolon
 r_if
 c_cond
