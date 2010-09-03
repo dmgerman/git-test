@@ -720,6 +720,10 @@ c_func
 id|name
 )paren
 suffix:semicolon
+id|ret-&gt;attr
+op_assign
+id|NO_TRIVIAL
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
