@@ -1063,7 +1063,7 @@ op_assign
 id|parse_object_buffer
 c_func
 (paren
-id|repl
+id|sha1
 comma
 id|type
 comma
