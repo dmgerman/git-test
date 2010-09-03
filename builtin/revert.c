@@ -1701,6 +1701,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK: cherry-picking between branches with&n;&t; * different end-of-line normalization is a pain;&n;&t; * plumb in an option to set o.renormalize?&n;&t; * (or better: arbitrary -X options)&n;&t; */
 id|init_merge_options
 c_func
 (paren

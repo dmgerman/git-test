@@ -1965,6 +1965,7 @@ l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * NEEDSWORK: handle conflicts from merges with&n;&t; * merge.renormalize set, too&n;&t; */
 id|ll_merge
 c_func
 (paren
