@@ -2120,10 +2120,11 @@ op_assign
 op_amp
 id|the_index
 suffix:semicolon
-id|set_porcelain_error_msgs
+id|setup_unpack_trees_porcelain
 c_func
 (paren
-id|topts.msgs
+op_amp
+id|topts
 comma
 l_string|&quot;checkout&quot;
 )paren
@@ -2205,10 +2206,6 @@ suffix:semicolon
 id|topts.dir-&gt;exclude_per_dir
 op_assign
 l_string|&quot;.gitignore&quot;
-suffix:semicolon
-id|topts.show_all_errors
-op_assign
-l_int|1
 suffix:semicolon
 id|tree
 op_assign
