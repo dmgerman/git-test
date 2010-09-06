@@ -214,15 +214,7 @@ r_struct
 id|string_list
 id|exclude_list
 op_assign
-(brace
-l_int|NULL
-comma
-l_int|0
-comma
-l_int|0
-comma
-l_int|0
-)brace
+id|STRING_LIST_INIT_NODUP
 suffix:semicolon
 r_const
 r_char
