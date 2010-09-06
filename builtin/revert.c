@@ -2702,7 +2702,7 @@ op_amp
 id|msg
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; *&n;&t; * If we are cherry-pick, and if the merge did not result in&n;&t; * hand-editing, we will hit this commit and inherit the original&n;&t; * author date and name.&n;&t; * If we are revert, or if our cherry-pick results in a hand merge,&n;&t; * we had better say that the current user is responsible for that.&n;&t; */
+multiline_comment|/*&n;&t; * If we are cherry-pick, and if the merge did not result in&n;&t; * hand-editing, we will hit this commit and inherit the original&n;&t; * author date and name.&n;&t; * If we are revert, or if our cherry-pick results in a hand merge,&n;&t; * we had better say that the current user is responsible for that.&n;&t; */
 r_if
 c_cond
 (paren
