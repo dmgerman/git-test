@@ -94,6 +94,7 @@ id|it-&gt;down
 id|i
 )braket
 )paren
+(brace
 id|cache_tree_free
 c_func
 (paren
@@ -106,6 +107,16 @@ op_member_access_from_pointer
 id|cache_tree
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|it-&gt;down
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+)brace
 id|free
 c_func
 (paren
