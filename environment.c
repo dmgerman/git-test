@@ -160,6 +160,12 @@ r_char
 op_star
 id|editor_program
 suffix:semicolon
+DECL|variable|askpass_program
+r_const
+r_char
+op_star
+id|askpass_program
+suffix:semicolon
 DECL|variable|excludes_file
 r_const
 r_char
