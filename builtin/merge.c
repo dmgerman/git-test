@@ -61,7 +61,7 @@ l_int|NULL
 )brace
 suffix:semicolon
 DECL|variable|show_diffstat
-DECL|variable|option_log
+DECL|variable|shortlog_len
 DECL|variable|squash
 r_static
 r_int
@@ -69,7 +69,7 @@ id|show_diffstat
 op_assign
 l_int|1
 comma
-id|option_log
+id|shortlog_len
 comma
 id|squash
 suffix:semicolon
@@ -934,18 +934,26 @@ comma
 l_string|&quot;(synonym to --stat)&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_INTEGER
+comma
 l_int|0
 comma
 l_string|&quot;log&quot;
 comma
 op_amp
-id|option_log
+id|shortlog_len
 comma
-l_string|&quot;add list of one-line log to merge commit message&quot;
-)paren
+l_string|&quot;n&quot;
+comma
+l_string|&quot;add (at most &lt;n&gt;) entries from shortlog to merge commit message&quot;
+comma
+id|PARSE_OPT_OPTARG
+comma
+l_int|NULL
+comma
+id|DEFAULT_MERGE_LOG_LEN
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -2955,7 +2963,8 @@ comma
 l_string|&quot;merge.summary&quot;
 )paren
 )paren
-id|option_log
+(brace
+id|shortlog_len
 op_assign
 id|git_config_bool
 c_func
@@ -2964,7 +2973,16 @@ id|k
 comma
 id|v
 )paren
+ques
+c_cond
+id|DEFAULT_MERGE_LOG_LEN
+suffix:colon
+l_int|0
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_return
 id|git_diff_ui_config
 c_func
@@ -5949,7 +5967,7 @@ c_cond
 op_logical_neg
 id|have_message
 op_logical_or
-id|option_log
+id|shortlog_len
 )paren
 (brace
 id|fmt_merge_msg
@@ -5964,12 +5982,7 @@ comma
 op_logical_neg
 id|have_message
 comma
-id|option_log
-ques
-c_cond
-id|DEFAULT_MERGE_LOG_LEN
-suffix:colon
-l_int|0
+id|shortlog_len
 )paren
 suffix:semicolon
 r_if
