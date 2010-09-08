@@ -821,7 +821,7 @@ id|git_usage_string
 )paren
 suffix:semicolon
 )brace
-id|git_config_parse_parameter
+id|git_config_push_parameter
 c_func
 (paren
 (paren
