@@ -1066,7 +1066,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * To remove a leaf_node:&n; * Search to the tree location appropriate for the given leaf_node&squot;s key:&n; * - If location does not hold a matching entry, abort and do nothing.&n; * - Replace the matching leaf_node with a NULL entry (and free the leaf_node).&n; * - Consolidate int_nodes repeatedly, while walking up the tree towards root.&n; */
+multiline_comment|/*&n; * To remove a leaf_node:&n; * Search to the tree location appropriate for the given leaf_node&squot;s key:&n; * - If location does not hold a matching entry, abort and do nothing.&n; * - Copy the matching entry&squot;s value into the given entry.&n; * - Replace the matching leaf_node with a NULL entry (and free the leaf_node).&n; * - Consolidate int_nodes repeatedly, while walking up the tree towards root.&n; */
 DECL|function|note_tree_remove
 r_static
 r_void
@@ -1187,6 +1187,14 @@ r_return
 suffix:semicolon
 multiline_comment|/* key mismatch, nothing to remove */
 multiline_comment|/* we have found a matching entry */
+id|hashcpy
+c_func
+(paren
+id|entry-&gt;val_sha1
+comma
+id|l-&gt;val_sha1
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -4941,7 +4949,7 @@ id|combine_notes
 suffix:semicolon
 )brace
 DECL|function|remove_note
-r_void
+r_int
 id|remove_note
 c_func
 (paren
@@ -4977,10 +4985,6 @@ m_assert
 id|t-&gt;initialized
 )paren
 suffix:semicolon
-id|t-&gt;dirty
-op_assign
-l_int|1
-suffix:semicolon
 id|hashcpy
 c_func
 (paren
@@ -5007,6 +5011,26 @@ comma
 op_amp
 id|l
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_null_sha1
+c_func
+(paren
+id|l.val_sha1
+)paren
+)paren
+singleline_comment|// no note was removed
+r_return
+l_int|1
+suffix:semicolon
+id|t-&gt;dirty
+op_assign
+l_int|1
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|get_note
