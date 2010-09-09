@@ -78,7 +78,11 @@ multiline_comment|/* Mode must be 100644, 100755, 120000, or 160000. */
 id|printf
 c_func
 (paren
-l_string|&quot;M %06o :%d &quot;
+l_string|&quot;M %06&quot;
+id|PRIo32
+l_string|&quot; :%&quot;
+id|PRIu32
+l_string|&quot; &quot;
 comma
 id|mode
 comma
@@ -165,7 +169,9 @@ id|gitsvnline
 comma
 id|MAX_GITSVN_LINE_LEN
 comma
-l_string|&quot;&bslash;n&bslash;ngit-svn-id: %s@%d %s&bslash;n&quot;
+l_string|&quot;&bslash;n&bslash;ngit-svn-id: %s@%&quot;
+id|PRIu32
+l_string|&quot; %s&bslash;n&quot;
 comma
 id|pool_fetch
 c_func
@@ -315,7 +321,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;progress Imported commit %d.&bslash;n&bslash;n&quot;
+l_string|&quot;progress Imported commit %&quot;
+id|PRIu32
+l_string|&quot;.&bslash;n&bslash;n&quot;
 comma
 id|revision
 )paren
@@ -359,7 +367,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;blob&bslash;nmark :%d&bslash;ndata %d&bslash;n&quot;
+l_string|&quot;blob&bslash;nmark :%&quot;
+id|PRIu32
+l_string|&quot;&bslash;ndata %&quot;
+id|PRIu32
+l_string|&quot;&bslash;n&quot;
 comma
 id|mark
 comma

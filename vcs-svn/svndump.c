@@ -1476,7 +1476,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Unexpected content length header: %d&bslash;n&quot;
+l_string|&quot;Unexpected content length header: %&quot;
+id|PRIu32
+l_string|&quot;&bslash;n&quot;
 comma
 id|len
 )paren
