@@ -768,6 +768,7 @@ op_logical_and
 (paren
 id|remote-&gt;fetch_refspec_nr
 op_logical_or
+multiline_comment|/* Note: has_merge implies non-NULL branch-&gt;remote_name */
 (paren
 id|has_merge
 op_logical_and
@@ -864,7 +865,7 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t;&t; * if the remote we&squot;re fetching from is the same&n;&t;&t;&t; * as given in branch.&lt;name&gt;.remote, we add the&n;&t;&t;&t; * ref given in branch.&lt;name&gt;.merge, too.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * if the remote we&squot;re fetching from is the same&n;&t;&t;&t; * as given in branch.&lt;name&gt;.remote, we add the&n;&t;&t;&t; * ref given in branch.&lt;name&gt;.merge, too.&n;&t;&t;&t; *&n;&t;&t;&t; * Note: has_merge implies non-NULL branch-&gt;remote_name&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
