@@ -1684,7 +1684,6 @@ id|result
 op_assign
 id|buffer_size
 suffix:semicolon
-r_else
 r_while
 c_loop
 (paren
