@@ -14,6 +14,11 @@ r_static
 r_int
 id|nr_trees
 suffix:semicolon
+DECL|variable|read_empty
+r_static
+r_int
+id|read_empty
+suffix:semicolon
 DECL|variable|trees
 r_static
 r_struct
@@ -96,7 +101,7 @@ id|read_tree_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git read-tree [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u [--exclude-per-directory=&lt;gitignore&gt;] | -i]] [--no-sparse-checkout] [--index-output=&lt;file&gt;] &lt;tree-ish1&gt; [&lt;tree-ish2&gt; [&lt;tree-ish3&gt;]]&quot;
+l_string|&quot;git read-tree [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u [--exclude-per-directory=&lt;gitignore&gt;] | -i]] [--no-sparse-checkout] [--index-output=&lt;file&gt;] (--empty | &lt;tree-ish1&gt; [&lt;tree-ish2&gt; [&lt;tree-ish3&gt;]])&quot;
 comma
 l_int|NULL
 )brace
@@ -468,6 +473,21 @@ id|PARSE_OPT_NONEG
 comma
 id|index_output_cb
 )brace
+comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;empty&quot;
+comma
+op_amp
+id|read_empty
+comma
+l_string|&quot;only empty the index&quot;
+comma
+l_int|1
+)paren
 comma
 id|OPT__VERBOSE
 c_func
@@ -846,6 +866,38 @@ id|stage
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|nr_trees
+op_eq
+l_int|0
+op_logical_and
+op_logical_neg
+id|read_empty
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;read-tree: emptying the index with no arguments is deprecated; use --empty&quot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|nr_trees
+OG
+l_int|0
+op_logical_and
+id|read_empty
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;passing trees as arguments contradicts --empty&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
