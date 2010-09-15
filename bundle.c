@@ -2233,13 +2233,26 @@ c_cond
 op_logical_neg
 id|bundle_to_stdout
 )paren
+(brace
+r_if
+c_cond
+(paren
 id|commit_lock_file
 c_func
 (paren
 op_amp
 id|lock
 )paren
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;cannot create &squot;%s&squot;&quot;
+comma
+id|path
+)paren
 suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
