@@ -6977,6 +6977,15 @@ comma
 id|b_mode
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|entry-&gt;rename_df_conflict_info
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* Such cases are handled elsewhere. */
 id|entry-&gt;processed
 op_assign
 l_int|1
