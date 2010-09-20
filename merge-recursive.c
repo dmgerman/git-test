@@ -6386,6 +6386,11 @@ r_char
 op_star
 id|path
 comma
+r_const
+r_char
+op_star
+id|new_path
+comma
 r_int
 r_char
 op_star
@@ -6418,7 +6423,7 @@ comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (delete/modify): %s deleted in %s &quot;
-l_string|&quot;and modified in %s. Version %s of %s left in tree.&quot;
+l_string|&quot;and modified in %s. Version %s of %s left in tree%s%s.&quot;
 comma
 id|path
 comma
@@ -6429,6 +6434,24 @@ comma
 id|o-&gt;branch2
 comma
 id|path
+comma
+id|path
+op_eq
+id|new_path
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot; at &quot;
+comma
+id|path
+op_eq
+id|new_path
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+id|new_path
 )paren
 suffix:semicolon
 id|update_file
@@ -6442,7 +6465,7 @@ id|b_sha
 comma
 id|b_mode
 comma
-id|path
+id|new_path
 )paren
 suffix:semicolon
 )brace
@@ -6456,7 +6479,7 @@ comma
 l_int|1
 comma
 l_string|&quot;CONFLICT (delete/modify): %s deleted in %s &quot;
-l_string|&quot;and modified in %s. Version %s of %s left in tree.&quot;
+l_string|&quot;and modified in %s. Version %s of %s left in tree%s%s.&quot;
 comma
 id|path
 comma
@@ -6467,6 +6490,24 @@ comma
 id|o-&gt;branch1
 comma
 id|path
+comma
+id|path
+op_eq
+id|new_path
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot; at &quot;
+comma
+id|path
+op_eq
+id|new_path
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+id|new_path
 )paren
 suffix:semicolon
 id|update_file
@@ -6480,7 +6521,7 @@ id|a_sha
 comma
 id|a_mode
 comma
-id|path
+id|new_path
 )paren
 suffix:semicolon
 )brace
@@ -7114,6 +7155,8 @@ id|o
 comma
 id|path
 comma
+id|path
+comma
 id|a_sha
 comma
 id|a_mode
@@ -7655,6 +7698,50 @@ id|b_sha
 )paren
 (brace
 multiline_comment|/* Modify/delete; deleted side may have put a directory in the way */
+r_const
+r_char
+op_star
+id|new_path
+op_assign
+id|path
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|lstat
+c_func
+(paren
+id|path
+comma
+op_amp
+id|st
+)paren
+op_eq
+l_int|0
+op_logical_and
+id|S_ISDIR
+c_func
+(paren
+id|st.st_mode
+)paren
+)paren
+id|new_path
+op_assign
+id|unique_path
+c_func
+(paren
+id|o
+comma
+id|path
+comma
+id|a_sha
+ques
+c_cond
+id|o-&gt;branch1
+suffix:colon
+id|o-&gt;branch2
+)paren
+suffix:semicolon
 id|clean_merge
 op_assign
 l_int|0
@@ -7665,6 +7752,8 @@ c_func
 id|o
 comma
 id|path
+comma
+id|new_path
 comma
 id|a_sha
 comma
