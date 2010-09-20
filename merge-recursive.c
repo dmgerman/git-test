@@ -4439,9 +4439,9 @@ op_star
 id|o
 comma
 r_struct
-id|rename
+id|diff_filepair
 op_star
-id|ren1
+id|pair1
 comma
 r_const
 r_char
@@ -4449,9 +4449,9 @@ op_star
 id|branch1
 comma
 r_struct
-id|rename
+id|diff_filepair
 op_star
-id|ren2
+id|pair2
 comma
 r_const
 r_char
@@ -4477,14 +4477,14 @@ r_char
 op_star
 id|ren1_dst
 op_assign
-id|ren1-&gt;pair-&gt;two-&gt;path
+id|pair1-&gt;two-&gt;path
 suffix:semicolon
 r_const
 r_char
 op_star
 id|ren2_dst
 op_assign
-id|ren2-&gt;pair-&gt;two-&gt;path
+id|pair2-&gt;two-&gt;path
 suffix:semicolon
 r_const
 r_char
@@ -4638,7 +4638,7 @@ c_func
 id|dst_name2
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Uncomment to leave the conflicting names in the resulting tree&n;&t;&t; *&n;&t;&t; * update_file(o, 0, ren1-&gt;pair-&gt;two-&gt;sha1, ren1-&gt;pair-&gt;two-&gt;mode, dst_name1);&n;&t;&t; * update_file(o, 0, ren2-&gt;pair-&gt;two-&gt;sha1, ren2-&gt;pair-&gt;two-&gt;mode, dst_name2);&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Uncomment to leave the conflicting names in the resulting tree&n;&t;&t; *&n;&t;&t; * update_file(o, 0, pair1-&gt;two-&gt;sha1, pair1-&gt;two-&gt;mode, dst_name1);&n;&t;&t; * update_file(o, 0, pair2-&gt;two-&gt;sha1, pair2-&gt;two-&gt;mode, dst_name2);&n;&t;&t; */
 )brace
 r_else
 (brace
@@ -4649,7 +4649,7 @@ id|dst_name1
 comma
 l_int|NULL
 comma
-id|ren1-&gt;pair-&gt;two
+id|pair1-&gt;two
 comma
 l_int|NULL
 comma
@@ -4665,7 +4665,7 @@ l_int|NULL
 comma
 l_int|NULL
 comma
-id|ren2-&gt;pair-&gt;two
+id|pair2-&gt;two
 comma
 l_int|1
 )paren
@@ -5324,11 +5324,11 @@ c_func
 (paren
 id|o
 comma
-id|ren1
+id|ren1-&gt;pair
 comma
 id|branch1
 comma
-id|ren2
+id|ren2-&gt;pair
 comma
 id|branch2
 )paren
