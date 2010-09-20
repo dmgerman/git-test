@@ -3954,10 +3954,10 @@ r_return
 id|result
 suffix:semicolon
 )brace
-DECL|function|conflict_rename_rename
+DECL|function|conflict_rename_rename_1to2
 r_static
 r_void
-id|conflict_rename_rename
+id|conflict_rename_rename_1to2
 c_func
 (paren
 r_struct
@@ -3986,6 +3986,7 @@ op_star
 id|branch2
 )paren
 (brace
+multiline_comment|/* One file was renamed in both branches, but to different names. */
 r_char
 op_star
 id|del
@@ -4296,10 +4297,10 @@ id|new_path
 )paren
 suffix:semicolon
 )brace
-DECL|function|conflict_rename_rename_2
+DECL|function|conflict_rename_rename_2to1
 r_static
 r_void
-id|conflict_rename_rename_2
+id|conflict_rename_rename_2to1
 c_func
 (paren
 r_struct
@@ -4328,6 +4329,7 @@ op_star
 id|branch2
 )paren
 (brace
+multiline_comment|/* Two files were renamed to the same thing. */
 r_char
 op_star
 id|new_path1
@@ -4927,7 +4929,7 @@ id|src
 )paren
 suffix:semicolon
 )brace
-id|conflict_rename_rename
+id|conflict_rename_rename_1to2
 c_func
 (paren
 id|o
@@ -5561,7 +5563,7 @@ comma
 id|branch2
 )paren
 suffix:semicolon
-id|conflict_rename_rename_2
+id|conflict_rename_rename_2to1
 c_func
 (paren
 id|o
