@@ -5802,6 +5802,10 @@ comma
 id|ren1_dst
 )paren
 suffix:semicolon
+id|try_merge
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_else
 (brace
