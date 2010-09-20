@@ -5539,19 +5539,6 @@ comma
 id|ren2-&gt;dst_entry
 )paren
 suffix:semicolon
-id|remove_file
-c_func
-(paren
-id|o
-comma
-l_int|0
-comma
-id|ren1_dst
-comma
-l_int|0
-)paren
-suffix:semicolon
-multiline_comment|/* ren2_dst not in head, so no need to delete */
 )brace
 r_else
 (brace
@@ -5738,18 +5725,6 @@ comma
 id|ren1-&gt;dst_entry
 comma
 l_int|NULL
-)paren
-suffix:semicolon
-id|remove_file
-c_func
-(paren
-id|o
-comma
-l_int|0
-comma
-id|ren1_dst
-comma
-l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -6193,18 +6168,6 @@ comma
 id|ren1-&gt;dst_entry
 comma
 l_int|NULL
-)paren
-suffix:semicolon
-id|remove_file
-c_func
-(paren
-id|o
-comma
-l_int|0
-comma
-id|ren1_dst
-comma
-l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -7321,7 +7284,7 @@ suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* Assume clean till processed */
+multiline_comment|/* Assume clean until processed */
 )brace
 r_else
 (brace
@@ -7429,42 +7392,10 @@ id|entry-&gt;processed
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* But get any file out of the way now, so conflicted&n;&t;&t;&t; * entries below the directory of the same name can&n;&t;&t;&t; * be put in the working directory.&n;&t;&t;&t; */
-r_if
-c_cond
-(paren
-id|a_sha
-)paren
-id|output
-c_func
-(paren
-id|o
-comma
-l_int|2
-comma
-l_string|&quot;Removing %s&quot;
-comma
-id|path
-)paren
-suffix:semicolon
-multiline_comment|/* do not touch working file if it did not exist */
-id|remove_file
-c_func
-(paren
-id|o
-comma
-l_int|0
-comma
-id|path
-comma
-op_logical_neg
-id|a_sha
-)paren
-suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* Assume clean till processed */
+multiline_comment|/* Assume clean until processed */
 )brace
 r_else
 (brace
@@ -8097,18 +8028,6 @@ comma
 id|path
 comma
 id|new_path
-)paren
-suffix:semicolon
-id|remove_file
-c_func
-(paren
-id|o
-comma
-l_int|0
-comma
-id|path
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|update_file
