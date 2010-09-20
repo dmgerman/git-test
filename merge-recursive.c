@@ -5095,8 +5095,22 @@ id|dst_other
 suffix:semicolon
 r_int
 id|try_merge
-comma
-id|stage
+suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * unpack_trees loads entries from common-commit&n;&t;&t;&t; * into stage 1, from head-commit into stage 2, and&n;&t;&t;&t; * from merge-commit into stage 3.  We keep track&n;&t;&t;&t; * of which side corresponds to the rename.&n;&t;&t;&t; */
+r_int
+id|renamed_stage
+op_assign
+id|a_renames
+op_eq
+id|renames1
+ques
+c_cond
+l_int|2
+suffix:colon
+l_int|3
+suffix:semicolon
+r_int
+id|other_stage
 op_assign
 id|a_renames
 op_eq
@@ -5118,9 +5132,9 @@ id|ren1_src
 comma
 id|o-&gt;call_depth
 op_logical_or
-id|stage
+id|renamed_stage
 op_eq
-l_int|3
+l_int|2
 )paren
 suffix:semicolon
 id|hashcpy
@@ -5130,7 +5144,7 @@ id|src_other.sha1
 comma
 id|ren1-&gt;src_entry-&gt;stages
 (braket
-id|stage
+id|other_stage
 )braket
 dot
 id|sha
@@ -5140,7 +5154,7 @@ id|src_other.mode
 op_assign
 id|ren1-&gt;src_entry-&gt;stages
 (braket
-id|stage
+id|other_stage
 )braket
 dot
 id|mode
@@ -5152,7 +5166,7 @@ id|dst_other.sha1
 comma
 id|ren1-&gt;dst_entry-&gt;stages
 (braket
-id|stage
+id|other_stage
 )braket
 dot
 id|sha
@@ -5162,7 +5176,7 @@ id|dst_other.mode
 op_assign
 id|ren1-&gt;dst_entry-&gt;stages
 (braket
-id|stage
+id|other_stage
 )braket
 dot
 id|mode
