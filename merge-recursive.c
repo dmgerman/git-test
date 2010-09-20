@@ -6653,6 +6653,11 @@ id|b_sha
 comma
 r_int
 id|b_mode
+comma
+r_const
+r_char
+op_star
+id|df_rename_conflict_branch
 )paren
 (brace
 r_const
@@ -7286,6 +7291,8 @@ comma
 id|b_sha
 comma
 id|b_mode
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
