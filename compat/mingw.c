@@ -1027,6 +1027,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|filename
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -1164,6 +1166,8 @@ id|otype
 r_if
 c_cond
 (paren
+id|filename
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
