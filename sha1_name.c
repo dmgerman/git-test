@@ -5836,7 +5836,7 @@ id|ret
 r_return
 id|ret
 suffix:semicolon
-multiline_comment|/* sha1:path --&gt; object name of path in ent sha1&n;&t; * :path -&gt; object name of path in index&n;&t; * :[0-3]:path -&gt; object name of path in index at stage&n;&t; */
+multiline_comment|/* sha1:path --&gt; object name of path in ent sha1&n;&t; * :path -&gt; object name of path in index&n;&t; * :[0-3]:path -&gt; object name of path in index at stage&n;&t; * :/foo -&gt; recent commit matching foo&n;&t; */
 r_if
 c_cond
 (paren
