@@ -3736,7 +3736,7 @@ comma
 op_amp
 id|opts.new_branch_log
 comma
-l_string|&quot;log for new branch&quot;
+l_string|&quot;create reflog for new branch&quot;
 )paren
 comma
 id|OPT_SET_INT
@@ -3749,7 +3749,7 @@ comma
 op_amp
 id|opts.track
 comma
-l_string|&quot;track&quot;
+l_string|&quot;set upstream info for new branch&quot;
 comma
 id|BRANCH_TRACK_EXPLICIT
 )paren
@@ -3779,7 +3779,7 @@ comma
 op_amp
 id|opts.writeout_stage
 comma
-l_string|&quot;stage&quot;
+l_string|&quot;checkout our version for unmerged files&quot;
 comma
 l_int|2
 )paren
@@ -3794,7 +3794,7 @@ comma
 op_amp
 id|opts.writeout_stage
 comma
-l_string|&quot;stage&quot;
+l_string|&quot;checkout their version for unmerged files&quot;
 comma
 l_int|3
 )paren
@@ -3809,7 +3809,7 @@ comma
 op_amp
 id|opts.force
 comma
-l_string|&quot;force&quot;
+l_string|&quot;force checkout (throw away local modifications)&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3822,7 +3822,7 @@ comma
 op_amp
 id|opts.merge
 comma
-l_string|&quot;merge&quot;
+l_string|&quot;perform a 3-way merge with the new branch&quot;
 )paren
 comma
 id|OPT_STRING
