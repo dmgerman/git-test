@@ -2151,7 +2151,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|cache_name_is_other
 c_func
 (paren
@@ -2159,13 +2158,7 @@ id|ent-&gt;name
 comma
 id|ent-&gt;len
 )paren
-)paren
-r_continue
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+op_logical_and
 id|match_pathspec
 c_func
 (paren
@@ -2180,8 +2173,6 @@ comma
 l_int|NULL
 )paren
 )paren
-r_continue
-suffix:semicolon
 id|string_list_insert
 c_func
 (paren
@@ -2251,7 +2242,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|cache_name_is_other
 c_func
 (paren
@@ -2259,13 +2249,7 @@ id|ent-&gt;name
 comma
 id|ent-&gt;len
 )paren
-)paren
-r_continue
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
+op_logical_and
 id|match_pathspec
 c_func
 (paren
@@ -2280,8 +2264,6 @@ comma
 l_int|NULL
 )paren
 )paren
-r_continue
-suffix:semicolon
 id|string_list_insert
 c_func
 (paren
