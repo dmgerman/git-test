@@ -18119,10 +18119,9 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|parse_num
-r_static
+DECL|function|parse_rename_score
 r_int
-id|parse_num
+id|parse_rename_score
 c_func
 (paren
 r_const
@@ -18360,7 +18359,7 @@ suffix:semicolon
 multiline_comment|/* that is not a -M, -C nor -B option */
 id|opt1
 op_assign
-id|parse_num
+id|parse_rename_score
 c_func
 (paren
 op_amp
@@ -18412,7 +18411,7 @@ op_increment
 suffix:semicolon
 id|opt2
 op_assign
-id|parse_num
+id|parse_rename_score
 c_func
 (paren
 op_amp
