@@ -21,6 +21,8 @@ id|drivers_alloc
 suffix:semicolon
 DECL|macro|PATTERNS
 mdefine_line|#define PATTERNS(name, pattern, word_regex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED }, word_regex }
+DECL|macro|IPATTERN
+mdefine_line|#define IPATTERN(name, pattern, word_regex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED | REG_ICASE }, word_regex }
 DECL|variable|builtin_drivers
 r_static
 r_struct
@@ -30,6 +32,25 @@ id|builtin_drivers
 )braket
 op_assign
 (brace
+id|IPATTERN
+c_func
+(paren
+l_string|&quot;fortran&quot;
+comma
+l_string|&quot;!^([C*]|[ &bslash;t]*!)&bslash;n&quot;
+l_string|&quot;!^[ &bslash;t]*MODULE[ &bslash;t]+PROCEDURE[ &bslash;t]&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*((END[ &bslash;t]+)?(PROGRAM|MODULE|BLOCK[ &bslash;t]+DATA&quot;
+l_string|&quot;|([^&squot;&bslash;&quot; &bslash;t]+[ &bslash;t]+)*(SUBROUTINE|FUNCTION))[ &bslash;t]+[A-Z].*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z][a-zA-Z0-9_]*&quot;
+l_string|&quot;|&bslash;&bslash;.([Ee][Qq]|[Nn][Ee]|[Gg][TtEe]|[Ll][TtEe]|[Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee]|[Aa][Nn][Dd]|[Oo][Rr]|[Nn]?[Ee][Qq][Vv]|[Nn][Oo][Tt])&bslash;&bslash;.&quot;
+multiline_comment|/* numbers and format statements like 2E14.4, or ES12.6, 9X.&n;&t;  * Don&squot;t worry about format statements without leading digits since&n;&t;  * they would have been matched above as a variable anyway. */
+l_string|&quot;|[-+]?[0-9.]+([AaIiDdEeFfLlTtXx][Ss]?[-+]?[0-9.]*)?(_[a-zA-Z0-9][a-zA-Z0-9_]*)?&quot;
+l_string|&quot;|//|&bslash;&bslash;*&bslash;&bslash;*|::|[/&lt;&gt;=]=&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
+)paren
+comma
 id|PATTERNS
 c_func
 (paren
@@ -218,6 +239,8 @@ comma
 suffix:semicolon
 DECL|macro|PATTERNS
 macro_line|#undef PATTERNS
+DECL|macro|IPATTERN
+macro_line|#undef IPATTERN
 DECL|variable|driver_true
 r_static
 r_struct
