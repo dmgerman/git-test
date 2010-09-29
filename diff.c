@@ -18721,13 +18721,7 @@ c_func
 (paren
 l_string|&quot;Could not open &squot;%s&squot;&quot;
 comma
-id|arg
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;--output=&quot;
-)paren
+id|optarg
 )paren
 suffix:semicolon
 id|options-&gt;close_file
