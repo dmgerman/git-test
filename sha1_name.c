@@ -5874,6 +5874,7 @@ l_int|1
 op_eq
 l_char|&squot;/&squot;
 )paren
+multiline_comment|/* don&squot;t need mode for commit */
 r_return
 id|get_sha1_oneline
 c_func
@@ -6059,6 +6060,10 @@ id|sha1
 comma
 id|ce-&gt;sha1
 )paren
+suffix:semicolon
+id|oc-&gt;mode
+op_assign
+id|ce-&gt;ce_mode
 suffix:semicolon
 r_return
 l_int|0

@@ -644,6 +644,8 @@ c_func
 (paren
 id|obj_context.path
 comma
+id|obj_context.mode
+comma
 id|sha1
 comma
 op_amp
