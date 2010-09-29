@@ -35,7 +35,7 @@ l_string|&quot;        [--window=N] [--window-memory=N] [--depth=N]&bslash;n&quo
 l_string|&quot;        [--no-reuse-delta] [--no-reuse-object] [--delta-base-offset]&bslash;n&quot;
 l_string|&quot;        [--threads=N] [--non-empty] [--revs [--unpacked | --all]*]&bslash;n&quot;
 l_string|&quot;        [--reflog] [--stdout | base-name] [--include-tag]&bslash;n&quot;
-l_string|&quot;        [--keep-unreachable | --unpack-unreachable &bslash;n&quot;
+l_string|&quot;        [--keep-unreachable | --unpack-unreachable]&bslash;n&quot;
 l_string|&quot;        [&lt;ref-list | &lt;object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
