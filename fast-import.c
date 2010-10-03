@@ -11,6 +11,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;dir.h&quot;
 DECL|macro|PACK_ID_BITS
 mdefine_line|#define PACK_ID_BITS 16
 DECL|macro|MAX_PACK_ID
@@ -7363,7 +7364,7 @@ op_eq
 id|n
 op_logical_and
 op_logical_neg
-id|strncmp
+id|strncmp_icase
 c_func
 (paren
 id|p
@@ -7807,7 +7808,7 @@ op_eq
 id|n
 op_logical_and
 op_logical_neg
-id|strncmp
+id|strncmp_icase
 c_func
 (paren
 id|p
@@ -8106,7 +8107,7 @@ op_eq
 id|n
 op_logical_and
 op_logical_neg
-id|strncmp
+id|strncmp_icase
 c_func
 (paren
 id|p
