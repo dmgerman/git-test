@@ -2023,7 +2023,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|strcmp_icase
 c_func
 (paren
 id|exclude
@@ -2053,7 +2053,7 @@ op_le
 id|pathlen
 op_logical_and
 op_logical_neg
-id|strcmp
+id|strcmp_icase
 c_func
 (paren
 id|exclude
@@ -2077,7 +2077,7 @@ r_else
 r_if
 c_cond
 (paren
-id|fnmatch
+id|fnmatch_icase
 c_func
 (paren
 id|exclude
@@ -2133,7 +2133,7 @@ op_ne
 l_char|&squot;/&squot;
 )paren
 op_logical_or
-id|strncmp
+id|strncmp_icase
 c_func
 (paren
 id|pathname
@@ -2157,7 +2157,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|strcmp_icase
 c_func
 (paren
 id|exclude
@@ -2176,7 +2176,7 @@ r_else
 r_if
 c_cond
 (paren
-id|fnmatch
+id|fnmatch_icase
 c_func
 (paren
 id|exclude
