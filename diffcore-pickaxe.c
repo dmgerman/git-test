@@ -703,7 +703,6 @@ id|opts
 op_amp
 id|DIFF_PICKAXE_REGEX
 )paren
-(brace
 id|regfree
 c_func
 (paren
@@ -711,7 +710,6 @@ op_amp
 id|regex
 )paren
 suffix:semicolon
-)brace
 id|free
 c_func
 (paren
