@@ -1472,7 +1472,6 @@ id|o-&gt;pickaxe_opts
 op_amp
 id|DIFF_PICKAXE_KIND_G
 )paren
-r_return
 id|diffcore_pickaxe_grep
 c_func
 (paren
@@ -1480,7 +1479,6 @@ id|o
 )paren
 suffix:semicolon
 r_else
-r_return
 id|diffcore_pickaxe_count
 c_func
 (paren
