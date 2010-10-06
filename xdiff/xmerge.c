@@ -1790,6 +1790,10 @@ c_cond
 id|isalnum
 c_func
 (paren
+(paren
+r_int
+r_char
+)paren
 op_star
 (paren
 id|ptr

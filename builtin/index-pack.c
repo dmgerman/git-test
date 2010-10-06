@@ -660,11 +660,13 @@ multiline_comment|/* make sure off_t is sufficiently large not to wrap */
 r_if
 c_cond
 (paren
+id|signed_add_overflows
+c_func
+(paren
 id|consumed_bytes
-OG
-id|consumed_bytes
-op_plus
+comma
 id|bytes
+)paren
 )paren
 id|die
 c_func
