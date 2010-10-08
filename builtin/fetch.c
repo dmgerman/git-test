@@ -25,7 +25,7 @@ l_string|&quot;git fetch [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;.
 comma
 l_string|&quot;git fetch [&lt;options&gt;] &lt;group&gt;&quot;
 comma
-l_string|&quot;git fetch --multiple [&lt;options&gt;] [&lt;repository&gt; | &lt;group&gt;]...&quot;
+l_string|&quot;git fetch --multiple [&lt;options&gt;] [(&lt;repository&gt; | &lt;group&gt;)...]&quot;
 comma
 l_string|&quot;git fetch --all [&lt;options&gt;]&quot;
 comma
