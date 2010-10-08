@@ -16,11 +16,11 @@ id|archive_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git archive [options] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git archive [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 comma
 l_string|&quot;git archive --list&quot;
 comma
-l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [options] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 comma
 l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] --list&quot;
 comma
