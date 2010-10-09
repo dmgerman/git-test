@@ -782,10 +782,10 @@ id|len
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Return non-zero if path &squot;name&squot; has a leading symlink component or&n; * if some leading path component does not exists.&n; */
-DECL|function|has_symlink_or_noent_leading_path
+multiline_comment|/*&n; * Return zero if path &squot;name&squot; has a leading symlink component or&n; * if some leading path component does not exists.&n; *&n; * Return -1 if leading path exists and is a directory.&n; *&n; * Return path length if leading path exists and is neither a&n; * directory nor a symlink.&n; */
+DECL|function|check_leading_path
 r_int
-id|has_symlink_or_noent_leading_path
+id|check_leading_path
 c_func
 (paren
 r_const
@@ -806,8 +806,13 @@ op_amp
 id|default_cache
 suffix:semicolon
 multiline_comment|/* FIXME */
-r_return
-id|lstat_cache
+r_int
+id|flags
+suffix:semicolon
+r_int
+id|match_len
+op_assign
+id|lstat_cache_matchlen
 c_func
 (paren
 id|cache
@@ -815,6 +820,9 @@ comma
 id|name
 comma
 id|len
+comma
+op_amp
+id|flags
 comma
 id|FL_SYMLINK
 op_or
@@ -824,12 +832,35 @@ id|FL_DIR
 comma
 id|USE_ONLY_LSTAT
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
 op_amp
 (paren
 id|FL_SYMLINK
 op_or
 id|FL_NOENT
 )paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|FL_DIR
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_else
+r_return
+id|match_len
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Return non-zero if all path components of &squot;name&squot; exists as a&n; * directory.  If prefix_len &gt; 0, we will test with the stat()&n; * function instead of the lstat() function for a prefix length of&n; * &squot;prefix_len&squot;, thus we then allow for symlinks in the prefix part as&n; * long as those points to real existing directories.&n; */
