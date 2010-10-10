@@ -10806,7 +10806,7 @@ id|ecbdata
 suffix:semicolon
 id|blank_at_eof
 op_assign
-id|ecbdata.blank_at_eof_in_preimage
+id|ecbdata.blank_at_eof_in_postimage
 suffix:semicolon
 r_if
 c_cond
