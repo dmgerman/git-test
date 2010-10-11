@@ -35,6 +35,14 @@ r_char
 comma
 l_int|4096
 )paren
+DECL|variable|input
+r_static
+r_struct
+id|line_buffer
+id|input
+op_assign
+id|LINE_BUFFER_INIT
+suffix:semicolon
 DECL|function|log_copy
 r_static
 r_char
@@ -512,6 +520,8 @@ op_assign
 id|buffer_read_line
 c_func
 (paren
+op_amp
+id|input
 )paren
 )paren
 op_logical_and
@@ -559,6 +569,9 @@ c_func
 id|buffer_read_string
 c_func
 (paren
+op_amp
+id|input
+comma
 id|len
 )paren
 )paren
@@ -566,6 +579,8 @@ suffix:semicolon
 id|buffer_read_line
 c_func
 (paren
+op_amp
+id|input
 )paren
 suffix:semicolon
 )brace
@@ -602,6 +617,9 @@ op_assign
 id|buffer_read_string
 c_func
 (paren
+op_amp
+id|input
+comma
 id|len
 )paren
 suffix:semicolon
@@ -715,6 +733,8 @@ suffix:semicolon
 id|buffer_read_line
 c_func
 (paren
+op_amp
+id|input
 )paren
 suffix:semicolon
 )brace
@@ -964,6 +984,9 @@ comma
 id|node_ctx.mark
 comma
 id|node_ctx.textLength
+comma
+op_amp
+id|input
 )paren
 suffix:semicolon
 r_else
@@ -977,6 +1000,9 @@ id|LENGTH_UNKNOWN
 id|buffer_skip_bytes
 c_func
 (paren
+op_amp
+id|input
+comma
 id|node_ctx.textLength
 )paren
 suffix:semicolon
@@ -1061,6 +1087,8 @@ op_assign
 id|buffer_read_line
 c_func
 (paren
+op_amp
+id|input
 )paren
 )paren
 )paren
@@ -1486,6 +1514,8 @@ suffix:semicolon
 id|buffer_read_line
 c_func
 (paren
+op_amp
+id|input
 )paren
 suffix:semicolon
 r_if
@@ -1538,6 +1568,9 @@ suffix:semicolon
 id|buffer_skip_bytes
 c_func
 (paren
+op_amp
+id|input
+comma
 id|len
 )paren
 suffix:semicolon
@@ -1583,6 +1616,9 @@ id|filename
 id|buffer_init
 c_func
 (paren
+op_amp
+id|input
+comma
 id|filename
 )paren
 suffix:semicolon
@@ -1659,6 +1695,8 @@ c_cond
 id|buffer_deinit
 c_func
 (paren
+op_amp
+id|input
 )paren
 )paren
 id|fprintf
@@ -1703,6 +1741,8 @@ suffix:semicolon
 id|buffer_reset
 c_func
 (paren
+op_amp
+id|input
 )paren
 suffix:semicolon
 id|repo_reset

@@ -74,6 +74,12 @@ id|argv
 )braket
 )paren
 (brace
+r_struct
+id|line_buffer
+id|buf
+op_assign
+id|LINE_BUFFER_INIT
+suffix:semicolon
 r_char
 op_star
 id|s
@@ -97,6 +103,9 @@ c_cond
 id|buffer_init
 c_func
 (paren
+op_amp
+id|buf
+comma
 l_int|NULL
 )paren
 )paren
@@ -115,6 +124,8 @@ op_assign
 id|buffer_read_line
 c_func
 (paren
+op_amp
+id|buf
 )paren
 )paren
 )paren
@@ -124,6 +135,9 @@ op_assign
 id|buffer_read_string
 c_func
 (paren
+op_amp
+id|buf
+comma
 id|strtouint32
 c_func
 (paren
@@ -150,6 +164,9 @@ suffix:semicolon
 id|buffer_skip_bytes
 c_func
 (paren
+op_amp
+id|buf
+comma
 l_int|1
 )paren
 suffix:semicolon
@@ -163,6 +180,8 @@ op_assign
 id|buffer_read_line
 c_func
 (paren
+op_amp
+id|buf
 )paren
 )paren
 )paren
@@ -171,6 +190,9 @@ suffix:semicolon
 id|buffer_copy_bytes
 c_func
 (paren
+op_amp
+id|buf
+comma
 id|strtouint32
 c_func
 (paren
@@ -187,6 +209,8 @@ c_cond
 id|buffer_deinit
 c_func
 (paren
+op_amp
+id|buf
 )paren
 )paren
 id|die
@@ -213,6 +237,8 @@ suffix:semicolon
 id|buffer_reset
 c_func
 (paren
+op_amp
+id|buf
 )paren
 suffix:semicolon
 r_return

@@ -342,6 +342,11 @@ id|mark
 comma
 r_uint32
 id|len
+comma
+r_struct
+id|line_buffer
+op_star
+id|input
 )paren
 (brace
 r_if
@@ -356,6 +361,8 @@ multiline_comment|/* svn symlink blobs start with &quot;link &quot; */
 id|buffer_skip_bytes
 c_func
 (paren
+id|input
+comma
 l_int|5
 )paren
 suffix:semicolon
@@ -381,6 +388,8 @@ suffix:semicolon
 id|buffer_copy_bytes
 c_func
 (paren
+id|input
+comma
 id|len
 )paren
 suffix:semicolon
