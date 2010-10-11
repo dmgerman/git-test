@@ -466,7 +466,7 @@ id|line_buffer
 op_star
 id|buf
 comma
-r_uint32
+id|off_t
 id|len
 )paren
 (brace
@@ -575,7 +575,7 @@ id|line_buffer
 op_star
 id|buf
 comma
-r_uint32
+id|off_t
 id|len
 )paren
 (brace
