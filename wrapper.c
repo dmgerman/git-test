@@ -250,11 +250,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|unsigned_add_overflows
+c_func
+(paren
 id|size
-op_plus
+comma
 l_int|1
-OL
-id|size
+)paren
 )paren
 id|die
 c_func
