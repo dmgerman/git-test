@@ -2281,6 +2281,12 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;remote-ext&quot;
+comma
+id|cmd_remote_ext
+)brace
+comma
+(brace
 l_string|&quot;remote-fd&quot;
 comma
 id|cmd_remote_fd
