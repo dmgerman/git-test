@@ -3,9 +3,11 @@ macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;sliding_window.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
 macro_line|#include &quot;svndiff.h&quot;
-multiline_comment|/*&n; * svndiff0 applier&n; *&n; * See http://svn.apache.org/repos/asf/subversion/trunk/notes/svndiff.&n; *&n; * svndiff0 ::= &squot;SVN&bslash;0&squot; window*&n; * window ::= int int int int int instructions inline_data;&n; * instructions ::= instruction*;&n; * instruction ::= view_selector int int&n; *   | copyfrom_data int&n; *   | packed_view_selector int&n; *   | packed_copyfrom_data&n; *   ;&n; * view_selector ::= copyfrom_source&n; *   | copyfrom_target&n; *   ;&n; * copyfrom_target ::= # binary 01 000000;&n; * copyfrom_data ::= # binary 10 000000;&n; * packed_view_selector ::= # view_selector OR-ed with 6 bit value;&n; * packed_copyfrom_data ::= # copyfrom_data OR-ed with 6 bit value;&n; * int ::= highdigit* lowdigit;&n; * highdigit ::= # binary 1000 0000 OR-ed with 7 bit value;&n; * lowdigit ::= # 7 bit value;&n; */
+multiline_comment|/*&n; * svndiff0 applier&n; *&n; * See http://svn.apache.org/repos/asf/subversion/trunk/notes/svndiff.&n; *&n; * svndiff0 ::= &squot;SVN&bslash;0&squot; window*&n; * window ::= int int int int int instructions inline_data;&n; * instructions ::= instruction*;&n; * instruction ::= view_selector int int&n; *   | copyfrom_data int&n; *   | packed_view_selector int&n; *   | packed_copyfrom_data&n; *   ;&n; * view_selector ::= copyfrom_source&n; *   | copyfrom_target&n; *   ;&n; * copyfrom_source ::= # binary 00 000000;&n; * copyfrom_target ::= # binary 01 000000;&n; * copyfrom_data ::= # binary 10 000000;&n; * packed_view_selector ::= # view_selector OR-ed with 6 bit value;&n; * packed_copyfrom_data ::= # copyfrom_data OR-ed with 6 bit value;&n; * int ::= highdigit* lowdigit;&n; * highdigit ::= # binary 1000 0000 OR-ed with 7 bit value;&n; * lowdigit ::= # 7 bit value;&n; */
 DECL|macro|INSN_MASK
 mdefine_line|#define INSN_MASK&t;0xc0
+DECL|macro|INSN_COPYFROM_SOURCE
+mdefine_line|#define INSN_COPYFROM_SOURCE&t;0x00
 DECL|macro|INSN_COPYFROM_TARGET
 mdefine_line|#define INSN_COPYFROM_TARGET&t;0x40
 DECL|macro|INSN_COPYFROM_DATA
@@ -22,6 +24,12 @@ DECL|struct|window
 r_struct
 id|window
 (brace
+DECL|member|in
+r_struct
+id|sliding_view
+op_star
+id|in
+suffix:semicolon
 DECL|member|out
 r_struct
 id|strbuf
@@ -40,7 +48,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|macro|WINDOW_INIT
-mdefine_line|#define WINDOW_INIT&t;{ STRBUF_INIT, STRBUF_INIT, STRBUF_INIT }
+mdefine_line|#define WINDOW_INIT(w)&t;{ (w), STRBUF_INIT, STRBUF_INIT, STRBUF_INIT }
 DECL|function|window_release
 r_static
 r_void
@@ -690,6 +698,93 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|function|copyfrom_source
+r_static
+r_int
+id|copyfrom_source
+c_func
+(paren
+r_struct
+id|window
+op_star
+id|ctx
+comma
+r_const
+r_char
+op_star
+op_star
+id|instructions
+comma
+r_int
+id|nbytes
+comma
+r_const
+r_char
+op_star
+id|insns_end
+)paren
+(brace
+r_int
+id|offset
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|parse_int
+c_func
+(paren
+id|instructions
+comma
+op_amp
+id|offset
+comma
+id|insns_end
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|unsigned_add_overflows
+c_func
+(paren
+id|offset
+comma
+id|nbytes
+)paren
+op_logical_or
+id|offset
+op_plus
+id|nbytes
+OG
+id|ctx-&gt;in-&gt;width
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;invalid delta: copies source data outside view&quot;
+)paren
+suffix:semicolon
+id|strbuf_add
+c_func
+(paren
+op_amp
+id|ctx-&gt;out
+comma
+id|ctx-&gt;in-&gt;buf.buf
+op_plus
+id|offset
+comma
+id|nbytes
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 DECL|function|copyfrom_target
 r_static
 r_int
@@ -1008,6 +1103,22 @@ id|INSN_MASK
 )paren
 (brace
 r_case
+id|INSN_COPYFROM_SOURCE
+suffix:colon
+r_return
+id|copyfrom_source
+c_func
+(paren
+id|ctx
+comma
+id|instructions
+comma
+id|nbytes
+comma
+id|insns_end
+)paren
+suffix:semicolon
+r_case
 id|INSN_COPYFROM_TARGET
 suffix:colon
 r_return
@@ -1043,9 +1154,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Unknown instruction %x&quot;
-comma
-id|instruction
+l_string|&quot;invalid delta: unrecognized instruction&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1138,6 +1247,11 @@ id|off_t
 op_star
 id|delta_len
 comma
+r_struct
+id|sliding_view
+op_star
+id|preimage
+comma
 id|FILE
 op_star
 id|out
@@ -1148,6 +1262,10 @@ id|window
 id|ctx
 op_assign
 id|WINDOW_INIT
+c_func
+(paren
+id|preimage
+)paren
 suffix:semicolon
 r_int
 id|out_len
@@ -1411,6 +1529,8 @@ id|delta
 comma
 op_amp
 id|delta_len
+comma
+id|preimage
 comma
 id|postimage
 )paren
