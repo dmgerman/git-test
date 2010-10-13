@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Licensed under a two-clause BSD-style license.&n; * See LICENSE for details.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;sliding_window.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
 macro_line|#include &quot;svndiff.h&quot;
 multiline_comment|/*&n; * svndiff0 applier&n; *&n; * See http://svn.apache.org/repos/asf/subversion/trunk/notes/svndiff.&n; *&n; * svndiff0 ::= &squot;SVN&bslash;0&squot; window*&n; * window ::= int int int int int instructions inline_data;&n; * int ::= highdigit* lowdigit;&n; * highdigit ::= # binary 1000 0000 OR-ed with 7 bit value;&n; * lowdigit ::= # 7 bit value;&n; */
@@ -615,6 +616,16 @@ id|pre_len
 comma
 op_amp
 id|delta_len
+)paren
+op_logical_or
+id|move_window
+c_func
+(paren
+id|preimage
+comma
+id|pre_off
+comma
+id|pre_len
 )paren
 op_logical_or
 id|apply_one_window
