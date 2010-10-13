@@ -996,6 +996,20 @@ id|data_pos
 r_return
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|data_pos
+op_ne
+id|ctx-&gt;data.len
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;invalid delta: does not copy all inline data&quot;
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
