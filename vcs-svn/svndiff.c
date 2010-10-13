@@ -14,6 +14,11 @@ DECL|struct|window
 r_struct
 id|window
 (brace
+DECL|member|instructions
+r_struct
+id|strbuf
+id|instructions
+suffix:semicolon
 DECL|member|data
 r_struct
 id|strbuf
@@ -22,7 +27,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|macro|WINDOW_INIT
-mdefine_line|#define WINDOW_INIT&t;{ STRBUF_INIT }
+mdefine_line|#define WINDOW_INIT&t;{ STRBUF_INIT, STRBUF_INIT }
 DECL|function|window_release
 r_static
 r_void
@@ -35,6 +40,13 @@ op_star
 id|ctx
 )paren
 (brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|ctx-&gt;instructions
+)paren
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
@@ -578,6 +590,19 @@ op_amp
 id|data_len
 comma
 id|delta_len
+)paren
+op_logical_or
+id|read_chunk
+c_func
+(paren
+id|delta
+comma
+id|delta_len
+comma
+op_amp
+id|ctx.instructions
+comma
+id|instructions_len
 )paren
 )paren
 r_goto
