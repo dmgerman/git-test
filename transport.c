@@ -4371,6 +4371,10 @@ OL
 l_int|0
 )paren
 suffix:semicolon
+id|args.progress
+op_assign
+id|transport-&gt;progress
+suffix:semicolon
 id|args.dry_run
 op_assign
 op_logical_neg
