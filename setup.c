@@ -291,11 +291,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|pfx
-op_logical_or
-op_logical_neg
-op_star
-id|pfx
+id|pfx_len
 op_logical_or
 id|is_absolute_path
 c_func
@@ -346,6 +342,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|pfx_len
+)paren
 id|memcpy
 c_func
 (paren
