@@ -12138,6 +12138,26 @@ r_void
 op_star
 id|dst
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|fragment
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;missing binary patch data for &squot;%s&squot;&quot;
+comma
+id|patch-&gt;new_name
+ques
+c_cond
+id|patch-&gt;new_name
+suffix:colon
+id|patch-&gt;old_name
+)paren
+suffix:semicolon
 multiline_comment|/* Binary patch is irreversible without the optional second hunk */
 r_if
 c_cond
