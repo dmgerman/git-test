@@ -1860,6 +1860,8 @@ l_int|NULL
 suffix:semicolon
 r_int
 id|last_len
+op_assign
+l_int|0
 suffix:semicolon
 r_struct
 id|stage_data
