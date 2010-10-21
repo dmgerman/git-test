@@ -17,9 +17,9 @@ id|rev_list_usage
 op_assign
 l_string|&quot;git rev-list [OPTION] &lt;commit-id&gt;... [ -- paths... ]&bslash;n&quot;
 l_string|&quot;  limiting output:&bslash;n&quot;
-l_string|&quot;    --max-count=nr&bslash;n&quot;
-l_string|&quot;    --max-age=epoch&bslash;n&quot;
-l_string|&quot;    --min-age=epoch&bslash;n&quot;
+l_string|&quot;    --max-count=&lt;n&gt;&bslash;n&quot;
+l_string|&quot;    --max-age=&lt;epoch&gt;&bslash;n&quot;
+l_string|&quot;    --min-age=&lt;epoch&gt;&bslash;n&quot;
 l_string|&quot;    --sparse&bslash;n&quot;
 l_string|&quot;    --no-merges&bslash;n&quot;
 l_string|&quot;    --remove-empty&bslash;n&quot;
@@ -39,7 +39,7 @@ l_string|&quot;    --children&bslash;n&quot;
 l_string|&quot;    --objects | --objects-edge&bslash;n&quot;
 l_string|&quot;    --unpacked&bslash;n&quot;
 l_string|&quot;    --header | --pretty&bslash;n&quot;
-l_string|&quot;    --abbrev=nr | --no-abbrev&bslash;n&quot;
+l_string|&quot;    --abbrev=&lt;n&gt; | --no-abbrev&bslash;n&quot;
 l_string|&quot;    --abbrev-commit&bslash;n&quot;
 l_string|&quot;    --left-right&bslash;n&quot;
 l_string|&quot;  special purpose:&bslash;n&quot;

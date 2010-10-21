@@ -36,15 +36,15 @@ id|daemon_usage
 )braket
 op_assign
 l_string|&quot;git daemon [--verbose] [--syslog] [--export-all]&bslash;n&quot;
-l_string|&quot;           [--timeout=n] [--init-timeout=n] [--max-connections=n]&bslash;n&quot;
-l_string|&quot;           [--strict-paths] [--base-path=path] [--base-path-relaxed]&bslash;n&quot;
-l_string|&quot;           [--user-path | --user-path=path]&bslash;n&quot;
-l_string|&quot;           [--interpolated-path=path]&bslash;n&quot;
-l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file]&bslash;n&quot;
-l_string|&quot;           [--[enable|disable|allow-override|forbid-override]=service]&bslash;n&quot;
-l_string|&quot;           [--inetd | [--listen=host_or_ipaddr] [--port=n]&bslash;n&quot;
-l_string|&quot;                      [--user=user [--group=group]]&bslash;n&quot;
-l_string|&quot;           [directory...]&quot;
+l_string|&quot;           [--timeout=&lt;n&gt;] [--init-timeout=&lt;n&gt;] [--max-connections=&lt;n&gt;]&bslash;n&quot;
+l_string|&quot;           [--strict-paths] [--base-path=&lt;path&gt;] [--base-path-relaxed]&bslash;n&quot;
+l_string|&quot;           [--user-path | --user-path=&lt;path&gt;]&bslash;n&quot;
+l_string|&quot;           [--interpolated-path=&lt;path&gt;]&bslash;n&quot;
+l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=&lt;file&gt;]&bslash;n&quot;
+l_string|&quot;           [--(enable|disable|allow-override|forbid-override)=&lt;service&gt;]&bslash;n&quot;
+l_string|&quot;           [--inetd | [--listen=&lt;host_or_ipaddr&gt;] [--port=&lt;n&gt;]&bslash;n&quot;
+l_string|&quot;                      [--user=&lt;user&gt; [--group=&lt;group&gt;]]&bslash;n&quot;
+l_string|&quot;           [&lt;directory&gt;...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
 DECL|variable|ok_paths
