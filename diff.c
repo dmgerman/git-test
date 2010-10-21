@@ -17348,7 +17348,15 @@ op_eq
 l_int|1
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;invalid argument to -B: %s&quot;
+comma
+id|arg
+op_plus
+l_int|2
+)paren
 suffix:semicolon
 )brace
 r_else
@@ -17381,7 +17389,15 @@ op_eq
 l_int|1
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;invalid argument to -M: %s&quot;
+comma
+id|arg
+op_plus
+l_int|2
+)paren
 suffix:semicolon
 id|options-&gt;detect_rename
 op_assign
@@ -17433,7 +17449,15 @@ op_eq
 l_int|1
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;invalid argument to -C: %s&quot;
+comma
+id|arg
+op_plus
+l_int|2
+)paren
 suffix:semicolon
 id|options-&gt;detect_rename
 op_assign
