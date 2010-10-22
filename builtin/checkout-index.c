@@ -686,7 +686,7 @@ id|builtin_checkout_index_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git checkout-index [options] [--] &lt;file&gt;...&quot;
+l_string|&quot;git checkout-index [options] [--] [&lt;file&gt;...]&quot;
 comma
 l_int|NULL
 )brace

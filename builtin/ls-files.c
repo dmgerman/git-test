@@ -2236,7 +2236,7 @@ id|ls_files_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git ls-files [options] [&lt;file&gt;]*&quot;
+l_string|&quot;git ls-files [options] [&lt;file&gt;...]&quot;
 comma
 l_int|NULL
 )brace

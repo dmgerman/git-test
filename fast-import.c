@@ -15632,7 +15632,7 @@ id|fast_import_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git fast-import [--date-format=f] [--max-pack-size=n] [--big-file-threshold=n] [--depth=n] [--active-branches=n] [--export-marks=marks.file]&quot;
+l_string|&quot;git fast-import [--date-format=&lt;f&gt;] [--max-pack-size=&lt;n&gt;] [--big-file-threshold=&lt;n&gt;] [--depth=&lt;n&gt;] [--active-branches=&lt;n&gt;] [--export-marks=&lt;marks.file&gt;]&quot;
 suffix:semicolon
 DECL|function|parse_argv
 r_static

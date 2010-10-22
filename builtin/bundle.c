@@ -12,8 +12,8 @@ id|builtin_bundle_usage
 op_assign
 l_string|&quot;git bundle create &lt;file&gt; &lt;git-rev-list args&gt;&bslash;n&quot;
 l_string|&quot;   or: git bundle verify &lt;file&gt;&bslash;n&quot;
-l_string|&quot;   or: git bundle list-heads &lt;file&gt; [refname...]&bslash;n&quot;
-l_string|&quot;   or: git bundle unbundle &lt;file&gt; [refname...]&quot;
+l_string|&quot;   or: git bundle list-heads &lt;file&gt; [&lt;refname&gt;...]&bslash;n&quot;
+l_string|&quot;   or: git bundle unbundle &lt;file&gt; [&lt;refname&gt;...]&quot;
 suffix:semicolon
 DECL|function|cmd_bundle
 r_int

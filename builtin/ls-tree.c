@@ -64,7 +64,7 @@ id|ls_tree_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git ls-tree [&lt;options&gt;] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git ls-tree [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 comma
 l_int|NULL
 )brace

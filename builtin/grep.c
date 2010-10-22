@@ -28,7 +28,7 @@ id|grep_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git grep [options] [-e] &lt;pattern&gt; [&lt;rev&gt;...] [[--] path...]&quot;
+l_string|&quot;git grep [options] [-e] &lt;pattern&gt; [&lt;rev&gt;...] [[--] &lt;path&gt;...]&quot;
 comma
 l_int|NULL
 )brace

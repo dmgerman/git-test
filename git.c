@@ -11,11 +11,11 @@ id|git_usage_string
 (braket
 )braket
 op_assign
-l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]&bslash;n&quot;
+l_string|&quot;git [--version] [--exec-path[=&lt;path&gt;]] [--html-path]&bslash;n&quot;
 l_string|&quot;           [-p|--paginate|--no-pager] [--no-replace-objects]&bslash;n&quot;
-l_string|&quot;           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]&bslash;n&quot;
+l_string|&quot;           [--bare] [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;]&bslash;n&quot;
 l_string|&quot;           [-c name=value] [--help]&bslash;n&quot;
-l_string|&quot;           COMMAND [ARGS]&quot;
+l_string|&quot;           &lt;command&gt; [&lt;args&gt;]&quot;
 suffix:semicolon
 DECL|variable|git_more_info_string
 r_const
@@ -24,7 +24,7 @@ id|git_more_info_string
 (braket
 )braket
 op_assign
-l_string|&quot;See &squot;git help COMMAND&squot; for more information on a specific command.&quot;
+l_string|&quot;See &squot;git help &lt;command&gt;&squot; for more information on a specific command.&quot;
 suffix:semicolon
 DECL|variable|git_startup_info
 r_static
