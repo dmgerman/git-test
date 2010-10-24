@@ -19862,7 +19862,7 @@ id|p-&gt;two-&gt;mode
 )paren
 r_return
 suffix:semicolon
-multiline_comment|/* no tree diffs in patch format */
+multiline_comment|/* no useful stat for tree diffs */
 id|run_diffstat
 c_func
 (paren
@@ -19935,7 +19935,7 @@ id|p-&gt;two-&gt;mode
 )paren
 r_return
 suffix:semicolon
-multiline_comment|/* no tree diffs in patch format */
+multiline_comment|/* nothing to check in tree diffs */
 id|run_checkdiff
 c_func
 (paren
