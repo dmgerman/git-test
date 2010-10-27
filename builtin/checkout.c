@@ -879,7 +879,7 @@ id|theirs
 comma
 l_string|&quot;theirs&quot;
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
