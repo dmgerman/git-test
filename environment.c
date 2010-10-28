@@ -36,6 +36,17 @@ id|has_symlinks
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|minimum_abbrev
+DECL|variable|default_abbrev
+r_int
+id|minimum_abbrev
+op_assign
+l_int|4
+comma
+id|default_abbrev
+op_assign
+l_int|7
+suffix:semicolon
 DECL|variable|ignore_case
 r_int
 id|ignore_case
