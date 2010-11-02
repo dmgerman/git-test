@@ -3116,7 +3116,7 @@ c_func
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * We need to make sure the tracking branches are well formed, but a&n; * wildcard refspec in &quot;struct refspec&quot; must have a trailing slash. We&n; * temporarily drop the trailing &squot;/&squot; while calling check_ref_format(),&n; * and put it back.  The caller knows that a CHECK_REF_FORMAT_ONELEVEL&n; * error return is Ok for a wildcard refspec.&n; */
+multiline_comment|/*&n; * We need to make sure the remote-tracking branches are well formed, but a&n; * wildcard refspec in &quot;struct refspec&quot; must have a trailing slash. We&n; * temporarily drop the trailing &squot;/&squot; while calling check_ref_format(),&n; * and put it back.  The caller knows that a CHECK_REF_FORMAT_ONELEVEL&n; * error return is Ok for a wildcard refspec.&n; */
 DECL|function|verify_refname
 r_static
 r_int
