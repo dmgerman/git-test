@@ -167,6 +167,12 @@ comma
 op_star
 id|use_message
 suffix:semicolon
+DECL|variable|fixup_message
+r_static
+r_char
+op_star
+id|fixup_message
+suffix:semicolon
 DECL|variable|author_name
 DECL|variable|author_email
 DECL|variable|author_date
@@ -512,6 +518,21 @@ comma
 l_string|&quot;COMMIT&quot;
 comma
 l_string|&quot;reuse message from specified commit&quot;
+)paren
+comma
+id|OPT_STRING
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;fixup&quot;
+comma
+op_amp
+id|fixup_message
+comma
+l_string|&quot;COMMIT&quot;
+comma
+l_string|&quot;use autosquash formatted message to fixup specified commit&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2984,6 +3005,74 @@ r_else
 r_if
 c_cond
 (paren
+id|fixup_message
+)paren
+(brace
+r_struct
+id|pretty_print_context
+id|ctx
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
+r_struct
+id|commit
+op_star
+id|commit
+suffix:semicolon
+id|commit
+op_assign
+id|lookup_commit_reference_by_name
+c_func
+(paren
+id|fixup_message
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|commit
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;could not lookup commit %s&quot;
+comma
+id|fixup_message
+)paren
+suffix:semicolon
+id|ctx.output_encoding
+op_assign
+id|get_commit_output_encoding
+c_func
+(paren
+)paren
+suffix:semicolon
+id|format_commit_message
+c_func
+(paren
+id|commit
+comma
+l_string|&quot;fixup! %s&bslash;n&bslash;n&quot;
+comma
+op_amp
+id|sb
+comma
+op_amp
+id|ctx
+)paren
+suffix:semicolon
+id|hook_arg1
+op_assign
+l_string|&quot;message&quot;
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 op_logical_neg
 id|stat
 c_func
@@ -4504,6 +4593,8 @@ op_logical_or
 id|message.len
 op_logical_or
 id|use_message
+op_logical_or
+id|fixup_message
 )paren
 id|use_editor
 op_assign
@@ -4595,6 +4686,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|fixup_message
+)paren
+id|f
+op_increment
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|logfile
 )paren
 id|f
@@ -4610,7 +4709,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;Only one of -c/-C/-F can be used.&quot;
+l_string|&quot;Only one of -c/-C/-F/--fixup can be used.&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4625,7 +4724,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;Option -m cannot be combined with -c/-C/-F.&quot;
+l_string|&quot;Option -m cannot be combined with -c/-C/-F/--fixup.&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4644,6 +4743,9 @@ id|amend
 op_logical_and
 op_logical_neg
 id|use_message
+op_logical_and
+op_logical_neg
+id|fixup_message
 )paren
 id|use_message
 op_assign
