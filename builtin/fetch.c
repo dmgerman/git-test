@@ -2049,7 +2049,7 @@ l_string|&quot;refs/remotes/&quot;
 (brace
 id|kind
 op_assign
-l_string|&quot;remote branch&quot;
+l_string|&quot;remote-tracking branch&quot;
 suffix:semicolon
 id|what
 op_assign

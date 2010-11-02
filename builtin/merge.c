@@ -2268,7 +2268,7 @@ c_func
 (paren
 id|msg
 comma
-l_string|&quot;%s&bslash;t&bslash;tremote branch &squot;%s&squot; of .&bslash;n&quot;
+l_string|&quot;%s&bslash;t&bslash;tremote-tracking branch &squot;%s&squot; of .&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func

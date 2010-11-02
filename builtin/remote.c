@@ -2757,7 +2757,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* don&squot;t delete non-remote refs */
+multiline_comment|/* don&squot;t delete non-remote-tracking refs */
 r_if
 c_cond
 (paren
@@ -4640,10 +4640,10 @@ op_eq
 l_int|1
 ques
 c_cond
-l_string|&quot;Note: A non-remote branch was not removed; &quot;
+l_string|&quot;Note: A branch outside the refs/remotes/ hierarchy was not removed;&bslash;n&quot;
 l_string|&quot;to delete it, use:&bslash;n&quot;
 suffix:colon
-l_string|&quot;Note: Non-remote branches were not removed; &quot;
+l_string|&quot;Note: Some branches outside the refs/remotes/ hierarchy were not removed;&bslash;n&quot;
 l_string|&quot;to delete them, use:&bslash;n&quot;
 )paren
 suffix:semicolon
