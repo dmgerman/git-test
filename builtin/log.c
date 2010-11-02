@@ -1510,12 +1510,10 @@ id|buf
 comma
 id|rev-&gt;date_mode
 comma
-id|git_log_output_encoding
-ques
-c_cond
-id|git_log_output_encoding
-suffix:colon
-id|git_commit_encoding
+id|get_log_output_encoding
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|printf

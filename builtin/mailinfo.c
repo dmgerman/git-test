@@ -5131,13 +5131,9 @@ l_int|NULL
 suffix:semicolon
 id|def_charset
 op_assign
+id|get_commit_output_encoding
+c_func
 (paren
-id|git_commit_encoding
-ques
-c_cond
-id|git_commit_encoding
-suffix:colon
-l_string|&quot;UTF-8&quot;
 )paren
 suffix:semicolon
 id|metainfo_charset
