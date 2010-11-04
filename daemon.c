@@ -40,10 +40,10 @@ l_string|&quot;           [--timeout=&lt;n&gt;] [--init-timeout=&lt;n&gt;] [--ma
 l_string|&quot;           [--strict-paths] [--base-path=&lt;path&gt;] [--base-path-relaxed]&bslash;n&quot;
 l_string|&quot;           [--user-path | --user-path=&lt;path&gt;]&bslash;n&quot;
 l_string|&quot;           [--interpolated-path=&lt;path&gt;]&bslash;n&quot;
-l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=&lt;file&gt;]&bslash;n&quot;
+l_string|&quot;           [--reuseaddr] [--pid-file=&lt;file&gt;]&bslash;n&quot;
 l_string|&quot;           [--(enable|disable|allow-override|forbid-override)=&lt;service&gt;]&bslash;n&quot;
 l_string|&quot;           [--inetd | [--listen=&lt;host_or_ipaddr&gt;] [--port=&lt;n&gt;]&bslash;n&quot;
-l_string|&quot;                      [--user=&lt;user&gt; [--group=&lt;group&gt;]]&bslash;n&quot;
+l_string|&quot;                      [--detach] [--user=&lt;user&gt; [--group=&lt;group&gt;]]&bslash;n&quot;
 l_string|&quot;           [&lt;directory&gt;...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
@@ -5802,6 +5802,8 @@ c_cond
 id|inetd_mode
 op_logical_and
 (paren
+id|detach
+op_logical_or
 id|group_name
 op_logical_or
 id|user_name
@@ -5810,7 +5812,7 @@ id|user_name
 id|die
 c_func
 (paren
-l_string|&quot;--user and --group are incompatible with --inetd&quot;
+l_string|&quot;--detach, --user and --group are incompatible with --inetd&quot;
 )paren
 suffix:semicolon
 r_if
