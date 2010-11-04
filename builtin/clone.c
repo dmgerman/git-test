@@ -243,6 +243,19 @@ comma
 l_string|&quot;initialize submodules in the clone&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;recurse_submodules&quot;
+comma
+op_amp
+id|option_recursive
+comma
+l_string|&quot;initialize submodules in the clone&quot;
+)paren
+comma
 id|OPT_STRING
 c_func
 (paren
