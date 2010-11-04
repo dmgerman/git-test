@@ -4,7 +4,6 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;string-list.h&quot;
-macro_line|#include &lt;syslog.h&gt;
 macro_line|#ifndef HOST_NAME_MAX
 DECL|macro|HOST_NAME_MAX
 mdefine_line|#define HOST_NAME_MAX 256
