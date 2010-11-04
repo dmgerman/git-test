@@ -3,8 +3,7 @@ multiline_comment|/* Tell gcc not to warn about the (nfd &lt; 0) tests, below.  
 macro_line|#if (__GNUC__ == 4 &amp;&amp; 3 &lt;= __GNUC_MINOR__) || 4 &lt; __GNUC__
 macro_line|# pragma GCC diagnostic ignored &quot;-Wtype-limits&quot;
 macro_line|#endif
-macro_line|#include &lt;config.h&gt;
-macro_line|#include &lt;alloca.h&gt;
+macro_line|#include &lt;malloc.h&gt;
 macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &quot;poll.h&quot;
 macro_line|#include &lt;errno.h&gt;
