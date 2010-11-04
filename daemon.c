@@ -192,7 +192,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/*&n;&t;&t; * Since stderr is set to linebuffered mode, the&n;&t;&t; * logging of different processes will not overlap&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Since stderr is set to buffered mode, the&n;&t;&t; * logging of different processes will not overlap&n;&t;&t; * unless they overflow the (rather big) buffers.&n;&t;&t; */
 id|fprintf
 c_func
 (paren
@@ -226,6 +226,12 @@ c_func
 (paren
 l_char|&squot;&bslash;n&squot;
 comma
+id|stderr
+)paren
+suffix:semicolon
+id|fflush
+c_func
+(paren
 id|stderr
 )paren
 suffix:semicolon
@@ -5735,9 +5741,9 @@ id|stderr
 comma
 l_int|NULL
 comma
-id|_IOLBF
+id|_IOFBF
 comma
-l_int|0
+l_int|4096
 )paren
 suffix:semicolon
 r_if
