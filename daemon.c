@@ -2952,7 +2952,7 @@ id|sockaddr
 op_star
 id|addr
 comma
-r_int
+id|socklen_t
 id|addrlen
 )paren
 (brace
@@ -3269,7 +3269,7 @@ id|sockaddr
 op_star
 id|addr
 comma
-r_int
+id|socklen_t
 id|addrlen
 )paren
 (brace
@@ -4563,8 +4563,7 @@ macro_line|#endif
 )brace
 id|ss
 suffix:semicolon
-r_int
-r_int
+id|socklen_t
 id|sslen
 op_assign
 r_sizeof
