@@ -1,21 +1,11 @@
 multiline_comment|/*&n; * Licensed under a two-clause BSD-style license.&n; * See LICENSE for details.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
-macro_line|#include &quot;obj_pool.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
 DECL|macro|LINE_BUFFER_LEN
 mdefine_line|#define LINE_BUFFER_LEN 10000
 DECL|macro|COPY_BUFFER_LEN
 mdefine_line|#define COPY_BUFFER_LEN 4096
-multiline_comment|/* Create memory pool for char sequence of known length */
-id|obj_pool_gen
-c_func
-(paren
-id|blob
-comma
-r_char
-comma
-l_int|4096
-)paren
 DECL|variable|line_buffer
 r_static
 r_char
@@ -23,6 +13,14 @@ id|line_buffer
 (braket
 id|LINE_BUFFER_LEN
 )braket
+suffix:semicolon
+DECL|variable|blob_buffer
+r_static
+r_struct
+id|strbuf
+id|blob_buffer
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 DECL|variable|infile
 r_static
@@ -207,46 +205,23 @@ r_uint32
 id|len
 )paren
 (brace
-r_char
-op_star
-id|s
-suffix:semicolon
-id|blob_free
+id|strbuf_reset
 c_func
 (paren
-id|blob_pool.size
+op_amp
+id|blob_buffer
 )paren
 suffix:semicolon
-id|s
-op_assign
-id|blob_pointer
+id|strbuf_fread
 c_func
 (paren
-id|blob_alloc
-c_func
-(paren
-id|len
-op_plus
-l_int|1
-)paren
-)paren
-suffix:semicolon
-id|s
-(braket
-id|fread
-c_func
-(paren
-id|s
-comma
-l_int|1
+op_amp
+id|blob_buffer
 comma
 id|len
 comma
 id|infile
 )paren
-)braket
-op_assign
-l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 r_return
 id|ferror
@@ -258,7 +233,7 @@ ques
 c_cond
 l_int|NULL
 suffix:colon
-id|s
+id|blob_buffer.buf
 suffix:semicolon
 )brace
 DECL|function|buffer_copy_bytes
@@ -442,9 +417,11 @@ c_func
 r_void
 )paren
 (brace
-id|blob_reset
+id|strbuf_release
 c_func
 (paren
+op_amp
+id|blob_buffer
 )paren
 suffix:semicolon
 )brace
