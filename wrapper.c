@@ -1,23 +1,15 @@
 multiline_comment|/*&n; * Various trivial helper wrappers around standard functions&n; */
 macro_line|#include &quot;cache.h&quot;
-DECL|function|try_to_free_builtin
+DECL|function|do_nothing
 r_static
 r_void
-id|try_to_free_builtin
+id|do_nothing
 c_func
 (paren
 r_int
 id|size
 )paren
 (brace
-id|release_pack_memory
-c_func
-(paren
-id|size
-comma
-l_int|1
-)paren
-suffix:semicolon
 )brace
 DECL|variable|try_to_free_routine
 r_static
@@ -31,7 +23,7 @@ r_int
 id|size
 )paren
 op_assign
-id|try_to_free_builtin
+id|do_nothing
 suffix:semicolon
 DECL|function|set_try_to_free_routine
 id|try_to_free_t
