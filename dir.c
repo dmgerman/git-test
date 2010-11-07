@@ -1842,6 +1842,13 @@ id|pathname
 comma
 id|exclude
 )paren
+op_logical_and
+id|pathname
+(braket
+id|x-&gt;patternlen
+)braket
+op_eq
+l_char|&squot;/&squot;
 )paren
 r_return
 id|to_exclude
