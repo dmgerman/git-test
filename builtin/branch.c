@@ -3316,7 +3316,7 @@ c_func
 op_amp
 id|verbose
 comma
-l_string|&quot;be verbose&quot;
+l_string|&quot;show hash and subject, give twice for upstream branch&quot;
 )paren
 comma
 id|OPT_SET_INT
