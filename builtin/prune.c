@@ -658,13 +658,9 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT__DRY_RUN
 c_func
 (paren
-l_char|&squot;n&squot;
-comma
-l_string|&quot;dry-run&quot;
-comma
 op_amp
 id|show_only
 comma

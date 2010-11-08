@@ -470,6 +470,8 @@ c_func
 (paren
 op_amp
 id|show_only
+comma
+l_string|&quot;dry run&quot;
 )paren
 comma
 id|OPT__QUIET
