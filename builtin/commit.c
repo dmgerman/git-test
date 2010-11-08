@@ -409,6 +409,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;be quiet&quot;
 )paren
 comma
 id|OPT__VERBOSE

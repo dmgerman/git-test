@@ -3694,6 +3694,8 @@ c_func
 (paren
 op_amp
 id|opts.quiet
+comma
+l_string|&quot;be quiet&quot;
 )paren
 comma
 id|OPT_STRING
