@@ -8788,13 +8788,9 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT__VERBOSE
 c_func
 (paren
-l_char|&squot;v&squot;
-comma
-l_string|&quot;verbose&quot;
-comma
 op_amp
 id|verbose
 comma

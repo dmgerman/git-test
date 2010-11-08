@@ -494,6 +494,8 @@ c_func
 (paren
 op_amp
 id|opts.verbose_update
+comma
+l_string|&quot;be verbose&quot;
 )paren
 comma
 id|OPT_GROUP

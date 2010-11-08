@@ -671,13 +671,9 @@ comma
 l_string|&quot;do not remove, show only&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__VERBOSE
 c_func
 (paren
-l_char|&squot;v&squot;
-comma
-l_string|&quot;verbose&quot;
-comma
 op_amp
 id|verbose
 comma
