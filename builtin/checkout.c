@@ -3801,13 +3801,9 @@ comma
 l_int|3
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__FORCE
 c_func
 (paren
-l_char|&squot;f&squot;
-comma
-l_string|&quot;force&quot;
-comma
 op_amp
 id|opts.force
 comma

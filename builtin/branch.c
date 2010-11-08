@@ -3528,13 +3528,9 @@ comma
 l_string|&quot;create the branch&squot;s reflog&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__FORCE
 c_func
 (paren
-l_char|&squot;f&squot;
-comma
-l_string|&quot;force&quot;
-comma
 op_amp
 id|force_create
 comma
