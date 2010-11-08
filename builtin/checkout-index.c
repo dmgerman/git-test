@@ -1001,7 +1001,7 @@ c_func
 op_amp
 id|quiet
 comma
-l_string|&quot;be quiet&quot;
+l_string|&quot;no warning for existing files and files not in index&quot;
 )paren
 comma
 id|OPT_BOOLEAN

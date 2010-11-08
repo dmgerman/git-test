@@ -263,7 +263,7 @@ c_func
 op_amp
 id|quiet
 comma
-l_string|&quot;be quiet&quot;
+l_string|&quot;do not warn about conflicts&quot;
 )paren
 comma
 id|OPT_CALLBACK

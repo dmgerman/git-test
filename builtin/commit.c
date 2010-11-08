@@ -410,7 +410,7 @@ c_func
 op_amp
 id|quiet
 comma
-l_string|&quot;be quiet&quot;
+l_string|&quot;suppress summary after successful commit&quot;
 )paren
 comma
 id|OPT__VERBOSE
@@ -419,7 +419,7 @@ c_func
 op_amp
 id|verbose
 comma
-l_string|&quot;be verbose&quot;
+l_string|&quot;show diff in commit message template&quot;
 )paren
 comma
 id|OPT_GROUP

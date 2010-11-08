@@ -862,7 +862,7 @@ c_func
 op_amp
 id|quiet
 comma
-l_string|&quot;be quiet&quot;
+l_string|&quot;suppress progress reporting&quot;
 )paren
 comma
 (brace

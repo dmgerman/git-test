@@ -3695,7 +3695,7 @@ c_func
 op_amp
 id|opts.quiet
 comma
-l_string|&quot;be quiet&quot;
+l_string|&quot;suppress progress reporting&quot;
 )paren
 comma
 id|OPT_STRING

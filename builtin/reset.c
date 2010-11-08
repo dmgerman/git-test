@@ -1343,7 +1343,7 @@ c_func
 op_amp
 id|quiet
 comma
-l_string|&quot;be quiet&quot;
+l_string|&quot;be quiet, only report errors&quot;
 )paren
 comma
 id|OPT_SET_INT
