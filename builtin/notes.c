@@ -5081,13 +5081,23 @@ c_func
 )paren
 )paren
 suffix:semicolon
+id|strbuf_add
+c_func
+(paren
+op_amp
+(paren
 id|o.commit_msg
-op_assign
+)paren
+comma
 id|msg.buf
 op_plus
 l_int|7
+comma
+id|msg.len
+l_int|7
+)paren
 suffix:semicolon
-singleline_comment|// skip &quot;notes: &quot; prefix
+multiline_comment|/* skip &quot;notes: &quot; */
 id|result
 op_assign
 id|notes_merge

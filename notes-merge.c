@@ -8,6 +8,7 @@ macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;notes.h&quot;
 macro_line|#include &quot;notes-merge.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
 DECL|struct|notes_merge_pair
 r_struct
 id|notes_merge_pair
@@ -63,6 +64,17 @@ r_sizeof
 r_struct
 id|notes_merge_options
 )paren
+)paren
+suffix:semicolon
+id|strbuf_init
+c_func
+(paren
+op_amp
+(paren
+id|o-&gt;commit_msg
+)paren
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|o-&gt;verbosity
@@ -1978,6 +1990,41 @@ id|p-&gt;remote
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/* add &quot;Conflicts:&quot; section to commit message first time through */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|o-&gt;has_worktree
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+(paren
+id|o-&gt;commit_msg
+)paren
+comma
+l_string|&quot;&bslash;n&bslash;nConflicts:&bslash;n&quot;
+)paren
+suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+op_amp
+(paren
+id|o-&gt;commit_msg
+)paren
+comma
+l_string|&quot;&bslash;t%s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|p-&gt;obj
+)paren
+)paren
+suffix:semicolon
 id|OUTPUT
 c_func
 (paren
@@ -3487,7 +3534,7 @@ id|local_tree
 comma
 id|parents
 comma
-id|o-&gt;commit_msg
+id|o-&gt;commit_msg.buf
 comma
 id|result_sha1
 )paren
@@ -3499,6 +3546,15 @@ id|free_commit_list
 c_func
 (paren
 id|bases
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+(paren
+id|o-&gt;commit_msg
+)paren
 )paren
 suffix:semicolon
 id|trace_printf
