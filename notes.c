@@ -3882,7 +3882,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* we will separate the notes by a newline anyway */
+multiline_comment|/* we will separate the notes by two newlines anyway */
 r_if
 c_cond
 (paren
@@ -3902,7 +3902,7 @@ id|buf_len
 op_assign
 id|cur_len
 op_plus
-l_int|1
+l_int|2
 op_plus
 id|new_len
 suffix:semicolon
@@ -3935,6 +3935,15 @@ id|cur_len
 op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
+id|buf
+(braket
+id|cur_len
+op_plus
+l_int|1
+)braket
+op_assign
+l_char|&squot;&bslash;n&squot;
+suffix:semicolon
 id|memcpy
 c_func
 (paren
@@ -3942,7 +3951,7 @@ id|buf
 op_plus
 id|cur_len
 op_plus
-l_int|1
+l_int|2
 comma
 id|new_msg
 comma
