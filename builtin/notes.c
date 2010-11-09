@@ -4618,11 +4618,17 @@ id|DIE_ON_ERR
 )paren
 suffix:semicolon
 r_else
-multiline_comment|/* TODO: */
-id|die
+multiline_comment|/* Merge has unresolved conflicts */
+id|printf
 c_func
 (paren
-l_string|&quot;&squot;git notes merge&squot; cannot yet handle conflicts!&quot;
+l_string|&quot;Automatic notes merge failed. Fix conflicts in %s.&bslash;n&quot;
+comma
+id|git_path
+c_func
+(paren
+id|NOTES_MERGE_WORKTREE
+)paren
 )paren
 suffix:semicolon
 id|free_notes
@@ -4646,8 +4652,11 @@ id|msg
 )paren
 suffix:semicolon
 r_return
+id|result
+OL
 l_int|0
 suffix:semicolon
+multiline_comment|/* return non-zero on conflicts */
 )brace
 DECL|function|remove_cmd
 r_static
