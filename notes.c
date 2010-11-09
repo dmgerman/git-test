@@ -4583,7 +4583,11 @@ l_string|&quot;Failed to read notes tree referenced by %s (%s)&quot;
 comma
 id|notes_ref
 comma
+id|sha1_to_hex
+c_func
+(paren
 id|object_sha1
+)paren
 )paren
 suffix:semicolon
 id|hashclr
