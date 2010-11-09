@@ -4351,7 +4351,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|default_notes_ref
-r_static
 r_const
 r_char
 op_star
