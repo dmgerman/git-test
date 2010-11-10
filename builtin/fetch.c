@@ -51,6 +51,24 @@ op_assign
 l_int|2
 )brace
 suffix:semicolon
+r_enum
+(brace
+DECL|enumerator|RECURSE_SUBMODULES_OFF
+id|RECURSE_SUBMODULES_OFF
+op_assign
+l_int|0
+comma
+DECL|enumerator|RECURSE_SUBMODULES_DEFAULT
+id|RECURSE_SUBMODULES_DEFAULT
+op_assign
+l_int|1
+comma
+DECL|enumerator|RECURSE_SUBMODULES_ON
+id|RECURSE_SUBMODULES_ON
+op_assign
+l_int|2
+)brace
+suffix:semicolon
 DECL|variable|all
 DECL|variable|append
 DECL|variable|dry_run
@@ -87,6 +105,8 @@ r_int
 id|progress
 comma
 id|recurse_submodules
+op_assign
+id|RECURSE_SUBMODULES_DEFAULT
 suffix:semicolon
 DECL|variable|tags
 r_static
@@ -259,7 +279,7 @@ comma
 l_string|&quot;prune tracking branches no longer on remote&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_SET_INT
 c_func
 (paren
 l_int|0
@@ -270,6 +290,8 @@ op_amp
 id|recurse_submodules
 comma
 l_string|&quot;control recursive fetching of submodules&quot;
+comma
+id|RECURSE_SUBMODULES_ON
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4262,6 +4284,8 @@ r_if
 c_cond
 (paren
 id|recurse_submodules
+op_eq
+id|RECURSE_SUBMODULES_ON
 )paren
 id|argv
 (braket
@@ -5149,7 +5173,11 @@ c_cond
 op_logical_neg
 id|result
 op_logical_and
+(paren
 id|recurse_submodules
+op_ne
+id|RECURSE_SUBMODULES_OFF
+)paren
 )paren
 (brace
 r_const
@@ -5164,6 +5192,21 @@ r_int
 id|num_options
 op_assign
 l_int|0
+suffix:semicolon
+multiline_comment|/* Set recursion as default when we already are recursing */
+r_if
+c_cond
+(paren
+id|submodule_prefix
+(braket
+l_int|0
+)braket
+)paren
+id|set_config_fetch_recurse_submodules
+c_func
+(paren
+l_int|1
+)paren
 suffix:semicolon
 id|gitmodules_config
 c_func
@@ -5197,6 +5240,10 @@ comma
 id|options
 comma
 id|submodule_prefix
+comma
+id|recurse_submodules
+op_eq
+id|RECURSE_SUBMODULES_ON
 comma
 id|verbosity
 OL
