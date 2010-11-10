@@ -256,6 +256,16 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* only take up to &quot;lines&quot; lines, and strip the signature */
+id|size
+op_assign
+id|parse_signature
+c_func
+(paren
+id|buf
+comma
+id|size
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -276,15 +286,6 @@ OL
 id|buf
 op_plus
 id|size
-op_logical_and
-id|prefixcmp
-c_func
-(paren
-id|sp
-comma
-id|PGP_SIGNATURE
-l_string|&quot;&bslash;n&quot;
-)paren
 suffix:semicolon
 id|i
 op_increment
