@@ -5,6 +5,8 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;blob.h&quot;
 DECL|macro|PGP_SIGNATURE
 mdefine_line|#define PGP_SIGNATURE &quot;-----BEGIN PGP SIGNATURE-----&quot;
+DECL|macro|PGP_MESSAGE
+mdefine_line|#define PGP_MESSAGE &quot;-----BEGIN PGP MESSAGE-----&quot;
 DECL|variable|tag_type
 r_const
 r_char
@@ -850,6 +852,16 @@ op_plus
 id|len
 comma
 id|PGP_SIGNATURE
+)paren
+op_logical_and
+id|prefixcmp
+c_func
+(paren
+id|buf
+op_plus
+id|len
+comma
+id|PGP_MESSAGE
 )paren
 )paren
 (brace
