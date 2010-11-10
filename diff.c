@@ -17387,7 +17387,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--detect-renames=&quot;
+l_string|&quot;--find-renames=&quot;
 )paren
 op_logical_or
 op_logical_neg
@@ -17396,7 +17396,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--detect-renames&quot;
+l_string|&quot;--find-renames&quot;
 )paren
 )paren
 (brace
@@ -17442,7 +17442,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--detect-copies=&quot;
+l_string|&quot;--find-copies=&quot;
 )paren
 op_logical_or
 op_logical_neg
@@ -17451,7 +17451,7 @@ c_func
 (paren
 id|arg
 comma
-l_string|&quot;--detect-copies&quot;
+l_string|&quot;--find-copies&quot;
 )paren
 )paren
 (brace
@@ -17774,15 +17774,6 @@ c_func
 id|arg
 comma
 l_string|&quot;--find-copies-harder&quot;
-)paren
-op_logical_or
-op_logical_neg
-id|strcmp
-c_func
-(paren
-id|arg
-comma
-l_string|&quot;--detect-copies-harder&quot;
 )paren
 )paren
 id|DIFF_OPT_SET
@@ -19116,7 +19107,7 @@ c_func
 (paren
 id|opt
 comma
-l_string|&quot;detect-copies&quot;
+l_string|&quot;find-copies&quot;
 )paren
 )paren
 (brace
@@ -19125,7 +19116,7 @@ op_add_assign
 id|strlen
 c_func
 (paren
-l_string|&quot;detect-copies&quot;
+l_string|&quot;find-copies&quot;
 )paren
 suffix:semicolon
 r_if
@@ -19157,7 +19148,7 @@ c_func
 (paren
 id|opt
 comma
-l_string|&quot;detect-renames&quot;
+l_string|&quot;find-renames&quot;
 )paren
 )paren
 (brace
@@ -19166,7 +19157,7 @@ op_add_assign
 id|strlen
 c_func
 (paren
-l_string|&quot;detect-renames&quot;
+l_string|&quot;find-renames&quot;
 )paren
 suffix:semicolon
 r_if
