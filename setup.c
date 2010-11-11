@@ -15,7 +15,6 @@ op_assign
 l_int|1
 suffix:semicolon
 DECL|function|prefix_path
-r_const
 r_char
 op_star
 id|prefix_path
