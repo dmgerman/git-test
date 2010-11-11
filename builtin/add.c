@@ -2500,6 +2500,11 @@ c_cond
 id|ignore_missing
 )paren
 (brace
+r_int
+id|dtype
+op_assign
+id|DT_UNKNOWN
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2514,7 +2519,8 @@ id|pathspec
 id|i
 )braket
 comma
-id|DT_UNKNOWN
+op_amp
+id|dtype
 )paren
 )paren
 id|dir_add_ignored
