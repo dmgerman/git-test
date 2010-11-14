@@ -1655,6 +1655,22 @@ r_return
 id|combine_notes_concatenate
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|v
+comma
+l_string|&quot;cat_sort_uniq&quot;
+)paren
+)paren
+r_return
+id|combine_notes_cat_sort_uniq
+suffix:semicolon
+r_else
 r_return
 l_int|NULL
 suffix:semicolon
@@ -4759,8 +4775,8 @@ id|strategy
 comma
 l_string|&quot;strategy&quot;
 comma
-l_string|&quot;resolve notes conflicts using the given &quot;
-l_string|&quot;strategy (manual/ours/theirs/union)&quot;
+l_string|&quot;resolve notes conflicts using the given strategy &quot;
+l_string|&quot;(manual/ours/theirs/union/cat_sort_uniq)&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -5070,6 +5086,23 @@ l_string|&quot;union&quot;
 id|o.strategy
 op_assign
 id|NOTES_MERGE_RESOLVE_UNION
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|strategy
+comma
+l_string|&quot;cat_sort_uniq&quot;
+)paren
+)paren
+id|o.strategy
+op_assign
+id|NOTES_MERGE_RESOLVE_CAT_SORT_UNIQ
 suffix:semicolon
 r_else
 (brace
