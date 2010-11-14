@@ -3157,6 +3157,9 @@ id|object
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
 id|add_note
 c_func
 (paren
@@ -3167,6 +3170,12 @@ comma
 id|new_note
 comma
 id|combine_notes_overwrite
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: combine_notes_overwrite failed&quot;
 )paren
 suffix:semicolon
 id|snprintf
@@ -3617,6 +3626,9 @@ r_goto
 id|out
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|add_note
 c_func
 (paren
@@ -3627,6 +3639,12 @@ comma
 id|from_note
 comma
 id|combine_notes_overwrite
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: combine_notes_overwrite failed&quot;
 )paren
 suffix:semicolon
 id|commit_notes
@@ -3982,6 +4000,9 @@ id|object
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
 id|add_note
 c_func
 (paren
@@ -3992,6 +4013,12 @@ comma
 id|new_note
 comma
 id|combine_notes_overwrite
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: combine_notes_overwrite failed&quot;
 )paren
 suffix:semicolon
 id|snprintf

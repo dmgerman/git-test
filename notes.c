@@ -914,7 +914,7 @@ suffix:semicolon
 multiline_comment|/*&n; * To insert a leaf_node:&n; * Search to the tree location appropriate for the given leaf_node&squot;s key:&n; * - If location is unused (NULL), store the tweaked pointer directly there&n; * - If location holds a note entry that matches the note-to-be-inserted, then&n; *   combine the two notes (by calling the given combine_notes function).&n; * - If location holds a note entry that matches the subtree-to-be-inserted,&n; *   then unpack the subtree-to-be-inserted into the location.&n; * - If location holds a matching subtree entry, unpack the subtree at that&n; *   location, and restart the insert operation from that level.&n; * - Else, create a new int_node, holding both the node-at-location and the&n; *   node-to-be-inserted, and store the new int_node into the location.&n; */
 DECL|function|note_tree_insert
 r_static
-r_void
+r_int
 id|note_tree_insert
 c_func
 (paren
@@ -973,6 +973,11 @@ id|n
 comma
 id|entry-&gt;key_sha1
 )paren
+suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|0
 suffix:semicolon
 m_assert
 (paren
@@ -1049,6 +1054,7 @@ id|type
 )paren
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
 r_case
 id|PTR_TYPE_NOTE
@@ -1089,10 +1095,10 @@ id|entry-&gt;val_sha1
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|ret
+op_assign
 id|combine_notes
 c_func
 (paren
@@ -1100,35 +1106,13 @@ id|l-&gt;val_sha1
 comma
 id|entry-&gt;val_sha1
 )paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;failed to combine notes %s and %s&quot;
-l_string|&quot; for object %s&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|l-&gt;val_sha1
-)paren
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|entry-&gt;val_sha1
-)paren
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|l-&gt;key_sha1
-)paren
-)paren
 suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|ret
+op_logical_and
 id|is_null_sha1
 c_func
 (paren
@@ -1154,6 +1138,7 @@ id|entry
 )paren
 suffix:semicolon
 r_return
+id|ret
 suffix:semicolon
 )brace
 r_break
@@ -1194,6 +1179,7 @@ id|entry
 )paren
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
 )brace
 r_break
@@ -1241,6 +1227,7 @@ c_func
 id|l
 )paren
 suffix:semicolon
+r_return
 id|note_tree_insert
 c_func
 (paren
@@ -1256,8 +1243,6 @@ id|type
 comma
 id|combine_notes
 )paren
-suffix:semicolon
-r_return
 suffix:semicolon
 )brace
 r_break
@@ -1303,6 +1288,7 @@ id|entry
 )paren
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
 )brace
 id|new_node
@@ -1324,6 +1310,8 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|ret
+op_assign
 id|note_tree_insert
 c_func
 (paren
@@ -1347,6 +1335,14 @@ comma
 id|combine_notes
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+)paren
+r_return
+id|ret
+suffix:semicolon
 op_star
 id|p
 op_assign
@@ -1358,6 +1354,7 @@ comma
 id|PTR_TYPE_INTERNAL
 )paren
 suffix:semicolon
+r_return
 id|note_tree_insert
 c_func
 (paren
@@ -2114,6 +2111,9 @@ op_assign
 id|PTR_TYPE_SUBTREE
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|note_tree_insert
 c_func
 (paren
@@ -2128,6 +2128,30 @@ comma
 id|type
 comma
 id|combine_notes_concatenate
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Failed to load %s %s into notes tree &quot;
+l_string|&quot;from %s&quot;
+comma
+id|type
+op_eq
+id|PTR_TYPE_NOTE
+ques
+c_cond
+l_string|&quot;note&quot;
+suffix:colon
+l_string|&quot;subtree&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|l-&gt;key_sha1
+)paren
+comma
+id|t-&gt;ref
 )paren
 suffix:semicolon
 )brace
@@ -4961,7 +4985,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|add_note
-r_void
+r_int
 id|add_note
 c_func
 (paren
@@ -5054,6 +5078,7 @@ comma
 id|note_sha1
 )paren
 suffix:semicolon
+r_return
 id|note_tree_insert
 c_func
 (paren
@@ -6060,7 +6085,7 @@ r_int
 id|force
 comma
 id|combine_notes_fn
-id|combine_fn
+id|combine_notes
 )paren
 (brace
 r_const
@@ -6107,6 +6132,7 @@ c_cond
 (paren
 id|note
 )paren
+r_return
 id|add_note
 c_func
 (paren
@@ -6116,7 +6142,7 @@ id|to_obj
 comma
 id|note
 comma
-id|combine_fn
+id|combine_notes
 )paren
 suffix:semicolon
 r_else
@@ -6125,6 +6151,7 @@ c_cond
 (paren
 id|existing_note
 )paren
+r_return
 id|add_note
 c_func
 (paren
@@ -6134,7 +6161,7 @@ id|to_obj
 comma
 id|null_sha1
 comma
-id|combine_fn
+id|combine_notes
 )paren
 suffix:semicolon
 r_return
