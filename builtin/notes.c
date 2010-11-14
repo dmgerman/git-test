@@ -4310,6 +4310,11 @@ l_int|20
 )braket
 suffix:semicolon
 r_struct
+id|notes_tree
+op_star
+id|t
+suffix:semicolon
+r_struct
 id|notes_merge_options
 id|o
 suffix:semicolon
@@ -4424,15 +4429,12 @@ id|o.remote_ref
 op_assign
 id|remote_ref.buf
 suffix:semicolon
-id|result
+id|t
 op_assign
-id|notes_merge
+id|init_notes_check
 c_func
 (paren
-op_amp
-id|o
-comma
-id|result_sha1
+l_string|&quot;merge&quot;
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -4451,14 +4453,33 @@ c_func
 )paren
 )paren
 suffix:semicolon
+id|o.commit_msg
+op_assign
+id|msg.buf
+op_plus
+l_int|7
+suffix:semicolon
+singleline_comment|// skip &quot;notes: &quot; prefix
+id|result
+op_assign
+id|notes_merge
+c_func
+(paren
+op_amp
+id|o
+comma
+id|t
+comma
+id|result_sha1
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|result
-op_eq
+op_ge
 l_int|0
 )paren
-(brace
 multiline_comment|/* Merge resulted (trivially) in result_sha1 */
 multiline_comment|/* Update default notes ref with new commit */
 id|update_ref
@@ -4480,17 +4501,20 @@ comma
 id|DIE_ON_ERR
 )paren
 suffix:semicolon
-)brace
 r_else
-(brace
 multiline_comment|/* TODO: */
 id|die
 c_func
 (paren
-l_string|&quot;&squot;git notes merge&squot; cannot yet handle non-trivial merges!&quot;
+l_string|&quot;&squot;git notes merge&squot; cannot yet handle conflicts!&quot;
 )paren
 suffix:semicolon
-)brace
+id|free_notes
+c_func
+(paren
+id|t
+)paren
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
