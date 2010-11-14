@@ -2,6 +2,7 @@ macro_line|#include &quot;http.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;url.h&quot;
 DECL|variable|data_received
 r_int
 id|data_received
@@ -1455,6 +1456,9 @@ id|cp
 comma
 op_star
 id|slash
+comma
+op_star
+id|decoded
 suffix:semicolon
 r_int
 id|len
@@ -1569,6 +1573,24 @@ id|len
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
+id|decoded
+op_assign
+id|url_decode
+c_func
+(paren
+id|user_name
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|user_name
+)paren
+suffix:semicolon
+id|user_name
+op_assign
+id|decoded
+suffix:semicolon
 id|user_pass
 op_assign
 l_int|NULL
@@ -1608,6 +1630,24 @@ id|len
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
+id|decoded
+op_assign
+id|url_decode
+c_func
+(paren
+id|user_name
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|user_name
+)paren
+suffix:semicolon
+id|user_name
+op_assign
+id|decoded
+suffix:semicolon
 id|len
 op_assign
 id|at
@@ -1645,6 +1685,24 @@ id|len
 )braket
 op_assign
 l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+id|decoded
+op_assign
+id|url_decode
+c_func
+(paren
+id|user_pass
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|user_pass
+)paren
+suffix:semicolon
+id|user_pass
+op_assign
+id|decoded
 suffix:semicolon
 )brace
 )brace
