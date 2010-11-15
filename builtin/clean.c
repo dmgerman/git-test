@@ -831,7 +831,7 @@ l_int|0
 id|warning
 c_func
 (paren
-l_string|&quot;failed to remove &squot;%s&squot;&quot;
+l_string|&quot;failed to remove %s&quot;
 comma
 id|qname
 )paren
@@ -952,7 +952,7 @@ l_int|0
 id|warning
 c_func
 (paren
-l_string|&quot;failed to remove &squot;%s&squot;&quot;
+l_string|&quot;failed to remove %s&quot;
 comma
 id|qname
 )paren
