@@ -170,10 +170,6 @@ id|ignored_only
 op_assign
 l_int|0
 comma
-id|baselen
-op_assign
-l_int|0
-comma
 id|config_set
 op_assign
 l_int|0
@@ -721,7 +717,7 @@ id|ent-&gt;name
 comma
 id|len
 comma
-id|baselen
+l_int|0
 comma
 id|seen
 )paren
