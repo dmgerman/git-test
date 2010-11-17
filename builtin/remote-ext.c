@@ -622,12 +622,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-(paren
-r_const
-r_char
-op_star
-op_star
-)paren
 id|ret
 suffix:semicolon
 )brace
@@ -1143,24 +1137,15 @@ r_if
 c_cond
 (paren
 id|argc
-OL
+op_ne
 l_int|3
 )paren
-(brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Error: URL missing&quot;
+l_string|&quot;Expected two arguments&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 r_return
 id|command_loop
 c_func

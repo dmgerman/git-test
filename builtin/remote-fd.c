@@ -77,6 +77,10 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+id|i
+OG
+l_int|0
+op_logical_and
 id|isspace
 c_func
 (paren
@@ -220,13 +224,13 @@ r_if
 c_cond
 (paren
 id|argc
-OL
+op_ne
 l_int|3
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;URL missing&quot;
+l_string|&quot;Expected two arguments&quot;
 )paren
 suffix:semicolon
 id|input_fd
