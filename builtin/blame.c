@@ -194,6 +194,10 @@ id|blob_sha1
 l_int|20
 )braket
 suffix:semicolon
+DECL|member|mode
+r_int
+id|mode
+suffix:semicolon
 DECL|member|path
 r_char
 id|path
@@ -213,6 +217,9 @@ r_const
 r_char
 op_star
 id|path
+comma
+r_int
+id|mode
 comma
 r_const
 r_int
@@ -256,9 +263,7 @@ id|df
 comma
 id|sha1
 comma
-id|S_IFREG
-op_or
-l_int|0664
+id|mode
 )paren
 suffix:semicolon
 id|textconv
@@ -364,6 +369,8 @@ id|textconv_object
 c_func
 (paren
 id|o-&gt;path
+comma
+id|o-&gt;mode
 comma
 id|o-&gt;blob_sha1
 comma
@@ -964,11 +971,11 @@ id|path
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Fill the blob_sha1 field of an origin if it hasn&squot;t, so that later&n; * call to fill_origin_blob() can use it to locate the data.  blob_sha1&n; * for an origin is also used to pass the blame for the entire file to&n; * the parent to detect the case where a child&squot;s blob is identical to&n; * that of its parent&squot;s.&n; */
-DECL|function|fill_blob_sha1
+multiline_comment|/*&n; * Fill the blob_sha1 field of an origin if it hasn&squot;t, so that later&n; * call to fill_origin_blob() can use it to locate the data.  blob_sha1&n; * for an origin is also used to pass the blame for the entire file to&n; * the parent to detect the case where a child&squot;s blob is identical to&n; * that of its parent&squot;s.&n; *&n; * This also fills origin-&gt;mode for corresponding tree path.&n; */
+DECL|function|fill_blob_sha1_and_mode
 r_static
 r_int
-id|fill_blob_sha1
+id|fill_blob_sha1_and_mode
 c_func
 (paren
 r_struct
@@ -977,9 +984,6 @@ op_star
 id|origin
 )paren
 (brace
-r_int
-id|mode
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1006,7 +1010,7 @@ comma
 id|origin-&gt;blob_sha1
 comma
 op_amp
-id|mode
+id|origin-&gt;mode
 )paren
 )paren
 r_goto
@@ -1038,6 +1042,10 @@ c_func
 (paren
 id|origin-&gt;blob_sha1
 )paren
+suffix:semicolon
+id|origin-&gt;mode
+op_assign
+id|S_IFINVALID
 suffix:semicolon
 r_return
 l_int|1
@@ -1127,7 +1135,7 @@ comma
 id|cached-&gt;path
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * If the origin was newly created (i.e. get_origin&n;&t;&t;&t; * would call make_origin if none is found in the&n;&t;&t;&t; * scoreboard), it does not know the blob_sha1,&n;&t;&t;&t; * so copy it.  Otherwise porigin was in the&n;&t;&t;&t; * scoreboard and already knows blob_sha1.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * If the origin was newly created (i.e. get_origin&n;&t;&t;&t; * would call make_origin if none is found in the&n;&t;&t;&t; * scoreboard), it does not know the blob_sha1/mode,&n;&t;&t;&t; * so copy it.  Otherwise porigin was in the&n;&t;&t;&t; * scoreboard and already knows blob_sha1/mode.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1135,6 +1143,7 @@ id|porigin-&gt;refcnt
 op_eq
 l_int|1
 )paren
+(brace
 id|hashcpy
 c_func
 (paren
@@ -1143,6 +1152,11 @@ comma
 id|cached-&gt;blob_sha1
 )paren
 suffix:semicolon
+id|porigin-&gt;mode
+op_assign
+id|cached-&gt;mode
+suffix:semicolon
+)brace
 r_return
 id|porigin
 suffix:semicolon
@@ -1292,6 +1306,10 @@ comma
 id|origin-&gt;blob_sha1
 )paren
 suffix:semicolon
+id|porigin-&gt;mode
+op_assign
+id|origin-&gt;mode
+suffix:semicolon
 )brace
 r_else
 (brace
@@ -1408,6 +1426,10 @@ comma
 id|p-&gt;one-&gt;sha1
 )paren
 suffix:semicolon
+id|porigin-&gt;mode
+op_assign
+id|p-&gt;one-&gt;mode
+suffix:semicolon
 r_break
 suffix:semicolon
 r_case
@@ -1464,6 +1486,10 @@ id|cached-&gt;blob_sha1
 comma
 id|porigin-&gt;blob_sha1
 )paren
+suffix:semicolon
+id|cached-&gt;mode
+op_assign
+id|porigin-&gt;mode
 suffix:semicolon
 id|parent-&gt;util
 op_assign
@@ -1689,6 +1715,10 @@ id|porigin-&gt;blob_sha1
 comma
 id|p-&gt;one-&gt;sha1
 )paren
+suffix:semicolon
+id|porigin-&gt;mode
+op_assign
+id|p-&gt;one-&gt;mode
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -4618,6 +4648,10 @@ id|norigin-&gt;blob_sha1
 comma
 id|p-&gt;one-&gt;sha1
 )paren
+suffix:semicolon
+id|norigin-&gt;mode
+op_assign
+id|p-&gt;one-&gt;mode
 suffix:semicolon
 id|fill_origin_blob
 c_func
@@ -9601,6 +9635,8 @@ c_func
 (paren
 id|read_from
 comma
+id|mode
+comma
 id|null_sha1
 comma
 op_amp
@@ -11595,7 +11631,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fill_blob_sha1
+id|fill_blob_sha1_and_mode
 c_func
 (paren
 id|o
@@ -11627,6 +11663,8 @@ id|textconv_object
 c_func
 (paren
 id|path
+comma
+id|o-&gt;mode
 comma
 id|o-&gt;blob_sha1
 comma
