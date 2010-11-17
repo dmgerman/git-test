@@ -46,6 +46,9 @@ multiline_comment|/* WT_STATUS_LOCAL_BRANCH */
 id|GIT_COLOR_RED
 comma
 multiline_comment|/* WT_STATUS_REMOTE_BRANCH */
+id|GIT_COLOR_NORMAL
+comma
+multiline_comment|/* WT_STATUS_ONBRANCH */
 )brace
 suffix:semicolon
 DECL|function|color
@@ -3417,6 +3420,19 @@ op_assign
 id|color
 c_func
 (paren
+id|WT_STATUS_ONBRANCH
+comma
+id|s
+)paren
+suffix:semicolon
+r_const
+r_char
+op_star
+id|branch_status_color
+op_assign
+id|color
+c_func
+(paren
 id|WT_STATUS_HEADER
 comma
 id|s
@@ -3476,7 +3492,7 @@ id|branch_name
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
-id|branch_color
+id|branch_status_color
 op_assign
 id|color
 c_func
@@ -3507,6 +3523,18 @@ comma
 l_string|&quot;# &quot;
 )paren
 suffix:semicolon
+id|color_fprintf
+c_func
+(paren
+id|s-&gt;fp
+comma
+id|branch_status_color
+comma
+l_string|&quot;%s&quot;
+comma
+id|on_what
+)paren
+suffix:semicolon
 id|color_fprintf_ln
 c_func
 (paren
@@ -3514,9 +3542,7 @@ id|s-&gt;fp
 comma
 id|branch_color
 comma
-l_string|&quot;%s%s&quot;
-comma
-id|on_what
+l_string|&quot;%s&quot;
 comma
 id|branch_name
 )paren
