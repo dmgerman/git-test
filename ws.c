@@ -872,6 +872,17 @@ r_break
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|trailing_whitespace
+op_eq
+l_int|1
+)paren
+id|trailing_whitespace
+op_assign
+id|len
+suffix:semicolon
 multiline_comment|/* Check indentation */
 r_for
 c_loop
@@ -882,7 +893,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|len
+id|trailing_whitespace
 suffix:semicolon
 id|i
 op_increment
@@ -1151,17 +1162,6 @@ id|stream
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * Now the rest of the line starts at &quot;written&quot;.&n;&t;&t; * The non-highlighted part ends at &quot;trailing_whitespace&quot;.&n;&t;&t; */
-r_if
-c_cond
-(paren
-id|trailing_whitespace
-op_eq
-l_int|1
-)paren
-id|trailing_whitespace
-op_assign
-id|len
-suffix:semicolon
 multiline_comment|/* Emit non-highlighted (middle) segment. */
 r_if
 c_cond
