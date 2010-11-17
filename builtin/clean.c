@@ -170,10 +170,6 @@ id|ignored_only
 op_assign
 l_int|0
 comma
-id|baselen
-op_assign
-l_int|0
-comma
 id|config_set
 op_assign
 l_int|0
@@ -721,7 +717,7 @@ id|ent-&gt;name
 comma
 id|len
 comma
-id|baselen
+l_int|0
 comma
 id|seen
 )paren
@@ -831,7 +827,7 @@ l_int|0
 id|warning
 c_func
 (paren
-l_string|&quot;failed to remove &squot;%s&squot;&quot;
+l_string|&quot;failed to remove %s&quot;
 comma
 id|qname
 )paren
@@ -952,7 +948,7 @@ l_int|0
 id|warning
 c_func
 (paren
-l_string|&quot;failed to remove &squot;%s&squot;&quot;
+l_string|&quot;failed to remove %s&quot;
 comma
 id|qname
 )paren
