@@ -93,7 +93,6 @@ DECL|member|action
 DECL|member|propLength
 DECL|member|textLength
 DECL|member|srcRev
-DECL|member|srcMode
 DECL|member|mark
 DECL|member|type
 r_uint32
@@ -104,8 +103,6 @@ comma
 id|textLength
 comma
 id|srcRev
-comma
-id|srcMode
 comma
 id|mark
 comma
@@ -275,10 +272,6 @@ op_complement
 l_int|0
 suffix:semicolon
 id|node_ctx.srcRev
-op_assign
-l_int|0
-suffix:semicolon
-id|node_ctx.srcMode
 op_assign
 l_int|0
 suffix:semicolon
@@ -768,6 +761,11 @@ c_func
 r_void
 )paren
 (brace
+r_uint32
+id|old_mode
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -800,7 +798,7 @@ c_cond
 (paren
 id|node_ctx.srcRev
 )paren
-id|node_ctx.srcMode
+id|old_mode
 op_assign
 id|repo_copy
 c_func
@@ -903,7 +901,7 @@ id|node_ctx.textLength
 op_ne
 id|LENGTH_UNKNOWN
 )paren
-id|node_ctx.srcMode
+id|old_mode
 op_assign
 id|repo_replace
 c_func
@@ -952,7 +950,7 @@ id|node_ctx.textLength
 op_ne
 id|LENGTH_UNKNOWN
 )paren
-id|node_ctx.srcMode
+id|old_mode
 op_assign
 id|repo_replace
 c_func
@@ -997,11 +995,11 @@ id|node_ctx.propLength
 op_eq
 id|LENGTH_UNKNOWN
 op_logical_and
-id|node_ctx.srcMode
+id|old_mode
 )paren
 id|node_ctx.type
 op_assign
-id|node_ctx.srcMode
+id|old_mode
 suffix:semicolon
 r_if
 c_cond
