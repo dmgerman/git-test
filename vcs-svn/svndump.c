@@ -906,7 +906,7 @@ c_cond
 (paren
 id|have_props
 )paren
-id|repo_modify
+id|repo_modify_path
 c_func
 (paren
 id|node_ctx.dst
@@ -924,10 +924,12 @@ id|mark
 )paren
 id|old_mode
 op_assign
-id|repo_replace
+id|repo_modify_path
 c_func
 (paren
 id|node_ctx.dst
+comma
+l_int|0
 comma
 id|mark
 )paren
@@ -949,7 +951,7 @@ id|node_ctx.srcRev
 op_logical_and
 id|have_props
 )paren
-id|repo_modify
+id|repo_modify_path
 c_func
 (paren
 id|node_ctx.dst
@@ -969,10 +971,12 @@ id|mark
 )paren
 id|old_mode
 op_assign
-id|repo_replace
+id|repo_modify_path
 c_func
 (paren
 id|node_ctx.dst
+comma
+l_int|0
 comma
 id|mark
 )paren
