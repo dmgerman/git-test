@@ -867,6 +867,13 @@ comma
 id|node_ctx.dst
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|node_ctx.action
+op_eq
+id|NODEACT_ADD
+)paren
 id|node_ctx.action
 op_assign
 id|NODEACT_CHANGE
@@ -907,7 +914,13 @@ id|mark
 )paren
 suffix:semicolon
 r_else
-multiline_comment|/* Node-action: add */
+r_if
+c_cond
+(paren
+id|node_ctx.action
+op_eq
+id|NODEACT_ADD
+)paren
 id|repo_add
 c_func
 (paren
@@ -916,6 +929,13 @@ comma
 id|type
 comma
 id|mark
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;invalid dump: Node-path block lacks Node-action&quot;
 )paren
 suffix:semicolon
 r_if
