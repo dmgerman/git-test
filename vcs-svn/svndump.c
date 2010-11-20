@@ -93,7 +93,6 @@ DECL|member|action
 DECL|member|propLength
 DECL|member|textLength
 DECL|member|srcRev
-DECL|member|mark
 DECL|member|type
 r_uint32
 id|action
@@ -103,8 +102,6 @@ comma
 id|textLength
 comma
 id|srcRev
-comma
-id|mark
 comma
 id|type
 suffix:semicolon
@@ -286,10 +283,6 @@ l_string|&quot;/&quot;
 comma
 id|fname
 )paren
-suffix:semicolon
-id|node_ctx.mark
-op_assign
-l_int|0
 suffix:semicolon
 id|node_ctx.text_delta
 op_assign
@@ -765,6 +758,10 @@ r_uint32
 id|old_mode
 op_assign
 l_int|0
+comma
+id|mark
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -821,7 +818,7 @@ id|node_ctx.type
 op_ne
 id|REPO_MODE_DIR
 )paren
-id|node_ctx.mark
+id|mark
 op_assign
 id|next_blob_mark
 c_func
@@ -872,7 +869,7 @@ c_func
 (paren
 id|node_ctx.dst
 comma
-id|node_ctx.mark
+id|mark
 )paren
 suffix:semicolon
 r_else
@@ -890,7 +887,7 @@ id|node_ctx.dst
 comma
 id|node_ctx.type
 comma
-id|node_ctx.mark
+id|mark
 )paren
 suffix:semicolon
 r_else
@@ -908,7 +905,7 @@ c_func
 (paren
 id|node_ctx.dst
 comma
-id|node_ctx.mark
+id|mark
 )paren
 suffix:semicolon
 )brace
@@ -937,7 +934,7 @@ id|node_ctx.dst
 comma
 id|node_ctx.type
 comma
-id|node_ctx.mark
+id|mark
 )paren
 suffix:semicolon
 r_else
@@ -957,7 +954,7 @@ c_func
 (paren
 id|node_ctx.dst
 comma
-id|node_ctx.mark
+id|mark
 )paren
 suffix:semicolon
 r_else
@@ -984,7 +981,7 @@ id|node_ctx.dst
 comma
 id|node_ctx.type
 comma
-id|node_ctx.mark
+id|mark
 )paren
 suffix:semicolon
 )brace
@@ -1004,14 +1001,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|node_ctx.mark
+id|mark
 )paren
 id|fast_export_blob
 c_func
 (paren
 id|node_ctx.type
 comma
-id|node_ctx.mark
+id|mark
 comma
 id|node_ctx.textLength
 )paren
