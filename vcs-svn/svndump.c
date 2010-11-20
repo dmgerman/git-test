@@ -1663,7 +1663,7 @@ c_func
 suffix:semicolon
 )brace
 DECL|function|svndump_init
-r_void
+r_int
 id|svndump_init
 c_func
 (paren
@@ -1673,10 +1673,28 @@ op_star
 id|filename
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|buffer_init
 c_func
 (paren
 id|filename
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;cannot open %s: %s&quot;
+comma
+id|filename
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|repo_init
@@ -1707,6 +1725,9 @@ id|init_keys
 c_func
 (paren
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|svndump_deinit
