@@ -10067,6 +10067,7 @@ c_cond
 (paren
 id|revs-&gt;reflog_info
 )paren
+(brace
 id|fake_reflog_parent
 c_func
 (paren
@@ -10075,6 +10076,18 @@ comma
 id|commit
 )paren
 suffix:semicolon
+id|commit-&gt;object.flags
+op_and_assign
+op_complement
+(paren
+id|ADDED
+op_or
+id|SEEN
+op_or
+id|SHOWN
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/*&n;&t;&t; * If we haven&squot;t done the list limiting, we need to look at&n;&t;&t; * the parents here. We also need to do the date-based limiting&n;&t;&t; * that we&squot;d otherwise have done in limit_list().&n;&t;&t; */
 r_if
 c_cond

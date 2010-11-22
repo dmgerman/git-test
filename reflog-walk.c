@@ -1322,17 +1322,6 @@ id|commit-&gt;parents-&gt;item
 op_assign
 id|commit_info-&gt;commit
 suffix:semicolon
-id|commit-&gt;object.flags
-op_and_assign
-op_complement
-(paren
-id|ADDED
-op_or
-id|SEEN
-op_or
-id|SHOWN
-)paren
-suffix:semicolon
 )brace
 DECL|function|get_reflog_selector
 r_void
