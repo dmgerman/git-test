@@ -8756,6 +8756,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|dir
+op_logical_or
+op_logical_neg
 id|dir-&gt;dd_handle
 )paren
 (brace
