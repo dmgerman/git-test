@@ -6172,6 +6172,12 @@ comma
 id|output_directory
 )paren
 suffix:semicolon
+r_else
+id|setup_pager
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
