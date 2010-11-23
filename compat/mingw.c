@@ -1322,6 +1322,9 @@ op_star
 id|buf
 )paren
 (brace
+r_int
+id|err
+suffix:semicolon
 id|WIN32_FILE_ATTRIBUTE_DATA
 id|fdata
 suffix:semicolon
@@ -1330,7 +1333,7 @@ c_cond
 (paren
 op_logical_neg
 (paren
-id|errno
+id|err
 op_assign
 id|get_file_attr
 c_func
@@ -1426,6 +1429,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+id|errno
+op_assign
+id|err
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
