@@ -243,7 +243,7 @@ comma
 op_amp
 id|prune
 comma
-l_string|&quot;prune tracking branches no longer on remote&quot;
+l_string|&quot;prune remote-tracking branches no longer on remote&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -477,7 +477,7 @@ id|rm
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Not fetched to a tracking branch?  We need to fetch&n;&t;&t; * it anyway to allow this branch&squot;s &quot;branch.$name.merge&quot;&n;&t;&t; * to be honored by &squot;git pull&squot;, but we do not have to&n;&t;&t; * fail if branch.$name.merge is misconfigured to point&n;&t;&t; * at a nonexisting branch.  If we were indeed called by&n;&t;&t; * &squot;git pull&squot;, it will notice the misconfiguration because&n;&t;&t; * there is no entry in the resulting FETCH_HEAD marked&n;&t;&t; * for merging.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Not fetched to a remote-tracking branch?  We need to fetch&n;&t;&t; * it anyway to allow this branch&squot;s &quot;branch.$name.merge&quot;&n;&t;&t; * to be honored by &squot;git pull&squot;, but we do not have to&n;&t;&t; * fail if branch.$name.merge is misconfigured to point&n;&t;&t; * at a nonexisting branch.  If we were indeed called by&n;&t;&t; * &squot;git pull&squot;, it will notice the misconfiguration because&n;&t;&t; * there is no entry in the resulting FETCH_HEAD marked&n;&t;&t; * for merging.&n;&t;&t; */
 id|memset
 c_func
 (paren
@@ -2049,7 +2049,7 @@ l_string|&quot;refs/remotes/&quot;
 (brace
 id|kind
 op_assign
-l_string|&quot;remote branch&quot;
+l_string|&quot;remote-tracking branch&quot;
 suffix:semicolon
 id|what
 op_assign

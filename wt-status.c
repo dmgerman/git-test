@@ -425,7 +425,7 @@ id|s-&gt;fp
 comma
 id|c
 comma
-l_string|&quot;# Changed but not updated:&quot;
+l_string|&quot;# Changes not staged for commit:&quot;
 )paren
 suffix:semicolon
 r_if

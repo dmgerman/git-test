@@ -537,7 +537,7 @@ c_func
 (paren
 id|line
 comma
-l_string|&quot;remote branch &quot;
+l_string|&quot;remote-tracking branch &quot;
 )paren
 )paren
 (brace
@@ -545,7 +545,11 @@ id|origin
 op_assign
 id|line
 op_plus
-l_int|14
+id|strlen
+c_func
+(paren
+l_string|&quot;remote-tracking branch &quot;
+)paren
 suffix:semicolon
 id|string_list_append
 c_func
@@ -1403,9 +1407,9 @@ suffix:semicolon
 id|print_joined
 c_func
 (paren
-l_string|&quot;remote branch &quot;
+l_string|&quot;remote-tracking branch &quot;
 comma
-l_string|&quot;remote branches &quot;
+l_string|&quot;remote-tracking branches &quot;
 comma
 op_amp
 id|src_data-&gt;r_branch
