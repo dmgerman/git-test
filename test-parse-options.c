@@ -533,6 +533,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;be verbose&quot;
 )paren
 comma
 id|OPT__DRY_RUN
@@ -540,6 +542,8 @@ c_func
 (paren
 op_amp
 id|dry_run
+comma
+l_string|&quot;dry run&quot;
 )paren
 comma
 id|OPT__QUIET
@@ -547,6 +551,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;be quiet&quot;
 )paren
 comma
 id|OPT_END

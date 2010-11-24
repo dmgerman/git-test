@@ -470,6 +470,8 @@ c_func
 (paren
 op_amp
 id|show_only
+comma
+l_string|&quot;dry run&quot;
 )paren
 comma
 id|OPT__QUIET
@@ -477,6 +479,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;do not list removed files&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -492,13 +496,9 @@ comma
 l_string|&quot;only remove from the index&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__FORCE
 c_func
 (paren
-l_char|&squot;f&squot;
-comma
-l_string|&quot;force&quot;
-comma
 op_amp
 id|force
 comma

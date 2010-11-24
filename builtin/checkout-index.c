@@ -986,13 +986,9 @@ comma
 l_string|&quot;checks out all files in the index&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__FORCE
 c_func
 (paren
-l_char|&squot;f&squot;
-comma
-l_string|&quot;force&quot;
-comma
 op_amp
 id|force
 comma
@@ -1004,6 +1000,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;no warning for existing files and files not in index&quot;
 )paren
 comma
 id|OPT_BOOLEAN

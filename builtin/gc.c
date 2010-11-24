@@ -861,6 +861,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;suppress progress reporting&quot;
 )paren
 comma
 (brace

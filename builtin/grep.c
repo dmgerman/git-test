@@ -4832,13 +4832,9 @@ comma
 id|close_callback
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT__QUIET
 c_func
 (paren
-l_char|&squot;q&squot;
-comma
-l_string|&quot;quiet&quot;
-comma
 op_amp
 id|opt.status_only
 comma

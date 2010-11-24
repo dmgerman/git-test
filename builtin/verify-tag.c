@@ -497,6 +497,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;print tag contents&quot;
 )paren
 comma
 id|OPT_END

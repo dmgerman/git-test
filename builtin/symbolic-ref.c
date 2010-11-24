@@ -159,6 +159,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;suppress error message for non-symbolic (detached) refs&quot;
 )paren
 comma
 id|OPT_STRING

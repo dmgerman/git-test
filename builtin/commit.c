@@ -409,6 +409,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;suppress summary after successful commit&quot;
 )paren
 comma
 id|OPT__VERBOSE
@@ -416,6 +418,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;show diff in commit message template&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -5665,6 +5669,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;be verbose&quot;
 )paren
 comma
 id|OPT_SET_INT

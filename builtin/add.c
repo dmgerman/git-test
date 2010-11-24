@@ -1654,6 +1654,8 @@ c_func
 (paren
 op_amp
 id|show_only
+comma
+l_string|&quot;dry run&quot;
 )paren
 comma
 id|OPT__VERBOSE
@@ -1661,6 +1663,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;be verbose&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -1708,13 +1712,9 @@ comma
 l_string|&quot;edit current diff and apply&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__FORCE
 c_func
 (paren
-l_char|&squot;f&squot;
-comma
-l_string|&quot;force&quot;
-comma
 op_amp
 id|ignored_too
 comma
