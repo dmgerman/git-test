@@ -9897,11 +9897,22 @@ op_star
 id|one
 )paren
 (brace
+multiline_comment|/* Use already-loaded driver */
 r_if
 c_cond
 (paren
-op_logical_neg
 id|one-&gt;driver
+)paren
+r_return
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|S_ISREG
+c_func
+(paren
+id|one-&gt;mode
+)paren
 )paren
 id|one-&gt;driver
 op_assign
@@ -9911,6 +9922,7 @@ c_func
 id|one-&gt;path
 )paren
 suffix:semicolon
+multiline_comment|/* Fallback to default settings */
 r_if
 c_cond
 (paren
@@ -10134,19 +10146,6 @@ id|DIFF_FILE_VALID
 c_func
 (paren
 id|one
-)paren
-)paren
-r_return
-l_int|NULL
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|S_ISREG
-c_func
-(paren
-id|one-&gt;mode
 )paren
 )paren
 r_return
