@@ -456,11 +456,7 @@ id|po
 )paren
 )paren
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;pack-objects died with strange error&quot;
-)paren
+l_int|1
 suffix:semicolon
 r_return
 l_int|0
