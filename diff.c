@@ -21644,7 +21644,7 @@ l_int|3
 suffix:semicolon
 id|xecfg.flags
 op_assign
-id|XDL_EMIT_FUNCNAMES
+l_int|0
 suffix:semicolon
 id|xdi_diff_outf
 c_func
