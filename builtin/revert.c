@@ -2299,6 +2299,8 @@ c_cond
 (paren
 id|allow_ff
 op_logical_and
+id|parent
+op_logical_and
 op_logical_neg
 id|hashcmp
 c_func
