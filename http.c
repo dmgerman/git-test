@@ -2,6 +2,7 @@ macro_line|#include &quot;http.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;url.h&quot;
 DECL|variable|data_received
 r_int
 id|data_received
@@ -3324,52 +3325,6 @@ l_char|&squot;A&squot;
 op_plus
 id|v
 l_int|10
-suffix:semicolon
-)brace
-DECL|function|end_url_with_slash
-r_void
-id|end_url_with_slash
-c_func
-(paren
-r_struct
-id|strbuf
-op_star
-id|buf
-comma
-r_const
-r_char
-op_star
-id|url
-)paren
-(brace
-id|strbuf_addstr
-c_func
-(paren
-id|buf
-comma
-id|url
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|buf-&gt;len
-op_logical_and
-id|buf-&gt;buf
-(braket
-id|buf-&gt;len
-l_int|1
-)braket
-op_ne
-l_char|&squot;/&squot;
-)paren
-id|strbuf_addstr
-c_func
-(paren
-id|buf
-comma
-l_string|&quot;/&quot;
-)paren
 suffix:semicolon
 )brace
 DECL|function|quote_ref_url
