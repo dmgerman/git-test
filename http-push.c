@@ -5216,6 +5216,16 @@ op_amp
 id|IS_DIR
 )paren
 (brace
+multiline_comment|/* ensure collection names end with slash */
+id|str_end_url_with_slash
+c_func
+(paren
+id|ls-&gt;dentry_name
+comma
+op_amp
+id|ls-&gt;dentry_name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
