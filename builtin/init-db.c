@@ -2463,6 +2463,10 @@ c_func
 id|git_dir
 )paren
 suffix:semicolon
+id|startup_info-&gt;setup_explicit
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
