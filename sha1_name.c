@@ -3804,7 +3804,7 @@ id|OBJ_COMMIT
 r_return
 l_int|0
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 (paren

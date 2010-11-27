@@ -1966,11 +1966,11 @@ id|temp
 suffix:semicolon
 )brace
 )brace
-DECL|function|insert_by_date
+DECL|function|commit_list_insert_by_date
 r_struct
 id|commit_list
 op_star
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 r_struct
@@ -2038,9 +2038,9 @@ id|pp
 )paren
 suffix:semicolon
 )brace
-DECL|function|sort_by_date
+DECL|function|commit_list_sort_by_date
 r_void
-id|sort_by_date
+id|commit_list_sort_by_date
 c_func
 (paren
 r_struct
@@ -2064,7 +2064,7 @@ op_star
 id|list
 )paren
 (brace
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 (paren
@@ -2191,7 +2191,7 @@ id|commit-&gt;object.flags
 op_or_assign
 id|mark
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|commit
@@ -2533,7 +2533,7 @@ c_cond
 op_logical_neg
 id|lifo
 )paren
-id|sort_by_date
+id|commit_list_sort_by_date
 c_func
 (paren
 op_amp
@@ -2629,7 +2629,7 @@ c_cond
 op_logical_neg
 id|lifo
 )paren
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|parent
@@ -2865,7 +2865,7 @@ id|one-&gt;object.flags
 op_or_assign
 id|PARENT1
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|one
@@ -2898,7 +2898,7 @@ id|object.flags
 op_or_assign
 id|PARENT2
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|twos
@@ -2996,7 +2996,7 @@ id|commit-&gt;object.flags
 op_or_assign
 id|RESULT
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|commit
@@ -3062,7 +3062,7 @@ id|p-&gt;object.flags
 op_or_assign
 id|flags
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|p
@@ -3111,7 +3111,7 @@ op_amp
 id|STALE
 )paren
 )paren
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|list-&gt;item
@@ -3708,7 +3708,7 @@ id|rslt
 id|i
 )braket
 )paren
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|rslt
