@@ -17775,6 +17775,15 @@ id|arg
 comma
 l_string|&quot;--find-copies-harder&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--detect-copies-harder&quot;
+)paren
 )paren
 id|DIFF_OPT_SET
 c_func
