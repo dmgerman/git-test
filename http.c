@@ -1363,6 +1363,29 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071301
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_POSTREDIR
+comma
+id|CURL_REDIR_POST_ALL
+)paren
+suffix:semicolon
+macro_line|#elif LIBCURL_VERSION_NUM &gt;= 0x071101
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_POST301
+comma
+l_int|1
+)paren
+suffix:semicolon
+macro_line|#endif
 r_if
 c_cond
 (paren
