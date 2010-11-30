@@ -1847,6 +1847,11 @@ l_int|0
 (brace
 multiline_comment|/* Expand tabs into spaces */
 r_int
+id|start
+op_assign
+id|dst-&gt;len
+suffix:semicolon
+r_int
 id|last
 op_assign
 id|last_tab_in_indent
@@ -1892,7 +1897,10 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+(paren
 id|dst-&gt;len
+id|start
+)paren
 op_mod
 l_int|8
 )paren
