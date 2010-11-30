@@ -12,6 +12,10 @@ macro_line|#ifndef NI_MAXSERV
 DECL|macro|NI_MAXSERV
 mdefine_line|#define NI_MAXSERV 32
 macro_line|#endif
+macro_line|#ifdef NO_INITGROUPS
+DECL|macro|initgroups
+mdefine_line|#define initgroups(x, y) (0) /* nothing */
+macro_line|#endif
 DECL|variable|log_syslog
 r_static
 r_int
