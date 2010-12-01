@@ -2645,6 +2645,7 @@ c_cond
 (paren
 id|startup_info
 )paren
+(brace
 id|startup_info-&gt;have_repository
 op_assign
 op_logical_neg
@@ -2654,6 +2655,11 @@ op_logical_neg
 op_star
 id|nongit_ok
 suffix:semicolon
+id|startup_info-&gt;prefix
+op_assign
+id|prefix
+suffix:semicolon
+)brace
 r_return
 id|prefix
 suffix:semicolon
