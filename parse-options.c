@@ -3182,6 +3182,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|opts-&gt;flags
+op_amp
+id|PARSE_OPT_LITERAL_ARGHELP
+)paren
+op_logical_or
 op_logical_neg
 (paren
 id|opts-&gt;flags
