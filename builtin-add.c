@@ -1811,6 +1811,15 @@ c_func
 (paren
 id|var
 comma
+l_string|&quot;add.ignoreerrors&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+comma
 l_string|&quot;add.ignore-errors&quot;
 )paren
 )paren
