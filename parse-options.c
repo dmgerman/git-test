@@ -2207,7 +2207,8 @@ id|ctx-&gt;flags
 op_amp
 id|PARSE_OPT_STOP_AT_NON_OPTION
 )paren
-r_break
+r_return
+id|PARSE_OPT_NON_OPTION
 suffix:semicolon
 id|ctx-&gt;out
 (braket
@@ -2699,6 +2700,9 @@ m_exit
 l_int|129
 )paren
 suffix:semicolon
+r_case
+id|PARSE_OPT_NON_OPTION
+suffix:colon
 r_case
 id|PARSE_OPT_DONE
 suffix:colon
