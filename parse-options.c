@@ -34,6 +34,52 @@ DECL|macro|OPT_SHORT
 mdefine_line|#define OPT_SHORT 1
 DECL|macro|OPT_UNSET
 mdefine_line|#define OPT_UNSET 2
+DECL|function|optbug
+r_static
+r_int
+id|optbug
+c_func
+(paren
+r_const
+r_struct
+id|option
+op_star
+id|opt
+comma
+r_const
+r_char
+op_star
+id|reason
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|opt-&gt;long_name
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;BUG: option &squot;%s&squot; %s&quot;
+comma
+id|opt-&gt;long_name
+comma
+id|reason
+)paren
+suffix:semicolon
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;BUG: switch &squot;%c&squot; %s&quot;
+comma
+id|opt-&gt;short_name
+comma
+id|reason
+)paren
+suffix:semicolon
+)brace
 DECL|function|opterror
 r_static
 r_int
@@ -1870,40 +1916,17 @@ op_amp
 id|PARSE_OPT_OPTARG
 )paren
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|opts-&gt;long_name
-)paren
-(brace
-id|error
-c_func
-(paren
-l_string|&quot;`--%s` uses incompatible flags &quot;
-l_string|&quot;LASTARG_DEFAULT and OPTARG&quot;
-comma
-id|opts-&gt;long_name
-)paren
-suffix:semicolon
-)brace
-r_else
-(brace
-id|error
-c_func
-(paren
-l_string|&quot;`-%c` uses incompatible flags &quot;
-l_string|&quot;LASTARG_DEFAULT and OPTARG&quot;
-comma
-id|opts-&gt;short_name
-)paren
-suffix:semicolon
-)brace
 id|err
 op_or_assign
-l_int|1
+id|optbug
+c_func
+(paren
+id|opts
+comma
+l_string|&quot;uses incompatible flags &quot;
+l_string|&quot;LASTARG_DEFAULT and OPTARG&quot;
+)paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -1912,7 +1935,7 @@ id|err
 )paren
 m_exit
 (paren
-l_int|129
+l_int|128
 )paren
 suffix:semicolon
 )brace
