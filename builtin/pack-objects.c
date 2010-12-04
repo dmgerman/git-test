@@ -7199,6 +7199,7 @@ c_func
 suffix:semicolon
 )brace
 DECL|variable|old_try_to_free_routine
+r_static
 id|try_to_free_t
 id|old_try_to_free_routine
 suffix:semicolon
