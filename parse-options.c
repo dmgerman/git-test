@@ -1940,6 +1940,12 @@ r_char
 op_star
 id|prefix
 comma
+r_const
+r_struct
+id|option
+op_star
+id|options
+comma
 r_int
 id|flags
 )paren
@@ -2014,6 +2020,12 @@ c_func
 l_string|&quot;STOP_AT_NON_OPTION and KEEP_UNKNOWN don&squot;t go together&quot;
 )paren
 suffix:semicolon
+id|parse_options_check
+c_func
+(paren
+id|options
+)paren
+suffix:semicolon
 )brace
 r_static
 r_int
@@ -2073,12 +2085,6 @@ op_logical_neg
 id|ctx-&gt;flags
 op_amp
 id|PARSE_OPT_NO_INTERNAL_HELP
-)paren
-suffix:semicolon
-id|parse_options_check
-c_func
-(paren
-id|options
 )paren
 suffix:semicolon
 multiline_comment|/* we must reset -&gt;opt, unknown short option leave it dangling */
@@ -2611,6 +2617,8 @@ comma
 id|argv
 comma
 id|prefix
+comma
+id|options
 comma
 id|flags
 )paren
