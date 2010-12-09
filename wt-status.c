@@ -46,7 +46,7 @@ multiline_comment|/* WT_STATUS_LOCAL_BRANCH */
 id|GIT_COLOR_RED
 comma
 multiline_comment|/* WT_STATUS_REMOTE_BRANCH */
-id|GIT_COLOR_NORMAL
+id|GIT_COLOR_NIL
 comma
 multiline_comment|/* WT_STATUS_ONBRANCH */
 )brace
@@ -68,7 +68,11 @@ op_star
 id|s
 )paren
 (brace
-r_return
+r_const
+r_char
+op_star
+id|c
+op_assign
 id|s-&gt;use_color
 OG
 l_int|0
@@ -80,6 +84,29 @@ id|slot
 )braket
 suffix:colon
 l_string|&quot;&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|slot
+op_eq
+id|WT_STATUS_ONBRANCH
+op_logical_and
+id|color_is_nil
+c_func
+(paren
+id|c
+)paren
+)paren
+id|c
+op_assign
+id|s-&gt;color_palette
+(braket
+id|WT_STATUS_HEADER
+)braket
+suffix:semicolon
+r_return
+id|c
 suffix:semicolon
 )brace
 DECL|function|wt_status_prepare
