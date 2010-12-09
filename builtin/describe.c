@@ -2300,7 +2300,7 @@ id|prefix
 )paren
 suffix:semicolon
 )brace
-id|for_each_ref
+id|for_each_rawref
 c_func
 (paren
 id|get_name
