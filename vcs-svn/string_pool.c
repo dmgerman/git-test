@@ -340,6 +340,7 @@ c_func
 r_uint32
 id|len
 comma
+r_const
 r_uint32
 op_star
 id|seq
