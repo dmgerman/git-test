@@ -285,6 +285,16 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+l_string|&quot;mark :%&quot;
+id|PRIu32
+l_string|&quot;&bslash;n&quot;
+comma
+id|revision
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
 l_string|&quot;committer %s &lt;%s@%s&gt; %ld +0000&bslash;n&quot;
 comma
 op_complement
