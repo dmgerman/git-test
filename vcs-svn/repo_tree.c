@@ -1655,7 +1655,11 @@ id|i
 suffix:semicolon
 id|mark
 op_assign
-l_int|0
+l_int|1024
+op_star
+l_int|1024
+op_star
+l_int|1024
 suffix:semicolon
 r_for
 c_loop
