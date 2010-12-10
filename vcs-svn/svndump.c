@@ -917,6 +917,14 @@ id|node_ctx.propLength
 op_ne
 id|LENGTH_UNKNOWN
 suffix:semicolon
+r_const
+r_int
+id|have_text
+op_assign
+id|node_ctx.textLength
+op_ne
+id|LENGTH_UNKNOWN
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -931,9 +939,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|node_ctx.textLength
-op_ne
-id|LENGTH_UNKNOWN
+id|have_text
 )paren
 id|mark
 op_assign
@@ -953,7 +959,7 @@ id|NODEACT_DELETE
 r_if
 c_cond
 (paren
-id|mark
+id|have_text
 op_logical_or
 id|have_props
 op_logical_or
@@ -1024,7 +1030,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|mark
+id|have_text
 op_logical_and
 id|type
 op_eq
@@ -1036,6 +1042,7 @@ c_func
 l_string|&quot;invalid dump: directories cannot have text attached&quot;
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Decide on the new content (mark) and mode (node_ctx.type).&n;&t; */
 r_if
 c_cond
 (paren
@@ -1074,6 +1081,22 @@ id|NODEACT_CHANGE
 (brace
 r_uint32
 id|mode
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|have_text
+)paren
+id|mark
+op_assign
+id|repo_read_path
+c_func
+(paren
+id|node_ctx.dst
+)paren
+suffix:semicolon
+id|mode
 op_assign
 id|repo_modify_path
 c_func
@@ -1082,7 +1105,7 @@ id|node_ctx.dst
 comma
 l_int|0
 comma
-id|mark
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -1149,7 +1172,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|mark
+id|have_text
 op_logical_and
 id|type
 op_ne
@@ -1159,16 +1182,6 @@ id|die
 c_func
 (paren
 l_string|&quot;invalid dump: adds node without text&quot;
-)paren
-suffix:semicolon
-id|repo_add
-c_func
-(paren
-id|node_ctx.dst
-comma
-id|type
-comma
-id|mark
 )paren
 suffix:semicolon
 )brace
@@ -1181,18 +1194,13 @@ l_string|&quot;invalid dump: Node-path block lacks Node-action&quot;
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Adjust mode to reflect properties.&n;&t; */
 r_if
 c_cond
 (paren
 id|have_props
 )paren
 (brace
-r_const
-r_uint32
-id|old_mode
-op_assign
-id|node_ctx.type
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1213,14 +1221,9 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|node_ctx.type
-op_ne
-id|old_mode
-)paren
-id|repo_modify_path
+)brace
+multiline_comment|/*&n;&t; * Save the result.&n;&t; */
+id|repo_add
 c_func
 (paren
 id|node_ctx.dst
@@ -1230,11 +1233,10 @@ comma
 id|mark
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
-id|mark
+id|have_text
 )paren
 id|fast_export_blob
 c_func
