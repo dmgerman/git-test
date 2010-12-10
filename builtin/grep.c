@@ -13,10 +13,7 @@ macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;grep.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;dir.h&quot;
-macro_line|#ifndef NO_PTHREADS
-macro_line|#include &lt;pthread.h&gt;
 macro_line|#include &quot;thread-utils.h&quot;
-macro_line|#endif
 DECL|variable|grep_usage
 r_static
 r_char

@@ -16,10 +16,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
-macro_line|#ifndef NO_PTHREADS
-macro_line|#include &lt;pthread.h&gt;
 macro_line|#include &quot;thread-utils.h&quot;
-macro_line|#endif
 DECL|variable|pack_usage
 r_static
 r_const

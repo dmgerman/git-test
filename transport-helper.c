@@ -8,10 +8,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;string-list.h&quot;
-macro_line|#ifndef NO_PTHREADS
-macro_line|#include &lt;pthread.h&gt;
 macro_line|#include &quot;thread-utils.h&quot;
-macro_line|#endif
 DECL|variable|debug
 r_static
 r_int
