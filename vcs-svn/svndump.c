@@ -1098,26 +1098,10 @@ id|node_ctx.dst
 suffix:semicolon
 id|mode
 op_assign
-id|repo_modify_path
+id|repo_read_mode
 c_func
 (paren
 id|node_ctx.dst
-comma
-l_int|0
-comma
-l_int|0
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|mode
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;invalid dump: path to be modified is missing&quot;
 )paren
 suffix:semicolon
 r_if
