@@ -1705,6 +1705,7 @@ c_func
 l_string|&quot;index file corrupt&quot;
 )paren
 suffix:semicolon
+multiline_comment|/* 4: &quot;fetch&quot; (options) &quot;--submodule-prefix&quot; prefix NULL */
 id|argv
 op_assign
 id|xcalloc
@@ -1712,7 +1713,7 @@ c_func
 (paren
 id|num_options
 op_plus
-l_int|5
+l_int|4
 comma
 r_sizeof
 (paren
