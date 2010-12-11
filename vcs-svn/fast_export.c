@@ -547,7 +547,7 @@ c_func
 l_string|&quot;ls &bslash;&quot;&quot;
 )paren
 suffix:semicolon
-id|pool_print_seq
+id|pool_print_seq_q
 c_func
 (paren
 id|depth
