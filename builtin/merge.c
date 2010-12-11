@@ -3480,6 +3480,15 @@ r_char
 op_star
 id|strategy
 comma
+r_int
+id|xopts_nr
+comma
+r_const
+r_char
+op_star
+op_star
+id|xopts
+comma
 r_struct
 id|commit_list
 op_star
@@ -4225,6 +4234,10 @@ id|try_merge_command
 c_func
 (paren
 id|strategy
+comma
+id|xopts_nr
+comma
+id|xopts
 comma
 id|common
 comma
