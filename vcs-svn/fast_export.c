@@ -105,19 +105,13 @@ op_star
 id|path
 )paren
 (brace
-id|putchar
+id|printf
 c_func
 (paren
-l_char|&squot;D&squot;
+l_string|&quot;D &bslash;&quot;&quot;
 )paren
 suffix:semicolon
-id|putchar
-c_func
-(paren
-l_char|&squot; &squot;
-)paren
-suffix:semicolon
-id|pool_print_seq
+id|pool_print_seq_q
 c_func
 (paren
 id|depth
@@ -129,10 +123,10 @@ comma
 id|stdout
 )paren
 suffix:semicolon
-id|putchar
+id|printf
 c_func
 (paren
-l_char|&squot;&bslash;n&squot;
+l_string|&quot;&bslash;&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
@@ -221,14 +215,14 @@ c_func
 (paren
 l_string|&quot;M %06&quot;
 id|PRIo32
-l_string|&quot; %s &quot;
+l_string|&quot; %s &bslash;&quot;&quot;
 comma
 id|mode
 comma
 id|dataref
 )paren
 suffix:semicolon
-id|pool_print_seq
+id|pool_print_seq_q
 c_func
 (paren
 id|depth
@@ -240,10 +234,10 @@ comma
 id|stdout
 )paren
 suffix:semicolon
-id|putchar
+id|printf
 c_func
 (paren
-l_char|&squot;&bslash;n&squot;
+l_string|&quot;&bslash;&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
@@ -495,12 +489,12 @@ c_func
 (paren
 l_string|&quot;ls :%&quot;
 id|PRIu32
-l_string|&quot; &quot;
+l_string|&quot; &bslash;&quot;&quot;
 comma
 id|rev
 )paren
 suffix:semicolon
-id|pool_print_seq
+id|pool_print_seq_q
 c_func
 (paren
 id|depth
@@ -512,10 +506,10 @@ comma
 id|stdout
 )paren
 suffix:semicolon
-id|putchar
+id|printf
 c_func
 (paren
-l_char|&squot;&bslash;n&squot;
+l_string|&quot;&bslash;&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
 id|fflush
