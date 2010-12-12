@@ -436,7 +436,12 @@ l_int|1
 id|printf
 c_func
 (paren
-l_string|&quot;from refs/heads/master^0&bslash;n&quot;
+l_string|&quot;from :%&quot;
+id|PRIu32
+l_string|&quot;&bslash;n&quot;
+comma
+id|revision
+l_int|1
 )paren
 suffix:semicolon
 id|first_commit_done
