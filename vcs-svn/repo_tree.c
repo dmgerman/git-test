@@ -11,7 +11,7 @@ id|repo_read_path
 c_func
 (paren
 r_const
-r_uint32
+r_char
 op_star
 id|path
 )paren
@@ -41,8 +41,6 @@ op_assign
 id|fast_export_ls
 c_func
 (paren
-id|REPO_MAX_PATH_DEPTH
-comma
 id|path
 comma
 op_amp
@@ -85,7 +83,7 @@ id|repo_read_mode
 c_func
 (paren
 r_const
-r_uint32
+r_char
 op_star
 id|path
 )paren
@@ -115,8 +113,6 @@ op_assign
 id|fast_export_ls
 c_func
 (paren
-id|REPO_MAX_PATH_DEPTH
-comma
 id|path
 comma
 op_amp
@@ -163,12 +159,12 @@ r_uint32
 id|revision
 comma
 r_const
-r_uint32
+r_char
 op_star
 id|src
 comma
 r_const
-r_uint32
+r_char
 op_star
 id|dst
 )paren
@@ -199,8 +195,6 @@ id|fast_export_ls_rev
 c_func
 (paren
 id|revision
-comma
-id|REPO_MAX_PATH_DEPTH
 comma
 id|src
 comma
@@ -233,8 +227,6 @@ suffix:semicolon
 id|fast_export_delete
 c_func
 (paren
-id|REPO_MAX_PATH_DEPTH
-comma
 id|dst
 )paren
 suffix:semicolon
@@ -244,8 +236,6 @@ suffix:semicolon
 id|fast_export_modify
 c_func
 (paren
-id|REPO_MAX_PATH_DEPTH
-comma
 id|dst
 comma
 id|mode
@@ -259,7 +249,8 @@ r_void
 id|repo_delete
 c_func
 (paren
-r_uint32
+r_const
+r_char
 op_star
 id|path
 )paren
@@ -267,8 +258,6 @@ id|path
 id|fast_export_delete
 c_func
 (paren
-id|REPO_MAX_PATH_DEPTH
-comma
 id|path
 )paren
 suffix:semicolon

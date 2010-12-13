@@ -1,9 +1,10 @@
 multiline_comment|/*&n; * Licensed under a two-clause BSD-style license.&n; * See LICENSE for details.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;fast_export.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
 macro_line|#include &quot;repo_tree.h&quot;
-macro_line|#include &quot;string_pool.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 DECL|macro|MAX_GITSVN_LINE_LEN
 mdefine_line|#define MAX_GITSVN_LINE_LEN 4096
@@ -96,37 +97,40 @@ r_void
 id|fast_export_delete
 c_func
 (paren
-r_uint32
-id|depth
-comma
 r_const
-r_uint32
+r_char
 op_star
 id|path
 )paren
 (brace
-id|printf
+id|putchar
 c_func
 (paren
-l_string|&quot;D &bslash;&quot;&quot;
+l_char|&squot;D&squot;
 )paren
 suffix:semicolon
-id|pool_print_seq_q
+id|putchar
 c_func
 (paren
-id|depth
-comma
+l_char|&squot; &squot;
+)paren
+suffix:semicolon
+id|quote_c_style
+c_func
+(paren
 id|path
 comma
-l_char|&squot;/&squot;
+l_int|NULL
 comma
 id|stdout
+comma
+l_int|0
 )paren
 suffix:semicolon
-id|printf
+id|putchar
 c_func
 (paren
-l_string|&quot;&bslash;&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
@@ -136,11 +140,8 @@ r_void
 id|fast_export_truncate
 c_func
 (paren
-r_uint32
-id|depth
-comma
 r_const
-r_uint32
+r_char
 op_star
 id|path
 comma
@@ -151,8 +152,6 @@ id|mode
 id|fast_export_modify
 c_func
 (paren
-id|depth
-comma
 id|path
 comma
 id|mode
@@ -172,11 +171,8 @@ r_void
 id|fast_export_modify
 c_func
 (paren
-r_uint32
-id|depth
-comma
 r_const
-r_uint32
+r_char
 op_star
 id|path
 comma
@@ -200,8 +196,6 @@ id|dataref
 id|fast_export_truncate
 c_func
 (paren
-id|depth
-comma
 id|path
 comma
 id|mode
@@ -215,29 +209,29 @@ c_func
 (paren
 l_string|&quot;M %06&quot;
 id|PRIo32
-l_string|&quot; %s &bslash;&quot;&quot;
+l_string|&quot; %s &quot;
 comma
 id|mode
 comma
 id|dataref
 )paren
 suffix:semicolon
-id|pool_print_seq_q
+id|quote_c_style
 c_func
 (paren
-id|depth
-comma
 id|path
 comma
-l_char|&squot;/&squot;
+l_int|NULL
 comma
 id|stdout
+comma
+l_int|0
 )paren
 suffix:semicolon
-id|printf
+id|putchar
 c_func
 (paren
-l_string|&quot;&bslash;&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
@@ -465,11 +459,8 @@ c_func
 r_uint32
 id|rev
 comma
-r_uint32
-id|depth
-comma
 r_const
-r_uint32
+r_char
 op_star
 id|path
 )paren
@@ -480,27 +471,27 @@ c_func
 (paren
 l_string|&quot;ls :%&quot;
 id|PRIu32
-l_string|&quot; &bslash;&quot;&quot;
+l_string|&quot; &quot;
 comma
 id|rev
 )paren
 suffix:semicolon
-id|pool_print_seq_q
+id|quote_c_style
 c_func
 (paren
-id|depth
-comma
 id|path
 comma
-l_char|&squot;/&squot;
+l_int|NULL
 comma
 id|stdout
+comma
+l_int|0
 )paren
 suffix:semicolon
-id|printf
+id|putchar
 c_func
 (paren
-l_string|&quot;&bslash;&quot;&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 id|fflush
@@ -516,11 +507,8 @@ r_void
 id|ls_from_active_commit
 c_func
 (paren
-r_uint32
-id|depth
-comma
 r_const
-r_uint32
+r_char
 op_star
 id|path
 )paren
@@ -532,16 +520,16 @@ c_func
 l_string|&quot;ls &bslash;&quot;&quot;
 )paren
 suffix:semicolon
-id|pool_print_seq_q
+id|quote_c_style
 c_func
 (paren
-id|depth
-comma
 id|path
 comma
-l_char|&squot;/&squot;
+l_int|NULL
 comma
 id|stdout
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|printf
@@ -976,11 +964,8 @@ c_func
 r_uint32
 id|rev
 comma
-r_uint32
-id|depth
-comma
 r_const
-r_uint32
+r_char
 op_star
 id|path
 comma
@@ -998,8 +983,6 @@ id|ls_from_rev
 c_func
 (paren
 id|rev
-comma
-id|depth
 comma
 id|path
 )paren
@@ -1024,11 +1007,8 @@ r_int
 id|fast_export_ls
 c_func
 (paren
-r_uint32
-id|depth
-comma
 r_const
-r_uint32
+r_char
 op_star
 id|path
 comma
@@ -1045,8 +1025,6 @@ id|dataref
 id|ls_from_active_commit
 c_func
 (paren
-id|depth
-comma
 id|path
 )paren
 suffix:semicolon
