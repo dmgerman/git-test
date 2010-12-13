@@ -11025,6 +11025,8 @@ id|argv
 comma
 id|prefix
 comma
+id|options
+comma
 id|PARSE_OPT_KEEP_DASHDASH
 op_or
 id|PARSE_OPT_KEEP_ARGV0
