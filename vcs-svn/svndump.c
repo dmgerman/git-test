@@ -1099,14 +1099,9 @@ id|repo_read_path
 c_func
 (paren
 id|node_ctx.dst
-)paren
-suffix:semicolon
+comma
+op_amp
 id|mode
-op_assign
-id|repo_read_mode
-c_func
-(paren
-id|node_ctx.dst
 )paren
 suffix:semicolon
 r_if
