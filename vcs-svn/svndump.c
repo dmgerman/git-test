@@ -1314,12 +1314,12 @@ id|input
 (brace
 id|val
 op_assign
-id|strstr
+id|strchr
 c_func
 (paren
 id|t
 comma
-l_string|&quot;: &quot;
+l_char|&squot;:&squot;
 )paren
 suffix:semicolon
 r_if
@@ -1331,8 +1331,20 @@ id|val
 r_continue
 suffix:semicolon
 id|val
-op_add_assign
-l_int|2
+op_increment
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|val
+op_ne
+l_char|&squot; &squot;
+)paren
+r_continue
+suffix:semicolon
+id|val
+op_increment
 suffix:semicolon
 multiline_comment|/* strlen(key) + 1 */
 r_switch
