@@ -3409,6 +3409,20 @@ id|list
 op_assign
 l_int|NULL
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * $commit^{/}. Some regex implementation may reject.&n;&t;&t; * We don&squot;t need regex anyway. &squot;&squot; pattern always matches.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|sp
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;}&squot;
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|prefix
 op_assign
 id|xstrndup
