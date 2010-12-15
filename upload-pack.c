@@ -18,7 +18,7 @@ id|upload_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git upload-pack [--strict] [--timeout=nn] &lt;dir&gt;&quot;
+l_string|&quot;git upload-pack [--strict] [--timeout=&lt;n&gt;] &lt;dir&gt;&quot;
 suffix:semicolon
 multiline_comment|/* bits #0..7 in revision.h, #8..10 in commit.c */
 DECL|macro|THEY_HAVE
@@ -498,7 +498,7 @@ id|out
 comma
 r_void
 op_star
-id|create_full_pack
+id|user_data
 )paren
 (brace
 r_int
@@ -548,43 +548,6 @@ id|revs.edge_hint
 op_assign
 l_int|1
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|create_full_pack
-)paren
-(brace
-r_const
-r_char
-op_star
-id|args
-(braket
-)braket
-op_assign
-(brace
-l_string|&quot;rev-list&quot;
-comma
-l_string|&quot;--all&quot;
-comma
-l_int|NULL
-)brace
-suffix:semicolon
-id|setup_revisions
-c_func
-(paren
-l_int|2
-comma
-id|args
-comma
-op_amp
-id|revs
-comma
-l_int|NULL
-)paren
-suffix:semicolon
-)brace
-r_else
-(brace
 r_for
 c_loop
 (paren
@@ -686,7 +649,6 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -2538,13 +2500,7 @@ r_struct
 id|object_array
 id|shallows
 op_assign
-(brace
-l_int|0
-comma
-l_int|0
-comma
-l_int|NULL
-)brace
+id|OBJECT_ARRAY_INIT
 suffix:semicolon
 r_static
 r_char
@@ -2976,9 +2932,11 @@ c_func
 (paren
 l_string|&quot;git upload-pack: not our ref %s&quot;
 comma
-id|line
-op_plus
-l_int|5
+id|sha1_to_hex
+c_func
+(paren
+id|sha1_buf
+)paren
 )paren
 suffix:semicolon
 r_if

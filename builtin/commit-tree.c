@@ -12,7 +12,7 @@ id|commit_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
+l_string|&quot;git commit-tree &lt;sha1&gt; [(-p &lt;sha1&gt;)...] &lt; changelog&quot;
 suffix:semicolon
 DECL|function|new_parent
 r_static
@@ -338,7 +338,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|commit_tree
 c_func
 (paren
@@ -354,6 +353,17 @@ l_int|NULL
 )paren
 )paren
 (brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buffer
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 id|printf
 c_func
 (paren
@@ -366,13 +376,15 @@ id|commit_sha1
 )paren
 )paren
 suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buffer
+)paren
+suffix:semicolon
 r_return
 l_int|0
-suffix:semicolon
-)brace
-r_else
-r_return
-l_int|1
 suffix:semicolon
 )brace
 eof

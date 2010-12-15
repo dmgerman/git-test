@@ -1968,9 +1968,9 @@ r_static
 r_const
 r_char
 op_star
-id|warning
+id|warn_msg
 op_assign
-l_string|&quot;warning: refname &squot;%.*s&squot; is ambiguous.&bslash;n&quot;
+l_string|&quot;refname &squot;%.*s&squot; is ambiguous.&quot;
 suffix:semicolon
 r_char
 op_star
@@ -2260,12 +2260,10 @@ id|refs_found
 OG
 l_int|1
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-id|warning
+id|warn_msg
 comma
 id|len
 comma
@@ -2482,13 +2480,11 @@ c_cond
 (paren
 id|at_time
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: Log for &squot;%.*s&squot; only goes &quot;
-l_string|&quot;back to %s.&bslash;n&quot;
+l_string|&quot;Log for &squot;%.*s&squot; only goes &quot;
+l_string|&quot;back to %s.&quot;
 comma
 id|len
 comma
@@ -2506,13 +2502,17 @@ id|DATE_RFC2822
 )paren
 suffix:semicolon
 r_else
-id|fprintf
+(brace
+id|free
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: Log for &squot;%.*s&squot; only has &quot;
-l_string|&quot;%d entries.&bslash;n&quot;
+id|real_ref
+)paren
+suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;Log for &squot;%.*s&squot; only has %d entries.&quot;
 comma
 id|len
 comma
@@ -2521,6 +2521,7 @@ comma
 id|co_cnt
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 id|free
@@ -5835,7 +5836,7 @@ id|ret
 r_return
 id|ret
 suffix:semicolon
-multiline_comment|/* sha1:path --&gt; object name of path in ent sha1&n;&t; * :path -&gt; object name of path in index&n;&t; * :[0-3]:path -&gt; object name of path in index at stage&n;&t; */
+multiline_comment|/* sha1:path --&gt; object name of path in ent sha1&n;&t; * :path -&gt; object name of path in index&n;&t; * :[0-3]:path -&gt; object name of path in index at stage&n;&t; * :/foo -&gt; recent commit matching foo&n;&t; */
 r_if
 c_cond
 (paren

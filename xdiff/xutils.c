@@ -896,7 +896,7 @@ id|i1
 OL
 id|s1
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -915,7 +915,7 @@ id|i2
 OL
 id|s2
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -953,7 +953,7 @@ id|s2
 r_if
 c_cond
 (paren
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -962,7 +962,7 @@ id|i1
 )braket
 )paren
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -980,7 +980,7 @@ id|i1
 OL
 id|s1
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -999,7 +999,7 @@ id|i2
 OL
 id|s2
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -1085,7 +1085,7 @@ id|i1
 OL
 id|s1
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -1123,7 +1123,7 @@ id|i2
 OL
 id|s2
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -1203,7 +1203,7 @@ op_increment
 r_if
 c_cond
 (paren
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 op_star
@@ -1230,7 +1230,7 @@ l_int|1
 OL
 id|top
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|ptr

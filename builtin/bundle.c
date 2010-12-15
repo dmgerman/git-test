@@ -12,8 +12,8 @@ id|builtin_bundle_usage
 op_assign
 l_string|&quot;git bundle create &lt;file&gt; &lt;git-rev-list args&gt;&bslash;n&quot;
 l_string|&quot;   or: git bundle verify &lt;file&gt;&bslash;n&quot;
-l_string|&quot;   or: git bundle list-heads &lt;file&gt; [refname...]&bslash;n&quot;
-l_string|&quot;   or: git bundle unbundle &lt;file&gt; [refname...]&quot;
+l_string|&quot;   or: git bundle list-heads &lt;file&gt; [&lt;refname&gt;...]&bslash;n&quot;
+l_string|&quot;   or: git bundle unbundle &lt;file&gt; [&lt;refname&gt;...]&quot;
 suffix:semicolon
 DECL|function|cmd_bundle
 r_int
@@ -38,9 +38,6 @@ id|prefix
 r_struct
 id|bundle_header
 id|header
-suffix:semicolon
-r_int
-id|nongit
 suffix:semicolon
 r_const
 r_char
@@ -95,15 +92,6 @@ suffix:semicolon
 id|argv
 op_add_assign
 l_int|2
-suffix:semicolon
-id|prefix
-op_assign
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|nongit
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -281,7 +269,8 @@ l_string|&quot;create&quot;
 r_if
 c_cond
 (paren
-id|nongit
+op_logical_neg
+id|startup_info-&gt;have_repository
 )paren
 id|die
 c_func
@@ -323,7 +312,8 @@ l_string|&quot;unbundle&quot;
 r_if
 c_cond
 (paren
-id|nongit
+op_logical_neg
+id|startup_info-&gt;have_repository
 )paren
 id|die
 c_func

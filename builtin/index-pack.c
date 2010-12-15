@@ -17,7 +17,7 @@ id|index_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git index-pack [-v] [-o &lt;index-file&gt;] [{ --keep | --keep=&lt;msg&gt; }] [--strict] { &lt;pack-file&gt; | --stdin [--fix-thin] [&lt;pack-file&gt;] }&quot;
+l_string|&quot;git index-pack [-v] [-o &lt;index-file&gt;] [ --keep | --keep=&lt;msg&gt; ] [--strict] (&lt;pack-file&gt; | --stdin [--fix-thin] [&lt;pack-file&gt;])&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -660,11 +660,13 @@ multiline_comment|/* make sure off_t is sufficiently large not to wrap */
 r_if
 c_cond
 (paren
+id|signed_add_overflows
+c_func
+(paren
 id|consumed_bytes
-OG
-id|consumed_bytes
-op_plus
+comma
 id|bytes
+)paren
 )paren
 id|die
 c_func
@@ -4773,49 +4775,6 @@ id|read_replace_refs
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * We wish to read the repository&squot;s config file if any, and&n;&t; * for that it is necessary to call setup_git_directory_gently().&n;&t; * However if the cwd was inside .git/objects/pack/ then we need&n;&t; * to go back there or all the pack name arguments will be wrong.&n;&t; * And in that case we cannot rely on any prefix returned by&n;&t; * setup_git_directory_gently() either.&n;&t; */
-(brace
-r_char
-id|cwd
-(braket
-id|PATH_MAX
-op_plus
-l_int|1
-)braket
-suffix:semicolon
-r_int
-id|nongit
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|getcwd
-c_func
-(paren
-id|cwd
-comma
-r_sizeof
-(paren
-id|cwd
-)paren
-op_minus
-l_int|1
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Unable to get current working directory&quot;
-)paren
-suffix:semicolon
-id|setup_git_directory_gently
-c_func
-(paren
-op_amp
-id|nongit
-)paren
-suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -4827,10 +4786,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|prefix
+op_logical_and
 id|chdir
 c_func
 (paren
-id|cwd
+id|prefix
 )paren
 )paren
 id|die
@@ -4839,7 +4800,6 @@ c_func
 l_string|&quot;Cannot come back to cwd&quot;
 )paren
 suffix:semicolon
-)brace
 r_for
 c_loop
 (paren

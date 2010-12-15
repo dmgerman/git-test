@@ -18,6 +18,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|variable|checkout_usage
 r_static
 r_const
@@ -61,11 +62,22 @@ DECL|member|writeout_error
 r_int
 id|writeout_error
 suffix:semicolon
+multiline_comment|/* not set by parse_options */
+DECL|member|branch_exists
+r_int
+id|branch_exists
+suffix:semicolon
 DECL|member|new_branch
 r_const
 r_char
 op_star
 id|new_branch
+suffix:semicolon
+DECL|member|new_branch_force
+r_const
+r_char
+op_star
+id|new_branch_force
 suffix:semicolon
 DECL|member|new_orphan_branch
 r_const
@@ -81,6 +93,11 @@ DECL|member|track
 r_enum
 id|branch_track
 id|track
+suffix:semicolon
+DECL|member|diff_options
+r_struct
+id|diff_options
+id|diff_options
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -836,6 +853,7 @@ op_member_access_from_pointer
 id|sha1
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK: re-create conflicts from merges with&n;&t; * merge.renormalize set, too&n;&t; */
 id|status
 op_assign
 id|ll_merge
@@ -861,7 +879,7 @@ id|theirs
 comma
 l_string|&quot;theirs&quot;
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
@@ -1584,6 +1602,11 @@ r_struct
 id|object
 op_star
 id|head
+comma
+r_struct
+id|diff_options
+op_star
+id|opts
 )paren
 (brace
 r_struct
@@ -1599,6 +1622,10 @@ id|rev
 comma
 l_int|NULL
 )paren
+suffix:semicolon
+id|rev.diffopt.flags
+op_assign
+id|opts-&gt;flags
 suffix:semicolon
 id|rev.diffopt.output_format
 op_or_assign
@@ -2108,9 +2135,14 @@ op_assign
 op_amp
 id|the_index
 suffix:semicolon
-id|topts.msgs.not_uptodate_file
-op_assign
-l_string|&quot;You have local changes to &squot;%s&squot;; cannot switch branches.&quot;
+id|setup_unpack_trees_porcelain
+c_func
+(paren
+op_amp
+id|topts
+comma
+l_string|&quot;checkout&quot;
+)paren
 suffix:semicolon
 id|refresh_cache
 c_func
@@ -2313,6 +2345,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * NEEDSWORK: carrying over local changes&n;&t;&t;&t; * when branches have different end-of-line&n;&t;&t;&t; * normalization (or clean+smudge rules) is&n;&t;&t;&t; * a pain; plumb in an option to set&n;&t;&t;&t; * o.renormalize?&n;&t;&t;&t; */
 id|init_merge_options
 c_func
 (paren
@@ -2452,6 +2485,9 @@ op_amp
 r_new
 op_member_access_from_pointer
 id|commit-&gt;object
+comma
+op_amp
+id|opts-&gt;diff_options
 )paren
 suffix:semicolon
 r_return
@@ -2697,6 +2733,11 @@ r_new
 op_member_access_from_pointer
 id|name
 comma
+id|opts-&gt;new_branch_force
+ques
+c_cond
+l_int|1
+suffix:colon
 l_int|0
 comma
 id|opts-&gt;new_branch_log
@@ -2813,6 +2854,11 @@ id|name
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|opts-&gt;new_branch
+)paren
 id|fprintf
 c_func
 (paren
@@ -2820,12 +2866,25 @@ id|stderr
 comma
 l_string|&quot;Switched to%s branch &squot;%s&squot;&bslash;n&quot;
 comma
-id|opts-&gt;new_branch
+id|opts-&gt;branch_exists
 ques
 c_cond
-l_string|&quot; a new&quot;
+l_string|&quot; and reset&quot;
 suffix:colon
-l_string|&quot;&quot;
+l_string|&quot; a new&quot;
+comma
+r_new
+op_member_access_from_pointer
+id|name
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Switched to branch &squot;%s&squot;&bslash;n&quot;
 comma
 r_new
 op_member_access_from_pointer
@@ -3273,6 +3332,60 @@ op_star
 id|cb
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;diff.ignoresubmodules&quot;
+)paren
+)paren
+(brace
+r_struct
+id|checkout_opts
+op_star
+id|opts
+op_assign
+id|cb
+suffix:semicolon
+id|handle_ignore_submodules_arg
+c_func
+(paren
+op_amp
+id|opts-&gt;diff_options
+comma
+id|value
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;submodule.&quot;
+)paren
+)paren
+r_return
+id|parse_submodule_config_option
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
 r_return
 id|git_xmerge_config
 c_func
@@ -3281,7 +3394,7 @@ id|var
 comma
 id|value
 comma
-id|cb
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -3593,9 +3706,24 @@ comma
 op_amp
 id|opts.new_branch
 comma
-l_string|&quot;new branch&quot;
+l_string|&quot;branch&quot;
+comma
+l_string|&quot;create and checkout a new branch&quot;
+)paren
+comma
+id|OPT_STRING
+c_func
+(paren
+l_char|&squot;B&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|opts.new_branch_force
 comma
 l_string|&quot;branch&quot;
+comma
+l_string|&quot;create/reset and checkout a branch&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3608,7 +3736,7 @@ comma
 op_amp
 id|opts.new_branch_log
 comma
-l_string|&quot;log for new branch&quot;
+l_string|&quot;create reflog for new branch&quot;
 )paren
 comma
 id|OPT_SET_INT
@@ -3621,7 +3749,7 @@ comma
 op_amp
 id|opts.track
 comma
-l_string|&quot;track&quot;
+l_string|&quot;set upstream info for new branch&quot;
 comma
 id|BRANCH_TRACK_EXPLICIT
 )paren
@@ -3651,7 +3779,7 @@ comma
 op_amp
 id|opts.writeout_stage
 comma
-l_string|&quot;stage&quot;
+l_string|&quot;checkout our version for unmerged files&quot;
 comma
 l_int|2
 )paren
@@ -3666,7 +3794,7 @@ comma
 op_amp
 id|opts.writeout_stage
 comma
-l_string|&quot;stage&quot;
+l_string|&quot;checkout their version for unmerged files&quot;
 comma
 l_int|3
 )paren
@@ -3681,7 +3809,7 @@ comma
 op_amp
 id|opts.force
 comma
-l_string|&quot;force&quot;
+l_string|&quot;force checkout (throw away local modifications)&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3694,7 +3822,7 @@ comma
 op_amp
 id|opts.merge
 comma
-l_string|&quot;merge&quot;
+l_string|&quot;perform a 3-way merge with the new branch&quot;
 )paren
 comma
 id|OPT_STRING
@@ -3782,12 +3910,18 @@ r_new
 )paren
 )paren
 suffix:semicolon
+id|gitmodules_config
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
 id|git_checkout_config
 comma
-l_int|NULL
+op_amp
+id|opts
 )paren
 suffix:semicolon
 id|opts.track
@@ -3811,6 +3945,30 @@ id|checkout_usage
 comma
 id|PARSE_OPT_KEEP_DASHDASH
 )paren
+suffix:semicolon
+multiline_comment|/* we can assume from now on new_branch = !new_branch_force */
+r_if
+c_cond
+(paren
+id|opts.new_branch
+op_logical_and
+id|opts.new_branch_force
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;-B cannot be used with -b&quot;
+)paren
+suffix:semicolon
+multiline_comment|/* copy -B over to -b, so that we can just check the latter */
+r_if
+c_cond
+(paren
+id|opts.new_branch_force
+)paren
+id|opts.new_branch
+op_assign
+id|opts.new_branch_force
 suffix:semicolon
 r_if
 c_cond
@@ -3958,7 +4116,7 @@ id|opts.new_branch
 id|die
 c_func
 (paren
-l_string|&quot;--orphan and -b are mutually exclusive&quot;
+l_string|&quot;--orphan and -b|-B are mutually exclusive&quot;
 )paren
 suffix:semicolon
 r_if
@@ -4536,6 +4694,17 @@ comma
 id|rev
 )paren
 )paren
+(brace
+id|opts.branch_exists
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts.new_branch_force
+)paren
 id|die
 c_func
 (paren
@@ -4544,6 +4713,7 @@ comma
 id|opts.new_branch
 )paren
 suffix:semicolon
+)brace
 id|strbuf_release
 c_func
 (paren

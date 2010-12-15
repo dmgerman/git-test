@@ -28,15 +28,15 @@ id|pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git pack-objects [{ -q | --progress | --all-progress }]&bslash;n&quot;
+l_string|&quot;git pack-objects [ -q | --progress | --all-progress ]&bslash;n&quot;
 l_string|&quot;        [--all-progress-implied]&bslash;n&quot;
-l_string|&quot;        [--max-pack-size=N] [--local] [--incremental]&bslash;n&quot;
-l_string|&quot;        [--window=N] [--window-memory=N] [--depth=N]&bslash;n&quot;
+l_string|&quot;        [--max-pack-size=&lt;n&gt;] [--local] [--incremental]&bslash;n&quot;
+l_string|&quot;        [--window=&lt;n&gt;] [--window-memory=&lt;n&gt;] [--depth=&lt;n&gt;]&bslash;n&quot;
 l_string|&quot;        [--no-reuse-delta] [--no-reuse-object] [--delta-base-offset]&bslash;n&quot;
-l_string|&quot;        [--threads=N] [--non-empty] [--revs [--unpacked | --all]*]&bslash;n&quot;
+l_string|&quot;        [--threads=&lt;n&gt;] [--non-empty] [--revs [--unpacked | --all]]&bslash;n&quot;
 l_string|&quot;        [--reflog] [--stdout | base-name] [--include-tag]&bslash;n&quot;
-l_string|&quot;        [--keep-unreachable | --unpack-unreachable &bslash;n&quot;
-l_string|&quot;        [&lt;ref-list | &lt;object-list]&quot;
+l_string|&quot;        [--keep-unreachable | --unpack-unreachable]&bslash;n&quot;
+l_string|&quot;        [&lt; ref-list | &lt; object-list]&quot;
 suffix:semicolon
 DECL|struct|object_entry
 r_struct
@@ -2079,13 +2079,14 @@ multiline_comment|/* make sure off_t is sufficiently large not to wrap */
 r_if
 c_cond
 (paren
+id|signed_add_overflows
+c_func
+(paren
 op_star
 id|offset
-OG
-op_star
-id|offset
-op_plus
+comma
 id|size
+)paren
 )paren
 id|die
 c_func

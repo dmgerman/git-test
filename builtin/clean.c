@@ -3,6 +3,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;quote.h&quot;
 DECL|variable|force
 r_static
@@ -23,7 +24,7 @@ id|builtin_clean_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git clean [-d] [-f] [-n] [-q] [-x | -X] [--] &lt;paths&gt;...&quot;
+l_string|&quot;git clean [-d] [-f] [-n] [-q] [-e &lt;pattern&gt;] [-x | -X] [--] &lt;paths&gt;...&quot;
 comma
 l_int|NULL
 )brace
@@ -82,6 +83,46 @@ id|value
 comma
 id|cb
 )paren
+suffix:semicolon
+)brace
+DECL|function|exclude_cb
+r_static
+r_int
+id|exclude_cb
+c_func
+(paren
+r_const
+r_struct
+id|option
+op_star
+id|opt
+comma
+r_const
+r_char
+op_star
+id|arg
+comma
+r_int
+id|unset
+)paren
+(brace
+r_struct
+id|string_list
+op_star
+id|exclude_list
+op_assign
+id|opt-&gt;value
+suffix:semicolon
+id|string_list_append
+c_func
+(paren
+id|exclude_list
+comma
+id|arg
+)paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|cmd_clean
@@ -169,6 +210,12 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_struct
+id|string_list
+id|exclude_list
+op_assign
+id|STRING_LIST_INIT_NODUP
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -226,6 +273,25 @@ id|remove_directories
 comma
 l_string|&quot;remove whole directories&quot;
 )paren
+comma
+(brace
+id|OPTION_CALLBACK
+comma
+l_char|&squot;e&squot;
+comma
+l_string|&quot;exclude&quot;
+comma
+op_amp
+id|exclude_list
+comma
+l_string|&quot;pattern&quot;
+comma
+l_string|&quot;exclude &lt;pattern&gt;&quot;
+comma
+id|PARSE_OPT_NONEG
+comma
+id|exclude_cb
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -402,6 +468,37 @@ c_func
 (paren
 op_amp
 id|dir
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|exclude_list.nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|add_exclude
+c_func
+(paren
+id|exclude_list.items
+(braket
+id|i
+)braket
+dot
+id|string
+comma
+l_string|&quot;&quot;
+comma
+l_int|0
+comma
+id|dir.exclude_list
 )paren
 suffix:semicolon
 id|pathspec
@@ -877,6 +974,15 @@ c_func
 (paren
 op_amp
 id|directory
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|exclude_list
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_return

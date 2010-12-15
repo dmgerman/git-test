@@ -3,6 +3,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|variable|log_tree_opt
 r_static
 r_struct
@@ -648,6 +649,11 @@ c_func
 id|opt
 comma
 id|prefix
+)paren
+suffix:semicolon
+id|gitmodules_config
+c_func
+(paren
 )paren
 suffix:semicolon
 id|git_config

@@ -450,13 +450,7 @@ r_struct
 id|object_array
 id|objects
 op_assign
-(brace
-l_int|0
-comma
-l_int|0
-comma
-l_int|NULL
-)brace
+id|OBJECT_ARRAY_INIT
 suffix:semicolon
 multiline_comment|/* Walk all commits, process their trees */
 r_while

@@ -64,7 +64,7 @@ id|ls_tree_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git ls-tree [&lt;options&gt;] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git ls-tree [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 comma
 l_int|NULL
 )brace
@@ -189,6 +189,23 @@ c_cond
 id|speclen
 op_le
 id|len
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|spec
+(braket
+id|len
+)braket
+op_logical_and
+id|spec
+(braket
+id|len
+)braket
+op_ne
+l_char|&squot;/&squot;
 )paren
 r_continue
 suffix:semicolon

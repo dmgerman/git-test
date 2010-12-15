@@ -3090,9 +3090,9 @@ l_int|60
 suffix:semicolon
 )brace
 multiline_comment|/* Gr. strptime is crap for this; it doesn&squot;t have a way to require RFC2822&n;   (i.e. English) day/month names, and it doesn&squot;t work correctly with %z. */
-DECL|function|parse_date_toffset
+DECL|function|parse_date_basic
 r_int
-id|parse_date_toffset
+id|parse_date_basic
 c_func
 (paren
 r_const
@@ -3392,7 +3392,7 @@ op_star
 l_int|60
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 multiline_comment|/* success */
 )brace
@@ -3424,7 +3424,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|parse_date_toffset
+id|parse_date_basic
 c_func
 (paren
 id|date
@@ -3435,9 +3435,10 @@ comma
 op_amp
 id|offset
 )paren
-OG
-l_int|0
 )paren
+r_return
+l_int|1
+suffix:semicolon
 r_return
 id|date_string
 c_func
@@ -3450,10 +3451,6 @@ id|result
 comma
 id|maxlen
 )paren
-suffix:semicolon
-r_else
-r_return
-l_int|1
 suffix:semicolon
 )brace
 DECL|function|parse_date_format
@@ -5383,7 +5380,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|parse_date_toffset
+op_logical_neg
+id|parse_date_basic
 c_func
 (paren
 id|date
@@ -5394,8 +5392,6 @@ comma
 op_amp
 id|offset
 )paren
-OG
-l_int|0
 )paren
 r_return
 id|timestamp
@@ -5459,7 +5455,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|parse_date_toffset
+op_logical_neg
+id|parse_date_basic
 c_func
 (paren
 id|date
@@ -5470,8 +5467,6 @@ comma
 op_amp
 id|offset
 )paren
-OG
-l_int|0
 )paren
 (brace
 op_star

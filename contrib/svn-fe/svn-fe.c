@@ -39,6 +39,11 @@ suffix:colon
 l_int|NULL
 )paren
 suffix:semicolon
+id|svndump_deinit
+c_func
+(paren
+)paren
+suffix:semicolon
 id|svndump_reset
 c_func
 (paren

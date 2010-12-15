@@ -19,6 +19,7 @@ macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|variable|builtin_commit_usage
 r_static
 r_const
@@ -5808,6 +5809,11 @@ c_func
 (paren
 op_amp
 id|s
+)paren
+suffix:semicolon
+id|gitmodules_config
+c_func
+(paren
 )paren
 suffix:semicolon
 id|git_config

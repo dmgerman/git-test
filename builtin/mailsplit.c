@@ -11,7 +11,7 @@ id|git_mailsplit_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git mailsplit [-d&lt;prec&gt;] [-f&lt;n&gt;] [-b] [--keep-cr] -o&lt;directory&gt; [&lt;mbox&gt;|&lt;Maildir&gt;...]&quot;
+l_string|&quot;git mailsplit [-d&lt;prec&gt;] [-f&lt;n&gt;] [-b] [--keep-cr] -o&lt;directory&gt; [(&lt;mbox&gt;|&lt;Maildir&gt;)...]&quot;
 suffix:semicolon
 DECL|function|is_from_line
 r_static
@@ -705,15 +705,7 @@ r_struct
 id|string_list
 id|list
 op_assign
-(brace
-l_int|NULL
-comma
-l_int|0
-comma
-l_int|0
-comma
-l_int|1
-)brace
+id|STRING_LIST_INIT_DUP
 suffix:semicolon
 r_if
 c_cond

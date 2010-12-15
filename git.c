@@ -1,6 +1,7 @@
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;help.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 DECL|variable|git_usage_string
@@ -10,11 +11,11 @@ id|git_usage_string
 (braket
 )braket
 op_assign
-l_string|&quot;git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]&bslash;n&quot;
+l_string|&quot;git [--version] [--exec-path[=&lt;path&gt;]] [--html-path]&bslash;n&quot;
 l_string|&quot;           [-p|--paginate|--no-pager] [--no-replace-objects]&bslash;n&quot;
-l_string|&quot;           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]&bslash;n&quot;
+l_string|&quot;           [--bare] [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;]&bslash;n&quot;
 l_string|&quot;           [-c name=value] [--help]&bslash;n&quot;
-l_string|&quot;           COMMAND [ARGS]&quot;
+l_string|&quot;           &lt;command&gt; [&lt;args&gt;]&quot;
 suffix:semicolon
 DECL|variable|git_more_info_string
 r_const
@@ -23,7 +24,13 @@ id|git_more_info_string
 (braket
 )braket
 op_assign
-l_string|&quot;See &squot;git help COMMAND&squot; for more information on a specific command.&quot;
+l_string|&quot;See &squot;git help &lt;command&gt;&squot; for more information on a specific command.&quot;
+suffix:semicolon
+DECL|variable|git_startup_info
+r_static
+r_struct
+id|startup_info
+id|git_startup_info
 suffix:semicolon
 DECL|variable|use_pager
 r_static
@@ -222,36 +229,6 @@ r_int
 id|handled
 op_assign
 l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|getenv
-c_func
-(paren
-l_string|&quot;GIT_ASKPASS&quot;
-)paren
-op_logical_and
-id|getenv
-c_func
-(paren
-l_string|&quot;SSH_ASKPASS&quot;
-)paren
-)paren
-id|setenv
-c_func
-(paren
-l_string|&quot;GIT_ASKPASS&quot;
-comma
-id|getenv
-c_func
-(paren
-l_string|&quot;SSH_ASKPASS&quot;
-)paren
-comma
-l_int|1
-)paren
 suffix:semicolon
 r_while
 c_loop
@@ -815,7 +792,7 @@ id|git_usage_string
 )paren
 suffix:semicolon
 )brace
-id|git_config_parse_parameter
+id|git_config_push_parameter
 c_func
 (paren
 (paren
@@ -1131,9 +1108,15 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;Bad alias.%s string&quot;
+l_string|&quot;Bad alias.%s string: %s&quot;
 comma
 id|alias_command
+comma
+id|split_cmdline_strerror
+c_func
+(paren
+id|count
+)paren
 )paren
 suffix:semicolon
 id|option_count
@@ -1331,12 +1314,14 @@ op_assign
 id|GIT_VERSION
 suffix:semicolon
 DECL|macro|RUN_SETUP
-mdefine_line|#define RUN_SETUP&t;(1&lt;&lt;0)
+mdefine_line|#define RUN_SETUP&t;&t;(1&lt;&lt;0)
+DECL|macro|RUN_SETUP_GENTLY
+mdefine_line|#define RUN_SETUP_GENTLY&t;(1&lt;&lt;1)
 DECL|macro|USE_PAGER
-mdefine_line|#define USE_PAGER&t;(1&lt;&lt;1)
+mdefine_line|#define USE_PAGER&t;&t;(1&lt;&lt;2)
 multiline_comment|/*&n; * require working tree to be present -- anything uses this needs&n; * RUN_SETUP for reading from the configuration file.&n; */
 DECL|macro|NEED_WORK_TREE
-mdefine_line|#define NEED_WORK_TREE&t;(1&lt;&lt;2)
+mdefine_line|#define NEED_WORK_TREE&t;&t;(1&lt;&lt;3)
 DECL|struct|cmd_struct
 r_struct
 id|cmd_struct
@@ -1453,13 +1438,38 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|p-&gt;option
+op_amp
+id|RUN_SETUP_GENTLY
+)paren
+(brace
+r_int
+id|nongit_ok
+suffix:semicolon
+id|prefix
+op_assign
+id|setup_git_directory_gently
+c_func
+(paren
+op_amp
+id|nongit_ok
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|use_pager
 op_eq
 l_int|1
 op_logical_and
 id|p-&gt;option
 op_amp
+(paren
 id|RUN_SETUP
+op_or
+id|RUN_SETUP_GENTLY
+)paren
 )paren
 id|use_pager
 op_assign
@@ -1690,6 +1700,8 @@ comma
 l_string|&quot;apply&quot;
 comma
 id|cmd_apply
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -1728,6 +1740,8 @@ comma
 l_string|&quot;bundle&quot;
 comma
 id|cmd_bundle
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -1828,6 +1842,8 @@ comma
 l_string|&quot;config&quot;
 comma
 id|cmd_config
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -1960,6 +1976,8 @@ comma
 l_string|&quot;grep&quot;
 comma
 id|cmd_grep
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -1978,6 +1996,8 @@ comma
 l_string|&quot;index-pack&quot;
 comma
 id|cmd_index_pack
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2020,6 +2040,8 @@ comma
 l_string|&quot;ls-remote&quot;
 comma
 id|cmd_ls_remote
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2056,6 +2078,8 @@ comma
 l_string|&quot;merge-file&quot;
 comma
 id|cmd_merge_file
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2190,6 +2214,8 @@ comma
 l_string|&quot;peek-remote&quot;
 comma
 id|cmd_ls_remote
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2266,6 +2292,8 @@ comma
 l_string|&quot;repo-config&quot;
 comma
 id|cmd_config
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2329,6 +2357,8 @@ l_string|&quot;shortlog&quot;
 comma
 id|cmd_shortlog
 comma
+id|RUN_SETUP_GENTLY
+op_or
 id|USE_PAGER
 )brace
 comma
@@ -2436,6 +2466,8 @@ comma
 l_string|&quot;var&quot;
 comma
 id|cmd_var
+comma
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
@@ -2885,6 +2917,11 @@ r_const
 r_char
 op_star
 id|cmd
+suffix:semicolon
+id|startup_info
+op_assign
+op_amp
+id|git_startup_info
 suffix:semicolon
 id|cmd
 op_assign

@@ -3,6 +3,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &lt;syslog.h&gt;
 macro_line|#ifndef HOST_NAME_MAX
 DECL|macro|HOST_NAME_MAX
@@ -36,15 +37,15 @@ id|daemon_usage
 )braket
 op_assign
 l_string|&quot;git daemon [--verbose] [--syslog] [--export-all]&bslash;n&quot;
-l_string|&quot;           [--timeout=n] [--init-timeout=n] [--max-connections=n]&bslash;n&quot;
-l_string|&quot;           [--strict-paths] [--base-path=path] [--base-path-relaxed]&bslash;n&quot;
-l_string|&quot;           [--user-path | --user-path=path]&bslash;n&quot;
-l_string|&quot;           [--interpolated-path=path]&bslash;n&quot;
-l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=file]&bslash;n&quot;
-l_string|&quot;           [--[enable|disable|allow-override|forbid-override]=service]&bslash;n&quot;
-l_string|&quot;           [--inetd | [--listen=host_or_ipaddr] [--port=n]&bslash;n&quot;
-l_string|&quot;                      [--user=user [--group=group]]&bslash;n&quot;
-l_string|&quot;           [directory...]&quot;
+l_string|&quot;           [--timeout=&lt;n&gt;] [--init-timeout=&lt;n&gt;] [--max-connections=&lt;n&gt;]&bslash;n&quot;
+l_string|&quot;           [--strict-paths] [--base-path=&lt;path&gt;] [--base-path-relaxed]&bslash;n&quot;
+l_string|&quot;           [--user-path | --user-path=&lt;path&gt;]&bslash;n&quot;
+l_string|&quot;           [--interpolated-path=&lt;path&gt;]&bslash;n&quot;
+l_string|&quot;           [--reuseaddr] [--detach] [--pid-file=&lt;file&gt;]&bslash;n&quot;
+l_string|&quot;           [--(enable|disable|allow-override|forbid-override)=&lt;service&gt;]&bslash;n&quot;
+l_string|&quot;           [--inetd | [--listen=&lt;host_or_ipaddr&gt;] [--port=&lt;n&gt;]&bslash;n&quot;
+l_string|&quot;                      [--user=&lt;user&gt; [--group=&lt;group&gt;]]&bslash;n&quot;
+l_string|&quot;           [&lt;directory&gt;...]&quot;
 suffix:semicolon
 multiline_comment|/* List of acceptable pathname prefixes */
 DECL|variable|ok_paths
@@ -3629,11 +3630,30 @@ id|on
 )paren
 suffix:semicolon
 )brace
+DECL|struct|socketlist
+r_struct
+id|socketlist
+(brace
+DECL|member|list
+r_int
+op_star
+id|list
+suffix:semicolon
+DECL|member|nr
+r_int
+id|nr
+suffix:semicolon
+DECL|member|alloc
+r_int
+id|alloc
+suffix:semicolon
+)brace
+suffix:semicolon
 macro_line|#ifndef NO_IPV6
-DECL|function|socksetup
+DECL|function|setup_named_sock
 r_static
 r_int
-id|socksetup
+id|setup_named_sock
 c_func
 (paren
 r_char
@@ -3643,21 +3663,16 @@ comma
 r_int
 id|listen_port
 comma
-r_int
+r_struct
+id|socketlist
 op_star
-op_star
-id|socklist_p
+id|socklist
 )paren
 (brace
 r_int
 id|socknum
 op_assign
 l_int|0
-comma
-op_star
-id|socklist
-op_assign
-l_int|NULL
 suffix:semicolon
 r_int
 id|maxfd
@@ -3747,10 +3762,13 @@ c_cond
 (paren
 id|gai
 )paren
-id|die
+(brace
+id|logerror
 c_func
 (paren
-l_string|&quot;getaddrinfo() failed: %s&quot;
+l_string|&quot;getaddrinfo() for %s failed: %s&quot;
+comma
+id|listen_addr
 comma
 id|gai_strerror
 c_func
@@ -3759,6 +3777,10 @@ id|gai
 )paren
 )paren
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
@@ -3955,32 +3977,28 @@ op_or
 id|FD_CLOEXEC
 )paren
 suffix:semicolon
-id|socklist
-op_assign
-id|xrealloc
+id|ALLOC_GROW
 c_func
 (paren
-id|socklist
+id|socklist-&gt;list
 comma
-r_sizeof
-(paren
-r_int
-)paren
-op_star
-(paren
-id|socknum
+id|socklist-&gt;nr
 op_plus
 l_int|1
-)paren
+comma
+id|socklist-&gt;alloc
 )paren
 suffix:semicolon
-id|socklist
+id|socklist-&gt;list
 (braket
-id|socknum
+id|socklist-&gt;nr
 op_increment
 )braket
 op_assign
 id|sockfd
+suffix:semicolon
+id|socknum
+op_increment
 suffix:semicolon
 r_if
 c_cond
@@ -4000,20 +4018,15 @@ c_func
 id|ai0
 )paren
 suffix:semicolon
-op_star
-id|socklist_p
-op_assign
-id|socklist
-suffix:semicolon
 r_return
 id|socknum
 suffix:semicolon
 )brace
 macro_line|#else /* NO_IPV6 */
-DECL|function|socksetup
+DECL|function|setup_named_sock
 r_static
 r_int
-id|socksetup
+id|setup_named_sock
 c_func
 (paren
 r_char
@@ -4023,10 +4036,10 @@ comma
 r_int
 id|listen_port
 comma
-r_int
+r_struct
+id|socketlist
 op_star
-op_star
-id|socklist_p
+id|socklist
 )paren
 (brace
 r_struct
@@ -4231,21 +4244,23 @@ op_or
 id|FD_CLOEXEC
 )paren
 suffix:semicolon
-op_star
-id|socklist_p
-op_assign
-id|xmalloc
+id|ALLOC_GROW
 c_func
 (paren
-r_sizeof
-(paren
-r_int
-)paren
+id|socklist-&gt;list
+comma
+id|socklist-&gt;nr
+op_plus
+l_int|1
+comma
+id|socklist-&gt;alloc
 )paren
 suffix:semicolon
-op_star
-op_star
-id|socklist_p
+id|socklist-&gt;list
+(braket
+id|socklist-&gt;nr
+op_increment
+)braket
 op_assign
 id|sockfd
 suffix:semicolon
@@ -4254,16 +4269,114 @@ l_int|1
 suffix:semicolon
 )brace
 macro_line|#endif
+DECL|function|socksetup
+r_static
+r_void
+id|socksetup
+c_func
+(paren
+r_struct
+id|string_list
+op_star
+id|listen_addr
+comma
+r_int
+id|listen_port
+comma
+r_struct
+id|socketlist
+op_star
+id|socklist
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|listen_addr-&gt;nr
+)paren
+id|setup_named_sock
+c_func
+(paren
+l_int|NULL
+comma
+id|listen_port
+comma
+id|socklist
+)paren
+suffix:semicolon
+r_else
+(brace
+r_int
+id|i
+comma
+id|socknum
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|listen_addr-&gt;nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+(brace
+id|socknum
+op_assign
+id|setup_named_sock
+c_func
+(paren
+id|listen_addr-&gt;items
+(braket
+id|i
+)braket
+dot
+id|string
+comma
+id|listen_port
+comma
+id|socklist
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|socknum
+op_eq
+l_int|0
+)paren
+id|logerror
+c_func
+(paren
+l_string|&quot;unable to allocate any listen sockets for host %s on port %u&quot;
+comma
+id|listen_addr-&gt;items
+(braket
+id|i
+)braket
+dot
+id|string
+comma
+id|listen_port
+)paren
+suffix:semicolon
+)brace
+)brace
+)brace
 DECL|function|service_loop
 r_static
 r_int
 id|service_loop
 c_func
 (paren
-r_int
-id|socknum
-comma
-r_int
+r_struct
+id|socketlist
 op_star
 id|socklist
 )paren
@@ -4281,7 +4394,7 @@ op_assign
 id|xcalloc
 c_func
 (paren
-id|socknum
+id|socklist-&gt;nr
 comma
 r_sizeof
 (paren
@@ -4299,7 +4412,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|socknum
+id|socklist-&gt;nr
 suffix:semicolon
 id|i
 op_increment
@@ -4312,7 +4425,7 @@ id|i
 dot
 id|fd
 op_assign
-id|socklist
+id|socklist-&gt;list
 (braket
 id|i
 )braket
@@ -4358,7 +4471,7 @@ c_func
 (paren
 id|pfd
 comma
-id|socknum
+id|socklist-&gt;nr
 comma
 l_int|1
 )paren
@@ -4405,7 +4518,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|socknum
+id|socklist-&gt;nr
 suffix:semicolon
 id|i
 op_increment
@@ -4750,7 +4863,8 @@ r_int
 id|serve
 c_func
 (paren
-r_char
+r_struct
+id|string_list
 op_star
 id|listen_addr
 comma
@@ -4766,14 +4880,18 @@ id|gid_t
 id|gid
 )paren
 (brace
-r_int
-id|socknum
-comma
-op_star
+r_struct
+id|socketlist
 id|socklist
-suffix:semicolon
-id|socknum
 op_assign
+(brace
+l_int|NULL
+comma
+l_int|0
+comma
+l_int|0
+)brace
+suffix:semicolon
 id|socksetup
 c_func
 (paren
@@ -4788,16 +4906,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|socknum
+id|socklist.nr
 op_eq
 l_int|0
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;unable to allocate any listen sockets on host %s port %u&quot;
-comma
-id|listen_addr
+l_string|&quot;unable to allocate any listen sockets on port %u&quot;
 comma
 id|listen_port
 )paren
@@ -4840,8 +4956,7 @@ r_return
 id|service_loop
 c_func
 (paren
-id|socknum
-comma
+op_amp
 id|socklist
 )paren
 suffix:semicolon
@@ -4865,11 +4980,11 @@ id|listen_port
 op_assign
 l_int|0
 suffix:semicolon
-r_char
-op_star
+r_struct
+id|string_list
 id|listen_addr
 op_assign
-l_int|NULL
+id|STRING_LIST_INIT_NODUP
 suffix:semicolon
 r_int
 id|inetd_mode
@@ -4964,14 +5079,19 @@ l_string|&quot;--listen=&quot;
 )paren
 )paren
 (brace
+id|string_list_append
+c_func
+(paren
+op_amp
 id|listen_addr
-op_assign
+comma
 id|xstrdup_tolower
 c_func
 (paren
 id|arg
 op_plus
 l_int|9
+)paren
 )paren
 suffix:semicolon
 r_continue
@@ -5666,7 +5786,11 @@ op_logical_and
 (paren
 id|listen_port
 op_logical_or
-id|listen_addr
+(paren
+id|listen_addr.nr
+OG
+l_int|0
+)paren
 )paren
 )paren
 id|die
@@ -5925,6 +6049,7 @@ r_return
 id|serve
 c_func
 (paren
+op_amp
 id|listen_addr
 comma
 id|listen_port

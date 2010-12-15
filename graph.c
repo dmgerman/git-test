@@ -5,23 +5,6 @@ macro_line|#include &quot;graph.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 multiline_comment|/* Internal API */
-multiline_comment|/*&n; * Output the next line for a graph.&n; * This formats the next graph line into the specified strbuf.  It is not&n; * terminated with a newline.&n; *&n; * Returns 1 if the line includes the current commit, and 0 otherwise.&n; * graph_next_line() will return 1 exactly once for each time&n; * graph_update() is called.&n; */
-r_static
-r_int
-id|graph_next_line
-c_func
-(paren
-r_struct
-id|git_graph
-op_star
-id|graph
-comma
-r_struct
-id|strbuf
-op_star
-id|sb
-)paren
-suffix:semicolon
 multiline_comment|/*&n; * Output a padding line in the graph.&n; * This is similar to graph_next_line().  However, it is guaranteed to&n; * never print the current commit line.  Instead, if the commit line is&n; * next, it will simply output a line of vertical padding, extending the&n; * branch lines downwards, but leaving them otherwise unchanged.&n; */
 r_static
 r_void
@@ -101,14 +84,13 @@ id|GRAPH_COLLAPSING
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * The list of available column colors.&n; */
-DECL|variable|column_colors
+DECL|variable|column_colors_ansi
 r_static
+r_const
 r_char
-id|column_colors
+op_star
+id|column_colors_ansi
 (braket
-)braket
-(braket
-id|COLOR_MAXLEN
 )braket
 op_assign
 (brace
@@ -136,10 +118,51 @@ id|GIT_COLOR_BOLD_MAGENTA
 comma
 id|GIT_COLOR_BOLD_CYAN
 comma
+id|GIT_COLOR_RESET
+comma
 )brace
 suffix:semicolon
-DECL|macro|COLUMN_COLORS_MAX
-mdefine_line|#define COLUMN_COLORS_MAX (ARRAY_SIZE(column_colors))
+DECL|macro|COLUMN_COLORS_ANSI_MAX
+mdefine_line|#define COLUMN_COLORS_ANSI_MAX (ARRAY_SIZE(column_colors_ansi) - 1)
+DECL|variable|column_colors
+r_static
+r_const
+r_char
+op_star
+op_star
+id|column_colors
+suffix:semicolon
+DECL|variable|column_colors_max
+r_static
+r_int
+r_int
+id|column_colors_max
+suffix:semicolon
+DECL|function|graph_set_column_colors
+r_void
+id|graph_set_column_colors
+c_func
+(paren
+r_const
+r_char
+op_star
+op_star
+id|colors
+comma
+r_int
+r_int
+id|colors_max
+)paren
+(brace
+id|column_colors
+op_assign
+id|colors
+suffix:semicolon
+id|column_colors_max
+op_assign
+id|colors_max
+suffix:semicolon
+)brace
 DECL|function|column_get_color_code
 r_static
 r_const
@@ -148,17 +171,15 @@ op_star
 id|column_get_color_code
 c_func
 (paren
-r_const
-r_struct
-id|column
-op_star
-id|c
+r_int
+r_int
+id|color
 )paren
 (brace
 r_return
 id|column_colors
 (braket
-id|c-&gt;color
+id|color
 )braket
 suffix:semicolon
 )brace
@@ -188,7 +209,7 @@ c_cond
 (paren
 id|c-&gt;color
 OL
-id|COLUMN_COLORS_MAX
+id|column_colors_max
 )paren
 id|strbuf_addstr
 c_func
@@ -198,7 +219,7 @@ comma
 id|column_get_color_code
 c_func
 (paren
-id|c
+id|c-&gt;color
 )paren
 )paren
 suffix:semicolon
@@ -215,14 +236,18 @@ c_cond
 (paren
 id|c-&gt;color
 OL
-id|COLUMN_COLORS_MAX
+id|column_colors_max
 )paren
 id|strbuf_addstr
 c_func
 (paren
 id|sb
 comma
-id|GIT_COLOR_RESET
+id|column_get_color_code
+c_func
+(paren
+id|column_colors_max
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -421,6 +446,20 @@ id|git_graph
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|column_colors
+)paren
+id|graph_set_column_colors
+c_func
+(paren
+id|column_colors_ansi
+comma
+id|COLUMN_COLORS_ANSI_MAX
+)paren
+suffix:semicolon
 id|graph-&gt;commit
 op_assign
 l_int|NULL
@@ -468,7 +507,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * Start the column color at the maximum value, since we&squot;ll&n;&t; * always increment it for the first commit we output.&n;&t; * This way we start at 0 for the first commit.&n;&t; */
 id|graph-&gt;default_column_color
 op_assign
-id|COLUMN_COLORS_MAX
+id|column_colors_max
 l_int|1
 suffix:semicolon
 multiline_comment|/*&n;&t; * Allocate a reasonably large default number of columns&n;&t; * We&squot;ll automatically grow columns later if we need more room.&n;&t; */
@@ -881,7 +920,7 @@ id|COLOR_DIFF
 )paren
 )paren
 r_return
-id|COLUMN_COLORS_MAX
+id|column_colors_max
 suffix:semicolon
 r_return
 id|graph-&gt;default_column_color
@@ -908,7 +947,7 @@ op_plus
 l_int|1
 )paren
 op_mod
-id|COLUMN_COLORS_MAX
+id|column_colors_max
 suffix:semicolon
 )brace
 DECL|function|graph_find_commit_color
@@ -3469,7 +3508,6 @@ id|GRAPH_PADDING
 suffix:semicolon
 )brace
 DECL|function|graph_next_line
-r_static
 r_int
 id|graph_next_line
 c_func
