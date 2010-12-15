@@ -2281,7 +2281,7 @@ l_int|NULL
 suffix:semicolon
 id|revs.prune_data
 op_assign
-id|opt-&gt;paths
+id|opt-&gt;pathspec.raw
 suffix:semicolon
 id|tree
 op_assign

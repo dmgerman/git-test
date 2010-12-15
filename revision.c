@@ -2365,25 +2365,10 @@ op_amp
 id|ids
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|revs-&gt;diffopt.nr_paths
-)paren
-(brace
-id|ids.diffopts.nr_paths
+id|ids.diffopts.pathspec
 op_assign
-id|revs-&gt;diffopt.nr_paths
+id|revs-&gt;diffopt.pathspec
 suffix:semicolon
-id|ids.diffopts.paths
-op_assign
-id|revs-&gt;diffopt.paths
-suffix:semicolon
-id|ids.diffopts.pathlens
-op_assign
-id|revs-&gt;diffopt.pathlens
-suffix:semicolon
-)brace
 multiline_comment|/* Compute patch-ids for one side */
 r_for
 c_loop

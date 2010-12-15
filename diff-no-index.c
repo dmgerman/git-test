@@ -1438,12 +1438,12 @@ c_func
 op_amp
 id|revs-&gt;diffopt
 comma
-id|revs-&gt;diffopt.paths
+id|revs-&gt;diffopt.pathspec.raw
 (braket
 l_int|0
 )braket
 comma
-id|revs-&gt;diffopt.paths
+id|revs-&gt;diffopt.pathspec.raw
 (braket
 l_int|1
 )braket

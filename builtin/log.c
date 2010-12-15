@@ -374,7 +374,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|rev-&gt;diffopt.nr_paths
+id|rev-&gt;diffopt.pathspec.nr
 op_ne
 l_int|1
 )paren
