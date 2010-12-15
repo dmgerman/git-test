@@ -908,6 +908,21 @@ id|all_t2_interesting
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/* Enable recursion indefinitely */
+id|opt-&gt;pathspec.recursive
+op_assign
+id|DIFF_OPT_TST
+c_func
+(paren
+id|opt
+comma
+id|RECURSIVE
+)paren
+suffix:semicolon
+id|opt-&gt;pathspec.max_depth
+op_assign
+l_int|1
+suffix:semicolon
 id|strbuf_init
 c_func
 (paren
