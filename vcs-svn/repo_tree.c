@@ -660,6 +660,8 @@ id|dent-&gt;content_offset
 op_assign
 l_int|0
 suffix:semicolon
+id|dent
+op_assign
 id|dent_insert
 c_func
 (paren
@@ -729,6 +731,8 @@ id|dent-&gt;content_offset
 op_assign
 id|dir_o
 suffix:semicolon
+id|dent
+op_assign
 id|dent_insert
 c_func
 (paren
