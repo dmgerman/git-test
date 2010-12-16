@@ -4872,6 +4872,22 @@ l_int|1
 suffix:semicolon
 r_default
 suffix:colon
+(brace
+)brace
+multiline_comment|/*&n;&t;&t; * dir can end with a path separator when it&squot;s root&n;&t;&t; * directory. Return proper prefix in that case.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|dir
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+)paren
+r_return
+id|cwd
+suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
