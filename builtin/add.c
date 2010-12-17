@@ -299,9 +299,14 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|init_pathspec
+c_func
+(paren
+op_amp
 id|rev.prune_data
-op_assign
+comma
 id|pathspec
+)paren
 suffix:semicolon
 id|rev.diffopt.output_format
 op_assign

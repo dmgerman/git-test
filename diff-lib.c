@@ -419,7 +419,7 @@ c_func
 (paren
 id|ce
 comma
-id|revs-&gt;prune_data
+id|revs-&gt;prune_data.raw
 )paren
 )paren
 r_continue
@@ -1909,7 +1909,7 @@ id|idx
 suffix:colon
 id|tree
 comma
-id|revs-&gt;prune_data
+id|revs-&gt;prune_data.raw
 )paren
 )paren
 id|do_oneway_diff
@@ -2279,9 +2279,14 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|init_pathspec
+c_func
+(paren
+op_amp
 id|revs.prune_data
-op_assign
+comma
 id|opt-&gt;pathspec.raw
+)paren
 suffix:semicolon
 id|tree
 op_assign
