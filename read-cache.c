@@ -3439,8 +3439,8 @@ op_star
 id|ce
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 )paren
@@ -3453,6 +3453,14 @@ comma
 op_star
 id|name
 suffix:semicolon
+r_const
+r_char
+op_star
+op_star
+id|ps
+op_assign
+id|pathspec-&gt;raw
+suffix:semicolon
 r_int
 id|len
 suffix:semicolon
@@ -3460,7 +3468,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|pathspec
+id|pathspec-&gt;nr
 )paren
 r_return
 l_int|1
@@ -3484,7 +3492,7 @@ c_loop
 id|match
 op_assign
 op_star
-id|pathspec
+id|ps
 op_increment
 )paren
 op_ne

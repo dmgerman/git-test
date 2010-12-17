@@ -419,7 +419,8 @@ c_func
 (paren
 id|ce
 comma
-id|revs-&gt;prune_data.raw
+op_amp
+id|revs-&gt;prune_data
 )paren
 )paren
 r_continue
@@ -1909,7 +1910,8 @@ id|idx
 suffix:colon
 id|tree
 comma
-id|revs-&gt;prune_data.raw
+op_amp
+id|revs-&gt;prune_data
 )paren
 )paren
 id|do_oneway_diff

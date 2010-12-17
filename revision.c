@@ -4310,7 +4310,8 @@ c_func
 (paren
 id|ce
 comma
-id|revs-&gt;prune_data.raw
+op_amp
+id|revs-&gt;prune_data
 )paren
 )paren
 (brace
