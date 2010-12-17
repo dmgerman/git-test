@@ -2397,7 +2397,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Pre-condition: baselen == 0 || base[baselen-1] == &squot;/&squot;&n; *&n; * Return:&n; *  - 2 for &quot;yes, and all subsequent entries will be&quot;&n; *  - 1 for yes&n; *  - zero for no&n; *  - negative for &quot;no, and no subsequent entries will be either&quot;&n; */
+multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Pre-condition: either baselen == base_offset (i.e. empty path)&n; * or base[baselen-1] == &squot;/&squot; (i.e. with trailing slash).&n; *&n; * Return:&n; *  - 2 for &quot;yes, and all subsequent entries will be&quot;&n; *  - 1 for yes&n; *  - zero for no&n; *  - negative for &quot;no, and no subsequent entries will be either&quot;&n; */
 DECL|function|tree_entry_interesting
 r_int
 id|tree_entry_interesting
@@ -2413,6 +2413,9 @@ r_struct
 id|strbuf
 op_star
 id|base
+comma
+r_int
+id|base_offset
 comma
 r_const
 r_struct
@@ -2430,6 +2433,7 @@ comma
 id|baselen
 op_assign
 id|base-&gt;len
+id|base_offset
 suffix:semicolon
 r_int
 id|never_interesting
@@ -2468,6 +2472,8 @@ id|within_depth
 c_func
 (paren
 id|base-&gt;buf
+op_plus
+id|base_offset
 comma
 id|baselen
 comma
@@ -2499,7 +2505,6 @@ c_loop
 id|i
 op_assign
 id|ps-&gt;nr
-op_minus
 l_int|1
 suffix:semicolon
 id|i
@@ -2527,6 +2532,15 @@ id|match
 op_assign
 id|item-&gt;match
 suffix:semicolon
+r_const
+r_char
+op_star
+id|base_str
+op_assign
+id|base-&gt;buf
+op_plus
+id|base_offset
+suffix:semicolon
 r_int
 id|matchlen
 op_assign
@@ -2548,7 +2562,7 @@ op_logical_neg
 id|match_dir_prefix
 c_func
 (paren
-id|base-&gt;buf
+id|base_str
 comma
 id|baselen
 comma
@@ -2579,7 +2593,7 @@ op_logical_neg
 id|within_depth
 c_func
 (paren
-id|base-&gt;buf
+id|base_str
 op_plus
 id|matchlen
 op_plus
@@ -2609,7 +2623,7 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-id|base-&gt;buf
+id|base_str
 comma
 id|match
 comma
@@ -2726,6 +2740,8 @@ c_func
 id|match
 comma
 id|base-&gt;buf
+op_plus
+id|base_offset
 comma
 l_int|0
 )paren
@@ -2736,6 +2752,8 @@ c_func
 (paren
 id|base
 comma
+id|base_offset
+op_plus
 id|baselen
 )paren
 suffix:semicolon
@@ -2748,6 +2766,8 @@ c_func
 (paren
 id|base
 comma
+id|base_offset
+op_plus
 id|baselen
 )paren
 suffix:semicolon

@@ -468,6 +468,8 @@ id|desc-&gt;entry
 comma
 id|base
 comma
+l_int|0
+comma
 op_amp
 id|opt-&gt;pathspec
 )paren
@@ -810,6 +812,8 @@ op_amp
 id|t-&gt;entry
 comma
 id|base
+comma
+l_int|0
 comma
 op_amp
 id|opt-&gt;pathspec
