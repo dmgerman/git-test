@@ -141,7 +141,7 @@ multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+[jJlL]?|0[xX]?[0-9a-fA-F]+[lL]?&quot;
 l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|//=?|&lt;&lt;=?|&gt;&gt;=?|&bslash;&bslash;*&bslash;&bslash;*=?&quot;
-l_string|&quot;|[^[:space:]|[&bslash;x80-&bslash;xff]+&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 multiline_comment|/* -- */
@@ -156,7 +156,7 @@ multiline_comment|/* -- */
 l_string|&quot;(@|@@|&bslash;&bslash;$)?[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+|0[xXbB]?[0-9a-fA-F]+|&bslash;&bslash;?(&bslash;&bslash;&bslash;&bslash;C-)?(&bslash;&bslash;&bslash;&bslash;M-)?.&quot;
 l_string|&quot;|//=?|[-+*/&lt;&gt;%&amp;^|=!]=|&lt;&lt;=?|&gt;&gt;=?|===|&bslash;&bslash;.{1,3}|::|[!=]~&quot;
-l_string|&quot;|[^[:space:]|[&bslash;x80-&bslash;xff]+&quot;
+l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 id|PATTERNS
