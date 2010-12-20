@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 DECL|function|do_nothing
+r_static
 r_void
 id|do_nothing
 c_func
