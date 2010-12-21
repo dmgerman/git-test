@@ -1,17 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) 2000-2002 Michael R. Elkins &lt;me@mutt.org&gt;&n; * Copyright (C) 2002-2004 Oswald Buddenhagen &lt;ossi@users.sf.net&gt;&n; * Copyright (C) 2004 Theodore Y. Ts&squot;o &lt;tytso@mit.edu&gt;&n; * Copyright (C) 2006 Mike McCormack&n; * Copyright (C) 2006 Christian Couder&n; *&n; *  This program is free software; you can redistribute it and/or modify&n; *  it under the terms of the GNU General Public License as published by&n; *  the Free Software Foundation; either version 2 of the License, or&n; *  (at your option) any later version.&n; *&n; *  This program is distributed in the hope that it will be useful,&n; *  but WITHOUT ANY WARRANTY; without even the implied warranty of&n; *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&n; *  GNU General Public License for more details.&n; *&n; *  You should have received a copy of the GNU General Public License&n; *  along with this program; if not, write to the Free Software&n; *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
-DECL|function|do_nothing
-r_static
-r_void
-id|do_nothing
-c_func
-(paren
-r_int
-id|unused
-)paren
-(brace
-)brace
 multiline_comment|/* Get a trace file descriptor from GIT_TRACE env variable. */
 DECL|function|get_trace_fd
 r_static
@@ -278,7 +267,7 @@ suffix:semicolon
 id|set_try_to_free_routine
 c_func
 (paren
-id|do_nothing
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* is never reset */
@@ -503,7 +492,7 @@ suffix:semicolon
 id|set_try_to_free_routine
 c_func
 (paren
-id|do_nothing
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* is never reset */

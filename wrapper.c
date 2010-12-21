@@ -39,6 +39,16 @@ id|old
 op_assign
 id|try_to_free_routine
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|routine
+)paren
+id|routine
+op_assign
+id|do_nothing
+suffix:semicolon
 id|try_to_free_routine
 op_assign
 id|routine
