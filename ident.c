@@ -1033,7 +1033,16 @@ op_logical_neg
 id|name_addr_only
 op_logical_and
 id|date_str
+op_logical_and
+id|date_str
+(braket
+l_int|0
+)braket
 )paren
+(brace
+r_if
+c_cond
+(paren
 id|parse_date
 c_func
 (paren
@@ -1046,7 +1055,18 @@ r_sizeof
 id|date
 )paren
 )paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;invalid date format: %s&quot;
+comma
+id|date_str
+)paren
 suffix:semicolon
+)brace
 id|i
 op_assign
 id|copy
