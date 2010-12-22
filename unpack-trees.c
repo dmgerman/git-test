@@ -1821,11 +1821,14 @@ id|cache_entry
 op_star
 id|src
 (braket
-l_int|5
+id|MAX_UNPACK_TREES
+op_plus
+l_int|1
 )braket
 op_assign
 (brace
 l_int|NULL
+comma
 )brace
 suffix:semicolon
 r_int
@@ -4358,6 +4361,7 @@ op_logical_and
 id|empty_worktree
 )paren
 (brace
+multiline_comment|/* dubious---why should this fail??? */
 id|ret
 op_assign
 id|unpack_failed
