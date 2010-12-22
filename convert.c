@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;quote.h&quot;
 multiline_comment|/*&n; * convert.c - convert a file when checking it out and checking it in.&n; *&n; * This should use the pathname to decide on whether it wants to do some&n; * more interesting conversions (automatic gzip/unzip, general format&n; * conversions etc etc), but by default it just does automatic CRLF&lt;-&gt;LF&n; * translation when the &quot;text&quot; attribute or &quot;auto_crlf&quot; option is set.&n; */
 DECL|enum|action
 r_enum
@@ -1329,6 +1330,12 @@ r_char
 op_star
 id|cmd
 suffix:semicolon
+DECL|member|path
+r_const
+r_char
+op_star
+id|path
+suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|filter_buffer
@@ -1383,12 +1390,89 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+multiline_comment|/* apply % substitution to cmd */
+r_struct
+id|strbuf
+id|cmd
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|strbuf
+id|path
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|strbuf_expand_dict_entry
+id|dict
+(braket
+)braket
+op_assign
+(brace
+(brace
+l_string|&quot;f&quot;
+comma
+l_int|NULL
+comma
+)brace
+comma
+(brace
+l_int|NULL
+comma
+l_int|NULL
+comma
+)brace
+comma
+)brace
+suffix:semicolon
+multiline_comment|/* quote the path to preserve spaces, etc. */
+id|sq_quote_buf
+c_func
+(paren
+op_amp
+id|path
+comma
+id|params-&gt;path
+)paren
+suffix:semicolon
+id|dict
+(braket
+l_int|0
+)braket
+dot
+id|value
+op_assign
+id|path.buf
+suffix:semicolon
+multiline_comment|/* expand all %f with the quoted path */
+id|strbuf_expand
+c_func
+(paren
+op_amp
+id|cmd
+comma
+id|params-&gt;cmd
+comma
+id|strbuf_expand_dict_cb
+comma
+op_amp
+id|dict
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|path
+)paren
+suffix:semicolon
 id|argv
 (braket
 l_int|0
 )braket
 op_assign
-id|params-&gt;cmd
+id|cmd.buf
 suffix:semicolon
 id|memset
 c_func
@@ -1505,6 +1589,13 @@ comma
 id|status
 )paren
 suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|cmd
+)paren
+suffix:semicolon
 r_return
 (paren
 id|write_err
@@ -1610,6 +1701,10 @@ suffix:semicolon
 id|params.cmd
 op_assign
 id|cmd
+suffix:semicolon
+id|params.path
+op_assign
+id|path
 suffix:semicolon
 id|fflush
 c_func
