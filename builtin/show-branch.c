@@ -1059,7 +1059,7 @@ id|p-&gt;object.flags
 op_or_assign
 id|flags
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|p
@@ -4460,7 +4460,7 @@ id|commit-&gt;object.flags
 op_eq
 id|flag
 )paren
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|commit
@@ -4524,7 +4524,7 @@ comma
 id|extra
 )paren
 suffix:semicolon
-id|sort_by_date
+id|commit_list_sort_by_date
 c_func
 (paren
 op_amp

@@ -1890,10 +1890,10 @@ op_or_assign
 id|TREESAME
 suffix:semicolon
 )brace
-DECL|function|insert_by_date_cached
+DECL|function|commit_list_insert_by_date_cached
 r_static
 r_void
-id|insert_by_date_cached
+id|commit_list_insert_by_date_cached
 c_func
 (paren
 r_struct
@@ -1935,7 +1935,7 @@ id|cached_base-&gt;item-&gt;date
 )paren
 id|new_entry
 op_assign
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|p
@@ -1947,7 +1947,7 @@ suffix:semicolon
 r_else
 id|new_entry
 op_assign
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|p
@@ -2119,7 +2119,7 @@ id|p-&gt;object.flags
 op_or_assign
 id|SEEN
 suffix:semicolon
-id|insert_by_date_cached
+id|commit_list_insert_by_date_cached
 c_func
 (paren
 id|p
@@ -2227,7 +2227,7 @@ id|p-&gt;object.flags
 op_or_assign
 id|SEEN
 suffix:semicolon
-id|insert_by_date_cached
+id|commit_list_insert_by_date_cached
 c_func
 (paren
 id|p
@@ -9982,7 +9982,7 @@ id|commit-&gt;object.flags
 op_or_assign
 id|SEEN
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|commit

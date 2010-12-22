@@ -1890,7 +1890,7 @@ id|work
 op_assign
 l_int|NULL
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|want
@@ -2009,7 +2009,7 @@ op_amp
 id|REACHABLE
 )paren
 )paren
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|parent

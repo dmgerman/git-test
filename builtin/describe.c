@@ -1069,7 +1069,7 @@ op_amp
 id|SEEN
 )paren
 )paren
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|p
@@ -1734,7 +1734,7 @@ op_amp
 id|SEEN
 )paren
 )paren
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|p
@@ -1867,7 +1867,7 @@ c_cond
 id|gave_up_on
 )paren
 (brace
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|gave_up_on
