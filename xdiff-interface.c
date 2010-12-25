@@ -1263,6 +1263,13 @@ id|f
 op_ne
 l_int|1
 )paren
+(brace
+id|fclose
+c_func
+(paren
+id|f
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -1272,6 +1279,7 @@ comma
 id|filename
 )paren
 suffix:semicolon
+)brace
 id|fclose
 c_func
 (paren
