@@ -118,6 +118,28 @@ comma
 id|PATTERNS
 c_func
 (paren
+l_string|&quot;perl&quot;
+comma
+l_string|&quot;^[ &bslash;t]*package .*;&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*sub .* &bslash;&bslash;{&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[[:alpha:]_&squot;][[:alnum:]_&squot;]*&quot;
+l_string|&quot;|0[xb]?[0-9a-fA-F_]*&quot;
+multiline_comment|/* taking care not to interpret 3..5 as (3.)(.5) */
+l_string|&quot;|[0-9a-fA-F_]+(&bslash;&bslash;.[0-9a-fA-F_]+)?([eE][-+]?[0-9_]+)?&quot;
+l_string|&quot;|=&gt;|-[rwxoRWXOezsfdlpSugkbctTBMAC&gt;]|~~|::&quot;
+l_string|&quot;|&amp;&amp;=|&bslash;&bslash;|&bslash;&bslash;|=|//=|&bslash;&bslash;*&bslash;&bslash;*=&quot;
+l_string|&quot;|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||//|&bslash;&bslash;+&bslash;&bslash;+|--|&bslash;&bslash;*&bslash;&bslash;*|&bslash;&bslash;.&bslash;&bslash;.&bslash;&bslash;.?&quot;
+l_string|&quot;|[-+*/%.^&amp;&lt;&gt;=!|]=&quot;
+l_string|&quot;|=~|!~&quot;
+l_string|&quot;|&lt;&lt;|&lt;&gt;|&lt;=&gt;|&gt;&gt;&quot;
+l_string|&quot;|[^[:space:]]&quot;
+)paren
+comma
+id|PATTERNS
+c_func
+(paren
 l_string|&quot;php&quot;
 comma
 l_string|&quot;^[&bslash;t ]*(((public|protected|private|static)[&bslash;t ]+)*function.*)$&bslash;n&quot;
