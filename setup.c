@@ -1131,6 +1131,26 @@ c_func
 l_string|&quot;This operation must be run in a work tree&quot;
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Make sure subsequent git processes find correct worktree&n;&t; * if $GIT_WORK_TREE is set relative&n;&t; */
+r_if
+c_cond
+(paren
+id|getenv
+c_func
+(paren
+id|GIT_WORK_TREE_ENVIRONMENT
+)paren
+)paren
+id|setenv
+c_func
+(paren
+id|GIT_WORK_TREE_ENVIRONMENT
+comma
+l_string|&quot;.&quot;
+comma
+l_int|1
+)paren
+suffix:semicolon
 id|set_git_dir
 c_func
 (paren
