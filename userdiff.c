@@ -121,8 +121,12 @@ c_func
 l_string|&quot;perl&quot;
 comma
 l_string|&quot;^[ &bslash;t]*package .*;&bslash;n&quot;
-l_string|&quot;^[ &bslash;t]*sub .* &bslash;&bslash;{&quot;
+l_string|&quot;^[ &bslash;t]*sub .* &bslash;&bslash;{&bslash;n&quot;
+l_string|&quot;^[A-Z]+ &bslash;&bslash;{&bslash;n&quot;
+multiline_comment|/* BEGIN, END, ... */
+l_string|&quot;^=head[0-9] &quot;
 comma
+multiline_comment|/* POD */
 multiline_comment|/* -- */
 l_string|&quot;[[:alpha:]_&squot;][[:alnum:]_&squot;]*&quot;
 l_string|&quot;|0[xb]?[0-9a-fA-F_]*&quot;
