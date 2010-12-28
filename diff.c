@@ -24259,6 +24259,8 @@ r_if
 c_cond
 (paren
 id|driver-&gt;textconv_cache
+op_logical_and
+id|df-&gt;sha1_valid
 )paren
 (brace
 op_star
@@ -24316,6 +24318,8 @@ r_if
 c_cond
 (paren
 id|driver-&gt;textconv_cache
+op_logical_and
+id|df-&gt;sha1_valid
 )paren
 (brace
 multiline_comment|/* ignore errors, as we might be in a readonly repository */
