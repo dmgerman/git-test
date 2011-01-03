@@ -96,6 +96,25 @@ r_return
 id|err
 suffix:semicolon
 )brace
+DECL|function|buffer_read_char
+r_int
+id|buffer_read_char
+c_func
+(paren
+r_struct
+id|line_buffer
+op_star
+id|buf
+)paren
+(brace
+r_return
+id|fgetc
+c_func
+(paren
+id|buf-&gt;infile
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* Read a line without trailing newline. */
 DECL|function|buffer_read_line
 r_char
