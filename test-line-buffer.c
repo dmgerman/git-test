@@ -406,7 +406,7 @@ r_else
 id|usage
 c_func
 (paren
-l_string|&quot;test-line-buffer [file] &lt; script&quot;
+l_string|&quot;test-line-buffer [file | &amp;fd] &lt; script&quot;
 )paren
 suffix:semicolon
 r_if
@@ -436,6 +436,46 @@ id|filename
 r_if
 c_cond
 (paren
+op_star
+id|filename
+op_eq
+l_char|&squot;&amp;&squot;
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|buffer_fdinit
+c_func
+(paren
+op_amp
+id|file_buf
+comma
+id|strtouint32
+c_func
+(paren
+id|filename
+op_plus
+l_int|1
+)paren
+)paren
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;error opening fd %s&quot;
+comma
+id|filename
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
 id|buffer_init
 c_func
 (paren
@@ -453,6 +493,7 @@ comma
 id|filename
 )paren
 suffix:semicolon
+)brace
 id|input
 op_assign
 op_amp
