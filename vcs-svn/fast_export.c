@@ -187,6 +187,26 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
+DECL|function|fast_export_begin_commit
+r_void
+id|fast_export_begin_commit
+c_func
+(paren
+r_uint32
+id|revision
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;# commit %&quot;
+id|PRIu32
+l_string|&quot;.&bslash;n&quot;
+comma
+id|revision
+)paren
+suffix:semicolon
+)brace
 DECL|variable|gitsvnline
 r_static
 r_char

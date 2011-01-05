@@ -17,12 +17,15 @@ DECL|macro|NODEACT_CHANGE
 mdefine_line|#define NODEACT_CHANGE 1
 DECL|macro|NODEACT_UNKNOWN
 mdefine_line|#define NODEACT_UNKNOWN 0
+multiline_comment|/* States: */
 DECL|macro|DUMP_CTX
-mdefine_line|#define DUMP_CTX 0
+mdefine_line|#define DUMP_CTX 0&t;/* dump metadata */
 DECL|macro|REV_CTX
-mdefine_line|#define REV_CTX  1
+mdefine_line|#define REV_CTX  1&t;/* revision metadata */
 DECL|macro|NODE_CTX
-mdefine_line|#define NODE_CTX 2
+mdefine_line|#define NODE_CTX 2&t;/* node metadata */
+DECL|macro|INTERNODE_CTX
+mdefine_line|#define INTERNODE_CTX 3&t;/* between nodes */
 DECL|macro|LENGTH_UNKNOWN
 mdefine_line|#define LENGTH_UNKNOWN (~0)
 DECL|macro|DATE_RFC2822_LEN
@@ -1238,10 +1241,35 @@ id|input
 )paren
 suffix:semicolon
 )brace
-DECL|function|handle_revision
+DECL|function|begin_revision
 r_static
 r_void
-id|handle_revision
+id|begin_revision
+c_func
+(paren
+r_void
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev_ctx.revision
+)paren
+multiline_comment|/* revision 0 gets no git commit. */
+r_return
+suffix:semicolon
+id|fast_export_begin_commit
+c_func
+(paren
+id|rev_ctx.revision
+)paren
+suffix:semicolon
+)brace
+DECL|function|end_revision
+r_static
+r_void
+id|end_revision
 c_func
 (paren
 r_void
@@ -1438,10 +1466,22 @@ r_if
 c_cond
 (paren
 id|active_ctx
+op_eq
+id|REV_CTX
+)paren
+id|begin_revision
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|active_ctx
 op_ne
 id|DUMP_CTX
 )paren
-id|handle_revision
+id|end_revision
 c_func
 (paren
 )paren
@@ -1478,6 +1518,18 @@ op_eq
 id|NODE_CTX
 )paren
 id|handle_node
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|active_ctx
+op_eq
+id|REV_CTX
+)paren
+id|begin_revision
 c_func
 (paren
 )paren
@@ -1821,7 +1873,7 @@ c_func
 suffix:semicolon
 id|active_ctx
 op_assign
-id|REV_CTX
+id|INTERNODE_CTX
 suffix:semicolon
 )brace
 r_else
@@ -1866,10 +1918,22 @@ r_if
 c_cond
 (paren
 id|active_ctx
+op_eq
+id|REV_CTX
+)paren
+id|begin_revision
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|active_ctx
 op_ne
 id|DUMP_CTX
 )paren
-id|handle_revision
+id|end_revision
 c_func
 (paren
 )paren
