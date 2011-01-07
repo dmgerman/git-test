@@ -10592,6 +10592,13 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Disable MSVCRT command line wildcard expansion (__getmainargs called from&n; * mingw startup code, see init.c in mingw runtime).&n; */
+DECL|variable|_CRT_glob
+r_int
+id|_CRT_glob
+op_assign
+l_int|0
+suffix:semicolon
 DECL|function|mingw_startup
 r_void
 id|mingw_startup
