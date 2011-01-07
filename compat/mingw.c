@@ -2553,7 +2553,6 @@ id|buf
 r_int
 id|namelen
 suffix:semicolon
-r_static
 r_char
 id|alt_name
 (braket
