@@ -1,5 +1,4 @@
-macro_line|#include &quot;../git-compat-util.h&quot;
-macro_line|#include &quot;dirent.h&quot;
+macro_line|#include &quot;../../git-compat-util.h&quot;
 DECL|struct|DIR
 r_struct
 id|DIR
