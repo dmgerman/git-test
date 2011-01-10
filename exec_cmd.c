@@ -3,12 +3,6 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;quote.h&quot;
 DECL|macro|MAX_ARGS
 mdefine_line|#define MAX_ARGS&t;32
-r_extern
-r_char
-op_star
-op_star
-id|environ
-suffix:semicolon
 DECL|variable|argv_exec_path
 r_static
 r_const
