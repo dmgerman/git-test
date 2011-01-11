@@ -1129,7 +1129,8 @@ l_int|2
 id|die
 c_func
 (paren
-l_string|&quot;expected svn dump format version &lt;= 2, found %d&quot;
+l_string|&quot;expected svn dump format version &lt;= 2, found %&quot;
+id|PRIu32
 comma
 id|dump_ctx.version
 )paren
