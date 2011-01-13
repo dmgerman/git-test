@@ -67,9 +67,9 @@ l_string|&quot;&bslash;n&quot;
 l_string|&quot;    git config --global user.name &bslash;&quot;Your Name&bslash;&quot;&bslash;n&quot;
 l_string|&quot;    git config --global user.email you@example.com&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;If the identity used for this commit is wrong, you can fix it with:&bslash;n&quot;
+l_string|&quot;After doing this, you may fix the identity used for this commit with:&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;    git commit --amend --author=&squot;Your Name &lt;you@example.com&gt;&squot;&bslash;n&quot;
+l_string|&quot;    git commit --amend --reset-author&bslash;n&quot;
 suffix:semicolon
 DECL|variable|empty_amend_advice
 r_static
