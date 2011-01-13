@@ -5510,6 +5510,9 @@ id|len
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|lstat
 c_func
 (paren
@@ -5517,6 +5520,21 @@ id|path
 comma
 op_amp
 id|st
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;cannot stat &squot;%s&squot;: %s&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 r_return
