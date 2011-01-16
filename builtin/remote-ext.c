@@ -958,7 +958,7 @@ l_int|1
 )paren
 (brace
 r_int
-id|length
+id|i
 suffix:semicolon
 r_if
 c_cond
@@ -998,7 +998,7 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* Strip end of line characters. */
-id|length
+id|i
 op_assign
 id|strlen
 c_func
@@ -1009,16 +1009,16 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+id|i
+OG
+l_int|0
+op_logical_and
 id|isspace
 c_func
 (paren
-(paren
-r_int
-r_char
-)paren
 id|buffer
 (braket
-id|length
+id|i
 l_int|1
 )braket
 )paren
@@ -1026,7 +1026,7 @@ l_int|1
 id|buffer
 (braket
 op_decrement
-id|length
+id|i
 )braket
 op_assign
 l_int|0
