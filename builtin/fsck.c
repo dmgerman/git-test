@@ -358,6 +358,7 @@ id|parent
 op_assign
 id|data
 suffix:semicolon
+multiline_comment|/*&n;&t; * The only case data is NULL or type is OBJ_ANY is when&n;&t; * mark_object_reachable() calls us.  All the callers of&n;&t; * that function has non-NULL obj hence ...&n;&t; */
 r_if
 c_cond
 (paren
@@ -365,6 +366,7 @@ op_logical_neg
 id|obj
 )paren
 (brace
+multiline_comment|/* ... these references to parent-&gt;fld are safe here */
 id|printf
 c_func
 (paren
@@ -423,6 +425,7 @@ id|obj-&gt;type
 op_ne
 id|type
 )paren
+multiline_comment|/* ... and the reference to parent is safe here */
 id|objerror
 c_func
 (paren
@@ -560,11 +563,6 @@ r_struct
 id|object
 op_star
 id|obj
-comma
-r_struct
-id|object
-op_star
-id|parent
 )paren
 (brace
 r_int
@@ -706,8 +704,6 @@ id|traverse_one_object
 c_func
 (paren
 id|obj
-comma
-id|parent
 )paren
 suffix:semicolon
 )brace
@@ -2612,15 +2608,15 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|obj-&gt;used
+op_assign
+l_int|1
+suffix:semicolon
 id|mark_object_reachable
 c_func
 (paren
 id|obj
 )paren
-suffix:semicolon
-id|obj-&gt;used
-op_assign
-l_int|1
 suffix:semicolon
 r_if
 c_cond
