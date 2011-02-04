@@ -1034,6 +1034,12 @@ comma
 l_string|&quot;trace: run_command:&quot;
 )paren
 suffix:semicolon
+id|fflush
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
 macro_line|#ifndef WIN32
 (brace
 r_int
@@ -1062,12 +1068,6 @@ l_int|1
 )braket
 op_assign
 l_int|1
-suffix:semicolon
-id|fflush
-c_func
-(paren
-l_int|NULL
-)paren
 suffix:semicolon
 id|cmd-&gt;pid
 op_assign
