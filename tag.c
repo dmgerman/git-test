@@ -312,6 +312,7 @@ id|tag
 op_star
 id|item
 comma
+r_const
 r_void
 op_star
 id|data

@@ -1332,6 +1332,7 @@ id|commit
 op_star
 id|item
 comma
+r_const
 r_void
 op_star
 id|buffer
@@ -1341,12 +1342,14 @@ r_int
 id|size
 )paren
 (brace
+r_const
 r_char
 op_star
 id|tail
 op_assign
 id|buffer
 suffix:semicolon
+r_const
 r_char
 op_star
 id|bufptr
