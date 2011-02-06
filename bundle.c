@@ -1338,7 +1338,7 @@ op_assign
 id|xmalloc
 c_func
 (paren
-l_int|5
+l_int|6
 op_star
 r_sizeof
 (paren
@@ -2080,6 +2080,13 @@ suffix:semicolon
 id|argv_pack
 (braket
 l_int|4
+)braket
+op_assign
+l_string|&quot;--delta-base-offset&quot;
+suffix:semicolon
+id|argv_pack
+(braket
+l_int|5
 )braket
 op_assign
 l_int|NULL
