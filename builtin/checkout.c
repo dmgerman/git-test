@@ -2232,11 +2232,6 @@ ques
 c_cond
 id|old-&gt;commit-&gt;object.sha1
 suffix:colon
-(paren
-r_int
-r_char
-op_star
-)paren
 id|EMPTY_TREE_SHA1_BIN
 )paren
 suffix:semicolon

@@ -132,7 +132,7 @@ id|cached_object
 id|empty_tree
 op_assign
 (brace
-id|EMPTY_TREE_SHA1_BIN
+id|EMPTY_TREE_SHA1_BIN_LITERAL
 comma
 id|OBJ_TREE
 comma
