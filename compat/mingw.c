@@ -972,6 +972,36 @@ r_return
 id|error
 suffix:semicolon
 )brace
+DECL|macro|unlink
+macro_line|#undef unlink
+DECL|function|mingw_unlink
+r_int
+id|mingw_unlink
+c_func
+(paren
+r_const
+r_char
+op_star
+id|pathname
+)paren
+(brace
+multiline_comment|/* read-only files cannot be removed */
+id|chmod
+c_func
+(paren
+id|pathname
+comma
+l_int|0666
+)paren
+suffix:semicolon
+r_return
+id|unlink
+c_func
+(paren
+id|pathname
+)paren
+suffix:semicolon
+)brace
 DECL|macro|open
 macro_line|#undef open
 DECL|function|mingw_open
