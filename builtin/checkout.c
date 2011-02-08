@@ -54,6 +54,10 @@ DECL|member|force
 r_int
 id|force
 suffix:semicolon
+DECL|member|force_detach
+r_int
+id|force_detach
+suffix:semicolon
 DECL|member|writeout_stage
 r_int
 id|writeout_stage
@@ -2969,6 +2973,8 @@ r_else
 r_if
 c_cond
 (paren
+id|opts-&gt;force_detach
+op_logical_or
 id|strcmp
 c_func
 (paren
@@ -3057,6 +3063,10 @@ r_new
 op_member_access_from_pointer
 id|path
 op_logical_or
+(paren
+op_logical_neg
+id|opts-&gt;force_detach
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -3066,6 +3076,7 @@ op_member_access_from_pointer
 id|name
 comma
 l_string|&quot;HEAD&quot;
+)paren
 )paren
 )paren
 )paren
@@ -3637,6 +3648,9 @@ comma
 r_int
 id|dwim_new_local_branch_ok
 comma
+r_int
+id|force_detach
+comma
 r_struct
 id|branch_info
 op_star
@@ -3870,6 +3884,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|force_detach
+op_logical_and
 id|check_ref_format
 c_func
 (paren
@@ -4130,6 +4147,19 @@ comma
 l_string|&quot;create reflog for new branch&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;detach&quot;
+comma
+op_amp
+id|opts.force_detach
+comma
+l_string|&quot;detach the HEAD at named commit&quot;
+)paren
+comma
 id|OPT_SET_INT
 c_func
 (paren
@@ -4375,11 +4405,45 @@ op_logical_or
 id|opts.merge
 op_logical_or
 id|opts.force
+op_logical_or
+id|opts.force_detach
 )paren
 )paren
 id|die
 (paren
 l_string|&quot;--patch is incompatible with all other options&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts.force_detach
+op_logical_and
+(paren
+id|opts.new_branch
+op_logical_or
+id|opts.new_orphan_branch
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--detach cannot be used with -b/-B/--orphan&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts.force_detach
+op_logical_and
+l_int|0
+OL
+id|opts.track
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--detach cannot be used with -t&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* --track without -b should DWIM */
@@ -4594,6 +4658,8 @@ id|argv
 comma
 id|dwim_ok
 comma
+id|opts.force_detach
+comma
 op_amp
 r_new
 comma
@@ -4714,6 +4780,17 @@ l_string|&quot;git checkout: updating paths is incompatible with switching branc
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|opts.force_detach
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git checkout: --detach does not take a path argument&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
