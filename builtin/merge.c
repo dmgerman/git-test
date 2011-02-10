@@ -53,9 +53,11 @@ id|builtin_merge_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git merge [options] &lt;remote&gt;...&quot;
+l_string|&quot;git merge [options] &lt;commit&gt;...&quot;
 comma
-l_string|&quot;git merge [options] &lt;msg&gt; HEAD &lt;remote&gt;&quot;
+l_string|&quot;git merge [options] &lt;msg&gt; HEAD &lt;commit&gt;&quot;
+comma
+l_string|&quot;git merge --abort&quot;
 comma
 l_int|NULL
 )brace
