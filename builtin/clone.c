@@ -248,7 +248,7 @@ c_func
 (paren
 l_int|0
 comma
-l_string|&quot;recurse_submodules&quot;
+l_string|&quot;recurse-submodules&quot;
 comma
 op_amp
 id|option_recursive
