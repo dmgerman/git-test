@@ -2361,7 +2361,7 @@ comma
 (brace
 l_string|&quot;repo-config&quot;
 comma
-id|cmd_config
+id|cmd_repo_config
 comma
 id|RUN_SETUP_GENTLY
 )brace
