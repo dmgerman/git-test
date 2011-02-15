@@ -434,7 +434,7 @@ comma
 op_amp
 id|logfile
 comma
-l_string|&quot;read log from file&quot;
+l_string|&quot;read message from file&quot;
 )paren
 comma
 id|OPT_STRING

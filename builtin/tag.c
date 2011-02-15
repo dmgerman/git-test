@@ -2054,7 +2054,7 @@ comma
 op_amp
 id|msgfile
 comma
-l_string|&quot;message in a file&quot;
+l_string|&quot;read message from file&quot;
 )paren
 comma
 id|OPT_BOOLEAN
