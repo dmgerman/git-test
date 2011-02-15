@@ -803,7 +803,7 @@ id|untracked_files_arg
 comma
 l_string|&quot;mode&quot;
 comma
-l_string|&quot;show untracked files, optional modes: all, normal, no (Default: all)&quot;
+l_string|&quot;show untracked files, optional modes: all, normal, no. (Default: all)&quot;
 comma
 id|PARSE_OPT_OPTARG
 comma
