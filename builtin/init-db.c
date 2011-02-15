@@ -2112,7 +2112,7 @@ id|template_dir
 comma
 l_string|&quot;template-directory&quot;
 comma
-l_string|&quot;provide the directory from which templates will be used&quot;
+l_string|&quot;directory from which templates will be used&quot;
 )paren
 comma
 id|OPT_SET_INT

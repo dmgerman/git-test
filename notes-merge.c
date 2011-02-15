@@ -3339,11 +3339,6 @@ id|null_sha1
 suffix:semicolon
 id|base_tree_sha1
 op_assign
-(paren
-r_int
-r_char
-op_star
-)paren
 id|EMPTY_TREE_SHA1_BIN
 suffix:semicolon
 id|OUTPUT

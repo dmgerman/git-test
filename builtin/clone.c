@@ -266,9 +266,9 @@ comma
 op_amp
 id|option_template
 comma
-l_string|&quot;path&quot;
+l_string|&quot;template-directory&quot;
 comma
-l_string|&quot;path the template repository&quot;
+l_string|&quot;directory from which templates will be used&quot;
 )paren
 comma
 id|OPT_STRING

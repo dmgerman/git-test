@@ -434,7 +434,7 @@ comma
 op_amp
 id|logfile
 comma
-l_string|&quot;read log from file&quot;
+l_string|&quot;read message from file&quot;
 )paren
 comma
 id|OPT_STRING
@@ -479,7 +479,7 @@ id|message
 comma
 l_string|&quot;MESSAGE&quot;
 comma
-l_string|&quot;specify commit message&quot;
+l_string|&quot;commit message&quot;
 comma
 id|opt_parse_m
 )paren
@@ -747,7 +747,7 @@ comma
 op_amp
 id|status_format
 comma
-l_string|&quot;show porcelain output format&quot;
+l_string|&quot;machine-readable output&quot;
 comma
 id|STATUS_FORMAT_PORCELAIN
 )paren
@@ -803,7 +803,7 @@ id|untracked_files_arg
 comma
 l_string|&quot;mode&quot;
 comma
-l_string|&quot;show untracked files, optional modes: all, normal, no (Default: all)&quot;
+l_string|&quot;show untracked files, optional modes: all, normal, no. (Default: all)&quot;
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -5903,7 +5903,7 @@ comma
 op_amp
 id|status_format
 comma
-l_string|&quot;show porcelain output format&quot;
+l_string|&quot;machine-readable output&quot;
 comma
 id|STATUS_FORMAT_PORCELAIN
 )paren

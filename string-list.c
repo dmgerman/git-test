@@ -895,6 +895,15 @@ op_star
 )paren
 id|string
 suffix:semicolon
+id|list-&gt;items
+(braket
+id|list-&gt;nr
+)braket
+dot
+id|util
+op_assign
+l_int|NULL
+suffix:semicolon
 r_return
 id|list-&gt;items
 op_plus

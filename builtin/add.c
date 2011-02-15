@@ -1696,7 +1696,7 @@ comma
 op_amp
 id|patch_interactive
 comma
-l_string|&quot;interactive patching&quot;
+l_string|&quot;select hunks interactively&quot;
 )paren
 comma
 id|OPT_BOOLEAN

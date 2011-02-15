@@ -2037,9 +2037,9 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;msg&quot;
+l_string|&quot;MESSAGE&quot;
 comma
-l_string|&quot;message for the tag&quot;
+l_string|&quot;tag message&quot;
 comma
 id|parse_msg_arg
 )paren
@@ -2054,7 +2054,7 @@ comma
 op_amp
 id|msgfile
 comma
-l_string|&quot;message in a file&quot;
+l_string|&quot;read message from file&quot;
 )paren
 comma
 id|OPT_BOOLEAN

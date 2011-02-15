@@ -1072,9 +1072,9 @@ comma
 op_amp
 id|merge_msg
 comma
-l_string|&quot;message&quot;
+l_string|&quot;MESSAGE&quot;
 comma
-l_string|&quot;message to be used for the merge commit (if any)&quot;
+l_string|&quot;merge commit message (for a non-fast-forward merge)&quot;
 comma
 id|option_parse_message
 )paren
