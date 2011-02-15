@@ -343,7 +343,7 @@ comma
 op_amp
 id|file
 comma
-l_string|&quot;set file to &lt;FILE&gt;&quot;
+l_string|&quot;set file to &lt;file&gt;&quot;
 )paren
 comma
 id|OPT_GROUP
