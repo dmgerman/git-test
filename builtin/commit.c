@@ -479,7 +479,7 @@ id|message
 comma
 l_string|&quot;MESSAGE&quot;
 comma
-l_string|&quot;specify commit message&quot;
+l_string|&quot;commit message&quot;
 comma
 id|opt_parse_m
 )paren
