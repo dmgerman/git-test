@@ -465,9 +465,9 @@ l_string|&quot;index-output&quot;
 comma
 l_int|NULL
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
-l_string|&quot;write resulting index to &lt;FILE&gt;&quot;
+l_string|&quot;write resulting index to &lt;file&gt;&quot;
 comma
 id|PARSE_OPT_NONEG
 comma
