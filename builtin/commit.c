@@ -747,7 +747,7 @@ comma
 op_amp
 id|status_format
 comma
-l_string|&quot;show porcelain output format&quot;
+l_string|&quot;machine-readable output&quot;
 comma
 id|STATUS_FORMAT_PORCELAIN
 )paren
@@ -5903,7 +5903,7 @@ comma
 op_amp
 id|status_format
 comma
-l_string|&quot;show porcelain output format&quot;
+l_string|&quot;machine-readable output&quot;
 comma
 id|STATUS_FORMAT_PORCELAIN
 )paren
