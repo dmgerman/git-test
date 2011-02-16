@@ -15236,6 +15236,23 @@ l_int|1
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|feature
+comma
+l_string|&quot;notes&quot;
+)paren
+)paren
+(brace
+suffix:semicolon
+multiline_comment|/* do nothing; we have the feature */
+)brace
+r_else
 (brace
 r_return
 l_int|0
