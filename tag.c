@@ -612,6 +612,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|bufptr
+op_plus
+l_int|4
+OL
+id|tail
+op_logical_and
+op_logical_neg
 id|prefixcmp
 c_func
 (paren
@@ -620,6 +627,9 @@ comma
 l_string|&quot;tag &quot;
 )paren
 )paren
+suffix:semicolon
+multiline_comment|/* good */
+r_else
 r_return
 l_int|1
 suffix:semicolon
@@ -669,6 +679,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|bufptr
+op_plus
+l_int|7
+OL
+id|tail
+op_logical_and
 op_logical_neg
 id|prefixcmp
 c_func
