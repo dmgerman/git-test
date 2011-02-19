@@ -2161,7 +2161,7 @@ ques
 c_cond
 id|o-&gt;diff_rename_limit
 suffix:colon
-l_int|500
+l_int|1000
 suffix:semicolon
 id|opts.rename_score
 op_assign
