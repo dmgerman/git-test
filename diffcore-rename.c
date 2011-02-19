@@ -1130,6 +1130,11 @@ r_struct
 id|file_similarity
 op_star
 id|dst
+comma
+r_struct
+id|diff_options
+op_star
+id|options
 )paren
 (brace
 r_int
@@ -1372,6 +1377,10 @@ c_func
 r_void
 op_star
 id|ptr
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_int
@@ -1395,6 +1404,13 @@ op_star
 id|dst
 op_assign
 l_int|NULL
+suffix:semicolon
+r_struct
+id|diff_options
+op_star
+id|options
+op_assign
+id|data
 suffix:semicolon
 multiline_comment|/* Split the hash list up into sources and destinations */
 r_do
@@ -1461,6 +1477,8 @@ c_func
 id|src
 comma
 id|dst
+comma
+id|options
 )paren
 suffix:colon
 l_int|0
@@ -1660,7 +1678,10 @@ r_int
 id|find_exact_renames
 c_func
 (paren
-r_void
+r_struct
+id|diff_options
+op_star
+id|options
 )paren
 (brace
 r_int
@@ -1751,6 +1772,8 @@ op_amp
 id|file_table
 comma
 id|find_same_files
+comma
+id|options
 )paren
 suffix:semicolon
 multiline_comment|/* .. and free the hash data structure */
@@ -2081,6 +2104,7 @@ op_assign
 id|find_exact_renames
 c_func
 (paren
+id|options
 )paren
 suffix:semicolon
 multiline_comment|/* Did we only want exact renames? */

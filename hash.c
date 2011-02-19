@@ -388,7 +388,14 @@ id|fn
 (paren
 r_void
 op_star
+comma
+r_void
+op_star
 )paren
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_int
@@ -450,6 +457,8 @@ id|fn
 c_func
 (paren
 id|ptr
+comma
+id|data
 )paren
 suffix:semicolon
 r_if
