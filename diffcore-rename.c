@@ -2117,6 +2117,10 @@ r_goto
 id|cleanup
 suffix:semicolon
 multiline_comment|/*&n;&t; * This basically does a test for the rename matrix not&n;&t; * growing larger than a &quot;rename_limit&quot; square matrix, ie:&n;&t; *&n;&t; *    num_create * num_src &gt; rename_limit * rename_limit&n;&t; *&n;&t; * but handles the potential overflow case specially (and we&n;&t; * assume at least 32-bit integers)&n;&t; */
+id|options-&gt;needed_rename_limit
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2156,20 +2160,16 @@ id|rename_limit
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|options-&gt;warn_on_too_large_rename
-)paren
-id|warning
-c_func
-(paren
-l_string|&quot;too many files (created: %d deleted: %d), skipping inexact rename detection&quot;
-comma
-id|num_create
-comma
+id|options-&gt;needed_rename_limit
+op_assign
 id|num_src
-)paren
+OG
+id|num_create
+ques
+c_cond
+id|num_src
+suffix:colon
+id|num_create
 suffix:semicolon
 r_goto
 id|cleanup
