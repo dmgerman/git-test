@@ -6620,10 +6620,6 @@ id|rev.diffopt.detect_rename
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.diffopt.rename_limit
-op_assign
-l_int|100
-suffix:semicolon
 id|rev.diffopt.break_opt
 op_assign
 l_int|0
