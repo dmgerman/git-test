@@ -768,7 +768,7 @@ multiline_comment|/* We would not consider edits that change the file size so&n;
 r_if
 c_cond
 (paren
-id|base_size
+id|max_size
 op_star
 (paren
 id|MAX_SCORE
