@@ -838,11 +838,7 @@ c_cond
 (paren
 id|flags
 op_amp
-(paren
-id|FL_SYMLINK
-op_or
 id|FL_NOENT
-)paren
 )paren
 r_return
 l_int|0
