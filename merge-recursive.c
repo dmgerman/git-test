@@ -2167,6 +2167,10 @@ id|opts.rename_score
 op_assign
 id|o-&gt;rename_score
 suffix:semicolon
+id|opts.show_rename_progress
+op_assign
+id|o-&gt;show_rename_progress
+suffix:semicolon
 id|opts.output_format
 op_assign
 id|DIFF_FORMAT_NO_OUTPUT
