@@ -5916,6 +5916,40 @@ l_string|&quot;You have not concluded your merge (MERGE_HEAD exists).&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|file_exists
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|advice_resolve_conflict
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).&bslash;n&quot;
+l_string|&quot;Please, commit your changes before you can merge.&quot;
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).&quot;
+)paren
+suffix:semicolon
+)brace
 id|resolve_undo_clear
 c_func
 (paren
