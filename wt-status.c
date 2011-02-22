@@ -727,7 +727,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Unmerged paths:&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -758,7 +762,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+)paren
 comma
 id|s-&gt;reference
 )paren
@@ -771,7 +779,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+)paren
 )paren
 suffix:semicolon
 id|status_printf_ln
@@ -781,7 +793,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; as appropriate to mark resolution)&quot;
+)paren
 )paren
 suffix:semicolon
 id|status_printf_ln
@@ -859,7 +875,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+)paren
 comma
 id|s-&gt;reference
 )paren
@@ -872,7 +892,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+)paren
 )paren
 suffix:semicolon
 id|status_printf_ln
@@ -924,7 +948,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Changes not staged for commit:&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -948,7 +976,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -959,7 +991,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
+)paren
 )paren
 suffix:semicolon
 id|status_printf_ln
@@ -969,7 +1005,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git checkout -- &lt;file&gt;...&bslash;&quot; to discard changes in working directory)&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -984,7 +1024,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (commit or discard the untracked or modified content in submodules)&quot;
+)paren
 )paren
 suffix:semicolon
 id|status_printf_ln
@@ -1040,7 +1084,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;%s files:&quot;
+)paren
 comma
 id|what
 )paren
@@ -1060,7 +1108,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  (use &bslash;&quot;git %s &lt;file&gt;...&bslash;&quot; to include in what will be committed)&quot;
+)paren
 comma
 id|how
 )paren
@@ -1158,7 +1210,11 @@ comma
 op_star
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;bug&quot;
+)paren
 suffix:semicolon
 id|one
 op_assign
@@ -1202,7 +1258,11 @@ l_int|1
 suffix:colon
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;both deleted:&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1211,7 +1271,11 @@ l_int|2
 suffix:colon
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;added by us:&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1220,7 +1284,11 @@ l_int|3
 suffix:colon
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;deleted by them:&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1229,7 +1297,11 @@ l_int|4
 suffix:colon
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;added by them:&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1238,7 +1310,11 @@ l_int|5
 suffix:colon
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;deleted by us:&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1247,7 +1323,11 @@ l_int|6
 suffix:colon
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;both added:&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1256,7 +1336,11 @@ l_int|7
 suffix:colon
 id|how
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;both modified:&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1421,7 +1505,11 @@ c_func
 op_amp
 id|extra
 comma
+id|_
+c_func
+(paren
 l_string|&quot;new commits, &quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1437,7 +1525,11 @@ c_func
 op_amp
 id|extra
 comma
+id|_
+c_func
+(paren
 l_string|&quot;modified content, &quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1453,7 +1545,11 @@ c_func
 op_amp
 id|extra
 comma
+id|_
+c_func
+(paren
 l_string|&quot;untracked content, &quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_setlen
@@ -1545,7 +1641,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;new file:   %s&quot;
+)paren
 comma
 id|one
 )paren
@@ -1562,7 +1662,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;copied:     %s -&gt; %s&quot;
+)paren
 comma
 id|one
 comma
@@ -1581,7 +1685,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;deleted:    %s&quot;
+)paren
 comma
 id|one
 )paren
@@ -1598,7 +1706,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;modified:   %s&quot;
+)paren
 comma
 id|one
 )paren
@@ -1634,7 +1746,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;typechange: %s&quot;
+)paren
 comma
 id|one
 )paren
@@ -1651,7 +1767,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;unknown:    %s&quot;
+)paren
 comma
 id|one
 )paren
@@ -1668,7 +1788,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;unmerged:   %s&quot;
+)paren
 comma
 id|one
 )paren
@@ -1680,7 +1804,11 @@ suffix:colon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bug: unhandled diff status %c&quot;
+)paren
 comma
 id|status
 )paren
@@ -3947,7 +4075,11 @@ r_char
 op_star
 id|on_what
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;On branch &quot;
+)paren
 suffix:semicolon
 r_const
 r_char
@@ -4002,7 +4134,11 @@ id|s
 suffix:semicolon
 id|on_what
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Not currently on any branch.&quot;
+)paren
 suffix:semicolon
 )brace
 id|status_printf
@@ -4183,7 +4319,11 @@ comma
 op_amp
 id|s-&gt;untracked
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Untracked&quot;
+)paren
 comma
 l_string|&quot;add&quot;
 )paren
@@ -4201,7 +4341,11 @@ comma
 op_amp
 id|s-&gt;ignored
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Ignored&quot;
+)paren
 comma
 l_string|&quot;add -f&quot;
 )paren
@@ -4220,12 +4364,20 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Untracked files not listed%s&quot;
+)paren
 comma
 id|advice_status_hints
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (use -u option to show untracked files)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -4260,7 +4412,11 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+id|_
+c_func
+(paren
 l_string|&quot;No changes&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -4280,12 +4436,20 @@ id|s-&gt;workdir_dirty
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no changes added to commit%s&bslash;n&quot;
+)paren
 comma
 id|advice_status_hints
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit -a&bslash;&quot;)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -4299,12 +4463,20 @@ id|s-&gt;untracked.nr
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;nothing added to commit but untracked files present%s&bslash;n&quot;
+)paren
 comma
 id|advice_status_hints
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (use &bslash;&quot;git add&bslash;&quot; to track)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
