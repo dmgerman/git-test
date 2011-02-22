@@ -2004,10 +2004,15 @@ id|index_lock
 )paren
 )paren
 )paren
+multiline_comment|/* TRANSLATORS: %s will be &quot;revert&quot; or &quot;cherry-pick&quot; */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: Unable to write new index file&quot;
+)paren
 comma
 id|me
 )paren
@@ -2555,10 +2560,15 @@ id|parent
 OL
 l_int|0
 )paren
+multiline_comment|/* TRANSLATORS: The first %s will be &quot;revert&quot; or&n;&t;&t;   &quot;cherry-pick&quot;, the second %s a SHA1 */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: cannot parse parent commit %s&quot;
+)paren
 comma
 id|me
 comma
