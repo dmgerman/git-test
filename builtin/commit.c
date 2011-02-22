@@ -3784,12 +3784,16 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+id|_
+c_func
+(paren
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;It looks like you may be committing a MERGE.&bslash;n&quot;
 l_string|&quot;If this is not correct, please remove the file&bslash;n&quot;
 l_string|&quot;&t;%s&bslash;n&quot;
 l_string|&quot;and try again.&bslash;n&quot;
 l_string|&quot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -3901,8 +3905,12 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+id|_
+c_func
+(paren
 l_string|&quot;%s&quot;
 l_string|&quot;Author:    %s&quot;
+)paren
 comma
 id|ident_shown
 op_increment
@@ -3931,8 +3939,12 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+id|_
+c_func
+(paren
 l_string|&quot;%s&quot;
 l_string|&quot;Committer: %s&quot;
+)paren
 comma
 id|ident_shown
 op_increment
