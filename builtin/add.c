@@ -247,7 +247,11 @@ id|ADD_CACHE_VERBOSE
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;remove &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 id|path
 )paren
