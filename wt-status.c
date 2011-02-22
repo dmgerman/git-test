@@ -5282,7 +5282,11 @@ l_string|&quot;HEAD&quot;
 (brace
 id|branch_name
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;HEAD (no branch)&quot;
+)paren
 suffix:semicolon
 id|branch_color_local
 op_assign
@@ -5317,7 +5321,11 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Initial commit on &quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5429,7 +5437,11 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
+id|_
+c_func
+(paren
 l_string|&quot;behind &quot;
+)paren
 )paren
 suffix:semicolon
 id|color_fprintf
@@ -5460,7 +5472,11 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
+id|_
+c_func
+(paren
 l_string|&quot;ahead &quot;
+)paren
 )paren
 suffix:semicolon
 id|color_fprintf
@@ -5485,7 +5501,11 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
+id|_
+c_func
+(paren
 l_string|&quot;ahead &quot;
+)paren
 )paren
 suffix:semicolon
 id|color_fprintf
@@ -5507,7 +5527,11 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
+id|_
+c_func
+(paren
 l_string|&quot;, behind &quot;
+)paren
 )paren
 suffix:semicolon
 id|color_fprintf
