@@ -2051,12 +2051,17 @@ c_cond
 op_logical_neg
 id|c-&gt;combine
 )paren
+multiline_comment|/* TRANSLATORS: The first %s is the name of the&n;&t;&t;&t;   environment variable, the second %s is its value */
 id|error
 c_func
 (paren
-l_string|&quot;Bad &quot;
+id|_
+c_func
+(paren
+l_string|&quot;Bad %s value: &squot;%s&squot;&quot;
+)paren
+comma
 id|GIT_NOTES_REWRITE_MODE_ENVIRONMENT
-l_string|&quot; value: &squot;%s&squot;&quot;
 comma
 id|rewrite_mode_env
 )paren
