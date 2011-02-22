@@ -1296,7 +1296,11 @@ l_string|&quot;= %-*s %-*s -&gt; %s&quot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[up to date]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
@@ -1347,11 +1351,19 @@ c_func
 (paren
 id|display
 comma
+id|_
+c_func
+(paren
 l_string|&quot;! %-*s %-*s -&gt; %s  (can&squot;t fetch in current branch)&quot;
+)paren
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[rejected]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
@@ -1415,7 +1427,11 @@ l_char|&squot;-&squot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[tag update]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
@@ -1426,7 +1442,11 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;  (unable to update local ref)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -2415,7 +2435,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;From %.*s&bslash;n&quot;
+)paren
 comma
 id|url_len
 comma
@@ -2863,9 +2887,17 @@ op_assign
 id|dry_run
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;   (%s will become dangling)&bslash;n&quot;
+)paren
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;   (%s has become dangling)&bslash;n&quot;
+)paren
 suffix:semicolon
 r_for
 c_loop
@@ -2916,11 +2948,19 @@ l_string|&quot; x %-*s %-*s -&gt; %s&bslash;n&quot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[deleted]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(none)&quot;
+)paren
 comma
 id|prettify_refname
 c_func
