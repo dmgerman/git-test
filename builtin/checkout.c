@@ -1676,6 +1676,7 @@ r_void
 id|describe_detached_head
 c_func
 (paren
+r_const
 r_char
 op_star
 id|msg
