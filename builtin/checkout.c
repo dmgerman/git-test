@@ -2921,6 +2921,7 @@ comma
 id|old-&gt;path
 )paren
 )paren
+(brace
 id|fprintf
 c_func
 (paren
@@ -2937,25 +2938,29 @@ op_member_access_from_pointer
 id|name
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
 (paren
 id|opts-&gt;new_branch
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|opts-&gt;branch_exists
+)paren
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Switched to%s branch &squot;%s&squot;&bslash;n&quot;
-comma
-id|opts-&gt;branch_exists
-ques
-c_cond
-l_string|&quot; and reset&quot;
-suffix:colon
-l_string|&quot; a new&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Switched to and reset branch &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 r_new
 op_member_access_from_pointer
@@ -2963,6 +2968,25 @@ id|name
 )paren
 suffix:semicolon
 r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Switched to a new branch &squot;%s&squot;&bslash;n&quot;
+)paren
+comma
+r_new
+op_member_access_from_pointer
+id|name
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|fprintf
 c_func
 (paren
@@ -2979,6 +3003,7 @@ op_member_access_from_pointer
 id|name
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
