@@ -4233,7 +4233,11 @@ comma
 id|s
 )paren
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Initial commit&quot;
+)paren
 )paren
 suffix:semicolon
 id|status_printf_ln
