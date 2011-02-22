@@ -1873,22 +1873,39 @@ c_func
 id|git_dir
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * TRANSLATORS: The first &squot;%s&squot; is either &quot;Reinitialized&n;&t;&t; * existing&quot; or &quot;Initialized empty&quot;, the second &quot; shared&quot; or&n;&t;&t; * &quot;&quot;, and the last &squot;%s%s&squot; is the verbatim directory name.&n;&t;&t; */
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s%s Git repository in %s%s&bslash;n&quot;
+)paren
 comma
 id|reinit
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;Reinitialized existing&quot;
+)paren
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;Initialized empty&quot;
+)paren
 comma
 id|shared_repository
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; shared&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 comma
