@@ -3367,7 +3367,11 @@ id|old.commit
 id|describe_detached_head
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Previous HEAD position was&quot;
+)paren
 comma
 id|old.commit
 )paren
