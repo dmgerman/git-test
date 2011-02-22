@@ -6146,7 +6146,11 @@ id|DIFF_FORMAT_NAME
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--name-only does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6159,7 +6163,11 @@ id|DIFF_FORMAT_NAME_STATUS
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--name-status does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6172,7 +6180,11 @@ id|DIFF_FORMAT_CHECKDIFF
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--check does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
