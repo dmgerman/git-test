@@ -5011,7 +5011,11 @@ id|in_merge
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You are in the middle of a merge -- cannot amend.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5024,7 +5028,11 @@ id|squash_message
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Options --squash and --fixup cannot be used together&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
