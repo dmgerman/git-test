@@ -977,7 +977,11 @@ id|ref_map
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Couldn&squot;t find remote ref HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 id|ref_map-&gt;merge
@@ -1250,7 +1254,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;object %s not found&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1891,7 +1899,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot open %s: %s&bslash;n&quot;
+)paren
 comma
 id|filename
 comma
@@ -2456,9 +2468,13 @@ id|STORE_REF_ERROR_DF_CONFLICT
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;some local refs could not be updated; try running&bslash;n&quot;
 l_string|&quot; &squot;git remote prune %s&squot; to remove any old, conflicting &quot;
 l_string|&quot;branches&quot;
+)paren
 comma
 id|remote_name
 )paren
@@ -2585,7 +2601,11 @@ id|err
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not run rev-list&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2659,7 +2679,11 @@ id|EINVAL
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed write to rev-list: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -2689,7 +2713,11 @@ id|revlist.in
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to close rev-list&squot;s stdin: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -3434,8 +3462,12 @@ id|ref_map-&gt;peer_ref-&gt;name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Refusing to fetch into current branch %s &quot;
 l_string|&quot;of non-bare repository&quot;
+)paren
 comma
 id|current_branch-&gt;refname
 )paren
@@ -3482,7 +3514,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot open %s: %s&bslash;n&quot;
+)paren
 comma
 id|filename
 comma
@@ -3607,7 +3643,11 @@ id|transport-&gt;fetch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Don&squot;t know how to fetch from %s&quot;
+)paren
 comma
 id|transport-&gt;url
 )paren
@@ -3897,7 +3937,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Option &bslash;&quot;%s&bslash;&quot; value &bslash;&quot;%s&bslash;&quot; is not valid for %s&quot;
+)paren
 comma
 id|name
 comma
@@ -3916,7 +3960,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Option &bslash;&quot;%s&bslash;&quot; is ignored for %s&bslash;n&quot;
+)paren
 comma
 id|name
 comma
@@ -4494,7 +4542,11 @@ l_int|0
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Fetching %s&bslash;n&quot;
+)paren
 comma
 id|name
 )paren
@@ -4514,7 +4566,11 @@ id|RUN_GIT_CMD
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not fetch %s&quot;
+)paren
 comma
 id|name
 )paren
@@ -4579,8 +4635,12 @@ id|remote
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No remote repository specified.  Please, specify either a URL or a&bslash;n&quot;
 l_string|&quot;remote name from which new revisions should be fetched.&quot;
+)paren
 )paren
 suffix:semicolon
 id|transport
@@ -4720,7 +4780,11 @@ id|argc
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You need to specify a tag name.&quot;
+)paren
 )paren
 suffix:semicolon
 id|ref
@@ -4969,7 +5033,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;fetch --all does not take a repository argument&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -4983,7 +5051,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;fetch --all does not make sense with refspecs&quot;
+)paren
 )paren
 suffix:semicolon
 (paren
@@ -5080,7 +5152,11 @@ id|list
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such remote or remote group: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -5135,7 +5211,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Fetching a group and specifying refspecs does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 id|result
