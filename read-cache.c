@@ -4978,6 +4978,7 @@ r_int
 op_star
 id|first
 comma
+r_const
 r_char
 op_star
 id|header_msg
@@ -5041,6 +5042,7 @@ r_char
 op_star
 id|seen
 comma
+r_const
 r_char
 op_star
 id|header_msg
