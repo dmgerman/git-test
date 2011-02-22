@@ -691,9 +691,14 @@ id|fmt
 op_assign
 l_string|&quot;refs/remotes/%s&quot;
 suffix:semicolon
+multiline_comment|/* TRANSLATORS: This is &quot;remote &quot; in &quot;remote branch &squot;%s&squot; not found&quot; */
 id|remote
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;remote &quot;
+)paren
 suffix:semicolon
 id|force
 op_assign
