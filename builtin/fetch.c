@@ -1822,17 +1822,27 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;! %-*s %-*s -&gt; %s  (non-fast-forward)&quot;
+l_string|&quot;! %-*s %-*s -&gt; %s  %s&quot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[rejected]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
 id|remote
 comma
 id|pretty_ref
+comma
+id|_
+c_func
+(paren
+l_string|&quot;(non-fast-forward)&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
