@@ -6897,14 +6897,22 @@ l_string|&quot;HEAD&quot;
 )paren
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;detached HEAD&quot;
+)paren
 suffix:colon
 id|head
 comma
 id|initial_commit
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (root-commit)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
