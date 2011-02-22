@@ -5623,7 +5623,11 @@ id|list.nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--open-files-in-pager only works on the worktree&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
