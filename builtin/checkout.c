@@ -566,7 +566,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;path &squot;%s&squot; does not have all three versions&quot;
+)paren
 comma
 id|ce-&gt;name
 )paren
@@ -802,7 +806,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;path &squot;%s&squot; does not have all 3 versions&quot;
+)paren
 comma
 id|path
 )paren
@@ -921,7 +929,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;path &squot;%s&squot;: cannot merge&quot;
+)paren
 comma
 id|path
 )paren
@@ -946,7 +958,11 @@ id|sha1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to add merge result for &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -987,7 +1003,11 @@ id|ce
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;make_cache_entry failed for path &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -1118,7 +1138,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;corrupt index file&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1301,7 +1325,11 @@ id|opts-&gt;force
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;path &squot;%s&squot; is unmerged&quot;
+)paren
 comma
 id|ce-&gt;name
 )paren
@@ -1354,7 +1382,11 @@ suffix:semicolon
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;path &squot;%s&squot; is unmerged&quot;
+)paren
 comma
 id|ce-&gt;name
 )paren
@@ -1550,7 +1582,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|resolve_ref
@@ -1646,7 +1682,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;diff_setup_done failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|add_pending_object
@@ -2053,7 +2093,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;corrupt index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|resolve_undo_clear
@@ -2163,7 +2207,11 @@ c_func
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;you need to resolve your current index first&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2462,7 +2510,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2699,7 +2751,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Can not do reflog for &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 id|opts-&gt;new_orphan_branch
 )paren
@@ -2842,7 +2898,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Already on &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 r_new
 op_member_access_from_pointer
@@ -2880,7 +2940,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Switched to branch &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 r_new
 op_member_access_from_pointer
@@ -3217,7 +3281,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You are on a branch yet to be born&quot;
+)paren
 )paren
 suffix:semicolon
 id|parse_commit
@@ -3951,7 +4019,11 @@ id|opts.new_branch_force
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;-B cannot be used with -b&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* copy -B over to -b, so that we can just check the latter */
@@ -3985,7 +4057,11 @@ id|opts.force
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--patch is incompatible with all other options&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* --track without -b should DWIM */
@@ -4027,7 +4103,11 @@ l_string|&quot;--&quot;
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--track needs a branch name&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4086,7 +4166,11 @@ l_int|1
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Missing branch name; try -b&quot;
+)paren
 )paren
 suffix:semicolon
 id|opts.new_branch
@@ -4110,7 +4194,11 @@ id|opts.new_branch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--orphan and -b|-B are mutually exclusive&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4123,7 +4211,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--orphan cannot be used with -t&quot;
+)paren
 )paren
 suffix:semicolon
 id|opts.new_branch
@@ -4163,7 +4255,11 @@ id|opts.merge
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: -f and -m are incompatible&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * case 1: git checkout &lt;ref&gt; -- [&lt;paths&gt;]&n;&t; *&n;&t; *   &lt;ref&gt; must be a valid tree, everything after the &squot;--&squot; must be&n;&t; *   a path.&n;&t; *&n;&t; * case 2: git checkout -- [&lt;paths&gt;]&n;&t; *&n;&t; *   everything after the &squot;--&squot; must be paths.&n;&t; *&n;&t; * case 3: git checkout &lt;something&gt; [&lt;paths&gt;]&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is a commit, that is to&n;&t; *   switch to the branch or detach HEAD at it.  As a special case,&n;&t; *   if &lt;something&gt; is A...B (missing A or B means HEAD but you can&n;&t; *   omit at most one side), and if there is a unique merge base&n;&t; *   between A and B, A...B names that merge base.&n;&t; *&n;&t; *   With no paths, if &lt;something&gt; is _not_ a commit, no -t nor -b&n;&t; *   was given, and there is a remote-tracking branch whose name is&n;&t; *   &lt;something&gt; in one and only one remote, then this is a short-hand&n;&t; *   to fork local &lt;something&gt; from that remote-tracking branch.&n;&t; *&n;&t; *   Otherwise &lt;something&gt; shall not be ambiguous.&n;&t; *   - If it&squot;s *only* a reference, treat it like case (1).&n;&t; *   - If it&squot;s only a path, treat it like case (2).&n;&t; *   - else: fail.&n;&t; *&n;&t; */
@@ -4264,7 +4360,11 @@ multiline_comment|/* case (1) */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid reference: %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -4450,7 +4550,11 @@ multiline_comment|/* case (1): want a tree */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;reference is not a tree: %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -4530,7 +4634,11 @@ id|pathspec
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid path specification&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4570,7 +4678,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: updating paths is incompatible with switching branches.&bslash;nDid you intend to checkout &squot;%s&squot; which can not be resolved as commit?&quot;
+)paren
 comma
 id|argv
 (braket
@@ -4584,7 +4696,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: updating paths is incompatible with switching branches.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -4609,7 +4725,11 @@ id|opts.merge
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: --ours/--theirs, --force and --merge are incompatible when&bslash;nchecking out of the index.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -4671,7 +4791,11 @@ id|opts.new_branch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: we do not like &squot;%s&squot; as a branch name.&quot;
+)paren
 comma
 id|opts.new_branch
 )paren
@@ -4702,7 +4826,11 @@ id|opts.new_branch_force
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: branch %s already exists&quot;
+)paren
 comma
 id|opts.new_branch
 )paren
@@ -4732,7 +4860,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot switch branch to a non-commit.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -4744,7 +4876,11 @@ id|opts.writeout_stage
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--ours/--theirs is incompatible with switching branches.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
