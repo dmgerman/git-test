@@ -100,7 +100,11 @@ id|dir
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not make %s writable by group&quot;
+)paren
 comma
 id|dir
 )paren
@@ -217,7 +221,11 @@ id|namelen
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;insanely long template name %s&quot;
+)paren
 comma
 id|de-&gt;d_name
 )paren
@@ -273,7 +281,11 @@ id|ENOENT
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot stat &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -299,7 +311,11 @@ id|st_template
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot stat template &squot;%s&squot;&quot;
+)paren
 comma
 r_template
 )paren
@@ -347,7 +363,11 @@ id|subdir
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot opendir &squot;%s&squot;&quot;
+)paren
 comma
 r_template
 )paren
@@ -452,7 +472,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot readlink &squot;%s&squot;&quot;
+)paren
 comma
 r_template
 )paren
@@ -470,7 +494,11 @@ id|len
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;insanely long symlink %s&quot;
+)paren
 comma
 r_template
 )paren
@@ -496,7 +524,11 @@ id|path
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot symlink &squot;%s&squot; &squot;%s&squot;&quot;
+)paren
 comma
 id|lnk
 comma
@@ -531,7 +563,11 @@ id|st_template.st_mode
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot copy &squot;%s&squot; to &squot;%s&squot;&quot;
+)paren
 comma
 r_template
 comma
@@ -543,7 +579,11 @@ r_else
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;ignoring template %s&quot;
+)paren
 comma
 r_template
 )paren
@@ -675,7 +715,11 @@ l_string|&quot;/config&quot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;insanely long template path %s&quot;
+)paren
 comma
 id|template_dir
 )paren
@@ -735,7 +779,11 @@ id|dir
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;templates not found %s&quot;
+)paren
 comma
 id|template_dir
 )paren
@@ -788,8 +836,12 @@ id|GIT_REPO_VERSION
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;not copying templates of &quot;
 l_string|&quot;a wrong format version %d from &squot;%s&squot;&quot;
+)paren
 comma
 id|repository_format_version
 comma
@@ -988,7 +1040,11 @@ l_int|50
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;insane git directory %s&quot;
+)paren
 comma
 id|git_dir
 )paren
@@ -1917,7 +1973,11 @@ id|cwd
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot tell cwd&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2268,7 +2328,11 @@ suffix:colon
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot mkdir %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -2306,7 +2370,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot mkdir %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -2325,7 +2393,11 @@ suffix:semicolon
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot chdir to %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -2438,8 +2510,12 @@ id|work_tree
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s (or --work-tree=&lt;directory&gt;) not allowed without &quot;
 l_string|&quot;specifying %s (or --git-dir=&lt;directory&gt;)&quot;
+)paren
 comma
 id|GIT_WORK_TREE_ENVIRONMENT
 comma
@@ -2568,7 +2644,11 @@ id|PATH_MAX
 )paren
 id|die_errno
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot access current working directory&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2610,7 +2690,11 @@ id|X_OK
 )paren
 id|die_errno
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot access work tree &squot;%s&squot;&quot;
+)paren
 comma
 id|get_git_work_tree
 c_func
