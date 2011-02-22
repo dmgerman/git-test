@@ -1731,7 +1731,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;renamed:    %s -&gt; %s&quot;
+)paren
 comma
 id|one
 comma
