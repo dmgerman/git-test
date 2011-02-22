@@ -1519,7 +1519,11 @@ l_string|&quot;storing tag&quot;
 suffix:semicolon
 id|what
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;[new tag]&quot;
+)paren
 suffix:semicolon
 )brace
 r_else
@@ -1530,7 +1534,11 @@ l_string|&quot;storing head&quot;
 suffix:semicolon
 id|what
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;[new branch]&quot;
+)paren
 suffix:semicolon
 )brace
 id|r
@@ -1572,7 +1580,11 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;  (unable to update local ref)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -1680,7 +1692,11 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;  (unable to update local ref)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -1782,9 +1798,17 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;unable to update local ref&quot;
+)paren
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;forced update&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
