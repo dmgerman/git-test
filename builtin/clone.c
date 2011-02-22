@@ -2615,21 +2615,30 @@ l_int|0
 op_le
 id|option_verbosity
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|option_bare
+)paren
 id|printf
 c_func
 (paren
-l_string|&quot;Cloning into %s%s...&bslash;n&quot;
-comma
-id|option_bare
-ques
-c_cond
-l_string|&quot;bare repository &quot;
-suffix:colon
-l_string|&quot;&quot;
+l_string|&quot;Cloning into bare repository %s...&bslash;n&quot;
 comma
 id|dir
 )paren
 suffix:semicolon
+r_else
+id|printf
+c_func
+(paren
+l_string|&quot;Cloning into %s...&bslash;n&quot;
+comma
+id|dir
+)paren
+suffix:semicolon
+)brace
 id|init_db
 c_func
 (paren
