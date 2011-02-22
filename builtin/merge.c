@@ -6847,7 +6847,11 @@ l_int|0
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Updating %s..%s&bslash;n&quot;
+)paren
 comma
 id|hex
 comma
