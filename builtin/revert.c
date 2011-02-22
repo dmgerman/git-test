@@ -1653,24 +1653,69 @@ c_cond
 (paren
 id|advice_commit_before_merge
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|action
+op_eq
+id|REVERT
+)paren
 id|die
 c_func
 (paren
-l_string|&quot;Your local changes would be overwritten by %s.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by revert.&bslash;n&quot;
 l_string|&quot;Please, commit your changes or stash them to proceed.&quot;
-comma
-id|me
+)paren
 )paren
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
-l_string|&quot;Your local changes would be overwritten by %s.&bslash;n&quot;
-comma
-id|me
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by cherry-pick.&bslash;n&quot;
+l_string|&quot;Please, commit your changes or stash them to proceed.&quot;
+)paren
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|action
+op_eq
+id|REVERT
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by revert.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by cherry-pick.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 )brace
 )brace
 DECL|function|fast_forward_to
