@@ -178,7 +178,11 @@ id|i
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;tag shorthand without &lt;tag&gt;&quot;
+)paren
 )paren
 suffix:semicolon
 id|len
@@ -325,7 +329,11 @@ id|deleterefs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--delete only accepts plain target ref names&quot;
+)paren
 )paren
 suffix:semicolon
 id|add_refspec
@@ -371,7 +379,11 @@ id|branch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You are not currently on a branch.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -386,7 +398,11 @@ id|branch-&gt;merge
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;The current branch %s is not tracking anything.&quot;
+)paren
 comma
 id|branch-&gt;name
 )paren
@@ -401,8 +417,12 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;The current branch %s is tracking multiple branches, &quot;
 l_string|&quot;refusing to push.&quot;
+)paren
 comma
 id|branch-&gt;name
 )paren
@@ -487,8 +507,12 @@ suffix:colon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You didn&squot;t specify any refspecs to push, and &quot;
 l_string|&quot;push.default is &bslash;&quot;nothing&bslash;&quot;.&quot;
+)paren
 )paren
 suffix:semicolon
 r_break
@@ -568,7 +592,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Pushing to %s&bslash;n&quot;
+)paren
 comma
 id|transport-&gt;url
 )paren
@@ -600,7 +628,11 @@ l_int|0
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to push some refs to &squot;%s&squot;&quot;
+)paren
 comma
 id|transport-&gt;url
 )paren
@@ -700,7 +732,11 @@ id|repo
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad repository &squot;%s&squot;&quot;
+)paren
 comma
 id|repo
 )paren
@@ -708,7 +744,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No destination configured to push to.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -754,14 +794,22 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--all and --tags are incompatible&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--all can&squot;t be combined with refspecs&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -794,14 +842,22 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--mirror and --tags are incompatible&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--mirror can&squot;t be combined with refspecs&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -829,7 +885,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--all and --mirror are incompatible&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1298,7 +1358,11 @@ id|TRANSPORT_PUSH_MIRROR
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--delete is incompatible with --all, --mirror and --tags&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1313,7 +1377,11 @@ l_int|2
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--delete doesn&squot;t make sense without any refs&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
