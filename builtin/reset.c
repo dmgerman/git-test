@@ -749,7 +749,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Unstaged changes after reset:&quot;
+)paren
 )paren
 ques
 c_cond
