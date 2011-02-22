@@ -6459,6 +6459,17 @@ l_string|&quot;--left-only&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|revs-&gt;right_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--left-only is incompatible with --right-only&quot;
+)paren
+suffix:semicolon
 id|revs-&gt;left_only
 op_assign
 l_int|1
@@ -6478,6 +6489,17 @@ l_string|&quot;--right-only&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|revs-&gt;left_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--right-only is incompatible with --left-only&quot;
+)paren
+suffix:semicolon
 id|revs-&gt;right_only
 op_assign
 l_int|1
