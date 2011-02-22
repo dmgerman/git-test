@@ -1014,7 +1014,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Deleted %sbranch %s (was %s).&bslash;n&quot;
+)paren
 comma
 id|remote
 comma
