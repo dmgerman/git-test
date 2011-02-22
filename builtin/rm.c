@@ -305,9 +305,13 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; has staged content different &quot;
 l_string|&quot;from both the file and the HEAD&bslash;n&quot;
 l_string|&quot;(use -f to force removal)&quot;
+)paren
 comma
 id|name
 )paren
@@ -331,9 +335,13 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; has changes staged in the index&bslash;n&quot;
 l_string|&quot;(use --cached to keep the file, &quot;
 l_string|&quot;or -f to force removal)&quot;
+)paren
 comma
 id|name
 )paren
@@ -348,9 +356,13 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; has local modifications&bslash;n&quot;
 l_string|&quot;(use --cached to keep the file, &quot;
 l_string|&quot;or -f to force removal)&quot;
+)paren
 comma
 id|name
 )paren
@@ -593,7 +605,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 id|pathspec
@@ -780,7 +796,11 @@ id|ignore_unmatch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pathspec &squot;%s&squot; did not match any files&quot;
+)paren
 comma
 id|match
 )paren
@@ -810,7 +830,11 @@ id|MATCHED_RECURSIVELY
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;not removing &squot;%s&squot; recursively without -r&quot;
+)paren
 comma
 op_star
 id|match
@@ -935,7 +959,11 @@ id|path
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git rm: unable to remove %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -1050,7 +1078,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
