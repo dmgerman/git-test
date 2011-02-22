@@ -2493,7 +2493,11 @@ op_assign
 id|xstrdup
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;(no branch)&quot;
+)paren
 )paren
 suffix:semicolon
 id|item.len
