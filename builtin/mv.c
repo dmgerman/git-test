@@ -487,7 +487,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 id|source
@@ -697,7 +701,11 @@ id|show_only
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Checking rename of &squot;%s&squot; to &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 id|src
 comma
@@ -852,7 +860,11 @@ l_int|0
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Huh? %.*s is in index?&quot;
+)paren
 comma
 id|len_w_slash
 comma
@@ -1166,7 +1178,11 @@ id|st.st_mode
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s; will overwrite!&quot;
+)paren
 comma
 id|bad
 )paren
@@ -1289,7 +1305,11 @@ suffix:semicolon
 r_else
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s, source=%s, destination=%s&quot;
+)paren
 comma
 id|bad
 comma
@@ -1355,7 +1375,11 @@ id|verbose
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Renaming %s to %s&bslash;n&quot;
+)paren
 comma
 id|src
 comma
@@ -1387,7 +1411,11 @@ id|ignore_errors
 )paren
 id|die_errno
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;renaming &squot;%s&squot; failed&quot;
+)paren
 comma
 id|src
 )paren
@@ -1466,7 +1494,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
