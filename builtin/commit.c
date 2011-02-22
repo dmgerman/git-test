@@ -1250,7 +1250,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;updating files failed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1356,7 +1360,11 @@ id|tree
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to unpack HEAD tree object&quot;
+)paren
 )paren
 suffix:semicolon
 id|parse_tree
@@ -1505,7 +1513,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;interactive add failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1522,7 +1534,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 id|commit_style
@@ -1566,7 +1582,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Non partial, non as-is commit.&n;&t; *&n;&t; * (1) get the real index;&n;&t; * (2) update the_index as necessary;&n;&t; * (3) write the_index out to the real index (still locked);&n;&t; * (4) return the name of the locked index file.&n;&t; *&n;&t; * The caller should run hooks on the locked real index, and&n;&t; * (A) if all goes well, commit the real index;&n;&t; * (B) on failure, rollback the real index.&n;&t; */
@@ -1640,7 +1660,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new_index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|commit_style
@@ -1709,7 +1733,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new_index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1747,7 +1775,11 @@ id|in_merge
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot do a partial commit during a merge.&quot;
+)paren
 )paren
 suffix:semicolon
 id|memset
@@ -1812,7 +1844,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot read the index&quot;
+)paren
 )paren
 suffix:semicolon
 id|fd
@@ -1862,7 +1898,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new_index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|fd
@@ -1932,7 +1972,11 @@ id|false_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write temporary index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|discard_cache
@@ -2136,7 +2180,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not parse HEAD commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2247,7 +2295,11 @@ id|a
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid commit: %s&quot;
+)paren
 comma
 id|use_message
 )paren
@@ -2306,7 +2358,11 @@ id|eol
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid commit: %s&quot;
+)paren
 comma
 id|use_message
 )paren
@@ -2463,7 +2519,11 @@ id|rb
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;malformed --author parameter&quot;
+)paren
 )paren
 suffix:semicolon
 id|name
@@ -2795,7 +2855,11 @@ l_char|&squot; &squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Malformed ident string: &squot;%s&squot;&quot;
+)paren
 comma
 id|string
 )paren
@@ -2962,7 +3026,11 @@ id|c
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not lookup commit %s&quot;
+)paren
 comma
 id|squash_message
 )paren
@@ -3041,7 +3109,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(reading log message from standard input)&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3063,7 +3135,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read log from standard input&quot;
+)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -3097,7 +3173,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read log file &squot;%s&squot;&quot;
+)paren
 comma
 id|logfile
 )paren
@@ -3140,7 +3220,11 @@ l_char|&squot;&bslash;0&squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;commit has empty message&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_add
@@ -3208,7 +3292,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not lookup commit %s&quot;
+)paren
 comma
 id|fixup_message
 )paren
@@ -3281,7 +3369,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read MERGE_MSG&quot;
+)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -3331,7 +3423,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read SQUASH_MSG&quot;
+)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -3375,7 +3471,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read &squot;%s&squot;&quot;
+)paren
 comma
 id|template_file
 )paren
@@ -3436,7 +3536,11 @@ l_int|NULL
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -3618,7 +3722,11 @@ id|sb.len
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not write commit template&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -3923,7 +4031,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot read index&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4080,7 +4192,11 @@ l_int|0
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Error building trees&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -4182,7 +4298,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Please supply the message using either -m or -F option.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 m_exit
@@ -4616,7 +4736,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No existing author found with &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -4697,7 +4821,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid untracked files mode &squot;%s&squot;&quot;
+)paren
 comma
 id|untracked_files_arg
 )paren
@@ -4793,7 +4921,11 @@ id|renew_authorship
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Using both --reset-author and --author does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4862,7 +4994,11 @@ id|initial_commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have nothing to amend.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4933,7 +5069,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Only one of -c/-C/-F/--fixup can be used.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4948,7 +5088,13 @@ l_int|0
 id|die
 c_func
 (paren
+(paren
+id|_
+c_func
+(paren
 l_string|&quot;Option -m cannot be combined with -c/-C/-F/--fixup.&quot;
+)paren
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4986,7 +5132,11 @@ id|renew_authorship
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--reset-author can be used only with -C, -c or --amend.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5022,7 +5172,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not lookup commit %s&quot;
+)paren
 comma
 id|use_message
 )paren
@@ -5085,7 +5239,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Only one of --include/--only/--all/--interactive can be used.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5109,7 +5267,11 @@ id|amend
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No paths with --include/--only does not make sense.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5125,7 +5287,11 @@ id|amend
 )paren
 id|only_include_assumed
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Clever... amending the last one with dirty index.&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -5142,7 +5308,11 @@ id|only
 )paren
 id|only_include_assumed
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Explicit paths specified without -i nor -o; assuming --only paths...&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -5223,7 +5393,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid cleanup mode %s&quot;
+)paren
 comma
 id|cleanup_arg
 )paren
@@ -5246,7 +5420,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Paths with -a does not make sense.&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -5262,7 +5440,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Paths with --interactive does not make sense.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5812,7 +5994,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid untracked files mode &squot;%s&squot;&quot;
+)paren
 comma
 id|v
 )paren
@@ -6421,7 +6607,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;couldn&squot;t look up newly created commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6439,7 +6629,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not parse newly created commit&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addstr
@@ -7349,7 +7543,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not parse HEAD commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -7447,7 +7645,11 @@ l_int|NULL
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open &squot;%s&squot; for reading&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -7496,7 +7698,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Corrupt MERGE_HEAD file (%s)&quot;
+)paren
 comma
 id|m.buf
 )paren
@@ -7573,7 +7779,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read MERGE_MODE&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -7679,7 +7889,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read commit message: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -7768,7 +7982,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Aborting commit due to empty commit message.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 m_exit
@@ -7803,7 +8021,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to write commit object&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -7917,7 +8139,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot lock HEAD ref&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -7945,7 +8171,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot update HEAD ref&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -7999,9 +8229,13 @@ c_func
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Repository has been updated, but unable to write&bslash;n&quot;
 l_string|&quot;new_index file. Check that disk is not full or quota is&bslash;n&quot;
 l_string|&quot;not exceeded, and then &bslash;&quot;git reset HEAD&bslash;&quot; to recover.&quot;
+)paren
 )paren
 suffix:semicolon
 id|rerere
