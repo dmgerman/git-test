@@ -2624,7 +2624,11 @@ id|option_bare
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cloning into bare repository %s...&bslash;n&quot;
+)paren
 comma
 id|dir
 )paren
@@ -2633,7 +2637,11 @@ r_else
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cloning into %s...&bslash;n&quot;
+)paren
 comma
 id|dir
 )paren
