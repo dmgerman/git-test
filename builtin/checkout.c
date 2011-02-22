@@ -3113,7 +3113,11 @@ suffix:semicolon
 id|describe_detached_head
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;HEAD is now at&quot;
+)paren
 comma
 r_new
 op_member_access_from_pointer
