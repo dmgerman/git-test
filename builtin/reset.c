@@ -402,7 +402,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You do not have a valid HEAD.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -421,7 +425,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to find tree of HEAD.&quot;
+)paren
 )paren
 suffix:semicolon
 id|nr
@@ -451,7 +459,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to find tree of %s.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -500,7 +512,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write new index file.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -540,7 +556,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;HEAD is now at %s&quot;
+)paren
 comma
 id|hex
 )paren
@@ -686,7 +706,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read index&quot;
+)paren
 )paren
 suffix:semicolon
 id|result
@@ -851,7 +875,11 @@ id|ce
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;make_cache_entry failed for path &squot;%s&squot;&quot;
+)paren
 comma
 id|one-&gt;path
 )paren
@@ -1189,7 +1217,11 @@ id|size
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Reflog action message too long: %.*s...&quot;
+)paren
 comma
 l_int|50
 comma
@@ -1620,7 +1652,11 @@ id|sha1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|rev
 )paren
@@ -1642,7 +1678,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not parse object &squot;%s&squot;.&quot;
+)paren
 comma
 id|rev
 )paren
@@ -1671,7 +1711,11 @@ id|NONE
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--patch is incompatible with --{hard,mixed,soft}&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -1707,7 +1751,11 @@ id|MIXED
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--mixed with paths is deprecated; use &squot;git reset -- &lt;paths&gt;&squot; instead.&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -1874,7 +1922,11 @@ id|err
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not reset index file to revision &squot;%s&squot;.&quot;
+)paren
 comma
 id|rev
 )paren
