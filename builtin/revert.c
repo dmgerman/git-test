@@ -2929,16 +2929,22 @@ id|res
 id|error
 c_func
 (paren
-l_string|&quot;could not %s %s... %s&quot;
-comma
 id|action
 op_eq
 id|REVERT
 ques
 c_cond
-l_string|&quot;revert&quot;
+id|_
+c_func
+(paren
+l_string|&quot;could not revert %s... %s&quot;
+)paren
 suffix:colon
-l_string|&quot;apply&quot;
+id|_
+c_func
+(paren
+l_string|&quot;could not apply %s... %s&quot;
+)paren
 comma
 id|find_unique_abbrev
 c_func
