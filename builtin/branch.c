@@ -1924,7 +1924,11 @@ c_func
 (paren
 id|stat
 comma
+id|_
+c_func
+(paren
 l_string|&quot;behind %d] &quot;
+)paren
 comma
 id|theirs
 )paren
@@ -1941,7 +1945,11 @@ c_func
 (paren
 id|stat
 comma
+id|_
+c_func
+(paren
 l_string|&quot;ahead %d] &quot;
+)paren
 comma
 id|ours
 )paren
@@ -1952,7 +1960,11 @@ c_func
 (paren
 id|stat
 comma
+id|_
+c_func
+(paren
 l_string|&quot;ahead %d, behind %d] &quot;
+)paren
 comma
 id|ours
 comma
