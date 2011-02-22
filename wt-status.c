@@ -4490,12 +4490,20 @@ id|s-&gt;is_initial
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;nothing to commit%s&bslash;n&quot;
+)paren
 comma
 id|advice_status_hints
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (create/copy files and use &bslash;&quot;git add&bslash;&quot; to track)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -4510,12 +4518,20 @@ id|s-&gt;show_untracked_files
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;nothing to commit%s&bslash;n&quot;
+)paren
 comma
 id|advice_status_hints
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (use -u to show untracked files)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -4524,12 +4540,20 @@ r_else
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;nothing to commit%s&bslash;n&quot;
+)paren
 comma
 id|advice_status_hints
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (working directory clean)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
