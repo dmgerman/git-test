@@ -843,7 +843,11 @@ id|s
 comma
 id|c
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Changes to be committed:&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
