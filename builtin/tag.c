@@ -1124,10 +1124,14 @@ id|tag_template
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;#&bslash;n&quot;
 l_string|&quot;# Write a tag message&bslash;n&quot;
 l_string|&quot;#&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|function|set_signingkey
 r_static
@@ -1659,12 +1663,20 @@ c_func
 (paren
 id|fd
 comma
+id|_
+c_func
+(paren
 id|tag_template
+)paren
 comma
 id|strlen
 c_func
 (paren
+id|_
+c_func
+(paren
 id|tag_template
+)paren
 )paren
 )paren
 suffix:semicolon
