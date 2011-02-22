@@ -2642,7 +2642,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pathspec &squot;%s&squot; did not match any files&quot;
+)paren
 comma
 id|pathspec
 (braket
