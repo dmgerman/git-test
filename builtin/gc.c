@@ -1106,20 +1106,33 @@ c_func
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|quiet
+)paren
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Auto packing the repository for optimum performance.%s&bslash;n&quot;
-comma
-id|quiet
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
+id|_
+c_func
 (paren
-l_string|&quot; You may also&bslash;n&quot;
+l_string|&quot;Auto packing the repository for optimum performance.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Auto packing the repository for optimum performance. You may also&bslash;n&quot;
 l_string|&quot;run &bslash;&quot;git gc&bslash;&quot; manually. See &quot;
 l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&quot;
 )paren
