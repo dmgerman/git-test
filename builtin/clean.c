@@ -412,20 +412,36 @@ op_logical_and
 op_logical_neg
 id|force
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|config_set
+)paren
 id|die
 c_func
 (paren
-l_string|&quot;clean.requireForce %s to true and neither -n nor -f given; &quot;
+id|_
+c_func
+(paren
+l_string|&quot;clean.requireForce set to true and neither -n nor -f given; &quot;
 l_string|&quot;refusing to clean&quot;
-comma
-id|config_set
-ques
-c_cond
-l_string|&quot;set&quot;
-suffix:colon
-l_string|&quot;defaults&quot;
+)paren
 )paren
 suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;clean.requireForce defaults to true and neither -n nor -f given; &quot;
+l_string|&quot;refusing to clean&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
