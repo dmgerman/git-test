@@ -5136,7 +5136,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Wonderful.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|parent-&gt;item
