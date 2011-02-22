@@ -1644,7 +1644,11 @@ id|ignore_error
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;The following paths are ignored by one of your .gitignore files:&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|variable|verbose
 DECL|variable|show_only
@@ -1952,7 +1956,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 id|ignore_error
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -1989,13 +1997,21 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Use -f if you really want to add them.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no files added&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
