@@ -736,7 +736,11 @@ l_int|0
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;bad source&quot;
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -772,7 +776,11 @@ l_char|&squot;/&squot;
 (brace
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;can not move directory into itself&quot;
+)paren
 suffix:semicolon
 )brace
 r_else
@@ -802,7 +810,11 @@ l_int|0
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;cannot move directory over file&quot;
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -939,7 +951,11 @@ l_int|1
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;source directory is empty&quot;
+)paren
 suffix:semicolon
 r_else
 (brace
@@ -1130,7 +1146,11 @@ l_int|0
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;not under version control&quot;
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -1150,7 +1170,11 @@ l_int|0
 (brace
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;destination exists&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -1195,7 +1219,11 @@ suffix:semicolon
 r_else
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Cannot overwrite&quot;
+)paren
 suffix:semicolon
 )brace
 )brace
@@ -1214,7 +1242,11 @@ id|dst
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;multiple sources for the same target&quot;
+)paren
 suffix:semicolon
 r_else
 id|string_list_insert
