@@ -210,7 +210,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;%s is okay&bslash;n&quot;
+)paren
 comma
 id|bundle_file
 )paren
@@ -275,7 +279,11 @@ id|startup_info-&gt;have_repository
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Need a repository to create a bundle.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -318,7 +326,11 @@ id|startup_info-&gt;have_repository
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Need a repository to unbundle.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
