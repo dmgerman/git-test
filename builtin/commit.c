@@ -60,6 +60,9 @@ id|implicit_ident_advice
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;Your name and email address were configured automatically based&bslash;n&quot;
 l_string|&quot;on your username and hostname. Please check that they are accurate.&bslash;n&quot;
 l_string|&quot;You can suppress this message by setting them explicitly:&bslash;n&quot;
@@ -70,6 +73,7 @@ l_string|&quot;&bslash;n&quot;
 l_string|&quot;After doing this, you may fix the identity used for this commit with:&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;    git commit --amend --reset-author&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|variable|empty_amend_advice
 r_static
@@ -79,9 +83,13 @@ id|empty_amend_advice
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;You asked to amend the most recent commit, but doing so would make&bslash;n&quot;
 l_string|&quot;it empty. You can repeat your command with --allow-empty, or you can&bslash;n&quot;
 l_string|&quot;remove the commit entirely with &bslash;&quot;git reset HEAD^&bslash;&quot;.&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|variable|head_sha1
 r_static
@@ -4159,7 +4167,11 @@ id|amend
 id|fputs
 c_func
 (paren
+id|_
+c_func
+(paren
 id|empty_amend_advice
+)paren
 comma
 id|stderr
 )paren
@@ -6789,7 +6801,11 @@ c_func
 op_amp
 id|format
 comma
+id|_
+c_func
+(paren
 id|implicit_ident_advice
+)paren
 )paren
 suffix:semicolon
 )brace
