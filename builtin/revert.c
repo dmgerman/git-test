@@ -457,7 +457,11 @@ id|cp_extra
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;program error&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -837,7 +841,11 @@ id|p
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read commit message of %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1049,7 +1057,11 @@ id|p
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read commit message of %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1154,7 +1166,11 @@ id|email
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not extract author email from %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1229,7 +1245,11 @@ id|timestamp
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not extract author time from %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1321,7 +1341,11 @@ suffix:semicolon
 )brace
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No author information found in %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1501,7 +1525,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to %s.&quot;
+)paren
 comma
 id|filename
 )paren
@@ -1527,7 +1555,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Error wrapping up %s&quot;
+)paren
 comma
 id|filename
 )paren
@@ -2235,7 +2267,11 @@ l_int|NULL
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Your index file is unmerged.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2254,7 +2290,11 @@ id|head
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You do not have a valid HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2296,7 +2336,11 @@ id|REVERT
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot revert a root commit&quot;
+)paren
 )paren
 suffix:semicolon
 id|parent
@@ -2329,7 +2373,11 @@ id|mainline
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Commit %s is a merge but no -m option was given.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2375,7 +2423,11 @@ id|p
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Commit %s does not have parent %d&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2402,7 +2454,11 @@ id|mainline
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Mainline was specified but commit %s is not a merge.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2485,7 +2541,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot get commit message for %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2963,7 +3023,11 @@ id|revs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2975,7 +3039,11 @@ id|revs-&gt;commits
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;empty commit set passed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -3025,7 +3093,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git %s: failed to read the index&quot;
+)paren
 comma
 id|me
 )paren
@@ -3075,7 +3147,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git %s: failed to refresh the index&quot;
+)paren
 comma
 id|me
 )paren
@@ -3160,7 +3236,11 @@ id|signoff
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --signoff&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3171,7 +3251,11 @@ id|no_commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --no-commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3182,7 +3266,11 @@ id|no_replay
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with -x&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3193,7 +3281,11 @@ id|edit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --edit&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
