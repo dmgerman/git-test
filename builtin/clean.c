@@ -396,7 +396,11 @@ id|ignored_only
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;-x and -X cannot be used together&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -450,7 +454,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -776,7 +784,11 @@ id|MATCHED_EXACTLY
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Would remove %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -804,7 +816,11 @@ id|quiet
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Removing %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -827,7 +843,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to remove %s&quot;
+)paren
 comma
 id|qname
 )paren
@@ -847,7 +867,11 @@ id|show_only
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Would not remove %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -858,7 +882,11 @@ r_else
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not removing %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -908,7 +936,11 @@ id|show_only
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Would remove %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -927,7 +959,11 @@ id|quiet
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Removing %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -948,7 +984,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to remove %s&quot;
+)paren
 comma
 id|qname
 )paren
