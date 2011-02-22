@@ -578,8 +578,12 @@ id|merged
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;deleting branch &squot;%s&squot; that has been merged to&bslash;n&quot;
 l_string|&quot;         &squot;%s&squot;, but it is not yet merged to HEAD.&quot;
+)paren
 comma
 id|name
 comma
@@ -590,8 +594,12 @@ r_else
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;not deleting branch &squot;%s&squot; that is not yet merged to&bslash;n&quot;
 l_string|&quot;         &squot;%s&squot;, even though it is merged to HEAD.&quot;
+)paren
 comma
 id|name
 comma
@@ -711,7 +719,11 @@ suffix:colon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot use -a with -d&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -739,7 +751,11 @@ id|head_rev
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Couldn&squot;t look up commit object for HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -797,8 +813,12 @@ id|bname.buf
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot delete the branch &squot;%s&squot; &quot;
 l_string|&quot;which you are currently on.&quot;
+)paren
 comma
 id|bname.buf
 )paren
@@ -850,7 +870,11 @@ l_int|NULL
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%sbranch &squot;%s&squot; not found.&quot;
+)paren
 comma
 id|remote
 comma
@@ -882,7 +906,11 @@ id|rev
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Couldn&squot;t look up commit object for &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -917,9 +945,13 @@ id|head_rev
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;The branch &squot;%s&squot; is not fully merged.&bslash;n&quot;
 l_string|&quot;If you are sure you want to delete it, &quot;
 l_string|&quot;run &squot;git branch -D %s&squot;.&quot;
+)paren
 comma
 id|bname.buf
 comma
@@ -950,7 +982,11 @@ l_int|0
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Error deleting %sbranch &squot;%s&squot;&quot;
+)paren
 comma
 id|remote
 comma
@@ -1015,7 +1051,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Update of config-file failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -1469,7 +1509,11 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;branch &squot;%s&squot; does not point at a commit&quot;
+)paren
 comma
 id|refname
 )paren
@@ -2801,7 +2845,11 @@ id|cb.ret
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;some refs could not be read&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2873,7 +2921,11 @@ id|oldname
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot rename the current branch while not on any.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2913,7 +2965,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid branch name: &squot;%s&squot;&quot;
+)paren
 comma
 id|oldname
 )paren
@@ -2934,7 +2990,11 @@ id|newname
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid branch name: &squot;%s&squot;&quot;
+)paren
 comma
 id|newname
 )paren
@@ -2960,7 +3020,11 @@ id|force
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;A branch named &squot;%s&squot; already exists.&quot;
+)paren
 comma
 id|newref.buf
 op_plus
@@ -2996,7 +3060,11 @@ id|logmsg.buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Branch rename failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -3014,7 +3082,11 @@ id|recovery
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Renamed a misnamed branch &squot;%s&squot; away&quot;
+)paren
 comma
 id|oldref.buf
 op_plus
@@ -3047,7 +3119,11 @@ l_int|NULL
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Branch renamed to %s, but HEAD is not updated!&quot;
+)paren
 comma
 id|newname
 )paren
@@ -3108,7 +3184,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Branch is renamed, but update of config-file failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -3199,7 +3279,11 @@ id|merge_filter_ref
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;malformed object name %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -3649,7 +3733,11 @@ id|head
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve HEAD as a valid ref.&quot;
+)paren
 )paren
 suffix:semicolon
 id|head
@@ -3694,7 +3782,11 @@ l_string|&quot;refs/heads/&quot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;HEAD not found below refs/heads!&quot;
+)paren
 )paren
 suffix:semicolon
 id|head
@@ -3872,7 +3964,11 @@ id|REF_LOCAL_BRANCH
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;-a and -r options to &squot;git branch&squot; do not make sense with a branch name&quot;
+)paren
 )paren
 suffix:semicolon
 id|create_branch
