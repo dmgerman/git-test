@@ -1175,6 +1175,10 @@ c_func
 (paren
 id|ch
 )paren
+op_logical_or
+id|ch
+op_eq
+l_char|&squot;&bslash;n&squot;
 )paren
 r_goto
 id|needquote
@@ -1340,6 +1344,10 @@ op_logical_or
 id|ch
 op_eq
 l_char|&squot; &squot;
+op_logical_or
+id|ch
+op_eq
+l_char|&squot;&bslash;n&squot;
 )paren
 (brace
 id|strbuf_addf
