@@ -1,13 +1,18 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) 2000-2002 Michael R. Elkins &lt;me@mutt.org&gt;&n; * Copyright (C) 2002-2004 Oswald Buddenhagen &lt;ossi@users.sf.net&gt;&n; * Copyright (C) 2004 Theodore Y. Ts&squot;o &lt;tytso@mit.edu&gt;&n; * Copyright (C) 2006 Mike McCormack&n; * Copyright (C) 2006 Christian Couder&n; *&n; *  This program is free software; you can redistribute it and/or modify&n; *  it under the terms of the GNU General Public License as published by&n; *  the Free Software Foundation; either version 2 of the License, or&n; *  (at your option) any later version.&n; *&n; *  This program is distributed in the hope that it will be useful,&n; *  but WITHOUT ANY WARRANTY; without even the implied warranty of&n; *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&n; *  GNU General Public License for more details.&n; *&n; *  You should have received a copy of the GNU General Public License&n; *  along with this program; if not, write to the Free Software&n; *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
-multiline_comment|/* Get a trace file descriptor from GIT_TRACE env variable. */
+multiline_comment|/* Get a trace file descriptor from &quot;key&quot; env variable. */
 DECL|function|get_trace_fd
 r_static
 r_int
 id|get_trace_fd
 c_func
 (paren
+r_const
+r_char
+op_star
+id|key
+comma
 r_int
 op_star
 id|need_close
@@ -20,7 +25,7 @@ op_assign
 id|getenv
 c_func
 (paren
-l_string|&quot;GIT_TRACE&quot;
+id|key
 )paren
 suffix:semicolon
 r_if
@@ -178,9 +183,11 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;What does &squot;%s&squot; for GIT_TRACE mean?&bslash;n&quot;
+l_string|&quot;What does &squot;%s&squot; for %s mean?&bslash;n&quot;
 comma
 id|trace
+comma
+id|key
 )paren
 suffix:semicolon
 id|fprintf
@@ -189,8 +196,10 @@ c_func
 id|stderr
 comma
 l_string|&quot;If you want to trace into a file, &quot;
-l_string|&quot;then please set GIT_TRACE to an absolute pathname &quot;
+l_string|&quot;then please set %s to an absolute pathname &quot;
 l_string|&quot;(starting with /).&bslash;n&quot;
+comma
+id|key
 )paren
 suffix:semicolon
 id|fprintf
@@ -224,6 +233,11 @@ c_func
 r_const
 r_char
 op_star
+id|key
+comma
+r_const
+r_char
+op_star
 id|fmt
 comma
 id|va_list
@@ -248,6 +262,8 @@ op_assign
 id|get_trace_fd
 c_func
 (paren
+id|key
+comma
 op_amp
 id|need_close
 )paren
@@ -309,6 +325,54 @@ id|fd
 )paren
 suffix:semicolon
 )brace
+DECL|function|trace_printf_key
+r_void
+id|trace_printf_key
+c_func
+(paren
+r_const
+r_char
+op_star
+id|key
+comma
+r_const
+r_char
+op_star
+id|fmt
+comma
+dot
+dot
+dot
+)paren
+(brace
+id|va_list
+id|ap
+suffix:semicolon
+id|va_start
+c_func
+(paren
+id|ap
+comma
+id|fmt
+)paren
+suffix:semicolon
+id|trace_vprintf
+c_func
+(paren
+id|key
+comma
+id|fmt
+comma
+id|ap
+)paren
+suffix:semicolon
+id|va_end
+c_func
+(paren
+id|ap
+)paren
+suffix:semicolon
+)brace
 DECL|function|trace_printf
 r_void
 id|trace_printf
@@ -338,6 +402,8 @@ suffix:semicolon
 id|trace_vprintf
 c_func
 (paren
+l_string|&quot;GIT_TRACE&quot;
+comma
 id|fmt
 comma
 id|ap
@@ -392,6 +458,8 @@ op_assign
 id|get_trace_fd
 c_func
 (paren
+l_string|&quot;GIT_TRACE&quot;
+comma
 op_amp
 id|need_close
 )paren
