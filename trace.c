@@ -737,6 +737,14 @@ op_star
 id|prefix
 )paren
 (brace
+r_static
+r_const
+r_char
+op_star
+id|key
+op_assign
+l_string|&quot;GIT_TRACE_SETUP&quot;
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -755,7 +763,7 @@ op_logical_neg
 id|trace_want
 c_func
 (paren
-l_string|&quot;GIT_TRACE&quot;
+id|key
 )paren
 )paren
 r_return
@@ -805,9 +813,11 @@ id|prefix
 op_assign
 l_string|&quot;(null)&quot;
 suffix:semicolon
-id|trace_printf
+id|trace_printf_key
 c_func
 (paren
+id|key
+comma
 l_string|&quot;setup: git_dir: %s&bslash;n&quot;
 comma
 id|quote_crnl
@@ -820,9 +830,11 @@ c_func
 )paren
 )paren
 suffix:semicolon
-id|trace_printf
+id|trace_printf_key
 c_func
 (paren
+id|key
+comma
 l_string|&quot;setup: worktree: %s&bslash;n&quot;
 comma
 id|quote_crnl
@@ -832,9 +844,11 @@ id|git_work_tree
 )paren
 )paren
 suffix:semicolon
-id|trace_printf
+id|trace_printf_key
 c_func
 (paren
+id|key
+comma
 l_string|&quot;setup: cwd: %s&bslash;n&quot;
 comma
 id|quote_crnl
@@ -844,9 +858,11 @@ id|cwd
 )paren
 )paren
 suffix:semicolon
-id|trace_printf
+id|trace_printf_key
 c_func
 (paren
+id|key
+comma
 l_string|&quot;setup: prefix: %s&bslash;n&quot;
 comma
 id|quote_crnl
