@@ -1250,6 +1250,12 @@ c_func
 )paren
 )brace
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;push&quot;
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren

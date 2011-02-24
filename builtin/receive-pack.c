@@ -4262,6 +4262,12 @@ id|command
 op_star
 id|commands
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;receive-pack&quot;
+)paren
+suffix:semicolon
 id|argv
 op_increment
 suffix:semicolon

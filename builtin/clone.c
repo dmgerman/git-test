@@ -2072,6 +2072,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;clone&quot;
+)paren
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options

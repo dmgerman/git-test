@@ -3680,6 +3680,12 @@ id|strict
 op_assign
 l_int|0
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;upload-pack&quot;
+)paren
+suffix:semicolon
 id|git_extract_argv0_path
 c_func
 (paren
