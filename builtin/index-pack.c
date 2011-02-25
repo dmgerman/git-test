@@ -4691,6 +4691,13 @@ op_star
 id|cb
 )paren
 (brace
+r_struct
+id|pack_idx_option
+op_star
+id|opts
+op_assign
+id|cb
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4704,7 +4711,7 @@ l_string|&quot;pack.indexversion&quot;
 )paren
 )paren
 (brace
-id|pack_idx_default_version
+id|opts-&gt;version
 op_assign
 id|git_config_int
 c_func
@@ -4717,7 +4724,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pack_idx_default_version
+id|opts-&gt;version
 OG
 l_int|2
 )paren
@@ -4727,7 +4734,7 @@ c_func
 l_string|&quot;bad pack.indexversion=%&quot;
 id|PRIu32
 comma
-id|pack_idx_default_version
+id|opts-&gt;version
 )paren
 suffix:semicolon
 r_return
@@ -4822,6 +4829,10 @@ op_star
 op_star
 id|idx_objects
 suffix:semicolon
+r_struct
+id|pack_idx_option
+id|opts
+suffix:semicolon
 r_int
 r_char
 id|pack_sha1
@@ -4858,12 +4869,20 @@ id|read_replace_refs
 op_assign
 l_int|0
 suffix:semicolon
+id|reset_pack_idx_option
+c_func
+(paren
+op_amp
+id|opts
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
 id|git_index_pack_config
 comma
-l_int|NULL
+op_amp
+id|opts
 )paren
 suffix:semicolon
 r_if
@@ -5209,7 +5228,7 @@ r_char
 op_star
 id|c
 suffix:semicolon
-id|pack_idx_default_version
+id|opts.version
 op_assign
 id|strtoul
 c_func
@@ -5227,7 +5246,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pack_idx_default_version
+id|opts.version
 OG
 l_int|2
 )paren
@@ -5247,7 +5266,7 @@ id|c
 op_eq
 l_char|&squot;,&squot;
 )paren
-id|pack_idx_off32_limit
+id|opts.off32_limit
 op_assign
 id|strtoul
 c_func
@@ -5268,7 +5287,7 @@ c_cond
 op_star
 id|c
 op_logical_or
-id|pack_idx_off32_limit
+id|opts.off32_limit
 op_amp
 l_int|0x80000000
 )paren
@@ -5818,6 +5837,9 @@ comma
 id|idx_objects
 comma
 id|nr_objects
+comma
+op_amp
+id|opts
 comma
 id|pack_sha1
 )paren

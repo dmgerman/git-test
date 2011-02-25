@@ -1,18 +1,40 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
-DECL|variable|pack_idx_default_version
-r_uint32
-id|pack_idx_default_version
+DECL|function|reset_pack_idx_option
+r_void
+id|reset_pack_idx_option
+c_func
+(paren
+r_struct
+id|pack_idx_option
+op_star
+id|opts
+)paren
+(brace
+id|memset
+c_func
+(paren
+id|opts
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+op_star
+id|opts
+)paren
+)paren
+suffix:semicolon
+id|opts-&gt;version
 op_assign
 l_int|2
 suffix:semicolon
-DECL|variable|pack_idx_off32_limit
-r_uint32
-id|pack_idx_off32_limit
+id|opts-&gt;off32_limit
 op_assign
 l_int|0x7fffffff
 suffix:semicolon
+)brace
 DECL|function|sha1_compare
 r_static
 r_int
@@ -89,6 +111,12 @@ id|objects
 comma
 r_int
 id|nr_objects
+comma
+r_const
+r_struct
+id|pack_idx_option
+op_star
+id|opts
 comma
 r_int
 r_char
@@ -322,7 +350,7 @@ ques
 c_cond
 l_int|2
 suffix:colon
-id|pack_idx_default_version
+id|opts-&gt;version
 suffix:semicolon
 multiline_comment|/* index versions 2 and above need a header */
 r_if
@@ -640,7 +668,7 @@ op_assign
 (paren
 id|obj-&gt;offset
 op_le
-id|pack_idx_off32_limit
+id|opts-&gt;off32_limit
 )paren
 ques
 c_cond
@@ -703,7 +731,7 @@ c_cond
 (paren
 id|offset
 OG
-id|pack_idx_off32_limit
+id|opts-&gt;off32_limit
 )paren
 (brace
 r_uint32

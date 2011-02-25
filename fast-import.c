@@ -630,6 +630,12 @@ op_star
 id|atom_table
 suffix:semicolon
 multiline_comment|/* The .pack file being generated */
+DECL|variable|pack_idx_opts
+r_static
+r_struct
+id|pack_idx_option
+id|pack_idx_opts
+suffix:semicolon
 DECL|variable|pack_id
 r_static
 r_int
@@ -4133,6 +4139,9 @@ comma
 id|idx
 comma
 id|object_count
+comma
+op_amp
+id|pack_idx_opts
 comma
 id|pack_data-&gt;sha1
 )paren
@@ -16478,7 +16487,7 @@ l_string|&quot;pack.indexversion&quot;
 )paren
 )paren
 (brace
-id|pack_idx_default_version
+id|pack_idx_opts.version
 op_assign
 id|git_config_int
 c_func
@@ -16491,7 +16500,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pack_idx_default_version
+id|pack_idx_opts.version
 OG
 l_int|2
 )paren
@@ -16501,7 +16510,7 @@ c_func
 l_string|&quot;bad pack.indexversion=%&quot;
 id|PRIu32
 comma
-id|pack_idx_default_version
+id|pack_idx_opts.version
 )paren
 suffix:semicolon
 r_return
@@ -16803,6 +16812,13 @@ suffix:semicolon
 id|setup_git_directory
 c_func
 (paren
+)paren
+suffix:semicolon
+id|reset_pack_idx_option
+c_func
+(paren
+op_amp
+id|pack_idx_opts
 )paren
 suffix:semicolon
 id|git_config

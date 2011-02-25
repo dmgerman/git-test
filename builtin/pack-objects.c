@@ -213,6 +213,12 @@ r_static
 r_int
 id|allow_ofs_delta
 suffix:semicolon
+DECL|variable|pack_idx_opts
+r_static
+r_struct
+id|pack_idx_option
+id|pack_idx_opts
+suffix:semicolon
 DECL|variable|base_name
 r_static
 r_const
@@ -2445,6 +2451,9 @@ comma
 id|written_list
 comma
 id|nr_written
+comma
+op_amp
+id|pack_idx_opts
 comma
 id|sha1
 )paren
@@ -8811,7 +8820,7 @@ l_string|&quot;pack.indexversion&quot;
 )paren
 )paren
 (brace
-id|pack_idx_default_version
+id|pack_idx_opts.version
 op_assign
 id|git_config_int
 c_func
@@ -8824,7 +8833,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pack_idx_default_version
+id|pack_idx_opts.version
 OG
 l_int|2
 )paren
@@ -8834,7 +8843,7 @@ c_func
 l_string|&quot;bad pack.indexversion=%&quot;
 id|PRIu32
 comma
-id|pack_idx_default_version
+id|pack_idx_opts.version
 )paren
 suffix:semicolon
 r_return
@@ -10151,6 +10160,13 @@ id|rp_ac
 op_assign
 l_int|2
 suffix:semicolon
+id|reset_pack_idx_option
+c_func
+(paren
+op_amp
+id|pack_idx_opts
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -11008,7 +11024,7 @@ r_char
 op_star
 id|c
 suffix:semicolon
-id|pack_idx_default_version
+id|pack_idx_opts.version
 op_assign
 id|strtoul
 c_func
@@ -11026,7 +11042,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pack_idx_default_version
+id|pack_idx_opts.version
 OG
 l_int|2
 )paren
@@ -11046,7 +11062,7 @@ id|c
 op_eq
 l_char|&squot;,&squot;
 )paren
-id|pack_idx_off32_limit
+id|pack_idx_opts.off32_limit
 op_assign
 id|strtoul
 c_func
@@ -11067,7 +11083,7 @@ c_cond
 op_star
 id|c
 op_logical_or
-id|pack_idx_off32_limit
+id|pack_idx_opts.off32_limit
 op_amp
 l_int|0x80000000
 )paren
