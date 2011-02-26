@@ -720,14 +720,14 @@ comma
 id|s
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;# Unmerged paths:&quot;
+l_string|&quot;Unmerged paths:&quot;
 )paren
 suffix:semicolon
 r_if
@@ -751,47 +751,47 @@ c_cond
 op_logical_neg
 id|s-&gt;is_initial
 )paren
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+l_string|&quot;  (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 comma
 id|s-&gt;reference
 )paren
 suffix:semicolon
 r_else
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+l_string|&quot;  (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; as appropriate to mark resolution)&quot;
+l_string|&quot;  (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; as appropriate to mark resolution)&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -820,14 +820,14 @@ comma
 id|s
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;# Changes to be committed:&quot;
+l_string|&quot;Changes to be committed:&quot;
 )paren
 suffix:semicolon
 r_if
@@ -852,37 +852,37 @@ c_cond
 op_logical_neg
 id|s-&gt;is_initial
 )paren
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+l_string|&quot;  (use &bslash;&quot;git reset %s &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 comma
 id|s-&gt;reference
 )paren
 suffix:semicolon
 r_else
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
+l_string|&quot;  (use &bslash;&quot;git rm --cached &lt;file&gt;...&bslash;&quot; to unstage)&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -917,14 +917,14 @@ comma
 id|s
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;# Changes not staged for commit:&quot;
+l_string|&quot;Changes not staged for commit:&quot;
 )paren
 suffix:semicolon
 r_if
@@ -941,35 +941,35 @@ c_cond
 op_logical_neg
 id|has_deleted
 )paren
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
+l_string|&quot;  (use &bslash;&quot;git add &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
 )paren
 suffix:semicolon
 r_else
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
+l_string|&quot;  (use &bslash;&quot;git add/rm &lt;file&gt;...&bslash;&quot; to update what will be committed)&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git checkout -- &lt;file&gt;...&bslash;&quot; to discard changes in working directory)&quot;
+l_string|&quot;  (use &bslash;&quot;git checkout -- &lt;file&gt;...&bslash;&quot; to discard changes in working directory)&quot;
 )paren
 suffix:semicolon
 r_if
@@ -977,24 +977,24 @@ c_cond
 (paren
 id|has_dirty_submodules
 )paren
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (commit or discard the untracked or modified content in submodules)&quot;
+l_string|&quot;  (commit or discard the untracked or modified content in submodules)&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1033,14 +1033,14 @@ comma
 id|s
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;# %s files:&quot;
+l_string|&quot;%s files:&quot;
 comma
 id|what
 )paren
@@ -1053,26 +1053,26 @@ id|advice_status_hints
 )paren
 r_return
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#   (use &bslash;&quot;git %s &lt;file&gt;...&bslash;&quot; to include in what will be committed)&quot;
+l_string|&quot;  (use &bslash;&quot;git %s &lt;file&gt;...&bslash;&quot; to include in what will be committed)&quot;
 comma
 id|how
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
-l_string|&quot;#&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1088,10 +1088,10 @@ op_star
 id|s
 )paren
 (brace
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -1101,7 +1101,7 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;#&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1175,10 +1175,10 @@ comma
 id|s-&gt;prefix
 )paren
 suffix:semicolon
-id|color_fprintf
+id|status_printf
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -1188,7 +1188,7 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;#&bslash;t&quot;
+l_string|&quot;&bslash;t&quot;
 )paren
 suffix:semicolon
 r_switch
@@ -1261,10 +1261,10 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1513,10 +1513,10 @@ comma
 id|s-&gt;prefix
 )paren
 suffix:semicolon
-id|color_fprintf
+id|status_printf
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -1526,7 +1526,7 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;#&bslash;t&quot;
+l_string|&quot;&bslash;t&quot;
 )paren
 suffix:semicolon
 r_switch
@@ -1538,10 +1538,10 @@ id|status
 r_case
 id|DIFF_STATUS_ADDED
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1555,10 +1555,10 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_COPIED
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1574,10 +1574,10 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_DELETED
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1591,10 +1591,10 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_MODIFIED
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1608,10 +1608,10 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_RENAMED
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1627,10 +1627,10 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_TYPE_CHANGED
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1644,10 +1644,10 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_UNKNOWN
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1661,10 +1661,10 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_UNMERGED
 suffix:colon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|c
 comma
@@ -1692,10 +1692,10 @@ c_cond
 id|extra.len
 )paren
 (brace
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -1718,10 +1718,12 @@ id|extra
 )paren
 suffix:semicolon
 )brace
-id|fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
+comma
+id|GIT_COLOR_NORMAL
 comma
 l_string|&quot;&bslash;n&quot;
 )paren
@@ -3574,10 +3576,10 @@ id|i
 )braket
 )paren
 suffix:semicolon
-id|color_fprintf
+id|status_printf
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -3587,13 +3589,13 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;#&bslash;t&quot;
+l_string|&quot;&bslash;t&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -3603,7 +3605,7 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;%s&quot;
+l_string|&quot;%s&bslash;n&quot;
 comma
 id|quote_path
 c_func
@@ -4003,10 +4005,10 @@ op_assign
 l_string|&quot;Not currently on any branch.&quot;
 suffix:semicolon
 )brace
-id|color_fprintf
+id|status_printf
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -4016,13 +4018,13 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;# &quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|color_fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|branch_status_color
 comma
@@ -4031,14 +4033,14 @@ comma
 id|on_what
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|branch_color
 comma
-l_string|&quot;%s&quot;
+l_string|&quot;%s&bslash;n&quot;
 comma
 id|branch_name
 )paren
@@ -4062,10 +4064,10 @@ c_cond
 id|s-&gt;is_initial
 )paren
 (brace
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -4075,13 +4077,13 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;#&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -4091,13 +4093,13 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;# Initial commit&quot;
+l_string|&quot;Initial commit&quot;
 )paren
 suffix:semicolon
-id|color_fprintf_ln
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
 id|color
 c_func
@@ -4107,7 +4109,7 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;#&quot;
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -4211,12 +4213,14 @@ c_cond
 (paren
 id|s-&gt;commitable
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
-l_string|&quot;# Untracked files not listed%s&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;Untracked files not listed%s&quot;
 comma
 id|advice_status_hints
 ques
@@ -4249,12 +4253,14 @@ c_cond
 (paren
 id|s-&gt;amend
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
-l_string|&quot;# No changes&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;No changes&quot;
 )paren
 suffix:semicolon
 r_else
