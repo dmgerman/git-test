@@ -3669,17 +3669,19 @@ c_cond
 (paren
 id|in_merge
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
-l_string|&quot;#&bslash;n&quot;
-l_string|&quot;# It looks like you may be committing a MERGE.&bslash;n&quot;
-l_string|&quot;# If this is not correct, please remove the file&bslash;n&quot;
-l_string|&quot;#&t;%s&bslash;n&quot;
-l_string|&quot;# and try again.&bslash;n&quot;
-l_string|&quot;#&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;It looks like you may be committing a MERGE.&bslash;n&quot;
+l_string|&quot;If this is not correct, please remove the file&bslash;n&quot;
+l_string|&quot;&t;%s&bslash;n&quot;
+l_string|&quot;and try again.&bslash;n&quot;
+l_string|&quot;&quot;
 comma
 id|git_path
 c_func
@@ -3694,7 +3696,16 @@ c_func
 id|s-&gt;fp
 comma
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;# Please enter the commit message for your changes.&quot;
+)paren
+suffix:semicolon
+id|status_printf
+c_func
+(paren
+id|s
+comma
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;Please enter the commit message for your changes.&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3704,27 +3715,31 @@ id|cleanup_mode
 op_eq
 id|CLEANUP_ALL
 )paren
-id|fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
+comma
+id|GIT_COLOR_NORMAL
 comma
 l_string|&quot; Lines starting&bslash;n&quot;
-l_string|&quot;# with &squot;#&squot; will be ignored, and an empty&quot;
+l_string|&quot;with &squot;#&squot; will be ignored, and an empty&quot;
 l_string|&quot; message aborts the commit.&bslash;n&quot;
 )paren
 suffix:semicolon
 r_else
 multiline_comment|/* CLEANUP_SPACE, that is. */
-id|fprintf
+id|status_printf_more
 c_func
 (paren
-id|s-&gt;fp
+id|s
+comma
+id|GIT_COLOR_NORMAL
 comma
 l_string|&quot; Lines starting&bslash;n&quot;
-l_string|&quot;# with &squot;#&squot; will be kept; you may remove them&quot;
+l_string|&quot;with &squot;#&squot; will be kept; you may remove them&quot;
 l_string|&quot; yourself if you want to.&bslash;n&quot;
-l_string|&quot;# An empty message aborts the commit.&bslash;n&quot;
+l_string|&quot;An empty message aborts the commit.&bslash;n&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3732,12 +3747,14 @@ c_cond
 (paren
 id|only_include_assumed
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
-l_string|&quot;# %s&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;%s&quot;
 comma
 id|only_include_assumed
 )paren
@@ -3769,13 +3786,15 @@ comma
 id|committer_ident.buf
 )paren
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
+comma
+id|GIT_COLOR_NORMAL
 comma
 l_string|&quot;%s&quot;
-l_string|&quot;# Author:    %s&bslash;n&quot;
+l_string|&quot;Author:    %s&quot;
 comma
 id|ident_shown
 op_increment
@@ -3783,7 +3802,7 @@ ques
 c_cond
 l_string|&quot;&quot;
 suffix:colon
-l_string|&quot;#&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 comma
 id|author_ident-&gt;buf
 )paren
@@ -3797,13 +3816,15 @@ c_func
 (paren
 )paren
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
+comma
+id|GIT_COLOR_NORMAL
 comma
 l_string|&quot;%s&quot;
-l_string|&quot;# Committer: %s&bslash;n&quot;
+l_string|&quot;Committer: %s&quot;
 comma
 id|ident_shown
 op_increment
@@ -3811,7 +3832,7 @@ ques
 c_cond
 l_string|&quot;&quot;
 suffix:colon
-l_string|&quot;#&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 comma
 id|committer_ident.buf
 )paren
@@ -3821,12 +3842,14 @@ c_cond
 (paren
 id|ident_shown
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|s-&gt;fp
+id|s
 comma
-l_string|&quot;#&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 id|saved_color_setting
