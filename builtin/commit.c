@@ -2862,10 +2862,6 @@ r_char
 op_star
 id|buffer
 suffix:semicolon
-id|FILE
-op_star
-id|fp
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -3416,7 +3412,7 @@ op_assign
 l_string|&quot;&quot;
 suffix:semicolon
 )brace
-id|fp
+id|s-&gt;fp
 op_assign
 id|fopen
 c_func
@@ -3433,7 +3429,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fp
+id|s-&gt;fp
 op_eq
 l_int|NULL
 )paren
@@ -3614,7 +3610,7 @@ l_int|1
 comma
 id|sb.len
 comma
-id|fp
+id|s-&gt;fp
 )paren
 OL
 id|sb.len
@@ -3676,7 +3672,7 @@ id|in_merge
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot;#&bslash;n&quot;
 l_string|&quot;# It looks like you may be committing a MERGE.&bslash;n&quot;
@@ -3695,7 +3691,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;# Please enter the commit message for your changes.&quot;
@@ -3711,7 +3707,7 @@ id|CLEANUP_ALL
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot; Lines starting&bslash;n&quot;
 l_string|&quot;# with &squot;#&squot; will be ignored, and an empty&quot;
@@ -3723,7 +3719,7 @@ multiline_comment|/* CLEANUP_SPACE, that is. */
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot; Lines starting&bslash;n&quot;
 l_string|&quot;# with &squot;#&squot; will be kept; you may remove them&quot;
@@ -3739,7 +3735,7 @@ id|only_include_assumed
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot;# %s&bslash;n&quot;
 comma
@@ -3776,7 +3772,7 @@ id|committer_ident.buf
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot;%s&quot;
 l_string|&quot;# Author:    %s&bslash;n&quot;
@@ -3804,7 +3800,7 @@ c_func
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot;%s&quot;
 l_string|&quot;# Committer: %s&bslash;n&quot;
@@ -3828,7 +3824,7 @@ id|ident_shown
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot;#&bslash;n&quot;
 )paren
@@ -3846,7 +3842,7 @@ op_assign
 id|run_status
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 id|index_file
 comma
@@ -3955,7 +3951,7 @@ suffix:semicolon
 id|fclose
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 )paren
 suffix:semicolon
 r_if
