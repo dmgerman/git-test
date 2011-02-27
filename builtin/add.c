@@ -1757,7 +1757,7 @@ comma
 op_amp
 id|addremove
 comma
-l_string|&quot;add all, noticing removal of tracked files&quot;
+l_string|&quot;add changes from all tracked and untracked files&quot;
 )paren
 comma
 id|OPT_BOOLEAN
