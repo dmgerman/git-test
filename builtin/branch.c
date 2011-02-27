@@ -579,7 +579,7 @@ id|warning
 c_func
 (paren
 l_string|&quot;deleting branch &squot;%s&squot; that has been merged to&bslash;n&quot;
-l_string|&quot;         &squot;%s&squot;, but it is not yet merged to HEAD.&quot;
+l_string|&quot;         &squot;%s&squot;, but not yet been merged to HEAD.&quot;
 comma
 id|name
 comma
