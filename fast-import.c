@@ -15255,7 +15255,7 @@ r_int
 r_int
 id|size
 suffix:semicolon
-r_void
+r_char
 op_star
 id|buf
 op_assign
