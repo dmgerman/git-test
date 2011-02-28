@@ -336,10 +336,10 @@ id|ref
 suffix:semicolon
 )brace
 )brace
-DECL|function|setup_push_tracking
+DECL|function|setup_push_upstream
 r_static
 r_void
-id|setup_push_tracking
+id|setup_push_upstream
 c_func
 (paren
 r_void
@@ -386,7 +386,7 @@ id|branch-&gt;merge
 id|die
 c_func
 (paren
-l_string|&quot;The current branch %s is not tracking anything.&quot;
+l_string|&quot;The current branch %s has no upstream branch.&quot;
 comma
 id|branch-&gt;name
 )paren
@@ -401,7 +401,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;The current branch %s is tracking multiple branches, &quot;
+l_string|&quot;The current branch %s has multiple upstream branches, &quot;
 l_string|&quot;refusing to push.&quot;
 comma
 id|branch-&gt;name
@@ -461,9 +461,9 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|PUSH_DEFAULT_TRACKING
+id|PUSH_DEFAULT_UPSTREAM
 suffix:colon
-id|setup_push_tracking
+id|setup_push_upstream
 c_func
 (paren
 )paren
