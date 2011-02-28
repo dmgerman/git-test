@@ -416,6 +416,8 @@ comma
 id|OBJ_BLOB
 comma
 id|ce-&gt;name
+comma
+l_int|0
 )paren
 )paren
 id|match

@@ -71,6 +71,8 @@ id|type
 )paren
 comma
 id|path
+comma
+l_int|1
 )paren
 )paren
 id|die
