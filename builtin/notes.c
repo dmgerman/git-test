@@ -2926,7 +2926,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;MSG&quot;
+l_string|&quot;msg&quot;
 comma
 l_string|&quot;note contents as a string&quot;
 comma
@@ -2945,7 +2945,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
 l_string|&quot;note contents in a file&quot;
 comma
@@ -2964,7 +2964,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse and edit specified note object&quot;
 comma
@@ -2983,7 +2983,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse specified note object&quot;
 comma
@@ -3775,7 +3775,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;MSG&quot;
+l_string|&quot;msg&quot;
 comma
 l_string|&quot;note contents as a string&quot;
 comma
@@ -3794,7 +3794,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
 l_string|&quot;note contents in a file&quot;
 comma
@@ -3813,7 +3813,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse and edit specified note object&quot;
 comma
@@ -3832,7 +3832,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse specified note object&quot;
 comma
