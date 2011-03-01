@@ -29,6 +29,9 @@ c_func
 l_string|&quot;test-svn-fe &lt;file&gt;&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|svndump_init
 c_func
 (paren
@@ -37,6 +40,9 @@ id|argv
 l_int|1
 )braket
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|svndump_read
 c_func
