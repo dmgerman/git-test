@@ -728,7 +728,14 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;No destination configured to push to.&quot;
+l_string|&quot;No configured push destination.&bslash;n&quot;
+l_string|&quot;Either specify the URL from the command-line or configure a remote repository using&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git remote add &lt;name&gt; &lt;url&gt;&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;and then push using the remote name&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git push &lt;name&gt;&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
