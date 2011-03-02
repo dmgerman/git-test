@@ -3913,6 +3913,10 @@ id|p-&gt;pack_fd
 op_assign
 id|pack_fd
 suffix:semicolon
+id|p-&gt;do_not_close
+op_assign
+l_int|1
+suffix:semicolon
 id|pack_file
 op_assign
 id|sha1fd
