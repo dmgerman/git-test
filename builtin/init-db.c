@@ -2479,12 +2479,6 @@ op_logical_neg
 id|is_bare_repository_cfg
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|git_dir
-)paren
-(brace
 r_const
 r_char
 op_star
@@ -2535,7 +2529,6 @@ c_func
 id|rel
 )paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
