@@ -4995,7 +4995,7 @@ op_star
 id|t
 )paren
 (brace
-r_int
+id|ssize_t
 id|bytes
 suffix:semicolon
 r_if
