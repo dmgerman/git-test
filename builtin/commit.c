@@ -3348,16 +3348,6 @@ r_if
 c_cond
 (paren
 id|template_file
-op_logical_and
-op_logical_neg
-id|stat
-c_func
-(paren
-id|template_file
-comma
-op_amp
-id|statbuf
-)paren
 )paren
 (brace
 r_if
