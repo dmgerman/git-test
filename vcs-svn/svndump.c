@@ -5,6 +5,8 @@ macro_line|#include &quot;fast_export.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
 macro_line|#include &quot;obj_pool.h&quot;
 macro_line|#include &quot;string_pool.h&quot;
+DECL|macro|REPORT_FILENO
+mdefine_line|#define REPORT_FILENO 3
 DECL|macro|NODEACT_REPLACE
 mdefine_line|#define NODEACT_REPLACE 4
 DECL|macro|NODEACT_DELETE
@@ -1916,6 +1918,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|fast_export_init
+c_func
+(paren
+id|REPORT_FILENO
+)paren
+suffix:semicolon
 id|reset_dump_ctx
 c_func
 (paren
@@ -1953,6 +1961,11 @@ r_void
 )paren
 (brace
 id|log_reset
+c_func
+(paren
+)paren
+suffix:semicolon
+id|fast_export_deinit
 c_func
 (paren
 )paren
@@ -2026,6 +2039,11 @@ r_void
 )paren
 (brace
 id|log_reset
+c_func
+(paren
+)paren
+suffix:semicolon
+id|fast_export_reset
 c_func
 (paren
 )paren
