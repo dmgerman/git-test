@@ -375,7 +375,7 @@ l_string|&quot;fetch.recursesubmodules&quot;
 (brace
 id|config_fetch_recurse_submodules
 op_assign
-id|git_config_bool
+id|parse_fetch_recurse_submodules_arg
 c_func
 (paren
 id|var
