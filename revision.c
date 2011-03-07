@@ -2290,6 +2290,9 @@ r_struct
 id|patch_ids
 id|ids
 suffix:semicolon
+r_int
+id|cherry_flag
+suffix:semicolon
 multiline_comment|/* First count the commits on the left and on the right */
 r_for
 c_loop
@@ -2448,6 +2451,16 @@ id|ids
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* either cherry_mark or cherry_pick are true */
+id|cherry_flag
+op_assign
+id|revs-&gt;cherry_mark
+ques
+c_cond
+id|PATCHSAME
+suffix:colon
+id|SHOWN
+suffix:semicolon
 multiline_comment|/* Check the other side */
 r_for
 c_loop
@@ -2531,7 +2544,7 @@ l_int|1
 suffix:semicolon
 id|commit-&gt;object.flags
 op_or_assign
-id|SHOWN
+id|cherry_flag
 suffix:semicolon
 )brace
 multiline_comment|/* Now check the original side for seen ones */
@@ -2580,7 +2593,7 @@ id|ent-&gt;seen
 )paren
 id|commit-&gt;object.flags
 op_or_assign
-id|SHOWN
+id|cherry_flag
 suffix:semicolon
 id|commit-&gt;util
 op_assign
@@ -3328,6 +3341,8 @@ r_if
 c_cond
 (paren
 id|revs-&gt;cherry_pick
+op_logical_or
+id|revs-&gt;cherry_mark
 )paren
 id|cherry_pick_list
 c_func
@@ -6534,10 +6549,56 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--cherry-mark&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|revs-&gt;cherry_pick
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--cherry-mark is incompatible with --cherry-pick&quot;
+)paren
+suffix:semicolon
+id|revs-&gt;cherry_mark
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;limited
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* needs limit_list() */
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--cherry-pick&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|revs-&gt;cherry_mark
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--cherry-pick is incompatible with --cherry-mark&quot;
+)paren
+suffix:semicolon
 id|revs-&gt;cherry_pick
 op_assign
 l_int|1
@@ -11597,6 +11658,17 @@ r_else
 r_if
 c_cond
 (paren
+id|commit-&gt;object.flags
+op_amp
+id|PATCHSAME
+)paren
+r_return
+l_string|&quot;=&quot;
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 op_logical_neg
 id|revs
 op_logical_or
@@ -11626,6 +11698,15 @@ id|revs-&gt;graph
 )paren
 r_return
 l_string|&quot;*&quot;
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|revs-&gt;cherry_mark
+)paren
+r_return
+l_string|&quot;+&quot;
 suffix:semicolon
 r_return
 l_string|&quot;&quot;
