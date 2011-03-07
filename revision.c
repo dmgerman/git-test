@@ -6483,6 +6483,7 @@ id|die
 c_func
 (paren
 l_string|&quot;--left-only is incompatible with --right-only&quot;
+l_string|&quot; or --cherry&quot;
 )paren
 suffix:semicolon
 id|revs-&gt;left_only
@@ -6516,6 +6517,48 @@ l_string|&quot;--right-only is incompatible with --left-only&quot;
 )paren
 suffix:semicolon
 id|revs-&gt;right_only
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--cherry&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|revs-&gt;left_only
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;--cherry is incompatible with --left-only&quot;
+)paren
+suffix:semicolon
+id|revs-&gt;cherry_mark
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;right_only
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;no_merges
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;limited
 op_assign
 l_int|1
 suffix:semicolon
