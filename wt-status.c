@@ -272,7 +272,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|s-&gt;in_merge
+id|s-&gt;whence
+op_ne
+id|FROM_COMMIT
 )paren
 suffix:semicolon
 r_else
@@ -372,7 +374,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|s-&gt;in_merge
+id|s-&gt;whence
+op_ne
+id|FROM_COMMIT
 )paren
 suffix:semicolon
 multiline_comment|/* NEEDSWORK: use &quot;git reset --unresolve&quot;??? */
