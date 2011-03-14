@@ -2292,13 +2292,6 @@ comma
 id|rpc-&gt;hdr_accept
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|large_request
-)paren
-(brace
-multiline_comment|/* The request body is large and the size cannot be predicted.&n;&t;&t; * We must use chunked encoding to send it.&n;&t;&t; */
 id|headers
 op_assign
 id|curl_slist_append
@@ -2309,6 +2302,13 @@ comma
 l_string|&quot;Expect:&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|large_request
+)paren
+(brace
+multiline_comment|/* The request body is large and the size cannot be predicted.&n;&t;&t; * We must use chunked encoding to send it.&n;&t;&t; */
 id|headers
 op_assign
 id|curl_slist_append
