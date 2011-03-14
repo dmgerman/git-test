@@ -1903,6 +1903,17 @@ id|got_continue
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ack
+op_eq
+id|ACK_ready
+)paren
+id|rev_list
+op_assign
+l_int|NULL
+suffix:semicolon
 r_break
 suffix:semicolon
 )brace
