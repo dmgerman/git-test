@@ -1054,11 +1054,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|git_config_global
-c_func
-(paren
-)paren
-op_logical_and
 id|home
 )paren
 id|global
