@@ -342,7 +342,10 @@ r_void
 id|setup_push_upstream
 c_func
 (paren
-r_void
+r_struct
+id|remote
+op_star
+id|remote
 )paren
 (brace
 r_struct
@@ -371,7 +374,13 @@ id|branch
 id|die
 c_func
 (paren
-l_string|&quot;You are not currently on a branch.&quot;
+l_string|&quot;You are not currently on a branch.&bslash;n&quot;
+l_string|&quot;To push the history leading to the current (detached HEAD)&bslash;n&quot;
+l_string|&quot;state now, use&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git push %s HEAD:&lt;name-of-remote-branch&gt;&bslash;n&quot;
+comma
+id|remote-&gt;name
 )paren
 suffix:semicolon
 r_if
@@ -386,7 +395,14 @@ id|branch-&gt;merge
 id|die
 c_func
 (paren
-l_string|&quot;The current branch %s has no upstream branch.&quot;
+l_string|&quot;The current branch %s has no upstream branch.&bslash;n&quot;
+l_string|&quot;To push the current branch and set the remote as upstream, use&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git push --set-upstream %s %s&bslash;n&quot;
+comma
+id|branch-&gt;name
+comma
+id|remote-&gt;name
 comma
 id|branch-&gt;name
 )paren
@@ -438,7 +454,10 @@ r_void
 id|setup_default_push_refspecs
 c_func
 (paren
-r_void
+r_struct
+id|remote
+op_star
+id|remote
 )paren
 (brace
 r_switch
@@ -466,6 +485,7 @@ suffix:colon
 id|setup_push_upstream
 c_func
 (paren
+id|remote
 )paren
 suffix:semicolon
 r_break
@@ -708,7 +728,14 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;No destination configured to push to.&quot;
+l_string|&quot;No configured push destination.&bslash;n&quot;
+l_string|&quot;Either specify the URL from the command-line or configure a remote repository using&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git remote add &lt;name&gt; &lt;url&gt;&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;and then push using the remote name&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git push &lt;name&gt;&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
@@ -876,6 +903,7 @@ id|TRANSPORT_PUSH_MIRROR
 id|setup_default_push_refspecs
 c_func
 (paren
+id|remote
 )paren
 suffix:semicolon
 )brace
