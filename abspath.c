@@ -107,6 +107,21 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
+multiline_comment|/* We&squot;ve already done it */
+r_if
+c_cond
+(paren
+id|path
+op_eq
+id|buf
+op_logical_or
+id|path
+op_eq
+id|next_buf
+)paren
+r_return
+id|path
+suffix:semicolon
 r_if
 c_cond
 (paren
