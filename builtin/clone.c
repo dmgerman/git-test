@@ -2215,16 +2215,12 @@ comma
 l_char|&squot;:&squot;
 )paren
 )paren
-id|repo
-op_assign
-id|xstrdup
+id|die
 c_func
 (paren
-id|make_absolute_path
-c_func
-(paren
+l_string|&quot;repository &squot;%s&squot; does not exist&quot;
+comma
 id|repo_name
-)paren
 )paren
 suffix:semicolon
 r_else
