@@ -18,34 +18,12 @@ DECL|macro|O_NOATIME
 mdefine_line|#define O_NOATIME 0
 macro_line|#endif
 macro_line|#endif
-macro_line|#ifdef NO_C99_FORMAT
 DECL|macro|SZ_FMT
-mdefine_line|#define SZ_FMT &quot;lu&quot;
+mdefine_line|#define SZ_FMT PRIuMAX
 DECL|function|sz_fmt
 r_static
-r_int
-r_int
-id|sz_fmt
-c_func
-(paren
-r_int
-id|s
-)paren
-(brace
-r_return
-(paren
-r_int
-r_int
-)paren
-id|s
-suffix:semicolon
-)brace
-macro_line|#else
-DECL|macro|SZ_FMT
-mdefine_line|#define SZ_FMT &quot;zu&quot;
-DECL|function|sz_fmt
-r_static
-r_int
+r_inline
+r_uintmax
 id|sz_fmt
 c_func
 (paren
@@ -57,7 +35,6 @@ r_return
 id|s
 suffix:semicolon
 )brace
-macro_line|#endif
 DECL|variable|null_sha1
 r_const
 r_int
