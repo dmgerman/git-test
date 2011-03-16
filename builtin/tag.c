@@ -2037,7 +2037,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;MESSAGE&quot;
+l_string|&quot;message&quot;
 comma
 l_string|&quot;tag message&quot;
 comma

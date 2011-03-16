@@ -447,7 +447,7 @@ comma
 op_amp
 id|force_author
 comma
-l_string|&quot;AUTHOR&quot;
+l_string|&quot;author&quot;
 comma
 l_string|&quot;override author for commit&quot;
 )paren
@@ -462,7 +462,7 @@ comma
 op_amp
 id|force_date
 comma
-l_string|&quot;DATE&quot;
+l_string|&quot;date&quot;
 comma
 l_string|&quot;override date for commit&quot;
 )paren
@@ -477,7 +477,7 @@ comma
 op_amp
 id|message
 comma
-l_string|&quot;MESSAGE&quot;
+l_string|&quot;message&quot;
 comma
 l_string|&quot;commit message&quot;
 comma
@@ -494,7 +494,7 @@ comma
 op_amp
 id|edit_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;reuse and edit message from specified commit&quot;
 )paren
@@ -509,7 +509,7 @@ comma
 op_amp
 id|use_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;reuse message from specified commit&quot;
 )paren
@@ -524,7 +524,7 @@ comma
 op_amp
 id|fixup_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;use autosquash formatted message to fixup specified commit&quot;
 )paren
@@ -539,7 +539,7 @@ comma
 op_amp
 id|squash_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;use autosquash formatted message to squash specified commit&quot;
 )paren

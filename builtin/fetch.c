@@ -205,7 +205,7 @@ comma
 op_amp
 id|upload_pack
 comma
-l_string|&quot;PATH&quot;
+l_string|&quot;path&quot;
 comma
 l_string|&quot;path to upload pack on remote end&quot;
 )paren
@@ -352,7 +352,7 @@ comma
 op_amp
 id|depth
 comma
-l_string|&quot;DEPTH&quot;
+l_string|&quot;depth&quot;
 comma
 l_string|&quot;deepen history of shallow clone&quot;
 )paren
@@ -367,7 +367,7 @@ comma
 op_amp
 id|submodule_prefix
 comma
-l_string|&quot;DIR&quot;
+l_string|&quot;dir&quot;
 comma
 l_string|&quot;prepend this to submodule path output&quot;
 comma

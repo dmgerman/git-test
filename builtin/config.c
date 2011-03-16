@@ -226,7 +226,7 @@ comma
 op_amp
 id|given_config_file
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
 l_string|&quot;use given config file&quot;
 )paren
