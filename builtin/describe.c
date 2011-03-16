@@ -292,6 +292,10 @@ c_func
 r_void
 op_star
 id|chain
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_struct
@@ -1489,6 +1493,8 @@ op_amp
 id|names
 comma
 id|set_util
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|have_util
