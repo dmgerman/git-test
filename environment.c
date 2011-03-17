@@ -601,7 +601,7 @@ id|git_work_tree_initialized
 (brace
 id|new_work_tree
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|new_work_tree
@@ -641,7 +641,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|new_work_tree

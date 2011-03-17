@@ -483,7 +483,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|path
@@ -560,7 +560,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|path
@@ -1046,7 +1046,7 @@ id|extra
 suffix:semicolon
 id|ref_git
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|option_reference
@@ -2195,7 +2195,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|repo_name
@@ -2521,7 +2521,7 @@ suffix:semicolon
 id|set_git_dir
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|git_dir

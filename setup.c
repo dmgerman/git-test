@@ -60,7 +60,7 @@ r_char
 op_star
 id|temp
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|path
@@ -1138,10 +1138,13 @@ id|git_dir
 )paren
 id|git_dir
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
-id|git_dir
+id|get_git_dir
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1185,7 +1188,7 @@ suffix:semicolon
 id|set_git_dir
 c_func
 (paren
-id|make_relative_path
+id|relative_path
 c_func
 (paren
 id|git_dir
@@ -1619,7 +1622,7 @@ id|dir
 suffix:semicolon
 id|path
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|dir
@@ -2027,7 +2030,7 @@ multiline_comment|/* cwd inside worktree */
 id|set_git_dir
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|gitdirenv
@@ -2175,7 +2178,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|gitdir
@@ -2230,7 +2233,7 @@ ques
 c_cond
 id|gitdir
 suffix:colon
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|gitdir

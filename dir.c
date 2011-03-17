@@ -5276,7 +5276,7 @@ id|dir
 )paren
 id|dir
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|dir

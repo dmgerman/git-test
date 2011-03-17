@@ -4037,7 +4037,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|e-&gt;base

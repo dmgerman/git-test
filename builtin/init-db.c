@@ -2516,7 +2516,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|rel
@@ -2573,7 +2573,7 @@ id|work_tree
 id|set_git_work_tree
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|work_tree
@@ -2622,7 +2622,7 @@ id|work_tree
 id|set_git_work_tree
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|work_tree
@@ -2633,7 +2633,7 @@ suffix:semicolon
 id|set_git_dir
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|git_dir

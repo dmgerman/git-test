@@ -601,7 +601,7 @@ l_string|&quot;If no other git process is currently running, this probably means
 l_string|&quot;git process crashed in this repository earlier. Make sure no other git&bslash;n&quot;
 l_string|&quot;process is running and remove the file manually to continue.&quot;
 comma
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|path
@@ -624,7 +624,7 @@ id|buf
 comma
 l_string|&quot;Unable to create &squot;%s.lock&squot;: %s&quot;
 comma
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|path
