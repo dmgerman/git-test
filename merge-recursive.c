@@ -1871,6 +1871,14 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+multiline_comment|/*&n;&t; * Do not do any of this crazyness during the recursive; we don&squot;t&n;&t; * even write anything to the working tree!&n;&t; */
+r_if
+c_cond
+(paren
+id|o-&gt;call_depth
+)paren
+r_return
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -6885,6 +6893,10 @@ id|mfi.mode
 op_eq
 id|a.mode
 op_logical_and
+op_logical_neg
+id|o-&gt;call_depth
+op_logical_and
+op_logical_neg
 id|lstat
 c_func
 (paren
@@ -6893,8 +6905,6 @@ comma
 op_amp
 id|st
 )paren
-op_eq
-l_int|0
 )paren
 (brace
 id|output
