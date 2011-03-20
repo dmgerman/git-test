@@ -30,7 +30,7 @@ r_static
 r_int
 id|diff_rename_limit_default
 op_assign
-l_int|200
+l_int|400
 suffix:semicolon
 DECL|variable|diff_suppress_blank_empty
 r_static

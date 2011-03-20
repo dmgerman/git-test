@@ -17,6 +17,18 @@ macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;submodule.h&quot;
+DECL|variable|rename_limit_advice
+r_static
+r_const
+r_char
+id|rename_limit_advice
+(braket
+)braket
+op_assign
+l_string|&quot;inexact rename detection was skipped because there were too many&bslash;n&quot;
+l_string|&quot;  files. You may want to set your merge.renamelimit variable to at least&bslash;n&quot;
+l_string|&quot;  %d and retry this merge.&quot;
+suffix:semicolon
 DECL|function|shift_tree_object
 r_static
 r_struct
@@ -2034,15 +2046,15 @@ ques
 c_cond
 id|o-&gt;diff_rename_limit
 suffix:colon
-l_int|500
+l_int|1000
 suffix:semicolon
 id|opts.rename_score
 op_assign
 id|o-&gt;rename_score
 suffix:semicolon
-id|opts.warn_on_too_large_rename
+id|opts.show_rename_progress
 op_assign
-l_int|1
+id|o-&gt;show_rename_progress
 suffix:semicolon
 id|opts.output_format
 op_assign
@@ -2085,6 +2097,17 @@ c_func
 op_amp
 id|opts
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts.needed_rename_limit
+OG
+id|o-&gt;needed_rename_limit
+)paren
+id|o-&gt;needed_rename_limit
+op_assign
+id|opts.needed_rename_limit
 suffix:semicolon
 r_for
 c_loop
@@ -8940,6 +8963,19 @@ id|flush_output
 c_func
 (paren
 id|o
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;needed_rename_limit
+)paren
+id|warning
+c_func
+(paren
+id|rename_limit_advice
+comma
+id|o-&gt;needed_rename_limit
 )paren
 suffix:semicolon
 r_return

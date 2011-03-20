@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;hash.h&quot;
+macro_line|#include &quot;progress.h&quot;
 multiline_comment|/* Table of rename/copy destinations */
 DECL|struct|diff_rename_dst
 r_static
@@ -2104,6 +2105,13 @@ id|num_src
 comma
 id|dst_cnt
 suffix:semicolon
+r_struct
+id|progress
+op_star
+id|progress
+op_assign
+l_int|NULL
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2304,6 +2312,10 @@ r_goto
 id|cleanup
 suffix:semicolon
 multiline_comment|/*&n;&t; * This basically does a test for the rename matrix not&n;&t; * growing larger than a &quot;rename_limit&quot; square matrix, ie:&n;&t; *&n;&t; *    num_create * num_src &gt; rename_limit * rename_limit&n;&t; *&n;&t; * but handles the potential overflow case specially (and we&n;&t; * assume at least 32-bit integers)&n;&t; */
+id|options-&gt;needed_rename_limit
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2343,23 +2355,42 @@ id|rename_limit
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|options-&gt;warn_on_too_large_rename
-)paren
-id|warning
-c_func
-(paren
-l_string|&quot;too many files (created: %d deleted: %d), skipping inexact rename detection&quot;
-comma
-id|num_create
-comma
+id|options-&gt;needed_rename_limit
+op_assign
 id|num_src
-)paren
+OG
+id|num_create
+ques
+c_cond
+id|num_src
+suffix:colon
+id|num_create
 suffix:semicolon
 r_goto
 id|cleanup
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|options-&gt;show_rename_progress
+)paren
+(brace
+id|progress
+op_assign
+id|start_progress_delay
+c_func
+(paren
+l_string|&quot;Performing inexact rename detection&quot;
+comma
+id|rename_dst_nr
+op_star
+id|rename_src_nr
+comma
+l_int|50
+comma
+l_int|1
+)paren
 suffix:semicolon
 )brace
 id|mx
@@ -2545,7 +2576,28 @@ suffix:semicolon
 id|dst_cnt
 op_increment
 suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+(paren
+id|i
+op_plus
+l_int|1
+)paren
+op_star
+id|rename_src_nr
+)paren
+suffix:semicolon
 )brace
+id|stop_progress
+c_func
+(paren
+op_amp
+id|progress
+)paren
+suffix:semicolon
 multiline_comment|/* cost matrix sorted by most to least similar pair */
 id|qsort
 c_func
