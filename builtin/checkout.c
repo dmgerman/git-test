@@ -3293,7 +3293,29 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot; - &quot;
+l_string|&quot;  &quot;
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+id|sb
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|commit-&gt;object.sha1
+comma
+id|DEFAULT_ABBREV
+)paren
+)paren
+suffix:semicolon
+id|strbuf_addch
+c_func
+(paren
+id|sb
+comma
+l_char|&squot; &squot;
 )paren
 suffix:semicolon
 id|pretty_print_commit
