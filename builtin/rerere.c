@@ -17,7 +17,7 @@ id|rerere_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git rerere [clear | status | remaining | diff | gc]&quot;
+l_string|&quot;git rerere [clear | forget path... | status | remaining | diff | gc]&quot;
 comma
 l_int|NULL
 comma
@@ -830,6 +830,21 @@ r_const
 r_char
 op_star
 op_star
+id|pathspec
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+OL
+l_int|2
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;&squot;git rerere forget&squot; without paths is deprecated&quot;
+)paren
+suffix:semicolon
 id|pathspec
 op_assign
 id|get_pathspec
