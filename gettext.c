@@ -1,0 +1,42 @@
+multiline_comment|/*&n; * Copyright (c) 2010 &AElig;var Arnfj&ouml;r&eth; Bjarmason&n; */
+macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;gettext.h&quot;
+DECL|function|use_gettext_poison
+r_int
+id|use_gettext_poison
+c_func
+(paren
+r_void
+)paren
+(brace
+r_static
+r_int
+id|poison_requested
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|poison_requested
+op_eq
+l_int|1
+)paren
+id|poison_requested
+op_assign
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_GETTEXT_POISON&quot;
+)paren
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+suffix:semicolon
+r_return
+id|poison_requested
+suffix:semicolon
+)brace
+eof
