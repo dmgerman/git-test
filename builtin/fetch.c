@@ -4897,6 +4897,12 @@ id|result
 op_assign
 l_int|0
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;fetch&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* Record the command line for the reflog */
 id|strbuf_addstr
 c_func

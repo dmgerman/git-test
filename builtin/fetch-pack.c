@@ -4157,6 +4157,12 @@ id|child_process
 op_star
 id|conn
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;fetch-pack&quot;
+)paren
+suffix:semicolon
 id|nr_heads
 op_assign
 l_int|0
