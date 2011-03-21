@@ -3,8 +3,8 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;repo_tree.h&quot;
 macro_line|#include &quot;fast_export.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
-macro_line|#include &quot;obj_pool.h&quot;
 macro_line|#include &quot;string_pool.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
 DECL|macro|NODEACT_REPLACE
 mdefine_line|#define NODEACT_REPLACE 4
 DECL|macro|NODEACT_DELETE
@@ -25,16 +25,6 @@ DECL|macro|LENGTH_UNKNOWN
 mdefine_line|#define LENGTH_UNKNOWN (~0)
 DECL|macro|DATE_RFC2822_LEN
 mdefine_line|#define DATE_RFC2822_LEN 31
-multiline_comment|/* Create memory pool for log messages */
-id|obj_pool_gen
-c_func
-(paren
-id|log
-comma
-r_char
-comma
-l_int|4096
-)paren
 DECL|variable|input
 r_static
 r_struct
@@ -43,58 +33,6 @@ id|input
 op_assign
 id|LINE_BUFFER_INIT
 suffix:semicolon
-DECL|function|log_copy
-r_static
-r_char
-op_star
-id|log_copy
-c_func
-(paren
-r_uint32
-id|length
-comma
-r_const
-r_char
-op_star
-id|log
-)paren
-(brace
-r_char
-op_star
-id|buffer
-suffix:semicolon
-id|log_free
-c_func
-(paren
-id|log_pool.size
-)paren
-suffix:semicolon
-id|buffer
-op_assign
-id|log_pointer
-c_func
-(paren
-id|log_alloc
-c_func
-(paren
-id|length
-)paren
-)paren
-suffix:semicolon
-id|strncpy
-c_func
-(paren
-id|buffer
-comma
-id|log
-comma
-id|length
-)paren
-suffix:semicolon
-r_return
-id|buffer
-suffix:semicolon
-)brace
 r_static
 r_struct
 (brace
@@ -154,8 +92,8 @@ r_int
 id|timestamp
 suffix:semicolon
 DECL|member|log
-r_char
-op_star
+r_struct
+id|strbuf
 id|log
 suffix:semicolon
 DECL|variable|rev_ctx
@@ -320,9 +258,12 @@ id|rev_ctx.timestamp
 op_assign
 l_int|0
 suffix:semicolon
+id|strbuf_reset
+c_func
+(paren
+op_amp
 id|rev_ctx.log
-op_assign
-l_int|NULL
+)paren
 suffix:semicolon
 id|rev_ctx.author
 op_assign
@@ -551,17 +492,22 @@ c_func
 l_string|&quot;invalid dump: unsets svn:log&quot;
 )paren
 suffix:semicolon
-multiline_comment|/* Value length excludes terminating nul. */
-id|rev_ctx.log
-op_assign
-id|log_copy
+id|strbuf_reset
 c_func
 (paren
-id|len
-op_plus
-l_int|1
+op_amp
+id|rev_ctx.log
+)paren
+suffix:semicolon
+id|strbuf_add
+c_func
+(paren
+op_amp
+id|rev_ctx.log
 comma
 id|val
+comma
+id|len
 )paren
 suffix:semicolon
 )brace
@@ -1338,7 +1284,7 @@ id|rev_ctx.revision
 comma
 id|rev_ctx.author
 comma
-id|rev_ctx.log
+id|rev_ctx.log.buf
 comma
 id|dump_ctx.uuid
 comma
@@ -2047,6 +1993,15 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|strbuf_init
+c_func
+(paren
+op_amp
+id|rev_ctx.log
+comma
+l_int|4096
+)paren
+suffix:semicolon
 id|reset_dump_ctx
 c_func
 (paren
@@ -2083,11 +2038,6 @@ c_func
 r_void
 )paren
 (brace
-id|log_reset
-c_func
-(paren
-)paren
-suffix:semicolon
 id|repo_reset
 c_func
 (paren
@@ -2110,6 +2060,13 @@ id|reset_node_ctx
 c_func
 (paren
 l_int|NULL
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|rev_ctx.log
 )paren
 suffix:semicolon
 r_if
@@ -2156,11 +2113,6 @@ c_func
 r_void
 )paren
 (brace
-id|log_reset
-c_func
-(paren
-)paren
-suffix:semicolon
 id|buffer_reset
 c_func
 (paren
