@@ -981,6 +981,24 @@ id|buf-&gt;len
 )paren
 suffix:semicolon
 )brace
+DECL|macro|INITIAL_FLUSH
+mdefine_line|#define INITIAL_FLUSH 32
+DECL|function|next_flush
+r_static
+r_int
+id|next_flush
+c_func
+(paren
+r_int
+id|count
+)paren
+(brace
+r_return
+id|INITIAL_FLUSH
+op_plus
+id|count
+suffix:semicolon
+)brace
 DECL|function|find_common
 r_static
 r_int
@@ -1015,6 +1033,10 @@ comma
 id|flushes
 op_assign
 l_int|0
+comma
+id|flush_at
+op_assign
+id|INITIAL_FLUSH
 comma
 id|retval
 suffix:semicolon
@@ -1714,13 +1736,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
-l_int|31
-op_amp
+id|flush_at
+op_le
 op_increment
 id|count
-)paren
 )paren
 (brace
 r_int
@@ -1757,6 +1776,14 @@ suffix:semicolon
 id|flushes
 op_increment
 suffix:semicolon
+id|flush_at
+op_assign
+id|next_flush
+c_func
+(paren
+id|count
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * We keep one window &quot;ahead&quot; of the other side, and&n;&t;&t;&t; * will wait for an ACK only on the next one&n;&t;&t;&t; */
 r_if
 c_cond
@@ -1766,7 +1793,7 @@ id|args.stateless_rpc
 op_logical_and
 id|count
 op_eq
-l_int|32
+id|INITIAL_FLUSH
 )paren
 r_continue
 suffix:semicolon
