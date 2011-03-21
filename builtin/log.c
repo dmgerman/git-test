@@ -5614,7 +5614,7 @@ id|rev.diff
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.no_merges
+id|rev.max_parents
 op_assign
 l_int|1
 suffix:semicolon
