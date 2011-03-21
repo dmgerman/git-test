@@ -2779,7 +2779,7 @@ c_func
 (paren
 id|var
 comma
-l_string|&quot;core.abbrevlength&quot;
+l_string|&quot;core.abbrev&quot;
 )paren
 )paren
 (brace
