@@ -982,7 +982,7 @@ id|buf-&gt;len
 suffix:semicolon
 )brace
 DECL|macro|INITIAL_FLUSH
-mdefine_line|#define INITIAL_FLUSH 32
+mdefine_line|#define INITIAL_FLUSH 16
 DECL|macro|LARGE_FLUSH
 mdefine_line|#define LARGE_FLUSH 1024
 DECL|function|next_flush
@@ -995,6 +995,20 @@ r_int
 id|count
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|count
+OL
+id|INITIAL_FLUSH
+op_star
+l_int|2
+)paren
+id|count
+op_add_assign
+id|INITIAL_FLUSH
+suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
