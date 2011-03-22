@@ -15877,7 +15877,7 @@ id|tree_entry
 id|leaf
 op_assign
 (brace
-l_int|0
+l_int|NULL
 )brace
 suffix:semicolon
 multiline_comment|/* ls SP (&lt;treeish&gt; SP)? &lt;path&gt; */

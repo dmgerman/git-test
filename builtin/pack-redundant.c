@@ -1,6 +1,5 @@
 multiline_comment|/*&n;*&n;* Copyright 2005, Lukas Sandstrom &lt;lukass@etek.chalmers.se&gt;&n;*&n;* This file is licensed under the GPL v2.&n;*&n;*/
-macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|macro|BLKSIZE
 mdefine_line|#define BLKSIZE 512
 DECL|variable|pack_redundant_usage

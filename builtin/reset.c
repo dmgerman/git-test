@@ -1,5 +1,5 @@
 multiline_comment|/*&n; * &quot;git reset&quot; builtin command&n; *&n; * Copyright (c) 2007 Carlos Rica&n; *&n; * Based on git-reset.sh, which is&n; *&n; * Copyright (c) 2005, 2006 Linus Torvalds and Junio C Hamano&n; */
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;commit.h&quot;

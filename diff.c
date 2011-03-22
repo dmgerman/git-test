@@ -3665,6 +3665,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|variable|diff_words_styles
+r_static
 r_struct
 id|diff_words_style
 id|diff_words_styles

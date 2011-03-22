@@ -1,6 +1,5 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;tag.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
 multiline_comment|/*&n; * A signature file has a very simple fixed format: four lines&n; * of &quot;object &lt;sha1&gt;&quot; + &quot;type &lt;typename&gt;&quot; + &quot;tag &lt;tagname&gt;&quot; +&n; * &quot;tagger &lt;committer&gt;&quot;, followed by a blank line, a free-form tag&n; * message and a signature block that git itself doesn&squot;t care about,&n; * but that can be verified with gpg or similar.&n; *&n; * The first four lines are guaranteed to be at least 83 bytes:&n; * &quot;object &lt;sha1&gt;&bslash;n&quot; is 48 bytes, &quot;type tag&bslash;n&quot; at 9 bytes is the&n; * shortest possible type-line, &quot;tag .&bslash;n&quot; at 6 bytes is the shortest&n; * single-character-tag line, and &quot;tagger . &lt;&gt; 0 +0000&bslash;n&quot; at 20 bytes is&n; * the shortest possible tagger-line.&n; */
 multiline_comment|/*&n; * We refuse to tag something we can&squot;t verify. Just because.&n; */
 DECL|function|verify_object

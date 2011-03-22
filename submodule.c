@@ -9,16 +9,19 @@ macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 DECL|variable|config_name_for_path
+r_static
 r_struct
 id|string_list
 id|config_name_for_path
 suffix:semicolon
 DECL|variable|config_fetch_recurse_submodules_for_name
+r_static
 r_struct
 id|string_list
 id|config_fetch_recurse_submodules_for_name
 suffix:semicolon
 DECL|variable|config_ignore_for_name
+r_static
 r_struct
 id|string_list
 id|config_ignore_for_name

@@ -2221,6 +2221,7 @@ id|c
 suffix:semicolon
 )brace
 DECL|function|notes_copy_from_stdin
+r_static
 r_int
 id|notes_copy_from_stdin
 c_func
@@ -4542,7 +4543,7 @@ id|sha1
 comma
 l_int|0
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

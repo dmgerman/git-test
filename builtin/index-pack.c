@@ -946,6 +946,7 @@ l_int|3
 suffix:semicolon
 DECL|function|bad_object
 r_static
+id|NORETURN
 r_void
 id|bad_object
 c_func

@@ -974,7 +974,7 @@ id|ref
 id|dummy
 op_assign
 (brace
-l_int|0
+l_int|NULL
 )brace
 comma
 op_star

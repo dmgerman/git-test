@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;sha1-lookup.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;commit.h&quot;
 DECL|struct|replace_object
 r_static
 r_struct

@@ -298,6 +298,7 @@ id|buf
 suffix:semicolon
 )brace
 DECL|function|trace_printf_key
+r_static
 r_void
 id|trace_printf_key
 c_func

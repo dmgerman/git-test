@@ -1,5 +1,5 @@
 multiline_comment|/*&n; * Builtin &quot;git clone&quot;&n; *&n; * Copyright (c) 2007 Kristian H&oslash;gsberg &lt;krh@redhat.com&gt;,&n; *&t;&t; 2008 Daniel Barkalow &lt;barkalow@iabervon.org&gt;&n; * Based on git-commit.sh by Junio C Hamano and Linus Torvalds&n; *&n; * Clone a repository into a different directory that does not yet exist.&n; */
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;refs.h&quot;

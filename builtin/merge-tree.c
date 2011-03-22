@@ -1,4 +1,4 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;blob.h&quot;

@@ -277,6 +277,7 @@ suffix:semicolon
 )brace
 DECL|function|usagef
 r_void
+id|NORETURN
 id|usagef
 c_func
 (paren
@@ -318,6 +319,7 @@ suffix:semicolon
 )brace
 DECL|function|usage
 r_void
+id|NORETURN
 id|usage
 c_func
 (paren
@@ -338,6 +340,7 @@ suffix:semicolon
 )brace
 DECL|function|die
 r_void
+id|NORETURN
 id|die
 c_func
 (paren
@@ -379,6 +382,7 @@ suffix:semicolon
 )brace
 DECL|function|die_errno
 r_void
+id|NORETURN
 id|die_errno
 c_func
 (paren

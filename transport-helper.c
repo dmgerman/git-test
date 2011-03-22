@@ -355,6 +355,7 @@ l_string|&quot;Full write to remote helper failed&quot;
 suffix:semicolon
 )brace
 DECL|function|remove_ext_force
+r_static
 r_const
 r_char
 op_star

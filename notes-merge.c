@@ -1854,7 +1854,7 @@ id|remote
 comma
 id|o-&gt;remote_ref
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 id|free

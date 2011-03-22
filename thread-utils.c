@@ -1,5 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &lt;pthread.h&gt;
+macro_line|#include &quot;thread-utils.h&quot;
 macro_line|#if defined(hpux) || defined(__hpux) || defined(_hpux)
 macro_line|#  include &lt;sys/pstat.h&gt;
 macro_line|#endif

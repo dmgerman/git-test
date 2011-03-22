@@ -5681,7 +5681,7 @@ id|child_process
 id|tunnel
 op_assign
 (brace
-l_int|0
+l_int|NULL
 )brace
 suffix:semicolon
 id|imap_info

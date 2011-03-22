@@ -1,4 +1,4 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;remote.h&quot;
