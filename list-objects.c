@@ -729,6 +729,12 @@ op_ne
 l_int|NULL
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * an uninteresting boundary commit may not have its tree&n;&t;&t; * parsed yet, but we are not going to show them anyway&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|commit-&gt;tree
+)paren
 id|add_pending_tree
 c_func
 (paren
