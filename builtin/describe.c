@@ -57,8 +57,9 @@ r_static
 r_int
 id|abbrev
 op_assign
-id|DEFAULT_ABBREV
+l_int|1
 suffix:semicolon
+multiline_comment|/* unspecified */
 DECL|variable|max_candidates
 r_static
 r_int
@@ -2248,6 +2249,14 @@ c_func
 comma
 )brace
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options
@@ -2265,6 +2274,17 @@ id|describe_usage
 comma
 l_int|0
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|abbrev
+OL
+l_int|0
+)paren
+id|abbrev
+op_assign
+id|DEFAULT_ABBREV
 suffix:semicolon
 r_if
 c_cond
