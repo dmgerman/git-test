@@ -9,6 +9,7 @@ macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;transport.h&quot;
 DECL|variable|transfer_unpack_limit
 r_static
 r_int
@@ -974,6 +975,54 @@ id|buf-&gt;len
 )paren
 suffix:semicolon
 )brace
+DECL|function|insert_one_alternate_ref
+r_static
+r_void
+id|insert_one_alternate_ref
+c_func
+(paren
+r_const
+r_struct
+id|ref
+op_star
+id|ref
+comma
+r_void
+op_star
+id|unused
+)paren
+(brace
+id|rev_list_insert_ref
+c_func
+(paren
+l_int|NULL
+comma
+id|ref-&gt;old_sha1
+comma
+l_int|0
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+)brace
+DECL|function|insert_alternate_refs
+r_static
+r_void
+id|insert_alternate_refs
+c_func
+(paren
+r_void
+)paren
+(brace
+id|foreach_alt_odb
+c_func
+(paren
+id|refs_from_alternate_cb
+comma
+id|insert_one_alternate_ref
+)paren
+suffix:semicolon
+)brace
 DECL|function|find_common
 r_static
 r_int
@@ -1076,6 +1125,11 @@ c_func
 id|rev_list_insert_ref
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|insert_alternate_refs
+c_func
+(paren
 )paren
 suffix:semicolon
 id|fetching
