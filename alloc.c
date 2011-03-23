@@ -80,12 +80,6 @@ comma
 r_union
 id|any_object
 )paren
-macro_line|#ifdef NO_C99_FORMAT
-DECL|macro|SZ_FMT
-mdefine_line|#define SZ_FMT &quot;%u&quot;
-macro_line|#else
-mdefine_line|#define SZ_FMT &quot;%zu&quot;
-macro_line|#endif
 DECL|function|report
 r_static
 r_void
@@ -110,20 +104,21 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;%10s: %8u (&quot;
-id|SZ_FMT
+l_string|&quot;%10s: %8u (%&quot;
+id|PRIuMAX
 l_string|&quot; kB)&bslash;n&quot;
 comma
 id|name
 comma
 id|count
 comma
+(paren
+r_uintmax
+)paren
 id|size
 )paren
 suffix:semicolon
 )brace
-DECL|macro|SZ_FMT
-macro_line|#undef SZ_FMT
 DECL|macro|REPORT
 mdefine_line|#define REPORT(name)&t;&bslash;&n;    report(#name, name##_allocs, name##_allocs*sizeof(struct name) &gt;&gt; 10)
 DECL|function|alloc_report
