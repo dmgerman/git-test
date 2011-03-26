@@ -1204,7 +1204,8 @@ id|rev_ctx.revision
 comma
 id|rev_ctx.author.buf
 comma
-id|rev_ctx.log.buf
+op_amp
+id|rev_ctx.log
 comma
 id|dump_ctx.uuid.buf
 comma
