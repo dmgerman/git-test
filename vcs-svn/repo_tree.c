@@ -1575,7 +1575,9 @@ r_char
 op_star
 id|author
 comma
-r_char
+r_const
+r_struct
+id|strbuf
 op_star
 id|log
 comma
