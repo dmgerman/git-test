@@ -7012,9 +7012,6 @@ op_star
 id|reset
 comma
 op_star
-id|set
-comma
-op_star
 id|add_c
 comma
 op_star
@@ -7131,16 +7128,6 @@ c_func
 id|options
 comma
 id|DIFF_RESET
-)paren
-suffix:semicolon
-id|set
-op_assign
-id|diff_get_color_opt
-c_func
-(paren
-id|options
-comma
-id|DIFF_PLAIN
 )paren
 suffix:semicolon
 id|add_c

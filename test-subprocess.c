@@ -14,11 +14,6 @@ op_star
 id|argv
 )paren
 (brace
-r_const
-r_char
-op_star
-id|prefix
-suffix:semicolon
 r_struct
 id|child_process
 id|cp
@@ -28,8 +23,6 @@ id|nogit
 op_assign
 l_int|0
 suffix:semicolon
-id|prefix
-op_assign
 id|setup_git_directory_gently
 c_func
 (paren

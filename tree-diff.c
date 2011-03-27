@@ -90,11 +90,6 @@ id|old_baselen
 op_assign
 id|base-&gt;len
 suffix:semicolon
-r_int
-id|retval
-op_assign
-l_int|0
-suffix:semicolon
 id|sha1
 op_assign
 id|tree_entry_extract
@@ -353,8 +348,6 @@ comma
 l_char|&squot;/&squot;
 )paren
 suffix:semicolon
-id|retval
-op_assign
 id|diff_tree_sha1
 c_func
 (paren

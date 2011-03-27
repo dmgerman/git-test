@@ -674,9 +674,6 @@ r_struct
 id|object
 op_star
 id|obj
-comma
-op_star
-id|parent
 suffix:semicolon
 id|entry
 op_assign
@@ -688,15 +685,6 @@ suffix:semicolon
 id|obj
 op_assign
 id|entry-&gt;item
-suffix:semicolon
-id|parent
-op_assign
-(paren
-r_struct
-id|object
-op_star
-)paren
-id|entry-&gt;name
 suffix:semicolon
 id|result
 op_or_assign

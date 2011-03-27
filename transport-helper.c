@@ -2988,17 +2988,10 @@ op_assign
 id|STRBUF_INIT
 suffix:semicolon
 r_struct
-id|child_process
-op_star
-id|helper
-suffix:semicolon
-r_struct
 id|ref
 op_star
 id|ref
 suffix:semicolon
-id|helper
-op_assign
 id|get_helper
 c_func
 (paren

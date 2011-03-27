@@ -54,16 +54,6 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
-id|pslen
-op_assign
-l_int|0
-suffix:semicolon
-r_int
-id|pSlen
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|psoff
 op_assign
 l_int|0
@@ -92,19 +82,6 @@ l_int|4
 id|psoff
 op_assign
 l_int|4
-suffix:semicolon
-id|pSlen
-op_assign
-id|strlen
-c_func
-(paren
-id|service
-)paren
-suffix:semicolon
-id|pslen
-op_assign
-id|pSlen
-id|psoff
 suffix:semicolon
 multiline_comment|/* Pass the service to command. */
 id|setenv
