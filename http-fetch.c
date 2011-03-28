@@ -28,11 +28,6 @@ op_star
 id|argv
 )paren
 (brace
-r_const
-r_char
-op_star
-id|prefix
-suffix:semicolon
 r_struct
 id|walker
 op_star
@@ -389,8 +384,6 @@ op_amp
 id|url
 )paren
 suffix:semicolon
-id|prefix
-op_assign
 id|setup_git_directory
 c_func
 (paren

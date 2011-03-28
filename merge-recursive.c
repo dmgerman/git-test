@@ -1760,11 +1760,6 @@ id|last_len
 op_assign
 l_int|0
 suffix:semicolon
-r_struct
-id|stage_data
-op_star
-id|last_e
-suffix:semicolon
 r_int
 id|i
 suffix:semicolon
@@ -1899,10 +1894,6 @@ suffix:semicolon
 id|last_len
 op_assign
 id|len
-suffix:semicolon
-id|last_e
-op_assign
-id|e
 suffix:semicolon
 )brace
 r_else
@@ -5139,10 +5130,6 @@ id|b_renames-&gt;nr
 suffix:semicolon
 )paren
 (brace
-r_char
-op_star
-id|src
-suffix:semicolon
 r_struct
 id|string_list
 op_star
@@ -5338,10 +5325,6 @@ op_assign
 id|tmp
 suffix:semicolon
 )brace
-id|src
-op_assign
-id|ren1-&gt;pair-&gt;one-&gt;path
-suffix:semicolon
 id|ren1-&gt;dst_entry-&gt;processed
 op_assign
 l_int|1
