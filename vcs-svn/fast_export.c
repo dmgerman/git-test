@@ -251,12 +251,17 @@ l_string|&quot;data %&quot;
 id|PRIuMAX
 l_string|&quot;&bslash;n&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|log-&gt;len
 op_plus
 id|strlen
 c_func
 (paren
 id|gitsvnline
+)paren
 )paren
 )paren
 suffix:semicolon
