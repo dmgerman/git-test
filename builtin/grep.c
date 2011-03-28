@@ -4486,7 +4486,7 @@ c_func
 (paren
 l_char|&squot;n&squot;
 comma
-l_int|NULL
+l_string|&quot;line-number&quot;
 comma
 op_amp
 id|opt.linenum
