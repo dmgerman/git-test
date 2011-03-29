@@ -983,6 +983,8 @@ suffix:semicolon
 )brace
 DECL|macro|INITIAL_FLUSH
 mdefine_line|#define INITIAL_FLUSH 16
+DECL|macro|PIPESAFE_FLUSH
+mdefine_line|#define PIPESAFE_FLUSH 32
 DECL|macro|LARGE_FLUSH
 mdefine_line|#define LARGE_FLUSH 1024
 DECL|function|next_flush
@@ -995,26 +997,22 @@ r_int
 id|count
 )paren
 (brace
-r_if
+r_int
+id|flush_limit
+op_assign
+id|args.stateless_rpc
+ques
 c_cond
-(paren
-id|count
-OL
-id|INITIAL_FLUSH
-op_star
-l_int|2
-)paren
-id|count
-op_add_assign
-id|INITIAL_FLUSH
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-id|count
-OL
 id|LARGE_FLUSH
+suffix:colon
+id|PIPESAFE_FLUSH
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|count
+OL
+id|flush_limit
 )paren
 id|count
 op_lshift_assign
@@ -1023,7 +1021,7 @@ suffix:semicolon
 r_else
 id|count
 op_add_assign
-id|LARGE_FLUSH
+id|flush_limit
 suffix:semicolon
 r_return
 id|count
