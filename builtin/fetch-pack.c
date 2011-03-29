@@ -3778,6 +3778,11 @@ comma
 l_string|&quot;Server supports no-done&bslash;n&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|args.stateless_rpc
+)paren
 id|no_done
 op_assign
 l_int|1
