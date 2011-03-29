@@ -51,6 +51,11 @@ id|multi_ack
 comma
 id|nr_our_refs
 suffix:semicolon
+DECL|variable|no_done
+r_static
+r_int
+id|no_done
+suffix:semicolon
 DECL|variable|use_thin_pack
 DECL|variable|use_ofs_delta
 DECL|variable|use_include_tag
@@ -2201,6 +2206,11 @@ id|got_other
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|sent_ready
+op_assign
+l_int|0
+suffix:semicolon
 id|save_commit_buffer
 op_assign
 l_int|0
@@ -2257,6 +2267,11 @@ c_func
 (paren
 )paren
 )paren
+(brace
+id|sent_ready
+op_assign
+l_int|1
+suffix:semicolon
 id|packet_write
 c_func
 (paren
@@ -2267,6 +2282,7 @@ comma
 id|last_hex
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2284,6 +2300,28 @@ comma
 l_string|&quot;NAK&bslash;n&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|no_done
+op_logical_and
+id|sent_ready
+)paren
+(brace
+id|packet_write
+c_func
+(paren
+l_int|1
+comma
+l_string|&quot;ACK %s&bslash;n&quot;
+comma
+id|last_hex
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2377,6 +2415,11 @@ id|multi_ack
 op_eq
 l_int|2
 )paren
+(brace
+id|sent_ready
+op_assign
+l_int|1
+suffix:semicolon
 id|packet_write
 c_func
 (paren
@@ -2387,6 +2430,7 @@ comma
 id|hex
 )paren
 suffix:semicolon
+)brace
 r_else
 id|packet_write
 c_func
@@ -2852,6 +2896,23 @@ l_string|&quot;multi_ack&quot;
 )paren
 )paren
 id|multi_ack
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|strstr
+c_func
+(paren
+id|line
+op_plus
+l_int|45
+comma
+l_string|&quot;no-done&quot;
+)paren
+)paren
+id|no_done
 op_assign
 l_int|1
 suffix:semicolon
@@ -3393,7 +3454,7 @@ id|capabilities
 op_assign
 l_string|&quot;multi_ack thin-pack side-band&quot;
 l_string|&quot; side-band-64k ofs-delta shallow no-progress&quot;
-l_string|&quot; include-tag multi_ack_detailed&quot;
+l_string|&quot; include-tag multi_ack_detailed no-done&quot;
 suffix:semicolon
 r_struct
 id|object
