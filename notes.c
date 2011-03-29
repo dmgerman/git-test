@@ -5315,8 +5315,6 @@ r_if
 c_cond
 (paren
 id|opt
-op_logical_and
-id|opt-&gt;extra_notes_refs
 )paren
 (brace
 r_struct
@@ -5329,6 +5327,7 @@ c_func
 (paren
 id|item
 comma
+op_amp
 id|opt-&gt;extra_notes_refs
 )paren
 id|string_list_add_refs_by_glob
