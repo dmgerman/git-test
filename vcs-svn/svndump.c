@@ -919,12 +919,13 @@ l_string|&quot;invalid dump: deletion node has &quot;
 l_string|&quot;copyfrom info, text, or properties&quot;
 )paren
 suffix:semicolon
-r_return
 id|repo_delete
 c_func
 (paren
 id|node_ctx.dst
 )paren
+suffix:semicolon
+r_return
 suffix:semicolon
 )brace
 r_if
