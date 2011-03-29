@@ -3454,7 +3454,7 @@ id|capabilities
 op_assign
 l_string|&quot;multi_ack thin-pack side-band&quot;
 l_string|&quot; side-band-64k ofs-delta shallow no-progress&quot;
-l_string|&quot; include-tag multi_ack_detailed no-done&quot;
+l_string|&quot; include-tag multi_ack_detailed&quot;
 suffix:semicolon
 r_struct
 id|object
@@ -3495,7 +3495,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s %s%c%s&bslash;n&quot;
+l_string|&quot;%s %s%c%s%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -3508,6 +3508,13 @@ comma
 l_int|0
 comma
 id|capabilities
+comma
+id|stateless_rpc
+ques
+c_cond
+l_string|&quot; no-done&quot;
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_else
