@@ -537,6 +537,17 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
+DECL|variable|mirror_advice
+r_static
+r_const
+r_char
+id|mirror_advice
+(braket
+)braket
+op_assign
+l_string|&quot;--mirror is dangerous and deprecated; please&bslash;n&quot;
+l_string|&quot;&bslash;t use --mirror=fetch or --mirror=push instead&quot;
+suffix:semicolon
 DECL|function|parse_mirror_opt
 r_static
 r_int
@@ -581,11 +592,21 @@ c_cond
 op_logical_neg
 id|arg
 )paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|mirror_advice
+)paren
+suffix:semicolon
 op_star
 id|mirror
 op_assign
 id|MIRROR_BOTH
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
