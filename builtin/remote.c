@@ -731,6 +731,32 @@ comma
 id|options
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|mirror
+op_logical_and
+id|master
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;specifying a master branch makes no sense with --mirror&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|mirror
+op_logical_and
+id|track.nr
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;specifying branches to track makes no sense with --mirror&quot;
+)paren
+suffix:semicolon
 id|name
 op_assign
 id|argv
