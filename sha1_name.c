@@ -5599,7 +5599,7 @@ id|die
 c_func
 (paren
 l_string|&quot;Path &squot;%s&squot; exists, but not &squot;%s&squot;.&bslash;n&quot;
-l_string|&quot;Did you mean &squot;%s:%s&squot;?&quot;
+l_string|&quot;Did you mean &squot;%s:%s&squot; aka &squot;%s:./%s&squot;?&quot;
 comma
 id|fullname
 comma
@@ -5608,6 +5608,10 @@ comma
 id|object_name
 comma
 id|fullname
+comma
+id|object_name
+comma
+id|filename
 )paren
 suffix:semicolon
 )brace
@@ -5862,7 +5866,7 @@ id|die
 c_func
 (paren
 l_string|&quot;Path &squot;%s&squot; is in the index, but not &squot;%s&squot;.&bslash;n&quot;
-l_string|&quot;Did you mean &squot;:%d:%s&squot;?&quot;
+l_string|&quot;Did you mean &squot;:%d:%s&squot; aka &squot;:%d:./%s&squot;?&quot;
 comma
 id|fullname
 comma
@@ -5875,6 +5879,14 @@ id|ce
 )paren
 comma
 id|fullname
+comma
+id|ce_stage
+c_func
+(paren
+id|ce
+)paren
+comma
+id|filename
 )paren
 suffix:semicolon
 )brace
