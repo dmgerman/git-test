@@ -399,6 +399,9 @@ comma
 id|QUICK
 )paren
 op_logical_and
+op_logical_neg
+id|revs-&gt;diffopt.filter
+op_logical_and
 id|DIFF_OPT_TST
 c_func
 (paren
