@@ -744,6 +744,8 @@ l_int|8
 suffix:semicolon
 DECL|macro|LINE_COMMON
 mdefine_line|#define LINE_COMMON     1
+DECL|macro|LINE_PATCHED
+mdefine_line|#define LINE_PATCHED&t;2
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * This represents a &quot;file&quot;, which is an array of &quot;lines&quot;.&n; */
@@ -10026,6 +10028,20 @@ op_increment
 r_if
 c_cond
 (paren
+(paren
+id|img-&gt;line
+(braket
+id|try_lno
+op_plus
+id|i
+)braket
+dot
+id|flag
+op_amp
+id|LINE_PATCHED
+)paren
+op_logical_or
+(paren
 id|preimage-&gt;line
 (braket
 id|i
@@ -10041,6 +10057,7 @@ id|i
 )braket
 dot
 id|hash
+)paren
 )paren
 r_return
 l_int|0
@@ -11352,6 +11369,31 @@ op_star
 id|img-&gt;line
 )paren
 )paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|postimage-&gt;nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|img-&gt;line
+(braket
+id|applied_pos
+op_plus
+id|i
+)braket
+dot
+id|flag
+op_or_assign
+id|LINE_PATCHED
 suffix:semicolon
 id|img-&gt;nr
 op_assign
