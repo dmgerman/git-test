@@ -5118,7 +5118,11 @@ op_logical_neg
 id|dir
 )paren
 r_return
-l_int|1
+id|rmdir
+c_func
+(paren
+id|path-&gt;buf
+)paren
 suffix:semicolon
 r_if
 c_cond
