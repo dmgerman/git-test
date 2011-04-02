@@ -487,7 +487,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 id|source
@@ -697,7 +701,11 @@ id|show_only
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Checking rename of &squot;%s&squot; to &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 id|src
 comma
@@ -728,7 +736,11 @@ l_int|0
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;bad source&quot;
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -764,7 +776,11 @@ l_char|&squot;/&squot;
 (brace
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;can not move directory into itself&quot;
+)paren
 suffix:semicolon
 )brace
 r_else
@@ -794,7 +810,11 @@ l_int|0
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;cannot move directory over file&quot;
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -852,7 +872,11 @@ l_int|0
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Huh? %.*s is in index?&quot;
+)paren
 comma
 id|len_w_slash
 comma
@@ -927,7 +951,11 @@ l_int|1
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;source directory is empty&quot;
+)paren
 suffix:semicolon
 r_else
 (brace
@@ -1118,7 +1146,11 @@ l_int|0
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;not under version control&quot;
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -1138,7 +1170,11 @@ l_int|0
 (brace
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;destination exists&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -1166,7 +1202,11 @@ id|st.st_mode
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s; will overwrite!&quot;
+)paren
 comma
 id|bad
 )paren
@@ -1179,7 +1219,11 @@ suffix:semicolon
 r_else
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Cannot overwrite&quot;
+)paren
 suffix:semicolon
 )brace
 )brace
@@ -1198,7 +1242,11 @@ id|dst
 )paren
 id|bad
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;multiple sources for the same target&quot;
+)paren
 suffix:semicolon
 r_else
 id|string_list_insert
@@ -1289,7 +1337,11 @@ suffix:semicolon
 r_else
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s, source=%s, destination=%s&quot;
+)paren
 comma
 id|bad
 comma
@@ -1355,7 +1407,11 @@ id|verbose
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Renaming %s to %s&bslash;n&quot;
+)paren
 comma
 id|src
 comma
@@ -1387,7 +1443,11 @@ id|ignore_errors
 )paren
 id|die_errno
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;renaming &squot;%s&squot; failed&quot;
+)paren
 comma
 id|src
 )paren
@@ -1466,7 +1526,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace

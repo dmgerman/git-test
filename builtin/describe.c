@@ -1142,7 +1142,11 @@ id|n-&gt;tag
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;annotated tag %s not available&quot;
+)paren
 comma
 id|n-&gt;path
 )paren
@@ -1166,7 +1170,11 @@ id|n-&gt;tag-&gt;tag
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;annotated tag %s has no embedded name&quot;
+)paren
 comma
 id|n-&gt;path
 )paren
@@ -1192,7 +1200,11 @@ id|n-&gt;path
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;tag &squot;%s&squot; is really &squot;%s&squot; here&quot;
+)paren
 comma
 id|n-&gt;tag-&gt;tag
 comma
@@ -1347,7 +1359,11 @@ id|sha1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a valid object name %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -1369,7 +1385,11 @@ id|cmit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s is not a valid &squot;%s&squot; object&quot;
+)paren
 comma
 id|arg
 comma
@@ -1456,7 +1476,11 @@ id|max_candidates
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no tag exactly matches &squot;%s&squot;&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1475,7 +1499,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;searching to describe %s&bslash;n&quot;
+)paren
 comma
 id|arg
 )paren
@@ -1700,7 +1728,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;finished search at %s&bslash;n&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1825,8 +1857,12 @@ id|unannotated_cnt
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No annotated tags can describe &squot;%s&squot;.&bslash;n&quot;
 l_string|&quot;However, there were unannotated tags: try --tags.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1839,8 +1875,12 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No tags can describe &squot;%s&squot;.&bslash;n&quot;
 l_string|&quot;Try --always, or create some tags.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1963,7 +2003,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;traversed %lu commits&bslash;n&quot;
+)paren
 comma
 id|seen_commits
 )paren
@@ -1979,8 +2023,12 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;more than %i tags found; listed %i most recent&bslash;n&quot;
 l_string|&quot;gave up search at %s&bslash;n&quot;
+)paren
 comma
 id|max_candidates
 comma
@@ -2325,7 +2373,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--long is incompatible with --abbrev=0&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2529,7 +2581,11 @@ id|always
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No names found, cannot describe anything.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2584,7 +2640,11 @@ id|dirty
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--dirty is incompatible with committishes&quot;
+)paren
 )paren
 suffix:semicolon
 )brace

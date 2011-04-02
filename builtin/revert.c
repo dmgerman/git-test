@@ -456,7 +456,11 @@ id|cp_extra
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;program error&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -836,7 +840,11 @@ id|p
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read commit message of %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1082,7 +1090,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -1115,7 +1127,11 @@ id|fd
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -1298,7 +1314,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to %s.&quot;
+)paren
 comma
 id|filename
 )paren
@@ -1324,7 +1344,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Error wrapping up %s&quot;
+)paren
 comma
 id|filename
 )paren
@@ -1418,24 +1442,69 @@ c_cond
 (paren
 id|advice_commit_before_merge
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|action
+op_eq
+id|REVERT
+)paren
 id|die
 c_func
 (paren
-l_string|&quot;Your local changes would be overwritten by %s.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by revert.&bslash;n&quot;
 l_string|&quot;Please, commit your changes or stash them to proceed.&quot;
-comma
-id|me
+)paren
 )paren
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
-l_string|&quot;Your local changes would be overwritten by %s.&bslash;n&quot;
-comma
-id|me
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by cherry-pick.&bslash;n&quot;
+l_string|&quot;Please, commit your changes or stash them to proceed.&quot;
+)paren
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|action
+op_eq
+id|REVERT
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by revert.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by cherry-pick.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 )brace
 )brace
 DECL|function|fast_forward_to
@@ -1724,10 +1793,15 @@ id|index_lock
 )paren
 )paren
 )paren
+multiline_comment|/* TRANSLATORS: %s will be &quot;revert&quot; or &quot;cherry-pick&quot; */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: Unable to write new index file&quot;
+)paren
 comma
 id|me
 )paren
@@ -2032,7 +2106,11 @@ l_int|NULL
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Your index file is unmerged.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2051,7 +2129,11 @@ id|head
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You do not have a valid HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2093,7 +2175,11 @@ id|REVERT
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot revert a root commit&quot;
+)paren
 )paren
 suffix:semicolon
 id|parent
@@ -2126,7 +2212,11 @@ id|mainline
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Commit %s is a merge but no -m option was given.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2172,7 +2262,11 @@ id|p
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Commit %s does not have parent %d&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2199,7 +2293,11 @@ id|mainline
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Mainline was specified but commit %s is not a merge.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2251,10 +2349,15 @@ id|parent
 OL
 l_int|0
 )paren
+multiline_comment|/* TRANSLATORS: The first %s will be &quot;revert&quot; or&n;&t;&t;   &quot;cherry-pick&quot;, the second %s a SHA1 */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: cannot parse parent commit %s&quot;
+)paren
 comma
 id|me
 comma
@@ -2282,7 +2385,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot get commit message for %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2616,16 +2723,22 @@ id|res
 id|error
 c_func
 (paren
-l_string|&quot;could not %s %s... %s&quot;
-comma
 id|action
 op_eq
 id|REVERT
 ques
 c_cond
-l_string|&quot;revert&quot;
+id|_
+c_func
+(paren
+l_string|&quot;could not revert %s... %s&quot;
+)paren
 suffix:colon
-l_string|&quot;apply&quot;
+id|_
+c_func
+(paren
+l_string|&quot;could not apply %s... %s&quot;
+)paren
 comma
 id|find_unique_abbrev
 c_func
@@ -2765,7 +2878,11 @@ id|revs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2777,7 +2894,11 @@ id|revs-&gt;commits
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;empty commit set passed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2827,7 +2948,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git %s: failed to read the index&quot;
+)paren
 comma
 id|me
 )paren
@@ -2877,7 +3002,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git %s: failed to refresh the index&quot;
+)paren
 comma
 id|me
 )paren
@@ -2962,7 +3091,11 @@ id|signoff
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --signoff&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2973,7 +3106,11 @@ id|no_commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --no-commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2984,7 +3121,11 @@ id|no_replay
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with -x&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2995,7 +3136,11 @@ id|edit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --edit&quot;
+)paren
 )paren
 suffix:semicolon
 )brace

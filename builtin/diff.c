@@ -330,7 +330,11 @@ id|st
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to stat &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -356,7 +360,11 @@ id|st.st_mode
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: not a regular file or symlink&quot;
+)paren
 comma
 id|path
 )paren
@@ -1263,7 +1271,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid option: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -1511,7 +1523,11 @@ id|nongit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a git repository&quot;
+)paren
 )paren
 suffix:semicolon
 id|argc
@@ -1555,7 +1571,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;diff_setup_done failed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1801,7 +1821,11 @@ id|obj
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid object &squot;%s&squot; given.&quot;
+)paren
 comma
 id|name
 )paren
@@ -1849,7 +1873,11 @@ id|ents
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;more than %d trees given: &squot;%s&squot;&quot;
+)paren
 comma
 (paren
 r_int
@@ -1909,7 +1937,11 @@ id|blobs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;more than two blobs given: &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -1954,7 +1986,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unhandled object &squot;%s&squot; given.&quot;
+)paren
 comma
 id|name
 )paren

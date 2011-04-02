@@ -327,7 +327,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;switch `m&squot; requires a value&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -602,7 +606,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Could not find merge strategy &squot;%s&squot;.&bslash;n&quot;
+)paren
 comma
 id|name
 )paren
@@ -612,7 +620,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Available strategies are:&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -663,7 +675,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Available custom strategies are:&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -1244,7 +1260,11 @@ id|cp
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not run stash.&quot;
+)paren
 )paren
 suffix:semicolon
 id|len
@@ -1283,7 +1303,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;stash failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -1320,7 +1344,11 @@ id|stash
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;not a valid object: %s&quot;
+)paren
 comma
 id|buffer.buf
 )paren
@@ -1433,7 +1461,11 @@ id|RUN_GIT_CMD
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;read-tree failed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1536,7 +1568,11 @@ id|RUN_GIT_CMD
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;read-tree failed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1653,7 +1689,11 @@ comma
 id|squash
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (nothing to squash)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 comma
@@ -1709,7 +1749,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Squash commit -- not updating HEAD&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|fd
@@ -1740,7 +1784,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -1841,7 +1889,11 @@ id|rev
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|ctx.abbrev
@@ -1935,7 +1987,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Writing SQUASH_MSG&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1950,7 +2006,11 @@ id|fd
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Finishing SQUASH_MSG&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -2066,7 +2126,11 @@ id|merge_msg.len
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No merge message -- not updating HEAD&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -2173,7 +2237,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;diff_setup_done failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|diff_tree_sha1
@@ -2340,7 +2408,11 @@ id|remote_head
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; does not point to a commit&quot;
+)paren
 comma
 id|remote
 )paren
@@ -2732,7 +2804,11 @@ id|fp
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open &squot;%s&squot; for reading&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -2947,7 +3023,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Bad branch.%s.mergeoptions string: %s&quot;
+)paren
 comma
 id|branch
 comma
@@ -3183,7 +3263,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: negative length %s&quot;
+)paren
 comma
 id|k
 comma
@@ -3488,7 +3572,11 @@ l_int|NULL
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git write-tree failed to write a tree&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -3882,7 +3970,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to read the cache&quot;
+)paren
 )paren
 suffix:semicolon
 id|resolve_undo_clear
@@ -3979,7 +4071,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to write index.&quot;
+)paren
 )paren
 suffix:semicolon
 id|rollback_lock_file
@@ -4065,7 +4161,11 @@ id|remoteheads-&gt;next
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not handling anything other than two heads merge.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -4146,7 +4246,11 @@ id|x
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unknown option for merge-recursive: -X%s&quot;
+)paren
 comma
 id|xopts
 (braket
@@ -4241,7 +4345,11 @@ id|lock
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write %s&quot;
+)paren
 comma
 id|get_index_file
 c_func
@@ -4694,7 +4802,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -5054,7 +5166,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -5081,7 +5197,11 @@ id|merge_msg.len
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -5234,7 +5354,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Wonderful.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|parent-&gt;item
@@ -5548,7 +5672,11 @@ id|fp
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -5655,8 +5783,12 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Automatic merge failed; &quot;
 l_string|&quot;fix conflicts and then commit the result.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -5739,7 +5871,11 @@ id|second_token
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; is not a commit&quot;
+)paren
 comma
 id|argv
 (braket
@@ -6099,7 +6235,11 @@ l_string|&quot;MERGE_HEAD&quot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;There is no merge to abort (MERGE_HEAD missing).&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Invoke &squot;git reset --merge&squot; */
@@ -6152,15 +6292,23 @@ id|advice_resolve_conflict
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have not concluded your merge (MERGE_HEAD exists).&bslash;n&quot;
 l_string|&quot;Please, commit your changes before you can merge.&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have not concluded your merge (MERGE_HEAD exists).&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -6229,7 +6377,11 @@ id|allow_fast_forward
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You cannot combine --squash with --no-ff.&quot;
+)paren
 )paren
 suffix:semicolon
 id|option_commit
@@ -6248,7 +6400,11 @@ id|fast_forward_only
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You cannot combine --no-ff with --ff-only.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6332,8 +6488,12 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Can merge only exactly one commit into &quot;
 l_string|&quot;empty head&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6344,7 +6504,11 @@ id|squash
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Squash commit into empty head not supported yet&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6356,8 +6520,12 @@ id|allow_fast_forward
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Non-fast-forward commit does not make sense into &quot;
 l_string|&quot;an empty head&quot;
+)paren
 )paren
 suffix:semicolon
 id|remote_head
@@ -6386,7 +6554,11 @@ id|remote_head
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s - not something we can merge&quot;
+)paren
 comma
 id|argv
 (braket
@@ -6624,7 +6796,11 @@ id|o
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s - not something we can merge&quot;
+)paren
 comma
 id|argv
 (braket
@@ -6952,7 +7128,11 @@ l_int|0
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Updating %s..%s&bslash;n&quot;
+)paren
 comma
 id|hex
 comma
@@ -7096,7 +7276,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Trying really trivial in-index merge...&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -7122,7 +7306,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Nope.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -7221,7 +7409,11 @@ id|fast_forward_only
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not possible to fast-forward, aborting.&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* We are going to make a new commit. */
@@ -7287,7 +7479,11 @@ id|i
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Rewinding the tree to pristine...&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|restore_state
@@ -7306,7 +7502,11 @@ l_int|1
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Trying merge strategy %s...&bslash;n&quot;
+)paren
 comma
 id|use_strategies
 (braket
@@ -7480,7 +7680,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;No merge strategy handled the merge.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -7489,7 +7693,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Merge with strategy %s failed.&bslash;n&quot;
+)paren
 comma
 id|use_strategies
 (braket
@@ -7518,7 +7726,11 @@ r_else
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Rewinding the tree to pristine...&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|restore_state
@@ -7529,7 +7741,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Using the %s to prepare resolving by hand.&bslash;n&quot;
+)paren
 comma
 id|best_strategy
 )paren
@@ -7624,7 +7840,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -7651,7 +7871,11 @@ id|buf.len
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -7710,7 +7934,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -7759,7 +7987,11 @@ id|buf.len
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -7786,8 +8018,12 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Automatic merge went well; &quot;
 l_string|&quot;stopped before committing as requested&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_return

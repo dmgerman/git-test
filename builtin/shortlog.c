@@ -988,7 +988,11 @@ id|author
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Missing author: %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1124,7 +1128,11 @@ id|rev
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_while
@@ -1721,7 +1729,11 @@ l_int|1
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized argument: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -1793,7 +1805,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(reading log message from standard input)&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|read_from_stdin

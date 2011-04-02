@@ -1076,7 +1076,11 @@ id|err
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;grep: failed to create thread: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -1628,7 +1632,11 @@ id|data
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: unable to read %s&quot;
+)paren
 comma
 id|name
 comma
@@ -1882,7 +1890,11 @@ id|ENOENT
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: %s&quot;
+)paren
 comma
 id|filename
 comma
@@ -1970,7 +1982,11 @@ id|sz
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: short read %s&quot;
+)paren
 comma
 id|filename
 comma
@@ -2328,7 +2344,11 @@ id|prefix
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to chdir: %s&quot;
+)paren
 comma
 id|prefix
 )paren
@@ -2768,7 +2788,11 @@ id|data
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to read tree (%s)&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2947,7 +2971,11 @@ id|data
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to read tree (%s)&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3058,7 +3086,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to grep from object of type %s&quot;
+)paren
 comma
 r_typename
 (paren
@@ -3407,7 +3439,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;switch `%c&squot; expects a numerical value&quot;
+)paren
 comma
 id|opt-&gt;short_name
 )paren
@@ -3502,7 +3538,11 @@ id|patterns
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot open &squot;%s&squot;&quot;
+)paren
 comma
 id|arg
 )paren
@@ -4902,7 +4942,11 @@ id|opt.pattern_list
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no pattern given.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4931,7 +4975,11 @@ id|opt.fixed
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot mix --fixed-strings and regexp&quot;
+)paren
 )paren
 suffix:semicolon
 macro_line|#ifndef NO_PTHREADS
@@ -5062,7 +5110,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad object %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -5229,7 +5281,11 @@ id|list.nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--open-files-in-pager only works on the worktree&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5384,7 +5440,11 @@ id|cached
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--cached cannot be used with --no-index.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5395,7 +5455,11 @@ id|list.nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--no-index cannot be used with revs.&quot;
+)paren
 )paren
 suffix:semicolon
 id|hit
@@ -5455,7 +5519,11 @@ id|cached
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;both --cached and trees are given.&quot;
+)paren
 )paren
 suffix:semicolon
 id|hit

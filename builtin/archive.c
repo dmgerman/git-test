@@ -45,7 +45,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not create archive file &squot;%s&squot;&quot;
+)paren
 comma
 id|output_file
 )paren
@@ -74,7 +78,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not redirect output&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -160,7 +168,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git archive: Remote with no URL&quot;
+)paren
 )paren
 suffix:semicolon
 id|transport
@@ -254,7 +266,11 @@ id|len
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git archive: expected ACK/NAK, got EOF&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -308,7 +324,11 @@ l_string|&quot;NACK &quot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git archive: NACK %s&quot;
+)paren
 comma
 id|buf
 op_plus
@@ -318,7 +338,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git archive: protocol error&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -348,7 +372,11 @@ id|len
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git archive: expected a flush&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Now, start reading from fd[0] and spit it out to stdout */

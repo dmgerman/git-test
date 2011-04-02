@@ -129,7 +129,11 @@ suffix:colon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unexpected diff status %c&quot;
+)paren
 comma
 id|p-&gt;status
 )paren
@@ -185,7 +189,11 @@ id|ADD_CACHE_IGNORE_ERRORS
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;updating files failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|data-&gt;add_errors
@@ -239,7 +247,11 @@ id|ADD_CACHE_VERBOSE
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;remove &squot;%s&squot;&bslash;n&quot;
+)paren
 comma
 id|path
 )paren
@@ -812,7 +824,11 @@ suffix:semicolon
 r_else
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Path &squot;%s&squot; is in submodule &squot;%.*s&squot;&quot;
+)paren
 comma
 id|pathspec
 (braket
@@ -897,7 +913,11 @@ id|pathspec
 comma
 id|seen
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Unstaged changes after refreshing the index:&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -927,7 +947,11 @@ id|i
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pathspec &squot;%s&squot; did not match any files&quot;
+)paren
 comma
 id|pathspec
 (braket
@@ -1042,7 +1066,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; is beyond a symbolic link&quot;
+)paren
 comma
 op_star
 id|p
@@ -1406,7 +1434,11 @@ l_int|0
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read the index&quot;
+)paren
 )paren
 suffix:semicolon
 id|init_revisions
@@ -1464,7 +1496,11 @@ l_int|0
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not open &squot;%s&squot; for writing.&quot;
+)paren
 comma
 id|file
 )paren
@@ -1497,7 +1533,11 @@ l_int|0
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write patch&quot;
+)paren
 )paren
 suffix:semicolon
 id|launch_editor
@@ -1525,7 +1565,11 @@ id|st
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not stat &squot;%s&squot;&quot;
+)paren
 comma
 id|file
 )paren
@@ -1539,7 +1583,11 @@ id|st.st_size
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Empty patch. Aborted.&quot;
+)paren
 )paren
 suffix:semicolon
 id|memset
@@ -1576,7 +1624,11 @@ id|child
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not apply &squot;%s&squot;&quot;
+)paren
 comma
 id|file
 )paren
@@ -1605,7 +1657,11 @@ id|ignore_error
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;The following paths are ignored by one of your .gitignore files:&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|variable|verbose
 DECL|variable|show_only
@@ -1913,7 +1969,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 id|ignore_error
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -1950,13 +2010,21 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Use -f if you really want to add them.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no files added&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2000,7 +2068,11 @@ id|ignore_add_errors
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;adding files failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|exit_status
@@ -2153,7 +2225,11 @@ id|take_worktree_changes
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;-A and -u are mutually incompatible&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2167,7 +2243,11 @@ id|ignore_missing
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Option --ignore-missing can only be used together with --dry-run&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2300,7 +2380,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Nothing specified, nothing added.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|fprintf
@@ -2308,7 +2392,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Maybe you wanted to say &squot;git add .&squot;?&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2340,7 +2428,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 id|treat_gitlinks
@@ -2563,7 +2655,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pathspec &squot;%s&squot; did not match any files&quot;
+)paren
 comma
 id|pathspec
 (braket
@@ -2639,7 +2735,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
