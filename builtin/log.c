@@ -1090,6 +1090,10 @@ op_ne
 l_int|NULL
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
 id|log_tree_commit
 c_func
 (paren
@@ -1097,6 +1101,14 @@ id|rev
 comma
 id|commit
 )paren
+op_logical_and
+id|rev-&gt;max_count
+op_ge
+l_int|0
+)paren
+multiline_comment|/*&n;&t;&t;&t; * We decremented max_count in get_revision,&n;&t;&t;&t; * but we didn&squot;t actually show the commit.&n;&t;&t;&t; */
+id|rev-&gt;max_count
+op_increment
 suffix:semicolon
 r_if
 c_cond
