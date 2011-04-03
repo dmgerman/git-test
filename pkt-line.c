@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 DECL|variable|packet_trace_prefix
+r_static
 r_const
 r_char
 op_star

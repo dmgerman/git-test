@@ -2717,7 +2717,7 @@ id|other
 comma
 l_string|&quot;&quot;
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

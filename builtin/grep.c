@@ -1971,7 +1971,7 @@ id|errno
 )paren
 suffix:semicolon
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 r_if
@@ -1985,7 +1985,7 @@ id|st.st_mode
 )paren
 )paren
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 op_star
 id|sz
@@ -2075,7 +2075,7 @@ id|data
 )paren
 suffix:semicolon
 r_return
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 id|close
