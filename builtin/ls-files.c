@@ -1986,7 +1986,7 @@ id|pathspec.items
 l_int|0
 )braket
 dot
-id|has_wildcard
+id|use_wildcard
 op_assign
 l_int|0
 suffix:semicolon

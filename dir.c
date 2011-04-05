@@ -986,7 +986,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|item-&gt;has_wildcard
+id|item-&gt;use_wildcard
 op_logical_and
 op_logical_neg
 id|fnmatch
@@ -6102,7 +6102,7 @@ c_func
 id|path
 )paren
 suffix:semicolon
-id|item-&gt;has_wildcard
+id|item-&gt;use_wildcard
 op_assign
 op_logical_neg
 id|no_wildcard
@@ -6114,7 +6114,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|item-&gt;has_wildcard
+id|item-&gt;use_wildcard
 )paren
 id|pathspec-&gt;has_wildcard
 op_assign

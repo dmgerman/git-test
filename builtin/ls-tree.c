@@ -883,7 +883,11 @@ id|pathspec.items
 id|i
 )braket
 dot
-id|has_wildcard
+id|use_wildcard
+op_assign
+l_int|0
+suffix:semicolon
+id|pathspec.has_wildcard
 op_assign
 l_int|0
 suffix:semicolon

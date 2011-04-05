@@ -2663,7 +2663,7 @@ id|ps-&gt;items
 id|i
 )braket
 dot
-id|has_wildcard
+id|use_wildcard
 )paren
 (brace
 r_if
@@ -2715,7 +2715,7 @@ id|ps-&gt;items
 id|i
 )braket
 dot
-id|has_wildcard
+id|use_wildcard
 )paren
 r_continue
 suffix:semicolon
