@@ -6391,7 +6391,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 comma
 l_string|&quot;STARTTLS&quot;
 )paren
@@ -6427,7 +6427,7 @@ c_func
 (paren
 id|ctx
 comma
-l_int|0
+l_int|NULL
 comma
 l_string|&quot;CAPABILITY&quot;
 )paren
