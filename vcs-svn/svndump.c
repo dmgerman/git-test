@@ -5,6 +5,7 @@ macro_line|#include &quot;fast_export.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
 macro_line|#include &quot;string_pool.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;svndump.h&quot;
 multiline_comment|/*&n; * Compare start of string to literal of equal length;&n; * must be guarded by length test.&n; */
 DECL|macro|constcmp
 mdefine_line|#define constcmp(s, ref) memcmp(s, ref, sizeof(ref) - 1)
