@@ -972,6 +972,22 @@ op_increment
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|elt
+(braket
+l_int|1
+)braket
+)paren
+(brace
+multiline_comment|/* Just &squot;:&squot; -- no element! */
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
+r_else
 (brace
 multiline_comment|/* shorthand */
 r_for
@@ -1000,6 +1016,18 @@ id|ch
 op_assign
 op_star
 id|copyfrom
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_pathspec_magic
+c_func
+(paren
+id|ch
+)paren
+)paren
+r_break
 suffix:semicolon
 r_for
 c_loop
@@ -1055,7 +1083,15 @@ id|pathspec_magic
 op_le
 id|i
 )paren
-r_break
+id|die
+c_func
+(paren
+l_string|&quot;Unimplemented pathspec magic &squot;%c&squot; in &squot;%s&squot;&quot;
+comma
+id|ch
+comma
+id|elt
+)paren
 suffix:semicolon
 )brace
 r_if
