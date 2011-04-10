@@ -293,9 +293,9 @@ comma
 l_string|&quot;edit the commit message&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_char|&squot;r&squot;
 comma
 l_int|NULL
@@ -303,8 +303,18 @@ comma
 op_amp
 id|noop
 comma
+l_int|NULL
+comma
 l_string|&quot;no-op (backward compatibility)&quot;
-)paren
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+comma
+l_int|NULL
+comma
+l_int|0
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
