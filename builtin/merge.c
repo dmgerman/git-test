@@ -5292,7 +5292,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read from &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
