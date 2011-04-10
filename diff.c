@@ -8614,6 +8614,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|content_changed
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * The SHA1 has not changed, so pre-/post-content is&n;&t;&t;&t; * identical. We can therefore skip looking at the&n;&t;&t;&t; * file contents altogether.&n;&t;&t;&t; */
+id|damage
+op_assign
+l_int|0
+suffix:semicolon
+r_goto
+id|found_damage
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|DIFF_OPT_TST
 c_func
 (paren
@@ -8626,12 +8642,7 @@ id|DIRSTAT_BY_FILE
 multiline_comment|/*&n;&t;&t;&t; * In --dirstat-by-file mode, we don&squot;t really need to&n;&t;&t;&t; * look at the actual file contents at all.&n;&t;&t;&t; * The fact that the SHA1 changed is enough for us to&n;&t;&t;&t; * add this file to the list of results&n;&t;&t;&t; * (with each file contributing equal damage).&n;&t;&t;&t; */
 id|damage
 op_assign
-id|content_changed
-ques
-c_cond
 l_int|1
-suffix:colon
-l_int|0
 suffix:semicolon
 r_goto
 id|found_damage
@@ -8771,7 +8782,7 @@ suffix:semicolon
 r_else
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Original minus copied is the removed material,&n;&t;&t; * added is the new material.  They are both damages&n;&t;&t; * made to the preimage.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Original minus copied is the removed material,&n;&t;&t; * added is the new material.  They are both damages&n;&t;&t; * made to the preimage.&n;&t;&t; * If the resulting damage is zero, we know that&n;&t;&t; * diffcore_count_changes() considers the two entries to&n;&t;&t; * be identical, but since content_changed is true, we&n;&t;&t; * know that there must have been _some_ kind of change,&n;&t;&t; * so we force all entries to have damage &gt; 0.&n;&t;&t; */
 id|damage
 op_assign
 (paren
@@ -8780,6 +8791,16 @@ id|copied
 )paren
 op_plus
 id|added
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|damage
+)paren
+id|damage
+op_assign
+l_int|1
 suffix:semicolon
 id|found_damage
 suffix:colon
