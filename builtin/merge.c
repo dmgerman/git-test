@@ -6061,7 +6061,11 @@ id|branch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No current branch.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6073,7 +6077,11 @@ id|branch-&gt;remote
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No remote for the current branch.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6085,7 +6093,11 @@ id|branch-&gt;merge_nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No default upstream defined for the current branch.&quot;
+)paren
 )paren
 suffix:semicolon
 id|args
@@ -6133,7 +6145,11 @@ id|dst
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No remote tracking branch for %s from %s&quot;
+)paren
 comma
 id|branch-&gt;merge
 (braket
