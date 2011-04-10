@@ -1752,7 +1752,11 @@ id|st
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s already exists&quot;
+)paren
 comma
 id|git_dir
 )paren
@@ -1776,7 +1780,11 @@ id|st
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s already exists&quot;
+)paren
 comma
 id|real_git_dir
 )paren
@@ -1898,7 +1906,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to handle file type %d&quot;
+)paren
 comma
 id|st.st_mode
 )paren
@@ -1917,7 +1929,11 @@ id|git_dir
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to move %s to %s&quot;
+)paren
 comma
 id|src
 comma
@@ -1944,7 +1960,11 @@ id|fp
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not create git link %s&quot;
+)paren
 comma
 id|git_link
 )paren
