@@ -5173,7 +5173,11 @@ id|opts.new_orphan_branch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--detach cannot be used with -b/-B/--orphan&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5188,7 +5192,11 @@ id|opts.track
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--detach cannot be used with -t&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* --track without -b should DWIM */
@@ -5563,7 +5571,11 @@ id|opts.force_detach
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: --detach does not take a path argument&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
