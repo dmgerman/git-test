@@ -6547,15 +6547,23 @@ id|advice_resolve_conflict
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).&bslash;n&quot;
 l_string|&quot;Please, commit your changes before you can merge.&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
