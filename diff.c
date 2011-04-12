@@ -8582,12 +8582,12 @@ id|content_changed
 suffix:semicolon
 id|name
 op_assign
-id|p-&gt;one-&gt;path
+id|p-&gt;two-&gt;path
 ques
 c_cond
-id|p-&gt;one-&gt;path
-suffix:colon
 id|p-&gt;two-&gt;path
+suffix:colon
+id|p-&gt;one-&gt;path
 suffix:semicolon
 r_if
 c_cond
