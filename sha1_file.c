@@ -7392,7 +7392,7 @@ r_enum
 id|object_type
 id|type
 suffix:semicolon
-multiline_comment|/* use_pack() assures us we have [base, base + 20) available&n;&t; * as a range that we can look at at.  (Its actually the hash&n;&t; * size that is assured.)  With our object header encoding&n;&t; * the maximum deflated object size is 2^137, which is just&n;&t; * insane, so we know won&squot;t exceed what we have been given.&n;&t; */
+multiline_comment|/* use_pack() assures us we have [base, base + 20) available&n;&t; * as a range that we can look at.  (Its actually the hash&n;&t; * size that is assured.)  With our object header encoding&n;&t; * the maximum deflated object size is 2^137, which is just&n;&t; * insane, so we know won&squot;t exceed what we have been given.&n;&t; */
 id|base
 op_assign
 id|use_pack

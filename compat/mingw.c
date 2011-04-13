@@ -6469,7 +6469,7 @@ r_return
 id|env
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Note, this isn&squot;t a complete replacement for getaddrinfo. It assumes&n; * that service contains a numerical port, or that it it is null. It&n; * does a simple search using gethostbyname, and returns one IPv4 host&n; * if one was found.&n; */
+multiline_comment|/*&n; * Note, this isn&squot;t a complete replacement for getaddrinfo. It assumes&n; * that service contains a numerical port, or that it is null. It&n; * does a simple search using gethostbyname, and returns one IPv4 host&n; * if one was found.&n; */
 DECL|function|getaddrinfo_stub
 r_static
 r_int
