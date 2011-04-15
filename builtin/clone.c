@@ -1,5 +1,5 @@
 multiline_comment|/*&n; * Builtin &quot;git clone&quot;&n; *&n; * Copyright (c) 2007 Kristian H&oslash;gsberg &lt;krh@redhat.com&gt;,&n; *&t;&t; 2008 Daniel Barkalow &lt;barkalow@iabervon.org&gt;&n; * Based on git-commit.sh by Junio C Hamano and Linus Torvalds&n; *&n; * Clone a repository into a different directory that does not yet exist.&n; */
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;refs.h&quot;
@@ -85,6 +85,13 @@ op_star
 id|option_branch
 op_assign
 l_int|NULL
+suffix:semicolon
+DECL|variable|real_git_dir
+r_static
+r_const
+r_char
+op_star
+id|real_git_dir
 suffix:semicolon
 DECL|variable|option_upload_pack
 r_static
@@ -346,6 +353,21 @@ comma
 l_string|&quot;create a shallow clone of that depth&quot;
 )paren
 comma
+id|OPT_STRING
+c_func
+(paren
+l_char|&squot;L&squot;
+comma
+l_string|&quot;separate-git-dir&quot;
+comma
+op_amp
+id|real_git_dir
+comma
+l_string|&quot;gitdir&quot;
+comma
+l_string|&quot;separate git dir from working tree&quot;
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -483,7 +505,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|path
@@ -560,7 +582,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|path
@@ -1046,7 +1068,7 @@ id|extra
 suffix:semicolon
 id|ref_git
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|option_reference
@@ -1097,7 +1119,11 @@ id|ref_git
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;reference repository &squot;%s&squot; is not a local directory.&quot;
+)paren
 comma
 id|option_reference
 )paren
@@ -1226,7 +1252,11 @@ id|dir
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to open &squot;%s&squot;&quot;
+)paren
 comma
 id|src-&gt;buf
 )paren
@@ -1253,7 +1283,11 @@ id|EEXIST
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to create directory &squot;%s&squot;&quot;
+)paren
 comma
 id|dest-&gt;buf
 )paren
@@ -1274,7 +1308,11 @@ id|buf
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to stat &squot;%s&squot;&quot;
+)paren
 comma
 id|dest-&gt;buf
 )paren
@@ -1293,7 +1331,11 @@ id|buf.st_mode
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s exists and is not a directory&quot;
+)paren
 comma
 id|dest-&gt;buf
 )paren
@@ -1386,7 +1428,11 @@ id|buf
 (brace
 id|warning
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to stat %s&bslash;n&quot;
+)paren
 comma
 id|src-&gt;buf
 )paren
@@ -1441,7 +1487,11 @@ id|ENOENT
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to unlink &squot;%s&squot;&quot;
+)paren
 comma
 id|dest-&gt;buf
 )paren
@@ -1475,7 +1525,11 @@ id|option_local
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to create link &squot;%s&squot;&quot;
+)paren
 comma
 id|dest-&gt;buf
 )paren
@@ -1501,7 +1555,11 @@ l_int|0666
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to copy file to &squot;%s&squot;&quot;
+)paren
 comma
 id|dest-&gt;buf
 )paren
@@ -1664,7 +1722,11 @@ id|option_verbosity
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;done.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2072,6 +2134,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;clone&quot;
+)paren
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options
@@ -2100,7 +2168,11 @@ l_int|2
 id|usage_msg_opt
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Too many arguments.&quot;
+)paren
 comma
 id|builtin_clone_usage
 comma
@@ -2117,7 +2189,11 @@ l_int|0
 id|usage_msg_opt
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You must specify a repository to clone.&quot;
+)paren
 comma
 id|builtin_clone_usage
 comma
@@ -2147,7 +2223,11 @@ id|option_origin
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--bare and --origin %s options are incompatible.&quot;
+)paren
 comma
 id|option_origin
 )paren
@@ -2195,7 +2275,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|repo_name
@@ -2245,7 +2325,11 @@ id|option_depth
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--depth is ignored in local clones; use file:// instead.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2312,8 +2396,12 @@ id|dir
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;destination path &squot;%s&squot; already exists and is not &quot;
 l_string|&quot;an empty directory.&quot;
+)paren
 comma
 id|dir
 )paren
@@ -2366,7 +2454,11 @@ id|buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;working tree &squot;%s&squot; already exists.&quot;
+)paren
 comma
 id|work_tree
 )paren
@@ -2433,7 +2525,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not create leading directories of &squot;%s&squot;&quot;
+)paren
 comma
 id|work_tree
 )paren
@@ -2455,7 +2551,11 @@ l_int|0755
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not create work tree dir &squot;%s&squot;.&quot;
+)paren
 comma
 id|work_tree
 )paren
@@ -2513,20 +2613,33 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not create leading directories of &squot;%s&squot;&quot;
+)paren
 comma
 id|git_dir
 )paren
 suffix:semicolon
-id|set_git_dir
-c_func
-(paren
-id|make_absolute_path
+id|set_git_dir_init
 c_func
 (paren
 id|git_dir
+comma
+id|real_git_dir
+comma
+l_int|0
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|real_git_dir
 )paren
+id|git_dir
+op_assign
+id|real_git_dir
 suffix:semicolon
 r_if
 c_cond
@@ -2535,21 +2648,38 @@ l_int|0
 op_le
 id|option_verbosity
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|option_bare
+)paren
 id|printf
 c_func
 (paren
-l_string|&quot;Cloning into %s%s...&bslash;n&quot;
-comma
-id|option_bare
-ques
-c_cond
-l_string|&quot;bare repository &quot;
-suffix:colon
-l_string|&quot;&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Cloning into bare repository %s...&bslash;n&quot;
+)paren
 comma
 id|dir
 )paren
 suffix:semicolon
+r_else
+id|printf
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Cloning into %s...&bslash;n&quot;
+)paren
+comma
+id|dir
+)paren
+suffix:semicolon
+)brace
 id|init_db
 c_func
 (paren
@@ -2831,7 +2961,11 @@ id|transport-&gt;fetch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Don&squot;t know how to clone %s&quot;
+)paren
 comma
 id|transport-&gt;url
 )paren
@@ -3016,8 +3150,12 @@ id|our_head_points_at
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Remote branch %s not found in &quot;
 l_string|&quot;upstream %s, using HEAD instead&quot;
+)paren
 comma
 id|option_branch
 comma
@@ -3041,7 +3179,11 @@ r_else
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You appear to have cloned an empty repository.&quot;
+)paren
 )paren
 suffix:semicolon
 id|our_head_points_at
@@ -3239,8 +3381,12 @@ id|option_no_checkout
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;remote HEAD refers to nonexistent ref, &quot;
 l_string|&quot;unable to checkout.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|option_no_checkout
@@ -3424,7 +3570,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|err

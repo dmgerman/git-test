@@ -946,6 +946,7 @@ l_int|3
 suffix:semicolon
 DECL|function|bad_object
 r_static
+id|NORETURN
 r_void
 id|bad_object
 c_func
@@ -1378,7 +1379,7 @@ c_func
 (paren
 l_int|0
 comma
-id|Z_NULL
+l_int|NULL
 comma
 l_int|0
 )paren

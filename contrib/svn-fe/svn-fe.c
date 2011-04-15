@@ -15,11 +15,17 @@ op_star
 id|argv
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|svndump_init
 c_func
 (paren
 l_int|NULL
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|svndump_read
 c_func

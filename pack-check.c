@@ -120,7 +120,7 @@ c_func
 (paren
 l_int|0
 comma
-id|Z_NULL
+l_int|NULL
 comma
 l_int|0
 )paren

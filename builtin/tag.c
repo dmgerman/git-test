@@ -547,7 +547,11 @@ id|ref
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;tag name too long: %.*s...&quot;
+)paren
 comma
 l_int|50
 comma
@@ -582,7 +586,11 @@ l_int|NULL
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;tag &squot;%s&squot; not found.&quot;
+)paren
 comma
 op_star
 id|p
@@ -660,7 +668,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Deleted tag &squot;%s&squot; (was %s)&bslash;n&quot;
+)paren
 comma
 id|name
 comma
@@ -743,7 +755,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not verify the tag &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -826,7 +842,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;committer info too long.&quot;
+)paren
 )paren
 suffix:semicolon
 id|bracket
@@ -929,7 +949,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not run gpg.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -971,7 +995,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;gpg did not accept the tag data&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1020,7 +1048,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;gpg failed to sign the tag&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Strip CR from the line endings, in case we are on Windows. */
@@ -1092,10 +1124,14 @@ id|tag_template
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;#&bslash;n&quot;
 l_string|&quot;# Write a tag message&bslash;n&quot;
 l_string|&quot;#&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|function|set_signingkey
 r_static
@@ -1133,7 +1169,11 @@ id|signingkey
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;signing key value too long (%.10s...)&quot;
+)paren
 comma
 id|value
 )paren
@@ -1363,7 +1403,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to sign the tag&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1387,7 +1431,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write tag file&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -1472,7 +1520,11 @@ id|OBJ_NONE
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad object type.&quot;
+)paren
 )paren
 suffix:semicolon
 id|header_len
@@ -1526,7 +1578,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;tag header too big.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1574,7 +1630,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not create file &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -1603,12 +1663,20 @@ c_func
 (paren
 id|fd
 comma
+id|_
+c_func
+(paren
 id|tag_template
+)paren
 comma
 id|strlen
 c_func
 (paren
+id|_
+c_func
+(paren
 id|tag_template
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -1637,7 +1705,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Please supply the message using either -m or -F option.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 m_exit
@@ -1667,7 +1739,11 @@ id|buf-&gt;len
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no tag message?&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_insert
@@ -1708,7 +1784,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;The tag message has been left in %s&bslash;n&quot;
+)paren
 comma
 id|path
 )paren
@@ -2285,7 +2365,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;-n option is only allowed with -l.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2296,7 +2380,11 @@ id|with_commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--contains option is only allowed with -l.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2345,7 +2433,11 @@ id|msgfile
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;only one -F or -m option is allowed.&quot;
+)paren
 )paren
 suffix:semicolon
 id|annotate
@@ -2403,7 +2495,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot read &squot;%s&squot;&quot;
+)paren
 comma
 id|msgfile
 )paren
@@ -2430,7 +2526,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open or read &squot;%s&squot;&quot;
+)paren
 comma
 id|msgfile
 )paren
@@ -2469,7 +2569,11 @@ l_int|2
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many params&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2486,7 +2590,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|object_ref
 )paren
@@ -2518,7 +2626,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;tag name too long: %.*s...&quot;
+)paren
 comma
 l_int|50
 comma
@@ -2537,7 +2649,11 @@ id|ref
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; is not a valid tag name.&quot;
+)paren
 comma
 id|tag
 )paren
@@ -2574,7 +2690,11 @@ id|force
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;tag &squot;%s&squot; already exists&quot;
+)paren
 comma
 id|tag
 )paren
@@ -2626,7 +2746,11 @@ id|lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: cannot lock the ref&quot;
+)paren
 comma
 id|ref
 )paren
@@ -2649,7 +2773,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: cannot update the ref&quot;
+)paren
 comma
 id|ref
 )paren
@@ -2670,7 +2798,11 @@ id|object
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Updated tag &squot;%s&squot; (was %s)&bslash;n&quot;
+)paren
 comma
 id|tag
 comma

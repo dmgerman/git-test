@@ -355,6 +355,7 @@ l_string|&quot;Full write to remote helper failed&quot;
 suffix:semicolon
 )brace
 DECL|function|remove_ext_force
+r_static
 r_const
 r_char
 op_star
@@ -2987,17 +2988,10 @@ op_assign
 id|STRBUF_INIT
 suffix:semicolon
 r_struct
-id|child_process
-op_star
-id|helper
-suffix:semicolon
-r_struct
 id|ref
 op_star
 id|ref
 suffix:semicolon
-id|helper
-op_assign
 id|get_helper
 c_func
 (paren
@@ -4995,7 +4989,7 @@ op_star
 id|t
 )paren
 (brace
-r_int
+id|ssize_t
 id|bytes
 suffix:semicolon
 r_if

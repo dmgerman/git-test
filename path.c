@@ -2044,11 +2044,11 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|make_relative_path
+DECL|function|relative_path
 r_const
 r_char
 op_star
-id|make_relative_path
+id|relative_path
 c_func
 (paren
 r_const

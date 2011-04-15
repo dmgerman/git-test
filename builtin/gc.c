@@ -354,7 +354,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid %s: &squot;%s&squot;&quot;
+)paren
 comma
 id|var
 comma
@@ -439,7 +443,11 @@ id|max_length
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Too many options specified&quot;
+)paren
 )paren
 suffix:semicolon
 id|cmd
@@ -543,7 +551,11 @@ id|objdir
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;insanely long object directory %.*s&quot;
+)paren
 comma
 l_int|50
 comma
@@ -1094,20 +1106,33 @@ c_func
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|quiet
+)paren
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Auto packing the repository for optimum performance.%s&bslash;n&quot;
-comma
-id|quiet
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
+id|_
+c_func
 (paren
-l_string|&quot; You may also&bslash;n&quot;
+l_string|&quot;Auto packing the repository for optimum performance.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Auto packing the repository for optimum performance. You may also&bslash;n&quot;
 l_string|&quot;run &bslash;&quot;git gc&bslash;&quot; manually. See &quot;
 l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&quot;
 )paren
@@ -1283,8 +1308,12 @@ c_func
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;There are too many unreachable loose objects; &quot;
 l_string|&quot;run &squot;git prune&squot; to remove them.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return

@@ -147,6 +147,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|init_src_data
+r_static
 r_void
 id|init_src_data
 c_func

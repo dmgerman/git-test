@@ -1095,6 +1095,16 @@ c_func
 id|git_path
 c_func
 (paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+)paren
+suffix:semicolon
+id|unlink
+c_func
+(paren
+id|git_path
+c_func
+(paren
 l_string|&quot;MERGE_HEAD&quot;
 )paren
 )paren

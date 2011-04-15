@@ -396,7 +396,11 @@ id|ignored_only
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;-x and -X cannot be used together&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -408,20 +412,36 @@ op_logical_and
 op_logical_neg
 id|force
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|config_set
+)paren
 id|die
 c_func
 (paren
-l_string|&quot;clean.requireForce %s to true and neither -n nor -f given; &quot;
+id|_
+c_func
+(paren
+l_string|&quot;clean.requireForce set to true and neither -n nor -f given; &quot;
 l_string|&quot;refusing to clean&quot;
-comma
-id|config_set
-ques
-c_cond
-l_string|&quot;set&quot;
-suffix:colon
-l_string|&quot;defaults&quot;
+)paren
 )paren
 suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;clean.requireForce defaults to true and neither -n nor -f given; &quot;
+l_string|&quot;refusing to clean&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -450,7 +470,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -776,7 +800,11 @@ id|MATCHED_EXACTLY
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Would remove %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -804,7 +832,11 @@ id|quiet
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Removing %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -827,7 +859,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to remove %s&quot;
+)paren
 comma
 id|qname
 )paren
@@ -847,7 +883,11 @@ id|show_only
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Would not remove %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -858,7 +898,11 @@ r_else
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not removing %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -908,7 +952,11 @@ id|show_only
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Would remove %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -927,7 +975,11 @@ id|quiet
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Removing %s&bslash;n&quot;
+)paren
 comma
 id|qname
 )paren
@@ -948,7 +1000,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to remove %s&quot;
+)paren
 comma
 id|qname
 )paren

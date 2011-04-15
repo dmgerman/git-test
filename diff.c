@@ -30,7 +30,7 @@ r_static
 r_int
 id|diff_rename_limit_default
 op_assign
-l_int|200
+l_int|400
 suffix:semicolon
 DECL|variable|diff_suppress_blank_empty
 r_static
@@ -3665,6 +3665,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|variable|diff_words_styles
+r_static
 r_struct
 id|diff_words_style
 id|diff_words_styles
@@ -7011,9 +7012,6 @@ op_star
 id|reset
 comma
 op_star
-id|set
-comma
-op_star
 id|add_c
 comma
 op_star
@@ -7130,16 +7128,6 @@ c_func
 id|options
 comma
 id|DIFF_RESET
-)paren
-suffix:semicolon
-id|set
-op_assign
-id|diff_get_color_opt
-c_func
-(paren
-id|options
-comma
-id|DIFF_PLAIN
 )paren
 suffix:semicolon
 id|add_c

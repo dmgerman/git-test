@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;url.h&quot;
 DECL|function|is_urlschemechar
 r_int
 id|is_urlschemechar

@@ -110,6 +110,14 @@ l_string|&quot;--min-age=&quot;
 comma
 l_string|&quot;--no-merges&quot;
 comma
+l_string|&quot;--min-parents=&quot;
+comma
+l_string|&quot;--no-min-parents&quot;
+comma
+l_string|&quot;--max-parents=&quot;
+comma
+l_string|&quot;--no-max-parents&quot;
+comma
 l_string|&quot;--objects&quot;
 comma
 l_string|&quot;--objects-edge&quot;

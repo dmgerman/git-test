@@ -1,4 +1,4 @@
-macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;transport.h&quot;
 multiline_comment|/*&n; * URL syntax:&n; *&t;&squot;fd::&lt;inoutfd&gt;[/&lt;anything&gt;]&squot;&t;&t;Read/write socket pair&n; *&t;&t;&t;&t;&t;&t;&lt;inoutfd&gt;.&n; *&t;&squot;fd::&lt;infd&gt;,&lt;outfd&gt;[/&lt;anything&gt;]&squot;&t;Read pipe &lt;infd&gt; and write&n; *&t;&t;&t;&t;&t;&t;pipe &lt;outfd&gt;.&n; *&t;[foo] indicates &squot;foo&squot; is optional. &lt;anything&gt; is any string.&n; *&n; * The data output to &lt;outfd&gt;/&lt;inoutfd&gt; should be passed unmolested to&n; * git-receive-pack/git-upload-pack/git-upload-archive and output of&n; * git-receive-pack/git-upload-pack/git-upload-archive should be passed&n; * unmolested to &lt;infd&gt;/&lt;inoutfd&gt;.&n; *&n; */
 DECL|macro|MAXCOMMAND

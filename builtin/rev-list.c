@@ -22,6 +22,10 @@ l_string|&quot;    --max-age=&lt;epoch&gt;&bslash;n&quot;
 l_string|&quot;    --min-age=&lt;epoch&gt;&bslash;n&quot;
 l_string|&quot;    --sparse&bslash;n&quot;
 l_string|&quot;    --no-merges&bslash;n&quot;
+l_string|&quot;    --min-parents=&lt;n&gt;&bslash;n&quot;
+l_string|&quot;    --no-min-parents&bslash;n&quot;
+l_string|&quot;    --max-parents=&lt;n&gt;&bslash;n&quot;
+l_string|&quot;    --no-max-parents&bslash;n&quot;
 l_string|&quot;    --remove-empty&bslash;n&quot;
 l_string|&quot;    --all&bslash;n&quot;
 l_string|&quot;    --branches&bslash;n&quot;
@@ -161,63 +165,20 @@ c_cond
 op_logical_neg
 id|revs-&gt;graph
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|commit-&gt;object.flags
-op_amp
-id|BOUNDARY
-)paren
-id|putchar
+id|fputs
 c_func
 (paren
-l_char|&squot;-&squot;
-)paren
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-id|commit-&gt;object.flags
-op_amp
-id|UNINTERESTING
-)paren
-id|putchar
+id|get_revision_mark
 c_func
 (paren
-l_char|&squot;^&squot;
+id|revs
+comma
+id|commit
+)paren
+comma
+id|stdout
 )paren
 suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-id|revs-&gt;left_right
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|commit-&gt;object.flags
-op_amp
-id|SYMMETRIC_LEFT
-)paren
-id|putchar
-c_func
-(paren
-l_char|&squot;&lt;&squot;
-)paren
-suffix:semicolon
-r_else
-id|putchar
-c_func
-(paren
-l_char|&squot;&gt;&squot;
-)paren
-suffix:semicolon
-)brace
-)brace
 r_if
 c_cond
 (paren

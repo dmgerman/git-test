@@ -3417,7 +3417,7 @@ c_cond
 (paren
 id|import_filename
 op_logical_and
-id|revs.prune_data
+id|revs.prune_data.nr
 )paren
 id|full_tree
 op_assign

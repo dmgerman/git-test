@@ -1,6 +1,5 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;run-command.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|pgm
 r_static
 r_const

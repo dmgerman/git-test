@@ -1040,7 +1040,7 @@ id|origtemplate
 suffix:semicolon
 id|nonrelative_template
 op_assign
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 r_template
@@ -1690,7 +1690,7 @@ id|origtemplate
 suffix:semicolon
 id|nonrelative_template
 op_assign
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 r_template

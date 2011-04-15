@@ -1,6 +1,5 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;tag.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
 multiline_comment|/*&n; * A signature file has a very simple fixed format: four lines&n; * of &quot;object &lt;sha1&gt;&quot; + &quot;type &lt;typename&gt;&quot; + &quot;tag &lt;tagname&gt;&quot; +&n; * &quot;tagger &lt;committer&gt;&quot;, followed by a blank line, a free-form tag&n; * message and a signature block that git itself doesn&squot;t care about,&n; * but that can be verified with gpg or similar.&n; *&n; * The first four lines are guaranteed to be at least 83 bytes:&n; * &quot;object &lt;sha1&gt;&bslash;n&quot; is 48 bytes, &quot;type tag&bslash;n&quot; at 9 bytes is the&n; * shortest possible type-line, &quot;tag .&bslash;n&quot; at 6 bytes is the shortest&n; * single-character-tag line, and &quot;tagger . &lt;&gt; 0 +0000&bslash;n&quot; at 20 bytes is&n; * the shortest possible tagger-line.&n; */
 multiline_comment|/*&n; * We refuse to tag something we can&squot;t verify. Just because.&n; */
 DECL|function|verify_object
@@ -101,13 +100,6 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-macro_line|#ifdef NO_C99_FORMAT
-DECL|macro|PD_FMT
-mdefine_line|#define PD_FMT &quot;%d&quot;
-macro_line|#else
-DECL|macro|PD_FMT
-mdefine_line|#define PD_FMT &quot;%td&quot;
-macro_line|#endif
 DECL|function|verify_tag
 r_static
 r_int
@@ -283,12 +275,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: could not find next &bslash;&quot;&bslash;&bslash;n&bslash;&quot;&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|type_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 id|tag_line
@@ -318,12 +315,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: no &bslash;&quot;tag &bslash;&quot; found&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tag_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Get the actual type */
@@ -351,14 +353,19 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: type too long&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|type_line
 op_plus
 l_int|5
 id|buffer
+)paren
 )paren
 suffix:semicolon
 id|memcpy
@@ -449,12 +456,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: could not verify tag name&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tag_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -480,12 +492,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: could not find &bslash;&quot;tagger &bslash;&quot;&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tagger_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Check for correct form for name and email&n;&t; * i.e. &quot; &lt;&quot; followed by &quot;&gt; &quot; on _this_ line&n;&t; * No angle brackets within the name or email address fields.&n;&t; * No spaces within the email address field.&n;&t; */
@@ -552,12 +569,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: malformed tagger field&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tagger_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Check for author name, at least one character, space is acceptable */
@@ -572,12 +594,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: missing tagger name&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tagger_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* timestamp, 1 or more digits followed by space */
@@ -607,12 +634,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: missing tag timestamp&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tagger_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 id|tagger_line
@@ -631,12 +663,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: malformed tag timestamp&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tagger_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 id|tagger_line
@@ -698,12 +735,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: malformed tag timezone&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tagger_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 id|tagger_line
@@ -723,12 +765,17 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;char&quot;
-id|PD_FMT
+l_string|&quot;char%&quot;
+id|PRIuMAX
 l_string|&quot;: trailing garbage in tag header&quot;
 comma
+(paren
+r_uintmax
+)paren
+(paren
 id|tagger_line
 id|buffer
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* The actual stuff afterwards we don&squot;t care about.. */
@@ -736,8 +783,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|macro|PD_FMT
-macro_line|#undef PD_FMT
 DECL|function|cmd_mktag
 r_int
 id|cmd_mktag

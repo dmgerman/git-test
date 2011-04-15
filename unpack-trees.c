@@ -11,6 +11,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;attr.h&quot;
 multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; and &quot;git merge&quot; replaces&n; * them using setup_unpack_trees_porcelain(), for example.&n; */
 DECL|variable|unpack_plumbing_errors
+r_static
 r_const
 r_char
 op_star
@@ -1750,11 +1751,14 @@ id|cache_entry
 op_star
 id|src
 (braket
-l_int|5
+id|MAX_UNPACK_TREES
+op_plus
+l_int|1
 )braket
 op_assign
 (brace
 l_int|NULL
+comma
 )brace
 suffix:semicolon
 r_int
@@ -5016,6 +5020,7 @@ op_logical_and
 id|empty_worktree
 )paren
 (brace
+multiline_comment|/* dubious---why should this fail??? */
 id|ret
 op_assign
 id|unpack_failed
@@ -6139,6 +6144,9 @@ id|len
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|lstat
 c_func
 (paren
@@ -6146,6 +6154,21 @@ id|path
 comma
 op_amp
 id|st
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;cannot stat &squot;%s&squot;: %s&quot;
+comma
+id|path
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -6173,7 +6196,6 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
 id|lstat
 c_func
 (paren
@@ -6183,6 +6205,35 @@ op_amp
 id|st
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_ne
+id|ENOENT
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;cannot stat &squot;%s&squot;: %s&quot;
+comma
+id|ce-&gt;name
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_else
+(brace
 r_return
 id|check_ok_to_remove
 c_func
@@ -6211,9 +6262,7 @@ comma
 id|o
 )paren
 suffix:semicolon
-r_return
-l_int|0
-suffix:semicolon
+)brace
 )brace
 DECL|function|verify_absent
 r_static
