@@ -102,7 +102,9 @@ id|merge_base_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git merge-base [-a|--all] [--octopus] &lt;commit&gt; &lt;commit&gt;...&quot;
+l_string|&quot;git merge-base [-a|--all] &lt;commit&gt; &lt;commit&gt;...&quot;
+comma
+l_string|&quot;git merge-base [-a|--all] --octopus &lt;commit&gt;...&quot;
 comma
 l_string|&quot;git merge-base --independent &lt;commit&gt;...&quot;
 comma
