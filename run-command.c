@@ -372,10 +372,11 @@ c_func
 r_void
 )paren
 (brace
-multiline_comment|/*&n;&t; * execvp failed.  If possible, we&squot;d like to let start_command&n;&t; * know, so failures like ENOENT can be handled right away; but&n;&t; * otherwise, finish_command will still report the error.&n;&t; */
-r_if
-c_cond
-(paren
+id|ssize_t
+id|unused
+suffix:semicolon
+id|unused
+op_assign
 id|write
 c_func
 (paren
@@ -385,9 +386,7 @@ l_string|&quot;&quot;
 comma
 l_int|1
 )paren
-)paren
 suffix:semicolon
-multiline_comment|/* yes, dear gcc -D_FORTIFY_SOURCE, there was an error. */
 )brace
 DECL|function|die_child
 r_static
@@ -410,6 +409,9 @@ id|msg
 (braket
 l_int|4096
 )braket
+suffix:semicolon
+id|ssize_t
+id|unused
 suffix:semicolon
 r_int
 id|len
@@ -446,9 +448,8 @@ r_sizeof
 id|msg
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|unused
+op_assign
 id|write
 c_func
 (paren
@@ -458,7 +459,9 @@ l_string|&quot;fatal: &quot;
 comma
 l_int|7
 )paren
-op_logical_or
+suffix:semicolon
+id|unused
+op_assign
 id|write
 c_func
 (paren
@@ -468,7 +471,9 @@ id|msg
 comma
 id|len
 )paren
-op_logical_or
+suffix:semicolon
+id|unused
+op_assign
 id|write
 c_func
 (paren
@@ -478,9 +483,7 @@ l_string|&quot;&bslash;n&quot;
 comma
 l_int|1
 )paren
-)paren
 suffix:semicolon
-multiline_comment|/* yes, gcc -D_FORTIFY_SOURCE, we know there was an error. */
 m_exit
 (paren
 l_int|128
