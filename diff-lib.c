@@ -439,6 +439,17 @@ id|combine_diff_path
 op_star
 id|dpath
 suffix:semicolon
+r_struct
+id|diff_filepair
+op_star
+id|pair
+suffix:semicolon
+r_int
+r_int
+id|wt_mode
+op_assign
+l_int|0
+suffix:semicolon
 r_int
 id|num_compare_stages
 op_assign
@@ -553,7 +564,7 @@ c_cond
 op_logical_neg
 id|changed
 )paren
-id|dpath-&gt;mode
+id|wt_mode
 op_assign
 id|ce_mode_from_stat
 c_func
@@ -589,7 +600,15 @@ id|silent_on_removed
 )paren
 r_continue
 suffix:semicolon
+id|wt_mode
+op_assign
+l_int|0
+suffix:semicolon
 )brace
+id|dpath-&gt;mode
+op_assign
+id|wt_mode
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -755,6 +774,8 @@ op_assign
 l_int|NULL
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * Show the diff for the &squot;ce&squot; if we found the one&n;&t;&t;&t; * from the desired stage.&n;&t;&t;&t; */
+id|pair
+op_assign
 id|diff_unmerge
 c_func
 (paren
@@ -763,6 +784,15 @@ id|revs-&gt;diffopt
 comma
 id|ce-&gt;name
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|wt_mode
+)paren
+id|pair-&gt;two-&gt;mode
+op_assign
+id|wt_mode
 suffix:semicolon
 r_if
 c_cond
