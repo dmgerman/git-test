@@ -23844,7 +23844,9 @@ id|HAS_CHANGES
 suffix:semicolon
 )brace
 DECL|function|diff_unmerge
-r_void
+r_struct
+id|diff_filepair
+op_star
 id|diff_unmerge
 c_func
 (paren
@@ -23869,6 +23871,11 @@ id|sha1
 )paren
 (brace
 r_struct
+id|diff_filepair
+op_star
+id|pair
+suffix:semicolon
+r_struct
 id|diff_filespec
 op_star
 id|one
@@ -23892,6 +23899,7 @@ id|options-&gt;prefix_length
 )paren
 )paren
 r_return
+l_int|NULL
 suffix:semicolon
 id|one
 op_assign
@@ -23919,6 +23927,8 @@ comma
 id|mode
 )paren
 suffix:semicolon
+id|pair
+op_assign
 id|diff_queue
 c_func
 (paren
@@ -23929,10 +23939,13 @@ id|one
 comma
 id|two
 )paren
-op_member_access_from_pointer
-id|is_unmerged
+suffix:semicolon
+id|pair-&gt;is_unmerged
 op_assign
 l_int|1
+suffix:semicolon
+r_return
+id|pair
 suffix:semicolon
 )brace
 DECL|function|run_textconv
