@@ -444,6 +444,12 @@ id|po.out
 op_assign
 l_int|1
 suffix:semicolon
+id|close
+c_func
+(paren
+id|fd
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -1068,6 +1074,17 @@ id|fd
 op_assign
 id|data
 suffix:semicolon
+macro_line|#ifdef NO_PTHREADS
+id|close
+c_func
+(paren
+id|fd
+(braket
+l_int|1
+)braket
+)paren
+suffix:semicolon
+macro_line|#endif
 r_int
 id|ret
 op_assign
