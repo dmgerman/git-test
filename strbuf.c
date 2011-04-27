@@ -156,6 +156,7 @@ c_cond
 (paren
 id|hint
 )paren
+(brace
 id|strbuf_grow
 c_func
 (paren
@@ -164,6 +165,14 @@ comma
 id|hint
 )paren
 suffix:semicolon
+id|sb-&gt;buf
+(braket
+l_int|0
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+)brace
 )brace
 DECL|function|strbuf_release
 r_void
