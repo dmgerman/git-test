@@ -3,6 +3,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;merge-file.h&quot;
 DECL|variable|merge_tree_usage
 r_static
 r_const
@@ -207,33 +208,6 @@ r_return
 l_string|&quot;removed in remote&quot;
 suffix:semicolon
 )brace
-r_extern
-r_void
-op_star
-id|merge_file
-c_func
-(paren
-r_const
-r_char
-op_star
-comma
-r_struct
-id|blob
-op_star
-comma
-r_struct
-id|blob
-op_star
-comma
-r_struct
-id|blob
-op_star
-comma
-r_int
-r_int
-op_star
-)paren
-suffix:semicolon
 DECL|function|result
 r_static
 r_void

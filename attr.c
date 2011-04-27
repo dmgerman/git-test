@@ -2308,6 +2308,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|git_etc_gitattributes
+r_static
 r_const
 r_char
 op_star
@@ -2342,6 +2343,7 @@ id|system_wide
 suffix:semicolon
 )brace
 DECL|function|git_attr_system
+r_static
 r_int
 id|git_attr_system
 c_func
