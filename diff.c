@@ -572,7 +572,11 @@ c_func
 (paren
 id|errmsg
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  Failed to parse dirstat cut-off percentage &squot;%.*s&squot;&bslash;n&quot;
+)paren
 comma
 id|p_len
 comma
@@ -591,7 +595,11 @@ c_func
 (paren
 id|errmsg
 comma
+id|_
+c_func
+(paren
 l_string|&quot;  Unknown dirstat parameter &squot;%.*s&squot;&bslash;n&quot;
+)paren
 comma
 id|p_len
 comma
@@ -1162,7 +1170,11 @@ id|errmsg
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Found errors in &squot;diff.dirstat&squot; config variable:&bslash;n%s&quot;
+)paren
 comma
 id|errmsg.buf
 )paren
@@ -17769,7 +17781,11 @@ id|errmsg
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to parse --dirstat/-X option parameter:&bslash;n%s&quot;
+)paren
 comma
 id|errmsg.buf
 )paren
