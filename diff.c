@@ -8375,6 +8375,12 @@ op_ne
 l_int|1
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|this_dir
+)paren
+(brace
 r_int
 id|permille
 op_assign
@@ -8384,12 +8390,6 @@ l_int|1000
 op_div
 id|changed
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|permille
-)paren
-(brace
 r_int
 id|percent
 op_assign
