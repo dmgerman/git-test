@@ -2279,8 +2279,6 @@ suffix:semicolon
 r_int
 id|num_create
 comma
-id|num_src
-comma
 id|dst_cnt
 suffix:semicolon
 r_struct
@@ -2477,10 +2475,6 @@ op_assign
 id|rename_dst_nr
 id|rename_count
 )paren
-suffix:semicolon
-id|num_src
-op_assign
-id|rename_src_nr
 suffix:semicolon
 multiline_comment|/* All done? */
 r_if
