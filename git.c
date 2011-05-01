@@ -11,7 +11,7 @@ id|git_usage_string
 (braket
 )braket
 op_assign
-l_string|&quot;git [--version] [--exec-path[=&lt;path&gt;]] [--html-path]&bslash;n&quot;
+l_string|&quot;git [--version] [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]&bslash;n&quot;
 l_string|&quot;           [-p|--paginate|--no-pager] [--no-replace-objects]&bslash;n&quot;
 l_string|&quot;           [--bare] [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;]&bslash;n&quot;
 l_string|&quot;           [-c name=value] [--help]&bslash;n&quot;
@@ -408,6 +408,66 @@ id|system_path
 c_func
 (paren
 id|GIT_HTML_PATH
+)paren
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|0
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|cmd
+comma
+l_string|&quot;--man-path&quot;
+)paren
+)paren
+(brace
+id|puts
+c_func
+(paren
+id|system_path
+c_func
+(paren
+id|GIT_MAN_PATH
+)paren
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|0
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|cmd
+comma
+l_string|&quot;--info-path&quot;
+)paren
+)paren
+(brace
+id|puts
+c_func
+(paren
+id|system_path
+c_func
+(paren
+id|GIT_INFO_PATH
 )paren
 )paren
 suffix:semicolon
