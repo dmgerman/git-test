@@ -1683,6 +1683,9 @@ r_char
 op_star
 id|gitfile
 suffix:semicolon
+r_int
+id|offset
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2002,31 +2005,25 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|prefixcmp
+id|offset
+op_assign
+id|dir_inside_of
 c_func
 (paren
 id|cwd
 comma
 id|worktree
 )paren
-op_logical_and
-id|cwd
-(braket
-id|strlen
-c_func
+suffix:semicolon
+r_if
+c_cond
 (paren
-id|worktree
-)paren
-)braket
-op_eq
-l_char|&squot;/&squot;
+id|offset
+op_ge
+l_int|0
 )paren
 (brace
-multiline_comment|/* cwd inside worktree */
+multiline_comment|/* cwd inside worktree? */
 id|set_git_dir
 c_func
 (paren
@@ -2078,13 +2075,7 @@ suffix:semicolon
 r_return
 id|cwd
 op_plus
-id|strlen
-c_func
-(paren
-id|worktree
-)paren
-op_plus
-l_int|1
+id|offset
 suffix:semicolon
 )brace
 multiline_comment|/* cwd outside worktree */
