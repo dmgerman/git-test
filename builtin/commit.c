@@ -60,6 +60,9 @@ id|implicit_ident_advice
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;Your name and email address were configured automatically based&bslash;n&quot;
 l_string|&quot;on your username and hostname. Please check that they are accurate.&bslash;n&quot;
 l_string|&quot;You can suppress this message by setting them explicitly:&bslash;n&quot;
@@ -70,6 +73,7 @@ l_string|&quot;&bslash;n&quot;
 l_string|&quot;After doing this, you may fix the identity used for this commit with:&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;    git commit --amend --reset-author&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|variable|empty_amend_advice
 r_static
@@ -79,9 +83,32 @@ id|empty_amend_advice
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;You asked to amend the most recent commit, but doing so would make&bslash;n&quot;
 l_string|&quot;it empty. You can repeat your command with --allow-empty, or you can&bslash;n&quot;
 l_string|&quot;remove the commit entirely with &bslash;&quot;git reset HEAD^&bslash;&quot;.&bslash;n&quot;
+)paren
+suffix:semicolon
+DECL|variable|empty_cherry_pick_advice
+r_static
+r_const
+r_char
+id|empty_cherry_pick_advice
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;The previous cherry-pick is now empty, possibly due to conflict resolution.&bslash;n&quot;
+l_string|&quot;If you wish to commit it anyway, use:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git commit --allow-empty&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;Otherwise, please use &squot;git reset&squot;&bslash;n&quot;
+)paren
 suffix:semicolon
 DECL|variable|head_sha1
 r_static
@@ -94,6 +121,7 @@ l_int|20
 suffix:semicolon
 DECL|variable|use_message_buffer
 r_static
+r_const
 r_char
 op_star
 id|use_message_buffer
@@ -156,6 +184,18 @@ r_const
 r_char
 op_star
 id|template_file
+suffix:semicolon
+multiline_comment|/*&n; * The _message variables are commit names from which to take&n; * the commit message and/or authorship.&n; */
+DECL|variable|author_message
+DECL|variable|author_message_buffer
+r_static
+r_const
+r_char
+op_star
+id|author_message
+comma
+op_star
+id|author_message_buffer
 suffix:semicolon
 DECL|variable|edit_message
 DECL|variable|use_message
@@ -264,9 +304,14 @@ r_char
 op_star
 id|cleanup_arg
 suffix:semicolon
+DECL|variable|whence
+r_static
+r_enum
+id|commit_whence
+id|whence
+suffix:semicolon
 DECL|variable|use_editor
 DECL|variable|initial_commit
-DECL|variable|in_merge
 DECL|variable|include_status
 r_static
 r_int
@@ -275,8 +320,6 @@ op_assign
 l_int|1
 comma
 id|initial_commit
-comma
-id|in_merge
 comma
 id|include_status
 op_assign
@@ -447,7 +490,7 @@ comma
 op_amp
 id|force_author
 comma
-l_string|&quot;AUTHOR&quot;
+l_string|&quot;author&quot;
 comma
 l_string|&quot;override author for commit&quot;
 )paren
@@ -462,7 +505,7 @@ comma
 op_amp
 id|force_date
 comma
-l_string|&quot;DATE&quot;
+l_string|&quot;date&quot;
 comma
 l_string|&quot;override date for commit&quot;
 )paren
@@ -477,7 +520,7 @@ comma
 op_amp
 id|message
 comma
-l_string|&quot;MESSAGE&quot;
+l_string|&quot;message&quot;
 comma
 l_string|&quot;commit message&quot;
 comma
@@ -494,7 +537,7 @@ comma
 op_amp
 id|edit_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;reuse and edit message from specified commit&quot;
 )paren
@@ -509,7 +552,7 @@ comma
 op_amp
 id|use_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;reuse message from specified commit&quot;
 )paren
@@ -524,7 +567,7 @@ comma
 op_amp
 id|fixup_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;use autosquash formatted message to fixup specified commit&quot;
 )paren
@@ -539,7 +582,7 @@ comma
 op_amp
 id|squash_message
 comma
-l_string|&quot;COMMIT&quot;
+l_string|&quot;commit&quot;
 comma
 l_string|&quot;use autosquash formatted message to squash specified commit&quot;
 )paren
@@ -860,6 +903,119 @@ c_func
 )paren
 )brace
 suffix:semicolon
+DECL|function|determine_whence
+r_static
+r_void
+id|determine_whence
+c_func
+(paren
+r_struct
+id|wt_status
+op_star
+id|s
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|file_exists
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;MERGE_HEAD&quot;
+)paren
+)paren
+)paren
+id|whence
+op_assign
+id|FROM_MERGE
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|file_exists
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+)paren
+)paren
+id|whence
+op_assign
+id|FROM_CHERRY_PICK
+suffix:semicolon
+r_else
+id|whence
+op_assign
+id|FROM_COMMIT
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|s
+)paren
+id|s-&gt;whence
+op_assign
+id|whence
+suffix:semicolon
+)brace
+DECL|function|whence_s
+r_static
+r_const
+r_char
+op_star
+id|whence_s
+c_func
+(paren
+r_void
+)paren
+(brace
+r_char
+op_star
+id|s
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+r_switch
+c_cond
+(paren
+id|whence
+)paren
+(brace
+r_case
+id|FROM_COMMIT
+suffix:colon
+r_break
+suffix:semicolon
+r_case
+id|FROM_MERGE
+suffix:colon
+id|s
+op_assign
+l_string|&quot;merge&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|FROM_CHERRY_PICK
+suffix:colon
+id|s
+op_assign
+l_string|&quot;cherry-pick&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+)brace
+r_return
+id|s
+suffix:semicolon
+)brace
 DECL|function|rollback_index_files
 r_static
 r_void
@@ -1250,7 +1406,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;updating files failed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1356,7 +1516,11 @@ id|tree
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to unpack HEAD tree object&quot;
+)paren
 )paren
 suffix:semicolon
 id|parse_tree
@@ -1505,7 +1669,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;interactive add failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1522,7 +1690,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 id|commit_style
@@ -1566,7 +1738,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index file corrupt&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Non partial, non as-is commit.&n;&t; *&n;&t; * (1) get the real index;&n;&t; * (2) update the_index as necessary;&n;&t; * (3) write the_index out to the real index (still locked);&n;&t; * (4) return the name of the locked index file.&n;&t; *&n;&t; * The caller should run hooks on the locked real index, and&n;&t; * (A) if all goes well, commit the real index;&n;&t; * (B) on failure, rollback the real index.&n;&t; */
@@ -1640,7 +1816,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new_index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|commit_style
@@ -1709,7 +1889,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new_index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1742,12 +1926,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|in_merge
+id|whence
+op_ne
+id|FROM_COMMIT
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;cannot do a partial commit during a merge.&quot;
+id|_
+c_func
+(paren
+l_string|&quot;cannot do a partial commit during a %s.&quot;
+)paren
+comma
+id|whence_s
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|memset
@@ -1812,7 +2007,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot read the index&quot;
+)paren
 )paren
 suffix:semicolon
 id|fd
@@ -1862,7 +2061,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write new_index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|fd
@@ -1932,7 +2135,11 @@ id|false_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write temporary index file&quot;
+)paren
 )paren
 suffix:semicolon
 id|discard_cache
@@ -2136,7 +2343,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not parse HEAD commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2208,10 +2419,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|use_message
-op_logical_and
-op_logical_neg
-id|renew_authorship
+id|author_message
 )paren
 (brace
 r_const
@@ -2233,7 +2441,7 @@ op_assign
 id|strstr
 c_func
 (paren
-id|use_message_buffer
+id|author_message_buffer
 comma
 l_string|&quot;&bslash;nauthor &quot;
 )paren
@@ -2247,9 +2455,13 @@ id|a
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid commit: %s&quot;
+)paren
 comma
-id|use_message
+id|author_message
 )paren
 suffix:semicolon
 id|lb
@@ -2306,9 +2518,13 @@ id|eol
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid commit: %s&quot;
+)paren
 comma
-id|use_message
+id|author_message
 )paren
 suffix:semicolon
 r_if
@@ -2463,7 +2679,11 @@ id|rb
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;malformed --author parameter&quot;
+)paren
 )paren
 suffix:semicolon
 id|name
@@ -2795,7 +3015,11 @@ l_char|&squot; &squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Malformed ident string: &squot;%s&squot;&quot;
+)paren
 comma
 id|string
 )paren
@@ -2861,10 +3085,6 @@ suffix:semicolon
 r_char
 op_star
 id|buffer
-suffix:semicolon
-id|FILE
-op_star
-id|fp
 suffix:semicolon
 r_const
 r_char
@@ -2966,7 +3186,11 @@ id|c
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not lookup commit %s&quot;
+)paren
 comma
 id|squash_message
 )paren
@@ -3045,7 +3269,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(reading log message from standard input)&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3067,7 +3295,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read log from standard input&quot;
+)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -3101,7 +3333,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read log file &squot;%s&squot;&quot;
+)paren
 comma
 id|logfile
 )paren
@@ -3144,7 +3380,11 @@ l_char|&squot;&bslash;0&squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;commit has empty message&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_add
@@ -3212,7 +3452,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not lookup commit %s&quot;
+)paren
 comma
 id|fixup_message
 )paren
@@ -3285,7 +3529,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read MERGE_MSG&quot;
+)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -3335,7 +3583,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read SQUASH_MSG&quot;
+)paren
 )paren
 suffix:semicolon
 id|hook_arg1
@@ -3348,16 +3600,6 @@ r_if
 c_cond
 (paren
 id|template_file
-op_logical_and
-op_logical_neg
-id|stat
-c_func
-(paren
-id|template_file
-comma
-op_amp
-id|statbuf
-)paren
 )paren
 (brace
 r_if
@@ -3379,7 +3621,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read &squot;%s&squot;&quot;
+)paren
 comma
 id|template_file
 )paren
@@ -3389,17 +3635,37 @@ op_assign
 l_string|&quot;template&quot;
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * This final case does not modify the template message,&n;&t; * it just sets the argument to the prepare-commit-msg hook.&n;&t; */
+multiline_comment|/*&n;&t; * The remaining cases don&squot;t modify the template message, but&n;&t; * just set the argument(s) to the prepare-commit-msg hook.&n;&t; */
 r_else
 r_if
 c_cond
 (paren
-id|in_merge
+id|whence
+op_eq
+id|FROM_MERGE
 )paren
 id|hook_arg1
 op_assign
 l_string|&quot;merge&quot;
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|whence
+op_eq
+id|FROM_CHERRY_PICK
+)paren
+(brace
+id|hook_arg1
+op_assign
+l_string|&quot;commit&quot;
+suffix:semicolon
+id|hook_arg2
+op_assign
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -3416,7 +3682,7 @@ op_assign
 l_string|&quot;&quot;
 suffix:semicolon
 )brace
-id|fp
+id|s-&gt;fp
 op_assign
 id|fopen
 c_func
@@ -3433,14 +3699,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fp
+id|s-&gt;fp
 op_eq
 l_int|NULL
 )paren
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -3614,7 +3884,7 @@ l_int|1
 comma
 id|sb.len
 comma
-id|fp
+id|s-&gt;fp
 )paren
 OL
 id|sb.len
@@ -3622,7 +3892,11 @@ id|sb.len
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not write commit template&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -3671,34 +3945,67 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|in_merge
+id|whence
+op_ne
+id|FROM_COMMIT
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|fp
+id|s
 comma
-l_string|&quot;#&bslash;n&quot;
-l_string|&quot;# It looks like you may be committing a MERGE.&bslash;n&quot;
-l_string|&quot;# If this is not correct, please remove the file&bslash;n&quot;
-l_string|&quot;#&t;%s&bslash;n&quot;
-l_string|&quot;# and try again.&bslash;n&quot;
-l_string|&quot;#&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+id|_
+c_func
+(paren
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;It looks like you may be committing a %s.&bslash;n&quot;
+l_string|&quot;If this is not correct, please remove the file&bslash;n&quot;
+l_string|&quot;&t;%s&bslash;n&quot;
+l_string|&quot;and try again.&bslash;n&quot;
+l_string|&quot;&quot;
+)paren
+comma
+id|whence_s
+c_func
+(paren
+)paren
 comma
 id|git_path
 c_func
 (paren
+id|whence
+op_eq
+id|FROM_MERGE
+ques
+c_cond
 l_string|&quot;MERGE_HEAD&quot;
+suffix:colon
+l_string|&quot;CHERRY_PICK_HEAD&quot;
 )paren
 )paren
 suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;# Please enter the commit message for your changes.&quot;
+)paren
+suffix:semicolon
+id|status_printf
+c_func
+(paren
+id|s
+comma
+id|GIT_COLOR_NORMAL
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Please enter the commit message for your changes.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3708,27 +4015,39 @@ id|cleanup_mode
 op_eq
 id|CLEANUP_ALL
 )paren
-id|fprintf
+id|status_printf_more
 c_func
 (paren
-id|fp
+id|s
 comma
+id|GIT_COLOR_NORMAL
+comma
+id|_
+c_func
+(paren
 l_string|&quot; Lines starting&bslash;n&quot;
-l_string|&quot;# with &squot;#&squot; will be ignored, and an empty&quot;
+l_string|&quot;with &squot;#&squot; will be ignored, and an empty&quot;
 l_string|&quot; message aborts the commit.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
 multiline_comment|/* CLEANUP_SPACE, that is. */
-id|fprintf
+id|status_printf_more
 c_func
 (paren
-id|fp
+id|s
 comma
+id|GIT_COLOR_NORMAL
+comma
+id|_
+c_func
+(paren
 l_string|&quot; Lines starting&bslash;n&quot;
-l_string|&quot;# with &squot;#&squot; will be kept; you may remove them&quot;
+l_string|&quot;with &squot;#&squot; will be kept; you may remove them&quot;
 l_string|&quot; yourself if you want to.&bslash;n&quot;
-l_string|&quot;# An empty message aborts the commit.&bslash;n&quot;
+l_string|&quot;An empty message aborts the commit.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3736,12 +4055,14 @@ c_cond
 (paren
 id|only_include_assumed
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|fp
+id|s
 comma
-l_string|&quot;# %s&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;%s&quot;
 comma
 id|only_include_assumed
 )paren
@@ -3773,13 +4094,19 @@ comma
 id|committer_ident.buf
 )paren
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|fp
+id|s
 comma
+id|GIT_COLOR_NORMAL
+comma
+id|_
+c_func
+(paren
 l_string|&quot;%s&quot;
-l_string|&quot;# Author:    %s&bslash;n&quot;
+l_string|&quot;Author:    %s&quot;
+)paren
 comma
 id|ident_shown
 op_increment
@@ -3787,7 +4114,7 @@ ques
 c_cond
 l_string|&quot;&quot;
 suffix:colon
-l_string|&quot;#&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 comma
 id|author_ident-&gt;buf
 )paren
@@ -3801,13 +4128,19 @@ c_func
 (paren
 )paren
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|fp
+id|s
 comma
+id|GIT_COLOR_NORMAL
+comma
+id|_
+c_func
+(paren
 l_string|&quot;%s&quot;
-l_string|&quot;# Committer: %s&bslash;n&quot;
+l_string|&quot;Committer: %s&quot;
+)paren
 comma
 id|ident_shown
 op_increment
@@ -3815,7 +4148,7 @@ ques
 c_cond
 l_string|&quot;&quot;
 suffix:colon
-l_string|&quot;#&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 comma
 id|committer_ident.buf
 )paren
@@ -3825,12 +4158,14 @@ c_cond
 (paren
 id|ident_shown
 )paren
-id|fprintf
+id|status_printf_ln
 c_func
 (paren
-id|fp
+id|s
 comma
-l_string|&quot;#&bslash;n&quot;
+id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 id|saved_color_setting
@@ -3846,7 +4181,7 @@ op_assign
 id|run_status
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 comma
 id|index_file
 comma
@@ -3904,7 +4239,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot read index&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3955,17 +4294,19 @@ suffix:semicolon
 id|fclose
 c_func
 (paren
-id|fp
+id|s-&gt;fp
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Reject an attempt to record a non-merge empty commit without&n;&t; * explicit --allow-empty. In the cherry-pick case, it may be&n;&t; * empty due to conflict resolution, which the user should okay.&n;&t; */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|commitable
 op_logical_and
-op_logical_neg
-id|in_merge
+id|whence
+op_ne
+id|FROM_MERGE
 op_logical_and
 op_logical_neg
 id|allow_empty
@@ -4004,7 +4345,31 @@ id|amend
 id|fputs
 c_func
 (paren
+id|_
+c_func
+(paren
 id|empty_amend_advice
+)paren
+comma
+id|stderr
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|whence
+op_eq
+id|FROM_CHERRY_PICK
+)paren
+id|fputs
+c_func
+(paren
+id|_
+c_func
+(paren
+id|empty_cherry_pick_advice
+)paren
 comma
 id|stderr
 )paren
@@ -4061,7 +4426,11 @@ l_int|0
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Error building trees&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -4163,7 +4532,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Please supply the message using either -m or -F option.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 m_exit
@@ -4597,7 +4970,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No existing author found with &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -4678,10 +5055,104 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid untracked files mode &squot;%s&squot;&quot;
+)paren
 comma
 id|untracked_files_arg
 )paren
+suffix:semicolon
+)brace
+DECL|function|read_commit_message
+r_static
+r_const
+r_char
+op_star
+id|read_commit_message
+c_func
+(paren
+r_const
+r_char
+op_star
+id|name
+)paren
+(brace
+r_const
+r_char
+op_star
+id|out_enc
+comma
+op_star
+id|out
+suffix:semicolon
+r_struct
+id|commit
+op_star
+id|commit
+suffix:semicolon
+id|commit
+op_assign
+id|lookup_commit_reference_by_name
+c_func
+(paren
+id|name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|commit
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;could not lookup commit %s&quot;
+)paren
+comma
+id|name
+)paren
+suffix:semicolon
+id|out_enc
+op_assign
+id|get_commit_output_encoding
+c_func
+(paren
+)paren
+suffix:semicolon
+id|out
+op_assign
+id|logmsg_reencode
+c_func
+(paren
+id|commit
+comma
+id|out_enc
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t; * If we failed to reencode the buffer, just copy it&n;&t; * byte for byte so the user can try to fix it up.&n;&t; * This also handles the case where input and output&n;&t; * encodings are identical.&n;&t; */
+r_if
+c_cond
+(paren
+id|out
+op_eq
+l_int|NULL
+)paren
+id|out
+op_assign
+id|xstrdup
+c_func
+(paren
+id|commit-&gt;buffer
+)paren
+suffix:semicolon
+r_return
+id|out
 suffix:semicolon
 )brace
 DECL|function|parse_and_validate_options
@@ -4774,7 +5245,11 @@ id|renew_authorship
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Using both --reset-author and --author does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4843,7 +5318,11 @@ id|initial_commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have nothing to amend.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4851,12 +5330,23 @@ c_cond
 (paren
 id|amend
 op_logical_and
-id|in_merge
+id|whence
+op_ne
+id|FROM_COMMIT
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;You are in the middle of a merge -- cannot amend.&quot;
+id|_
+c_func
+(paren
+l_string|&quot;You are in the middle of a %s -- cannot amend.&quot;
+)paren
+comma
+id|whence_s
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4869,7 +5359,11 @@ id|squash_message
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Options --squash and --fixup cannot be used together&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4914,7 +5408,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Only one of -c/-C/-F/--fixup can be used.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4929,7 +5427,13 @@ l_int|0
 id|die
 c_func
 (paren
+(paren
+id|_
+c_func
+(paren
 l_string|&quot;Option -m cannot be combined with -c/-C/-F/--fixup.&quot;
+)paren
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4962,12 +5466,20 @@ c_cond
 op_logical_neg
 id|use_message
 op_logical_and
+id|whence
+op_ne
+id|FROM_CHERRY_PICK
+op_logical_and
 id|renew_authorship
 )paren
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--reset-author can be used only with -C, -c or --amend.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4976,19 +5488,9 @@ c_cond
 id|use_message
 )paren
 (brace
-r_const
-r_char
-op_star
-id|out_enc
-suffix:semicolon
-r_struct
-id|commit
-op_star
-id|commit
-suffix:semicolon
-id|commit
+id|use_message_buffer
 op_assign
-id|lookup_commit_reference_by_name
+id|read_commit_message
 c_func
 (paren
 id|use_message
@@ -4998,47 +5500,40 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|commit
+id|renew_authorship
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;could not lookup commit %s&quot;
-comma
+(brace
+id|author_message
+op_assign
 id|use_message
-)paren
 suffix:semicolon
-id|out_enc
+id|author_message_buffer
 op_assign
-id|get_commit_output_encoding
-c_func
-(paren
-)paren
-suffix:semicolon
 id|use_message_buffer
-op_assign
-id|logmsg_reencode
-c_func
-(paren
-id|commit
-comma
-id|out_enc
-)paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * If we failed to reencode the buffer, just copy it&n;&t;&t; * byte for byte so the user can try to fix it up.&n;&t;&t; * This also handles the case where input and output&n;&t;&t; * encodings are identical.&n;&t;&t; */
+)brace
+)brace
 r_if
 c_cond
 (paren
-id|use_message_buffer
+id|whence
 op_eq
-l_int|NULL
+id|FROM_CHERRY_PICK
+op_logical_and
+op_logical_neg
+id|renew_authorship
 )paren
-id|use_message_buffer
+(brace
+id|author_message
 op_assign
-id|xstrdup
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+suffix:semicolon
+id|author_message_buffer
+op_assign
+id|read_commit_message
 c_func
 (paren
-id|commit-&gt;buffer
+id|author_message
 )paren
 suffix:semicolon
 )brace
@@ -5066,7 +5561,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Only one of --include/--only/--all/--interactive can be used.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5090,7 +5589,11 @@ id|amend
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No paths with --include/--only does not make sense.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5106,7 +5609,11 @@ id|amend
 )paren
 id|only_include_assumed
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Clever... amending the last one with dirty index.&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -5123,7 +5630,11 @@ id|only
 )paren
 id|only_include_assumed
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Explicit paths specified without -i nor -o; assuming --only paths...&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -5204,7 +5715,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid cleanup mode %s&quot;
+)paren
 comma
 id|cleanup_arg
 )paren
@@ -5227,7 +5742,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Paths with -a does not make sense.&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -5243,7 +5762,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Paths with --interactive does not make sense.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5793,7 +6316,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid untracked files mode &squot;%s&squot;&quot;
+)paren
 comma
 id|v
 )paren
@@ -6050,16 +6577,11 @@ op_amp
 id|s
 )paren
 suffix:semicolon
-id|in_merge
-op_assign
-id|file_exists
+id|determine_whence
 c_func
 (paren
-id|git_path
-c_func
-(paren
-l_string|&quot;MERGE_HEAD&quot;
-)paren
+op_amp
+id|s
 )paren
 suffix:semicolon
 id|argc
@@ -6153,39 +6675,16 @@ l_int|0
 op_le
 id|fd
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|active_cache_changed
-op_logical_and
-op_logical_neg
-id|write_cache
+id|update_index_if_able
 c_func
 (paren
-id|fd
+op_amp
+id|the_index
 comma
-id|active_cache
-comma
-id|active_nr
-)paren
-)paren
-id|commit_locked_index
-c_func
-(paren
 op_amp
 id|index_lock
 )paren
 suffix:semicolon
-r_else
-id|rollback_lock_file
-c_func
-(paren
-op_amp
-id|index_lock
-)paren
-suffix:semicolon
-)brace
 id|s.is_initial
 op_assign
 id|get_sha1
@@ -6200,10 +6699,6 @@ c_cond
 l_int|1
 suffix:colon
 l_int|0
-suffix:semicolon
-id|s.in_merge
-op_assign
-id|in_merge
 suffix:semicolon
 id|s.ignore_submodule_arg
 op_assign
@@ -6402,7 +6897,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;couldn&squot;t look up newly created commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6420,7 +6919,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not parse newly created commit&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addstr
@@ -6544,7 +7047,11 @@ c_func
 op_amp
 id|format
 comma
+id|_
+c_func
+(paren
 id|implicit_ident_advice
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -6620,10 +7127,6 @@ id|rev.diffopt.detect_rename
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.diffopt.rename_limit
-op_assign
-l_int|100
-suffix:semicolon
 id|rev.diffopt.break_opt
 op_assign
 l_int|0
@@ -6664,14 +7167,22 @@ l_string|&quot;HEAD&quot;
 )paren
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;detached HEAD&quot;
+)paren
 suffix:colon
 id|head
 comma
 id|initial_commit
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (root-commit)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -7135,21 +7646,12 @@ op_amp
 id|s
 )paren
 suffix:semicolon
-id|in_merge
-op_assign
-id|file_exists
+id|determine_whence
 c_func
 (paren
-id|git_path
-c_func
-(paren
-l_string|&quot;MERGE_HEAD&quot;
+op_amp
+id|s
 )paren
-)paren
-suffix:semicolon
-id|s.in_merge
-op_assign
-id|in_merge
 suffix:semicolon
 r_if
 c_cond
@@ -7330,7 +7832,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not parse HEAD commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -7364,7 +7870,9 @@ r_else
 r_if
 c_cond
 (paren
-id|in_merge
+id|whence
+op_eq
+id|FROM_MERGE
 )paren
 (brace
 r_struct
@@ -7428,7 +7936,11 @@ l_int|NULL
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open &squot;%s&squot; for reading&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -7477,7 +7989,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Corrupt MERGE_HEAD file (%s)&quot;
+)paren
 comma
 id|m.buf
 )paren
@@ -7554,7 +8070,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read MERGE_MODE&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -7598,6 +8118,15 @@ id|reflog_msg
 )paren
 id|reflog_msg
 op_assign
+(paren
+id|whence
+op_eq
+id|FROM_CHERRY_PICK
+)paren
+ques
+c_cond
+l_string|&quot;commit (cherry-pick)&quot;
+suffix:colon
 l_string|&quot;commit&quot;
 suffix:semicolon
 id|pptr
@@ -7660,7 +8189,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not read commit message: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -7749,7 +8282,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Aborting commit due to empty commit message.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 m_exit
@@ -7784,7 +8321,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to write commit object&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -7898,7 +8439,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot lock HEAD ref&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -7926,10 +8471,24 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot update HEAD ref&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
+id|unlink
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+)paren
+suffix:semicolon
 id|unlink
 c_func
 (paren
@@ -7980,9 +8539,13 @@ c_func
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Repository has been updated, but unable to write&bslash;n&quot;
 l_string|&quot;new_index file. Check that disk is not full or quota is&bslash;n&quot;
 l_string|&quot;not exceeded, and then &bslash;&quot;git reset HEAD&bslash;&quot; to recover.&quot;
+)paren
 )paren
 suffix:semicolon
 id|rerere

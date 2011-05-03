@@ -127,7 +127,6 @@ id|node
 comma
 id|node_cmp
 )paren
-suffix:semicolon
 DECL|function|pool_fetch
 r_const
 r_char

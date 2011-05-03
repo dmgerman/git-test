@@ -3,7 +3,6 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
-macro_line|#include &quot;wt-status.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;utf8.h&quot;
@@ -294,9 +293,9 @@ comma
 l_string|&quot;edit the commit message&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_char|&squot;r&squot;
 comma
 l_int|NULL
@@ -304,8 +303,18 @@ comma
 op_amp
 id|noop
 comma
+l_int|NULL
+comma
 l_string|&quot;no-op (backward compatibility)&quot;
-)paren
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+comma
+l_int|NULL
+comma
+l_int|0
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -457,7 +466,11 @@ id|cp_extra
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;program error&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -837,7 +850,11 @@ id|p
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read commit message of %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1022,34 +1039,31 @@ id|p
 )paren
 suffix:semicolon
 )brace
-DECL|function|set_author_ident_env
+DECL|function|write_cherry_pick_head
 r_static
 r_void
-id|set_author_ident_env
+id|write_cherry_pick_head
 c_func
 (paren
-r_const
-r_char
-op_star
-id|message
+r_void
 )paren
 (brace
-r_const
-r_char
-op_star
-id|p
-op_assign
-id|message
+r_int
+id|fd
 suffix:semicolon
-r_if
-c_cond
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|strbuf_addf
+c_func
 (paren
-op_logical_neg
-id|p
-)paren
-id|die
-(paren
-l_string|&quot;Could not read commit message of %s&quot;
+op_amp
+id|buf
+comma
+l_string|&quot;%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -1058,276 +1072,89 @@ id|commit-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
-r_while
-c_loop
+id|fd
+op_assign
+id|open
+c_func
 (paren
-op_star
-id|p
-op_logical_and
-op_star
-id|p
+id|git_path
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+comma
+id|O_WRONLY
+op_or
+id|O_CREAT
+comma
+l_int|0666
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|fd
+OL
+l_int|0
+)paren
+id|die_errno
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
+)paren
+comma
+id|git_path
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|write_in_full
+c_func
+(paren
+id|fd
+comma
+id|buf.buf
+comma
+id|buf.len
+)paren
 op_ne
-l_char|&squot;&bslash;n&squot;
-)paren
-(brace
-r_const
-r_char
-op_star
-id|eol
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|eol
-op_assign
-id|p
-suffix:semicolon
-op_star
-id|eol
-op_logical_and
-op_star
-id|eol
-op_ne
-l_char|&squot;&bslash;n&squot;
-suffix:semicolon
-id|eol
-op_increment
-)paren
-suffix:semicolon
-multiline_comment|/* do nothing */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|prefixcmp
+id|buf.len
+op_logical_or
+id|close
 c_func
 (paren
-id|p
-comma
-l_string|&quot;author &quot;
+id|fd
 )paren
 )paren
-(brace
-r_char
-op_star
-id|line
-comma
-op_star
-id|pend
-comma
-op_star
-id|email
-comma
-op_star
-id|timestamp
-suffix:semicolon
-id|p
-op_add_assign
-l_int|7
-suffix:semicolon
-id|line
-op_assign
-id|xmemdupz
+id|die_errno
 c_func
 (paren
-id|p
-comma
-id|eol
-id|p
-)paren
-suffix:semicolon
-id|email
-op_assign
-id|strchr
+id|_
 c_func
 (paren
-id|line
-comma
-l_char|&squot;&lt;&squot;
+l_string|&quot;Could not write to &squot;%s&squot;&quot;
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|email
-)paren
-id|die
-(paren
-l_string|&quot;Could not extract author email from %s&quot;
 comma
-id|sha1_to_hex
+id|git_path
 c_func
 (paren
-id|commit-&gt;object.sha1
+l_string|&quot;CHERRY_PICK_HEAD&quot;
 )paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|email
-op_eq
-id|line
-)paren
-id|pend
-op_assign
-id|line
-suffix:semicolon
-r_else
-r_for
-c_loop
-(paren
-id|pend
-op_assign
-id|email
-suffix:semicolon
-id|pend
-op_ne
-id|line
-op_plus
-l_int|1
-op_logical_and
-id|isspace
+id|strbuf_release
 c_func
 (paren
-id|pend
-(braket
-l_int|1
-)braket
-)paren
-suffix:semicolon
-id|pend
-op_decrement
-)paren
-suffix:semicolon
-suffix:semicolon
-multiline_comment|/* do nothing */
-op_star
-id|pend
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
-id|email
-op_increment
-suffix:semicolon
-id|timestamp
-op_assign
-id|strchr
-c_func
-(paren
-id|email
-comma
-l_char|&squot;&gt;&squot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|timestamp
-)paren
-id|die
-(paren
-l_string|&quot;Could not extract author time from %s&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
-)paren
-suffix:semicolon
-op_star
-id|timestamp
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|timestamp
-op_increment
-suffix:semicolon
-op_star
-id|timestamp
-op_logical_and
-id|isspace
-c_func
-(paren
-op_star
-id|timestamp
-)paren
-suffix:semicolon
-id|timestamp
-op_increment
-)paren
-suffix:semicolon
-multiline_comment|/* do nothing */
-id|setenv
-c_func
-(paren
-l_string|&quot;GIT_AUTHOR_NAME&quot;
-comma
-id|line
-comma
-l_int|1
-)paren
-suffix:semicolon
-id|setenv
-c_func
-(paren
-l_string|&quot;GIT_AUTHOR_EMAIL&quot;
-comma
-id|email
-comma
-l_int|1
-)paren
-suffix:semicolon
-id|setenv
-c_func
-(paren
-l_string|&quot;GIT_AUTHOR_DATE&quot;
-comma
-id|timestamp
-comma
-l_int|1
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|line
-)paren
-suffix:semicolon
-r_return
-suffix:semicolon
-)brace
-id|p
-op_assign
-id|eol
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_star
-id|p
-op_eq
-l_char|&squot;&bslash;n&squot;
-)paren
-id|p
-op_increment
-suffix:semicolon
-)brace
-id|die
-(paren
-l_string|&quot;No author information found in %s&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
+op_amp
+id|buf
 )paren
 suffix:semicolon
 )brace
@@ -1410,6 +1237,17 @@ comma
 id|msg
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * A conflict has occured but the porcelain&n;&t;&t; * (typically rebase --interactive) wants to take care&n;&t;&t; * of the commit itself so remove CHERRY_PICK_HEAD&n;&t;&t; */
+id|unlink
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
 )brace
@@ -1425,25 +1263,10 @@ c_func
 l_string|&quot;with &squot;git add &lt;paths&gt;&squot; or &squot;git rm &lt;paths&gt;&squot;&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|action
-op_eq
-id|CHERRY_PICK
-)paren
 id|advise
 c_func
 (paren
-l_string|&quot;and commit the result with &squot;git commit -c %s&squot;&quot;
-comma
-id|find_unique_abbrev
-c_func
-(paren
-id|commit-&gt;object.sha1
-comma
-id|DEFAULT_ABBREV
-)paren
+l_string|&quot;and commit the result with &squot;git commit&squot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1501,7 +1324,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write to %s.&quot;
+)paren
 comma
 id|filename
 )paren
@@ -1527,7 +1354,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Error wrapping up %s&quot;
+)paren
 comma
 id|filename
 )paren
@@ -1621,24 +1452,69 @@ c_cond
 (paren
 id|advice_commit_before_merge
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|action
+op_eq
+id|REVERT
+)paren
 id|die
 c_func
 (paren
-l_string|&quot;Your local changes would be overwritten by %s.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by revert.&bslash;n&quot;
 l_string|&quot;Please, commit your changes or stash them to proceed.&quot;
-comma
-id|me
+)paren
 )paren
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
-l_string|&quot;Your local changes would be overwritten by %s.&bslash;n&quot;
-comma
-id|me
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by cherry-pick.&bslash;n&quot;
+l_string|&quot;Please, commit your changes or stash them to proceed.&quot;
+)paren
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|action
+op_eq
+id|REVERT
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by revert.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Your local changes would be overwritten by cherry-pick.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 )brace
 )brace
 DECL|function|fast_forward_to
@@ -1927,10 +1803,15 @@ id|index_lock
 )paren
 )paren
 )paren
+multiline_comment|/* TRANSLATORS: %s will be &quot;revert&quot; or &quot;cherry-pick&quot; */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: Unable to write new index file&quot;
+)paren
 comma
 id|me
 )paren
@@ -2235,7 +2116,11 @@ l_int|NULL
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Your index file is unmerged.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2254,7 +2139,11 @@ id|head
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You do not have a valid HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2296,7 +2185,11 @@ id|REVERT
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot revert a root commit&quot;
+)paren
 )paren
 suffix:semicolon
 id|parent
@@ -2329,7 +2222,11 @@ id|mainline
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Commit %s is a merge but no -m option was given.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2375,7 +2272,11 @@ id|p
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Commit %s does not have parent %d&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2402,7 +2303,11 @@ id|mainline
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Mainline was specified but commit %s is not a merge.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2454,10 +2359,15 @@ id|parent
 OL
 l_int|0
 )paren
+multiline_comment|/* TRANSLATORS: The first %s will be &quot;revert&quot; or&n;&t;&t;   &quot;cherry-pick&quot;, the second %s a SHA1 */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: cannot parse parent commit %s&quot;
+)paren
 comma
 id|me
 comma
@@ -2485,7 +2395,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot get commit message for %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2624,12 +2538,6 @@ id|next_label
 op_assign
 id|msg.label
 suffix:semicolon
-id|set_author_ident_env
-c_func
-(paren
-id|msg.message
-)paren
-suffix:semicolon
 id|add_message_to_msg
 c_func
 (paren
@@ -2677,6 +2585,17 @@ l_string|&quot;)&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|no_commit
+)paren
+id|write_cherry_pick_head
+c_func
+(paren
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -2814,16 +2733,22 @@ id|res
 id|error
 c_func
 (paren
-l_string|&quot;could not %s %s... %s&quot;
-comma
 id|action
 op_eq
 id|REVERT
 ques
 c_cond
-l_string|&quot;revert&quot;
+id|_
+c_func
+(paren
+l_string|&quot;could not revert %s... %s&quot;
+)paren
 suffix:colon
-l_string|&quot;apply&quot;
+id|_
+c_func
+(paren
+l_string|&quot;could not apply %s... %s&quot;
+)paren
 comma
 id|find_unique_abbrev
 c_func
@@ -2963,7 +2888,11 @@ id|revs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2975,7 +2904,11 @@ id|revs-&gt;commits
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;empty commit set passed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -3025,7 +2958,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git %s: failed to read the index&quot;
+)paren
 comma
 id|me
 )paren
@@ -3075,7 +3012,11 @@ id|index_lock
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git %s: failed to refresh the index&quot;
+)paren
 comma
 id|me
 )paren
@@ -3160,7 +3101,11 @@ id|signoff
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --signoff&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3171,7 +3116,11 @@ id|no_commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --no-commit&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3182,7 +3131,11 @@ id|no_replay
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with -x&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3193,7 +3146,11 @@ id|edit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick --ff cannot be used with --edit&quot;
+)paren
 )paren
 suffix:semicolon
 )brace

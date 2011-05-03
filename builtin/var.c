@@ -1,6 +1,5 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Eric Biederman, 2005&n; */
-macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|var_usage
 r_static
 r_const

@@ -1,5 +1,4 @@
-macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|function|flush_current_id
 r_static
 r_void
@@ -335,6 +334,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|get_one_patchid
+r_static
 r_int
 id|get_one_patchid
 c_func
@@ -457,6 +457,31 @@ l_int|5
 id|p
 op_add_assign
 l_int|5
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|line
+comma
+l_string|&quot;&bslash;&bslash; &quot;
+comma
+l_int|2
+)paren
+op_logical_and
+l_int|12
+OL
+id|strlen
+c_func
+(paren
+id|line
+)paren
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond

@@ -532,7 +532,11 @@ id|show
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to start &squot;show&squot; for object &squot;%s&squot;&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -562,7 +566,11 @@ l_int|NULL
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;can&squot;t fdopen &squot;show&squot; output fd&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Prepend &quot;# &quot; to each output line and write result to &squot;fd&squot; */
@@ -633,7 +641,11 @@ id|show_out
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to close pipe to &squot;show&squot; for object &squot;%s&squot;&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -655,7 +667,11 @@ id|show
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to finish &squot;show&squot; for object &squot;%s&squot;&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -750,7 +766,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not create file &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -844,9 +864,13 @@ l_int|NULL
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Please supply the note contents using either -m&quot;
 "&bslash;"
 l_string|&quot; or -F option&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -973,7 +997,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Removing note for object %s&bslash;n&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1010,7 +1038,11 @@ id|result
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write note object&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1021,7 +1053,11 @@ id|path
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;The note contents has been left in %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -1222,7 +1258,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot read &squot;%s&squot;&quot;
+)paren
 comma
 id|arg
 )paren
@@ -1250,7 +1290,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open or read &squot;%s&squot;&quot;
+)paren
 comma
 id|arg
 )paren
@@ -1351,7 +1395,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|arg
 )paren
@@ -1389,7 +1437,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to read object &squot;%s&squot;.&quot;
+)paren
 comma
 id|arg
 )paren
@@ -1523,7 +1575,11 @@ id|t-&gt;ref
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot commit uninitialized/unreferenced notes tree&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1806,7 +1862,11 @@ id|c-&gt;combine
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Bad notes.rewriteMode value: &squot;%s&squot;&quot;
+)paren
 comma
 id|v
 )paren
@@ -1861,8 +1921,12 @@ r_else
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Refusing to rewrite notes in %s&quot;
 l_string|&quot; (outside of refs/notes/)&quot;
+)paren
 comma
 id|v
 )paren
@@ -1987,12 +2051,17 @@ c_cond
 op_logical_neg
 id|c-&gt;combine
 )paren
+multiline_comment|/* TRANSLATORS: The first %s is the name of the&n;&t;&t;&t;   environment variable, the second %s is its value */
 id|error
 c_func
 (paren
-l_string|&quot;Bad &quot;
+id|_
+c_func
+(paren
+l_string|&quot;Bad %s value: &squot;%s&squot;&quot;
+)paren
+comma
 id|GIT_NOTES_REWRITE_MODE_ENVIRONMENT
-l_string|&quot; value: &squot;%s&squot;&quot;
 comma
 id|rewrite_mode_env
 )paren
@@ -2221,6 +2290,7 @@ id|c
 suffix:semicolon
 )brace
 DECL|function|notes_copy_from_stdin
+r_static
 r_int
 id|notes_copy_from_stdin
 c_func
@@ -2370,7 +2440,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Malformed input line: &squot;%s&squot;.&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -2412,7 +2486,11 @@ id|from_obj
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|split
 (braket
@@ -2441,7 +2519,11 @@ id|to_obj
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|split
 (braket
@@ -2494,7 +2576,11 @@ id|err
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to copy notes from &squot;%s&squot; to &squot;%s&squot;&quot;
+)paren
 comma
 id|split
 (braket
@@ -2710,7 +2796,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -2753,7 +2843,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|argv
 (braket
@@ -2798,7 +2892,11 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No note found for object %s.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2926,7 +3024,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;MSG&quot;
+l_string|&quot;msg&quot;
 comma
 l_string|&quot;note contents as a string&quot;
 comma
@@ -2945,7 +3043,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
 l_string|&quot;note contents in a file&quot;
 comma
@@ -2964,7 +3062,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse and edit specified note object&quot;
 comma
@@ -2983,7 +3081,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse specified note object&quot;
 comma
@@ -3036,7 +3134,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -3074,7 +3176,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|object_ref
 )paren
@@ -3115,9 +3221,13 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot add notes. Found existing notes &quot;
 l_string|&quot;for object %s. Use &squot;-f&squot; to overwrite &quot;
 l_string|&quot;existing notes&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3135,7 +3245,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Overwriting existing notes for object %s&bslash;n&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3412,7 +3526,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -3448,7 +3566,11 @@ l_int|2
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too few parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -3471,7 +3593,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -3500,7 +3626,11 @@ id|from_obj
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|argv
 (braket
@@ -3536,7 +3666,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|object_ref
 )paren
@@ -3577,9 +3711,13 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot copy notes. Found existing &quot;
 l_string|&quot;notes for object %s. Use &squot;-f&squot; to &quot;
 l_string|&quot;overwrite existing notes&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3597,7 +3735,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Overwriting existing notes for object %s&bslash;n&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3629,8 +3771,12 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Missing notes on source object %s. Cannot &quot;
 l_string|&quot;copy.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3775,7 +3921,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;MSG&quot;
+l_string|&quot;msg&quot;
 comma
 l_string|&quot;note contents as a string&quot;
 comma
@@ -3794,7 +3940,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
 l_string|&quot;note contents in a file&quot;
 comma
@@ -3813,7 +3959,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse and edit specified note object&quot;
 comma
@@ -3832,7 +3978,7 @@ comma
 op_amp
 id|msg
 comma
-l_string|&quot;OBJECT&quot;
+l_string|&quot;object&quot;
 comma
 l_string|&quot;reuse specified note object&quot;
 comma
@@ -3900,7 +4046,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -3924,9 +4074,13 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;The -m/-F/-c/-C options have been deprecated &quot;
 l_string|&quot;for the &squot;edit&squot; subcommand.&bslash;n&quot;
 l_string|&quot;Please use &squot;git notes add -f -m/-F/-c/-C&squot; instead.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|object_ref
@@ -3957,7 +4111,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|object_ref
 )paren
@@ -4183,7 +4341,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -4221,7 +4383,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|object_ref
 )paren
@@ -4255,7 +4421,11 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No note found for object %s.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -4542,7 +4712,7 @@ id|sha1
 comma
 l_int|0
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -5389,7 +5559,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -5427,7 +5601,11 @@ id|object
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|object_ref
 )paren
@@ -5460,7 +5638,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Object %s has no note&bslash;n&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -5476,7 +5658,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Removing note for object %s&bslash;n&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -5597,7 +5783,11 @@ id|argc
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;too many parameters&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -6157,7 +6347,11 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unknown subcommand: %s&quot;
+)paren
 comma
 id|argv
 (braket

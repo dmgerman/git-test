@@ -28,7 +28,6 @@ id|CRLF_CRLF
 comma
 DECL|enumerator|CRLF_AUTO
 id|CRLF_AUTO
-comma
 )brace
 suffix:semicolon
 DECL|struct|text_stat

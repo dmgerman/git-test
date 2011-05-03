@@ -38,11 +38,12 @@ suffix:semicolon
 multiline_comment|/* We allow &quot;recursive&quot; symbolic links. Only within reason, though. */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
-DECL|function|make_absolute_path
+multiline_comment|/*&n; * Use this to get the real path, i.e. resolve links. If you want an&n; * absolute path but don&squot;t mind links, use absolute_path.&n; *&n; * If path is our buffer, then return path, as it&squot;s already what the&n; * user wants.&n; */
+DECL|function|real_path
 r_const
 r_char
 op_star
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 r_const
@@ -106,6 +107,21 @@ suffix:semicolon
 r_struct
 id|stat
 id|st
+suffix:semicolon
+multiline_comment|/* We&squot;ve already done it */
+r_if
+c_cond
+(paren
+id|path
+op_eq
+id|buf
+op_logical_or
+id|path
+op_eq
+id|next_buf
+)paren
+r_return
+id|path
 suffix:semicolon
 r_if
 c_cond
@@ -575,11 +591,12 @@ r_return
 id|cwd
 suffix:semicolon
 )brace
-DECL|function|make_nonrelative_path
+multiline_comment|/*&n; * Use this to get an absolute path from a relative one. If you want&n; * to resolve links, you should use real_path.&n; *&n; * If the path is already absolute, then return path. As the user is&n; * never meant to free the return value, we&squot;re safe.&n; */
+DECL|function|absolute_path
 r_const
 r_char
 op_star
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 r_const

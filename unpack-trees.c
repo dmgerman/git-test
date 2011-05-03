@@ -11,6 +11,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;attr.h&quot;
 multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; and &quot;git merge&quot; replaces&n; * them using setup_unpack_trees_porcelain(), for example.&n; */
 DECL|variable|unpack_plumbing_errors
+r_static
 r_const
 r_char
 op_star

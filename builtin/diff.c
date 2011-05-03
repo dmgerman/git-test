@@ -330,7 +330,11 @@ id|st
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to stat &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -356,7 +360,11 @@ id|st.st_mode
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: not a regular file or symlink&quot;
+)paren
 comma
 id|path
 )paren
@@ -733,7 +741,7 @@ c_cond
 id|read_cache_preload
 c_func
 (paren
-id|revs-&gt;diffopt.paths
+id|revs-&gt;diffopt.pathspec.raw
 )paren
 OL
 l_int|0
@@ -1099,31 +1107,12 @@ op_or
 id|REFRESH_UNMERGED
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|active_cache_changed
-op_logical_and
-op_logical_neg
-id|write_cache
+id|update_index_if_able
 c_func
 (paren
-id|fd
+op_amp
+id|the_index
 comma
-id|active_cache
-comma
-id|active_nr
-)paren
-)paren
-id|commit_locked_index
-c_func
-(paren
-id|lock_file
-)paren
-suffix:semicolon
-id|rollback_lock_file
-c_func
-(paren
 id|lock_file
 )paren
 suffix:semicolon
@@ -1282,7 +1271,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid option: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -1331,7 +1324,7 @@ c_cond
 id|read_cache_preload
 c_func
 (paren
-id|revs-&gt;diffopt.paths
+id|revs-&gt;diffopt.pathspec.raw
 )paren
 OL
 l_int|0
@@ -1530,7 +1523,11 @@ id|nongit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a git repository&quot;
+)paren
 )paren
 suffix:semicolon
 id|argc
@@ -1574,7 +1571,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;diff_setup_done failed&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1820,7 +1821,11 @@ id|obj
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid object &squot;%s&squot; given.&quot;
+)paren
 comma
 id|name
 )paren
@@ -1868,7 +1873,11 @@ id|ents
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;more than %d trees given: &squot;%s&squot;&quot;
+)paren
 comma
 (paren
 r_int
@@ -1928,7 +1937,11 @@ id|blobs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;more than two blobs given: &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -1973,7 +1986,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unhandled object &squot;%s&squot; given.&quot;
+)paren
 comma
 id|name
 )paren
@@ -1982,22 +1999,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|rev.prune_data
-)paren
-(brace
-r_const
-r_char
-op_star
-op_star
-id|pathspec
-op_assign
-id|rev.prune_data
-suffix:semicolon
-r_while
-c_loop
-(paren
-op_star
-id|pathspec
+id|rev.prune_data.nr
 )paren
 (brace
 r_if
@@ -2008,16 +2010,17 @@ id|path
 )paren
 id|path
 op_assign
-op_star
-id|pathspec
+id|rev.prune_data.items
+(braket
+l_int|0
+)braket
+dot
+id|match
 suffix:semicolon
 id|paths
-op_increment
+op_add_assign
+id|rev.prune_data.nr
 suffix:semicolon
-id|pathspec
-op_increment
-suffix:semicolon
-)brace
 )brace
 multiline_comment|/*&n;&t; * Now, do the arguments look reasonable?&n;&t; */
 r_if

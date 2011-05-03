@@ -1,5 +1,5 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; * Copyright (C) Junio C Hamano, 2005&n; */
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
@@ -71,6 +71,8 @@ id|type
 )paren
 comma
 id|path
+comma
+l_int|1
 )paren
 )paren
 id|die

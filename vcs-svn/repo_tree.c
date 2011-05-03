@@ -123,7 +123,6 @@ id|dent
 comma
 id|repo_dirent_name_cmp
 )paren
-suffix:semicolon
 DECL|function|next_blob_mark
 r_uint32
 id|next_blob_mark

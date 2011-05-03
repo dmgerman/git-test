@@ -36,6 +36,17 @@ id|has_symlinks
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|minimum_abbrev
+DECL|variable|default_abbrev
+r_int
+id|minimum_abbrev
+op_assign
+l_int|4
+comma
+id|default_abbrev
+op_assign
+l_int|7
+suffix:semicolon
 DECL|variable|ignore_case
 r_int
 id|ignore_case
@@ -67,10 +78,6 @@ r_int
 id|warn_ambiguous_refs
 op_assign
 l_int|1
-suffix:semicolon
-DECL|variable|unique_abbrev_extra_length
-r_int
-id|unique_abbrev_extra_length
 suffix:semicolon
 DECL|variable|repository_format_version
 r_int
@@ -605,7 +612,7 @@ id|git_work_tree_initialized
 (brace
 id|new_work_tree
 op_assign
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|new_work_tree
@@ -645,7 +652,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|new_work_tree

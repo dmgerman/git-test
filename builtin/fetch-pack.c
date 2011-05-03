@@ -1,4 +1,4 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;commit.h&quot;
@@ -9,6 +9,7 @@ macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;transport.h&quot;
 DECL|variable|transfer_unpack_limit
 r_static
 r_int
@@ -36,6 +37,13 @@ r_int
 id|prefer_ofs_delta
 op_assign
 l_int|1
+suffix:semicolon
+DECL|variable|no_done
+r_static
+r_int
+id|no_done
+op_assign
+l_int|0
 suffix:semicolon
 DECL|variable|args
 r_static
@@ -974,6 +982,100 @@ id|buf-&gt;len
 )paren
 suffix:semicolon
 )brace
+DECL|function|insert_one_alternate_ref
+r_static
+r_void
+id|insert_one_alternate_ref
+c_func
+(paren
+r_const
+r_struct
+id|ref
+op_star
+id|ref
+comma
+r_void
+op_star
+id|unused
+)paren
+(brace
+id|rev_list_insert_ref
+c_func
+(paren
+l_int|NULL
+comma
+id|ref-&gt;old_sha1
+comma
+l_int|0
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+)brace
+DECL|function|insert_alternate_refs
+r_static
+r_void
+id|insert_alternate_refs
+c_func
+(paren
+r_void
+)paren
+(brace
+id|foreach_alt_odb
+c_func
+(paren
+id|refs_from_alternate_cb
+comma
+id|insert_one_alternate_ref
+)paren
+suffix:semicolon
+)brace
+DECL|macro|INITIAL_FLUSH
+mdefine_line|#define INITIAL_FLUSH 16
+DECL|macro|PIPESAFE_FLUSH
+mdefine_line|#define PIPESAFE_FLUSH 32
+DECL|macro|LARGE_FLUSH
+mdefine_line|#define LARGE_FLUSH 1024
+DECL|function|next_flush
+r_static
+r_int
+id|next_flush
+c_func
+(paren
+r_int
+id|count
+)paren
+(brace
+r_int
+id|flush_limit
+op_assign
+id|args.stateless_rpc
+ques
+c_cond
+id|LARGE_FLUSH
+suffix:colon
+id|PIPESAFE_FLUSH
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|count
+OL
+id|flush_limit
+)paren
+id|count
+op_lshift_assign
+l_int|1
+suffix:semicolon
+r_else
+id|count
+op_add_assign
+id|flush_limit
+suffix:semicolon
+r_return
+id|count
+suffix:semicolon
+)brace
 DECL|function|find_common
 r_static
 r_int
@@ -1009,6 +1111,10 @@ id|flushes
 op_assign
 l_int|0
 comma
+id|flush_at
+op_assign
+id|INITIAL_FLUSH
+comma
 id|retval
 suffix:semicolon
 r_const
@@ -1024,6 +1130,11 @@ l_int|0
 suffix:semicolon
 r_int
 id|got_continue
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|got_ready
 op_assign
 l_int|0
 suffix:semicolon
@@ -1076,6 +1187,11 @@ c_func
 id|rev_list_insert_ref
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|insert_alternate_refs
+c_func
+(paren
 )paren
 suffix:semicolon
 id|fetching
@@ -1189,6 +1305,20 @@ op_amp
 id|c
 comma
 l_string|&quot; multi_ack&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|no_done
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|c
+comma
+l_string|&quot; no-done&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1688,13 +1818,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
-l_int|31
-op_amp
+id|flush_at
+op_le
 op_increment
 id|count
-)paren
 )paren
 (brace
 r_int
@@ -1731,6 +1858,14 @@ suffix:semicolon
 id|flushes
 op_increment
 suffix:semicolon
+id|flush_at
+op_assign
+id|next_flush
+c_func
+(paren
+id|count
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * We keep one window &quot;ahead&quot; of the other side, and&n;&t;&t;&t; * will wait for an ACK only on the next one&n;&t;&t;&t; */
 r_if
 c_cond
@@ -1740,7 +1875,7 @@ id|args.stateless_rpc
 op_logical_and
 id|count
 op_eq
-l_int|32
+id|INITIAL_FLUSH
 )paren
 r_continue
 suffix:semicolon
@@ -1903,6 +2038,23 @@ id|got_continue
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ack
+op_eq
+id|ACK_ready
+)paren
+(brace
+id|rev_list
+op_assign
+l_int|NULL
+suffix:semicolon
+id|got_ready
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_break
 suffix:semicolon
 )brace
@@ -1948,6 +2100,16 @@ multiline_comment|/* give up */
 )brace
 id|done
 suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|got_ready
+op_logical_or
+op_logical_neg
+id|no_done
+)paren
+(brace
 id|packet_buf_write
 c_func
 (paren
@@ -1969,6 +2131,7 @@ op_amp
 id|req_buf
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -3590,6 +3753,39 @@ id|multi_ack
 op_assign
 l_int|2
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|server_supports
+c_func
+(paren
+l_string|&quot;no-done&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|args.verbose
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Server supports no-done&bslash;n&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|args.stateless_rpc
+)paren
+id|no_done
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 )brace
 r_else
 r_if
@@ -4156,6 +4352,12 @@ r_struct
 id|child_process
 op_star
 id|conn
+suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;fetch-pack&quot;
+)paren
 suffix:semicolon
 id|nr_heads
 op_assign

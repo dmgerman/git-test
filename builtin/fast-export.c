@@ -3235,7 +3235,7 @@ comma
 op_amp
 id|export_filename
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
 l_string|&quot;Dump marks to this file&quot;
 )paren
@@ -3250,7 +3250,7 @@ comma
 op_amp
 id|import_filename
 comma
-l_string|&quot;FILE&quot;
+l_string|&quot;file&quot;
 comma
 l_string|&quot;Import marks from this file&quot;
 )paren
@@ -3417,7 +3417,7 @@ c_cond
 (paren
 id|import_filename
 op_logical_and
-id|revs.prune_data
+id|revs.prune_data.nr
 )paren
 id|full_tree
 op_assign

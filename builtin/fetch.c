@@ -51,24 +51,6 @@ op_assign
 l_int|2
 )brace
 suffix:semicolon
-r_enum
-(brace
-DECL|enumerator|RECURSE_SUBMODULES_OFF
-id|RECURSE_SUBMODULES_OFF
-op_assign
-l_int|0
-comma
-DECL|enumerator|RECURSE_SUBMODULES_DEFAULT
-id|RECURSE_SUBMODULES_DEFAULT
-op_assign
-l_int|1
-comma
-DECL|enumerator|RECURSE_SUBMODULES_ON
-id|RECURSE_SUBMODULES_ON
-op_assign
-l_int|2
-)brace
-suffix:semicolon
 DECL|variable|all
 DECL|variable|append
 DECL|variable|dry_run
@@ -153,6 +135,72 @@ id|submodule_prefix
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
+DECL|variable|recurse_submodules_default
+r_static
+r_const
+r_char
+op_star
+id|recurse_submodules_default
+suffix:semicolon
+DECL|function|option_parse_recurse_submodules
+r_static
+r_int
+id|option_parse_recurse_submodules
+c_func
+(paren
+r_const
+r_struct
+id|option
+op_star
+id|opt
+comma
+r_const
+r_char
+op_star
+id|arg
+comma
+r_int
+id|unset
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|unset
+)paren
+(brace
+id|recurse_submodules
+op_assign
+id|RECURSE_SUBMODULES_OFF
+suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|arg
+)paren
+id|recurse_submodules
+op_assign
+id|parse_fetch_recurse_submodules_arg
+c_func
+(paren
+id|opt-&gt;long_name
+comma
+id|arg
+)paren
+suffix:semicolon
+r_else
+id|recurse_submodules
+op_assign
+id|RECURSE_SUBMODULES_ON
+suffix:semicolon
+)brace
+r_return
+l_int|0
+suffix:semicolon
+)brace
 DECL|variable|builtin_fetch_options
 r_static
 r_struct
@@ -205,7 +253,7 @@ comma
 op_amp
 id|upload_pack
 comma
-l_string|&quot;PATH&quot;
+l_string|&quot;path&quot;
 comma
 l_string|&quot;path to upload pack on remote end&quot;
 )paren
@@ -275,20 +323,23 @@ comma
 l_string|&quot;prune remote-tracking branches no longer on remote&quot;
 )paren
 comma
-id|OPT_SET_INT
-c_func
-(paren
+(brace
+id|OPTION_CALLBACK
+comma
 l_int|0
 comma
 l_string|&quot;recurse-submodules&quot;
 comma
-op_amp
-id|recurse_submodules
+l_int|NULL
+comma
+l_string|&quot;on-demand&quot;
 comma
 l_string|&quot;control recursive fetching of submodules&quot;
 comma
-id|RECURSE_SUBMODULES_ON
-)paren
+id|PARSE_OPT_OPTARG
+comma
+id|option_parse_recurse_submodules
+)brace
 comma
 id|OPT_BOOLEAN
 c_func
@@ -352,7 +403,7 @@ comma
 op_amp
 id|depth
 comma
-l_string|&quot;DEPTH&quot;
+l_string|&quot;depth&quot;
 comma
 l_string|&quot;deepen history of shallow clone&quot;
 )paren
@@ -367,9 +418,26 @@ comma
 op_amp
 id|submodule_prefix
 comma
-l_string|&quot;DIR&quot;
+l_string|&quot;dir&quot;
 comma
 l_string|&quot;prepend this to submodule path output&quot;
+comma
+id|PARSE_OPT_HIDDEN
+)brace
+comma
+(brace
+id|OPTION_STRING
+comma
+l_int|0
+comma
+l_string|&quot;recurse-submodules-default&quot;
+comma
+op_amp
+id|recurse_submodules_default
+comma
+l_int|NULL
+comma
+l_string|&quot;default mode for recursion&quot;
 comma
 id|PARSE_OPT_HIDDEN
 )brace
@@ -977,7 +1045,11 @@ id|ref_map
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Couldn&squot;t find remote ref HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 id|ref_map-&gt;merge
@@ -1250,7 +1322,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;object %s not found&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -1288,7 +1364,11 @@ l_string|&quot;= %-*s %-*s -&gt; %s&quot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[up to date]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
@@ -1339,11 +1419,19 @@ c_func
 (paren
 id|display
 comma
+id|_
+c_func
+(paren
 l_string|&quot;! %-*s %-*s -&gt; %s  (can&squot;t fetch in current branch)&quot;
+)paren
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[rejected]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
@@ -1407,7 +1495,11 @@ l_char|&squot;-&squot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[tag update]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
@@ -1418,7 +1510,11 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;  (unable to update local ref)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -1491,7 +1587,11 @@ l_string|&quot;storing tag&quot;
 suffix:semicolon
 id|what
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;[new tag]&quot;
+)paren
 suffix:semicolon
 )brace
 r_else
@@ -1502,7 +1602,32 @@ l_string|&quot;storing head&quot;
 suffix:semicolon
 id|what
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;[new branch]&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|recurse_submodules
+op_ne
+id|RECURSE_SUBMODULES_OFF
+)paren
+op_logical_and
+(paren
+id|recurse_submodules
+op_ne
+id|RECURSE_SUBMODULES_ON
+)paren
+)paren
+id|check_for_new_submodule_commits
+c_func
+(paren
+id|ref-&gt;new_sha1
+)paren
 suffix:semicolon
 )brace
 id|r
@@ -1544,7 +1669,11 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;  (unable to update local ref)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -1613,6 +1742,27 @@ id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|recurse_submodules
+op_ne
+id|RECURSE_SUBMODULES_OFF
+)paren
+op_logical_and
+(paren
+id|recurse_submodules
+op_ne
+id|RECURSE_SUBMODULES_ON
+)paren
+)paren
+id|check_for_new_submodule_commits
+c_func
+(paren
+id|ref-&gt;new_sha1
+)paren
+suffix:semicolon
 id|r
 op_assign
 id|s_update_ref
@@ -1652,7 +1802,11 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;  (unable to update local ref)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -1715,6 +1869,27 @@ id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|recurse_submodules
+op_ne
+id|RECURSE_SUBMODULES_OFF
+)paren
+op_logical_and
+(paren
+id|recurse_submodules
+op_ne
+id|RECURSE_SUBMODULES_ON
+)paren
+)paren
+id|check_for_new_submodule_commits
+c_func
+(paren
+id|ref-&gt;new_sha1
+)paren
+suffix:semicolon
 id|r
 op_assign
 id|s_update_ref
@@ -1754,9 +1929,17 @@ comma
 id|r
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;unable to update local ref&quot;
+)paren
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;forced update&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -1770,17 +1953,27 @@ c_func
 (paren
 id|display
 comma
-l_string|&quot;! %-*s %-*s -&gt; %s  (non-fast-forward)&quot;
+l_string|&quot;! %-*s %-*s -&gt; %s  %s&quot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[rejected]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
 id|remote
 comma
 id|pretty_ref
+comma
+id|_
+c_func
+(paren
+l_string|&quot;(non-fast-forward)&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -1891,7 +2084,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot open %s: %s&bslash;n&quot;
+)paren
 comma
 id|filename
 comma
@@ -2403,7 +2600,11 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;From %.*s&bslash;n&quot;
+)paren
 comma
 id|url_len
 comma
@@ -2456,9 +2657,13 @@ id|STORE_REF_ERROR_DF_CONFLICT
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;some local refs could not be updated; try running&bslash;n&quot;
 l_string|&quot; &squot;git remote prune %s&squot; to remove any old, conflicting &quot;
 l_string|&quot;branches&quot;
+)paren
 comma
 id|remote_name
 )paren
@@ -2585,7 +2790,11 @@ id|err
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not run rev-list&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2659,7 +2868,11 @@ id|EINVAL
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed write to rev-list: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -2689,7 +2902,11 @@ id|revlist.in
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to close rev-list&squot;s stdin: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -2835,9 +3052,17 @@ op_assign
 id|dry_run
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;   (%s will become dangling)&bslash;n&quot;
+)paren
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;   (%s has become dangling)&bslash;n&quot;
+)paren
 suffix:semicolon
 r_for
 c_loop
@@ -2888,11 +3113,19 @@ l_string|&quot; x %-*s %-*s -&gt; %s&bslash;n&quot;
 comma
 id|TRANSPORT_SUMMARY_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;[deleted]&quot;
+)paren
 comma
 id|REFCOL_WIDTH
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(none)&quot;
+)paren
 comma
 id|prettify_refname
 c_func
@@ -3434,8 +3667,12 @@ id|ref_map-&gt;peer_ref-&gt;name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Refusing to fetch into current branch %s &quot;
 l_string|&quot;of non-bare repository&quot;
+)paren
 comma
 id|current_branch-&gt;refname
 )paren
@@ -3482,7 +3719,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot open %s: %s&bslash;n&quot;
+)paren
 comma
 id|filename
 comma
@@ -3607,7 +3848,11 @@ id|transport-&gt;fetch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Don&squot;t know how to fetch from %s&quot;
+)paren
 comma
 id|transport-&gt;url
 )paren
@@ -3897,7 +4142,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Option &bslash;&quot;%s&bslash;&quot; value &bslash;&quot;%s&bslash;&quot; is not valid for %s&quot;
+)paren
 comma
 id|name
 comma
@@ -3916,7 +4165,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Option &bslash;&quot;%s&bslash;&quot; is ignored for %s&bslash;n&quot;
+)paren
 comma
 id|name
 comma
@@ -4311,6 +4564,25 @@ op_increment
 op_assign
 l_string|&quot;--recurse-submodules&quot;
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|recurse_submodules
+op_eq
+id|RECURSE_SUBMODULES_ON_DEMAND
+)paren
+id|argv
+(braket
+(paren
+op_star
+id|argc
+)paren
+op_increment
+)braket
+op_assign
+l_string|&quot;--recurse-submodules=on-demand&quot;
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4494,7 +4766,11 @@ l_int|0
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Fetching %s&bslash;n&quot;
+)paren
 comma
 id|name
 )paren
@@ -4514,7 +4790,11 @@ id|RUN_GIT_CMD
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not fetch %s&quot;
+)paren
 comma
 id|name
 )paren
@@ -4579,8 +4859,12 @@ id|remote
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No remote repository specified.  Please, specify either a URL or a&bslash;n&quot;
 l_string|&quot;remote name from which new revisions should be fetched.&quot;
+)paren
 )paren
 suffix:semicolon
 id|transport
@@ -4720,7 +5004,11 @@ id|argc
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You need to specify a tag name.&quot;
+)paren
 )paren
 suffix:semicolon
 id|ref
@@ -4897,6 +5185,12 @@ id|result
 op_assign
 l_int|0
 suffix:semicolon
+id|packet_trace_identity
+c_func
+(paren
+l_string|&quot;fetch&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* Record the command line for the reflog */
 id|strbuf_addstr
 c_func
@@ -4969,7 +5263,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;fetch --all does not take a repository argument&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -4983,7 +5281,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;fetch --all does not make sense with refspecs&quot;
+)paren
 )paren
 suffix:semicolon
 (paren
@@ -5080,7 +5382,11 @@ id|list
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such remote or remote group: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -5135,7 +5441,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Fetching a group and specifying refspecs does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 id|result
@@ -5206,21 +5516,30 @@ id|num_options
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* Set recursion as default when we already are recursing */
 r_if
 c_cond
 (paren
-id|submodule_prefix
-(braket
-l_int|0
-)braket
+id|recurse_submodules_default
 )paren
+(brace
+r_int
+id|arg
+op_assign
+id|parse_fetch_recurse_submodules_arg
+c_func
+(paren
+l_string|&quot;--recurse-submodules-default&quot;
+comma
+id|recurse_submodules_default
+)paren
+suffix:semicolon
 id|set_config_fetch_recurse_submodules
 c_func
 (paren
-l_int|1
+id|arg
 )paren
 suffix:semicolon
+)brace
 id|gitmodules_config
 c_func
 (paren
@@ -5255,8 +5574,6 @@ comma
 id|submodule_prefix
 comma
 id|recurse_submodules
-op_eq
-id|RECURSE_SUBMODULES_ON
 comma
 id|verbosity
 OL

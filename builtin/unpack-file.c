@@ -1,6 +1,4 @@
-macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;blob.h&quot;
-macro_line|#include &quot;exec_cmd.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|function|create_temp_file
 r_static
 r_char

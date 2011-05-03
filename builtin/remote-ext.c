@@ -1,4 +1,4 @@
-macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 multiline_comment|/*&n; * URL syntax:&n; *&t;&squot;command [arg1 [arg2 [...]]]&squot;&t;Invoke command with given arguments.&n; *&t;Special characters:&n; *&t;&squot;% &squot;: Literal space in argument.&n; *&t;&squot;%%&squot;: Literal percent sign.&n; *&t;&squot;%S&squot;: Name of service (git-upload-pack/git-upload-archive/&n; *&t;&t;git-receive-pack.&n; *&t;&squot;%s&squot;: Same as &bslash;s, but with possible git- prefix stripped.&n; *&t;&squot;%G&squot;: Only allowed as first &squot;character&squot; of argument. Do not pass this&n; *&t;&t;Argument to command, instead send this as name of repository&n; *&t;&t;in in-line git://-style request (also activates sending this&n; *&t;&t;style of request).&n; *&t;&squot;%V&squot;: Only allowed as first &squot;character&squot; of argument. Used in&n; *&t;&t;conjunction with &squot;%G&squot;: Do not pass this argument to command,&n; *&t;&t;instead send this as vhost in git://-style request (note: does&n; *&t;&t;not activate sending git:// style request).&n; */
@@ -54,16 +54,6 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
-id|pslen
-op_assign
-l_int|0
-suffix:semicolon
-r_int
-id|pSlen
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|psoff
 op_assign
 l_int|0
@@ -92,19 +82,6 @@ l_int|4
 id|psoff
 op_assign
 l_int|4
-suffix:semicolon
-id|pSlen
-op_assign
-id|strlen
-c_func
-(paren
-id|service
-)paren
-suffix:semicolon
-id|pslen
-op_assign
-id|pSlen
-id|psoff
 suffix:semicolon
 multiline_comment|/* Pass the service to command. */
 id|setenv

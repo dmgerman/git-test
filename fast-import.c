@@ -3929,6 +3929,10 @@ id|p-&gt;pack_fd
 op_assign
 id|pack_fd
 suffix:semicolon
+id|p-&gt;do_not_close
+op_assign
+l_int|1
+suffix:semicolon
 id|pack_file
 op_assign
 id|sha1fd
@@ -15873,7 +15877,7 @@ id|tree_entry
 id|leaf
 op_assign
 (brace
-l_int|0
+l_int|NULL
 )brace
 suffix:semicolon
 multiline_comment|/* ls SP (&lt;treeish&gt; SP)? &lt;path&gt; */

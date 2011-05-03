@@ -374,7 +374,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|rev-&gt;diffopt.nr_paths
+id|rev-&gt;diffopt.pathspec.nr
 op_ne
 l_int|1
 )paren
@@ -479,7 +479,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid --decorate option: %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -552,7 +556,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized argument: %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -713,7 +721,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Final output: %d %s&bslash;n&quot;
+)paren
 comma
 id|nr
 comma
@@ -1059,7 +1071,11 @@ id|rev
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1090,6 +1106,10 @@ op_ne
 l_int|NULL
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
 id|log_tree_commit
 c_func
 (paren
@@ -1097,6 +1117,14 @@ id|rev
 comma
 id|commit
 )paren
+op_logical_and
+id|rev-&gt;max_count
+op_ge
+l_int|0
+)paren
+multiline_comment|/*&n;&t;&t;&t; * We decremented max_count in get_revision,&n;&t;&t;&t; * but we didn&squot;t actually show the commit.&n;&t;&t;&t; */
+id|rev-&gt;max_count
+op_increment
 suffix:semicolon
 r_if
 c_cond
@@ -1592,7 +1620,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read object %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2120,7 +2152,11 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read object %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2255,7 +2291,11 @@ op_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unknown type: %d&quot;
+)paren
 comma
 id|o-&gt;type
 )paren
@@ -2750,7 +2790,11 @@ id|value
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;format.headers without value&quot;
+)paren
 )paren
 suffix:semicolon
 id|add_header
@@ -3211,7 +3255,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;name of output directory is too long&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3292,7 +3340,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot open patch file %s&quot;
+)paren
 comma
 id|filename.buf
 )paren
@@ -3362,7 +3414,11 @@ l_int|2
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Need exactly one range.&quot;
+)paren
 )paren
 suffix:semicolon
 id|o1
@@ -3409,7 +3465,11 @@ id|UNINTERESTING
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a range.&quot;
+)paren
 )paren
 suffix:semicolon
 id|init_patch_ids
@@ -3471,7 +3531,11 @@ id|check_rev
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_while
@@ -3634,7 +3698,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not extract email from committer identity.&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -3826,7 +3894,11 @@ id|CMIT_FMT_EMAIL
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cover letter needs email format&quot;
+)paren
 )paren
 suffix:semicolon
 id|committer
@@ -4292,7 +4364,11 @@ id|z
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;insane in-reply-to: %s&quot;
+)paren
 comma
 id|msg_id
 )paren
@@ -4661,7 +4737,11 @@ id|dir
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Two output directories?&quot;
+)paren
 )paren
 suffix:semicolon
 op_star
@@ -5614,7 +5694,7 @@ id|rev.diff
 op_assign
 l_int|1
 suffix:semicolon
-id|rev.no_merges
+id|rev.max_parents
 op_assign
 l_int|1
 suffix:semicolon
@@ -5730,7 +5810,11 @@ id|endpos
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bogus committer info %s&quot;
+)paren
 comma
 id|committer
 )paren
@@ -6004,7 +6088,11 @@ id|keep_subject
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;-n and -k are mutually exclusive.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6016,7 +6104,11 @@ id|subject_prefix
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--subject-prefix and -k are mutually exclusive.&quot;
+)paren
 )paren
 suffix:semicolon
 id|argc
@@ -6044,7 +6136,11 @@ l_int|1
 )paren
 id|die
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized argument: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -6062,7 +6158,11 @@ id|DIFF_FORMAT_NAME
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--name-only does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6075,7 +6175,11 @@ id|DIFF_FORMAT_NAME_STATUS
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--name-status does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6088,7 +6192,11 @@ id|DIFF_FORMAT_CHECKDIFF
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--check does not make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6190,7 +6298,11 @@ id|use_stdout
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;standard output, or directory, which one?&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6213,7 +6325,11 @@ id|EEXIST
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not create directory &squot;%s&squot;&quot;
+)paren
 comma
 id|output_directory
 )paren
@@ -6426,7 +6542,11 @@ id|rev
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|rev.boundary
@@ -6781,7 +6901,11 @@ id|rev
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to create output files&quot;
+)paren
 )paren
 suffix:semicolon
 id|shown
@@ -7004,6 +7128,108 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+DECL|function|print_commit
+r_static
+r_void
+id|print_commit
+c_func
+(paren
+r_char
+id|sign
+comma
+r_struct
+id|commit
+op_star
+id|commit
+comma
+r_int
+id|verbose
+comma
+r_int
+id|abbrev
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|verbose
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;%c %s&bslash;n&quot;
+comma
+id|sign
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|commit-&gt;object.sha1
+comma
+id|abbrev
+)paren
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|pretty_print_context
+id|ctx
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
+id|pretty_print_commit
+c_func
+(paren
+id|CMIT_FMT_ONELINE
+comma
+id|commit
+comma
+op_amp
+id|buf
+comma
+op_amp
+id|ctx
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;%c %s %s&bslash;n&quot;
+comma
+id|sign
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|commit-&gt;object.sha1
+comma
+id|abbrev
+)paren
+comma
+id|buf.buf
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
+)brace
+)brace
 DECL|function|cmd_cherry
 r_int
 id|cmd_cherry
@@ -7203,9 +7429,13 @@ c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Could not find a tracked&quot;
 l_string|&quot; remote branch, please&quot;
 l_string|&quot; specify &lt;upstream&gt; manually.&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -7274,7 +7504,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unknown commit %s&quot;
+)paren
 comma
 id|head
 )paren
@@ -7296,7 +7530,11 @@ id|UNINTERESTING
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unknown commit %s&quot;
+)paren
 comma
 id|upstream
 )paren
@@ -7375,7 +7613,11 @@ id|UNINTERESTING
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unknown commit %s&quot;
+)paren
 comma
 id|limit
 )paren
@@ -7394,7 +7636,11 @@ id|revs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_while
@@ -7465,85 +7711,18 @@ id|sign
 op_assign
 l_char|&squot;-&squot;
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|verbose
-)paren
-(brace
-r_struct
-id|strbuf
-id|buf
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
-r_struct
-id|pretty_print_context
-id|ctx
-op_assign
-(brace
-l_int|0
-)brace
-suffix:semicolon
-id|pretty_print_commit
+id|print_commit
 c_func
 (paren
-id|CMIT_FMT_ONELINE
+id|sign
 comma
 id|commit
 comma
-op_amp
-id|buf
-comma
-op_amp
-id|ctx
-)paren
-suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;%c %s %s&bslash;n&quot;
-comma
-id|sign
-comma
-id|find_unique_abbrev
-c_func
-(paren
-id|commit-&gt;object.sha1
+id|verbose
 comma
 id|abbrev
 )paren
-comma
-id|buf.buf
-)paren
 suffix:semicolon
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|buf
-)paren
-suffix:semicolon
-)brace
-r_else
-(brace
-id|printf
-c_func
-(paren
-l_string|&quot;%c %s&bslash;n&quot;
-comma
-id|sign
-comma
-id|find_unique_abbrev
-c_func
-(paren
-id|commit-&gt;object.sha1
-comma
-id|abbrev
-)paren
-)paren
-suffix:semicolon
-)brace
 id|list
 op_assign
 id|list-&gt;next

@@ -3307,6 +3307,7 @@ suffix:semicolon
 )brace
 DECL|function|usage_with_options
 r_void
+id|NORETURN
 id|usage_with_options
 c_func
 (paren
@@ -3346,6 +3347,7 @@ suffix:semicolon
 )brace
 DECL|function|usage_msg_opt
 r_void
+id|NORETURN
 id|usage_msg_opt
 c_func
 (paren

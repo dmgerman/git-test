@@ -264,7 +264,7 @@ c_cond
 id|read_cache_preload
 c_func
 (paren
-id|rev.diffopt.paths
+id|rev.diffopt.pathspec.raw
 )paren
 OL
 l_int|0

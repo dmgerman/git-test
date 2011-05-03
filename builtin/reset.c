@@ -1,5 +1,5 @@
 multiline_comment|/*&n; * &quot;git reset&quot; builtin command&n; *&n; * Copyright (c) 2007 Carlos Rica&n; *&n; * Based on git-reset.sh, which is&n; *&n; * Copyright (c) 2005, 2006 Linus Torvalds and Junio C Hamano&n; */
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;commit.h&quot;
@@ -65,15 +65,35 @@ id|reset_type_names
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;mixed&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;soft&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;hard&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;merge&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;keep&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -402,7 +422,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You do not have a valid HEAD.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -421,7 +445,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to find tree of HEAD.&quot;
+)paren
 )paren
 suffix:semicolon
 id|nr
@@ -451,7 +479,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to find tree of %s.&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -500,7 +532,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not write new index file.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -540,7 +576,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;HEAD is now at %s&quot;
+)paren
 comma
 id|hex
 )paren
@@ -686,7 +726,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read index&quot;
+)paren
 )paren
 suffix:semicolon
 id|result
@@ -705,7 +749,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Unstaged changes after reset:&quot;
+)paren
 )paren
 ques
 c_cond
@@ -851,7 +899,11 @@ id|ce
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;make_cache_entry failed for path &squot;%s&squot;&quot;
+)paren
 comma
 id|one-&gt;path
 )paren
@@ -1189,7 +1241,11 @@ id|size
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Reflog action message too long: %.*s...&quot;
+)paren
 comma
 l_int|50
 comma
@@ -1230,12 +1286,20 @@ c_func
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot do a %s reset in the middle of a merge.&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 id|reset_type_names
 (braket
 id|reset_type
 )braket
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1620,7 +1684,11 @@ id|sha1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+)paren
 comma
 id|rev
 )paren
@@ -1642,7 +1710,11 @@ id|commit
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not parse object &squot;%s&squot;.&quot;
+)paren
 comma
 id|rev
 )paren
@@ -1671,7 +1743,11 @@ id|NONE
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--patch is incompatible with --{hard,mixed,soft}&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -1707,7 +1783,11 @@ id|MIXED
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--mixed with paths is deprecated; use &squot;git reset -- &lt;paths&gt;&squot; instead.&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -1721,12 +1801,20 @@ id|NONE
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot do %s reset with paths.&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 id|reset_type_names
 (braket
 id|reset_type
 )braket
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -1793,12 +1881,20 @@ c_func
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s reset is not allowed in a bare repository&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 id|reset_type_names
 (braket
 id|reset_type
 )braket
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Soft reset does not touch the index file nor the working tree&n;&t; * at all, but requires them in a good order.  Other resets reset&n;&t; * the index file to the tree object we are switching to. */
@@ -1874,7 +1970,11 @@ id|err
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not reset index file to revision &squot;%s&squot;.&quot;
+)paren
 comma
 id|rev
 )paren
