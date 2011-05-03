@@ -512,6 +512,7 @@ op_star
 id|xml_entities
 c_func
 (paren
+r_const
 r_char
 op_star
 id|s
@@ -3616,6 +3617,7 @@ r_void
 id|one_remote_ref
 c_func
 (paren
+r_const
 r_char
 op_star
 id|refname
@@ -7379,6 +7381,7 @@ r_void
 id|one_remote_ref
 c_func
 (paren
+r_const
 r_char
 op_star
 id|refname
@@ -8409,6 +8412,7 @@ r_int
 id|delete_remote_branch
 c_func
 (paren
+r_const
 r_char
 op_star
 id|pattern
