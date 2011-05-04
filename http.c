@@ -2542,6 +2542,16 @@ c_func
 (paren
 id|slot-&gt;curl
 comma
+id|CURLOPT_POSTFIELDS
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|slot-&gt;curl
+comma
 id|CURLOPT_UPLOAD
 comma
 l_int|0
