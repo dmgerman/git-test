@@ -153,6 +153,17 @@ l_int|1024
 op_star
 l_int|1024
 suffix:semicolon
+DECL|variable|big_file_threshold
+r_int
+r_int
+id|big_file_threshold
+op_assign
+l_int|512
+op_star
+l_int|1024
+op_star
+l_int|1024
+suffix:semicolon
 DECL|variable|pager_program
 r_const
 r_char
