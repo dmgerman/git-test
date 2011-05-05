@@ -777,6 +777,15 @@ suffix:semicolon
 r_int
 id|count
 suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * Always open file descriptors 0/1/2 to avoid clobbering files&n;&t; * in die().  It also avoids not messing up when the pipes are&n;&t; * dup&squot;ed onto stdin/stdout/stderr in the child processes we spawn.&n;&t; */
 id|devnull_fd
 op_assign
