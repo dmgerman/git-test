@@ -1999,6 +1999,10 @@ r_struct
 id|setup_revision_opt
 id|opt
 suffix:semicolon
+r_struct
+id|pathspec
+id|match_all
+suffix:semicolon
 r_int
 id|i
 comma
@@ -2026,6 +2030,15 @@ l_int|1
 id|diff_use_color_default
 op_assign
 id|git_use_color_default
+suffix:semicolon
+id|init_pathspec
+c_func
+(paren
+op_amp
+id|match_all
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 id|init_revisions
 c_func
@@ -2339,7 +2352,8 @@ l_int|0
 comma
 l_int|0
 comma
-l_int|NULL
+op_amp
+id|match_all
 comma
 id|show_tree_object
 comma
