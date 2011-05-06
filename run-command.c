@@ -372,12 +372,8 @@ c_func
 r_void
 )paren
 (brace
-id|ssize_t
-id|unused
-suffix:semicolon
-id|unused
-op_assign
-id|write
+multiline_comment|/*&n;&t; * execvp failed.  If possible, we&squot;d like to let start_command&n;&t; * know, so failures like ENOENT can be handled right away; but&n;&t; * otherwise, finish_command will still report the error.&n;&t; */
+id|xwrite
 c_func
 (paren
 id|child_notifier
@@ -409,9 +405,6 @@ id|msg
 (braket
 l_int|4096
 )braket
-suffix:semicolon
-id|ssize_t
-id|unused
 suffix:semicolon
 r_int
 id|len
@@ -448,9 +441,7 @@ r_sizeof
 id|msg
 )paren
 suffix:semicolon
-id|unused
-op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|child_err
@@ -460,9 +451,7 @@ comma
 l_int|7
 )paren
 suffix:semicolon
-id|unused
-op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|child_err
@@ -472,9 +461,7 @@ comma
 id|len
 )paren
 suffix:semicolon
-id|unused
-op_assign
-id|write
+id|write_in_full
 c_func
 (paren
 id|child_err
