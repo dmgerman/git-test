@@ -6092,10 +6092,20 @@ id|person
 OL
 id|tmp
 op_logical_and
+op_logical_neg
+(paren
 op_star
 id|tmp
-op_ne
+op_eq
 l_char|&squot; &squot;
+op_logical_and
+id|tmp
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;&lt;&squot;
+)paren
 )paren
 id|tmp
 op_decrement
