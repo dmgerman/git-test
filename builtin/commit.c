@@ -5832,26 +5832,6 @@ l_string|&quot;Paths with -a does not make sense.&quot;
 )paren
 )paren
 suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-id|interactive
-op_logical_and
-id|argc
-OG
-l_int|0
-)paren
-id|die
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Paths with --interactive does not make sense.&quot;
-)paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
