@@ -1282,6 +1282,9 @@ r_const
 r_char
 op_star
 id|prefix
+comma
+r_int
+id|patch
 )paren
 (brace
 r_const
@@ -1326,7 +1329,7 @@ c_func
 (paren
 l_int|NULL
 comma
-id|patch_interactive
+id|patch
 ques
 c_cond
 l_string|&quot;--patch&quot;
@@ -2190,6 +2193,8 @@ op_plus
 l_int|1
 comma
 id|prefix
+comma
+id|patch_interactive
 )paren
 )paren
 suffix:semicolon

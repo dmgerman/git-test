@@ -221,6 +221,7 @@ DECL|variable|all
 DECL|variable|edit_flag
 DECL|variable|also
 DECL|variable|interactive
+DECL|variable|patch_interactive
 DECL|variable|only
 DECL|variable|amend
 DECL|variable|signoff
@@ -233,6 +234,8 @@ comma
 id|also
 comma
 id|interactive
+comma
+id|patch_interactive
 comma
 id|only
 comma
@@ -711,6 +714,19 @@ op_amp
 id|interactive
 comma
 l_string|&quot;interactively add files&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;p&squot;
+comma
+l_string|&quot;patch&quot;
+comma
+op_amp
+id|patch_interactive
+comma
+l_string|&quot;interactively add changes&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1770,6 +1786,8 @@ comma
 id|argv
 comma
 id|prefix
+comma
+id|patch_interactive
 )paren
 op_ne
 l_int|0
@@ -5623,6 +5641,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|patch_interactive
+)paren
+id|interactive
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 op_logical_neg
 id|also
@@ -5647,7 +5674,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Only one of --include/--only/--all/--interactive can be used.&quot;
+l_string|&quot;Only one of --include/--only/--all/--interactive/--patch can be used.&quot;
 )paren
 )paren
 suffix:semicolon
