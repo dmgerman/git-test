@@ -3863,7 +3863,7 @@ comma
 op_amp
 id|st
 comma
-l_int|1
+id|HASH_WRITE_OBJECT
 )paren
 )paren
 id|die

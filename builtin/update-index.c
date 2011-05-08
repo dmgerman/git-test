@@ -436,8 +436,12 @@ id|path
 comma
 id|st
 comma
-op_logical_neg
 id|info_only
+ques
+c_cond
+l_int|0
+suffix:colon
+id|HASH_WRITE_OBJECT
 )paren
 )paren
 r_return

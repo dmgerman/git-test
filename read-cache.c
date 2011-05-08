@@ -411,8 +411,6 @@ id|fd
 comma
 id|st
 comma
-l_int|0
-comma
 id|OBJ_BLOB
 comma
 id|ce-&gt;name
@@ -3058,7 +3056,7 @@ id|path
 comma
 id|st
 comma
-l_int|1
+id|HASH_WRITE_OBJECT
 )paren
 )paren
 r_return
