@@ -378,7 +378,7 @@ r_else
 r_if
 c_cond
 (paren
-id|eol
+id|core_eol
 op_eq
 id|EOL_UNSET
 )paren
@@ -387,7 +387,7 @@ id|EOL_NATIVE
 suffix:semicolon
 )brace
 r_return
-id|eol
+id|core_eol
 suffix:semicolon
 )brace
 DECL|function|check_safe_crlf
