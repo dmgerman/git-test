@@ -7200,6 +7200,8 @@ DECL|macro|OUTPUT_NO_AUTHOR
 mdefine_line|#define OUTPUT_NO_AUTHOR       0200
 DECL|macro|OUTPUT_SHOW_EMAIL
 mdefine_line|#define OUTPUT_SHOW_EMAIL&t;0400
+DECL|macro|OUTPUT_LINE_PORCELAIN
+mdefine_line|#define OUTPUT_LINE_PORCELAIN 01000
 DECL|function|emit_porcelain_details
 r_static
 r_void
@@ -7259,6 +7261,13 @@ r_int
 id|opt
 )paren
 (brace
+r_int
+id|repeat
+op_assign
+id|opt
+op_amp
+id|OUTPUT_LINE_PORCELAIN
+suffix:semicolon
 r_int
 id|cnt
 suffix:semicolon
@@ -7323,7 +7332,7 @@ c_func
 (paren
 id|suspect
 comma
-l_int|0
+id|repeat
 )paren
 suffix:semicolon
 id|cp
@@ -7359,6 +7368,7 @@ c_cond
 (paren
 id|cnt
 )paren
+(brace
 id|printf
 c_func
 (paren
@@ -7379,6 +7389,20 @@ op_plus
 id|cnt
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|repeat
+)paren
+id|emit_porcelain_details
+c_func
+(paren
+id|suspect
+comma
+l_int|1
+)paren
+suffix:semicolon
+)brace
 id|putchar
 c_func
 (paren
@@ -10831,6 +10855,23 @@ comma
 l_string|&quot;Show in a format designed for machine consumption&quot;
 comma
 id|OUTPUT_PORCELAIN
+)paren
+comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;line-porcelain&quot;
+comma
+op_amp
+id|output_option
+comma
+l_string|&quot;Show porcelain format with per-line commit information&quot;
+comma
+id|OUTPUT_PORCELAIN
+op_or
+id|OUTPUT_LINE_PORCELAIN
 )paren
 comma
 id|OPT_BIT
