@@ -4221,6 +4221,19 @@ comma
 l_string|&quot;interpret patterns as fixed strings&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;P&squot;
+comma
+l_string|&quot;perl-regexp&quot;
+comma
+op_amp
+id|opt.pcre
+comma
+l_string|&quot;use Perl-compatible regular expressions&quot;
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
