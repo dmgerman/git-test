@@ -5030,6 +5030,25 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|opt.regflags
+op_ne
+id|REG_NEWLINE
+op_logical_and
+id|opt.pcre
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;cannot mix --extended-regexp and --perl-regexp&quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|opt.fixed
 op_logical_and
@@ -5046,6 +5065,8 @@ c_cond
 id|opt.regflags
 op_ne
 id|REG_NEWLINE
+op_logical_or
+id|opt.pcre
 )paren
 op_logical_and
 id|opt.fixed
