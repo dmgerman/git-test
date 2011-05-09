@@ -4820,7 +4820,7 @@ suffix:semicolon
 r_int
 id|hit
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * look_ahead() skips quicly to the line that possibly&n;&t;&t; * has the next hit; don&squot;t call it if we need to do&n;&t;&t; * something more than just skipping the current line&n;&t;&t; * in response to an unmatch for the current line.  E.g.&n;&t;&t; * inside a post-context window, we will show the current&n;&t;&t; * line as a context around the previous hit when it&n;&t;&t; * doesn&squot;t hit.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * look_ahead() skips quickly to the line that possibly&n;&t;&t; * has the next hit; don&squot;t call it if we need to do&n;&t;&t; * something more than just skipping the current line&n;&t;&t; * in response to an unmatch for the current line.  E.g.&n;&t;&t; * inside a post-context window, we will show the current&n;&t;&t; * line as a context around the previous hit when it&n;&t;&t; * doesn&squot;t hit.&n;&t;&t; */
 r_if
 c_cond
 (paren
