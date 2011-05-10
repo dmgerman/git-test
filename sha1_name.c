@@ -5945,7 +5945,7 @@ op_star
 id|mode
 comma
 r_int
-id|gently
+id|only_to_die
 comma
 r_const
 r_char
@@ -5972,7 +5972,7 @@ comma
 op_amp
 id|oc
 comma
-id|gently
+id|only_to_die
 comma
 id|prefix
 )paren
@@ -6091,7 +6091,7 @@ op_star
 id|oc
 comma
 r_int
-id|gently
+id|only_to_die
 comma
 r_const
 r_char
@@ -6191,6 +6191,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|only_to_die
+op_logical_and
 id|namelen
 OG
 l_int|2
@@ -6460,8 +6463,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|gently
+id|only_to_die
 op_logical_and
 id|name
 (braket
@@ -6578,8 +6580,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|gently
+id|only_to_die
 )paren
 (brace
 id|object_name
@@ -6683,8 +6684,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|gently
+id|only_to_die
 )paren
 (brace
 id|diagnose_invalid_sha1_path
@@ -6754,8 +6754,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|gently
+id|only_to_die
 )paren
 id|die
 c_func

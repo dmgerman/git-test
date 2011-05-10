@@ -556,7 +556,7 @@ comma
 op_amp
 id|mode
 comma
-l_int|0
+l_int|1
 comma
 id|prefix
 )paren
