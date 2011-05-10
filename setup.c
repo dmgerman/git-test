@@ -545,6 +545,30 @@ suffix:semicolon
 r_int
 id|mode
 suffix:semicolon
+multiline_comment|/*&n;&t; * Saying &quot;&squot;(icase)foo&squot; does not exist in the index&quot; when the&n;&t; * user gave us &quot;:(icase)foo&quot; is just stupid.  A magic pathspec&n;&t; * begins with a colon and is followed by a non-alnum; do not&n;&t; * let get_sha1_with_mode_1(only_to_die=1) to even trigger.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|arg
+(braket
+l_int|0
+)braket
+op_eq
+l_char|&squot;:&squot;
+op_logical_and
+op_logical_neg
+id|isalnum
+c_func
+(paren
+id|arg
+(braket
+l_int|1
+)braket
+)paren
+)paren
+)paren
 multiline_comment|/* try a detailed diagnostic ... */
 id|get_sha1_with_mode_1
 c_func
