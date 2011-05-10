@@ -972,22 +972,6 @@ op_increment
 suffix:semicolon
 )brace
 r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|elt
-(braket
-l_int|1
-)braket
-)paren
-(brace
-multiline_comment|/* Just &squot;:&squot; -- no element! */
-r_return
-l_int|NULL
-suffix:semicolon
-)brace
-r_else
 (brace
 multiline_comment|/* shorthand */
 r_for
