@@ -1772,8 +1772,7 @@ r_int
 id|rpc_in
 c_func
 (paren
-r_const
-r_void
+r_char
 op_star
 id|ptr
 comma

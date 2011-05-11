@@ -781,7 +781,6 @@ id|base
 op_assign
 id|alt_req-&gt;base
 suffix:semicolon
-r_static
 r_const
 r_char
 id|null_byte
@@ -929,6 +928,10 @@ suffix:semicolon
 id|fwrite_buffer
 c_func
 (paren
+(paren
+r_char
+op_star
+)paren
 op_amp
 id|null_byte
 comma

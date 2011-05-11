@@ -201,7 +201,7 @@ r_int
 id|fread_buffer
 c_func
 (paren
-r_void
+r_char
 op_star
 id|ptr
 comma
@@ -323,8 +323,7 @@ r_int
 id|fwrite_buffer
 c_func
 (paren
-r_const
-r_void
+r_char
 op_star
 id|ptr
 comma
@@ -375,8 +374,7 @@ r_int
 id|fwrite_null
 c_func
 (paren
-r_const
-r_void
+r_char
 op_star
 id|ptr
 comma
@@ -5583,7 +5581,7 @@ r_int
 id|fwrite_sha1_file
 c_func
 (paren
-r_void
+r_char
 op_star
 id|ptr
 comma
@@ -5680,6 +5678,10 @@ id|size
 suffix:semicolon
 id|freq-&gt;stream.next_in
 op_assign
+(paren
+r_void
+op_star
+)paren
 id|ptr
 suffix:semicolon
 r_do
@@ -5780,7 +5782,6 @@ suffix:semicolon
 r_int
 id|prevlocal
 suffix:semicolon
-r_int
 r_char
 id|prev_buf
 (braket
