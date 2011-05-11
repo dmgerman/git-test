@@ -104,6 +104,11 @@ r_static
 r_int
 id|apply_verbosely
 suffix:semicolon
+DECL|variable|allow_overlap
+r_static
+r_int
+id|allow_overlap
+suffix:semicolon
 DECL|variable|no_add
 r_static
 r_int
@@ -11370,6 +11375,12 @@ id|img-&gt;line
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|allow_overlap
+)paren
 r_for
 c_loop
 (paren
@@ -18600,6 +18611,19 @@ op_amp
 id|apply_with_reject
 comma
 l_string|&quot;leave the rejected hunks in corresponding *.rej files&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;allow-overlap&quot;
+comma
+op_amp
+id|allow_overlap
+comma
+l_string|&quot;allow overlapping hunks&quot;
 )paren
 comma
 id|OPT__VERBOSE
