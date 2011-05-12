@@ -7428,9 +7428,7 @@ id|type
 suffix:semicolon
 )brace
 DECL|function|packed_object_info_detail
-r_const
-r_char
-op_star
+r_int
 id|packed_object_info_detail
 c_func
 (paren
@@ -7582,10 +7580,7 @@ id|w_curs
 )paren
 suffix:semicolon
 r_return
-r_typename
-(paren
 id|type
-)paren
 suffix:semicolon
 r_case
 id|OBJ_OFS_DELTA

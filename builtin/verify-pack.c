@@ -154,6 +154,8 @@ id|i
 suffix:semicolon
 id|type
 op_assign
+r_typename
+(paren
 id|packed_object_info_detail
 c_func
 (paren
@@ -171,6 +173,7 @@ op_amp
 id|delta_chain_length
 comma
 id|base_sha1
+)paren
 )paren
 suffix:semicolon
 r_if
