@@ -7336,7 +7336,6 @@ id|type
 suffix:semicolon
 )brace
 DECL|function|unpack_object_header
-r_static
 r_int
 id|unpack_object_header
 c_func
