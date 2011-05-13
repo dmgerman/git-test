@@ -1079,6 +1079,17 @@ id|fd
 op_assign
 id|data
 suffix:semicolon
+macro_line|#ifdef NO_PTHREADS
+id|close
+c_func
+(paren
+id|fd
+(braket
+l_int|1
+)braket
+)paren
+suffix:semicolon
+macro_line|#endif
 r_int
 id|ret
 op_assign
@@ -1610,6 +1621,17 @@ id|ref-&gt;next
 id|ref-&gt;status
 op_assign
 id|REF_STATUS_NONE
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|args-&gt;stateless_rpc
+)paren
+id|close
+c_func
+(paren
+id|out
+)paren
 suffix:semicolon
 r_if
 c_cond
