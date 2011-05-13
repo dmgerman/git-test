@@ -3105,6 +3105,15 @@ id|ident_shown
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|clean_message_contents
+op_assign
+(paren
+id|cleanup_mode
+op_ne
+id|CLEANUP_NONE
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3634,6 +3643,10 @@ id|hook_arg1
 op_assign
 l_string|&quot;template&quot;
 suffix:semicolon
+id|clean_message_contents
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * The remaining cases don&squot;t modify the template message, but&n;&t; * just set the argument(s) to the prepare-commit-msg hook.&n;&t; */
 r_else
@@ -3722,9 +3735,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|cleanup_mode
-op_ne
-id|CLEANUP_NONE
+id|clean_message_contents
 )paren
 id|stripspace
 c_func
