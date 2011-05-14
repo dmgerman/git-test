@@ -1892,7 +1892,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcasecmp
+id|strcmp
 c_func
 (paren
 id|var
@@ -1901,7 +1901,7 @@ l_string|&quot;add.ignoreerrors&quot;
 )paren
 op_logical_or
 op_logical_neg
-id|strcasecmp
+id|strcmp
 c_func
 (paren
 id|var
