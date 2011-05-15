@@ -425,16 +425,26 @@ id|replace_object_prepared
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|replace_object_nr
+)paren
+id|read_replace_refs
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 multiline_comment|/* We allow &quot;recursive&quot; replacement. Only within reason, though */
 DECL|macro|MAXREPLACEDEPTH
 mdefine_line|#define MAXREPLACEDEPTH 5
-DECL|function|lookup_replace_object
+DECL|function|do_lookup_replace_object
 r_const
 r_int
 r_char
 op_star
-id|lookup_replace_object
+id|do_lookup_replace_object
 c_func
 (paren
 r_const
