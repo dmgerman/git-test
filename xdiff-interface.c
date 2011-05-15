@@ -2073,7 +2073,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcasecmp
+id|strcmp
 c_func
 (paren
 id|var
