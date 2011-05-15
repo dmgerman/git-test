@@ -207,10 +207,11 @@ id|read_replace_refs
 op_assign
 l_int|1
 suffix:semicolon
-DECL|variable|eol
+multiline_comment|/* NEEDSWORK: rename to use_replace_refs */
+DECL|variable|core_eol
 r_enum
 id|eol
-id|eol
+id|core_eol
 op_assign
 id|EOL_UNSET
 suffix:semicolon
