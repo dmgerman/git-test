@@ -3279,6 +3279,9 @@ r_struct
 id|rev_info
 op_star
 id|rev
+comma
+r_int
+id|quiet
 )paren
 (brace
 r_struct
@@ -3371,14 +3374,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|DIFF_OPT_TST
-c_func
-(paren
-op_amp
-id|rev-&gt;diffopt
-comma
-id|QUICK
-)paren
+id|quiet
 )paren
 id|fprintf
 c_func
@@ -3886,6 +3882,9 @@ r_struct
 id|commit
 op_star
 id|head
+comma
+r_int
+id|quiet
 )paren
 (brace
 r_const
@@ -4047,6 +4046,8 @@ c_func
 id|commit
 comma
 id|rev
+comma
+id|quiet
 )paren
 )paren
 r_return
@@ -5339,6 +5340,11 @@ id|use_patch_format
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|quiet
+op_assign
+l_int|0
+suffix:semicolon
 r_const
 r_struct
 id|option
@@ -5716,6 +5722,19 @@ comma
 l_string|&quot;signature&quot;
 comma
 l_string|&quot;add a signature&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;quiet&quot;
+comma
+op_amp
+id|quiet
+comma
+l_string|&quot;don&squot;t print the patch filenames&quot;
 )paren
 comma
 id|OPT_END
@@ -6842,6 +6861,8 @@ comma
 id|list
 comma
 id|head
+comma
+id|quiet
 )paren
 suffix:semicolon
 id|total
@@ -6967,6 +6988,8 @@ id|commit
 comma
 op_amp
 id|rev
+comma
+id|quiet
 )paren
 )paren
 id|die
