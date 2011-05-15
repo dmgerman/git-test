@@ -6367,7 +6367,7 @@ op_le
 id|size
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * The above condition must be (bytes &lt;= size), not&n;&t;&t; * (bytes &lt; size).  In other words, even though we&n;&t;&t; * expect no more output and set avail_out to zer0,&n;&t;&t; * the input zlib stream may have bytes that express&n;&t;&t; * &quot;this concludes the stream&quot;, and we *do* want to&n;&t;&t; * eat that input.&n;&t;&t; *&n;&t;&t; * Otherwise we would not be able to test that we&n;&t;&t; * consumed all the input to reach the expected size;&n;&t;&t; * we also want to check that zlib tells us that all&n;&t;&t; * went well with status == Z_STREAM_END at the end.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * The above condition must be (bytes &lt;= size), not&n;&t;&t; * (bytes &lt; size).  In other words, even though we&n;&t;&t; * expect no more output and set avail_out to zero,&n;&t;&t; * the input zlib stream may have bytes that express&n;&t;&t; * &quot;this concludes the stream&quot;, and we *do* want to&n;&t;&t; * eat that input.&n;&t;&t; *&n;&t;&t; * Otherwise we would not be able to test that we&n;&t;&t; * consumed all the input to reach the expected size;&n;&t;&t; * we also want to check that zlib tells us that all&n;&t;&t; * went well with status == Z_STREAM_END at the end.&n;&t;&t; */
 id|stream-&gt;next_out
 op_assign
 id|buf
