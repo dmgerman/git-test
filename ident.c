@@ -151,6 +151,10 @@ op_add_assign
 id|nlen
 l_int|1
 suffix:semicolon
+id|len
+op_add_assign
+id|nlen
+suffix:semicolon
 )brace
 )brace
 r_if
