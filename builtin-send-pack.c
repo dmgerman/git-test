@@ -1067,6 +1067,8 @@ op_star
 id|fd
 op_assign
 id|data
+comma
+id|ret
 suffix:semicolon
 macro_line|#ifdef NO_PTHREADS
 id|close
@@ -1079,7 +1081,6 @@ l_int|1
 )paren
 suffix:semicolon
 macro_line|#endif
-r_int
 id|ret
 op_assign
 id|recv_sideband
