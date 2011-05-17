@@ -723,6 +723,7 @@ multiline_comment|/*&n; * Magic pathspec&n; *&n; * NEEDSWORK: These need to be m
 DECL|macro|PATHSPEC_FROMTOP
 mdefine_line|#define PATHSPEC_FROMTOP    (1&lt;&lt;0)
 DECL|struct|pathspec_magic
+r_static
 r_struct
 id|pathspec_magic
 (brace
@@ -760,6 +761,7 @@ comma
 suffix:semicolon
 multiline_comment|/*&n; * Take an element of a pathspec and check for magic signatures.&n; * Append the result to the prefix.&n; *&n; * For now, we only parse the syntax and throw out anything other than&n; * &quot;top&quot; magic.&n; *&n; * NEEDSWORK: This needs to be rewritten when we start migrating&n; * get_pathspec() users to use the &quot;struct pathspec&quot; interface.  For&n; * example, a pathspec element may be marked as case-insensitive, but&n; * the prefix part must always match literally, and a single stupid&n; * string cannot express such a case.&n; */
 DECL|function|prefix_pathspec
+r_static
 r_const
 r_char
 op_star
