@@ -5465,6 +5465,8 @@ l_int|0
 suffix:semicolon
 multiline_comment|/* return non-zero on conflicts */
 )brace
+DECL|macro|MISSING_OK
+mdefine_line|#define MISSING_OK 1
 DECL|function|remove_one_note
 r_static
 r_int
@@ -5480,6 +5482,9 @@ r_const
 r_char
 op_star
 id|name
+comma
+r_int
+id|flag
 )paren
 (brace
 r_int
@@ -5561,6 +5566,15 @@ id|name
 )paren
 suffix:semicolon
 r_return
+(paren
+id|flag
+op_amp
+id|MISSING_OK
+)paren
+ques
+c_cond
+l_int|0
+suffix:colon
 id|status
 suffix:semicolon
 )brace
@@ -5585,6 +5599,11 @@ op_star
 id|prefix
 )paren
 (brace
+r_int
+id|flag
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|option
 id|options
@@ -5592,6 +5611,21 @@ id|options
 )braket
 op_assign
 (brace
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ignore-missing&quot;
+comma
+op_amp
+id|flag
+comma
+l_string|&quot;attempt to remove non-existent note is not an error&quot;
+comma
+id|MISSING_OK
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -5649,6 +5683,8 @@ c_func
 id|t
 comma
 l_string|&quot;HEAD&quot;
+comma
+id|flag
 )paren
 suffix:semicolon
 )brace
@@ -5670,6 +5706,8 @@ id|t
 comma
 op_star
 id|argv
+comma
+id|flag
 )paren
 suffix:semicolon
 id|argv
