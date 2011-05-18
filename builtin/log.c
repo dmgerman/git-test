@@ -368,7 +368,7 @@ comma
 op_amp
 id|quiet
 comma
-l_string|&quot;supress diff output&quot;
+l_string|&quot;suppress diff output&quot;
 )paren
 comma
 id|OPT_BOOLEAN
