@@ -1749,7 +1749,7 @@ op_star
 id|entries
 )paren
 (brace
-multiline_comment|/* If there are D/F conflicts, and the paths currently exist&n;&t; * in the working copy as a file, we want to remove them to&n;&t; * make room for the corresponding directory.  Such paths will&n;&t; * later be processed in process_df_entry() at the end.  If&n;&t; * the corresponding directory ends up being removed by the&n;&t; * merge, then the file will be reinstated at that time&n;&t; * (albeit with a different timestamp!); otherwise, if the&n;&t; * file is not supposed to be removed by the merge, the&n;&t; * contents of the file will be placed in another unique&n;&t; * filename.&n;&t; *&n;&t; * NOTE: This function relies on the fact that entries for a&n;&t; * D/F conflict will appear adjacent in the index, with the&n;&t; * entries for the file appearing before entries for paths&n;&t; * below the corresponding directory.&n;&t; */
+multiline_comment|/* If there are D/F conflicts, and the paths currently exist&n;&t; * in the working copy as a file, we want to remove them to&n;&t; * make room for the corresponding directory.  Such paths will&n;&t; * later be processed in process_df_entry() at the end.  If&n;&t; * the corresponding directory ends up being removed by the&n;&t; * merge, then the file will be reinstated at that time;&n;&t; * otherwise, if the file is not supposed to be removed by the&n;&t; * merge, the contents of the file will be placed in another&n;&t; * unique filename.&n;&t; *&n;&t; * NOTE: This function relies on the fact that entries for a&n;&t; * D/F conflict will appear adjacent in the index, with the&n;&t; * entries for the file appearing before entries for paths&n;&t; * below the corresponding directory.&n;&t; */
 r_const
 r_char
 op_star
@@ -1764,14 +1764,6 @@ l_int|0
 suffix:semicolon
 r_int
 id|i
-suffix:semicolon
-multiline_comment|/*&n;&t; * Do not do any of this crazyness during the recursive; we don&squot;t&n;&t; * even write anything to the working tree!&n;&t; */
-r_if
-c_cond
-(paren
-id|o-&gt;call_depth
-)paren
-r_return
 suffix:semicolon
 r_for
 c_loop
@@ -6785,21 +6777,7 @@ op_logical_and
 id|mfi.mode
 op_eq
 id|a.mode
-op_logical_and
-op_logical_neg
-id|o-&gt;call_depth
-op_logical_and
-op_logical_neg
-id|lstat
-c_func
-(paren
-id|path
-comma
-op_amp
-id|st
 )paren
-)paren
-(brace
 id|output
 c_func
 (paren
@@ -6812,29 +6790,6 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|add_cacheinfo
-c_func
-(paren
-id|mfi.mode
-comma
-id|mfi.sha
-comma
-id|path
-comma
-l_int|0
-multiline_comment|/*stage*/
-comma
-l_int|1
-multiline_comment|/*refresh*/
-comma
-l_int|0
-multiline_comment|/*options*/
-)paren
-suffix:semicolon
-r_return
-id|mfi.clean
-suffix:semicolon
-)brace
 r_else
 id|output
 c_func
