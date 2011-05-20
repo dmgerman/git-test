@@ -3947,6 +3947,12 @@ op_logical_or
 (paren
 id|crlf_action
 op_eq
+id|CRLF_INPUT
+)paren
+op_logical_or
+(paren
+id|crlf_action
+op_eq
 id|CRLF_GUESS
 op_logical_and
 id|auto_crlf
