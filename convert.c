@@ -3979,6 +3979,18 @@ id|osize_p
 (brace
 r_int
 id|count
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|input
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* we do not keep any states */
+id|count
 op_assign
 op_star
 id|isize_p
