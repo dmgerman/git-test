@@ -120,7 +120,7 @@ l_string|&quot;^package .*;&bslash;n&quot;
 l_string|&quot;^sub .* &bslash;&bslash;{&bslash;n&quot;
 l_string|&quot;^[A-Z]+ &bslash;&bslash;{&bslash;n&quot;
 multiline_comment|/* BEGIN, END, ... */
-l_string|&quot;^=head[0-9] &quot;
+l_string|&quot;^=head[0-9] .*&quot;
 comma
 multiline_comment|/* POD */
 multiline_comment|/* -- */
