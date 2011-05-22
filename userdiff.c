@@ -126,8 +126,7 @@ l_string|&quot;(&bslash;&bslash;{[ &bslash;t]*)?&quot;
 multiline_comment|/* brace can come here or on the next line */
 l_string|&quot;(#.*)?$&bslash;n&quot;
 multiline_comment|/* comment */
-l_string|&quot;^[A-Z]+[ &bslash;t]*&quot;
-multiline_comment|/* BEGIN, END, ... */
+l_string|&quot;^(BEGIN|END|INIT|CHECK|UNITCHECK|AUTOLOAD|DESTROY)[ &bslash;t]*&quot;
 l_string|&quot;(&bslash;&bslash;{[ &bslash;t]*)?&quot;
 multiline_comment|/* brace can come here or on the next line */
 l_string|&quot;(#.*)?$&bslash;n&quot;
