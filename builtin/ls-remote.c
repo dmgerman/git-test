@@ -11,7 +11,7 @@ id|ls_remote_usage
 )braket
 op_assign
 l_string|&quot;git ls-remote [--heads] [--tags]  [-u &lt;exec&gt; | --upload-pack &lt;exec&gt;]&bslash;n&quot;
-l_string|&quot;                     [-q|--quiet] [&lt;repository&gt; [&lt;refs&gt;...]]&quot;
+l_string|&quot;                     [-q|--quiet] [--exit-code] [&lt;repository&gt; [&lt;refs&gt;...]]&quot;
 suffix:semicolon
 multiline_comment|/*&n; * Is there one among the list of patterns that match the tail part&n; * of the path?&n; */
 DECL|function|tail_match
@@ -167,6 +167,11 @@ l_int|0
 suffix:semicolon
 r_int
 id|quiet
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|status
 op_assign
 l_int|0
 suffix:semicolon
@@ -402,6 +407,27 @@ id|arg
 id|get_url
 op_assign
 l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--exit-code&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+multiline_comment|/* return this code if no refs are reported */
+id|status
+op_assign
+l_int|2
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -703,9 +729,14 @@ comma
 id|ref-&gt;name
 )paren
 suffix:semicolon
+id|status
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* we found something */
 )brace
 r_return
-l_int|0
+id|status
 suffix:semicolon
 )brace
 eof
