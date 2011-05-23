@@ -27,7 +27,13 @@ DECL|enumerator|R
 id|R
 op_assign
 id|GIT_REGEX_SPECIAL
+comma
 multiline_comment|/* $, (, ), +, ., ^, {, | */
+DECL|enumerator|P
+id|P
+op_assign
+id|GIT_PATHSPEC_MAGIC
+multiline_comment|/* other non-alnum, except for ] and } */
 )brace
 suffix:semicolon
 DECL|variable|sane_ctype
@@ -107,19 +113,19 @@ comma
 multiline_comment|/*  16.. 31 */
 id|S
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
 id|R
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
 id|R
 comma
@@ -129,13 +135,13 @@ id|G
 comma
 id|R
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
 id|R
 comma
-l_int|0
+id|P
 comma
 multiline_comment|/*  32.. 47 */
 id|D
@@ -158,20 +164,20 @@ id|D
 comma
 id|D
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
-l_int|0
+id|P
 comma
 id|G
 comma
 multiline_comment|/*  48.. 63 */
-l_int|0
+id|P
 comma
 id|A
 comma
@@ -234,10 +240,10 @@ l_int|0
 comma
 id|R
 comma
-l_int|0
+id|P
 comma
 multiline_comment|/*  80.. 95 */
-l_int|0
+id|P
 comma
 id|A
 comma
@@ -298,7 +304,7 @@ id|R
 comma
 l_int|0
 comma
-l_int|0
+id|P
 comma
 l_int|0
 comma

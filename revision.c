@@ -9109,6 +9109,7 @@ c_cond
 id|prune_data.nr
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * If we need to introduce the magic &quot;a lone &squot;:&squot; means no&n;&t;&t; * pathspec whatsoever&quot;, here is the place to do so.&n;&t;&t; *&n;&t;&t; * if (prune_data.nr == 1 &amp;&amp; !strcmp(prune_data[0], &quot;:&quot;)) {&n;&t;&t; *&t;prune_data.nr = 0;&n;&t;&t; *&t;prune_data.alloc = 0;&n;&t;&t; *&t;free(prune_data.path);&n;&t;&t; *&t;prune_data.path = NULL;&n;&t;&t; * } else {&n;&t;&t; *&t;terminate prune_data.alloc with NULL and&n;&t;&t; *&t;call init_pathspec() to set revs-&gt;prune_data here.&n;&t;&t; * }&n;&t;&t; */
 id|ALLOC_GROW
 c_func
 (paren
