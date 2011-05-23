@@ -5938,7 +5938,7 @@ id|key
 )paren
 suffix:semicolon
 r_return
-l_int|2
+id|CONFIG_NO_SECTION_OR_NAME
 suffix:semicolon
 )brace
 r_if
@@ -5960,7 +5960,7 @@ id|key
 )paren
 suffix:semicolon
 r_return
-l_int|2
+id|CONFIG_NO_SECTION_OR_NAME
 suffix:semicolon
 )brace
 id|baselen
@@ -6148,7 +6148,7 @@ id|store_key
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|CONFIG_INVALID_KEY
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * If value==NULL, unset in (remove from) config,&n; * if value_regex!=NULL, disregard key/value pairs where value does not match.&n; * if multi_replace==0, nothing, or only one matching key/value is replaced,&n; *     else all matching key/values (regardless how many) are removed,&n; *     before the new pair is written.&n; *&n; * Returns 0 on success.&n; *&n; * This function does this:&n; *&n; * - it locks the config file by creating &quot;.git/config.lock&quot;&n; *&n; * - it then parses the config using store_aux() as validator to find&n; *   the position on the key/value pair to replace. If it is to be unset,&n; *   it must be found exactly once.&n; *&n; * - the config file is mmap()ed and the part before the match (if any) is&n; *   written to the lock file, then the changed part and the rest.&n; *&n; * - the config file is removed and the lock file rename()d to it.&n; *&n; */
@@ -6304,7 +6304,7 @@ id|store.key
 suffix:semicolon
 id|ret
 op_assign
-l_int|1
+id|CONFIG_NO_LOCK
 suffix:semicolon
 r_goto
 id|out_free
@@ -6359,7 +6359,7 @@ id|errno
 suffix:semicolon
 id|ret
 op_assign
-l_int|3
+id|CONFIG_INVALID_FILE
 suffix:semicolon
 multiline_comment|/* same as &quot;invalid config file&quot; */
 r_goto
@@ -6377,7 +6377,7 @@ l_int|NULL
 (brace
 id|ret
 op_assign
-l_int|5
+id|CONFIG_NOTHING_SET
 suffix:semicolon
 r_goto
 id|out_free
@@ -6524,7 +6524,7 @@ id|store.value_regex
 suffix:semicolon
 id|ret
 op_assign
-l_int|6
+id|CONFIG_INVALID_PATTERN
 suffix:semicolon
 r_goto
 id|out_free
@@ -6598,7 +6598,7 @@ suffix:semicolon
 )brace
 id|ret
 op_assign
-l_int|3
+id|CONFIG_INVALID_FILE
 suffix:semicolon
 r_goto
 id|out_free
@@ -6658,7 +6658,7 @@ l_int|0
 (brace
 id|ret
 op_assign
-l_int|5
+id|CONFIG_NOTHING_SET
 suffix:semicolon
 r_goto
 id|out_free
@@ -6983,7 +6983,7 @@ id|config_filename
 suffix:semicolon
 id|ret
 op_assign
-l_int|4
+id|CONFIG_NO_WRITE
 suffix:semicolon
 r_goto
 id|out_free

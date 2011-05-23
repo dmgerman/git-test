@@ -2548,6 +2548,9 @@ op_eq
 id|ACTION_SET
 )paren
 (brace
+r_int
+id|ret
+suffix:semicolon
 id|check_argc
 c_func
 (paren
@@ -2574,7 +2577,8 @@ l_int|1
 )braket
 )paren
 suffix:semicolon
-r_return
+id|ret
+op_assign
 id|git_config_set
 c_func
 (paren
@@ -2585,6 +2589,28 @@ l_int|0
 comma
 id|value
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+op_eq
+id|CONFIG_NOTHING_SET
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;cannot overwrite multiple values with a single value&bslash;n&quot;
+l_string|&quot;       Use a regexp, --add or --set-all to change %s.&quot;
+comma
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 r_else
