@@ -3365,9 +3365,6 @@ l_string|&quot;Warning: you are leaving %d commit%s behind, &quot;
 l_string|&quot;not connected to&bslash;n&quot;
 l_string|&quot;any of your branches:&bslash;n&bslash;n&quot;
 l_string|&quot;%s&bslash;n&quot;
-l_string|&quot;If you want to keep them by creating a new branch, &quot;
-l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
-l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
 comma
 id|lost
 comma
@@ -3385,12 +3382,6 @@ l_string|&quot;&quot;
 )paren
 comma
 id|sb.buf
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -3398,6 +3389,27 @@ c_func
 (paren
 op_amp
 id|sb
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_detached_head
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;If you want to keep them by creating a new branch, &quot;
+l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
+l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
 )paren
 suffix:semicolon
 )brace
