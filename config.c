@@ -194,6 +194,7 @@ id|env
 suffix:semicolon
 )brace
 DECL|function|git_config_parse_parameter
+r_static
 r_int
 id|git_config_parse_parameter
 c_func
@@ -403,6 +404,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|git_config_parse_environment
+r_static
 r_int
 id|git_config_parse_environment
 c_func
