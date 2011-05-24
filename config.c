@@ -4473,7 +4473,9 @@ r_return
 l_int|1
 suffix:semicolon
 r_return
-l_int|0
+id|config_parameters
+op_ne
+l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|git_config_early
@@ -4672,8 +4674,9 @@ op_add_assign
 l_int|1
 suffix:semicolon
 )brace
-id|ret
-op_add_assign
+r_switch
+c_cond
+(paren
 id|git_config_from_parameters
 c_func
 (paren
@@ -4681,16 +4684,32 @@ id|fn
 comma
 id|data
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|config_parameters
 )paren
-id|found
-op_add_assign
+(brace
+r_case
 l_int|1
+suffix:colon
+multiline_comment|/* error */
+id|ret
+op_decrement
 suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+l_int|0
+suffix:colon
+multiline_comment|/* found nothing */
+r_break
+suffix:semicolon
+r_default
+suffix:colon
+multiline_comment|/* found at least one item */
+id|found
+op_increment
+suffix:semicolon
+r_break
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
