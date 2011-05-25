@@ -2552,7 +2552,7 @@ comma
 id|OPT_STRING
 c_func
 (paren
-l_char|&squot;L&squot;
+l_int|0
 comma
 l_string|&quot;separate-git-dir&quot;
 comma
