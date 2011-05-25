@@ -58,13 +58,7 @@ id|argv
 )paren
 (brace
 multiline_comment|/* Default values for command line options.  */
-r_int
-r_int
-r_int
-id|show_variables
-op_assign
-l_int|0
-suffix:semicolon
+multiline_comment|/* unsigned short int show_variables = 0; */
 r_switch
 c_cond
 (paren
@@ -125,10 +119,7 @@ id|error
 l_string|&quot;first argument must be --variables when two are given&quot;
 )paren
 suffix:semicolon
-id|show_variables
-op_assign
-l_int|1
-suffix:semicolon
+multiline_comment|/* show_variables = 1; */
 id|print_variables
 (paren
 id|argv
