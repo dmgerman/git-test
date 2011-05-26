@@ -8,6 +8,13 @@ id|git_default_date
 l_int|50
 )braket
 suffix:semicolon
+macro_line|#ifdef NO_GECOS_IN_PWENT
+DECL|macro|get_gecos
+mdefine_line|#define get_gecos(ignored) &quot;&amp;&quot;
+macro_line|#else
+DECL|macro|get_gecos
+mdefine_line|#define get_gecos(struct_passwd) ((struct_passwd)-&gt;pw_gecos)
+macro_line|#endif
 DECL|function|copy_gecos
 r_static
 r_void
@@ -62,7 +69,11 @@ id|name
 comma
 id|src
 op_assign
-id|w-&gt;pw_gecos
+id|get_gecos
+c_func
+(paren
+id|w
+)paren
 suffix:semicolon
 id|len
 OL
