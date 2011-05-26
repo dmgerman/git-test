@@ -116,11 +116,21 @@ c_func
 (paren
 l_string|&quot;perl&quot;
 comma
-l_string|&quot;^[ &bslash;t]*package .*;&bslash;n&quot;
-l_string|&quot;^[ &bslash;t]*sub .* &bslash;&bslash;{&bslash;n&quot;
-l_string|&quot;^[A-Z]+ &bslash;&bslash;{&bslash;n&quot;
-multiline_comment|/* BEGIN, END, ... */
-l_string|&quot;^=head[0-9] &quot;
+l_string|&quot;^package .*&bslash;n&quot;
+l_string|&quot;^sub [[:alnum:]_&squot;:]+[ &bslash;t]*&quot;
+l_string|&quot;(&bslash;&bslash;([^)]*&bslash;&bslash;)[ &bslash;t]*)?&quot;
+multiline_comment|/* prototype */
+multiline_comment|/*&n;&t;&t; * Attributes.  A regex can&squot;t count nested parentheses,&n;&t;&t; * so just slurp up whatever we see, taking care not&n;&t;&t; * to accept lines like &quot;sub foo; # defined elsewhere&quot;.&n;&t;&t; *&n;&t;&t; * An attribute could contain a semicolon, but at that&n;&t;&t; * point it seems reasonable enough to give up.&n;&t;&t; */
+l_string|&quot;(:[^;#]*)?&quot;
+l_string|&quot;(&bslash;&bslash;{[ &bslash;t]*)?&quot;
+multiline_comment|/* brace can come here or on the next line */
+l_string|&quot;(#.*)?$&bslash;n&quot;
+multiline_comment|/* comment */
+l_string|&quot;^(BEGIN|END|INIT|CHECK|UNITCHECK|AUTOLOAD|DESTROY)[ &bslash;t]*&quot;
+l_string|&quot;(&bslash;&bslash;{[ &bslash;t]*)?&quot;
+multiline_comment|/* brace can come here or on the next line */
+l_string|&quot;(#.*)?$&bslash;n&quot;
+l_string|&quot;^=head[0-9] .*&quot;
 comma
 multiline_comment|/* POD */
 multiline_comment|/* -- */
