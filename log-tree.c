@@ -2358,6 +2358,10 @@ id|ctx.after_subject
 op_assign
 id|extra_headers
 suffix:semicolon
+id|ctx.preserve_subject
+op_assign
+id|opt-&gt;preserve_subject
+suffix:semicolon
 id|ctx.reflog_info
 op_assign
 id|opt-&gt;reflog_info

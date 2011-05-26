@@ -6033,6 +6033,10 @@ id|die
 l_string|&quot;--subject-prefix and -k are mutually exclusive.&quot;
 )paren
 suffix:semicolon
+id|rev.preserve_subject
+op_assign
+id|keep_subject
+suffix:semicolon
 id|argc
 op_assign
 id|setup_revisions

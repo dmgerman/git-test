@@ -6237,6 +6237,11 @@ comma
 op_star
 id|msg_p
 comma
+id|pp-&gt;preserve_subject
+ques
+c_cond
+l_string|&quot;&bslash;n&quot;
+suffix:colon
 l_string|&quot; &quot;
 )paren
 suffix:semicolon
