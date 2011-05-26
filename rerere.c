@@ -4436,6 +4436,12 @@ id|e-&gt;d_name
 )paren
 suffix:semicolon
 )brace
+id|closedir
+c_func
+(paren
+id|dir
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
