@@ -5909,7 +5909,25 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* don&squot;t print the prefix character */
+multiline_comment|/*&n;&t;&t;&t; * Skip the prefix character, if any.  With&n;&t;&t;&t; * diff_suppress_blank_empty, there may be&n;&t;&t;&t; * none.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|line
+(braket
+l_int|0
+)braket
+op_ne
+l_char|&squot;&bslash;n&squot;
+)paren
+(brace
+id|line
+op_increment
+suffix:semicolon
+id|len
+op_decrement
+suffix:semicolon
+)brace
 id|emit_line
 c_func
 (paren
@@ -5920,12 +5938,8 @@ comma
 id|reset
 comma
 id|line
-op_plus
-l_int|1
 comma
 id|len
-op_minus
-l_int|1
 )paren
 suffix:semicolon
 )brace
