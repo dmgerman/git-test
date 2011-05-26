@@ -778,9 +778,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|ref-&gt;new_sha1
-op_logical_or
 id|is_null_sha1
 c_func
 (paren

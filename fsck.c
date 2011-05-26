@@ -2017,16 +2017,11 @@ id|sb
 comma
 l_string|&quot;object %s:&quot;
 comma
-id|obj-&gt;sha1
-ques
-c_cond
 id|sha1_to_hex
 c_func
 (paren
 id|obj-&gt;sha1
 )paren
-suffix:colon
-l_string|&quot;(null)&quot;
 )paren
 suffix:semicolon
 id|va_start
