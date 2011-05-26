@@ -2366,6 +2366,17 @@ op_star
 )paren
 id|o
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|COMPLETE
+)paren
+)paren
+(brace
 id|commit-&gt;object.flags
 op_or_assign
 id|COMPLETE
@@ -2379,6 +2390,7 @@ op_amp
 id|complete
 )paren
 suffix:semicolon
+)brace
 )brace
 r_return
 l_int|0
