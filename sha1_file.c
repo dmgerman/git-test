@@ -13804,7 +13804,7 @@ r_sizeof
 id|buf
 )paren
 suffix:semicolon
-r_int
+id|ssize_t
 id|actual
 suffix:semicolon
 id|actual
