@@ -8,6 +8,8 @@ macro_line|#include &quot;strbuf.h&quot;
 multiline_comment|/*&n; * Compare start of string to literal of equal length;&n; * must be guarded by length test.&n; */
 DECL|macro|constcmp
 mdefine_line|#define constcmp(s, ref) memcmp(s, ref, sizeof(ref) - 1)
+DECL|macro|REPORT_FILENO
+mdefine_line|#define REPORT_FILENO 3
 DECL|macro|NODEACT_REPLACE
 mdefine_line|#define NODEACT_REPLACE 4
 DECL|macro|NODEACT_DELETE
@@ -18,12 +20,15 @@ DECL|macro|NODEACT_CHANGE
 mdefine_line|#define NODEACT_CHANGE 1
 DECL|macro|NODEACT_UNKNOWN
 mdefine_line|#define NODEACT_UNKNOWN 0
+multiline_comment|/* States: */
 DECL|macro|DUMP_CTX
-mdefine_line|#define DUMP_CTX 0
+mdefine_line|#define DUMP_CTX 0&t;/* dump metadata */
 DECL|macro|REV_CTX
-mdefine_line|#define REV_CTX  1
+mdefine_line|#define REV_CTX  1&t;/* revision metadata */
 DECL|macro|NODE_CTX
-mdefine_line|#define NODE_CTX 2
+mdefine_line|#define NODE_CTX 2&t;/* node metadata */
+DECL|macro|INTERNODE_CTX
+mdefine_line|#define INTERNODE_CTX 3&t;/* between nodes */
 DECL|macro|LENGTH_UNKNOWN
 mdefine_line|#define LENGTH_UNKNOWN (~0)
 DECL|macro|DATE_RFC2822_LEN
@@ -845,11 +850,6 @@ c_func
 r_void
 )paren
 (brace
-r_uint32
-id|mark
-op_assign
-l_int|0
-suffix:semicolon
 r_const
 r_uint32
 id|type
@@ -872,6 +872,23 @@ id|node_ctx.textLength
 op_ne
 id|LENGTH_UNKNOWN
 suffix:semicolon
+multiline_comment|/*&n;&t; * Old text for this node:&n;&t; *  NULL&t;- directory or bug&n;&t; *  empty_blob&t;- empty&n;&t; *  &quot;&lt;dataref&gt;&quot;&t;- data retrievable from fast-import&n;&t; */
+r_static
+r_const
+r_char
+op_star
+r_const
+id|empty_blob
+op_assign
+l_string|&quot;::empty::&quot;
+suffix:semicolon
+r_const
+r_char
+op_star
+id|old_data
+op_assign
+l_int|NULL
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -881,18 +898,6 @@ id|die
 c_func
 (paren
 l_string|&quot;text deltas not supported&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|have_text
-)paren
-id|mark
-op_assign
-id|next_blob_mark
-c_func
-(paren
 )paren
 suffix:semicolon
 r_if
@@ -990,7 +995,7 @@ c_func
 l_string|&quot;invalid dump: directories cannot have text attached&quot;
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Decide on the new content (mark) and mode (node_ctx.type).&n;&t; */
+multiline_comment|/*&n;&t; * Find old content (old_data) and decide on the new mode.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1017,6 +1022,10 @@ c_func
 l_string|&quot;invalid dump: root of tree is not a regular file&quot;
 )paren
 suffix:semicolon
+id|old_data
+op_assign
+l_int|NULL
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -1030,26 +1039,15 @@ id|NODEACT_CHANGE
 r_uint32
 id|mode
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|have_text
-)paren
-id|mark
+id|old_data
 op_assign
 id|repo_read_path
 c_func
 (paren
 id|node_ctx.dst
-)paren
-suffix:semicolon
+comma
+op_amp
 id|mode
-op_assign
-id|repo_read_mode
-c_func
-(paren
-id|node_ctx.dst
 )paren
 suffix:semicolon
 r_if
@@ -1103,13 +1101,25 @@ id|NODEACT_ADD
 r_if
 c_cond
 (paren
-op_logical_neg
-id|have_text
-op_logical_and
 id|type
-op_ne
+op_eq
 id|REPO_MODE_DIR
 )paren
+id|old_data
+op_assign
+l_int|NULL
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|have_text
+)paren
+id|old_data
+op_assign
+id|empty_blob
+suffix:semicolon
+r_else
 id|die
 c_func
 (paren
@@ -1155,27 +1165,71 @@ c_func
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Save the result.&n;&t; */
-id|repo_add
-c_func
+r_if
+c_cond
 (paren
-id|node_ctx.dst
-comma
-id|node_ctx.type
-comma
-id|mark
+id|type
+op_eq
+id|REPO_MODE_DIR
+)paren
+multiline_comment|/* directories are not tracked. */
+r_return
+suffix:semicolon
+m_assert
+(paren
+id|old_data
 )paren
 suffix:semicolon
 r_if
 c_cond
 (paren
+id|old_data
+op_eq
+id|empty_blob
+)paren
+multiline_comment|/* For the fast_export_* functions, NULL means empty. */
+id|old_data
+op_assign
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|have_text
 )paren
-id|fast_export_blob
+(brace
+id|fast_export_modify
+c_func
+(paren
+id|REPO_MAX_PATH_DEPTH
+comma
+id|node_ctx.dst
+comma
+id|node_ctx.type
+comma
+id|old_data
+)paren
+suffix:semicolon
+r_return
+suffix:semicolon
+)brace
+id|fast_export_modify
+c_func
+(paren
+id|REPO_MAX_PATH_DEPTH
+comma
+id|node_ctx.dst
+comma
+id|node_ctx.type
+comma
+l_string|&quot;inline&quot;
+)paren
+suffix:semicolon
+id|fast_export_data
 c_func
 (paren
 id|node_ctx.type
-comma
-id|mark
 comma
 id|node_ctx.textLength
 comma
@@ -1184,10 +1238,10 @@ id|input
 )paren
 suffix:semicolon
 )brace
-DECL|function|handle_revision
+DECL|function|begin_revision
 r_static
 r_void
-id|handle_revision
+id|begin_revision
 c_func
 (paren
 r_void
@@ -1196,9 +1250,13 @@ r_void
 r_if
 c_cond
 (paren
+op_logical_neg
 id|rev_ctx.revision
 )paren
-id|repo_commit
+multiline_comment|/* revision 0 gets no git commit. */
+r_return
+suffix:semicolon
+id|fast_export_begin_commit
 c_func
 (paren
 id|rev_ctx.revision
@@ -1213,6 +1271,27 @@ comma
 id|dump_ctx.url.buf
 comma
 id|rev_ctx.timestamp
+)paren
+suffix:semicolon
+)brace
+DECL|function|end_revision
+r_static
+r_void
+id|end_revision
+c_func
+(paren
+r_void
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|rev_ctx.revision
+)paren
+id|fast_export_end_commit
+c_func
+(paren
+id|rev_ctx.revision
 )paren
 suffix:semicolon
 )brace
@@ -1424,10 +1503,22 @@ r_if
 c_cond
 (paren
 id|active_ctx
+op_eq
+id|REV_CTX
+)paren
+id|begin_revision
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|active_ctx
 op_ne
 id|DUMP_CTX
 )paren
-id|handle_revision
+id|end_revision
 c_func
 (paren
 )paren
@@ -1494,6 +1585,18 @@ op_eq
 id|NODE_CTX
 )paren
 id|handle_node
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|active_ctx
+op_eq
+id|REV_CTX
+)paren
+id|begin_revision
 c_func
 (paren
 )paren
@@ -1952,7 +2055,7 @@ c_func
 suffix:semicolon
 id|active_ctx
 op_assign
-id|REV_CTX
+id|INTERNODE_CTX
 suffix:semicolon
 )brace
 r_else
@@ -2022,10 +2125,22 @@ r_if
 c_cond
 (paren
 id|active_ctx
+op_eq
+id|REV_CTX
+)paren
+id|begin_revision
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|active_ctx
 op_ne
 id|DUMP_CTX
 )paren
-id|handle_revision
+id|end_revision
 c_func
 (paren
 )paren
@@ -2069,9 +2184,10 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-id|repo_init
+id|fast_export_init
 c_func
 (paren
+id|REPORT_FILENO
 )paren
 suffix:semicolon
 id|strbuf_init
@@ -2140,7 +2256,7 @@ c_func
 r_void
 )paren
 (brace
-id|repo_reset
+id|fast_export_deinit
 c_func
 (paren
 )paren
@@ -2214,16 +2330,16 @@ c_func
 r_void
 )paren
 (brace
+id|fast_export_reset
+c_func
+(paren
+)paren
+suffix:semicolon
 id|buffer_reset
 c_func
 (paren
 op_amp
 id|input
-)paren
-suffix:semicolon
-id|repo_reset
-c_func
-(paren
 )paren
 suffix:semicolon
 id|strbuf_release
