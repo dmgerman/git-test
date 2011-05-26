@@ -2095,7 +2095,7 @@ id|continuation.buf
 l_int|0
 )braket
 op_assign
-l_char|&squot;&bslash;n&squot;
+l_char|&squot; &squot;
 suffix:semicolon
 id|strbuf_rtrim
 c_func
