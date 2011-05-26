@@ -2176,22 +2176,6 @@ op_logical_neg
 id|commit-&gt;parents
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|action
-op_eq
-id|REVERT
-)paren
-id|die
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Cannot revert a root commit&quot;
-)paren
-)paren
-suffix:semicolon
 id|parent
 op_assign
 l_int|NULL
@@ -2484,6 +2468,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|commit-&gt;parents
+op_logical_and
 id|commit-&gt;parents-&gt;next
 )paren
 (brace
