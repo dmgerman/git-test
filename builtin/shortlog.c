@@ -884,15 +884,7 @@ id|ufbuf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-r_struct
-id|pretty_print_context
-id|ctx
-op_assign
-(brace
-l_int|0
-)brace
-suffix:semicolon
-id|pretty_print_commit
+id|pp_commit_easy
 c_func
 (paren
 id|CMIT_FMT_RAW
@@ -901,9 +893,6 @@ id|commit
 comma
 op_amp
 id|buf
-comma
-op_amp
-id|ctx
 )paren
 suffix:semicolon
 id|buffer
