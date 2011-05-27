@@ -1072,11 +1072,6 @@ id|old_mode
 r_int
 id|ret
 suffix:semicolon
-id|off_t
-id|preimage_len
-op_assign
-l_int|0
-suffix:semicolon
 r_struct
 id|sliding_view
 id|preimage
@@ -1087,7 +1082,7 @@ c_func
 op_amp
 id|report_buffer
 comma
-l_int|1
+l_int|0
 )paren
 suffix:semicolon
 id|FILE
@@ -1176,7 +1171,7 @@ c_func
 id|response
 comma
 op_amp
-id|preimage_len
+id|preimage.max_off
 )paren
 )paren
 id|die
@@ -1185,6 +1180,14 @@ c_func
 l_string|&quot;invalid cat-blob response: %s&quot;
 comma
 id|response
+)paren
+suffix:semicolon
+id|check_preimage_overflow
+c_func
+(paren
+id|preimage.max_off
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
@@ -1208,7 +1211,7 @@ suffix:semicolon
 id|check_preimage_overflow
 c_func
 (paren
-id|preimage_len
+id|preimage.max_off
 comma
 id|strlen
 c_func
@@ -1217,12 +1220,20 @@ l_string|&quot;link &quot;
 )paren
 )paren
 suffix:semicolon
-id|preimage_len
+id|preimage.max_off
 op_add_assign
 id|strlen
 c_func
 (paren
 l_string|&quot;link &quot;
+)paren
+suffix:semicolon
+id|check_preimage_overflow
+c_func
+(paren
+id|preimage.max_off
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
@@ -1255,6 +1266,22 @@ id|old_data
 )paren
 (brace
 multiline_comment|/* Read the remainder of preimage and trailing newline. */
+m_assert
+(paren
+op_logical_neg
+id|signed_add_overflows
+c_func
+(paren
+id|preimage.max_off
+comma
+l_int|1
+)paren
+)paren
+suffix:semicolon
+id|preimage.max_off
+op_increment
+suffix:semicolon
+multiline_comment|/* room for newline */
 r_if
 c_cond
 (paren
@@ -1264,7 +1291,8 @@ c_func
 op_amp
 id|preimage
 comma
-id|preimage_len
+id|preimage.max_off
+l_int|1
 comma
 l_int|1
 )paren
