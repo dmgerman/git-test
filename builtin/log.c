@@ -431,6 +431,15 @@ comma
 id|opt
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|quiet
+)paren
+id|rev-&gt;diffopt.output_format
+op_or_assign
+id|DIFF_FORMAT_NO_OUTPUT
+suffix:semicolon
 multiline_comment|/* Any arguments at this point are not recognized */
 r_if
 c_cond
