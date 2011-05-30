@@ -1335,7 +1335,7 @@ suffix:semicolon
 r_int
 id|fd
 suffix:semicolon
-r_int
+id|ssize_t
 id|len
 suffix:semicolon
 r_if
