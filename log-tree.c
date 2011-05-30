@@ -1467,9 +1467,17 @@ r_sizeof
 id|buffer
 )paren
 comma
-l_string|&quot;Subject: [%s %0*d/%d] &quot;
+l_string|&quot;Subject: [%s%s%0*d/%d] &quot;
 comma
 id|opt-&gt;subject_prefix
+comma
+op_star
+id|opt-&gt;subject_prefix
+ques
+c_cond
+l_string|&quot; &quot;
+suffix:colon
+l_string|&quot;&quot;
 comma
 id|digits_in_number
 c_func
