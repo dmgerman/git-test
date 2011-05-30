@@ -1021,12 +1021,12 @@ c_func
 r_void
 )paren
 (brace
-id|foreach_alt_odb
+id|for_each_alternate_ref
 c_func
 (paren
-id|refs_from_alternate_cb
-comma
 id|insert_one_alternate_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
