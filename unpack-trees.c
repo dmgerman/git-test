@@ -2823,6 +2823,9 @@ c_cond
 (paren
 op_logical_neg
 id|o-&gt;gently
+op_logical_and
+op_logical_neg
+id|o-&gt;exiting_early
 )paren
 (brace
 r_if
@@ -5105,6 +5108,15 @@ id|o
 comma
 l_int|NULL
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;exiting_early
+)paren
+id|ret
+op_assign
+l_int|0
 suffix:semicolon
 r_goto
 id|done
