@@ -1,9 +1,7 @@
 multiline_comment|/*&n; * Copyright (c) 1996-1999 by Internet Software Consortium.&n; *&n; * Permission to use, copy, modify, and distribute this software for any&n; * purpose with or without fee is hereby granted, provided that the above&n; * copyright notice and this permission notice appear in all copies.&n; *&n; * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND INTERNET SOFTWARE CONSORTIUM DISCLAIMS&n; * ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES&n; * OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL INTERNET SOFTWARE&n; * CONSORTIUM BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL&n; * DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR&n; * PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS&n; * ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS&n; * SOFTWARE.&n; */
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;sys/socket.h&gt;
-macro_line|#include &lt;netinet/in.h&gt;
-macro_line|#include &lt;arpa/inet.h&gt;
+macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#ifndef NS_INADDRSZ
@@ -28,24 +26,18 @@ DECL|function|inet_ntop4
 id|inet_ntop4
 c_func
 (paren
-id|src
-comma
-id|dst
-comma
-id|size
-)paren
 r_const
 id|u_char
 op_star
 id|src
-suffix:semicolon
+comma
 r_char
 op_star
 id|dst
-suffix:semicolon
+comma
 r_int
 id|size
-suffix:semicolon
+)paren
 (brace
 r_static
 r_const
@@ -159,24 +151,18 @@ DECL|function|inet_ntop6
 id|inet_ntop6
 c_func
 (paren
-id|src
-comma
-id|dst
-comma
-id|size
-)paren
 r_const
 id|u_char
 op_star
 id|src
-suffix:semicolon
+comma
 r_char
 op_star
 id|dst
-suffix:semicolon
+comma
 r_int
 id|size
-suffix:semicolon
+)paren
 (brace
 multiline_comment|/*&n;&t; * Note that int32_t and int16_t need only be &quot;at least&quot; large enough&n;&t; * to contain a value of the specified size.  On some systems, like&n;&t; * Crays, there is no such thing as an integer variable with 16 bits.&n;&t; * Keep this in mind if you think this function should have been coded&n;&t; * to use pointer overlays.  All the world&squot;s not a VAX.&n;&t; */
 r_char
@@ -642,29 +628,21 @@ DECL|function|inet_ntop
 id|inet_ntop
 c_func
 (paren
-id|af
-comma
-id|src
-comma
-id|dst
-comma
-id|size
-)paren
 r_int
 id|af
-suffix:semicolon
+comma
 r_const
 r_void
 op_star
 id|src
-suffix:semicolon
+comma
 r_char
 op_star
 id|dst
-suffix:semicolon
+comma
 r_int
 id|size
-suffix:semicolon
+)paren
 (brace
 r_switch
 c_cond

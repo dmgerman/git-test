@@ -1060,7 +1060,7 @@ id|commit-&gt;object.flags
 op_or_assign
 id|COMPLETE
 suffix:semicolon
-id|insert_by_date
+id|commit_list_insert_by_date
 c_func
 (paren
 id|commit

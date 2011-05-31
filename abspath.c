@@ -38,11 +38,12 @@ suffix:semicolon
 multiline_comment|/* We allow &quot;recursive&quot; symbolic links. Only within reason, though. */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
-DECL|function|make_absolute_path
+multiline_comment|/*&n; * Use this to get the real path, i.e. resolve links. If you want an&n; * absolute path but don&squot;t mind links, use absolute_path.&n; *&n; * If path is our buffer, then return path, as it&squot;s already what the&n; * user wants.&n; */
+DECL|function|real_path
 r_const
 r_char
 op_star
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 r_const
@@ -91,8 +92,6 @@ r_int
 id|buf_index
 op_assign
 l_int|1
-comma
-id|len
 suffix:semicolon
 r_int
 id|depth
@@ -108,6 +107,21 @@ suffix:semicolon
 r_struct
 id|stat
 id|st
+suffix:semicolon
+multiline_comment|/* We&squot;ve already done it */
+r_if
+c_cond
+(paren
+id|path
+op_eq
+id|buf
+op_logical_or
+id|path
+op_eq
+id|next_buf
+)paren
+r_return
+id|path
 suffix:semicolon
 r_if
 c_cond
@@ -306,9 +320,24 @@ comma
 id|last_elem
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|len
+op_logical_and
 id|buf
 (braket
 id|len
+op_minus
+l_int|1
+)braket
+op_ne
+l_char|&squot;/&squot;
+)paren
+id|buf
+(braket
+id|len
+op_increment
 )braket
 op_assign
 l_char|&squot;/&squot;
@@ -319,8 +348,6 @@ c_func
 id|buf
 op_plus
 id|len
-op_plus
-l_int|1
 comma
 id|last_elem
 )paren
@@ -356,6 +383,7 @@ id|st.st_mode
 )paren
 )paren
 (brace
+id|ssize_t
 id|len
 op_assign
 id|readlink
@@ -563,11 +591,12 @@ r_return
 id|cwd
 suffix:semicolon
 )brace
-DECL|function|make_nonrelative_path
+multiline_comment|/*&n; * Use this to get an absolute path from a relative one. If you want&n; * to resolve links, you should use real_path.&n; *&n; * If the path is already absolute, then return path. As the user is&n; * never meant to free the return value, we&squot;re safe.&n; */
+DECL|function|absolute_path
 r_const
 r_char
 op_star
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 r_const
@@ -623,6 +652,14 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_int
+id|len
+suffix:semicolon
+r_const
+r_char
+op_star
+id|fmt
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -645,6 +682,38 @@ c_func
 l_string|&quot;Cannot determine the current working directory&quot;
 )paren
 suffix:semicolon
+id|len
+op_assign
+id|strlen
+c_func
+(paren
+id|cwd
+)paren
+suffix:semicolon
+id|fmt
+op_assign
+(paren
+id|len
+OG
+l_int|0
+op_logical_and
+id|is_dir_sep
+c_func
+(paren
+id|cwd
+(braket
+id|len
+op_minus
+l_int|1
+)braket
+)paren
+)paren
+ques
+c_cond
+l_string|&quot;%s%s&quot;
+suffix:colon
+l_string|&quot;%s/%s&quot;
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -655,7 +724,7 @@ id|buf
 comma
 id|PATH_MAX
 comma
-l_string|&quot;%s/%s&quot;
+id|fmt
 comma
 id|cwd
 comma

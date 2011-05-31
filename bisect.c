@@ -547,12 +547,13 @@ op_amp
 id|size
 )paren
 suffix:semicolon
+r_const
 r_char
 op_star
-id|ep
-comma
-op_star
-id|sp
+id|subject_start
+suffix:semicolon
+r_int
+id|subject_len
 suffix:semicolon
 id|fprintf
 c_func
@@ -668,45 +669,22 @@ id|pp-&gt;item-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
-id|sp
+id|subject_len
 op_assign
-id|strstr
+id|find_commit_subject
 c_func
 (paren
 id|buf
 comma
-l_string|&quot;&bslash;n&bslash;n&quot;
+op_amp
+id|subject_start
 )paren
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|sp
+id|subject_len
 )paren
-(brace
-id|sp
-op_add_assign
-l_int|2
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|ep
-op_assign
-id|sp
-suffix:semicolon
-op_star
-id|ep
-op_logical_and
-op_star
-id|ep
-op_ne
-l_char|&squot;&bslash;n&squot;
-suffix:semicolon
-id|ep
-op_increment
-)paren
-suffix:semicolon
 id|fprintf
 c_func
 (paren
@@ -714,18 +692,11 @@ id|stderr
 comma
 l_string|&quot; %.*s&quot;
 comma
-(paren
-r_int
-)paren
-(paren
-id|ep
-id|sp
-)paren
+id|subject_len
 comma
-id|sp
+id|subject_start
 )paren
 suffix:semicolon
-)brace
 id|fprintf
 c_func
 (paren
@@ -2705,6 +2676,7 @@ DECL|macro|PRN_MODULO
 mdefine_line|#define PRN_MODULO 32768
 multiline_comment|/*&n; * This is a pseudo random number generator based on &quot;man 3 rand&quot;.&n; * It is not used properly because the seed is the argument and it&n; * is increased by one between each call, but that should not matter&n; * for this application.&n; */
 DECL|function|get_prn
+r_static
 r_int
 id|get_prn
 c_func
@@ -3880,16 +3852,14 @@ comma
 l_char|&squot; &squot;
 )paren
 suffix:semicolon
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Warning: the merge base between %s and [%s] &quot;
+l_string|&quot;the merge base between %s and [%s] &quot;
 l_string|&quot;must be skipped.&bslash;n&quot;
 l_string|&quot;So we cannot be sure the first bad commit is &quot;
 l_string|&quot;between %s and %s.&bslash;n&quot;
-l_string|&quot;We continue anyway.&bslash;n&quot;
+l_string|&quot;We continue anyway.&quot;
 comma
 id|bad_hex
 comma
@@ -4475,6 +4445,8 @@ op_assign
 l_int|0
 comma
 id|nr
+comma
+id|steps
 suffix:semicolon
 r_const
 r_int
@@ -4597,6 +4569,28 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|all
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;No testable commit found.&bslash;n&quot;
+l_string|&quot;Maybe you started with bad path parameters?&bslash;n&quot;
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|4
+)paren
+suffix:semicolon
+)brace
 id|bisect_rev
 op_assign
 id|revs.commits-&gt;item-&gt;object.sha1
@@ -4639,7 +4633,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s is first bad commit&bslash;n&quot;
+l_string|&quot;%s is the first bad commit&bslash;n&quot;
 comma
 id|bisect_rev_hex
 )paren
@@ -4665,18 +4659,44 @@ id|all
 id|reaches
 l_int|1
 suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;Bisecting: %d revisions left to test after this &quot;
-l_string|&quot;(roughly %d steps)&bslash;n&quot;
-comma
-id|nr
-comma
+id|steps
+op_assign
 id|estimate_bisect_steps
 c_func
 (paren
 id|all
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;Bisecting: %d revision%s left to test after this &quot;
+l_string|&quot;(roughly %d step%s)&bslash;n&quot;
+comma
+id|nr
+comma
+(paren
+id|nr
+op_eq
+l_int|1
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot;s&quot;
+)paren
+comma
+id|steps
+comma
+(paren
+id|steps
+op_eq
+l_int|1
+ques
+c_cond
+l_string|&quot;&quot;
+suffix:colon
+l_string|&quot;s&quot;
 )paren
 )paren
 suffix:semicolon

@@ -60,6 +60,11 @@ id|file
 op_assign
 l_int|NULL
 suffix:semicolon
+DECL|variable|ambiguous
+r_static
+r_int
+id|ambiguous
+suffix:semicolon
 DECL|function|length_callback
 r_static
 r_int
@@ -338,7 +343,7 @@ comma
 op_amp
 id|file
 comma
-l_string|&quot;set file to &lt;FILE&gt;&quot;
+l_string|&quot;set file to &lt;file&gt;&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -472,6 +477,44 @@ op_or
 id|PARSE_OPT_NODASH
 )brace
 comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_int|0
+comma
+l_string|&quot;ambiguous&quot;
+comma
+op_amp
+id|ambiguous
+comma
+l_int|NULL
+comma
+l_string|&quot;positive ambiguity&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_NONEG
+)brace
+comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_int|0
+comma
+l_string|&quot;no-ambiguous&quot;
+comma
+op_amp
+id|ambiguous
+comma
+l_int|NULL
+comma
+l_string|&quot;negative ambiguity&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_NONEG
+)brace
+comma
 id|OPT_GROUP
 c_func
 (paren
@@ -490,6 +533,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;be verbose&quot;
 )paren
 comma
 id|OPT__DRY_RUN
@@ -497,6 +542,8 @@ c_func
 (paren
 op_amp
 id|dry_run
+comma
+l_string|&quot;dry run&quot;
 )paren
 comma
 id|OPT__QUIET
@@ -504,6 +551,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;be quiet&quot;
 )paren
 comma
 id|OPT_END

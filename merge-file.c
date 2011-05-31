@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
+macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;blob.h&quot;
 DECL|function|fill_mmfile_blob
 r_static
@@ -100,6 +101,11 @@ op_star
 id|three_way_filemerge
 c_func
 (paren
+r_const
+r_char
+op_star
+id|path
+comma
 id|mmfile_t
 op_star
 id|base
@@ -118,35 +124,26 @@ op_star
 id|size
 )paren
 (brace
-id|mmbuffer_t
-id|res
-suffix:semicolon
-id|xpparam_t
-id|xpp
-suffix:semicolon
 r_int
 id|merge_status
 suffix:semicolon
-id|memset
+id|mmbuffer_t
+id|res
+suffix:semicolon
+multiline_comment|/*&n;&t; * This function is only used by cmd_merge_tree, which&n;&t; * does not respect the merge.conflictstyle option.&n;&t; * There is no need to worry about a label for the&n;&t; * common ancestor.&n;&t; */
+id|merge_status
+op_assign
+id|ll_merge
 c_func
 (paren
 op_amp
-id|xpp
+id|res
 comma
-l_int|0
+id|path
 comma
-r_sizeof
-(paren
-id|xpp
-)paren
-)paren
-suffix:semicolon
-id|merge_status
-op_assign
-id|xdl_merge
-c_func
-(paren
 id|base
+comma
+l_int|NULL
 comma
 id|our
 comma
@@ -156,13 +153,7 @@ id|their
 comma
 l_string|&quot;.their&quot;
 comma
-op_amp
-id|xpp
-comma
-id|XDL_MERGE_ZEALOUS
-comma
-op_amp
-id|res
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -329,7 +320,7 @@ id|xpp
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+l_int|0
 suffix:semicolon
 id|memset
 c_func
@@ -394,6 +385,11 @@ op_star
 id|merge_file
 c_func
 (paren
+r_const
+r_char
+op_star
+id|path
+comma
 r_struct
 id|blob
 op_star
@@ -561,6 +557,8 @@ op_assign
 id|three_way_filemerge
 c_func
 (paren
+id|path
+comma
 op_amp
 id|common
 comma

@@ -1,9 +1,8 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
-DECL|function|report
-r_static
+DECL|function|vreportf
 r_void
-id|report
+id|vreportf
 c_func
 (paren
 r_const
@@ -23,7 +22,7 @@ id|params
 r_char
 id|msg
 (braket
-l_int|1024
+l_int|4096
 )braket
 suffix:semicolon
 id|vsnprintf
@@ -65,16 +64,19 @@ r_const
 r_char
 op_star
 id|err
+comma
+id|va_list
+id|params
 )paren
 (brace
-id|fprintf
+id|vreportf
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;usage: %s&bslash;n&quot;
+l_string|&quot;usage: &quot;
 comma
 id|err
+comma
+id|params
 )paren
 suffix:semicolon
 m_exit
@@ -99,7 +101,7 @@ id|va_list
 id|params
 )paren
 (brace
-id|report
+id|vreportf
 c_func
 (paren
 l_string|&quot;fatal: &quot;
@@ -130,7 +132,7 @@ id|va_list
 id|params
 )paren
 (brace
-id|report
+id|vreportf
 c_func
 (paren
 l_string|&quot;error: &quot;
@@ -156,7 +158,7 @@ id|va_list
 id|params
 )paren
 (brace
-id|report
+id|vreportf
 c_func
 (paren
 l_string|&quot;warning: &quot;
@@ -168,7 +170,9 @@ id|params
 suffix:semicolon
 )brace
 multiline_comment|/* If we are in a dlopen()ed .so write to a global variable would segfault&n; * (ugh), so keep things static. */
+DECL|variable|usage_routine
 r_static
+id|NORETURN_PTR
 r_void
 (paren
 op_star
@@ -179,12 +183,16 @@ r_const
 r_char
 op_star
 id|err
+comma
+id|va_list
+id|params
 )paren
-id|NORETURN
 op_assign
 id|usage_builtin
 suffix:semicolon
+DECL|variable|die_routine
 r_static
+id|NORETURN_PTR
 r_void
 (paren
 op_star
@@ -199,7 +207,6 @@ comma
 id|va_list
 id|params
 )paren
-id|NORETURN
 op_assign
 id|die_builtin
 suffix:semicolon
@@ -246,6 +253,7 @@ r_void
 id|set_die_routine
 c_func
 (paren
+id|NORETURN_PTR
 r_void
 (paren
 op_star
@@ -260,7 +268,6 @@ comma
 id|va_list
 id|params
 )paren
-id|NORETURN
 )paren
 (brace
 id|die_routine
@@ -268,8 +275,51 @@ op_assign
 id|routine
 suffix:semicolon
 )brace
+DECL|function|usagef
+r_void
+id|NORETURN
+id|usagef
+c_func
+(paren
+r_const
+r_char
+op_star
+id|err
+comma
+dot
+dot
+dot
+)paren
+(brace
+id|va_list
+id|params
+suffix:semicolon
+id|va_start
+c_func
+(paren
+id|params
+comma
+id|err
+)paren
+suffix:semicolon
+id|usage_routine
+c_func
+(paren
+id|err
+comma
+id|params
+)paren
+suffix:semicolon
+id|va_end
+c_func
+(paren
+id|params
+)paren
+suffix:semicolon
+)brace
 DECL|function|usage
 r_void
+id|NORETURN
 id|usage
 c_func
 (paren
@@ -279,15 +329,18 @@ op_star
 id|err
 )paren
 (brace
-id|usage_routine
+id|usagef
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|err
 )paren
 suffix:semicolon
 )brace
 DECL|function|die
 r_void
+id|NORETURN
 id|die
 c_func
 (paren
@@ -329,6 +382,7 @@ suffix:semicolon
 )brace
 DECL|function|die_errno
 r_void
+id|NORETURN
 id|die_errno
 c_func
 (paren

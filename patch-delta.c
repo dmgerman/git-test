@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * patch-delta.c:&n; * recreate a buffer from a source and the delta produced by diff-delta.c&n; *&n; * (C) 2005 Nicolas Pitre &lt;nico@cam.org&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
+multiline_comment|/*&n; * patch-delta.c:&n; * recreate a buffer from a source and the delta produced by diff-delta.c&n; *&n; * (C) 2005 Nicolas Pitre &lt;nico@fluxnic.net&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;delta.h&quot;
 DECL|function|patch_delta
@@ -116,20 +116,11 @@ id|top
 suffix:semicolon
 id|dst_buf
 op_assign
-id|xmalloc
+id|xmallocz
 c_func
 (paren
 id|size
-op_plus
-l_int|1
 )paren
-suffix:semicolon
-id|dst_buf
-(braket
-id|size
-)braket
-op_assign
-l_int|0
 suffix:semicolon
 id|out
 op_assign
@@ -295,10 +286,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|unsigned_add_overflows
+c_func
+(paren
+id|cp_off
+comma
+id|cp_size
+)paren
+op_logical_or
 id|cp_off
 op_plus
 id|cp_size
-template_param
+OG
 id|src_size
 op_logical_or
 id|cp_size

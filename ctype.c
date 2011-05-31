@@ -27,7 +27,6 @@ DECL|enumerator|R
 id|R
 op_assign
 id|GIT_REGEX_SPECIAL
-comma
 multiline_comment|/* $, (, ), +, ., ^, {, | */
 )brace
 suffix:semicolon

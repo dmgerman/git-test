@@ -569,7 +569,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git checkout-index: unable to read sha1 file of %s (%s)&quot;
+l_string|&quot;unable to read sha1 file of %s (%s)&quot;
 comma
 id|path
 comma
@@ -618,7 +618,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git checkout-index: unable to create symlink %s (%s)&quot;
+l_string|&quot;unable to create symlink %s (%s)&quot;
 comma
 id|path
 comma
@@ -767,7 +767,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git checkout-index: unable to create file %s (%s)&quot;
+l_string|&quot;unable to create file %s (%s)&quot;
 comma
 id|path
 comma
@@ -846,7 +846,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git checkout-index: unable to write file %s&quot;
+l_string|&quot;unable to write file %s&quot;
 comma
 id|path
 )paren
@@ -865,7 +865,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git checkout-index: cannot create temporary subproject %s&quot;
+l_string|&quot;cannot create temporary subproject %s&quot;
 comma
 id|path
 )paren
@@ -887,7 +887,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git checkout-index: cannot create subproject directory %s&quot;
+l_string|&quot;cannot create subproject directory %s&quot;
 comma
 id|path
 )paren
@@ -900,7 +900,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;git checkout-index: unknown file mode for %s&quot;
+l_string|&quot;unknown file mode for %s in index&quot;
 comma
 id|path
 )paren
@@ -939,6 +939,88 @@ suffix:semicolon
 )brace
 r_return
 l_int|0
+suffix:semicolon
+)brace
+multiline_comment|/*&n; * This is like &squot;lstat()&squot;, except it refuses to follow symlinks&n; * in the path, after skipping &quot;skiplen&quot;.&n; */
+DECL|function|check_path
+r_static
+r_int
+id|check_path
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+comma
+r_int
+id|len
+comma
+r_struct
+id|stat
+op_star
+id|st
+comma
+r_int
+id|skiplen
+)paren
+(brace
+r_const
+r_char
+op_star
+id|slash
+op_assign
+id|path
+op_plus
+id|len
+suffix:semicolon
+r_while
+c_loop
+(paren
+id|path
+OL
+id|slash
+op_logical_and
+op_star
+id|slash
+op_ne
+l_char|&squot;/&squot;
+)paren
+id|slash
+op_decrement
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|has_dirs_only_path
+c_func
+(paren
+id|path
+comma
+id|slash
+id|path
+comma
+id|skiplen
+)paren
+)paren
+(brace
+id|errno
+op_assign
+id|ENOENT
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
+r_return
+id|lstat
+c_func
+(paren
+id|path
+comma
+id|st
+)paren
 suffix:semicolon
 )brace
 DECL|function|checkout_entry
@@ -1030,13 +1112,17 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|lstat
+id|check_path
 c_func
 (paren
 id|path
 comma
+id|len
+comma
 op_amp
 id|st
+comma
+id|state-&gt;base_dir_len
 )paren
 )paren
 (brace
@@ -1052,6 +1138,8 @@ op_amp
 id|st
 comma
 id|CE_MATCH_IGNORE_VALID
+op_or
+id|CE_MATCH_IGNORE_SKIP_WORKTREE
 )paren
 suffix:semicolon
 r_if
@@ -1081,7 +1169,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git-checkout-index: %s already exists&bslash;n&quot;
+l_string|&quot;%s already exists, no checkout&bslash;n&quot;
 comma
 id|path
 )paren

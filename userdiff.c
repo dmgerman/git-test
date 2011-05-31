@@ -1,3 +1,4 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
@@ -19,7 +20,9 @@ r_int
 id|drivers_alloc
 suffix:semicolon
 DECL|macro|PATTERNS
-mdefine_line|#define PATTERNS(name, pattern, word_regex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED }, word_regex }
+mdefine_line|#define PATTERNS(name, pattern, word_regex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED },&t;&t;&bslash;&n;&t;  word_regex &quot;|[^[:space:]]|[&bslash;xc0-&bslash;xff][&bslash;x80-&bslash;xbf]+&quot; }
+DECL|macro|IPATTERN
+mdefine_line|#define IPATTERN(name, pattern, word_regex)&t;&t;&t;&bslash;&n;&t;{ name, NULL, -1, { pattern, REG_EXTENDED | REG_ICASE }, &bslash;&n;&t;  word_regex &quot;|[^[:space:]]|[&bslash;xc0-&bslash;xff][&bslash;x80-&bslash;xbf]+&quot; }
 DECL|variable|builtin_drivers
 r_static
 r_struct
@@ -29,6 +32,24 @@ id|builtin_drivers
 )braket
 op_assign
 (brace
+id|IPATTERN
+c_func
+(paren
+l_string|&quot;fortran&quot;
+comma
+l_string|&quot;!^([C*]|[ &bslash;t]*!)&bslash;n&quot;
+l_string|&quot;!^[ &bslash;t]*MODULE[ &bslash;t]+PROCEDURE[ &bslash;t]&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*((END[ &bslash;t]+)?(PROGRAM|MODULE|BLOCK[ &bslash;t]+DATA&quot;
+l_string|&quot;|([^&squot;&bslash;&quot; &bslash;t]+[ &bslash;t]+)*(SUBROUTINE|FUNCTION))[ &bslash;t]+[A-Z].*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z][a-zA-Z0-9_]*&quot;
+l_string|&quot;|&bslash;&bslash;.([Ee][Qq]|[Nn][Ee]|[Gg][TtEe]|[Ll][TtEe]|[Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee]|[Aa][Nn][Dd]|[Oo][Rr]|[Nn]?[Ee][Qq][Vv]|[Nn][Oo][Tt])&bslash;&bslash;.&quot;
+multiline_comment|/* numbers and format statements like 2E14.4, or ES12.6, 9X.&n;&t;  * Don&squot;t worry about format statements without leading digits since&n;&t;  * they would have been matched above as a variable anyway. */
+l_string|&quot;|[-+]?[0-9.]+([AaIiDdEeFfLlTtXx][Ss]?[-+]?[0-9.]*)?(_[a-zA-Z0-9][a-zA-Z0-9_]*)?&quot;
+l_string|&quot;|//|&bslash;&bslash;*&bslash;&bslash;*|::|[/&lt;&gt;=]=&quot;
+)paren
+comma
 id|PATTERNS
 c_func
 (paren
@@ -36,7 +57,7 @@ l_string|&quot;html&quot;
 comma
 l_string|&quot;^[ &bslash;t]*(&lt;[Hh][1-6][ &bslash;t].*&gt;.*)$&quot;
 comma
-l_string|&quot;[^&lt;&gt;= &bslash;t]+|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
+l_string|&quot;[^&lt;&gt;= &bslash;t]+&quot;
 )paren
 comma
 id|PATTERNS
@@ -52,7 +73,6 @@ l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
 l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=&quot;
 l_string|&quot;|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;&gt;?=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;|&quot;
-l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 id|PATTERNS
@@ -73,7 +93,6 @@ multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
 l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
-l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 id|PATTERNS
@@ -81,7 +100,7 @@ c_func
 (paren
 l_string|&quot;pascal&quot;
 comma
-l_string|&quot;^((procedure|function|constructor|destructor|interface|&quot;
+l_string|&quot;^(((class[ &bslash;t]+)?(procedure|function)|constructor|destructor|interface|&quot;
 l_string|&quot;implementation|initialization|finalization)[ &bslash;t]*.*)$&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;^(.*=[ &bslash;t]*(class|record).*)$&quot;
@@ -90,7 +109,31 @@ multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+|0[xXbB]?[0-9a-fA-F]+&quot;
 l_string|&quot;|&lt;&gt;|&lt;=|&gt;=|:=|&bslash;&bslash;.&bslash;&bslash;.&quot;
-l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
+)paren
+comma
+id|PATTERNS
+c_func
+(paren
+l_string|&quot;perl&quot;
+comma
+l_string|&quot;^[ &bslash;t]*package .*;&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*sub .* &bslash;&bslash;{&bslash;n&quot;
+l_string|&quot;^[A-Z]+ &bslash;&bslash;{&bslash;n&quot;
+multiline_comment|/* BEGIN, END, ... */
+l_string|&quot;^=head[0-9] &quot;
+comma
+multiline_comment|/* POD */
+multiline_comment|/* -- */
+l_string|&quot;[[:alpha:]_&squot;][[:alnum:]_&squot;]*&quot;
+l_string|&quot;|0[xb]?[0-9a-fA-F_]*&quot;
+multiline_comment|/* taking care not to interpret 3..5 as (3.)(.5) */
+l_string|&quot;|[0-9a-fA-F_]+(&bslash;&bslash;.[0-9a-fA-F_]+)?([eE][-+]?[0-9_]+)?&quot;
+l_string|&quot;|=&gt;|-[rwxoRWXOezsfdlpSugkbctTBMAC&gt;]|~~|::&quot;
+l_string|&quot;|&amp;&amp;=|&bslash;&bslash;|&bslash;&bslash;|=|//=|&bslash;&bslash;*&bslash;&bslash;*=&quot;
+l_string|&quot;|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||//|&bslash;&bslash;+&bslash;&bslash;+|--|&bslash;&bslash;*&bslash;&bslash;*|&bslash;&bslash;.&bslash;&bslash;.&bslash;&bslash;.?&quot;
+l_string|&quot;|[-+*/%.^&amp;&lt;&gt;=!|]=&quot;
+l_string|&quot;|=~|!~&quot;
+l_string|&quot;|&lt;&lt;|&lt;&gt;|&lt;=&gt;|&gt;&gt;&quot;
 )paren
 comma
 id|PATTERNS
@@ -98,13 +141,13 @@ c_func
 (paren
 l_string|&quot;php&quot;
 comma
-l_string|&quot;^[&bslash;t ]*((function|class).*)&quot;
+l_string|&quot;^[&bslash;t ]*(((public|protected|private|static)[&bslash;t ]+)*function.*)$&bslash;n&quot;
+l_string|&quot;^[&bslash;t ]*(class.*)$&quot;
 comma
 multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+|0[xXbB]?[0-9a-fA-F]+&quot;
 l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!.]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|===|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
-l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 id|PATTERNS
@@ -118,7 +161,6 @@ multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+[jJlL]?|0[xX]?[0-9a-fA-F]+[lL]?&quot;
 l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|//=?|&lt;&lt;=?|&gt;&gt;=?|&bslash;&bslash;*&bslash;&bslash;*=?&quot;
-l_string|&quot;|[^[:space:]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 multiline_comment|/* -- */
@@ -133,7 +175,6 @@ multiline_comment|/* -- */
 l_string|&quot;(@|@@|&bslash;&bslash;$)?[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+|0[xXbB]?[0-9a-fA-F]+|&bslash;&bslash;?(&bslash;&bslash;&bslash;&bslash;C-)?(&bslash;&bslash;&bslash;&bslash;M-)?.&quot;
 l_string|&quot;|//=?|[-+*/&lt;&gt;%&amp;^|=!]=|&lt;&lt;=?|&gt;&gt;=?|===|&bslash;&bslash;.{1,3}|::|[!=]~&quot;
-l_string|&quot;|[^[:space:]|[&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 id|PATTERNS
@@ -153,7 +194,7 @@ l_string|&quot;tex&quot;
 comma
 l_string|&quot;^(&bslash;&bslash;&bslash;&bslash;((sub)*section|chapter|part)&bslash;&bslash;*{0,1}&bslash;&bslash;{.*)$&quot;
 comma
-l_string|&quot;&bslash;&bslash;&bslash;&bslash;[a-zA-Z@]+|&bslash;&bslash;&bslash;&bslash;.|[a-zA-Z0-9&bslash;x80-&bslash;xff]+|[^[:space:]]&quot;
+l_string|&quot;&bslash;&bslash;&bslash;&bslash;[a-zA-Z@]+|&bslash;&bslash;&bslash;&bslash;.|[a-zA-Z0-9&bslash;x80-&bslash;xff]+&quot;
 )paren
 comma
 id|PATTERNS
@@ -172,7 +213,28 @@ multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
 l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
-l_string|&quot;|[^[:space:]]|[&bslash;x80-&bslash;xff]+&quot;
+)paren
+comma
+id|PATTERNS
+c_func
+(paren
+l_string|&quot;csharp&quot;
+comma
+multiline_comment|/* Keywords */
+l_string|&quot;!^[ &bslash;t]*(do|while|for|if|else|instanceof|new|return|switch|case|throw|catch|using)&bslash;n&quot;
+multiline_comment|/* Methods and constructors */
+l_string|&quot;^[ &bslash;t]*(((static|public|internal|private|protected|new|virtual|sealed|override|unsafe)[ &bslash;t]+)*[][&lt;&gt;@.~_[:alnum:]]+[ &bslash;t]+[&lt;&gt;@._[:alnum:]]+[ &bslash;t]*&bslash;&bslash;(.*&bslash;&bslash;))[ &bslash;t]*$&bslash;n&quot;
+multiline_comment|/* Properties */
+l_string|&quot;^[ &bslash;t]*(((static|public|internal|private|protected|new|virtual|sealed|override|unsafe)[ &bslash;t]+)*[][&lt;&gt;@.~_[:alnum:]]+[ &bslash;t]+[@._[:alnum:]]+)[ &bslash;t]*$&bslash;n&quot;
+multiline_comment|/* Type definitions */
+l_string|&quot;^[ &bslash;t]*(((static|public|internal|private|protected|new|unsafe|sealed|abstract|partial)[ &bslash;t]+)*(class|enum|interface|struct)[ &bslash;t]+.*)$&bslash;n&quot;
+multiline_comment|/* Namespace */
+l_string|&quot;^[ &bslash;t]*(namespace[ &bslash;t]+.*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
 )paren
 comma
 (brace
@@ -193,6 +255,8 @@ comma
 suffix:semicolon
 DECL|macro|PATTERNS
 macro_line|#undef PATTERNS
+DECL|macro|IPATTERN
+macro_line|#undef IPATTERN
 DECL|variable|driver_true
 r_static
 r_struct
@@ -686,6 +750,42 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|function|parse_bool
+r_static
+r_int
+id|parse_bool
+c_func
+(paren
+r_int
+op_star
+id|b
+comma
+r_const
+r_char
+op_star
+id|k
+comma
+r_const
+r_char
+op_star
+id|v
+)paren
+(brace
+op_star
+id|b
+op_assign
+id|git_config_bool
+c_func
+(paren
+id|k
+comma
+id|v
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 DECL|function|userdiff_config
 r_int
 id|userdiff_config
@@ -869,6 +969,35 @@ id|k
 comma
 id|v
 comma
+l_string|&quot;cachetextconv&quot;
+)paren
+)paren
+)paren
+r_return
+id|parse_bool
+c_func
+(paren
+op_amp
+id|drv-&gt;textconv_want_cache
+comma
+id|k
+comma
+id|v
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|drv
+op_assign
+id|parse_driver
+c_func
+(paren
+id|k
+comma
+id|v
+comma
 l_string|&quot;wordregex&quot;
 )paren
 )paren
@@ -956,8 +1085,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;diff&quot;
-comma
-l_int|4
 )paren
 suffix:semicolon
 id|check.attr

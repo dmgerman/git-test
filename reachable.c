@@ -356,10 +356,6 @@ op_assign
 op_amp
 id|tag-&gt;object
 suffix:semicolon
-r_struct
-id|name_path
-id|me
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -372,18 +368,6 @@ suffix:semicolon
 id|obj-&gt;flags
 op_or_assign
 id|SEEN
-suffix:semicolon
-id|me.up
-op_assign
-l_int|NULL
-suffix:semicolon
-id|me.elem
-op_assign
-l_string|&quot;tag:/&quot;
-suffix:semicolon
-id|me.elem_len
-op_assign
-l_int|5
 suffix:semicolon
 r_if
 c_cond
@@ -450,13 +434,7 @@ r_struct
 id|object_array
 id|objects
 op_assign
-(brace
-l_int|0
-comma
-l_int|0
-comma
-l_int|NULL
-)brace
+id|OBJECT_ARRAY_INIT
 suffix:semicolon
 multiline_comment|/* Walk all commits, process their trees */
 r_while

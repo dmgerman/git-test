@@ -118,6 +118,25 @@ r_return
 id|alias_val
 suffix:semicolon
 )brace
+DECL|macro|SPLIT_CMDLINE_BAD_ENDING
+mdefine_line|#define SPLIT_CMDLINE_BAD_ENDING 1
+DECL|macro|SPLIT_CMDLINE_UNCLOSED_QUOTE
+mdefine_line|#define SPLIT_CMDLINE_UNCLOSED_QUOTE 2
+DECL|variable|split_cmdline_errors
+r_static
+r_const
+r_char
+op_star
+id|split_cmdline_errors
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;cmdline ends with &bslash;&bslash;&quot;
+comma
+l_string|&quot;unclosed quote&quot;
+)brace
+suffix:semicolon
 DECL|function|split_cmdline
 r_int
 id|split_cmdline
@@ -359,11 +378,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;cmdline ends with &bslash;&bslash;&quot;
-)paren
+id|SPLIT_CMDLINE_BAD_ENDING
 suffix:semicolon
 )brace
 )brace
@@ -406,11 +421,7 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;unclosed quote&quot;
-)paren
+id|SPLIT_CMDLINE_UNCLOSED_QUOTE
 suffix:semicolon
 )brace
 id|ALLOC_GROW
@@ -438,6 +449,26 @@ l_int|NULL
 suffix:semicolon
 r_return
 id|count
+suffix:semicolon
+)brace
+DECL|function|split_cmdline_strerror
+r_const
+r_char
+op_star
+id|split_cmdline_strerror
+c_func
+(paren
+r_int
+id|split_cmdline_errno
+)paren
+(brace
+r_return
+id|split_cmdline_errors
+(braket
+id|split_cmdline_errno
+op_minus
+l_int|1
+)braket
 suffix:semicolon
 )brace
 eof
