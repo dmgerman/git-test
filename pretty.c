@@ -5958,7 +5958,7 @@ c_func
 op_amp
 id|dummy
 comma
-id|user_format
+id|fmt
 comma
 id|userformat_want_item
 comma
