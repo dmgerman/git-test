@@ -3578,7 +3578,11 @@ c_func
 op_amp
 id|sb
 comma
+id|_
+c_func
+(paren
 l_string|&quot; ... and %d more.&bslash;n&quot;
+)paren
 comma
 id|more
 )paren
@@ -3589,7 +3593,20 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Warning: you are leaving %d commit%s behind, &quot;
+id|Q_
+c_func
+(paren
+multiline_comment|/* The singular version */
+l_string|&quot;Warning: you are leaving %d commit behind, &quot;
+l_string|&quot;not connected to&bslash;n&quot;
+l_string|&quot;any of your branches:&bslash;n&bslash;n&quot;
+l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;If you want to keep it by creating a new branch, &quot;
+l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
+l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
+comma
+multiline_comment|/* The plural version */
+l_string|&quot;Warning: you are leaving %d commits behind, &quot;
 l_string|&quot;not connected to&bslash;n&quot;
 l_string|&quot;any of your branches:&bslash;n&bslash;n&quot;
 l_string|&quot;%s&bslash;n&quot;
@@ -3597,20 +3614,11 @@ l_string|&quot;If you want to keep them by creating a new branch, &quot;
 l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
 l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
 comma
+multiline_comment|/* Give ngettext() the count */
 id|lost
+)paren
 comma
-(paren
-(paren
-l_int|1
-OL
 id|lost
-)paren
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
-)paren
 comma
 id|sb.buf
 comma
@@ -5173,7 +5181,11 @@ id|opts.new_orphan_branch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--detach cannot be used with -b/-B/--orphan&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5188,7 +5200,11 @@ id|opts.track
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--detach cannot be used with -t&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* --track without -b should DWIM */
@@ -5563,7 +5579,11 @@ id|opts.force_detach
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git checkout: --detach does not take a path argument&quot;
+)paren
 )paren
 suffix:semicolon
 r_if

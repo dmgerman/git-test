@@ -5361,7 +5361,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not read from &squot;%s&squot;&quot;
+)paren
 comma
 id|git_path
 c_func
@@ -6126,7 +6130,11 @@ id|branch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No current branch.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6138,7 +6146,11 @@ id|branch-&gt;remote
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No remote for the current branch.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6150,7 +6162,11 @@ id|branch-&gt;merge_nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No default upstream defined for the current branch.&quot;
+)paren
 )paren
 suffix:semicolon
 id|args
@@ -6198,7 +6214,11 @@ id|dst
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No remote tracking branch for %s from %s&quot;
+)paren
 comma
 id|branch-&gt;merge
 (braket
@@ -6607,15 +6627,23 @@ id|advice_resolve_conflict
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).&bslash;n&quot;
 l_string|&quot;Please, commit your changes before you can merge.&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).&quot;
+)paren
 )paren
 suffix:semicolon
 )brace

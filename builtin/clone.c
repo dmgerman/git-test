@@ -2298,7 +2298,11 @@ l_char|&squot;:&squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;repository &squot;%s&squot; does not exist&quot;
+)paren
 comma
 id|repo_name
 )paren
