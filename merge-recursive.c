@@ -17,18 +17,6 @@ macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;submodule.h&quot;
-DECL|variable|rename_limit_advice
-r_static
-r_const
-r_char
-id|rename_limit_advice
-(braket
-)braket
-op_assign
-l_string|&quot;inexact rename detection was skipped because there were too many&bslash;n&quot;
-l_string|&quot;  files. You may want to set your merge.renamelimit variable to at least&bslash;n&quot;
-l_string|&quot;  %d and retry this merge.&quot;
-suffix:semicolon
 DECL|function|shift_tree_object
 r_static
 r_struct
@@ -8951,14 +8939,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|o-&gt;needed_rename_limit
-)paren
-id|warning
+id|show
 c_func
 (paren
-id|rename_limit_advice
+id|o
+comma
+l_int|2
+)paren
+)paren
+id|diff_warn_rename_limit
+c_func
+(paren
+l_string|&quot;merge.renamelimit&quot;
 comma
 id|o-&gt;needed_rename_limit
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_return
