@@ -632,6 +632,15 @@ comma
 l_int|1
 )paren
 comma
+id|OPT__DRY_RUN
+c_func
+(paren
+op_amp
+id|opts.dry_run
+comma
+l_string|&quot;don&squot;t update the index or the work tree&quot;
+)paren
+comma
 id|OPT_SET_INT
 c_func
 (paren
@@ -1141,6 +1150,8 @@ r_if
 c_cond
 (paren
 id|opts.debug_unpack
+op_logical_or
+id|opts.dry_run
 )paren
 r_return
 l_int|0

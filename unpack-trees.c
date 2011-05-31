@@ -904,6 +904,9 @@ r_if
 c_cond
 (paren
 id|o-&gt;update
+op_logical_and
+op_logical_neg
+id|o-&gt;dry_run
 )paren
 id|unlink_entry
 c_func
@@ -978,6 +981,9 @@ r_if
 c_cond
 (paren
 id|o-&gt;update
+op_logical_and
+op_logical_neg
+id|o-&gt;dry_run
 )paren
 (brace
 id|errs
