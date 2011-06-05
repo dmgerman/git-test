@@ -4416,6 +4416,19 @@ comma
 l_string|&quot;highlight matches&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;break&quot;
+comma
+op_amp
+id|opt.file_break
+comma
+l_string|&quot;print empty line between matches from different files&quot;
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
@@ -5191,6 +5204,8 @@ c_cond
 id|opt.pre_context
 op_logical_or
 id|opt.post_context
+op_logical_or
+id|opt.file_break
 )paren
 id|skip_first_line
 op_assign
