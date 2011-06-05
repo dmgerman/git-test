@@ -4429,6 +4429,19 @@ comma
 l_string|&quot;print empty line between matches from different files&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;heading&quot;
+comma
+op_amp
+id|opt.heading
+comma
+l_string|&quot;show filename only once above matches from same file&quot;
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
