@@ -79,6 +79,8 @@ id|error
 l_string|&quot;we won&squot;t substitute all variables on stdin for you&quot;
 )paren
 suffix:semicolon
+r_break
+suffix:semicolon
 multiline_comment|/*&n;&t;  all_variables = 1;&n;      subst_from_stdin ();&n;&t;  */
 r_case
 l_int|2
