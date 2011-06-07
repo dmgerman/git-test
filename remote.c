@@ -5251,7 +5251,6 @@ id|name
 suffix:semicolon
 )brace
 DECL|function|copy_ref
-r_static
 r_struct
 id|ref
 op_star
