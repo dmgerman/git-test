@@ -3588,6 +3588,25 @@ id|rest
 )paren
 (brace
 multiline_comment|/*&n;&t; * The first character was &squot;.&squot;, but that&n;&t; * has already been discarded, we now test&n;&t; * the rest.&n;&t; */
+multiline_comment|/* &quot;.&quot; is not allowed */
+r_if
+c_cond
+(paren
+op_star
+id|rest
+op_eq
+l_char|&squot;&bslash;0&squot;
+op_logical_or
+id|is_dir_sep
+c_func
+(paren
+op_star
+id|rest
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -3595,16 +3614,6 @@ op_star
 id|rest
 )paren
 (brace
-multiline_comment|/* &quot;.&quot; is not allowed */
-r_case
-l_char|&squot;&bslash;0&squot;
-suffix:colon
-r_case
-l_char|&squot;/&squot;
-suffix:colon
-r_return
-l_int|0
-suffix:semicolon
 multiline_comment|/*&n;&t; * &quot;.git&quot; followed by  NUL or slash is bad. This&n;&t; * shares the path end test with the &quot;..&quot; case.&n;&t; */
 r_case
 l_char|&squot;g&squot;
@@ -3651,12 +3660,14 @@ l_int|1
 op_eq
 l_char|&squot;&bslash;0&squot;
 op_logical_or
+id|is_dir_sep
+c_func
+(paren
 id|rest
 (braket
 l_int|1
 )braket
-op_eq
-l_char|&squot;/&squot;
+)paren
 )paren
 r_return
 l_int|0
