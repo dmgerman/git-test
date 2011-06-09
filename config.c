@@ -209,6 +209,24 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|pair
+(braket
+l_int|0
+)braket
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;bogus config parameter: %s&quot;
+comma
+id|text
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|pair
 (braket
 l_int|0
