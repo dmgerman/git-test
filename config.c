@@ -195,13 +195,15 @@ id|text
 suffix:semicolon
 id|pair
 op_assign
-id|strbuf_split
+id|strbuf_split_max
 c_func
 (paren
 op_amp
 id|tmp
 comma
 l_char|&squot;=&squot;
+comma
+l_int|2
 )paren
 suffix:semicolon
 r_if
