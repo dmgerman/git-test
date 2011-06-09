@@ -4688,8 +4688,11 @@ r_case
 l_int|1
 suffix:colon
 multiline_comment|/* error */
-id|ret
-op_decrement
+id|die
+c_func
+(paren
+l_string|&quot;unable to parse command-line config&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
