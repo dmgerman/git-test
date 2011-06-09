@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|variable|boolean
 r_static
 r_int
@@ -64,6 +65,12 @@ DECL|variable|ambiguous
 r_static
 r_int
 id|ambiguous
+suffix:semicolon
+DECL|variable|list
+r_static
+r_struct
+id|string_list
+id|list
 suffix:semicolon
 DECL|function|length_callback
 r_static
@@ -431,6 +438,21 @@ r_int
 l_string|&quot;default&quot;
 )paren
 comma
+id|OPT_STRING_LIST
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;list&quot;
+comma
+op_amp
+id|list
+comma
+l_string|&quot;str&quot;
+comma
+l_string|&quot;add str to list&quot;
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
@@ -673,6 +695,33 @@ c_cond
 id|file
 suffix:colon
 l_string|&quot;(not set)&quot;
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|list.nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;list: %s&bslash;n&quot;
+comma
+id|list.items
+(braket
+id|i
+)braket
+dot
+id|string
 )paren
 suffix:semicolon
 r_for
