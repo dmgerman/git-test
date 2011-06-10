@@ -1453,7 +1453,7 @@ id|stream
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -1518,7 +1518,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -1529,8 +1529,8 @@ l_int|0
 op_eq
 id|Z_OK
 )paren
-multiline_comment|/* nothing */
 suffix:semicolon
+multiline_comment|/* nothing */
 multiline_comment|/* Then the data itself.. */
 id|stream.next_in
 op_assign
@@ -1543,7 +1543,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -1554,9 +1554,9 @@ id|Z_FINISH
 op_eq
 id|Z_OK
 )paren
-multiline_comment|/* nothing */
 suffix:semicolon
-id|deflateEnd
+multiline_comment|/* nothing */
+id|git_deflate_end
 c_func
 (paren
 op_amp
