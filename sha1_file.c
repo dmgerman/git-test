@@ -6050,7 +6050,7 @@ r_int
 id|unpack_sha1_header
 c_func
 (paren
-id|z_stream
+id|git_zstream
 op_star
 id|stream
 comma
@@ -6253,7 +6253,7 @@ op_star
 id|unpack_sha1_rest
 c_func
 (paren
-id|z_stream
+id|git_zstream
 op_star
 id|stream
 comma
@@ -6649,7 +6649,7 @@ id|sha1
 r_int
 id|ret
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_char
@@ -6756,7 +6756,7 @@ comma
 op_star
 id|in
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -7916,7 +7916,7 @@ id|size
 r_int
 id|st
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -10215,7 +10215,7 @@ r_void
 op_star
 id|map
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_char
@@ -12000,7 +12000,7 @@ id|compressed
 l_int|4096
 )braket
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 id|git_SHA_CTX

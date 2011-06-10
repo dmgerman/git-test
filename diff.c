@@ -9492,7 +9492,7 @@ r_char
 op_star
 id|deflated
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 id|memset

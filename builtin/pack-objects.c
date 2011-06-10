@@ -516,7 +516,7 @@ r_int
 id|size
 )paren
 (brace
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_void
@@ -660,7 +660,7 @@ r_int
 id|expect
 )paren
 (brace
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int

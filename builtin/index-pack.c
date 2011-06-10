@@ -1214,7 +1214,7 @@ id|size
 r_int
 id|status
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_void
@@ -1736,7 +1736,7 @@ comma
 op_star
 id|inbuf
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -3451,7 +3451,7 @@ r_int
 id|size
 )paren
 (brace
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int

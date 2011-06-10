@@ -4807,7 +4807,7 @@ suffix:semicolon
 id|git_SHA_CTX
 id|c
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|s
 suffix:semicolon
 id|hdrlen
@@ -5629,7 +5629,7 @@ suffix:semicolon
 id|git_SHA_CTX
 id|pack_file_ctx
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|s
 suffix:semicolon
 r_int

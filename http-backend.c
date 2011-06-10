@@ -1476,7 +1476,7 @@ r_int
 id|out
 )paren
 (brace
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int

@@ -2371,7 +2371,7 @@ multiline_comment|/* The client backend isn&squot;t giving us compressed data so
 r_int
 id|size
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
