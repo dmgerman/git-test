@@ -5054,7 +5054,7 @@ suffix:semicolon
 )brace
 id|s.avail_out
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp
@@ -5191,7 +5191,7 @@ id|dat-&gt;len
 suffix:semicolon
 id|s.avail_out
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp

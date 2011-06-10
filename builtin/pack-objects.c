@@ -555,7 +555,7 @@ id|pack_compression_level
 suffix:semicolon
 id|maxsize
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp

@@ -2402,7 +2402,7 @@ id|Z_BEST_COMPRESSION
 suffix:semicolon
 id|size
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp

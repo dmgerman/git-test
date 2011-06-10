@@ -286,6 +286,34 @@ r_return
 id|status
 suffix:semicolon
 )brace
+macro_line|#if defined(NO_DEFLATE_BOUND) || ZLIB_VERNUM &lt; 0x1200
+DECL|macro|deflateBound
+mdefine_line|#define deflateBound(c,s)  ((s) + (((s) + 7) &gt;&gt; 3) + (((s) + 63) &gt;&gt; 6) + 11)
+macro_line|#endif
+DECL|function|git_deflate_bound
+r_int
+r_int
+id|git_deflate_bound
+c_func
+(paren
+id|z_streamp
+id|strm
+comma
+r_int
+r_int
+id|size
+)paren
+(brace
+r_return
+id|deflateBound
+c_func
+(paren
+id|strm
+comma
+id|size
+)paren
+suffix:semicolon
+)brace
 DECL|function|git_deflate_init
 r_void
 id|git_deflate_init
