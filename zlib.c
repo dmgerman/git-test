@@ -1,5 +1,60 @@
 multiline_comment|/*&n; * zlib wrappers to make sure we don&squot;t silently miss errors&n; * at init time.&n; */
 macro_line|#include &quot;cache.h&quot;
+DECL|function|zerr_to_string
+r_static
+r_const
+r_char
+op_star
+id|zerr_to_string
+c_func
+(paren
+r_int
+id|status
+)paren
+(brace
+r_switch
+c_cond
+(paren
+id|status
+)paren
+(brace
+r_case
+id|Z_MEM_ERROR
+suffix:colon
+r_return
+l_string|&quot;out of memory&quot;
+suffix:semicolon
+r_case
+id|Z_VERSION_ERROR
+suffix:colon
+r_return
+l_string|&quot;wrong version&quot;
+suffix:semicolon
+r_case
+id|Z_NEED_DICT
+suffix:colon
+r_return
+l_string|&quot;needs dictionary&quot;
+suffix:semicolon
+r_case
+id|Z_DATA_ERROR
+suffix:colon
+r_return
+l_string|&quot;data stream error&quot;
+suffix:semicolon
+r_case
+id|Z_STREAM_ERROR
+suffix:colon
+r_return
+l_string|&quot;stream consistency error&quot;
+suffix:semicolon
+r_default
+suffix:colon
+r_return
+l_string|&quot;unknown error&quot;
+suffix:semicolon
+)brace
+)brace
 DECL|function|git_inflate_init
 r_void
 id|git_inflate_init
@@ -9,57 +64,34 @@ id|z_streamp
 id|strm
 )paren
 (brace
-r_const
-r_char
-op_star
-id|err
-suffix:semicolon
-r_switch
-c_cond
-(paren
+r_int
+id|status
+op_assign
 id|inflateInit
 c_func
 (paren
 id|strm
 )paren
-)paren
-(brace
-r_case
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
+op_eq
 id|Z_OK
-suffix:colon
+)paren
 r_return
 suffix:semicolon
-r_case
-id|Z_MEM_ERROR
-suffix:colon
-id|err
-op_assign
-l_string|&quot;out of memory&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-id|Z_VERSION_ERROR
-suffix:colon
-id|err
-op_assign
-l_string|&quot;wrong version&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
-id|err
-op_assign
-l_string|&quot;error&quot;
-suffix:semicolon
-)brace
 id|die
 c_func
 (paren
 l_string|&quot;inflateInit: %s (%s)&quot;
 comma
-id|err
+id|zerr_to_string
+c_func
+(paren
+id|status
+)paren
 comma
 id|strm-&gt;msg
 ques
@@ -79,28 +111,41 @@ id|z_streamp
 id|strm
 )paren
 (brace
-r_if
-c_cond
-(paren
+r_int
+id|status
+op_assign
 id|inflateEnd
 c_func
 (paren
 id|strm
 )paren
-op_ne
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
+op_eq
 id|Z_OK
 )paren
+r_return
+suffix:semicolon
 id|error
 c_func
 (paren
-l_string|&quot;inflateEnd: %s&quot;
+l_string|&quot;inflateEnd: %s (%s)&quot;
+comma
+id|zerr_to_string
+c_func
+(paren
+id|status
+)paren
 comma
 id|strm-&gt;msg
 ques
 c_cond
 id|strm-&gt;msg
 suffix:colon
-l_string|&quot;failed&quot;
+l_string|&quot;no message&quot;
 )paren
 suffix:semicolon
 )brace
@@ -117,7 +162,7 @@ id|flush
 )paren
 (brace
 r_int
-id|ret
+id|status
 op_assign
 id|inflate
 c_func
@@ -127,63 +172,12 @@ comma
 id|flush
 )paren
 suffix:semicolon
-r_const
-r_char
-op_star
-id|err
-suffix:semicolon
 r_switch
 c_cond
 (paren
-id|ret
+id|status
 )paren
 (brace
-multiline_comment|/* Out of memory is fatal. */
-r_case
-id|Z_MEM_ERROR
-suffix:colon
-id|die
-c_func
-(paren
-l_string|&quot;inflate: out of memory&quot;
-)paren
-suffix:semicolon
-multiline_comment|/* Data corruption errors: we may want to recover from them (fsck) */
-r_case
-id|Z_NEED_DICT
-suffix:colon
-id|err
-op_assign
-l_string|&quot;needs dictionary&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-id|Z_DATA_ERROR
-suffix:colon
-id|err
-op_assign
-l_string|&quot;data stream error&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-id|Z_STREAM_ERROR
-suffix:colon
-id|err
-op_assign
-l_string|&quot;stream consistency error&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
-id|err
-op_assign
-l_string|&quot;unknown error&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
 multiline_comment|/* Z_BUF_ERROR: normal, needs more space in the output buffer */
 r_case
 id|Z_BUF_ERROR
@@ -195,7 +189,20 @@ r_case
 id|Z_STREAM_END
 suffix:colon
 r_return
-id|ret
+id|status
+suffix:semicolon
+r_case
+id|Z_MEM_ERROR
+suffix:colon
+id|die
+c_func
+(paren
+l_string|&quot;inflate: out of memory&quot;
+)paren
+suffix:semicolon
+r_default
+suffix:colon
+r_break
 suffix:semicolon
 )brace
 id|error
@@ -203,7 +210,11 @@ c_func
 (paren
 l_string|&quot;inflate: %s (%s)&quot;
 comma
-id|err
+id|zerr_to_string
+c_func
+(paren
+id|status
+)paren
 comma
 id|strm-&gt;msg
 ques
@@ -214,7 +225,7 @@ l_string|&quot;no message&quot;
 )paren
 suffix:semicolon
 r_return
-id|ret
+id|status
 suffix:semicolon
 )brace
 eof
