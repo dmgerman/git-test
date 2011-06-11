@@ -42,7 +42,7 @@ r_static
 r_int
 id|core_clock_skew
 op_assign
-l_int|1
+l_int|86400
 suffix:semicolon
 DECL|struct|tag_filter
 r_struct
