@@ -992,6 +992,8 @@ c_func
 (paren
 op_amp
 id|report_buffer
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|FILE

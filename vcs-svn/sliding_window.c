@@ -293,6 +293,26 @@ c_func
 l_string|&quot;invalid delta: window slides left&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|view-&gt;max_off
+op_ge
+l_int|0
+op_logical_and
+id|view-&gt;max_off
+OL
+id|off
+op_plus
+id|width
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;delta preimage ends early&quot;
+)paren
+suffix:semicolon
 id|file_offset
 op_assign
 id|view-&gt;off
