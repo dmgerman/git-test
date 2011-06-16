@@ -434,8 +434,7 @@ id|have_git_dir
 c_func
 (paren
 )paren
-)paren
-(brace
+op_logical_and
 id|git_config
 c_func
 (paren
@@ -443,7 +442,8 @@ id|git_cygwin_config
 comma
 l_int|NULL
 )paren
-suffix:semicolon
+)paren
+(brace
 r_if
 c_cond
 (paren
