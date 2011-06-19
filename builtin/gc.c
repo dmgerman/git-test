@@ -1134,7 +1134,7 @@ c_func
 (paren
 l_string|&quot;Auto packing the repository for optimum performance. You may also&bslash;n&quot;
 l_string|&quot;run &bslash;&quot;git gc&bslash;&quot; manually. See &quot;
-l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&quot;
+l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&bslash;n&quot;
 )paren
 )paren
 suffix:semicolon
