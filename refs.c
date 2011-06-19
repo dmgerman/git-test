@@ -7706,7 +7706,7 @@ id|o
 id|error
 c_func
 (paren
-l_string|&quot;Trying to write ref %s with nonexistant object %s&quot;
+l_string|&quot;Trying to write ref %s with nonexistent object %s&quot;
 comma
 id|lock-&gt;ref_name
 comma
