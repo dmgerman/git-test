@@ -2240,6 +2240,15 @@ op_amp
 id|diff_opts
 )paren
 suffix:semicolon
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|diff_opts
+comma
+id|RECURSIVE
+)paren
+suffix:semicolon
 id|diff_opts.output_format
 op_or_assign
 id|DIFF_FORMAT_CALLBACK
