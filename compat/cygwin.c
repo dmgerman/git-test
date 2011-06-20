@@ -347,7 +347,10 @@ DECL|variable|core_filemode
 r_static
 r_int
 id|core_filemode
+op_assign
+l_int|1
 suffix:semicolon
+multiline_comment|/* matches trust_executable_bit default */
 DECL|function|git_cygwin_config
 r_static
 r_int
