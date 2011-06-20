@@ -444,9 +444,17 @@ suffix:colon
 id|HASH_WRITE_OBJECT
 )paren
 )paren
+(brace
+id|free
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 id|option
 op_assign
 id|allow_add
