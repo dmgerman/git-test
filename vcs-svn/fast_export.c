@@ -10,8 +10,6 @@ macro_line|#include &quot;sliding_window.h&quot;
 macro_line|#include &quot;line_buffer.h&quot;
 DECL|macro|MAX_GITSVN_LINE_LEN
 mdefine_line|#define MAX_GITSVN_LINE_LEN 4096
-DECL|macro|REPORT_FILENO
-mdefine_line|#define REPORT_FILENO 3
 DECL|variable|first_commit_done
 r_static
 r_uint32
@@ -65,43 +63,6 @@ c_func
 (paren
 op_amp
 id|postimage
-)paren
-suffix:semicolon
-)brace
-DECL|function|init_report_buffer
-r_static
-r_int
-id|init_report_buffer
-c_func
-(paren
-r_int
-id|fd
-)paren
-(brace
-r_static
-r_int
-id|report_buffer_initialized
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|report_buffer_initialized
-)paren
-r_return
-l_int|0
-suffix:semicolon
-id|report_buffer_initialized
-op_assign
-l_int|1
-suffix:semicolon
-r_return
-id|buffer_fdinit
-c_func
-(paren
-op_amp
-id|report_buffer
-comma
-id|fd
 )paren
 suffix:semicolon
 )brace
@@ -1113,21 +1074,6 @@ id|die
 c_func
 (paren
 l_string|&quot;cannot open temporary file for blob retrieval&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|init_report_buffer
-c_func
-(paren
-id|REPORT_FILENO
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;cannot open fd 3 for feedback from fast-import&quot;
 )paren
 suffix:semicolon
 r_if
