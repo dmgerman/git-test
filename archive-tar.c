@@ -2014,6 +2014,26 @@ op_amp
 id|tar_archiver
 )paren
 suffix:semicolon
+id|tar_filter_config
+c_func
+(paren
+l_string|&quot;tar.tgz.command&quot;
+comma
+l_string|&quot;gzip -cn&quot;
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+id|tar_filter_config
+c_func
+(paren
+l_string|&quot;tar.tar.gz.command&quot;
+comma
+l_string|&quot;gzip -cn&quot;
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
