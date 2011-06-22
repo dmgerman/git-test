@@ -1358,15 +1358,7 @@ l_int|0
 suffix:semicolon
 )brace
 r_return
-id|git_default_config
-c_func
-(paren
-id|var
-comma
-id|value
-comma
-id|cb
-)paren
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|write_tar_archive
