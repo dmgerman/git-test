@@ -2343,6 +2343,8 @@ op_member_access_from_pointer
 id|write_archive
 c_func
 (paren
+id|ar
+comma
 op_amp
 id|args
 )paren

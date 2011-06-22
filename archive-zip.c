@@ -1555,6 +1555,12 @@ r_int
 id|write_zip_archive
 c_func
 (paren
+r_const
+r_struct
+id|archiver
+op_star
+id|ar
+comma
 r_struct
 id|archiver_args
 op_star
