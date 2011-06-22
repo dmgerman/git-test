@@ -1639,6 +1639,8 @@ comma
 id|write_zip_archive
 comma
 id|ARCHIVER_WANT_COMPRESSION_LEVELS
+op_or
+id|ARCHIVER_REMOTE
 )brace
 suffix:semicolon
 DECL|function|init_zip_archiver

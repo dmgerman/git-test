@@ -626,6 +626,8 @@ comma
 l_int|1
 comma
 id|output
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
