@@ -75,6 +75,10 @@ r_int
 id|fd
 )paren
 (brace
+id|first_commit_done
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
