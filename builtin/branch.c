@@ -24,7 +24,7 @@ l_string|&quot;git branch [options] [-r | -a] [--merged | --no-merged]&quot;
 comma
 l_string|&quot;git branch [options] [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;]&quot;
 comma
-l_string|&quot;git branch [options] [-r] (-d | -D) &lt;branchname&gt;&quot;
+l_string|&quot;git branch [options] [-r] (-d | -D) &lt;branchname&gt;...&quot;
 comma
 l_string|&quot;git branch [options] (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt;&quot;
 comma
