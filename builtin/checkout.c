@@ -5696,13 +5696,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|get_sha1
+id|ref_exists
 c_func
 (paren
 id|buf.buf
-comma
-id|rev
 )paren
 )paren
 (brace
