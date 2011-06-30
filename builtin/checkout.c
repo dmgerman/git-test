@@ -3600,18 +3600,12 @@ l_string|&quot;Warning: you are leaving %d commit behind, &quot;
 l_string|&quot;not connected to&bslash;n&quot;
 l_string|&quot;any of your branches:&bslash;n&bslash;n&quot;
 l_string|&quot;%s&bslash;n&quot;
-l_string|&quot;If you want to keep it by creating a new branch, &quot;
-l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
-l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
 comma
 multiline_comment|/* The plural version */
 l_string|&quot;Warning: you are leaving %d commits behind, &quot;
 l_string|&quot;not connected to&bslash;n&quot;
 l_string|&quot;any of your branches:&bslash;n&bslash;n&quot;
 l_string|&quot;%s&bslash;n&quot;
-l_string|&quot;If you want to keep them by creating a new branch, &quot;
-l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
-l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
 comma
 multiline_comment|/* Give ngettext() the count */
 id|lost
@@ -3620,12 +3614,6 @@ comma
 id|lost
 comma
 id|sb.buf
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -3633,6 +3621,31 @@ c_func
 (paren
 op_amp
 id|sb
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_detached_head
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;If you want to keep them by creating a new branch, &quot;
+l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
+l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
+)paren
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
 )paren
 suffix:semicolon
 )brace
