@@ -3384,7 +3384,7 @@ l_int|0
 comma
 id|abbrev
 op_assign
-id|DEFAULT_ABBREV
+l_int|1
 comma
 id|detached
 op_assign
@@ -3896,6 +3896,17 @@ id|builtin_branch_usage
 comma
 id|options
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|abbrev
+op_eq
+l_int|1
+)paren
+id|abbrev
+op_assign
+id|DEFAULT_ABBREV
 suffix:semicolon
 r_if
 c_cond
