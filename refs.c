@@ -2966,14 +2966,12 @@ id|entry
 r_if
 c_cond
 (paren
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-id|base
-comma
 id|entry-&gt;name
 comma
-id|trim
+id|base
 )paren
 )paren
 r_return
@@ -3759,7 +3757,7 @@ c_func
 (paren
 l_int|NULL
 comma
-l_string|&quot;refs/&quot;
+l_string|&quot;&quot;
 comma
 id|fn
 comma
@@ -3795,7 +3793,7 @@ c_func
 (paren
 id|submodule
 comma
-l_string|&quot;refs/&quot;
+l_string|&quot;&quot;
 comma
 id|fn
 comma
@@ -4305,7 +4303,7 @@ c_func
 (paren
 l_int|NULL
 comma
-l_string|&quot;refs/&quot;
+l_string|&quot;&quot;
 comma
 id|fn
 comma
