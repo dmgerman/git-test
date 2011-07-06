@@ -10,6 +10,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
+macro_line|#include &quot;graph.h&quot;
 multiline_comment|/* bits #0-15 in revision.h */
 DECL|macro|COUNTED
 mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;16)
@@ -21,7 +22,7 @@ id|rev_list_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-rev-list [OPTION] &lt;commit-id&gt;... [ -- paths... ]&bslash;n&quot;
+l_string|&quot;git rev-list [OPTION] &lt;commit-id&gt;... [ -- paths... ]&bslash;n&quot;
 l_string|&quot;  limiting output:&bslash;n&quot;
 l_string|&quot;    --max-count=nr&bslash;n&quot;
 l_string|&quot;    --max-age=epoch&bslash;n&quot;
@@ -30,13 +31,18 @@ l_string|&quot;    --sparse&bslash;n&quot;
 l_string|&quot;    --no-merges&bslash;n&quot;
 l_string|&quot;    --remove-empty&bslash;n&quot;
 l_string|&quot;    --all&bslash;n&quot;
+l_string|&quot;    --branches&bslash;n&quot;
+l_string|&quot;    --tags&bslash;n&quot;
+l_string|&quot;    --remotes&bslash;n&quot;
 l_string|&quot;    --stdin&bslash;n&quot;
 l_string|&quot;    --quiet&bslash;n&quot;
 l_string|&quot;  ordering output:&bslash;n&quot;
 l_string|&quot;    --topo-order&bslash;n&quot;
 l_string|&quot;    --date-order&bslash;n&quot;
+l_string|&quot;    --reverse&bslash;n&quot;
 l_string|&quot;  formatting output:&bslash;n&quot;
 l_string|&quot;    --parents&bslash;n&quot;
+l_string|&quot;    --children&bslash;n&quot;
 l_string|&quot;    --objects | --objects-edge&bslash;n&quot;
 l_string|&quot;    --unpacked&bslash;n&quot;
 l_string|&quot;    --header | --pretty&bslash;n&quot;
@@ -99,6 +105,12 @@ op_star
 id|commit
 )paren
 (brace
+id|graph_show_commit
+c_func
+(paren
+id|revs.graph
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -128,6 +140,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|revs.graph
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|commit-&gt;object.flags
 op_amp
 id|BOUNDARY
@@ -136,6 +155,20 @@ id|putchar
 c_func
 (paren
 l_char|&squot;-&squot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|commit-&gt;object.flags
+op_amp
+id|UNINTERESTING
+)paren
+id|putchar
+c_func
+(paren
+l_char|&squot;^&squot;
 )paren
 suffix:semicolon
 r_else
@@ -165,6 +198,7 @@ c_func
 l_char|&squot;&gt;&squot;
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -203,7 +237,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs.parents
+id|revs.print_parents
 )paren
 (brace
 r_struct
@@ -237,6 +271,53 @@ id|parents-&gt;next
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|revs.children.name
+)paren
+(brace
+r_struct
+id|commit_list
+op_star
+id|children
+suffix:semicolon
+id|children
+op_assign
+id|lookup_decoration
+c_func
+(paren
+op_amp
+id|revs.children
+comma
+op_amp
+id|commit-&gt;object
+)paren
+suffix:semicolon
+r_while
+c_loop
+(paren
+id|children
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot; %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|children-&gt;item-&gt;object.sha1
+)paren
+)paren
+suffix:semicolon
+id|children
+op_assign
+id|children-&gt;next
+suffix:semicolon
+)brace
+)brace
 id|show_decorations
 c_func
 (paren
@@ -267,6 +348,8 @@ r_if
 c_cond
 (paren
 id|revs.verbose_header
+op_logical_and
+id|commit-&gt;buffer
 )paren
 (brace
 r_struct
@@ -306,6 +389,89 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|revs.graph
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|buf.len
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|revs.commit_format
+op_ne
+id|CMIT_FMT_ONELINE
+)paren
+id|graph_show_oneline
+c_func
+(paren
+id|revs.graph
+)paren
+suffix:semicolon
+id|graph_show_commit_msg
+c_func
+(paren
+id|revs.graph
+comma
+op_amp
+id|buf
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t;&t; * Add a newline after the commit message.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * Usually, this newline produces a blank&n;&t;&t;&t;&t; * padding line between entries, in which case&n;&t;&t;&t;&t; * we need to add graph padding on this line.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * However, the commit message may not end in a&n;&t;&t;&t;&t; * newline.  In this case the newline simply&n;&t;&t;&t;&t; * ends the last line of the commit message,&n;&t;&t;&t;&t; * and we don&squot;t need any graph output.  (This&n;&t;&t;&t;&t; * always happens with CMIT_FMT_ONELINE, and it&n;&t;&t;&t;&t; * happens with CMIT_FMT_USERFORMAT when the&n;&t;&t;&t;&t; * format doesn&squot;t explicitly end in a newline.)&n;&t;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|buf.len
+op_logical_and
+id|buf.buf
+(braket
+id|buf.len
+l_int|1
+)braket
+op_eq
+l_char|&squot;&bslash;n&squot;
+)paren
+id|graph_show_padding
+c_func
+(paren
+id|revs.graph
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/*&n;&t;&t;&t;&t; * If the message buffer is empty, just show&n;&t;&t;&t;&t; * the rest of the graph output for this&n;&t;&t;&t;&t; * commit.&n;&t;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|graph_show_remainder
+c_func
+(paren
+id|revs.graph
+)paren
+)paren
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+)brace
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
 id|buf.len
 )paren
 id|printf
@@ -318,11 +484,30 @@ comma
 id|hdr_termination
 )paren
 suffix:semicolon
+)brace
 id|strbuf_release
 c_func
 (paren
 op_amp
 id|buf
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|graph_show_remainder
+c_func
+(paren
+id|revs.graph
+)paren
+)paren
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
@@ -2252,122 +2437,6 @@ r_return
 id|best
 suffix:semicolon
 )brace
-DECL|function|read_revisions_from_stdin
-r_static
-r_void
-id|read_revisions_from_stdin
-c_func
-(paren
-r_struct
-id|rev_info
-op_star
-id|revs
-)paren
-(brace
-r_char
-id|line
-(braket
-l_int|1000
-)braket
-suffix:semicolon
-r_while
-c_loop
-(paren
-id|fgets
-c_func
-(paren
-id|line
-comma
-r_sizeof
-(paren
-id|line
-)paren
-comma
-id|stdin
-)paren
-op_ne
-l_int|NULL
-)paren
-(brace
-r_int
-id|len
-op_assign
-id|strlen
-c_func
-(paren
-id|line
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|len
-op_logical_and
-id|line
-(braket
-id|len
-l_int|1
-)braket
-op_eq
-l_char|&squot;&bslash;n&squot;
-)paren
-id|line
-(braket
-op_decrement
-id|len
-)braket
-op_assign
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|len
-)paren
-r_break
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|line
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;-&squot;
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;options not supported in --stdin mode&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|handle_revision_arg
-c_func
-(paren
-id|line
-comma
-id|revs
-comma
-l_int|0
-comma
-l_int|1
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;bad revision &squot;%s&squot;&quot;
-comma
-id|line
-)paren
-suffix:semicolon
-)brace
-)brace
 DECL|function|cmd_rev_list
 r_int
 id|cmd_rev_list
@@ -2420,6 +2489,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|init_revisions
@@ -2452,6 +2523,17 @@ op_amp
 id|revs
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|quiet
+op_assign
+id|DIFF_OPT_TST
+c_func
+(paren
+op_amp
+id|revs.diffopt
+comma
+id|QUIET
 )paren
 suffix:semicolon
 r_for
@@ -2622,26 +2704,6 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
-id|arg
-comma
-l_string|&quot;--quiet&quot;
-)paren
-)paren
-(brace
-id|quiet
-op_assign
-l_int|1
-suffix:semicolon
-r_continue
-suffix:semicolon
-)brace
 id|usage
 c_func
 (paren
@@ -2730,10 +2792,6 @@ id|revs.verbose_header
 op_logical_or
 id|revs.grep_filter
 suffix:semicolon
-id|track_object_refs
-op_assign
-l_int|0
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2743,11 +2801,20 @@ id|revs.limited
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 op_amp
 id|revs
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 r_if

@@ -2204,6 +2204,16 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|new_pack
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* parse_pack_index() already issued error message */
 id|new_pack-&gt;next
 op_assign
 id|repo-&gt;packs
@@ -3934,8 +3944,6 @@ id|verify_pack
 c_func
 (paren
 id|target
-comma
-l_int|0
 )paren
 )paren
 r_return
@@ -4424,14 +4432,10 @@ id|walker
 op_star
 id|walker
 comma
-r_char
+r_struct
+id|ref
 op_star
 id|ref
-comma
-r_int
-r_char
-op_star
-id|sha1
 )paren
 (brace
 r_struct
@@ -4448,8 +4452,6 @@ c_func
 id|data-&gt;alt-&gt;base
 comma
 id|ref
-comma
-id|sha1
 )paren
 suffix:semicolon
 )brace
@@ -4495,6 +4497,11 @@ r_const
 r_char
 op_star
 id|url
+comma
+r_struct
+id|remote
+op_star
+id|remote
 )paren
 (brace
 r_char
@@ -4534,6 +4541,7 @@ suffix:semicolon
 id|http_init
 c_func
 (paren
+id|remote
 )paren
 suffix:semicolon
 id|data-&gt;no_pragma_header

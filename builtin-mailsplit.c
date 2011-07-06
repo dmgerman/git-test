@@ -1,7 +1,7 @@
 multiline_comment|/*&n; * Totally braindamaged mbox splitter program.&n; *&n; * It just splits a mbox into a list of files: &quot;0001&quot; &quot;0002&quot; ..&n; * so you can process them further from there.&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|variable|git_mailsplit_usage
 r_static
 r_const
@@ -10,7 +10,7 @@ id|git_mailsplit_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-mailsplit [-d&lt;prec&gt;] [-f&lt;n&gt;] [-b] -o&lt;directory&gt; &lt;mbox&gt;|&lt;Maildir&gt;...&quot;
+l_string|&quot;git mailsplit [-d&lt;prec&gt;] [-f&lt;n&gt;] [-b] -o&lt;directory&gt; [&lt;mbox&gt;|&lt;Maildir&gt;...]&quot;
 suffix:semicolon
 DECL|function|is_from_line
 r_static
@@ -183,6 +183,90 @@ id|buf
 l_int|4096
 )braket
 suffix:semicolon
+multiline_comment|/* We cannot use fgets() because our lines can contain NULs */
+DECL|function|read_line_with_nul
+r_int
+id|read_line_with_nul
+c_func
+(paren
+r_char
+op_star
+id|buf
+comma
+r_int
+id|size
+comma
+id|FILE
+op_star
+id|in
+)paren
+(brace
+r_int
+id|len
+op_assign
+l_int|0
+comma
+id|c
+suffix:semicolon
+r_for
+c_loop
+(paren
+suffix:semicolon
+suffix:semicolon
+)paren
+(brace
+id|c
+op_assign
+id|getc
+c_func
+(paren
+id|in
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|c
+op_eq
+id|EOF
+)paren
+r_break
+suffix:semicolon
+id|buf
+(braket
+id|len
+op_increment
+)braket
+op_assign
+id|c
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|c
+op_eq
+l_char|&squot;&bslash;n&squot;
+op_logical_or
+id|len
+op_plus
+l_int|1
+op_ge
+id|size
+)paren
+r_break
+suffix:semicolon
+)brace
+id|buf
+(braket
+id|len
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+r_return
+id|len
+suffix:semicolon
+)brace
 multiline_comment|/* Called with the first line (potentially partial)&n; * already in buf[] -- normally that should begin with&n; * the Unix &quot;From &quot; line.  Write it into the specified&n; * file.&n; */
 DECL|function|split_one
 r_static
@@ -301,7 +385,8 @@ suffix:semicolon
 r_int
 id|is_partial
 op_assign
-(paren
+id|len
+op_logical_and
 id|buf
 (braket
 id|len
@@ -310,20 +395,23 @@ l_int|1
 )braket
 op_ne
 l_char|&squot;&bslash;n&squot;
-)paren
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|fputs
+id|fwrite
 c_func
 (paren
 id|buf
 comma
+l_int|1
+comma
+id|len
+comma
 id|output
 )paren
-op_eq
-id|EOF
+op_ne
+id|len
 )paren
 id|die
 c_func
@@ -331,10 +419,9 @@ c_func
 l_string|&quot;cannot write output&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|fgets
+id|len
+op_assign
+id|read_line_with_nul
 c_func
 (paren
 id|buf
@@ -346,8 +433,13 @@ id|buf
 comma
 id|mbox
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|len
 op_eq
-l_int|NULL
+l_int|0
 )paren
 (brace
 r_if
@@ -374,14 +466,6 @@ l_string|&quot;cannot read mbox&quot;
 )paren
 suffix:semicolon
 )brace
-id|len
-op_assign
-id|strlen
-c_func
-(paren
-id|buf
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -452,7 +536,7 @@ id|populate_maildir_list
 c_func
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 comma
@@ -617,7 +701,7 @@ comma
 id|dent-&gt;d_name
 )paren
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|name
@@ -681,7 +765,7 @@ r_int
 id|i
 suffix:semicolon
 r_struct
-id|path_list
+id|string_list
 id|list
 op_assign
 (brace
@@ -749,7 +833,7 @@ id|list.items
 id|i
 )braket
 dot
-id|path
+id|string
 )paren
 suffix:semicolon
 id|f
@@ -862,7 +946,7 @@ id|skip
 suffix:semicolon
 id|out
 suffix:colon
-id|path_list_clear
+id|string_list_clear
 c_func
 (paren
 op_amp

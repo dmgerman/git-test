@@ -347,11 +347,6 @@ op_plus
 l_int|41
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|server_capabilities
-)paren
 id|free
 c_func
 (paren
@@ -1970,6 +1965,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -2005,6 +2004,19 @@ id|git_proxy_command
 )paren
 r_return
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+r_return
+id|config_error_nonbool
+c_func
+(paren
+id|var
+)paren
 suffix:semicolon
 multiline_comment|/* [core]&n;&t;&t; * ;# matches www.kernel.org as well&n;&t;&t; * gitproxy = netcatter-1 for kernel.org&n;&t;&t; * gitproxy = netcatter-2 for sample.xz&n;&t;&t; * gitproxy = netcatter-default&n;&t;&t; */
 id|for_pos
@@ -2156,6 +2168,8 @@ c_func
 id|var
 comma
 id|value
+comma
+id|cb
 )paren
 suffix:semicolon
 )brace
@@ -2195,6 +2209,8 @@ id|git_config
 c_func
 (paren
 id|git_proxy_command_options
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|rhost_name
@@ -2502,7 +2518,13 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This returns NULL if the transport protocol does not need fork(2), or a&n; * struct child_process object if it does.  Once done, finish the connection&n; * with finish_connect() with the value returned from this function&n; * (it is safe to call finish_connect() with NULL to support the former&n; * case).&n; *&n; * If it returns, the connect is successful; it just dies on errors.&n; */
+DECL|variable|no_fork
+r_static
+r_struct
+id|child_process
+id|no_fork
+suffix:semicolon
+multiline_comment|/*&n; * This returns a dummy child_process if the transport protocol does not&n; * need fork(2), or a struct child_process object if it does.  Once done,&n; * finish the connection with finish_connect() with the value returned from&n; * this function (it is safe to call finish_connect() with NULL to support&n; * the former case).&n; *&n; * If it returns, the connect is successful; it just dies on errors (this&n; * will hopefully be changed in a libification effort, to return NULL when&n; * the connection failed).&n; */
 DECL|function|git_connect
 r_struct
 id|child_process
@@ -2712,6 +2734,13 @@ r_if
 c_cond
 (paren
 id|path
+op_logical_and
+op_logical_neg
+id|has_dos_drive_prefix
+c_func
+(paren
+id|end
+)paren
 )paren
 (brace
 r_if
@@ -2921,7 +2950,8 @@ id|path
 )paren
 suffix:semicolon
 r_return
-l_int|NULL
+op_amp
+id|no_fork
 suffix:semicolon
 )brace
 id|conn
@@ -3202,6 +3232,11 @@ c_cond
 (paren
 op_logical_neg
 id|conn
+op_logical_or
+id|conn
+op_eq
+op_amp
+id|no_fork
 )paren
 r_return
 l_int|0

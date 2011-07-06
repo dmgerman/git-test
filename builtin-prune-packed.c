@@ -9,7 +9,7 @@ id|prune_packed_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-prune-packed [-n] [-q]&quot;
+l_string|&quot;git prune-packed [-n] [-q]&quot;
 suffix:semicolon
 DECL|macro|DRY_RUN
 mdefine_line|#define DRY_RUN 01
@@ -511,11 +511,6 @@ id|prune_packed_usage
 )paren
 suffix:semicolon
 )brace
-id|sync
-c_func
-(paren
-)paren
-suffix:semicolon
 id|prune_packed_objects
 c_func
 (paren

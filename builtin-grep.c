@@ -7,6 +7,15 @@ macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;grep.h&quot;
+macro_line|#ifndef NO_EXTERNAL_GREP
+macro_line|#ifdef __unix__
+DECL|macro|NO_EXTERNAL_GREP
+mdefine_line|#define NO_EXTERNAL_GREP 0
+macro_line|#else
+DECL|macro|NO_EXTERNAL_GREP
+mdefine_line|#define NO_EXTERNAL_GREP 1
+macro_line|#endif
+macro_line|#endif
 multiline_comment|/*&n; * git grep pathspecs are somewhat different from diff-tree pathspecs;&n; * pathname wildcards are allowed.&n; */
 DECL|function|pathspec_matches
 r_static
@@ -743,7 +752,7 @@ r_return
 id|i
 suffix:semicolon
 )brace
-macro_line|#ifdef __unix__
+macro_line|#if !NO_EXTERNAL_GREP
 DECL|function|exec_grep
 r_static
 r_int
@@ -1768,7 +1777,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-macro_line|#ifdef __unix__
+macro_line|#if !NO_EXTERNAL_GREP
 multiline_comment|/*&n;&t; * Use the external &quot;grep&quot; command for the case where&n;&t; * we grep through the checked-out files. It tends to&n;&t; * be a lot more optimized&n;&t; */
 r_if
 c_cond
@@ -2007,18 +2016,19 @@ c_func
 id|tree_name
 )paren
 suffix:semicolon
-r_char
-op_star
-id|path_buf
-op_assign
-id|xmalloc
+r_struct
+id|strbuf
+id|pathbuf
+suffix:semicolon
+id|strbuf_init
 c_func
 (paren
+op_amp
+id|pathbuf
+comma
 id|PATH_MAX
 op_plus
 id|tn_len
-op_plus
-l_int|100
 )paren
 suffix:semicolon
 r_if
@@ -2027,55 +2037,43 @@ c_cond
 id|tn_len
 )paren
 (brace
-id|tn_len
-op_assign
-id|sprintf
+id|strbuf_add
 c_func
 (paren
-id|path_buf
-comma
-l_string|&quot;%s:&quot;
+op_amp
+id|pathbuf
 comma
 id|tree_name
-)paren
-suffix:semicolon
-id|down
-op_assign
-id|path_buf
-op_plus
+comma
 id|tn_len
-suffix:semicolon
-id|strcat
-c_func
-(paren
-id|down
-comma
-id|base
 )paren
 suffix:semicolon
-)brace
-r_else
-(brace
-id|down
+id|strbuf_addch
+c_func
+(paren
+op_amp
+id|pathbuf
+comma
+l_char|&squot;:&squot;
+)paren
+suffix:semicolon
+id|tn_len
 op_assign
-id|path_buf
+id|pathbuf.len
 suffix:semicolon
-id|strcpy
+)brace
+id|strbuf_addstr
 c_func
 (paren
-id|down
+op_amp
+id|pathbuf
 comma
 id|base
 )paren
 suffix:semicolon
-)brace
 id|len
 op_assign
-id|strlen
-c_func
-(paren
-id|path_buf
-)paren
+id|pathbuf.len
 suffix:semicolon
 r_while
 c_loop
@@ -2090,14 +2088,30 @@ id|entry
 )paren
 )paren
 (brace
-id|strcpy
+r_int
+id|te_len
+op_assign
+id|tree_entry_len
 c_func
 (paren
-id|path_buf
-op_plus
+id|entry.path
+comma
+id|entry.sha1
+)paren
+suffix:semicolon
+id|pathbuf.len
+op_assign
 id|len
+suffix:semicolon
+id|strbuf_add
+c_func
+(paren
+op_amp
+id|pathbuf
 comma
 id|entry.path
+comma
+id|te_len
 )paren
 suffix:semicolon
 r_if
@@ -2110,23 +2124,20 @@ id|entry.mode
 )paren
 )paren
 multiline_comment|/* Match &quot;abc/&quot; against pathspec to&n;&t;&t;&t; * decide if we want to descend into &quot;abc&quot;&n;&t;&t;&t; * directory.&n;&t;&t;&t; */
-id|strcpy
+id|strbuf_addch
 c_func
 (paren
-id|path_buf
-op_plus
-id|len
-op_plus
-id|tree_entry_len
-c_func
-(paren
-id|entry.path
+op_amp
+id|pathbuf
 comma
-id|entry.sha1
+l_char|&squot;/&squot;
 )paren
-comma
-l_string|&quot;/&quot;
-)paren
+suffix:semicolon
+id|down
+op_assign
+id|pathbuf.buf
+op_plus
+id|tn_len
 suffix:semicolon
 r_if
 c_cond
@@ -2160,7 +2171,7 @@ id|opt
 comma
 id|entry.sha1
 comma
-id|path_buf
+id|pathbuf.buf
 comma
 id|tn_len
 )paren
@@ -2260,6 +2271,13 @@ id|data
 suffix:semicolon
 )brace
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|pathbuf
+)paren
+suffix:semicolon
 r_return
 id|hit
 suffix:semicolon
@@ -2430,7 +2448,7 @@ id|builtin_grep_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-grep &lt;option&gt;* &lt;rev&gt;* [-e] &lt;pattern&gt; [&lt;path&gt;...]&quot;
+l_string|&quot;git grep &lt;option&gt;* [-e] &lt;pattern&gt; &lt;rev&gt;* [[--] &lt;path&gt;...]&quot;
 suffix:semicolon
 DECL|variable|emsg_invalid_context_len
 r_static
@@ -2881,6 +2899,15 @@ id|strcmp
 c_func
 (paren
 l_string|&quot;-l&quot;
+comma
+id|arg
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--name-only&quot;
 comma
 id|arg
 )paren

@@ -1,11 +1,12 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
-DECL|function|my_mktime
-r_static
+multiline_comment|/*&n; * This is like mktime, but without normalization of tm_wday and tm_yday.&n; */
+DECL|function|tm_to_time_t
 id|time_t
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
+r_const
 r_struct
 id|tm
 op_star
@@ -344,7 +345,7 @@ id|tm
 suffix:semicolon
 id|t_local
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 op_amp
@@ -1310,7 +1311,7 @@ multiline_comment|/* Guam Standard, USSR Zone 9 */
 l_string|&quot;NZT&quot;
 comma
 op_plus
-l_int|11
+l_int|12
 comma
 l_int|0
 comma
@@ -1321,7 +1322,7 @@ multiline_comment|/* New Zealand */
 l_string|&quot;NZST&quot;
 comma
 op_plus
-l_int|11
+l_int|12
 comma
 l_int|0
 comma
@@ -1332,7 +1333,7 @@ multiline_comment|/* New Zealand Standard */
 l_string|&quot;NZDT&quot;
 comma
 op_plus
-l_int|11
+l_int|12
 comma
 l_int|1
 comma
@@ -1914,7 +1915,7 @@ l_int|1
 suffix:semicolon
 id|specified
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 id|r
@@ -3060,7 +3061,7 @@ suffix:semicolon
 multiline_comment|/* mktime uses local timezone */
 id|then
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 op_amp
@@ -3287,7 +3288,7 @@ id|now
 suffix:semicolon
 id|offset
 op_assign
-id|my_mktime
+id|tm_to_time_t
 c_func
 (paren
 id|localtime
@@ -3639,27 +3640,19 @@ op_star
 id|num
 )paren
 (brace
-id|tm-&gt;tm_mon
-op_assign
-id|tm-&gt;tm_wday
-op_assign
-id|tm-&gt;tm_yday
-op_assign
-id|tm-&gt;tm_hour
-op_assign
-id|tm-&gt;tm_min
-op_assign
-id|tm-&gt;tm_sec
+id|time_t
+id|n
 op_assign
 l_int|0
 suffix:semicolon
-id|tm-&gt;tm_year
-op_assign
-l_int|70
-suffix:semicolon
-id|tm-&gt;tm_mday
-op_assign
-l_int|1
+id|localtime_r
+c_func
+(paren
+op_amp
+id|n
+comma
+id|tm
+)paren
 suffix:semicolon
 )brace
 DECL|struct|special

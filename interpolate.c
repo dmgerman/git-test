@@ -37,11 +37,6 @@ id|newval
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|oldval
-)paren
 id|free
 c_func
 (paren

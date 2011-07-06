@@ -12,7 +12,7 @@ id|tar_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-tar-tree [--remote=&lt;repo&gt;] &lt;tree-ish&gt; [basedir]&bslash;n&quot;
+l_string|&quot;git tar-tree [--remote=&lt;repo&gt;] &lt;tree-ish&gt; [basedir]&bslash;n&quot;
 l_string|&quot;*** Note that this command is now deprecated; use git-archive instead.&quot;
 suffix:semicolon
 DECL|function|cmd_tar_tree

@@ -10,7 +10,7 @@ id|ls_remote_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-remote [--upload-pack=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt;&quot;
+l_string|&quot;git ls-remote [--upload-pack=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt;&quot;
 suffix:semicolon
 multiline_comment|/*&n; * Is there one among the list of patterns that match the tail part&n; * of the path?&n; */
 DECL|function|tail_match
@@ -156,8 +156,6 @@ l_int|NULL
 suffix:semicolon
 r_int
 id|nongit
-op_assign
-l_int|0
 suffix:semicolon
 r_int
 id|flags
@@ -554,8 +552,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|ref
+id|transport_disconnect
+c_func
+(paren
+id|transport
+)paren
 )paren
 r_return
 l_int|1

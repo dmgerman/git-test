@@ -343,7 +343,7 @@ comma
 op_amp
 id|xpp
 comma
-id|XDL_MERGE_ZEALOUS
+id|XDL_MERGE_ZEALOUS_ALNUM
 comma
 op_amp
 id|result
@@ -429,6 +429,8 @@ r_else
 r_if
 c_cond
 (paren
+id|result.size
+op_logical_and
 id|fwrite
 c_func
 (paren

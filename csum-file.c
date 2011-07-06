@@ -134,7 +134,8 @@ op_star
 id|result
 comma
 r_int
-id|final
+r_int
+id|flags
 )paren
 (brace
 r_int
@@ -178,7 +179,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|final
+id|flags
+op_amp
+(paren
+id|CSUM_CLOSE
+op_or
+id|CSUM_FSYNC
+)paren
 )paren
 (brace
 multiline_comment|/* write checksum and close fd */
@@ -210,6 +217,21 @@ c_func
 id|f
 comma
 l_int|20
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|CSUM_FSYNC
+)paren
+id|fsync_or_die
+c_func
+(paren
+id|f-&gt;fd
+comma
+id|f-&gt;name
 )paren
 suffix:semicolon
 r_if

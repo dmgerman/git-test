@@ -2,6 +2,13 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
+multiline_comment|/* Stubs for functions that make no sense for git-shell. These stubs&n; * are provided here to avoid linking in external redundant modules.&n; */
+DECL|function|release_pack_memory
+r_void
+DECL|function|trace_argv_printf
+r_void
+DECL|function|trace_printf
+r_void
 DECL|function|do_generic_cmd
 r_static
 r_int
@@ -25,6 +32,11 @@ id|my_argv
 (braket
 l_int|4
 )braket
+suffix:semicolon
+id|setup_path
+c_func
+(paren
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -154,7 +166,6 @@ suffix:semicolon
 id|setup_path
 c_func
 (paren
-l_int|NULL
 )paren
 suffix:semicolon
 r_return
@@ -247,6 +258,7 @@ id|commands
 op_star
 id|cmd
 suffix:semicolon
+multiline_comment|/*&n;&t; * Special hack to pretend to be a CVS server&n;&t; */
 r_if
 c_cond
 (paren
@@ -269,7 +281,7 @@ l_string|&quot;cvs server&quot;
 id|argv
 op_decrement
 suffix:semicolon
-multiline_comment|/* We want to see &quot;-c cmd args&quot;, and nothing else */
+multiline_comment|/*&n;&t; * We do not accept anything but &quot;-c&quot; followed by &quot;cmd arg&quot;,&n;&t; * where &quot;cmd&quot; is a very limited subset of git commands.&n;&t; */
 r_else
 r_if
 c_cond
@@ -302,13 +314,36 @@ id|argv
 l_int|2
 )braket
 suffix:semicolon
-id|argv
-op_add_assign
-l_int|2
-suffix:semicolon
-id|argc
-op_sub_assign
-l_int|2
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strncmp
+c_func
+(paren
+id|prog
+comma
+l_string|&quot;git&quot;
+comma
+l_int|3
+)paren
+op_logical_and
+id|isspace
+c_func
+(paren
+id|prog
+(braket
+l_int|3
+)braket
+)paren
+)paren
+multiline_comment|/* Accept &quot;git foo&quot; as if the caller said &quot;git-foo&quot;. */
+id|prog
+(braket
+l_int|3
+)braket
+op_assign
+l_char|&squot;-&squot;
 suffix:semicolon
 r_for
 c_loop

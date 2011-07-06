@@ -305,7 +305,7 @@ id|diff_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-diff-tree [--stdin] [-m] [-c] [--cc] [-s] [-v] [--pretty] [-t] [-r] [--root] &quot;
+l_string|&quot;git diff-tree [--stdin] [-m] [-c] [--cc] [-s] [-v] [--pretty] [-t] [-r] [--root] &quot;
 l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;tree-ish&gt;] [&lt;path&gt;...]&bslash;n&quot;
 l_string|&quot;  -r            diff recursively&bslash;n&quot;
 l_string|&quot;  --root        include the initial commit as diff against /dev/null&bslash;n&quot;
@@ -374,6 +374,8 @@ id|git_config
 c_func
 (paren
 id|git_diff_basic_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* no &quot;diff&quot; UI options */

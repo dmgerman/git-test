@@ -16,7 +16,7 @@ id|builtin_rm_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-rm [options] [--] &lt;file&gt;...&quot;
+l_string|&quot;git rm [options] [--] &lt;file&gt;...&quot;
 comma
 l_int|NULL
 )brace
@@ -596,7 +596,7 @@ c_func
 (paren
 l_char|&squot;f&squot;
 comma
-l_int|NULL
+l_string|&quot;force&quot;
 comma
 op_amp
 id|force
@@ -676,33 +676,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
-)paren
-suffix:semicolon
-id|newfd
-op_assign
-id|hold_locked_index
-c_func
-(paren
-op_amp
-id|lock_file
 comma
-l_int|1
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|read_cache
-c_func
-(paren
-)paren
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;index file corrupt&quot;
+l_int|NULL
 )paren
 suffix:semicolon
 id|argc
@@ -744,6 +719,33 @@ id|index_only
 id|setup_work_tree
 c_func
 (paren
+)paren
+suffix:semicolon
+id|newfd
+op_assign
+id|hold_locked_index
+c_func
+(paren
+op_amp
+id|lock_file
+comma
+l_int|1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|read_cache
+c_func
+(paren
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;index file corrupt&quot;
 )paren
 suffix:semicolon
 id|pathspec

@@ -396,7 +396,7 @@ id|count_objects_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git-count-objects [-v]&quot;
+l_string|&quot;git count-objects [-v]&quot;
 comma
 l_int|NULL
 )brace

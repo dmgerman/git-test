@@ -1761,7 +1761,7 @@ id|update_index_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--really-refresh] [--cacheinfo] [--chmod=(+|-)x] [--assume-unchanged] [--info-only] [--force-remove] [--stdin] [--index-info] [--unresolve] [--again | -g] [--ignore-missing] [-z] [--verbose] [--] &lt;file&gt;...&quot;
+l_string|&quot;git update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--really-refresh] [--cacheinfo] [--chmod=(+|-)x] [--assume-unchanged] [--info-only] [--force-remove] [--stdin] [--index-info] [--unresolve] [--again | -g] [--ignore-missing] [-z] [--verbose] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 DECL|variable|head_sha1
 r_static
@@ -2694,6 +2694,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* We can&squot;t free this memory, it becomes part of a linked list parsed atexit() */
@@ -2829,6 +2831,26 @@ l_string|&quot;-q&quot;
 id|refresh_flags
 op_or_assign
 id|REFRESH_QUIET
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|path
+comma
+l_string|&quot;--ignore-submodules&quot;
+)paren
+)paren
+(brace
+id|refresh_flags
+op_or_assign
+id|REFRESH_IGNORE_SUBMODULES
 suffix:semicolon
 r_continue
 suffix:semicolon

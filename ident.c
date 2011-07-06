@@ -824,7 +824,7 @@ op_star
 id|env_hint
 op_assign
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;*** Your name cannot be determined from your system services (gecos).&bslash;n&quot;
+l_string|&quot;*** Please tell me who you are.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;Run&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
@@ -974,7 +974,7 @@ id|env_hint
 op_assign
 l_int|NULL
 suffix:semicolon
-multiline_comment|/* warn only once, for &quot;git-var -l&quot; */
+multiline_comment|/* warn only once, for &quot;git var -l&quot; */
 )brace
 r_if
 c_cond
@@ -1283,6 +1283,25 @@ r_int
 id|flag
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_COMMITTER_NAME&quot;
+)paren
+op_logical_and
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_COMMITTER_EMAIL&quot;
+)paren
+)paren
+id|user_ident_explicitly_given
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 id|fmt_ident
 c_func

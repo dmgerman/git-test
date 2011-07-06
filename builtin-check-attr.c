@@ -10,7 +10,7 @@ id|check_attr_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-check-attr attr... [--] pathname...&quot;
+l_string|&quot;git check-attr attr... [--] pathname...&quot;
 suffix:semicolon
 DECL|function|cmd_check_attr
 r_int

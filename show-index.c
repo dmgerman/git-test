@@ -619,7 +619,9 @@ c_func
 (paren
 l_string|&quot;%&quot;
 id|PRIuMAX
-l_string|&quot; %s (%08x)&bslash;n&quot;
+l_string|&quot; %s (%08&quot;
+id|PRIx32
+l_string|&quot;)&bslash;n&quot;
 comma
 (paren
 r_uintmax

@@ -10,7 +10,7 @@ id|show_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n[,b]] &lt;branch&gt;&quot;
+l_string|&quot;git show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n[,b]] &lt;branch&gt;&quot;
 suffix:semicolon
 DECL|variable|show_branch_usage_reflog
 r_static
@@ -2745,6 +2745,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -2760,6 +2764,19 @@ l_string|&quot;showbranch.default&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+r_return
+id|config_error_nonbool
+c_func
+(paren
+id|var
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2825,6 +2842,8 @@ c_func
 id|var
 comma
 id|value
+comma
+id|cb
 )paren
 suffix:semicolon
 )brace
@@ -3197,6 +3216,8 @@ id|git_config
 c_func
 (paren
 id|git_show_branch_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* If nothing is specified, try the default first */
@@ -4248,20 +4269,28 @@ id|has_head
 )paren
 (brace
 r_int
-id|pfxlen
+id|offset
 op_assign
-id|strlen
+op_logical_neg
+id|prefixcmp
 c_func
 (paren
+id|head
+comma
 l_string|&quot;refs/heads/&quot;
 )paren
+ques
+c_cond
+l_int|11
+suffix:colon
+l_int|0
 suffix:semicolon
 id|append_one_rev
 c_func
 (paren
 id|head
 op_plus
-id|pfxlen
+id|offset
 )paren
 suffix:semicolon
 )brace

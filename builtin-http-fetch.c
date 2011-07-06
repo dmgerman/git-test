@@ -96,6 +96,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_while
@@ -408,6 +410,8 @@ id|get_http_walker
 c_func
 (paren
 id|url
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|walker-&gt;get_tree
@@ -484,11 +488,6 @@ c_func
 id|walker
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|rewritten_url
-)paren
 id|free
 c_func
 (paren

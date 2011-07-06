@@ -60,7 +60,7 @@ id|ls_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-tree [-d] [-r] [-t] [-l] [-z] [--name-only] [--name-status] [--full-name] [--abbrev[=&lt;n&gt;]] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git ls-tree [-d] [-r] [-t] [-l] [-z] [--name-only] [--name-status] [--full-name] [--abbrev[=&lt;n&gt;]] &lt;tree-ish&gt; [path...]&quot;
 suffix:semicolon
 DECL|function|show_recursive
 r_static
@@ -235,6 +235,10 @@ id|mode
 comma
 r_int
 id|stage
+comma
+r_void
+op_star
+id|context
 )paren
 (brace
 r_int
@@ -263,7 +267,7 @@ id|mode
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * Maybe we want to have some recursive version here?&n;&t;&t; *&n;&t;&t; * Something like:&n;&t;&t; *&n;&t;&t;if (show_subprojects(base, baselen, pathname)) {&n;&t;&t;&t;if (fork()) {&n;&t;&t;&t;&t;chdir(base);&n;&t;&t;&t;&t;exec ls-tree;&n;&t;&t;&t;}&n;&t;&t;&t;waitpid();&n;&t;&t;}&n;&t;&t; *&n;&t;&t; * ..or similar..&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Maybe we want to have some recursive version here?&n;&t;&t; *&n;&t;&t; * Something similar to this incomplete example:&n;&t;&t; *&n;&t;&t;if (show_subprojects(base, baselen, pathname)) {&n;&t;&t;&t;struct child_process ls_tree;&n;&n;&t;&t;&t;ls_tree.dir = base;&n;&t;&t;&t;ls_tree.argv = ls-tree;&n;&t;&t;&t;start_command(&amp;ls_tree);&n;&t;&t;}&n;&t;&t; *&n;&t;&t; */
 id|type
 op_assign
 id|commit_type
@@ -540,6 +544,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|ls_tree_prefix
@@ -942,6 +948,8 @@ comma
 id|pathspec
 comma
 id|show_tree
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_return

@@ -1169,6 +1169,15 @@ id|active_cache
 id|i
 )braket
 suffix:semicolon
+r_int
+id|dtype
+op_assign
+id|ce_to_dtype
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1178,6 +1187,9 @@ c_func
 id|dir
 comma
 id|ce-&gt;name
+comma
+op_amp
+id|dtype
 )paren
 op_ne
 id|dir-&gt;show_ignored
@@ -1266,6 +1278,15 @@ suffix:semicolon
 r_int
 id|err
 suffix:semicolon
+r_int
+id|dtype
+op_assign
+id|ce_to_dtype
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1275,6 +1296,9 @@ c_func
 id|dir
 comma
 id|ce-&gt;name
+comma
+op_amp
+id|dtype
 )paren
 op_ne
 id|dir-&gt;show_ignored
@@ -2093,7 +2117,7 @@ id|ls_files_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
+l_string|&quot;git ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* &quot;
 l_string|&quot;[ --ignored ] [--exclude=&lt;pattern&gt;] [--exclude-from=&lt;file&gt;] &quot;
 l_string|&quot;[ --exclude-per-directory=&lt;filename&gt; ] [--exclude-standard] &quot;
 l_string|&quot;[--full-name] [--abbrev] [--] [&lt;file&gt;]*&quot;
@@ -2165,6 +2189,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_for

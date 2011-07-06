@@ -8,7 +8,7 @@ id|var_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-var [-l | &lt;variable&gt;]&quot;
+l_string|&quot;git var [-l | &lt;variable&gt;]&quot;
 suffix:semicolon
 DECL|struct|git_var
 r_struct
@@ -196,6 +196,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -229,6 +233,8 @@ c_func
 id|var
 comma
 id|value
+comma
+id|cb
 )paren
 suffix:semicolon
 )brace
@@ -251,6 +257,9 @@ r_char
 op_star
 id|val
 suffix:semicolon
+r_int
+id|nongit
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -266,9 +275,11 @@ id|var_usage
 )paren
 suffix:semicolon
 )brace
-id|setup_git_directory
+id|setup_git_directory_gently
 c_func
 (paren
+op_amp
+id|nongit
 )paren
 suffix:semicolon
 id|val
@@ -296,6 +307,8 @@ id|git_config
 c_func
 (paren
 id|show_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|list_vars
@@ -311,6 +324,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|val
