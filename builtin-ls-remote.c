@@ -10,7 +10,7 @@ id|ls_remote_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git ls-remote [--upload-pack=&lt;git-upload-pack&gt;] [&lt;host&gt;:]&lt;directory&gt;&quot;
+l_string|&quot;git ls-remote [--heads] [--tags]  [-u &lt;exec&gt; | --upload-pack &lt;exec&gt;] &lt;repository&gt; &lt;refs&gt;...&quot;
 suffix:semicolon
 multiline_comment|/*&n; * Is there one among the list of patterns that match the tail part&n; * of the path?&n; */
 DECL|function|tail_match
@@ -479,11 +479,6 @@ suffix:semicolon
 )brace
 id|remote
 op_assign
-id|nongit
-ques
-c_cond
-l_int|NULL
-suffix:colon
 id|remote_get
 c_func
 (paren
@@ -493,8 +488,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote
-op_logical_and
 op_logical_neg
 id|remote-&gt;url_nr
 )paren
@@ -513,15 +506,7 @@ c_func
 (paren
 id|remote
 comma
-id|remote
-ques
-c_cond
-id|remote-&gt;url
-(braket
-l_int|0
-)braket
-suffix:colon
-id|dest
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

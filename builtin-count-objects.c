@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git count-objects&quot;.&n; *&n; * Copyright (c) 2006 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 DECL|function|count_objects
@@ -27,8 +28,7 @@ r_int
 op_star
 id|loose
 comma
-r_int
-r_int
+id|off_t
 op_star
 id|loose_size
 comma
@@ -90,42 +90,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|is_dot_or_dotdot
+c_func
 (paren
 id|ent-&gt;d_name
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;.&squot;
-)paren
-op_logical_and
-(paren
-id|ent-&gt;d_name
-(braket
-l_int|1
-)braket
-op_eq
-l_int|0
-op_logical_or
-(paren
-(paren
-id|ent-&gt;d_name
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;.&squot;
-)paren
-op_logical_and
-(paren
-id|ent-&gt;d_name
-(braket
-l_int|2
-)braket
-op_eq
-l_int|0
-)paren
-)paren
 )paren
 )paren
 r_continue
@@ -264,7 +232,11 @@ op_add_assign
 id|xsize_t
 c_func
 (paren
-id|st.st_blocks
+id|on_disk_bytes
+c_func
+(paren
+id|st
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -373,8 +345,6 @@ id|has_sha1_pack
 c_func
 (paren
 id|sha1
-comma
-l_int|NULL
 )paren
 )paren
 (paren
@@ -477,8 +447,7 @@ id|garbage
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-r_int
+id|off_t
 id|loose_size
 op_assign
 l_int|0
@@ -512,6 +481,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|prefix
 comma
 id|opts
 comma
@@ -661,6 +632,11 @@ id|num_pack
 op_assign
 l_int|0
 suffix:semicolon
+id|off_t
+id|size_pack
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -709,6 +685,12 @@ id|packed
 op_add_assign
 id|p-&gt;num_objects
 suffix:semicolon
+id|size_pack
+op_add_assign
+id|p-&gt;pack_size
+op_plus
+id|p-&gt;index_size
+suffix:semicolon
 id|num_pack
 op_increment
 suffix:semicolon
@@ -726,9 +708,15 @@ c_func
 (paren
 l_string|&quot;size: %lu&bslash;n&quot;
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|loose_size
 op_div
-l_int|2
+l_int|1024
+)paren
 )paren
 suffix:semicolon
 id|printf
@@ -745,6 +733,22 @@ c_func
 l_string|&quot;packs: %lu&bslash;n&quot;
 comma
 id|num_pack
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;size-pack: %lu&bslash;n&quot;
+comma
+(paren
+r_int
+r_int
+)paren
+(paren
+id|size_pack
+op_div
+l_int|1024
+)paren
 )paren
 suffix:semicolon
 id|printf
@@ -772,9 +776,15 @@ l_string|&quot;%lu objects, %lu kilobytes&bslash;n&quot;
 comma
 id|loose
 comma
+(paren
+r_int
+r_int
+)paren
+(paren
 id|loose_size
 op_div
-l_int|2
+l_int|1024
+)paren
 )paren
 suffix:semicolon
 r_return

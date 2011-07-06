@@ -13,7 +13,17 @@ id|tar_tree_usage
 )braket
 op_assign
 l_string|&quot;git tar-tree [--remote=&lt;repo&gt;] &lt;tree-ish&gt; [basedir]&bslash;n&quot;
-l_string|&quot;*** Note that this command is now deprecated; use git-archive instead.&quot;
+l_string|&quot;*** Note that this command is now deprecated; use &bslash;&quot;git archive&bslash;&quot; instead.&quot;
+suffix:semicolon
+DECL|variable|builtin_get_tar_commit_id_usage
+r_static
+r_const
+r_char
+id|builtin_get_tar_commit_id_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git get-tar-commit-id &lt; &lt;tarfile&gt;&quot;
 suffix:semicolon
 DECL|function|cmd_tar_tree
 r_int
@@ -35,7 +45,7 @@ op_star
 id|prefix
 )paren
 (brace
-multiline_comment|/*&n;&t; * git-tar-tree is now a wrapper around git-archive --format=tar&n;&t; *&n;&t; * $0 --remote=&lt;repo&gt; arg... ==&gt;&n;&t; *&t;git-archive --format=tar --remote=&lt;repo&gt; arg...&n;&t; * $0 tree-ish ==&gt;&n;&t; *&t;git-archive --format=tar tree-ish&n;&t; * $0 tree-ish basedir ==&gt;&n;&t; * &t;git-archive --format-tar --prefix=basedir tree-ish&n;&t; */
+multiline_comment|/*&n;&t; * &quot;git tar-tree&quot; is now a wrapper around &quot;git archive --format=tar&quot;&n;&t; *&n;&t; * $0 --remote=&lt;repo&gt; arg... ==&gt;&n;&t; *&t;git archive --format=tar --remote=&lt;repo&gt; arg...&n;&t; * $0 tree-ish ==&gt;&n;&t; *&t;git archive --format=tar tree-ish&n;&t; * $0 tree-ish basedir ==&gt;&n;&t; * &t;git archive --format-tar --prefix=basedir tree-ish&n;&t; */
 r_int
 id|i
 suffix:semicolon
@@ -56,7 +66,7 @@ id|nargv
 comma
 id|argc
 op_plus
-l_int|2
+l_int|3
 )paren
 suffix:semicolon
 r_char
@@ -74,7 +84,7 @@ id|nargc
 op_increment
 )braket
 op_assign
-l_string|&quot;git-archive&quot;
+l_string|&quot;archive&quot;
 suffix:semicolon
 id|nargv
 (braket
@@ -122,6 +132,15 @@ id|argc
 op_decrement
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Because it&squot;s just a compatibility wrapper, tar-tree supports only&n;&t; * the old behaviour of reading attributes from the work tree.&n;&t; */
+id|nargv
+(braket
+id|nargc
+op_increment
+)braket
+op_assign
+l_string|&quot;--worktree-attributes&quot;
+suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -209,8 +228,8 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;*** git-tar-tree is now deprecated.&bslash;n&quot;
-l_string|&quot;*** Running git-archive instead.&bslash;n***&quot;
+l_string|&quot;*** &bslash;&quot;git tar-tree&bslash;&quot; is now deprecated.&bslash;n&quot;
+l_string|&quot;*** Running &bslash;&quot;git archive&bslash;&quot; instead.&bslash;n***&quot;
 )paren
 suffix:semicolon
 r_for
@@ -322,6 +341,19 @@ suffix:semicolon
 id|ssize_t
 id|n
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+op_ne
+l_int|1
+)paren
+id|usage
+c_func
+(paren
+id|builtin_get_tar_commit_id_usage
+)paren
+suffix:semicolon
 id|n
 op_assign
 id|read_in_full
@@ -344,7 +376,7 @@ id|HEADERSIZE
 id|die
 c_func
 (paren
-l_string|&quot;git-get-tar-commit-id: read error&quot;
+l_string|&quot;git get-tar-commit-id: read error&quot;
 )paren
 suffix:semicolon
 r_if
@@ -397,10 +429,10 @@ id|n
 OL
 l_int|41
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;git-get-tar-commit-id: write error&quot;
+l_string|&quot;git get-tar-commit-id: write error&quot;
 )paren
 suffix:semicolon
 r_return

@@ -706,7 +706,7 @@ c_func
 (paren
 id|src
 comma
-l_int|0
+l_int|1
 )paren
 )paren
 r_return
@@ -723,7 +723,7 @@ c_func
 (paren
 id|dst
 comma
-l_int|0
+l_int|1
 )paren
 )paren
 r_return
@@ -779,6 +779,40 @@ OL
 id|delta_size
 op_star
 id|MAX_SCORE
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|src-&gt;cnt_data
+op_logical_and
+id|diff_populate_filespec
+c_func
+(paren
+id|src
+comma
+l_int|0
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dst-&gt;cnt_data
+op_logical_and
+id|diff_populate_filespec
+c_func
+(paren
+id|dst
+comma
+l_int|0
+)paren
 )paren
 r_return
 l_int|0
@@ -1159,7 +1193,7 @@ id|source
 op_assign
 id|p-&gt;filespec
 suffix:semicolon
-multiline_comment|/* False hash collission? */
+multiline_comment|/* False hash collision? */
 r_if
 c_cond
 (paren
@@ -2130,7 +2164,11 @@ id|options-&gt;warn_on_too_large_rename
 id|warning
 c_func
 (paren
-l_string|&quot;too many files, skipping inexact rename detection&quot;
+l_string|&quot;too many files (created: %d deleted: %d), skipping inexact rename detection&quot;
+comma
+id|num_create
+comma
+id|num_src
 )paren
 suffix:semicolon
 r_goto
@@ -2303,20 +2341,20 @@ op_amp
 id|this_src
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Once we run estimate_similarity,&n;&t;&t;&t; * We do not need the text anymore.&n;&t;&t;&t; */
 id|diff_free_filespec_blob
 c_func
 (paren
 id|one
 )paren
 suffix:semicolon
-)brace
-multiline_comment|/* We do not need the text anymore */
 id|diff_free_filespec_blob
 c_func
 (paren
 id|two
 )paren
 suffix:semicolon
+)brace
 id|dst_cnt
 op_increment
 suffix:semicolon

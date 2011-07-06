@@ -621,7 +621,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;git-cat-file: unknown option: %s&bslash;n&quot;
+l_string|&quot;git cat-file: unknown option: %s&quot;
 comma
 id|exp_type
 )paren
@@ -636,7 +636,7 @@ id|buf
 id|die
 c_func
 (paren
-l_string|&quot;git-cat-file %s: bad file&quot;
+l_string|&quot;git cat-file %s: bad file&quot;
 comma
 id|obj_name
 )paren
@@ -870,15 +870,8 @@ id|print_contents
 r_struct
 id|strbuf
 id|buf
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_while
 c_loop
@@ -932,9 +925,9 @@ id|cat_file_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git cat-file [-t|-s|-e|-p|&lt;type&gt;] &lt;sha1&gt;&quot;
+l_string|&quot;git cat-file (-t|-s|-e|-p|&lt;type&gt;) &lt;object&gt;&quot;
 comma
-l_string|&quot;git cat-file [--batch|--batch-check] &lt; &lt;list_of_sha1s&gt;&quot;
+l_string|&quot;git cat-file (--batch|--batch-check) &lt; &lt;list_of_objects&gt;&quot;
 comma
 l_int|NULL
 )brace
@@ -1125,6 +1118,8 @@ c_func
 id|argc
 comma
 id|argv
+comma
+id|prefix
 comma
 id|options
 comma

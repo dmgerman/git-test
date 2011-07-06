@@ -1,4 +1,40 @@
 macro_line|#include &quot;cache.h&quot;
+multiline_comment|/*&n; * Do not use this for inspecting *tracked* content.  When path is a&n; * symlink to a directory, we do not want to say it is a directory when&n; * dealing with tracked content in the working tree.&n; */
+DECL|function|is_directory
+r_int
+id|is_directory
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+)paren
+(brace
+r_struct
+id|stat
+id|st
+suffix:semicolon
+r_return
+(paren
+op_logical_neg
+id|stat
+c_func
+(paren
+id|path
+comma
+op_amp
+id|st
+)paren
+op_logical_and
+id|S_ISDIR
+c_func
+(paren
+id|st.st_mode
+)paren
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* We allow &quot;recursive&quot; symbolic links. Only within reason, though. */
 DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
@@ -55,8 +91,6 @@ r_int
 id|buf_index
 op_assign
 l_int|1
-comma
-id|len
 suffix:semicolon
 r_int
 id|depth
@@ -107,20 +141,11 @@ op_decrement
 r_if
 c_cond
 (paren
-id|stat
+op_logical_neg
+id|is_directory
 c_func
 (paren
 id|buf
-comma
-op_amp
-id|st
-)paren
-op_logical_or
-op_logical_neg
-id|S_ISDIR
-c_func
-(paren
-id|st.st_mode
 )paren
 )paren
 (brace
@@ -201,7 +226,7 @@ id|cwd
 )paren
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not get current working directory&quot;
 )paren
@@ -215,7 +240,7 @@ c_func
 id|buf
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not switch to &squot;%s&squot;&quot;
 comma
@@ -235,7 +260,7 @@ comma
 id|PATH_MAX
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not get current working directory&quot;
 )paren
@@ -329,6 +354,7 @@ id|st.st_mode
 )paren
 )paren
 (brace
+id|ssize_t
 id|len
 op_assign
 id|readlink
@@ -348,9 +374,24 @@ id|len
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 (paren
-l_string|&quot;Invalid symlink: %s&quot;
+l_string|&quot;Invalid symlink &squot;%s&squot;&quot;
+comma
+id|buf
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|PATH_MAX
+op_le
+id|len
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;symbolic link too long: %s&quot;
 comma
 id|buf
 )paren
@@ -395,7 +436,7 @@ c_func
 id|cwd
 )paren
 )paren
-id|die
+id|die_errno
 (paren
 l_string|&quot;Could not change back to &squot;%s&squot;&quot;
 comma
@@ -597,7 +638,7 @@ c_cond
 op_logical_neg
 id|cwd
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;Cannot determine the current working directory&quot;

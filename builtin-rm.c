@@ -97,121 +97,6 @@ op_assign
 id|name
 suffix:semicolon
 )brace
-DECL|function|remove_file
-r_static
-r_int
-id|remove_file
-c_func
-(paren
-r_const
-r_char
-op_star
-id|name
-)paren
-(brace
-r_int
-id|ret
-suffix:semicolon
-r_char
-op_star
-id|slash
-suffix:semicolon
-id|ret
-op_assign
-id|unlink
-c_func
-(paren
-id|name
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|ret
-op_logical_and
-id|errno
-op_eq
-id|ENOENT
-)paren
-multiline_comment|/* The user has removed it from the filesystem by hand */
-id|ret
-op_assign
-id|errno
-op_assign
-l_int|0
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|ret
-op_logical_and
-(paren
-id|slash
-op_assign
-id|strrchr
-c_func
-(paren
-id|name
-comma
-l_char|&squot;/&squot;
-)paren
-)paren
-)paren
-(brace
-r_char
-op_star
-id|n
-op_assign
-id|xstrdup
-c_func
-(paren
-id|name
-)paren
-suffix:semicolon
-r_do
-(brace
-id|n
-(braket
-id|slash
-id|name
-)braket
-op_assign
-l_int|0
-suffix:semicolon
-id|name
-op_assign
-id|n
-suffix:semicolon
-)brace
-r_while
-c_loop
-(paren
-op_logical_neg
-id|rmdir
-c_func
-(paren
-id|name
-)paren
-op_logical_and
-(paren
-id|slash
-op_assign
-id|strrchr
-c_func
-(paren
-id|name
-comma
-l_char|&squot;/&squot;
-)paren
-)paren
-)paren
-suffix:semicolon
-)brace
-r_return
-id|ret
-suffix:semicolon
-)brace
 DECL|function|check_local_mod
 r_static
 r_int
@@ -227,7 +112,7 @@ r_int
 id|index_only
 )paren
 (brace
-multiline_comment|/* items in list are already sorted in the cache order,&n;&t; * so we could do this a lot more efficiently by using&n;&t; * tree_desc based traversal if we wanted to, but I am&n;&t; * lazy, and who cares if removal of files is a tad&n;&t; * slower than the theoretical maximum speed?&n;&t; */
+multiline_comment|/*&n;&t; * Items in list are already sorted in the cache order,&n;&t; * so we could do this a lot more efficiently by using&n;&t; * tree_desc based traversal if we wanted to, but I am&n;&t; * lazy, and who cares if removal of files is a tad&n;&t; * slower than the theoretical maximum speed?&n;&t; */
 r_int
 id|i
 comma
@@ -356,12 +241,10 @@ id|errno
 op_ne
 id|ENOENT
 )paren
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: &squot;%s&squot;: %s&quot;
+l_string|&quot;&squot;%s&squot;: %s&quot;
 comma
 id|ce-&gt;name
 comma
@@ -391,6 +274,8 @@ multiline_comment|/* if a file was removed and it is now a&n;&t;&t;&t; * directo
 r_continue
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * &quot;rm&quot; of a path that has changes need to be treated&n;&t;&t; * carefully not to allow losing local changes&n;&t;&t; * accidentally.  A local change could be (1) file in&n;&t;&t; * work tree is different since the index; and/or (2)&n;&t;&t; * the user staged a content that is different from&n;&t;&t; * the current commit in the index.&n;&t;&t; *&n;&t;&t; * In such a case, you would need to --force the&n;&t;&t; * removal.  However, &quot;rm --cached&quot; (remove only from&n;&t;&t; * the index) is safe if the index matches the file in&n;&t;&t; * the work tree or the HEAD commit, as it means that&n;&t;&t; * the content being removed is available elsewhere.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Is the index different from the file in the work tree?&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -409,6 +294,7 @@ id|local_changes
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Is the index different from the HEAD commit?  By&n;&t;&t; * definition, before the very initial commit,&n;&t;&t; * anything staged in the index is treated by the same&n;&t;&t; * way as changed from the HEAD.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -447,12 +333,27 @@ id|staged_changes
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * If the index does not match the file in the work&n;&t;&t; * tree and if it does not match the HEAD commit&n;&t;&t; * either, (1) &quot;git rm&quot; without --cached definitely&n;&t;&t; * will lose information; (2) &quot;git rm --cached&quot; will&n;&t;&t; * lose information unless it is about removing an&n;&t;&t; * &quot;intent to add&quot; entry.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|local_changes
 op_logical_and
 id|staged_changes
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|index_only
+op_logical_or
+op_logical_neg
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_INTENT_TO_ADD
+)paren
 )paren
 id|errs
 op_assign
@@ -466,6 +367,7 @@ comma
 id|name
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -474,7 +376,6 @@ op_logical_neg
 id|index_only
 )paren
 (brace
-multiline_comment|/* It&squot;s not dangerous to git-rm --cached a&n;&t;&t;&t; * file if the index matches the file or the&n;&t;&t;&t; * HEAD, since it means the deleted content is&n;&t;&t;&t; * still available somewhere.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -689,6 +590,8 @@ id|argc
 comma
 id|argv
 comma
+id|prefix
+comma
 id|builtin_rm_options
 comma
 id|builtin_rm_usage
@@ -756,6 +659,21 @@ c_func
 id|prefix
 comma
 id|argv
+)paren
+suffix:semicolon
+id|refresh_index
+c_func
+(paren
+op_amp
+id|the_index
+comma
+id|REFRESH_QUIET
+comma
+id|pathspec
+comma
+l_int|NULL
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|seen
@@ -1058,7 +976,7 @@ id|path
 id|die
 c_func
 (paren
-l_string|&quot;git-rm: unable to remove %s&quot;
+l_string|&quot;git rm: unable to remove %s&quot;
 comma
 id|path
 )paren
@@ -1114,7 +1032,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|remove_file
+id|remove_path
 c_func
 (paren
 id|path
@@ -1134,18 +1052,12 @@ c_cond
 op_logical_neg
 id|removed
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;git-rm: %s: %s&quot;
+l_string|&quot;git rm: &squot;%s&squot;&quot;
 comma
 id|path
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace

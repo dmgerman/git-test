@@ -1006,10 +1006,6 @@ id|argv
 )braket
 op_assign
 (brace
-l_string|&quot;sh&quot;
-comma
-l_string|&quot;-c&quot;
-comma
 id|params-&gt;cmd
 comma
 l_int|NULL
@@ -1032,6 +1028,10 @@ suffix:semicolon
 id|child_process.argv
 op_assign
 id|argv
+suffix:semicolon
+id|child_process.use_shell
+op_assign
+l_int|1
 suffix:semicolon
 id|child_process.in
 op_assign
@@ -1173,6 +1173,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|nbuf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_struct
 id|async
@@ -1246,15 +1248,6 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* error was already reported */
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|nbuf
-comma
-l_int|0
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1655,8 +1648,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;crlf&quot;
-comma
-l_int|4
 )paren
 suffix:semicolon
 id|attr_ident
@@ -1665,8 +1656,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;ident&quot;
-comma
-l_int|5
 )paren
 suffix:semicolon
 id|attr_filter
@@ -1675,8 +1664,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;filter&quot;
-comma
-l_int|6
 )paren
 suffix:semicolon
 id|user_convert_tail

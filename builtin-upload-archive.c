@@ -152,7 +152,9 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;not a git archive&quot;
+l_string|&quot;&squot;%s&squot; does not appear to be a git repository&quot;
+comma
+id|buf
 )paren
 suffix:semicolon
 multiline_comment|/* put received options in sent_argv[] */
@@ -341,6 +343,20 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
+id|__attribute__
+c_func
+(paren
+(paren
+id|format
+(paren
+id|printf
+comma
+l_int|1
+comma
+l_int|2
+)paren
+)paren
+)paren
 DECL|function|error_clnt
 r_static
 r_void
@@ -420,7 +436,7 @@ suffix:semicolon
 )brace
 DECL|function|process_input
 r_static
-r_void
+id|ssize_t
 id|process_input
 c_func
 (paren
@@ -485,6 +501,7 @@ id|errno
 )paren
 suffix:semicolon
 r_return
+id|sz
 suffix:semicolon
 )brace
 id|send_sideband
@@ -500,6 +517,9 @@ id|sz
 comma
 id|LARGE_PACKET_MAX
 )paren
+suffix:semicolon
+r_return
+id|sz
 suffix:semicolon
 )brace
 DECL|function|cmd_upload_archive
@@ -848,32 +868,6 @@ c_cond
 (paren
 id|pfd
 (braket
-l_int|0
-)braket
-dot
-id|revents
-op_amp
-id|POLLIN
-)paren
-multiline_comment|/* Data stream ready */
-id|process_input
-c_func
-(paren
-id|pfd
-(braket
-l_int|0
-)braket
-dot
-id|fd
-comma
-l_int|1
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|pfd
-(braket
 l_int|1
 )braket
 dot
@@ -882,6 +876,9 @@ op_amp
 id|POLLIN
 )paren
 multiline_comment|/* Status stream ready */
+r_if
+c_cond
+(paren
 id|process_input
 c_func
 (paren
@@ -894,11 +891,11 @@ id|fd
 comma
 l_int|2
 )paren
+)paren
+r_continue
 suffix:semicolon
-multiline_comment|/* Always finish to read data when available */
 r_if
 c_cond
-(paren
 (paren
 id|pfd
 (braket
@@ -906,16 +903,25 @@ l_int|0
 )braket
 dot
 id|revents
-op_or
-id|pfd
-(braket
-l_int|1
-)braket
-dot
-id|revents
-)paren
 op_amp
 id|POLLIN
+)paren
+multiline_comment|/* Data stream ready */
+r_if
+c_cond
+(paren
+id|process_input
+c_func
+(paren
+id|pfd
+(braket
+l_int|0
+)braket
+dot
+id|fd
+comma
+l_int|1
+)paren
 )paren
 r_continue
 suffix:semicolon

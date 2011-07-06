@@ -1,15 +1,19 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;bundle.h&quot;
-multiline_comment|/*&n; * Basic handler for bundle files to connect repositories via sneakernet.&n; * Invocation must include action.&n; * This function can create a bundle or provide information on an existing&n; * bundle supporting git-fetch, git-pull, and git-ls-remote&n; */
-DECL|variable|bundle_usage
+multiline_comment|/*&n; * Basic handler for bundle files to connect repositories via sneakernet.&n; * Invocation must include action.&n; * This function can create a bundle or provide information on an existing&n; * bundle supporting &quot;fetch&quot;, &quot;pull&quot;, and &quot;ls-remote&quot;.&n; */
+DECL|variable|builtin_bundle_usage
 r_static
 r_const
 r_char
-op_star
-id|bundle_usage
+id|builtin_bundle_usage
+(braket
+)braket
 op_assign
-l_string|&quot;git-bundle (create &lt;bundle&gt; &lt;git-rev-list args&gt; | verify &lt;bundle&gt; | list-heads &lt;bundle&gt; [refname]... | unbundle &lt;bundle&gt; [refname]... )&quot;
+l_string|&quot;git bundle create &lt;file&gt; &lt;git-rev-list args&gt;&bslash;n&quot;
+l_string|&quot;   or: git bundle verify &lt;file&gt;&bslash;n&quot;
+l_string|&quot;   or: git bundle list-heads &lt;file&gt; [refname...]&bslash;n&quot;
+l_string|&quot;   or: git bundle unbundle &lt;file&gt; [refname...]&quot;
 suffix:semicolon
 DECL|function|cmd_bundle
 r_int
@@ -67,7 +71,7 @@ l_int|3
 id|usage
 c_func
 (paren
-id|bundle_usage
+id|builtin_bundle_usage
 )paren
 suffix:semicolon
 id|cmd
@@ -355,7 +359,7 @@ r_else
 id|usage
 c_func
 (paren
-id|bundle_usage
+id|builtin_bundle_usage
 )paren
 suffix:semicolon
 )brace

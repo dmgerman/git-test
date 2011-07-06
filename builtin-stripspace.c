@@ -275,6 +275,8 @@ id|prefix
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_int
 id|strip_comments
@@ -285,8 +287,8 @@ r_if
 c_cond
 (paren
 id|argc
-OG
-l_int|1
+op_eq
+l_int|2
 op_logical_and
 (paren
 op_logical_neg
@@ -318,13 +320,18 @@ id|strip_comments
 op_assign
 l_int|1
 suffix:semicolon
-id|strbuf_init
+r_else
+r_if
+c_cond
+(paren
+id|argc
+OG
+l_int|1
+)paren
+id|usage
 c_func
 (paren
-op_amp
-id|buf
-comma
-l_int|0
+l_string|&quot;git stripspace [-s | --strip-comments] &lt; &lt;stream&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -343,7 +350,7 @@ l_int|1024
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
 l_string|&quot;could not read the input&quot;

@@ -1,6 +1,16 @@
 multiline_comment|/*&n; * Implementation of git-merge-ours.sh as builtin&n; *&n; * Copyright (c) 2007 Thomas Harning Jr&n; * Original:&n; * Original Copyright (c) 2005 Junio C Hamano&n; *&n; * Pretend we resolved the heads, but declare our tree trumps everybody else.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+DECL|variable|builtin_merge_ours_usage
+r_static
+r_const
+r_char
+id|builtin_merge_ours_usage
+(braket
+)braket
+op_assign
+l_string|&quot;git merge-ours &lt;base&gt;... -- HEAD &lt;remote&gt;...&quot;
+suffix:semicolon
 DECL|variable|diff_index_args
 r_static
 r_const
@@ -46,6 +56,31 @@ op_star
 id|prefix
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|argc
+op_eq
+l_int|2
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;-h&quot;
+)paren
+)paren
+id|usage
+c_func
+(paren
+id|builtin_merge_ours_usage
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * We need to exit with 2 if the index does not match our HEAD tree,&n;&t; * because the current index is what we will be committing as the&n;&t; * merge result.&n;&t; */
 r_if
 c_cond

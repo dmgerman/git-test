@@ -4,8 +4,6 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;utf8.h&quot;
-DECL|macro|BLOCKING
-mdefine_line|#define BLOCKING (1ul &lt;&lt; 14)
 multiline_comment|/*&n; * FIXME! Share the code with &quot;write-tree.c&quot;&n; */
 DECL|function|check_valid
 r_static
@@ -87,7 +85,7 @@ id|commit_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
+l_string|&quot;git commit-tree &lt;sha1&gt; [-p &lt;sha1&gt;]* &lt; changelog&quot;
 suffix:semicolon
 DECL|function|new_parent
 r_static
@@ -208,8 +206,16 @@ r_int
 r_char
 op_star
 id|ret
+comma
+r_const
+r_char
+op_star
+id|author
 )paren
 (brace
+r_int
+id|result
+suffix:semicolon
 r_int
 id|encoding_is_utf8
 suffix:semicolon
@@ -300,6 +306,20 @@ id|next
 suffix:semicolon
 )brace
 multiline_comment|/* Person/date information */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|author
+)paren
+id|author
+op_assign
+id|git_author_info
+c_func
+(paren
+id|IDENT_ERROR_ON_NO_NAME
+)paren
+suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
@@ -308,11 +328,7 @@ id|buffer
 comma
 l_string|&quot;author %s&bslash;n&quot;
 comma
-id|git_author_info
-c_func
-(paren
-id|IDENT_ERROR_ON_NO_NAME
-)paren
+id|author
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -387,7 +403,8 @@ comma
 id|commit_utf8_warn
 )paren
 suffix:semicolon
-r_return
+id|result
+op_assign
 id|write_sha1_file
 c_func
 (paren
@@ -399,6 +416,16 @@ id|commit_type
 comma
 id|ret
 )paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buffer
+)paren
+suffix:semicolon
+r_return
+id|result
 suffix:semicolon
 )brace
 DECL|function|cmd_commit_tree
@@ -465,6 +492,18 @@ c_cond
 id|argc
 OL
 l_int|2
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+comma
+l_string|&quot;-h&quot;
+)paren
 )paren
 id|usage
 c_func
@@ -621,16 +660,10 @@ l_int|0
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;git-commit-tree: read returned %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;git commit-tree: failed to read&quot;
 )paren
 suffix:semicolon
 r_if
@@ -647,6 +680,8 @@ comma
 id|parents
 comma
 id|commit_sha1
+comma
+l_int|NULL
 )paren
 )paren
 (brace

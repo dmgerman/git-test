@@ -1,8 +1,13 @@
 macro_line|#include &quot;../git-compat-util.h&quot;
-multiline_comment|/*&n; * The size parameter specifies the available space, i.e. includes&n; * the trailing NUL byte; but Windows&squot;s vsnprintf expects the&n; * number of characters to write without the trailing NUL.&n; */
+multiline_comment|/*&n; * The size parameter specifies the available space, i.e. includes&n; * the trailing NUL byte; but Windows&squot;s vsnprintf uses the entire&n; * buffer and avoids the trailing NUL, should the buffer be exactly&n; * big enough for the result. Defining SNPRINTF_SIZE_CORR to 1 will&n; * therefore remove 1 byte from the reported buffer size, so we&n; * always have room for a trailing NUL byte.&n; */
 macro_line|#ifndef SNPRINTF_SIZE_CORR
+macro_line|#if defined(WIN32) &amp;&amp; (!defined(__GNUC__) || __GNUC__ &lt; 4)
+DECL|macro|SNPRINTF_SIZE_CORR
+mdefine_line|#define SNPRINTF_SIZE_CORR 1
+macro_line|#else
 DECL|macro|SNPRINTF_SIZE_CORR
 mdefine_line|#define SNPRINTF_SIZE_CORR 0
+macro_line|#endif
 macro_line|#endif
 DECL|macro|vsnprintf
 macro_line|#undef vsnprintf
@@ -59,6 +64,19 @@ id|format
 comma
 id|ap
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+op_eq
+id|maxsize
+op_minus
+l_int|1
+)paren
+id|ret
+op_assign
+l_int|1
 suffix:semicolon
 multiline_comment|/* Windows does not NUL-terminate if result fills buffer */
 id|str
@@ -145,6 +163,19 @@ id|format
 comma
 id|ap
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+op_eq
+id|maxsize
+op_minus
+l_int|1
+)paren
+id|ret
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 id|free

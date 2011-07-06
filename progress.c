@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Simple text-based progress display module for GIT&n; *&n; * Copyright (c) 2007 by Nicolas Pitre &lt;nico@cam.org&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
+multiline_comment|/*&n; * Simple text-based progress display module for GIT&n; *&n; * Copyright (c) 2007 by Nicolas Pitre &lt;nico@fluxnic.net&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;progress.h&quot;
 DECL|macro|TP_IDX_MAX
@@ -555,6 +555,14 @@ op_lshift
 l_int|20
 )paren
 (brace
+r_int
+id|x
+op_assign
+id|total
+op_plus
+l_int|5243
+suffix:semicolon
+multiline_comment|/* for rounding */
 id|l
 op_sub_assign
 id|snprintf
@@ -566,21 +574,13 @@ id|l
 comma
 l_string|&quot;, %u.%2.2u MiB&quot;
 comma
-(paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_rshift
 l_int|20
-)paren
 comma
 (paren
 (paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_amp
 (paren
 (paren
@@ -610,6 +610,14 @@ op_lshift
 l_int|10
 )paren
 (brace
+r_int
+id|x
+op_assign
+id|total
+op_plus
+l_int|5
+suffix:semicolon
+multiline_comment|/* for rounding */
 id|l
 op_sub_assign
 id|snprintf
@@ -621,21 +629,13 @@ id|l
 comma
 l_string|&quot;, %u.%2.2u KiB&quot;
 comma
-(paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_rshift
 l_int|10
-)paren
 comma
 (paren
 (paren
-r_int
-)paren
-(paren
-id|total
+id|x
 op_amp
 (paren
 (paren
@@ -674,6 +674,65 @@ id|total
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|rate
+OG
+l_int|1
+op_lshift
+l_int|10
+)paren
+(brace
+r_int
+id|x
+op_assign
+id|rate
+op_plus
+l_int|5
+suffix:semicolon
+multiline_comment|/* for rounding */
+id|snprintf
+c_func
+(paren
+id|tp-&gt;display
+op_plus
+r_sizeof
+(paren
+id|tp-&gt;display
+)paren
+id|l
+comma
+id|l
+comma
+l_string|&quot; | %u.%2.2u MiB/s&quot;
+comma
+id|x
+op_rshift
+l_int|10
+comma
+(paren
+(paren
+id|x
+op_amp
+(paren
+(paren
+l_int|1
+op_lshift
+l_int|10
+)paren
+l_int|1
+)paren
+)paren
+op_star
+l_int|100
+)paren
+op_rshift
+l_int|10
+)paren
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren

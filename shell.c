@@ -2,13 +2,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
-multiline_comment|/* Stubs for functions that make no sense for git-shell. These stubs&n; * are provided here to avoid linking in external redundant modules.&n; */
-DECL|function|release_pack_memory
-r_void
-DECL|function|trace_argv_printf
-r_void
-DECL|function|trace_printf
-r_void
 DECL|function|do_generic_cmd
 r_static
 r_int
@@ -224,6 +217,12 @@ id|do_generic_cmd
 )brace
 comma
 (brace
+l_string|&quot;git-upload-archive&quot;
+comma
+id|do_generic_cmd
+)brace
+comma
+(brace
 l_string|&quot;cvs&quot;
 comma
 id|do_cvs_cmd
@@ -257,6 +256,57 @@ r_struct
 id|commands
 op_star
 id|cmd
+suffix:semicolon
+r_int
+id|devnull_fd
+suffix:semicolon
+multiline_comment|/*&n;&t; * Always open file descriptors 0/1/2 to avoid clobbering files&n;&t; * in die().  It also avoids not messing up when the pipes are&n;&t; * dup&squot;ed onto stdin/stdout/stderr in the child processes we spawn.&n;&t; */
+id|devnull_fd
+op_assign
+id|open
+c_func
+(paren
+l_string|&quot;/dev/null&quot;
+comma
+id|O_RDWR
+)paren
+suffix:semicolon
+r_while
+c_loop
+(paren
+id|devnull_fd
+op_ge
+l_int|0
+op_logical_and
+id|devnull_fd
+op_le
+l_int|2
+)paren
+id|devnull_fd
+op_assign
+id|dup
+c_func
+(paren
+id|devnull_fd
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|devnull_fd
+op_eq
+l_int|1
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;opening /dev/null failed&quot;
+)paren
+suffix:semicolon
+id|close
+(paren
+id|devnull_fd
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Special hack to pretend to be a CVS server&n;&t; */
 r_if

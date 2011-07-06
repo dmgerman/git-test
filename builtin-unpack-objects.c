@@ -36,7 +36,7 @@ id|unpack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-unpack-objects [-n] [-q] [-r] [--strict] &lt; pack-file&quot;
+l_string|&quot;git unpack-objects [-n] [-q] [-r] [--strict] &lt; pack-file&quot;
 suffix:semicolon
 multiline_comment|/* We always read in 4kB chunks. */
 DECL|variable|buffer
@@ -64,7 +64,7 @@ id|consumed_bytes
 suffix:semicolon
 DECL|variable|ctx
 r_static
-id|SHA_CTX
+id|git_SHA_CTX
 id|ctx
 suffix:semicolon
 multiline_comment|/*&n; * When running under --strict mode, objects whose reachability are&n; * suspect are kept in core without getting written in the object&n; * store.&n; */
@@ -237,7 +237,7 @@ c_cond
 id|offset
 )paren
 (brace
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -306,16 +306,10 @@ c_func
 l_string|&quot;early EOF&quot;
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;read error on input: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;read error on input&quot;
 )paren
 suffix:semicolon
 )brace
@@ -447,7 +441,7 @@ id|stream.avail_in
 op_assign
 id|len
 suffix:semicolon
-id|inflateInit
+id|git_inflate_init
 c_func
 (paren
 op_amp
@@ -464,7 +458,7 @@ suffix:semicolon
 r_int
 id|ret
 op_assign
-id|inflate
+id|git_inflate
 c_func
 (paren
 op_amp
@@ -550,7 +544,7 @@ op_assign
 id|len
 suffix:semicolon
 )brace
-id|inflateEnd
+id|git_inflate_end
 c_func
 (paren
 op_amp
@@ -717,6 +711,7 @@ op_star
 id|obj_list
 suffix:semicolon
 DECL|variable|nr_objects
+r_static
 r_int
 id|nr_objects
 suffix:semicolon
@@ -815,7 +810,7 @@ op_logical_neg
 id|obj
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -825,7 +820,7 @@ op_amp
 id|FLAG_WRITTEN
 )paren
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -893,7 +888,7 @@ op_or_assign
 id|FLAG_WRITTEN
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 r_if
@@ -918,7 +913,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|fsck_walk
 c_func
 (paren
@@ -926,7 +920,7 @@ id|obj
 comma
 id|check_object
 comma
-l_int|0
+l_int|NULL
 )paren
 )paren
 id|die
@@ -948,7 +942,7 @@ id|obj
 )paren
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|write_rest
@@ -977,6 +971,17 @@ suffix:semicolon
 id|i
 op_increment
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|obj_list
+(braket
+id|i
+)braket
+dot
+id|obj
+)paren
 id|check_object
 c_func
 (paren
@@ -989,9 +994,10 @@ id|obj
 comma
 id|OBJ_ANY
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
+)brace
 )brace
 r_static
 r_void
@@ -1937,6 +1943,28 @@ dot
 id|offset
 id|base_offset
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|base_offset
+op_le
+l_int|0
+op_logical_or
+id|base_offset
+op_ge
+id|obj_list
+(braket
+id|nr
+)braket
+dot
+id|offset
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;offset value out of bound for delta base object&quot;
+)paren
+suffix:semicolon
 id|delta_data
 op_assign
 id|get_data
@@ -2203,12 +2231,12 @@ r_int
 r_char
 op_star
 id|pack
-comma
-id|c
 suffix:semicolon
 r_int
 r_int
 id|size
+comma
+id|c
 suffix:semicolon
 r_enum
 id|object_type
@@ -2492,27 +2520,11 @@ id|nr_objects
 suffix:semicolon
 id|obj_list
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
 id|nr_objects
-op_star
-r_sizeof
-(paren
-op_star
-id|obj_list
-)paren
-)paren
-suffix:semicolon
-id|memset
-c_func
-(paren
-id|obj_list
 comma
-l_int|0
-comma
-id|nr_objects
-op_star
 r_sizeof
 (paren
 op_star
@@ -2600,6 +2612,10 @@ id|sha1
 (braket
 l_int|20
 )braket
+suffix:semicolon
+id|read_replace_refs
+op_assign
+l_int|0
 suffix:semicolon
 id|git_config
 c_func
@@ -2865,7 +2881,7 @@ id|unpack_usage
 )paren
 suffix:semicolon
 )brace
-id|SHA1_Init
+id|git_SHA1_Init
 c_func
 (paren
 op_amp
@@ -2877,7 +2893,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|git_SHA1_Update
 c_func
 (paren
 op_amp
@@ -2888,7 +2904,7 @@ comma
 id|offset
 )paren
 suffix:semicolon
-id|SHA1_Final
+id|git_SHA1_Final
 c_func
 (paren
 id|sha1
