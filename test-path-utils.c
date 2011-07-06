@@ -94,7 +94,7 @@ id|argv
 l_int|1
 )braket
 comma
-l_string|&quot;make_absolute_path&quot;
+l_string|&quot;real_path&quot;
 )paren
 )paren
 (brace
@@ -109,7 +109,7 @@ l_int|2
 id|puts
 c_func
 (paren
-id|make_absolute_path
+id|real_path
 c_func
 (paren
 id|argv

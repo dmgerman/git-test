@@ -806,14 +806,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
-id|flags
-op_amp
-id|XDF_WHITESPACE_FLAGS
-)paren
-)paren
-r_return
 id|s1
 op_eq
 id|s2
@@ -828,6 +820,22 @@ id|l2
 comma
 id|s1
 )paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|XDF_WHITESPACE_FLAGS
+)paren
+)paren
+r_return
+l_int|0
 suffix:semicolon
 id|i1
 op_assign
@@ -888,7 +896,7 @@ id|i1
 OL
 id|s1
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -907,7 +915,7 @@ id|i2
 OL
 id|s2
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -945,7 +953,7 @@ id|s2
 r_if
 c_cond
 (paren
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -954,7 +962,7 @@ id|i1
 )braket
 )paren
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -972,7 +980,7 @@ id|i1
 OL
 id|s1
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -991,7 +999,7 @@ id|i2
 OL
 id|s2
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -1077,7 +1085,7 @@ id|i1
 OL
 id|s1
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l1
@@ -1115,7 +1123,7 @@ id|i2
 OL
 id|s2
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|l2
@@ -1195,7 +1203,7 @@ op_increment
 r_if
 c_cond
 (paren
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 op_star
@@ -1222,7 +1230,7 @@ l_int|1
 OL
 id|top
 op_logical_and
-id|isspace
+id|XDL_ISSPACE
 c_func
 (paren
 id|ptr

@@ -32,7 +32,7 @@ r_void
 op_star
 id|temp
 suffix:semicolon
-r_int
+id|off_t
 id|len
 suffix:semicolon
 r_struct
@@ -77,11 +77,7 @@ id|st
 )paren
 id|len
 op_assign
-id|xsize_t
-c_func
-(paren
 id|st.st_size
-)paren
 suffix:semicolon
 r_else
 id|die
@@ -103,8 +99,12 @@ id|len
 )paren
 id|length
 op_assign
+id|xsize_t
+c_func
+(paren
 id|len
 id|offset
+)paren
 suffix:semicolon
 r_if
 c_cond

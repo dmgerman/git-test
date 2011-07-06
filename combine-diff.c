@@ -1129,6 +1129,9 @@ id|n
 comma
 r_int
 id|num_parent
+comma
+r_int
+id|result_deleted
 )paren
 (brace
 r_int
@@ -1156,9 +1159,6 @@ suffix:semicolon
 id|mmfile_t
 id|parent_file
 suffix:semicolon
-id|xdemitcb_t
-id|ecb
-suffix:semicolon
 r_struct
 id|combine_diff_state
 id|state
@@ -1170,8 +1170,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|cnt
+id|result_deleted
 )paren
 r_return
 suffix:semicolon
@@ -1209,7 +1208,7 @@ id|xpp
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+l_int|0
 suffix:semicolon
 id|memset
 c_func
@@ -1277,9 +1276,6 @@ id|xpp
 comma
 op_amp
 id|xecfg
-comma
-op_amp
-id|ecb
 )paren
 suffix:semicolon
 id|free
@@ -2557,6 +2553,9 @@ id|num_parent
 comma
 r_int
 id|use_color
+comma
+r_int
+id|result_deleted
 )paren
 (brace
 r_int
@@ -2669,8 +2668,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|cnt
+id|result_deleted
 )paren
 r_return
 suffix:semicolon
@@ -3547,6 +3545,11 @@ id|cnt
 comma
 id|lno
 suffix:semicolon
+r_int
+id|result_deleted
+op_assign
+l_int|0
+suffix:semicolon
 r_char
 op_star
 id|result
@@ -4031,6 +4034,10 @@ r_else
 (brace
 id|deleted_file
 suffix:colon
+id|result_deleted
+op_assign
+l_int|1
+suffix:semicolon
 id|result_size
 op_assign
 l_int|0
@@ -4458,6 +4465,8 @@ comma
 id|i
 comma
 id|num_parent
+comma
+id|result_deleted
 )paren
 suffix:semicolon
 r_if
@@ -4888,6 +4897,8 @@ id|opt
 comma
 id|COLOR_DIFF
 )paren
+comma
+id|result_deleted
 )paren
 suffix:semicolon
 )brace

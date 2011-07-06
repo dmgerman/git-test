@@ -2747,6 +2747,23 @@ id|remote-&gt;fetch_tags
 op_assign
 l_int|1
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|value
+comma
+l_string|&quot;--tags&quot;
+)paren
+)paren
+id|remote-&gt;fetch_tags
+op_assign
+l_int|2
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -3017,7 +3034,7 @@ c_cond
 (paren
 id|default_remote_name
 )paren
-singleline_comment|// did this already
+multiline_comment|/* did this already */
 r_return
 suffix:semicolon
 id|default_remote_name
@@ -3099,7 +3116,7 @@ c_func
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * We need to make sure the tracking branches are well formed, but a&n; * wildcard refspec in &quot;struct refspec&quot; must have a trailing slash. We&n; * temporarily drop the trailing &squot;/&squot; while calling check_ref_format(),&n; * and put it back.  The caller knows that a CHECK_REF_FORMAT_ONELEVEL&n; * error return is Ok for a wildcard refspec.&n; */
+multiline_comment|/*&n; * We need to make sure the remote-tracking branches are well formed, but a&n; * wildcard refspec in &quot;struct refspec&quot; must have a trailing slash. We&n; * temporarily drop the trailing &squot;/&squot; while calling check_ref_format(),&n; * and put it back.  The caller knows that a CHECK_REF_FORMAT_ONELEVEL&n; * error return is Ok for a wildcard refspec.&n; */
 DECL|function|verify_refname
 r_static
 r_int
@@ -3821,17 +3838,6 @@ op_star
 id|fetch_refspec_str
 )paren
 (brace
-r_const
-r_char
-op_star
-id|fetch_refspec
-(braket
-)braket
-op_assign
-(brace
-id|fetch_refspec_str
-)brace
-suffix:semicolon
 r_struct
 id|refspec
 op_star
@@ -3844,7 +3850,8 @@ c_func
 (paren
 l_int|1
 comma
-id|fetch_refspec
+op_amp
+id|fetch_refspec_str
 comma
 l_int|1
 comma
@@ -4370,15 +4377,7 @@ r_struct
 id|string_list
 id|refs
 op_assign
-(brace
-l_int|NULL
-comma
-l_int|0
-comma
-l_int|0
-comma
-l_int|0
-)brace
+id|STRING_LIST_INIT_NODUP
 suffix:semicolon
 r_struct
 id|string_list_item
@@ -4431,10 +4430,10 @@ op_assign
 id|string_list_lookup
 c_func
 (paren
-id|ref_map-&gt;peer_ref-&gt;name
-comma
 op_amp
 id|refs
+comma
+id|ref_map-&gt;peer_ref-&gt;name
 )paren
 suffix:semicolon
 r_if
@@ -4513,10 +4512,10 @@ op_assign
 id|string_list_insert
 c_func
 (paren
-id|ref_map-&gt;peer_ref-&gt;name
-comma
 op_amp
 id|refs
+comma
+id|ref_map-&gt;peer_ref-&gt;name
 )paren
 suffix:semicolon
 id|item-&gt;util
@@ -9307,15 +9306,7 @@ r_struct
 id|string_list
 id|ref_names
 op_assign
-(brace
-l_int|NULL
-comma
-l_int|0
-comma
-l_int|0
-comma
-l_int|0
-)brace
+id|STRING_LIST_INIT_NODUP
 suffix:semicolon
 r_struct
 id|stale_heads_info
@@ -9351,10 +9342,10 @@ id|ref-&gt;next
 id|string_list_append
 c_func
 (paren
-id|ref-&gt;name
-comma
 op_amp
 id|ref_names
+comma
+id|ref-&gt;name
 )paren
 suffix:semicolon
 id|sort_string_list

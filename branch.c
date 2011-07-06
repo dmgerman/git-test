@@ -774,6 +774,8 @@ c_func
 (paren
 )paren
 op_logical_and
+id|head
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -858,20 +860,31 @@ suffix:semicolon
 r_case
 l_int|1
 suffix:colon
-multiline_comment|/* Unique completion -- good, only if it is a real ref */
+multiline_comment|/* Unique completion -- good, only if it is a real branch */
 r_if
 c_cond
 (paren
-id|explicit_tracking
-op_logical_and
-op_logical_neg
-id|strcmp
+id|prefixcmp
 c_func
 (paren
 id|real_ref
 comma
-l_string|&quot;HEAD&quot;
+l_string|&quot;refs/heads/&quot;
 )paren
+op_logical_and
+id|prefixcmp
+c_func
+(paren
+id|real_ref
+comma
+l_string|&quot;refs/remotes/&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|explicit_tracking
 )paren
 id|die
 c_func
@@ -879,6 +892,12 @@ c_func
 l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
 )paren
 suffix:semicolon
+r_else
+id|real_ref
+op_assign
+l_int|NULL
+suffix:semicolon
+)brace
 r_break
 suffix:semicolon
 r_default
@@ -979,7 +998,7 @@ comma
 r_sizeof
 id|msg
 comma
-l_string|&quot;branch: Reset from %s&quot;
+l_string|&quot;branch: Reset to %s&quot;
 comma
 id|start_name
 )paren
@@ -1070,6 +1089,16 @@ c_func
 r_void
 )paren
 (brace
+id|unlink
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+)paren
+)paren
+suffix:semicolon
 id|unlink
 c_func
 (paren

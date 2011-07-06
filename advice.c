@@ -29,6 +29,12 @@ id|advice_implicit_identity
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_detached_head
+r_int
+id|advice_detached_head
+op_assign
+l_int|1
+suffix:semicolon
 r_static
 r_struct
 (brace
@@ -83,6 +89,13 @@ l_string|&quot;implicitidentity&quot;
 comma
 op_amp
 id|advice_implicit_identity
+)brace
+comma
+(brace
+l_string|&quot;detachedhead&quot;
+comma
+op_amp
+id|advice_detached_head
 )brace
 comma
 )brace

@@ -3,12 +3,6 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;quote.h&quot;
 DECL|macro|MAX_ARGS
 mdefine_line|#define MAX_ARGS&t;32
-r_extern
-r_char
-op_star
-op_star
-id|environ
-suffix:semicolon
 DECL|variable|argv_exec_path
 r_static
 r_const
@@ -136,11 +130,9 @@ id|prefix
 op_assign
 id|PREFIX
 suffix:semicolon
-id|fprintf
+id|trace_printf
 c_func
 (paren
-id|stderr
-comma
 l_string|&quot;RUNTIME_PREFIX requested, &quot;
 l_string|&quot;but prefix computation failed.  &quot;
 l_string|&quot;Using static fallback &squot;%s&squot;.&bslash;n&quot;
@@ -395,7 +387,7 @@ c_func
 (paren
 id|out
 comma
-id|make_nonrelative_path
+id|absolute_path
 c_func
 (paren
 id|path
@@ -479,7 +471,7 @@ c_func
 op_amp
 id|new_path
 comma
-l_string|&quot;/usr/local/bin:/usr/bin:/bin&quot;
+id|_PATH_DEFPATH
 )paren
 suffix:semicolon
 id|setenv

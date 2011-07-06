@@ -8,6 +8,13 @@ id|git_default_date
 l_int|50
 )braket
 suffix:semicolon
+macro_line|#ifdef NO_GECOS_IN_PWENT
+DECL|macro|get_gecos
+mdefine_line|#define get_gecos(ignored) &quot;&amp;&quot;
+macro_line|#else
+DECL|macro|get_gecos
+mdefine_line|#define get_gecos(struct_passwd) ((struct_passwd)-&gt;pw_gecos)
+macro_line|#endif
 DECL|function|copy_gecos
 r_static
 r_void
@@ -62,7 +69,11 @@ id|name
 comma
 id|src
 op_assign
-id|w-&gt;pw_gecos
+id|get_gecos
+c_func
+(paren
+id|w
+)paren
 suffix:semicolon
 id|len
 OL
@@ -150,6 +161,10 @@ id|dst
 op_add_assign
 id|nlen
 l_int|1
+suffix:semicolon
+id|len
+op_add_assign
+id|nlen
 suffix:semicolon
 )brace
 )brace
@@ -1033,7 +1048,16 @@ op_logical_neg
 id|name_addr_only
 op_logical_and
 id|date_str
+op_logical_and
+id|date_str
+(braket
+l_int|0
+)braket
 )paren
+(brace
+r_if
+c_cond
+(paren
 id|parse_date
 c_func
 (paren
@@ -1046,7 +1070,18 @@ r_sizeof
 id|date
 )paren
 )paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;invalid date format: %s&quot;
+comma
+id|date_str
+)paren
 suffix:semicolon
+)brace
 id|i
 op_assign
 id|copy

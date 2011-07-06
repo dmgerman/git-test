@@ -343,7 +343,7 @@ comma
 op_amp
 id|file
 comma
-l_string|&quot;set file to &lt;FILE&gt;&quot;
+l_string|&quot;set file to &lt;file&gt;&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -533,6 +533,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;be verbose&quot;
 )paren
 comma
 id|OPT__DRY_RUN
@@ -540,6 +542,8 @@ c_func
 (paren
 op_amp
 id|dry_run
+comma
+l_string|&quot;dry run&quot;
 )paren
 comma
 id|OPT__QUIET
@@ -547,6 +551,8 @@ c_func
 (paren
 op_amp
 id|quiet
+comma
+l_string|&quot;be quiet&quot;
 )paren
 comma
 id|OPT_END

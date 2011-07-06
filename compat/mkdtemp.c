@@ -14,6 +14,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
+op_star
 id|mktemp
 c_func
 (paren

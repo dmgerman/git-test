@@ -3,6 +3,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;levenshtein.h&quot;
 macro_line|#include &quot;help.h&quot;
+macro_line|#include &quot;common-cmds.h&quot;
 multiline_comment|/* most GUI terminals set COLUMNS (although some don&squot;t export it) */
 DECL|function|term_columns
 r_static
@@ -1753,8 +1754,10 @@ l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/* An empirically derived magic number */
+DECL|macro|SIMILARITY_FLOOR
+mdefine_line|#define SIMILARITY_FLOOR 7
 DECL|macro|SIMILAR_ENOUGH
-mdefine_line|#define SIMILAR_ENOUGH(x) ((x) &lt; 6)
+mdefine_line|#define SIMILAR_ENOUGH(x) ((x) &lt; SIMILARITY_FLOOR)
 DECL|function|help_unknown_cmd
 r_const
 r_char
@@ -1887,11 +1890,15 @@ op_amp
 id|main_cmds
 )paren
 suffix:semicolon
-multiline_comment|/* This reuses cmdname-&gt;len for similarity index */
+multiline_comment|/* This abuses cmdname-&gt;len for levenshtein distance */
 r_for
 c_loop
 (paren
 id|i
+op_assign
+l_int|0
+comma
+id|n
 op_assign
 l_int|0
 suffix:semicolon
@@ -1899,9 +1906,111 @@ id|i
 OL
 id|main_cmds.cnt
 suffix:semicolon
-op_increment
 id|i
+op_increment
 )paren
+(brace
+r_int
+id|cmp
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* avoid compiler stupidity */
+r_const
+r_char
+op_star
+id|candidate
+op_assign
+id|main_cmds.names
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|name
+suffix:semicolon
+multiline_comment|/* Does the candidate appear in common_cmds list? */
+r_while
+c_loop
+(paren
+id|n
+OL
+id|ARRAY_SIZE
+c_func
+(paren
+id|common_cmds
+)paren
+op_logical_and
+(paren
+id|cmp
+op_assign
+id|strcmp
+c_func
+(paren
+id|common_cmds
+(braket
+id|n
+)braket
+dot
+id|name
+comma
+id|candidate
+)paren
+)paren
+OL
+l_int|0
+)paren
+id|n
+op_increment
+suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|n
+OL
+id|ARRAY_SIZE
+c_func
+(paren
+id|common_cmds
+)paren
+)paren
+op_logical_and
+op_logical_neg
+id|cmp
+)paren
+(brace
+multiline_comment|/* Yes, this is one of the common commands */
+id|n
+op_increment
+suffix:semicolon
+multiline_comment|/* use the entry from common_cmds[] */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|candidate
+comma
+id|cmd
+)paren
+)paren
+(brace
+multiline_comment|/* Give prefix match a very good score */
+id|main_cmds.names
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|len
+op_assign
+l_int|0
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+)brace
 id|main_cmds.names
 (braket
 id|i
@@ -1914,12 +2023,7 @@ c_func
 (paren
 id|cmd
 comma
-id|main_cmds.names
-(braket
-id|i
-)braket
-op_member_access_from_pointer
-id|name
+id|candidate
 comma
 l_int|0
 comma
@@ -1929,7 +2033,10 @@ l_int|1
 comma
 l_int|4
 )paren
+op_plus
+l_int|1
 suffix:semicolon
+)brace
 id|qsort
 c_func
 (paren
@@ -1957,21 +2064,63 @@ id|die
 l_string|&quot;Uh oh. Your system reports no Git commands at all.&quot;
 )paren
 suffix:semicolon
-id|best_similarity
+multiline_comment|/* skip and count prefix matches */
+r_for
+c_loop
+(paren
+id|n
 op_assign
+l_int|0
+suffix:semicolon
+id|n
+OL
+id|main_cmds.cnt
+op_logical_and
+op_logical_neg
 id|main_cmds.names
 (braket
-l_int|0
+id|n
 )braket
 op_member_access_from_pointer
 id|len
 suffix:semicolon
 id|n
+op_increment
+)paren
+suffix:semicolon
+multiline_comment|/* still counting */
+r_if
+c_cond
+(paren
+id|main_cmds.cnt
+op_le
+id|n
+)paren
+(brace
+multiline_comment|/* prefix matches with everything? that is too ambiguous */
+id|best_similarity
 op_assign
+id|SIMILARITY_FLOOR
+op_plus
 l_int|1
 suffix:semicolon
-r_while
+)brace
+r_else
+(brace
+multiline_comment|/* count all the most similar ones */
+r_for
 c_loop
+(paren
+id|best_similarity
+op_assign
+id|main_cmds.names
+(braket
+id|n
+op_increment
+)braket
+op_member_access_from_pointer
+id|len
+suffix:semicolon
 (paren
 id|n
 OL
@@ -1986,9 +2135,13 @@ id|n
 op_member_access_from_pointer
 id|len
 )paren
-op_increment
-id|n
 suffix:semicolon
+id|n
+op_increment
+)paren
+suffix:semicolon
+multiline_comment|/* still counting */
+)brace
 r_if
 c_cond
 (paren
@@ -2090,7 +2243,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git: &squot;%s&squot; is not a git-command. See &squot;git --help&squot;.&bslash;n&quot;
+l_string|&quot;git: &squot;%s&squot; is not a git command. See &squot;git --help&squot;.&bslash;n&quot;
 comma
 id|cmd
 )paren

@@ -30,7 +30,7 @@ DECL|macro|setW
 mdefine_line|#define setW(x, val) (W(x) = (val))
 macro_line|#endif
 multiline_comment|/*&n; * Performance might be improved if the CPU architecture is OK with&n; * unaligned 32-bit loads and a fast ntohl() is available.&n; * Otherwise fall back to byte loads and shifts which is portable,&n; * and is faster on architectures with memory alignment issues.&n; */
-macro_line|#if defined(__i386__) || defined(__x86_64__) || &bslash;&n;    defined(__ppc__) || defined(__ppc64__) || &bslash;&n;    defined(__powerpc__) || defined(__powerpc64__) || &bslash;&n;    defined(__s390__) || defined(__s390x__)
+macro_line|#if defined(__i386__) || defined(__x86_64__) || &bslash;&n;    defined(_M_IX86) || defined(_M_X64) || &bslash;&n;    defined(__ppc__) || defined(__ppc64__) || &bslash;&n;    defined(__powerpc__) || defined(__powerpc64__) || &bslash;&n;    defined(__s390__) || defined(__s390x__)
 DECL|macro|get_be32
 mdefine_line|#define get_be32(p)&t;ntohl(*(unsigned int *)(p))
 DECL|macro|put_be32
@@ -1524,6 +1524,7 @@ id|len
 )paren
 (brace
 r_int
+r_int
 id|lenW
 op_assign
 id|ctx-&gt;size
@@ -1541,6 +1542,7 @@ c_cond
 id|lenW
 )paren
 (brace
+r_int
 r_int
 id|left
 op_assign
@@ -1716,9 +1718,14 @@ op_assign
 id|htonl
 c_func
 (paren
+(paren
+r_uint32
+)paren
+(paren
 id|ctx-&gt;size
 op_rshift
 l_int|29
+)paren
 )paren
 suffix:semicolon
 id|padlen
@@ -1729,9 +1736,14 @@ op_assign
 id|htonl
 c_func
 (paren
+(paren
+r_uint32
+)paren
+(paren
 id|ctx-&gt;size
 op_lshift
 l_int|3
+)paren
 )paren
 suffix:semicolon
 id|i

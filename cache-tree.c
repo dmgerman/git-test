@@ -94,6 +94,7 @@ id|it-&gt;down
 id|i
 )braket
 )paren
+(brace
 id|cache_tree_free
 c_func
 (paren
@@ -106,6 +107,16 @@ op_member_access_from_pointer
 id|cache_tree
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|it-&gt;down
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+)brace
 id|free
 c_func
 (paren
@@ -1635,6 +1646,14 @@ c_func
 id|sha1
 )paren
 )paren
+(brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buffer
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -1656,6 +1675,7 @@ comma
 id|path
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren

@@ -108,6 +108,10 @@ r_int
 id|errno
 suffix:semicolon
 macro_line|# endif
+macro_line|# ifndef NULL
+DECL|macro|NULL
+macro_line|#  define NULL 0
+macro_line|# endif
 multiline_comment|/* This function doesn&squot;t exist on most systems.  */
 macro_line|# if !defined HAVE___STRCHRNUL &amp;&amp; !defined _LIBC
 r_static

@@ -242,13 +242,7 @@ r_struct
 id|object_array
 id|stack
 op_assign
-(brace
-l_int|0
-comma
-l_int|0
-comma
-l_int|NULL
-)brace
+id|OBJECT_ARRAY_INIT
 suffix:semicolon
 r_struct
 id|commit

@@ -1,9 +1,8 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
-DECL|function|report
-r_static
+DECL|function|vreportf
 r_void
-id|report
+id|vreportf
 c_func
 (paren
 r_const
@@ -70,7 +69,7 @@ id|va_list
 id|params
 )paren
 (brace
-id|report
+id|vreportf
 c_func
 (paren
 l_string|&quot;usage: &quot;
@@ -102,7 +101,7 @@ id|va_list
 id|params
 )paren
 (brace
-id|report
+id|vreportf
 c_func
 (paren
 l_string|&quot;fatal: &quot;
@@ -133,7 +132,7 @@ id|va_list
 id|params
 )paren
 (brace
-id|report
+id|vreportf
 c_func
 (paren
 l_string|&quot;error: &quot;
@@ -159,7 +158,7 @@ id|va_list
 id|params
 )paren
 (brace
-id|report
+id|vreportf
 c_func
 (paren
 l_string|&quot;warning: &quot;
@@ -278,6 +277,7 @@ suffix:semicolon
 )brace
 DECL|function|usagef
 r_void
+id|NORETURN
 id|usagef
 c_func
 (paren
@@ -319,6 +319,7 @@ suffix:semicolon
 )brace
 DECL|function|usage
 r_void
+id|NORETURN
 id|usage
 c_func
 (paren
@@ -339,6 +340,7 @@ suffix:semicolon
 )brace
 DECL|function|die
 r_void
+id|NORETURN
 id|die
 c_func
 (paren
@@ -380,6 +382,7 @@ suffix:semicolon
 )brace
 DECL|function|die_errno
 r_void
+id|NORETURN
 id|die_errno
 c_func
 (paren

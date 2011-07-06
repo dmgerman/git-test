@@ -3,6 +3,7 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;merge-file.h&quot;
 DECL|function|fill_mmfile_blob
 r_static
 r_int
@@ -130,6 +131,7 @@ suffix:semicolon
 id|mmbuffer_t
 id|res
 suffix:semicolon
+multiline_comment|/*&n;&t; * This function is only used by cmd_merge_tree, which&n;&t; * does not respect the merge.conflictstyle option.&n;&t; * There is no need to worry about a label for the&n;&t; * common ancestor.&n;&t; */
 id|merge_status
 op_assign
 id|ll_merge
@@ -142,6 +144,8 @@ id|path
 comma
 id|base
 comma
+l_int|NULL
+comma
 id|our
 comma
 l_string|&quot;.our&quot;
@@ -150,7 +154,7 @@ id|their
 comma
 l_string|&quot;.their&quot;
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -317,7 +321,7 @@ id|xpp
 suffix:semicolon
 id|xpp.flags
 op_assign
-id|XDF_NEED_MINIMAL
+l_int|0
 suffix:semicolon
 id|memset
 c_func

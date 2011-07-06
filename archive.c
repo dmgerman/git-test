@@ -16,11 +16,11 @@ id|archive_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git archive [options] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git archive [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 comma
 l_string|&quot;git archive --list&quot;
 comma
-l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [options] &lt;tree-ish&gt; [path...]&quot;
+l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 comma
 l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] --list&quot;
 comma
@@ -122,6 +122,10 @@ suffix:semicolon
 id|ctx.date_mode
 op_assign
 id|DATE_NORMAL
+suffix:semicolon
+id|ctx.abbrev
+op_assign
+id|DEFAULT_ABBREV
 suffix:semicolon
 r_if
 c_cond
@@ -931,6 +935,10 @@ r_struct
 id|tree_desc
 id|t
 suffix:semicolon
+r_struct
+id|pathspec
+id|pathspec
+suffix:semicolon
 r_int
 id|err
 suffix:semicolon
@@ -1113,6 +1121,15 @@ id|the_index
 )paren
 suffix:semicolon
 )brace
+id|init_pathspec
+c_func
+(paren
+op_amp
+id|pathspec
+comma
+id|args-&gt;pathspec
+)paren
+suffix:semicolon
 id|err
 op_assign
 id|read_tree_recursive
@@ -1126,12 +1143,20 @@ l_int|0
 comma
 l_int|0
 comma
-id|args-&gt;pathspec
+op_amp
+id|pathspec
 comma
 id|write_archive_entry
 comma
 op_amp
 id|context
+)paren
+suffix:semicolon
+id|free_pathspec
+c_func
+(paren
+op_amp
+id|pathspec
 )paren
 suffix:semicolon
 r_if
@@ -1284,7 +1309,7 @@ id|path
 r_const
 r_char
 op_star
-id|pathspec
+id|paths
 (braket
 )braket
 op_assign
@@ -1294,9 +1319,24 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-r_if
-c_cond
+r_struct
+id|pathspec
+id|pathspec
+suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
+id|init_pathspec
+c_func
 (paren
+op_amp
+id|pathspec
+comma
+id|paths
+)paren
+suffix:semicolon
+id|ret
+op_assign
 id|read_tree_recursive
 c_func
 (paren
@@ -1308,17 +1348,24 @@ l_int|0
 comma
 l_int|0
 comma
+op_amp
 id|pathspec
 comma
 id|reject_entry
 comma
 l_int|NULL
 )paren
+suffix:semicolon
+id|free_pathspec
+c_func
+(paren
+op_amp
+id|pathspec
 )paren
-r_return
-l_int|1
 suffix:semicolon
 r_return
+id|ret
+op_ne
 l_int|0
 suffix:semicolon
 )brace
@@ -1776,6 +1823,8 @@ c_func
 (paren
 op_amp
 id|verbose
+comma
+l_string|&quot;report archived files on stderr&quot;
 )paren
 comma
 id|OPT__COMPR

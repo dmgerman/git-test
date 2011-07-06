@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Copyright (C) 2009 Andrzej K. Haczewski &lt;ahaczewski@gmail.com&gt;&n; *&n; * DISCLAMER: The implementation is Git-specific, it is subset of original&n; * Pthreads API, without lots of other features that Git doesn&squot;t use.&n; * Git also makes sure that the passed arguments are valid, so there&squot;s&n; * no need for double-checking.&n; */
+multiline_comment|/*&n; * Copyright (C) 2009 Andrzej K. Haczewski &lt;ahaczewski@gmail.com&gt;&n; *&n; * DISCLAIMER: The implementation is Git-specific, it is subset of original&n; * Pthreads API, without lots of other features that Git doesn&squot;t use.&n; * Git also makes sure that the passed arguments are valid, so there&squot;s&n; * no need for double-checking.&n; */
 macro_line|#include &quot;../../git-compat-util.h&quot;
 macro_line|#include &quot;pthread.h&quot;
 macro_line|#include &lt;errno.h&gt;
@@ -20,6 +20,13 @@ op_star
 id|thread
 op_assign
 id|arg
+suffix:semicolon
+id|thread-&gt;tid
+op_assign
+id|GetCurrentThreadId
+c_func
+(paren
+)paren
 suffix:semicolon
 id|thread-&gt;arg
 op_assign
@@ -175,6 +182,32 @@ c_func
 )paren
 suffix:semicolon
 )brace
+)brace
+DECL|function|pthread_self
+id|pthread_t
+id|pthread_self
+c_func
+(paren
+r_void
+)paren
+(brace
+id|pthread_t
+id|t
+op_assign
+(brace
+l_int|0
+)brace
+suffix:semicolon
+id|t.tid
+op_assign
+id|GetCurrentThreadId
+c_func
+(paren
+)paren
+suffix:semicolon
+r_return
+id|t
+suffix:semicolon
 )brace
 DECL|function|pthread_cond_init
 r_int

@@ -1223,6 +1223,22 @@ l_int|1
 op_div
 id|RABIN_WINDOW
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|bufsize
+op_ge
+l_int|0xffffffffUL
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * Current delta format can&squot;t encode offsets into&n;&t;&t; * reference buffer with more than 32 bits.&n;&t;&t; */
+id|entries
+op_assign
+l_int|0xfffffffeU
+op_div
+id|RABIN_WINDOW
+suffix:semicolon
+)brace
 id|hsize
 op_assign
 id|entries
