@@ -1758,6 +1758,21 @@ DECL|macro|SIMILARITY_FLOOR
 mdefine_line|#define SIMILARITY_FLOOR 7
 DECL|macro|SIMILAR_ENOUGH
 mdefine_line|#define SIMILAR_ENOUGH(x) ((x) &lt; SIMILARITY_FLOOR)
+DECL|variable|bad_interpreter_advice
+r_static
+r_const
+r_char
+id|bad_interpreter_advice
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; appears to be a git command, but we were not&bslash;n&quot;
+l_string|&quot;able to execute it. Maybe git-%s is broken?&quot;
+)paren
+suffix:semicolon
 DECL|function|help_unknown_cmd
 r_const
 r_char
@@ -1927,6 +1942,33 @@ id|i
 )braket
 op_member_access_from_pointer
 id|name
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * An exact match means we have the command, but&n;&t;&t; * for some reason exec&squot;ing it gave us ENOENT; probably&n;&t;&t; * it&squot;s a bad interpreter in the #! line.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|candidate
+comma
+id|cmd
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+id|bad_interpreter_advice
+)paren
+comma
+id|cmd
+comma
+id|cmd
+)paren
 suffix:semicolon
 multiline_comment|/* Does the candidate appear in common_cmds list? */
 r_while
