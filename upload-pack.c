@@ -3453,6 +3453,17 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_const
+r_char
+op_star
+id|refname_nons
+op_assign
+id|strip_namespace
+c_func
+(paren
+id|refname
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3489,7 +3500,7 @@ c_func
 id|sha1
 )paren
 comma
-id|refname
+id|refname_nons
 comma
 l_int|0
 comma
@@ -3517,7 +3528,7 @@ c_func
 id|sha1
 )paren
 comma
-id|refname
+id|refname_nons
 )paren
 suffix:semicolon
 id|capabilities
@@ -3581,7 +3592,7 @@ c_func
 id|o-&gt;sha1
 )paren
 comma
-id|refname
+id|refname_nons
 )paren
 suffix:semicolon
 )brace
@@ -3689,7 +3700,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|head_ref
+id|head_ref_namespaced
 c_func
 (paren
 id|send_ref
@@ -3697,7 +3708,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|for_each_ref
+id|for_each_namespaced_ref
 c_func
 (paren
 id|send_ref
@@ -3714,7 +3725,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|head_ref
+id|head_ref_namespaced
 c_func
 (paren
 id|mark_our_ref
@@ -3722,7 +3733,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|for_each_ref
+id|for_each_namespaced_ref
 c_func
 (paren
 id|mark_our_ref
