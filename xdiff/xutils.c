@@ -1,7 +1,5 @@
 multiline_comment|/*&n; *  LibXDiff by Davide Libenzi ( File Differential Library )&n; *  Copyright (C) 2003&t;Davide Libenzi&n; *&n; *  This library is free software; you can redistribute it and/or&n; *  modify it under the terms of the GNU Lesser General Public&n; *  License as published by the Free Software Foundation; either&n; *  version 2.1 of the License, or (at your option) any later version.&n; *&n; *  This library is distributed in the hope that it will be useful,&n; *  but WITHOUT ANY WARRANTY; without even the implied warranty of&n; *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU&n; *  Lesser General Public License for more details.&n; *&n; *  You should have received a copy of the GNU Lesser General Public&n; *  License along with this library; if not, write to the Free Software&n; *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA&n; *&n; *  Davide Libenzi &lt;davidel@xmailserver.org&gt;&n; *&n; */
 macro_line|#include &quot;xinclude.h&quot;
-DECL|macro|XDL_GUESS_NLINES
-mdefine_line|#define XDL_GUESS_NLINES 256
 DECL|function|xdl_bogosqrt
 r_int
 id|xdl_bogosqrt
@@ -598,6 +596,9 @@ c_func
 id|mmfile_t
 op_star
 id|mf
+comma
+r_int
+id|sample
 )paren
 (brace
 r_int
@@ -654,7 +655,7 @@ id|size
 suffix:semicolon
 id|nl
 OL
-id|XDL_GUESS_NLINES
+id|sample
 suffix:semicolon
 )paren
 (brace

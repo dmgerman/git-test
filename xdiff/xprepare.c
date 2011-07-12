@@ -6,6 +6,10 @@ DECL|macro|XDL_MAX_EQLIMIT
 mdefine_line|#define XDL_MAX_EQLIMIT 1024
 DECL|macro|XDL_SIMSCAN_WINDOW
 mdefine_line|#define XDL_SIMSCAN_WINDOW 100
+DECL|macro|XDL_GUESS_NLINES1
+mdefine_line|#define XDL_GUESS_NLINES1 256
+DECL|macro|XDL_GUESS_NLINES2
+mdefine_line|#define XDL_GUESS_NLINES2 20
 DECL|struct|s_xdlclass
 r_typedef
 r_struct
@@ -1292,9 +1296,23 @@ r_int
 id|enl1
 comma
 id|enl2
+comma
+id|sample
 suffix:semicolon
 id|xdlclassifier_t
 id|cf
+suffix:semicolon
+multiline_comment|/*&n;&t; * For histogram diff, we can afford a smaller sample size and&n;&t; * thus a poorer estimate of the number of lines, as the hash&n;&t; * table (rhash) won&squot;t be filled up/grown. The number of lines&n;&t; * (nrecs) will be updated correctly anyway by&n;&t; * xdl_prepare_ctx().&n;&t; */
+id|sample
+op_assign
+id|xpp-&gt;flags
+op_amp
+id|XDF_HISTOGRAM_DIFF
+ques
+c_cond
+id|XDL_GUESS_NLINES2
+suffix:colon
+id|XDL_GUESS_NLINES1
 suffix:semicolon
 id|enl1
 op_assign
@@ -1302,6 +1320,8 @@ id|xdl_guess_lines
 c_func
 (paren
 id|mf1
+comma
+id|sample
 )paren
 op_plus
 l_int|1
@@ -1312,6 +1332,8 @@ id|xdl_guess_lines
 c_func
 (paren
 id|mf2
+comma
+id|sample
 )paren
 op_plus
 l_int|1
