@@ -696,7 +696,20 @@ id|st.st_mode
 r_return
 l_int|0
 suffix:semicolon
-macro_line|#ifdef WIN32
+macro_line|#if defined(WIN32) || defined(__CYGWIN__)
+macro_line|#if defined(__CYGWIN__)
+r_if
+c_cond
+(paren
+(paren
+id|st.st_mode
+op_amp
+id|S_IXUSR
+)paren
+op_eq
+l_int|0
+)paren
+macro_line|#endif
 (brace
 multiline_comment|/* cannot trust the executable bit, peek into the file instead */
 r_char
