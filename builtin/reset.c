@@ -867,6 +867,13 @@ r_if
 c_cond
 (paren
 id|one-&gt;mode
+op_logical_and
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|one-&gt;sha1
+)paren
 )paren
 (brace
 r_struct
