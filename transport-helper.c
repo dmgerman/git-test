@@ -2041,7 +2041,7 @@ op_assign
 id|xcalloc
 c_func
 (paren
-l_int|4
+l_int|5
 op_plus
 id|revlist_args-&gt;nr
 comma
@@ -2059,6 +2059,14 @@ op_increment
 )braket
 op_assign
 l_string|&quot;fast-export&quot;
+suffix:semicolon
+id|fastexport-&gt;argv
+(braket
+id|argc
+op_increment
+)braket
+op_assign
+l_string|&quot;--use-done-feature&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -2254,21 +2262,6 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|disconnect_helper
-c_func
-(paren
-id|transport
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Error while disconnecting helper&quot;
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4044,10 +4037,6 @@ c_func
 l_string|&quot;Couldn&squot;t run fast-export&quot;
 )paren
 suffix:semicolon
-id|data-&gt;no_disconnect_req
-op_assign
-l_int|1
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4062,21 +4051,6 @@ id|die
 c_func
 (paren
 l_string|&quot;Error while running fast-export&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|disconnect_helper
-c_func
-(paren
-id|transport
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Error while disconnecting helper&quot;
 )paren
 suffix:semicolon
 r_return
