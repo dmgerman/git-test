@@ -1216,6 +1216,22 @@ op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|mid
+id|start
+op_ne
+l_int|40
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;%sinfo/refs not valid: is this a git repository?&quot;
+comma
+id|url
+)paren
+suffix:semicolon
 id|data
 (braket
 id|i
