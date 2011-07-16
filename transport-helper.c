@@ -945,7 +945,7 @@ op_assign
 id|strdup
 c_func
 (paren
-id|buf.buf
+id|capname
 op_plus
 id|strlen
 c_func
