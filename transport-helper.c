@@ -3867,6 +3867,12 @@ l_int|NULL
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+r_private
+)paren
+suffix:semicolon
 id|string_list_append
 c_func
 (paren
