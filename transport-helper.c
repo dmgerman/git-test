@@ -2262,6 +2262,14 @@ id|buf
 )paren
 suffix:semicolon
 )brace
+id|write_constant
+c_func
+(paren
+id|data-&gt;helper-&gt;in
+comma
+l_string|&quot;&bslash;n&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
