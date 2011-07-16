@@ -4053,6 +4053,14 @@ c_func
 l_string|&quot;Error while running fast-export&quot;
 )paren
 suffix:semicolon
+id|push_update_refs_status
+c_func
+(paren
+id|data
+comma
+id|remote_refs
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
