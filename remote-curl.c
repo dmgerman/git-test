@@ -618,6 +618,10 @@ c_cond
 id|http_ret
 op_ne
 id|HTTP_OK
+op_logical_and
+id|http_ret
+op_ne
+id|HTTP_NOAUTH
 )paren
 (brace
 id|free
