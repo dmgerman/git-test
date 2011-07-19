@@ -10267,7 +10267,7 @@ r_char
 op_star
 id|deflated
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 id|memset
@@ -10284,7 +10284,7 @@ id|stream
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -10295,7 +10295,7 @@ id|zlib_compression_level
 suffix:semicolon
 id|bound
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp
@@ -10336,7 +10336,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -10349,7 +10349,7 @@ id|Z_OK
 )paren
 suffix:semicolon
 multiline_comment|/* nothing */
-id|deflateEnd
+id|git_deflate_end
 c_func
 (paren
 op_amp

@@ -6050,7 +6050,7 @@ r_int
 id|unpack_sha1_header
 c_func
 (paren
-id|z_stream
+id|git_zstream
 op_star
 id|stream
 comma
@@ -6253,7 +6253,7 @@ op_star
 id|unpack_sha1_rest
 c_func
 (paren
-id|z_stream
+id|git_zstream
 op_star
 id|stream
 comma
@@ -6648,7 +6648,7 @@ id|sha1
 r_int
 id|ret
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_char
@@ -6755,7 +6755,7 @@ comma
 op_star
 id|in
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -7930,7 +7930,7 @@ id|size
 r_int
 id|st
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -10279,7 +10279,7 @@ r_void
 op_star
 id|map
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_char
@@ -12156,7 +12156,7 @@ id|compressed
 l_int|4096
 )braket
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 id|git_SHA_CTX
@@ -12262,7 +12262,7 @@ id|stream
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -12306,7 +12306,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -12317,8 +12317,8 @@ l_int|0
 op_eq
 id|Z_OK
 )paren
-multiline_comment|/* nothing */
 suffix:semicolon
+multiline_comment|/* nothing */
 id|git_SHA1_Update
 c_func
 (paren
@@ -12354,7 +12354,7 @@ id|stream.next_in
 suffix:semicolon
 id|ret
 op_assign
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -12440,7 +12440,7 @@ id|ret
 suffix:semicolon
 id|ret
 op_assign
-id|deflateEnd
+id|git_deflate_end_gently
 c_func
 (paren
 op_amp

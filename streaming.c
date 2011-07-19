@@ -229,7 +229,7 @@ id|size
 suffix:semicolon
 multiline_comment|/* inflated size of full object */
 DECL|member|z
-id|z_stream
+id|git_zstream
 id|z
 suffix:semicolon
 DECL|enumerator|z_unused

@@ -1214,7 +1214,7 @@ id|size
 r_int
 id|status
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_void
@@ -1736,7 +1736,7 @@ comma
 op_star
 id|inbuf
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -3451,7 +3451,7 @@ r_int
 id|size
 )paren
 (brace
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -3478,7 +3478,7 @@ id|stream
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -3510,7 +3510,7 @@ id|outbuf
 suffix:semicolon
 id|status
 op_assign
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -3561,7 +3561,7 @@ id|size
 op_assign
 id|stream.total_out
 suffix:semicolon
-id|deflateEnd
+id|git_deflate_end
 c_func
 (paren
 op_amp
