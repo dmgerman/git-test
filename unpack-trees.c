@@ -5258,9 +5258,13 @@ r_if
 c_cond
 (paren
 id|o-&gt;index_only
-op_logical_or
-(paren
-op_logical_neg
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * CE_VALID and CE_SKIP_WORKTREE cheat, we better check again&n;&t; * if this entry is truly up-to-date because this file may be&n;&t; * overwritten.&n;&t; */
+r_if
+c_cond
 (paren
 (paren
 id|ce-&gt;ce_flags
@@ -5274,7 +5278,11 @@ c_func
 id|ce
 )paren
 )paren
-op_logical_and
+suffix:semicolon
+multiline_comment|/* keep checking */
+r_else
+r_if
+c_cond
 (paren
 id|o-&gt;reset
 op_logical_or
@@ -5282,8 +5290,6 @@ id|ce_uptodate
 c_func
 (paren
 id|ce
-)paren
-)paren
 )paren
 )paren
 r_return
@@ -5304,6 +5310,13 @@ id|st
 )paren
 (brace
 r_int
+id|flags
+op_assign
+id|CE_MATCH_IGNORE_VALID
+op_or
+id|CE_MATCH_IGNORE_SKIP_WORKTREE
+suffix:semicolon
+r_int
 id|changed
 op_assign
 id|ie_match_stat
@@ -5316,9 +5329,7 @@ comma
 op_amp
 id|st
 comma
-id|CE_MATCH_IGNORE_VALID
-op_or
-id|CE_MATCH_IGNORE_SKIP_WORKTREE
+id|flags
 )paren
 suffix:semicolon
 r_if
