@@ -1174,6 +1174,9 @@ suffix:semicolon
 id|ai
 op_assign
 id|ai-&gt;ai_next
+comma
+id|cnt
+op_increment
 )paren
 (brace
 id|sockfd
