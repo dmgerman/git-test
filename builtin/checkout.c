@@ -1098,6 +1098,11 @@ op_star
 op_star
 id|pathspec
 comma
+r_const
+r_char
+op_star
+id|prefix
+comma
 r_struct
 id|checkout_opts
 op_star
@@ -1291,7 +1296,7 @@ id|ps_matched
 comma
 id|pathspec
 comma
-l_int|0
+id|prefix
 )paren
 )paren
 r_return
@@ -5619,6 +5624,8 @@ c_func
 id|source_tree
 comma
 id|pathspec
+comma
+id|prefix
 comma
 op_amp
 id|opts
