@@ -5251,7 +5251,6 @@ id|name
 suffix:semicolon
 )brace
 DECL|function|copy_ref
-r_static
 r_struct
 id|ref
 op_star
@@ -9082,6 +9081,15 @@ c_cond
 id|r
 op_ne
 id|head
+op_logical_and
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|r-&gt;name
+comma
+l_string|&quot;refs/heads/&quot;
+)paren
 op_logical_and
 op_logical_neg
 id|hashcmp
