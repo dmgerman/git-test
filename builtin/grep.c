@@ -4515,6 +4515,19 @@ comma
 l_string|&quot;show a line with the function name before matches&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;W&squot;
+comma
+l_int|NULL
+comma
+op_amp
+id|opt.funcbody
+comma
+l_string|&quot;show the surrounding function&quot;
+)paren
+comma
 id|OPT_GROUP
 c_func
 (paren
@@ -5219,6 +5232,8 @@ op_logical_or
 id|opt.post_context
 op_logical_or
 id|opt.file_break
+op_logical_or
+id|opt.funcbody
 )paren
 id|skip_first_line
 op_assign
