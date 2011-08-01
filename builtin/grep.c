@@ -4453,7 +4453,7 @@ c_func
 (paren
 l_char|&squot;C&squot;
 comma
-l_int|NULL
+l_string|&quot;context&quot;
 comma
 op_amp
 id|opt
@@ -4470,7 +4470,7 @@ c_func
 (paren
 l_char|&squot;B&squot;
 comma
-l_int|NULL
+l_string|&quot;before-context&quot;
 comma
 op_amp
 id|opt.pre_context
@@ -4483,7 +4483,7 @@ c_func
 (paren
 l_char|&squot;A&squot;
 comma
-l_int|NULL
+l_string|&quot;after-context&quot;
 comma
 op_amp
 id|opt.post_context
@@ -4520,7 +4520,7 @@ c_func
 (paren
 l_char|&squot;W&squot;
 comma
-l_int|NULL
+l_string|&quot;function-context&quot;
 comma
 op_amp
 id|opt.funcbody
