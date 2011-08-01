@@ -74,6 +74,11 @@ r_static
 r_int
 id|fake_missing_tagger
 suffix:semicolon
+DECL|variable|use_done_feature
+r_static
+r_int
+id|use_done_feature
+suffix:semicolon
 DECL|variable|no_data
 r_static
 r_int
@@ -3281,6 +3286,19 @@ comma
 l_string|&quot;Output full tree for each commit&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;use-done-feature&quot;
+comma
+op_amp
+id|use_done_feature
+comma
+l_string|&quot;Use the done feature to terminate the stream&quot;
+)paren
+comma
 (brace
 id|OPTION_NEGBIT
 comma
@@ -3399,6 +3417,17 @@ id|usage_with_options
 id|fast_export_usage
 comma
 id|options
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|use_done_feature
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;feature done&bslash;n&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3539,6 +3568,17 @@ id|export_marks
 c_func
 (paren
 id|export_filename
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|use_done_feature
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;done&bslash;n&quot;
 )paren
 suffix:semicolon
 r_return
