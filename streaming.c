@@ -337,7 +337,9 @@ op_star
 id|st
 )paren
 (brace
-r_return
+r_int
+id|r
+op_assign
 id|st-&gt;vtbl
 op_member_access_from_pointer
 id|close
@@ -345,6 +347,15 @@ c_func
 (paren
 id|st
 )paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|st
+)paren
+suffix:semicolon
+r_return
+id|r
 suffix:semicolon
 )brace
 DECL|function|read_istream
