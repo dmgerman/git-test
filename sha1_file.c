@@ -5850,10 +5850,11 @@ r_return
 id|map
 suffix:semicolon
 )brace
-DECL|function|legacy_loose_object
+multiline_comment|/*&n; * There used to be a second loose object header format which&n; * was meant to mimic the in-pack format, allowing for direct&n; * copy of the object data.  This format turned up not to be&n; * really worth it and we no longer write loose objects in that&n; * format.&n; */
+DECL|function|experimental_loose_object
 r_static
 r_int
-id|legacy_loose_object
+id|experimental_loose_object
 c_func
 (paren
 r_int
@@ -5866,7 +5867,7 @@ r_int
 r_int
 id|word
 suffix:semicolon
-multiline_comment|/*&n;&t; * Is it a zlib-compressed buffer? If so, the first byte&n;&t; * must be 0x78 (15-bit window size, deflated), and the&n;&t; * first 16-bit word is evenly divisible by 31&n;&t; */
+multiline_comment|/*&n;&t; * Is it a zlib-compressed buffer? If so, the first byte&n;&t; * must be 0x78 (15-bit window size, deflated), and the&n;&t; * first 16-bit word is evenly divisible by 31. If so,&n;&t; * we are looking at the official format, not the experimental&n;&t; * one.&n;&t; */
 id|word
 op_assign
 (paren
@@ -5901,11 +5902,11 @@ l_int|31
 )paren
 )paren
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 r_else
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|unpack_object_header_buffer
@@ -6143,30 +6144,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|legacy_loose_object
+id|experimental_loose_object
 c_func
 (paren
 id|map
 )paren
 )paren
 (brace
-id|git_inflate_init
-c_func
-(paren
-id|stream
-)paren
-suffix:semicolon
-r_return
-id|git_inflate
-c_func
-(paren
-id|stream
-comma
-l_int|0
-)paren
-suffix:semicolon
-)brace
-multiline_comment|/*&n;&t; * There used to be a second loose object header format which&n;&t; * was meant to mimic the in-pack format, allowing for direct&n;&t; * copy of the object data.  This format turned up not to be&n;&t; * really worth it and we don&squot;t write it any longer.  But we&n;&t; * can still read it.&n;&t; */
+multiline_comment|/*&n;&t;&t; * The old experimental format we no longer produce;&n;&t;&t; * we can still read it.&n;&t;&t; */
 id|used
 op_assign
 id|unpack_object_header_buffer
@@ -6245,6 +6230,22 @@ id|size
 suffix:semicolon
 r_return
 l_int|0
+suffix:semicolon
+)brace
+id|git_inflate_init
+c_func
+(paren
+id|stream
+)paren
+suffix:semicolon
+r_return
+id|git_inflate
+c_func
+(paren
+id|stream
+comma
+l_int|0
+)paren
 suffix:semicolon
 )brace
 DECL|function|unpack_sha1_rest
