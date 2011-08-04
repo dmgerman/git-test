@@ -3529,11 +3529,6 @@ id|pathlen
 comma
 id|rem
 suffix:semicolon
-id|bootstrap_attr_stack
-c_func
-(paren
-)paren
-suffix:semicolon
 id|prepare_attr_stack
 c_func
 (paren
