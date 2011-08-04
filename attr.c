@@ -181,6 +181,10 @@ multiline_comment|/*&n;&t; * Attribute name cannot begin with &squot;-&squot; an
 r_if
 c_cond
 (paren
+id|namelen
+op_le
+l_int|0
+op_logical_or
 op_star
 id|name
 op_eq
