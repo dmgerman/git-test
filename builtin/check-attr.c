@@ -606,7 +606,11 @@ r_if
 c_cond
 (paren
 id|stdin_paths
-op_logical_and
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|filei
 OL
 id|argc
@@ -617,6 +621,23 @@ c_func
 l_string|&quot;Can&squot;t specify files with --stdin&quot;
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|filei
+op_ge
+id|argc
+)paren
+id|error_with_usage
+c_func
+(paren
+l_string|&quot;No file specified&quot;
+)paren
+suffix:semicolon
+)brace
 id|check
 op_assign
 id|xcalloc
