@@ -664,7 +664,6 @@ OL
 l_int|0
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * There is no double dash; treat the first&n;&t;&t; * argument as an attribute.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -677,6 +676,25 @@ c_func
 l_string|&quot;No attribute specified&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|stdin_paths
+)paren
+(brace
+multiline_comment|/* Treat all arguments as attribute names. */
+id|cnt
+op_assign
+id|argc
+suffix:semicolon
+id|filei
+op_assign
+id|argc
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/* Treat exactly one argument as an attribute name. */
 id|cnt
 op_assign
 l_int|1
@@ -685,6 +703,7 @@ id|filei
 op_assign
 l_int|1
 suffix:semicolon
+)brace
 )brace
 r_else
 (brace
