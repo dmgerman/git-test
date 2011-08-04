@@ -14,6 +14,7 @@ macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;sequencer.h&quot;
 multiline_comment|/*&n; * This implements the builtins revert and cherry-pick.&n; *&n; * Copyright (c) 2007 Johannes E. Schindelin&n; *&n; * Based on git-revert.sh, which is&n; *&n; * Copyright (c) 2005 Linus Torvalds&n; * Copyright (c) 2005 Junio C Hamano&n; */
 DECL|variable|revert_usage
 r_static
@@ -27,6 +28,8 @@ id|revert_usage
 op_assign
 (brace
 l_string|&quot;git revert [options] &lt;commit-ish&gt;&quot;
+comma
+l_string|&quot;git revert &lt;subcommand&gt;&quot;
 comma
 l_int|NULL
 )brace
@@ -44,6 +47,8 @@ op_assign
 (brace
 l_string|&quot;git cherry-pick [options] &lt;commit-ish&gt;&quot;
 comma
+l_string|&quot;git cherry-pick &lt;subcommand&gt;&quot;
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -58,6 +63,17 @@ comma
 id|CHERRY_PICK
 )brace
 suffix:semicolon
+DECL|enum|replay_subcommand
+DECL|enumerator|REPLAY_NONE
+DECL|enumerator|REPLAY_RESET
+r_enum
+id|replay_subcommand
+(brace
+id|REPLAY_NONE
+comma
+id|REPLAY_RESET
+)brace
+suffix:semicolon
 DECL|struct|replay_opts
 r_struct
 id|replay_opts
@@ -66,6 +82,11 @@ DECL|member|action
 r_enum
 id|replay_action
 id|action
+suffix:semicolon
+DECL|member|subcommand
+r_enum
+id|replay_subcommand
+id|subcommand
 suffix:semicolon
 multiline_comment|/* Boolean options */
 DECL|member|edit
@@ -132,14 +153,6 @@ suffix:semicolon
 suffix:semicolon
 DECL|macro|GIT_REFLOG_ACTION
 mdefine_line|#define GIT_REFLOG_ACTION &quot;GIT_REFLOG_ACTION&quot;
-DECL|macro|SEQ_DIR
-mdefine_line|#define SEQ_DIR         &quot;sequencer&quot;
-DECL|macro|SEQ_HEAD_FILE
-mdefine_line|#define SEQ_HEAD_FILE   &quot;sequencer/head&quot;
-DECL|macro|SEQ_TODO_FILE
-mdefine_line|#define SEQ_TODO_FILE   &quot;sequencer/todo&quot;
-DECL|macro|SEQ_OPTS_FILE
-mdefine_line|#define SEQ_OPTS_FILE   &quot;sequencer/opts&quot;
 DECL|function|action_name
 r_static
 r_const
@@ -423,6 +436,11 @@ suffix:semicolon
 r_int
 id|noop
 suffix:semicolon
+r_int
+id|reset
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|option
 id|options
@@ -430,6 +448,19 @@ id|options
 )braket
 op_assign
 (brace
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;reset&quot;
+comma
+op_amp
+id|reset
+comma
+l_string|&quot;forget the current operation&quot;
+)paren
+comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -657,6 +688,80 @@ op_or
 id|PARSE_OPT_KEEP_UNKNOWN
 )paren
 suffix:semicolon
+multiline_comment|/* Set the subcommand */
+r_if
+c_cond
+(paren
+id|reset
+)paren
+id|opts-&gt;subcommand
+op_assign
+id|REPLAY_RESET
+suffix:semicolon
+r_else
+id|opts-&gt;subcommand
+op_assign
+id|REPLAY_NONE
+suffix:semicolon
+multiline_comment|/* Check for incompatible command line arguments */
+r_if
+c_cond
+(paren
+id|opts-&gt;subcommand
+op_eq
+id|REPLAY_RESET
+)paren
+(brace
+id|verify_opt_compatible
+c_func
+(paren
+id|me
+comma
+l_string|&quot;--reset&quot;
+comma
+l_string|&quot;--no-commit&quot;
+comma
+id|opts-&gt;no_commit
+comma
+l_string|&quot;--signoff&quot;
+comma
+id|opts-&gt;signoff
+comma
+l_string|&quot;--mainline&quot;
+comma
+id|opts-&gt;mainline
+comma
+l_string|&quot;--strategy&quot;
+comma
+id|opts-&gt;strategy
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+comma
+l_string|&quot;--strategy-option&quot;
+comma
+id|opts-&gt;xopts
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+comma
+l_string|&quot;-x&quot;
+comma
+id|opts-&gt;record_origin
+comma
+l_string|&quot;--ff&quot;
+comma
+id|opts-&gt;allow_ff
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren
@@ -3958,12 +4063,6 @@ id|opts
 )paren
 (brace
 r_struct
-id|strbuf
-id|buf
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
-r_struct
 id|commit_list
 op_star
 id|cur
@@ -4052,35 +4151,10 @@ id|res
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Sequence of picks finished successfully; cleanup by&n;&t; * removing the .git/sequencer directory&n;&t; */
-id|strbuf_addf
+id|remove_sequencer_state
 c_func
 (paren
-op_amp
-id|buf
-comma
-l_string|&quot;%s&quot;
-comma
-id|git_path
-c_func
-(paren
-id|SEQ_DIR
-)paren
-)paren
-suffix:semicolon
-id|remove_dir_recursively
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
-suffix:semicolon
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|buf
+l_int|1
 )paren
 suffix:semicolon
 r_return
@@ -4120,6 +4194,27 @@ id|opts
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Decide what to do depending on the arguments; a fresh&n;&t; * cherry-pick should be handled differently from an existing&n;&t; * one that is being continued&n;&t; */
+r_if
+c_cond
+(paren
+id|opts-&gt;subcommand
+op_eq
+id|REPLAY_RESET
+)paren
+(brace
+id|remove_sequencer_state
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/* Start a new cherry-pick/ revert sequence */
 id|walk_revs_populate_todo
 c_func
 (paren
@@ -4190,6 +4285,7 @@ c_func
 id|opts
 )paren
 suffix:semicolon
+)brace
 r_return
 id|pick_commits
 c_func
