@@ -483,20 +483,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|argc
-)paren
-id|usage_with_options
-c_func
-(paren
-id|check_attr_usage
-comma
-id|check_attr_options
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|read_cache
 c_func
 (paren
@@ -555,7 +541,23 @@ op_assign
 id|i
 suffix:semicolon
 )brace
-multiline_comment|/* If there is no double dash, we handle only one attribute */
+multiline_comment|/* Check attribute argument(s): */
+r_if
+c_cond
+(paren
+id|doubledash
+op_eq
+l_int|0
+)paren
+(brace
+id|error_with_usage
+c_func
+(paren
+l_string|&quot;No attribute specified&quot;
+)paren
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren
@@ -564,6 +566,19 @@ OL
 l_int|0
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * There is no double dash; treat the first&n;&t;&t; * argument as an attribute.&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|argc
+)paren
+id|error_with_usage
+c_func
+(paren
+l_string|&quot;No attribute specified&quot;
+)paren
+suffix:semicolon
 id|cnt
 op_assign
 l_int|1
@@ -586,19 +601,7 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|cnt
-op_le
-l_int|0
-)paren
-id|error_with_usage
-c_func
-(paren
-l_string|&quot;No attribute specified&quot;
-)paren
-suffix:semicolon
+multiline_comment|/* Check file argument(s): */
 r_if
 c_cond
 (paren
