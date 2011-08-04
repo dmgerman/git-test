@@ -462,13 +462,6 @@ id|doubledash
 comma
 id|filei
 suffix:semicolon
-r_const
-r_char
-op_star
-id|errstr
-op_assign
-l_int|NULL
-suffix:semicolon
 id|argc
 op_assign
 id|parse_options
@@ -600,11 +593,12 @@ id|cnt
 op_le
 l_int|0
 )paren
-id|errstr
-op_assign
+id|error_with_usage
+c_func
+(paren
 l_string|&quot;No attribute specified&quot;
+)paren
 suffix:semicolon
-r_else
 r_if
 c_cond
 (paren
@@ -614,23 +608,12 @@ id|filei
 OL
 id|argc
 )paren
-id|errstr
-op_assign
-l_string|&quot;Can&squot;t specify files with --stdin&quot;
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|errstr
-)paren
-(brace
 id|error_with_usage
 c_func
 (paren
-id|errstr
+l_string|&quot;Can&squot;t specify files with --stdin&quot;
 )paren
 suffix:semicolon
-)brace
 id|check
 op_assign
 id|xcalloc
