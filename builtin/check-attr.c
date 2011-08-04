@@ -90,12 +90,6 @@ comma
 r_const
 r_char
 op_star
-op_star
-id|name
-comma
-r_const
-r_char
-op_star
 id|file
 )paren
 (brace
@@ -206,10 +200,16 @@ c_func
 (paren
 l_string|&quot;: %s: %s&bslash;n&quot;
 comma
-id|name
+id|git_attr_name
+c_func
+(paren
+id|check
 (braket
 id|j
 )braket
+dot
+id|attr
+)paren
 comma
 id|value
 )paren
@@ -229,12 +229,6 @@ r_struct
 id|git_attr_check
 op_star
 id|check
-comma
-r_const
-r_char
-op_star
-op_star
-id|name
 )paren
 (brace
 r_struct
@@ -345,8 +339,6 @@ c_func
 id|cnt
 comma
 id|check
-comma
-id|name
 comma
 id|buf.buf
 )paren
@@ -671,8 +663,6 @@ c_func
 id|cnt
 comma
 id|check
-comma
-id|argv
 )paren
 suffix:semicolon
 r_else
@@ -697,8 +687,6 @@ c_func
 id|cnt
 comma
 id|check
-comma
-id|argv
 comma
 id|argv
 (braket
