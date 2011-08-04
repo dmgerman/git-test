@@ -4146,9 +4146,24 @@ c_cond
 (paren
 id|res
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|cur-&gt;next
+)paren
+multiline_comment|/*&n;&t;&t;&t;&t; * An error was encountered while&n;&t;&t;&t;&t; * picking the last commit; the&n;&t;&t;&t;&t; * sequencer state is useless now --&n;&t;&t;&t;&t; * the user simply needs to resolve&n;&t;&t;&t;&t; * the conflict and commit&n;&t;&t;&t;&t; */
+id|remove_sequencer_state
+c_func
+(paren
+l_int|0
+)paren
+suffix:semicolon
 r_return
 id|res
 suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n;&t; * Sequence of picks finished successfully; cleanup by&n;&t; * removing the .git/sequencer directory&n;&t; */
 id|remove_sequencer_state
