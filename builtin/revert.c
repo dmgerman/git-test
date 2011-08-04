@@ -78,13 +78,6 @@ id|CHERRY_PICK
 )brace
 id|action
 suffix:semicolon
-DECL|variable|commit
-r_static
-r_struct
-id|commit
-op_star
-id|commit
-suffix:semicolon
 DECL|variable|commit_argc
 r_static
 r_int
@@ -554,10 +547,10 @@ r_int
 id|get_message
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|commit
 op_star
-id|raw_message
+id|commit
 comma
 r_struct
 id|commit_message
@@ -591,7 +584,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|raw_message
+id|commit-&gt;buffer
 )paren
 r_return
 l_int|1
@@ -601,7 +594,7 @@ op_assign
 id|get_encoding
 c_func
 (paren
-id|raw_message
+id|commit-&gt;buffer
 )paren
 suffix:semicolon
 r_if
@@ -630,7 +623,7 @@ l_int|NULL
 suffix:semicolon
 id|out-&gt;message
 op_assign
-id|raw_message
+id|commit-&gt;buffer
 suffix:semicolon
 r_if
 c_cond
@@ -648,7 +641,7 @@ op_assign
 id|reencode_string
 c_func
 (paren
-id|raw_message
+id|commit-&gt;buffer
 comma
 id|git_commit_encoding
 comma
@@ -945,7 +938,10 @@ r_void
 id|write_cherry_pick_head
 c_func
 (paren
-r_void
+r_struct
+id|commit
+op_star
+id|commit
 )paren
 (brace
 r_int
@@ -1890,7 +1886,10 @@ r_int
 id|do_pick_commit
 c_func
 (paren
-r_void
+r_struct
+id|commit
+op_star
+id|commit
 )paren
 (brace
 r_int
@@ -2224,7 +2223,7 @@ c_cond
 id|get_message
 c_func
 (paren
-id|commit-&gt;buffer
+id|commit
 comma
 op_amp
 id|msg
@@ -2463,6 +2462,7 @@ id|no_commit
 id|write_cherry_pick_head
 c_func
 (paren
+id|commit
 )paren
 suffix:semicolon
 )brace
@@ -2919,6 +2919,11 @@ r_struct
 id|rev_info
 id|revs
 suffix:semicolon
+r_struct
+id|commit
+op_star
+id|commit
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -3057,6 +3062,7 @@ op_assign
 id|do_pick_commit
 c_func
 (paren
+id|commit
 )paren
 suffix:semicolon
 r_if
