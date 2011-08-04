@@ -3523,6 +3523,9 @@ comma
 r_int
 id|dense
 comma
+r_int
+id|working_tree_file
+comma
 r_struct
 id|rev_info
 op_star
@@ -3572,15 +3575,6 @@ r_int
 id|i
 comma
 id|show_hunks
-suffix:semicolon
-r_int
-id|working_tree_file
-op_assign
-id|is_null_sha1
-c_func
-(paren
-id|elem-&gt;sha1
-)paren
 suffix:semicolon
 r_int
 id|abbrev
@@ -5251,6 +5245,7 @@ id|line_termination
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The result (p-&gt;elem) is from the working tree and their&n; * parents are typically from multiple stages during a merge&n; * (i.e. diff-files) or the state in HEAD and in the index&n; * (i.e. diff-index).&n; */
 DECL|function|show_combined_diff
 r_void
 id|show_combined_diff
@@ -5328,6 +5323,8 @@ comma
 id|num_parent
 comma
 id|dense
+comma
+l_int|1
 comma
 id|rev
 )paren
@@ -5703,6 +5700,8 @@ comma
 id|num_parent
 comma
 id|dense
+comma
+l_int|0
 comma
 id|rev
 )paren
