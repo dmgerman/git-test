@@ -47,7 +47,7 @@ l_int|NULL
 )brace
 suffix:semicolon
 DECL|variable|edit
-DECL|variable|no_replay
+DECL|variable|record_origin
 DECL|variable|no_commit
 DECL|variable|mainline
 DECL|variable|signoff
@@ -56,7 +56,7 @@ r_static
 r_int
 id|edit
 comma
-id|no_replay
+id|record_origin
 comma
 id|no_commit
 comma
@@ -421,7 +421,7 @@ comma
 l_int|NULL
 comma
 op_amp
-id|no_replay
+id|record_origin
 comma
 l_string|&quot;append commit name&quot;
 )paren
@@ -2419,7 +2419,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|no_replay
+id|record_origin
 )paren
 (brace
 id|strbuf_addstr
@@ -2995,7 +2995,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|no_replay
+id|record_origin
 )paren
 id|die
 c_func
