@@ -177,7 +177,7 @@ r_int
 id|namelen
 )paren
 (brace
-multiline_comment|/*&n;&t; * Attribute name cannot begin with &squot;-&squot; and from&n;&t; * [-A-Za-z0-9_.].  We&squot;d specifically exclude &squot;=&squot; for now,&n;&t; * as we might later want to allow non-binary value for&n;&t; * attributes, e.g. &quot;*.svg&t;merge=special-merge-program-for-svg&quot;&n;&t; */
+multiline_comment|/*&n;&t; * Attribute name cannot begin with &squot;-&squot; and must consist of&n;&t; * characters from [-A-Za-z0-9_.].&n;&t; */
 r_if
 c_cond
 (paren
