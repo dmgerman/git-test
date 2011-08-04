@@ -3,6 +3,11 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+DECL|variable|all_attrs
+r_static
+r_int
+id|all_attrs
+suffix:semicolon
 DECL|variable|stdin_paths
 r_static
 r_int
@@ -19,9 +24,9 @@ id|check_attr_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git check-attr attr... [--] pathname...&quot;
+l_string|&quot;git check-attr [-a | --all | attr...] [--] pathname...&quot;
 comma
-l_string|&quot;git check-attr --stdin attr... &lt; &lt;list-of-paths&gt;&quot;
+l_string|&quot;git check-attr --stdin [-a | --all | attr...] &lt; &lt;list-of-paths&gt;&quot;
 comma
 l_int|NULL
 )brace
@@ -41,6 +46,19 @@ id|check_attr_options
 )braket
 op_assign
 (brace
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;a&squot;
+comma
+l_string|&quot;all&quot;
+comma
+op_amp
+id|all_attrs
+comma
+l_string|&quot;report all attributes set on file&quot;
+)paren
+comma
 id|OPT_BOOLEAN
 c_func
 (paren
@@ -220,6 +238,14 @@ id|file
 r_if
 c_cond
 (paren
+id|check
+op_ne
+l_int|NULL
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|git_checkattr
 c_func
 (paren
@@ -246,6 +272,47 @@ comma
 id|file
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+r_if
+c_cond
+(paren
+id|git_all_attrs
+c_func
+(paren
+id|file
+comma
+op_amp
+id|cnt
+comma
+op_amp
+id|check
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git_all_attrs died&quot;
+)paren
+suffix:semicolon
+id|output_attr
+c_func
+(paren
+id|cnt
+comma
+id|check
+comma
+id|file
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|check
+)paren
+suffix:semicolon
+)brace
 )brace
 DECL|function|check_attr_stdin_paths
 r_static
@@ -541,7 +608,38 @@ op_assign
 id|i
 suffix:semicolon
 )brace
-multiline_comment|/* Check attribute argument(s): */
+multiline_comment|/* Process --all and/or attribute arguments: */
+r_if
+c_cond
+(paren
+id|all_attrs
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|doubledash
+op_ge
+l_int|1
+)paren
+id|error_with_usage
+c_func
+(paren
+l_string|&quot;Attributes and --all both specified&quot;
+)paren
+suffix:semicolon
+id|cnt
+op_assign
+l_int|0
+suffix:semicolon
+id|filei
+op_assign
+id|doubledash
+op_plus
+l_int|1
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren
@@ -638,6 +736,19 @@ l_string|&quot;No file specified&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|all_attrs
+)paren
+(brace
+id|check
+op_assign
+l_int|NULL
+suffix:semicolon
+)brace
+r_else
+(brace
 id|check
 op_assign
 id|xcalloc
@@ -716,6 +827,7 @@ id|attr
 op_assign
 id|a
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
