@@ -89,6 +89,27 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+DECL|variable|argv_update_ref
+r_static
+r_const
+r_char
+op_star
+id|argv_update_ref
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;update-ref&quot;
+comma
+l_string|&quot;--no-deref&quot;
+comma
+l_string|&quot;BISECT_HEAD&quot;
+comma
+l_int|NULL
+comma
+l_int|NULL
+)brace
+suffix:semicolon
 multiline_comment|/* bits #0-15 in revision.h */
 DECL|macro|COUNTED
 mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;16)
@@ -3316,6 +3337,9 @@ c_func
 r_char
 op_star
 id|bisect_rev_hex
+comma
+r_int
+id|no_checkout
 )paren
 (brace
 r_int
@@ -3334,6 +3358,41 @@ l_int|2
 op_assign
 id|bisect_rev_hex
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|no_checkout
+)paren
+(brace
+id|argv_update_ref
+(braket
+l_int|3
+)braket
+op_assign
+id|bisect_rev_hex
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|run_command_v_opt
+c_func
+(paren
+id|argv_update_ref
+comma
+id|RUN_GIT_CMD
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;update-ref --no-deref HEAD failed on %s&quot;
+comma
+id|bisect_rev_hex
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|res
 op_assign
 id|run_command_v_opt
@@ -3354,6 +3413,7 @@ m_exit
 id|res
 )paren
 suffix:semicolon
+)brace
 id|argv_show_branch
 (braket
 l_int|1
@@ -3673,7 +3733,8 @@ r_void
 id|check_merge_bases
 c_func
 (paren
-r_void
+r_int
+id|no_checkout
 )paren
 (brace
 r_struct
@@ -3815,6 +3876,8 @@ c_func
 (paren
 id|mb
 )paren
+comma
+id|no_checkout
 )paren
 )paren
 suffix:semicolon
@@ -3995,6 +4058,9 @@ r_const
 r_char
 op_star
 id|prefix
+comma
+r_int
+id|no_checkout
 )paren
 (brace
 r_const
@@ -4072,6 +4138,7 @@ id|prefix
 id|check_merge_bases
 c_func
 (paren
+id|no_checkout
 )paren
 suffix:semicolon
 multiline_comment|/* Create file BISECT_ANCESTORS_OK. */
@@ -4203,7 +4270,7 @@ id|commit
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * We use the convention that exiting with an exit code 10 means that&n; * the bisection process finished successfully.&n; * In this case the calling shell script should exit 0.&n; */
+multiline_comment|/*&n; * We use the convention that exiting with an exit code 10 means that&n; * the bisection process finished successfully.&n; * In this case the calling shell script should exit 0.&n; *&n; * If no_checkout is non-zero, the bisection process does not&n; * checkout the trial commit but instead simply updates BISECT_HEAD.&n; */
 DECL|function|bisect_next_all
 r_int
 id|bisect_next_all
@@ -4213,6 +4280,9 @@ r_const
 r_char
 op_star
 id|prefix
+comma
+r_int
+id|no_checkout
 )paren
 (brace
 r_struct
@@ -4267,6 +4337,8 @@ id|check_good_are_ancestors_of_bad
 c_func
 (paren
 id|prefix
+comma
+id|no_checkout
 )paren
 suffix:semicolon
 id|bisect_rev_setup
@@ -4494,6 +4566,8 @@ id|bisect_checkout
 c_func
 (paren
 id|bisect_rev_hex
+comma
+id|no_checkout
 )paren
 suffix:semicolon
 )brace
