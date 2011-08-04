@@ -842,27 +842,6 @@ comma
 op_star
 id|eol
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|p
-)paren
-id|die
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Could not read commit message of %s&quot;
-)paren
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|commit-&gt;object.sha1
-)paren
-)paren
-suffix:semicolon
 r_while
 c_loop
 (paren
