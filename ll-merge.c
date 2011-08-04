@@ -1668,7 +1668,7 @@ l_string|&quot;conflict-marker-size&quot;
 suffix:semicolon
 )brace
 r_return
-id|git_checkattr
+id|git_check_attr
 c_func
 (paren
 id|path
@@ -2014,7 +2014,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|git_checkattr
+id|git_check_attr
 c_func
 (paren
 id|path

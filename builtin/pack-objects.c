@@ -3178,7 +3178,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|git_checkattr
+id|git_check_attr
 c_func
 (paren
 id|path

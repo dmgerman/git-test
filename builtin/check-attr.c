@@ -246,7 +246,7 @@ l_int|NULL
 r_if
 c_cond
 (paren
-id|git_checkattr
+id|git_check_attr
 c_func
 (paren
 id|file
@@ -259,7 +259,7 @@ id|check
 id|die
 c_func
 (paren
-l_string|&quot;git_checkattr died&quot;
+l_string|&quot;git_check_attr died&quot;
 )paren
 suffix:semicolon
 id|output_attr

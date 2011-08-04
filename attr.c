@@ -3596,9 +3596,9 @@ id|rem
 )paren
 suffix:semicolon
 )brace
-DECL|function|git_checkattr
+DECL|function|git_check_attr
 r_int
-id|git_checkattr
+id|git_check_attr
 c_func
 (paren
 r_const

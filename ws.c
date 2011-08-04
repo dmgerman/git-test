@@ -432,7 +432,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|git_checkattr
+id|git_check_attr
 c_func
 (paren
 id|pathname
