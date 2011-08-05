@@ -164,6 +164,12 @@ l_int|1024
 op_star
 l_int|1024
 suffix:semicolon
+DECL|variable|log_pack_access
+r_const
+r_char
+op_star
+id|log_pack_access
+suffix:semicolon
 DECL|variable|pager_program
 r_const
 r_char
