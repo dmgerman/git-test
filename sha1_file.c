@@ -5867,7 +5867,7 @@ r_int
 r_int
 id|word
 suffix:semicolon
-multiline_comment|/*&n;&t; * Is it a zlib-compressed buffer? If so, the first byte&n;&t; * must be 0x78 (15-bit window size, deflated), and the&n;&t; * first 16-bit word is evenly divisible by 31. If so,&n;&t; * we are looking at the official format, not the experimental&n;&t; * one.&n;&t; */
+multiline_comment|/*&n;&t; * We must determine if the buffer contains the standard&n;&t; * zlib-deflated stream or the experimental format based&n;&t; * on the in-pack object format. Compare the header byte&n;&t; * for each format:&n;&t; *&n;&t; * RFC1950 zlib w/ deflate : 0www1000 : 0 &lt;= www &lt;= 7&n;&t; * Experimental pack-based : Stttssss : ttt = 1,2,3,4&n;&t; *&n;&t; * If bit 7 is clear and bits 0-3 equal 8, the buffer MUST be&n;&t; * in standard loose-object format, UNLESS it is a Git-pack&n;&t; * format object *exactly* 8 bytes in size when inflated.&n;&t; *&n;&t; * However, RFC1950 also specifies that the 1st 16-bit word&n;&t; * must be divisible by 31 - this checksum tells us our buffer&n;&t; * is in the standard format, giving a false positive only if&n;&t; * the 1st word of the Git-pack format object happens to be&n;&t; * divisible by 31, ie:&n;&t; *      ((byte0 * 256) + byte1) % 31 = 0&n;&t; *   =&gt;        0ttt10000www1000 % 31 = 0&n;&t; *&n;&t; * As it happens, this case can only arise for www=3 &amp; ttt=1&n;&t; * - ie, a Commit object, which would have to be 8 bytes in&n;&t; * size. As no Commit can be that small, we find that the&n;&t; * combination of these two criteria (bitmask &amp; checksum)&n;&t; * can always correctly determine the buffer format.&n;&t; */
 id|word
 op_assign
 (paren
@@ -5887,12 +5887,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|map
 (braket
 l_int|0
 )braket
+op_amp
+l_int|0x8F
+)paren
 op_eq
-l_int|0x78
+l_int|0x08
 op_logical_and
 op_logical_neg
 (paren
