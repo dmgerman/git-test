@@ -3515,7 +3515,7 @@ r_char
 op_star
 id|unpacker
 (braket
-l_int|4
+l_int|5
 )braket
 suffix:semicolon
 id|unpacker
