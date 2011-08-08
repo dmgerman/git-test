@@ -911,6 +911,9 @@ c_func
 l_string|&quot;not a tree object&quot;
 )paren
 suffix:semicolon
+r_return
+op_logical_neg
+op_logical_neg
 id|read_tree_recursive
 c_func
 (paren
@@ -929,9 +932,6 @@ id|show_tree
 comma
 l_int|NULL
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 eof
