@@ -4098,11 +4098,15 @@ comma
 id|prefix
 )paren
 suffix:semicolon
-multiline_comment|/* Not a recognized reflog command..*/
-id|usage
+r_return
+id|cmd_log_reflog
 c_func
 (paren
-id|reflog_usage
+id|argc
+comma
+id|argv
+comma
+id|prefix
 )paren
 suffix:semicolon
 )brace
