@@ -1826,8 +1826,6 @@ comma
 id|cmd_bisect__helper
 comma
 id|RUN_SETUP
-op_or
-id|NEED_WORK_TREE
 )brace
 comma
 (brace
