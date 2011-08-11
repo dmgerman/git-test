@@ -4453,7 +4453,7 @@ c_func
 (paren
 l_char|&squot;C&squot;
 comma
-l_int|NULL
+l_string|&quot;context&quot;
 comma
 op_amp
 id|opt
@@ -4470,7 +4470,7 @@ c_func
 (paren
 l_char|&squot;B&squot;
 comma
-l_int|NULL
+l_string|&quot;before-context&quot;
 comma
 op_amp
 id|opt.pre_context
@@ -4483,7 +4483,7 @@ c_func
 (paren
 l_char|&squot;A&squot;
 comma
-l_int|NULL
+l_string|&quot;after-context&quot;
 comma
 op_amp
 id|opt.post_context
@@ -4513,6 +4513,19 @@ op_amp
 id|opt.funcname
 comma
 l_string|&quot;show a line with the function name before matches&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_char|&squot;W&squot;
+comma
+l_string|&quot;function-context&quot;
+comma
+op_amp
+id|opt.funcbody
+comma
+l_string|&quot;show the surrounding function&quot;
 )paren
 comma
 id|OPT_GROUP
@@ -5219,6 +5232,8 @@ op_logical_or
 id|opt.post_context
 op_logical_or
 id|opt.file_break
+op_logical_or
+id|opt.funcbody
 )paren
 id|skip_first_line
 op_assign
