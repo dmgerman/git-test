@@ -10200,6 +10200,18 @@ r_char
 op_star
 id|ident
 suffix:semicolon
+multiline_comment|/* ensure there is a space delimiter even if there is no name */
+r_if
+c_cond
+(paren
+op_star
+id|buf
+op_eq
+l_char|&squot;&lt;&squot;
+)paren
+op_decrement
+id|buf
+suffix:semicolon
 id|gt
 op_assign
 id|strrchr
