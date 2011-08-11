@@ -36,7 +36,6 @@ mdefine_line|#define OPT_SHORT 1
 DECL|macro|OPT_UNSET
 mdefine_line|#define OPT_UNSET 2
 DECL|function|optbug
-r_static
 r_int
 id|optbug
 c_func
@@ -82,7 +81,6 @@ id|reason
 suffix:semicolon
 )brace
 DECL|function|opterror
-r_static
 r_int
 id|opterror
 c_func
