@@ -1803,10 +1803,10 @@ id|onelen
 id|twolen
 suffix:semicolon
 )brace
-DECL|function|make_room_for_directories_of_df_conflicts
+DECL|function|record_df_conflict_files
 r_static
 r_void
-id|make_room_for_directories_of_df_conflicts
+id|record_df_conflict_files
 c_func
 (paren
 r_struct
@@ -1820,7 +1820,7 @@ op_star
 id|entries
 )paren
 (brace
-multiline_comment|/* If there are D/F conflicts, and the paths currently exist&n;&t; * in the working copy as a file, we want to remove them to&n;&t; * make room for the corresponding directory.  Such paths will&n;&t; * later be processed in process_df_entry() at the end.  If&n;&t; * the corresponding directory ends up being removed by the&n;&t; * merge, then the file will be reinstated at that time;&n;&t; * otherwise, if the file is not supposed to be removed by the&n;&t; * merge, the contents of the file will be placed in another&n;&t; * unique filename.&n;&t; */
+multiline_comment|/* If there is a D/F conflict and the file for such a conflict&n;&t; * currently exist in the working copy, we want to allow it to&n;&t; * be removed to make room for the corresponding directory if&n;&t; * needed.  The files underneath the directories of such D/F&n;&t; * conflicts will be handled in process_entry(), while the&n;&t; * files of such D/F conflicts will be processed later in&n;&t; * process_df_entry().  If the corresponding directory ends up&n;&t; * being removed by the merge, then no additional work needs&n;&t; * to be done by process_df_entry() for the conflicting file.&n;&t; * If the directory needs to be written to the working copy,&n;&t; * then the conflicting file will simply be removed (e.g. in&n;&t; * make_room_for_path).  If the directory is written to the&n;&t; * working copy but the file also has a conflict that needs to&n;&t; * be resolved, then process_df_entry() will reinstate the&n;&t; * file with a new unique name.&n;&t; */
 r_const
 r_char
 op_star
@@ -1859,6 +1859,15 @@ id|entries-&gt;items
 )paren
 comma
 id|string_list_df_name_compare
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|o-&gt;df_conflict_file_set
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_for
@@ -1909,7 +1918,7 @@ id|i
 dot
 id|util
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Check if last_file &amp; path correspond to a D/F conflict;&n;&t;&t; * i.e. whether path is last_file+&squot;/&squot;+&lt;something&gt;.&n;&t;&t; * If so, remove last_file to make room for path and friends.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Check if last_file &amp; path correspond to a D/F conflict;&n;&t;&t; * i.e. whether path is last_file+&squot;/&squot;+&lt;something&gt;.&n;&t;&t; * If so, record that it&squot;s okay to remove last_file to make&n;&t;&t; * room for path and friends if needed.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1951,9 +1960,12 @@ comma
 id|last_file
 )paren
 suffix:semicolon
-id|unlink
+id|string_list_insert
 c_func
 (paren
+op_amp
+id|o-&gt;df_conflict_file_set
+comma
 id|last_file
 )paren
 suffix:semicolon
@@ -8372,7 +8384,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|make_room_for_directories_of_df_conflicts
+id|record_df_conflict_files
 c_func
 (paren
 id|o
@@ -9745,6 +9757,25 @@ id|string_list
 )paren
 suffix:semicolon
 id|o-&gt;current_directory_set.strdup_strings
+op_assign
+l_int|1
+suffix:semicolon
+id|memset
+c_func
+(paren
+op_amp
+id|o-&gt;df_conflict_file_set
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+r_struct
+id|string_list
+)paren
+)paren
+suffix:semicolon
+id|o-&gt;df_conflict_file_set.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
