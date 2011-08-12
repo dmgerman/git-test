@@ -571,7 +571,6 @@ op_star
 id|cp
 comma
 r_int
-op_star
 id|num_attr
 comma
 r_struct
@@ -716,7 +715,6 @@ op_amp
 (paren
 id|res-&gt;state
 (braket
-op_star
 id|num_attr
 )braket
 )paren
@@ -795,12 +793,6 @@ id|len
 )paren
 suffix:semicolon
 )brace
-(paren
-op_star
-id|num_attr
-)paren
-op_increment
-suffix:semicolon
 r_return
 id|ep
 op_plus
@@ -1078,7 +1070,6 @@ id|lineno
 comma
 id|cp
 comma
-op_amp
 id|num_attr
 comma
 id|res
@@ -1092,6 +1083,9 @@ id|cp
 )paren
 r_return
 l_int|NULL
+suffix:semicolon
+id|num_attr
+op_increment
 suffix:semicolon
 )brace
 r_if
