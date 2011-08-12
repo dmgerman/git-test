@@ -5394,6 +5394,11 @@ suffix:colon
 id|renamed
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|renamed
+)paren
 id|update_file
 c_func
 (paren
@@ -5406,13 +5411,9 @@ comma
 id|a_mode
 comma
 id|renamed
-ques
-c_cond
-id|renamed
-suffix:colon
-id|path
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * No need to call update_file() on path when !renamed, since&n;&t;&t; * that would needlessly touch path.  We could call&n;&t;&t; * update_file_flags() with update_cache=0 and update_wd=0,&n;&t;&t; * but that&squot;s a no-op.&n;&t;&t; */
 )brace
 id|free
 c_func
@@ -7174,19 +7175,23 @@ id|ren1-&gt;pair-&gt;two-&gt;sha1
 )paren
 )paren
 (brace
-multiline_comment|/* Added file on the other side&n;&t;&t;&t;&t;   identical to the file being&n;&t;&t;&t;&t;   renamed: clean merge */
-id|update_file
+multiline_comment|/*&n;&t;&t;&t;&t; * Added file on the other side identical to&n;&t;&t;&t;&t; * the file being renamed: clean merge.&n;&t;&t;&t;&t; * Also, there is no need to overwrite the&n;&t;&t;&t;&t; * file already in the working copy, so call&n;&t;&t;&t;&t; * update_file_flags() instead of&n;&t;&t;&t;&t; * update_file().&n;&t;&t;&t;&t; */
+id|update_file_flags
 c_func
 (paren
 id|o
-comma
-l_int|1
 comma
 id|ren1-&gt;pair-&gt;two-&gt;sha1
 comma
 id|ren1-&gt;pair-&gt;two-&gt;mode
 comma
 id|ren1_dst
+comma
+l_int|1
+comma
+multiline_comment|/* update_cache */
+l_int|0
+multiline_comment|/* update_wd    */
 )paren
 suffix:semicolon
 )brace
@@ -8989,18 +8994,22 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|update_file
+multiline_comment|/* do not overwrite file if already present */
+id|update_file_flags
 c_func
 (paren
 id|o
-comma
-l_int|1
 comma
 id|sha
 comma
 id|mode
 comma
 id|path
+comma
+l_int|1
+comma
+op_logical_neg
+id|a_sha
 )paren
 suffix:semicolon
 )brace
