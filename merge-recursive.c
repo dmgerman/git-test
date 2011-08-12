@@ -5740,6 +5740,7 @@ id|ren1-&gt;dst_entry-&gt;processed
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/* BUG: We should only mark src_entry as processed if we&n;&t;&t; * are not dealing with a rename + add-source case.&n;&t;&t; */
 id|ren1-&gt;src_entry-&gt;processed
 op_assign
 l_int|1
@@ -5846,6 +5847,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
+multiline_comment|/* BUG: We should only remove ren1_src in&n;&t;&t;&t;&t; * the base stage (think of rename +&n;&t;&t;&t;&t; * add-source cases).&n;&t;&t;&t;&t; */
 id|remove_file
 c_func
 (paren
@@ -5919,6 +5921,7 @@ l_int|3
 suffix:colon
 l_int|2
 suffix:semicolon
+multiline_comment|/* BUG: We should only remove ren1_src in the base&n;&t;&t;&t; * stage and in other_stage (think of rename +&n;&t;&t;&t; * add-source case).&n;&t;&t;&t; */
 id|remove_file
 c_func
 (paren
