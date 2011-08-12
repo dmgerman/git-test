@@ -5622,11 +5622,6 @@ id|null_sha1
 )paren
 )paren
 (brace
-r_const
-r_char
-op_star
-id|new_path
-suffix:semicolon
 id|clean_merge
 op_assign
 l_int|0
@@ -5776,6 +5771,8 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_char
+op_star
 id|new_path
 op_assign
 id|unique_path
@@ -5811,6 +5808,12 @@ id|dst_other.sha1
 comma
 id|dst_other.mode
 comma
+id|new_path
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|new_path
 )paren
 suffix:semicolon
@@ -6774,7 +6777,6 @@ c_cond
 id|df_conflict_remains
 )paren
 (brace
-r_const
 r_char
 op_star
 id|new_path
@@ -6839,6 +6841,12 @@ comma
 l_int|0
 comma
 l_int|1
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|new_path
 )paren
 suffix:semicolon
 )brace
@@ -7636,12 +7644,11 @@ id|b_sha
 )paren
 (brace
 multiline_comment|/* Modify/delete; deleted side may have put a directory in the way */
-r_const
 r_char
 op_star
-id|new_path
+id|renamed
 op_assign
-id|path
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -7663,7 +7670,8 @@ c_func
 id|st.st_mode
 )paren
 )paren
-id|new_path
+(brace
+id|renamed
 op_assign
 id|unique_path
 c_func
@@ -7680,6 +7688,7 @@ suffix:colon
 id|o-&gt;branch2
 )paren
 suffix:semicolon
+)brace
 id|clean_merge
 op_assign
 l_int|0
@@ -7691,7 +7700,12 @@ id|o
 comma
 id|path
 comma
-id|new_path
+id|renamed
+ques
+c_cond
+id|renamed
+suffix:colon
+id|path
 comma
 id|a_sha
 comma
@@ -7700,6 +7714,12 @@ comma
 id|b_sha
 comma
 id|b_mode
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|renamed
 )paren
 suffix:semicolon
 )brace
@@ -7815,7 +7835,6 @@ id|st.st_mode
 )paren
 )paren
 (brace
-r_const
 r_char
 op_star
 id|new_path
@@ -7866,6 +7885,12 @@ id|sha
 comma
 id|mode
 comma
+id|new_path
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|new_path
 )paren
 suffix:semicolon
