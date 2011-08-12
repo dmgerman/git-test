@@ -1,3 +1,4 @@
+multiline_comment|/*&n; * Handle git attributes.  See gitattributes(5) for a description of&n; * the file syntax, and Documentation/technical/api-gitattributes.txt&n; * for a description of the API.&n; *&n; * One basic design decision here is that we are not going to support&n; * an insanely large number of attributes.&n; */
 DECL|macro|NO_THE_INDEX_COMPATIBILITY_MACROS
 mdefine_line|#define NO_THE_INDEX_COMPATIBILITY_MACROS
 macro_line|#include &quot;cache.h&quot;
@@ -46,7 +47,7 @@ r_char
 op_star
 id|attributes_file
 suffix:semicolon
-multiline_comment|/*&n; * The basic design decision here is that we are not going to have&n; * insanely large number of attributes.&n; *&n; * This is a randomly chosen prime.&n; */
+multiline_comment|/* This is a randomly chosen prime. */
 DECL|macro|HASHSIZE
 mdefine_line|#define HASHSIZE 257
 macro_line|#ifndef DEBUG_ATTR
@@ -479,7 +480,6 @@ id|name
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * .gitattributes file is one line per record, each of which is&n; *&n; * (1) glob pattern.&n; * (2) whitespace&n; * (3) whitespace separated list of attribute names, each of which&n; *     could be prefixed with &squot;-&squot; to mean &quot;set to false&quot;, &squot;!&squot; to mean&n; *     &quot;unset&quot;.&n; */
 multiline_comment|/* What does a matched pattern decide? */
 DECL|struct|attr_state
 r_struct
