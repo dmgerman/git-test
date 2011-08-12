@@ -499,6 +499,7 @@ id|setto
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * One rule, as from a .gitattributes file.&n; *&n; * If is_macro is true, then u.attr is a pointer to the git_attr being&n; * defined.&n; *&n; * If is_macro is false, then u.pattern points at the filename pattern&n; * to which the rule applies.  (The memory pointed to is part of the&n; * memory block allocated for the match_attr instance.)&n; *&n; * In either case, num_attr is the number of attributes affected by&n; * this rule, and state is an array listing them.  The attributes are&n; * listed as they appear in the file (macros unexpanded).&n; */
 DECL|struct|match_attr
 r_struct
 id|match_attr
