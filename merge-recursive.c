@@ -1124,7 +1124,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;BUG: %d %.*s&quot;
+l_string|&quot;BUG: %d %.*s&bslash;n&quot;
 comma
 id|ce_stage
 c_func
