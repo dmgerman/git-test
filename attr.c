@@ -549,6 +549,7 @@ id|blank
 op_assign
 l_string|&quot; &bslash;t&bslash;r&bslash;n&quot;
 suffix:semicolon
+multiline_comment|/*&n; * Parse a whitespace-delimited attribute state (i.e., &quot;attr&quot;,&n; * &quot;-attr&quot;, &quot;!attr&quot;, or &quot;attr=value&quot;) from the string starting at src.&n; * If e is not NULL, write the results to *e.  Return a pointer to the&n; * remainder of the string (with leading whitespace removed), or NULL&n; * if there was an error.&n; */
 DECL|function|parse_attr
 r_static
 r_const
@@ -570,13 +571,10 @@ r_char
 op_star
 id|cp
 comma
-r_int
-id|num_attr
-comma
 r_struct
-id|match_attr
+id|attr_state
 op_star
-id|res
+id|e
 )paren
 (brace
 r_const
@@ -645,7 +643,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|res
+id|e
 )paren
 (brace
 r_if
@@ -704,21 +702,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-r_struct
-id|attr_state
-op_star
-id|e
-suffix:semicolon
-id|e
-op_assign
-op_amp
-(paren
-id|res-&gt;state
-(braket
-id|num_attr
-)braket
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1070,9 +1053,18 @@ id|lineno
 comma
 id|cp
 comma
+id|pass
+ques
+c_cond
+op_amp
+(paren
+id|res-&gt;state
+(braket
 id|num_attr
-comma
-id|res
+)braket
+)paren
+suffix:colon
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
