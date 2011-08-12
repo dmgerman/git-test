@@ -7775,7 +7775,7 @@ op_logical_neg
 id|b_sha
 )paren
 (brace
-multiline_comment|/* directory -&gt; (directory, file) */
+multiline_comment|/* directory -&gt; (directory, file) or &lt;nothing&gt; -&gt; (directory, file) */
 r_const
 r_char
 op_star
