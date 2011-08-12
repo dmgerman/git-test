@@ -7896,6 +7896,17 @@ comma
 id|new_path
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;call_depth
+)paren
+id|remove_file_from_cache
+c_func
+(paren
+id|path
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
