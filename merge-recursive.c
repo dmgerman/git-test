@@ -1751,6 +1751,14 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+multiline_comment|/*&n;&t; * If we&squot;re merging merge-bases, we don&squot;t want to bother with&n;&t; * any working directory changes.&n;&t; */
+r_if
+c_cond
+(paren
+id|o-&gt;call_depth
+)paren
+r_return
+suffix:semicolon
 r_for
 c_loop
 (paren
