@@ -20,6 +20,9 @@ DECL|macro|DEPTH_BITS
 mdefine_line|#define DEPTH_BITS 13
 DECL|macro|MAX_DEPTH
 mdefine_line|#define MAX_DEPTH ((1&lt;&lt;DEPTH_BITS)-1)
+multiline_comment|/*&n; * We abuse the setuid bit on directories to mean &quot;do not delta&quot;.&n; */
+DECL|macro|NO_DELTA
+mdefine_line|#define NO_DELTA S_ISUID
 DECL|struct|object_entry
 r_struct
 id|object_entry
@@ -6988,12 +6991,17 @@ comma
 r_int
 r_int
 )paren
+(paren
 id|e-&gt;versions
 (braket
 id|v
 )braket
 dot
 id|mode
+op_amp
+op_complement
+id|NO_DELTA
+)paren
 comma
 id|e-&gt;name-&gt;str_dat
 comma
@@ -7063,6 +7071,8 @@ r_struct
 id|object_entry
 op_star
 id|le
+op_assign
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -7116,6 +7126,21 @@ id|i
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|root-&gt;versions
+(braket
+l_int|0
+)braket
+dot
+id|mode
+op_amp
+id|NO_DELTA
+)paren
+)paren
 id|le
 op_assign
 id|find_object
@@ -7354,6 +7379,17 @@ id|die
 c_func
 (paren
 l_string|&quot;Root cannot be a non-directory&quot;
+)paren
+suffix:semicolon
+id|hashclr
+c_func
+(paren
+id|root-&gt;versions
+(braket
+l_int|0
+)braket
+dot
+id|sha1
 )paren
 suffix:semicolon
 id|hashcpy
@@ -7636,6 +7672,30 @@ suffix:semicolon
 id|e-&gt;tree
 op_assign
 id|subtree
+suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t;&t; * We need to leave e-&gt;versions[0].sha1 alone&n;&t;&t;&t;&t; * to avoid modifying the preimage tree used&n;&t;&t;&t;&t; * when writing out the parent directory.&n;&t;&t;&t;&t; * But after replacing the subdir with a&n;&t;&t;&t;&t; * completely different one, it&squot;s not a good&n;&t;&t;&t;&t; * delta base any more, and besides, we&squot;ve&n;&t;&t;&t;&t; * thrown away the tree entries needed to&n;&t;&t;&t;&t; * make a delta against it.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * So let&squot;s just explicitly disable deltas&n;&t;&t;&t;&t; * for the subtree.&n;&t;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|S_ISDIR
+c_func
+(paren
+id|e-&gt;versions
+(braket
+l_int|0
+)braket
+dot
+id|mode
+)paren
+)paren
+id|e-&gt;versions
+(braket
+l_int|0
+)braket
+dot
+id|mode
+op_or_assign
+id|NO_DELTA
 suffix:semicolon
 id|hashclr
 c_func
@@ -15795,6 +15855,9 @@ comma
 l_string|&quot;%06o %s %s&bslash;t&quot;
 comma
 id|mode
+op_amp
+op_complement
+id|NO_DELTA
 comma
 id|type
 comma
