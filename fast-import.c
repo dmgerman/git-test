@@ -4807,7 +4807,7 @@ suffix:semicolon
 id|git_SHA_CTX
 id|c
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|s
 suffix:semicolon
 id|hdrlen
@@ -5013,7 +5013,7 @@ id|s
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -5054,7 +5054,7 @@ suffix:semicolon
 )brace
 id|s.avail_out
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp
@@ -5076,7 +5076,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -5087,9 +5087,9 @@ id|Z_FINISH
 op_eq
 id|Z_OK
 )paren
-multiline_comment|/* nothing */
 suffix:semicolon
-id|deflateEnd
+multiline_comment|/* nothing */
+id|git_deflate_end
 c_func
 (paren
 op_amp
@@ -5168,7 +5168,7 @@ id|s
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -5191,7 +5191,7 @@ id|dat-&gt;len
 suffix:semicolon
 id|s.avail_out
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp
@@ -5215,7 +5215,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -5226,9 +5226,9 @@ id|Z_FINISH
 op_eq
 id|Z_OK
 )paren
-multiline_comment|/* nothing */
 suffix:semicolon
-id|deflateEnd
+multiline_comment|/* nothing */
+id|git_deflate_end
 c_func
 (paren
 op_amp
@@ -5629,7 +5629,7 @@ suffix:semicolon
 id|git_SHA_CTX
 id|pack_file_ctx
 suffix:semicolon
-id|z_stream
+id|git_zstream
 id|s
 suffix:semicolon
 r_int
@@ -5757,7 +5757,7 @@ id|s
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -5899,7 +5899,7 @@ suffix:semicolon
 )brace
 id|status
 op_assign
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -5982,7 +5982,7 @@ id|status
 suffix:semicolon
 )brace
 )brace
-id|deflateEnd
+id|git_deflate_end
 c_func
 (paren
 op_amp

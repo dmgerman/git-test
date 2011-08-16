@@ -509,7 +509,7 @@ op_star
 id|compressed_size
 )paren
 (brace
-id|z_stream
+id|git_zstream
 id|stream
 suffix:semicolon
 r_int
@@ -537,7 +537,7 @@ id|stream
 )paren
 )paren
 suffix:semicolon
-id|deflateInit
+id|git_deflate_init
 c_func
 (paren
 op_amp
@@ -548,7 +548,7 @@ id|compression_level
 suffix:semicolon
 id|maxsize
 op_assign
-id|deflateBound
+id|git_deflate_bound
 c_func
 (paren
 op_amp
@@ -585,7 +585,7 @@ r_do
 (brace
 id|result
 op_assign
-id|deflate
+id|git_deflate
 c_func
 (paren
 op_amp
@@ -621,7 +621,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-id|deflateEnd
+id|git_deflate_end
 c_func
 (paren
 op_amp
