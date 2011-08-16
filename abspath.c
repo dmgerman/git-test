@@ -556,6 +556,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|cwd_stat.st_dev
+op_logical_or
+id|cwd_stat.st_ino
+)paren
+op_logical_and
 op_logical_neg
 id|stat
 c_func
