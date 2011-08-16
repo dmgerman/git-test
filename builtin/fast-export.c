@@ -12,6 +12,7 @@ macro_line|#include &quot;decorate.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;quote.h&quot;
 DECL|variable|fast_export_usage
 r_static
 r_const
@@ -889,6 +890,60 @@ l_char|&squot;R&squot;
 )paren
 suffix:semicolon
 )brace
+DECL|function|print_path
+r_static
+r_void
+id|print_path
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+)paren
+(brace
+r_int
+id|need_quote
+op_assign
+id|quote_c_style
+c_func
+(paren
+id|path
+comma
+l_int|NULL
+comma
+l_int|NULL
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|need_quote
+)paren
+id|quote_c_style
+c_func
+(paren
+id|path
+comma
+l_int|NULL
+comma
+id|stdout
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_else
+id|printf
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+)brace
 DECL|function|show_filemodify
 r_static
 r_void
@@ -988,9 +1043,19 @@ suffix:colon
 id|printf
 c_func
 (paren
-l_string|&quot;D %s&bslash;n&quot;
-comma
+l_string|&quot;D &quot;
+)paren
+suffix:semicolon
+id|print_path
+c_func
+(paren
 id|spec-&gt;path
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 r_break
@@ -1004,7 +1069,7 @@ suffix:colon
 id|printf
 c_func
 (paren
-l_string|&quot;%c &bslash;&quot;%s&bslash;&quot; &bslash;&quot;%s&bslash;&quot;&bslash;n&quot;
+l_string|&quot;%c &quot;
 comma
 id|q-&gt;queue
 (braket
@@ -1012,10 +1077,30 @@ id|i
 )braket
 op_member_access_from_pointer
 id|status
-comma
+)paren
+suffix:semicolon
+id|print_path
+c_func
+(paren
 id|ospec-&gt;path
-comma
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
+l_char|&squot; &squot;
+)paren
+suffix:semicolon
+id|print_path
+c_func
+(paren
 id|spec-&gt;path
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 r_if
@@ -1061,7 +1146,7 @@ id|spec-&gt;mode
 id|printf
 c_func
 (paren
-l_string|&quot;M %06o %s %s&bslash;n&quot;
+l_string|&quot;M %06o %s &quot;
 comma
 id|spec-&gt;mode
 comma
@@ -1070,8 +1155,6 @@ c_func
 (paren
 id|spec-&gt;sha1
 )paren
-comma
-id|spec-&gt;path
 )paren
 suffix:semicolon
 r_else
@@ -1090,7 +1173,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;M %06o :%d %s&bslash;n&quot;
+l_string|&quot;M %06o :%d &quot;
 comma
 id|spec-&gt;mode
 comma
@@ -1099,11 +1182,21 @@ c_func
 (paren
 id|object
 )paren
-comma
-id|spec-&gt;path
 )paren
 suffix:semicolon
 )brace
+id|print_path
+c_func
+(paren
+id|spec-&gt;path
+)paren
+suffix:semicolon
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
 r_break
 suffix:semicolon
 r_default
