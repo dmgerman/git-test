@@ -701,7 +701,7 @@ id|obj
 comma
 id|path
 comma
-id|name
+id|component
 )paren
 suffix:semicolon
 r_if
