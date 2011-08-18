@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;color.h&quot;
 DECL|variable|git_use_color_default
+r_static
 r_int
 id|git_use_color_default
 op_assign
@@ -1022,6 +1023,17 @@ r_if
 c_cond
 (paren
 id|var
+OL
+l_int|0
+)paren
+id|var
+op_assign
+id|git_use_color_default
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|var
 op_eq
 id|GIT_COLOR_AUTO
 )paren
@@ -1046,8 +1058,6 @@ suffix:semicolon
 )brace
 r_return
 id|var
-OG
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|git_color_config

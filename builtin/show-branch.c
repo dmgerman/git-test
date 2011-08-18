@@ -3584,17 +3584,6 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|showbranch_use_color
-op_eq
-l_int|1
-)paren
-id|showbranch_use_color
-op_assign
-id|git_use_color_default
-suffix:semicolon
 multiline_comment|/* If nothing is specified, try the default first */
 r_if
 c_cond
