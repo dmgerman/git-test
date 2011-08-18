@@ -6,11 +6,6 @@ DECL|macro|DEFAULT_PAGER
 mdefine_line|#define DEFAULT_PAGER &quot;less&quot;
 macro_line|#endif
 multiline_comment|/*&n; * This is split up from the rest of git so that we can do&n; * something different on Windows.&n; */
-DECL|variable|spawned_pager
-r_static
-r_int
-id|spawned_pager
-suffix:semicolon
 macro_line|#ifndef WIN32
 DECL|function|pager_preexec
 r_static
@@ -289,11 +284,16 @@ id|pager
 )paren
 r_return
 suffix:semicolon
-id|spawned_pager
-op_assign
+id|setenv
+c_func
+(paren
+l_string|&quot;GIT_PAGER_IN_USE&quot;
+comma
+l_string|&quot;true&quot;
+comma
 l_int|1
+)paren
 suffix:semicolon
-multiline_comment|/* means we are emitting to terminal */
 multiline_comment|/* spawn the pager */
 id|pager_argv
 (braket
@@ -420,14 +420,6 @@ r_const
 r_char
 op_star
 id|env
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|spawned_pager
-)paren
-r_return
-l_int|1
 suffix:semicolon
 id|env
 op_assign
