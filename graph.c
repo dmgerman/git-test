@@ -868,9 +868,12 @@ id|graph
 r_if
 c_cond
 (paren
+op_logical_neg
+id|want_color
+c_func
+(paren
 id|graph-&gt;revs-&gt;diffopt.use_color
-op_le
-l_int|0
+)paren
 )paren
 r_return
 id|column_colors_max

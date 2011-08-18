@@ -387,9 +387,11 @@ id|ix
 r_if
 c_cond
 (paren
+id|want_color
+c_func
+(paren
 id|branch_use_color
-OG
-l_int|0
+)paren
 )paren
 r_return
 id|branch_colors

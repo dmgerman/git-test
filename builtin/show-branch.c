@@ -69,7 +69,11 @@ id|idx
 r_if
 c_cond
 (paren
+id|want_color
+c_func
+(paren
 id|showbranch_use_color
+)paren
 )paren
 r_return
 id|column_colors_ansi
@@ -97,7 +101,11 @@ r_void
 r_if
 c_cond
 (paren
+id|want_color
+c_func
+(paren
 id|showbranch_use_color
+)paren
 )paren
 r_return
 id|GIT_COLOR_RESET

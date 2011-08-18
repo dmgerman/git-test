@@ -2000,6 +2000,14 @@ op_assign
 id|git_use_color_default
 suffix:semicolon
 )brace
+id|get_colorbool_found
+op_assign
+id|want_color
+c_func
+(paren
+id|get_colorbool_found
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
