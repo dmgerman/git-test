@@ -407,7 +407,7 @@ c_func
 (paren
 id|refname
 comma
-l_string|&quot;refs/heads&quot;
+l_string|&quot;refs/heads/&quot;
 )paren
 )paren
 id|type
@@ -424,7 +424,7 @@ c_func
 (paren
 id|refname
 comma
-l_string|&quot;refs/remotes&quot;
+l_string|&quot;refs/remotes/&quot;
 )paren
 )paren
 id|type
@@ -441,7 +441,7 @@ c_func
 (paren
 id|refname
 comma
-l_string|&quot;refs/tags&quot;
+l_string|&quot;refs/tags/&quot;
 )paren
 )paren
 id|type
