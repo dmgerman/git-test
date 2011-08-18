@@ -1974,6 +1974,24 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|commit
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;invalid commit %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|result_sha1
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|args.stateless_rpc
 op_logical_and
 id|ack
