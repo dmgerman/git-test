@@ -3904,14 +3904,9 @@ id|s-&gt;fp
 op_ne
 id|stdout
 )paren
-id|DIFF_OPT_CLR
-c_func
-(paren
-op_amp
-id|rev.diffopt
-comma
-id|COLOR_DIFF
-)paren
+id|rev.diffopt.use_color
+op_assign
+l_int|0
 suffix:semicolon
 id|run_diff_index
 c_func
