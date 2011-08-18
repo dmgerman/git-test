@@ -18877,6 +18877,27 @@ comma
 id|PATIENCE_DIFF
 )paren
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--histogram&quot;
+)paren
+)paren
+id|DIFF_XDL_SET
+c_func
+(paren
+id|options
+comma
+id|HISTOGRAM_DIFF
+)paren
+suffix:semicolon
 multiline_comment|/* flags options */
 r_else
 r_if
