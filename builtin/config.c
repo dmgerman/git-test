@@ -1845,6 +1845,11 @@ r_static
 r_int
 id|get_diff_color_found
 suffix:semicolon
+DECL|variable|get_color_ui_found
+r_static
+r_int
+id|get_color_ui_found
+suffix:semicolon
 DECL|function|git_get_colorbool_config
 r_static
 r_int
@@ -1924,7 +1929,7 @@ comma
 l_string|&quot;color.ui&quot;
 )paren
 )paren
-id|git_use_color_default
+id|get_color_ui_found
 op_assign
 id|git_config_colorbool
 c_func
@@ -1997,7 +2002,7 @@ l_int|0
 )paren
 id|get_colorbool_found
 op_assign
-id|git_use_color_default
+id|get_color_ui_found
 suffix:semicolon
 )brace
 id|get_colorbool_found
