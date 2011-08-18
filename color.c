@@ -6,6 +6,12 @@ id|git_use_color_default
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|color_stdout_is_tty
+r_int
+id|color_stdout_is_tty
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/*&n; * The list of available column colors.&n; */
 DECL|variable|column_colors_ansi
 r_const
@@ -843,9 +849,6 @@ r_const
 r_char
 op_star
 id|value
-comma
-r_int
-id|stdout_is_tty
 )paren
 (brace
 r_if
@@ -931,11 +934,11 @@ suffix:colon
 r_if
 c_cond
 (paren
-id|stdout_is_tty
+id|color_stdout_is_tty
 OL
 l_int|0
 )paren
-id|stdout_is_tty
+id|color_stdout_is_tty
 op_assign
 id|isatty
 c_func
@@ -946,7 +949,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|stdout_is_tty
+id|color_stdout_is_tty
 op_logical_or
 (paren
 id|pager_in_use
@@ -1030,8 +1033,6 @@ c_func
 id|var
 comma
 id|value
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_return

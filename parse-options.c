@@ -3644,8 +3644,6 @@ c_func
 l_int|NULL
 comma
 id|arg
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_if

@@ -745,8 +745,6 @@ c_func
 id|var
 comma
 id|value
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_return
@@ -18749,8 +18747,6 @@ comma
 id|arg
 op_plus
 l_int|8
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_if

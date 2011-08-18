@@ -2930,8 +2930,6 @@ c_func
 id|var
 comma
 id|value
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_return
