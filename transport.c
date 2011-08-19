@@ -10,6 +10,7 @@ macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;url.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 multiline_comment|/* rsync support */
 multiline_comment|/*&n; * We copy packed-refs and refs/ into a temporary file, then read the&n; * loose refs recursively (sorting whenever possible), and then inserting&n; * those packed refs that are not yet in the list (not validating, but&n; * assuming that the file is sorted).&n; *&n; * Appears refactoring this from refs.c is too cumbersome.&n; */
 DECL|function|str_cmp
@@ -5660,6 +5661,64 @@ op_amp
 id|TRANSPORT_PUSH_FORCE
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+(paren
+id|flags
+op_amp
+id|TRANSPORT_RECURSE_SUBMODULES_CHECK
+)paren
+op_logical_and
+op_logical_neg
+id|is_bare_repository
+c_func
+(paren
+)paren
+)paren
+(brace
+r_struct
+id|ref
+op_star
+id|ref
+op_assign
+id|remote_refs
+suffix:semicolon
+r_for
+c_loop
+(paren
+suffix:semicolon
+id|ref
+suffix:semicolon
+id|ref
+op_assign
+id|ref-&gt;next
+)paren
+r_if
+c_cond
+(paren
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|ref-&gt;new_sha1
+)paren
+op_logical_and
+id|check_submodule_needs_pushing
+c_func
+(paren
+id|ref-&gt;new_sha1
+comma
+id|transport-&gt;remote-&gt;name
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;There are unpushed submodules, aborting.&quot;
+)paren
+suffix:semicolon
+)brace
 id|push_ret
 op_assign
 id|transport
