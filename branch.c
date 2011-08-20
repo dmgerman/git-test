@@ -677,7 +677,13 @@ c_func
 (paren
 l_string|&quot;A branch named &squot;%s&squot; already exists.&quot;
 comma
-id|name
+id|ref-&gt;buf
+op_plus
+id|strlen
+c_func
+(paren
+l_string|&quot;refs/heads/&quot;
+)paren
 )paren
 suffix:semicolon
 id|head
