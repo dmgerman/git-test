@@ -1,31 +1,14 @@
+multiline_comment|/*&n; * This file has been copied from commit e7ac713d^ in the GNU grep git&n; * repository. A few small changes have been made to adapt the code to&n; * Git.&n; */
 multiline_comment|/* kwset.c - search for any of a set of keywords.&n;   Copyright 1989, 1998, 2000, 2005 Free Software Foundation, Inc.&n;&n;   This program is free software; you can redistribute it and/or modify&n;   it under the terms of the GNU General Public License as published by&n;   the Free Software Foundation; either version 2, or (at your option)&n;   any later version.&n;&n;   This program is distributed in the hope that it will be useful,&n;   but WITHOUT ANY WARRANTY; without even the implied warranty of&n;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&n;   GNU General Public License for more details.&n;&n;   You should have received a copy of the GNU General Public License&n;   along with this program; if not, write to the Free Software&n;   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA&n;   02110-1301, USA.  */
 multiline_comment|/* Written August 1989 by Mike Haertel.&n;   The author may be reached (Email) at the address mike@ai.mit.edu,&n;   or (US mail) as Mike Haertel c/o Free Software Foundation. */
 multiline_comment|/* The algorithm implemented by these routines bears a startling resemblence&n;   to one discovered by Beate Commentz-Walter, although it is not identical.&n;   See &quot;A String Matching Algorithm Fast on the Average,&quot; Technical Report,&n;   IBM-Germany, Scientific Center Heidelberg, Tiergartenstrasse 15, D-6900&n;   Heidelberg, Germany.  See also Aho, A.V., and M. Corasick, &quot;Efficient&n;   String Matching:  An Aid to Bibliographic Search,&quot; CACM June 1975,&n;   Vol. 18, No. 6, which describes the failure function used below. */
-macro_line|#ifdef HAVE_CONFIG_H
-macro_line|# include &lt;config.h&gt;
-macro_line|#endif
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &quot;system.h&quot;
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;kwset.h&quot;
 macro_line|#include &quot;obstack.h&quot;
-macro_line|#ifdef GREP
-r_extern
-r_char
-op_star
-id|xmalloc
-c_func
-(paren
-)paren
-suffix:semicolon
-DECL|macro|malloc
-macro_line|# undef malloc
-DECL|macro|malloc
-macro_line|# define malloc xmalloc
-macro_line|#endif
 DECL|macro|NCHAR
 mdefine_line|#define NCHAR (UCHAR_MAX + 1)
 DECL|macro|obstack_chunk_alloc
-mdefine_line|#define obstack_chunk_alloc malloc
+mdefine_line|#define obstack_chunk_alloc xmalloc
 DECL|macro|obstack_chunk_free
 mdefine_line|#define obstack_chunk_free free
 DECL|macro|U
@@ -220,7 +203,7 @@ r_struct
 id|kwset
 op_star
 )paren
-id|malloc
+id|xmalloc
 c_func
 (paren
 r_sizeof
@@ -229,15 +212,6 @@ r_struct
 id|kwset
 )paren
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|kwset
-)paren
-r_return
-l_int|NULL
 suffix:semicolon
 id|obstack_init
 c_func
@@ -584,11 +558,7 @@ op_logical_neg
 id|link
 )paren
 r_return
-id|_
-c_func
-(paren
 l_string|&quot;memory exhausted&quot;
-)paren
 suffix:semicolon
 id|link-&gt;llink
 op_assign
@@ -635,11 +605,7 @@ id|link
 )paren
 suffix:semicolon
 r_return
-id|_
-c_func
-(paren
 l_string|&quot;memory exhausted&quot;
-)paren
 suffix:semicolon
 )brace
 id|link-&gt;trie-&gt;accepting
@@ -1656,11 +1622,7 @@ op_logical_neg
 id|kwset-&gt;target
 )paren
 r_return
-id|_
-c_func
-(paren
 l_string|&quot;memory exhausted&quot;
-)paren
 suffix:semicolon
 r_for
 c_loop
@@ -2790,12 +2752,10 @@ r_const
 op_star
 id|trans
 suffix:semicolon
-macro_line|#ifdef lint
 id|accept
 op_assign
 l_int|NULL
 suffix:semicolon
-macro_line|#endif
 multiline_comment|/* Initialize register copies and look for easy ways out. */
 id|kwset
 op_assign
