@@ -1741,7 +1741,7 @@ op_assign
 id|mkpath
 c_func
 (paren
-l_string|&quot;%s/objects&bslash;n&quot;
+l_string|&quot;%s&bslash;n&quot;
 comma
 id|reference
 )paren
