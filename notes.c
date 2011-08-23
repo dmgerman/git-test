@@ -5554,7 +5554,7 @@ c_func
 id|l.val_sha1
 )paren
 )paren
-singleline_comment|// no note was removed
+multiline_comment|/* no note was removed */
 r_return
 l_int|1
 suffix:semicolon
