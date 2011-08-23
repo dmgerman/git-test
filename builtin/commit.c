@@ -1339,15 +1339,6 @@ comma
 id|pattern
 comma
 id|prefix
-ques
-c_cond
-id|strlen
-c_func
-(paren
-id|prefix
-)paren
-suffix:colon
-l_int|0
 )paren
 suffix:semicolon
 )brace
