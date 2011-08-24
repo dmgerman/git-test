@@ -2712,6 +2712,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|o
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 (paren
 id|o-&gt;flags
 op_amp
