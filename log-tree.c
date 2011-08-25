@@ -412,6 +412,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|read_replace_refs
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|get_sha1_hex
 c_func
 (paren
