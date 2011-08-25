@@ -282,7 +282,7 @@ id|exclude_list
 comma
 l_string|&quot;pattern&quot;
 comma
-l_string|&quot;exclude &lt;pattern&gt;&quot;
+l_string|&quot;add &lt;pattern&gt; to ignore rules&quot;
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -518,7 +518,11 @@ l_string|&quot;&quot;
 comma
 l_int|0
 comma
+op_amp
 id|dir.exclude_list
+(braket
+id|EXC_CMDL
+)braket
 )paren
 suffix:semicolon
 id|pathspec
