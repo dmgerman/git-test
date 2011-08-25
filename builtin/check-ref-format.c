@@ -14,7 +14,7 @@ op_assign
 l_string|&quot;git check-ref-format [--print] &lt;refname&gt;&bslash;n&quot;
 l_string|&quot;   or: git check-ref-format --branch &lt;branchname-shorthand&gt;&quot;
 suffix:semicolon
-multiline_comment|/*&n; * Replace each run of adjacent slashes in src with a single slash,&n; * and write the result to dst.&n; *&n; * This function is similar to normalize_path_copy(), but stripped down&n; * to meet check_ref_format&squot;s simpler needs.&n; */
+multiline_comment|/*&n; * Remove leading slashes and replace each run of adjacent slashes in&n; * src with a single slash, and write the result to dst.&n; *&n; * This function is similar to normalize_path_copy(), but stripped down&n; * to meet check_ref_format&squot;s simpler needs.&n; */
 DECL|function|collapse_slashes
 r_static
 r_void
@@ -37,7 +37,7 @@ suffix:semicolon
 r_char
 id|prev
 op_assign
-l_char|&squot;&bslash;0&squot;
+l_char|&squot;/&squot;
 suffix:semicolon
 r_while
 c_loop
