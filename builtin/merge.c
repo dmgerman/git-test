@@ -5782,7 +5782,7 @@ c_func
 op_amp
 id|buf
 comma
-l_string|&quot;Merge made by %s.&quot;
+l_string|&quot;Merge made by the &squot;%s&squot; strategy.&quot;
 comma
 id|wt_strategy
 )paren
