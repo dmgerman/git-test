@@ -1,13 +1,7 @@
 multiline_comment|/* obstack.c - subroutines used implicitly by object stack macros&n;   Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1996, 1997, 1998,&n;   1999, 2000, 2001, 2002, 2003, 2004, 2005 Free Software Foundation, Inc.&n;   This file is part of the GNU C Library.&n;&n;   The GNU C Library is free software; you can redistribute it and/or&n;   modify it under the terms of the GNU Lesser General Public&n;   License as published by the Free Software Foundation; either&n;   version 2.1 of the License, or (at your option) any later version.&n;&n;   The GNU C Library is distributed in the hope that it will be useful,&n;   but WITHOUT ANY WARRANTY; without even the implied warranty of&n;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU&n;   Lesser General Public License for more details.&n;&n;   You should have received a copy of the GNU Lesser General Public&n;   License along with the GNU C Library; if not, write to the Free&n;   Software Foundation, Inc., 51 Franklin Street, Fifth Floor,&n;   Boston, MA 02110-1301, USA.  */
-macro_line|#ifdef HAVE_CONFIG_H
-macro_line|# include &lt;config.h&gt;
-macro_line|#endif
-macro_line|#ifdef _LIBC
-macro_line|# include &lt;obstack.h&gt;
-macro_line|# include &lt;shlib-compat.h&gt;
-macro_line|#else
-macro_line|# include &quot;obstack.h&quot;
-macro_line|#endif
+macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &lt;gettext.h&gt;
+macro_line|#include &quot;obstack.h&quot;
 multiline_comment|/* NOTE BEFORE MODIFYING THIS FILE: This version number must be&n;   incremented whenever callers compiled using an old obstack.h can no&n;   longer properly call the functions in this obstack.c.  */
 DECL|macro|OBSTACK_INTERFACE_VERSION
 mdefine_line|#define OBSTACK_INTERFACE_VERSION 1
@@ -113,20 +107,6 @@ r_void
 op_assign
 id|print_and_abort
 suffix:semicolon
-multiline_comment|/* Exit value used when `print_and_abort&squot; is used.  */
-macro_line|# include &lt;stdlib.h&gt;
-macro_line|# ifdef _LIBC
-DECL|variable|obstack_exit_failure
-r_int
-id|obstack_exit_failure
-op_assign
-id|EXIT_FAILURE
-suffix:semicolon
-macro_line|# else
-macro_line|#  include &quot;exitfail.h&quot;
-DECL|macro|obstack_exit_failure
-macro_line|#  define obstack_exit_failure exit_failure
-macro_line|# endif
 macro_line|# ifdef _LIBC
 macro_line|#  if SHLIB_COMPAT (libc, GLIBC_2_0, GLIBC_2_3_4)
 multiline_comment|/* A looong time ago (before 1994, anyway; we&squot;re not sure) this global variable&n;   was used by non-GNU-C macros to avoid multiple evaluation.  The GNU C&n;   library still exports it because somebody might use it.  */
@@ -1205,16 +1185,6 @@ id|nbytes
 suffix:semicolon
 )brace
 "&f;"
-multiline_comment|/* Define the error handler.  */
-macro_line|# ifdef _LIBC
-macro_line|#  include &lt;libintl.h&gt;
-macro_line|# else
-macro_line|#  include &quot;gettext.h&quot;
-macro_line|# endif
-macro_line|# ifndef _
-DECL|macro|_
-macro_line|#  define _(msgid) gettext (msgid)
-macro_line|# endif
 macro_line|# ifdef _LIBC
 macro_line|#  include &lt;libio/iolibio.h&gt;
 macro_line|# endif
@@ -1274,7 +1244,7 @@ suffix:semicolon
 macro_line|# endif
 m_exit
 (paren
-id|obstack_exit_failure
+l_int|1
 )paren
 suffix:semicolon
 )brace

@@ -4,7 +4,7 @@ multiline_comment|/* Written August 1989 by Mike Haertel.&n;   The author may be
 multiline_comment|/* The algorithm implemented by these routines bears a startling resemblence&n;   to one discovered by Beate Commentz-Walter, although it is not identical.&n;   See &quot;A String Matching Algorithm Fast on the Average,&quot; Technical Report,&n;   IBM-Germany, Scientific Center Heidelberg, Tiergartenstrasse 15, D-6900&n;   Heidelberg, Germany.  See also Aho, A.V., and M. Corasick, &quot;Efficient&n;   String Matching:  An Aid to Bibliographic Search,&quot; CACM June 1975,&n;   Vol. 18, No. 6, which describes the failure function used below. */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;kwset.h&quot;
-macro_line|#include &quot;obstack.h&quot;
+macro_line|#include &quot;compat/obstack.h&quot;
 DECL|macro|NCHAR
 mdefine_line|#define NCHAR (UCHAR_MAX + 1)
 DECL|macro|obstack_chunk_alloc
