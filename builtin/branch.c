@@ -3477,7 +3477,7 @@ c_func
 (paren
 l_char|&squot;r&squot;
 comma
-l_int|NULL
+l_string|&quot;remotes&quot;
 comma
 op_amp
 id|kinds
@@ -3557,7 +3557,7 @@ c_func
 (paren
 l_char|&squot;a&squot;
 comma
-l_int|NULL
+l_string|&quot;all&quot;
 comma
 op_amp
 id|kinds
@@ -3574,7 +3574,7 @@ c_func
 (paren
 l_char|&squot;d&squot;
 comma
-l_int|NULL
+l_string|&quot;delete&quot;
 comma
 op_amp
 r_delete
@@ -3604,7 +3604,7 @@ c_func
 (paren
 l_char|&squot;m&squot;
 comma
-l_int|NULL
+l_string|&quot;move&quot;
 comma
 op_amp
 id|rename
@@ -3634,7 +3634,7 @@ c_func
 (paren
 l_char|&squot;l&squot;
 comma
-l_int|NULL
+l_string|&quot;create-reflog&quot;
 comma
 op_amp
 id|reflog
