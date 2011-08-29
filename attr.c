@@ -1,3 +1,4 @@
+multiline_comment|/*&n; * Handle git attributes.  See gitattributes(5) for a description of&n; * the file syntax, and Documentation/technical/api-gitattributes.txt&n; * for a description of the API.&n; *&n; * One basic design decision here is that we are not going to support&n; * an insanely large number of attributes.&n; */
 DECL|macro|NO_THE_INDEX_COMPATIBILITY_MACROS
 mdefine_line|#define NO_THE_INDEX_COMPATIBILITY_MACROS
 macro_line|#include &quot;cache.h&quot;
@@ -46,7 +47,7 @@ r_char
 op_star
 id|attributes_file
 suffix:semicolon
-multiline_comment|/*&n; * The basic design decision here is that we are not going to have&n; * insanely large number of attributes.&n; *&n; * This is a randomly chosen prime.&n; */
+multiline_comment|/* This is a randomly chosen prime. */
 DECL|macro|HASHSIZE
 mdefine_line|#define HASHSIZE 257
 macro_line|#ifndef DEBUG_ATTR
@@ -499,7 +500,6 @@ id|name
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * .gitattributes file is one line per record, each of which is&n; *&n; * (1) glob pattern.&n; * (2) whitespace&n; * (3) whitespace separated list of attribute names, each of which&n; *     could be prefixed with &squot;-&squot; to mean &quot;set to false&quot;, &squot;!&squot; to mean&n; *     &quot;unset&quot;.&n; */
 multiline_comment|/* What does a matched pattern decide? */
 DECL|struct|attr_state
 r_struct
@@ -519,6 +519,7 @@ id|setto
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * One rule, as from a .gitattributes file.&n; *&n; * If is_macro is true, then u.attr is a pointer to the git_attr being&n; * defined.&n; *&n; * If is_macro is false, then u.pattern points at the filename pattern&n; * to which the rule applies.  (The memory pointed to is part of the&n; * memory block allocated for the match_attr instance.)&n; *&n; * In either case, num_attr is the number of attributes affected by&n; * this rule, and state is an array listing them.  The attributes are&n; * listed as they appear in the file (macros unexpanded).&n; */
 DECL|struct|match_attr
 r_struct
 id|match_attr
@@ -568,6 +569,7 @@ id|blank
 op_assign
 l_string|&quot; &bslash;t&bslash;r&bslash;n&quot;
 suffix:semicolon
+multiline_comment|/*&n; * Parse a whitespace-delimited attribute state (i.e., &quot;attr&quot;,&n; * &quot;-attr&quot;, &quot;!attr&quot;, or &quot;attr=value&quot;) from the string starting at src.&n; * If e is not NULL, write the results to *e.  Return a pointer to the&n; * remainder of the string (with leading whitespace removed), or NULL&n; * if there was an error.&n; */
 DECL|function|parse_attr
 r_static
 r_const
@@ -589,14 +591,10 @@ r_char
 op_star
 id|cp
 comma
-r_int
-op_star
-id|num_attr
-comma
 r_struct
-id|match_attr
+id|attr_state
 op_star
-id|res
+id|e
 )paren
 (brace
 r_const
@@ -665,7 +663,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|res
+id|e
 )paren
 (brace
 r_if
@@ -724,22 +722,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-r_struct
-id|attr_state
-op_star
-id|e
-suffix:semicolon
-id|e
-op_assign
-op_amp
-(paren
-id|res-&gt;state
-(braket
-op_star
-id|num_attr
-)braket
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -814,12 +796,6 @@ id|len
 )paren
 suffix:semicolon
 )brace
-(paren
-op_star
-id|num_attr
-)paren
-op_increment
-suffix:semicolon
 r_return
 id|ep
 op_plus
@@ -862,6 +838,8 @@ id|namelen
 suffix:semicolon
 r_int
 id|num_attr
+comma
+id|i
 suffix:semicolon
 r_const
 r_char
@@ -870,6 +848,9 @@ id|cp
 comma
 op_star
 id|name
+comma
+op_star
+id|states
 suffix:semicolon
 r_struct
 id|match_attr
@@ -877,9 +858,6 @@ op_star
 id|res
 op_assign
 l_int|NULL
-suffix:semicolon
-r_int
-id|pass
 suffix:semicolon
 r_int
 id|is_macro
@@ -1041,49 +1019,39 @@ id|is_macro
 op_assign
 l_int|0
 suffix:semicolon
-r_for
-c_loop
-(paren
-id|pass
-op_assign
-l_int|0
-suffix:semicolon
-id|pass
-OL
-l_int|2
-suffix:semicolon
-id|pass
-op_increment
-)paren
-(brace
-multiline_comment|/* pass 0 counts and allocates, pass 1 fills */
-id|num_attr
-op_assign
-l_int|0
-suffix:semicolon
-id|cp
+id|states
 op_assign
 id|name
 op_plus
 id|namelen
 suffix:semicolon
-id|cp
-op_assign
-id|cp
-op_plus
+id|states
+op_add_assign
 id|strspn
 c_func
 (paren
-id|cp
+id|states
 comma
 id|blank
 )paren
 suffix:semicolon
-r_while
+multiline_comment|/* First pass to count the attr_states */
+r_for
 c_loop
 (paren
+id|cp
+op_assign
+id|states
+comma
+id|num_attr
+op_assign
+l_int|0
+suffix:semicolon
 op_star
 id|cp
+suffix:semicolon
+id|num_attr
+op_increment
 )paren
 (brace
 id|cp
@@ -1097,10 +1065,7 @@ id|lineno
 comma
 id|cp
 comma
-op_amp
-id|num_attr
-comma
-id|res
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -1113,13 +1078,6 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|pass
-)paren
-r_break
-suffix:semicolon
 id|res
 op_assign
 id|xcalloc
@@ -1209,6 +1167,45 @@ suffix:semicolon
 id|res-&gt;num_attr
 op_assign
 id|num_attr
+suffix:semicolon
+multiline_comment|/* Second pass to fill the attr_states */
+r_for
+c_loop
+(paren
+id|cp
+op_assign
+id|states
+comma
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+op_star
+id|cp
+suffix:semicolon
+id|i
+op_increment
+)paren
+(brace
+id|cp
+op_assign
+id|parse_attr
+c_func
+(paren
+id|src
+comma
+id|lineno
+comma
+id|cp
+comma
+op_amp
+(paren
+id|res-&gt;state
+(braket
+id|i
+)braket
+)paren
+)paren
 suffix:semicolon
 )brace
 r_return
