@@ -2093,6 +2093,11 @@ id|opts.dst_index
 op_assign
 l_int|NULL
 suffix:semicolon
+id|opts.pathspec
+op_assign
+op_amp
+id|revs-&gt;diffopt.pathspec
+suffix:semicolon
 id|init_tree_desc
 c_func
 (paren
