@@ -519,6 +519,16 @@ op_lshift
 id|TYPE_BITS
 )braket
 suffix:semicolon
+DECL|variable|delta_count_attempts_by_type
+r_static
+r_uintmax
+id|delta_count_attempts_by_type
+(braket
+l_int|1
+op_lshift
+id|TYPE_BITS
+)braket
+suffix:semicolon
 DECL|variable|object_count
 r_static
 r_int
@@ -4990,6 +5000,12 @@ template_param
 l_int|20
 )paren
 (brace
+id|delta_count_attempts_by_type
+(braket
+id|type
+)braket
+op_increment
+suffix:semicolon
 id|delta
 op_assign
 id|diff_delta
@@ -15180,6 +15196,39 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|oe
+op_logical_and
+id|oe-&gt;pack_id
+op_eq
+id|pack_id
+)paren
+(brace
+id|last_blob.offset
+op_assign
+id|oe-&gt;idx.offset
+suffix:semicolon
+id|strbuf_attach
+c_func
+(paren
+op_amp
+id|last_blob.data
+comma
+id|buf
+comma
+id|size
+comma
+id|size
+)paren
+suffix:semicolon
+id|last_blob.depth
+op_assign
+id|oe-&gt;depth
+suffix:semicolon
+)brace
+r_else
 id|free
 c_func
 (paren
@@ -18451,7 +18500,9 @@ l_string|&quot; (%10&quot;
 id|PRIuMAX
 l_string|&quot; duplicates %10&quot;
 id|PRIuMAX
-l_string|&quot; deltas)&bslash;n&quot;
+l_string|&quot; deltas of %10&quot;
+id|PRIuMAX
+l_string|&quot; attempts)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -18464,6 +18515,11 @@ id|OBJ_BLOB
 )braket
 comma
 id|delta_count_by_type
+(braket
+id|OBJ_BLOB
+)braket
+comma
+id|delta_count_attempts_by_type
 (braket
 id|OBJ_BLOB
 )braket
@@ -18480,7 +18536,9 @@ l_string|&quot; (%10&quot;
 id|PRIuMAX
 l_string|&quot; duplicates %10&quot;
 id|PRIuMAX
-l_string|&quot; deltas)&bslash;n&quot;
+l_string|&quot; deltas of %10&quot;
+id|PRIuMAX
+l_string|&quot; attempts)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -18493,6 +18551,11 @@ id|OBJ_TREE
 )braket
 comma
 id|delta_count_by_type
+(braket
+id|OBJ_TREE
+)braket
+comma
+id|delta_count_attempts_by_type
 (braket
 id|OBJ_TREE
 )braket
@@ -18509,7 +18572,9 @@ l_string|&quot; (%10&quot;
 id|PRIuMAX
 l_string|&quot; duplicates %10&quot;
 id|PRIuMAX
-l_string|&quot; deltas)&bslash;n&quot;
+l_string|&quot; deltas of %10&quot;
+id|PRIuMAX
+l_string|&quot; attempts)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -18522,6 +18587,11 @@ id|OBJ_COMMIT
 )braket
 comma
 id|delta_count_by_type
+(braket
+id|OBJ_COMMIT
+)braket
+comma
+id|delta_count_attempts_by_type
 (braket
 id|OBJ_COMMIT
 )braket
@@ -18538,7 +18608,9 @@ l_string|&quot; (%10&quot;
 id|PRIuMAX
 l_string|&quot; duplicates %10&quot;
 id|PRIuMAX
-l_string|&quot; deltas)&bslash;n&quot;
+l_string|&quot; deltas of %10&quot;
+id|PRIuMAX
+l_string|&quot; attempts)&bslash;n&quot;
 comma
 id|object_count_by_type
 (braket
@@ -18551,6 +18623,11 @@ id|OBJ_TAG
 )braket
 comma
 id|delta_count_by_type
+(braket
+id|OBJ_TAG
+)braket
+comma
+id|delta_count_attempts_by_type
 (braket
 id|OBJ_TAG
 )braket
