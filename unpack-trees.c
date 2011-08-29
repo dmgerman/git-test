@@ -2053,6 +2053,10 @@ id|newinfo.prev
 op_assign
 id|info
 suffix:semicolon
+id|newinfo.pathspec
+op_assign
+id|info-&gt;pathspec
+suffix:semicolon
 id|newinfo.name
 op_assign
 op_star
@@ -4756,6 +4760,10 @@ suffix:semicolon
 id|info.show_all_errors
 op_assign
 id|o-&gt;show_all_errors
+suffix:semicolon
+id|info.pathspec
+op_assign
+id|o-&gt;pathspec
 suffix:semicolon
 r_if
 c_cond
