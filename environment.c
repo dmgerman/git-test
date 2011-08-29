@@ -579,7 +579,7 @@ id|git_dir
 (brace
 id|git_dir
 op_assign
-id|read_gitfile_gently
+id|read_gitfile
 c_func
 (paren
 id|DEFAULT_GIT_DIR_ENVIRONMENT

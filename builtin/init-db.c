@@ -1882,7 +1882,7 @@ id|st.st_mode
 )paren
 id|src
 op_assign
-id|read_gitfile_gently
+id|read_gitfile
 c_func
 (paren
 id|git_link
