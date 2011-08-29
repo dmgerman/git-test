@@ -869,13 +869,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|DIFF_OPT_TST
+id|want_color
 c_func
 (paren
-op_amp
-id|graph-&gt;revs-&gt;diffopt
-comma
-id|COLOR_DIFF
+id|graph-&gt;revs-&gt;diffopt.use_color
 )paren
 )paren
 r_return

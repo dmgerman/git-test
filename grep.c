@@ -2166,7 +2166,11 @@ id|color
 r_if
 c_cond
 (paren
+id|want_color
+c_func
+(paren
 id|opt-&gt;color
+)paren
 op_logical_and
 id|color
 op_logical_and

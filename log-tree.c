@@ -92,7 +92,11 @@ id|ix
 r_if
 c_cond
 (paren
+id|want_color
+c_func
+(paren
 id|decorate_use_color
+)paren
 )paren
 r_return
 id|decoration_colors
@@ -269,7 +273,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * log-tree.c uses DIFF_OPT_TST for determining whether to use color&n; * for showing the commit sha1, use the same check for --decorate&n; */
 DECL|macro|decorate_get_color_opt
-mdefine_line|#define decorate_get_color_opt(o, ix) &bslash;&n;&t;decorate_get_color(DIFF_OPT_TST((o), COLOR_DIFF), ix)
+mdefine_line|#define decorate_get_color_opt(o, ix) &bslash;&n;&t;decorate_get_color((o)-&gt;use_color, ix)
 DECL|function|add_name_decoration
 r_static
 r_void

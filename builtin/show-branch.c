@@ -69,7 +69,11 @@ id|idx
 r_if
 c_cond
 (paren
+id|want_color
+c_func
+(paren
 id|showbranch_use_color
+)paren
 )paren
 r_return
 id|column_colors_ansi
@@ -97,7 +101,11 @@ r_void
 r_if
 c_cond
 (paren
+id|want_color
+c_func
+(paren
 id|showbranch_use_color
+)paren
 )paren
 r_return
 id|GIT_COLOR_RESET
@@ -2930,8 +2938,6 @@ c_func
 id|var
 comma
 id|value
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_return
@@ -3577,17 +3583,6 @@ id|git_show_branch_config
 comma
 l_int|NULL
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|showbranch_use_color
-op_eq
-l_int|1
-)paren
-id|showbranch_use_color
-op_assign
-id|git_use_color_default
 suffix:semicolon
 multiline_comment|/* If nothing is specified, try the default first */
 r_if

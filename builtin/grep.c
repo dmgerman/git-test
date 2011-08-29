@@ -1419,8 +1419,6 @@ c_func
 id|var
 comma
 id|value
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_else
@@ -4921,17 +4919,6 @@ comma
 op_amp
 id|opt
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|opt.color
-op_eq
-l_int|1
-)paren
-id|opt.color
-op_assign
-id|git_use_color_default
 suffix:semicolon
 multiline_comment|/*&n;&t; * If there is no -- then the paths must exist in the working&n;&t; * tree.  If there is no explicit pattern specified with -e or&n;&t; * -f, we take the first unrecognized non option to be the&n;&t; * pattern, but then what follows it must be zero or more&n;&t; * valid refs up to the -- (if exists), and then existing&n;&t; * paths.  If there is an explicit pattern, then the first&n;&t; * unrecognized non option is the beginning of the refs list&n;&t; * that continues up to the -- (if exists), and then paths.&n;&t; */
 id|argc
