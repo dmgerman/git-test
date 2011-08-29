@@ -367,6 +367,20 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|get_all
+op_eq
+l_int|0
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;http-fetch: use without -a is deprecated.&bslash;n&quot;
+l_string|&quot;In a future release, -a will become the default.&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|argv
 (braket
 id|arg
