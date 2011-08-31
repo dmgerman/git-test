@@ -1269,6 +1269,20 @@ suffix:semicolon
 id|xdlclassifier_t
 id|cf
 suffix:semicolon
+id|memset
+c_func
+(paren
+op_amp
+id|cf
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+id|cf
+)paren
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * For histogram diff, we can afford a smaller sample size and&n;&t; * thus a poorer estimate of the number of lines, as the hash&n;&t; * table (rhash) won&squot;t be filled up/grown. The number of lines&n;&t; * (nrecs) will be updated correctly anyway by&n;&t; * xdl_prepare_ctx().&n;&t; */
 id|sample
 op_assign
