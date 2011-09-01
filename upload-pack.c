@@ -374,6 +374,10 @@ r_const
 r_char
 op_star
 id|component
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 id|show_object_with_name

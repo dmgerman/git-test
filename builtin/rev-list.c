@@ -616,6 +616,10 @@ r_const
 r_char
 op_star
 id|name
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_if
@@ -666,6 +670,10 @@ r_const
 r_char
 op_star
 id|component
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 id|finish_object
@@ -676,6 +684,8 @@ comma
 id|path
 comma
 id|component
+comma
+id|cb_data
 )paren
 suffix:semicolon
 id|show_object_with_name

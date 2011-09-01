@@ -9142,6 +9142,10 @@ r_const
 r_char
 op_star
 id|last
+comma
+r_void
+op_star
+id|data
 )paren
 (brace
 r_char
