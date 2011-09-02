@@ -3121,7 +3121,7 @@ c_func
 op_amp
 id|buf
 comma
-l_string|&quot;refs/remotes/%s&quot;
+l_string|&quot;refs/remotes/%s/&quot;
 comma
 id|rename-&gt;old
 )paren
