@@ -2342,7 +2342,7 @@ id|dollar
 )paren
 r_break
 suffix:semicolon
-id|memcpy
+id|memmove
 c_func
 (paren
 id|dst
@@ -2468,7 +2468,7 @@ l_int|1
 suffix:semicolon
 )brace
 )brace
-id|memcpy
+id|memmove
 c_func
 (paren
 id|dst
