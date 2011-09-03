@@ -3870,6 +3870,17 @@ r_new
 )paren
 )paren
 suffix:semicolon
+r_else
+id|warning
+c_func
+(paren
+l_string|&quot;Not updating non-default fetch respec&bslash;n&quot;
+l_string|&quot;&bslash;t%s&bslash;n&quot;
+l_string|&quot;&bslash;tPlease update the configuration manually if necessary.&quot;
+comma
+id|buf2.buf
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
