@@ -2838,8 +2838,6 @@ op_assign
 id|pathspec_prefix
 c_func
 (paren
-id|prefix
-comma
 id|pathspec
 )paren
 suffix:semicolon

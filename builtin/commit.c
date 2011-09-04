@@ -1220,7 +1220,6 @@ c_cond
 id|with_tree
 )paren
 (brace
-r_const
 r_char
 op_star
 id|max_prefix
@@ -1228,8 +1227,6 @@ op_assign
 id|pathspec_prefix
 c_func
 (paren
-id|prefix
-comma
 id|pattern
 )paren
 suffix:semicolon
@@ -1238,6 +1235,17 @@ c_func
 (paren
 id|with_tree
 comma
+id|max_prefix
+ques
+c_cond
+id|max_prefix
+suffix:colon
+id|prefix
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|max_prefix
 )paren
 suffix:semicolon
