@@ -1224,7 +1224,7 @@ r_char
 op_star
 id|max_prefix
 op_assign
-id|pathspec_prefix
+id|common_prefix
 c_func
 (paren
 id|pattern

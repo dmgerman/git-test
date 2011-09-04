@@ -2835,7 +2835,7 @@ suffix:semicolon
 multiline_comment|/* Find common prefix for all pathspec&squot;s */
 id|max_prefix
 op_assign
-id|pathspec_prefix
+id|common_prefix
 c_func
 (paren
 id|pathspec
