@@ -4230,7 +4230,7 @@ id|HTTP_START_FAILED
 id|error
 c_func
 (paren
-l_string|&quot;%s while accessing %s&bslash;n&quot;
+l_string|&quot;%s while accessing %s&quot;
 comma
 id|curl_errorstr
 comma
