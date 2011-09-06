@@ -4495,6 +4495,10 @@ l_char|&squot; &squot;
 op_logical_or
 id|ch
 op_eq
+l_int|0x7f
+op_logical_or
+id|ch
+op_eq
 l_char|&squot;~&squot;
 op_logical_or
 id|ch
