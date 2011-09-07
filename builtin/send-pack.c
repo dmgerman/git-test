@@ -1572,7 +1572,7 @@ id|demux
 id|die
 c_func
 (paren
-l_string|&quot;receive-pack: unable to fork off sideband demultiplexer&quot;
+l_string|&quot;send-pack: unable to fork off sideband demultiplexer&quot;
 )paren
 suffix:semicolon
 id|in
