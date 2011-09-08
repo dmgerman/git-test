@@ -4003,17 +4003,9 @@ op_logical_and
 op_logical_neg
 id|force_create
 op_logical_and
-(paren
 id|argc
 op_eq
 l_int|0
-op_logical_or
-(paren
-id|verbose
-op_logical_and
-id|argc
-)paren
-)paren
 )paren
 id|list
 op_assign
