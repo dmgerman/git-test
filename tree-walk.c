@@ -2339,9 +2339,6 @@ r_char
 op_star
 id|base
 comma
-r_int
-id|baselen
-comma
 r_const
 r_char
 op_star
@@ -2563,8 +2560,6 @@ id|match_dir_prefix
 c_func
 (paren
 id|base_str
-comma
-id|baselen
 comma
 id|match
 comma
