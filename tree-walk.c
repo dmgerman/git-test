@@ -2610,10 +2610,14 @@ id|ps-&gt;max_depth
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Does the base match? */
+multiline_comment|/* Either there must be no base, or the base must match. */
 r_if
 c_cond
 (paren
+id|baselen
+op_eq
+l_int|0
+op_logical_or
 op_logical_neg
 id|strncmp
 c_func
