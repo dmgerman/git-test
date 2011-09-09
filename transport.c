@@ -5627,7 +5627,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|match_refs
+id|match_push_refs
 c_func
 (paren
 id|local_refs

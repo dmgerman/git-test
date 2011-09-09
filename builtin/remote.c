@@ -2071,7 +2071,7 @@ c_func
 id|remote_refs
 )paren
 suffix:semicolon
-id|match_refs
+id|match_push_refs
 c_func
 (paren
 id|local_refs

@@ -6591,10 +6591,10 @@ r_return
 id|tail
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Note. This is used only by &quot;push&quot;; refspec matching rules for&n; * push and fetch are subtly different, so do not try to reuse it&n; * without thinking.&n; */
-DECL|function|match_refs
+multiline_comment|/*&n; * Given the set of refs the local repository has, the set of refs the&n; * remote repository has, and the refspec used for push, determine&n; * what remote refs we will update and with what value by setting&n; * peer_ref (which object is being pushed) and force (if the push is&n; * forced) in elements of &quot;dst&quot;. The function may add new elements to&n; * dst (e.g. pushing to a new branch, done in match_explicit_refs).&n; */
+DECL|function|match_push_refs
 r_int
-id|match_refs
+id|match_push_refs
 c_func
 (paren
 r_struct
