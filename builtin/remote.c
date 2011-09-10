@@ -3522,6 +3522,10 @@ id|rename
 suffix:semicolon
 r_int
 id|i
+comma
+id|refspec_updated
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -3835,6 +3839,11 @@ c_cond
 (paren
 id|ptr
 )paren
+(brace
+id|refspec_updated
+op_assign
+l_int|1
+suffix:semicolon
 id|strbuf_splice
 c_func
 (paren
@@ -3870,6 +3879,7 @@ r_new
 )paren
 )paren
 suffix:semicolon
+)brace
 r_else
 id|warning
 c_func
@@ -4001,6 +4011,15 @@ suffix:semicolon
 )brace
 )brace
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|refspec_updated
+)paren
+r_return
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * First remove symrefs, then rename the rest, finally create&n;&t; * the new symrefs.&n;&t; */
 id|for_each_ref
 c_func
