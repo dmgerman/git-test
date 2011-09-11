@@ -785,6 +785,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|create_cached_refs
+r_static
 r_struct
 id|cached_refs
 op_star
