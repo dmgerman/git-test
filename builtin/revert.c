@@ -3432,6 +3432,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Append a commit to the end of the commit_list.&n; *&n; * next starts by pointing to the variable that holds the head of an&n; * empty commit_list, and is updated to point to the &quot;next&quot; field of&n; * the last item on the list as new commits are appended.&n; *&n; * Usage example:&n; *&n; *     struct commit_list *list;&n; *     struct commit_list **next = &amp;list;&n; *&n; *     next = commit_list_append(c1, next);&n; *     next = commit_list_append(c2, next);&n; *     assert(commit_list_count(list) == 2);&n; *     return list;&n; */
 DECL|function|commit_list_append
+r_static
 r_struct
 id|commit_list
 op_star
