@@ -1535,6 +1535,8 @@ r_struct
 id|name_entry
 op_star
 id|e
+op_assign
+l_int|NULL
 suffix:semicolon
 r_int
 id|len

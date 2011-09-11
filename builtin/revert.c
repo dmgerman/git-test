@@ -414,6 +414,8 @@ id|opt1
 comma
 op_star
 id|opt2
+op_assign
+l_int|NULL
 suffix:semicolon
 id|va_list
 id|ap
