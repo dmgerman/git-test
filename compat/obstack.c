@@ -346,7 +346,7 @@ id|h-&gt;chunk_size
 suffix:semicolon
 id|chunk-&gt;prev
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 multiline_comment|/* The initial chunk now contains no empty object.  */
 id|h-&gt;maybe_empty_object
@@ -585,7 +585,7 @@ id|h-&gt;chunk_size
 suffix:semicolon
 id|chunk-&gt;prev
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 multiline_comment|/* The initial chunk now contains no empty object.  */
 id|h-&gt;maybe_empty_object
@@ -953,7 +953,7 @@ c_loop
 (paren
 id|lp
 op_ne
-l_int|0
+l_int|NULL
 op_logical_and
 (paren
 (paren
@@ -990,7 +990,7 @@ suffix:semicolon
 r_return
 id|lp
 op_ne
-l_int|0
+l_int|NULL
 suffix:semicolon
 )brace
 "&f;"
@@ -1035,7 +1035,7 @@ c_loop
 (paren
 id|lp
 op_ne
-l_int|0
+l_int|NULL
 op_logical_and
 (paren
 (paren
@@ -1114,7 +1114,7 @@ c_cond
 (paren
 id|obj
 op_ne
-l_int|0
+l_int|NULL
 )paren
 multiline_comment|/* obj is not in any of the chunks! */
 m_abort
@@ -1163,7 +1163,7 @@ id|h-&gt;chunk
 suffix:semicolon
 id|lp
 op_ne
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|lp
 op_assign
@@ -1197,12 +1197,6 @@ macro_line|#  endif
 macro_line|# endif
 r_static
 r_void
-id|__attribute__
-(paren
-(paren
-id|noreturn
-)paren
-)paren
 DECL|function|print_and_abort
 id|print_and_abort
 (paren
