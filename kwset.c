@@ -3102,7 +3102,7 @@ id|kwset-&gt;maxd
 suffix:semicolon
 id|lmch
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 id|d
 op_assign
