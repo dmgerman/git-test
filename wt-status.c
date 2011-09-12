@@ -3703,7 +3703,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|s-&gt;untracked.nr
+id|l-&gt;nr
 )paren
 r_return
 suffix:semicolon
