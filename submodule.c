@@ -2929,6 +2929,15 @@ id|argv
 )paren
 l_int|1
 suffix:semicolon
+multiline_comment|/* No need to check if there are no submodules configured */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|config_name_for_path.nr
+)paren
+r_return
+suffix:semicolon
 id|init_revisions
 c_func
 (paren
