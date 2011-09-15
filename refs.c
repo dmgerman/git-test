@@ -242,6 +242,27 @@ c_func
 id|entry-&gt;peeled
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|check_refname_format
+c_func
+(paren
+id|name
+comma
+id|REFNAME_ALLOW_ONELEVEL
+op_or
+id|REFNAME_DOT_COMPONENT
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Reference has invalid format: &squot;%s&squot;&quot;
+comma
+id|name
+)paren
+suffix:semicolon
 id|memcpy
 c_func
 (paren
@@ -4668,6 +4689,9 @@ r_const
 r_char
 op_star
 id|ref
+comma
+r_int
+id|flags
 )paren
 (brace
 r_const
@@ -4780,10 +4804,37 @@ l_int|0
 op_eq
 l_char|&squot;.&squot;
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|REFNAME_DOT_COMPONENT
+)paren
+)paren
 r_return
 l_int|1
 suffix:semicolon
 multiline_comment|/* Component starts with &squot;.&squot;. */
+multiline_comment|/*&n;&t;&t; * Even if leading dots are allowed, don&squot;t allow &quot;.&quot;&n;&t;&t; * as a component (&quot;..&quot; is prevented by a rule above).&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|ref
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;&bslash;0&squot;
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* Component equals &quot;.&quot;. */
+)brace
 r_if
 c_cond
 (paren
@@ -4847,6 +4898,8 @@ id|check_refname_component
 c_func
 (paren
 id|ref
+comma
+id|flags
 )paren
 suffix:semicolon
 r_if
