@@ -4470,6 +4470,7 @@ id|cb_data
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Make sure &quot;ref&quot; is something reasonable to have under &quot;.git/refs/&quot;;&n; * We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
+multiline_comment|/* Return true iff ch is not allowed in reference names. */
 DECL|function|bad_ref_char
 r_static
 r_inline
@@ -4522,6 +4523,10 @@ c_cond
 (paren
 id|ch
 op_eq
+l_char|&squot;*&squot;
+op_logical_or
+id|ch
+op_eq
 l_char|&squot;?&squot;
 op_logical_or
 id|ch
@@ -4531,17 +4536,6 @@ l_char|&squot;[&squot;
 multiline_comment|/* Unsupported */
 r_return
 l_int|1
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|ch
-op_eq
-l_char|&squot;*&squot;
-)paren
-multiline_comment|/* Supported at the end */
-r_return
-l_int|2
 suffix:semicolon
 r_return
 l_int|0
@@ -4562,8 +4556,6 @@ r_int
 id|ch
 comma
 id|level
-comma
-id|bad_type
 comma
 id|last
 suffix:semicolon
@@ -4625,26 +4617,22 @@ l_char|&squot;.&squot;
 r_return
 id|CHECK_REF_FORMAT_ERROR
 suffix:semicolon
-id|bad_type
-op_assign
+r_if
+c_cond
+(paren
 id|bad_ref_char
 c_func
 (paren
 id|ch
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|bad_type
 )paren
 (brace
 r_if
 c_cond
 (paren
-id|bad_type
+id|ch
 op_eq
-l_int|2
+l_char|&squot;*&squot;
 op_logical_and
 (paren
 op_logical_neg
@@ -4689,18 +4677,14 @@ op_ne
 l_int|0
 )paren
 (brace
-id|bad_type
-op_assign
+r_if
+c_cond
+(paren
 id|bad_ref_char
 c_func
 (paren
 id|ch
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|bad_type
 )paren
 r_return
 id|CHECK_REF_FORMAT_ERROR
