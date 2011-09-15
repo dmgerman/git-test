@@ -3097,10 +3097,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|o-&gt;local_ref
+comma
+l_int|0
 )paren
 op_logical_and
 id|is_null_sha1
@@ -3173,10 +3175,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|o-&gt;remote_ref
+comma
+l_int|0
 )paren
 )paren
 (brace

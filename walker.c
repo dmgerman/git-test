@@ -950,10 +950,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|target
+comma
+l_int|0
 )paren
 )paren
 (brace

@@ -4196,31 +4196,19 @@ l_int|1
 suffix:colon
 id|local
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|remote
+comma
+id|REFNAME_ALLOW_ONELEVEL
+op_or
+id|REFNAME_REFSPEC_PATTERN
 )paren
 )paren
-(brace
-r_case
-l_int|0
-suffix:colon
-multiline_comment|/* ok */
-r_case
-id|CHECK_REF_FORMAT_ONELEVEL
-suffix:colon
-multiline_comment|/* ok but a single level -- that is fine for&n;&t;&t;&t; * a match pattern.&n;&t;&t;&t; */
-r_case
-id|CHECK_REF_FORMAT_WILDCARD
-suffix:colon
-multiline_comment|/* ok but ends with a pattern-match character */
-r_continue
-suffix:semicolon
-)brace
 id|die
 c_func
 (paren

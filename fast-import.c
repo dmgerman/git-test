@@ -3087,30 +3087,17 @@ comma
 id|name
 )paren
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|name
+comma
+id|REFNAME_ALLOW_ONELEVEL
 )paren
 )paren
-(brace
-r_case
-l_int|0
-suffix:colon
-r_break
-suffix:semicolon
-multiline_comment|/* its valid */
-r_case
-id|CHECK_REF_FORMAT_ONELEVEL
-suffix:colon
-r_break
-suffix:semicolon
-multiline_comment|/* valid, but too few &squot;/&squot;, allow anyway */
-r_default
-suffix:colon
 id|die
 c_func
 (paren
@@ -3119,7 +3106,6 @@ comma
 id|name
 )paren
 suffix:semicolon
-)brace
 id|b
 op_assign
 id|pool_calloc

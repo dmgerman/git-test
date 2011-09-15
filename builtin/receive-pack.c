@@ -1873,12 +1873,14 @@ comma
 l_string|&quot;refs/&quot;
 )paren
 op_logical_or
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|name
 op_plus
 l_int|5
+comma
+l_int|0
 )paren
 )paren
 (brace
