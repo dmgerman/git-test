@@ -4856,7 +4856,7 @@ id|name
 )paren
 )paren
 r_return
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|refspec-&gt;dst
