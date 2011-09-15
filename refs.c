@@ -4668,6 +4668,30 @@ r_return
 l_int|1
 suffix:semicolon
 multiline_comment|/* Component starts with &squot;.&squot;. */
+r_if
+c_cond
+(paren
+id|cp
+id|ref
+op_ge
+l_int|5
+op_logical_and
+op_logical_neg
+id|memcmp
+c_func
+(paren
+id|cp
+l_int|5
+comma
+l_string|&quot;.lock&quot;
+comma
+l_int|5
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* Refname ends with &quot;.lock&quot;. */
 r_return
 id|cp
 id|ref
@@ -4818,33 +4842,6 @@ r_return
 l_int|1
 suffix:semicolon
 multiline_comment|/* Refname ends with &squot;.&squot;. */
-r_if
-c_cond
-(paren
-id|component_len
-op_ge
-l_int|5
-op_logical_and
-op_logical_neg
-id|memcmp
-c_func
-(paren
-op_amp
-id|ref
-(braket
-id|component_len
-l_int|5
-)braket
-comma
-l_string|&quot;.lock&quot;
-comma
-l_int|5
-)paren
-)paren
-r_return
-l_int|1
-suffix:semicolon
-multiline_comment|/* Refname ends with &quot;.lock&quot;. */
 r_if
 c_cond
 (paren
