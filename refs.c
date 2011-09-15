@@ -2518,6 +2518,12 @@ id|ref_buffer
 l_int|256
 )braket
 suffix:semicolon
+r_char
+id|path
+(braket
+id|PATH_MAX
+)braket
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2549,12 +2555,6 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
-r_char
-id|path
-(braket
-id|PATH_MAX
-)braket
-suffix:semicolon
 r_struct
 id|stat
 id|st
@@ -2950,9 +2950,19 @@ comma
 id|sha1
 )paren
 )paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;reference in %s is formatted incorrectly&quot;
+comma
+id|path
+)paren
+suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
+)brace
 r_return
 id|ref
 suffix:semicolon
