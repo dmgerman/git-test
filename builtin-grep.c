@@ -3146,13 +3146,6 @@ id|dir
 )paren
 )paren
 suffix:semicolon
-id|setup_standard_excludes
-c_func
-(paren
-op_amp
-id|dir
-)paren
-suffix:semicolon
 id|fill_directory
 c_func
 (paren
