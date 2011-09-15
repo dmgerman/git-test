@@ -2471,7 +2471,6 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * If the &quot;reading&quot; argument is set, this function finds out what _object_&n; * the ref points at by &quot;reading&quot; the ref.  The ref, if it is not symbolic,&n; * has to exist, and if it is symbolic, it has to point at an existing ref,&n; * because the &quot;read&quot; goes through the symref to the ref it points at.&n; *&n; * The access that is not &quot;reading&quot; may often be &quot;writing&quot;, but does not&n; * have to; it can be merely checking _where it leads to_. If it is a&n; * prelude to &quot;writing&quot; to the ref, a write to a symref that points at&n; * yet-to-be-born ref will create the real ref pointed by the symref.&n; * reading=0 allows the caller to check where such a symref leads to.&n; */
 DECL|function|resolve_ref
 r_const
 r_char
