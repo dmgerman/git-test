@@ -2476,6 +2476,12 @@ c_func
 id|posn-&gt;name
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+r_private
+)paren
+(brace
 id|read_ref
 c_func
 (paren
@@ -2490,6 +2496,7 @@ c_func
 r_private
 )paren
 suffix:semicolon
+)brace
 )brace
 id|strbuf_release
 c_func
