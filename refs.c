@@ -2636,6 +2636,16 @@ r_if
 c_cond
 (paren
 id|len
+OL
+l_int|0
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|len
 op_ge
 l_int|5
 op_logical_and
