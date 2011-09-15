@@ -2660,6 +2660,15 @@ id|buffer
 comma
 l_string|&quot;refs/&quot;
 )paren
+op_logical_and
+op_logical_neg
+id|check_refname_format
+c_func
+(paren
+id|buffer
+comma
+l_int|0
+)paren
 )paren
 (brace
 id|strcpy
