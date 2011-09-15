@@ -2939,6 +2939,7 @@ op_or_assign
 id|REF_ISSYMREF
 suffix:semicolon
 )brace
+multiline_comment|/* Please note that FETCH_HEAD has a second line containing other data. */
 r_if
 c_cond
 (paren
@@ -2948,6 +2949,25 @@ c_func
 id|buffer
 comma
 id|sha1
+)paren
+op_logical_or
+(paren
+id|buffer
+(braket
+l_int|40
+)braket
+op_ne
+l_char|&squot;&bslash;0&squot;
+op_logical_and
+op_logical_neg
+id|isspace
+c_func
+(paren
+id|buffer
+(braket
+l_int|40
+)braket
+)paren
 )paren
 )paren
 (brace
