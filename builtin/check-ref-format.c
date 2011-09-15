@@ -11,7 +11,7 @@ id|builtin_check_ref_format_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git check-ref-format [--print] [options] &lt;refname&gt;&bslash;n&quot;
+l_string|&quot;git check-ref-format [--normalize] [options] &lt;refname&gt;&bslash;n&quot;
 l_string|&quot;   or: git check-ref-format --branch &lt;branchname-shorthand&gt;&quot;
 suffix:semicolon
 multiline_comment|/*&n; * Return a copy of refname but with leading slashes removed and runs&n; * of adjacent slashes replaced with single slashes.&n; *&n; * This function is similar to normalize_path_copy(), but stripped down&n; * to meet check_ref_format&squot;s simpler needs.&n; */
@@ -191,7 +191,7 @@ r_int
 id|i
 suffix:semicolon
 r_int
-id|print
+id|normalize
 op_assign
 l_int|0
 suffix:semicolon
@@ -296,10 +296,22 @@ id|argv
 id|i
 )braket
 comma
+l_string|&quot;--normalize&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+id|i
+)braket
+comma
 l_string|&quot;--print&quot;
 )paren
 )paren
-id|print
+id|normalize
 op_assign
 l_int|1
 suffix:semicolon
@@ -399,6 +411,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|normalize
+)paren
+id|refname
+op_assign
+id|collapse_slashes
+c_func
+(paren
+id|refname
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|check_refname_format
 c_func
 (paren
@@ -413,17 +438,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|print
+id|normalize
 )paren
-(brace
-id|refname
-op_assign
-id|collapse_slashes
-c_func
-(paren
-id|refname
-)paren
-suffix:semicolon
 id|printf
 c_func
 (paren
@@ -432,7 +448,6 @@ comma
 id|refname
 )paren
 suffix:semicolon
-)brace
 r_return
 l_int|0
 suffix:semicolon

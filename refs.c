@@ -4724,18 +4724,6 @@ c_loop
 l_int|1
 )paren
 (brace
-r_while
-c_loop
-(paren
-op_star
-id|ref
-op_eq
-l_char|&squot;/&squot;
-)paren
-id|ref
-op_increment
-suffix:semicolon
-multiline_comment|/* tolerate leading and repeated slashes */
 multiline_comment|/* We are at the start of a path component. */
 id|component_len
 op_assign
