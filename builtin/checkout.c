@@ -5695,6 +5695,8 @@ comma
 op_logical_neg
 op_logical_neg
 id|opts.new_branch_force
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|strbuf_release
