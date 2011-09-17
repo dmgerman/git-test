@@ -1755,10 +1755,12 @@ id|rev
 suffix:semicolon
 id|head
 op_assign
-id|lookup_commit
+id|lookup_commit_or_die
 c_func
 (paren
 id|head_sha1
+comma
+l_string|&quot;HEAD&quot;
 )paren
 suffix:semicolon
 id|init_revisions
