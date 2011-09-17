@@ -3036,6 +3036,8 @@ op_amp
 id|newref
 comma
 id|force
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|strbuf_addf
