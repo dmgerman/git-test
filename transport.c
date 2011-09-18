@@ -2365,6 +2365,13 @@ op_amp
 id|data-&gt;header
 comma
 id|data-&gt;fd
+comma
+id|transport-&gt;progress
+ques
+c_cond
+id|BUNDLE_VERBOSE
+suffix:colon
+l_int|0
 )paren
 suffix:semicolon
 )brace
