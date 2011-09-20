@@ -1273,7 +1273,7 @@ id|dirty_submodule
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * New file in the index: it might actually be different in&n;&t; * the working copy.&n;&t; */
+multiline_comment|/*&n;&t; * New file in the index: it might actually be different in&n;&t; * the working tree.&n;&t; */
 r_if
 c_cond
 (paren
