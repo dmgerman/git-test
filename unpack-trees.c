@@ -661,9 +661,11 @@ c_cond
 (paren
 id|something_displayed
 )paren
-id|printf
+id|fprintf
 c_func
 (paren
+id|stderr
+comma
 l_string|&quot;Aborting&bslash;n&quot;
 )paren
 suffix:semicolon
