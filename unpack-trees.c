@@ -5060,6 +5060,7 @@ l_int|0
 r_goto
 id|return_failed
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Sparse checkout is meant to narrow down checkout area&n;&t;&t; * but it does not make sense to narrow down to empty working&n;&t;&t; * tree. This is usually a mistake in sparse checkout rules.&n;&t;&t; * Do not allow users to do that.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -5068,7 +5069,6 @@ op_logical_and
 id|empty_worktree
 )paren
 (brace
-multiline_comment|/* dubious---why should this fail??? */
 id|ret
 op_assign
 id|unpack_failed
