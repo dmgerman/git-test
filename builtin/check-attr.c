@@ -8,6 +8,11 @@ r_static
 r_int
 id|all_attrs
 suffix:semicolon
+DECL|variable|cached_attrs
+r_static
+r_int
+id|cached_attrs
+suffix:semicolon
 DECL|variable|stdin_paths
 r_static
 r_int
@@ -57,6 +62,19 @@ op_amp
 id|all_attrs
 comma
 l_string|&quot;report all attributes set on file&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;cached&quot;
+comma
+op_amp
+id|cached_attrs
+comma
+l_string|&quot;use .gitattributes only from the index&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -606,6 +624,19 @@ l_string|&quot;invalid cache&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|cached_attrs
+)paren
+id|git_attr_set_direction
+c_func
+(paren
+id|GIT_ATTR_INDEX
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|doubledash
 op_assign
 l_int|1
