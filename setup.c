@@ -1743,11 +1743,11 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Try to read the location of the git directory from the .git file,&n; * return path to git directory if found.&n; */
-DECL|function|read_gitfile_gently
+DECL|function|read_gitfile
 r_const
 r_char
 op_star
-id|read_gitfile_gently
+id|read_gitfile
 c_func
 (paren
 r_const
@@ -2153,7 +2153,7 @@ op_assign
 r_char
 op_star
 )paren
-id|read_gitfile_gently
+id|read_gitfile
 c_func
 (paren
 id|gitdirenv
@@ -3250,7 +3250,7 @@ op_assign
 r_char
 op_star
 )paren
-id|read_gitfile_gently
+id|read_gitfile
 c_func
 (paren
 id|DEFAULT_GIT_DIR_ENVIRONMENT

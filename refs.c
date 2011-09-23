@@ -2312,7 +2312,7 @@ l_int|5
 suffix:semicolon
 id|tmp
 op_assign
-id|read_gitfile_gently
+id|read_gitfile
 c_func
 (paren
 id|gitdir
