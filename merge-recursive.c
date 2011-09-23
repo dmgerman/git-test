@@ -8330,13 +8330,13 @@ comma
 id|path
 comma
 l_int|0
-multiline_comment|/*stage*/
 comma
-l_int|1
-multiline_comment|/*refresh*/
+(paren
+op_logical_neg
+id|o-&gt;call_depth
+)paren
 comma
 l_int|0
-multiline_comment|/*options*/
 )paren
 suffix:semicolon
 r_return
