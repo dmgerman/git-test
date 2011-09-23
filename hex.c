@@ -592,6 +592,21 @@ op_increment
 r_int
 r_int
 id|val
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * hex[1]==&squot;&bslash;0&squot; is caught when val is checked below,&n;&t;&t; * but if hex[0] is NUL we have to avoid reading&n;&t;&t; * past the end of the string:&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|hex
+(braket
+l_int|0
+)braket
+)paren
+r_return
+l_int|1
+suffix:semicolon
+id|val
 op_assign
 (paren
 id|hexval
