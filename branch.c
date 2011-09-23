@@ -1033,7 +1033,9 @@ id|track
 id|setup_tracking
 c_func
 (paren
-id|name
+id|ref.buf
+op_plus
+l_int|11
 comma
 id|real_ref
 comma
