@@ -257,9 +257,6 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_int
-id|noop
-suffix:semicolon
 r_struct
 id|option
 id|options
@@ -293,28 +290,13 @@ comma
 l_string|&quot;edit the commit message&quot;
 )paren
 comma
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_NOOP_NOARG
+c_func
+(paren
 l_char|&squot;r&squot;
 comma
 l_int|NULL
-comma
-op_amp
-id|noop
-comma
-l_int|NULL
-comma
-l_string|&quot;no-op (backward compatibility)&quot;
-comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-comma
-l_int|NULL
-comma
-l_int|0
-)brace
+)paren
 comma
 id|OPT_BOOLEAN
 c_func
