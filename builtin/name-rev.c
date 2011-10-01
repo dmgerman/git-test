@@ -903,7 +903,11 @@ id|name_rev_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git name-rev [options] ( --all | --stdin | &lt;commit&gt;... )&quot;
+l_string|&quot;git name-rev [options] &lt;commit&gt;...&quot;
+comma
+l_string|&quot;git name-rev [options] --all&quot;
+comma
+l_string|&quot;git name-rev [options] --stdin&quot;
 comma
 l_int|NULL
 )brace
