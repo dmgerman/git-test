@@ -10506,6 +10506,12 @@ id|e
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;leak_pending
+)paren
 id|free
 c_func
 (paren
