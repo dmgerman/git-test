@@ -147,6 +147,14 @@ comma
 l_string|&quot;$()*+.?[&bslash;&bslash;^{|&quot;
 )paren
 suffix:semicolon
+id|TEST_CLASS
+c_func
+(paren
+id|is_pathspec_magic
+comma
+l_string|&quot;!&bslash;&quot;#%&amp;&squot;,-/:;&lt;=&gt;@_`~&quot;
+)paren
+suffix:semicolon
 r_return
 id|rc
 suffix:semicolon
