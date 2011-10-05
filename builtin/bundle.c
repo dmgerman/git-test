@@ -343,6 +343,8 @@ op_amp
 id|header
 comma
 id|bundle_fd
+comma
+l_int|0
 )paren
 op_logical_or
 id|list_bundle_refs
