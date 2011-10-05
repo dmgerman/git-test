@@ -35,6 +35,10 @@ r_const
 r_char
 op_star
 id|name
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -90,6 +94,8 @@ comma
 id|path
 comma
 id|name
+comma
+id|cb_data
 )paren
 suffix:semicolon
 )brace
@@ -123,6 +129,10 @@ r_const
 r_char
 op_star
 id|name
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 multiline_comment|/* Nothing to do */
@@ -160,6 +170,10 @@ r_const
 r_char
 op_star
 id|name
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -267,6 +281,8 @@ comma
 id|path
 comma
 id|name
+comma
+id|cb_data
 )paren
 suffix:semicolon
 id|me.up
@@ -410,6 +426,8 @@ comma
 id|base
 comma
 id|entry.path
+comma
+id|cb_data
 )paren
 suffix:semicolon
 r_else
@@ -435,6 +453,8 @@ op_amp
 id|me
 comma
 id|entry.path
+comma
+id|cb_data
 )paren
 suffix:semicolon
 r_else
@@ -455,6 +475,8 @@ op_amp
 id|me
 comma
 id|entry.path
+comma
+id|cb_data
 )paren
 suffix:semicolon
 )brace
@@ -814,6 +836,8 @@ comma
 l_int|NULL
 comma
 id|name
+comma
+id|data
 )paren
 suffix:semicolon
 r_continue
@@ -847,6 +871,8 @@ op_amp
 id|base
 comma
 id|name
+comma
+id|data
 )paren
 suffix:semicolon
 r_continue
@@ -877,6 +903,8 @@ comma
 l_int|NULL
 comma
 id|name
+comma
+id|data
 )paren
 suffix:semicolon
 r_continue
