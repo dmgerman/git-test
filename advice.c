@@ -100,6 +100,49 @@ id|advice_detached_head
 comma
 )brace
 suffix:semicolon
+DECL|function|advise
+r_void
+id|advise
+c_func
+(paren
+r_const
+r_char
+op_star
+id|advice
+comma
+dot
+dot
+dot
+)paren
+(brace
+id|va_list
+id|params
+suffix:semicolon
+id|va_start
+c_func
+(paren
+id|params
+comma
+id|advice
+)paren
+suffix:semicolon
+id|vreportf
+c_func
+(paren
+l_string|&quot;hint: &quot;
+comma
+id|advice
+comma
+id|params
+)paren
+suffix:semicolon
+id|va_end
+c_func
+(paren
+id|params
+)paren
+suffix:semicolon
+)brace
 DECL|function|git_default_advice_config
 r_int
 id|git_default_advice_config
@@ -193,6 +236,61 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+DECL|function|error_resolve_conflict
+r_int
+id|error_resolve_conflict
+c_func
+(paren
+r_const
+r_char
+op_star
+id|me
+)paren
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; is not possible because you have unmerged files.&quot;
+comma
+id|me
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_resolve_conflict
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * Message used both when &squot;git commit&squot; fails and when&n;&t;&t; * other commands doing a merge do.&n;&t;&t; */
+id|advise
+c_func
+(paren
+l_string|&quot;Fix them up in the work tree,&quot;
+)paren
+suffix:semicolon
+id|advise
+c_func
+(paren
+l_string|&quot;and then use &squot;git add/rm &lt;file&gt;&squot; as&quot;
+)paren
+suffix:semicolon
+id|advise
+c_func
+(paren
+l_string|&quot;appropriate to mark resolution and make a commit,&quot;
+)paren
+suffix:semicolon
+id|advise
+c_func
+(paren
+l_string|&quot;or use &squot;git commit -a&squot;.&quot;
+)paren
+suffix:semicolon
+)brace
+r_return
+l_int|1
+suffix:semicolon
+)brace
 DECL|function|die_resolve_conflict
 r_void
 id|NORETURN
@@ -205,29 +303,16 @@ op_star
 id|me
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|advice_resolve_conflict
-)paren
-multiline_comment|/*&n;&t;&t; * Message used both when &squot;git commit&squot; fails and when&n;&t;&t; * other commands doing a merge do.&n;&t;&t; */
-id|die
+id|error_resolve_conflict
 c_func
 (paren
-l_string|&quot;&squot;%s&squot; is not possible because you have unmerged files.&bslash;n&quot;
-l_string|&quot;Please, fix them up in the work tree, and then use &squot;git add/rm &lt;file&gt;&squot; as&bslash;n&quot;
-l_string|&quot;appropriate to mark resolution and make a commit, or use &squot;git commit -a&squot;.&quot;
-comma
 id|me
 )paren
 suffix:semicolon
-r_else
 id|die
 c_func
 (paren
-l_string|&quot;&squot;%s&squot; is not possible because you have unmerged files.&quot;
-comma
-id|me
+l_string|&quot;Exiting because of an unresolved conflict.&quot;
 )paren
 suffix:semicolon
 )brace
