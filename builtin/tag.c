@@ -2331,7 +2331,7 @@ c_func
 (paren
 l_char|&squot;l&squot;
 comma
-l_int|NULL
+l_string|&quot;list&quot;
 comma
 op_amp
 id|list
@@ -2365,7 +2365,7 @@ c_func
 (paren
 l_char|&squot;d&squot;
 comma
-l_int|NULL
+l_string|&quot;delete&quot;
 comma
 op_amp
 r_delete
@@ -2378,7 +2378,7 @@ c_func
 (paren
 l_char|&squot;v&squot;
 comma
-l_int|NULL
+l_string|&quot;verify&quot;
 comma
 op_amp
 id|verify
@@ -2397,7 +2397,7 @@ c_func
 (paren
 l_char|&squot;a&squot;
 comma
-l_int|NULL
+l_string|&quot;annotate&quot;
 comma
 op_amp
 id|annotate
@@ -2410,7 +2410,7 @@ c_func
 (paren
 l_char|&squot;m&squot;
 comma
-l_int|NULL
+l_string|&quot;message&quot;
 comma
 op_amp
 id|msg
@@ -2427,7 +2427,7 @@ c_func
 (paren
 l_char|&squot;F&squot;
 comma
-l_int|NULL
+l_string|&quot;file&quot;
 comma
 op_amp
 id|msgfile
@@ -2440,7 +2440,7 @@ c_func
 (paren
 l_char|&squot;s&squot;
 comma
-l_int|NULL
+l_string|&quot;sign&quot;
 comma
 op_amp
 id|sign
@@ -2453,7 +2453,7 @@ c_func
 (paren
 l_char|&squot;u&squot;
 comma
-l_int|NULL
+l_string|&quot;local-user&quot;
 comma
 op_amp
 id|keyid
