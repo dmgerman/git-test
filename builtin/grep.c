@@ -3312,6 +3312,9 @@ r_struct
 id|pathspec
 op_star
 id|pathspec
+comma
+r_int
+id|exc_std
 )paren
 (brace
 r_struct
@@ -3339,6 +3342,11 @@ id|dir
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|exc_std
+)paren
 id|setup_standard_excludes
 c_func
 (paren
@@ -4000,6 +4008,14 @@ r_int
 id|cached
 op_assign
 l_int|0
+comma
+id|untracked
+op_assign
+l_int|0
+comma
+id|opt_exclude
+op_assign
+l_int|1
 suffix:semicolon
 r_int
 id|seen_dashdash
@@ -4101,9 +4117,9 @@ comma
 l_string|&quot;search in index instead of in the work tree&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;index&quot;
@@ -4111,7 +4127,41 @@ comma
 op_amp
 id|use_index
 comma
-l_string|&quot;--no-index finds in contents not managed by git&quot;
+l_int|NULL
+comma
+l_string|&quot;finds in contents not managed by git&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_NEGHELP
+)brace
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;untracked&quot;
+comma
+op_amp
+id|untracked
+comma
+l_string|&quot;search in both tracked and untracked files&quot;
+)paren
+comma
+id|OPT_SET_INT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;exclude-standard&quot;
+comma
+op_amp
+id|opt_exclude
+comma
+l_string|&quot;search also in ignored files&quot;
+comma
+l_int|1
 )paren
 comma
 id|OPT_GROUP
@@ -5590,12 +5640,12 @@ c_cond
 (paren
 op_logical_neg
 id|use_index
-)paren
-(brace
-r_if
-c_cond
+op_logical_and
 (paren
+id|untracked
+op_logical_or
 id|cached
+)paren
 )paren
 id|die
 c_func
@@ -5603,9 +5653,34 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;--cached cannot be used with --no-index.&quot;
+l_string|&quot;--cached or --untracked cannot be used with --no-index.&quot;
 )paren
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|use_index
+op_logical_or
+id|untracked
+)paren
+(brace
+r_int
+id|use_exclude
+op_assign
+(paren
+id|opt_exclude
+OL
+l_int|0
+)paren
+ques
+c_cond
+id|use_index
+suffix:colon
+op_logical_neg
+op_logical_neg
+id|opt_exclude
 suffix:semicolon
 r_if
 c_cond
@@ -5618,7 +5693,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;--no-index cannot be used with revs.&quot;
+l_string|&quot;--no-index or --untracked cannot be used with revs.&quot;
 )paren
 )paren
 suffix:semicolon
@@ -5632,6 +5707,28 @@ id|opt
 comma
 op_amp
 id|pathspec
+comma
+id|use_exclude
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+l_int|0
+op_le
+id|opt_exclude
+)paren
+(brace
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;--exclude or --no-exclude cannot be used for tracked contents.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
