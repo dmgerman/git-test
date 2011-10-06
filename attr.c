@@ -2581,7 +2581,7 @@ l_int|1
 suffix:semicolon
 id|elem-&gt;origin
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 l_string|&quot;&quot;

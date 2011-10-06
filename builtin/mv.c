@@ -186,7 +186,7 @@ op_assign
 id|base_name
 ques
 c_cond
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|basename

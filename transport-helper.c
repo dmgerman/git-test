@@ -952,7 +952,7 @@ id|refspec_nr
 op_increment
 )braket
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|capname
@@ -2470,7 +2470,7 @@ suffix:semicolon
 r_else
 r_private
 op_assign
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|posn-&gt;name
