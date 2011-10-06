@@ -1208,7 +1208,8 @@ r_void
 id|print_advice
 c_func
 (paren
-r_void
+r_int
+id|show_hint
 )paren
 (brace
 r_char
@@ -1251,6 +1252,12 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|show_hint
+)paren
+(brace
 id|advise
 c_func
 (paren
@@ -1269,6 +1276,7 @@ c_func
 l_string|&quot;and commit the result with &squot;git commit&squot;&quot;
 )paren
 suffix:semicolon
+)brace
 )brace
 DECL|function|write_message
 r_static
@@ -2765,6 +2773,9 @@ suffix:semicolon
 id|print_advice
 c_func
 (paren
+id|res
+op_eq
+l_int|1
 )paren
 suffix:semicolon
 id|rerere
