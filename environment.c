@@ -114,6 +114,12 @@ r_char
 op_star
 id|apply_default_ignorewhitespace
 suffix:semicolon
+DECL|variable|git_attributes_file
+r_const
+r_char
+op_star
+id|git_attributes_file
+suffix:semicolon
 DECL|variable|zlib_compression_level
 r_int
 id|zlib_compression_level
