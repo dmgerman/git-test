@@ -474,8 +474,6 @@ suffix:semicolon
 r_int
 id|i
 comma
-id|has_changes
-comma
 id|err
 suffix:semicolon
 id|regex_t
@@ -565,13 +563,8 @@ c_loop
 (paren
 id|i
 op_assign
-id|has_changes
-op_assign
 l_int|0
 suffix:semicolon
-op_logical_neg
-id|has_changes
-op_logical_and
 id|i
 OL
 id|q-&gt;nr
@@ -604,18 +597,11 @@ comma
 id|o
 )paren
 )paren
-id|has_changes
-op_increment
-suffix:semicolon
-)brace
-r_if
-c_cond
-(paren
-id|has_changes
-)paren
-r_return
+r_goto
+id|out
 suffix:semicolon
 multiline_comment|/* do not munge the queue */
+)brace
 multiline_comment|/*&n;&t;&t; * Otherwise we will clear the whole queue by copying&n;&t;&t; * the empty outq at the end of this function, but&n;&t;&t; * first clear the current entries in the queue.&n;&t;&t; */
 r_for
 c_loop
@@ -701,13 +687,6 @@ id|p
 suffix:semicolon
 )brace
 )brace
-id|regfree
-c_func
-(paren
-op_amp
-id|regex
-)paren
-suffix:semicolon
 id|free
 c_func
 (paren
@@ -718,6 +697,15 @@ op_star
 id|q
 op_assign
 id|outq
+suffix:semicolon
+id|out
+suffix:colon
+id|regfree
+c_func
+(paren
+op_amp
+id|regex
+)paren
 suffix:semicolon
 r_return
 suffix:semicolon
