@@ -1119,13 +1119,8 @@ c_loop
 (paren
 id|i
 op_assign
-id|has_changes
-op_assign
 l_int|0
 suffix:semicolon
-op_logical_neg
-id|has_changes
-op_logical_and
 id|i
 OL
 id|q-&gt;nr
@@ -1265,15 +1260,16 @@ id|kws
 id|has_changes
 op_increment
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
 id|has_changes
 )paren
-r_return
+r_goto
+id|out
 suffix:semicolon
-multiline_comment|/* not munge the queue */
+multiline_comment|/* do not munge the queue */
+)brace
 multiline_comment|/* otherwise we will clear the whole queue&n;&t;&t; * by copying the empty outq at the end of this&n;&t;&t; * function, but first clear the current entries&n;&t;&t; * in the queue.&n;&t;&t; */
 r_for
 c_loop
@@ -1476,6 +1472,19 @@ id|p
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|q-&gt;queue
+)paren
+suffix:semicolon
+op_star
+id|q
+op_assign
+id|outq
+suffix:semicolon
+id|out
+suffix:colon
 r_if
 c_cond
 (paren
@@ -1496,17 +1505,6 @@ c_func
 (paren
 id|kws
 )paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|q-&gt;queue
-)paren
-suffix:semicolon
-op_star
-id|q
-op_assign
-id|outq
 suffix:semicolon
 r_return
 suffix:semicolon
