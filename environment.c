@@ -282,6 +282,12 @@ DECL|variable|core_apply_sparse_checkout
 r_int
 id|core_apply_sparse_checkout
 suffix:semicolon
+DECL|variable|merge_log_config
+r_int
+id|merge_log_config
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|startup_info
 r_struct
 id|startup_info
