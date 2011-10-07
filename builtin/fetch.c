@@ -5141,9 +5141,11 @@ comma
 id|ref_nr
 )paren
 suffix:semicolon
-id|free
+id|free_refspec
 c_func
 (paren
+id|ref_nr
+comma
 id|refspec
 )paren
 suffix:semicolon
