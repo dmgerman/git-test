@@ -5505,7 +5505,7 @@ id|branch_sha1
 comma
 l_int|1
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
