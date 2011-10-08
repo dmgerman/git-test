@@ -539,6 +539,15 @@ l_int|NULL
 r_return
 l_int|NULL
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|array-&gt;nr
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
 id|len
 op_assign
 id|strlen
