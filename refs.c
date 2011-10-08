@@ -474,6 +474,12 @@ comma
 id|a-&gt;name
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|b
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
