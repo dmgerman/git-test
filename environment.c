@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * We put all the git config variables in this same object&n; * file, so that programs can link against the config parser&n; * without having to link against all the rest of git.&n; *&n; * In particular, no need to bring in libz etc unless needed,&n; * even if you might want to know where the git directory etc&n; * are.&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;fmt-merge-msg.h&quot;
 DECL|variable|git_default_email
 r_char
 id|git_default_email
