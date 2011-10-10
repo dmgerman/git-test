@@ -2506,9 +2506,6 @@ r_char
 op_star
 id|base
 comma
-r_int
-id|baselen
-comma
 r_const
 r_char
 op_star
@@ -2731,8 +2728,6 @@ c_func
 (paren
 id|base_str
 comma
-id|baselen
-comma
 id|match
 comma
 id|matchlen
@@ -2782,10 +2777,14 @@ id|ps-&gt;max_depth
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Does the base match? */
+multiline_comment|/* Either there must be no base, or the base must match. */
 r_if
 c_cond
 (paren
+id|baselen
+op_eq
+l_int|0
+op_logical_or
 op_logical_neg
 id|strncmp
 c_func
