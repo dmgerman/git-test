@@ -79,13 +79,13 @@ op_amp
 id|REF_NORMAL
 )paren
 op_logical_and
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|name
-)paren
-OL
+comma
 l_int|0
+)paren
 )paren
 r_return
 l_int|0

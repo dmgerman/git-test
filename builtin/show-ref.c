@@ -787,10 +787,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|ref
+comma
+l_int|0
 )paren
 )paren
 (brace

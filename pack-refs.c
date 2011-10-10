@@ -363,7 +363,7 @@ l_char|&squot;/&squot;
 id|p
 op_increment
 suffix:semicolon
-multiline_comment|/* tolerate duplicate slashes; see check_ref_format() */
+multiline_comment|/* tolerate duplicate slashes; see check_refname_format() */
 r_while
 c_loop
 (paren

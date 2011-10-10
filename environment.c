@@ -504,13 +504,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|buf.buf
+comma
+l_int|0
 )paren
-op_ne
-id|CHECK_REF_FORMAT_OK
 )paren
 id|die
 c_func

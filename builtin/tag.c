@@ -2178,7 +2178,7 @@ op_eq
 l_char|&squot;-&squot;
 )paren
 r_return
-id|CHECK_REF_FORMAT_ERROR
+l_int|1
 suffix:semicolon
 id|strbuf_reset
 c_func
@@ -2197,10 +2197,12 @@ id|name
 )paren
 suffix:semicolon
 r_return
-id|check_ref_format
+id|check_refname_format
 c_func
 (paren
 id|sb-&gt;buf
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
