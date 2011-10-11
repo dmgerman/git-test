@@ -4,6 +4,7 @@ mdefine_line|#define NO_THE_INDEX_COMPATIBILITY_MACROS
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;attr.h&quot;
+macro_line|#include &quot;dir.h&quot;
 DECL|variable|git_attr__true
 r_const
 r_char
@@ -2952,7 +2953,7 @@ id|pathname
 suffix:semicolon
 r_return
 (paren
-id|fnmatch
+id|fnmatch_icase
 c_func
 (paren
 id|pattern
@@ -3020,7 +3021,7 @@ id|baselen
 op_increment
 suffix:semicolon
 r_return
-id|fnmatch
+id|fnmatch_icase
 c_func
 (paren
 id|pattern
