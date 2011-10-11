@@ -4824,10 +4824,12 @@ c_cond
 (paren
 id|st.st_size
 template_param
+l_int|9
+op_plus
 id|PATH_MAX
 )paren
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 id|fd
 op_assign
