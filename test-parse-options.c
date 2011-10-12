@@ -419,6 +419,14 @@ comma
 l_string|&quot;get another string&quot;
 )paren
 comma
+id|OPT_NOOP_NOARG
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;obsolete&quot;
+)paren
+comma
 id|OPT_SET_PTR
 c_func
 (paren

@@ -523,7 +523,7 @@ r_return
 l_int|0
 suffix:semicolon
 r_case
-id|OPTION_BOOLEAN
+id|OPTION_COUNTUP
 suffix:colon
 op_star
 (paren
@@ -1907,7 +1907,7 @@ id|opts-&gt;type
 )paren
 (brace
 r_case
-id|OPTION_BOOLEAN
+id|OPTION_COUNTUP
 suffix:colon
 r_case
 id|OPTION_BIT

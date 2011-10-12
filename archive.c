@@ -1813,7 +1813,7 @@ comma
 l_string|&quot;write the archive to this file&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1957,7 +1957,7 @@ c_func
 l_string|&quot;&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;l&squot;
