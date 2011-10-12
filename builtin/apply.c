@@ -7029,6 +7029,24 @@ op_assign
 id|patch-&gt;def_name
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|patch-&gt;is_delete
+op_logical_and
+op_logical_neg
+id|patch-&gt;new_name
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git diff header lacks filename information &quot;
+l_string|&quot;(line %d)&quot;
+comma
+id|linenr
+)paren
+suffix:semicolon
 id|patch-&gt;is_toplevel_relative
 op_assign
 l_int|1
