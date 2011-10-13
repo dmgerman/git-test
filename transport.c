@@ -5032,6 +5032,14 @@ c_func
 (paren
 id|url
 )paren
+op_logical_and
+id|is_bundle
+c_func
+(paren
+id|url
+comma
+l_int|1
+)paren
 )paren
 (brace
 r_struct
