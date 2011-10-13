@@ -4862,6 +4862,9 @@ comma
 id|a-&gt;sha1
 comma
 id|b-&gt;sha1
+comma
+op_logical_neg
+id|o-&gt;call_depth
 )paren
 suffix:semicolon
 )brace
