@@ -1173,8 +1173,8 @@ id|errno
 op_assign
 id|EACCES
 suffix:semicolon
-r_return
-l_int|1
+r_goto
+id|failed
 suffix:semicolon
 )brace
 r_if
@@ -1191,8 +1191,8 @@ id|dir
 )paren
 )paren
 )paren
-r_return
-l_int|1
+r_goto
+id|failed
 suffix:semicolon
 multiline_comment|/*&n;&t; * Security on the cheap.&n;&t; *&n;&t; * We want a readable HEAD, usable &quot;objects&quot; directory, and&n;&t; * a &quot;git-daemon-export-ok&quot; flag that says that the other side&n;&t; * is ok with us doing this.&n;&t; *&n;&t; * path_ok() uses enter_repo() and does whitelist checking.&n;&t; * We only need to make sure the repository is exported.&n;&t; */
 r_if
@@ -1222,8 +1222,8 @@ id|errno
 op_assign
 id|EACCES
 suffix:semicolon
-r_return
-l_int|1
+r_goto
+id|failed
 suffix:semicolon
 )brace
 r_if
@@ -1281,8 +1281,8 @@ id|errno
 op_assign
 id|EACCES
 suffix:semicolon
-r_return
-l_int|1
+r_goto
+id|failed
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * We&squot;ll ignore SIGTERM from now on, we have a&n;&t; * good client.&n;&t; */
@@ -1301,6 +1301,21 @@ id|fn
 c_func
 (paren
 )paren
+suffix:semicolon
+id|failed
+suffix:colon
+id|packet_write
+c_func
+(paren
+l_int|1
+comma
+l_string|&quot;ERR %s: access denied&quot;
+comma
+id|dir
+)paren
+suffix:semicolon
+r_return
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|copy_to_log
