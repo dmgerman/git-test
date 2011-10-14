@@ -3349,13 +3349,6 @@ id|dir
 )paren
 )paren
 suffix:semicolon
-id|setup_standard_excludes
-c_func
-(paren
-op_amp
-id|dir
-)paren
-suffix:semicolon
 id|fill_directory
 c_func
 (paren
@@ -4111,9 +4104,9 @@ comma
 l_string|&quot;search in index instead of in the work tree&quot;
 )paren
 comma
-id|OPT_BOOLEAN
-c_func
-(paren
+(brace
+id|OPTION_BOOLEAN
+comma
 l_int|0
 comma
 l_string|&quot;index&quot;
@@ -4121,8 +4114,14 @@ comma
 op_amp
 id|use_index
 comma
-l_string|&quot;--no-index finds in contents not managed by git&quot;
-)paren
+l_int|NULL
+comma
+l_string|&quot;finds in contents not managed by git&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_NEGHELP
+)brace
 comma
 id|OPT_GROUP
 c_func
