@@ -4643,6 +4643,8 @@ id|http_init
 c_func
 (paren
 id|remote
+comma
+id|url
 )paren
 suffix:semicolon
 r_do
