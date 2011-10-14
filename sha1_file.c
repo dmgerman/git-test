@@ -9914,7 +9914,7 @@ id|p
 )paren
 )paren
 (brace
-id|error
+id|warning
 c_func
 (paren
 l_string|&quot;packfile %s cannot be accessed&quot;
