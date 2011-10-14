@@ -9713,7 +9713,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|is_pack_valid
-r_static
 r_int
 id|is_pack_valid
 c_func
