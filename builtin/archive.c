@@ -377,6 +377,36 @@ op_plus
 l_int|5
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|len
+OG
+l_int|4
+op_logical_and
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|buf
+comma
+l_string|&quot;ERR &quot;
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;remote error: %s&quot;
+)paren
+comma
+id|buf
+op_plus
+l_int|4
+)paren
+suffix:semicolon
 id|die
 c_func
 (paren
