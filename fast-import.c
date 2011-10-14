@@ -12557,6 +12557,21 @@ c_cond
 id|s
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|is_null_sha1
+c_func
+(paren
+id|s-&gt;sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Can&squot;t add a note on empty branch.&quot;
+)paren
+suffix:semicolon
 id|hashcpy
 c_func
 (paren
@@ -14495,6 +14510,21 @@ c_cond
 id|s
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|is_null_sha1
+c_func
+(paren
+id|s-&gt;sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Can&squot;t tag an empty branch.&quot;
+)paren
+suffix:semicolon
 id|hashcpy
 c_func
 (paren
