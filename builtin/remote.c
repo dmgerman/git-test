@@ -1887,7 +1887,9 @@ op_assign
 id|get_stale_heads
 c_func
 (paren
-id|states-&gt;remote
+id|states-&gt;remote-&gt;fetch
+comma
+id|states-&gt;remote-&gt;fetch_refspec_nr
 comma
 id|fetch_map
 )paren
