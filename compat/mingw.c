@@ -7481,6 +7481,36 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
+DECL|macro|gethostname
+macro_line|#undef gethostname
+DECL|function|mingw_gethostname
+r_int
+id|mingw_gethostname
+c_func
+(paren
+r_char
+op_star
+id|name
+comma
+r_int
+id|namelen
+)paren
+(brace
+id|ensure_socket_initialization
+c_func
+(paren
+)paren
+suffix:semicolon
+r_return
+id|gethostname
+c_func
+(paren
+id|name
+comma
+id|namelen
+)paren
+suffix:semicolon
+)brace
 DECL|macro|gethostbyname
 macro_line|#undef gethostbyname
 DECL|function|mingw_gethostbyname
