@@ -5727,7 +5727,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;--exclude or --no-exclude cannot be used for tracked contents.&quot;
+l_string|&quot;--[no-]exclude-standard cannot be used for tracked contents.&quot;
 )paren
 )paren
 suffix:semicolon
