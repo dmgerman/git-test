@@ -3029,6 +3029,11 @@ id|hit
 comma
 id|len
 suffix:semicolon
+id|read_sha1_lock
+c_func
+(paren
+)paren
+suffix:semicolon
 id|data
 op_assign
 id|read_object_with_reference
@@ -3042,6 +3047,11 @@ op_amp
 id|size
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|read_sha1_unlock
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if
