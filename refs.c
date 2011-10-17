@@ -8322,10 +8322,14 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-id|invalidate_ref_cache
+id|clear_loose_ref_cache
+c_func
+(paren
+id|get_ref_cache
 c_func
 (paren
 l_int|NULL
+)paren
 )paren
 suffix:semicolon
 r_if
