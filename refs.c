@@ -956,7 +956,6 @@ id|refs
 suffix:semicolon
 )brace
 DECL|function|invalidate_ref_cache
-r_static
 r_void
 id|invalidate_ref_cache
 c_func
