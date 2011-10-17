@@ -1986,6 +1986,7 @@ DECL|macro|MAXDEPTH
 mdefine_line|#define MAXDEPTH 5
 DECL|macro|MAXREFLEN
 mdefine_line|#define MAXREFLEN (1024)
+multiline_comment|/*&n; * Called by resolve_gitlink_ref_recursive() after it failed to read&n; * from &quot;name&quot;, which is &quot;module/.git/&lt;refname&gt;&quot;. Find &lt;refname&gt; in&n; * the packed-refs file for the submodule.&n; */
 DECL|function|resolve_gitlink_packed_ref
 r_static
 r_int
@@ -2023,6 +2024,44 @@ suffix:semicolon
 r_struct
 id|ref_array
 op_star
+id|array
+suffix:semicolon
+multiline_comment|/* being defensive: resolve_gitlink_ref() did this for us */
+r_if
+c_cond
+(paren
+id|pathlen
+OL
+l_int|6
+op_logical_or
+id|memcmp
+c_func
+(paren
+id|name
+op_plus
+id|pathlen
+l_int|6
+comma
+l_string|&quot;/.git/&quot;
+comma
+l_int|6
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Oops&quot;
+)paren
+suffix:semicolon
+id|name
+(braket
+id|pathlen
+l_int|6
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+multiline_comment|/* make it path to the submodule */
 id|array
 op_assign
 id|get_packed_refs
