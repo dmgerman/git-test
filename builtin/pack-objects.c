@@ -2497,6 +2497,8 @@ r_int
 id|i
 comma
 id|wo_end
+comma
+id|last_untagged
 suffix:semicolon
 r_struct
 id|object_entry
@@ -2621,7 +2623,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Give the commits in the original recency order until&n;&t; * we see a tagged tip.&n;&t; */
+multiline_comment|/*&n;&t; * Give the objects in the original recency order until&n;&t; * we see a tagged tip.&n;&t; */
 r_for
 c_loop
 (paren
@@ -2667,6 +2669,10 @@ id|i
 )paren
 suffix:semicolon
 )brace
+id|last_untagged
+op_assign
+id|i
+suffix:semicolon
 multiline_comment|/*&n;&t; * Then fill all the tagged tips.&n;&t; */
 r_for
 c_loop
@@ -2712,7 +2718,7 @@ c_loop
 (paren
 id|i
 op_assign
-l_int|0
+id|last_untagged
 suffix:semicolon
 id|i
 OL
@@ -2767,7 +2773,7 @@ c_loop
 (paren
 id|i
 op_assign
-l_int|0
+id|last_untagged
 suffix:semicolon
 id|i
 OL
@@ -2813,7 +2819,7 @@ c_loop
 (paren
 id|i
 op_assign
-l_int|0
+id|last_untagged
 suffix:semicolon
 id|i
 OL
@@ -2821,6 +2827,18 @@ id|nr_objects
 suffix:semicolon
 id|i
 op_increment
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|objects
+(braket
+id|i
+)braket
+dot
+id|filled
 )paren
 id|add_family_to_write_order
 c_func
@@ -2835,6 +2853,25 @@ id|objects
 (braket
 id|i
 )braket
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|wo_end
+op_ne
+id|nr_objects
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;ordered %u objects, expected %&quot;
+id|PRIu32
+comma
+id|wo_end
+comma
+id|nr_objects
 )paren
 suffix:semicolon
 r_return
