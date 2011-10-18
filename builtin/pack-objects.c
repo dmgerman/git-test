@@ -2234,6 +2234,7 @@ op_star
 id|wo
 comma
 r_int
+r_int
 op_star
 id|endp
 comma
@@ -2278,6 +2279,7 @@ op_star
 op_star
 id|wo
 comma
+r_int
 r_int
 op_star
 id|endp
@@ -2353,6 +2355,7 @@ op_star
 id|wo
 comma
 r_int
+r_int
 op_star
 id|endp
 comma
@@ -2415,6 +2418,7 @@ c_func
 r_void
 )paren
 (brace
+r_int
 r_int
 id|i
 comma
@@ -2497,14 +2501,11 @@ c_loop
 id|i
 op_assign
 id|nr_objects
-l_int|1
 suffix:semicolon
+id|i
+OG
 l_int|0
-op_le
-id|i
 suffix:semicolon
-id|i
-op_decrement
 )paren
 (brace
 r_struct
@@ -2515,6 +2516,7 @@ op_assign
 op_amp
 id|objects
 (braket
+op_decrement
 id|i
 )braket
 suffix:semicolon
