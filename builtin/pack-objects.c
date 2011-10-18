@@ -2222,6 +2222,7 @@ suffix:semicolon
 )brace
 DECL|function|add_to_write_order
 r_static
+r_inline
 r_void
 id|add_to_write_order
 c_func
