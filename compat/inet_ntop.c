@@ -256,9 +256,17 @@ id|best.base
 op_assign
 l_int|1
 suffix:semicolon
+id|best.len
+op_assign
+l_int|0
+suffix:semicolon
 id|cur.base
 op_assign
 l_int|1
+suffix:semicolon
+id|cur.len
+op_assign
+l_int|0
 suffix:semicolon
 r_for
 c_loop
