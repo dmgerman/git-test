@@ -415,6 +415,8 @@ id|http_init
 c_func
 (paren
 l_int|NULL
+comma
+id|url
 )paren
 suffix:semicolon
 id|walker

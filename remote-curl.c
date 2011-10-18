@@ -618,6 +618,10 @@ c_cond
 id|http_ret
 op_ne
 id|HTTP_OK
+op_logical_and
+id|http_ret
+op_ne
+id|HTTP_NOAUTH
 )paren
 (brace
 id|free
@@ -4698,6 +4702,8 @@ id|http_init
 c_func
 (paren
 id|remote
+comma
+id|url
 )paren
 suffix:semicolon
 r_do
