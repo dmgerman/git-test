@@ -3,11 +3,9 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;dir.h&quot;
-multiline_comment|/* ISSYMREF=01 and ISPACKED=02 are public interfaces */
+multiline_comment|/* ISSYMREF=0x01, ISPACKED=0x02 and ISBROKEN=0x04 are public interfaces */
 DECL|macro|REF_KNOWS_PEELED
-mdefine_line|#define REF_KNOWS_PEELED 04
-DECL|macro|REF_BROKEN
-mdefine_line|#define REF_BROKEN 010
+mdefine_line|#define REF_KNOWS_PEELED 0x10
 DECL|struct|ref_list
 r_struct
 id|ref_list
@@ -1531,7 +1529,7 @@ id|sha1
 suffix:semicolon
 id|flag
 op_or_assign
-id|REF_BROKEN
+id|REF_ISBROKEN
 suffix:semicolon
 )brace
 )brace
@@ -1562,7 +1560,7 @@ id|sha1
 suffix:semicolon
 id|flag
 op_or_assign
-id|REF_BROKEN
+id|REF_ISBROKEN
 suffix:semicolon
 )brace
 id|list
@@ -3130,12 +3128,12 @@ c_cond
 (paren
 id|entry-&gt;flag
 op_amp
-id|REF_BROKEN
+id|REF_ISBROKEN
 )paren
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/* ignore dangling symref */
+multiline_comment|/* ignore broken refs e.g. dangling symref */
 r_if
 c_cond
 (paren
