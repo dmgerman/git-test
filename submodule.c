@@ -4680,6 +4680,9 @@ id|b
 (braket
 l_int|20
 )braket
+comma
+r_int
+id|search
 )paren
 (brace
 r_struct
@@ -4917,6 +4920,16 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Case #2: There are one or more merges that contain a and b in&n;&t; * the submodule. If there is only one, then present it as a&n;&t; * suggestion to the user, but leave it marked unmerged so the&n;&t; * user needs to confirm the resolution.&n;&t; */
+multiline_comment|/* Skip the search if makes no sense to the calling context.  */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|search
+)paren
+r_return
+l_int|0
+suffix:semicolon
 multiline_comment|/* find commit which merges them */
 id|parent_count
 op_assign
