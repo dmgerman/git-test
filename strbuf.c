@@ -2065,14 +2065,6 @@ id|term
 r_int
 id|ch
 suffix:semicolon
-id|strbuf_grow
-c_func
-(paren
-id|sb
-comma
-l_int|0
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
