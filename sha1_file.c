@@ -9716,7 +9716,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|is_pack_valid
-r_static
 r_int
 id|is_pack_valid
 c_func
@@ -9918,7 +9917,7 @@ id|p
 )paren
 )paren
 (brace
-id|error
+id|warning
 c_func
 (paren
 l_string|&quot;packfile %s cannot be accessed&quot;
