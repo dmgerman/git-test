@@ -399,6 +399,7 @@ suffix:semicolon
 )brace
 DECL|function|path_ok
 r_static
+r_const
 r_char
 op_star
 id|path_ok
@@ -423,6 +424,7 @@ id|interp_path
 id|PATH_MAX
 )braket
 suffix:semicolon
+r_const
 r_char
 op_star
 id|path
