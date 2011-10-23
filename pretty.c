@@ -5662,6 +5662,7 @@ comma
 id|output_enc
 )paren
 )paren
+(brace
 id|context.message
 op_assign
 id|logmsg_reencode
@@ -5672,6 +5673,17 @@ comma
 id|output_enc
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|context.message
+)paren
+id|context.message
+op_assign
+id|commit-&gt;buffer
+suffix:semicolon
+)brace
 id|free
 c_func
 (paren
