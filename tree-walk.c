@@ -2563,9 +2563,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Pre-condition: either baselen == base_offset (i.e. empty path)&n; * or base[baselen-1] == &squot;/&squot; (i.e. with trailing slash).&n; *&n; * Return:&n; *  - 2 for &quot;yes, and all subsequent entries will be&quot;&n; *  - 1 for yes&n; *  - zero for no&n; *  - negative for &quot;no, and no subsequent entries will be either&quot;&n; */
+multiline_comment|/*&n; * Is a tree entry interesting given the pathspec we have?&n; *&n; * Pre-condition: either baselen == base_offset (i.e. empty path)&n; * or base[baselen-1] == &squot;/&squot; (i.e. with trailing slash).&n; */
 DECL|function|tree_entry_interesting
-r_int
+r_enum
+id|interesting
 id|tree_entry_interesting
 c_func
 (paren
@@ -2607,9 +2608,9 @@ op_assign
 id|ps-&gt;has_wildcard
 ques
 c_cond
-l_int|0
+id|entry_not_interesting
 suffix:colon
-l_int|1
+id|all_entries_not_interesting
 suffix:semicolon
 r_if
 c_cond
@@ -2629,11 +2630,9 @@ op_eq
 l_int|1
 )paren
 r_return
-l_int|2
+id|all_entries_interesting
 suffix:semicolon
 r_return
-op_logical_neg
-op_logical_neg
 id|within_depth
 c_func
 (paren
@@ -2653,6 +2652,11 @@ id|entry-&gt;mode
 comma
 id|ps-&gt;max_depth
 )paren
+ques
+c_cond
+id|entry_interesting
+suffix:colon
+id|entry_not_interesting
 suffix:semicolon
 )brace
 id|pathlen
@@ -2747,11 +2751,9 @@ op_eq
 l_int|1
 )paren
 r_return
-l_int|2
+id|all_entries_interesting
 suffix:semicolon
 r_return
-op_logical_neg
-op_logical_neg
 id|within_depth
 c_func
 (paren
@@ -2775,6 +2777,11 @@ id|entry-&gt;mode
 comma
 id|ps-&gt;max_depth
 )paren
+ques
+c_cond
+id|entry_interesting
+suffix:colon
+id|entry_not_interesting
 suffix:semicolon
 )brace
 multiline_comment|/* Either there must be no base, or the base must match. */
@@ -2819,7 +2826,7 @@ id|never_interesting
 )paren
 )paren
 r_return
-l_int|1
+id|entry_interesting
 suffix:semicolon
 r_if
 c_cond
@@ -2849,7 +2856,7 @@ l_int|0
 )paren
 )paren
 r_return
-l_int|1
+id|entry_interesting
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t;&t; * Match all directories. We&squot;ll try to&n;&t;&t;&t;&t; * match files later on.&n;&t;&t;&t;&t; */
 r_if
@@ -2864,7 +2871,7 @@ id|entry-&gt;mode
 )paren
 )paren
 r_return
-l_int|1
+id|entry_interesting
 suffix:semicolon
 )brace
 r_continue
@@ -2924,7 +2931,7 @@ id|baselen
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|entry_interesting
 suffix:semicolon
 )brace
 id|strbuf_setlen
@@ -2950,7 +2957,7 @@ id|entry-&gt;mode
 )paren
 )paren
 r_return
-l_int|1
+id|entry_interesting
 suffix:semicolon
 )brace
 r_return

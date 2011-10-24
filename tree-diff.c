@@ -424,10 +424,11 @@ op_star
 id|base
 )paren
 (brace
-r_int
+r_enum
+id|interesting
 id|match
 op_assign
-l_int|0
+id|entry_not_interesting
 suffix:semicolon
 r_for
 c_loop
@@ -447,7 +448,7 @@ c_cond
 (paren
 id|match
 op_ne
-l_int|2
+id|all_entries_interesting
 )paren
 (brace
 id|match
@@ -470,8 +471,8 @@ r_if
 c_cond
 (paren
 id|match
-OL
-l_int|0
+op_eq
+id|all_entries_not_interesting
 )paren
 r_break
 suffix:semicolon
@@ -480,7 +481,7 @@ c_cond
 (paren
 id|match
 op_eq
-l_int|0
+id|entry_not_interesting
 )paren
 r_continue
 suffix:semicolon
@@ -769,7 +770,8 @@ id|diff_options
 op_star
 id|opt
 comma
-r_int
+r_enum
+id|interesting
 op_star
 id|match
 )paren
@@ -809,8 +811,8 @@ c_cond
 (paren
 op_star
 id|match
-OL
-l_int|0
+op_eq
+id|all_entries_not_interesting
 )paren
 id|t-&gt;size
 op_assign
@@ -866,14 +868,17 @@ c_func
 id|base_str
 )paren
 suffix:semicolon
-r_int
+r_enum
+id|interesting
 id|t1_match
 op_assign
-l_int|0
-comma
+id|entry_not_interesting
+suffix:semicolon
+r_enum
+id|interesting
 id|t2_match
 op_assign
-l_int|0
+id|entry_not_interesting
 suffix:semicolon
 multiline_comment|/* Enable recursion indefinitely */
 id|opt-&gt;pathspec.recursive
