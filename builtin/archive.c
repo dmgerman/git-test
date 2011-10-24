@@ -524,6 +524,11 @@ id|remote
 op_assign
 l_int|NULL
 suffix:semicolon
+r_int
+id|is_remote
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|option
 id|local_opts
@@ -575,6 +580,25 @@ l_string|&quot;cmd&quot;
 comma
 l_string|&quot;path to the remote git-upload-archive command&quot;
 )paren
+comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_int|0
+comma
+l_string|&quot;remote-request&quot;
+comma
+op_amp
+id|is_remote
+comma
+l_int|NULL
+comma
+l_string|&quot;indicate we are serving a remote request&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+)brace
 comma
 id|OPT_END
 c_func
@@ -657,7 +681,7 @@ l_int|1
 comma
 id|output
 comma
-l_int|0
+id|is_remote
 )paren
 suffix:semicolon
 )brace
