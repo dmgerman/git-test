@@ -123,9 +123,8 @@ op_assign
 id|tree_entry_len
 c_func
 (paren
-id|path1
-comma
-id|sha1
+op_amp
+id|t1-&gt;entry
 )paren
 suffix:semicolon
 id|pathlen2
@@ -133,9 +132,8 @@ op_assign
 id|tree_entry_len
 c_func
 (paren
-id|path2
-comma
-id|sha2
+op_amp
+id|t2-&gt;entry
 )paren
 suffix:semicolon
 id|cmp
@@ -561,9 +559,8 @@ op_assign
 id|tree_entry_len
 c_func
 (paren
-id|path
-comma
-id|sha1
+op_amp
+id|desc-&gt;entry
 )paren
 suffix:semicolon
 r_int

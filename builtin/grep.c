@@ -2738,9 +2738,8 @@ op_assign
 id|tree_entry_len
 c_func
 (paren
-id|entry.path
-comma
-id|entry.sha1
+op_amp
+id|entry
 )paren
 suffix:semicolon
 r_if
