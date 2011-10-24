@@ -2831,12 +2831,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ps-&gt;items
-(braket
-id|i
-)braket
-dot
-id|use_wildcard
+id|item-&gt;use_wildcard
 )paren
 (brace
 r_if
@@ -2883,12 +2878,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|ps-&gt;items
-(braket
-id|i
-)braket
-dot
-id|use_wildcard
+id|item-&gt;use_wildcard
 )paren
 r_continue
 suffix:semicolon
