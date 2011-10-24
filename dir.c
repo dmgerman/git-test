@@ -4474,12 +4474,6 @@ id|contents
 op_assign
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|fdir
-)paren
-(brace
 r_struct
 id|dirent
 op_star
@@ -4492,6 +4486,15 @@ id|PATH_MAX
 op_plus
 l_int|1
 )braket
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|fdir
+)paren
+r_return
+l_int|0
 suffix:semicolon
 id|memcpy
 c_func
@@ -4554,6 +4557,7 @@ suffix:colon
 id|contents
 op_add_assign
 id|read_directory_recursive
+c_func
 (paren
 id|dir
 comma
@@ -4610,7 +4614,6 @@ c_func
 id|fdir
 )paren
 suffix:semicolon
-)brace
 r_return
 id|contents
 suffix:semicolon
