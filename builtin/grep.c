@@ -175,14 +175,16 @@ r_static
 id|pthread_mutex_t
 id|read_sha1_mutex
 suffix:semicolon
+DECL|macro|WHEN_THREADED
+mdefine_line|#define WHEN_THREADED(x) do { if (use_threads) (x); } while (0)
 DECL|macro|grep_lock
-mdefine_line|#define grep_lock() pthread_mutex_lock(&amp;grep_mutex)
+mdefine_line|#define grep_lock() WHEN_THREADED(pthread_mutex_lock(&amp;grep_mutex))
 DECL|macro|grep_unlock
-mdefine_line|#define grep_unlock() pthread_mutex_unlock(&amp;grep_mutex)
+mdefine_line|#define grep_unlock() WHEN_THREADED(pthread_mutex_unlock(&amp;grep_mutex))
 DECL|macro|read_sha1_lock
-mdefine_line|#define read_sha1_lock() pthread_mutex_lock(&amp;read_sha1_mutex)
+mdefine_line|#define read_sha1_lock() WHEN_THREADED(pthread_mutex_lock(&amp;read_sha1_mutex))
 DECL|macro|read_sha1_unlock
-mdefine_line|#define read_sha1_unlock() pthread_mutex_unlock(&amp;read_sha1_mutex)
+mdefine_line|#define read_sha1_unlock() WHEN_THREADED(pthread_mutex_unlock(&amp;read_sha1_mutex))
 multiline_comment|/* Signalled when a new work_item is added to todo. */
 DECL|variable|cond_add
 r_static
