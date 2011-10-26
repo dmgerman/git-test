@@ -3065,7 +3065,7 @@ c_func
 op_amp
 id|buf
 comma
-l_string|&quot;refs/remotes/%s&quot;
+l_string|&quot;refs/remotes/%s/&quot;
 comma
 id|rename-&gt;old
 )paren
@@ -3449,6 +3449,10 @@ comma
 id|buf3
 op_assign
 id|STRBUF_INIT
+comma
+id|old_remote_context
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_struct
 id|string_list
@@ -3462,6 +3466,10 @@ id|rename
 suffix:semicolon
 r_int
 id|i
+comma
+id|refspec_updated
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -3711,6 +3719,17 @@ comma
 id|buf.buf
 )paren
 suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|old_remote_context
+comma
+l_string|&quot;:refs/remotes/%s/&quot;
+comma
+id|rename.old
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -3756,7 +3775,7 @@ c_func
 (paren
 id|buf2.buf
 comma
-id|rename.old
+id|old_remote_context.buf
 )paren
 suffix:semicolon
 r_if
@@ -3764,6 +3783,11 @@ c_cond
 (paren
 id|ptr
 )paren
+(brace
+id|refspec_updated
+op_assign
+l_int|1
+suffix:semicolon
 id|strbuf_splice
 c_func
 (paren
@@ -3773,6 +3797,12 @@ comma
 id|ptr
 op_minus
 id|buf2.buf
+op_plus
+id|strlen
+c_func
+(paren
+l_string|&quot;:refs/remotes/&quot;
+)paren
 comma
 id|strlen
 c_func
@@ -3791,6 +3821,18 @@ id|rename
 dot
 r_new
 )paren
+)paren
+suffix:semicolon
+)brace
+r_else
+id|warning
+c_func
+(paren
+l_string|&quot;Not updating non-default fetch respec&bslash;n&quot;
+l_string|&quot;&bslash;t%s&bslash;n&quot;
+l_string|&quot;&bslash;tPlease update the configuration manually if necessary.&quot;
+comma
+id|buf2.buf
 )paren
 suffix:semicolon
 r_if
@@ -3913,6 +3955,15 @@ suffix:semicolon
 )brace
 )brace
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|refspec_updated
+)paren
+r_return
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * First remove symrefs, then rename the rest, finally create&n;&t; * the new symrefs.&n;&t; */
 id|for_each_ref
 c_func
