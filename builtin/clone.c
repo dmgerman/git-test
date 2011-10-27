@@ -3272,7 +3272,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Cloning into bare repository %s...&bslash;n&quot;
+l_string|&quot;Cloning into bare repository &squot;%s&squot;...&bslash;n&quot;
 )paren
 comma
 id|dir
@@ -3285,7 +3285,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Cloning into %s...&bslash;n&quot;
+l_string|&quot;Cloning into &squot;%s&squot;...&bslash;n&quot;
 )paren
 comma
 id|dir
