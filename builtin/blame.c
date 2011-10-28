@@ -9699,10 +9699,16 @@ op_amp
 id|buf_len
 )paren
 )paren
+(brace
+id|buf.alloc
+op_assign
+id|buf_len
+suffix:semicolon
 id|buf.len
 op_assign
 id|buf_len
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
