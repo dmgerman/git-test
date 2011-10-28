@@ -294,6 +294,11 @@ id|startup_info
 op_star
 id|startup_info
 suffix:semicolon
+DECL|variable|pack_size_limit_cfg
+r_int
+r_int
+id|pack_size_limit_cfg
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int

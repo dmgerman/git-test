@@ -9,6 +9,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;bulk-checkin.h&quot;
 DECL|variable|builtin_add_usage
 r_static
 r_const
@@ -2725,6 +2726,11 @@ id|seen
 )paren
 suffix:semicolon
 )brace
+id|plug_bulk_checkin
+c_func
+(paren
+)paren
+suffix:semicolon
 id|exit_status
 op_or_assign
 id|add_files_to_cache
@@ -2751,6 +2757,11 @@ op_amp
 id|dir
 comma
 id|flags
+)paren
+suffix:semicolon
+id|unplug_bulk_checkin
+c_func
+(paren
 )paren
 suffix:semicolon
 id|finish
