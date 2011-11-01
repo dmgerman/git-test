@@ -243,6 +243,8 @@ id|CE_HASHED
 suffix:semicolon
 id|ce-&gt;next
 op_assign
+id|ce-&gt;dir_next
+op_assign
 l_int|NULL
 suffix:semicolon
 id|hash
