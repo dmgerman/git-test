@@ -1,11 +1,12 @@
-multiline_comment|/* Emulation for poll(2)&n;   Contributed by Paolo Bonzini.&n;&n;   Copyright 2001-2003, 2006-2010 Free Software Foundation, Inc.&n;&n;   This file is part of gnulib.&n;&n;   This program is free software; you can redistribute it and/or modify&n;   it under the terms of the GNU General Public License as published by&n;   the Free Software Foundation; either version 2, or (at your option)&n;   any later version.&n;&n;   This program is distributed in the hope that it will be useful,&n;   but WITHOUT ANY WARRANTY; without even the implied warranty of&n;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&n;   GNU General Public License for more details.&n;&n;   You should have received a copy of the GNU General Public License along&n;   with this program; if not, write to the Free Software Foundation,&n;   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
+multiline_comment|/* Emulation for poll(2)&n;   Contributed by Paolo Bonzini.&n;&n;   Copyright 2001-2003, 2006-2011 Free Software Foundation, Inc.&n;&n;   This file is part of gnulib.&n;&n;   This program is free software; you can redistribute it and/or modify&n;   it under the terms of the GNU General Public License as published by&n;   the Free Software Foundation; either version 2, or (at your option)&n;   any later version.&n;&n;   This program is distributed in the hope that it will be useful,&n;   but WITHOUT ANY WARRANTY; without even the implied warranty of&n;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&n;   GNU General Public License for more details.&n;&n;   You should have received a copy of the GNU General Public License along&n;   with this program; if not, write to the Free Software Foundation,&n;   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
 multiline_comment|/* Tell gcc not to warn about the (nfd &lt; 0) tests, below.  */
 macro_line|#if (__GNUC__ == 4 &amp;&amp; 3 &lt;= __GNUC_MINOR__) || 4 &lt; __GNUC__
 macro_line|# pragma GCC diagnostic ignored &quot;-Wtype-limits&quot;
 macro_line|#endif
 macro_line|#include &lt;malloc.h&gt;
 macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &quot;poll.h&quot;
+multiline_comment|/* Specification.  */
+macro_line|#include &lt;poll.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;limits.h&gt;
 macro_line|#include &lt;assert.h&gt;
@@ -1133,23 +1134,17 @@ r_int
 DECL|function|poll
 id|poll
 (paren
-id|pfd
-comma
-id|nfd
-comma
-id|timeout
-)paren
 r_struct
 id|pollfd
 op_star
 id|pfd
-suffix:semicolon
+comma
 id|nfds_t
 id|nfd
-suffix:semicolon
+comma
 r_int
 id|timeout
-suffix:semicolon
+)paren
 (brace
 macro_line|#ifndef WIN32_NATIVE
 id|fd_set
@@ -1757,6 +1752,8 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|restart
+suffix:colon
 id|handle_array
 (braket
 l_int|0
@@ -2467,6 +2464,26 @@ l_int|0
 )paren
 id|rc
 op_increment
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rc
+op_logical_and
+id|timeout
+op_eq
+id|INFTIM
+)paren
+(brace
+id|SwitchToThread
+c_func
+(paren
+)paren
+suffix:semicolon
+r_goto
+id|restart
 suffix:semicolon
 )brace
 r_return
