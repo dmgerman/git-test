@@ -12776,6 +12776,14 @@ id|xpp.flags
 op_assign
 id|o-&gt;xdl_opts
 suffix:semicolon
+id|xecfg.ctxlen
+op_assign
+id|o-&gt;context
+suffix:semicolon
+id|xecfg.interhunkctxlen
+op_assign
+id|o-&gt;interhunkcontext
+suffix:semicolon
 id|xdi_diff_outf
 c_func
 (paren
