@@ -309,7 +309,7 @@ r_char
 op_star
 id|tmp
 op_assign
-id|malloc
+id|xmalloc
 c_func
 (paren
 id|size

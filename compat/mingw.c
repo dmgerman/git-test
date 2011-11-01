@@ -6697,7 +6697,7 @@ op_assign
 id|h
 ques
 c_cond
-id|strdup
+id|xstrdup
 c_func
 (paren
 id|h-&gt;h_name

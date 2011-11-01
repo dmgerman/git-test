@@ -570,6 +570,14 @@ id|doubledash
 comma
 id|filei
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|argc
 op_assign
 id|parse_options
