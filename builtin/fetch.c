@@ -2552,11 +2552,6 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|commit
-ques
-c_cond
-id|commit-&gt;object.sha1
-suffix:colon
 id|rm-&gt;old_sha1
 )paren
 comma
