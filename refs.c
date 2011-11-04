@@ -5257,6 +5257,8 @@ l_string|&quot;%.*s&quot;
 comma
 l_string|&quot;refs/%.*s&quot;
 comma
+l_string|&quot;refs/tags/%.*s&quot;
+comma
 l_string|&quot;refs/heads/%.*s&quot;
 comma
 l_int|NULL
