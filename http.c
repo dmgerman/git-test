@@ -2455,10 +2455,6 @@ id|slot-&gt;in_use
 op_assign
 l_int|1
 suffix:semicolon
-id|slot-&gt;local
-op_assign
-l_int|NULL
-suffix:semicolon
 id|slot-&gt;results
 op_assign
 l_int|NULL
@@ -3833,10 +3829,6 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-id|slot-&gt;local
-op_assign
-id|result
-suffix:semicolon
 )brace
 r_else
 id|curl_easy_setopt
@@ -4015,10 +4007,6 @@ op_assign
 id|HTTP_START_FAILED
 suffix:semicolon
 )brace
-id|slot-&gt;local
-op_assign
-l_int|NULL
-suffix:semicolon
 id|curl_slist_free_all
 c_func
 (paren
@@ -4996,10 +4984,6 @@ id|preq-&gt;packfile
 op_assign
 l_int|NULL
 suffix:semicolon
-id|preq-&gt;slot-&gt;local
-op_assign
-l_int|NULL
-suffix:semicolon
 )brace
 r_if
 c_cond
@@ -5084,10 +5068,6 @@ id|preq-&gt;packfile
 )paren
 suffix:semicolon
 id|preq-&gt;packfile
-op_assign
-l_int|NULL
-suffix:semicolon
-id|preq-&gt;slot-&gt;local
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -5463,10 +5443,6 @@ id|get_active_slot
 c_func
 (paren
 )paren
-suffix:semicolon
-id|preq-&gt;slot-&gt;local
-op_assign
-id|preq-&gt;packfile
 suffix:semicolon
 id|curl_easy_setopt
 c_func
