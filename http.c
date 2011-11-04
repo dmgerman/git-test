@@ -3,10 +3,6 @@ macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;url.h&quot;
-DECL|variable|data_received
-r_int
-id|data_received
-suffix:semicolon
 DECL|variable|active_requests
 r_int
 id|active_requests
@@ -362,9 +358,6 @@ comma
 id|size
 )paren
 suffix:semicolon
-id|data_received
-op_increment
-suffix:semicolon
 r_return
 id|size
 suffix:semicolon
@@ -389,9 +382,6 @@ op_star
 id|strbuf
 )paren
 (brace
-id|data_received
-op_increment
-suffix:semicolon
 r_return
 id|eltsize
 op_star
@@ -2928,14 +2918,6 @@ id|slot
 )paren
 (brace
 macro_line|#ifdef USE_CURL_MULTI
-r_int
-id|last_pos
-op_assign
-l_int|0
-suffix:semicolon
-r_int
-id|current_pos
-suffix:semicolon
 id|fd_set
 id|readfds
 suffix:semicolon
@@ -2969,10 +2951,6 @@ op_logical_neg
 id|finished
 )paren
 (brace
-id|data_received
-op_assign
-l_int|0
-suffix:semicolon
 id|step_active_slots
 c_func
 (paren
@@ -2981,44 +2959,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|data_received
-op_logical_and
-id|slot-&gt;local
-op_ne
-l_int|NULL
-)paren
-(brace
-id|current_pos
-op_assign
-id|ftell
-c_func
-(paren
-id|slot-&gt;local
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|current_pos
-OG
-id|last_pos
-)paren
-id|data_received
-op_increment
-suffix:semicolon
-id|last_pos
-op_assign
-id|current_pos
-suffix:semicolon
-)brace
-r_if
-c_cond
-(paren
 id|slot-&gt;in_use
-op_logical_and
-op_logical_neg
-id|data_received
 )paren
 (brace
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070f04
@@ -5816,9 +5757,6 @@ id|freq-&gt;zret
 op_eq
 id|Z_OK
 )paren
-suffix:semicolon
-id|data_received
-op_increment
 suffix:semicolon
 r_return
 id|size
