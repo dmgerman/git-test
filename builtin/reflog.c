@@ -3247,6 +3247,8 @@ op_amp
 id|cb.revs
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

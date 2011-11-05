@@ -7,6 +7,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;reachable.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
+macro_line|#include &quot;progress.h&quot;
 DECL|function|process_blob
 r_static
 r_void
@@ -420,6 +421,11 @@ r_struct
 id|rev_info
 op_star
 id|revs
+comma
+r_struct
+id|progress
+op_star
+id|progress
 )paren
 (brace
 r_int
@@ -435,6 +441,11 @@ id|object_array
 id|objects
 op_assign
 id|OBJECT_ARRAY_INIT
+suffix:semicolon
+r_uint32
+id|count
+op_assign
+l_int|0
 suffix:semicolon
 multiline_comment|/* Walk all commits, process their trees */
 r_while
@@ -452,6 +463,7 @@ id|revs
 op_ne
 l_int|NULL
 )paren
+(brace
 id|process_tree
 c_func
 (paren
@@ -465,6 +477,16 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+op_increment
+id|count
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* Then walk all the pending objects, recursively processing them too */
 r_for
 c_loop
@@ -503,6 +525,15 @@ op_star
 id|name
 op_assign
 id|pending-&gt;name
+suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+op_increment
+id|count
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -1031,6 +1062,11 @@ id|revs
 comma
 r_int
 id|mark_reflog
+comma
+r_struct
+id|progress
+op_star
+id|progress
 )paren
 (brace
 multiline_comment|/*&n;&t; * Set up revision parsing, and mark us as being interested&n;&t; * in all object types, not just commits.&n;&t; */
@@ -1096,6 +1132,8 @@ id|walk_commit_list
 c_func
 (paren
 id|revs
+comma
+id|progress
 )paren
 suffix:semicolon
 )brace

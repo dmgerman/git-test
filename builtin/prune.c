@@ -5,6 +5,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;reachable.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;dir.h&quot;
 DECL|variable|prune_usage
 r_static
@@ -650,6 +651,11 @@ r_struct
 id|rev_info
 id|revs
 suffix:semicolon
+r_struct
+id|progress
+op_star
+id|progress
+suffix:semicolon
 r_const
 r_struct
 id|option
@@ -821,6 +827,20 @@ id|name
 )paren
 suffix:semicolon
 )brace
+id|progress
+op_assign
+id|start_progress_delay
+c_func
+(paren
+l_string|&quot;Checking connectivity&quot;
+comma
+l_int|0
+comma
+l_int|0
+comma
+l_int|2
+)paren
+suffix:semicolon
 id|mark_reachable_objects
 c_func
 (paren
@@ -828,6 +848,15 @@ op_amp
 id|revs
 comma
 l_int|1
+comma
+id|progress
+)paren
+suffix:semicolon
+id|stop_progress
+c_func
+(paren
+op_amp
+id|progress
 )paren
 suffix:semicolon
 id|prune_object_dir
