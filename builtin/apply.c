@@ -920,20 +920,6 @@ id|result
 op_assign
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|n1
-OL
-l_int|0
-op_logical_or
-id|n2
-OL
-l_int|0
-)paren
-r_return
-l_int|0
-suffix:semicolon
 multiline_comment|/* ignore line endings */
 r_while
 c_loop
