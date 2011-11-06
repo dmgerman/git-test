@@ -2388,6 +2388,10 @@ suffix:semicolon
 id|free
 c_func
 (paren
+(paren
+r_void
+op_star
+)paren
 id|parents
 )paren
 suffix:semicolon
