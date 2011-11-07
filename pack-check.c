@@ -708,7 +708,6 @@ c_cond
 op_logical_neg
 id|data
 )paren
-(brace
 id|err
 op_assign
 id|error
@@ -742,9 +741,7 @@ dot
 id|offset
 )paren
 suffix:semicolon
-r_break
-suffix:semicolon
-)brace
+r_else
 r_if
 c_cond
 (paren
@@ -768,7 +765,6 @@ id|type
 )paren
 )paren
 )paren
-(brace
 id|err
 op_assign
 id|error
@@ -790,15 +786,6 @@ comma
 id|p-&gt;pack_name
 )paren
 suffix:semicolon
-id|free
-c_func
-(paren
-id|data
-)paren
-suffix:semicolon
-r_break
-suffix:semicolon
-)brace
 id|free
 c_func
 (paren
