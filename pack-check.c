@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;pack-revindex.h&quot;
+macro_line|#include &quot;progress.h&quot;
 DECL|struct|idx_entry
 r_struct
 id|idx_entry
@@ -236,6 +237,14 @@ id|w_curs
 comma
 id|verify_fn
 id|fn
+comma
+r_struct
+id|progress
+op_star
+id|progress
+comma
+r_uint32
+id|base_count
 )paren
 (brace
 id|off_t
@@ -831,6 +840,31 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+(paren
+(paren
+id|base_count
+op_plus
+id|i
+)paren
+op_amp
+l_int|1023
+)paren
+op_eq
+l_int|0
+)paren
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+id|base_count
+op_plus
+id|i
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -838,6 +872,16 @@ id|data
 )paren
 suffix:semicolon
 )brace
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+id|base_count
+op_plus
+id|i
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -984,6 +1028,14 @@ id|p
 comma
 id|verify_fn
 id|fn
+comma
+r_struct
+id|progress
+op_star
+id|progress
+comma
+r_uint32
+id|base_count
 )paren
 (brace
 r_int
@@ -1026,6 +1078,10 @@ op_amp
 id|w_curs
 comma
 id|fn
+comma
+id|progress
+comma
+id|base_count
 )paren
 suffix:semicolon
 id|unuse_pack
