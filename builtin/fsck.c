@@ -89,6 +89,8 @@ DECL|macro|ERROR_OBJECT
 mdefine_line|#define ERROR_OBJECT 01
 DECL|macro|ERROR_REACHABLE
 mdefine_line|#define ERROR_REACHABLE 02
+DECL|macro|ERROR_PACK
+mdefine_line|#define ERROR_PACK 04
 macro_line|#ifdef NO_D_INO_IN_DIRENT
 DECL|macro|SORT_DIRENT
 mdefine_line|#define SORT_DIRENT 0
@@ -3000,11 +3002,18 @@ op_assign
 id|p-&gt;next
 )paren
 multiline_comment|/* verify gives error messages itself */
+r_if
+c_cond
+(paren
 id|verify_pack
 c_func
 (paren
 id|p
 )paren
+)paren
+id|errors_found
+op_or_assign
+id|ERROR_PACK
 suffix:semicolon
 r_for
 c_loop
