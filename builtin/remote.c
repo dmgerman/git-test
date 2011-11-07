@@ -7835,7 +7835,7 @@ suffix:semicolon
 id|usage_with_options
 c_func
 (paren
-id|builtin_remote_seturl_usage
+id|builtin_remote_setbranches_usage
 comma
 id|options
 )paren
