@@ -7588,7 +7588,7 @@ l_int|NULL
 comma
 id|options
 comma
-id|builtin_remote_update_usage
+id|builtin_remote_seturl_usage
 comma
 id|PARSE_OPT_KEEP_ARGV0
 )paren
