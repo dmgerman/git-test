@@ -1334,12 +1334,6 @@ id|CURLAUTH_ANY
 )paren
 suffix:semicolon
 macro_line|#endif
-id|init_curl_http_auth
-c_func
-(paren
-id|result
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3968,6 +3962,8 @@ r_if
 c_cond
 (paren
 id|user_name
+op_logical_and
+id|user_pass
 )paren
 (brace
 id|ret
@@ -3978,6 +3974,12 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/*&n;&t;&t;&t;&t; * git_getpass is needed here because its very likely stdin/stdout are&n;&t;&t;&t;&t; * pipes to our parent process.  So we instead need to use /dev/tty,&n;&t;&t;&t;&t; * but that is non-portable.  Using git_getpass() can at least be stubbed&n;&t;&t;&t;&t; * on other platforms with a different implementation if/when necessary.&n;&t;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|user_name
+)paren
 id|user_name
 op_assign
 id|xstrdup
