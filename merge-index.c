@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|variable|pgm
 r_static
 r_const
@@ -132,7 +133,7 @@ id|active_nr
 id|die
 c_func
 (paren
-l_string|&quot;git-merge-index: %s not in the cache&quot;
+l_string|&quot;git merge-index: %s not in the cache&quot;
 comma
 id|path
 )paren
@@ -286,11 +287,7 @@ id|stage
 comma
 l_string|&quot;%o&quot;
 comma
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 suffix:semicolon
 id|arguments
@@ -334,7 +331,7 @@ id|found
 id|die
 c_func
 (paren
-l_string|&quot;git-merge-index: %s not in the cache&quot;
+l_string|&quot;git merge-index: %s not in the cache&quot;
 comma
 id|path
 )paren
@@ -497,7 +494,16 @@ l_int|3
 id|usage
 c_func
 (paren
-l_string|&quot;git-merge-index [-o] [-q] &lt;merge-program&gt; (-a | &lt;filename&gt;*)&quot;
+l_string|&quot;git merge-index [-o] [-q] &lt;merge-program&gt; (-a | [--] &lt;filename&gt;*)&quot;
+)paren
+suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 id|setup_git_directory
@@ -647,7 +653,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-merge-index: unknown option %s&quot;
+l_string|&quot;git merge-index: unknown option %s&quot;
 comma
 id|arg
 )paren

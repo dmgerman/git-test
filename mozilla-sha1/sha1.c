@@ -5,17 +5,17 @@ r_void
 id|shaHashBlock
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren
 suffix:semicolon
-DECL|function|SHA1_Init
+DECL|function|moz_SHA1_Init
 r_void
-id|SHA1_Init
+id|moz_SHA1_Init
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren
@@ -91,12 +91,12 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|SHA1_Update
+DECL|function|moz_SHA1_Update
 r_void
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 comma
@@ -199,9 +199,9 @@ l_int|8
 suffix:semicolon
 )brace
 )brace
-DECL|function|SHA1_Final
+DECL|function|moz_SHA1_Final
 r_void
-id|SHA1_Final
+id|moz_SHA1_Final
 c_func
 (paren
 r_int
@@ -211,7 +211,7 @@ id|hashout
 l_int|20
 )braket
 comma
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren
@@ -391,7 +391,7 @@ op_amp
 l_int|255
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
 id|ctx
@@ -409,7 +409,7 @@ id|ctx-&gt;lenW
 op_ne
 l_int|56
 )paren
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
 id|ctx
@@ -420,7 +420,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|SHA1_Update
+id|moz_SHA1_Update
 c_func
 (paren
 id|ctx
@@ -477,7 +477,7 @@ l_int|8
 suffix:semicolon
 )brace
 multiline_comment|/*&n;   *  Re-initialize the context (also zeroizes contents)&n;   */
-id|SHA1_Init
+id|moz_SHA1_Init
 c_func
 (paren
 id|ctx
@@ -492,7 +492,7 @@ r_void
 id|shaHashBlock
 c_func
 (paren
-id|SHA_CTX
+id|moz_SHA_CTX
 op_star
 id|ctx
 )paren

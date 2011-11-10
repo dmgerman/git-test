@@ -3,7 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tag.h&quot;
-macro_line|#include &quot;path-list.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|variable|show_ref_usage
 r_static
 r_const
@@ -347,7 +347,7 @@ id|sha1
 id|die
 c_func
 (paren
-l_string|&quot;git-show-ref: bad ref %s (%s)&quot;
+l_string|&quot;git show-ref: bad ref %s (%s)&quot;
 comma
 id|refname
 comma
@@ -454,7 +454,7 @@ id|obj
 id|die
 c_func
 (paren
-l_string|&quot;git-show-ref: bad ref %s (%s)&quot;
+l_string|&quot;git show-ref: bad ref %s (%s)&quot;
 comma
 id|refname
 comma
@@ -483,6 +483,26 @@ comma
 id|refname
 comma
 l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|obj
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;git show-ref: bad tag at ref %s (%s)&quot;
+comma
+id|refname
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
 )paren
 suffix:semicolon
 id|hex
@@ -537,18 +557,18 @@ id|cbdata
 )paren
 (brace
 r_struct
-id|path_list
+id|string_list
 op_star
 id|list
 op_assign
 (paren
 r_struct
-id|path_list
+id|string_list
 op_star
 )paren
 id|cbdata
 suffix:semicolon
-id|path_list_insert
+id|string_list_insert
 c_func
 (paren
 id|refname
@@ -575,7 +595,7 @@ id|match
 (brace
 r_static
 r_struct
-id|path_list
+id|string_list
 id|existing_refs
 op_assign
 (brace
@@ -781,12 +801,10 @@ id|ref
 )paren
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: ref &squot;%s&squot; ignored&bslash;n&quot;
+l_string|&quot;ref &squot;%s&squot; ignored&quot;
 comma
 id|ref
 )paren
@@ -798,7 +816,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|path_list_has_path
+id|string_list_has_string
 c_func
 (paren
 op_amp

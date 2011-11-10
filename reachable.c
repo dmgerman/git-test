@@ -45,6 +45,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|blob
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad blob object&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|obj-&gt;flags
 op_amp
 id|SEEN
@@ -137,6 +149,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|tree
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;bad tree object&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|obj-&gt;flags
 op_amp
 id|SEEN
@@ -168,14 +192,6 @@ c_func
 (paren
 id|obj-&gt;sha1
 )paren
-)paren
-suffix:semicolon
-id|name
-op_assign
-id|xstrdup
-c_func
-(paren
-id|name
 )paren
 suffix:semicolon
 id|add_object
@@ -392,6 +408,11 @@ id|obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|tag-&gt;tagged
+)paren
 id|add_object
 c_func
 (paren
@@ -861,6 +882,11 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|tree
+)paren
 id|add_pending_object
 c_func
 (paren
@@ -978,16 +1004,12 @@ c_cond
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|active_cache
 (braket
 id|i
 )braket
 op_member_access_from_pointer
 id|ce_mode
-)paren
 )paren
 )paren
 r_continue
@@ -1077,10 +1099,19 @@ id|revs
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Set up the revision walk - this will move all commits&n;&t; * from the pending list to the commit walking list.&n;&t; */
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 id|revs
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
 )paren
 suffix:semicolon
 id|walk_commit_list

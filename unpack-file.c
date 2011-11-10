@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;blob.h&quot;
+macro_line|#include &quot;exec_cmd.h&quot;
 DECL|function|create_temp_file
 r_static
 r_char
@@ -139,6 +140,15 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+id|git_extract_argv0_path
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -149,7 +159,7 @@ l_int|2
 id|usage
 c_func
 (paren
-l_string|&quot;git-unpack-file &lt;sha1&gt;&quot;
+l_string|&quot;git unpack-file &lt;sha1&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -186,6 +196,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|puts

@@ -1,5 +1,6 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;progress.h&quot;
 DECL|variable|prune_packed_usage
 r_static
 r_const
@@ -8,12 +9,19 @@ id|prune_packed_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-prune-packed [-n] [-q]&quot;
+l_string|&quot;git prune-packed [-n] [-q]&quot;
 suffix:semicolon
 DECL|macro|DRY_RUN
 mdefine_line|#define DRY_RUN 01
 DECL|macro|VERBOSE
 mdefine_line|#define VERBOSE 02
+DECL|variable|progress
+r_static
+r_struct
+id|progress
+op_star
+id|progress
+suffix:semicolon
 DECL|function|prune_dir
 r_static
 r_void
@@ -128,8 +136,6 @@ id|has_sha1_pack
 c_func
 (paren
 id|sha1
-comma
-l_int|NULL
 )paren
 )paren
 r_continue
@@ -179,6 +185,16 @@ c_func
 l_string|&quot;unable to unlink %s&quot;
 comma
 id|pathname
+)paren
+suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+id|i
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 )brace
@@ -232,6 +248,27 @@ id|strlen
 c_func
 (paren
 id|dir
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts
+op_eq
+id|VERBOSE
+)paren
+id|progress
+op_assign
+id|start_progress_delay
+c_func
+(paren
+l_string|&quot;Removing duplicate objects&quot;
+comma
+l_int|256
+comma
+l_int|95
+comma
+l_int|2
 )paren
 suffix:semicolon
 r_if
@@ -299,6 +336,16 @@ id|DIR
 op_star
 id|d
 suffix:semicolon
+id|display_progress
+c_func
+(paren
+id|progress
+comma
+id|i
+op_plus
+l_int|1
+)paren
+suffix:semicolon
 id|sprintf
 c_func
 (paren
@@ -317,41 +364,6 @@ id|opendir
 c_func
 (paren
 id|pathname
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|opts
-op_eq
-id|VERBOSE
-op_logical_and
-(paren
-id|d
-op_logical_or
-id|i
-op_eq
-l_int|255
-)paren
-)paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Removing unused objects %d%%...&bslash;015&quot;
-comma
-(paren
-(paren
-id|i
-op_plus
-l_int|1
-)paren
-op_star
-l_int|100
-)paren
-op_div
-l_int|256
 )paren
 suffix:semicolon
 r_if
@@ -385,19 +397,11 @@ id|d
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|opts
-op_eq
-id|VERBOSE
-)paren
-id|fprintf
+id|stop_progress
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;&bslash;nDone.&bslash;n&quot;
+op_amp
+id|progress
 )paren
 suffix:semicolon
 )brace
@@ -515,11 +519,6 @@ id|prune_packed_usage
 )paren
 suffix:semicolon
 )brace
-id|sync
-c_func
-(paren
-)paren
-suffix:semicolon
 id|prune_packed_objects
 c_func
 (paren

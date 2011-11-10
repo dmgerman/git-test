@@ -1216,9 +1216,6 @@ id|ec
 suffix:semicolon
 )brace
 )brace
-r_return
-l_int|1
-suffix:semicolon
 )brace
 multiline_comment|/*&n; * Rule: &quot;Divide et Impera&quot;. Recursively split the box in sub-boxes by calling&n; * the box splitting function. Note that the real job (marking changed lines)&n; * is done in the two boundary reaching checks.&n; */
 DECL|function|xdl_recs_cmp
@@ -1424,9 +1421,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-r_int
-id|ec
-suffix:semicolon
 id|xdpsplit_t
 id|spl
 suffix:semicolon
@@ -1440,9 +1434,6 @@ multiline_comment|/*&n;&t;&t; * Divide ...&n;&t;&t; */
 r_if
 c_cond
 (paren
-(paren
-id|ec
-op_assign
 id|xdl_split
 c_func
 (paren
@@ -1468,7 +1459,6 @@ op_amp
 id|spl
 comma
 id|xenv
-)paren
 )paren
 OL
 l_int|0
@@ -1587,6 +1577,26 @@ id|diffdata_t
 id|dd1
 comma
 id|dd2
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|xpp-&gt;flags
+op_amp
+id|XDF_PATIENCE_DIFF
+)paren
+r_return
+id|xdl_do_patience_diff
+c_func
+(paren
+id|mf1
+comma
+id|mf2
+comma
+id|xpp
+comma
+id|xe
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -2126,7 +2136,7 @@ id|ixo
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t;&t; * Record the end-of-group position in case we are matched&n;&t;&t;&t; * with a group of changes in the other file (that is, the&n;&t;&t;&t; * change record before the enf-of-group index in the other&n;&t;&t;&t; * file is set).&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * Record the end-of-group position in case we are matched&n;&t;&t;&t; * with a group of changes in the other file (that is, the&n;&t;&t;&t; * change record before the end-of-group index in the other&n;&t;&t;&t; * file is set).&n;&t;&t;&t; */
 id|ixref
 op_assign
 id|rchgo
@@ -2534,6 +2544,19 @@ suffix:semicolon
 id|xdfenv_t
 id|xe
 suffix:semicolon
+id|emit_func_t
+id|ef
+op_assign
+id|xecfg-&gt;emit_func
+ques
+c_cond
+(paren
+id|emit_func_t
+)paren
+id|xecfg-&gt;emit_func
+suffix:colon
+id|xdl_emit_diff
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2621,7 +2644,7 @@ id|xscr
 r_if
 c_cond
 (paren
-id|xdl_emit_diff
+id|ef
 c_func
 (paren
 op_amp

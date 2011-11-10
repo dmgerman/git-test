@@ -3,7 +3,7 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &quot;sha1.h&quot;
 r_extern
 r_void
-id|sha_transform
+id|arm_sha_transform
 c_func
 (paren
 r_uint32
@@ -21,12 +21,12 @@ op_star
 id|W
 )paren
 suffix:semicolon
-DECL|function|SHA1_Init
+DECL|function|arm_SHA1_Init
 r_void
-id|SHA1_Init
+id|arm_SHA1_Init
 c_func
 (paren
-id|SHA_CTX
+id|arm_SHA_CTX
 op_star
 id|c
 )paren
@@ -71,12 +71,12 @@ op_assign
 l_int|0xc3d2e1f0
 suffix:semicolon
 )brace
-DECL|function|SHA1_Update
+DECL|function|arm_SHA1_Update
 r_void
-id|SHA1_Update
+id|arm_SHA1_Update
 c_func
 (paren
-id|SHA_CTX
+id|arm_SHA_CTX
 op_star
 id|c
 comma
@@ -149,7 +149,7 @@ comma
 id|done
 )paren
 suffix:semicolon
-id|sha_transform
+id|arm_sha_transform
 c_func
 (paren
 id|c-&gt;hash
@@ -179,7 +179,7 @@ op_plus
 l_int|64
 )paren
 (brace
-id|sha_transform
+id|arm_sha_transform
 c_func
 (paren
 id|c-&gt;hash
@@ -224,9 +224,9 @@ id|done
 )paren
 suffix:semicolon
 )brace
-DECL|function|SHA1_Final
+DECL|function|arm_SHA1_Final
 r_void
-id|SHA1_Final
+id|arm_SHA1_Final
 c_func
 (paren
 r_int
@@ -234,7 +234,7 @@ r_char
 op_star
 id|hash
 comma
-id|SHA_CTX
+id|arm_SHA_CTX
 op_star
 id|c
 )paren
@@ -308,7 +308,7 @@ l_int|56
 )paren
 id|offset
 suffix:semicolon
-id|SHA1_Update
+id|arm_SHA1_Update
 c_func
 (paren
 id|c
@@ -398,7 +398,7 @@ l_int|7
 op_assign
 id|bitlen_lo
 suffix:semicolon
-id|SHA1_Update
+id|arm_SHA1_Update
 c_func
 (paren
 id|c

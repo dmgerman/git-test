@@ -12,7 +12,7 @@ id|builtin_verify_tag_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-verify-tag [-v|--verbose] &lt;tag&gt;...&quot;
+l_string|&quot;git verify-tag [-v|--verbose] &lt;tag&gt;...&quot;
 suffix:semicolon
 DECL|macro|PGP_SIGNATURE
 mdefine_line|#define PGP_SIGNATURE &quot;-----BEGIN PGP SIGNATURE-----&quot;
@@ -165,7 +165,6 @@ op_plus
 id|len
 comma
 id|PGP_SIGNATURE
-l_string|&quot;&bslash;n&quot;
 )paren
 )paren
 (brace
@@ -239,10 +238,6 @@ id|gpg.in
 op_assign
 l_int|1
 suffix:semicolon
-id|gpg.out
-op_assign
-l_int|1
-suffix:semicolon
 id|args_gpg
 (braket
 l_int|2
@@ -260,6 +255,13 @@ op_amp
 id|gpg
 )paren
 )paren
+(brace
+id|unlink
+c_func
+(paren
+id|path
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -267,6 +269,7 @@ c_func
 l_string|&quot;could not run gpg.&quot;
 )paren
 suffix:semicolon
+)brace
 id|write_in_full
 c_func
 (paren
@@ -282,10 +285,6 @@ c_func
 (paren
 id|gpg.in
 )paren
-suffix:semicolon
-id|gpg.close_in
-op_assign
-l_int|0
 suffix:semicolon
 id|ret
 op_assign
@@ -482,23 +481,17 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
 c_cond
 (paren
 id|argc
-op_eq
+OG
 l_int|1
-)paren
-id|usage
-c_func
-(paren
-id|builtin_verify_tag_usage
-)paren
-suffix:semicolon
-r_if
-c_cond
+op_logical_and
 (paren
 op_logical_neg
 id|strcmp
@@ -524,6 +517,7 @@ comma
 l_string|&quot;--verbose&quot;
 )paren
 )paren
+)paren
 (brace
 id|verbose
 op_assign
@@ -533,6 +527,19 @@ id|i
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|argc
+op_le
+id|i
+)paren
+id|usage
+c_func
+(paren
+id|builtin_verify_tag_usage
+)paren
+suffix:semicolon
 multiline_comment|/* sometimes the program was terminated because this signal&n;&t; * was received in the process of writing the gpg input: */
 id|signal
 c_func

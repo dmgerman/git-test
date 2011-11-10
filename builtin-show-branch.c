@@ -10,7 +10,7 @@ id|show_branch_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n[,b]] &lt;branch&gt;&quot;
+l_string|&quot;git show-branch [--sparse] [--current] [--all] [--remotes] [--topo-order] [--more=count | --list | --independent | --merge-base ] [--topics] [&lt;refs&gt;...] | --reflog[=n[,b]] &lt;branch&gt;&quot;
 suffix:semicolon
 DECL|variable|show_branch_usage_reflog
 r_static
@@ -1122,11 +1122,11 @@ r_int
 id|no_name
 )paren
 (brace
-r_char
-op_star
+r_struct
+id|strbuf
 id|pretty
 op_assign
-l_int|NULL
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1134,12 +1134,6 @@ op_star
 id|pretty_str
 op_assign
 l_string|&quot;(unavailable)&quot;
-suffix:semicolon
-r_int
-r_int
-id|pretty_len
-op_assign
-l_int|0
 suffix:semicolon
 r_struct
 id|commit_name
@@ -1161,27 +1155,23 @@ id|CMIT_FMT_ONELINE
 comma
 id|commit
 comma
-op_complement
-l_int|0
-comma
 op_amp
 id|pretty
 comma
-op_amp
-id|pretty_len
-comma
 l_int|0
 comma
 l_int|NULL
 comma
 l_int|NULL
+comma
+l_int|0
 comma
 l_int|0
 )paren
 suffix:semicolon
 id|pretty_str
 op_assign
-id|pretty
+id|pretty.buf
 suffix:semicolon
 )brace
 r_if
@@ -1281,9 +1271,10 @@ c_func
 id|pretty_str
 )paren
 suffix:semicolon
-id|free
+id|strbuf_release
 c_func
 (paren
+op_amp
 id|pretty
 )paren
 suffix:semicolon
@@ -1704,13 +1695,10 @@ op_le
 id|ref_name_cnt
 )paren
 (brace
-id|fprintf
+id|warning
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;warning: ignoring %s; &quot;
-l_string|&quot;cannot handle more than %d refs&bslash;n&quot;
+l_string|&quot;ignoring %s; cannot handle more than %d refs&quot;
 comma
 id|refname
 comma
@@ -2747,6 +2735,10 @@ r_const
 r_char
 op_star
 id|value
+comma
+r_void
+op_star
+id|cb
 )paren
 (brace
 r_if
@@ -2762,6 +2754,19 @@ l_string|&quot;showbranch.default&quot;
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+r_return
+id|config_error_nonbool
+c_func
+(paren
+id|var
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2827,6 +2832,8 @@ c_func
 id|var
 comma
 id|value
+comma
+id|cb
 )paren
 suffix:semicolon
 )brace
@@ -3199,6 +3206,8 @@ id|git_config
 c_func
 (paren
 id|git_show_branch_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* If nothing is specified, try the default first */
@@ -4250,20 +4259,28 @@ id|has_head
 )paren
 (brace
 r_int
-id|pfxlen
+id|offset
 op_assign
-id|strlen
+op_logical_neg
+id|prefixcmp
 c_func
 (paren
+id|head
+comma
 l_string|&quot;refs/heads/&quot;
 )paren
+ques
+c_cond
+l_int|11
+suffix:colon
+l_int|0
 suffix:semicolon
 id|append_one_rev
 c_func
 (paren
 id|head
 op_plus
-id|pfxlen
+id|offset
 )paren
 suffix:semicolon
 )brace

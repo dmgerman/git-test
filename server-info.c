@@ -131,14 +131,10 @@ r_char
 op_star
 id|path0
 op_assign
-id|xstrdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;info/refs&quot;
-)paren
 )paren
 suffix:semicolon
 r_int
@@ -208,7 +204,7 @@ c_func
 (paren
 l_string|&quot;unable to update %s&quot;
 comma
-id|path0
+id|path1
 )paren
 suffix:semicolon
 id|for_each_ref
@@ -517,6 +513,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|line
 (braket
 id|len

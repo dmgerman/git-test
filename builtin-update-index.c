@@ -1,12 +1,11 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;refs.h&quot;
-multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git-update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
+multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
 r_int
@@ -158,11 +157,7 @@ id|pos
 op_member_access_from_pointer
 id|ce_flags
 op_or_assign
-id|htons
-c_func
-(paren
 id|CE_VALID
-)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -177,11 +172,7 @@ op_member_access_from_pointer
 id|ce_flags
 op_and_assign
 op_complement
-id|htons
-c_func
-(paren
 id|CE_VALID
-)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -397,11 +388,7 @@ id|len
 suffix:semicolon
 id|ce-&gt;ce_flags
 op_assign
-id|htons
-c_func
-(paren
 id|len
-)paren
 suffix:semicolon
 id|fill_stat_cache_info
 c_func
@@ -546,11 +533,7 @@ c_cond
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 (brace
@@ -768,11 +751,7 @@ op_logical_and
 id|S_ISGITLINK
 c_func
 (paren
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 )paren
 )paren
 r_return
@@ -817,11 +796,30 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
-multiline_comment|/* We probably want to do this in remove_file_from_cache() and&n;&t; * add_cache_entry() instead...&n;&t; */
-id|cache_tree_invalidate_path
+id|len
+op_assign
+id|strlen
 c_func
 (paren
-id|active_cache_tree
+id|path
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|has_symlink_leading_path
+c_func
+(paren
+id|path
+comma
+id|len
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;&squot;%s&squot; is beyond a symbolic link&quot;
 comma
 id|path
 )paren
@@ -848,14 +846,6 @@ c_func
 id|path
 comma
 id|errno
-)paren
-suffix:semicolon
-id|len
-op_assign
-id|strlen
-c_func
-(paren
-id|path
 )paren
 suffix:semicolon
 r_if
@@ -940,7 +930,13 @@ id|path
 )paren
 )paren
 r_return
-l_int|1
+id|error
+c_func
+(paren
+l_string|&quot;Invalid path &squot;%s&squot;&quot;
+comma
+id|path
+)paren
 suffix:semicolon
 id|len
 op_assign
@@ -1011,11 +1007,7 @@ id|assume_unchanged
 )paren
 id|ce-&gt;ce_flags
 op_or_assign
-id|htons
-c_func
-(paren
 id|CE_VALID
-)paren
 suffix:semicolon
 id|option
 op_assign
@@ -1059,14 +1051,6 @@ id|report
 c_func
 (paren
 l_string|&quot;add &squot;%s&squot;&quot;
-comma
-id|path
-)paren
-suffix:semicolon
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
 comma
 id|path
 )paren
@@ -1135,11 +1119,7 @@ id|pos
 suffix:semicolon
 id|mode
 op_assign
-id|ntohl
-c_func
-(paren
 id|ce-&gt;ce_mode
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -1165,11 +1145,7 @@ l_char|&squot;+&squot;
 suffix:colon
 id|ce-&gt;ce_mode
 op_or_assign
-id|htonl
-c_func
-(paren
 l_int|0111
-)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1178,12 +1154,8 @@ l_char|&squot;-&squot;
 suffix:colon
 id|ce-&gt;ce_mode
 op_and_assign
-id|htonl
-c_func
-(paren
 op_complement
 l_int|0111
-)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1222,7 +1194,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: cannot chmod %cx &squot;%s&squot;&quot;
+l_string|&quot;git update-index: cannot chmod %cx &squot;%s&squot;&quot;
 comma
 id|flip
 comma
@@ -1317,14 +1289,6 @@ r_goto
 id|free_return
 suffix:semicolon
 )brace
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1343,7 +1307,7 @@ id|p
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: unable to remove %s&quot;
+l_string|&quot;git update-index: unable to remove %s&quot;
 comma
 id|path
 )paren
@@ -1424,18 +1388,30 @@ id|line_termination
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-)paren
+r_struct
+id|strbuf
+id|uq
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_while
 c_loop
 (paren
-l_int|1
+id|strbuf_getline
+c_func
+(paren
+op_amp
+id|buf
+comma
+id|stdin
+comma
+id|line_termination
+)paren
+op_ne
+id|EOF
 )paren
 (brace
 r_char
@@ -1467,25 +1443,7 @@ suffix:semicolon
 r_int
 id|stage
 suffix:semicolon
-multiline_comment|/* This reads lines formatted in one of three formats:&n;&t;&t; *&n;&t;&t; * (1) mode         SP sha1          TAB path&n;&t;&t; * The first format is what &quot;git-apply --index-info&quot;&n;&t;&t; * reports, and used to reconstruct a partial tree&n;&t;&t; * that is used for phony merge base tree when falling&n;&t;&t; * back on 3-way merge.&n;&t;&t; *&n;&t;&t; * (2) mode SP type SP sha1          TAB path&n;&t;&t; * The second format is to stuff git-ls-tree output&n;&t;&t; * into the index file.&n;&t;&t; *&n;&t;&t; * (3) mode         SP sha1 SP stage TAB path&n;&t;&t; * This format is to put higher order stages into the&n;&t;&t; * index file and matches git-ls-files --stage output.&n;&t;&t; */
-id|read_line
-c_func
-(paren
-op_amp
-id|buf
-comma
-id|stdin
-comma
-id|line_termination
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|buf.eof
-)paren
-r_break
-suffix:semicolon
+multiline_comment|/* This reads lines formatted in one of three formats:&n;&t;&t; *&n;&t;&t; * (1) mode         SP sha1          TAB path&n;&t;&t; * The first format is what &quot;git apply --index-info&quot;&n;&t;&t; * reports, and used to reconstruct a partial tree&n;&t;&t; * that is used for phony merge base tree when falling&n;&t;&t; * back on 3-way merge.&n;&t;&t; *&n;&t;&t; * (2) mode SP type SP sha1          TAB path&n;&t;&t; * The second format is to stuff &quot;git ls-tree&quot; output&n;&t;&t; * into the index file.&n;&t;&t; *&n;&t;&t; * (3) mode         SP sha1 SP stage TAB path&n;&t;&t; * This format is to put higher order stages into the&n;&t;&t; * index file and matches &quot;git ls-files --stage&quot; output.&n;&t;&t; */
 id|errno
 op_assign
 l_int|0
@@ -1639,33 +1597,57 @@ l_char|&squot; &squot;
 r_goto
 id|bad_line
 suffix:semicolon
+id|path_name
+op_assign
+id|ptr
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|line_termination
 op_logical_and
-id|ptr
+id|path_name
 (braket
 l_int|0
 )braket
 op_eq
 l_char|&squot;&quot;&squot;
 )paren
-id|path_name
-op_assign
+(brace
+id|strbuf_reset
+c_func
+(paren
+op_amp
+id|uq
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|unquote_c_style
 c_func
 (paren
-id|ptr
+op_amp
+id|uq
+comma
+id|path_name
 comma
 l_int|NULL
 )paren
+)paren
+(brace
+id|die
+c_func
+(paren
+l_string|&quot;git update-index: bad quoting of path name&quot;
+)paren
 suffix:semicolon
-r_else
+)brace
 id|path_name
 op_assign
-id|ptr
+id|uq.buf
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1687,30 +1669,9 @@ comma
 id|path_name
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|path_name
-op_ne
-id|ptr
-)paren
-id|free
-c_func
-(paren
-id|path_name
-)paren
-suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path_name
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1731,7 +1692,7 @@ id|path_name
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: unable to remove %s&quot;
+l_string|&quot;git update-index: unable to remove %s&quot;
 comma
 id|ptr
 )paren
@@ -1770,25 +1731,12 @@ id|stage
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: unable to update %s&quot;
+l_string|&quot;git update-index: unable to update %s&quot;
 comma
 id|path_name
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|path_name
-op_ne
-id|ptr
-)paren
-id|free
-c_func
-(paren
-id|path_name
-)paren
-suffix:semicolon
 r_continue
 suffix:semicolon
 id|bad_line
@@ -1802,6 +1750,20 @@ id|buf.buf
 )paren
 suffix:semicolon
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|uq
+)paren
+suffix:semicolon
 )brace
 DECL|variable|update_index_usage
 r_static
@@ -1811,7 +1773,7 @@ id|update_index_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git-update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--really-refresh] [--cacheinfo] [--chmod=(+|-)x] [--assume-unchanged] [--info-only] [--force-remove] [--stdin] [--index-info] [--unresolve] [--again | -g] [--ignore-missing] [-z] [--verbose] [--] &lt;file&gt;...&quot;
+l_string|&quot;git update-index [-q] [--add] [--replace] [--remove] [--unmerged] [--refresh] [--really-refresh] [--cacheinfo] [--chmod=(+|-)x] [--assume-unchanged] [--info-only] [--force-remove] [--stdin] [--index-info] [--unresolve] [--again | -g] [--ignore-missing] [-z] [--verbose] [--] &lt;file&gt;...&quot;
 suffix:semicolon
 DECL|variable|head_sha1
 r_static
@@ -2206,14 +2168,6 @@ r_goto
 id|free_return
 suffix:semicolon
 )brace
-id|cache_tree_invalidate_path
-c_func
-(paren
-id|active_cache_tree
-comma
-id|path
-)paren
-suffix:semicolon
 id|remove_file_from_cache
 c_func
 (paren
@@ -2316,7 +2270,7 @@ id|head_sha1
 id|die
 c_func
 (paren
-l_string|&quot;No HEAD -- no initial commit yet?&bslash;n&quot;
+l_string|&quot;No HEAD -- no initial commit yet?&quot;
 )paren
 suffix:semicolon
 r_if
@@ -2752,6 +2706,8 @@ id|git_config
 c_func
 (paren
 id|git_default_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* We can&squot;t free this memory, it becomes part of a linked list parsed atexit() */
@@ -2900,6 +2856,26 @@ c_func
 (paren
 id|path
 comma
+l_string|&quot;--ignore-submodules&quot;
+)paren
+)paren
+(brace
+id|refresh_flags
+op_or_assign
+id|REFRESH_IGNORE_SUBMODULES
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|path
+comma
 l_string|&quot;--add&quot;
 )paren
 )paren
@@ -2984,6 +2960,11 @@ l_string|&quot;--refresh&quot;
 )paren
 )paren
 (brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|has_errors
 op_or_assign
 id|refresh_cache
@@ -3008,6 +2989,11 @@ l_string|&quot;--really-refresh&quot;
 )paren
 )paren
 (brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|has_errors
 op_or_assign
 id|refresh_cache
@@ -3057,7 +3043,7 @@ id|argc
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
+l_string|&quot;git update-index: --cacheinfo &lt;mode&gt; &lt;sha1&gt; &lt;path&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -3112,7 +3098,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: --cacheinfo&quot;
+l_string|&quot;git update-index: --cacheinfo&quot;
 l_string|&quot; cannot add %s&quot;
 comma
 id|argv
@@ -3164,7 +3150,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;git-update-index: %s &lt;path&gt;&quot;
+l_string|&quot;git update-index: %s &lt;path&gt;&quot;
 comma
 id|path
 )paren
@@ -3422,6 +3408,11 @@ l_string|&quot;-g&quot;
 )paren
 )paren
 (brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|has_errors
 op_assign
 id|do_reupdate
@@ -3528,6 +3519,11 @@ id|path
 )paren
 suffix:semicolon
 )brace
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
 id|p
 op_assign
 id|prefix_path
@@ -3596,30 +3592,22 @@ id|read_from_stdin
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
+comma
+id|nbuf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
-id|strbuf_init
+id|setup_work_tree
 c_func
 (paren
-op_amp
-id|buf
 )paren
 suffix:semicolon
 r_while
 c_loop
 (paren
-l_int|1
-)paren
-(brace
-r_char
-op_star
-id|path_name
-suffix:semicolon
-r_const
-r_char
-op_star
-id|p
-suffix:semicolon
-id|read_line
+id|strbuf_getline
 c_func
 (paren
 op_amp
@@ -3629,13 +3617,14 @@ id|stdin
 comma
 id|line_termination
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|buf.eof
+op_ne
+id|EOF
 )paren
-r_break
+(brace
+r_const
+r_char
+op_star
+id|p
 suffix:semicolon
 r_if
 c_cond
@@ -3649,21 +3638,45 @@ l_int|0
 op_eq
 l_char|&squot;&quot;&squot;
 )paren
-id|path_name
-op_assign
+(brace
+id|strbuf_reset
+c_func
+(paren
+op_amp
+id|nbuf
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|unquote_c_style
 c_func
 (paren
+op_amp
+id|nbuf
+comma
 id|buf.buf
 comma
 l_int|NULL
 )paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;line is badly quoted&quot;
+)paren
 suffix:semicolon
-r_else
-id|path_name
-op_assign
-id|buf.buf
+id|strbuf_swap
+c_func
+(paren
+op_amp
+id|buf
+comma
+op_amp
+id|nbuf
+)paren
 suffix:semicolon
+)brace
 id|p
 op_assign
 id|prefix_path
@@ -3673,7 +3686,7 @@ id|prefix
 comma
 id|prefix_length
 comma
-id|path_name
+id|buf.buf
 )paren
 suffix:semicolon
 id|update_one
@@ -3704,13 +3717,9 @@ c_cond
 (paren
 id|p
 template_param
-id|path_name
+id|buf.buf
 op_plus
-id|strlen
-c_func
-(paren
-id|path_name
-)paren
+id|buf.len
 )paren
 id|free
 c_func
@@ -3722,20 +3731,21 @@ op_star
 id|p
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|path_name
-op_ne
-id|buf.buf
-)paren
-id|free
+)brace
+id|strbuf_release
 c_func
 (paren
-id|path_name
+op_amp
+id|nbuf
 )paren
 suffix:semicolon
-)brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
 )brace
 id|finish
 suffix:colon
@@ -3765,21 +3775,15 @@ m_exit
 l_int|128
 )paren
 suffix:semicolon
-id|die
+id|unable_to_lock_index_die
 c_func
 (paren
-l_string|&quot;unable to create &squot;%s.lock&squot;: %s&quot;
-comma
 id|get_index_file
 c_func
 (paren
 )paren
 comma
-id|strerror
-c_func
-(paren
 id|lock_error
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -3794,12 +3798,6 @@ comma
 id|active_cache
 comma
 id|active_nr
-)paren
-op_logical_or
-id|close
-c_func
-(paren
-id|newfd
 )paren
 op_logical_or
 id|commit_locked_index
