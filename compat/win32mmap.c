@@ -1,27 +1,4 @@
 macro_line|#include &quot;../git-compat-util.h&quot;
-multiline_comment|/*&n; * Note that this doesn&squot;t return the actual pagesize, but&n; * the allocation granularity. If future Windows specific git code&n; * needs the real getpagesize function, we need to find another solution.&n; */
-DECL|function|mingw_getpagesize
-r_int
-id|mingw_getpagesize
-c_func
-(paren
-r_void
-)paren
-(brace
-id|SYSTEM_INFO
-id|si
-suffix:semicolon
-id|GetSystemInfo
-c_func
-(paren
-op_amp
-id|si
-)paren
-suffix:semicolon
-r_return
-id|si.dwAllocationGranularity
-suffix:semicolon
-)brace
 DECL|function|git_mmap
 r_void
 op_star

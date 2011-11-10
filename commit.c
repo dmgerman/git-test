@@ -5,6 +5,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;notes.h&quot;
 DECL|variable|save_commit_buffer
 r_int
 id|save_commit_buffer
@@ -252,10 +253,6 @@ op_star
 id|tail
 )paren
 (brace
-r_int
-r_int
-id|date
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -387,8 +384,7 @@ r_return
 l_int|0
 suffix:semicolon
 multiline_comment|/* dateptr &lt; buf &amp;&amp; buf[-1] == &squot;&bslash;n&squot;, so strtoul will stop at buf-1 */
-id|date
-op_assign
+r_return
 id|strtoul
 c_func
 (paren
@@ -398,20 +394,6 @@ l_int|NULL
 comma
 l_int|10
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|date
-op_eq
-id|ULONG_MAX
-)paren
-id|date
-op_assign
-l_int|0
-suffix:semicolon
-r_return
-id|date
 suffix:semicolon
 )brace
 DECL|variable|commit_graft
@@ -703,8 +685,13 @@ id|graft
 op_assign
 l_int|NULL
 suffix:semicolon
-r_if
-c_cond
+r_while
+c_loop
+(paren
+id|len
+op_logical_and
+id|isspace
+c_func
 (paren
 id|buf
 (braket
@@ -712,8 +699,7 @@ id|len
 op_minus
 l_int|1
 )braket
-op_eq
-l_char|&squot;&bslash;n&squot;
+)paren
 )paren
 id|buf
 (braket
@@ -721,7 +707,7 @@ op_decrement
 id|len
 )braket
 op_assign
-l_int|0
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 r_if
 c_cond
@@ -1094,8 +1080,10 @@ r_int
 id|write_shallow_commits
 c_func
 (paren
-r_int
-id|fd
+r_struct
+id|strbuf
+op_star
+id|out
 comma
 r_int
 id|use_pack_protocol
@@ -1159,10 +1147,10 @@ c_cond
 (paren
 id|use_pack_protocol
 )paren
-id|packet_write
+id|packet_buf_write
 c_func
 (paren
-id|fd
+id|out
 comma
 l_string|&quot;shallow %s&quot;
 comma
@@ -1171,39 +1159,21 @@ id|hex
 suffix:semicolon
 r_else
 (brace
-r_if
-c_cond
-(paren
-id|write_in_full
+id|strbuf_addstr
 c_func
 (paren
-id|fd
+id|out
 comma
 id|hex
-comma
-l_int|40
 )paren
-op_ne
-l_int|40
-)paren
-r_break
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|write_in_full
+id|strbuf_addch
 c_func
 (paren
-id|fd
+id|out
 comma
-l_string|&quot;&bslash;n&quot;
-comma
-l_int|1
+l_char|&squot;&bslash;n&squot;
 )paren
-op_ne
-l_int|1
-)paren
-r_break
 suffix:semicolon
 )brace
 )brace
@@ -1251,7 +1221,7 @@ l_int|1
 OL
 id|commit_graft_nr
 )paren
-id|memcpy
+id|memmove
 c_func
 (paren
 id|commit_graft
@@ -1512,10 +1482,19 @@ id|bufptr
 op_add_assign
 l_int|48
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * The clone is shallow if nr_parent &lt; 0, and we must&n;&t;&t; * not traverse its real parents even when we unhide them.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|graft
+op_logical_and
+(paren
+id|graft-&gt;nr_parent
+OL
+l_int|0
+op_logical_or
+id|grafts_replace_parents
+)paren
 )paren
 r_continue
 suffix:semicolon
@@ -2856,7 +2835,7 @@ suffix:semicolon
 r_struct
 id|commit_list
 op_star
-id|n
+id|next
 suffix:semicolon
 r_int
 id|flags
@@ -2865,7 +2844,7 @@ id|commit
 op_assign
 id|list-&gt;item
 suffix:semicolon
-id|n
+id|next
 op_assign
 id|list-&gt;next
 suffix:semicolon
@@ -2877,7 +2856,7 @@ id|list
 suffix:semicolon
 id|list
 op_assign
-id|n
+id|next
 suffix:semicolon
 id|flags
 op_assign
@@ -3019,7 +2998,7 @@ id|list
 r_struct
 id|commit_list
 op_star
-id|n
+id|next
 op_assign
 id|list-&gt;next
 suffix:semicolon
@@ -3050,7 +3029,7 @@ id|list
 suffix:semicolon
 id|list
 op_assign
-id|n
+id|next
 suffix:semicolon
 )brace
 r_return

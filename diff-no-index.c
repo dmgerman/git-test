@@ -1097,10 +1097,10 @@ id|i
 op_plus
 l_int|2
 )paren
-id|die
+id|usagef
 c_func
 (paren
-l_string|&quot;git diff %s takes two paths&quot;
+l_string|&quot;git diff %s &lt;path&gt; &lt;path&gt;&quot;
 comma
 id|no_index
 ques

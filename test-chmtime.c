@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * This program can either change modification time of the given&n; * file(s) or just print it. The program does not change atime nor&n; * ctime (their values are explicitely preserved).&n; *&n; * The mtime can be changed to an absolute value:&n; *&n; *&t;test-chmtime =&lt;seconds&gt; file...&n; *&n; * Relative to the current time as returned by time(3):&n; *&n; *&t;test-chmtime =+&lt;seconds&gt; (or =-&lt;seconds&gt;) file...&n; *&n; * Or relative to the current mtime of the file:&n; *&n; *&t;test-chmtime &lt;seconds&gt; file...&n; *&t;test-chmtime +&lt;seconds&gt; (or -&lt;seconds&gt;) file...&n; *&n; * Examples:&n; *&n; * To just print the mtime use --verbose and set the file mtime offset to 0:&n; *&n; *&t;test-chmtime -v +0 file&n; *&n; * To set the mtime to current time:&n; *&n; *&t;test-chmtime =+0 file&n; *&n; */
+multiline_comment|/*&n; * This program can either change modification time of the given&n; * file(s) or just print it. The program does not change atime nor&n; * ctime (their values are explicitly preserved).&n; *&n; * The mtime can be changed to an absolute value:&n; *&n; *&t;test-chmtime =&lt;seconds&gt; file...&n; *&n; * Relative to the current time as returned by time(3):&n; *&n; *&t;test-chmtime =+&lt;seconds&gt; (or =-&lt;seconds&gt;) file...&n; *&n; * Or relative to the current mtime of the file:&n; *&n; *&t;test-chmtime &lt;seconds&gt; file...&n; *&t;test-chmtime +&lt;seconds&gt; (or -&lt;seconds&gt;) file...&n; *&n; * Examples:&n; *&n; * To just print the mtime use --verbose and set the file mtime offset to 0:&n; *&n; *&t;test-chmtime -v +0 file&n; *&n; * To set the mtime to current time:&n; *&n; *&t;test-chmtime =+0 file&n; *&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &lt;utime.h&gt;
 DECL|variable|usage_str
@@ -334,6 +334,55 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+macro_line|#ifdef WIN32
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|sb.st_mode
+op_amp
+id|S_IWUSR
+)paren
+op_logical_and
+id|chmod
+c_func
+(paren
+id|argv
+(braket
+id|i
+)braket
+comma
+id|sb.st_mode
+op_or
+id|S_IWUSR
+)paren
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Could not make user-writable %s: %s&quot;
+comma
+id|argv
+(braket
+id|i
+)braket
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
+macro_line|#endif
 id|utb.actime
 op_assign
 id|sb.st_atime

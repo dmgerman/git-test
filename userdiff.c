@@ -45,8 +45,9 @@ c_func
 l_string|&quot;java&quot;
 comma
 l_string|&quot;!^[ &bslash;t]*(catch|do|for|if|instanceof|new|return|switch|throw|while)&bslash;n&quot;
-l_string|&quot;^[ &bslash;t]*(([ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*){2,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&quot;
+l_string|&quot;^[ &bslash;t]*(([A-Za-z_][A-Za-z_0-9]*[ &bslash;t]+)+[A-Za-z_][A-Za-z_0-9]*[ &bslash;t]*&bslash;&bslash;([^;]*)$&quot;
 comma
+multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
 l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=&quot;
@@ -64,7 +65,7 @@ l_string|&quot;!^[ &bslash;t]*(do|for|if|else|return|switch|while)&bslash;n&quot
 multiline_comment|/* Objective-C methods */
 l_string|&quot;^[ &bslash;t]*([-+][ &bslash;t]*&bslash;&bslash;([ &bslash;t]*[A-Za-z_][A-Za-z_0-9* &bslash;t]*&bslash;&bslash;)[ &bslash;t]*[A-Za-z_].*)$&bslash;n&quot;
 multiline_comment|/* C functions */
-l_string|&quot;^[ &bslash;t]*(([ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*){2,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*(([A-Za-z_][A-Za-z_0-9]*[ &bslash;t]+)+[A-Za-z_][A-Za-z_0-9]*[ &bslash;t]*&bslash;&bslash;([^;]*)$&bslash;n&quot;
 multiline_comment|/* Objective-C class/protocol definitions */
 l_string|&quot;^(@(implementation|interface|protocol)[ &bslash;t].*)$&quot;
 comma
@@ -955,8 +956,6 @@ id|git_attr
 c_func
 (paren
 l_string|&quot;diff&quot;
-comma
-l_int|4
 )paren
 suffix:semicolon
 id|check.attr

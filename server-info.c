@@ -1263,7 +1263,7 @@ id|force
 )paren
 suffix:semicolon
 multiline_comment|/* remove leftover rev-cache file if there is any */
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|git_path

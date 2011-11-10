@@ -100,18 +100,12 @@ comma
 id|f-&gt;name
 )paren
 suffix:semicolon
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;sha1 file &squot;%s&squot; write error (%s)&quot;
+l_string|&quot;sha1 file &squot;%s&squot; write error&quot;
 comma
 id|f-&gt;name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -263,18 +257,12 @@ c_func
 id|f-&gt;fd
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;%s: sha1 file error on close (%s)&quot;
+l_string|&quot;%s: sha1 file error on close&quot;
 comma
 id|f-&gt;name
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 id|fd

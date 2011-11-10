@@ -96,6 +96,12 @@ r_char
 op_star
 id|apply_default_whitespace
 suffix:semicolon
+DECL|variable|apply_default_ignorewhitespace
+r_const
+r_char
+op_star
+id|apply_default_ignorewhitespace
+suffix:semicolon
 DECL|variable|zlib_compression_level
 r_int
 id|zlib_compression_level
@@ -167,6 +173,12 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* 1: both ways, -1: only when adding git objects */
+DECL|variable|read_replace_refs
+r_int
+id|read_replace_refs
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|safe_crlf
 r_enum
 id|safe_crlf
@@ -199,7 +211,7 @@ r_enum
 id|push_default_type
 id|push_default
 op_assign
-id|PUSH_DEFAULT_UNSPECIFIED
+id|PUSH_DEFAULT_MATCHING
 suffix:semicolon
 macro_line|#ifndef OBJECT_CREATION_MODE
 DECL|macro|OBJECT_CREATION_MODE
@@ -211,6 +223,21 @@ id|object_creation_mode
 id|object_creation_mode
 op_assign
 id|OBJECT_CREATION_MODE
+suffix:semicolon
+DECL|variable|notes_ref_name
+r_char
+op_star
+id|notes_ref_name
+suffix:semicolon
+DECL|variable|grafts_replace_parents
+r_int
+id|grafts_replace_parents
+op_assign
+l_int|1
+suffix:semicolon
+DECL|variable|core_apply_sparse_checkout
+r_int
+id|core_apply_sparse_checkout
 suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
@@ -422,6 +449,19 @@ c_func
 (paren
 l_string|&quot;info/grafts&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|getenv
+c_func
+(paren
+id|NO_REPLACE_OBJECTS_ENVIRONMENT
+)paren
+)paren
+id|read_replace_refs
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|is_bare_repository

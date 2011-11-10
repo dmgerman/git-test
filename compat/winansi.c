@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * Copyright 2008 Peter Harris &lt;git@peter.is-a-geek.org&gt;&n; */
-macro_line|#include &lt;windows.h&gt;
 macro_line|#include &quot;../git-compat-util.h&quot;
 multiline_comment|/*&n; Functions to be wrapped:&n;*/
 DECL|macro|printf
@@ -229,6 +228,10 @@ r_void
 id|CONSOLE_SCREEN_BUFFER_INFO
 id|sbi
 suffix:semicolon
+id|DWORD
+id|dummy
+suffix:semicolon
+multiline_comment|/* Needed for Windows 7 (or Vista) regression */
 r_if
 c_cond
 (paren
@@ -258,7 +261,8 @@ id|sbi.dwCursorPosition.X
 comma
 id|sbi.dwCursorPosition
 comma
-l_int|NULL
+op_amp
+id|dummy
 )paren
 suffix:semicolon
 )brace
