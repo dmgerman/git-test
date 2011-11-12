@@ -383,6 +383,13 @@ comma
 id|sha1
 )paren
 suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
 )brace
 DECL|variable|mktree_usage
 r_static
