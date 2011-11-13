@@ -1678,7 +1678,7 @@ l_string|&quot;unable to write new index file&quot;
 )paren
 )paren
 suffix:semicolon
-id|resolve_ref
+id|read_ref_full
 c_func
 (paren
 l_string|&quot;HEAD&quot;
@@ -4569,7 +4569,8 @@ comma
 l_int|0
 )paren
 op_logical_and
-id|resolve_ref
+op_logical_neg
+id|read_ref
 c_func
 (paren
 r_new
@@ -4577,10 +4578,6 @@ op_member_access_from_pointer
 id|path
 comma
 id|branch_rev
-comma
-l_int|1
-comma
-l_int|NULL
 )paren
 )paren
 id|hashcpy

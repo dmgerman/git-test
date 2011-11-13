@@ -3071,8 +3071,7 @@ multiline_comment|/* Dereference o-&gt;local_ref into local_sha1 */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|resolve_ref
+id|read_ref_full
 c_func
 (paren
 id|o-&gt;local_ref

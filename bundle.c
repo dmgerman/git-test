@@ -1912,8 +1912,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|resolve_ref
+id|read_ref_full
 c_func
 (paren
 id|e-&gt;name
