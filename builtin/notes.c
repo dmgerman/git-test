@@ -4589,6 +4589,9 @@ r_struct
 id|pretty_print_context
 id|pretty_ctx
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 multiline_comment|/*&n;&t; * Read partial merge result from .git/NOTES_MERGE_PARTIAL,&n;&t; * and target notes ref from .git/NOTES_MERGE_REF.&n;&t; */
 r_if
 c_cond
@@ -4716,6 +4719,14 @@ c_func
 l_string|&quot;Failed to resolve NOTES_MERGE_REF&quot;
 )paren
 suffix:semicolon
+id|o-&gt;local_ref
+op_assign
+id|xstrdup
+c_func
+(paren
+id|o-&gt;local_ref
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4824,12 +4835,26 @@ op_amp
 id|msg
 )paren
 suffix:semicolon
-r_return
+id|ret
+op_assign
 id|merge_abort
 c_func
 (paren
 id|o
 )paren
+suffix:semicolon
+id|free
+c_func
+(paren
+(paren
+r_char
+op_star
+)paren
+id|o-&gt;local_ref
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|merge
