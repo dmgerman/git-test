@@ -12957,7 +12957,7 @@ ques
 c_cond
 id|safe_crlf
 suffix:colon
-l_int|0
+id|SAFE_CRLF_FALSE
 )paren
 )paren
 (brace
