@@ -78,6 +78,16 @@ comma
 id|PATTERNS
 c_func
 (paren
+l_string|&quot;matlab&quot;
+comma
+l_string|&quot;^[[:space:]]*((classdef|function)[[:space:]].*)$|^%%[[:space:]].*$&quot;
+comma
+l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*|[-+0-9.e]+|[=~&lt;&gt;]=|&bslash;&bslash;.[*/&bslash;&bslash;^&squot;]|&bslash;&bslash;|&bslash;&bslash;||&amp;&amp;&quot;
+)paren
+comma
+id|PATTERNS
+c_func
+(paren
 l_string|&quot;objc&quot;
 comma
 multiline_comment|/* Negate C statements that can look like functions */
