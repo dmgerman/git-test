@@ -1675,7 +1675,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Could not write to %s.&quot;
+l_string|&quot;Could not write to %s&quot;
 )paren
 comma
 id|filename
@@ -4034,7 +4034,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Could not open %s.&quot;
+l_string|&quot;Could not open %s&quot;
 )paren
 comma
 id|todo_file
@@ -4622,7 +4622,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Could not create sequencer directory &squot;%s&squot;.&quot;
+l_string|&quot;Could not create sequencer directory %s&quot;
 )paren
 comma
 id|seq_dir
@@ -4714,7 +4714,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Could not write to %s.&quot;
+l_string|&quot;Could not write to %s&quot;
 )paren
 comma
 id|head_file
@@ -4857,7 +4857,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Could not write to %s.&quot;
+l_string|&quot;Could not write to %s&quot;
 )paren
 comma
 id|todo_file
