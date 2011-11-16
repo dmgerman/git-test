@@ -1432,6 +1432,11 @@ op_star
 id|commit
 )paren
 (brace
+r_const
+r_char
+op_star
+id|filename
+suffix:semicolon
 r_int
 id|fd
 suffix:semicolon
@@ -1456,16 +1461,20 @@ id|commit-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
-id|fd
+id|filename
 op_assign
-id|open
-c_func
-(paren
 id|git_path
 c_func
 (paren
 l_string|&quot;CHERRY_PICK_HEAD&quot;
 )paren
+suffix:semicolon
+id|fd
+op_assign
+id|open
+c_func
+(paren
+id|filename
 comma
 id|O_WRONLY
 op_or
@@ -1490,11 +1499,7 @@ c_func
 l_string|&quot;Could not open &squot;%s&squot; for writing&quot;
 )paren
 comma
-id|git_path
-c_func
-(paren
-l_string|&quot;CHERRY_PICK_HEAD&quot;
-)paren
+id|filename
 )paren
 suffix:semicolon
 r_if
@@ -1527,11 +1532,7 @@ c_func
 l_string|&quot;Could not write to &squot;%s&squot;&quot;
 )paren
 comma
-id|git_path
-c_func
-(paren
-l_string|&quot;CHERRY_PICK_HEAD&quot;
-)paren
+id|filename
 )paren
 suffix:semicolon
 id|strbuf_release
