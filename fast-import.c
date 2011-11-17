@@ -17890,6 +17890,11 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+id|git_setup_gettext
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

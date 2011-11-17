@@ -4124,6 +4124,11 @@ id|strict
 op_assign
 l_int|0
 suffix:semicolon
+id|git_setup_gettext
+c_func
+(paren
+)paren
+suffix:semicolon
 id|packet_trace_identity
 c_func
 (paren

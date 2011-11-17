@@ -42,6 +42,11 @@ id|top_index
 l_int|256
 )braket
 suffix:semicolon
+id|git_setup_gettext
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

@@ -3206,6 +3206,11 @@ id|cmd
 op_assign
 l_string|&quot;git-help&quot;
 suffix:semicolon
+id|git_setup_gettext
+c_func
+(paren
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * &quot;git-xxxx&quot; is the same as &quot;git xxxx&quot;, but we obviously:&n;&t; *&n;&t; *  - cannot take flags in between the &quot;git&quot; and the &quot;xxxx&quot;.&n;&t; *  - cannot execute it externally (since it would just do&n;&t; *    the same thing over again)&n;&t; *&n;&t; * So we just directly call the internal command handler, and&n;&t; * die if that one cannot handle it.&n;&t; */
 r_if
 c_cond

@@ -8630,6 +8630,11 @@ comma
 op_star
 id|local_refs
 suffix:semicolon
+id|git_setup_gettext
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_extract_argv0_path
 c_func
 (paren

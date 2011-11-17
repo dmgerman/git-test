@@ -777,6 +777,11 @@ suffix:semicolon
 r_int
 id|count
 suffix:semicolon
+id|git_setup_gettext
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_extract_argv0_path
 c_func
 (paren
