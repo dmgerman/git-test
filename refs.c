@@ -193,6 +193,9 @@ comma
 r_int
 id|flag
 comma
+r_int
+id|check_name
+comma
 r_struct
 id|ref_array
 op_star
@@ -255,6 +258,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|check_name
+op_logical_and
 id|check_refname_format
 c_func
 (paren
@@ -1152,6 +1157,8 @@ id|sha1
 comma
 id|flag
 comma
+l_int|1
+comma
 id|array
 comma
 op_amp
@@ -1243,6 +1250,8 @@ comma
 id|sha1
 comma
 id|flag
+comma
+l_int|0
 comma
 op_amp
 id|extra_refs
@@ -1743,6 +1752,8 @@ comma
 id|sha1
 comma
 id|flag
+comma
+l_int|1
 comma
 id|array
 comma
