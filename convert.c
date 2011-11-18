@@ -2875,7 +2875,8 @@ suffix:semicolon
 )brace
 DECL|function|git_path_check_crlf
 r_static
-r_int
+r_enum
+id|crlf_action
 id|git_path_check_crlf
 c_func
 (paren
@@ -2971,7 +2972,8 @@ suffix:semicolon
 )brace
 DECL|function|git_path_check_eol
 r_static
-r_int
+r_enum
+id|crlf_action
 id|git_path_check_eol
 c_func
 (paren
@@ -3874,7 +3876,7 @@ id|len
 comma
 id|dst
 comma
-l_int|0
+id|SAFE_CRLF_FALSE
 )paren
 suffix:semicolon
 )brace
