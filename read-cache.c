@@ -5062,14 +5062,14 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|needs_update_fmt
+id|modified_fmt
 suffix:semicolon
 r_const
 r_char
 op_star
-id|needs_merge_fmt
+id|unmerged_fmt
 suffix:semicolon
-id|needs_update_fmt
+id|modified_fmt
 op_assign
 (paren
 id|in_porcelain
@@ -5080,7 +5080,7 @@ suffix:colon
 l_string|&quot;%s: needs update&bslash;n&quot;
 )paren
 suffix:semicolon
-id|needs_merge_fmt
+id|unmerged_fmt
 op_assign
 (paren
 id|in_porcelain
@@ -5188,7 +5188,7 @@ suffix:semicolon
 id|show_file
 c_func
 (paren
-id|needs_merge_fmt
+id|unmerged_fmt
 comma
 id|ce-&gt;name
 comma
@@ -5308,7 +5308,7 @@ suffix:semicolon
 id|show_file
 c_func
 (paren
-id|needs_update_fmt
+id|modified_fmt
 comma
 id|ce-&gt;name
 comma
