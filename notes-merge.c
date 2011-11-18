@@ -82,8 +82,6 @@ op_assign
 id|NOTES_MERGE_VERBOSITY_DEFAULT
 suffix:semicolon
 )brace
-DECL|macro|OUTPUT
-mdefine_line|#define OUTPUT(o, v, ...) &bslash;&n;&t;do { &bslash;&n;&t;&t;if ((o)-&gt;verbosity &gt;= (v)) { &bslash;&n;&t;&t;&t;printf(__VA_ARGS__); &bslash;&n;&t;&t;&t;puts(&quot;&quot;); &bslash;&n;&t;&t;} &bslash;&n;&t;} while (0)
 DECL|function|path_to_sha1
 r_static
 r_int
@@ -2025,14 +2023,17 @@ id|p-&gt;obj
 )paren
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|2
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|2
-comma
-l_string|&quot;Auto-merging notes for %s&quot;
+l_string|&quot;Auto-merging notes for %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -2068,16 +2069,19 @@ id|p-&gt;remote
 )paren
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|1
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|1
-comma
 l_string|&quot;CONFLICT (delete/modify): Notes for object %s &quot;
 l_string|&quot;deleted in %s and modified in %s. Version from %s &quot;
-l_string|&quot;left in tree.&quot;
+l_string|&quot;left in tree.&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -2123,16 +2127,19 @@ id|p-&gt;local
 )paren
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|1
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|1
-comma
 l_string|&quot;CONFLICT (delete/modify): Notes for object %s &quot;
 l_string|&quot;deleted in %s and modified in %s. Version from %s &quot;
-l_string|&quot;left in tree.&quot;
+l_string|&quot;left in tree.&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -2199,15 +2206,18 @@ id|p-&gt;remote
 )paren
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|1
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|1
-comma
 l_string|&quot;CONFLICT (%s): Merge conflict in notes for &quot;
-l_string|&quot;object %s&quot;
+l_string|&quot;object %s&bslash;n&quot;
 comma
 id|reason
 comma
@@ -2291,14 +2301,17 @@ suffix:semicolon
 r_case
 id|NOTES_MERGE_RESOLVE_OURS
 suffix:colon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|2
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|2
-comma
-l_string|&quot;Using local notes for %s&quot;
+l_string|&quot;Using local notes for %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -2314,14 +2327,17 @@ suffix:semicolon
 r_case
 id|NOTES_MERGE_RESOLVE_THEIRS
 suffix:colon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|2
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|2
-comma
-l_string|&quot;Using remote notes for %s&quot;
+l_string|&quot;Using remote notes for %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -2357,14 +2373,17 @@ suffix:semicolon
 r_case
 id|NOTES_MERGE_RESOLVE_UNION
 suffix:colon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|2
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|2
-comma
-l_string|&quot;Concatenating local and remote notes for %s&quot;
+l_string|&quot;Concatenating local and remote notes for %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -2401,15 +2420,18 @@ suffix:semicolon
 r_case
 id|NOTES_MERGE_RESOLVE_CAT_SORT_UNIQ
 suffix:colon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|2
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|2
-comma
 l_string|&quot;Concatenating unique lines in local and remote &quot;
-l_string|&quot;notes for %s&quot;
+l_string|&quot;notes for %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -2792,14 +2814,17 @@ c_func
 id|changes
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|4
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|4
-comma
-l_string|&quot;Merge result: %i unmerged notes and a %s notes tree&quot;
+l_string|&quot;Merge result: %i unmerged notes and a %s notes tree&bslash;n&quot;
 comma
 id|conflicts
 comma
@@ -3341,14 +3366,17 @@ id|base_tree_sha1
 op_assign
 id|EMPTY_TREE_SHA1_BIN
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|4
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|4
-comma
-l_string|&quot;No merge base found; doing history-less merge&quot;
+l_string|&quot;No merge base found; doing history-less merge&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
@@ -3368,14 +3396,17 @@ id|base_tree_sha1
 op_assign
 id|bases-&gt;item-&gt;tree-&gt;object.sha1
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|4
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|4
-comma
-l_string|&quot;One merge base found (%.7s)&quot;
+l_string|&quot;One merge base found (%.7s)&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -3396,15 +3427,18 @@ id|base_tree_sha1
 op_assign
 id|bases-&gt;item-&gt;tree-&gt;object.sha1
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|3
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|3
-comma
 l_string|&quot;Multiple merge bases found. Using the first &quot;
-l_string|&quot;(%.7s)&quot;
+l_string|&quot;(%.7s)&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -3414,15 +3448,18 @@ id|base_sha1
 )paren
 suffix:semicolon
 )brace
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|4
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|4
-comma
 l_string|&quot;Merging remote commit %.7s into local commit %.7s with &quot;
-l_string|&quot;merge-base %.7s&quot;
+l_string|&quot;merge-base %.7s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -3457,14 +3494,17 @@ id|base_sha1
 )paren
 (brace
 multiline_comment|/* Already merged; result == local commit */
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|2
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|2
-comma
-l_string|&quot;Already up-to-date!&quot;
+l_string|&quot;Already up-to-date!&bslash;n&quot;
 )paren
 suffix:semicolon
 id|hashcpy
@@ -3493,14 +3533,17 @@ id|base_sha1
 )paren
 (brace
 multiline_comment|/* Fast-forward; result == remote commit */
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|2
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|2
-comma
-l_string|&quot;Fast-forward&quot;
+l_string|&quot;Fast-forward&bslash;n&quot;
 )paren
 suffix:semicolon
 id|hashcpy
@@ -3685,14 +3728,17 @@ comma
 l_string|&quot;&bslash;n&bslash;n&quot;
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|3
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|3
-comma
-l_string|&quot;Committing notes in notes merge worktree at %.*s&quot;
+l_string|&quot;Committing notes in notes merge worktree at %.*s&bslash;n&quot;
 comma
 id|path_len
 l_int|1
@@ -3817,14 +3863,17 @@ id|obj_sha1
 )paren
 )paren
 (brace
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|3
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|3
-comma
-l_string|&quot;Skipping non-SHA1 entry &squot;%s&squot;&quot;
+l_string|&quot;Skipping non-SHA1 entry &squot;%s&squot;&bslash;n&quot;
 comma
 id|ent-&gt;name
 )paren
@@ -3900,14 +3949,17 @@ comma
 id|ent-&gt;name
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|4
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|4
-comma
-l_string|&quot;Added resolved note for object %s: %s&quot;
+l_string|&quot;Added resolved note for object %s: %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -3935,14 +3987,17 @@ comma
 id|result_sha1
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|4
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|4
-comma
-l_string|&quot;Finalized notes merge commit: %s&quot;
+l_string|&quot;Finalized notes merge commit: %s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -3995,14 +4050,17 @@ id|NOTES_MERGE_WORKTREE
 )paren
 )paren
 suffix:semicolon
-id|OUTPUT
+r_if
+c_cond
+(paren
+id|o-&gt;verbosity
+op_ge
+l_int|3
+)paren
+id|printf
 c_func
 (paren
-id|o
-comma
-l_int|3
-comma
-l_string|&quot;Removing notes merge worktree at %s&quot;
+l_string|&quot;Removing notes merge worktree at %s&bslash;n&quot;
 comma
 id|buf.buf
 )paren
