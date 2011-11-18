@@ -4592,6 +4592,10 @@ comma
 r_int
 op_star
 id|err
+comma
+r_int
+op_star
+id|changed_ret
 )paren
 (brace
 r_struct
@@ -4724,6 +4728,16 @@ id|st
 comma
 id|options
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|changed_ret
+)paren
+op_star
+id|changed_ret
+op_assign
+id|changed
 suffix:semicolon
 r_if
 c_cond
@@ -5232,6 +5246,8 @@ id|options
 comma
 op_amp
 id|cache_errno
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -5353,6 +5369,8 @@ comma
 id|ce
 comma
 id|really
+comma
+l_int|NULL
 comma
 l_int|NULL
 )paren
