@@ -1651,6 +1651,10 @@ c_cond
 (paren
 op_logical_neg
 id|obj
+op_logical_or
+id|obj-&gt;type
+op_ne
+id|OBJ_COMMIT
 )paren
 r_continue
 suffix:semicolon
