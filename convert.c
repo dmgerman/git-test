@@ -2973,7 +2973,7 @@ suffix:semicolon
 DECL|function|git_path_check_eol
 r_static
 r_enum
-id|crlf_action
+id|eol
 id|git_path_check_eol
 c_func
 (paren
