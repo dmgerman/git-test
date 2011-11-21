@@ -6805,7 +6805,11 @@ c_cond
 (paren
 op_logical_neg
 id|argc
-op_logical_and
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|default_to_upstream
 )paren
 id|argc
@@ -6817,6 +6821,18 @@ op_amp
 id|argv
 )paren
 suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;No commit specified and merge.defaultToUpstream not set.&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
