@@ -4609,19 +4609,31 @@ c_func
 id|seq_dir
 )paren
 )paren
-r_return
+(brace
 id|error
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;%s already exists.&quot;
+l_string|&quot;a cherry-pick or revert is already in progress&quot;
 )paren
-comma
-id|seq_dir
 )paren
 suffix:semicolon
+id|advise
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;try &bslash;&quot;git cherry-pick (--continue | --quit)&bslash;&quot;&quot;
+)paren
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -5405,41 +5417,9 @@ c_func
 OL
 l_int|0
 )paren
-(brace
-id|error
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;A cherry-pick or revert is in progress.&quot;
-)paren
-)paren
-suffix:semicolon
-id|advise
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Use --continue to continue the operation&quot;
-)paren
-)paren
-suffix:semicolon
-id|advise
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;or --quit to forget about it&quot;
-)paren
-)paren
-suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
