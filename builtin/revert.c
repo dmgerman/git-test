@@ -65,14 +65,14 @@ id|CHERRY_PICK
 suffix:semicolon
 DECL|enum|replay_subcommand
 DECL|enumerator|REPLAY_NONE
-DECL|enumerator|REPLAY_RESET
+DECL|enumerator|REPLAY_REMOVE_STATE
 DECL|enumerator|REPLAY_CONTINUE
 r_enum
 id|replay_subcommand
 (brace
 id|REPLAY_NONE
 comma
-id|REPLAY_RESET
+id|REPLAY_REMOVE_STATE
 comma
 id|REPLAY_CONTINUE
 )brace
@@ -569,7 +569,7 @@ id|opts
 )paren
 suffix:semicolon
 r_int
-id|reset
+id|remove_state
 op_assign
 l_int|0
 suffix:semicolon
@@ -590,12 +590,12 @@ c_func
 (paren
 l_int|0
 comma
-l_string|&quot;reset&quot;
+l_string|&quot;quit&quot;
 comma
 op_amp
-id|reset
+id|remove_state
 comma
-l_string|&quot;forget the current operation&quot;
+l_string|&quot;end revert or cherry-pick sequence&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -608,7 +608,7 @@ comma
 op_amp
 id|contin
 comma
-l_string|&quot;continue the current operation&quot;
+l_string|&quot;resume revert or cherry-pick sequence&quot;
 )paren
 comma
 id|OPT_BOOLEAN
@@ -709,6 +709,25 @@ l_string|&quot;option for merge strategy&quot;
 comma
 id|option_parse_x
 )paren
+comma
+(brace
+id|OPTION_BOOLEAN
+comma
+l_int|0
+comma
+l_string|&quot;reset&quot;
+comma
+op_amp
+id|remove_state
+comma
+l_int|NULL
+comma
+l_string|&quot;alias for --quit (deprecated)&quot;
+comma
+id|PARSE_OPT_HIDDEN
+op_or
+id|PARSE_OPT_NOARG
+)brace
 comma
 id|OPT_END
 c_func
@@ -829,9 +848,9 @@ c_func
 (paren
 id|me
 comma
-l_string|&quot;--reset&quot;
+l_string|&quot;--quit&quot;
 comma
-id|reset
+id|remove_state
 comma
 l_string|&quot;--continue&quot;
 comma
@@ -844,11 +863,11 @@ multiline_comment|/* Set the subcommand */
 r_if
 c_cond
 (paren
-id|reset
+id|remove_state
 )paren
 id|opts-&gt;subcommand
 op_assign
-id|REPLAY_RESET
+id|REPLAY_REMOVE_STATE
 suffix:semicolon
 r_else
 r_if
@@ -883,11 +902,11 @@ c_cond
 (paren
 id|opts-&gt;subcommand
 op_eq
-id|REPLAY_RESET
+id|REPLAY_REMOVE_STATE
 )paren
 id|this_operation
 op_assign
-l_string|&quot;--reset&quot;
+l_string|&quot;--quit&quot;
 suffix:semicolon
 r_else
 id|this_operation
@@ -5271,7 +5290,7 @@ c_cond
 (paren
 id|opts-&gt;subcommand
 op_eq
-id|REPLAY_RESET
+id|REPLAY_REMOVE_STATE
 )paren
 (brace
 id|remove_sequencer_state
@@ -5393,7 +5412,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;or --reset to forget about it&quot;
+l_string|&quot;or --quit to forget about it&quot;
 )paren
 )paren
 suffix:semicolon
