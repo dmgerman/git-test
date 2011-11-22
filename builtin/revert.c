@@ -5303,7 +5303,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-r_else
 r_if
 c_cond
 (paren
@@ -5326,8 +5325,22 @@ id|SEQ_TODO_FILE
 )paren
 )paren
 )paren
-r_goto
+r_return
 id|error
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;No %s in progress&quot;
+)paren
+comma
+id|action_name
+c_func
+(paren
+id|opts
+)paren
+)paren
 suffix:semicolon
 id|read_populate_opts
 c_func
@@ -5362,10 +5375,17 @@ id|todo_list
 op_assign
 id|todo_list-&gt;next
 suffix:semicolon
+r_return
+id|pick_commits
+c_func
+(paren
+id|todo_list
+comma
+id|opts
+)paren
+suffix:semicolon
 )brace
-r_else
-(brace
-multiline_comment|/*&n;&t;&t; * Start a new cherry-pick/ revert sequence; but&n;&t;&t; * first, make sure that an existing one isn&squot;t in&n;&t;&t; * progress&n;&t;&t; */
+multiline_comment|/*&n;&t; * Start a new cherry-pick/ revert sequence; but&n;&t; * first, make sure that an existing one isn&squot;t in&n;&t; * progress&n;&t; */
 id|walk_revs_populate_todo
 c_func
 (paren
@@ -5478,7 +5498,6 @@ c_func
 id|opts
 )paren
 suffix:semicolon
-)brace
 r_return
 id|pick_commits
 c_func
@@ -5486,25 +5505,6 @@ c_func
 id|todo_list
 comma
 id|opts
-)paren
-suffix:semicolon
-id|error
-suffix:colon
-r_return
-id|error
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;No %s in progress&quot;
-)paren
-comma
-id|action_name
-c_func
-(paren
-id|opts
-)paren
 )paren
 suffix:semicolon
 )brace
