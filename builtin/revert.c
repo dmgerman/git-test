@@ -731,25 +731,6 @@ comma
 id|option_parse_x
 )paren
 comma
-(brace
-id|OPTION_BOOLEAN
-comma
-l_int|0
-comma
-l_string|&quot;reset&quot;
-comma
-op_amp
-id|remove_state
-comma
-l_int|NULL
-comma
-l_string|&quot;alias for --quit (deprecated)&quot;
-comma
-id|PARSE_OPT_HIDDEN
-op_or
-id|PARSE_OPT_NOARG
-)brace
-comma
 id|OPT_END
 c_func
 (paren
