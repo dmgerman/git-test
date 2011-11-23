@@ -3946,9 +3946,6 @@ op_logical_and
 op_logical_neg
 id|rename
 op_logical_and
-op_logical_neg
-id|force_create
-op_logical_and
 id|argc
 op_eq
 l_int|0
@@ -4109,6 +4106,10 @@ r_else
 r_if
 c_cond
 (paren
+id|argc
+OG
+l_int|0
+op_logical_and
 id|argc
 op_le
 l_int|2
