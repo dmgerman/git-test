@@ -26,6 +26,13 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|flag
+comma
+r_void
+op_star
+id|cb_data
 )paren
 (brace
 r_struct
@@ -38,6 +45,15 @@ c_func
 (paren
 id|sha1
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|o
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|fprintf
 c_func
@@ -60,7 +76,7 @@ c_cond
 (paren
 id|o-&gt;type
 op_eq
-id|tag_type
+id|OBJ_TAG
 )paren
 (brace
 id|o
@@ -115,14 +131,10 @@ r_char
 op_star
 id|path0
 op_assign
-id|strdup
-c_func
-(paren
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;info/refs&quot;
-)paren
 )paren
 suffix:semicolon
 r_int
@@ -192,19 +204,27 @@ c_func
 (paren
 l_string|&quot;unable to update %s&quot;
 comma
-id|path0
+id|path1
 )paren
 suffix:semicolon
 id|for_each_ref
 c_func
 (paren
 id|add_info_ref
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|fclose
 c_func
 (paren
 id|info_ref_fp
+)paren
+suffix:semicolon
+id|adjust_shared_perm
+c_func
+(paren
+id|path1
 )paren
 suffix:semicolon
 id|rename
@@ -463,7 +483,7 @@ id|fp
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* nonexisting is not an error. */
+multiline_comment|/* nonexistent is not an error. */
 r_while
 c_loop
 (paren
@@ -493,6 +513,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|len
+op_logical_and
 id|line
 (braket
 id|len
@@ -552,19 +574,12 @@ r_case
 l_char|&squot;D&squot;
 suffix:colon
 multiline_comment|/* we used to emit D but that was misguided. */
-r_goto
-id|out_stale
-suffix:semicolon
-r_break
-suffix:semicolon
 r_case
 l_char|&squot;T&squot;
 suffix:colon
 multiline_comment|/* we used to emit T but nobody uses it. */
 r_goto
 id|out_stale
-suffix:semicolon
-r_break
 suffix:semicolon
 r_default
 suffix:colon
@@ -1186,6 +1201,12 @@ c_func
 id|fp
 )paren
 suffix:semicolon
+id|adjust_shared_perm
+c_func
+(paren
+id|name
+)paren
+suffix:semicolon
 id|rename
 c_func
 (paren
@@ -1235,7 +1256,7 @@ id|force
 )paren
 suffix:semicolon
 multiline_comment|/* remove leftover rev-cache file if there is any */
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|git_path

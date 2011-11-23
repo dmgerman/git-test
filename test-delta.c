@@ -1,17 +1,12 @@
-multiline_comment|/*&n; * test-delta.c: test code to exercise diff-delta.c and patch-delta.c&n; *&n; * (C) 2005 Nicolas Pitre &lt;nico@cam.org&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;unistd.h&gt;
-macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;fcntl.h&gt;
-macro_line|#include &lt;sys/types.h&gt;
-macro_line|#include &lt;sys/stat.h&gt;
-macro_line|#include &lt;sys/mman.h&gt;
+multiline_comment|/*&n; * test-delta.c: test code to exercise diff-delta.c and patch-delta.c&n; *&n; * (C) 2005 Nicolas Pitre &lt;nico@fluxnic.net&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;delta.h&quot;
-DECL|variable|usage
+macro_line|#include &quot;cache.h&quot;
+DECL|variable|usage_str
 r_static
 r_const
 r_char
-id|usage
+id|usage_str
 (braket
 )braket
 op_assign
@@ -96,7 +91,7 @@ id|stderr
 comma
 l_string|&quot;Usage: %s&bslash;n&quot;
 comma
-id|usage
+id|usage_str
 )paren
 suffix:semicolon
 r_return
@@ -393,7 +388,7 @@ id|fd
 OL
 l_int|0
 op_logical_or
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
