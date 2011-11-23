@@ -5228,6 +5228,12 @@ id|sha1
 r_goto
 id|fail
 suffix:semicolon
+id|remove_sequencer_state
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
