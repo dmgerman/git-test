@@ -457,12 +457,6 @@ id|imap_server_conf_t
 op_star
 id|server
 suffix:semicolon
-DECL|member|use_namespace
-r_int
-id|use_namespace
-suffix:colon
-l_int|1
-suffix:semicolon
 DECL|typedef|imap_store_conf_t
 )brace
 id|imap_store_conf_t
