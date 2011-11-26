@@ -4174,6 +4174,8 @@ id|force_create
 comma
 id|reflog
 comma
+l_int|0
+comma
 id|track
 )paren
 suffix:semicolon
