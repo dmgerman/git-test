@@ -106,6 +106,13 @@ l_int|1
 comma
 id|have_message
 suffix:semicolon
+DECL|variable|overwrite_ignore
+r_static
+r_int
+id|overwrite_ignore
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|merge_msg
 r_static
 r_struct
@@ -1150,6 +1157,19 @@ comma
 l_string|&quot;force progress reporting&quot;
 comma
 l_int|1
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;overwrite-ignore&quot;
+comma
+op_amp
+id|overwrite_ignore
+comma
+l_string|&quot;update ignored files (default)&quot;
 )paren
 comma
 id|OPT_END
@@ -4851,6 +4871,12 @@ id|t
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|overwrite_ignore
+)paren
+(brace
 id|memset
 c_func
 (paren
@@ -4881,6 +4907,7 @@ op_assign
 op_amp
 id|dir
 suffix:semicolon
+)brace
 id|opts.head_idx
 op_assign
 l_int|1
