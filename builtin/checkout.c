@@ -2345,9 +2345,11 @@ id|topts.dir-&gt;flags
 op_or_assign
 id|DIR_SHOW_IGNORED
 suffix:semicolon
-id|topts.dir-&gt;exclude_per_dir
-op_assign
-l_string|&quot;.gitignore&quot;
+id|setup_standard_excludes
+c_func
+(paren
+id|topts.dir
+)paren
 suffix:semicolon
 id|tree
 op_assign
