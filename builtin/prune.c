@@ -5,6 +5,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;reachable.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;dir.h&quot;
 DECL|variable|prune_usage
 r_static
@@ -37,6 +38,13 @@ r_static
 r_int
 r_int
 id|expire
+suffix:semicolon
+DECL|variable|show_progress
+r_static
+r_int
+id|show_progress
+op_assign
+l_int|1
 suffix:semicolon
 DECL|function|prune_tmp_object
 r_static
@@ -650,6 +658,13 @@ r_struct
 id|rev_info
 id|revs
 suffix:semicolon
+r_struct
+id|progress
+op_star
+id|progress
+op_assign
+l_int|NULL
+suffix:semicolon
 r_const
 r_struct
 id|option
@@ -674,6 +689,19 @@ op_amp
 id|verbose
 comma
 l_string|&quot;report pruned objects&quot;
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;progress&quot;
+comma
+op_amp
+id|show_progress
+comma
+l_string|&quot;show progress&quot;
 )paren
 comma
 id|OPT_DATE
@@ -821,6 +849,40 @@ id|name
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|show_progress
+op_eq
+l_int|1
+)paren
+id|show_progress
+op_assign
+id|isatty
+c_func
+(paren
+l_int|2
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_progress
+)paren
+id|progress
+op_assign
+id|start_progress_delay
+c_func
+(paren
+l_string|&quot;Checking connectivity&quot;
+comma
+l_int|0
+comma
+l_int|0
+comma
+l_int|2
+)paren
+suffix:semicolon
 id|mark_reachable_objects
 c_func
 (paren
@@ -828,6 +890,15 @@ op_amp
 id|revs
 comma
 l_int|1
+comma
+id|progress
+)paren
+suffix:semicolon
+id|stop_progress
+c_func
+(paren
+op_amp
+id|progress
 )paren
 suffix:semicolon
 id|prune_object_dir

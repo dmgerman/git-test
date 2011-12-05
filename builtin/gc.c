@@ -135,6 +135,8 @@ comma
 l_int|NULL
 comma
 l_int|NULL
+comma
+l_int|NULL
 )brace
 suffix:semicolon
 DECL|variable|argv_rerere
@@ -1247,6 +1249,18 @@ l_int|2
 )braket
 op_assign
 id|prune_expire
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|quiet
+)paren
+id|argv_prune
+(braket
+l_int|3
+)braket
+op_assign
+l_string|&quot;--no-progress&quot;
 suffix:semicolon
 r_if
 c_cond
