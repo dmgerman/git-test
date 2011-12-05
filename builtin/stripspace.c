@@ -51,7 +51,7 @@ r_return
 id|len
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Remove empty lines from the beginning and end&n; * and also trailing spaces from every line.&n; *&n; * Note that the buffer will not be NUL-terminated.&n; *&n; * Turn multiple consecutive empty lines between paragraphs&n; * into just one empty line.&n; *&n; * If the input has only empty lines and spaces,&n; * no output will be produced.&n; *&n; * If last line does not have a newline at the end, one is added.&n; *&n; * Enable skip_comments to skip every line starting with &quot;#&quot;.&n; */
+multiline_comment|/*&n; * Remove empty lines from the beginning and end&n; * and also trailing spaces from every line.&n; *&n; * Turn multiple consecutive empty lines between paragraphs&n; * into just one empty line.&n; *&n; * If the input has only empty lines and spaces,&n; * no output will be produced.&n; *&n; * If last line does not have a newline at the end, one is added.&n; *&n; * Enable skip_comments to skip every line starting with &quot;#&quot;.&n; */
 DECL|function|stripspace
 r_void
 id|stripspace
