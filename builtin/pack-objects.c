@@ -2007,9 +2007,39 @@ op_plus
 id|datalen
 suffix:semicolon
 )brace
+DECL|enum|write_one_status
+r_enum
+id|write_one_status
+(brace
+DECL|enumerator|WRITE_ONE_SKIP
+id|WRITE_ONE_SKIP
+op_assign
+l_int|1
+comma
+multiline_comment|/* already written */
+DECL|enumerator|WRITE_ONE_BREAK
+id|WRITE_ONE_BREAK
+op_assign
+l_int|0
+comma
+multiline_comment|/* writing this will bust the limit; not written */
+DECL|enumerator|WRITE_ONE_WRITTEN
+id|WRITE_ONE_WRITTEN
+op_assign
+l_int|1
+comma
+multiline_comment|/* normal */
+DECL|enumerator|WRITE_ONE_RECURSIVE
+id|WRITE_ONE_RECURSIVE
+op_assign
+l_int|2
+multiline_comment|/* already scheduled to be written */
+)brace
+suffix:semicolon
 DECL|function|write_one
 r_static
-r_int
+r_enum
+id|write_one_status
 id|write_one
 c_func
 (paren
@@ -2032,7 +2062,41 @@ r_int
 r_int
 id|size
 suffix:semicolon
-multiline_comment|/* offset is non zero if object is written already. */
+r_int
+id|recursing
+suffix:semicolon
+multiline_comment|/*&n;&t; * we set offset to 1 (which is an impossible value) to mark&n;&t; * the fact that this object is involved in &quot;write its base&n;&t; * first before writing a deltified object&quot; recursion.&n;&t; */
+id|recursing
+op_assign
+(paren
+id|e-&gt;idx.offset
+op_eq
+l_int|1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|recursing
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;recursive delta detected for object %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|e-&gt;idx.sha1
+)paren
+)paren
+suffix:semicolon
+r_return
+id|WRITE_ONE_RECURSIVE
+suffix:semicolon
+)brace
+r_else
 r_if
 c_cond
 (paren
@@ -2040,16 +2104,27 @@ id|e-&gt;idx.offset
 op_logical_or
 id|e-&gt;preferred_base
 )paren
+(brace
+multiline_comment|/* offset is non zero if object is written already. */
 r_return
-l_int|1
+id|WRITE_ONE_SKIP
 suffix:semicolon
+)brace
 multiline_comment|/* if we are deltified, write out base object first. */
 r_if
 c_cond
 (paren
 id|e-&gt;delta
-op_logical_and
-op_logical_neg
+)paren
+(brace
+id|e-&gt;idx.offset
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* now recurse */
+r_switch
+c_cond
+(paren
 id|write_one
 c_func
 (paren
@@ -2060,9 +2135,33 @@ comma
 id|offset
 )paren
 )paren
-r_return
-l_int|0
+(brace
+r_case
+id|WRITE_ONE_RECURSIVE
+suffix:colon
+multiline_comment|/* we cannot depend on this one */
+id|e-&gt;delta
+op_assign
+l_int|NULL
 suffix:semicolon
+r_break
+suffix:semicolon
+r_default
+suffix:colon
+r_break
+suffix:semicolon
+r_case
+id|WRITE_ONE_BREAK
+suffix:colon
+id|e-&gt;idx.offset
+op_assign
+id|recursing
+suffix:semicolon
+r_return
+id|WRITE_ONE_BREAK
+suffix:semicolon
+)brace
+)brace
 id|e-&gt;idx.offset
 op_assign
 op_star
@@ -2090,10 +2189,10 @@ id|size
 (brace
 id|e-&gt;idx.offset
 op_assign
-l_int|0
+id|recursing
 suffix:semicolon
 r_return
-l_int|0
+id|WRITE_ONE_BREAK
 suffix:semicolon
 )brace
 id|written_list
@@ -2130,7 +2229,7 @@ op_add_assign
 id|size
 suffix:semicolon
 r_return
-l_int|1
+id|WRITE_ONE_WRITTEN
 suffix:semicolon
 )brace
 DECL|function|mark_tagged
@@ -3113,7 +3212,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|write_one
 c_func
 (paren
@@ -3124,6 +3222,8 @@ comma
 op_amp
 id|offset
 )paren
+op_eq
+id|WRITE_ONE_BREAK
 )paren
 r_break
 suffix:semicolon
