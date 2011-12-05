@@ -771,6 +771,16 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|tree-&gt;buffer
+)paren
+id|tree-&gt;object.parsed
+op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|tree-&gt;object.parsed
 )paren
 (brace
