@@ -1907,6 +1907,12 @@ c_func
 id|refresh_flags
 )paren
 suffix:semicolon
+id|update_main_cache_tree
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1980,6 +1986,12 @@ c_cond
 id|active_cache_changed
 )paren
 (brace
+id|update_main_cache_tree
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
