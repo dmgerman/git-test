@@ -830,6 +830,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Look at a signed tag object, and return the offset where&n; * the embedded detached signature begins, or the end of the&n; * data when there is no such signature.&n; */
 DECL|function|parse_signature
 r_int
 id|parse_signature
