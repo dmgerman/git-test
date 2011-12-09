@@ -2257,6 +2257,14 @@ id|current_branch
 op_add_assign
 l_int|11
 suffix:semicolon
+id|current_branch
+op_assign
+id|xstrdup
+c_func
+(paren
+id|current_branch
+)paren
+suffix:semicolon
 multiline_comment|/* get a line */
 r_while
 c_loop
@@ -2480,6 +2488,16 @@ id|strbuf_complete_line
 c_func
 (paren
 id|out
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+(paren
+r_char
+op_star
+)paren
+id|current_branch
 )paren
 suffix:semicolon
 r_return
