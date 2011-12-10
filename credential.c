@@ -566,6 +566,9 @@ r_struct
 id|credential
 op_star
 id|c
+comma
+r_int
+id|flags
 )paren
 (brace
 r_struct
@@ -623,13 +626,14 @@ comma
 id|what
 )paren
 suffix:semicolon
-multiline_comment|/* FIXME: for usernames, we should do something less magical that&n;&t; * actually echoes the characters. However, we need to read from&n;&t; * /dev/tty and not stdio, which is not portable (but getpass will do&n;&t; * it for us). http.c uses the same workaround. */
 id|r
 op_assign
-id|git_getpass
+id|git_prompt
 c_func
 (paren
 id|prompt.buf
+comma
+id|flags
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -680,6 +684,10 @@ c_func
 l_string|&quot;Username&quot;
 comma
 id|c
+comma
+id|PROMPT_ASKPASS
+op_or
+id|PROMPT_ECHO
 )paren
 suffix:semicolon
 r_if
@@ -696,6 +704,8 @@ c_func
 l_string|&quot;Password&quot;
 comma
 id|c
+comma
+id|PROMPT_ASKPASS
 )paren
 suffix:semicolon
 )brace
