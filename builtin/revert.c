@@ -5231,7 +5231,6 @@ suffix:semicolon
 id|remove_sequencer_state
 c_func
 (paren
-l_int|1
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -5722,7 +5721,6 @@ multiline_comment|/*&n;&t; * Sequence of picks finished successfully; cleanup by
 id|remove_sequencer_state
 c_func
 (paren
-l_int|1
 )paren
 suffix:semicolon
 r_return
@@ -6023,7 +6021,6 @@ id|REPLAY_REMOVE_STATE
 id|remove_sequencer_state
 c_func
 (paren
-l_int|1
 )paren
 suffix:semicolon
 r_return
