@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;prompt.h&quot;
+macro_line|#include &quot;compat/terminal.h&quot;
 DECL|function|do_askpass
 r_static
 r_char
@@ -254,10 +255,14 @@ suffix:semicolon
 )brace
 id|r
 op_assign
-id|getpass
+id|git_terminal_prompt
 c_func
 (paren
 id|prompt
+comma
+id|flags
+op_amp
+id|PROMPT_ECHO
 )paren
 suffix:semicolon
 r_if
