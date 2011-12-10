@@ -6473,15 +6473,16 @@ op_logical_neg
 id|srvc-&gt;pass
 )paren
 (brace
-r_char
+r_struct
+id|strbuf
 id|prompt
-(braket
-l_int|80
-)braket
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|prompt
 comma
 l_string|&quot;Password (%s@%s): &quot;
@@ -6496,6 +6497,13 @@ op_assign
 id|git_getpass
 c_func
 (paren
+id|prompt.buf
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
 id|prompt
 )paren
 suffix:semicolon
