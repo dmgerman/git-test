@@ -2,6 +2,7 @@ multiline_comment|/*&n; * git-imap-send - drops patches into an imap Drafts fold
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;prompt.h&quot;
 macro_line|#ifdef NO_OPENSSL
 DECL|typedef|SSL
 r_typedef

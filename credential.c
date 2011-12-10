@@ -3,6 +3,7 @@ macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;url.h&quot;
+macro_line|#include &quot;prompt.h&quot;
 DECL|function|credential_init
 r_void
 id|credential_init
