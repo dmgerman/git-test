@@ -2033,7 +2033,7 @@ comma
 r_int
 r_char
 op_star
-id|result
+id|sha1
 )paren
 (brace
 r_int
@@ -2116,7 +2116,7 @@ l_int|NULL
 id|memcpy
 c_func
 (paren
-id|result
+id|sha1
 comma
 id|ref-&gt;sha1
 comma
@@ -2153,7 +2153,7 @@ comma
 r_int
 r_char
 op_star
-id|result
+id|sha1
 comma
 r_int
 id|recursion
@@ -2234,7 +2234,7 @@ id|pathlen
 comma
 id|refname
 comma
-id|result
+id|sha1
 )paren
 suffix:semicolon
 id|len
@@ -2306,7 +2306,7 @@ c_func
 (paren
 id|buffer
 comma
-id|result
+id|sha1
 )paren
 )paren
 r_return
@@ -2358,7 +2358,7 @@ id|pathlen
 comma
 id|p
 comma
-id|result
+id|sha1
 comma
 id|recursion
 op_plus
@@ -2384,7 +2384,7 @@ comma
 r_int
 r_char
 op_star
-id|result
+id|sha1
 )paren
 (brace
 r_int
@@ -2548,7 +2548,7 @@ id|len
 comma
 id|refname
 comma
-id|result
+id|sha1
 comma
 l_int|0
 )paren
@@ -3371,7 +3371,7 @@ r_const
 r_int
 r_char
 op_star
-id|sha
+id|sha1
 comma
 r_int
 id|flags
@@ -3417,7 +3417,7 @@ c_func
 (paren
 id|refname
 comma
-id|sha
+id|sha1
 comma
 id|flags
 comma
