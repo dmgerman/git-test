@@ -13,7 +13,6 @@ macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;grep.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;dir.h&quot;
-macro_line|#include &quot;thread-utils.h&quot;
 DECL|variable|grep_usage
 r_static
 r_char
@@ -1049,6 +1048,15 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|pthread_mutex_init
+c_func
+(paren
+op_amp
+id|grep_attr_mutex
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|pthread_cond_init
 c_func
 (paren
@@ -1309,6 +1317,13 @@ c_func
 (paren
 op_amp
 id|read_sha1_mutex
+)paren
+suffix:semicolon
+id|pthread_mutex_destroy
+c_func
+(paren
+op_amp
+id|grep_attr_mutex
 )paren
 suffix:semicolon
 id|pthread_cond_destroy
@@ -5315,19 +5330,22 @@ c_func
 )paren
 op_eq
 l_int|1
-op_logical_or
-op_logical_neg
-id|grep_threads_ok
-c_func
-(paren
-op_amp
-id|opt
-)paren
 )paren
 id|use_threads
 op_assign
 l_int|0
 suffix:semicolon
+macro_line|#else
+id|use_threads
+op_assign
+l_int|0
+suffix:semicolon
+macro_line|#endif
+id|opt.use_threads
+op_assign
+id|use_threads
+suffix:semicolon
+macro_line|#ifndef NO_PTHREADS
 r_if
 c_cond
 (paren
@@ -5357,11 +5375,6 @@ id|opt
 )paren
 suffix:semicolon
 )brace
-macro_line|#else
-id|use_threads
-op_assign
-l_int|0
-suffix:semicolon
 macro_line|#endif
 id|compile_grep_patterns
 c_func
