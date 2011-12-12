@@ -4113,7 +4113,7 @@ suffix:semicolon
 )brace
 id|head_p
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 l_string|&quot;HEAD&quot;

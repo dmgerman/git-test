@@ -3047,7 +3047,7 @@ id|cmd-&gt;ref_name
 suffix:semicolon
 id|dst_name
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|buf.buf

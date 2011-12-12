@@ -3051,7 +3051,7 @@ l_int|NULL
 suffix:semicolon
 id|head_ref
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 l_string|&quot;HEAD&quot;
@@ -5811,7 +5811,7 @@ r_char
 op_star
 id|r
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|peer-&gt;name
@@ -6054,7 +6054,7 @@ id|flag
 suffix:semicolon
 id|dst_value
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|matched_src-&gt;name

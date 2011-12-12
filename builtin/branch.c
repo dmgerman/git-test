@@ -1206,7 +1206,7 @@ id|cp
 suffix:semicolon
 id|dst
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|src

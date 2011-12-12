@@ -2647,7 +2647,7 @@ l_string|&quot;Checking HEAD link&bslash;n&quot;
 suffix:semicolon
 id|head_points_at
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 l_string|&quot;HEAD&quot;

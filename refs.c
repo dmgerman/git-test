@@ -1856,7 +1856,7 @@ l_int|0
 suffix:semicolon
 id|resolves_to
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|refname
@@ -2626,11 +2626,11 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|resolve_ref
+DECL|function|resolve_ref_unsafe
 r_const
 r_char
 op_star
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 r_const
@@ -3174,7 +3174,7 @@ r_char
 op_star
 id|ret
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|ref
@@ -3248,7 +3248,7 @@ id|flags
 r_if
 c_cond
 (paren
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|ref
@@ -5977,7 +5977,7 @@ id|str
 suffix:semicolon
 id|r
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|fullref
@@ -6201,7 +6201,7 @@ id|str
 suffix:semicolon
 id|ref
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|path
@@ -6428,7 +6428,7 @@ l_int|1
 suffix:semicolon
 id|ref
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|ref
@@ -6491,7 +6491,7 @@ suffix:semicolon
 )brace
 id|ref
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|orig_ref
@@ -7386,7 +7386,7 @@ id|oldref
 suffix:semicolon
 id|symref
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|oldref
@@ -9026,7 +9026,7 @@ id|head_ref
 suffix:semicolon
 id|head_ref
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 l_string|&quot;HEAD&quot;
@@ -11278,7 +11278,7 @@ suffix:semicolon
 r_return
 op_logical_neg
 op_logical_neg
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|refname

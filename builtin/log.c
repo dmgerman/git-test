@@ -5496,7 +5496,7 @@ id|name
 suffix:semicolon
 id|branch
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|buf.buf
@@ -6838,7 +6838,7 @@ id|rev
 suffix:semicolon
 id|ref
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 l_string|&quot;HEAD&quot;

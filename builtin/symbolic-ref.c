@@ -48,7 +48,7 @@ r_char
 op_star
 id|refs_heads_master
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|HEAD
