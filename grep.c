@@ -5158,7 +5158,11 @@ multiline_comment|/* If this condition is true, then we may use the attribute&n;
 r_if
 c_cond
 (paren
+(paren
 id|opt-&gt;funcname
+op_logical_or
+id|opt-&gt;funcbody
+)paren
 op_logical_and
 op_logical_neg
 id|opt-&gt;unmatch_name_only
@@ -5414,7 +5418,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 id|opt-&gt;funcname
+op_logical_or
+id|opt-&gt;funcbody
+)paren
 op_logical_and
 op_logical_neg
 id|opt-&gt;unmatch_name_only
