@@ -5557,6 +5557,7 @@ r_return
 id|result
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Return true iff a reference named refname could be created without&n; * conflicting with the name of an existing reference.  If oldrefname&n; * is non-NULL, ignore potential conflicts with oldrefname (e.g.,&n; * because oldrefname is scheduled for deletion in the same&n; * operation).&n; */
 DECL|function|is_refname_available
 r_static
 r_int
@@ -5577,9 +5578,6 @@ r_struct
 id|ref_array
 op_star
 id|array
-comma
-r_int
-id|quiet
 )paren
 (brace
 r_int
@@ -5696,12 +5694,6 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 (brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|quiet
-)paren
 id|error
 c_func
 (paren
@@ -6518,8 +6510,6 @@ c_func
 (paren
 l_int|NULL
 )paren
-comma
-l_int|0
 )paren
 )paren
 (brace
@@ -7393,8 +7383,6 @@ c_func
 (paren
 l_int|NULL
 )paren
-comma
-l_int|0
 )paren
 )paren
 r_return
@@ -7416,8 +7404,6 @@ c_func
 (paren
 l_int|NULL
 )paren
-comma
-l_int|0
 )paren
 )paren
 r_return
