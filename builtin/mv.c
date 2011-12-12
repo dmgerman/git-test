@@ -345,6 +345,15 @@ id|builtin_mv_options
 )braket
 op_assign
 (brace
+id|OPT__VERBOSE
+c_func
+(paren
+op_amp
+id|verbose
+comma
+l_string|&quot;be verbose&quot;
+)paren
+comma
 id|OPT__DRY_RUN
 c_func
 (paren
