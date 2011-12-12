@@ -711,10 +711,10 @@ r_struct
 id|ref_array
 id|extra_refs
 suffix:semicolon
-DECL|function|free_ref_array
+DECL|function|clear_ref_array
 r_static
 r_void
-id|free_ref_array
+id|clear_ref_array
 c_func
 (paren
 r_struct
@@ -783,7 +783,7 @@ c_cond
 (paren
 id|refs-&gt;did_packed
 )paren
-id|free_ref_array
+id|clear_ref_array
 c_func
 (paren
 op_amp
@@ -812,7 +812,7 @@ c_cond
 (paren
 id|refs-&gt;did_loose
 )paren
-id|free_ref_array
+id|clear_ref_array
 c_func
 (paren
 op_amp
@@ -1269,7 +1269,7 @@ c_func
 r_void
 )paren
 (brace
-id|free_ref_array
+id|clear_ref_array
 c_func
 (paren
 op_amp
