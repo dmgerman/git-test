@@ -62,6 +62,7 @@ id|refs
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * Parse one line from a packed-refs file.  Write the SHA1 to sha1.&n; * Return a pointer to the refname within the line (null-terminated),&n; * or NULL if there was a problem.&n; */
 DECL|function|parse_ref_line
 r_static
 r_const
