@@ -32,6 +32,7 @@ id|peeled
 l_int|20
 )braket
 suffix:semicolon
+multiline_comment|/* The full name of the reference (e.g., &quot;refs/heads/master&quot;): */
 DECL|member|name
 r_char
 id|name
