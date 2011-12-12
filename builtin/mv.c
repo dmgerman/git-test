@@ -1217,10 +1217,10 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;%s; will overwrite!&quot;
+l_string|&quot;overwriting &squot;%s&squot;&quot;
 )paren
 comma
-id|bad
+id|dst
 )paren
 suffix:semicolon
 id|bad
