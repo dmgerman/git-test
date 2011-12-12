@@ -183,7 +183,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|refname
 comma
 r_const
 r_int
@@ -223,7 +223,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|name
+id|refname
 )paren
 op_plus
 l_int|1
@@ -264,7 +264,7 @@ op_logical_and
 id|check_refname_format
 c_func
 (paren
-id|name
+id|refname
 comma
 id|REFNAME_ALLOW_ONELEVEL
 op_or
@@ -276,7 +276,7 @@ c_func
 (paren
 l_string|&quot;Reference has invalid format: &squot;%s&squot;&quot;
 comma
-id|name
+id|refname
 )paren
 suffix:semicolon
 id|memcpy
@@ -284,7 +284,7 @@ c_func
 (paren
 id|entry-&gt;name
 comma
-id|name
+id|refname
 comma
 id|len
 )paren
@@ -545,7 +545,7 @@ comma
 r_const
 r_char
 op_star
-id|name
+id|refname
 )paren
 (brace
 r_struct
@@ -563,7 +563,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|name
+id|refname
 op_eq
 l_int|NULL
 )paren
@@ -584,7 +584,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|name
+id|refname
 )paren
 op_plus
 l_int|1
@@ -608,7 +608,7 @@ c_func
 (paren
 id|e-&gt;name
 comma
-id|name
+id|refname
 comma
 id|len
 )paren
@@ -1070,7 +1070,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|name
+id|refname
 suffix:semicolon
 r_static
 r_const
@@ -1133,7 +1133,7 @@ multiline_comment|/* perhaps other traits later as well */
 r_continue
 suffix:semicolon
 )brace
-id|name
+id|refname
 op_assign
 id|parse_ref_line
 c_func
@@ -1146,13 +1146,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|name
+id|refname
 )paren
 (brace
 id|add_ref
 c_func
 (paren
-id|name
+id|refname
 comma
 id|sha1
 comma
@@ -1231,7 +1231,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|refname
 comma
 r_const
 r_int
@@ -1246,7 +1246,7 @@ id|flag
 id|add_ref
 c_func
 (paren
-id|name
+id|refname
 comma
 id|sha1
 comma
@@ -1473,7 +1473,7 @@ id|base
 suffix:semicolon
 r_char
 op_star
-id|ref
+id|refname
 op_assign
 id|xmalloc
 c_func
@@ -1486,7 +1486,7 @@ suffix:semicolon
 id|memcpy
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|base
 comma
@@ -1507,7 +1507,7 @@ l_int|1
 op_ne
 l_char|&squot;/&squot;
 )paren
-id|ref
+id|refname
 (braket
 id|baselen
 op_increment
@@ -1598,7 +1598,7 @@ suffix:semicolon
 id|memcpy
 c_func
 (paren
-id|ref
+id|refname
 op_plus
 id|baselen
 comma
@@ -1621,7 +1621,7 @@ id|submodule
 comma
 l_string|&quot;%s&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:colon
 id|git_path
@@ -1629,7 +1629,7 @@ c_func
 (paren
 l_string|&quot;%s&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -1663,7 +1663,7 @@ c_func
 (paren
 id|submodule
 comma
-id|ref
+id|refname
 comma
 id|array
 )paren
@@ -1695,7 +1695,7 @@ c_func
 (paren
 id|submodule
 comma
-id|ref
+id|refname
 comma
 id|sha1
 )paren
@@ -1722,7 +1722,7 @@ c_cond
 id|read_ref_full
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|sha1
 comma
@@ -1747,7 +1747,7 @@ suffix:semicolon
 id|add_ref
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|sha1
 comma
@@ -1764,7 +1764,7 @@ suffix:semicolon
 id|free
 c_func
 (paren
-id|ref
+id|refname
 )paren
 suffix:semicolon
 id|closedir
@@ -2573,7 +2573,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 r_char
@@ -2602,7 +2602,7 @@ c_func
 (paren
 id|packed
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -2637,7 +2637,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 r_char
@@ -2668,7 +2668,7 @@ l_int|256
 suffix:semicolon
 r_static
 r_char
-id|ref_buffer
+id|refname_buffer
 (braket
 l_int|256
 )braket
@@ -2689,7 +2689,7 @@ c_cond
 id|check_refname_format
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|REFNAME_ALLOW_ONELEVEL
 )paren
@@ -2744,7 +2744,7 @@ id|path
 comma
 l_string|&quot;%s&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -2780,7 +2780,7 @@ op_logical_neg
 id|get_packed_ref
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|sha1
 )paren
@@ -2797,7 +2797,7 @@ op_or_assign
 id|REF_ISPACKED
 suffix:semicolon
 r_return
-id|ref
+id|refname
 suffix:semicolon
 )brace
 multiline_comment|/* The reference is not a packed reference, either. */
@@ -2820,7 +2820,7 @@ id|sha1
 )paren
 suffix:semicolon
 r_return
-id|ref
+id|refname
 suffix:semicolon
 )brace
 )brace
@@ -2894,14 +2894,14 @@ l_int|0
 id|strcpy
 c_func
 (paren
-id|ref_buffer
+id|refname_buffer
 comma
 id|buffer
 )paren
 suffix:semicolon
-id|ref
+id|refname
 op_assign
-id|ref_buffer
+id|refname_buffer
 suffix:semicolon
 r_if
 c_cond
@@ -3085,12 +3085,12 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-id|ref
+id|refname
 op_assign
 id|strcpy
 c_func
 (paren
-id|ref_buffer
+id|refname_buffer
 comma
 id|buf
 )paren
@@ -3143,7 +3143,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 r_return
-id|ref
+id|refname
 suffix:semicolon
 )brace
 multiline_comment|/* The argument to filter_refs */
@@ -3177,7 +3177,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 r_char
@@ -3198,7 +3198,7 @@ c_cond
 id|resolve_ref
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|sha1
 comma
@@ -3222,7 +3222,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 r_char
@@ -3234,7 +3234,7 @@ r_return
 id|read_ref_full
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|sha1
 comma
@@ -3365,7 +3365,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_const
 r_int
@@ -3401,7 +3401,7 @@ c_func
 (paren
 id|filter-&gt;pattern
 comma
-id|ref
+id|refname
 comma
 l_int|0
 )paren
@@ -3415,7 +3415,7 @@ op_member_access_from_pointer
 id|fn
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|sha
 comma
@@ -3433,7 +3433,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 r_char
@@ -3464,7 +3464,7 @@ op_logical_and
 (paren
 id|current_ref-&gt;name
 op_eq
-id|ref
+id|refname
 op_logical_or
 op_logical_neg
 id|strcmp
@@ -3472,7 +3472,7 @@ c_func
 (paren
 id|current_ref-&gt;name
 comma
-id|ref
+id|refname
 )paren
 )paren
 )paren
@@ -3515,7 +3515,7 @@ c_cond
 id|read_ref_full
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|base
 comma
@@ -3559,7 +3559,7 @@ c_func
 (paren
 id|array
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -3614,7 +3614,7 @@ c_func
 (paren
 id|o
 comma
-id|ref
+id|refname
 comma
 l_int|0
 )paren
@@ -4887,7 +4887,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Try to read one refname component from the front of ref.  Return&n; * the length of the component found, or -1 if the component is not&n; * legal.&n; */
+multiline_comment|/*&n; * Try to read one refname component from the front of refname.  Return&n; * the length of the component found, or -1 if the component is not&n; * legal.&n; */
 DECL|function|check_refname_component
 r_static
 r_int
@@ -4897,7 +4897,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 id|flags
@@ -4918,7 +4918,7 @@ c_loop
 (paren
 id|cp
 op_assign
-id|ref
+id|refname
 suffix:semicolon
 suffix:semicolon
 id|cp
@@ -4997,7 +4997,7 @@ c_cond
 (paren
 id|cp
 op_eq
-id|ref
+id|refname
 )paren
 r_return
 l_int|1
@@ -5006,7 +5006,7 @@ multiline_comment|/* Component has zero length. */
 r_if
 c_cond
 (paren
-id|ref
+id|refname
 (braket
 l_int|0
 )braket
@@ -5032,7 +5032,7 @@ multiline_comment|/*&n;&t;&t; * Even if leading dots are allowed, don&squot;t al
 r_if
 c_cond
 (paren
-id|ref
+id|refname
 (braket
 l_int|1
 )braket
@@ -5048,7 +5048,7 @@ r_if
 c_cond
 (paren
 id|cp
-id|ref
+id|refname
 op_ge
 l_int|5
 op_logical_and
@@ -5070,7 +5070,7 @@ suffix:semicolon
 multiline_comment|/* Refname ends with &quot;.lock&quot;. */
 r_return
 id|cp
-id|ref
+id|refname
 suffix:semicolon
 )brace
 DECL|function|check_refname_format
@@ -5081,7 +5081,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 id|flags
@@ -5106,7 +5106,7 @@ op_assign
 id|check_refname_component
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|flags
 )paren
@@ -5128,7 +5128,7 @@ op_amp
 id|REFNAME_REFSPEC_PATTERN
 )paren
 op_logical_and
-id|ref
+id|refname
 (braket
 l_int|0
 )braket
@@ -5136,14 +5136,14 @@ op_eq
 l_char|&squot;*&squot;
 op_logical_and
 (paren
-id|ref
+id|refname
 (braket
 l_int|1
 )braket
 op_eq
 l_char|&squot;&bslash;0&squot;
 op_logical_or
-id|ref
+id|refname
 (braket
 l_int|1
 )braket
@@ -5176,7 +5176,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ref
+id|refname
 (braket
 id|component_len
 )braket
@@ -5186,7 +5186,7 @@ l_char|&squot;&bslash;0&squot;
 r_break
 suffix:semicolon
 multiline_comment|/* Skip to next component. */
-id|ref
+id|refname
 op_add_assign
 id|component_len
 op_plus
@@ -5196,7 +5196,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ref
+id|refname
 (braket
 id|component_len
 l_int|1
@@ -5566,12 +5566,12 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_const
 r_char
 op_star
-id|oldref
+id|oldrefname
 comma
 r_struct
 id|ref_array
@@ -5590,7 +5590,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|ref
+id|refname
 )paren
 suffix:semicolon
 multiline_comment|/* e.g. &squot;foo/bar&squot; */
@@ -5624,12 +5624,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|oldref
+id|oldrefname
 op_logical_or
 id|strcmp
 c_func
 (paren
-id|oldref
+id|oldrefname
 comma
 id|entry-&gt;name
 )paren
@@ -5672,7 +5672,7 @@ ques
 c_cond
 id|entry-&gt;name
 suffix:colon
-id|ref
+id|refname
 suffix:semicolon
 r_if
 c_cond
@@ -5681,7 +5681,7 @@ op_logical_neg
 id|strncmp
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|entry-&gt;name
 comma
@@ -5709,7 +5709,7 @@ l_string|&quot;&squot;%s&squot; exists; cannot create &squot;%s&squot;&quot;
 comma
 id|entry-&gt;name
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 r_return
@@ -6294,7 +6294,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_const
 r_int
@@ -6317,9 +6317,9 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|orig_ref
+id|orig_refname
 op_assign
-id|ref
+id|refname
 suffix:semicolon
 r_struct
 id|ref_lock
@@ -6373,12 +6373,12 @@ id|lock-&gt;lock_fd
 op_assign
 l_int|1
 suffix:semicolon
-id|ref
+id|refname
 op_assign
 id|resolve_ref
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|lock-&gt;old_sha1
 comma
@@ -6392,7 +6392,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|ref
+id|refname
 op_logical_and
 id|errno
 op_eq
@@ -6407,7 +6407,7 @@ c_func
 (paren
 l_string|&quot;%s&quot;
 comma
-id|orig_ref
+id|orig_refname
 )paren
 suffix:semicolon
 r_if
@@ -6429,19 +6429,19 @@ c_func
 (paren
 l_string|&quot;there are still refs under &squot;%s&squot;&quot;
 comma
-id|orig_ref
+id|orig_refname
 )paren
 suffix:semicolon
 r_goto
 id|error_return
 suffix:semicolon
 )brace
-id|ref
+id|refname
 op_assign
 id|resolve_ref
 c_func
 (paren
-id|orig_ref
+id|orig_refname
 comma
 id|lock-&gt;old_sha1
 comma
@@ -6466,7 +6466,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|ref
+id|refname
 )paren
 (brace
 id|last_errno
@@ -6478,7 +6478,7 @@ c_func
 (paren
 l_string|&quot;unable to resolve reference %s: %s&quot;
 comma
-id|orig_ref
+id|orig_refname
 comma
 id|strerror
 c_func
@@ -6509,7 +6509,7 @@ op_logical_neg
 id|is_refname_available
 c_func
 (paren
-id|ref
+id|refname
 comma
 l_int|NULL
 comma
@@ -6557,9 +6557,9 @@ op_amp
 id|REF_NODEREF
 )paren
 (brace
-id|ref
+id|refname
 op_assign
-id|orig_ref
+id|orig_refname
 suffix:semicolon
 id|lflags
 op_or_assign
@@ -6571,7 +6571,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|ref
+id|refname
 )paren
 suffix:semicolon
 id|lock-&gt;orig_ref_name
@@ -6579,7 +6579,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|orig_ref
+id|orig_refname
 )paren
 suffix:semicolon
 id|ref_file
@@ -6589,7 +6589,7 @@ c_func
 (paren
 l_string|&quot;%s&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -6700,7 +6700,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_const
 r_int
@@ -6721,7 +6721,7 @@ c_cond
 id|check_refname_format
 c_func
 (paren
-id|ref
+id|refname
 comma
 l_int|0
 )paren
@@ -6739,7 +6739,7 @@ c_func
 (paren
 l_string|&quot;refs/%s&quot;
 comma
-id|ref
+id|refname
 )paren
 )paren
 suffix:semicolon
@@ -6767,7 +6767,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_const
 r_int
@@ -6785,7 +6785,7 @@ c_cond
 id|check_refname_format
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|REFNAME_ALLOW_ONELEVEL
 )paren
@@ -6797,7 +6797,7 @@ r_return
 id|lock_ref_sha1_basic
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|old_sha1
 comma
@@ -7242,12 +7242,12 @@ c_func
 r_const
 r_char
 op_star
-id|oldref
+id|oldrefname
 comma
 r_const
 r_char
 op_star
-id|newref
+id|newrefname
 comma
 r_const
 r_char
@@ -7297,7 +7297,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 comma
 op_amp
@@ -7328,7 +7328,7 @@ c_func
 (paren
 l_string|&quot;reflog for %s is a symlink&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 suffix:semicolon
 id|symref
@@ -7336,7 +7336,7 @@ op_assign
 id|resolve_ref
 c_func
 (paren
-id|oldref
+id|oldrefname
 comma
 id|orig_sha1
 comma
@@ -7359,7 +7359,7 @@ c_func
 (paren
 l_string|&quot;refname %s is a symbolic ref, renaming it is not supported&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 suffix:semicolon
 r_if
@@ -7374,7 +7374,7 @@ c_func
 (paren
 l_string|&quot;refname %s not found&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 suffix:semicolon
 r_if
@@ -7384,9 +7384,9 @@ op_logical_neg
 id|is_refname_available
 c_func
 (paren
-id|newref
+id|newrefname
 comma
-id|oldref
+id|oldrefname
 comma
 id|get_packed_refs
 c_func
@@ -7407,9 +7407,9 @@ op_logical_neg
 id|is_refname_available
 c_func
 (paren
-id|newref
+id|newrefname
 comma
-id|oldref
+id|oldrefname
 comma
 id|get_loose_refs
 c_func
@@ -7436,7 +7436,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 comma
 id|git_path
@@ -7454,7 +7454,7 @@ l_string|&quot;unable to move logfile logs/%s to &quot;
 id|TMP_RENAMED_LOG
 l_string|&quot;: %s&quot;
 comma
-id|oldref
+id|oldrefname
 comma
 id|strerror
 c_func
@@ -7469,7 +7469,7 @@ c_cond
 id|delete_ref
 c_func
 (paren
-id|oldref
+id|oldrefname
 comma
 id|orig_sha1
 comma
@@ -7482,7 +7482,7 @@ c_func
 (paren
 l_string|&quot;unable to delete old %s&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7496,7 +7496,7 @@ op_logical_neg
 id|read_ref_full
 c_func
 (paren
-id|newref
+id|newrefname
 comma
 id|sha1
 comma
@@ -7509,7 +7509,7 @@ op_logical_and
 id|delete_ref
 c_func
 (paren
-id|newref
+id|newrefname
 comma
 id|sha1
 comma
@@ -7536,7 +7536,7 @@ c_func
 (paren
 l_string|&quot;%s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 )paren
 )paren
@@ -7546,7 +7546,7 @@ c_func
 (paren
 l_string|&quot;Directory not empty: %s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7561,7 +7561,7 @@ c_func
 (paren
 l_string|&quot;unable to delete existing %s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7582,7 +7582,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 )paren
 )paren
@@ -7592,7 +7592,7 @@ c_func
 (paren
 l_string|&quot;unable to create directory for %s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7620,7 +7620,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 )paren
 )paren
@@ -7649,7 +7649,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 )paren
 )paren
@@ -7659,7 +7659,7 @@ c_func
 (paren
 l_string|&quot;Directory not empty: logs/%s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7679,7 +7679,7 @@ l_string|&quot;unable to move logfile &quot;
 id|TMP_RENAMED_LOG
 l_string|&quot; to logs/%s: %s&quot;
 comma
-id|newref
+id|newrefname
 comma
 id|strerror
 c_func
@@ -7702,7 +7702,7 @@ op_assign
 id|lock_ref_sha1_basic
 c_func
 (paren
-id|newref
+id|newrefname
 comma
 l_int|NULL
 comma
@@ -7723,7 +7723,7 @@ c_func
 (paren
 l_string|&quot;unable to lock %s for update&quot;
 comma
-id|newref
+id|newrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7761,7 +7761,7 @@ c_func
 (paren
 l_string|&quot;unable to write current sha1 into %s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7778,7 +7778,7 @@ op_assign
 id|lock_ref_sha1_basic
 c_func
 (paren
-id|oldref
+id|oldrefname
 comma
 l_int|NULL
 comma
@@ -7799,7 +7799,7 @@ c_func
 (paren
 l_string|&quot;unable to lock %s for rollback&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 suffix:semicolon
 r_goto
@@ -7836,7 +7836,7 @@ c_func
 (paren
 l_string|&quot;unable to write current sha1 into %s&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 suffix:semicolon
 id|log_all_ref_updates
@@ -7858,7 +7858,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|newref
+id|newrefname
 )paren
 comma
 id|git_path
@@ -7866,7 +7866,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 )paren
 )paren
@@ -7875,9 +7875,9 @@ c_func
 (paren
 l_string|&quot;unable to restore logfile %s from %s: %s&quot;
 comma
-id|oldref
+id|oldrefname
 comma
-id|newref
+id|newrefname
 comma
 id|strerror
 c_func
@@ -7908,7 +7908,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|oldref
+id|oldrefname
 )paren
 )paren
 )paren
@@ -7919,7 +7919,7 @@ l_string|&quot;unable to restore logfile %s from &quot;
 id|TMP_RENAMED_LOG
 l_string|&quot;: %s&quot;
 comma
-id|oldref
+id|oldrefname
 comma
 id|strerror
 c_func
@@ -8160,7 +8160,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref_name
+id|refname
 comma
 r_char
 op_star
@@ -8188,7 +8188,7 @@ id|bufsize
 comma
 l_string|&quot;logs/%s&quot;
 comma
-id|ref_name
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -8201,7 +8201,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|ref_name
+id|refname
 comma
 l_string|&quot;refs/heads/&quot;
 )paren
@@ -8210,7 +8210,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|ref_name
+id|refname
 comma
 l_string|&quot;refs/remotes/&quot;
 )paren
@@ -8219,7 +8219,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|ref_name
+id|refname
 comma
 l_string|&quot;refs/notes/&quot;
 )paren
@@ -8228,7 +8228,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|ref_name
+id|refname
 comma
 l_string|&quot;HEAD&quot;
 )paren
@@ -8392,7 +8392,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref_name
+id|refname
 comma
 r_const
 r_int
@@ -8468,7 +8468,7 @@ op_assign
 id|log_ref_setup
 c_func
 (paren
-id|ref_name
+id|refname
 comma
 id|log_file
 comma
@@ -9496,7 +9496,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 r_int
@@ -9591,7 +9591,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 id|logfd
@@ -10238,7 +10238,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 id|each_reflog_ent_fn
 id|fn
@@ -10278,7 +10278,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 id|logfp
@@ -10664,7 +10664,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 id|each_reflog_ent_fn
 id|fn
@@ -10678,7 +10678,7 @@ r_return
 id|for_each_recent_reflog_ent
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|fn
 comma
@@ -11398,7 +11398,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 id|strict
@@ -11549,16 +11549,16 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|ref
+id|refname
 )paren
 suffix:semicolon
-multiline_comment|/* buffer for scanf result, at most ref must fit */
+multiline_comment|/* buffer for scanf result, at most refname must fit */
 id|short_name
 op_assign
 id|xstrdup
 c_func
 (paren
-id|ref
+id|refname
 )paren
 suffix:semicolon
 multiline_comment|/* skip first rule, it will always match */
@@ -11597,7 +11597,7 @@ op_ne
 id|sscanf
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|scanf_fmts
 (braket
@@ -11721,7 +11721,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|ref
+id|refname
 )paren
 suffix:semicolon
 )brace
