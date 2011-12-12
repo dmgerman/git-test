@@ -175,6 +175,7 @@ r_return
 id|line
 suffix:semicolon
 )brace
+multiline_comment|/* Add a ref_entry to the end of the ref_array (unsorted). */
 DECL|function|add_ref
 r_static
 r_void
