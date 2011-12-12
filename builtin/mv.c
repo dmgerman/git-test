@@ -1211,6 +1211,11 @@ id|st.st_mode
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|verbose
+)paren
 id|warning
 c_func
 (paren
