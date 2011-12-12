@@ -643,12 +643,15 @@ id|argc
 op_ne
 l_int|1
 )paren
-id|usage_with_options
+id|die
 c_func
 (paren
-id|builtin_mv_usage
+l_string|&quot;destination &squot;%s&squot; is not a directory&quot;
 comma
-id|builtin_mv_options
+id|dest_path
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 id|destination
