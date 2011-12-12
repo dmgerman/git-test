@@ -6731,11 +6731,6 @@ id|ref_array
 op_star
 id|packed
 suffix:semicolon
-r_struct
-id|ref_entry
-op_star
-id|ref
-suffix:semicolon
 r_int
 id|fd
 comma
@@ -6753,8 +6748,9 @@ l_int|NULL
 )paren
 )paren
 suffix:semicolon
-id|ref
-op_assign
+r_if
+c_cond
+(paren
 id|search_ref_array
 c_func
 (paren
@@ -6762,11 +6758,6 @@ id|packed
 comma
 id|refname
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|ref
 op_eq
 l_int|NULL
 )paren
@@ -6846,6 +6837,9 @@ suffix:semicolon
 r_int
 id|len
 suffix:semicolon
+r_struct
+id|ref_entry
+op_star
 id|ref
 op_assign
 id|packed-&gt;refs
