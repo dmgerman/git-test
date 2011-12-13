@@ -2373,10 +2373,6 @@ comma
 op_amp
 id|remote_refs
 comma
-l_int|0
-comma
-l_int|NULL
-comma
 id|REF_NORMAL
 comma
 op_amp
