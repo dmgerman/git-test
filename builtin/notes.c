@@ -4589,6 +4589,10 @@ r_struct
 id|pretty_print_context
 id|pretty_ctx
 suffix:semicolon
+r_void
+op_star
+id|local_ref_to_free
+suffix:semicolon
 r_int
 id|ret
 suffix:semicolon
@@ -4695,7 +4699,9 @@ l_int|0
 suffix:semicolon
 id|o-&gt;local_ref
 op_assign
-id|resolve_ref
+id|local_ref_to_free
+op_assign
+id|resolve_refdup
 c_func
 (paren
 l_string|&quot;NOTES_MERGE_REF&quot;
@@ -4717,14 +4723,6 @@ id|die
 c_func
 (paren
 l_string|&quot;Failed to resolve NOTES_MERGE_REF&quot;
-)paren
-suffix:semicolon
-id|o-&gt;local_ref
-op_assign
-id|xstrdup
-c_func
-(paren
-id|o-&gt;local_ref
 )paren
 suffix:semicolon
 r_if
@@ -4846,11 +4844,7 @@ suffix:semicolon
 id|free
 c_func
 (paren
-(paren
-r_char
-op_star
-)paren
-id|o-&gt;local_ref
+id|local_ref_to_free
 )paren
 suffix:semicolon
 r_return
