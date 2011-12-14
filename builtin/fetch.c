@@ -1257,7 +1257,8 @@ r_char
 op_star
 id|remote
 comma
-r_char
+r_struct
+id|strbuf
 op_star
 id|display
 )paren
@@ -1297,11 +1298,6 @@ c_func
 (paren
 id|ref-&gt;name
 )paren
-suffix:semicolon
-op_star
-id|display
-op_assign
-l_int|0
 suffix:semicolon
 id|type
 op_assign
@@ -1356,7 +1352,7 @@ id|verbosity
 OG
 l_int|0
 )paren
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|display
@@ -1415,7 +1411,7 @@ id|ref-&gt;old_sha1
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * If this is the head, and it&squot;s not okay to update&n;&t;&t; * the head, and the old value of the head isn&squot;t empty...&n;&t;&t; */
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|display
@@ -1480,7 +1476,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|display
@@ -1643,7 +1639,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|display
@@ -1776,7 +1772,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|display
@@ -1903,7 +1899,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|display
@@ -1949,7 +1945,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
 id|display
@@ -2079,8 +2075,6 @@ id|url_len
 comma
 id|i
 comma
-id|note_len
-comma
 id|shown_url
 op_assign
 l_int|0
@@ -2089,11 +2083,11 @@ id|rc
 op_assign
 l_int|0
 suffix:semicolon
-r_char
+r_struct
+id|strbuf
 id|note
-(braket
-l_int|1024
-)braket
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -2489,9 +2483,12 @@ op_assign
 id|i
 l_int|3
 suffix:semicolon
-id|note_len
-op_assign
-l_int|0
+id|strbuf_reset
+c_func
+(paren
+op_amp
+id|note
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -2506,28 +2503,22 @@ c_cond
 op_star
 id|kind
 )paren
-id|note_len
-op_add_assign
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|note
-op_plus
-id|note_len
 comma
 l_string|&quot;%s &quot;
 comma
 id|kind
 )paren
 suffix:semicolon
-id|note_len
-op_add_assign
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|note
-op_plus
-id|note_len
 comma
 l_string|&quot;&squot;%s&squot; of &quot;
 comma
@@ -2535,13 +2526,6 @@ id|what
 )paren
 suffix:semicolon
 )brace
-id|note
-(braket
-id|note_len
-)braket
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
 id|fprintf
 c_func
 (paren
@@ -2567,7 +2551,7 @@ l_string|&quot;&quot;
 suffix:colon
 l_string|&quot;not-for-merge&quot;
 comma
-id|note
+id|note.buf
 )paren
 suffix:semicolon
 r_for
@@ -2622,6 +2606,13 @@ comma
 id|fp
 )paren
 suffix:semicolon
+id|strbuf_reset
+c_func
+(paren
+op_amp
+id|note
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2637,6 +2628,7 @@ id|ref
 comma
 id|what
 comma
+op_amp
 id|note
 )paren
 suffix:semicolon
@@ -2648,9 +2640,10 @@ id|ref
 suffix:semicolon
 )brace
 r_else
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|note
 comma
 l_string|&quot;* %-*s %-*s -&gt; FETCH_HEAD&quot;
@@ -2679,8 +2672,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_star
-id|note
+id|note.len
 )paren
 (brace
 r_if
@@ -2729,7 +2721,7 @@ id|stderr
 comma
 l_string|&quot; %s&bslash;n&quot;
 comma
-id|note
+id|note.buf
 )paren
 suffix:semicolon
 )brace
@@ -2757,6 +2749,13 @@ id|remote_name
 suffix:semicolon
 m_abort
 suffix:colon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|note
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
