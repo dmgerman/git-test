@@ -607,12 +607,6 @@ id|imap_server_conf
 op_star
 id|server
 suffix:semicolon
-DECL|member|use_namespace
-r_int
-id|use_namespace
-suffix:colon
-l_int|1
-suffix:semicolon
 )brace
 suffix:semicolon
 DECL|macro|NIL
