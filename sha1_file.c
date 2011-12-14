@@ -6016,8 +6016,13 @@ c_func
 l_string|&quot;bad object header&quot;
 )paren
 suffix:semicolon
-r_return
+id|size
+op_assign
+id|used
+op_assign
 l_int|0
+suffix:semicolon
+r_break
 suffix:semicolon
 )brace
 id|c

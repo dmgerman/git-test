@@ -196,7 +196,8 @@ r_struct
 id|name_path
 id|me
 suffix:semicolon
-r_int
+r_enum
+id|interesting
 id|match
 op_assign
 id|revs-&gt;diffopt.pathspec.nr
@@ -204,9 +205,9 @@ op_eq
 l_int|0
 ques
 c_cond
-l_int|2
+id|all_entries_interesting
 suffix:colon
-l_int|0
+id|entry_not_interesting
 suffix:semicolon
 r_int
 id|baselen
@@ -360,7 +361,7 @@ c_cond
 (paren
 id|match
 op_ne
-l_int|2
+id|all_entries_interesting
 )paren
 (brace
 id|match
@@ -383,8 +384,8 @@ r_if
 c_cond
 (paren
 id|match
-OL
-l_int|0
+op_eq
+id|all_entries_not_interesting
 )paren
 r_break
 suffix:semicolon
@@ -393,7 +394,7 @@ c_cond
 (paren
 id|match
 op_eq
-l_int|0
+id|entry_not_interesting
 )paren
 r_continue
 suffix:semicolon
