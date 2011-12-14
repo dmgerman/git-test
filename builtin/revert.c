@@ -3759,6 +3759,8 @@ r_int
 id|saved
 comma
 id|status
+comma
+id|padding
 suffix:semicolon
 r_if
 c_cond
@@ -3769,7 +3771,7 @@ c_func
 (paren
 id|bol
 comma
-l_string|&quot;pick &quot;
+l_string|&quot;pick&quot;
 )paren
 )paren
 (brace
@@ -3782,7 +3784,7 @@ op_add_assign
 id|strlen
 c_func
 (paren
-l_string|&quot;pick &quot;
+l_string|&quot;pick&quot;
 )paren
 suffix:semicolon
 )brace
@@ -3796,7 +3798,7 @@ c_func
 (paren
 id|bol
 comma
-l_string|&quot;revert &quot;
+l_string|&quot;revert&quot;
 )paren
 )paren
 (brace
@@ -3809,13 +3811,37 @@ op_add_assign
 id|strlen
 c_func
 (paren
-l_string|&quot;revert &quot;
+l_string|&quot;revert&quot;
 )paren
 suffix:semicolon
 )brace
 r_else
 r_return
 l_int|NULL
+suffix:semicolon
+multiline_comment|/* Eat up extra spaces/ tabs before object name */
+id|padding
+op_assign
+id|strspn
+c_func
+(paren
+id|bol
+comma
+l_string|&quot; &bslash;t&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|padding
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+id|bol
+op_add_assign
+id|padding
 suffix:semicolon
 id|end_of_object_name
 op_assign
@@ -3826,7 +3852,7 @@ c_func
 (paren
 id|bol
 comma
-l_string|&quot; &bslash;n&quot;
+l_string|&quot; &bslash;t&bslash;n&quot;
 )paren
 suffix:semicolon
 id|saved
