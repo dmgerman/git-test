@@ -3706,6 +3706,13 @@ comma
 id|msg.subject
 )paren
 suffix:semicolon
+id|free_message
+c_func
+(paren
+op_amp
+id|msg
+)paren
+suffix:semicolon
 )brace
 r_return
 l_int|0
