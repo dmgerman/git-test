@@ -4787,9 +4787,12 @@ id|dir.flags
 op_or_assign
 id|DIR_SHOW_IGNORED
 suffix:semicolon
-id|dir.exclude_per_dir
-op_assign
-l_string|&quot;.gitignore&quot;
+id|setup_standard_excludes
+c_func
+(paren
+op_amp
+id|dir
+)paren
 suffix:semicolon
 id|opts.dir
 op_assign
