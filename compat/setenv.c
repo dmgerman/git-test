@@ -36,6 +36,14 @@ c_cond
 op_logical_neg
 id|name
 op_logical_or
+id|strchr
+c_func
+(paren
+id|name
+comma
+l_char|&squot;=&squot;
+)paren
+op_logical_or
 op_logical_neg
 id|value
 )paren
