@@ -7111,10 +7111,15 @@ c_cond
 id|show_raw_time
 )paren
 (brace
-id|sprintf
+id|snprintf
 c_func
 (paren
 id|time_buf
+comma
+r_sizeof
+(paren
+id|time_buf
+)paren
 comma
 l_string|&quot;%lu %s&quot;
 comma
