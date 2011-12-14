@@ -225,7 +225,7 @@ comma
 multiline_comment|/* Jump targets or access declarations */
 l_string|&quot;!^[ &bslash;t]*[A-Za-z_][A-Za-z_0-9]*:.*$&bslash;n&quot;
 multiline_comment|/* C/++ functions/methods at top level */
-l_string|&quot;^([A-Za-z_][A-Za-z_0-9]*([ &bslash;t]+[A-Za-z_][A-Za-z_0-9]*([ &bslash;t]*::[ &bslash;t]*[^[:space:]]+)?){1,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&bslash;n&quot;
+l_string|&quot;^([A-Za-z_][A-Za-z_0-9]*([ &bslash;t*]+[A-Za-z_][A-Za-z_0-9]*([ &bslash;t]*::[ &bslash;t]*[^[:space:]]+)?){1,}[ &bslash;t]*&bslash;&bslash;([^;]*)$&bslash;n&quot;
 multiline_comment|/* compound type at top level */
 l_string|&quot;^((struct|class|enum)[^;]*)$&quot;
 comma
