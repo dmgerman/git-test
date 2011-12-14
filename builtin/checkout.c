@@ -67,6 +67,10 @@ DECL|member|writeout_error
 r_int
 id|writeout_error
 suffix:semicolon
+DECL|member|overwrite_ignore
+r_int
+id|overwrite_ignore
+suffix:semicolon
 multiline_comment|/* not set by parse_options */
 DECL|member|branch_exists
 r_int
@@ -2327,6 +2331,12 @@ id|topts.fn
 op_assign
 id|twoway_merge
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts-&gt;overwrite_ignore
+)paren
+(brace
 id|topts.dir
 op_assign
 id|xcalloc
@@ -2351,6 +2361,7 @@ c_func
 id|topts.dir
 )paren
 suffix:semicolon
+)brace
 id|tree
 op_assign
 id|parse_tree_indirect
@@ -4957,6 +4968,19 @@ comma
 l_string|&quot;perform a 3-way merge with the new branch&quot;
 )paren
 comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;overwrite-ignore&quot;
+comma
+op_amp
+id|opts.overwrite_ignore
+comma
+l_string|&quot;update ignored files (default)&quot;
+)paren
+comma
 id|OPT_STRING
 c_func
 (paren
@@ -5038,6 +5062,10 @@ r_sizeof
 r_new
 )paren
 )paren
+suffix:semicolon
+id|opts.overwrite_ignore
+op_assign
+l_int|1
 suffix:semicolon
 id|gitmodules_config
 c_func
