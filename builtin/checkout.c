@@ -770,6 +770,8 @@ l_int|20
 suffix:semicolon
 r_int
 id|mode
+op_assign
+l_int|0
 suffix:semicolon
 id|memset
 c_func
