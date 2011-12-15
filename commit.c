@@ -4379,7 +4379,8 @@ id|commit_tree
 c_func
 (paren
 r_const
-r_char
+r_struct
+id|strbuf
 op_star
 id|msg
 comma
@@ -4564,7 +4565,7 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 multiline_comment|/* And add the comment */
-id|strbuf_addstr
+id|strbuf_addbuf
 c_func
 (paren
 op_amp

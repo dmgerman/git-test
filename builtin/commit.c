@@ -8377,7 +8377,8 @@ c_cond
 id|commit_tree
 c_func
 (paren
-id|sb.buf
+op_amp
+id|sb
 comma
 id|active_cache_tree-&gt;sha1
 comma

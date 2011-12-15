@@ -341,7 +341,8 @@ c_cond
 id|commit_tree
 c_func
 (paren
-id|buffer.buf
+op_amp
+id|buffer
 comma
 id|tree_sha1
 comma
