@@ -4423,6 +4423,26 @@ comma
 id|OBJ_TREE
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|memchr
+c_func
+(paren
+id|msg-&gt;buf
+comma
+l_char|&squot;&bslash;0&squot;
+comma
+id|msg-&gt;len
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;a NUL byte in commit log message not allowed.&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* Not having i18n.commitencoding is the same as having utf-8 */
 id|encoding_is_utf8
 op_assign
