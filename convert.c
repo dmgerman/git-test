@@ -4110,6 +4110,8 @@ suffix:semicolon
 DECL|member|want_lf
 r_int
 id|want_lf
+suffix:colon
+l_int|1
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -4181,16 +4183,23 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* We are told to drain */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|input
 )paren
+(brace
+op_star
+id|osize_p
+op_sub_assign
+id|o
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/* We&squot;ve already dealt with the state */
+)brace
 id|count
 op_assign
 op_star
@@ -4339,9 +4348,11 @@ id|lf_to_crlf_filter
 op_star
 id|lf_to_crlf
 op_assign
-id|xmalloc
+id|xcalloc
 c_func
 (paren
+l_int|1
+comma
 r_sizeof
 (paren
 op_star
@@ -4353,10 +4364,6 @@ id|lf_to_crlf-&gt;filter.vtbl
 op_assign
 op_amp
 id|lf_to_crlf_vtbl
-suffix:semicolon
-id|lf_to_crlf-&gt;want_lf
-op_assign
-l_int|0
 suffix:semicolon
 r_return
 (paren
