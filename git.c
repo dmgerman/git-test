@@ -2723,6 +2723,12 @@ id|cmd_upload_archive
 )brace
 comma
 (brace
+l_string|&quot;upload-archive--writer&quot;
+comma
+id|cmd_upload_archive_writer
+)brace
+comma
+(brace
 l_string|&quot;var&quot;
 comma
 id|cmd_var
