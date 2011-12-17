@@ -209,7 +209,6 @@ op_star
 id|squash_message
 suffix:semicolon
 DECL|variable|all
-DECL|variable|edit_flag
 DECL|variable|also
 DECL|variable|interactive
 DECL|variable|patch_interactive
@@ -219,8 +218,6 @@ DECL|variable|signoff
 r_static
 r_int
 id|all
-comma
-id|edit_flag
 comma
 id|also
 comma
@@ -234,6 +231,14 @@ id|amend
 comma
 id|signoff
 suffix:semicolon
+DECL|variable|edit_flag
+r_static
+r_int
+id|edit_flag
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* unspecified */
 DECL|variable|quiet
 DECL|variable|verbose
 DECL|variable|no_verify
@@ -617,7 +622,7 @@ comma
 l_string|&quot;use specified template file&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;e&squot;
@@ -5374,11 +5379,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+l_int|0
+op_le
 id|edit_flag
 )paren
 id|use_editor
 op_assign
-l_int|1
+id|edit_flag
 suffix:semicolon
 r_if
 c_cond
