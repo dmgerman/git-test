@@ -245,6 +245,8 @@ r_static
 r_struct
 id|strbuf
 id|message
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 DECL|function|opt_parse_m
 r_static

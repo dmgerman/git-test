@@ -97,6 +97,8 @@ r_static
 r_struct
 id|strbuf
 id|merge_msg
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 DECL|variable|remoteheads
 r_static
