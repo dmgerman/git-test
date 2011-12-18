@@ -515,6 +515,10 @@ comma
 id|sha2
 comma
 id|newbase
+comma
+l_int|0
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|newbase
@@ -581,6 +585,10 @@ comma
 id|sha2
 comma
 id|fullname
+comma
+l_int|0
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|free
@@ -740,9 +748,33 @@ id|matchlen
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * The base is a subdirectory of a path which&n;&t;&t;&t; * was specified, so all of them are interesting.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * If the base is a subdirectory of a path which&n;&t;&t;&t; * was specified, all of them are interesting.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|matchlen
+op_logical_or
+id|base
+(braket
+id|matchlen
+)braket
+op_eq
+l_char|&squot;/&squot;
+op_logical_or
+id|match
+(braket
+id|matchlen
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+)paren
 r_return
 l_int|2
+suffix:semicolon
+multiline_comment|/* Just a random prefix match */
+r_continue
 suffix:semicolon
 )brace
 multiline_comment|/* Does the base match? */
@@ -1163,6 +1195,56 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|DIFF_OPT_TST
+c_func
+(paren
+id|opt
+comma
+id|TREE_IN_RECURSIVE
+)paren
+)paren
+(brace
+id|newbase
+(braket
+id|baselen
+op_plus
+id|pathlen
+)braket
+op_assign
+l_int|0
+suffix:semicolon
+id|opt
+op_member_access_from_pointer
+id|add_remove
+c_func
+(paren
+id|opt
+comma
+op_star
+id|prefix
+comma
+id|mode
+comma
+id|sha1
+comma
+id|newbase
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|newbase
+(braket
+id|baselen
+op_plus
+id|pathlen
+)braket
+op_assign
+l_char|&squot;/&squot;
+suffix:semicolon
+)brace
 id|init_tree_desc
 c_func
 (paren
@@ -1241,6 +1323,8 @@ comma
 id|sha1
 comma
 id|fullname
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|free
@@ -1409,7 +1493,7 @@ c_func
 (paren
 id|opt
 comma
-id|QUIET
+id|QUICK
 )paren
 op_logical_and
 id|DIFF_OPT_TST
@@ -1575,7 +1659,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;git-diff-tree: internal error&quot;
+l_string|&quot;git diff-tree: internal error&quot;
 )paren
 suffix:semicolon
 )brace
@@ -1870,7 +1954,7 @@ r_break
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Then, discard all the non-relevane file pairs...&n;&t; */
+multiline_comment|/*&n;&t; * Then, discard all the non-relevant file pairs...&n;&t; */
 r_for
 c_loop
 (paren

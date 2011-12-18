@@ -194,14 +194,6 @@ id|obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
-id|name
-op_assign
-id|xstrdup
-c_func
-(paren
-id|name
-)paren
-suffix:semicolon
 id|add_object
 c_func
 (paren

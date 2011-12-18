@@ -83,7 +83,6 @@ id|obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
-suffix:semicolon
 id|fprintf
 c_func
 (paren
@@ -963,7 +962,7 @@ id|ref
 op_star
 id|ref
 op_assign
-id|alloc_ref_from_str
+id|alloc_ref
 c_func
 (paren
 id|target
@@ -1106,6 +1105,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 op_star
 id|target
@@ -1116,15 +1117,6 @@ op_star
 id|write_ref
 op_assign
 l_int|NULL
-suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|0
-)paren
 suffix:semicolon
 r_while
 c_loop
@@ -1331,11 +1323,6 @@ r_if
 c_cond
 (paren
 id|write_ref
-op_logical_and
-id|write_ref
-(braket
-id|targets
-)braket
 )paren
 id|free
 c_func

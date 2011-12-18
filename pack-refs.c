@@ -341,7 +341,7 @@ c_cond
 id|lock
 )paren
 (brace
-id|unlink
+id|unlink_or_warn
 c_func
 (paren
 id|git_path
@@ -446,7 +446,7 @@ c_func
 l_string|&quot;packed-refs&quot;
 )paren
 comma
-l_int|1
+id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
 id|cbdata.refs_file
@@ -465,16 +465,10 @@ c_cond
 op_logical_neg
 id|cbdata.refs_file
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to create ref-pack file structure (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to create ref-pack file structure&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* perhaps other traits later as well */
@@ -531,16 +525,10 @@ c_func
 id|cbdata.refs_file
 )paren
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;failed to write ref-pack file (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;failed to write ref-pack file&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Since the lock file was fdopen()&squot;ed and then fclose()&squot;ed above,&n;&t; * assign -1 to the lock file descriptor so that commit_lock_file()&n;&t; * won&squot;t try to close() it.&n;&t; */
@@ -560,16 +548,10 @@ id|packed
 OL
 l_int|0
 )paren
-id|die
+id|die_errno
 c_func
 (paren
-l_string|&quot;unable to overwrite old ref-pack file (%s)&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to overwrite old ref-pack file&quot;
 )paren
 suffix:semicolon
 r_if

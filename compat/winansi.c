@@ -1,5 +1,4 @@
 multiline_comment|/*&n; * Copyright 2008 Peter Harris &lt;git@peter.is-a-geek.org&gt;&n; */
-macro_line|#include &lt;windows.h&gt;
 macro_line|#include &quot;../git-compat-util.h&quot;
 multiline_comment|/*&n; Functions to be wrapped:&n;*/
 DECL|macro|printf
@@ -9,7 +8,7 @@ macro_line|#undef fprintf
 DECL|macro|fputs
 macro_line|#undef fputs
 multiline_comment|/* TODO: write */
-multiline_comment|/*&n; ANSI codes used by git: m, K&n;&n; This file is git-specific. Therefore, this file does not attempt&n; to implement any codes that are not used by git.&n;&n; TODO: K&n;*/
+multiline_comment|/*&n; ANSI codes used by git: m, K&n;&n; This file is git-specific. Therefore, this file does not attempt&n; to implement any codes that are not used by git.&n;*/
 DECL|variable|console
 r_static
 id|HANDLE
@@ -214,6 +213,56 @@ c_func
 id|console
 comma
 id|attributes
+)paren
+suffix:semicolon
+)brace
+DECL|function|erase_in_line
+r_static
+r_void
+id|erase_in_line
+c_func
+(paren
+r_void
+)paren
+(brace
+id|CONSOLE_SCREEN_BUFFER_INFO
+id|sbi
+suffix:semicolon
+id|DWORD
+id|dummy
+suffix:semicolon
+multiline_comment|/* Needed for Windows 7 (or Vista) regression */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|console
+)paren
+r_return
+suffix:semicolon
+id|GetConsoleScreenBufferInfo
+c_func
+(paren
+id|console
+comma
+op_amp
+id|sbi
+)paren
+suffix:semicolon
+id|FillConsoleOutputCharacterA
+c_func
+(paren
+id|console
+comma
+l_char|&squot; &squot;
+comma
+id|sbi.dwSize.X
+id|sbi.dwCursorPosition.X
+comma
+id|sbi.dwCursorPosition
+comma
+op_amp
+id|dummy
 )paren
 suffix:semicolon
 )brace
@@ -737,7 +786,11 @@ suffix:semicolon
 r_case
 l_char|&squot;K&squot;
 suffix:colon
-multiline_comment|/* TODO */
+id|erase_in_line
+c_func
+(paren
+)paren
+suffix:semicolon
 r_break
 suffix:semicolon
 r_default

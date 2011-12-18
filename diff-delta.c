@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * diff-delta.c: generate a delta between two buffers&n; *&n; * This code was greatly inspired by parts of LibXDiff from Davide Libenzi&n; * http://www.xmailserver.org/xdiff-lib.html&n; *&n; * Rewritten for GIT by Nicolas Pitre &lt;nico@cam.org&gt;, (C) 2005-2007&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
+multiline_comment|/*&n; * diff-delta.c: generate a delta between two buffers&n; *&n; * This code was greatly inspired by parts of LibXDiff from Davide Libenzi&n; * http://www.xmailserver.org/xdiff-lib.html&n; *&n; * Rewritten for GIT by Nicolas Pitre &lt;nico@fluxnic.net&gt;, (C) 2005-2007&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;delta.h&quot;
 multiline_comment|/* maximum hash entry list for the same hash bucket */

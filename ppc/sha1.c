@@ -4,7 +4,7 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &quot;sha1.h&quot;
 r_extern
 r_void
-id|sha1_core
+id|ppc_sha1_core
 c_func
 (paren
 r_uint32
@@ -22,12 +22,12 @@ r_int
 id|nblocks
 )paren
 suffix:semicolon
-DECL|function|SHA1_Init
+DECL|function|ppc_SHA1_Init
 r_int
-id|SHA1_Init
+id|ppc_SHA1_Init
 c_func
 (paren
-id|SHA_CTX
+id|ppc_SHA_CTX
 op_star
 id|c
 )paren
@@ -79,12 +79,12 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|SHA1_Update
+DECL|function|ppc_SHA1_Update
 r_int
-id|SHA1_Update
+id|ppc_SHA1_Update
 c_func
 (paren
-id|SHA_CTX
+id|ppc_SHA_CTX
 op_star
 id|c
 comma
@@ -179,7 +179,7 @@ op_eq
 l_int|64
 )paren
 (brace
-id|sha1_core
+id|ppc_sha1_core
 c_func
 (paren
 id|c-&gt;hash
@@ -203,7 +203,7 @@ id|n
 op_rshift
 l_int|6
 suffix:semicolon
-id|sha1_core
+id|ppc_sha1_core
 c_func
 (paren
 id|c-&gt;hash
@@ -231,9 +231,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|SHA1_Final
+DECL|function|ppc_SHA1_Final
 r_int
-id|SHA1_Final
+id|ppc_SHA1_Final
 c_func
 (paren
 r_int
@@ -241,7 +241,7 @@ r_char
 op_star
 id|hash
 comma
-id|SHA_CTX
+id|ppc_SHA_CTX
 op_star
 id|c
 )paren
@@ -290,7 +290,7 @@ l_int|64
 id|cnt
 )paren
 suffix:semicolon
-id|sha1_core
+id|ppc_sha1_core
 c_func
 (paren
 id|c-&gt;hash
@@ -334,7 +334,7 @@ l_int|7
 op_assign
 id|c-&gt;len
 suffix:semicolon
-id|sha1_core
+id|ppc_sha1_core
 c_func
 (paren
 id|c-&gt;hash

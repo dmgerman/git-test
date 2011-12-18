@@ -41,22 +41,6 @@ op_star
 id|ecb
 )paren
 suffix:semicolon
-r_static
-id|xdchange_t
-op_star
-id|xdl_get_hunk
-c_func
-(paren
-id|xdchange_t
-op_star
-id|xscr
-comma
-id|xdemitconf_t
-r_const
-op_star
-id|xecfg
-)paren
-suffix:semicolon
 DECL|function|xdl_get_rec
 r_static
 r_int
@@ -178,7 +162,6 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Starting at the passed change atom, find the latest change atom to be included&n; * inside the differential hunk according to the specified configuration.&n; */
 DECL|function|xdl_get_hunk
-r_static
 id|xdchange_t
 op_star
 id|xdl_get_hunk
@@ -200,6 +183,15 @@ id|xch
 comma
 op_star
 id|xchp
+suffix:semicolon
+r_int
+id|max_common
+op_assign
+l_int|2
+op_star
+id|xecfg-&gt;ctxlen
+op_plus
+id|xecfg-&gt;interhunkctxlen
 suffix:semicolon
 r_for
 c_loop
@@ -232,9 +224,7 @@ op_plus
 id|xchp-&gt;chg1
 )paren
 OG
-l_int|2
-op_star
-id|xecfg-&gt;ctxlen
+id|max_common
 )paren
 r_break
 suffix:semicolon
@@ -626,8 +616,6 @@ r_for
 c_loop
 (paren
 id|xch
-op_assign
-id|xche
 op_assign
 id|xscr
 suffix:semicolon
