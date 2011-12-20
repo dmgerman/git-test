@@ -8996,6 +8996,8 @@ c_func
 l_int|NULL
 comma
 id|repo-&gt;url
+comma
+l_int|1
 )paren
 suffix:semicolon
 macro_line|#ifdef USE_CURL_MULTI
