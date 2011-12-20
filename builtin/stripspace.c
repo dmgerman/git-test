@@ -331,7 +331,7 @@ l_int|1
 id|usage
 c_func
 (paren
-l_string|&quot;git stripspace [-s | --strip-comments] &lt; &lt;stream&gt;&quot;
+l_string|&quot;git stripspace [-s | --strip-comments] &lt; input&quot;
 )paren
 suffix:semicolon
 r_if
