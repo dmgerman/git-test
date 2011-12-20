@@ -2214,10 +2214,16 @@ r_char
 op_star
 id|current_branch
 suffix:semicolon
+r_void
+op_star
+id|current_branch_to_free
+suffix:semicolon
 multiline_comment|/* get current branch */
 id|current_branch
 op_assign
-id|resolve_ref
+id|current_branch_to_free
+op_assign
+id|resolve_refdup
 c_func
 (paren
 l_string|&quot;HEAD&quot;
@@ -2256,14 +2262,6 @@ l_string|&quot;refs/heads/&quot;
 id|current_branch
 op_add_assign
 l_int|11
-suffix:semicolon
-id|current_branch
-op_assign
-id|xstrdup
-c_func
-(paren
-id|current_branch
-)paren
 suffix:semicolon
 multiline_comment|/* get a line */
 r_while
@@ -2493,11 +2491,7 @@ suffix:semicolon
 id|free
 c_func
 (paren
-(paren
-r_char
-op_star
-)paren
-id|current_branch
+id|current_branch_to_free
 )paren
 suffix:semicolon
 r_return

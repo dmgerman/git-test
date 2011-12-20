@@ -798,7 +798,7 @@ id|ref-&gt;name
 suffix:semicolon
 id|tmp
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|localname

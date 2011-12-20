@@ -6926,6 +6926,10 @@ op_assign
 op_amp
 id|remoteheads
 suffix:semicolon
+r_void
+op_star
+id|branch_to_free
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6956,7 +6960,9 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * Check if we are _not_ on a detached HEAD, i.e. if there is a&n;&t; * current branch.&n;&t; */
 id|branch
 op_assign
-id|resolve_ref
+id|branch_to_free
+op_assign
+id|resolve_refdup
 c_func
 (paren
 l_string|&quot;HEAD&quot;
@@ -6973,11 +6979,7 @@ r_if
 c_cond
 (paren
 id|branch
-)paren
-(brace
-r_if
-c_cond
-(paren
+op_logical_and
 op_logical_neg
 id|prefixcmp
 c_func
@@ -6991,15 +6993,6 @@ id|branch
 op_add_assign
 l_int|11
 suffix:semicolon
-id|branch
-op_assign
-id|xstrdup
-c_func
-(paren
-id|branch
-)paren
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -8845,11 +8838,7 @@ suffix:colon
 id|free
 c_func
 (paren
-(paren
-r_char
-op_star
-)paren
-id|branch
+id|branch_to_free
 )paren
 suffix:semicolon
 r_return

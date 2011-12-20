@@ -443,6 +443,12 @@ id|reference_name
 op_assign
 l_int|NULL
 suffix:semicolon
+r_void
+op_star
+id|reference_name_to_free
+op_assign
+l_int|NULL
+suffix:semicolon
 r_int
 id|merged
 suffix:semicolon
@@ -494,7 +500,9 @@ op_logical_and
 (paren
 id|reference_name
 op_assign
-id|resolve_ref
+id|reference_name_to_free
+op_assign
+id|resolve_refdup
 c_func
 (paren
 id|branch-&gt;merge
@@ -514,15 +522,6 @@ l_int|NULL
 op_ne
 l_int|NULL
 )paren
-(brace
-id|reference_name
-op_assign
-id|xstrdup
-c_func
-(paren
-id|reference_name
-)paren
-suffix:semicolon
 id|reference_rev
 op_assign
 id|lookup_commit_reference
@@ -531,7 +530,6 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -620,11 +618,7 @@ suffix:semicolon
 id|free
 c_func
 (paren
-(paren
-r_char
-op_star
-)paren
-id|reference_name
+id|reference_name_to_free
 )paren
 suffix:semicolon
 r_return
@@ -1212,7 +1206,7 @@ id|cp
 suffix:semicolon
 id|dst
 op_assign
-id|resolve_ref
+id|resolve_ref_unsafe
 c_func
 (paren
 id|src
@@ -4100,7 +4094,7 @@ id|git_branch_track
 suffix:semicolon
 id|head
 op_assign
-id|resolve_ref
+id|resolve_refdup
 c_func
 (paren
 l_string|&quot;HEAD&quot;
@@ -4126,14 +4120,6 @@ c_func
 (paren
 l_string|&quot;Failed to resolve HEAD as a valid ref.&quot;
 )paren
-)paren
-suffix:semicolon
-id|head
-op_assign
-id|xstrdup
-c_func
-(paren
-id|head
 )paren
 suffix:semicolon
 r_if
