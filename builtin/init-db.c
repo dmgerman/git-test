@@ -1912,6 +1912,9 @@ c_func
 l_string|&quot;unable to handle file type %d&quot;
 )paren
 comma
+(paren
+r_int
+)paren
 id|st.st_mode
 )paren
 suffix:semicolon
