@@ -361,6 +361,15 @@ id|builtin_mv_options
 )braket
 op_assign
 (brace
+id|OPT__VERBOSE
+c_func
+(paren
+op_amp
+id|verbose
+comma
+l_string|&quot;be verbose&quot;
+)paren
+comma
 id|OPT__DRY_RUN
 c_func
 (paren
@@ -650,12 +659,15 @@ id|argc
 op_ne
 l_int|1
 )paren
-id|usage_with_options
+id|die
 c_func
 (paren
-id|builtin_mv_usage
+l_string|&quot;destination &squot;%s&squot; is not a directory&quot;
 comma
-id|builtin_mv_options
+id|dest_path
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 id|destination
@@ -1215,16 +1227,21 @@ id|st.st_mode
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|verbose
+)paren
 id|warning
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;%s; will overwrite!&quot;
+l_string|&quot;overwriting &squot;%s&squot;&quot;
 )paren
 comma
-id|bad
+id|dst
 )paren
 suffix:semicolon
 id|bad
