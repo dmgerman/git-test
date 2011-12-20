@@ -3,7 +3,6 @@ macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;commit.h&quot;
-macro_line|#include &quot;sequencer.h&quot;
 DECL|struct|tracking
 r_struct
 id|tracking
@@ -1423,12 +1422,6 @@ c_func
 (paren
 l_string|&quot;SQUASH_MSG&quot;
 )paren
-)paren
-suffix:semicolon
-id|remove_sequencer_state
-c_func
-(paren
-l_int|0
 )paren
 suffix:semicolon
 )brace
