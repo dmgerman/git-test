@@ -11,7 +11,7 @@ id|tree
 op_assign
 (brace
 op_complement
-l_int|0
+l_int|0U
 )brace
 suffix:semicolon
 DECL|struct|node
@@ -448,7 +448,7 @@ r_uint32
 id|token
 op_assign
 op_complement
-l_int|0
+l_int|0U
 suffix:semicolon
 r_uint32
 id|length
