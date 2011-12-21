@@ -363,9 +363,9 @@ comma
 op_amp
 id|option_origin
 comma
-l_string|&quot;branch&quot;
+l_string|&quot;name&quot;
 comma
-l_string|&quot;use &lt;branch&gt; instead of &squot;origin&squot; to track upstream&quot;
+l_string|&quot;use &lt;name&gt; instead of &squot;origin&squot; to track upstream&quot;
 )paren
 comma
 id|OPT_STRING
