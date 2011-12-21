@@ -431,7 +431,7 @@ comma
 op_amp
 id|renew_authorship
 comma
-l_string|&quot;the commit is authored by me now (used with -C-c/--amend)&quot;
+l_string|&quot;the commit is authored by me now (used with -C/-c/--amend)&quot;
 )paren
 comma
 id|OPT_BOOLEAN
