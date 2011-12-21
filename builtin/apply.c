@@ -17044,9 +17044,6 @@ r_struct
 id|patch
 op_star
 id|list
-comma
-r_int
-id|skipped_patch
 )paren
 (brace
 r_int
@@ -17061,22 +17058,6 @@ r_struct
 id|patch
 op_star
 id|l
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|list
-op_logical_and
-op_logical_neg
-id|skipped_patch
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;No changes&quot;
-)paren
 suffix:semicolon
 r_for
 c_loop
@@ -17692,6 +17673,21 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|list
+op_logical_and
+op_logical_neg
+id|skipped_patch
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unrecognized input&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|whitespace_error
 op_logical_and
 (paren
@@ -17787,8 +17783,6 @@ id|write_out_results
 c_func
 (paren
 id|list
-comma
-id|skipped_patch
 )paren
 )paren
 m_exit
