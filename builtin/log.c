@@ -246,14 +246,6 @@ op_star
 id|rev
 )paren
 (brace
-id|rev-&gt;abbrev
-op_assign
-id|DEFAULT_ABBREV
-suffix:semicolon
-id|rev-&gt;commit_format
-op_assign
-id|CMIT_FMT_DEFAULT
-suffix:semicolon
 r_if
 c_cond
 (paren
