@@ -3862,7 +3862,7 @@ r_void
 (brace
 r_static
 r_char
-id|tmpfile
+id|tmp_file
 (braket
 id|PATH_MAX
 )braket
@@ -3884,11 +3884,11 @@ op_assign
 id|odb_mkstemp
 c_func
 (paren
-id|tmpfile
+id|tmp_file
 comma
 r_sizeof
 (paren
-id|tmpfile
+id|tmp_file
 )paren
 comma
 l_string|&quot;pack/tmp_pack_XXXXXX&quot;
@@ -3910,7 +3910,7 @@ op_plus
 id|strlen
 c_func
 (paren
-id|tmpfile
+id|tmp_file
 )paren
 op_plus
 l_int|2
@@ -3921,7 +3921,7 @@ c_func
 (paren
 id|p-&gt;pack_name
 comma
-id|tmpfile
+id|tmp_file
 )paren
 suffix:semicolon
 id|p-&gt;pack_fd

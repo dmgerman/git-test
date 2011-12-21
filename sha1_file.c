@@ -11983,7 +11983,7 @@ id|filename
 suffix:semicolon
 r_static
 r_char
-id|tmpfile
+id|tmp_file
 (braket
 id|PATH_MAX
 )braket
@@ -12001,11 +12001,11 @@ op_assign
 id|create_tmpfile
 c_func
 (paren
-id|tmpfile
+id|tmp_file
 comma
 r_sizeof
 (paren
-id|tmpfile
+id|tmp_file
 )paren
 comma
 id|filename
@@ -12045,7 +12045,7 @@ c_func
 (paren
 l_string|&quot;unable to create temporary sha1 filename %s: %s&bslash;n&quot;
 comma
-id|tmpfile
+id|tmp_file
 comma
 id|strerror
 c_func
@@ -12340,7 +12340,7 @@ c_cond
 id|utime
 c_func
 (paren
-id|tmpfile
+id|tmp_file
 comma
 op_amp
 id|utb
@@ -12353,7 +12353,7 @@ c_func
 (paren
 l_string|&quot;failed utime() on %s: %s&quot;
 comma
-id|tmpfile
+id|tmp_file
 comma
 id|strerror
 c_func
@@ -12367,7 +12367,7 @@ r_return
 id|move_temp_to_file
 c_func
 (paren
-id|tmpfile
+id|tmp_file
 comma
 id|filename
 )paren
