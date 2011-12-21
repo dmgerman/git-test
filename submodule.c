@@ -4048,7 +4048,9 @@ id|cp
 id|die
 c_func
 (paren
-l_string|&quot;Could not run git status --porcelain&quot;
+l_string|&quot;Could not run &squot;git status --porcelain&squot; in submodule %s&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 id|len
@@ -4184,7 +4186,9 @@ id|cp
 id|die
 c_func
 (paren
-l_string|&quot;git status --porcelain failed&quot;
+l_string|&quot;&squot;git status --porcelain&squot; failed in submodule %s&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 id|strbuf_release
