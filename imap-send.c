@@ -2,6 +2,7 @@ multiline_comment|/*&n; * git-imap-send - drops patches into an imap Drafts fold
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;prompt.h&quot;
 macro_line|#ifdef NO_OPENSSL
 DECL|typedef|SSL
 r_typedef
@@ -6467,15 +6468,16 @@ op_logical_neg
 id|srvc-&gt;pass
 )paren
 (brace
-r_char
+r_struct
+id|strbuf
 id|prompt
-(braket
-l_int|80
-)braket
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|prompt
 comma
 l_string|&quot;Password (%s@%s): &quot;
@@ -6490,28 +6492,16 @@ op_assign
 id|git_getpass
 c_func
 (paren
+id|prompt.buf
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
 id|prompt
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|arg
-)paren
-(brace
-id|perror
-c_func
-(paren
-l_string|&quot;getpass&quot;
-)paren
-suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
