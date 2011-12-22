@@ -1003,6 +1003,9 @@ r_struct
 id|discovery
 op_star
 id|heads
+comma
+r_int
+id|for_push
 )paren
 (brace
 r_struct
@@ -1066,6 +1069,11 @@ comma
 op_amp
 id|list
 comma
+id|for_push
+ques
+c_cond
+id|REF_NORMAL
+suffix:colon
 l_int|0
 comma
 l_int|NULL
@@ -1428,6 +1436,8 @@ id|parse_git_refs
 c_func
 (paren
 id|heads
+comma
+id|for_push
 )paren
 suffix:semicolon
 r_return
