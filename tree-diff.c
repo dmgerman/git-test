@@ -1238,6 +1238,10 @@ id|diff_opts.break_opt
 op_assign
 id|opt-&gt;break_opt
 suffix:semicolon
+id|diff_opts.rename_score
+op_assign
+id|opt-&gt;rename_score
+suffix:semicolon
 id|paths
 (braket
 l_int|0
