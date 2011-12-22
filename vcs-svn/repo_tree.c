@@ -517,12 +517,12 @@ comma
 id|dir_o
 op_assign
 op_complement
-l_int|0
+l_int|0U
 comma
 id|parent_dir_o
 op_assign
 op_complement
-l_int|0
+l_int|0U
 suffix:semicolon
 r_struct
 id|repo_dir

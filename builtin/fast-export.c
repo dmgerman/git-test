@@ -68,7 +68,7 @@ id|REWRITE
 )brace
 id|tag_of_filtered_mode
 op_assign
-id|ABORT
+id|ERROR
 suffix:semicolon
 DECL|variable|fake_missing_tagger
 r_static
@@ -240,7 +240,7 @@ l_string|&quot;abort&quot;
 )paren
 id|tag_of_filtered_mode
 op_assign
-id|ABORT
+id|ERROR
 suffix:semicolon
 r_else
 r_if

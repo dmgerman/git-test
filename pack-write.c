@@ -413,7 +413,7 @@ id|index_name
 (brace
 r_static
 r_char
-id|tmpfile
+id|tmp_file
 (braket
 id|PATH_MAX
 )braket
@@ -423,11 +423,11 @@ op_assign
 id|odb_mkstemp
 c_func
 (paren
-id|tmpfile
+id|tmp_file
 comma
 r_sizeof
 (paren
-id|tmpfile
+id|tmp_file
 )paren
 comma
 l_string|&quot;pack/tmp_idx_XXXXXX&quot;
@@ -438,7 +438,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|tmpfile
+id|tmp_file
 )paren
 suffix:semicolon
 )brace

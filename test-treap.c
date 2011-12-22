@@ -163,7 +163,7 @@ id|root
 op_assign
 (brace
 op_complement
-l_int|0
+l_int|0U
 )brace
 suffix:semicolon
 r_uint32
