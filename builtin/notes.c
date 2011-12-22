@@ -1532,16 +1532,6 @@ c_func
 op_amp
 id|buf
 comma
-l_string|&quot;notes: &quot;
-)paren
-suffix:semicolon
-multiline_comment|/* commit message starts at index 7 */
-id|strbuf_addstr
-c_func
-(paren
-op_amp
-id|buf
-comma
 id|msg
 )paren
 suffix:semicolon
@@ -1573,13 +1563,26 @@ id|t
 comma
 l_int|NULL
 comma
-id|buf.buf
-op_plus
-l_int|7
+op_amp
+id|buf
 comma
 id|commit_sha1
 )paren
 suffix:semicolon
+id|strbuf_insert
+c_func
+(paren
+op_amp
+id|buf
+comma
+l_int|0
+comma
+l_string|&quot;notes: &quot;
+comma
+l_int|7
+)paren
+suffix:semicolon
+multiline_comment|/* commit message starts at index 7 */
 id|update_ref
 c_func
 (paren

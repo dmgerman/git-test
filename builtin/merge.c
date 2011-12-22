@@ -5759,10 +5759,14 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|commit_tree
 c_func
 (paren
-id|merge_msg.buf
+op_amp
+id|merge_msg
 comma
 id|result_tree
 comma
@@ -5771,6 +5775,16 @@ comma
 id|result_commit
 comma
 l_int|NULL
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;failed to write commit object&quot;
+)paren
 )paren
 suffix:semicolon
 id|finish
@@ -5947,10 +5961,14 @@ c_func
 id|remoteheads
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|commit_tree
 c_func
 (paren
-id|merge_msg.buf
+op_amp
+id|merge_msg
 comma
 id|result_tree
 comma
@@ -5959,6 +5977,16 @@ comma
 id|result_commit
 comma
 l_int|NULL
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;failed to write commit object&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addf
