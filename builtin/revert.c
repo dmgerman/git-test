@@ -1661,26 +1661,18 @@ c_cond
 (paren
 id|show_hint
 )paren
-(brace
 id|advise
 c_func
 (paren
-l_string|&quot;after resolving the conflicts, mark the corrected paths&quot;
-)paren
-suffix:semicolon
-id|advise
+id|_
 c_func
 (paren
-l_string|&quot;with &squot;git add &lt;paths&gt;&squot; or &squot;git rm &lt;paths&gt;&squot;&quot;
-)paren
-suffix:semicolon
-id|advise
-c_func
-(paren
+l_string|&quot;after resolving the conflicts, mark the corrected paths&bslash;n&quot;
+l_string|&quot;with &squot;git add &lt;paths&gt;&squot; or &squot;git rm &lt;paths&gt;&squot;&bslash;n&quot;
 l_string|&quot;and commit the result with &squot;git commit&squot;&quot;
 )paren
+)paren
 suffix:semicolon
-)brace
 )brace
 DECL|function|write_message
 r_static
