@@ -333,6 +333,8 @@ r_static
 r_struct
 id|strbuf
 id|message
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 DECL|variable|null_termination
 r_static
