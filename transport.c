@@ -2739,10 +2739,6 @@ comma
 op_amp
 id|refs
 comma
-l_int|0
-comma
-l_int|NULL
-comma
 id|for_push
 ques
 c_cond
@@ -2975,10 +2971,6 @@ l_int|0
 comma
 op_amp
 id|refs_tmp
-comma
-l_int|0
-comma
-l_int|NULL
 comma
 l_int|0
 comma
@@ -4295,10 +4287,6 @@ l_int|0
 comma
 op_amp
 id|tmp_refs
-comma
-l_int|0
-comma
-l_int|NULL
 comma
 id|REF_NORMAL
 comma
