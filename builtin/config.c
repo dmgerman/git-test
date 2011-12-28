@@ -2618,7 +2618,7 @@ id|error
 c_func
 (paren
 l_string|&quot;cannot overwrite multiple values with a single value&bslash;n&quot;
-l_string|&quot;       Use a regexp, --add or --set-all to change %s.&quot;
+l_string|&quot;       Use a regexp, --add or --replace-all to change %s.&quot;
 comma
 id|argv
 (braket
