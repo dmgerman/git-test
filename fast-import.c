@@ -11181,6 +11181,21 @@ id|sha1
 )paren
 (brace
 multiline_comment|/* This is a note entry */
+r_if
+c_cond
+(paren
+id|fanout
+op_eq
+l_int|0xff
+)paren
+(brace
+multiline_comment|/* Counting mode, no rename */
+id|num_notes
+op_increment
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|construct_path_with_fanout
 c_func
 (paren
@@ -12364,6 +12379,7 @@ id|b
 comma
 r_int
 r_char
+op_star
 id|old_fanout
 )paren
 (brace
@@ -12422,6 +12438,43 @@ r_int
 r_char
 id|new_fanout
 suffix:semicolon
+multiline_comment|/*&n;&t; * When loading a branch, we don&squot;t traverse its tree to count the real&n;&t; * number of notes (too expensive to do this for all non-note refs).&n;&t; * This means that recently loaded notes refs might incorrectly have&n;&t; * b-&gt;num_notes == 0, and consequently, old_fanout might be wrong.&n;&t; *&n;&t; * Fix this by traversing the tree and counting the number of notes&n;&t; * when b-&gt;num_notes == 0. If the notes tree is truly empty, the&n;&t; * calculation should not take long.&n;&t; */
+r_if
+c_cond
+(paren
+id|b-&gt;num_notes
+op_eq
+l_int|0
+op_logical_and
+op_star
+id|old_fanout
+op_eq
+l_int|0
+)paren
+(brace
+multiline_comment|/* Invoke change_note_fanout() in &quot;counting mode&quot;. */
+id|b-&gt;num_notes
+op_assign
+id|change_note_fanout
+c_func
+(paren
+op_amp
+id|b-&gt;branch_tree
+comma
+l_int|0xff
+)paren
+suffix:semicolon
+op_star
+id|old_fanout
+op_assign
+id|convert_num_notes_to_fanout
+c_func
+(paren
+id|b-&gt;num_notes
+)paren
+suffix:semicolon
+)brace
+multiline_comment|/* Now parse the notemodify command. */
 multiline_comment|/* &lt;dataref&gt; or &squot;inline&squot; */
 r_if
 c_cond
@@ -12854,6 +12907,7 @@ c_func
 id|commit_sha1
 )paren
 comma
+op_star
 id|old_fanout
 comma
 id|path
@@ -14070,6 +14124,7 @@ c_func
 (paren
 id|b
 comma
+op_amp
 id|prev_fanout
 )paren
 suffix:semicolon
