@@ -1096,7 +1096,7 @@ op_assign
 (paren
 id|transport-&gt;verbose
 OG
-l_int|0
+l_int|1
 )paren
 ques
 c_cond
@@ -1394,7 +1394,7 @@ op_assign
 (paren
 id|transport-&gt;verbose
 OG
-l_int|0
+l_int|1
 )paren
 ques
 c_cond
@@ -1886,7 +1886,7 @@ c_cond
 (paren
 id|transport-&gt;verbose
 OG
-l_int|0
+l_int|1
 )paren
 id|args
 (braket
@@ -2889,7 +2889,7 @@ op_assign
 (paren
 id|transport-&gt;verbose
 OG
-l_int|0
+l_int|1
 )paren
 suffix:semicolon
 id|args.quiet
@@ -5399,7 +5399,7 @@ c_cond
 (paren
 id|verbosity
 op_ge
-l_int|2
+l_int|1
 )paren
 id|transport-&gt;verbose
 op_assign
