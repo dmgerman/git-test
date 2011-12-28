@@ -3066,6 +3066,9 @@ id|recovery
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|clobber_head_ok
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3129,6 +3132,18 @@ id|oldname
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * A command like &quot;git branch -M currentbranch currentbranch&quot; cannot&n;&t; * cause the worktree to become inconsistent with HEAD, so allow it.&n;&t; */
+id|clobber_head_ok
+op_assign
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|oldname
+comma
+id|newname
+)paren
+suffix:semicolon
 id|validate_new_branchname
 c_func
 (paren
@@ -3139,7 +3154,7 @@ id|newref
 comma
 id|force
 comma
-l_int|0
+id|clobber_head_ok
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -4159,6 +4174,8 @@ comma
 id|force_create
 comma
 id|reflog
+comma
+l_int|0
 comma
 id|track
 )paren

@@ -771,6 +771,9 @@ comma
 r_int
 id|reflog
 comma
+r_int
+id|clobber_head
+comma
 r_enum
 id|branch_track
 id|track
@@ -858,6 +861,8 @@ comma
 id|track
 op_eq
 id|BRANCH_TRACK_OVERRIDE
+op_logical_or
+id|clobber_head
 )paren
 )paren
 (brace
