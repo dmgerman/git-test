@@ -160,11 +160,11 @@ r_if
 c_cond
 (paren
 id|len
-OL
+op_le
 l_int|0
 )paren
 r_return
-l_int|1
+id|len
 suffix:semicolon
 id|strbuf_addch
 c_func
