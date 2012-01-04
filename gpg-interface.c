@@ -449,7 +449,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Run &quot;gpg&quot; to see if the payload matches the detached signature.&n; * gpg_output_to tells where the output from &quot;gpg&quot; should go:&n; *   &lt; 0: /dev/null&n; *   = 0: standard error of the calling process&n; *   &gt; 0: the specified file descriptor&n; */
+multiline_comment|/*&n; * Run &quot;gpg&quot; to see if the payload matches the detached signature.&n; * gpg_output, when set, receives the diagnostic output from GPG.&n; */
 DECL|function|verify_signed_buffer
 r_int
 id|verify_signed_buffer
