@@ -3242,7 +3242,7 @@ c_func
 (paren
 id|ref-&gt;name
 comma
-l_string|&quot;refs/tags&quot;
+l_string|&quot;refs/tags/&quot;
 )paren
 )paren
 r_continue
