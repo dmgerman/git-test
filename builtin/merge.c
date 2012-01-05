@@ -19,6 +19,7 @@ macro_line|#include &quot;help.h&quot;
 macro_line|#include &quot;merge-recursive.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;gpg-interface.h&quot;
 DECL|macro|DEFAULT_TWOHEAD
 mdefine_line|#define DEFAULT_TWOHEAD (1&lt;&lt;0)
 DECL|macro|DEFAULT_OCTOPUS
@@ -195,6 +196,13 @@ DECL|variable|default_to_upstream
 r_static
 r_int
 id|default_to_upstream
+suffix:semicolon
+DECL|variable|sign_commit
+r_static
+r_const
+r_char
+op_star
+id|sign_commit
 suffix:semicolon
 DECL|variable|all_strategy
 r_static
@@ -1151,6 +1159,30 @@ l_string|&quot;force progress reporting&quot;
 comma
 l_int|1
 )paren
+comma
+(brace
+id|OPTION_STRING
+comma
+l_char|&squot;S&squot;
+comma
+l_string|&quot;gpg-sign&quot;
+comma
+op_amp
+id|sign_commit
+comma
+l_string|&quot;key id&quot;
+comma
+l_string|&quot;GPG sign commit&quot;
+comma
+id|PARSE_OPT_OPTARG
+comma
+l_int|NULL
+comma
+(paren
+r_intptr
+)paren
+l_string|&quot;&quot;
+)brace
 comma
 id|OPT_END
 c_func
@@ -3127,6 +3159,9 @@ op_star
 id|cb
 )paren
 (brace
+r_int
+id|status
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3467,6 +3502,26 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+id|status
+op_assign
+id|git_gpg_config
+c_func
+(paren
+id|k
+comma
+id|v
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
+)paren
+r_return
+id|status
+suffix:semicolon
 r_return
 id|git_diff_ui_config
 c_func
@@ -5793,6 +5848,8 @@ comma
 id|result_commit
 comma
 l_int|NULL
+comma
+id|sign_commit
 )paren
 suffix:semicolon
 id|finish
@@ -5981,6 +6038,8 @@ comma
 id|result_commit
 comma
 l_int|NULL
+comma
+id|sign_commit
 )paren
 suffix:semicolon
 id|strbuf_addf
