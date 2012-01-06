@@ -697,10 +697,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|add_one_alternate_sha1
+DECL|function|show_one_alternate_sha1
 r_static
 r_void
-id|add_one_alternate_sha1
+id|show_one_alternate_sha1
 c_func
 (paren
 r_const
@@ -716,14 +716,12 @@ op_star
 id|unused
 )paren
 (brace
-id|add_extra_ref
+id|show_ref
 c_func
 (paren
 l_string|&quot;.have&quot;
 comma
 id|sha1
-comma
-l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -790,7 +788,7 @@ c_func
 op_amp
 id|sa
 comma
-id|add_one_alternate_sha1
+id|show_one_alternate_sha1
 comma
 l_int|NULL
 )paren
@@ -822,11 +820,6 @@ c_func
 l_string|&quot;capabilities^{}&quot;
 comma
 id|null_sha1
-)paren
-suffix:semicolon
-id|clear_extra_refs
-c_func
-(paren
 )paren
 suffix:semicolon
 multiline_comment|/* EOF */
