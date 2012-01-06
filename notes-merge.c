@@ -2987,6 +2987,8 @@ comma
 id|result_sha1
 comma
 l_int|NULL
+comma
+l_int|NULL
 )paren
 )paren
 id|die

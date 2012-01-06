@@ -20,6 +20,7 @@ macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;submodule.h&quot;
+macro_line|#include &quot;gpg-interface.h&quot;
 DECL|variable|builtin_commit_usage
 r_static
 r_const
@@ -280,6 +281,12 @@ id|force_date
 comma
 op_star
 id|ignore_submodule_arg
+suffix:semicolon
+DECL|variable|sign_commit
+r_static
+r_char
+op_star
+id|sign_commit
 suffix:semicolon
 multiline_comment|/*&n; * The default commit message cleanup mode will remove the lines&n; * beginning with # (shell comments) and leading and trailing&n; * whitespaces (empty lines or containing only whitespaces)&n; * if editor is used, and only the whitespaces if the message&n; * is specified explicitly.&n; */
 r_static
@@ -664,6 +671,30 @@ id|include_status
 comma
 l_string|&quot;include status in commit message template&quot;
 )paren
+comma
+(brace
+id|OPTION_STRING
+comma
+l_char|&squot;S&squot;
+comma
+l_string|&quot;gpg-sign&quot;
+comma
+op_amp
+id|sign_commit
+comma
+l_string|&quot;key id&quot;
+comma
+l_string|&quot;GPG sign commit&quot;
+comma
+id|PARSE_OPT_OPTARG
+comma
+l_int|NULL
+comma
+(paren
+r_intptr
+)paren
+l_string|&quot;&quot;
+)brace
 comma
 multiline_comment|/* end commit message options */
 id|OPT_GROUP
@@ -7321,6 +7352,9 @@ id|s
 op_assign
 id|cb
 suffix:semicolon
+r_int
+id|status
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -7372,6 +7406,26 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+id|status
+op_assign
+id|git_gpg_config
+c_func
+(paren
+id|k
+comma
+id|v
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
+)paren
+r_return
+id|status
+suffix:semicolon
 r_return
 id|git_status_config
 c_func
@@ -8368,12 +8422,28 @@ c_cond
 id|amend
 )paren
 (brace
+r_const
+r_char
+op_star
+id|exclude_gpgsig
+(braket
+l_int|2
+)braket
+op_assign
+(brace
+l_string|&quot;gpgsig&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
 id|extra
 op_assign
 id|read_commit_extra_headers
 c_func
 (paren
 id|current_head
+comma
+id|exclude_gpgsig
 )paren
 suffix:semicolon
 )brace
@@ -8414,6 +8484,8 @@ comma
 id|sha1
 comma
 id|author_ident.buf
+comma
+id|sign_commit
 comma
 id|extra
 )paren
