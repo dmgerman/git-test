@@ -5470,6 +5470,12 @@ c_func
 id|cred
 )paren
 suffix:semicolon
+id|loginfo
+c_func
+(paren
+l_string|&quot;Ready to rumble&quot;
+)paren
+suffix:semicolon
 r_return
 id|service_loop
 c_func
@@ -6504,19 +6510,11 @@ c_cond
 (paren
 id|detach
 )paren
-(brace
 id|daemonize
 c_func
 (paren
 )paren
 suffix:semicolon
-id|loginfo
-c_func
-(paren
-l_string|&quot;Ready to rumble&quot;
-)paren
-suffix:semicolon
-)brace
 r_else
 id|sanitize_stdfds
 c_func
