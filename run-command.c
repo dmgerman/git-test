@@ -2523,6 +2523,17 @@ l_int|1
 suffix:colon
 l_int|0
 suffix:semicolon
+id|cmd-&gt;clean_on_exit
+op_assign
+id|opt
+op_amp
+id|RUN_CLEAN_ON_EXIT
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|run_command_v_opt
 r_int

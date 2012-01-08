@@ -3059,6 +3059,8 @@ c_func
 id|argv
 comma
 id|RUN_SILENT_EXEC_FAILURE
+op_or
+id|RUN_CLEAN_ON_EXIT
 )paren
 suffix:semicolon
 r_if
