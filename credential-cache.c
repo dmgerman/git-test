@@ -393,7 +393,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|send_request
 c_func
 (paren
@@ -402,15 +401,14 @@ comma
 op_amp
 id|buf
 )paren
-)paren
-r_return
-suffix:semicolon
-r_if
-c_cond
+OL
+l_int|0
+op_logical_and
 (paren
 id|flags
 op_amp
 id|FLAG_SPAWN
+)paren
 )paren
 (brace
 id|spawn_daemon
@@ -419,6 +417,9 @@ c_func
 id|socket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|send_request
 c_func
 (paren
@@ -426,6 +427,14 @@ id|socket
 comma
 op_amp
 id|buf
+)paren
+OL
+l_int|0
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;unable to connect to cache daemon&quot;
 )paren
 suffix:semicolon
 )brace
