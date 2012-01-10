@@ -2705,8 +2705,6 @@ multiline_comment|/*&n;&t; * Pop the ones from directories that are not the pref
 r_while
 c_loop
 (paren
-id|attr_stack
-op_logical_and
 id|attr_stack-&gt;origin
 )paren
 (brace
