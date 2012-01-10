@@ -2382,17 +2382,17 @@ c_func
 r_void
 )paren
 (brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|attr_stack
-)paren
-(brace
 r_struct
 id|attr_stack
 op_star
 id|elem
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|attr_stack
+)paren
+r_return
 suffix:semicolon
 id|elem
 op_assign
@@ -2586,7 +2586,6 @@ op_assign
 id|elem
 suffix:semicolon
 )brace
-)brace
 DECL|function|prepare_attr_stack
 r_static
 r_void
@@ -2658,12 +2657,10 @@ id|attr_stack
 op_assign
 id|info-&gt;prev
 suffix:semicolon
-multiline_comment|/*&n;&t; * Pop the ones from directories that are not the prefix of&n;&t; * the path we are checking.&n;&t; */
+multiline_comment|/*&n;&t; * Pop the ones from directories that are not the prefix of&n;&t; * the path we are checking. Break out of the loop when we see&n;&t; * the root one (whose origin is an empty string &quot;&quot;) or the builtin&n;&t; * one (whose origin is NULL) without popping it.&n;&t; */
 r_while
 c_loop
 (paren
-id|attr_stack
-op_logical_and
 id|attr_stack-&gt;origin
 )paren
 (brace
@@ -2696,6 +2693,18 @@ comma
 id|path
 comma
 id|namelen
+)paren
+op_logical_and
+(paren
+op_logical_neg
+id|namelen
+op_logical_or
+id|path
+(braket
+id|namelen
+)braket
+op_eq
+l_char|&squot;/&squot;
 )paren
 )paren
 r_break
@@ -2732,11 +2741,17 @@ op_eq
 id|GIT_ATTR_INDEX
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * bootstrap_attr_stack() should have added, and the&n;&t;&t; * above loop should have stopped before popping, the&n;&t;&t; * root element whose attr_stack-&gt;origin is set to an&n;&t;&t; * empty string.&n;&t;&t; */
 r_struct
 id|strbuf
 id|pathbuf
 op_assign
 id|STRBUF_INIT
+suffix:semicolon
+m_assert
+(paren
+id|attr_stack-&gt;origin
+)paren
 suffix:semicolon
 r_while
 c_loop
