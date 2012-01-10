@@ -2700,7 +2700,7 @@ id|attr_stack
 op_assign
 id|info-&gt;prev
 suffix:semicolon
-multiline_comment|/*&n;&t; * Pop the ones from directories that are not the prefix of&n;&t; * the path we are checking.&n;&t; */
+multiline_comment|/*&n;&t; * Pop the ones from directories that are not the prefix of&n;&t; * the path we are checking. Break out of the loop when we see&n;&t; * the root one (whose origin is an empty string &quot;&quot;) or the builtin&n;&t; * one (whose origin is NULL) without popping it.&n;&t; */
 r_while
 c_loop
 (paren
@@ -2784,6 +2784,12 @@ op_eq
 id|GIT_ATTR_INDEX
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * bootstrap_attr_stack() should have added, and the&n;&t;&t; * above loop should have stopped before popping, the&n;&t;&t; * root element whose attr_stack-&gt;origin is set to an&n;&t;&t; * empty string.&n;&t;&t; */
+m_assert
+(paren
+id|attr_stack-&gt;origin
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
