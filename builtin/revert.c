@@ -53,14 +53,14 @@ l_int|NULL
 )brace
 suffix:semicolon
 DECL|enum|replay_action
-DECL|enumerator|REVERT
-DECL|enumerator|CHERRY_PICK
 r_enum
 id|replay_action
 (brace
-id|REVERT
+DECL|enumerator|REPLAY_REVERT
+id|REPLAY_REVERT
 comma
-id|CHERRY_PICK
+DECL|enumerator|REPLAY_PICK
+id|REPLAY_PICK
 )brace
 suffix:semicolon
 DECL|enum|replay_subcommand
@@ -173,7 +173,7 @@ id|opts
 r_return
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 ques
 c_cond
 l_string|&quot;revert&quot;
@@ -212,7 +212,7 @@ id|opts
 r_return
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 ques
 c_cond
 id|revert_usage
@@ -749,7 +749,7 @@ c_cond
 (paren
 id|opts-&gt;action
 op_eq
-id|CHERRY_PICK
+id|REPLAY_PICK
 )paren
 (brace
 r_struct
@@ -1898,7 +1898,7 @@ c_cond
 (paren
 id|opts-&gt;action
 op_eq
-id|CHERRY_PICK
+id|REPLAY_PICK
 )paren
 id|error
 c_func
@@ -2863,7 +2863,7 @@ c_cond
 (paren
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 )paren
 (brace
 id|base
@@ -3073,7 +3073,7 @@ l_string|&quot;recursive&quot;
 op_logical_or
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 )paren
 (brace
 id|res
@@ -3191,7 +3191,7 @@ c_cond
 (paren
 id|opts-&gt;action
 op_eq
-id|CHERRY_PICK
+id|REPLAY_PICK
 op_logical_and
 op_logical_neg
 id|opts-&gt;no_commit
@@ -3219,7 +3219,7 @@ c_cond
 (paren
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 op_logical_and
 (paren
 (paren
@@ -3254,7 +3254,7 @@ c_func
 (paren
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 ques
 c_cond
 id|_
@@ -3348,7 +3348,7 @@ c_cond
 (paren
 id|opts-&gt;action
 op_ne
-id|REVERT
+id|REPLAY_REVERT
 )paren
 id|opts-&gt;revs-&gt;reverse
 op_xor_assign
@@ -3620,7 +3620,7 @@ id|action_str
 op_assign
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 ques
 c_cond
 l_string|&quot;revert&quot;
@@ -3750,7 +3750,7 @@ l_string|&quot;pick&quot;
 (brace
 id|action
 op_assign
-id|CHERRY_PICK
+id|REPLAY_PICK
 suffix:semicolon
 id|bol
 op_add_assign
@@ -3777,7 +3777,7 @@ l_string|&quot;revert&quot;
 (brace
 id|action
 op_assign
-id|REVERT
+id|REPLAY_REVERT
 suffix:semicolon
 id|bol
 op_add_assign
@@ -3871,7 +3871,7 @@ id|action_str
 op_assign
 id|action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 ques
 c_cond
 l_string|&quot;revert&quot;
@@ -6162,7 +6162,7 @@ c_cond
 (paren
 id|opts-&gt;action
 op_eq
-id|REVERT
+id|REPLAY_REVERT
 )paren
 r_return
 id|error
@@ -6269,7 +6269,7 @@ l_int|1
 suffix:semicolon
 id|opts.action
 op_assign
-id|REVERT
+id|REPLAY_REVERT
 suffix:semicolon
 id|git_config
 c_func
@@ -6363,7 +6363,7 @@ id|opts
 suffix:semicolon
 id|opts.action
 op_assign
-id|CHERRY_PICK
+id|REPLAY_PICK
 suffix:semicolon
 id|git_config
 c_func
