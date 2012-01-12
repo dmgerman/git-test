@@ -1361,6 +1361,12 @@ suffix:semicolon
 id|free
 c_func
 (paren
+id|e-&gt;attrs
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|e
 )paren
 suffix:semicolon
