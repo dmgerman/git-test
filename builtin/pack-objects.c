@@ -6781,7 +6781,7 @@ id|src_entry-&gt;type
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * We do not bother to try a delta that we discarded&n;&t; * on an earlier try, but only when reusing delta data.&n;&t; */
+multiline_comment|/*&n;&t; * We do not bother to try a delta that we discarded on an&n;&t; * earlier try, but only when reusing delta data.  Note that&n;&t; * src_entry that is marked as the preferred_base should always&n;&t; * be considered, as even if we produce a suboptimal delta against&n;&t; * it, we will still save the transfer cost, as we already know&n;&t; * the other side has it and we won&squot;t send src_entry at all.&n;&t; */
 r_if
 c_cond
 (paren
@@ -6792,6 +6792,9 @@ op_logical_and
 id|trg_entry-&gt;in_pack
 op_eq
 id|src_entry-&gt;in_pack
+op_logical_and
+op_logical_neg
+id|src_entry-&gt;preferred_base
 op_logical_and
 id|trg_entry-&gt;in_pack_type
 op_ne
