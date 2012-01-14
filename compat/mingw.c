@@ -4845,10 +4845,7 @@ id|STARTF_USESTDHANDLES
 suffix:semicolon
 id|si.hStdInput
 op_assign
-(paren
-id|HANDLE
-)paren
-id|_get_osfhandle
+id|winansi_get_osfhandle
 c_func
 (paren
 id|fhin
@@ -4856,10 +4853,7 @@ id|fhin
 suffix:semicolon
 id|si.hStdOutput
 op_assign
-(paren
-id|HANDLE
-)paren
-id|_get_osfhandle
+id|winansi_get_osfhandle
 c_func
 (paren
 id|fhout
@@ -4867,10 +4861,7 @@ id|fhout
 suffix:semicolon
 id|si.hStdError
 op_assign
-(paren
-id|HANDLE
-)paren
-id|_get_osfhandle
+id|winansi_get_osfhandle
 c_func
 (paren
 id|fherr
@@ -10730,6 +10721,12 @@ id|stderr
 )paren
 comma
 id|_O_BINARY
+)paren
+suffix:semicolon
+multiline_comment|/* initialize Unicode console */
+id|winansi_init
+c_func
+(paren
 )paren
 suffix:semicolon
 )brace
