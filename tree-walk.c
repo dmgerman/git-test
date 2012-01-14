@@ -2934,7 +2934,7 @@ op_plus
 id|baselen
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Match all directories. We&squot;ll try to match files&n;&t;&t; * later on.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Match all directories. We&squot;ll try to match files&n;&t;&t; * later on.&n;&t;&t; * max_depth is ignored but we may consider support it&n;&t;&t; * in future, see&n;&t;&t; * http://thread.gmane.org/gmane.comp.version-control.git/163757/focus=163840&n;&t;&t; */
 r_if
 c_cond
 (paren
