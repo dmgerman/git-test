@@ -2117,6 +2117,14 @@ op_assign
 op_amp
 id|revs-&gt;diffopt.pathspec
 suffix:semicolon
+id|opts.pathspec-&gt;recursive
+op_assign
+l_int|1
+suffix:semicolon
+id|opts.pathspec-&gt;max_depth
+op_assign
+l_int|1
+suffix:semicolon
 id|init_tree_desc
 c_func
 (paren
