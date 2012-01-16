@@ -1317,10 +1317,6 @@ comma
 id|active_nr
 comma
 l_int|0
-comma
-l_int|0
-comma
-l_int|0
 )paren
 OL
 l_int|0
