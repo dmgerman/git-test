@@ -4943,6 +4943,7 @@ comma
 l_string|&quot;::&quot;
 )paren
 )paren
+(brace
 id|helper
 op_assign
 id|xstrndup
@@ -4954,6 +4955,11 @@ id|p
 id|url
 )paren
 suffix:semicolon
+id|remote-&gt;foreign_vcs
+op_assign
+id|helper
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -5223,6 +5229,10 @@ id|url
 comma
 id|len
 )paren
+suffix:semicolon
+id|remote-&gt;foreign_vcs
+op_assign
+id|handler
 suffix:semicolon
 id|transport_helper_init
 c_func
