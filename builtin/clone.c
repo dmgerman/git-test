@@ -4232,13 +4232,6 @@ id|remote_head
 )paren
 (brace
 multiline_comment|/* Source had detached HEAD pointing somewhere. */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|option_bare
-)paren
-(brace
 id|update_ref
 c_func
 (paren
@@ -4259,7 +4252,6 @@ id|our_head_points_at
 op_assign
 id|remote_head
 suffix:semicolon
-)brace
 )brace
 r_else
 (brace
