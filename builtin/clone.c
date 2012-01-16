@@ -2936,7 +2936,7 @@ c_cond
 id|remote
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We know remote HEAD points to a non-branch, or&n;&t;&t; * HEAD points to a branch but we don&squot;t know which one, or&n;&t;&t; * we asked for a specific branch but it did not exist.&n;&t;&t; * Detach HEAD in all these cases.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We know remote HEAD points to a non-branch, or&n;&t;&t; * HEAD points to a branch but we don&squot;t know which one.&n;&t;&t; * Detach HEAD in all these cases.&n;&t;&t; */
 id|update_ref
 c_func
 (paren
@@ -4505,15 +4505,13 @@ c_cond
 op_logical_neg
 id|our_head_points_at
 )paren
-(brace
-id|warning
+id|die
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;Remote branch %s not found in &quot;
-l_string|&quot;upstream %s, using HEAD instead&quot;
+l_string|&quot;Remote branch %s not found in upstream %s&quot;
 )paren
 comma
 id|option_branch
@@ -4521,11 +4519,6 @@ comma
 id|option_origin
 )paren
 suffix:semicolon
-id|our_head_points_at
-op_assign
-id|remote_head_points_at
-suffix:semicolon
-)brace
 )brace
 r_else
 id|our_head_points_at
