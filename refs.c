@@ -53,6 +53,11 @@ id|nr
 comma
 id|alloc
 suffix:semicolon
+multiline_comment|/*&n;&t; * Entries with index 0 &lt;= i &lt; sorted are sorted by name.  New&n;&t; * entries are appended to the list unsorted, and are sorted&n;&t; * only when required; thus we avoid the need to sort the list&n;&t; * after the addition of every reference.&n;&t; */
+DECL|member|sorted
+r_int
+id|sorted
+suffix:semicolon
 DECL|member|refs
 r_struct
 id|ref_entry
@@ -454,6 +459,7 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n; * Sort the entries in array (if they are not already sorted).&n; */
 DECL|function|sort_ref_array
 r_static
 r_void
@@ -471,13 +477,13 @@ id|i
 comma
 id|j
 suffix:semicolon
-multiline_comment|/* Nothing to sort unless there are at least two entries */
+multiline_comment|/*&n;&t; * This check also prevents passing a zero-length array to qsort(),&n;&t; * which is a problem on some platforms.&n;&t; */
 r_if
 c_cond
 (paren
+id|array-&gt;sorted
+op_eq
 id|array-&gt;nr
-OL
-l_int|2
 )paren
 r_return
 suffix:semicolon
@@ -559,6 +565,8 @@ id|j
 )braket
 suffix:semicolon
 )brace
+id|array-&gt;sorted
+op_assign
 id|array-&gt;nr
 op_assign
 id|i
@@ -615,6 +623,12 @@ id|array-&gt;nr
 )paren
 r_return
 l_int|NULL
+suffix:semicolon
+id|sort_ref_array
+c_func
+(paren
+id|array
+)paren
 suffix:semicolon
 id|len
 op_assign
@@ -742,6 +756,7 @@ id|ref_entry
 op_star
 id|current_ref
 suffix:semicolon
+multiline_comment|/*&n; * Never call sort_ref_array() on the extra_refs, because it is&n; * allowed to contain entries with duplicate names.&n; */
 DECL|variable|extra_refs
 r_static
 r_struct
@@ -792,6 +807,8 @@ c_func
 id|array-&gt;refs
 )paren
 suffix:semicolon
+id|array-&gt;sorted
+op_assign
 id|array-&gt;nr
 op_assign
 id|array-&gt;alloc
@@ -1258,12 +1275,6 @@ id|sha1
 )paren
 suffix:semicolon
 )brace
-id|sort_ref_array
-c_func
-(paren
-id|array
-)paren
-suffix:semicolon
 )brace
 DECL|function|add_extra_ref
 r_void
@@ -2013,13 +2024,6 @@ id|refs
 comma
 l_string|&quot;refs&quot;
 comma
-op_amp
-id|refs-&gt;loose
-)paren
-suffix:semicolon
-id|sort_ref_array
-c_func
-(paren
 op_amp
 id|refs-&gt;loose
 )paren
@@ -3721,6 +3725,18 @@ id|extra-&gt;refs
 (braket
 id|i
 )braket
+)paren
+suffix:semicolon
+id|sort_ref_array
+c_func
+(paren
+id|packed
+)paren
+suffix:semicolon
+id|sort_ref_array
+c_func
+(paren
+id|loose
 )paren
 suffix:semicolon
 r_while
