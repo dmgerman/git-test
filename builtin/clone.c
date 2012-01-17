@@ -2485,14 +2485,12 @@ id|r-&gt;peer_ref
 )paren
 r_continue
 suffix:semicolon
-id|add_extra_ref
+id|add_packed_ref
 c_func
 (paren
 id|r-&gt;peer_ref-&gt;name
 comma
 id|r-&gt;old_sha1
-comma
-l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -2500,11 +2498,6 @@ id|pack_refs
 c_func
 (paren
 id|PACK_REFS_ALL
-)paren
-suffix:semicolon
-id|clear_extra_refs
-c_func
-(paren
 )paren
 suffix:semicolon
 )brace
