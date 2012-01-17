@@ -411,6 +411,10 @@ c_cond
 id|errno
 op_ne
 id|ENOENT
+op_logical_and
+id|errno
+op_ne
+id|ECONNREFUSED
 )paren
 id|die_errno
 c_func
