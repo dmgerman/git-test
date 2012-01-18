@@ -6322,6 +6322,24 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|line
+comma
+l_string|&quot;&bslash;&bslash; &quot;
+)paren
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * Eat the &quot;no newline at eof&quot; marker as if we&n;&t;&t;&t; * saw a &quot;+&quot; or &quot;-&quot; line with nothing on it,&n;&t;&t;&t; * and return without diff_words_flush() to&n;&t;&t;&t; * defer processing. If this is the end of&n;&t;&t;&t; * preimage, more &quot;+&quot; lines may come after it.&n;&t;&t;&t; */
+r_return
+suffix:semicolon
+)brace
 id|diff_words_flush
 c_func
 (paren
