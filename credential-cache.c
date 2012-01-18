@@ -403,12 +403,31 @@ id|buf
 )paren
 OL
 l_int|0
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_ne
+id|ENOENT
 op_logical_and
+id|errno
+op_ne
+id|ECONNREFUSED
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;unable to connect to cache daemon&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
 (paren
 id|flags
 op_amp
 id|FLAG_SPAWN
-)paren
 )paren
 (brace
 id|spawn_daemon
@@ -437,6 +456,7 @@ c_func
 l_string|&quot;unable to connect to cache daemon&quot;
 )paren
 suffix:semicolon
+)brace
 )brace
 id|strbuf_release
 c_func
