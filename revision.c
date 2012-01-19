@@ -1643,6 +1643,10 @@ comma
 id|tree_same
 op_assign
 l_int|0
+comma
+id|nth_parent
+op_assign
+l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * If we don&squot;t do pruning, everything is interesting&n;&t; */
 r_if
@@ -1722,6 +1726,17 @@ op_star
 id|p
 op_assign
 id|parent-&gt;item
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Do not compare with later parents when we care only about&n;&t;&t; * the first parent chain, in order to avoid derailing the&n;&t;&t; * traversal to follow a side branch that brought everything&n;&t;&t; * in the path we are limited to by the pathspec.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|revs-&gt;first_parent_only
+op_logical_and
+id|nth_parent
+op_increment
+)paren
+r_break
 suffix:semicolon
 r_if
 c_cond
