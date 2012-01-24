@@ -1008,13 +1008,6 @@ c_cond
 id|url_nr
 )paren
 (brace
-r_const
-r_char
-op_star
-id|configured_foreign_vcs
-op_assign
-id|remote-&gt;foreign_vcs
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1059,10 +1052,6 @@ id|flags
 )paren
 id|errs
 op_increment
-suffix:semicolon
-id|remote-&gt;foreign_vcs
-op_assign
-id|configured_foreign_vcs
 suffix:semicolon
 )brace
 )brace
