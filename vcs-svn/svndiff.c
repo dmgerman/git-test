@@ -1481,7 +1481,10 @@ id|delta_len
 multiline_comment|/* For each window: */
 id|off_t
 id|pre_off
+op_assign
+id|pre_off
 suffix:semicolon
+multiline_comment|/* stupid GCC... */
 r_int
 id|pre_len
 suffix:semicolon
