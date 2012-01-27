@@ -381,7 +381,7 @@ id|buf-&gt;line_buffer
 suffix:semicolon
 )brace
 DECL|function|buffer_read_binary
-r_void
+r_int
 id|buffer_read_binary
 c_func
 (paren
@@ -395,10 +395,11 @@ id|strbuf
 op_star
 id|sb
 comma
-r_uint32
+r_int
 id|size
 )paren
 (brace
+r_return
 id|strbuf_fread
 c_func
 (paren
