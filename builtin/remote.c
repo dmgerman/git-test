@@ -2886,7 +2886,7 @@ c_func
 (paren
 id|refname
 comma
-l_string|&quot;refs/remotes&quot;
+l_string|&quot;refs/remotes/&quot;
 )paren
 )paren
 (brace
