@@ -374,7 +374,7 @@ op_star
 id|xdf
 op_assign
 op_amp
-id|xe-&gt;xdf1
+id|xe-&gt;xdf2
 suffix:semicolon
 r_const
 r_char
@@ -1023,11 +1023,11 @@ r_for
 c_loop
 (paren
 suffix:semicolon
-id|s1
+id|s2
 OL
-id|xch-&gt;i1
+id|xch-&gt;i2
 suffix:semicolon
-id|s1
+id|s2
 op_increment
 )paren
 r_if
@@ -1037,9 +1037,9 @@ id|xdl_emit_record
 c_func
 (paren
 op_amp
-id|xe-&gt;xdf1
+id|xe-&gt;xdf2
 comma
-id|s1
+id|s2
 comma
 l_string|&quot; &quot;
 comma
@@ -1094,9 +1094,9 @@ id|xdl_emit_record
 c_func
 (paren
 op_amp
-id|xe-&gt;xdf1
+id|xe-&gt;xdf2
 comma
-id|s1
+id|s2
 comma
 l_string|&quot; &quot;
 comma
@@ -1210,17 +1210,17 @@ multiline_comment|/*&n;&t;&t; * Emit post-context.&n;&t;&t; */
 r_for
 c_loop
 (paren
-id|s1
+id|s2
 op_assign
-id|xche-&gt;i1
+id|xche-&gt;i2
 op_plus
-id|xche-&gt;chg1
+id|xche-&gt;chg2
 suffix:semicolon
-id|s1
+id|s2
 OL
-id|e1
+id|e2
 suffix:semicolon
-id|s1
+id|s2
 op_increment
 )paren
 r_if
@@ -1230,9 +1230,9 @@ id|xdl_emit_record
 c_func
 (paren
 op_amp
-id|xe-&gt;xdf1
+id|xe-&gt;xdf2
 comma
-id|s1
+id|s2
 comma
 l_string|&quot; &quot;
 comma
