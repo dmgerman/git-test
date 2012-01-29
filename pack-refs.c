@@ -716,13 +716,6 @@ c_func
 l_string|&quot;unable to overwrite old ref-pack file&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|cbdata.flags
-op_amp
-id|PACK_REFS_PRUNE
-)paren
 id|prune_refs
 c_func
 (paren
