@@ -11827,6 +11827,11 @@ op_star
 id|c
 op_eq
 l_char|&squot;,&squot;
+op_logical_and
+id|c
+(braket
+l_int|1
+)braket
 )paren
 id|pack_idx_opts.off32_limit
 op_assign
