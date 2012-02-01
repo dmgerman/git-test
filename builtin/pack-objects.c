@@ -11896,7 +11896,6 @@ id|pack_usage
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Traditionally &quot;pack-objects [options] base extra&quot; failed;&n;&t; * we would however want to take refs parameter that would&n;&t; * have been given to upstream rev-list ourselves, which means&n;&t; * we somehow want to say what the base name is.  So the&n;&t; * syntax would be:&n;&t; *&n;&t; * pack-objects [options] base &lt;refs...&gt;&n;&t; *&n;&t; * in other words, we would treat the first non-option as the&n;&t; * base_name and send everything else to the internal revision&n;&t; * walker.&n;&t; */
 r_if
 c_cond
 (paren
@@ -11918,6 +11917,11 @@ id|pack_to_stdout
 op_ne
 op_logical_neg
 id|base_name
+op_logical_or
+id|argv
+(braket
+id|i
+)braket
 )paren
 id|usage
 c_func
