@@ -2732,48 +2732,6 @@ id|sb
 )paren
 suffix:semicolon
 )brace
-DECL|function|detach_advice
-r_static
-r_void
-id|detach_advice
-c_func
-(paren
-r_const
-r_char
-op_star
-id|old_path
-comma
-r_const
-r_char
-op_star
-id|new_name
-)paren
-(brace
-r_const
-r_char
-id|fmt
-(braket
-)braket
-op_assign
-l_string|&quot;Note: checking out &squot;%s&squot;.&bslash;n&bslash;n&quot;
-l_string|&quot;You are in &squot;detached HEAD&squot; state. You can look around, make experimental&bslash;n&quot;
-l_string|&quot;changes and commit them, and you can discard any commits you make in this&bslash;n&quot;
-l_string|&quot;state without impacting any branches by performing another checkout.&bslash;n&bslash;n&quot;
-l_string|&quot;If you want to create a new branch to retain commits you create, you may&bslash;n&quot;
-l_string|&quot;do so (now or later) by using -b with the checkout command again. Example:&bslash;n&bslash;n&quot;
-l_string|&quot;  git checkout -b new_branch_name&bslash;n&bslash;n&quot;
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-id|fmt
-comma
-id|new_name
-)paren
-suffix:semicolon
-)brace
 DECL|function|update_refs_for_switch
 r_static
 r_void
@@ -3058,8 +3016,6 @@ id|advice_detached_head
 id|detach_advice
 c_func
 (paren
-id|old-&gt;path
-comma
 r_new
 op_member_access_from_pointer
 id|name
