@@ -1084,6 +1084,10 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|grep_use_locks
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1346,6 +1350,10 @@ c_func
 op_amp
 id|cond_result
 )paren
+suffix:semicolon
+id|grep_use_locks
+op_assign
+l_int|0
 suffix:semicolon
 r_return
 id|hit
@@ -5466,10 +5474,6 @@ op_assign
 l_int|0
 suffix:semicolon
 macro_line|#endif
-id|opt.use_threads
-op_assign
-id|use_threads
-suffix:semicolon
 macro_line|#ifndef NO_PTHREADS
 r_if
 c_cond

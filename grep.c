@@ -4383,6 +4383,10 @@ l_int|1
 suffix:semicolon
 )brace
 macro_line|#ifndef NO_PTHREADS
+DECL|variable|grep_use_locks
+r_int
+id|grep_use_locks
+suffix:semicolon
 multiline_comment|/*&n; * This lock protects access to the gitattributes machinery, which is&n; * not thread-safe.&n; */
 DECL|variable|grep_attr_mutex
 id|pthread_mutex_t
@@ -4395,16 +4399,13 @@ r_void
 id|grep_attr_lock
 c_func
 (paren
-r_struct
-id|grep_opt
-op_star
-id|opt
+r_void
 )paren
 (brace
 r_if
 c_cond
 (paren
-id|opt-&gt;use_threads
+id|grep_use_locks
 )paren
 id|pthread_mutex_lock
 c_func
@@ -4421,16 +4422,13 @@ r_void
 id|grep_attr_unlock
 c_func
 (paren
-r_struct
-id|grep_opt
-op_star
-id|opt
+r_void
 )paren
 (brace
 r_if
 c_cond
 (paren
-id|opt-&gt;use_threads
+id|grep_use_locks
 )paren
 id|pthread_mutex_unlock
 c_func
@@ -4442,9 +4440,9 @@ suffix:semicolon
 )brace
 macro_line|#else
 DECL|macro|grep_attr_lock
-mdefine_line|#define grep_attr_lock(opt)
+mdefine_line|#define grep_attr_lock()
 DECL|macro|grep_attr_unlock
-mdefine_line|#define grep_attr_unlock(opt)
+mdefine_line|#define grep_attr_unlock()
 macro_line|#endif
 DECL|function|match_funcname
 r_static
@@ -4494,7 +4492,6 @@ suffix:semicolon
 id|grep_attr_lock
 c_func
 (paren
-id|opt
 )paren
 suffix:semicolon
 id|drv
@@ -4508,7 +4505,6 @@ suffix:semicolon
 id|grep_attr_unlock
 c_func
 (paren
-id|opt
 )paren
 suffix:semicolon
 r_if
