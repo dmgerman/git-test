@@ -1311,7 +1311,7 @@ c_func
 r_uint32
 id|mode
 comma
-r_uint32
+id|off_t
 id|len
 comma
 r_struct
@@ -1320,6 +1320,13 @@ op_star
 id|input
 )paren
 (brace
+m_assert
+(paren
+id|len
+op_ge
+l_int|0
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1329,6 +1336,19 @@ id|REPO_MODE_LNK
 )paren
 (brace
 multiline_comment|/* svn symlink blobs start with &quot;link &quot; */
+r_if
+c_cond
+(paren
+id|len
+OL
+l_int|5
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;invalid dump: symlink too short for &bslash;&quot;link&bslash;&quot; prefix&quot;
+)paren
+suffix:semicolon
 id|len
 op_sub_assign
 l_int|5
@@ -1357,9 +1377,12 @@ id|printf
 c_func
 (paren
 l_string|&quot;data %&quot;
-id|PRIu32
+id|PRIuMAX
 l_string|&quot;&bslash;n&quot;
 comma
+(paren
+r_uintmax
+)paren
 id|len
 )paren
 suffix:semicolon
@@ -1729,7 +1752,7 @@ r_char
 op_star
 id|old_data
 comma
-r_uint32
+id|off_t
 id|len
 comma
 r_struct
@@ -1741,21 +1764,11 @@ id|input
 r_int
 id|postimage_len
 suffix:semicolon
-r_if
-c_cond
+m_assert
 (paren
 id|len
-OG
-id|maximum_signed_value_of_type
-c_func
-(paren
-id|off_t
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;enormous delta&quot;
+op_ge
+l_int|0
 )paren
 suffix:semicolon
 id|postimage_len
@@ -1763,9 +1776,6 @@ op_assign
 id|apply_delta
 c_func
 (paren
-(paren
-id|off_t
-)paren
 id|len
 comma
 id|input
