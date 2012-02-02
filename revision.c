@@ -11371,9 +11371,6 @@ c_func
 op_amp
 id|opt-&gt;grep_filter
 comma
-l_int|NULL
-comma
-multiline_comment|/* we say nothing, not even filename */
 id|commit-&gt;buffer
 comma
 id|strlen

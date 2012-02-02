@@ -6229,11 +6229,6 @@ id|grep_opt
 op_star
 id|opt
 comma
-r_const
-r_char
-op_star
-id|name
-comma
 r_char
 op_star
 id|buf
@@ -6258,7 +6253,7 @@ id|gs
 comma
 id|GREP_SOURCE_BUF
 comma
-id|name
+l_int|NULL
 comma
 l_int|NULL
 )paren
