@@ -143,7 +143,7 @@ c_func
 id|off_t
 id|offset
 comma
-r_int
+r_uintmax
 id|len
 )paren
 (brace
@@ -167,9 +167,6 @@ l_string|&quot;%&quot;
 id|PRIuMAX
 l_string|&quot; &gt; OFF_MAX&quot;
 comma
-(paren
-r_uintmax
-)paren
 id|len
 )paren
 suffix:semicolon
@@ -203,9 +200,6 @@ r_uintmax
 )paren
 id|offset
 comma
-(paren
-r_uintmax
-)paren
 id|len
 )paren
 suffix:semicolon
