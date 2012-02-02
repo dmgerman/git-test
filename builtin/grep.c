@@ -214,58 +214,6 @@ id|grep_mutex
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Used to serialize calls to read_sha1_file. */
-DECL|variable|read_sha1_mutex
-r_static
-id|pthread_mutex_t
-id|read_sha1_mutex
-suffix:semicolon
-DECL|function|read_sha1_lock
-r_static
-r_inline
-r_void
-id|read_sha1_lock
-c_func
-(paren
-r_void
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|use_threads
-)paren
-id|pthread_mutex_lock
-c_func
-(paren
-op_amp
-id|read_sha1_mutex
-)paren
-suffix:semicolon
-)brace
-DECL|function|read_sha1_unlock
-r_static
-r_inline
-r_void
-id|read_sha1_unlock
-c_func
-(paren
-r_void
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|use_threads
-)paren
-id|pthread_mutex_unlock
-c_func
-(paren
-op_amp
-id|read_sha1_mutex
-)paren
-suffix:semicolon
-)brace
 multiline_comment|/* Signalled when a new work_item is added to todo. */
 DECL|variable|cond_add
 r_static
@@ -1043,7 +991,7 @@ id|pthread_mutex_init
 c_func
 (paren
 op_amp
-id|read_sha1_mutex
+id|grep_read_mutex
 comma
 l_int|NULL
 )paren
@@ -1320,7 +1268,7 @@ id|pthread_mutex_destroy
 c_func
 (paren
 op_amp
-id|read_sha1_mutex
+id|grep_read_mutex
 )paren
 suffix:semicolon
 id|pthread_mutex_destroy
@@ -1360,10 +1308,6 @@ id|hit
 suffix:semicolon
 )brace
 macro_line|#else /* !NO_PTHREADS */
-DECL|macro|read_sha1_lock
-mdefine_line|#define read_sha1_lock()
-DECL|macro|read_sha1_unlock
-mdefine_line|#define read_sha1_unlock()
 DECL|function|wait_all
 r_static
 r_int
@@ -1721,7 +1665,7 @@ r_void
 op_star
 id|data
 suffix:semicolon
-id|read_sha1_lock
+id|grep_read_lock
 c_func
 (paren
 )paren
@@ -1738,7 +1682,7 @@ comma
 id|size
 )paren
 suffix:semicolon
-id|read_sha1_unlock
+id|grep_read_unlock
 c_func
 (paren
 )paren
@@ -3115,7 +3059,7 @@ id|hit
 comma
 id|len
 suffix:semicolon
-id|read_sha1_lock
+id|grep_read_lock
 c_func
 (paren
 )paren
@@ -3135,7 +3079,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|read_sha1_unlock
+id|grep_read_unlock
 c_func
 (paren
 )paren

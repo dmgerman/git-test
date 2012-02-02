@@ -4438,6 +4438,11 @@ id|grep_attr_mutex
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Same as git_attr_mutex, but protecting the thread-unsafe object db access.&n; */
+DECL|variable|grep_read_mutex
+id|pthread_mutex_t
+id|grep_read_mutex
+suffix:semicolon
 macro_line|#else
 DECL|macro|grep_attr_lock
 mdefine_line|#define grep_attr_lock()
