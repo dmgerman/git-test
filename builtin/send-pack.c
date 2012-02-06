@@ -1262,6 +1262,20 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|server_supports
+c_func
+(paren
+l_string|&quot;quiet&quot;
+)paren
+)paren
+id|args-&gt;quiet
+op_assign
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|remote_refs
 )paren
 (brace
@@ -1396,6 +1410,8 @@ op_logical_and
 id|status_report
 op_logical_or
 id|use_sideband
+op_logical_or
+id|args-&gt;quiet
 )paren
 )paren
 (brace
@@ -1405,7 +1421,7 @@ c_func
 op_amp
 id|req_buf
 comma
-l_string|&quot;%s %s %s%c%s%s&quot;
+l_string|&quot;%s %s %s%c%s%s%s&quot;
 comma
 id|old_hex
 comma
@@ -1426,6 +1442,13 @@ id|use_sideband
 ques
 c_cond
 l_string|&quot; side-band-64k&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|args-&gt;quiet
+ques
+c_cond
+l_string|&quot; quiet&quot;
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -2099,6 +2122,26 @@ l_string|&quot;--force&quot;
 )paren
 (brace
 id|args.force_update
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--quiet&quot;
+)paren
+)paren
+(brace
+id|args.quiet
 op_assign
 l_int|1
 suffix:semicolon
