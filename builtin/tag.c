@@ -373,12 +373,35 @@ c_cond
 (paren
 op_logical_neg
 id|buf
-op_logical_or
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;unable to read object %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|size
 )paren
+(brace
+id|free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
+)brace
 multiline_comment|/* skip header */
 id|sp
 op_assign
