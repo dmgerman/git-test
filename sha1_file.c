@@ -5315,6 +5315,31 @@ c_func
 id|st.st_size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|size
+)paren
+(brace
+multiline_comment|/* mmap() is forbidden on empty files */
+id|error
+c_func
+(paren
+l_string|&quot;object file %s is empty&quot;
+comma
+id|sha1_file_name
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
 id|map
 op_assign
 id|xmmap
