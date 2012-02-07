@@ -1520,6 +1520,15 @@ id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+id|IGNORE_DIRTY_SUBMODULES
+)paren
+suffix:semicolon
 id|out
 op_assign
 id|open
