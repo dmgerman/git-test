@@ -793,12 +793,6 @@ c_func
 (paren
 id|ce
 )paren
-op_logical_or
-(paren
-id|ce-&gt;ce_flags
-op_amp
-id|CE_INTENT_TO_ADD
-)paren
 )paren
 (brace
 r_if
@@ -1681,11 +1675,15 @@ c_cond
 (paren
 id|ce-&gt;ce_flags
 op_amp
+(paren
 id|CE_REMOVE
+op_or
+id|CE_INTENT_TO_ADD
+)paren
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* entry being removed */
+multiline_comment|/* entry being removed or placeholder */
 id|strbuf_grow
 c_func
 (paren
