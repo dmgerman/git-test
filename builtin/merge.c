@@ -99,6 +99,8 @@ r_int
 id|fast_forward_only
 comma
 id|option_edit
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|allow_trivial
 DECL|variable|have_message
@@ -1040,7 +1042,7 @@ comma
 l_string|&quot;perform a commit if the merge succeeds (default)&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;e&squot;
@@ -7965,6 +7967,13 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|option_edit
+OL
+l_int|0
+)paren
 id|option_edit
 op_assign
 l_int|1
@@ -7975,6 +7984,17 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
+r_if
+c_cond
+(paren
+id|option_edit
+OL
+l_int|0
+)paren
+id|option_edit
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
