@@ -5480,6 +5480,16 @@ id|use_threads
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
+id|opt.name_only
+op_logical_or
+id|opt.unmatch_name_only
+op_logical_or
+id|opt.count
+)paren
+op_logical_and
+(paren
 id|opt.pre_context
 op_logical_or
 id|opt.post_context
@@ -5487,6 +5497,7 @@ op_logical_or
 id|opt.file_break
 op_logical_or
 id|opt.funcbody
+)paren
 )paren
 id|skip_first_line
 op_assign
