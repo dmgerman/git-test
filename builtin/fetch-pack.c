@@ -197,7 +197,7 @@ c_func
 r_const
 r_char
 op_star
-id|path
+id|refname
 comma
 r_const
 r_int
@@ -227,7 +227,7 @@ c_func
 id|sha1
 )paren
 comma
-id|path
+id|refname
 comma
 l_int|0
 )paren
@@ -267,7 +267,7 @@ c_func
 r_const
 r_char
 op_star
-id|path
+id|refname
 comma
 r_const
 r_int
@@ -297,7 +297,7 @@ c_func
 id|sha1
 )paren
 comma
-id|path
+id|refname
 comma
 l_int|0
 )paren
@@ -2443,7 +2443,7 @@ c_func
 r_const
 r_char
 op_star
-id|path
+id|refname
 comma
 r_const
 r_int
