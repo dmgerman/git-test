@@ -4538,11 +4538,14 @@ c_func
 id|transport
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|refs
+)paren
+(brace
 id|mapped_refs
 op_assign
-id|refs
-ques
-c_cond
 id|wanted_peer_refs
 c_func
 (paren
@@ -4550,10 +4553,8 @@ id|refs
 comma
 id|refspec
 )paren
-suffix:colon
-l_int|NULL
 suffix:semicolon
-multiline_comment|/*&n;&t; * transport_get_remote_refs() may return refs with null sha-1&n;&t; * in mapped_refs (see struct transport-&gt;get_refs_list&n;&t; * comment). In that case we need fetch it early because&n;&t; * remote_head code below relies on it.&n;&t; *&n;&t; * for normal clones, transport_get_remote_refs() should&n;&t; * return reliable ref set, we can delay cloning until after&n;&t; * remote HEAD check.&n;&t; */
+multiline_comment|/*&n;&t;&t; * transport_get_remote_refs() may return refs with null sha-1&n;&t;&t; * in mapped_refs (see struct transport-&gt;get_refs_list&n;&t;&t; * comment). In that case we need fetch it early because&n;&t;&t; * remote_head code below relies on it.&n;&t;&t; *&n;&t;&t; * for normal clones, transport_get_remote_refs() should&n;&t;&t; * return reliable ref set, we can delay cloning until after&n;&t;&t; * remote HEAD check.&n;&t;&t; */
 r_for
 c_loop
 (paren
@@ -4592,8 +4593,6 @@ id|is_local
 op_logical_and
 op_logical_neg
 id|complete_refs_before_fetch
-op_logical_and
-id|refs
 )paren
 id|transport_fetch_refs
 c_func
@@ -4603,12 +4602,6 @@ comma
 id|mapped_refs
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|refs
-)paren
-(brace
 id|remote_head
 op_assign
 id|find_ref_by_name
@@ -4685,6 +4678,10 @@ c_func
 l_string|&quot;You appear to have cloned an empty repository.&quot;
 )paren
 )paren
+suffix:semicolon
+id|mapped_refs
+op_assign
+l_int|NULL
 suffix:semicolon
 id|our_head_points_at
 op_assign
