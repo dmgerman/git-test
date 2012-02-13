@@ -1,9 +1,5 @@
 multiline_comment|/*&n; * Copyright (C) 1996-2001  Internet Software Consortium.&n; *&n; * Permission to use, copy, modify, and distribute this software for any&n; * purpose with or without fee is hereby granted, provided that the above&n; * copyright notice and this permission notice appear in all copies.&n; *&n; * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND INTERNET SOFTWARE CONSORTIUM&n; * DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL&n; * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL&n; * INTERNET SOFTWARE CONSORTIUM BE LIABLE FOR ANY SPECIAL, DIRECT,&n; * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING&n; * FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,&n; * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION&n; * WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&n; */
-macro_line|#include &lt;errno.h&gt;
-macro_line|#include &lt;sys/types.h&gt;
 macro_line|#include &quot;../git-compat-util.h&quot;
-macro_line|#include &lt;stdio.h&gt;
-macro_line|#include &lt;string.h&gt;
 macro_line|#ifndef NS_INT16SZ
 DECL|macro|NS_INT16SZ
 mdefine_line|#define NS_INT16SZ       2
