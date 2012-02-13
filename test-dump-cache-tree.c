@@ -328,11 +328,7 @@ id|active_cache
 comma
 id|active_nr
 comma
-l_int|0
-comma
-l_int|1
-comma
-l_int|0
+id|WRITE_TREE_DRY_RUN
 )paren
 suffix:semicolon
 r_return
