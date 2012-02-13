@@ -677,7 +677,7 @@ id|cb_data
 )paren
 (brace
 r_struct
-id|rev_info
+id|rev_list_info
 op_star
 id|info
 op_assign
@@ -698,7 +698,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|info-&gt;verify_objects
+id|info-&gt;revs-&gt;verify_objects
 op_logical_and
 op_logical_neg
 id|obj-&gt;parsed
