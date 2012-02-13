@@ -8149,6 +8149,13 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|option_edit
+OL
+l_int|0
+)paren
 id|option_edit
 op_assign
 l_int|1
