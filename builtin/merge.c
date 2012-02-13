@@ -7937,6 +7937,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|fast_forward_only
+op_logical_and
 id|merge_remote_util
 c_func
 (paren
