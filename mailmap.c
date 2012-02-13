@@ -1161,7 +1161,7 @@ id|maxlen_name
 (brace
 r_char
 op_star
-id|p
+id|end_of_email
 suffix:semicolon
 r_struct
 id|string_list_item
@@ -1186,7 +1186,7 @@ r_int
 id|i
 suffix:semicolon
 multiline_comment|/* figure out space requirement for email */
-id|p
+id|end_of_email
 op_assign
 id|strchr
 c_func
@@ -1200,11 +1200,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p
+id|end_of_email
 )paren
 (brace
 multiline_comment|/* email passed in might not be wrapped in &lt;&gt;, but end with a &bslash;0 */
-id|p
+id|end_of_email
 op_assign
 id|memchr
 c_func
@@ -1220,7 +1220,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|p
+id|end_of_email
 )paren
 r_return
 l_int|0
@@ -1229,7 +1229,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|p
+id|end_of_email
 id|email
 op_plus
 l_int|1
@@ -1249,7 +1249,7 @@ op_assign
 id|xmalloc
 c_func
 (paren
-id|p
+id|end_of_email
 id|email
 op_plus
 l_int|1
@@ -1265,7 +1265,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|p
+id|end_of_email
 id|email
 suffix:semicolon
 id|i
@@ -1439,6 +1439,12 @@ id|mi-&gt;email
 comma
 id|maxlen_email
 )paren
+suffix:semicolon
+r_else
+op_star
+id|end_of_email
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 r_if
 c_cond
