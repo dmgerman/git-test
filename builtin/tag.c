@@ -2048,6 +2048,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|parse_opt_points_at
+r_static
 r_int
 id|parse_opt_points_at
 c_func
@@ -2058,6 +2059,7 @@ id|option
 op_star
 id|opt
 id|__attribute__
+c_func
 (paren
 (paren
 id|unused
