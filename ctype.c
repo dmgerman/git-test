@@ -1,5 +1,5 @@
 multiline_comment|/*&n; * Sane locale-independent, ASCII ctype.&n; *&n; * No surprises, and works with signed and unsigned chars.&n; */
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;git-compat-util.h&quot;
 r_enum
 (brace
 DECL|enumerator|S
