@@ -2256,6 +2256,9 @@ id|prefix
 )paren
 id|config_exclusive_filename
 op_assign
+id|xstrdup
+c_func
+(paren
 id|prefix_filename
 c_func
 (paren
@@ -2268,6 +2271,7 @@ id|prefix
 )paren
 comma
 id|given_config_file
+)paren
 )paren
 suffix:semicolon
 r_else
