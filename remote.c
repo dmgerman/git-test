@@ -8613,23 +8613,19 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;Your branch is ahead of &squot;%s&squot; &quot;
-l_string|&quot;by %d commit%s.&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;Your branch is ahead of &squot;%s&squot; by %d commit.&bslash;n&quot;
+comma
+l_string|&quot;Your branch is ahead of &squot;%s&squot; by %d commits.&bslash;n&quot;
+comma
+id|num_ours
+)paren
 comma
 id|base
 comma
 id|num_ours
-comma
-(paren
-id|num_ours
-op_eq
-l_int|1
-)paren
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot;s&quot;
 )paren
 suffix:semicolon
 r_else
@@ -8644,24 +8640,21 @@ c_func
 (paren
 id|sb
 comma
-l_string|&quot;Your branch is behind &squot;%s&squot; &quot;
-l_string|&quot;by %d commit%s, &quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;Your branch is behind &squot;%s&squot; by %d commit, &quot;
 l_string|&quot;and can be fast-forwarded.&bslash;n&quot;
+comma
+l_string|&quot;Your branch is behind &squot;%s&squot; by %d commits, &quot;
+l_string|&quot;and can be fast-forwarded.&bslash;n&quot;
+comma
+id|num_theirs
+)paren
 comma
 id|base
 comma
 id|num_theirs
-comma
-(paren
-id|num_theirs
-op_eq
-l_int|1
-)paren
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot;s&quot;
 )paren
 suffix:semicolon
 r_else
@@ -8670,9 +8663,19 @@ c_func
 (paren
 id|sb
 comma
+id|Q_
+c_func
+(paren
 l_string|&quot;Your branch and &squot;%s&squot; have diverged,&bslash;n&quot;
-l_string|&quot;and have %d and %d different commit(s) each, &quot;
+l_string|&quot;and have %d and %d different commit each, &quot;
 l_string|&quot;respectively.&bslash;n&quot;
+comma
+l_string|&quot;Your branch and &squot;%s&squot; have diverged,&bslash;n&quot;
+l_string|&quot;and have %d and %d different commits each, &quot;
+l_string|&quot;respectively.&bslash;n&quot;
+comma
+id|num_theirs
+)paren
 comma
 id|base
 comma

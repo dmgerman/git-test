@@ -1018,6 +1018,7 @@ c_func
 r_void
 )paren
 (brace
+r_const
 r_char
 op_star
 id|s
@@ -1040,7 +1041,11 @@ id|FROM_MERGE
 suffix:colon
 id|s
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;merge&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -1049,7 +1054,11 @@ id|FROM_CHERRY_PICK
 suffix:colon
 id|s
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;cherry-pick&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
