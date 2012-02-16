@@ -62,14 +62,6 @@ r_static
 r_int
 id|zlib_compression_seen
 suffix:semicolon
-DECL|variable|config_exclusive_filename
-r_const
-r_char
-op_star
-id|config_exclusive_filename
-op_assign
-l_int|NULL
-suffix:semicolon
 DECL|function|lowercase
 r_static
 r_void
@@ -5015,7 +5007,7 @@ id|fn
 comma
 id|data
 comma
-id|config_exclusive_filename
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -7249,7 +7241,7 @@ r_return
 id|git_config_set_multivar_in_file
 c_func
 (paren
-id|config_exclusive_filename
+l_int|NULL
 comma
 id|key
 comma
@@ -7939,7 +7931,7 @@ r_return
 id|git_config_rename_section_in_file
 c_func
 (paren
-id|config_exclusive_filename
+l_int|NULL
 comma
 id|old_name
 comma
