@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 multiline_comment|/*&n; * convert.c - convert a file when checking it out and checking it in.&n; *&n; * This should use the pathname to decide on whether it wants to do some&n; * more interesting conversions (automatic gzip/unzip, general format&n; * conversions etc etc), but by default it just does automatic CRLF&lt;-&gt;LF&n; * translation when the &quot;text&quot; attribute or &quot;auto_crlf&quot; option is set.&n; */
 DECL|enum|crlf_action
 r_enum
@@ -1522,6 +1523,14 @@ comma
 id|params-&gt;cmd
 )paren
 suffix:semicolon
+id|sigchain_push
+c_func
+(paren
+id|SIGPIPE
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
 id|write_err
 op_assign
 (paren
@@ -1562,6 +1571,12 @@ c_func
 l_string|&quot;cannot feed the input to external filter %s&quot;
 comma
 id|params-&gt;cmd
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGPIPE
 )paren
 suffix:semicolon
 id|status
