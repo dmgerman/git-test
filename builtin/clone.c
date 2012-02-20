@@ -111,6 +111,8 @@ DECL|variable|option_progress
 r_static
 r_int
 id|option_progress
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|option_config
 r_static
@@ -189,7 +191,7 @@ op_amp
 id|option_verbosity
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

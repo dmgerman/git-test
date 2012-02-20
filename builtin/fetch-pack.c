@@ -3771,6 +3771,8 @@ r_if
 c_cond
 (paren
 id|args.quiet
+op_logical_or
+id|args.no_progress
 )paren
 op_star
 id|av
