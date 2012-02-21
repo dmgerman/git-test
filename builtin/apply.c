@@ -7,6 +7,7 @@ macro_line|#include &quot;delta.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 multiline_comment|/*&n; *  --check turns on checking that the working tree matches the&n; *    files that are being modified, but doesn&squot;t apply the patch&n; *  --stat does just a diffstat, and doesn&squot;t actually apply&n; *  --numstat does numeric diffstat, and doesn&squot;t actually apply&n; *  --index-info shows the old and new index info for paths if available.&n; *  --index updates the cache as well.&n; *  --cached updates only the cache without ever touching the working tree.&n; */
 DECL|variable|prefix
@@ -15184,10 +15185,10 @@ id|patch
 )paren
 suffix:semicolon
 )brace
-id|printf
+id|print_stat_summary
 c_func
 (paren
-l_string|&quot; %d files changed, %d insertions(+), %d deletions(-)&bslash;n&quot;
+id|stdout
 comma
 id|files
 comma
