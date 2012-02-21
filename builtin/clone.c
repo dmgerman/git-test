@@ -497,9 +497,11 @@ op_assign
 (brace
 l_string|&quot;/.git&quot;
 comma
-l_string|&quot;.git&quot;
-comma
 l_string|&quot;&quot;
+comma
+l_string|&quot;.git/.git&quot;
+comma
+l_string|&quot;.git&quot;
 )brace
 suffix:semicolon
 r_static
@@ -582,6 +584,12 @@ id|S_ISDIR
 c_func
 (paren
 id|st.st_mode
+)paren
+op_logical_and
+id|is_git_directory
+c_func
+(paren
+id|path
 )paren
 )paren
 (brace

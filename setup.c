@@ -1158,7 +1158,6 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Test if it looks like we&squot;re at a git directory.&n; * We want to see:&n; *&n; *  - either an objects/ directory _or_ the proper&n; *    GIT_OBJECT_DIRECTORY environment variable&n; *  - a refs/ directory&n; *  - either a HEAD symlink or a HEAD file that is formatted as&n; *    a proper &quot;ref:&quot;, or a regular file HEAD that has a properly&n; *    formatted sha1 object name.&n; */
 DECL|function|is_git_directory
-r_static
 r_int
 id|is_git_directory
 c_func
