@@ -8452,6 +8452,15 @@ id|revs-&gt;grep_filter.regflags
 op_or_assign
 id|REG_ICASE
 suffix:semicolon
+id|DIFF_OPT_SET
+c_func
+(paren
+op_amp
+id|revs-&gt;diffopt
+comma
+id|PICKAXE_IGNORE_CASE
+)paren
+suffix:semicolon
 )brace
 r_else
 r_if
