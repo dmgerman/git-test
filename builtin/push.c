@@ -50,6 +50,8 @@ DECL|variable|progress
 r_static
 r_int
 id|progress
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|refspec
 r_static
@@ -1418,7 +1420,7 @@ comma
 id|TRANSPORT_PUSH_SET_UPSTREAM
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

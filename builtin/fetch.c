@@ -86,6 +86,8 @@ DECL|variable|recurse_submodules
 r_static
 r_int
 id|progress
+op_assign
+l_int|1
 comma
 id|recurse_submodules
 op_assign
@@ -381,7 +383,7 @@ comma
 l_string|&quot;allow updating of HEAD ref&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
