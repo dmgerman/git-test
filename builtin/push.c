@@ -1431,6 +1431,21 @@ comma
 l_string|&quot;force progress reporting&quot;
 )paren
 comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;prune&quot;
+comma
+op_amp
+id|flags
+comma
+l_string|&quot;prune locally removed refs&quot;
+comma
+id|TRANSPORT_PUSH_PRUNE
+)paren
+comma
 id|OPT_END
 c_func
 (paren
