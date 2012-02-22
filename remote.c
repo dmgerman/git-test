@@ -6569,6 +6569,9 @@ suffix:semicolon
 r_struct
 id|ref
 op_star
+id|ref
+comma
+op_star
 op_star
 id|dst_tail
 op_assign
@@ -6632,12 +6635,15 @@ multiline_comment|/* pick the remainder */
 r_for
 c_loop
 (paren
-suffix:semicolon
-id|src
-suffix:semicolon
-id|src
+id|ref
 op_assign
-id|src-&gt;next
+id|src
+suffix:semicolon
+id|ref
+suffix:semicolon
+id|ref
+op_assign
+id|ref-&gt;next
 )paren
 (brace
 r_struct
@@ -6660,7 +6666,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|src-&gt;peer_ref
+id|ref-&gt;peer_ref
 )paren
 r_continue
 suffix:semicolon
@@ -6673,7 +6679,7 @@ id|rs
 comma
 id|nr_refspec
 comma
-id|src
+id|ref
 )paren
 suffix:semicolon
 r_if
@@ -6700,7 +6706,7 @@ op_logical_and
 id|prefixcmp
 c_func
 (paren
-id|src-&gt;name
+id|ref-&gt;name
 comma
 l_string|&quot;refs/heads/&quot;
 )paren
@@ -6712,7 +6718,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|src-&gt;name
+id|ref-&gt;name
 )paren
 suffix:semicolon
 )brace
@@ -6739,7 +6745,7 @@ c_func
 (paren
 id|pat-&gt;src
 comma
-id|src-&gt;name
+id|ref-&gt;name
 comma
 id|dst_side
 comma
@@ -6816,7 +6822,7 @@ c_func
 (paren
 id|dst_peer-&gt;new_sha1
 comma
-id|src-&gt;new_sha1
+id|ref-&gt;new_sha1
 )paren
 suffix:semicolon
 )brace
@@ -6825,7 +6831,7 @@ op_assign
 id|copy_ref
 c_func
 (paren
-id|src
+id|ref
 )paren
 suffix:semicolon
 id|dst_peer-&gt;force
