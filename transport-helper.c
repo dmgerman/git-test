@@ -9,6 +9,7 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;thread-utils.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|variable|debug
 r_static
 r_int
@@ -1095,12 +1096,6 @@ id|data
 op_assign
 id|transport-&gt;data
 suffix:semicolon
-r_struct
-id|strbuf
-id|buf
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1127,22 +1122,29 @@ op_logical_neg
 id|data-&gt;no_disconnect_req
 )paren
 (brace
-id|strbuf_addf
+multiline_comment|/*&n;&t;&t;&t; * Ignore write errors; there&squot;s nothing we can do,&n;&t;&t;&t; * since we&squot;re about to close the pipe anyway. And the&n;&t;&t;&t; * most likely error is EPIPE due to the helper dying&n;&t;&t;&t; * to report an error itself.&n;&t;&t;&t; */
+id|sigchain_push
 c_func
 (paren
-op_amp
-id|buf
+id|SIGPIPE
 comma
-l_string|&quot;&bslash;n&quot;
+id|SIG_IGN
 )paren
 suffix:semicolon
-id|sendline
+id|xwrite
 c_func
 (paren
-id|data
+id|data-&gt;helper-&gt;in
 comma
-op_amp
-id|buf
+l_string|&quot;&bslash;n&quot;
+comma
+l_int|1
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGPIPE
 )paren
 suffix:semicolon
 )brace
