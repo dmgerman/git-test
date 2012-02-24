@@ -879,6 +879,16 @@ id|stats.cr
 r_return
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * At this point all of our source analysis is done, and we are sure we&n;&t; * would convert. If we are in dry-run mode, we can give an answer.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+)paren
+r_return
+l_int|1
+suffix:semicolon
 multiline_comment|/* only grow if not in place */
 r_if
 c_cond
@@ -1662,6 +1672,15 @@ id|cmd
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dst
+)paren
+r_return
+l_int|1
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -2287,6 +2306,15 @@ id|len
 )paren
 r_return
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+)paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* only grow if not in place */
 r_if
@@ -3531,6 +3559,8 @@ r_if
 c_cond
 (paren
 id|ret
+op_logical_and
+id|dst
 )paren
 (brace
 id|src
@@ -3574,6 +3604,8 @@ r_if
 c_cond
 (paren
 id|ret
+op_logical_and
+id|dst
 )paren
 (brace
 id|src
