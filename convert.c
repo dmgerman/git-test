@@ -777,11 +777,28 @@ op_eq
 id|AUTO_CRLF_FALSE
 )paren
 op_logical_or
+(paren
+id|src
+op_logical_and
 op_logical_neg
 id|len
 )paren
+)paren
 r_return
 l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * If we are doing a dry-run and have no source buffer, there is&n;&t; * nothing to analyze; we must assume we would convert.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+op_logical_and
+op_logical_neg
+id|src
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|gather_stats
 c_func
@@ -2295,6 +2312,9 @@ c_cond
 op_logical_neg
 id|ident
 op_logical_or
+(paren
+id|src
+op_logical_and
 op_logical_neg
 id|count_ident
 c_func
@@ -2302,6 +2322,7 @@ c_func
 id|src
 comma
 id|len
+)paren
 )paren
 )paren
 r_return
