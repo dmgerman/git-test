@@ -11739,9 +11739,7 @@ l_int|1
 id|warning
 c_func
 (paren
-l_string|&quot;no threads support, ignoring %s&quot;
-comma
-id|arg
+l_string|&quot;no threads support, ignoring --threads&quot;
 )paren
 suffix:semicolon
 macro_line|#endif
