@@ -2799,6 +2799,24 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|filter
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;object &squot;%s&squot; does not point to a commit&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|merge_filter_ref
+)paren
+)paren
+suffix:semicolon
 id|filter-&gt;object.flags
 op_or_assign
 id|UNINTERESTING
