@@ -33,7 +33,7 @@ l_string|&quot;git remote prune [-n | --dry-run] &lt;name&gt;&quot;
 comma
 l_string|&quot;git remote [-v | --verbose] update [-p | --prune] [(&lt;group&gt; | &lt;remote&gt;)...]&quot;
 comma
-l_string|&quot;git remote set-branches &lt;name&gt; [--add] &lt;branch&gt;...&quot;
+l_string|&quot;git remote set-branches [--add] &lt;name&gt; &lt;branch&gt;...&quot;
 comma
 l_string|&quot;git remote set-url &lt;name&gt; &lt;newurl&gt; [&lt;oldurl&gt;]&quot;
 comma
