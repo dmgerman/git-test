@@ -5580,6 +5580,24 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+DECL|variable|merge_editor_comment
+r_static
+r_const
+r_char
+id|merge_editor_comment
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;Please enter a commit message to explain why this merge is necessary,&bslash;n&quot;
+l_string|&quot;especially if it merges an updated upstream into a topic branch.&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;Lines starting with &squot;#&squot; will be ignored, and an empty message aborts&bslash;n&quot;
+l_string|&quot;the commit.&bslash;n&quot;
+)paren
+suffix:semicolon
 DECL|function|prepare_to_commit
 r_static
 r_void
@@ -5594,6 +5612,17 @@ id|strbuf
 id|msg
 op_assign
 id|STRBUF_INIT
+suffix:semicolon
+r_const
+r_char
+op_star
+id|comment
+op_assign
+id|_
+c_func
+(paren
+id|merge_editor_comment
+)paren
 suffix:semicolon
 id|strbuf_addbuf
 c_func
@@ -5612,6 +5641,30 @@ op_amp
 id|msg
 comma
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+l_int|0
+OL
+id|option_edit
+)paren
+id|strbuf_add_lines
+c_func
+(paren
+op_amp
+id|msg
+comma
+l_string|&quot;# &quot;
+comma
+id|comment
+comma
+id|strlen
+c_func
+(paren
+id|comment
+)paren
 )paren
 suffix:semicolon
 id|write_merge_msg
