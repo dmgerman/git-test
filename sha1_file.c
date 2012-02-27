@@ -13426,7 +13426,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This creates one packfile per large blob unless bulk-checkin&n; * machinery is &quot;plugged&quot;.&n; *&n; * This also bypasses the usual &quot;convert-to-git&quot; dance, and that is on&n; * purpose. We could write a streaming version of the converting&n; * functions and insert that before feeding the data to fast-import&n; * (or equivalent in-core API described above), but the primary&n; * motivation for trying to stream from the working tree file and to&n; * avoid mmaping it in core is to deal with large binary blobs, and&n; * by definition they do _not_ want to get any conversion.&n; */
+multiline_comment|/*&n; * This creates one packfile per large blob unless bulk-checkin&n; * machinery is &quot;plugged&quot;.&n; *&n; * This also bypasses the usual &quot;convert-to-git&quot; dance, and that is on&n; * purpose. We could write a streaming version of the converting&n; * functions and insert that before feeding the data to fast-import&n; * (or equivalent in-core API described above). However, that is&n; * somewhat complicated, as we do not know the size of the filter&n; * result, which we need to know beforehand when writing a git object.&n; * Since the primary motivation for trying to stream from the working&n; * tree file and to avoid mmaping it in core is to deal with large&n; * binary blobs, they generally do not want to get any conversion, and&n; * callers should avoid this code path when filters are requested.&n; */
 DECL|function|index_stream
 r_static
 r_int
@@ -13555,6 +13555,22 @@ op_logical_or
 id|type
 op_ne
 id|OBJ_BLOB
+op_logical_or
+(paren
+id|path
+op_logical_and
+id|would_convert_to_git
+c_func
+(paren
+id|path
+comma
+l_int|NULL
+comma
+l_int|0
+comma
+l_int|0
+)paren
+)paren
 )paren
 id|ret
 op_assign
