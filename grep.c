@@ -429,7 +429,7 @@ suffix:semicolon
 r_int
 id|options
 op_assign
-l_int|0
+id|PCRE_MULTILINE
 suffix:semicolon
 r_if
 c_cond
