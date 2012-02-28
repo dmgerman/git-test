@@ -1957,7 +1957,7 @@ suffix:semicolon
 id|update_main_cache_tree
 c_func
 (paren
-l_int|1
+id|WRITE_TREE_SILENT
 )paren
 suffix:semicolon
 r_if
@@ -2036,7 +2036,7 @@ id|active_cache_changed
 id|update_main_cache_tree
 c_func
 (paren
-l_int|1
+id|WRITE_TREE_SILENT
 )paren
 suffix:semicolon
 r_if

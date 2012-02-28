@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 multiline_comment|/*&n; * convert.c - convert a file when checking it out and checking it in.&n; *&n; * This should use the pathname to decide on whether it wants to do some&n; * more interesting conversions (automatic gzip/unzip, general format&n; * conversions etc etc), but by default it just does automatic CRLF&lt;-&gt;LF&n; * translation when the &quot;text&quot; attribute or &quot;auto_crlf&quot; option is set.&n; */
 DECL|enum|crlf_action
 r_enum
@@ -777,11 +778,28 @@ op_eq
 id|AUTO_CRLF_FALSE
 )paren
 op_logical_or
+(paren
+id|src
+op_logical_and
 op_logical_neg
 id|len
 )paren
+)paren
 r_return
 l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * If we are doing a dry-run and have no source buffer, there is&n;&t; * nothing to analyze; we must assume we would convert.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+op_logical_and
+op_logical_neg
+id|src
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|gather_stats
 c_func
@@ -878,6 +896,16 @@ id|stats.cr
 )paren
 r_return
 l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * At this point all of our source analysis is done, and we are sure we&n;&t; * would convert. If we are in dry-run mode, we can give an answer.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+)paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* only grow if not in place */
 r_if
@@ -1522,6 +1550,14 @@ comma
 id|params-&gt;cmd
 )paren
 suffix:semicolon
+id|sigchain_push
+c_func
+(paren
+id|SIGPIPE
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
 id|write_err
 op_assign
 (paren
@@ -1562,6 +1598,12 @@ c_func
 l_string|&quot;cannot feed the input to external filter %s&quot;
 comma
 id|params-&gt;cmd
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGPIPE
 )paren
 suffix:semicolon
 id|status
@@ -1661,6 +1703,15 @@ id|cmd
 )paren
 r_return
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dst
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|memset
 c_func
@@ -2276,6 +2327,9 @@ c_cond
 op_logical_neg
 id|ident
 op_logical_or
+(paren
+id|src
+op_logical_and
 op_logical_neg
 id|count_ident
 c_func
@@ -2285,8 +2339,18 @@ comma
 id|len
 )paren
 )paren
+)paren
 r_return
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+)paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* only grow if not in place */
 r_if
@@ -3531,6 +3595,8 @@ r_if
 c_cond
 (paren
 id|ret
+op_logical_and
+id|dst
 )paren
 (brace
 id|src
@@ -3574,6 +3640,8 @@ r_if
 c_cond
 (paren
 id|ret
+op_logical_and
+id|dst
 )paren
 (brace
 id|src

@@ -5448,12 +5448,23 @@ id|transport-&gt;verbose
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/**&n;&t; * Rules used to determine whether to report progress (processing aborts&n;&t; * when a rule is satisfied):&n;&t; *&n;&t; *   1. Report progress, if force_progress is 1 (ie. --progress).&n;&t; *   2. Don&squot;t report progress, if verbosity &lt; 0 (ie. -q/--quiet ).&n;&t; *   3. Report progress if isatty(2) is 1.&n;&t; **/
+multiline_comment|/**&n;&t; * Rules used to determine whether to report progress (processing aborts&n;&t; * when a rule is satisfied):&n;&t; *&n;&t; *   . Report progress, if force_progress is 1 (ie. --progress).&n;&t; *   . Don&squot;t report progress, if force_progress is 0 (ie. --no-progress).&n;&t; *   . Don&squot;t report progress, if verbosity &lt; 0 (ie. -q/--quiet ).&n;&t; *   . Report progress if isatty(2) is 1.&n;&t; **/
+r_if
+c_cond
+(paren
+id|force_progress
+op_ge
+l_int|0
+)paren
 id|transport-&gt;progress
 op_assign
+op_logical_neg
+op_logical_neg
 id|force_progress
-op_logical_or
-(paren
+suffix:semicolon
+r_else
+id|transport-&gt;progress
+op_assign
 id|verbosity
 op_ge
 l_int|0
@@ -5462,7 +5473,6 @@ id|isatty
 c_func
 (paren
 l_int|2
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -5639,6 +5649,17 @@ id|TRANSPORT_PUSH_MIRROR
 id|match_flags
 op_or_assign
 id|MATCH_REFS_MIRROR
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_PRUNE
+)paren
+id|match_flags
+op_or_assign
+id|MATCH_REFS_PRUNE
 suffix:semicolon
 r_if
 c_cond

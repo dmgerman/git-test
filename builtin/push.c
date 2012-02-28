@@ -50,6 +50,8 @@ DECL|variable|progress
 r_static
 r_int
 id|progress
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|refspec
 r_static
@@ -1418,7 +1420,7 @@ comma
 id|TRANSPORT_PUSH_SET_UPSTREAM
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1429,6 +1431,21 @@ op_amp
 id|progress
 comma
 l_string|&quot;force progress reporting&quot;
+)paren
+comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;prune&quot;
+comma
+op_amp
+id|flags
+comma
+l_string|&quot;prune locally removed refs&quot;
+comma
+id|TRANSPORT_PUSH_PRUNE
 )paren
 comma
 id|OPT_END

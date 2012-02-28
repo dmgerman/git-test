@@ -7075,6 +7075,12 @@ c_func
 l_int|0
 )paren
 op_logical_and
+id|isatty
+c_func
+(paren
+l_int|1
+)paren
+op_logical_and
 id|st_stdin.st_dev
 op_eq
 id|st_stdout.st_dev
@@ -8149,6 +8155,13 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|option_edit
+OL
+l_int|0
+)paren
 id|option_edit
 op_assign
 l_int|1
