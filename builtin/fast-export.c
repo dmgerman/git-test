@@ -3392,28 +3392,18 @@ comma
 l_string|&quot;Use the done feature to terminate the stream&quot;
 )paren
 comma
-(brace
-id|OPTION_NEGBIT
-comma
+id|OPT_BOOL
+c_func
+(paren
 l_int|0
 comma
-l_string|&quot;data&quot;
+l_string|&quot;no-data&quot;
 comma
 op_amp
 id|no_data
 comma
-l_int|NULL
-comma
 l_string|&quot;Skip output of blob data&quot;
-comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_NEGHELP
-comma
-l_int|NULL
-comma
-l_int|1
-)brace
+)paren
 comma
 id|OPT_END
 c_func

@@ -4111,17 +4111,19 @@ comma
 l_string|&quot;search in index instead of in the work tree&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_NEGBIT
 c_func
 (paren
 l_int|0
 comma
-l_string|&quot;index&quot;
+l_string|&quot;no-index&quot;
 comma
 op_amp
 id|use_index
 comma
-l_string|&quot;--no-index finds in contents not managed by git&quot;
+l_string|&quot;finds in contents not managed by git&quot;
+comma
+l_int|1
 )paren
 comma
 id|OPT_GROUP
