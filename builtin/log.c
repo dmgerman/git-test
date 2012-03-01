@@ -2094,6 +2094,11 @@ id|rev.no_walk
 op_assign
 l_int|1
 suffix:semicolon
+id|rev.diffopt.stat_width
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* Scale to real terminal size */
 id|memset
 c_func
 (paren
