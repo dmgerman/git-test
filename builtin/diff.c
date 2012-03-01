@@ -1450,6 +1450,11 @@ op_logical_neg
 op_logical_neg
 id|diff_auto_refresh_index
 suffix:semicolon
+multiline_comment|/* Scale to real terminal size */
+id|rev.diffopt.stat_width
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* Default to let external and textconv be used */
 id|DIFF_OPT_SET
 c_func
