@@ -278,6 +278,11 @@ op_assign
 l_int|1
 suffix:semicolon
 multiline_comment|/* use full terminal width */
+id|rev-&gt;diffopt.stat_graph_width
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* respect statGraphWidth config */
 id|rev-&gt;abbrev_commit
 op_assign
 id|default_abbrev_commit
