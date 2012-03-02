@@ -3601,24 +3601,20 @@ comma
 l_string|&quot;search in index instead of in the work tree&quot;
 )paren
 comma
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_NEGBIT
+c_func
+(paren
 l_int|0
 comma
-l_string|&quot;index&quot;
+l_string|&quot;no-index&quot;
 comma
 op_amp
 id|use_index
 comma
-l_int|NULL
-comma
 l_string|&quot;finds in contents not managed by git&quot;
 comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_NEGHELP
-)brace
+l_int|1
+)paren
 comma
 id|OPT_BOOLEAN
 c_func
