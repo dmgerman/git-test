@@ -778,11 +778,28 @@ op_eq
 id|AUTO_CRLF_FALSE
 )paren
 op_logical_or
+(paren
+id|src
+op_logical_and
 op_logical_neg
 id|len
 )paren
+)paren
 r_return
 l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * If we are doing a dry-run and have no source buffer, there is&n;&t; * nothing to analyze; we must assume we would convert.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+op_logical_and
+op_logical_neg
+id|src
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|gather_stats
 c_func
@@ -879,6 +896,16 @@ id|stats.cr
 )paren
 r_return
 l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * At this point all of our source analysis is done, and we are sure we&n;&t; * would convert. If we are in dry-run mode, we can give an answer.&n;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+)paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* only grow if not in place */
 r_if
@@ -1677,6 +1704,15 @@ id|cmd
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|dst
+)paren
+r_return
+l_int|1
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -2291,6 +2327,9 @@ c_cond
 op_logical_neg
 id|ident
 op_logical_or
+(paren
+id|src
+op_logical_and
 op_logical_neg
 id|count_ident
 c_func
@@ -2300,8 +2339,18 @@ comma
 id|len
 )paren
 )paren
+)paren
 r_return
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|buf
+)paren
+r_return
+l_int|1
 suffix:semicolon
 multiline_comment|/* only grow if not in place */
 r_if
@@ -3546,6 +3595,8 @@ r_if
 c_cond
 (paren
 id|ret
+op_logical_and
+id|dst
 )paren
 (brace
 id|src
@@ -3589,6 +3640,8 @@ r_if
 c_cond
 (paren
 id|ret
+op_logical_and
+id|dst
 )paren
 (brace
 id|src
