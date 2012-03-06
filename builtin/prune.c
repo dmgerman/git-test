@@ -461,6 +461,12 @@ id|de-&gt;d_name
 )paren
 suffix:semicolon
 )brace
+id|closedir
+c_func
+(paren
+id|dir
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -471,12 +477,6 @@ id|rmdir
 c_func
 (paren
 id|path
-)paren
-suffix:semicolon
-id|closedir
-c_func
-(paren
-id|dir
 )paren
 suffix:semicolon
 r_return
