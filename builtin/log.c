@@ -15,6 +15,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;branch.h&quot;
+macro_line|#include &quot;streaming.h&quot;
 multiline_comment|/* Set a default date-time format for git log (&quot;log.date&quot; config variable) */
 DECL|variable|default_date_mode
 r_static
@@ -1707,10 +1708,10 @@ id|out
 )paren
 suffix:semicolon
 )brace
-DECL|function|show_object
+DECL|function|show_blob_object
 r_static
 r_int
-id|show_object
+id|show_blob_object
 c_func
 (paren
 r_const
@@ -1719,8 +1720,43 @@ r_char
 op_star
 id|sha1
 comma
+r_struct
+id|rev_info
+op_star
+id|rev
+)paren
+(brace
+id|fflush
+c_func
+(paren
+id|stdout
+)paren
+suffix:semicolon
+r_return
+id|stream_blob_to_fd
+c_func
+(paren
+l_int|1
+comma
+id|sha1
+comma
+l_int|NULL
+comma
+l_int|0
+)paren
+suffix:semicolon
+)brace
+DECL|function|show_tag_object
+r_static
 r_int
 id|show_tag_object
+c_func
+(paren
+r_const
+r_int
+r_char
+op_star
+id|sha1
 comma
 r_struct
 id|rev_info
@@ -1780,11 +1816,13 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
-r_if
-c_cond
+m_assert
 (paren
-id|show_tag_object
+id|type
+op_eq
+id|OBJ_TAG
 )paren
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -2193,12 +2231,10 @@ id|OBJ_BLOB
 suffix:colon
 id|ret
 op_assign
-id|show_object
+id|show_blob_object
 c_func
 (paren
 id|o-&gt;sha1
-comma
-l_int|0
 comma
 l_int|NULL
 )paren
@@ -2260,12 +2296,10 @@ id|DIFF_RESET
 suffix:semicolon
 id|ret
 op_assign
-id|show_object
+id|show_tag_object
 c_func
 (paren
 id|o-&gt;sha1
-comma
-l_int|1
 comma
 op_amp
 id|rev
