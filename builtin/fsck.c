@@ -12,6 +12,7 @@ macro_line|#include &quot;fsck.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;progress.h&quot;
+macro_line|#include &quot;streaming.h&quot;
 DECL|macro|REACHABLE
 mdefine_line|#define REACHABLE 0x0001
 DECL|macro|SEEN
@@ -1025,48 +1026,24 @@ op_eq
 id|OBJ_BLOB
 )paren
 (brace
-r_enum
-id|object_type
-id|type
-suffix:semicolon
-r_int
-r_int
-id|size
-suffix:semicolon
-r_char
-op_star
-id|buf
-op_assign
-id|read_sha1_file
-c_func
-(paren
-id|obj-&gt;sha1
-comma
-op_amp
-id|type
-comma
-op_amp
-id|size
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
-id|buf
-op_logical_and
-id|fwrite
+id|stream_blob_to_fd
 c_func
 (paren
-id|buf
-comma
-l_int|1
-comma
-id|size
-comma
+id|fileno
+c_func
+(paren
 id|f
 )paren
-op_ne
-id|size
+comma
+id|obj-&gt;sha1
+comma
+l_int|NULL
+comma
+l_int|1
+)paren
 )paren
 id|die_errno
 c_func
@@ -1074,12 +1051,6 @@ c_func
 l_string|&quot;Could not write &squot;%s&squot;&quot;
 comma
 id|filename
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|buf
 )paren
 suffix:semicolon
 )brace
