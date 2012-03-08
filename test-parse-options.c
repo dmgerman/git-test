@@ -220,7 +220,56 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;yes&quot;
+comma
+op_amp
+id|boolean
+comma
+l_string|&quot;get a boolean&quot;
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_char|&squot;D&squot;
+comma
+l_string|&quot;no-doubt&quot;
+comma
+op_amp
+id|boolean
+comma
+l_string|&quot;begins with &squot;no-&squot;&quot;
+)paren
+comma
+(brace
+id|OPTION_SET_INT
+comma
+l_char|&squot;B&squot;
+comma
+l_string|&quot;no-fear&quot;
+comma
+op_amp
+id|boolean
+comma
+l_int|NULL
+comma
+l_string|&quot;be brave&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_NONEG
+comma
+l_int|NULL
+comma
+l_int|1
+)brace
+comma
+id|OPT_COUNTUP
 c_func
 (paren
 l_char|&squot;b&squot;
@@ -230,7 +279,7 @@ comma
 op_amp
 id|boolean
 comma
-l_string|&quot;get a boolean&quot;
+l_string|&quot;increment by one&quot;
 )paren
 comma
 id|OPT_BIT
@@ -487,7 +536,7 @@ id|number_callback
 )paren
 comma
 (brace
-id|OPTION_BOOLEAN
+id|OPTION_COUNTUP
 comma
 l_char|&squot;+&squot;
 comma
@@ -508,7 +557,7 @@ id|PARSE_OPT_NODASH
 )brace
 comma
 (brace
-id|OPTION_BOOLEAN
+id|OPTION_COUNTUP
 comma
 l_int|0
 comma
@@ -527,7 +576,7 @@ id|PARSE_OPT_NONEG
 )brace
 comma
 (brace
-id|OPTION_BOOLEAN
+id|OPTION_COUNTUP
 comma
 l_int|0
 comma

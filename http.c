@@ -1447,6 +1447,7 @@ c_cond
 (paren
 id|curl_http_proxy
 )paren
+(brace
 id|curl_easy_setopt
 c_func
 (paren
@@ -1457,6 +1458,17 @@ comma
 id|curl_http_proxy
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_PROXYAUTH
+comma
+id|CURLAUTH_ANY
+)paren
+suffix:semicolon
+)brace
 r_return
 id|result
 suffix:semicolon

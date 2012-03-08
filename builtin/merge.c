@@ -2299,6 +2299,16 @@ op_amp
 id|opts
 )paren
 suffix:semicolon
+id|opts.stat_width
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* use full terminal width */
+id|opts.stat_graph_width
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* respect statGraphWidth config */
 id|opts.output_format
 op_or_assign
 id|DIFF_FORMAT_SUMMARY

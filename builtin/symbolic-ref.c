@@ -18,6 +18,11 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+DECL|variable|shorten
+r_static
+r_int
+id|shorten
+suffix:semicolon
 DECL|function|check_symref
 r_static
 r_void
@@ -46,7 +51,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|refs_heads_master
+id|refname
 op_assign
 id|resolve_ref_unsafe
 c_func
@@ -65,7 +70,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|refs_heads_master
+id|refname
 )paren
 id|die
 c_func
@@ -108,10 +113,25 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|shorten
+)paren
+id|refname
+op_assign
+id|shorten_unambiguous_ref
+c_func
+(paren
+id|refname
+comma
+l_int|0
+)paren
+suffix:semicolon
 id|puts
 c_func
 (paren
-id|refs_heads_master
+id|refname
 )paren
 suffix:semicolon
 )brace
@@ -161,6 +181,19 @@ op_amp
 id|quiet
 comma
 l_string|&quot;suppress error message for non-symbolic (detached) refs&quot;
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;short&quot;
+comma
+op_amp
+id|shorten
+comma
+l_string|&quot;shorten ref output&quot;
 )paren
 comma
 id|OPT_STRING

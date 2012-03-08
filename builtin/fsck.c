@@ -93,6 +93,13 @@ id|show_progress
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|show_dangling
+r_static
+r_int
+id|show_dangling
+op_assign
+l_int|1
+suffix:semicolon
 DECL|macro|ERROR_OBJECT
 mdefine_line|#define ERROR_OBJECT 01
 DECL|macro|ERROR_REACHABLE
@@ -910,6 +917,11 @@ op_logical_neg
 id|obj-&gt;used
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|show_dangling
+)paren
 id|printf
 c_func
 (paren
@@ -2929,6 +2941,19 @@ op_amp
 id|show_unreachable
 comma
 l_string|&quot;show unreachable objects&quot;
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;dangling&quot;
+comma
+op_amp
+id|show_dangling
+comma
+l_string|&quot;show dangling objects&quot;
 )paren
 comma
 id|OPT_BOOLEAN
