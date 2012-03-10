@@ -16100,6 +16100,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|leaf.tree
+)paren
+id|release_tree_content_recursive
+c_func
+(paren
+id|leaf.tree
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|b
 op_logical_or
