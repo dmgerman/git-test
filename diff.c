@@ -12195,15 +12195,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|DIFF_XDL_TST
-c_func
-(paren
-id|o
-comma
-id|WHITESPACE_FLAGS
-)paren
-op_logical_or
 id|must_show_header
 )paren
 (brace
