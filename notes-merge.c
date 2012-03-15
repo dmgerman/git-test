@@ -1374,6 +1374,17 @@ c_func
 id|NOTES_MERGE_WORKTREE
 )paren
 )paren
+op_logical_and
+op_logical_neg
+id|is_empty_dir
+c_func
+(paren
+id|git_path
+c_func
+(paren
+id|NOTES_MERGE_WORKTREE
+)paren
+)paren
 )paren
 (brace
 r_if
@@ -4092,7 +4103,7 @@ op_star
 id|o
 )paren
 (brace
-multiline_comment|/* Remove .git/NOTES_MERGE_WORKTREE directory and all files within */
+multiline_comment|/*&n;&t; * Remove all files within .git/NOTES_MERGE_WORKTREE. We do not remove&n;&t; * the .git/NOTES_MERGE_WORKTREE directory itself, since it might be&n;&t; * the current working directory of the user.&n;&t; */
 r_struct
 id|strbuf
 id|buf
@@ -4125,7 +4136,7 @@ l_int|3
 id|printf
 c_func
 (paren
-l_string|&quot;Removing notes merge worktree at %s&bslash;n&quot;
+l_string|&quot;Removing notes merge worktree at %s/*&bslash;n&quot;
 comma
 id|buf.buf
 )paren
@@ -4138,7 +4149,7 @@ c_func
 op_amp
 id|buf
 comma
-l_int|0
+id|REMOVE_DIR_KEEP_TOPLEVEL
 )paren
 suffix:semicolon
 id|strbuf_release
