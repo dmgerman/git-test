@@ -2,7 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;connected.h&quot;
-multiline_comment|/*&n; * If we feed all the commits we want to verify to this command&n; *&n; *  $ git rev-list --verify-objects --stdin --not --all&n; *&n; * and if it does not error out, that means everything reachable from&n; * these commits locally exists and is connected to some of our&n; * existing refs.&n; *&n; * Returns 0 if everything is connected, non-zero otherwise.&n; */
+multiline_comment|/*&n; * If we feed all the commits we want to verify to this command&n; *&n; *  $ git rev-list --objects --stdin --not --all&n; *&n; * and if it does not error out, that means everything reachable from&n; * these commits locally exists and is connected to our existing refs.&n; * Note that this does _not_ validate the individual objects.&n; *&n; * Returns 0 if everything is connected, non-zero otherwise.&n; */
 DECL|function|check_everything_connected
 r_int
 id|check_everything_connected
@@ -33,7 +33,7 @@ op_assign
 (brace
 l_string|&quot;rev-list&quot;
 comma
-l_string|&quot;--verify-objects&quot;
+l_string|&quot;--objects&quot;
 comma
 l_string|&quot;--stdin&quot;
 comma
