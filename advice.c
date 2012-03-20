@@ -115,8 +115,22 @@ dot
 dot
 )paren
 (brace
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 id|va_list
 id|params
+suffix:semicolon
+r_const
+r_char
+op_star
+id|cp
+comma
+op_star
+id|np
 suffix:semicolon
 id|va_start
 c_func
@@ -126,10 +140,11 @@ comma
 id|advice
 )paren
 suffix:semicolon
-id|vreportf
+id|strbuf_addf
 c_func
 (paren
-l_string|&quot;hint: &quot;
+op_amp
+id|buf
 comma
 id|advice
 comma
@@ -140,6 +155,70 @@ id|va_end
 c_func
 (paren
 id|params
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|cp
+op_assign
+id|buf.buf
+suffix:semicolon
+op_star
+id|cp
+suffix:semicolon
+id|cp
+op_assign
+id|np
+)paren
+(brace
+id|np
+op_assign
+id|strchrnul
+c_func
+(paren
+id|cp
+comma
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;hint: %.*s&bslash;n&quot;
+)paren
+comma
+(paren
+r_int
+)paren
+(paren
+id|np
+id|cp
+)paren
+comma
+id|cp
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+id|np
+)paren
+id|np
+op_increment
+suffix:semicolon
+)brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
 )paren
 suffix:semicolon
 )brace
@@ -260,33 +339,20 @@ c_cond
 (paren
 id|advice_resolve_conflict
 )paren
-(brace
 multiline_comment|/*&n;&t;&t; * Message used both when &squot;git commit&squot; fails and when&n;&t;&t; * other commands doing a merge do.&n;&t;&t; */
 id|advise
 c_func
 (paren
-l_string|&quot;Fix them up in the work tree,&quot;
-)paren
-suffix:semicolon
-id|advise
+id|_
 c_func
 (paren
-l_string|&quot;and then use &squot;git add/rm &lt;file&gt;&squot; as&quot;
-)paren
-suffix:semicolon
-id|advise
-c_func
-(paren
-l_string|&quot;appropriate to mark resolution and make a commit,&quot;
-)paren
-suffix:semicolon
-id|advise
-c_func
-(paren
+l_string|&quot;Fix them up in the work tree,&bslash;n&quot;
+l_string|&quot;and then use &squot;git add/rm &lt;file&gt;&squot; as&bslash;n&quot;
+l_string|&quot;appropriate to mark resolution and make a commit,&bslash;n&quot;
 l_string|&quot;or use &squot;git commit -a&squot;.&quot;
 )paren
+)paren
 suffix:semicolon
-)brace
 r_return
 l_int|1
 suffix:semicolon
