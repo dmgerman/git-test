@@ -816,6 +816,12 @@ suffix:semicolon
 id|free
 c_func
 (paren
+id|patch-&gt;result
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|patch
 )paren
 suffix:semicolon
