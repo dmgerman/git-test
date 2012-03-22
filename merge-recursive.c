@@ -2327,6 +2327,15 @@ comma
 id|RECURSIVE
 )paren
 suffix:semicolon
+id|DIFF_OPT_CLR
+c_func
+(paren
+op_amp
+id|opts
+comma
+id|RENAME_EMPTY
+)paren
+suffix:semicolon
 id|opts.detect_rename
 op_assign
 id|DIFF_DETECT_RENAME
