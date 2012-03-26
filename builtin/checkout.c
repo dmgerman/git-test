@@ -2929,6 +2929,8 @@ l_int|1
 suffix:colon
 l_int|0
 comma
+id|opts-&gt;quiet
+comma
 id|opts-&gt;track
 )paren
 suffix:semicolon
