@@ -645,6 +645,9 @@ id|force
 comma
 r_int
 id|kinds
+comma
+r_int
+id|quiet
 )paren
 (brace
 r_struct
@@ -1020,6 +1023,12 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|quiet
+)paren
 id|printf
 c_func
 (paren
@@ -3728,6 +3737,11 @@ id|edit_description
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|quiet
+op_assign
+l_int|0
+suffix:semicolon
 r_enum
 id|branch_track
 id|track
@@ -3764,6 +3778,15 @@ op_amp
 id|verbose
 comma
 l_string|&quot;show hash and subject, give twice for upstream branch&quot;
+)paren
+comma
+id|OPT__QUIET
+c_func
+(paren
+op_amp
+id|quiet
+comma
+l_string|&quot;suppress informational messages&quot;
 )paren
 comma
 id|OPT_SET_INT
@@ -4290,6 +4313,8 @@ OG
 l_int|1
 comma
 id|kinds
+comma
+id|quiet
 )paren
 suffix:semicolon
 r_else
@@ -4578,7 +4603,7 @@ id|reflog
 comma
 l_int|0
 comma
-l_int|0
+id|quiet
 comma
 id|track
 )paren
