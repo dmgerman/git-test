@@ -2347,11 +2347,6 @@ id|given_config_file
 )paren
 )paren
 suffix:semicolon
-r_else
-id|given_config_file
-op_assign
-id|given_config_file
-suffix:semicolon
 )brace
 r_if
 c_cond
