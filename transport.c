@@ -6259,7 +6259,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Strip username (and password) from an url and return&n; * it in a newly allocated string.&n; */
+multiline_comment|/*&n; * Strip username (and password) from a URL and return&n; * it in a newly allocated string.&n; */
 DECL|function|transport_anonymize_url
 r_char
 op_star

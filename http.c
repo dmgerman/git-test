@@ -3900,7 +3900,7 @@ id|options
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Downloads an url and stores the result in the given file.&n; *&n; * If a previous interrupted download is detected (i.e. a previous temporary&n; * file is still around) the download is resumed.&n; */
+multiline_comment|/*&n; * Downloads a URL and stores the result in the given file.&n; *&n; * If a previous interrupted download is detected (i.e. a previous temporary&n; * file is still around) the download is resumed.&n; */
 DECL|function|http_get_file
 r_static
 r_int
