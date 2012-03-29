@@ -1121,6 +1121,26 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_star
+id|flags
+op_amp
+(paren
+id|TRANSPORT_RECURSE_SUBMODULES_CHECK
+op_or
+id|TRANSPORT_RECURSE_SUBMODULES_ON_DEMAND
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;%s can only be used once.&quot;
+comma
+id|opt-&gt;long_name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|arg
 )paren
 (brace
@@ -1142,6 +1162,24 @@ op_or_assign
 id|TRANSPORT_RECURSE_SUBMODULES_CHECK
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;on-demand&quot;
+)paren
+)paren
+op_star
+id|flags
+op_or_assign
+id|TRANSPORT_RECURSE_SUBMODULES_ON_DEMAND
+suffix:semicolon
+r_else
 id|die
 c_func
 (paren
@@ -1157,7 +1195,7 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;option %s needs an argument (check)&quot;
+l_string|&quot;option %s needs an argument (check|on-demand)&quot;
 comma
 id|opt-&gt;long_name
 )paren
