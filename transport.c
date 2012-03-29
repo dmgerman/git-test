@@ -11,6 +11,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;submodule.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 multiline_comment|/* rsync support */
 multiline_comment|/*&n; * We copy packed-refs and refs/ into a temporary file, then read the&n; * loose refs recursively (sorting whenever possible), and then inserting&n; * those packed refs that are not yet in the list (not validating, but&n; * assuming that the file is sorted).&n; *&n; * Appears refactoring this from refs.c is too cumbersome.&n; */
 DECL|function|str_cmp
@@ -5466,6 +5467,72 @@ l_int|2
 )paren
 suffix:semicolon
 )brace
+DECL|function|die_with_unpushed_submodules
+r_static
+r_void
+id|die_with_unpushed_submodules
+c_func
+(paren
+r_struct
+id|string_list
+op_star
+id|needs_pushing
+)paren
+(brace
+r_int
+id|i
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;The following submodule paths contain changes that can&bslash;n&quot;
+l_string|&quot;not be found on any remote:&bslash;n&quot;
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|needs_pushing-&gt;nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;  %s&bslash;n&quot;
+comma
+id|needs_pushing-&gt;items
+(braket
+id|i
+)braket
+dot
+id|string
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+id|needs_pushing
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|die
+c_func
+(paren
+l_string|&quot;Aborting.&quot;
+)paren
+suffix:semicolon
+)brace
 DECL|function|transport_push
 r_int
 id|transport_push
@@ -5700,6 +5767,29 @@ id|ref
 op_assign
 id|remote_refs
 suffix:semicolon
+r_struct
+id|string_list
+id|needs_pushing
+suffix:semicolon
+id|memset
+c_func
+(paren
+op_amp
+id|needs_pushing
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+r_struct
+id|string_list
+)paren
+)paren
+suffix:semicolon
+id|needs_pushing.strdup_strings
+op_assign
+l_int|1
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -5720,18 +5810,22 @@ c_func
 id|ref-&gt;new_sha1
 )paren
 op_logical_and
-id|check_submodule_needs_pushing
+id|find_unpushed_submodules
 c_func
 (paren
 id|ref-&gt;new_sha1
 comma
 id|transport-&gt;remote-&gt;name
+comma
+op_amp
+id|needs_pushing
 )paren
 )paren
-id|die
+id|die_with_unpushed_submodules
 c_func
 (paren
-l_string|&quot;There are unpushed submodules, aborting.&quot;
+op_amp
+id|needs_pushing
 )paren
 suffix:semicolon
 )brace
