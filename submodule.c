@@ -2492,6 +2492,11 @@ op_amp
 id|needs_pushing
 )paren
 suffix:semicolon
+id|reset_revision_walk
+c_func
+(paren
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -4354,6 +4359,11 @@ id|merges
 )paren
 suffix:semicolon
 )brace
+id|reset_revision_walk
+c_func
+(paren
+)paren
+suffix:semicolon
 multiline_comment|/* Now we&squot;ve got all merges that contain a and b. Prune all&n;&t; * merges that contain another found merge and save them in&n;&t; * result.&n;&t; */
 r_for
 c_loop
