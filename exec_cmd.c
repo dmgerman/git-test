@@ -631,7 +631,7 @@ l_string|&quot;trace: exec:&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* execvp() can only ever return if it fails */
-id|execvp
+id|sane_execvp
 c_func
 (paren
 l_string|&quot;git&quot;
