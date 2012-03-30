@@ -5558,6 +5558,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|f
+op_logical_or
+id|message.len
+)paren
+id|template_file
+op_assign
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|edit_message
 )paren
 id|use_message
