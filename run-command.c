@@ -3,6 +3,10 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
+macro_line|#ifndef SHELL_PATH
+DECL|macro|SHELL_PATH
+macro_line|# define SHELL_PATH &quot;/bin/sh&quot;
+macro_line|#endif
 DECL|struct|child_to_clean
 r_struct
 id|child_to_clean
@@ -425,7 +429,7 @@ id|nargc
 op_increment
 )braket
 op_assign
-l_string|&quot;sh&quot;
+id|SHELL_PATH
 suffix:semicolon
 id|nargv
 (braket
