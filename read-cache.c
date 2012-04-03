@@ -5672,6 +5672,9 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+r_int
+id|hdr_version
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5690,30 +5693,32 @@ c_func
 l_string|&quot;bad signature&quot;
 )paren
 suffix:semicolon
+id|hdr_version
+op_assign
+id|ntohl
+c_func
+(paren
+id|hdr-&gt;hdr_version
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|hdr-&gt;hdr_version
-op_ne
-id|htonl
-c_func
-(paren
+id|hdr_version
+OL
 l_int|2
-)paren
-op_logical_and
-id|hdr-&gt;hdr_version
-op_ne
-id|htonl
-c_func
-(paren
+op_logical_or
 l_int|3
-)paren
+OL
+id|hdr_version
 )paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;bad index version&quot;
+l_string|&quot;bad index version %d&quot;
+comma
+id|hdr_version
 )paren
 suffix:semicolon
 id|git_SHA1_Init
