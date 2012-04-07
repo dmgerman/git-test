@@ -19,7 +19,7 @@ op_assign
 (brace
 l_string|&quot;git remote [-v | --verbose]&quot;
 comma
-l_string|&quot;git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--mirror=&lt;fetch|push&gt;] &lt;name&gt; &lt;url&gt;&quot;
+l_string|&quot;git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--tags|--no-tags] [--mirror=&lt;fetch|push&gt;] &lt;name&gt; &lt;url&gt;&quot;
 comma
 l_string|&quot;git remote rename &lt;old&gt; &lt;new&gt;&quot;
 comma
@@ -35,7 +35,7 @@ l_string|&quot;git remote [-v | --verbose] update [-p | --prune] [(&lt;group&gt;
 comma
 l_string|&quot;git remote set-branches [--add] &lt;name&gt; &lt;branch&gt;...&quot;
 comma
-l_string|&quot;git remote set-url &lt;name&gt; &lt;newurl&gt; [&lt;oldurl&gt;]&quot;
+l_string|&quot;git remote set-url [--push] &lt;name&gt; &lt;newurl&gt; [&lt;oldurl&gt;]&quot;
 comma
 l_string|&quot;git remote set-url --add &lt;name&gt; &lt;newurl&gt;&quot;
 comma
