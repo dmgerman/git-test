@@ -1659,7 +1659,11 @@ id|revs
 comma
 id|object
 comma
+id|xstrdup
+c_func
+(paren
 id|buf.buf
+)paren
 )paren
 suffix:semicolon
 )brace
