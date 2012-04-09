@@ -4415,6 +4415,8 @@ op_assign
 l_int|0
 comma
 id|i
+comma
+id|ret
 suffix:semicolon
 r_do
 (brace
@@ -4507,9 +4509,8 @@ c_loop
 l_int|1
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
+id|ret
+op_assign
 id|push
 c_func
 (paren
@@ -4517,13 +4518,7 @@ id|nr_spec
 comma
 id|specs
 )paren
-)paren
-m_exit
-(paren
-l_int|128
-)paren
 suffix:semicolon
-multiline_comment|/* error already reported */
 id|printf
 c_func
 (paren
@@ -4536,6 +4531,17 @@ c_func
 id|stdout
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+)paren
+m_exit
+(paren
+l_int|128
+)paren
+suffix:semicolon
+multiline_comment|/* error already reported */
 id|free_specs
 suffix:colon
 r_for
