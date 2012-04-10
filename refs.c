@@ -188,7 +188,7 @@ op_eq
 id|refname
 )paren
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 multiline_comment|/* Component has zero length. */
 r_if
@@ -303,7 +303,7 @@ r_if
 c_cond
 (paren
 id|component_len
-OL
+op_le
 l_int|0
 )paren
 (brace
