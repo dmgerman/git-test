@@ -1118,6 +1118,9 @@ op_star
 id|entry
 )paren
 (brace
+r_int
+id|retval
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1182,7 +1185,8 @@ id|current_ref
 op_assign
 id|entry
 suffix:semicolon
-r_return
+id|retval
+op_assign
 id|fn
 c_func
 (paren
@@ -1196,6 +1200,13 @@ id|entry-&gt;flag
 comma
 id|cb_data
 )paren
+suffix:semicolon
+id|current_ref
+op_assign
+l_int|NULL
+suffix:semicolon
+r_return
+id|retval
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Return true iff a reference named refname could be created without&n; * conflicting with the name of an existing reference.  If oldrefname&n; * is non-NULL, ignore potential conflicts with oldrefname (e.g.,&n; * because oldrefname is scheduled for deletion in the same&n; * operation).&n; */
@@ -4397,8 +4408,8 @@ c_cond
 (paren
 id|retval
 )paren
-r_goto
-id|end_each
+r_return
+id|retval
 suffix:semicolon
 )brace
 r_if
@@ -4456,18 +4467,12 @@ c_cond
 (paren
 id|retval
 )paren
-r_goto
-id|end_each
-suffix:semicolon
-)brace
-id|end_each
-suffix:colon
-id|current_ref
-op_assign
-l_int|NULL
-suffix:semicolon
 r_return
 id|retval
+suffix:semicolon
+)brace
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|do_head_ref
