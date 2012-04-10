@@ -598,6 +598,25 @@ r_return
 id|ref
 suffix:semicolon
 )brace
+DECL|function|free_ref_entry
+r_static
+r_void
+id|free_ref_entry
+c_func
+(paren
+r_struct
+id|ref_entry
+op_star
+id|entry
+)paren
+(brace
+id|free
+c_func
+(paren
+id|entry
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* Add a ref_entry to the end of the ref_array (unsorted). */
 DECL|function|add_ref
 r_static
@@ -666,7 +685,7 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-id|free
+id|free_ref_entry
 c_func
 (paren
 id|array-&gt;refs
@@ -1046,7 +1065,7 @@ id|j
 )paren
 )paren
 (brace
-id|free
+id|free_ref_entry
 c_func
 (paren
 id|array-&gt;refs
