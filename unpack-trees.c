@@ -3641,6 +3641,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|o-&gt;merge
+op_logical_and
 id|src
 (braket
 l_int|0
