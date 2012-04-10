@@ -2319,6 +2319,17 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|http_auth.password
+)paren
+id|init_curl_http_auth
+c_func
+(paren
+id|slot-&gt;curl
+)paren
+suffix:semicolon
 r_return
 id|slot
 suffix:semicolon
