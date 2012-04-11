@@ -556,6 +556,7 @@ id|newpos
 comma
 id|newlines
 suffix:semicolon
+multiline_comment|/*&n;&t; * &squot;patch&squot; is usually borrowed from buf in apply_patch(),&n;&t; * but some codepaths store an allocated buffer.&n;&t; */
 DECL|member|patch
 r_const
 r_char
@@ -1364,6 +1365,7 @@ id|img-&gt;nr
 op_increment
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * &quot;buf&quot; has the file contents to be patched (read from various sources).&n; * attach it to &quot;image&quot; and add line-based index to it.&n; * &quot;image&quot; now owns the &quot;buf&quot;.&n; */
 DECL|function|prepare_image
 r_static
 r_void
@@ -7996,6 +7998,7 @@ r_return
 id|offset
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * We have seen &quot;diff --git a/... b/...&quot; header (or a traditional patch&n; * header).  Read hunks that belong to this patch into fragments and hang&n; * them to the given patch structure.&n; *&n; * The (fragment-&gt;patch, fragment-&gt;size) pair points into the memory given&n; * by the caller, not a copy, when we return.&n; */
 DECL|function|parse_single_patch
 r_static
 r_int
@@ -8432,6 +8435,7 @@ r_return
 id|out
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Read a binary hunk and return a new fragment; fragment-&gt;patch&n; * points at an allocated memory that the caller must free, so&n; * it is marked as &quot;-&gt;free_patch = 1&quot;.&n; */
 DECL|function|parse_binary_hunk
 r_static
 r_struct
@@ -9050,6 +9054,7 @@ r_return
 id|used
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Read the patch text in &quot;buffer&quot; taht extends for &quot;size&quot; bytes; stop&n; * reading after seeing a single patch (i.e. changes to a single file).&n; * Create fragments (i.e. patch hunks) and hang them to the given patch.&n; * Return the number of bytes consumed, so that the caller can call us&n; * again for the next patch.&n; */
 DECL|function|parse_chunk
 r_static
 r_int
@@ -11370,6 +11375,7 @@ dot
 id|len
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The change from &quot;preimage&quot; and &quot;postimage&quot; has been found to&n; * apply at applied_pos (counts in line numbers) in &quot;img&quot;.&n; * Update &quot;img&quot; to remove &quot;preimage&quot; and replace it with &quot;postimage&quot;.&n; */
 DECL|function|update_image
 r_static
 r_void
@@ -11704,6 +11710,7 @@ op_assign
 id|nr
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Use the patch-hunk text in &quot;frag&quot; to prepare two images (preimage and&n; * postimage) for the hunk.  Find lines that match &quot;preimage&quot; in &quot;img&quot; and&n; * replace the part of &quot;img&quot; with &quot;postimage&quot; text.&n; */
 DECL|function|apply_one_fragment
 r_static
 r_int
@@ -12946,6 +12953,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Replace &quot;img&quot; with the result of applying the binary patch.&n; * The binary patch data itself in patch-&gt;fragment is still kept&n; * but the preimage prepared by the caller in &quot;img&quot; is freed here&n; * or in the helper function apply_binary_fragment() this calls.&n; */
 DECL|function|apply_binary
 r_static
 r_int
@@ -13840,7 +13848,7 @@ id|patch-&gt;old_name
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* We have a patched copy in memory use that */
+multiline_comment|/* We have a patched copy in memory; use that. */
 id|strbuf_add
 c_func
 (paren
@@ -14699,6 +14707,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Check and apply the patch in-core; leave the result in patch-&gt;result&n; * for the caller to write it out to the final destination.&n; */
 DECL|function|check_patch
 r_static
 r_int
@@ -17747,6 +17756,7 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+multiline_comment|/* owns the patch text */
 r_struct
 id|patch
 op_star
