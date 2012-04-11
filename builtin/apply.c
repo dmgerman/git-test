@@ -1651,8 +1651,6 @@ id|output
 )paren
 suffix:semicolon
 )brace
-DECL|macro|CHUNKSIZE
-mdefine_line|#define CHUNKSIZE (8192)
 DECL|macro|SLOP
 mdefine_line|#define SLOP (16)
 DECL|function|read_patch_file
