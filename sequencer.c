@@ -1385,13 +1385,13 @@ op_star
 id|opts
 )paren
 (brace
-multiline_comment|/* 6 is max possible length of our args array including NULL */
+multiline_comment|/* 7 is max possible length of our args array including NULL */
 r_const
 r_char
 op_star
 id|args
 (braket
-l_int|6
+l_int|7
 )braket
 suffix:semicolon
 r_int
@@ -1452,6 +1452,19 @@ op_assign
 id|defmsg
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|opts-&gt;allow_empty
+)paren
+id|args
+(braket
+id|i
+op_increment
+)braket
+op_assign
+l_string|&quot;--allow-empty&quot;
+suffix:semicolon
 id|args
 (braket
 id|i
