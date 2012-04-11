@@ -10984,6 +10984,21 @@ comma
 id|XDF_IGNORE_WHITESPACE
 )paren
 comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;minimal&quot;
+comma
+op_amp
+id|xdl_opts
+comma
+l_string|&quot;Spend extra cycles to find better match&quot;
+comma
+id|XDF_NEED_MINIMAL
+)paren
+comma
 id|OPT_STRING
 c_func
 (paren
