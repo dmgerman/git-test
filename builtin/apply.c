@@ -5476,6 +5476,7 @@ op_star
 id|git_header_name
 c_func
 (paren
+r_const
 r_char
 op_star
 id|line
@@ -6114,6 +6115,7 @@ r_int
 id|parse_git_header
 c_func
 (paren
+r_const
 r_char
 op_star
 id|line
@@ -6743,6 +6745,7 @@ r_void
 id|recount_diff
 c_func
 (paren
+r_const
 r_char
 op_star
 id|line
@@ -6953,6 +6956,7 @@ r_int
 id|parse_fragment_header
 c_func
 (paren
+r_const
 r_char
 op_star
 id|line
@@ -7038,6 +7042,7 @@ r_int
 id|find_header
 c_func
 (paren
+r_const
 r_char
 op_star
 id|line
@@ -7567,6 +7572,7 @@ r_int
 id|parse_fragment
 c_func
 (paren
+r_const
 r_char
 op_star
 id|line
@@ -7996,6 +8002,7 @@ r_int
 id|parse_single_patch
 c_func
 (paren
+r_const
 r_char
 op_star
 id|line
