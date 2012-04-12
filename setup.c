@@ -2861,6 +2861,9 @@ r_const
 r_char
 op_star
 id|prefix
+comma
+r_int
+id|prefix_len
 )paren
 (brace
 r_struct
@@ -2879,10 +2882,13 @@ op_amp
 id|buf
 )paren
 )paren
+(brace
 id|die_errno
 c_func
 (paren
-l_string|&quot;failed to stat &squot;%s%s%s&squot;&quot;
+l_string|&quot;failed to stat &squot;%*s%s%s&squot;&quot;
+comma
+id|prefix_len
 comma
 id|prefix
 ques
@@ -2901,6 +2907,7 @@ comma
 id|path
 )paren
 suffix:semicolon
+)brace
 r_return
 id|buf.st_dev
 suffix:semicolon
@@ -2955,6 +2962,8 @@ r_int
 id|len
 comma
 id|offset
+comma
+id|offset_parent
 comma
 id|ceil_offset
 suffix:semicolon
@@ -3091,6 +3100,8 @@ c_func
 l_string|&quot;.&quot;
 comma
 l_int|NULL
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_for
@@ -3203,17 +3214,21 @@ comma
 id|nongit_ok
 )paren
 suffix:semicolon
+id|offset_parent
+op_assign
+id|offset
+suffix:semicolon
 r_while
 c_loop
 (paren
 op_decrement
-id|offset
+id|offset_parent
 OG
 id|ceil_offset
 op_logical_and
 id|cwd
 (braket
-id|offset
+id|offset_parent
 )braket
 op_ne
 l_char|&squot;/&squot;
@@ -3222,7 +3237,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|offset
+id|offset_parent
 op_le
 id|ceil_offset
 )paren
@@ -3250,6 +3265,8 @@ c_func
 l_string|&quot;..&quot;
 comma
 id|cwd
+comma
+id|offset
 )paren
 suffix:semicolon
 r_if
@@ -3300,7 +3317,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;Not a git repository (or any parent up to mount parent %s)&bslash;n&quot;
+l_string|&quot;Not a git repository (or any parent up to mount point %s)&bslash;n&quot;
 l_string|&quot;Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).&quot;
 comma
 id|cwd
@@ -3334,6 +3351,10 @@ id|cwd
 )paren
 suffix:semicolon
 )brace
+id|offset
+op_assign
+id|offset_parent
+suffix:semicolon
 )brace
 )brace
 DECL|function|setup_git_directory_gently
