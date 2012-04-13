@@ -5,6 +5,7 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;common-cmds.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;column.h&quot;
 macro_line|#include &quot;help.h&quot;
 DECL|struct|man_viewer_list
 r_static
@@ -81,6 +82,12 @@ r_int
 id|show_all
 op_assign
 l_int|0
+suffix:semicolon
+DECL|variable|colopts
+r_static
+r_int
+r_int
+id|colopts
 suffix:semicolon
 DECL|variable|help_format
 r_static
@@ -1379,6 +1386,32 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;column.&quot;
+)paren
+)paren
+r_return
+id|git_column_config
+c_func
+(paren
+id|var
+comma
+id|value
+comma
+l_string|&quot;help&quot;
+comma
+op_amp
+id|colopts
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|strcmp
 c_func
 (paren
@@ -2390,6 +2423,14 @@ c_cond
 id|show_all
 )paren
 (brace
+id|git_config
+c_func
+(paren
+id|git_help_config
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|printf
 c_func
 (paren
@@ -2402,6 +2443,8 @@ id|list_commands
 c_func
 (paren
 l_string|&quot;git commands&quot;
+comma
+id|colopts
 comma
 op_amp
 id|main_cmds
