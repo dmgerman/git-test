@@ -21,6 +21,7 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 macro_line|#include &quot;gpg-interface.h&quot;
+macro_line|#include &quot;column.h&quot;
 DECL|variable|builtin_commit_usage
 r_static
 r_const
@@ -287,6 +288,12 @@ r_static
 r_char
 op_star
 id|sign_commit
+suffix:semicolon
+DECL|variable|colopts
+r_static
+r_int
+r_int
+id|colopts
 suffix:semicolon
 multiline_comment|/*&n; * The default commit message cleanup mode will remove the lines&n; * beginning with # (shell comments) and leading and trailing&n; * whitespaces (empty lines or containing only whitespaces)&n; * if editor is used, and only the whitespaces if the message&n; * is specified explicitly.&n; */
 r_static
@@ -6239,6 +6246,32 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|k
+comma
+l_string|&quot;column.&quot;
+)paren
+)paren
+r_return
+id|git_column_config
+c_func
+(paren
+id|k
+comma
+id|v
+comma
+l_string|&quot;status&quot;
+comma
+op_amp
+id|colopts
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|strcmp
 c_func
 (paren
@@ -6690,6 +6723,19 @@ r_intptr
 l_string|&quot;all&quot;
 )brace
 comma
+id|OPT_COLUMN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;column&quot;
+comma
+op_amp
+id|colopts
+comma
+l_string|&quot;list untracked files in columns&quot;
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -6769,6 +6815,19 @@ id|builtin_status_usage
 comma
 l_int|0
 )paren
+suffix:semicolon
+id|finalize_colopts
+c_func
+(paren
+op_amp
+id|colopts
+comma
+l_int|1
+)paren
+suffix:semicolon
+id|s.colopts
+op_assign
+id|colopts
 suffix:semicolon
 r_if
 c_cond
