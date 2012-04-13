@@ -1017,6 +1017,7 @@ c_cond
 id|http_auth.username
 )paren
 (brace
+r_static
 r_struct
 id|strbuf
 id|up
@@ -1028,6 +1029,13 @@ c_func
 (paren
 op_amp
 id|http_auth
+)paren
+suffix:semicolon
+id|strbuf_reset
+c_func
+(paren
+op_amp
+id|up
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -1050,14 +1058,7 @@ id|result
 comma
 id|CURLOPT_USERPWD
 comma
-id|strbuf_detach
-c_func
-(paren
-op_amp
-id|up
-comma
-l_int|NULL
-)paren
+id|up.buf
 )paren
 suffix:semicolon
 )brace
