@@ -281,6 +281,11 @@ c_cond
 (paren
 op_logical_neg
 id|pager
+op_logical_or
+id|pager_in_use
+c_func
+(paren
+)paren
 )paren
 r_return
 suffix:semicolon
