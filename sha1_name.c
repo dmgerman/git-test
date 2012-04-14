@@ -4690,6 +4690,26 @@ l_int|0
 op_member_access_from_pointer
 id|dst
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ref_exists
+c_func
+(paren
+id|upstream-&gt;refname
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;No such branch: &squot;%s&squot;&quot;
+comma
+id|cp
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -4699,6 +4719,7 @@ comma
 id|upstream-&gt;name
 )paren
 suffix:semicolon
+)brace
 id|free
 c_func
 (paren
