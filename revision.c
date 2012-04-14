@@ -9483,6 +9483,21 @@ op_assign
 id|opt-&gt;submodule
 suffix:semicolon
 multiline_comment|/* First, search for &quot;--&quot; */
+r_if
+c_cond
+(paren
+id|opt
+op_logical_and
+id|opt-&gt;assume_dashdash
+)paren
+(brace
+id|seen_dashdash
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_else
+(brace
 id|seen_dashdash
 op_assign
 l_int|0
@@ -9565,6 +9580,7 @@ l_int|1
 suffix:semicolon
 r_break
 suffix:semicolon
+)brace
 )brace
 multiline_comment|/* Second, deal with arguments and options */
 id|flags
