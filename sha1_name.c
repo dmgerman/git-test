@@ -4710,13 +4710,33 @@ comma
 id|cp
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|upstream-&gt;merge
+)paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;No upstream branch found for &squot;%s&squot;&quot;
+l_string|&quot;No upstream configured for branch &squot;%s&squot;&quot;
 comma
 id|upstream-&gt;name
+)paren
+suffix:semicolon
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;Upstream branch &squot;%s&squot; not stored as a remote-tracking branch&quot;
+comma
+id|upstream-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|src
 )paren
 suffix:semicolon
 )brace
