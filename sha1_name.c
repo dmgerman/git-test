@@ -4662,12 +4662,23 @@ suffix:colon
 l_int|NULL
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Upstream can be NULL only if cp refers to HEAD and HEAD&n;&t; * points to something different than a branch.&n;&t; */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|upstream
-op_logical_or
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;HEAD does not point to a branch&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|upstream-&gt;merge
 op_logical_or
@@ -4685,7 +4696,7 @@ c_func
 (paren
 l_string|&quot;No upstream branch found for &squot;%s&squot;&quot;
 comma
-id|cp
+id|upstream-&gt;name
 )paren
 suffix:semicolon
 id|free
