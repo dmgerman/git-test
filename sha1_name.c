@@ -4673,7 +4673,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;HEAD does not point to a branch&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4705,7 +4709,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such branch: &squot;%s&squot;&quot;
+)paren
 comma
 id|cp
 )paren
@@ -4720,7 +4728,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No upstream configured for branch &squot;%s&squot;&quot;
+)paren
 comma
 id|upstream-&gt;name
 )paren
@@ -4729,7 +4741,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Upstream branch &squot;%s&squot; not stored as a remote-tracking branch&quot;
+)paren
 comma
 id|upstream-&gt;merge
 (braket
