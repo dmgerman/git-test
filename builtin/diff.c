@@ -1675,12 +1675,6 @@ op_assign
 id|lookup_tree
 c_func
 (paren
-(paren
-r_const
-r_int
-r_char
-op_star
-)paren
 id|EMPTY_TREE_SHA1_BIN
 )paren
 suffix:semicolon
