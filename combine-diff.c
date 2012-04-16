@@ -2184,6 +2184,8 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+id|la
+op_logical_and
 id|j
 op_le
 op_decrement
