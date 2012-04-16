@@ -945,7 +945,7 @@ op_assign
 id|index-&gt;xpp-&gt;flags
 op_amp
 op_complement
-id|XDF_HISTOGRAM_DIFF
+id|XDF_DIFF_ALGORITHM_MASK
 suffix:semicolon
 r_return
 id|xdl_fall_back_diff

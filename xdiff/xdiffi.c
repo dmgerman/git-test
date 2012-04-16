@@ -1581,8 +1581,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|XDF_DIFF_ALG
+c_func
+(paren
 id|xpp-&gt;flags
-op_amp
+)paren
+op_eq
 id|XDF_PATIENCE_DIFF
 )paren
 r_return
@@ -1601,8 +1605,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|XDF_DIFF_ALG
+c_func
+(paren
 id|xpp-&gt;flags
-op_amp
+)paren
+op_eq
 id|XDF_HISTOGRAM_DIFF
 )paren
 r_return
