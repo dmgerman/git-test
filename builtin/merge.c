@@ -127,13 +127,6 @@ id|merge_msg
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-DECL|variable|remoteheads
-r_static
-r_struct
-id|commit_list
-op_star
-id|remoteheads
-suffix:semicolon
 DECL|variable|use_strategies
 r_static
 r_struct
@@ -1808,6 +1801,11 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+r_struct
+id|commit_list
+op_star
+id|remoteheads
 )paren
 (brace
 r_struct
@@ -2121,6 +2119,11 @@ id|commit
 op_star
 id|head_commit
 comma
+r_struct
+id|commit_list
+op_star
+id|remoteheads
+comma
 r_const
 r_int
 r_char
@@ -2211,6 +2214,8 @@ id|squash_message
 c_func
 (paren
 id|head_commit
+comma
+id|remoteheads
 )paren
 suffix:semicolon
 )brace
@@ -4234,6 +4239,11 @@ op_star
 id|common
 comma
 r_struct
+id|commit_list
+op_star
+id|remoteheads
+comma
+r_struct
 id|commit
 op_star
 id|head
@@ -5529,7 +5539,9 @@ r_void
 id|write_merge_state
 c_func
 (paren
-r_void
+r_struct
+id|commit_list
+op_star
 )paren
 suffix:semicolon
 DECL|function|abort_commit
@@ -5538,6 +5550,11 @@ r_void
 id|abort_commit
 c_func
 (paren
+r_struct
+id|commit_list
+op_star
+id|remoteheads
+comma
 r_const
 r_char
 op_star
@@ -5572,6 +5589,7 @@ suffix:semicolon
 id|write_merge_state
 c_func
 (paren
+id|remoteheads
 )paren
 suffix:semicolon
 m_exit
@@ -5604,7 +5622,10 @@ r_void
 id|prepare_to_commit
 c_func
 (paren
-r_void
+r_struct
+id|commit_list
+op_star
+id|remoteheads
 )paren
 (brace
 r_struct
@@ -5723,6 +5744,8 @@ l_int|NULL
 id|abort_commit
 c_func
 (paren
+id|remoteheads
+comma
 l_int|NULL
 )paren
 suffix:semicolon
@@ -5752,6 +5775,8 @@ id|msg.len
 id|abort_commit
 c_func
 (paren
+id|remoteheads
+comma
 id|_
 c_func
 (paren
@@ -5794,6 +5819,11 @@ r_struct
 id|commit
 op_star
 id|head
+comma
+r_struct
+id|commit_list
+op_star
+id|remoteheads
 )paren
 (brace
 r_int
@@ -5866,6 +5896,7 @@ suffix:semicolon
 id|prepare_to_commit
 c_func
 (paren
+id|remoteheads
 )paren
 suffix:semicolon
 r_if
@@ -5903,6 +5934,8 @@ c_func
 (paren
 id|head
 comma
+id|remoteheads
+comma
 id|result_commit
 comma
 l_string|&quot;In-index merge&quot;
@@ -5932,6 +5965,11 @@ r_struct
 id|commit_list
 op_star
 id|common
+comma
+r_struct
+id|commit_list
+op_star
+id|remoteheads
 comma
 r_int
 r_char
@@ -6064,6 +6102,7 @@ suffix:semicolon
 id|prepare_to_commit
 c_func
 (paren
+id|remoteheads
 )paren
 suffix:semicolon
 id|free_commit_list
@@ -6117,6 +6156,8 @@ id|finish
 c_func
 (paren
 id|head
+comma
+id|remoteheads
 comma
 id|result_commit
 comma
@@ -6674,7 +6715,10 @@ r_void
 id|write_merge_state
 c_func
 (paren
-r_void
+r_struct
+id|commit_list
+op_star
+id|remoteheads
 )paren
 (brace
 r_const
@@ -7186,6 +7230,13 @@ l_int|NULL
 comma
 op_star
 id|wt_strategy
+op_assign
+l_int|NULL
+suffix:semicolon
+r_struct
+id|commit_list
+op_star
+id|remoteheads
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -8510,6 +8561,8 @@ c_func
 (paren
 id|head_commit
 comma
+id|remoteheads
+comma
 id|commit-&gt;object.sha1
 comma
 id|msg.buf
@@ -8602,6 +8655,8 @@ id|merge_trivial
 c_func
 (paren
 id|head_commit
+comma
+id|remoteheads
 )paren
 suffix:semicolon
 r_goto
@@ -8838,6 +8893,8 @@ id|name
 comma
 id|common
 comma
+id|remoteheads
+comma
 id|head_commit
 comma
 id|head_arg
@@ -8953,6 +9010,8 @@ c_func
 id|head_commit
 comma
 id|common
+comma
+id|remoteheads
 comma
 id|result_tree
 comma
@@ -9075,6 +9134,8 @@ id|best_strategy
 comma
 id|common
 comma
+id|remoteheads
+comma
 id|head_commit
 comma
 id|head_arg
@@ -9091,6 +9152,8 @@ c_func
 (paren
 id|head_commit
 comma
+id|remoteheads
+comma
 l_int|NULL
 comma
 l_int|NULL
@@ -9100,6 +9163,7 @@ r_else
 id|write_merge_state
 c_func
 (paren
+id|remoteheads
 )paren
 suffix:semicolon
 r_if
