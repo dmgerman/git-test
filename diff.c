@@ -7913,6 +7913,7 @@ id|term_columns
 c_func
 (paren
 )paren
+id|options-&gt;output_prefix_length
 suffix:semicolon
 r_else
 id|width
