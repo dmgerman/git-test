@@ -1259,6 +1259,12 @@ r_char
 op_star
 id|remote
 comma
+r_const
+r_struct
+id|ref
+op_star
+id|remote_ref
+comma
 r_struct
 id|strbuf
 op_star
@@ -2652,6 +2658,8 @@ c_func
 id|ref
 comma
 id|what
+comma
+id|rm
 comma
 op_amp
 id|note
