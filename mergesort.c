@@ -119,10 +119,10 @@ r_return
 id|p
 suffix:semicolon
 )brace
-DECL|function|mergesort
+DECL|function|llist_mergesort
 r_void
 op_star
-id|mergesort
+id|llist_mergesort
 c_func
 (paren
 r_void

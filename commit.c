@@ -2350,7 +2350,7 @@ id|list
 op_star
 id|list
 op_assign
-id|mergesort
+id|llist_mergesort
 c_func
 (paren
 op_star

@@ -228,7 +228,7 @@ suffix:semicolon
 )brace
 id|lines
 op_assign
-id|mergesort
+id|llist_mergesort
 c_func
 (paren
 id|lines
