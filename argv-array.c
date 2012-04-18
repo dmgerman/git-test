@@ -1,24 +1,17 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
-DECL|variable|empty_argv_storage
-r_static
-r_const
-r_char
-op_star
-id|empty_argv_storage
-op_assign
-l_int|NULL
-suffix:semicolon
 DECL|variable|empty_argv
 r_const
 r_char
 op_star
-op_star
 id|empty_argv
+(braket
+)braket
 op_assign
-op_amp
-id|empty_argv_storage
+(brace
+l_int|NULL
+)brace
 suffix:semicolon
 DECL|function|argv_array_init
 r_void
