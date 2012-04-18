@@ -8017,6 +8017,7 @@ l_int|8
 id|number_width
 l_int|6
 )paren
+(brace
 id|graph_width
 op_assign
 id|width
@@ -8027,6 +8028,18 @@ l_int|8
 id|number_width
 l_int|6
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|graph_width
+OL
+l_int|6
+)paren
+id|graph_width
+op_assign
+l_int|6
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
