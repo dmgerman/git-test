@@ -261,7 +261,7 @@ r_enum
 id|push_default_type
 id|push_default
 op_assign
-id|PUSH_DEFAULT_MATCHING
+id|PUSH_DEFAULT_UNSPECIFIED
 suffix:semicolon
 macro_line|#ifndef OBJECT_CREATION_MODE
 DECL|macro|OBJECT_CREATION_MODE
