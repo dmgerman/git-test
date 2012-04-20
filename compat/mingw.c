@@ -5773,7 +5773,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|mingw_execvp
-r_void
+r_int
 id|mingw_execvp
 c_func
 (paren
@@ -5847,9 +5847,12 @@ c_func
 id|path
 )paren
 suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
 )brace
 DECL|function|mingw_execv
-r_void
+r_int
 id|mingw_execv
 c_func
 (paren
@@ -5874,6 +5877,9 @@ id|argv
 comma
 id|environ
 )paren
+suffix:semicolon
+r_return
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|mingw_kill
