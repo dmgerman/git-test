@@ -623,6 +623,11 @@ c_func
 (paren
 )paren
 comma
+id|OPT_END
+c_func
+(paren
+)paren
+comma
 )brace
 suffix:semicolon
 r_if
@@ -676,7 +681,20 @@ comma
 op_amp
 id|opts-&gt;allow_empty
 comma
-l_string|&quot;preserve empty commits&quot;
+l_string|&quot;preserve initially empty commits&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;keep-redundant-commits&quot;
+comma
+op_amp
+id|opts-&gt;keep_redundant_commits
+comma
+l_string|&quot;keep redundant, empty commits&quot;
 )paren
 comma
 id|OPT_END
@@ -754,6 +772,16 @@ id|rollback
 comma
 l_int|NULL
 )paren
+suffix:semicolon
+multiline_comment|/* implies allow_empty */
+r_if
+c_cond
+(paren
+id|opts-&gt;keep_redundant_commits
+)paren
+id|opts-&gt;allow_empty
+op_assign
+l_int|1
 suffix:semicolon
 multiline_comment|/* Set the subcommand */
 r_if
