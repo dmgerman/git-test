@@ -683,6 +683,7 @@ l_int|0
 )paren
 )paren
 (brace
+macro_line|#ifndef WIN32
 id|nargv
 (braket
 id|nargc
@@ -691,6 +692,16 @@ op_increment
 op_assign
 id|SHELL_PATH
 suffix:semicolon
+macro_line|#else
+id|nargv
+(braket
+id|nargc
+op_increment
+)braket
+op_assign
+l_string|&quot;sh&quot;
+suffix:semicolon
+macro_line|#endif
 id|nargv
 (braket
 id|nargc
