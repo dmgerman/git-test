@@ -381,7 +381,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized whitespace option &squot;%s&squot;&quot;
+)paren
 comma
 id|option
 )paren
@@ -472,7 +476,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized whitespace ignore option &squot;%s&squot;&quot;
+)paren
 comma
 id|option
 )paren
@@ -3745,7 +3753,11 @@ id|REG_EXTENDED
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot prepare timestamp regexp %s&quot;
+)paren
 comma
 id|stamp_regexp
 )paren
@@ -3791,7 +3803,11 @@ id|REG_NOMATCH
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;regexec returned %d for input: %s&quot;
+)paren
 comma
 id|status
 comma
@@ -4245,7 +4261,11 @@ id|name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to find filename in patch at line %d&quot;
+)paren
 comma
 id|linenr
 )paren
@@ -4358,7 +4378,11 @@ id|isnull
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git apply: bad git-diff - expected /dev/null, got %s on line %d&quot;
+)paren
 comma
 id|name
 comma
@@ -4400,7 +4424,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git apply: bad git-diff - inconsistent %s filename on line %d&quot;
+)paren
 comma
 id|oldnew
 comma
@@ -4443,7 +4471,11 @@ l_char|&squot;&bslash;n&squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git apply: bad git-diff - expected /dev/null on line %d&quot;
+)paren
 comma
 id|linenr
 )paren
@@ -6648,7 +6680,11 @@ id|ret
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;recount: unexpected line: %.*s&quot;
+)paren
 comma
 (paren
 r_int
@@ -6923,7 +6959,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;patch fragment without header at line %d: %.*s&quot;
+)paren
 comma
 id|linenr
 comma
@@ -7008,8 +7048,17 @@ id|patch-&gt;def_name
 id|die
 c_func
 (paren
+id|Q_
+c_func
+(paren
+l_string|&quot;git diff header lacks filename information when removing &quot;
+l_string|&quot;%d leading pathname component (line %d)&quot;
+comma
 l_string|&quot;git diff header lacks filename information when removing &quot;
 l_string|&quot;%d leading pathname components (line %d)&quot;
+comma
+id|p_value
+)paren
 comma
 id|p_value
 comma
@@ -7690,7 +7739,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;new file depends on old contents&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -7706,7 +7759,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;deleted file still has contents&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -7831,7 +7888,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;corrupt patch at line %d&quot;
+)paren
 comma
 id|linenr
 )paren
@@ -7936,7 +7997,11 @@ id|oldlines
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;new file %s depends on old contents&quot;
+)paren
 comma
 id|patch-&gt;new_name
 )paren
@@ -7953,7 +8018,11 @@ id|newlines
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;deleted file %s still has contents&quot;
+)paren
 comma
 id|patch-&gt;old_name
 )paren
@@ -7969,13 +8038,17 @@ id|newlines
 op_logical_and
 id|context
 )paren
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;** warning: file %s becomes empty but &quot;
-l_string|&quot;is not deleted&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;** warning: &quot;
+l_string|&quot;file %s becomes empty but is not deleted&quot;
+)paren
 comma
 id|patch-&gt;new_name
 )paren
@@ -8587,7 +8660,11 @@ suffix:semicolon
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;corrupt binary patch at line %d: %.*s&quot;
+)paren
 comma
 id|linenr
 op_minus
@@ -8675,7 +8752,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized binary patch at line %d&quot;
+)paren
 comma
 id|linenr
 op_minus
@@ -9083,7 +9164,11 @@ id|patch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;patch with only garbage at line %d&quot;
+)paren
 comma
 id|linenr
 )paren
@@ -9525,7 +9610,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to read symlink %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -9555,7 +9644,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to open or read %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -9834,7 +9927,11 @@ id|ctx
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;oops&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* and copy it in, while fixing the line length */
@@ -11951,7 +12048,11 @@ id|apply_verbosely
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid start of line: &squot;%c&squot;&quot;
+)paren
 comma
 id|first
 )paren
@@ -12351,12 +12452,20 @@ op_assign
 l_int|0
 id|offset
 suffix:semicolon
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Hunk #%d succeeded at %d (offset %d lines).&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;Hunk #%d succeeded at %d (offset %d line).&quot;
+comma
+l_string|&quot;Hunk #%d succeeded at %d (offset %d lines).&quot;
+comma
+id|offset
+)paren
 comma
 id|nth_fragment
 comma
@@ -12384,13 +12493,17 @@ op_ne
 id|frag-&gt;trailing
 )paren
 )paren
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Context reduced to (%ld/%ld)&quot;
-l_string|&quot; to apply fragment at %d&bslash;n&quot;
+l_string|&quot; to apply fragment at %d&quot;
+)paren
 comma
 id|leading
 comma
@@ -12426,7 +12539,11 @@ id|apply_verbosely
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;while searching for:&bslash;n%.*s&quot;
+)paren
 comma
 (paren
 r_int
@@ -12515,7 +12632,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;missing binary patch data for &squot;%s&squot;&quot;
+)paren
 comma
 id|patch-&gt;new_name
 ques
@@ -12928,7 +13049,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;binary patch does not apply to &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -12965,7 +13090,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;binary patch to &squot;%s&squot; creates incorrect result (expecting %s, got %s)&quot;
+)paren
 comma
 id|name
 comma
@@ -13078,7 +13207,11 @@ id|nth
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;patch failed: %s:%ld&quot;
+)paren
 comma
 id|name
 comma
@@ -13546,7 +13679,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;patch %s has been renamed/deleted&quot;
+)paren
 comma
 id|patch-&gt;old_name
 )paren
@@ -13588,7 +13725,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;read of %s failed&quot;
+)paren
 comma
 id|patch-&gt;old_name
 )paren
@@ -13656,7 +13797,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;read of %s failed&quot;
+)paren
 comma
 id|patch-&gt;old_name
 )paren
@@ -13740,7 +13885,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;removal patch leaves file contents&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -13817,7 +13966,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: already exists in working directory&quot;
+)paren
 comma
 id|new_name
 )paren
@@ -14023,7 +14176,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: has been deleted/renamed&quot;
+)paren
 comma
 id|old_name
 )paren
@@ -14064,7 +14221,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: %s&quot;
+)paren
 comma
 id|old_name
 comma
@@ -14135,7 +14296,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: does not exist in index&quot;
+)paren
 comma
 id|old_name
 )paren
@@ -14230,7 +14395,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: does not match index&quot;
+)paren
 comma
 id|old_name
 )paren
@@ -14273,7 +14442,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: %s&quot;
+)paren
 comma
 id|old_name
 comma
@@ -14341,7 +14514,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: wrong type&quot;
+)paren
 comma
 id|old_name
 )paren
@@ -14356,7 +14533,11 @@ id|patch-&gt;old_mode
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s has type %o, expected %o&quot;
+)paren
 comma
 id|old_name
 comma
@@ -14575,7 +14756,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: already exists in index&quot;
+)paren
 comma
 id|new_name
 )paren
@@ -14679,7 +14864,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;new mode (%o) of %s does not match old mode (%o)%s%s&quot;
+)paren
 comma
 id|patch-&gt;new_mode
 comma
@@ -14723,7 +14912,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s: patch does not apply&quot;
+)paren
 comma
 id|name
 )paren
@@ -15052,7 +15245,11 @@ id|ce
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;make_cache_entry failed for path &squot;%s&squot;&quot;
+)paren
 comma
 id|name
 )paren
@@ -15825,7 +16022,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to remove %s from index&quot;
+)paren
 comma
 id|patch-&gt;old_name
 )paren
@@ -15989,7 +16190,11 @@ id|ce-&gt;sha1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;corrupt patch for subproject %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -16021,7 +16226,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to stat newly created file &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -16056,7 +16265,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to create backing store for newly created file %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -16078,7 +16291,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to add cache entry for %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -16277,7 +16494,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;closing file &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -16528,7 +16749,11 @@ suffix:semicolon
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to write file &squot;%s&squot; mode %o&quot;
+)paren
 comma
 id|path
 comma
@@ -16806,7 +17031,11 @@ id|patch-&gt;new_name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;internal error&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* Say this even without --verbose */
@@ -16866,7 +17095,11 @@ suffix:semicolon
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;truncating .rej filename to %.*s.rej&quot;
+)paren
 comma
 id|cnt
 l_int|1
@@ -16917,7 +17150,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot open %s: %s&quot;
+)paren
 comma
 id|namebuf
 comma
@@ -16969,12 +17206,16 @@ op_logical_neg
 id|frag-&gt;rejected
 )paren
 (brace
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Hunk #%d applied cleanly.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Hunk #%d applied cleanly.&quot;
+)paren
 comma
 id|cnt
 )paren
@@ -16982,12 +17223,16 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Rejected hunk #%d.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Rejected hunk #%d.&quot;
+)paren
 comma
 id|cnt
 )paren
@@ -17683,7 +17928,11 @@ id|skipped_patch
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized input&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -17746,7 +17995,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to read index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -18796,7 +19049,11 @@ id|is_not_gitdir
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--index outside a repository&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -18813,7 +19070,11 @@ id|is_not_gitdir
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--cached outside a repository&quot;
+)paren
 )paren
 suffix:semicolon
 id|check_index
@@ -18921,7 +19182,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;can&squot;t open patch &squot;%s&squot;&quot;
+)paren
 comma
 id|arg
 )paren
@@ -19003,19 +19268,17 @@ suffix:semicolon
 id|warning
 c_func
 (paren
-l_string|&quot;squelched %d &quot;
-l_string|&quot;whitespace error%s&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;squelched %d whitespace error&quot;
+comma
+l_string|&quot;squelched %d whitespace errors&quot;
 comma
 id|squelched
+)paren
 comma
 id|squelched
-op_eq
-l_int|1
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot;s&quot;
 )paren
 suffix:semicolon
 )brace
@@ -19029,27 +19292,17 @@ id|die_on_ws_error
 id|die
 c_func
 (paren
-l_string|&quot;%d line%s add%s whitespace errors.&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;%d line adds whitespace errors.&quot;
+comma
+l_string|&quot;%d lines add whitespace errors.&quot;
 comma
 id|whitespace_error
+)paren
 comma
 id|whitespace_error
-op_eq
-l_int|1
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot;s&quot;
-comma
-id|whitespace_error
-op_eq
-l_int|1
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -19086,27 +19339,17 @@ id|whitespace_error
 id|warning
 c_func
 (paren
-l_string|&quot;%d line%s add%s whitespace errors.&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;%d line adds whitespace errors.&quot;
+comma
+l_string|&quot;%d lines add whitespace errors.&quot;
 comma
 id|whitespace_error
+)paren
 comma
 id|whitespace_error
-op_eq
-l_int|1
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot;s&quot;
-comma
-id|whitespace_error
-op_eq
-l_int|1
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -19139,7 +19382,11 @@ id|lock_file
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to write new index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
