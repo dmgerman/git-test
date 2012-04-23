@@ -250,7 +250,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized help format &squot;%s&squot;&quot;
+)paren
 comma
 id|format
 )paren
@@ -387,7 +391,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to start emacsclient.&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_read
@@ -438,7 +446,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to parse emacsclient version.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -484,7 +496,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;emacsclient version &squot;%d&squot; too old (&lt; 22).&quot;
+)paren
 comma
 id|version
 )paren
@@ -577,7 +593,11 @@ suffix:semicolon
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to exec &squot;%s&squot;: %s&quot;
+)paren
 comma
 id|path
 comma
@@ -762,7 +782,11 @@ suffix:semicolon
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to exec &squot;%s&squot;: %s&quot;
+)paren
 comma
 id|path
 comma
@@ -821,7 +845,11 @@ suffix:semicolon
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to exec &squot;%s&squot;: %s&quot;
+)paren
 comma
 id|path
 comma
@@ -890,7 +918,11 @@ suffix:semicolon
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to exec &squot;%s&squot;: %s&quot;
+)paren
 comma
 id|cmd
 comma
@@ -1159,8 +1191,12 @@ r_else
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: path for unsupported man viewer.&bslash;n&quot;
 l_string|&quot;Please consider using &squot;man.&lt;tool&gt;.cmd&squot; instead.&quot;
+)paren
 comma
 id|name
 )paren
@@ -1203,8 +1239,12 @@ id|len
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: cmd for supported man viewer.&bslash;n&quot;
 l_string|&quot;Please consider using &squot;man.&lt;tool&gt;.path&squot; instead.&quot;
+)paren
 comma
 id|name
 )paren
@@ -1558,7 +1598,11 @@ suffix:semicolon
 id|puts
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;The most commonly used git commands are:&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -1614,12 +1658,16 @@ suffix:semicolon
 id|puts
 c_func
 (paren
+id|_
+c_func
+(paren
 id|common_cmds
 (braket
 id|i
 )braket
 dot
 id|help
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1989,7 +2037,11 @@ r_else
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: unknown man viewer.&quot;
+)paren
 comma
 id|name
 )paren
@@ -2087,7 +2139,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no man viewer handled the request&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2149,7 +2205,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no info viewer handled the request&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2214,7 +2274,11 @@ id|st.st_mode
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot;: not a documentation directory.&quot;
+)paren
 comma
 id|html_path
 )paren
@@ -2393,15 +2457,29 @@ id|show_all
 id|printf
 c_func
 (paren
-l_string|&quot;usage: %s&bslash;n&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;usage: %s%s&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 id|git_usage_string
+)paren
+comma
+l_string|&quot;&bslash;n&bslash;n&quot;
 )paren
 suffix:semicolon
 id|list_commands
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git commands&quot;
+)paren
 comma
 op_amp
 id|main_cmds
@@ -2415,7 +2493,11 @@ c_func
 (paren
 l_string|&quot;%s&bslash;n&quot;
 comma
+id|_
+c_func
+(paren
 id|git_more_info_string
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2435,9 +2517,19 @@ l_int|0
 id|printf
 c_func
 (paren
-l_string|&quot;usage: %s&bslash;n&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;usage: %s%s&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 id|git_usage_string
+)paren
+comma
+l_string|&quot;&bslash;n&bslash;n&quot;
 )paren
 suffix:semicolon
 id|list_common_cmds_help
@@ -2450,7 +2542,11 @@ c_func
 (paren
 l_string|&quot;&bslash;n%s&bslash;n&quot;
 comma
+id|_
+c_func
+(paren
 id|git_more_info_string
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -2510,10 +2606,14 @@ l_int|0
 )paren
 )paren
 (brace
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;`git %s&squot; is aliased to `%s&squot;&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;`git %s&squot; is aliased to `%s&squot;&quot;
+)paren
 comma
 id|argv
 (braket

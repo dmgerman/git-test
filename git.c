@@ -24,7 +24,11 @@ id|git_more_info_string
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;See &squot;git help &lt;command&gt;&squot; for more information on a specific command.&quot;
+)paren
 suffix:semicolon
 DECL|variable|git_startup_info
 r_static
