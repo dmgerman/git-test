@@ -7292,9 +7292,9 @@ op_assign
 id|dry_run
 ques
 c_cond
-l_string|&quot; %s will become dangling!&bslash;n&quot;
+l_string|&quot; %s will become dangling!&quot;
 suffix:colon
-l_string|&quot; %s has become dangling!&bslash;n&quot;
+l_string|&quot; %s has become dangling!&quot;
 suffix:semicolon
 id|memset
 c_func

@@ -2963,13 +2963,13 @@ c_cond
 id|_
 c_func
 (paren
-l_string|&quot;   (%s will become dangling)&bslash;n&quot;
+l_string|&quot;   (%s will become dangling)&quot;
 )paren
 suffix:colon
 id|_
 c_func
 (paren
-l_string|&quot;   (%s has become dangling)&bslash;n&quot;
+l_string|&quot;   (%s has become dangling)&quot;
 )paren
 suffix:semicolon
 r_for
