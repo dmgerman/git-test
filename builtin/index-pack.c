@@ -301,7 +301,11 @@ id|type
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;object type mismatch at %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -392,7 +396,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;object of unexpected type&quot;
+)paren
 )paren
 suffix:semicolon
 id|obj-&gt;flags
@@ -548,7 +556,15 @@ id|input_buffer
 id|die
 c_func
 (paren
+id|Q_
+c_func
+(paren
+l_string|&quot;cannot fill %d byte&quot;
+comma
 l_string|&quot;cannot fill %d bytes&quot;
+comma
+id|min
+)paren
 comma
 id|min
 )paren
@@ -596,13 +612,21 @@ id|ret
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;early EOF&quot;
+)paren
 )paren
 suffix:semicolon
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;read error on input&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -658,7 +682,11 @@ id|input_len
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;used more bytes than were available&quot;
+)paren
 )paren
 suffix:semicolon
 id|input_crc32
@@ -698,7 +726,11 @@ id|bytes
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pack too large for current definition of off_t&quot;
+)paren
 )paren
 suffix:semicolon
 id|consumed_bytes
@@ -795,7 +827,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to create &squot;%s&squot;&quot;
+)paren
 comma
 id|pack_name
 )paren
@@ -827,7 +863,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot open packfile &squot;%s&squot;&quot;
+)paren
 comma
 id|pack_name
 )paren
@@ -891,7 +931,11 @@ id|PACK_SIGNATURE
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pack signature mismatch&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1033,7 +1077,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pack has bad object at offset %lu: %s&quot;
+)paren
 comma
 id|offset
 comma
@@ -1392,7 +1440,11 @@ c_func
 (paren
 id|offset
 comma
+id|_
+c_func
+(paren
 l_string|&quot;inflate returned %d&quot;
+)paren
 comma
 id|status
 )paren
@@ -1652,7 +1704,11 @@ c_func
 (paren
 id|obj-&gt;idx.offset
 comma
+id|_
+c_func
+(paren
 l_string|&quot;offset value overflow for delta base object&quot;
+)paren
 )paren
 suffix:semicolon
 id|p
@@ -1710,7 +1766,11 @@ c_func
 (paren
 id|obj-&gt;idx.offset
 comma
+id|_
+c_func
+(paren
 l_string|&quot;delta base offset is out of bound&quot;
+)paren
 )paren
 suffix:semicolon
 r_break
@@ -1736,7 +1796,11 @@ c_func
 (paren
 id|obj-&gt;idx.offset
 comma
+id|_
+c_func
+(paren
 l_string|&quot;unknown object type %d&quot;
+)paren
 comma
 id|obj-&gt;type
 )paren
@@ -1923,7 +1987,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot pread pack file&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -1935,7 +2003,15 @@ id|n
 id|die
 c_func
 (paren
+id|Q_
+c_func
+(paren
+l_string|&quot;premature end of pack file, %lu byte missing&quot;
+comma
 l_string|&quot;premature end of pack file, %lu bytes missing&quot;
+comma
+id|len
+)paren
 comma
 id|len
 )paren
@@ -1996,7 +2072,11 @@ id|obj-&gt;size
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;serious inflate inconsistency&quot;
+)paren
 )paren
 suffix:semicolon
 id|git_inflate_end
@@ -2406,7 +2486,11 @@ id|has_data
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot read existing object %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2441,7 +2525,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;SHA1 COLLISION FOUND WITH %s !&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2495,7 +2583,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid blob object %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2552,7 +2644,11 @@ id|obj
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid %s&quot;
+)paren
 comma
 r_typename
 (paren
@@ -2576,7 +2672,11 @@ id|fsck_error_function
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Error in object&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2595,7 +2695,11 @@ l_int|NULL
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not all child objects of %s are reachable&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -2878,7 +2982,11 @@ c_func
 (paren
 id|obj-&gt;idx.offset
 comma
+id|_
+c_func
+(paren
 l_string|&quot;failed to apply delta&quot;
+)paren
 )paren
 suffix:semicolon
 id|base_cache_used
@@ -3012,7 +3120,11 @@ c_func
 (paren
 id|delta_obj-&gt;idx.offset
 comma
+id|_
+c_func
+(paren
 l_string|&quot;failed to apply delta&quot;
+)paren
 )paren
 suffix:semicolon
 id|sha1_object
@@ -3487,9 +3599,17 @@ c_func
 id|from_stdin
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot;Receiving objects&quot;
+)paren
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;Indexing objects&quot;
+)paren
 comma
 id|nr_objects
 )paren
@@ -3637,7 +3757,11 @@ id|sha1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pack is corrupted (SHA1 mismatch)&quot;
+)paren
 )paren
 suffix:semicolon
 id|use
@@ -3662,7 +3786,11 @@ id|st
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot fstat packfile&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3690,7 +3818,11 @@ id|st.st_size
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pack has junk at the end&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -3729,7 +3861,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Resolving deltas&quot;
+)paren
 comma
 id|nr_deltas
 )paren
@@ -3926,7 +4062,11 @@ id|Z_STREAM_END
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to deflate appended object (%d)&quot;
+)paren
 comma
 id|status
 )paren
@@ -4431,7 +4571,11 @@ id|type
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;local object %s is corrupt&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -4576,7 +4720,11 @@ id|err
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;error while closing pack file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -4653,7 +4801,11 @@ id|EEXIST
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot write keep file &squot;%s&squot;&quot;
+)paren
 comma
 id|keep_name
 )paren
@@ -4704,7 +4856,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot close written keep file &squot;%s&squot;&quot;
+)paren
 comma
 id|keep_name
 )paren
@@ -4773,7 +4929,11 @@ id|final_pack_name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot store pack file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -4849,7 +5009,11 @@ id|final_index_name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot store index file&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -5327,7 +5491,11 @@ id|p
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot open existing pack file &squot;%s&squot;&quot;
+)paren
 comma
 id|pack_name
 )paren
@@ -5344,7 +5512,11 @@ id|p
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot open existing pack idx file for &squot;%s&squot;&quot;
+)paren
 comma
 id|pack_name
 )paren
@@ -5563,21 +5735,20 @@ c_cond
 (paren
 id|baseobjects
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;non delta: %d object%s&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;non delta: %d object&quot;
+comma
+l_string|&quot;non delta: %d objects&quot;
 comma
 id|baseobjects
+)paren
 comma
 id|baseobjects
-OG
-l_int|1
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_for
@@ -5606,10 +5777,21 @@ id|i
 )paren
 r_continue
 suffix:semicolon
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;chain length = %d: %lu object%s&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;chain length = %d: %lu object&quot;
+comma
+l_string|&quot;chain length = %d: %lu objects&quot;
+comma
+id|chain_histogram
+(braket
+id|i
+)braket
+)paren
 comma
 id|i
 op_plus
@@ -5619,18 +5801,6 @@ id|chain_histogram
 (braket
 id|i
 )braket
-comma
-id|chain_histogram
-(braket
-id|i
-)braket
-OG
-l_int|1
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
@@ -5793,7 +5963,11 @@ id|prefix
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot come back to cwd&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -6065,7 +6239,11 @@ l_char|&squot;,&squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -6098,7 +6276,11 @@ id|c
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -6216,7 +6398,11 @@ l_int|2
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -6257,7 +6443,11 @@ l_int|0x80000000
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -6315,7 +6505,11 @@ id|from_stdin
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--fix-thin cannot be used without --stdin&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6351,7 +6545,11 @@ l_string|&quot;.pack&quot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;packfile name &squot;%s&squot; does not end with &squot;.pack&squot;&quot;
+)paren
 comma
 id|pack_name
 )paren
@@ -6426,7 +6624,11 @@ l_string|&quot;.pack&quot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;packfile name &squot;%s&squot; does not end with &squot;.pack&squot;&quot;
+)paren
 comma
 id|pack_name
 )paren
@@ -6481,7 +6683,11 @@ id|index_name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--verify with no packfile name given&quot;
+)paren
 )paren
 suffix:semicolon
 id|read_idx_option
@@ -6632,7 +6838,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;confusion beyond insanity&quot;
+)paren
 )paren
 suffix:semicolon
 id|objects
@@ -6764,7 +6974,16 @@ id|nr_resolved_deltas
 id|die
 c_func
 (paren
+id|Q_
+c_func
+(paren
+l_string|&quot;pack has %d unresolved delta&quot;
+comma
 l_string|&quot;pack has %d unresolved deltas&quot;
+comma
+id|nr_deltas
+id|nr_resolved_deltas
+)paren
 comma
 id|nr_deltas
 id|nr_resolved_deltas
