@@ -1391,6 +1391,7 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* fmt must contain _one_ %s and no other substitution */
 DECL|function|say_patch_name
 r_static
 r_void
@@ -1404,26 +1405,19 @@ comma
 r_const
 r_char
 op_star
-id|pre
+id|fmt
 comma
 r_struct
 id|patch
 op_star
 id|patch
-comma
-r_const
-r_char
-op_star
-id|post
 )paren
 (brace
-id|fputs
-c_func
-(paren
-id|pre
-comma
-id|output
-)paren
+r_struct
+id|strbuf
+id|sb
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond
@@ -1446,19 +1440,21 @@ c_func
 (paren
 id|patch-&gt;old_name
 comma
-l_int|NULL
+op_amp
+id|sb
 comma
-id|output
+l_int|NULL
 comma
 l_int|0
 )paren
 suffix:semicolon
-id|fputs
+id|strbuf_addstr
 c_func
 (paren
-l_string|&quot; =&gt; &quot;
+op_amp
+id|sb
 comma
-id|output
+l_string|&quot; =&gt; &quot;
 )paren
 suffix:semicolon
 id|quote_c_style
@@ -1466,9 +1462,10 @@ c_func
 (paren
 id|patch-&gt;new_name
 comma
-l_int|NULL
+op_amp
+id|sb
 comma
-id|output
+l_int|NULL
 comma
 l_int|0
 )paren
@@ -1498,20 +1495,38 @@ c_func
 (paren
 id|n
 comma
-l_int|NULL
+op_amp
+id|sb
 comma
-id|output
+l_int|NULL
 comma
 l_int|0
 )paren
 suffix:semicolon
 )brace
-id|fputs
+id|fprintf
 c_func
 (paren
-id|post
+id|output
+comma
+id|fmt
+comma
+id|sb.buf
+)paren
+suffix:semicolon
+id|fputc
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
 comma
 id|output
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|sb
 )paren
 suffix:semicolon
 )brace
@@ -14968,11 +14983,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Checking patch &quot;
+id|_
+c_func
+(paren
+l_string|&quot;Checking patch %s...&quot;
+)paren
 comma
 id|patch
-comma
-l_string|&quot;...&bslash;n&quot;
 )paren
 suffix:semicolon
 id|err
@@ -16963,6 +16980,12 @@ id|cnt
 op_assign
 l_int|0
 suffix:semicolon
+r_struct
+id|strbuf
+id|sb
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -17010,11 +17033,13 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Applied patch &quot;
+id|_
+c_func
+(paren
+l_string|&quot;Applied patch %s cleanly.&quot;
+)paren
 comma
 id|patch
-comma
-l_string|&quot; cleanly.&bslash;n&quot;
 )paren
 suffix:semicolon
 r_return
@@ -17039,26 +17064,40 @@ l_string|&quot;internal error&quot;
 )paren
 suffix:semicolon
 multiline_comment|/* Say this even without --verbose */
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|sb
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;Applying patch %%s with %d reject...&quot;
+comma
+l_string|&quot;Applying patch %%s with %d rejects...&quot;
+comma
+id|cnt
+)paren
+comma
+id|cnt
+)paren
+suffix:semicolon
 id|say_patch_name
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Applying patch &quot;
+id|sb.buf
 comma
 id|patch
-comma
-l_string|&quot; with&quot;
 )paren
 suffix:semicolon
-id|fprintf
+id|strbuf_release
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot; %d rejects...&bslash;n&quot;
-comma
-id|cnt
+op_amp
+id|sb
 )paren
 suffix:semicolon
 id|cnt
