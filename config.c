@@ -4422,6 +4422,23 @@ c_func
 (paren
 id|value
 comma
+l_string|&quot;simple&quot;
+)paren
+)paren
+id|push_default
+op_assign
+id|PUSH_DEFAULT_SIMPLE
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|value
+comma
 l_string|&quot;upstream&quot;
 )paren
 )paren
@@ -4480,8 +4497,8 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Must be one of nothing, matching, &quot;
-l_string|&quot;tracking or current.&quot;
+l_string|&quot;Must be one of nothing, matching, simple, &quot;
+l_string|&quot;upstream or current.&quot;
 )paren
 suffix:semicolon
 )brace
