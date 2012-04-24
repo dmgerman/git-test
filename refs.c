@@ -3287,7 +3287,7 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Read the loose references for refs from the namespace dirname.&n; * dirname must end with &squot;/&squot;.&n; */
+multiline_comment|/*&n; * Read the loose references for refs from the namespace dirname.&n; * dirname must end with &squot;/&squot;.  dir must be the directory entry&n; * corresponding to dirname.&n; */
 DECL|function|get_ref_dir
 r_static
 r_void
@@ -3542,7 +3542,18 @@ id|refs
 comma
 id|refname.buf
 comma
+op_amp
+id|search_for_subdir
+c_func
+(paren
 id|dir
+comma
+id|refname.buf
+comma
+l_int|1
+)paren
+op_member_access_from_pointer
+id|u.subdir
 )paren
 suffix:semicolon
 )brace
@@ -3622,7 +3633,7 @@ op_or_assign
 id|REF_ISBROKEN
 suffix:semicolon
 )brace
-id|add_ref
+id|add_entry_to_dir
 c_func
 (paren
 id|dir
@@ -3694,7 +3705,18 @@ comma
 l_string|&quot;refs/&quot;
 comma
 op_amp
+id|search_for_subdir
+c_func
+(paren
+op_amp
 id|refs-&gt;loose
+comma
+l_string|&quot;refs/&quot;
+comma
+l_int|1
+)paren
+op_member_access_from_pointer
+id|u.subdir
 )paren
 suffix:semicolon
 id|refs-&gt;did_loose
