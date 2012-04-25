@@ -1147,11 +1147,6 @@ r_void
 id|list_commands
 c_func
 (paren
-r_const
-r_char
-op_star
-id|title
-comma
 r_struct
 id|cmdnames
 op_star
@@ -1262,41 +1257,10 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;available %s in &squot;%s&squot;&quot;
+l_string|&quot;available git commands in &squot;%s&squot;&quot;
 )paren
-comma
-id|title
 comma
 id|exec_path
-)paren
-suffix:semicolon
-multiline_comment|/* TRANSLATORS: this must align with &quot;available %s in &squot;%s&squot;&quot; */
-id|printf
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;----------------&quot;
-)paren
-)paren
-suffix:semicolon
-id|mput_char
-c_func
-(paren
-l_char|&squot;-&squot;
-comma
-id|strlen
-c_func
-(paren
-id|title
-)paren
-op_plus
-id|strlen
-c_func
-(paren
-id|exec_path
-)paren
 )paren
 suffix:semicolon
 id|putchar
@@ -1332,32 +1296,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;%s available from elsewhere on your $PATH&quot;
-)paren
-comma
-id|title
-)paren
-suffix:semicolon
-multiline_comment|/* TRANSLATORS:&n;&t;&t; * this must align with&n;&t;&t; * &quot;%s available from elsewhere on your $PATH&quot;&n;&t;&t; */
-id|printf
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;---------------------------------------&quot;
-)paren
-)paren
-suffix:semicolon
-id|mput_char
-c_func
-(paren
-l_char|&squot;-&squot;
-comma
-id|strlen
-c_func
-(paren
-id|title
+l_string|&quot;git commands available from elsewhere on your $PATH&quot;
 )paren
 )paren
 suffix:semicolon

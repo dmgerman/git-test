@@ -2475,12 +2475,6 @@ suffix:semicolon
 id|list_commands
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;git commands&quot;
-)paren
-comma
 op_amp
 id|main_cmds
 comma
