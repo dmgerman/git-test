@@ -3293,10 +3293,10 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Read the loose references for refs from the namespace dirname.&n; * dirname must end with &squot;/&squot;.  dir must be the directory entry&n; * corresponding to dirname.&n; */
-DECL|function|get_ref_dir
+DECL|function|read_loose_refs
 r_static
 r_void
-id|get_ref_dir
+id|read_loose_refs
 c_func
 (paren
 r_struct
@@ -3540,7 +3540,7 @@ comma
 l_char|&squot;/&squot;
 )paren
 suffix:semicolon
-id|get_ref_dir
+id|read_loose_refs
 c_func
 (paren
 id|refs
@@ -3710,7 +3710,7 @@ c_func
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|get_ref_dir
+id|read_loose_refs
 c_func
 (paren
 id|refs
