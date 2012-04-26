@@ -1059,7 +1059,7 @@ multiline_comment|/*&n; * Search for a directory entry directly within dir (with
 DECL|function|search_for_subdir
 r_static
 r_struct
-id|ref_entry
+id|ref_dir
 op_star
 id|search_for_subdir
 c_func
@@ -1124,15 +1124,12 @@ id|entry
 )paren
 suffix:semicolon
 )brace
-m_assert
-(paren
-id|entry-&gt;flag
-op_amp
-id|REF_DIR
-)paren
-suffix:semicolon
 r_return
+id|get_ref_dir
+c_func
+(paren
 id|entry
+)paren
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * If refname is a reference name, find the ref_dir within the dir&n; * tree that should hold refname.  If refname is a directory name&n; * (i.e., ends in &squot;/&squot;), then return that ref_dir itself.  dir must&n; * represent the top-level directory.  Sort ref_dirs and recurse into&n; * subdirectories as necessary.  If mkdir is set, then create any&n; * missing directories; otherwise, return NULL if the desired&n; * directory cannot be found.&n; */
@@ -1205,9 +1202,9 @@ l_char|&squot;/&squot;
 )paren
 (brace
 r_struct
-id|ref_entry
+id|ref_dir
 op_star
-id|entry
+id|subdir
 suffix:semicolon
 id|strbuf_add
 c_func
@@ -1231,7 +1228,7 @@ id|dirname.len
 )paren
 )paren
 suffix:semicolon
-id|entry
+id|subdir
 op_assign
 id|search_for_subdir
 c_func
@@ -1247,17 +1244,13 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|entry
+id|subdir
 )paren
 r_break
 suffix:semicolon
 id|dir
 op_assign
-id|get_ref_dir
-c_func
-(paren
-id|entry
-)paren
+id|subdir
 suffix:semicolon
 )brace
 id|strbuf_release
@@ -3621,9 +3614,6 @@ id|refs
 comma
 id|refname.buf
 comma
-id|get_ref_dir
-c_func
-(paren
 id|search_for_subdir
 c_func
 (paren
@@ -3632,7 +3622,6 @@ comma
 id|refname.buf
 comma
 l_int|1
-)paren
 )paren
 )paren
 suffix:semicolon
@@ -3792,9 +3781,6 @@ id|refs
 comma
 l_string|&quot;refs/&quot;
 comma
-id|get_ref_dir
-c_func
-(paren
 id|search_for_subdir
 c_func
 (paren
@@ -3807,7 +3793,6 @@ comma
 l_string|&quot;refs/&quot;
 comma
 l_int|1
-)paren
 )paren
 )paren
 suffix:semicolon
