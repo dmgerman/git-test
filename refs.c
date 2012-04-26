@@ -443,6 +443,9 @@ l_int|20
 suffix:semicolon
 )brace
 suffix:semicolon
+r_struct
+id|ref_cache
+suffix:semicolon
 DECL|struct|ref_dir
 r_struct
 id|ref_dir
@@ -458,6 +461,13 @@ multiline_comment|/*&n;&t; * Entries with index 0 &lt;= i &lt; sorted are sorted
 DECL|member|sorted
 r_int
 id|sorted
+suffix:semicolon
+multiline_comment|/* A pointer to the ref_cache that contains this ref_dir. */
+DECL|member|ref_cache
+r_struct
+id|ref_cache
+op_star
+id|ref_cache
 suffix:semicolon
 DECL|member|entries
 r_struct
@@ -804,6 +814,11 @@ op_star
 id|create_dir_entry
 c_func
 (paren
+r_struct
+id|ref_cache
+op_star
+id|ref_cache
+comma
 r_const
 r_char
 op_star
@@ -853,6 +868,10 @@ id|len
 op_plus
 l_int|1
 )paren
+suffix:semicolon
+id|direntry-&gt;u.subdir.ref_cache
+op_assign
+id|ref_cache
 suffix:semicolon
 id|direntry-&gt;flag
 op_assign
@@ -1112,6 +1131,8 @@ op_assign
 id|create_dir_entry
 c_func
 (paren
+id|dir-&gt;ref_cache
+comma
 id|subdirname
 )paren
 suffix:semicolon
@@ -3243,6 +3264,8 @@ op_assign
 id|create_dir_entry
 c_func
 (paren
+id|refs
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
@@ -3771,6 +3794,8 @@ op_assign
 id|create_dir_entry
 c_func
 (paren
+id|refs
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
