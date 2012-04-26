@@ -3389,11 +3389,6 @@ r_void
 id|read_loose_refs
 c_func
 (paren
-r_struct
-id|ref_cache
-op_star
-id|refs
-comma
 r_const
 r_char
 op_star
@@ -3405,6 +3400,13 @@ op_star
 id|dir
 )paren
 (brace
+r_struct
+id|ref_cache
+op_star
+id|refs
+op_assign
+id|dir-&gt;ref_cache
+suffix:semicolon
 id|DIR
 op_star
 id|d
@@ -3633,8 +3635,6 @@ suffix:semicolon
 id|read_loose_refs
 c_func
 (paren
-id|refs
-comma
 id|refname.buf
 comma
 id|search_for_subdir
@@ -3802,8 +3802,6 @@ suffix:semicolon
 id|read_loose_refs
 c_func
 (paren
-id|refs
-comma
 l_string|&quot;refs/&quot;
 comma
 id|search_for_subdir
