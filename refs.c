@@ -421,6 +421,7 @@ suffix:semicolon
 r_struct
 id|ref_entry
 suffix:semicolon
+multiline_comment|/*&n; * Information used (along with the information in ref_entry) to&n; * describe a single cached reference.  This data structure only&n; * occurs embedded in a union in struct ref_entry, and only when&n; * (ref_entry-&gt;flag &amp; REF_DIR) is zero.&n; */
 DECL|struct|ref_value
 r_struct
 id|ref_value
@@ -446,6 +447,7 @@ suffix:semicolon
 r_struct
 id|ref_cache
 suffix:semicolon
+multiline_comment|/*&n; * Information used (along with the information in ref_entry) to&n; * describe a level in the hierarchy of references.  This data&n; * structure only occurs embedded in a union in struct ref_entry, and&n; * only when (ref_entry.flag &amp; REF_DIR) is set.  In that case,&n; * (ref_entry.flag &amp; REF_INCOMPLETE) determines whether the references&n; * in the directory have already been read:&n; *&n; *     (ref_entry.flag &amp; REF_INCOMPLETE) unset -- a directory of loose&n; *         or packed references, already read.&n; *&n; *     (ref_entry.flag &amp; REF_INCOMPLETE) set -- a directory of loose&n; *         references that hasn&squot;t been read yet (nor has any of its&n; *         subdirectories).&n; *&n; * Entries within a directory are stored within a growable array of&n; * pointers to ref_entries (entries, nr, alloc).  Entries 0 &lt;= i &lt;&n; * sorted are sorted by their component name in strcmp() order and the&n; * remaining entries are unsorted.&n; *&n; * Loose references are read lazily, one directory at a time.  When a&n; * directory of loose references is read, then all of the references&n; * in that directory are stored, and REF_INCOMPLETE stubs are created&n; * for any subdirectories, but the subdirectories themselves are not&n; * read.  The reading is triggered by get_ref_dir().&n; */
 DECL|struct|ref_dir
 r_struct
 id|ref_dir
@@ -481,9 +483,13 @@ suffix:semicolon
 multiline_comment|/* ISSYMREF=0x01, ISPACKED=0x02, and ISBROKEN=0x04 are public interfaces */
 DECL|macro|REF_KNOWS_PEELED
 mdefine_line|#define REF_KNOWS_PEELED 0x08
+multiline_comment|/* ref_entry represents a directory of references */
 DECL|macro|REF_DIR
 mdefine_line|#define REF_DIR 0x10
-multiline_comment|/*&n; * A ref_entry represents either a reference or a &quot;subdirectory&quot; of&n; * references.  Each directory in the reference namespace is&n; * represented by a ref_entry with (flags &amp; REF_DIR) set and&n; * containing a subdir member that holds the entries in that&n; * directory.  References are represented by a ref_entry with (flags &amp;&n; * REF_DIR) unset and a value member that describes the reference&squot;s&n; * value.  The flag member is at the ref_entry level, but it is also&n; * needed to interpret the contents of the value field (in other&n; * words, a ref_value object is not very much use without the&n; * enclosing ref_entry).&n; *&n; * Reference names cannot end with slash and directories&squot; names are&n; * always stored with a trailing slash (except for the top-level&n; * directory, which is always denoted by &quot;&quot;).  This has two nice&n; * consequences: (1) when the entries in each subdir are sorted&n; * lexicographically by name (as they usually are), the references in&n; * a whole tree can be generated in lexicographic order by traversing&n; * the tree in left-to-right, depth-first order; (2) the names of&n; * references and subdirectories cannot conflict, and therefore the&n; * presence of an empty subdirectory does not block the creation of a&n; * similarly-named reference.  (The fact that reference names with the&n; * same leading components can conflict *with each other* is a&n; * separate issue that is regulated by is_refname_available().)&n; *&n; * Please note that the name field contains the fully-qualified&n; * reference (or subdirectory) name.  Space could be saved by only&n; * storing the relative names.  But that would require the full names&n; * to be generated on the fly when iterating in do_for_each_ref(), and&n; * would break callback functions, who have always been able to assume&n; * that the name strings that they are passed will not be freed during&n; * the iteration.&n; */
+multiline_comment|/*&n; * Entry has not yet been read from disk (used only for REF_DIR&n; * entries representing loose references)&n; */
+DECL|macro|REF_INCOMPLETE
+mdefine_line|#define REF_INCOMPLETE 0x20
+multiline_comment|/*&n; * A ref_entry represents either a reference or a &quot;subdirectory&quot; of&n; * references.&n; *&n; * Each directory in the reference namespace is represented by a&n; * ref_entry with (flags &amp; REF_DIR) set and containing a subdir member&n; * that holds the entries in that directory that have been read so&n; * far.  If (flags &amp; REF_INCOMPLETE) is set, then the directory and&n; * its subdirectories haven&squot;t been read yet.  REF_INCOMPLETE is only&n; * used for loose reference directories.&n; *&n; * References are represented by a ref_entry with (flags &amp; REF_DIR)&n; * unset and a value member that describes the reference&squot;s value.  The&n; * flag member is at the ref_entry level, but it is also needed to&n; * interpret the contents of the value field (in other words, a&n; * ref_value object is not very much use without the enclosing&n; * ref_entry).&n; *&n; * Reference names cannot end with slash and directories&squot; names are&n; * always stored with a trailing slash (except for the top-level&n; * directory, which is always denoted by &quot;&quot;).  This has two nice&n; * consequences: (1) when the entries in each subdir are sorted&n; * lexicographically by name (as they usually are), the references in&n; * a whole tree can be generated in lexicographic order by traversing&n; * the tree in left-to-right, depth-first order; (2) the names of&n; * references and subdirectories cannot conflict, and therefore the&n; * presence of an empty subdirectory does not block the creation of a&n; * similarly-named reference.  (The fact that reference names with the&n; * same leading components can conflict *with each other* is a&n; * separate issue that is regulated by is_refname_available().)&n; *&n; * Please note that the name field contains the fully-qualified&n; * reference (or subdirectory) name.  Space could be saved by only&n; * storing the relative names.  But that would require the full names&n; * to be generated on the fly when iterating in do_for_each_ref(), and&n; * would break callback functions, who have always been able to assume&n; * that the name strings that they are passed will not be freed during&n; * the iteration.&n; */
 DECL|struct|ref_entry
 r_struct
 id|ref_entry
@@ -522,6 +528,22 @@ id|FLEX_ARRAY
 suffix:semicolon
 )brace
 suffix:semicolon
+r_static
+r_void
+id|read_loose_refs
+c_func
+(paren
+r_const
+r_char
+op_star
+id|dirname
+comma
+r_struct
+id|ref_dir
+op_star
+id|dir
+)paren
+suffix:semicolon
 DECL|function|get_ref_dir
 r_static
 r_struct
@@ -536,6 +558,11 @@ op_star
 id|entry
 )paren
 (brace
+r_struct
+id|ref_dir
+op_star
+id|dir
+suffix:semicolon
 m_assert
 (paren
 id|entry-&gt;flag
@@ -543,9 +570,35 @@ op_amp
 id|REF_DIR
 )paren
 suffix:semicolon
-r_return
+id|dir
+op_assign
 op_amp
 id|entry-&gt;u.subdir
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|entry-&gt;flag
+op_amp
+id|REF_INCOMPLETE
+)paren
+(brace
+id|read_loose_refs
+c_func
+(paren
+id|entry-&gt;name
+comma
+id|dir
+)paren
+suffix:semicolon
+id|entry-&gt;flag
+op_and_assign
+op_complement
+id|REF_INCOMPLETE
+suffix:semicolon
+)brace
+r_return
+id|dir
 suffix:semicolon
 )brace
 DECL|function|create_ref_entry
@@ -823,6 +876,9 @@ r_const
 r_char
 op_star
 id|dirname
+comma
+r_int
+id|incomplete
 )paren
 (brace
 r_struct
@@ -876,6 +932,15 @@ suffix:semicolon
 id|direntry-&gt;flag
 op_assign
 id|REF_DIR
+op_or
+(paren
+id|incomplete
+ques
+c_cond
+id|REF_INCOMPLETE
+suffix:colon
+l_int|0
+)paren
 suffix:semicolon
 r_return
 id|direntry
@@ -947,7 +1012,7 @@ op_star
 id|dir
 )paren
 suffix:semicolon
-multiline_comment|/*&n; * Return the entry with the given refname from the ref_dir&n; * (non-recursively), sorting dir if necessary.  Return NULL if no&n; * such entry is found.&n; */
+multiline_comment|/*&n; * Return the entry with the given refname from the ref_dir&n; * (non-recursively), sorting dir if necessary.  Return NULL if no&n; * such entry is found.  dir must already be complete.&n; */
 DECL|function|search_ref_dir
 r_static
 r_struct
@@ -1074,7 +1139,7 @@ op_star
 id|r
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Search for a directory entry directly within dir (without&n; * recursing).  Sort dir if necessary.  subdirname must be a directory&n; * name (i.e., end in &squot;/&squot;).  If mkdir is set, then create the&n; * directory if it is missing; otherwise, return NULL if the desired&n; * directory cannot be found.&n; */
+multiline_comment|/*&n; * Search for a directory entry directly within dir (without&n; * recursing).  Sort dir if necessary.  subdirname must be a directory&n; * name (i.e., end in &squot;/&squot;).  If mkdir is set, then create the&n; * directory if it is missing; otherwise, return NULL if the desired&n; * directory cannot be found.  dir must already be complete.&n; */
 DECL|function|search_for_subdir
 r_static
 r_struct
@@ -1126,6 +1191,7 @@ id|mkdir
 r_return
 l_int|NULL
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Since dir is complete, the absence of a subdir&n;&t;&t; * means that the subdir really doesn&squot;t exist;&n;&t;&t; * therefore, create an empty record for it but mark&n;&t;&t; * the record complete.&n;&t;&t; */
 id|entry
 op_assign
 id|create_dir_entry
@@ -1134,6 +1200,8 @@ c_func
 id|dir-&gt;ref_cache
 comma
 id|subdirname
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|add_entry_to_dir
@@ -1153,7 +1221,7 @@ id|entry
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * If refname is a reference name, find the ref_dir within the dir&n; * tree that should hold refname.  If refname is a directory name&n; * (i.e., ends in &squot;/&squot;), then return that ref_dir itself.  dir must&n; * represent the top-level directory.  Sort ref_dirs and recurse into&n; * subdirectories as necessary.  If mkdir is set, then create any&n; * missing directories; otherwise, return NULL if the desired&n; * directory cannot be found.&n; */
+multiline_comment|/*&n; * If refname is a reference name, find the ref_dir within the dir&n; * tree that should hold refname.  If refname is a directory name&n; * (i.e., ends in &squot;/&squot;), then return that ref_dir itself.  dir must&n; * represent the top-level directory and must already be complete.&n; * Sort ref_dirs and recurse into subdirectories as necessary.  If&n; * mkdir is set, then create any missing directories; otherwise,&n; * return NULL if the desired directory cannot be found.&n; */
 DECL|function|find_containing_dir
 r_static
 r_struct
@@ -3267,6 +3335,8 @@ c_func
 id|refs
 comma
 l_string|&quot;&quot;
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -3382,7 +3452,7 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Read the loose references for refs from the namespace dirname.&n; * dirname must end with &squot;/&squot;.  dir must be the directory entry&n; * corresponding to dirname.&n; */
+multiline_comment|/*&n; * Read the loose references from the namespace dirname into dir&n; * (without recursing).  dirname must end with &squot;/&squot;.  dir must be the&n; * directory entry corresponding to dirname.&n; */
 DECL|function|read_loose_refs
 r_static
 r_void
@@ -3632,15 +3702,15 @@ comma
 l_char|&squot;/&squot;
 )paren
 suffix:semicolon
-id|read_loose_refs
-c_func
-(paren
-id|refname.buf
-comma
-id|search_for_subdir
+id|add_entry_to_dir
 c_func
 (paren
 id|dir
+comma
+id|create_dir_entry
+c_func
+(paren
+id|refs
 comma
 id|refname.buf
 comma
@@ -3789,6 +3859,7 @@ op_logical_neg
 id|refs-&gt;loose
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * Mark the top-level directory complete because we&n;&t;&t; * are about to read the only subdirectory that can&n;&t;&t; * hold references:&n;&t;&t; */
 id|refs-&gt;loose
 op_assign
 id|create_dir_entry
@@ -3797,14 +3868,12 @@ c_func
 id|refs
 comma
 l_string|&quot;&quot;
+comma
+l_int|0
 )paren
 suffix:semicolon
-id|read_loose_refs
-c_func
-(paren
-l_string|&quot;refs/&quot;
-comma
-id|search_for_subdir
+multiline_comment|/*&n;&t;&t; * Create an incomplete entry for &quot;refs/&quot;:&n;&t;&t; */
+id|add_entry_to_dir
 c_func
 (paren
 id|get_ref_dir
@@ -3812,6 +3881,11 @@ c_func
 (paren
 id|refs-&gt;loose
 )paren
+comma
+id|create_dir_entry
+c_func
+(paren
+id|refs
 comma
 l_string|&quot;refs/&quot;
 comma
