@@ -1756,7 +1756,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;unrecognized argument: %s&squot;&quot;
+l_string|&quot;unrecognized argument: %s&quot;
 comma
 id|argv
 (braket
