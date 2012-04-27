@@ -1268,7 +1268,7 @@ c_func
 (paren
 id|msgbuf
 comma
-l_string|&quot;&bslash;nConflicts:&bslash;n&bslash;n&quot;
+l_string|&quot;&bslash;nConflicts:&bslash;n&quot;
 )paren
 suffix:semicolon
 r_for
