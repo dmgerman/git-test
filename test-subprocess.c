@@ -8,6 +8,7 @@ c_func
 r_int
 id|argc
 comma
+r_const
 r_char
 op_star
 op_star
@@ -44,6 +45,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|argc
+OG
+l_int|1
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
@@ -86,12 +91,6 @@ l_int|1
 suffix:semicolon
 id|cp.argv
 op_assign
-(paren
-r_const
-r_char
-op_star
-op_star
-)paren
 id|argv
 op_plus
 l_int|1
