@@ -4320,6 +4320,13 @@ comma
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|cleanup_mode
+op_eq
+id|CLEANUP_ALL
+)paren
 id|status_printf
 c_func
 (paren
@@ -4331,35 +4338,14 @@ id|_
 c_func
 (paren
 l_string|&quot;Please enter the commit message for your changes.&quot;
-)paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|cleanup_mode
-op_eq
-id|CLEANUP_ALL
-)paren
-id|status_printf_more
-c_func
-(paren
-id|s
-comma
-id|GIT_COLOR_NORMAL
-comma
-id|_
-c_func
-(paren
-l_string|&quot; Lines starting&bslash;n&quot;
-l_string|&quot;with &squot;#&squot; will be ignored, and an empty&quot;
+l_string|&quot; Lines starting&bslash;nwith &squot;#&squot; will be ignored, and an empty&quot;
 l_string|&quot; message aborts the commit.&bslash;n&quot;
 )paren
 )paren
 suffix:semicolon
 r_else
 multiline_comment|/* CLEANUP_SPACE, that is. */
-id|status_printf_more
+id|status_printf
 c_func
 (paren
 id|s
@@ -4369,6 +4355,7 @@ comma
 id|_
 c_func
 (paren
+l_string|&quot;Please enter the commit message for your changes.&quot;
 l_string|&quot; Lines starting&bslash;n&quot;
 l_string|&quot;with &squot;#&squot; will be kept; you may remove them&quot;
 l_string|&quot; yourself if you want to.&bslash;n&quot;
