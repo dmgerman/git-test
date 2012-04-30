@@ -2405,7 +2405,7 @@ suffix:semicolon
 id|putchar
 c_func
 (paren
-l_char|&squot;&bslash;n&squot;
+id|opt-&gt;diffopt.line_termination
 )paren
 suffix:semicolon
 )brace
