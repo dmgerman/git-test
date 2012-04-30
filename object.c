@@ -926,7 +926,7 @@ r_else
 id|warning
 c_func
 (paren
-l_string|&quot;object %s has unknown type id %d&bslash;n&quot;
+l_string|&quot;object %s has unknown type id %d&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -1082,7 +1082,7 @@ l_int|0
 id|error
 c_func
 (paren
-l_string|&quot;sha1 mismatch %s&bslash;n&quot;
+l_string|&quot;sha1 mismatch %s&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -1167,7 +1167,7 @@ suffix:semicolon
 id|error
 c_func
 (paren
-l_string|&quot;sha1 mismatch %s&bslash;n&quot;
+l_string|&quot;sha1 mismatch %s&quot;
 comma
 id|sha1_to_hex
 c_func

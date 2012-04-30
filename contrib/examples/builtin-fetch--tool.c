@@ -3000,7 +3000,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;cannot open %s: %s&bslash;n&quot;
+l_string|&quot;cannot open %s: %s&quot;
 comma
 id|filename
 comma
@@ -3137,7 +3137,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;cannot open %s: %s&bslash;n&quot;
+l_string|&quot;cannot open %s: %s&quot;
 comma
 id|filename
 comma

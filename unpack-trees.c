@@ -8025,7 +8025,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Cannot do a bind merge of %d trees&bslash;n&quot;
+l_string|&quot;Cannot do a bind merge of %d trees&quot;
 comma
 id|o-&gt;merge_size
 )paren

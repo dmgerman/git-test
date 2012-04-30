@@ -159,7 +159,7 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;in tree %s: entry %s has bad mode %.6o&bslash;n&quot;
+l_string|&quot;in tree %s: entry %s has bad mode %.6o&quot;
 comma
 id|sha1_to_hex
 c_func
