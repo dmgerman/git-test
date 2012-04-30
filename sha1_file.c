@@ -12275,9 +12275,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;unable to create temporary sha1 filename %s: %s&quot;
-comma
-id|tmp_file
+l_string|&quot;unable to create temporary file: %s&quot;
 comma
 id|strerror
 c_func
