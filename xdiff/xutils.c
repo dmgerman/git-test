@@ -1364,8 +1364,6 @@ op_amp
 id|HIGHBITS
 suffix:semicolon
 )brace
-macro_line|#if __WORDSIZE == 64
-multiline_comment|/*&n; * Jan Achrenius on G+: microoptimized version of&n; * the simpler &quot;(mask &amp; ONEBYTES) * ONEBYTES &gt;&gt; 56&quot;&n; * that works for the bytemasks without having to&n; * mask them first.&n; */
 DECL|function|count_masked_bytes
 r_static
 r_inline
@@ -1378,6 +1376,18 @@ r_int
 id|mask
 )paren
 (brace
+r_if
+c_cond
+(paren
+r_sizeof
+(paren
+r_int
+)paren
+op_eq
+l_int|8
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * Jan Achrenius on G+: microoptimized version of&n;&t;&t; * the simpler &quot;(mask &amp; ONEBYTES) * ONEBYTES &gt;&gt; 56&quot;&n;&t;&t; * that works for the bytemasks without having to&n;&t;&t; * mask them first.&n;&t;&t; */
 r_return
 id|mask
 op_star
@@ -1386,20 +1396,9 @@ op_rshift
 l_int|56
 suffix:semicolon
 )brace
-macro_line|#else&t;/* 32-bit case */
-multiline_comment|/* Modified Carl Chatfield G+ version for 32-bit */
-DECL|function|count_masked_bytes
-r_static
-r_inline
-r_int
-id|count_masked_bytes
-c_func
-(paren
-r_int
-id|mask
-)paren
+r_else
 (brace
-multiline_comment|/*&n;&t; * (a) gives us&n;&t; *   -1 (0, ff), 0 (ffff) or 1 (ffffff)&n;&t; * (b) gives us&n;&t; *   0 for 0, 1 for (ff ffff ffffff)&n;&t; * (a+b+1) gives us&n;&t; *   correct 0-3 bytemask count result&n;&t; */
+multiline_comment|/*&n;&t;&t; * Modified Carl Chatfield G+ version for 32-bit *&n;&t;&t; *&n;&t;&t; * (a) gives us&n;&t;&t; *   -1 (0, ff), 0 (ffff) or 1 (ffffff)&n;&t;&t; * (b) gives us&n;&t;&t; *   0 for 0, 1 for (ff ffff ffffff)&n;&t;&t; * (a+b+1) gives us&n;&t;&t; *   correct 0-3 bytemask count result&n;&t;&t; */
 r_int
 id|a
 op_assign
@@ -1425,7 +1424,7 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
-macro_line|#endif
+)brace
 DECL|function|xdl_hash_record
 r_int
 r_int
