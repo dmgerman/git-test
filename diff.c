@@ -13017,6 +13017,9 @@ id|diffstat_file
 op_star
 id|data
 suffix:semicolon
+r_int
+id|same_contents
+suffix:semicolon
 id|data
 op_assign
 id|diffstat_add
@@ -13046,6 +13049,17 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+id|same_contents
+op_assign
+op_logical_neg
+id|hashcmp
+c_func
+(paren
+id|one-&gt;sha1
+comma
+id|two-&gt;sha1
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -13069,14 +13083,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|hashcmp
-c_func
-(paren
-id|one-&gt;sha1
-comma
-id|two-&gt;sha1
-)paren
+id|same_contents
 )paren
 (brace
 id|data-&gt;added
@@ -13153,6 +13160,12 @@ id|two-&gt;size
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|same_contents
+)paren
 (brace
 multiline_comment|/* Crazy xdl interfaces.. */
 id|xpparam_t
