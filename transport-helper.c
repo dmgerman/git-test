@@ -1108,7 +1108,7 @@ id|die
 c_func
 (paren
 l_string|&quot;Unknown mandatory capability %s. This remote &quot;
-l_string|&quot;helper probably needs newer version of Git.&bslash;n&quot;
+l_string|&quot;helper probably needs newer version of Git.&quot;
 comma
 id|capname
 )paren
@@ -3186,7 +3186,7 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;expected ok/error, helper said &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;expected ok/error, helper said &squot;%s&squot;&quot;
 comma
 id|buf-&gt;buf
 )paren

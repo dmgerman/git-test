@@ -296,7 +296,7 @@ id|src2-&gt;size
 id|warning
 c_func
 (paren
-l_string|&quot;Cannot merge binary files: %s (%s vs. %s)&bslash;n&quot;
+l_string|&quot;Cannot merge binary files: %s (%s vs. %s)&quot;
 comma
 id|path
 comma

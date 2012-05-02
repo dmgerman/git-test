@@ -392,7 +392,7 @@ id|error
 c_func
 (paren
 l_string|&quot;failed to redirect stderr to /dev/null: &quot;
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s&quot;
 comma
 id|strerror
 c_func
@@ -508,7 +508,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Cannot merge binary files: %s&bslash;n&quot;
+l_string|&quot;Cannot merge binary files: %s&quot;
 comma
 id|argv
 (braket

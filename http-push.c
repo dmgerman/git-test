@@ -5278,7 +5278,7 @@ id|repo-&gt;path_len
 id|error
 c_func
 (paren
-l_string|&quot;Parsed path &squot;%s&squot; does not match url: &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;Parsed path &squot;%s&squot; does not match url: &squot;%s&squot;&quot;
 comma
 id|path
 comma
@@ -8457,7 +8457,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;DELETE request failed (%d/%ld)&bslash;n&quot;
+l_string|&quot;DELETE request failed (%d/%ld)&quot;
 comma
 id|results.curl_result
 comma

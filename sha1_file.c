@@ -11764,7 +11764,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;unable to write sha1 filename %s: %s&bslash;n&quot;
+l_string|&quot;unable to write sha1 filename %s: %s&quot;
 comma
 id|filename
 comma
@@ -12262,7 +12262,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;insufficient permission for adding an object to repository database %s&bslash;n&quot;
+l_string|&quot;insufficient permission for adding an object to repository database %s&quot;
 comma
 id|get_object_directory
 c_func
@@ -12275,9 +12275,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;unable to create temporary sha1 filename %s: %s&bslash;n&quot;
-comma
-id|tmp_file
+l_string|&quot;unable to create temporary file: %s&quot;
 comma
 id|strerror
 c_func

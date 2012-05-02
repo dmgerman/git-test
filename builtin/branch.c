@@ -3597,7 +3597,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;could not write branch description template: %s&bslash;n&quot;
+l_string|&quot;could not write branch description template: %s&quot;
 )paren
 comma
 id|strerror

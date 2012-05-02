@@ -500,7 +500,7 @@ id|Z_OK
 id|error
 c_func
 (paren
-l_string|&quot;inflate returned %d&bslash;n&quot;
+l_string|&quot;inflate returned %d&quot;
 comma
 id|ret
 )paren

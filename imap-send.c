@@ -5451,7 +5451,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;IMAP error: sending response failed&bslash;n&quot;
+l_string|&quot;IMAP error: sending response failed&quot;
 )paren
 suffix:semicolon
 id|free

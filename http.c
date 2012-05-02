@@ -4366,7 +4366,7 @@ id|HTTP_OK
 id|error
 c_func
 (paren
-l_string|&quot;Unable to get pack index %s&bslash;n&quot;
+l_string|&quot;Unable to get pack index %s&quot;
 comma
 id|url
 )paren

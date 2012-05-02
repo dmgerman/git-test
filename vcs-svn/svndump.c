@@ -684,7 +684,7 @@ l_char|&squot; &squot;
 id|die
 c_func
 (paren
-l_string|&quot;invalid property line: %s&bslash;n&quot;
+l_string|&quot;invalid property line: %s&quot;
 comma
 id|t
 )paren
@@ -837,7 +837,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;invalid property line: %s&bslash;n&quot;
+l_string|&quot;invalid property line: %s&quot;
 comma
 id|t
 )paren

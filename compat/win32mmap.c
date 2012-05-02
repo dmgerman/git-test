@@ -187,7 +187,7 @@ id|hmap
 id|warning
 c_func
 (paren
-l_string|&quot;unable to close file mapping handle&bslash;n&quot;
+l_string|&quot;unable to close file mapping handle&quot;
 )paren
 suffix:semicolon
 r_return
