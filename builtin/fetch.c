@@ -1607,6 +1607,7 @@ c_func
 l_string|&quot;[new branch]&quot;
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1628,7 +1629,6 @@ c_func
 id|ref-&gt;new_sha1
 )paren
 suffix:semicolon
-)brace
 id|r
 op_assign
 id|s_update_ref
