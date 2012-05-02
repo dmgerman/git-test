@@ -1007,66 +1007,6 @@ op_assign
 id|whence
 suffix:semicolon
 )brace
-DECL|function|whence_s
-r_static
-r_const
-r_char
-op_star
-id|whence_s
-c_func
-(paren
-r_void
-)paren
-(brace
-r_const
-r_char
-op_star
-id|s
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
-r_switch
-c_cond
-(paren
-id|whence
-)paren
-(brace
-r_case
-id|FROM_COMMIT
-suffix:colon
-r_break
-suffix:semicolon
-r_case
-id|FROM_MERGE
-suffix:colon
-id|s
-op_assign
-id|_
-c_func
-(paren
-l_string|&quot;merge&quot;
-)paren
-suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-id|FROM_CHERRY_PICK
-suffix:colon
-id|s
-op_assign
-id|_
-c_func
-(paren
-l_string|&quot;cherry-pick&quot;
-)paren
-suffix:semicolon
-r_break
-suffix:semicolon
-)brace
-r_return
-id|s
-suffix:semicolon
-)brace
 DECL|function|rollback_index_files
 r_static
 r_void
@@ -2103,21 +2043,43 @@ id|whence
 op_ne
 id|FROM_COMMIT
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|whence
+op_eq
+id|FROM_MERGE
+)paren
 id|die
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;cannot do a partial commit during a %s.&quot;
-)paren
-comma
-id|whence_s
-c_func
-(paren
+l_string|&quot;cannot do a partial commit during a merge.&quot;
 )paren
 )paren
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|whence
+op_eq
+id|FROM_CHERRY_PICK
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;cannot do a partial commit during a cherry-pick.&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 id|memset
 c_func
 (paren
@@ -4311,20 +4273,29 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+id|whence
+op_eq
+id|FROM_MERGE
+ques
+c_cond
 id|_
 c_func
 (paren
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;It looks like you may be committing a %s.&bslash;n&quot;
+l_string|&quot;It looks like you may be committing a merge.&bslash;n&quot;
 l_string|&quot;If this is not correct, please remove the file&bslash;n&quot;
 l_string|&quot;&t;%s&bslash;n&quot;
 l_string|&quot;and try again.&bslash;n&quot;
-l_string|&quot;&quot;
 )paren
-comma
-id|whence_s
+suffix:colon
+id|_
 c_func
 (paren
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;It looks like you may be committing a cherry-pick.&bslash;n&quot;
+l_string|&quot;If this is not correct, please remove the file&bslash;n&quot;
+l_string|&quot;&t;%s&bslash;n&quot;
+l_string|&quot;and try again.&bslash;n&quot;
 )paren
 comma
 id|git_path
@@ -4349,6 +4320,13 @@ comma
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|cleanup_mode
+op_eq
+id|CLEANUP_ALL
+)paren
 id|status_printf
 c_func
 (paren
@@ -4360,35 +4338,14 @@ id|_
 c_func
 (paren
 l_string|&quot;Please enter the commit message for your changes.&quot;
-)paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|cleanup_mode
-op_eq
-id|CLEANUP_ALL
-)paren
-id|status_printf_more
-c_func
-(paren
-id|s
-comma
-id|GIT_COLOR_NORMAL
-comma
-id|_
-c_func
-(paren
-l_string|&quot; Lines starting&bslash;n&quot;
-l_string|&quot;with &squot;#&squot; will be ignored, and an empty&quot;
+l_string|&quot; Lines starting&bslash;nwith &squot;#&squot; will be ignored, and an empty&quot;
 l_string|&quot; message aborts the commit.&bslash;n&quot;
 )paren
 )paren
 suffix:semicolon
 r_else
 multiline_comment|/* CLEANUP_SPACE, that is. */
-id|status_printf_more
+id|status_printf
 c_func
 (paren
 id|s
@@ -4398,6 +4355,7 @@ comma
 id|_
 c_func
 (paren
+l_string|&quot;Please enter the commit message for your changes.&quot;
 l_string|&quot; Lines starting&bslash;n&quot;
 l_string|&quot;with &squot;#&squot; will be kept; you may remove them&quot;
 l_string|&quot; yourself if you want to.&bslash;n&quot;
@@ -5718,21 +5676,43 @@ id|whence
 op_ne
 id|FROM_COMMIT
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|whence
+op_eq
+id|FROM_MERGE
+)paren
 id|die
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;You are in the middle of a %s -- cannot amend.&quot;
-)paren
-comma
-id|whence_s
-c_func
-(paren
+l_string|&quot;You are in the middle of a merge -- cannot amend.&quot;
 )paren
 )paren
 suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|whence
+op_eq
+id|FROM_CHERRY_PICK
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;You are in the middle of a cherry-pick -- cannot amend.&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren

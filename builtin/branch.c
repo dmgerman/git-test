@@ -677,15 +677,17 @@ r_const
 r_char
 op_star
 id|fmt
-comma
-op_star
-id|remote
 suffix:semicolon
 r_int
 id|i
 suffix:semicolon
 r_int
 id|ret
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|remote_branch
 op_assign
 l_int|0
 suffix:semicolon
@@ -708,14 +710,10 @@ id|fmt
 op_assign
 l_string|&quot;refs/remotes/%s&quot;
 suffix:semicolon
-multiline_comment|/* TRANSLATORS: This is &quot;remote &quot; in &quot;remote branch &squot;%s&squot; not found&quot; */
-id|remote
+multiline_comment|/* For subsequent UI messages */
+id|remote_branch
 op_assign
-id|_
-c_func
-(paren
-l_string|&quot;remote &quot;
-)paren
+l_int|1
 suffix:semicolon
 id|force
 op_assign
@@ -729,10 +727,6 @@ suffix:colon
 id|fmt
 op_assign
 l_string|&quot;refs/heads/%s&quot;
-suffix:semicolon
-id|remote
-op_assign
-l_string|&quot;&quot;
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -887,13 +881,20 @@ id|sha1
 id|error
 c_func
 (paren
+id|remote_branch
+ques
+c_cond
 id|_
 c_func
 (paren
-l_string|&quot;%sbranch &squot;%s&squot; not found.&quot;
+l_string|&quot;remote branch &squot;%s&squot; not found.&quot;
 )paren
-comma
-id|remote
+suffix:colon
+id|_
+c_func
+(paren
+l_string|&quot;branch &squot;%s&squot; not found.&quot;
+)paren
 comma
 id|bname.buf
 )paren
@@ -999,13 +1000,20 @@ l_int|0
 id|error
 c_func
 (paren
+id|remote_branch
+ques
+c_cond
 id|_
 c_func
 (paren
-l_string|&quot;Error deleting %sbranch &squot;%s&squot;&quot;
+l_string|&quot;Error deleting remote branch &squot;%s&squot;&quot;
 )paren
-comma
-id|remote
+suffix:colon
+id|_
+c_func
+(paren
+l_string|&quot;Error deleting branch &squot;%s&squot;&quot;
+)paren
 comma
 id|bname.buf
 )paren
@@ -1032,13 +1040,20 @@ id|quiet
 id|printf
 c_func
 (paren
+id|remote_branch
+ques
+c_cond
 id|_
 c_func
 (paren
-l_string|&quot;Deleted %sbranch %s (was %s).&bslash;n&quot;
+l_string|&quot;Deleted remote branch %s (was %s).&bslash;n&quot;
 )paren
-comma
-id|remote
+suffix:colon
+id|_
+c_func
+(paren
+l_string|&quot;Deleted branch %s (was %s).&bslash;n&quot;
+)paren
 comma
 id|bname.buf
 comma
