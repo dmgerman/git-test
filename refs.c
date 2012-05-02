@@ -5291,6 +5291,14 @@ comma
 id|refname
 )paren
 suffix:semicolon
+id|fputc
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+comma
+id|d-&gt;fp
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon

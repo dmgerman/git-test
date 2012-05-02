@@ -431,9 +431,7 @@ id|eastwest
 suffix:semicolon
 )brace
 DECL|function|show_date_relative
-r_const
-r_char
-op_star
+r_void
 id|show_date_relative
 c_func
 (paren
@@ -450,12 +448,10 @@ id|timeval
 op_star
 id|now
 comma
-r_char
+r_struct
+id|strbuf
 op_star
 id|timebuf
-comma
-r_int
-id|timebuf_size
 )paren
 (brace
 r_int
@@ -469,9 +465,22 @@ id|now-&gt;tv_sec
 OL
 id|time
 )paren
-r_return
+(brace
+id|strbuf_addstr
+c_func
+(paren
+id|timebuf
+comma
+id|_
+c_func
+(paren
 l_string|&quot;in the future&quot;
+)paren
+)paren
 suffix:semicolon
+r_return
+suffix:semicolon
+)brace
 id|diff
 op_assign
 id|now-&gt;tv_sec
@@ -485,20 +494,25 @@ OL
 l_int|90
 )paren
 (brace
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
-id|timebuf_size
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu second ago&quot;
 comma
 l_string|&quot;%lu seconds ago&quot;
 comma
 id|diff
 )paren
+comma
+id|diff
+)paren
 suffix:semicolon
 r_return
-id|timebuf
 suffix:semicolon
 )brace
 multiline_comment|/* Turn it into minutes */
@@ -520,20 +534,25 @@ OL
 l_int|90
 )paren
 (brace
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
-id|timebuf_size
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu minute ago&quot;
 comma
 l_string|&quot;%lu minutes ago&quot;
 comma
 id|diff
 )paren
+comma
+id|diff
+)paren
 suffix:semicolon
 r_return
-id|timebuf
 suffix:semicolon
 )brace
 multiline_comment|/* Turn it into hours */
@@ -555,20 +574,25 @@ OL
 l_int|36
 )paren
 (brace
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
-id|timebuf_size
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu hour ago&quot;
 comma
 l_string|&quot;%lu hours ago&quot;
 comma
 id|diff
 )paren
+comma
+id|diff
+)paren
 suffix:semicolon
 r_return
-id|timebuf
 suffix:semicolon
 )brace
 multiline_comment|/* We deal with number of days from here on */
@@ -590,20 +614,25 @@ OL
 l_int|14
 )paren
 (brace
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
-id|timebuf_size
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu day ago&quot;
 comma
 l_string|&quot;%lu days ago&quot;
 comma
 id|diff
 )paren
+comma
+id|diff
+)paren
 suffix:semicolon
 r_return
-id|timebuf
 suffix:semicolon
 )brace
 multiline_comment|/* Say weeks for the past 10 weeks or so */
@@ -615,12 +644,15 @@ OL
 l_int|70
 )paren
 (brace
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
-id|timebuf_size
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu week ago&quot;
 comma
 l_string|&quot;%lu weeks ago&quot;
 comma
@@ -632,9 +664,17 @@ l_int|3
 op_div
 l_int|7
 )paren
+comma
+(paren
+id|diff
+op_plus
+l_int|3
+)paren
+op_div
+l_int|7
+)paren
 suffix:semicolon
 r_return
-id|timebuf
 suffix:semicolon
 )brace
 multiline_comment|/* Say months for the past 12 months or so */
@@ -646,12 +686,15 @@ OL
 l_int|365
 )paren
 (brace
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
-id|timebuf_size
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu month ago&quot;
 comma
 l_string|&quot;%lu months ago&quot;
 comma
@@ -663,9 +706,17 @@ l_int|15
 op_div
 l_int|30
 )paren
+comma
+(paren
+id|diff
+op_plus
+l_int|15
+)paren
+op_div
+l_int|30
+)paren
 suffix:semicolon
 r_return
-id|timebuf
 suffix:semicolon
 )brace
 multiline_comment|/* Give years and months for 5 years or so */
@@ -713,90 +764,98 @@ id|totalmonths
 op_mod
 l_int|12
 suffix:semicolon
-r_int
-id|n
-suffix:semicolon
-id|n
-op_assign
-id|snprintf
-c_func
-(paren
-id|timebuf
-comma
-id|timebuf_size
-comma
-l_string|&quot;%lu year%s&quot;
-comma
-id|years
-comma
-(paren
-id|years
-OG
-l_int|1
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
-)paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
 id|months
 )paren
-id|snprintf
+(brace
+r_struct
+id|strbuf
+id|sb
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|strbuf_addf
 c_func
 (paren
-id|timebuf
-op_plus
-id|n
+op_amp
+id|sb
 comma
-id|timebuf_size
-id|n
-comma
-l_string|&quot;, %lu month%s ago&quot;
-comma
-id|months
-comma
+id|Q_
+c_func
 (paren
-id|months
-OG
-l_int|1
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
+l_string|&quot;%lu year&quot;
+comma
+l_string|&quot;%lu years&quot;
+comma
+id|years
 )paren
+comma
+id|years
 )paren
 suffix:semicolon
-r_else
-id|snprintf
+multiline_comment|/* TRANSLATORS: &quot;%s&quot; is &quot;&lt;n&gt; years&quot; */
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
-op_plus
-id|n
 comma
-id|timebuf_size
-id|n
+id|Q_
+c_func
+(paren
+l_string|&quot;%s, %lu month ago&quot;
 comma
-l_string|&quot; ago&quot;
+l_string|&quot;%s, %lu months ago&quot;
+comma
+id|months
+)paren
+comma
+id|sb.buf
+comma
+id|months
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|sb
+)paren
+suffix:semicolon
+)brace
+r_else
+id|strbuf_addf
+c_func
+(paren
+id|timebuf
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu year ago&quot;
+comma
+l_string|&quot;%lu years ago&quot;
+comma
+id|years
+)paren
+comma
+id|years
 )paren
 suffix:semicolon
 r_return
-id|timebuf
 suffix:semicolon
 )brace
 multiline_comment|/* Otherwise, just years. Centuries is probably overkill. */
-id|snprintf
+id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
-id|timebuf_size
+id|Q_
+c_func
+(paren
+l_string|&quot;%lu year ago&quot;
 comma
 l_string|&quot;%lu years ago&quot;
 comma
@@ -808,9 +867,15 @@ l_int|183
 op_div
 l_int|365
 )paren
-suffix:semicolon
-r_return
-id|timebuf
+comma
+(paren
+id|diff
+op_plus
+l_int|183
+)paren
+op_div
+l_int|365
+)paren
 suffix:semicolon
 )brace
 DECL|function|show_date
@@ -838,11 +903,11 @@ op_star
 id|tm
 suffix:semicolon
 r_static
-r_char
+r_struct
+id|strbuf
 id|timebuf
-(braket
-l_int|200
-)braket
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond
@@ -852,15 +917,18 @@ op_eq
 id|DATE_RAW
 )paren
 (brace
-id|snprintf
+id|strbuf_reset
 c_func
 (paren
-id|timebuf
-comma
-r_sizeof
-(paren
+op_amp
 id|timebuf
 )paren
+suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|timebuf
 comma
 l_string|&quot;%lu %+05d&quot;
 comma
@@ -870,7 +938,7 @@ id|tz
 )paren
 suffix:semicolon
 r_return
-id|timebuf
+id|timebuf.buf
 suffix:semicolon
 )brace
 r_if
@@ -885,6 +953,13 @@ r_struct
 id|timeval
 id|now
 suffix:semicolon
+id|strbuf_reset
+c_func
+(paren
+op_amp
+id|timebuf
+)paren
+suffix:semicolon
 id|gettimeofday
 c_func
 (paren
@@ -894,7 +969,6 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-r_return
 id|show_date_relative
 c_func
 (paren
@@ -905,13 +979,12 @@ comma
 op_amp
 id|now
 comma
-id|timebuf
-comma
-r_sizeof
-(paren
+op_amp
 id|timebuf
 )paren
-)paren
+suffix:semicolon
+r_return
+id|timebuf.buf
 suffix:semicolon
 )brace
 r_if
@@ -948,6 +1021,13 @@ id|tm
 r_return
 l_int|NULL
 suffix:semicolon
+id|strbuf_reset
+c_func
+(paren
+op_amp
+id|timebuf
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -955,9 +1035,10 @@ id|mode
 op_eq
 id|DATE_SHORT
 )paren
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|timebuf
 comma
 l_string|&quot;%04d-%02d-%02d&quot;
@@ -981,9 +1062,10 @@ id|mode
 op_eq
 id|DATE_ISO8601
 )paren
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|timebuf
 comma
 l_string|&quot;%04d-%02d-%02d %02d:%02d:%02d %+05d&quot;
@@ -1015,9 +1097,10 @@ id|mode
 op_eq
 id|DATE_RFC2822
 )paren
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|timebuf
 comma
 l_string|&quot;%.3s, %d %.3s %d %02d:%02d:%02d %+05d&quot;
@@ -1048,9 +1131,10 @@ id|tz
 )paren
 suffix:semicolon
 r_else
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|timebuf
 comma
 l_string|&quot;%.3s %.3s %d %02d:%02d:%02d %d%c%+05d&quot;
@@ -1092,7 +1176,7 @@ id|tz
 )paren
 suffix:semicolon
 r_return
-id|timebuf
+id|timebuf.buf
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Check these. And note how it doesn&squot;t do the summer-time conversion.&n; *&n; * In my world, it&squot;s always summer, and things are probably a bit off&n; * in other ways too.&n; */

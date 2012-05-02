@@ -174,7 +174,11 @@ id|report_path
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; does not look like a v2 bundle file&quot;
+)paren
 comma
 id|report_path
 )paren
@@ -303,7 +307,11 @@ id|report_path
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized header: %s%s (%d)&quot;
+)paren
 comma
 (paren
 id|is_prereq
@@ -431,7 +439,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not open &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -732,7 +744,11 @@ r_char
 op_star
 id|message
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;Repository lacks these prerequisite commits:&quot;
+)paren
 suffix:semicolon
 id|init_revisions
 c_func
@@ -881,7 +897,11 @@ id|revs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|i
@@ -1016,23 +1036,20 @@ op_assign
 op_amp
 id|header-&gt;references
 suffix:semicolon
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;The bundle contains %d ref%s&bslash;n&quot;
-comma
-id|r-&gt;nr
-comma
+id|Q_
+c_func
 (paren
-l_int|1
-OL
+l_string|&quot;The bundle contains %d ref&quot;
+comma
+l_string|&quot;The bundle contains %d refs&quot;
+comma
 id|r-&gt;nr
 )paren
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
+comma
+id|r-&gt;nr
 )paren
 suffix:semicolon
 id|list_refs
@@ -1050,23 +1067,20 @@ op_assign
 op_amp
 id|header-&gt;prerequisites
 suffix:semicolon
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;The bundle requires these %d ref%s&bslash;n&quot;
-comma
-id|r-&gt;nr
-comma
+id|Q_
+c_func
 (paren
-l_int|1
-OL
+l_string|&quot;The bundle requires this ref&quot;
+comma
+l_string|&quot;The bundle requires these %d refs&quot;
+comma
 id|r-&gt;nr
 )paren
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
+comma
+id|r-&gt;nr
 )paren
 suffix:semicolon
 id|list_refs
@@ -1726,7 +1740,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;rev-list died&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* write references */
@@ -1756,7 +1774,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized argument: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -1924,7 +1946,11 @@ id|OBJ_COMMIT
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;ref &squot;%s&squot; is excluded by the rev-list options&quot;
+)paren
 comma
 id|e-&gt;name
 )paren
@@ -2078,8 +2104,13 @@ op_logical_neg
 id|ref_count
 )paren
 id|die
+c_func
+(paren
+id|_
+c_func
 (paren
 l_string|&quot;Refusing to create empty bundle.&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* end header */
@@ -2180,7 +2211,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not spawn pack-objects&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * start_command closed bundle_fd if it was &gt; 1&n;&t; * so set the lock fd to -1 so commit_lock_file()&n;&t; * won&squot;t fail trying to close it.&n;&t; */
@@ -2275,8 +2310,13 @@ id|rls
 )paren
 r_return
 id|error
+c_func
+(paren
+id|_
+c_func
 (paren
 l_string|&quot;pack-objects died&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -2299,7 +2339,11 @@ id|lock
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot create &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -2421,7 +2465,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;index-pack died&quot;
+)paren
 )paren
 suffix:semicolon
 r_return

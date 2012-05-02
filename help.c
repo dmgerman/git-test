@@ -1147,11 +1147,6 @@ r_void
 id|list_commands
 c_func
 (paren
-r_const
-r_char
-op_star
-id|title
-comma
 r_struct
 id|cmdnames
 op_star
@@ -1256,38 +1251,16 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;available %s in &squot;%s&squot;&bslash;n&quot;
-comma
-id|title
+id|_
+c_func
+(paren
+l_string|&quot;available git commands in &squot;%s&squot;&quot;
+)paren
 comma
 id|exec_path
-)paren
-suffix:semicolon
-id|printf
-c_func
-(paren
-l_string|&quot;----------------&quot;
-)paren
-suffix:semicolon
-id|mput_char
-c_func
-(paren
-l_char|&squot;-&squot;
-comma
-id|strlen
-c_func
-(paren
-id|title
-)paren
-op_plus
-id|strlen
-c_func
-(paren
-id|exec_path
-)paren
 )paren
 suffix:semicolon
 id|putchar
@@ -1317,29 +1290,13 @@ c_cond
 id|other_cmds-&gt;cnt
 )paren
 (brace
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;%s available from elsewhere on your $PATH&bslash;n&quot;
-comma
-id|title
-)paren
-suffix:semicolon
-id|printf
+id|_
 c_func
 (paren
-l_string|&quot;---------------------------------------&quot;
-)paren
-suffix:semicolon
-id|mput_char
-c_func
-(paren
-l_char|&squot;-&squot;
-comma
-id|strlen
-c_func
-(paren
-id|title
+l_string|&quot;git commands available from elsewhere on your $PATH&quot;
 )paren
 )paren
 suffix:semicolon
@@ -2035,8 +1992,13 @@ op_logical_neg
 id|main_cmds.cnt
 )paren
 id|die
+c_func
+(paren
+id|_
+c_func
 (paren
 l_string|&quot;Uh oh. Your system reports no Git commands at all.&quot;
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* skip and count prefix matches */
@@ -2159,14 +2121,18 @@ op_amp
 id|main_cmds
 )paren
 suffix:semicolon
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
+id|_
+c_func
+(paren
 l_string|&quot;WARNING: You called a Git command named &squot;%s&squot;, &quot;
 l_string|&quot;which does not exist.&bslash;n&quot;
-l_string|&quot;Continuing under the assumption that you meant &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;Continuing under the assumption that you meant &squot;%s&squot;&quot;
+)paren
 comma
 id|cmd
 comma
@@ -2181,12 +2147,16 @@ OG
 l_int|0
 )paren
 (brace
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;in %0.1f seconds automatically...&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;in %0.1f seconds automatically...&quot;
+)paren
 comma
 (paren
 r_float
@@ -2213,12 +2183,16 @@ r_return
 id|assumed
 suffix:semicolon
 )brace
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;git: &squot;%s&squot; is not a git command. See &squot;git --help&squot;.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;git: &squot;%s&squot; is not a git command. See &squot;git --help&squot;.&quot;
+)paren
 comma
 id|cmd
 )paren
@@ -2233,21 +2207,20 @@ id|best_similarity
 )paren
 )paren
 (brace
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;&bslash;nDid you mean %s?&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;&bslash;nDid you mean this?&quot;
+comma
+l_string|&quot;&bslash;nDid you mean one of these?&quot;
 comma
 id|n
-OL
-l_int|2
-ques
-c_cond
-l_string|&quot;this&quot;
-suffix:colon
-l_string|&quot;one of these&quot;
+)paren
 )paren
 suffix:semicolon
 r_for

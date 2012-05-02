@@ -335,10 +335,14 @@ op_assign
 id|name
 suffix:semicolon
 )brace
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;Updating %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Updating %s&quot;
+)paren
 comma
 id|name
 )paren
@@ -358,7 +362,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not fetch %s&quot;
+)paren
 comma
 id|name
 )paren
@@ -491,8 +499,12 @@ id|mirror_advice
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;--mirror is dangerous and deprecated; please&bslash;n&quot;
 l_string|&quot;&bslash;t use --mirror=fetch or --mirror=push instead&quot;
+)paren
 suffix:semicolon
 DECL|function|parse_mirror_opt
 r_static
@@ -544,7 +556,11 @@ c_func
 (paren
 l_string|&quot;%s&quot;
 comma
+id|_
+c_func
+(paren
 id|mirror_advice
+)paren
 )paren
 suffix:semicolon
 op_star
@@ -594,7 +610,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unknown mirror argument: %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -820,7 +840,11 @@ id|master
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;specifying a master branch makes no sense with --mirror&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -840,7 +864,11 @@ id|track.nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;specifying branches to track makes sense only with fetch mirrors&quot;
+)paren
 )paren
 suffix:semicolon
 id|name
@@ -892,7 +920,11 @@ id|remote-&gt;fetch_refspec_nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;remote %s already exists.&quot;
+)paren
 comma
 id|name
 )paren
@@ -921,7 +953,11 @@ id|buf2.buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; is not a valid remote name&quot;
+)paren
 comma
 id|name
 )paren
@@ -1203,7 +1239,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not setup master &squot;%s&squot;&quot;
+)paren
 comma
 id|master
 )paren
@@ -1533,7 +1573,11 @@ id|info-&gt;remote_name
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;more than one %s&quot;
+)paren
 comma
 id|orig_key
 )paren
@@ -1793,7 +1837,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not get fetch map for refspec %s&quot;
+)paren
 comma
 id|states-&gt;remote-&gt;fetch_refspec
 (braket
@@ -2322,7 +2370,11 @@ c_func
 op_amp
 id|states-&gt;push
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(matching)&quot;
+)paren
 )paren
 suffix:semicolon
 id|info
@@ -2391,7 +2443,11 @@ c_func
 op_amp
 id|states-&gt;push
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(matching)&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -2424,7 +2480,11 @@ c_func
 op_amp
 id|states-&gt;push
 comma
+id|_
+c_func
+(paren
 l_string|&quot;(delete)&quot;
+)paren
 )paren
 suffix:semicolon
 id|info
@@ -3205,7 +3265,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not append &squot;%s&squot; to &squot;%s&squot;&quot;
+)paren
 comma
 id|remote-&gt;url
 (braket
@@ -3269,7 +3333,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not append &squot;%s&squot; to &squot;%s&squot;&quot;
+)paren
 comma
 id|remote-&gt;push_refspec
 (braket
@@ -3333,7 +3401,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not append &squot;%s&squot; to &squot;%s&squot;&quot;
+)paren
 comma
 id|remote-&gt;fetch_refspec
 (braket
@@ -3518,7 +3590,11 @@ id|oldremote
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such remote: %s&quot;
+)paren
 comma
 id|rename.old
 )paren
@@ -3574,7 +3650,11 @@ id|newremote-&gt;fetch_refspec_nr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;remote %s already exists.&quot;
+)paren
 comma
 id|rename
 dot
@@ -3607,7 +3687,11 @@ id|buf.buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; is not a valid remote name&quot;
+)paren
 comma
 id|rename
 dot
@@ -3662,7 +3746,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not rename config section &squot;%s&squot; to &squot;%s&squot;&quot;
+)paren
 comma
 id|buf.buf
 comma
@@ -3708,7 +3796,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not remove config section &squot;%s&squot;&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -3822,9 +3914,13 @@ r_else
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not updating non-default fetch respec&bslash;n&quot;
 l_string|&quot;&bslash;t%s&bslash;n&quot;
 l_string|&quot;&bslash;tPlease update the configuration manually if necessary.&quot;
+)paren
 comma
 id|buf2.buf
 )paren
@@ -3848,7 +3944,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not append &squot;%s&squot;&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -3941,7 +4041,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not set &squot;%s&squot;&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -4045,7 +4149,11 @@ id|REF_NODEREF
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;deleting &squot;%s&squot; failed&quot;
+)paren
 comma
 id|item-&gt;string
 )paren
@@ -4165,7 +4273,11 @@ id|buf2.buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;renaming &squot;%s&squot; failed&quot;
+)paren
 comma
 id|item-&gt;string
 )paren
@@ -4333,7 +4445,11 @@ id|buf3.buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;creating &squot;%s&squot; failed&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -4418,7 +4534,11 @@ op_or_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not remove branch %s&quot;
+)paren
 comma
 id|refname
 )paren
@@ -4563,7 +4683,11 @@ id|remote
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such remote: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -4612,7 +4736,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not remove config section &squot;%s&squot;&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -4801,21 +4929,22 @@ c_cond
 id|skipped.nr
 )paren
 (brace
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|stderr
 comma
-id|skipped.nr
-op_eq
-l_int|1
-ques
-c_cond
+id|Q_
+c_func
+(paren
 l_string|&quot;Note: A branch outside the refs/remotes/ hierarchy was not removed;&bslash;n&quot;
-l_string|&quot;to delete it, use:&bslash;n&quot;
-suffix:colon
+l_string|&quot;to delete it, use:&quot;
+comma
 l_string|&quot;Note: Some branches outside the refs/remotes/ hierarchy were not removed;&bslash;n&quot;
-l_string|&quot;to delete them, use:&bslash;n&quot;
+l_string|&quot;to delete them, use:&quot;
+comma
+id|skipped.nr
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -5104,7 +5233,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such remote: %s&quot;
+)paren
 comma
 id|name
 )paren
@@ -5390,7 +5523,11 @@ id|name
 (brace
 id|fmt
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot; new (next fetch will store in remotes/%s)&quot;
+)paren
 suffix:semicolon
 id|arg
 op_assign
@@ -5412,7 +5549,11 @@ id|name
 )paren
 id|arg
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot; tracked&quot;
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -5429,12 +5570,20 @@ id|name
 )paren
 id|arg
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot; stale (use &squot;git remote prune&squot; to remove)&quot;
+)paren
 suffix:semicolon
 r_else
 id|arg
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot; ???&quot;
+)paren
 suffix:semicolon
 id|printf
 c_func
@@ -5644,7 +5793,11 @@ l_int|1
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid branch.%s.merge; cannot rebase onto &gt; 1 branch&quot;
+)paren
 comma
 id|item-&gt;string
 )paren
@@ -5669,10 +5822,14 @@ c_cond
 id|branch_info-&gt;rebase
 )paren
 (brace
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;rebases onto remote %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;rebases onto remote %s&quot;
+)paren
 comma
 id|merge-&gt;items
 (braket
@@ -5693,10 +5850,14 @@ c_cond
 id|show_info-&gt;any_rebase
 )paren
 (brace
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot; merges with remote %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot; merges with remote %s&quot;
+)paren
 comma
 id|merge-&gt;items
 (braket
@@ -5708,15 +5869,23 @@ id|string
 suffix:semicolon
 id|also
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;    and with remote&quot;
+)paren
 suffix:semicolon
 )brace
 r_else
 (brace
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;merges with remote %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;merges with remote %s&quot;
+)paren
 comma
 id|merge-&gt;items
 (braket
@@ -5728,7 +5897,11 @@ id|string
 suffix:semicolon
 id|also
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;   and with remote&quot;
+)paren
 suffix:semicolon
 )brace
 r_for
@@ -5968,6 +6141,7 @@ id|push_info
 op_assign
 id|item-&gt;util
 suffix:semicolon
+r_const
 r_char
 op_star
 id|src
@@ -5990,7 +6164,11 @@ id|PUSH_STATUS_CREATE
 suffix:colon
 id|status
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;create&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -5999,11 +6177,19 @@ id|PUSH_STATUS_DELETE
 suffix:colon
 id|status
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;delete&quot;
+)paren
 suffix:semicolon
 id|src
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;(none)&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -6012,7 +6198,11 @@ id|PUSH_STATUS_UPTODATE
 suffix:colon
 id|status
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;up to date&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -6021,7 +6211,11 @@ id|PUSH_STATUS_FASTFORWARD
 suffix:colon
 id|status
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;fast-forwardable&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -6030,7 +6224,11 @@ id|PUSH_STATUS_OUTOFDATE
 suffix:colon
 id|status
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;local out of date&quot;
+)paren
 suffix:semicolon
 r_break
 suffix:semicolon
@@ -6045,21 +6243,24 @@ c_cond
 (paren
 id|status
 )paren
-id|printf
+(brace
+r_if
+c_cond
+(paren
+id|push_info-&gt;forced
+)paren
+id|printf_ln
 c_func
 (paren
-l_string|&quot;    %-*s %s to %-*s (%s)&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;    %-*s forces to %-*s (%s)&quot;
+)paren
 comma
 id|show_info-&gt;width
 comma
 id|src
-comma
-id|push_info-&gt;forced
-ques
-c_cond
-l_string|&quot;forces&quot;
-suffix:colon
-l_string|&quot;pushes&quot;
 comma
 id|show_info-&gt;width2
 comma
@@ -6069,25 +6270,68 @@ id|status
 )paren
 suffix:semicolon
 r_else
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;    %-*s %s to %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;    %-*s pushes to %-*s (%s)&quot;
+)paren
 comma
 id|show_info-&gt;width
 comma
 id|src
 comma
-id|push_info-&gt;forced
-ques
+id|show_info-&gt;width2
+comma
+id|push_info-&gt;dest
+comma
+id|status
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+r_if
 c_cond
-l_string|&quot;forces&quot;
-suffix:colon
-l_string|&quot;pushes&quot;
+(paren
+id|push_info-&gt;forced
+)paren
+id|printf_ln
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;    %-*s forces to %s&quot;
+)paren
+comma
+id|show_info-&gt;width
+comma
+id|src
 comma
 id|push_info-&gt;dest
 )paren
 suffix:semicolon
+r_else
+id|printf_ln
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;    %-*s pushes to %s&quot;
+)paren
+comma
+id|show_info-&gt;width
+comma
+id|src
+comma
+id|push_info-&gt;dest
+)paren
+suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
@@ -6283,19 +6527,27 @@ comma
 id|query_flag
 )paren
 suffix:semicolon
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;* remote %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;* remote %s&quot;
+)paren
 comma
 op_star
 id|argv
 )paren
 suffix:semicolon
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  Fetch URL: %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;  Fetch URL: %s&quot;
+)paren
 comma
 id|states.remote-&gt;url_nr
 OG
@@ -6307,7 +6559,11 @@ id|states.remote-&gt;url
 l_int|0
 )braket
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;(no URL)&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6350,10 +6606,14 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  Push  URL: %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;  Push  URL: %s&quot;
+)paren
 comma
 id|url
 (braket
@@ -6367,10 +6627,14 @@ c_cond
 op_logical_neg
 id|i
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  Push  URL: %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;  Push  URL: %s&quot;
+)paren
 comma
 l_string|&quot;(no URL)&quot;
 )paren
@@ -6380,10 +6644,16 @@ c_cond
 (paren
 id|no_query
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  HEAD branch: (not queried)&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;  HEAD branch: %s&quot;
+)paren
+comma
+l_string|&quot;(not queried)&quot;
 )paren
 suffix:semicolon
 r_else
@@ -6393,10 +6663,16 @@ c_cond
 op_logical_neg
 id|states.heads.nr
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  HEAD branch: (unknown)&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;  HEAD branch: %s&quot;
+)paren
+comma
+l_string|&quot;(unknown)&quot;
 )paren
 suffix:semicolon
 r_else
@@ -6407,10 +6683,14 @@ id|states.heads.nr
 op_eq
 l_int|1
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  HEAD branch: %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;  HEAD branch: %s&quot;
+)paren
 comma
 id|states.heads.items
 (braket
@@ -6425,8 +6705,12 @@ r_else
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;  HEAD branch (remote HEAD is ambiguous,&quot;
 l_string|&quot; may be one of the following):&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -6505,24 +6789,27 @@ c_cond
 (paren
 id|info.list-&gt;nr
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  Remote branch%s:%s&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;  Remote branch:%s&quot;
+comma
+l_string|&quot;  Remote branches:%s&quot;
 comma
 id|info.list-&gt;nr
-OG
-l_int|1
-ques
-c_cond
-l_string|&quot;es&quot;
-suffix:colon
-l_string|&quot;&quot;
+)paren
 comma
 id|no_query
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (status not queried)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -6572,19 +6859,18 @@ c_cond
 (paren
 id|info.list-&gt;nr
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  Local branch%s configured for &squot;git pull&squot;:&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;  Local branch configured for &squot;git pull&squot;:&quot;
+comma
+l_string|&quot;  Local branches configured for &squot;git pull&squot;:&quot;
 comma
 id|info.list-&gt;nr
-OG
-l_int|1
-ques
-c_cond
-l_string|&quot;es&quot;
-suffix:colon
-l_string|&quot;&quot;
+)paren
 )paren
 suffix:semicolon
 id|for_each_string_list
@@ -6612,10 +6898,14 @@ c_cond
 (paren
 id|states.remote-&gt;mirror
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  Local refs will be mirrored by &squot;git push&squot;&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;  Local refs will be mirrored by &squot;git push&squot;&quot;
+)paren
 )paren
 suffix:semicolon
 id|info.width
@@ -6657,24 +6947,27 @@ c_cond
 (paren
 id|info.list-&gt;nr
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;  Local ref%s configured for &squot;git push&squot;%s:&bslash;n&quot;
+id|Q_
+c_func
+(paren
+l_string|&quot;  Local ref configured for &squot;git push&squot;%s:&quot;
+comma
+l_string|&quot;  Local refs configured for &squot;git push&squot;%s:&quot;
 comma
 id|info.list-&gt;nr
-OG
-l_int|1
-ques
-c_cond
-l_string|&quot;s&quot;
-suffix:colon
-l_string|&quot;&quot;
+)paren
 comma
 id|no_query
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (status not queried)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -6916,7 +7209,11 @@ op_or_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot determine remote HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -6933,8 +7230,12 @@ op_or_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Multiple remote HEAD branches. &quot;
 l_string|&quot;Please choose one explicitly with:&quot;
+)paren
 )paren
 suffix:semicolon
 r_for
@@ -7026,7 +7327,11 @@ op_or_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not delete %s&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -7079,7 +7384,11 @@ op_or_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a valid ref: %s&quot;
+)paren
 comma
 id|buf2.buf
 )paren
@@ -7103,7 +7412,11 @@ op_or_assign
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not setup %s&quot;
+)paren
 comma
 id|buf.buf
 )paren
@@ -7292,9 +7605,17 @@ op_assign
 id|dry_run
 ques
 c_cond
-l_string|&quot; %s will become dangling!&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot; %s will become dangling!&quot;
+)paren
 suffix:colon
-l_string|&quot; %s has become dangling!&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot; %s has become dangling!&quot;
+)paren
 suffix:semicolon
 id|memset
 c_func
@@ -7327,18 +7648,26 @@ c_cond
 id|states.stale.nr
 )paren
 (brace
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;Pruning %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Pruning %s&quot;
+)paren
 comma
 id|remote
 )paren
 suffix:semicolon
-id|printf
+id|printf_ln
 c_func
 (paren
-l_string|&quot;URL: %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;URL: %s&quot;
+)paren
 comma
 id|states.remote-&gt;url_nr
 ques
@@ -7348,7 +7677,11 @@ id|states.remote-&gt;url
 l_int|0
 )braket
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;(no URL)&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -7397,17 +7730,38 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|printf
+r_if
+c_cond
+(paren
+id|dry_run
+)paren
+id|printf_ln
 c_func
 (paren
-l_string|&quot; * [%s] %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot; * [would prune] %s&quot;
+)paren
 comma
-id|dry_run
-ques
-c_cond
-l_string|&quot;would prune&quot;
-suffix:colon
-l_string|&quot;pruned&quot;
+id|abbrev_ref
+c_func
+(paren
+id|refname
+comma
+l_string|&quot;refs/remotes/&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+id|printf_ln
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot; * [pruned] %s&quot;
+)paren
 comma
 id|abbrev_ref
 c_func
@@ -7915,7 +8269,11 @@ id|remotename
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such remote &squot;%s&squot;&quot;
+)paren
 comma
 id|remotename
 )paren
@@ -8066,7 +8424,11 @@ l_int|0
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no remote specified&quot;
+)paren
 )paren
 suffix:semicolon
 id|usage_with_options
@@ -8266,7 +8628,11 @@ id|delete_mode
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;--add --delete doesn&squot;t make sense&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -8346,7 +8712,11 @@ id|remotename
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such remote &squot;%s&squot;&quot;
+)paren
 comma
 id|remotename
 )paren
@@ -8477,7 +8847,11 @@ id|REG_EXTENDED
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid old URL pattern: %s&quot;
+)paren
 comma
 id|oldurl
 )paren
@@ -8537,7 +8911,11 @@ id|matches
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No such URL found: %s&quot;
+)paren
 comma
 id|oldurl
 )paren
@@ -8556,7 +8934,11 @@ id|push_mode
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Will not delete all non-push URLs&quot;
+)paren
 )paren
 suffix:semicolon
 id|regfree
@@ -9237,7 +9619,11 @@ r_else
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unknown subcommand: %s&quot;
+)paren
 comma
 id|argv
 (braket
