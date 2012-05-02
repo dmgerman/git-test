@@ -8009,6 +8009,8 @@ r_int
 id|total_files
 op_assign
 id|data-&gt;nr
+comma
+id|count
 suffix:semicolon
 r_int
 id|width
@@ -8019,9 +8021,11 @@ id|graph_width
 comma
 id|number_width
 op_assign
-l_int|4
+l_int|0
 comma
-id|count
+id|bin_width
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -8218,12 +8222,67 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|file-&gt;is_binary
-op_logical_or
 id|file-&gt;is_unmerged
 )paren
+(brace
+multiline_comment|/* &quot;Unmerged&quot; is 8 characters */
+id|bin_width
+op_assign
+id|bin_width
+OL
+l_int|8
+ques
+c_cond
+l_int|8
+suffix:colon
+id|bin_width
+suffix:semicolon
 r_continue
 suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|file-&gt;is_binary
+)paren
+(brace
+multiline_comment|/* &quot;Bin XXX -&gt; YYY bytes&quot; */
+r_int
+id|w
+op_assign
+l_int|14
+op_plus
+id|decimal_width
+c_func
+(paren
+id|file-&gt;added
+)paren
+op_plus
+id|decimal_width
+c_func
+(paren
+id|file-&gt;deleted
+)paren
+suffix:semicolon
+id|bin_width
+op_assign
+id|bin_width
+OL
+id|w
+ques
+c_cond
+id|w
+suffix:colon
+id|bin_width
+suffix:semicolon
+multiline_comment|/* Display change counts aligned with &quot;Bin&quot; */
+id|number_width
+op_assign
+l_int|3
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -8241,7 +8300,7 @@ op_assign
 id|i
 suffix:semicolon
 multiline_comment|/* min(count, data-&gt;nr) */
-multiline_comment|/*&n;&t; * We have width = stat_width or term_columns() columns total.&n;&t; * We want a maximum of min(max_len, stat_name_width) for the name part.&n;&t; * We want a maximum of min(max_change, stat_graph_width) for the +- part.&n;&t; * We also need 1 for &quot; &quot; and 4 + decimal_width(max_change)&n;&t; * for &quot; | NNNN &quot; and one the empty column at the end, altogether&n;&t; * 6 + decimal_width(max_change).&n;&t; *&n;&t; * If there&squot;s not enough space, we will use the smaller of&n;&t; * stat_name_width (if set) and 5/8*width for the filename,&n;&t; * and the rest for constant elements + graph part, but no more&n;&t; * than stat_graph_width for the graph part.&n;&t; * (5/8 gives 50 for filename and 30 for the constant parts + graph&n;&t; * for the standard terminal size).&n;&t; *&n;&t; * In other words: stat_width limits the maximum width, and&n;&t; * stat_name_width fixes the maximum width of the filename,&n;&t; * and is also used to divide available columns if there&n;&t; * aren&squot;t enough.&n;&t; */
+multiline_comment|/*&n;&t; * We have width = stat_width or term_columns() columns total.&n;&t; * We want a maximum of min(max_len, stat_name_width) for the name part.&n;&t; * We want a maximum of min(max_change, stat_graph_width) for the +- part.&n;&t; * We also need 1 for &quot; &quot; and 4 + decimal_width(max_change)&n;&t; * for &quot; | NNNN &quot; and one the empty column at the end, altogether&n;&t; * 6 + decimal_width(max_change).&n;&t; *&n;&t; * If there&squot;s not enough space, we will use the smaller of&n;&t; * stat_name_width (if set) and 5/8*width for the filename,&n;&t; * and the rest for constant elements + graph part, but no more&n;&t; * than stat_graph_width for the graph part.&n;&t; * (5/8 gives 50 for filename and 30 for the constant parts + graph&n;&t; * for the standard terminal size).&n;&t; *&n;&t; * In other words: stat_width limits the maximum width, and&n;&t; * stat_name_width fixes the maximum width of the filename,&n;&t; * and is also used to divide available columns if there&n;&t; * aren&squot;t enough.&n;&t; *&n;&t; * Binary files are displayed with &quot;Bin XXX -&gt; YYY bytes&quot;&n;&t; * instead of the change count and graph. This part is treated&n;&t; * similarly to the graph part, except that it is not&n;&t; * &quot;scaled&quot;. If total width is too small to accomodate the&n;&t; * guaranteed minimum width of the filename part and the&n;&t; * separators and this message, this message will &quot;overflow&quot;&n;&t; * making the line longer than the maximum width.&n;&t; */
 r_if
 c_cond
 (paren
@@ -8266,6 +8325,25 @@ c_cond
 id|options-&gt;stat_width
 suffix:colon
 l_int|80
+suffix:semicolon
+id|number_width
+op_assign
+id|decimal_width
+c_func
+(paren
+id|max_change
+)paren
+OG
+id|number_width
+ques
+c_cond
+id|decimal_width
+c_func
+(paren
+id|max_change
+)paren
+suffix:colon
+id|number_width
 suffix:semicolon
 r_if
 c_cond
@@ -8298,21 +8376,33 @@ l_int|6
 op_plus
 id|number_width
 suffix:semicolon
-multiline_comment|/*&n;&t; * First assign sizes that are wanted, ignoring available width.&n;&t; */
+multiline_comment|/*&n;&t; * First assign sizes that are wanted, ignoring available width.&n;&t; * strlen(&quot;Bin XXX -&gt; YYY bytes&quot;) == bin_width, and the part&n;&t; * starting from &quot;XXX&quot; should fit in graph_width.&n;&t; */
 id|graph_width
 op_assign
+id|max_change
+op_plus
+l_int|4
+OG
+id|bin_width
+ques
+c_cond
+id|max_change
+suffix:colon
+id|bin_width
+l_int|4
+suffix:semicolon
+r_if
+c_cond
 (paren
 id|options-&gt;stat_graph_width
 op_logical_and
 id|options-&gt;stat_graph_width
 OL
-id|max_change
+id|graph_width
 )paren
-ques
-c_cond
+id|graph_width
+op_assign
 id|options-&gt;stat_graph_width
-suffix:colon
-id|max_change
 suffix:semicolon
 id|name_width
 op_assign
@@ -8600,7 +8690,11 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;  Bin &quot;
+l_string|&quot; %*s &quot;
+comma
+id|number_width
+comma
+l_string|&quot;Bin&quot;
 )paren
 suffix:semicolon
 id|fprintf
@@ -8701,7 +8795,7 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;  Unmerged&bslash;n&quot;
+l_string|&quot; Unmerged&bslash;n&quot;
 )paren
 suffix:semicolon
 r_continue
@@ -8843,9 +8937,11 @@ c_func
 (paren
 id|options-&gt;file
 comma
-l_string|&quot;%5&quot;
+l_string|&quot; %*&quot;
 id|PRIuMAX
 l_string|&quot;%s&quot;
+comma
+id|number_width
 comma
 id|added
 op_plus
