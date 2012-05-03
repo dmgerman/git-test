@@ -685,10 +685,6 @@ id|compressed_size
 suffix:semicolon
 r_int
 r_int
-id|uncompressed_size
-suffix:semicolon
-r_int
-r_int
 id|crc
 suffix:semicolon
 r_int
@@ -786,7 +782,7 @@ id|out
 op_assign
 l_int|NULL
 suffix:semicolon
-id|uncompressed_size
+id|size
 op_assign
 l_int|0
 suffix:semicolon
@@ -935,10 +931,6 @@ suffix:semicolon
 id|out
 op_assign
 id|buffer
-suffix:semicolon
-id|uncompressed_size
-op_assign
-id|size
 suffix:semicolon
 id|compressed_size
 op_assign
@@ -1160,7 +1152,7 @@ c_func
 (paren
 id|dirent.size
 comma
-id|uncompressed_size
+id|size
 )paren
 suffix:semicolon
 id|copy_le16
@@ -1324,7 +1316,7 @@ c_func
 (paren
 id|header.size
 comma
-id|uncompressed_size
+id|size
 )paren
 suffix:semicolon
 id|copy_le16
