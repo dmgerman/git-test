@@ -2047,6 +2047,14 @@ id|cmd_clone
 )brace
 comma
 (brace
+l_string|&quot;column&quot;
+comma
+id|cmd_column
+comma
+id|RUN_SETUP_GENTLY
+)brace
+comma
+(brace
 l_string|&quot;commit&quot;
 comma
 id|cmd_commit
