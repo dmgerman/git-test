@@ -1259,6 +1259,12 @@ r_char
 op_star
 id|remote
 comma
+r_const
+r_struct
+id|ref
+op_star
+id|remote_ref
+comma
 r_struct
 id|strbuf
 op_star
@@ -1565,18 +1571,29 @@ suffix:semicolon
 r_int
 id|r
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Nicely describe the new ref we&squot;re fetching.&n;&t;&t; * Base this on the remote&squot;s ref name, as it&squot;s&n;&t;&t; * more likely to follow a standard layout.&n;&t;&t; */
+r_const
+r_char
+op_star
+id|name
+op_assign
+id|remote_ref
+ques
+c_cond
+id|remote_ref-&gt;name
+suffix:colon
+l_string|&quot;&quot;
+suffix:semicolon
 r_if
 c_cond
 (paren
 op_logical_neg
-id|strncmp
+id|prefixcmp
 c_func
 (paren
-id|ref-&gt;name
+id|name
 comma
 l_string|&quot;refs/tags/&quot;
-comma
-l_int|10
 )paren
 )paren
 (brace
@@ -1594,6 +1611,18 @@ l_string|&quot;[new tag]&quot;
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|name
+comma
+l_string|&quot;refs/heads/&quot;
+)paren
+)paren
 (brace
 id|msg
 op_assign
@@ -1605,6 +1634,21 @@ id|_
 c_func
 (paren
 l_string|&quot;[new branch]&quot;
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|msg
+op_assign
+l_string|&quot;storing ref&quot;
+suffix:semicolon
+id|what
+op_assign
+id|_
+c_func
+(paren
+l_string|&quot;[new ref]&quot;
 )paren
 suffix:semicolon
 )brace
@@ -2652,6 +2696,8 @@ c_func
 id|ref
 comma
 id|what
+comma
+id|rm
 comma
 op_amp
 id|note
