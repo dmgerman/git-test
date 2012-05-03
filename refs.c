@@ -1335,8 +1335,14 @@ c_cond
 op_logical_neg
 id|subdir
 )paren
+(brace
+id|dir
+op_assign
+l_int|NULL
+suffix:semicolon
 r_break
 suffix:semicolon
+)brace
 id|dir
 op_assign
 id|subdir
