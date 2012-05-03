@@ -921,37 +921,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|sha1
-)paren
-(brace
-id|die
-c_func
-(paren
-l_string|&quot;BUG: sha1 == NULL is not supported&quot;
-)paren
-suffix:semicolon
-)brace
-r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|path
-)paren
-(brace
-id|die
-c_func
-(paren
-l_string|&quot;BUG: path == NULL is not supported&quot;
-)paren
-suffix:semicolon
-)brace
-r_else
-(brace
-r_if
-c_cond
-(paren
 id|S_ISDIR
 c_func
 (paren
@@ -1176,7 +1145,6 @@ comma
 id|pathlen
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
