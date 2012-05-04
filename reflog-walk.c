@@ -1450,7 +1450,13 @@ id|commit_reflog-&gt;selector
 op_eq
 id|SELECTOR_DATE
 op_logical_or
+(paren
+id|commit_reflog-&gt;selector
+op_eq
+id|SELECTOR_NONE
+op_logical_and
 id|dmode
+)paren
 )paren
 (brace
 id|info
