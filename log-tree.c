@@ -2414,6 +2414,10 @@ id|ctx.date_mode
 op_assign
 id|opt-&gt;date_mode
 suffix:semicolon
+id|ctx.date_mode_explicit
+op_assign
+id|opt-&gt;date_mode_explicit
+suffix:semicolon
 id|ctx.abbrev
 op_assign
 id|opt-&gt;diffopt.abbrev

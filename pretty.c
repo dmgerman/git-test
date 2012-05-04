@@ -5364,7 +5364,12 @@ id|sb
 comma
 id|c-&gt;pretty_ctx-&gt;reflog_info
 comma
+id|c-&gt;pretty_ctx-&gt;date_mode_explicit
+ques
+c_cond
 id|c-&gt;pretty_ctx-&gt;date_mode
+suffix:colon
+id|DATE_NORMAL
 comma
 (paren
 id|placeholder
