@@ -125,6 +125,11 @@ id|ofs_last
 suffix:semicolon
 )brace
 suffix:semicolon
+macro_line|#if !defined(NO_PTHREADS) &amp;&amp; defined(NO_PREAD)
+multiline_comment|/* NO_PREAD uses compat/pread.c, which is not thread-safe. Disable threading. */
+DECL|macro|NO_PTHREADS
+mdefine_line|#define NO_PTHREADS
+macro_line|#endif
 DECL|struct|thread_local
 r_struct
 id|thread_local
