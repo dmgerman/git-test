@@ -365,11 +365,6 @@ id|status_format
 op_assign
 id|STATUS_FORMAT_LONG
 suffix:semicolon
-DECL|variable|status_show_branch
-r_static
-r_int
-id|status_show_branch
-suffix:semicolon
 DECL|function|opt_parse_m
 r_static
 r_int
@@ -1931,8 +1926,6 @@ id|wt_shortstatus_print
 c_func
 (paren
 id|s
-comma
-id|status_show_branch
 )paren
 suffix:semicolon
 r_break
@@ -6297,7 +6290,7 @@ comma
 l_string|&quot;branch&quot;
 comma
 op_amp
-id|status_show_branch
+id|s.show_branch
 comma
 l_string|&quot;show branch information&quot;
 )paren
@@ -6616,8 +6609,6 @@ c_func
 (paren
 op_amp
 id|s
-comma
-id|status_show_branch
 )paren
 suffix:semicolon
 r_break
@@ -7803,7 +7794,7 @@ comma
 l_string|&quot;branch&quot;
 comma
 op_amp
-id|status_show_branch
+id|s.show_branch
 comma
 l_string|&quot;show branch information&quot;
 )paren

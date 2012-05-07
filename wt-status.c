@@ -5614,9 +5614,6 @@ r_struct
 id|wt_status
 op_star
 id|s
-comma
-r_int
-id|show_branch
 )paren
 (brace
 r_int
@@ -5625,7 +5622,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|show_branch
+id|s-&gt;show_branch
 )paren
 id|wt_shortstatus_print_tracking
 c_func
@@ -5805,8 +5802,6 @@ id|wt_shortstatus_print
 c_func
 (paren
 id|s
-comma
-l_int|0
 )paren
 suffix:semicolon
 )brace
