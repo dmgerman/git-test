@@ -1371,6 +1371,9 @@ id|date_mode
 id|dmode
 comma
 r_int
+id|force_date
+comma
+r_int
 id|shorten
 )paren
 (brace
@@ -1455,7 +1458,7 @@ id|commit_reflog-&gt;selector
 op_eq
 id|SELECTOR_NONE
 op_logical_and
-id|dmode
+id|force_date
 )paren
 )paren
 (brace
@@ -1605,6 +1608,9 @@ comma
 r_enum
 id|date_mode
 id|dmode
+comma
+r_int
+id|force_date
 )paren
 (brace
 r_if
@@ -1652,6 +1658,8 @@ comma
 id|reflog_info
 comma
 id|dmode
+comma
+id|force_date
 comma
 l_int|0
 )paren
