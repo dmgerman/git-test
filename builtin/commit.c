@@ -289,12 +289,6 @@ r_char
 op_star
 id|sign_commit
 suffix:semicolon
-DECL|variable|colopts
-r_static
-r_int
-r_int
-id|colopts
-suffix:semicolon
 multiline_comment|/*&n; * The default commit message cleanup mode will remove the lines&n; * beginning with # (shell comments) and leading and trailing&n; * whitespaces (empty lines or containing only whitespaces)&n; * if editor is used, and only the whitespaces if the message&n; * is specified explicitly.&n; */
 r_static
 r_enum
@@ -5938,7 +5932,7 @@ comma
 l_string|&quot;status&quot;
 comma
 op_amp
-id|colopts
+id|s-&gt;colopts
 )paren
 suffix:semicolon
 r_if
@@ -6405,7 +6399,7 @@ comma
 l_string|&quot;column&quot;
 comma
 op_amp
-id|colopts
+id|s.colopts
 comma
 l_string|&quot;list untracked files in columns&quot;
 )paren
@@ -6494,14 +6488,10 @@ id|finalize_colopts
 c_func
 (paren
 op_amp
-id|colopts
+id|s.colopts
 comma
 l_int|1
 )paren
-suffix:semicolon
-id|s.colopts
-op_assign
-id|colopts
 suffix:semicolon
 r_if
 c_cond
@@ -8086,6 +8076,10 @@ c_func
 op_amp
 id|s
 )paren
+suffix:semicolon
+id|s.colopts
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
