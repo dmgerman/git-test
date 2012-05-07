@@ -348,11 +348,6 @@ id|message
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-DECL|variable|null_termination
-r_static
-r_int
-id|null_termination
-suffix:semicolon
 r_static
 r_enum
 (brace
@@ -1937,8 +1932,6 @@ c_func
 (paren
 id|s
 comma
-id|null_termination
-comma
 id|status_show_branch
 )paren
 suffix:semicolon
@@ -1951,8 +1944,6 @@ id|wt_porcelain_print
 c_func
 (paren
 id|s
-comma
-id|null_termination
 )paren
 suffix:semicolon
 r_break
@@ -5656,7 +5647,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|null_termination
+id|s-&gt;null_termination
 op_logical_and
 id|status_format
 op_eq
@@ -6334,7 +6325,7 @@ comma
 l_string|&quot;null&quot;
 comma
 op_amp
-id|null_termination
+id|s.null_termination
 comma
 l_string|&quot;terminate entries with NUL&quot;
 )paren
@@ -6483,7 +6474,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|null_termination
+id|s.null_termination
 op_logical_and
 id|status_format
 op_eq
@@ -6626,8 +6617,6 @@ c_func
 op_amp
 id|s
 comma
-id|null_termination
-comma
 id|status_show_branch
 )paren
 suffix:semicolon
@@ -6641,8 +6630,6 @@ c_func
 (paren
 op_amp
 id|s
-comma
-id|null_termination
 )paren
 suffix:semicolon
 r_break
@@ -7844,7 +7831,7 @@ comma
 l_string|&quot;null&quot;
 comma
 op_amp
-id|null_termination
+id|s.null_termination
 comma
 l_string|&quot;terminate entries with NUL&quot;
 )paren

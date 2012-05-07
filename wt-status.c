@@ -4596,9 +4596,6 @@ r_void
 id|wt_shortstatus_unmerged
 c_func
 (paren
-r_int
-id|null_termination
-comma
 r_struct
 id|string_list_item
 op_star
@@ -4722,7 +4719,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|null_termination
+id|s-&gt;null_termination
 )paren
 (brace
 id|fprintf
@@ -4789,9 +4786,6 @@ r_void
 id|wt_shortstatus_status
 c_func
 (paren
-r_int
-id|null_termination
-comma
 r_struct
 id|string_list_item
 op_star
@@ -4879,7 +4873,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|null_termination
+id|s-&gt;null_termination
 )paren
 (brace
 id|fprintf
@@ -5078,9 +5072,6 @@ r_void
 id|wt_shortstatus_other
 c_func
 (paren
-r_int
-id|null_termination
-comma
 r_struct
 id|string_list_item
 op_star
@@ -5100,7 +5091,7 @@ id|sign
 r_if
 c_cond
 (paren
-id|null_termination
+id|s-&gt;null_termination
 )paren
 (brace
 id|fprintf
@@ -5599,9 +5590,6 @@ op_star
 id|s
 comma
 r_int
-id|null_termination
-comma
-r_int
 id|show_branch
 )paren
 (brace
@@ -5666,8 +5654,6 @@ id|d-&gt;stagemask
 id|wt_shortstatus_unmerged
 c_func
 (paren
-id|null_termination
-comma
 id|it
 comma
 id|s
@@ -5677,8 +5663,6 @@ r_else
 id|wt_shortstatus_status
 c_func
 (paren
-id|null_termination
-comma
 id|it
 comma
 id|s
@@ -5718,8 +5702,6 @@ suffix:semicolon
 id|wt_shortstatus_other
 c_func
 (paren
-id|null_termination
-comma
 id|it
 comma
 id|s
@@ -5761,8 +5743,6 @@ suffix:semicolon
 id|wt_shortstatus_other
 c_func
 (paren
-id|null_termination
-comma
 id|it
 comma
 id|s
@@ -5781,9 +5761,6 @@ r_struct
 id|wt_status
 op_star
 id|s
-comma
-r_int
-id|null_termination
 )paren
 (brace
 id|s-&gt;use_color
@@ -5802,8 +5779,6 @@ id|wt_shortstatus_print
 c_func
 (paren
 id|s
-comma
-id|null_termination
 comma
 l_int|0
 )paren
