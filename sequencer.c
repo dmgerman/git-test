@@ -1418,12 +1418,10 @@ c_func
 id|head_sha1
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * If head_commit is NULL, check_commit, called from&n;&t; * lookup_commit, would have indicated that head_commit is not&n;&t; * a commit object already.  parse_commit() will return failure&n;&t; * without further complaints in such a case.  Otherwise, if&n;&t; * the commit is invalid, parse_commit() will complain.  So&n;&t; * there is nothing for us to say here.  Just return failure.&n;&t; */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|head_commit
-op_logical_or
 id|parse_commit
 c_func
 (paren
@@ -1431,21 +1429,7 @@ id|head_commit
 )paren
 )paren
 r_return
-id|error
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;could not parse commit %s&bslash;n&quot;
-)paren
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|head_commit-&gt;object.sha1
-)paren
-)paren
+l_int|1
 suffix:semicolon
 r_if
 c_cond
