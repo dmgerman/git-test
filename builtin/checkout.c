@@ -5855,6 +5855,8 @@ op_logical_neg
 r_new
 dot
 id|commit
+op_logical_and
+id|opts.new_branch
 )paren
 (brace
 r_int
