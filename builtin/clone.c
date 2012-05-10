@@ -3187,7 +3187,7 @@ id|opts.verbose_update
 op_assign
 (paren
 id|option_verbosity
-OG
+op_ge
 l_int|0
 )paren
 suffix:semicolon
