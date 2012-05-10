@@ -11,6 +11,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
+macro_line|#include &quot;rerere.h&quot;
 multiline_comment|/*&n; *  --check turns on checking that the working tree matches the&n; *    files that are being modified, but doesn&squot;t apply the patch&n; *  --stat does just a diffstat, and doesn&squot;t actually apply&n; *  --numstat does numeric diffstat, and doesn&squot;t actually apply&n; *  --index-info shows the old and new index info for paths if available.&n; *  --index updates the cache as well.&n; *  --cached updates only the cache without ever touching the working tree.&n; */
 DECL|variable|prefix
 r_static
@@ -19195,6 +19196,12 @@ c_func
 op_amp
 id|cpath
 comma
+l_int|0
+)paren
+suffix:semicolon
+id|rerere
+c_func
+(paren
 l_int|0
 )paren
 suffix:semicolon
