@@ -374,6 +374,12 @@ r_break
 suffix:semicolon
 )brace
 )brace
+id|va_end
+c_func
+(paren
+id|ap
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
