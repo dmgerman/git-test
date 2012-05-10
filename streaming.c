@@ -368,7 +368,7 @@ id|git_istream
 op_star
 id|st
 comma
-r_char
+r_void
 op_star
 id|buf
 comma
