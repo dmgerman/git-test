@@ -4496,6 +4496,10 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * We&squot;re anal about diff header consistency, to make&n; * sure that we don&squot;t end up having strange ambiguous&n; * patches floating around.&n; *&n; * As a result, gitdiff_{old|new}name() will check&n; * their names against any previous information, just&n; * to make sure..&n; */
+DECL|macro|DIFF_OLD_NAME
+mdefine_line|#define DIFF_OLD_NAME 0
+DECL|macro|DIFF_NEW_NAME
+mdefine_line|#define DIFF_NEW_NAME 1
 DECL|function|gitdiff_verify_name
 r_static
 r_char
@@ -4515,10 +4519,8 @@ r_char
 op_star
 id|orig_name
 comma
-r_const
-r_char
-op_star
-id|oldnew
+r_int
+id|side
 )paren
 (brace
 r_if
@@ -4627,13 +4629,24 @@ l_int|1
 id|die
 c_func
 (paren
+(paren
+id|side
+op_eq
+id|DIFF_NEW_NAME
+)paren
+ques
+c_cond
 id|_
 c_func
 (paren
-l_string|&quot;git apply: bad git-diff - inconsistent %s filename on line %d&quot;
+l_string|&quot;git apply: bad git-diff - inconsistent new filename on line %d&quot;
 )paren
-comma
-id|oldnew
+suffix:colon
+id|_
+c_func
+(paren
+l_string|&quot;git apply: bad git-diff - inconsistent old filename on line %d&quot;
+)paren
 comma
 id|linenr
 )paren
@@ -4722,7 +4735,7 @@ id|patch-&gt;is_new
 comma
 id|patch-&gt;old_name
 comma
-l_string|&quot;old&quot;
+id|DIFF_OLD_NAME
 )paren
 suffix:semicolon
 r_if
@@ -4776,7 +4789,7 @@ id|patch-&gt;is_delete
 comma
 id|patch-&gt;new_name
 comma
-l_string|&quot;new&quot;
+id|DIFF_NEW_NAME
 )paren
 suffix:semicolon
 r_if
