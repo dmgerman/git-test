@@ -385,6 +385,10 @@ id|ctx.date_mode
 op_assign
 id|revs-&gt;date_mode
 suffix:semicolon
+id|ctx.date_mode_explicit
+op_assign
+id|revs-&gt;date_mode_explicit
+suffix:semicolon
 id|ctx.fmt
 op_assign
 id|revs-&gt;commit_format
