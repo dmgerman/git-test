@@ -3419,6 +3419,13 @@ c_func
 id|prefix
 )paren
 suffix:semicolon
+r_else
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
