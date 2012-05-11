@@ -19484,7 +19484,9 @@ comma
 l_string|&quot;--patience&quot;
 )paren
 )paren
-id|DIFF_XDL_SET
+id|options-&gt;xdl_opts
+op_assign
+id|DIFF_WITH_ALG
 c_func
 (paren
 id|options
@@ -19505,7 +19507,9 @@ comma
 l_string|&quot;--histogram&quot;
 )paren
 )paren
-id|DIFF_XDL_SET
+id|options-&gt;xdl_opts
+op_assign
+id|DIFF_WITH_ALG
 c_func
 (paren
 id|options

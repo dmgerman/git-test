@@ -1107,7 +1107,7 @@ op_assign
 id|map-&gt;xpp-&gt;flags
 op_amp
 op_complement
-id|XDF_PATIENCE_DIFF
+id|XDF_DIFF_ALGORITHM_MASK
 suffix:semicolon
 r_return
 id|xdl_fall_back_diff
