@@ -257,7 +257,7 @@ id|xdemitcb_t
 id|ecb
 op_assign
 (brace
-l_int|0
+l_int|NULL
 )brace
 suffix:semicolon
 id|xpp.flags
