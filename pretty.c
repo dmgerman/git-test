@@ -5563,6 +5563,8 @@ id|c-&gt;pretty_ctx-&gt;reflog_info
 comma
 id|c-&gt;pretty_ctx-&gt;date_mode
 comma
+id|c-&gt;pretty_ctx-&gt;date_mode_explicit
+comma
 (paren
 id|placeholder
 (braket
