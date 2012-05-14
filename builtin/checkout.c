@@ -3622,7 +3622,12 @@ c_func
 r_struct
 id|commit
 op_star
+id|old
+comma
+r_struct
 id|commit
+op_star
+r_new
 )paren
 (brace
 r_struct
@@ -3635,7 +3640,7 @@ op_star
 id|object
 op_assign
 op_amp
-id|commit-&gt;object
+id|old-&gt;object
 suffix:semicolon
 r_struct
 id|object_array
@@ -3692,6 +3697,21 @@ op_amp
 id|revs
 )paren
 suffix:semicolon
+id|add_pending_sha1
+c_func
+(paren
+op_amp
+id|revs
+comma
+l_string|&quot;HEAD&quot;
+comma
+r_new
+op_member_access_from_pointer
+id|object.sha1
+comma
+id|UNINTERESTING
+)paren
+suffix:semicolon
 id|refs
 op_assign
 id|revs.pending
@@ -3725,7 +3745,7 @@ c_cond
 (paren
 op_logical_neg
 (paren
-id|commit-&gt;object.flags
+id|old-&gt;object.flags
 op_amp
 id|UNINTERESTING
 )paren
@@ -3733,7 +3753,7 @@ id|UNINTERESTING
 id|suggest_reattach
 c_func
 (paren
-id|commit
+id|old
 comma
 op_amp
 id|revs
@@ -3749,7 +3769,7 @@ c_func
 l_string|&quot;Previous HEAD position was&quot;
 )paren
 comma
-id|commit
+id|old
 )paren
 suffix:semicolon
 id|clear_commit_marks_for_object_array
@@ -3985,6 +4005,10 @@ id|orphaned_commit_warning
 c_func
 (paren
 id|old.commit
+comma
+r_new
+op_member_access_from_pointer
+id|commit
 )paren
 suffix:semicolon
 id|update_refs_for_switch
