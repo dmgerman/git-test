@@ -689,14 +689,14 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|strbuf_reset
+id|strbuf_release
 c_func
 (paren
 op_amp
 id|buffer1
 )paren
 suffix:semicolon
-id|strbuf_reset
+id|strbuf_release
 c_func
 (paren
 op_amp
