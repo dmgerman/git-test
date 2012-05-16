@@ -2503,9 +2503,11 @@ op_eq
 id|INFTIM
 )paren
 (brace
-id|SwitchToThread
-c_func
+id|SleepEx
 (paren
+l_int|1
+comma
+id|TRUE
 )paren
 suffix:semicolon
 r_goto
