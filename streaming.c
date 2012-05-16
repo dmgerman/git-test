@@ -473,7 +473,7 @@ op_logical_neg
 id|oi-&gt;u.packed.is_delta
 op_logical_and
 id|big_file_threshold
-op_le
+OL
 id|size
 )paren
 r_return

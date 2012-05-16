@@ -6378,7 +6378,7 @@ r_if
 c_cond
 (paren
 id|big_file_threshold
-op_le
+OL
 id|entry-&gt;size
 )paren
 id|entry-&gt;no_try_delta
