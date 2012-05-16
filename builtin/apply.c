@@ -14996,6 +14996,7 @@ id|old_name
 op_assign
 id|patch-&gt;old_name
 suffix:semicolon
+multiline_comment|/*&n;&t; * A type-change diff is always split into a patch to delete&n;&t; * old, immediately followed by a patch to create new (see&n;&t; * diff.c::run_diff()); in such a case it is Ok that the entry&n;&t; * to be deleted by the previous patch is still in the working&n;&t; * tree and in the index.&n;&t; *&n;&t; * A patch to swap-rename between A and B would first rename A&n;&t; * to B and then rename B to A.  While applying the first one,&n;&t; * the presense of B should not stop A from getting renamed to&n;&t; * B; ask to_be_deleted() about the later rename.  Removal of&n;&t; * B and rename from A to B is handled the same way by asking&n;&t; * was_deleted().&n;&t; */
 r_if
 c_cond
 (paren
@@ -15023,7 +15024,6 @@ id|tpatch
 )paren
 )paren
 )paren
-multiline_comment|/*&n;&t;&t; * A type-change diff is always split into a patch to&n;&t;&t; * delete old, immediately followed by a patch to&n;&t;&t; * create new (see diff.c::run_diff()); in such a case&n;&t;&t; * it is Ok that the entry to be deleted by the&n;&t;&t; * previous patch is still in the working tree and in&n;&t;&t; * the index.&n;&t;&t; */
 id|ok_if_exists
 op_assign
 l_int|1
