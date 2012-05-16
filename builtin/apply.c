@@ -13728,7 +13728,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * item-&gt;util in the filename table records the status of the path.&n; * Usually it points at a patch (whose result records the contents&n; * of it after applying it), but it could be PATH_WAS_DELETED for a&n; * path that a previously applied patch has already removed.&n; */
+multiline_comment|/*&n; * item-&gt;util in the filename table records the status of the path.&n; * Usually it points at a patch (whose result records the contents&n; * of it after applying it), but it could be PATH_WAS_DELETED for a&n; * path that a previously applied patch has already removed, or&n; * PATH_TO_BE_DELETED for a path that a later patch would remove.&n; *&n; * The latter is needed to deal with a case where two paths A and B&n; * are swapped by first renaming A to B and then renaming B to A;&n; * moving A to B should not be prevented due to presense of B as we&n; * will remove it in a later patch.&n; */
 DECL|macro|PATH_TO_BE_DELETED
 mdefine_line|#define PATH_TO_BE_DELETED ((struct patch *) -2)
 DECL|macro|PATH_WAS_DELETED
