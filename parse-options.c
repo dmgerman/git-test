@@ -2910,9 +2910,17 @@ comma
 id|opts-&gt;argh
 ques
 c_cond
+id|_
+c_func
+(paren
 id|opts-&gt;argh
+)paren
 suffix:colon
+id|_
+c_func
+(paren
 l_string|&quot;...&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -2991,16 +2999,24 @@ comma
 l_string|&quot;cat &lt;&lt;&bslash;&bslash;EOF&bslash;n&quot;
 )paren
 suffix:semicolon
-id|fprintf
+id|fprintf_ln
 c_func
 (paren
 id|outfile
 comma
-l_string|&quot;usage: %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;usage: %s&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 op_star
 id|usagestr
 op_increment
+)paren
 )paren
 suffix:semicolon
 r_while
@@ -3013,16 +3029,25 @@ op_star
 op_star
 id|usagestr
 )paren
-id|fprintf
+multiline_comment|/* TRANSLATORS: the colon here should align with the&n;&t;&t;   one in &quot;usage: %s&quot; translation */
+id|fprintf_ln
 c_func
 (paren
 id|outfile
 comma
-l_string|&quot;   or: %s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;   or: %s&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 op_star
 id|usagestr
 op_increment
+)paren
 )paren
 suffix:semicolon
 r_while
@@ -3032,24 +3057,37 @@ op_star
 id|usagestr
 )paren
 (brace
-id|fprintf
+r_if
+c_cond
+(paren
+op_star
+op_star
+id|usagestr
+)paren
+id|fprintf_ln
 c_func
 (paren
 id|outfile
 comma
-l_string|&quot;%s%s&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;    %s&quot;
+)paren
 comma
-op_star
+id|_
+c_func
+(paren
 op_star
 id|usagestr
-ques
-c_cond
-l_string|&quot;    &quot;
-suffix:colon
-l_string|&quot;&quot;
-comma
-op_star
-id|usagestr
+)paren
+)paren
+suffix:semicolon
+r_else
+id|putchar
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 id|usagestr
@@ -3118,7 +3156,11 @@ id|outfile
 comma
 l_string|&quot;%s&bslash;n&quot;
 comma
+id|_
+c_func
+(paren
 id|opts-&gt;help
+)paren
 )paren
 suffix:semicolon
 r_continue
@@ -3304,7 +3346,11 @@ id|USAGE_GAP
 comma
 l_string|&quot;&quot;
 comma
+id|_
+c_func
+(paren
 id|opts-&gt;help
+)paren
 )paren
 suffix:semicolon
 )brace

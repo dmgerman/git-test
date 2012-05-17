@@ -148,7 +148,11 @@ id|apply_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git apply [options] [&lt;patch&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -18892,9 +18896,17 @@ l_string|&quot;exclude&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t apply changes matching the given path&quot;
+)paren
 comma
 l_int|0
 comma
@@ -18910,9 +18922,17 @@ l_string|&quot;include&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;apply changes matching the given path&quot;
+)paren
 comma
 l_int|0
 comma
@@ -18928,9 +18948,17 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;num&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;remove &lt;num&gt; leading slashes from traditional diff paths&quot;
+)paren
 comma
 l_int|0
 comma
@@ -18947,7 +18975,11 @@ comma
 op_amp
 id|no_add
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore additions made by the patch&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -18960,7 +18992,11 @@ comma
 op_amp
 id|diffstat
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;instead of applying the patch, output diffstat for the input&quot;
+)paren
 )paren
 comma
 id|OPT_NOOP_NOARG
@@ -18989,7 +19025,11 @@ comma
 op_amp
 id|numstat
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;shows number of added and deleted lines in decimal notation&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19002,7 +19042,11 @@ comma
 op_amp
 id|summary
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;instead of applying the patch, output a summary for the input&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19015,7 +19059,11 @@ comma
 op_amp
 id|check
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;instead of applying the patch, see if the patch is applicable&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19028,7 +19076,11 @@ comma
 op_amp
 id|check_index
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;make sure the patch is applicable to the current index&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19041,7 +19093,11 @@ comma
 op_amp
 id|cached
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;apply a patch without touching the working tree&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19054,7 +19110,11 @@ comma
 op_amp
 id|force_apply
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;also apply the patch (use with --stat/--summary/--check)&quot;
+)paren
 )paren
 comma
 id|OPT_FILENAME
@@ -19067,7 +19127,11 @@ comma
 op_amp
 id|fake_ancestor
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;build a temporary index based on embedded index information&quot;
+)paren
 )paren
 comma
 (brace
@@ -19081,7 +19145,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;paths are separated with NUL character&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -19098,7 +19166,11 @@ comma
 op_amp
 id|p_context
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ensure at least &lt;n&gt; lines of context match&quot;
+)paren
 )paren
 comma
 (brace
@@ -19111,9 +19183,17 @@ comma
 op_amp
 id|whitespace_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;action&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;detect new or modified lines that have whitespace errors&quot;
+)paren
 comma
 l_int|0
 comma
@@ -19131,7 +19211,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore changes in whitespace when finding context&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -19149,7 +19233,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore changes in whitespace when finding context&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -19166,7 +19254,11 @@ comma
 op_amp
 id|apply_in_reverse
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;apply the patch in reverse&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19179,7 +19271,11 @@ comma
 op_amp
 id|unidiff_zero
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t expect at least one line of context&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19192,7 +19288,11 @@ comma
 op_amp
 id|apply_with_reject
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;leave the rejected hunks in corresponding *.rej files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -19205,7 +19305,11 @@ comma
 op_amp
 id|allow_overlap
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow overlapping hunks&quot;
+)paren
 )paren
 comma
 id|OPT__VERBOSE
@@ -19214,7 +19318,11 @@ c_func
 op_amp
 id|apply_verbosely
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -19227,7 +19335,11 @@ comma
 op_amp
 id|options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;tolerate incorrectly detected missing new-line at the end of file&quot;
+)paren
 comma
 id|INACCURATE_EOF
 )paren
@@ -19242,7 +19354,11 @@ comma
 op_amp
 id|options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not trust the line counts in the hunk headers&quot;
+)paren
 comma
 id|RECOUNT
 )paren
@@ -19256,9 +19372,17 @@ l_string|&quot;directory&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;root&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prepend &lt;root&gt; to all filenames&quot;
+)paren
 comma
 l_int|0
 comma
