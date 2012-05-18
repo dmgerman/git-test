@@ -3917,7 +3917,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Not updating non-default fetch respec&bslash;n&quot;
+l_string|&quot;Not updating non-default fetch refspec&bslash;n&quot;
 l_string|&quot;&bslash;t%s&bslash;n&quot;
 l_string|&quot;&bslash;tPlease update the configuration manually if necessary.&quot;
 )paren
