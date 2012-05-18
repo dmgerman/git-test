@@ -440,11 +440,13 @@ op_star
 id|header
 )paren
 (brace
+r_const
 r_char
 op_star
 id|p
 op_assign
 (paren
+r_const
 r_char
 op_star
 )paren
@@ -491,6 +493,7 @@ c_loop
 id|p
 OL
 (paren
+r_const
 r_char
 op_star
 )paren
