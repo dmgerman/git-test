@@ -744,16 +744,16 @@ id|entry-&gt;flag
 op_amp
 id|REF_DIR
 )paren
+(brace
+multiline_comment|/*&n;&t;&t; * Do not use get_ref_dir() here, as that might&n;&t;&t; * trigger the reading of loose refs.&n;&t;&t; */
 id|clear_ref_dir
 c_func
 (paren
-id|get_ref_dir
-c_func
-(paren
-id|entry
-)paren
+op_amp
+id|entry-&gt;u.subdir
 )paren
 suffix:semicolon
+)brace
 id|free
 c_func
 (paren
