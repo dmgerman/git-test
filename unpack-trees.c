@@ -5423,7 +5423,7 @@ id|changed
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * NEEDSWORK: the current default policy is to allow&n;&t;&t; * submodule to be out of sync wrt the supermodule&n;&t;&t; * index.  This needs to be tightened later for&n;&t;&t; * submodules that are marked to be automatically&n;&t;&t; * checked out.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * NEEDSWORK: the current default policy is to allow&n;&t;&t; * submodule to be out of sync wrt the superproject&n;&t;&t; * index.  This needs to be tightened later for&n;&t;&t; * submodules that are marked to be automatically&n;&t;&t; * checked out.&n;&t;&t; */
 r_if
 c_cond
 (paren
