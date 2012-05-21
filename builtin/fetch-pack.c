@@ -4617,12 +4617,14 @@ id|ref
 op_assign
 l_int|NULL
 suffix:semicolon
+r_const
 r_char
 op_star
 id|dest
 op_assign
 l_int|NULL
-comma
+suffix:semicolon
+r_char
 op_star
 op_star
 id|heads
@@ -5009,10 +5011,6 @@ suffix:semicolon
 )brace
 id|dest
 op_assign
-(paren
-r_char
-op_star
-)paren
 id|arg
 suffix:semicolon
 id|heads
@@ -5275,10 +5273,6 @@ c_func
 (paren
 id|fd
 comma
-(paren
-r_char
-op_star
-)paren
 id|dest
 comma
 id|args.uploadpack
