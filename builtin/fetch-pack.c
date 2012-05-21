@@ -3974,6 +3974,15 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+id|sort_ref_list
+c_func
+(paren
+op_amp
+id|ref
+comma
+id|ref_compare_name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
