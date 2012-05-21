@@ -2,24 +2,6 @@ multiline_comment|/*&n; * We put all the git config variables in this same objec
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;fmt-merge-msg.h&quot;
-DECL|variable|git_default_email
-r_char
-id|git_default_email
-(braket
-id|MAX_GITNAME
-)braket
-suffix:semicolon
-DECL|variable|git_default_name
-r_char
-id|git_default_name
-(braket
-id|MAX_GITNAME
-)braket
-suffix:semicolon
-DECL|variable|user_ident_explicitly_given
-r_int
-id|user_ident_explicitly_given
-suffix:semicolon
 DECL|variable|trust_executable_bit
 r_int
 id|trust_executable_bit

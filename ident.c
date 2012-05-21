@@ -1,5 +1,23 @@
 multiline_comment|/*&n; * ident.c&n; *&n; * create git identifier lines of the form &quot;name &lt;email&gt; date&quot;&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
+DECL|macro|MAX_GITNAME
+mdefine_line|#define MAX_GITNAME (1000)
+DECL|variable|git_default_name
+r_static
+r_char
+id|git_default_name
+(braket
+id|MAX_GITNAME
+)braket
+suffix:semicolon
+DECL|variable|git_default_email
+r_static
+r_char
+id|git_default_email
+(braket
+id|MAX_GITNAME
+)braket
+suffix:semicolon
 DECL|variable|git_default_date
 r_static
 r_char
@@ -7,6 +25,10 @@ id|git_default_date
 (braket
 l_int|50
 )braket
+suffix:semicolon
+DECL|variable|user_ident_explicitly_given
+r_int
+id|user_ident_explicitly_given
 suffix:semicolon
 macro_line|#ifdef NO_GECOS_IN_PWENT
 DECL|macro|get_gecos
