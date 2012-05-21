@@ -4184,7 +4184,10 @@ op_assign
 id|xml_entities
 c_func
 (paren
-id|git_default_email
+id|ident_default_email
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addf
