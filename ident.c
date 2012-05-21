@@ -1613,22 +1613,9 @@ c_func
 l_string|&quot;You don&squot;t exist. Go away!&quot;
 )paren
 suffix:semicolon
-id|strlcpy
-c_func
-(paren
-id|git_default_name
-comma
-id|pw-&gt;pw_name
-comma
-r_sizeof
-(paren
-id|git_default_name
-)paren
-)paren
-suffix:semicolon
 id|name
 op_assign
-id|git_default_name
+id|pw-&gt;pw_name
 suffix:semicolon
 )brace
 id|strcpy
