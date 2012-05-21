@@ -438,6 +438,7 @@ c_cond
 op_logical_neg
 id|git_default_name.len
 )paren
+(brace
 id|copy_gecos
 c_func
 (paren
@@ -450,6 +451,14 @@ op_amp
 id|git_default_name
 )paren
 suffix:semicolon
+id|strbuf_trim
+c_func
+(paren
+op_amp
+id|git_default_name
+)paren
+suffix:semicolon
+)brace
 r_return
 id|git_default_name.buf
 suffix:semicolon
@@ -516,6 +525,13 @@ c_func
 (paren
 )paren
 comma
+op_amp
+id|git_default_email
+)paren
+suffix:semicolon
+id|strbuf_trim
+c_func
+(paren
 op_amp
 id|git_default_email
 )paren
