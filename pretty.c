@@ -2337,11 +2337,10 @@ id|line
 op_assign
 id|commit-&gt;buffer
 suffix:semicolon
-r_for
+r_while
 c_loop
 (paren
-suffix:semicolon
-suffix:semicolon
+id|line
 )paren
 (brace
 r_const
@@ -2377,6 +2376,18 @@ op_logical_neg
 id|eol
 )paren
 (brace
+id|warning
+c_func
+(paren
+l_string|&quot;malformed commit (header is missing newline): %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|commit-&gt;object.sha1
+)paren
+)paren
+suffix:semicolon
 id|eol
 op_assign
 id|line
@@ -2448,6 +2459,9 @@ op_assign
 id|next
 suffix:semicolon
 )brace
+r_return
+l_int|NULL
+suffix:semicolon
 )brace
 DECL|function|replace_encoding_header
 r_static
