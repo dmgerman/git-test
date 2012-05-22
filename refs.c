@@ -878,6 +878,9 @@ op_star
 id|dirname
 comma
 r_int
+id|len
+comma
+r_int
 id|incomplete
 )paren
 (brace
@@ -885,15 +888,6 @@ r_struct
 id|ref_entry
 op_star
 id|direntry
-suffix:semicolon
-r_int
-id|len
-op_assign
-id|strlen
-c_func
-(paren
-id|dirname
-)paren
 suffix:semicolon
 id|direntry
 op_assign
@@ -921,9 +915,14 @@ comma
 id|dirname
 comma
 id|len
-op_plus
-l_int|1
 )paren
+suffix:semicolon
+id|direntry-&gt;name
+(braket
+id|len
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 id|direntry-&gt;u.subdir.ref_cache
 op_assign
@@ -1210,6 +1209,8 @@ c_func
 id|dir-&gt;ref_cache
 comma
 id|subdirname
+comma
+id|len
 comma
 l_int|0
 )paren
@@ -3359,6 +3360,8 @@ comma
 l_string|&quot;&quot;
 comma
 l_int|0
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -3736,6 +3739,8 @@ id|refs
 comma
 id|refname.buf
 comma
+id|refname.len
+comma
 l_int|1
 )paren
 )paren
@@ -3892,6 +3897,8 @@ comma
 l_string|&quot;&quot;
 comma
 l_int|0
+comma
+l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * Create an incomplete entry for &quot;refs/&quot;:&n;&t;&t; */
@@ -3910,6 +3917,8 @@ c_func
 id|refs
 comma
 l_string|&quot;refs/&quot;
+comma
+l_int|5
 comma
 l_int|1
 )paren
