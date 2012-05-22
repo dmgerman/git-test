@@ -1390,12 +1390,35 @@ l_int|8
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * Jan Achrenius on G+: microoptimized version of&n;&t;&t; * the simpler &quot;(mask &amp; ONEBYTES) * ONEBYTES &gt;&gt; 56&quot;&n;&t;&t; * that works for the bytemasks without having to&n;&t;&t; * mask them first.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * return mask * 0x0001020304050608 &gt;&gt; 56;&n;&t;&t; *&n;&t;&t; * Doing it like this avoids warnings on 32-bit machines.&n;&t;&t; */
+r_int
+id|a
+op_assign
+(paren
+id|REPEAT_BYTE
+c_func
+(paren
+l_int|0x01
+)paren
+op_div
+l_int|0xff
+op_plus
+l_int|1
+)paren
+suffix:semicolon
 r_return
 id|mask
 op_star
-l_int|0x0001020304050608
+id|a
 op_rshift
-l_int|56
+(paren
+r_sizeof
+(paren
+r_int
+)paren
+op_star
+l_int|7
+)paren
 suffix:semicolon
 )brace
 r_else
