@@ -1640,10 +1640,6 @@ id|opt-&gt;header_list
 r_return
 l_int|NULL
 suffix:semicolon
-id|p
-op_assign
-id|opt-&gt;header_list
-suffix:semicolon
 r_for
 c_loop
 (paren

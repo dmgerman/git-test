@@ -3834,15 +3834,18 @@ r_int
 id|no_checkout
 )paren
 (brace
-r_const
 r_char
 op_star
 id|filename
 op_assign
+id|xstrdup
+c_func
+(paren
 id|git_path
 c_func
 (paren
 l_string|&quot;BISECT_ANCESTORS_OK&quot;
+)paren
 )paren
 suffix:semicolon
 r_struct
@@ -3884,7 +3887,8 @@ c_func
 id|st.st_mode
 )paren
 )paren
-r_return
+r_goto
+id|done
 suffix:semicolon
 multiline_comment|/* Bisecting with no good rev is ok. */
 r_if
@@ -3894,7 +3898,8 @@ id|good_revs.nr
 op_eq
 l_int|0
 )paren
-r_return
+r_goto
+id|done
 suffix:semicolon
 multiline_comment|/* Check if all good revs are ancestor of the bad rev. */
 r_if
@@ -3955,6 +3960,14 @@ id|close
 c_func
 (paren
 id|fd
+)paren
+suffix:semicolon
+id|done
+suffix:colon
+id|free
+c_func
+(paren
+id|filename
 )paren
 suffix:semicolon
 )brace
