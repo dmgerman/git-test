@@ -1330,12 +1330,14 @@ id|ha
 suffix:semicolon
 )brace
 macro_line|#ifdef XDL_FAST_HASH
+DECL|macro|REPEAT_BYTE
+mdefine_line|#define REPEAT_BYTE(x)  ((~0ul / 0xff) * (x))
 DECL|macro|ONEBYTES
-mdefine_line|#define ONEBYTES&t;0x0101010101010101ul
+mdefine_line|#define ONEBYTES&t;REPEAT_BYTE(0x01)
 DECL|macro|NEWLINEBYTES
-mdefine_line|#define NEWLINEBYTES&t;0x0a0a0a0a0a0a0a0aul
+mdefine_line|#define NEWLINEBYTES&t;REPEAT_BYTE(0x0a)
 DECL|macro|HIGHBITS
-mdefine_line|#define HIGHBITS&t;0x8080808080808080ul
+mdefine_line|#define HIGHBITS&t;REPEAT_BYTE(0x80)
 multiline_comment|/* Return the high bit set in the first byte that is a zero */
 DECL|function|has_zero
 r_static
