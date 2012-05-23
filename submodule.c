@@ -262,6 +262,15 @@ id|alt_odb_list
 op_assign
 id|alt_odb
 suffix:semicolon
+multiline_comment|/* add possible alternates from the submodule */
+id|read_info_alternates
+c_func
+(paren
+id|objects_directory.buf
+comma
+l_int|0
+)paren
+suffix:semicolon
 id|prepare_alt_odb
 c_func
 (paren
