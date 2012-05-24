@@ -6145,7 +6145,7 @@ op_assign
 id|git_committer_info
 c_func
 (paren
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 )paren
 suffix:semicolon
 id|endpos

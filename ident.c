@@ -1207,12 +1207,12 @@ l_int|50
 )braket
 suffix:semicolon
 r_int
-id|error_on_no_name
+id|strict
 op_assign
 (paren
 id|flag
 op_amp
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 )paren
 suffix:semicolon
 r_int
@@ -1281,7 +1281,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|error_on_no_name
+id|strict
 )paren
 (brace
 r_if
@@ -1489,7 +1489,7 @@ id|email
 comma
 l_int|NULL
 comma
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 op_or
 id|IDENT_NO_DATE
 )paren

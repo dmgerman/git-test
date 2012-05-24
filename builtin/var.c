@@ -40,7 +40,7 @@ id|pgm
 op_logical_and
 id|flag
 op_amp
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 )paren
 id|die
 c_func
@@ -273,7 +273,7 @@ op_member_access_from_pointer
 id|read
 c_func
 (paren
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 )paren
 suffix:semicolon
 r_break

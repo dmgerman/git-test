@@ -8795,7 +8795,7 @@ multiline_comment|/* See if it is really trivial. */
 id|git_committer_info
 c_func
 (paren
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 )paren
 suffix:semicolon
 id|printf
@@ -8950,7 +8950,7 @@ multiline_comment|/* We are going to make a new commit. */
 id|git_committer_info
 c_func
 (paren
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * At this point, we need a real merge.  No matter what strategy&n;&t; * we use, it would operate on the index, possibly affecting the&n;&t; * working tree, and when resolved cleanly, have the desired&n;&t; * tree in the index -- this means that the index must be in&n;&t; * sync with the head commit.  The strategies are responsible&n;&t; * to ensure this.&n;&t; */
