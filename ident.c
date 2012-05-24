@@ -1287,9 +1287,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;empty ident %s &lt;%s&gt; not allowed&quot;
-comma
-id|name
+l_string|&quot;empty ident name (for &lt;%s&gt;) not allowed&quot;
 comma
 id|email
 )paren
