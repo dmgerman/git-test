@@ -3865,6 +3865,8 @@ c_func
 id|IDENT_NO_NAME
 op_or
 id|IDENT_NO_DATE
+op_or
+id|IDENT_STRICT
 )paren
 )paren
 suffix:semicolon
