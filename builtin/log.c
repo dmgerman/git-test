@@ -3859,9 +3859,12 @@ c_func
 l_int|NULL
 )paren
 comma
-id|ident_default_email
+id|git_committer_info
 c_func
 (paren
+id|IDENT_NO_NAME
+op_or
+id|IDENT_NO_DATE
 )paren
 )paren
 suffix:semicolon
