@@ -1225,9 +1225,21 @@ op_amp
 id|IDENT_NO_DATE
 )paren
 suffix:semicolon
+r_int
+id|want_name
+op_assign
+op_logical_neg
+(paren
+id|flag
+op_amp
+id|IDENT_NO_NAME
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
+id|want_name
+op_logical_and
 op_logical_neg
 id|name
 )paren
@@ -1254,6 +1266,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|want_name
+op_logical_and
 op_logical_neg
 op_star
 id|name
@@ -1370,6 +1384,12 @@ op_amp
 id|ident
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|want_name
+)paren
+(brace
 id|strbuf_addstr_without_crud
 c_func
 (paren
@@ -1388,6 +1408,7 @@ comma
 l_string|&quot; &lt;&quot;
 )paren
 suffix:semicolon
+)brace
 id|strbuf_addstr_without_crud
 c_func
 (paren
@@ -1397,6 +1418,11 @@ comma
 id|email
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|want_name
+)paren
 id|strbuf_addch
 c_func
 (paren
