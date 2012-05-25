@@ -1979,6 +1979,12 @@ id|opts.verbose_update
 op_assign
 op_logical_neg
 id|o-&gt;quiet
+op_logical_and
+id|isatty
+c_func
+(paren
+l_int|2
+)paren
 suffix:semicolon
 id|opts.src_index
 op_assign
@@ -2363,6 +2369,12 @@ id|topts.verbose_update
 op_assign
 op_logical_neg
 id|opts-&gt;quiet
+op_logical_and
+id|isatty
+c_func
+(paren
+l_int|2
+)paren
 suffix:semicolon
 id|topts.fn
 op_assign
