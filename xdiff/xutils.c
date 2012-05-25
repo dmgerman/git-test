@@ -1206,12 +1206,14 @@ id|ha
 suffix:semicolon
 )brace
 macro_line|#ifdef XDL_FAST_HASH
+DECL|macro|REPEAT_BYTE
+mdefine_line|#define REPEAT_BYTE(x)  ((~0ul / 0xff) * (x))
 DECL|macro|ONEBYTES
-mdefine_line|#define ONEBYTES&t;0x0101010101010101ul
+mdefine_line|#define ONEBYTES&t;REPEAT_BYTE(0x01)
 DECL|macro|NEWLINEBYTES
-mdefine_line|#define NEWLINEBYTES&t;0x0a0a0a0a0a0a0a0aul
+mdefine_line|#define NEWLINEBYTES&t;REPEAT_BYTE(0x0a)
 DECL|macro|HIGHBITS
-mdefine_line|#define HIGHBITS&t;0x8080808080808080ul
+mdefine_line|#define HIGHBITS&t;REPEAT_BYTE(0x80)
 multiline_comment|/* Return the high bit set in the first byte that is a zero */
 DECL|function|has_zero
 r_static
@@ -1264,40 +1266,57 @@ l_int|8
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * Jan Achrenius on G+: microoptimized version of&n;&t;&t; * the simpler &quot;(mask &amp; ONEBYTES) * ONEBYTES &gt;&gt; 56&quot;&n;&t;&t; * that works for the bytemasks without having to&n;&t;&t; * mask them first.&n;&t;&t; */
-r_return
-id|mask
-op_star
-l_int|0x0001020304050608
-op_rshift
-l_int|56
-suffix:semicolon
-)brace
-r_else
-(brace
-multiline_comment|/*&n;&t;&t; * Modified Carl Chatfield G+ version for 32-bit *&n;&t;&t; *&n;&t;&t; * (a) gives us&n;&t;&t; *   -1 (0, ff), 0 (ffff) or 1 (ffffff)&n;&t;&t; * (b) gives us&n;&t;&t; *   0 for 0, 1 for (ff ffff ffffff)&n;&t;&t; * (a+b+1) gives us&n;&t;&t; *   correct 0-3 bytemask count result&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * return mask * 0x0001020304050608 &gt;&gt; 56;&n;&t;&t; *&n;&t;&t; * Doing it like this avoids warnings on 32-bit machines.&n;&t;&t; */
 r_int
 id|a
 op_assign
 (paren
+id|REPEAT_BYTE
+c_func
+(paren
+l_int|0x01
+)paren
+op_div
+l_int|0xff
+op_plus
+l_int|1
+)paren
+suffix:semicolon
+r_return
 id|mask
-l_int|256
+op_star
+id|a
+op_rshift
+(paren
+r_sizeof
+(paren
+r_int
+)paren
+op_star
+l_int|7
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/* Carl Chatfield / Jan Achrenius G+ version for 32-bit */
+multiline_comment|/* (000000 0000ff 00ffff ffffff) -&gt; ( 1 1 2 3 ) */
+r_int
+id|a
+op_assign
+(paren
+l_int|0x0ff0001
+op_plus
+id|mask
 )paren
 op_rshift
 l_int|23
 suffix:semicolon
-r_int
-id|b
-op_assign
-id|mask
-op_amp
-l_int|1
-suffix:semicolon
+multiline_comment|/* Fix the 1 for 00 case */
 r_return
 id|a
-op_plus
-id|b
-op_plus
-l_int|1
+op_amp
+id|mask
 suffix:semicolon
 )brace
 )brace
