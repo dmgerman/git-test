@@ -2481,9 +2481,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|el-&gt;nr
 )paren
-(brace
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* undefined */
 r_for
 c_loop
 (paren
@@ -2653,15 +2657,10 @@ r_return
 id|to_exclude
 suffix:semicolon
 )brace
-)brace
-r_else
-(brace
-multiline_comment|/* match with FNM_PATHNAME:&n;&t;&t;&t;&t; * exclude has base (baselen long) implicitly&n;&t;&t;&t;&t; * in front of it.&n;&t;&t;&t;&t; */
-r_int
-id|baselen
-op_assign
-id|x-&gt;baselen
+r_continue
 suffix:semicolon
+)brace
+multiline_comment|/* match with FNM_PATHNAME:&n;&t;&t; * exclude has base (baselen long) implicitly in front of it.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2678,14 +2677,14 @@ c_cond
 (paren
 id|pathlen
 OL
-id|baselen
+id|x-&gt;baselen
 op_logical_or
 (paren
-id|baselen
+id|x-&gt;baselen
 op_logical_and
 id|pathname
 (braket
-id|baselen
+id|x-&gt;baselen
 op_minus
 l_int|1
 )braket
@@ -2700,7 +2699,7 @@ id|pathname
 comma
 id|x-&gt;base
 comma
-id|baselen
+id|x-&gt;baselen
 )paren
 )paren
 r_continue
@@ -2724,7 +2723,7 @@ id|exclude
 comma
 id|pathname
 op_plus
-id|baselen
+id|x-&gt;baselen
 )paren
 )paren
 r_return
@@ -2743,7 +2742,7 @@ id|exclude
 comma
 id|pathname
 op_plus
-id|baselen
+id|x-&gt;baselen
 comma
 id|FNM_PATHNAME
 )paren
@@ -2753,8 +2752,6 @@ l_int|0
 r_return
 id|to_exclude
 suffix:semicolon
-)brace
-)brace
 )brace
 )brace
 r_return
