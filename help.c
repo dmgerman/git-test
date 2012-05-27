@@ -1835,7 +1835,7 @@ l_int|2
 comma
 l_int|1
 comma
-l_int|4
+l_int|3
 )paren
 op_plus
 l_int|1
