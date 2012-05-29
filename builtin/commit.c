@@ -2465,7 +2465,7 @@ id|email
 comma
 id|date
 comma
-id|IDENT_ERROR_ON_NO_NAME
+id|IDENT_STRICT
 )paren
 )paren
 suffix:semicolon
