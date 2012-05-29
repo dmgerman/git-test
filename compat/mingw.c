@@ -5779,7 +5779,7 @@ suffix:semicolon
 )brace
 DECL|function|mingw_execve
 r_static
-r_void
+r_int
 id|mingw_execve
 c_func
 (paren
@@ -5860,6 +5860,7 @@ OL
 l_int|0
 )paren
 r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -5887,6 +5888,9 @@ id|status
 )paren
 suffix:semicolon
 )brace
+r_return
+l_int|1
+suffix:semicolon
 )brace
 DECL|function|mingw_execvp
 r_int
