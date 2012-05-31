@@ -15202,6 +15202,12 @@ id|patch-&gt;new_mode
 op_amp
 id|S_IFMT
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|same
+)paren
 r_return
 id|error
 c_func
@@ -15209,7 +15215,27 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;new mode (%o) of %s does not match old mode (%o)%s%s&quot;
+l_string|&quot;new mode (%o) of %s does not &quot;
+l_string|&quot;match old mode (%o)&quot;
+)paren
+comma
+id|patch-&gt;new_mode
+comma
+id|new_name
+comma
+id|patch-&gt;old_mode
+)paren
+suffix:semicolon
+r_else
+r_return
+id|error
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;new mode (%o) of %s does not &quot;
+l_string|&quot;match old mode (%o) of %s&quot;
 )paren
 comma
 id|patch-&gt;new_mode
@@ -15218,21 +15244,10 @@ id|new_name
 comma
 id|patch-&gt;old_mode
 comma
-id|same
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot; of &quot;
-comma
-id|same
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
 id|old_name
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
