@@ -1257,6 +1257,11 @@ op_star
 id|out
 )paren
 (brace
+r_int
+id|rv
+op_assign
+l_int|1
+suffix:semicolon
 r_struct
 id|window
 id|ctx
@@ -1377,6 +1382,8 @@ op_ne
 id|out_len
 )paren
 (brace
+id|rv
+op_assign
 id|error
 c_func
 (paren
@@ -1402,14 +1409,8 @@ id|out
 r_goto
 id|error_out
 suffix:semicolon
-id|window_release
-c_func
-(paren
-op_amp
-id|ctx
-)paren
-suffix:semicolon
-r_return
+id|rv
+op_assign
 l_int|0
 suffix:semicolon
 id|error_out
@@ -1422,7 +1423,7 @@ id|ctx
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|rv
 suffix:semicolon
 )brace
 DECL|function|svndiff0_apply
