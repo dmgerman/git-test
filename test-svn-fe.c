@@ -176,25 +176,11 @@ c_func
 l_string|&quot;cannot close delta&quot;
 )paren
 suffix:semicolon
-id|buffer_reset
-c_func
-(paren
-op_amp
-id|preimage
-)paren
-suffix:semicolon
 id|strbuf_release
 c_func
 (paren
 op_amp
 id|preimage_view.buf
-)paren
-suffix:semicolon
-id|buffer_reset
-c_func
-(paren
-op_amp
-id|delta
 )paren
 suffix:semicolon
 r_return
