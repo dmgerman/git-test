@@ -1461,6 +1461,9 @@ c_cond
 id|response_end
 id|response
 OL
+(paren
+r_int
+)paren
 id|strlen
 c_func
 (paren
@@ -1544,6 +1547,9 @@ c_cond
 id|response_end
 id|response
 OL
+(paren
+r_int
+)paren
 id|strlen
 c_func
 (paren
