@@ -1580,7 +1580,7 @@ suffix:colon
 r_if
 c_cond
 (paren
-id|prefixcmp
+id|constcmp
 c_func
 (paren
 id|t
