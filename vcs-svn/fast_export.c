@@ -807,20 +807,12 @@ id|header
 suffix:semicolon
 id|type
 op_assign
-id|memmem
+id|strstr
 c_func
 (paren
 id|header
 comma
-id|headerlen
-comma
 l_string|&quot; blob &quot;
-comma
-id|strlen
-c_func
-(paren
-l_string|&quot; blob &quot;
-)paren
 )paren
 suffix:semicolon
 r_if
