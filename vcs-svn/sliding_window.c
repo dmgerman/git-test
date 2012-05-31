@@ -298,6 +298,9 @@ id|view-&gt;max_off
 OL
 id|off
 op_plus
+(paren
+id|off_t
+)paren
 id|width
 )paren
 r_return
