@@ -16,6 +16,7 @@ macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;streaming.h&quot;
+macro_line|#include &quot;version.h&quot;
 multiline_comment|/* Set a default date-time format for git log (&quot;log.date&quot; config variable) */
 DECL|variable|default_date_mode
 r_static

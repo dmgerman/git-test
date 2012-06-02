@@ -6,6 +6,7 @@ macro_line|#include &quot;help.h&quot;
 macro_line|#include &quot;common-cmds.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;column.h&quot;
+macro_line|#include &quot;version.h&quot;
 DECL|function|add_cmdname
 r_void
 id|add_cmdname

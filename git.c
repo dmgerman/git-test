@@ -1520,15 +1520,6 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-DECL|variable|git_version_string
-r_const
-r_char
-id|git_version_string
-(braket
-)braket
-op_assign
-id|GIT_VERSION
-suffix:semicolon
 DECL|macro|RUN_SETUP
 mdefine_line|#define RUN_SETUP&t;&t;(1&lt;&lt;0)
 DECL|macro|RUN_SETUP_GENTLY
