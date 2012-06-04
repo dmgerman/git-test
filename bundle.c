@@ -1062,6 +1062,26 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|r-&gt;nr
+)paren
+(brace
+id|printf_ln
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;The bundle records a complete history.&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|r
 op_assign
 op_amp
@@ -1093,6 +1113,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+)brace
 )brace
 r_return
 id|ret
