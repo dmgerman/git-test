@@ -1480,7 +1480,7 @@ l_char|&squot;a&squot;
 (brace
 id|label
 op_assign
-l_string|&quot;&bslash;nBy &quot;
+l_string|&quot;&bslash;n# By &quot;
 suffix:semicolon
 id|me
 op_assign
@@ -1495,7 +1495,7 @@ r_else
 (brace
 id|label
 op_assign
-l_string|&quot;&bslash;nvia &quot;
+l_string|&quot;&bslash;n# Via &quot;
 suffix:semicolon
 id|me
 op_assign
