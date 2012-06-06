@@ -2798,6 +2798,7 @@ suffix:semicolon
 multiline_comment|/* undecided */
 )brace
 DECL|function|excluded
+r_static
 r_int
 id|excluded
 c_func
