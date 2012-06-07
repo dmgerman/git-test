@@ -2835,16 +2835,14 @@ l_int|4
 id|printf
 c_func
 (paren
-l_string|&quot;Merge result: %i unmerged notes and a %s notes tree&bslash;n&quot;
-comma
-id|conflicts
-comma
 id|t-&gt;dirty
 ques
 c_cond
-l_string|&quot;dirty&quot;
+l_string|&quot;Merge result: %i unmerged notes and a dirty notes tree&bslash;n&quot;
 suffix:colon
-l_string|&quot;clean&quot;
+l_string|&quot;Merge result: %i unmerged notes and a clean notes tree&bslash;n&quot;
+comma
+id|conflicts
 )paren
 suffix:semicolon
 r_return
