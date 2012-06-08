@@ -10547,7 +10547,7 @@ r_return
 id|tail
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Do we know what commit all of our parents should be rewritten to?&n;&t; * Otherwise we are not ready to rewrite this one yet.&n;&t; */
+multiline_comment|/*&n;&t; * Do we know what commit all of our parents that matter&n;&t; * should be rewritten to?  Otherwise we are not ready to&n;&t; * rewrite this one yet.&n;&t; */
 r_for
 c_loop
 (paren
@@ -10600,6 +10600,13 @@ id|cnt
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|revs-&gt;first_parent_only
+)paren
+r_break
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -10653,7 +10660,20 @@ id|p-&gt;item
 op_assign
 id|pst-&gt;simplified
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;first_parent_only
+)paren
+r_break
+suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;first_parent_only
+)paren
 id|cnt
 op_assign
 id|remove_duplicate_parents
@@ -10661,6 +10681,11 @@ c_func
 (paren
 id|commit
 )paren
+suffix:semicolon
+r_else
+id|cnt
+op_assign
+l_int|1
 suffix:semicolon
 multiline_comment|/*&n;&t; * It is possible that we are a merge and one side branch&n;&t; * does not have any commit that touches the given paths;&n;&t; * in such a case, the immediate parents will be rewritten&n;&t; * to different commits.&n;&t; *&n;&t; *      o----X&t;&t;X: the commit we are looking at;&n;&t; *     /    /&t;&t;o: a commit that touches the paths;&n;&t; * ---o----&squot;&n;&t; *&n;&t; * Further reduce the parents by removing redundant parents.&n;&t; */
 r_if
