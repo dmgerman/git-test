@@ -882,27 +882,6 @@ op_amp
 id|st
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Process a regular file&n;&t; */
-r_if
-c_cond
-(paren
-id|ce
-op_logical_and
-id|S_ISGITLINK
-c_func
-(paren
-id|ce-&gt;ce_mode
-)paren
-)paren
-r_return
-id|error
-c_func
-(paren
-l_string|&quot;%s is already a gitlink, not replacing&quot;
-comma
-id|path
-)paren
-suffix:semicolon
 r_return
 id|add_one_path
 c_func
