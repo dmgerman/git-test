@@ -2314,7 +2314,11 @@ c_func
 (paren
 l_string|&quot;Object %s already has a mark&quot;
 comma
+id|sha1_to_hex
+c_func
+(paren
 id|sha1
+)paren
 )paren
 suffix:semicolon
 id|mark_object
