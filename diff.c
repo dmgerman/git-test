@@ -9241,7 +9241,19 @@ op_decrement
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|data-&gt;files
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|is_binary
+)paren
 (brace
+multiline_comment|/* don&squot;t count bytes */
 id|adds
 op_add_assign
 id|added
