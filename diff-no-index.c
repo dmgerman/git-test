@@ -1239,23 +1239,11 @@ id|j
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * If the user asked for our exit code then don&squot;t start a&n;&t; * pager or we would end up reporting its exit code instead.&n;&t; */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|DIFF_OPT_TST
+id|setup_diff_pager
 c_func
 (paren
 op_amp
 id|revs-&gt;diffopt
-comma
-id|EXIT_WITH_STATUS
-)paren
-)paren
-id|setup_pager
-c_func
-(paren
 )paren
 suffix:semicolon
 r_if
