@@ -520,12 +520,12 @@ r_const
 r_int
 r_char
 op_star
-id|now
+id|current
 suffix:semicolon
 r_int
 id|cmp
 suffix:semicolon
-id|now
+id|current
 op_assign
 id|nth_packed_object_sha1
 c_func
@@ -542,7 +542,7 @@ c_func
 (paren
 id|match
 comma
-id|now
+id|current
 )paren
 suffix:semicolon
 r_if
@@ -593,12 +593,12 @@ r_const
 r_int
 r_char
 op_star
-id|now
+id|current
 comma
 op_star
 id|next
 suffix:semicolon
-id|now
+id|current
 op_assign
 id|nth_packed_object_sha1
 c_func
@@ -618,7 +618,7 @@ id|len
 comma
 id|match
 comma
-id|now
+id|current
 )paren
 )paren
 (brace
@@ -662,7 +662,7 @@ id|found
 (brace
 id|found_sha1
 op_assign
-id|now
+id|current
 suffix:semicolon
 id|found
 op_increment
@@ -677,7 +677,7 @@ c_func
 (paren
 id|found_sha1
 comma
-id|now
+id|current
 )paren
 )paren
 (brace
