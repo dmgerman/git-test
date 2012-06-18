@@ -6128,6 +6128,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|ret
+op_logical_and
 id|only_to_die
 )paren
 (brace
