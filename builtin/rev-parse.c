@@ -2521,6 +2521,8 @@ c_func
 id|prefix
 comma
 id|arg
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_continue
@@ -3974,6 +3976,8 @@ c_func
 id|prefix
 comma
 id|arg
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace

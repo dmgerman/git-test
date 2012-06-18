@@ -9730,6 +9730,10 @@ id|argv
 (braket
 id|j
 )braket
+comma
+id|j
+op_eq
+id|i
 )paren
 suffix:semicolon
 id|append_prune_data
