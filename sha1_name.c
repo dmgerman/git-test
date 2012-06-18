@@ -962,7 +962,7 @@ op_star
 id|sha1
 comma
 r_int
-id|quietly
+id|flags
 )paren
 (brace
 r_int
@@ -986,6 +986,17 @@ suffix:semicolon
 r_struct
 id|disambiguate_state
 id|ds
+suffix:semicolon
+r_int
+id|quietly
+op_assign
+op_logical_neg
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|GET_SHA1_QUIETLY
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -1306,7 +1317,7 @@ id|len
 comma
 id|sha1_ret
 comma
-l_int|1
+id|GET_SHA1_QUIETLY
 )paren
 suffix:semicolon
 r_if
@@ -3101,7 +3112,7 @@ id|len
 comma
 id|sha1
 comma
-l_int|1
+id|GET_SHA1_QUIETLY
 )paren
 suffix:semicolon
 )brace
