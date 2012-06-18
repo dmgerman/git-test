@@ -3084,6 +3084,13 @@ r_char
 op_star
 id|cp
 suffix:semicolon
+r_int
+id|flags
+op_assign
+id|GET_SHA1_QUIETLY
+op_or
+id|GET_SHA1_COMMIT
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -3157,7 +3164,7 @@ id|len
 comma
 id|sha1
 comma
-id|GET_SHA1_QUIETLY
+id|flags
 )paren
 suffix:semicolon
 )brace
