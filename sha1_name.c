@@ -73,6 +73,7 @@ op_logical_neg
 id|fakeent
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * Create a &quot;fake&quot; alternate object database that&n;&t;&t; * points to our own object database, to make it&n;&t;&t; * easier to get a temporary working space in&n;&t;&t; * alt-&gt;name/alt-&gt;base while iterating over the&n;&t;&t; * object databases including our own.&n;&t;&t; */
 r_const
 r_char
 op_star
