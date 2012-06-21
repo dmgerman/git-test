@@ -4,6 +4,7 @@ macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;credential.h&quot;
+macro_line|#include &quot;version.h&quot;
 DECL|variable|active_requests
 r_int
 id|active_requests
@@ -1451,7 +1452,10 @@ ques
 c_cond
 id|user_agent
 suffix:colon
-id|GIT_HTTP_USER_AGENT
+id|git_user_agent
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 r_if
