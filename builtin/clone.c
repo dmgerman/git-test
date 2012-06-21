@@ -54,6 +54,8 @@ DECL|variable|option_recursive
 r_static
 r_int
 id|option_local
+op_assign
+l_int|1
 comma
 id|option_no_hardlinks
 comma
@@ -262,7 +264,7 @@ comma
 l_string|&quot;create a mirror repository (implies bare)&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;l&squot;
@@ -1929,6 +1931,8 @@ r_if
 c_cond
 (paren
 id|option_local
+OG
+l_int|0
 )paren
 id|die_errno
 c_func
@@ -3761,6 +3765,10 @@ id|repo_name
 suffix:semicolon
 id|is_local
 op_assign
+id|option_local
+op_ne
+l_int|0
+op_logical_and
 id|path
 op_logical_and
 op_logical_neg
