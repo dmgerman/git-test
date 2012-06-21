@@ -36,7 +36,7 @@ comma
 r_const
 r_char
 op_star
-id|name
+id|hex_pfx
 comma
 r_int
 r_char
@@ -151,7 +151,7 @@ id|hex
 comma
 l_string|&quot;%.2s&quot;
 comma
-id|name
+id|hex_pfx
 )paren
 suffix:semicolon
 r_for
@@ -188,7 +188,7 @@ id|alt-&gt;name
 comma
 l_string|&quot;%.2s/&quot;
 comma
-id|name
+id|hex_pfx
 )paren
 suffix:semicolon
 id|dir
@@ -244,7 +244,7 @@ c_func
 (paren
 id|de-&gt;d_name
 comma
-id|name
+id|hex_pfx
 op_plus
 l_int|2
 comma
@@ -424,7 +424,7 @@ r_const
 r_int
 r_char
 op_star
-id|match
+id|bin_pfx
 comma
 r_struct
 id|packed_git
@@ -518,7 +518,7 @@ op_assign
 id|hashcmp
 c_func
 (paren
-id|match
+id|bin_pfx
 comma
 id|current
 )paren
@@ -559,7 +559,7 @@ op_assign
 id|mid
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * At this point, &quot;first&quot; is the location of the lowest object&n;&t; * with an object name that could match &quot;match&quot;.  See if we have&n;&t; * 0, 1 or more objects that actually match(es).&n;&t; */
+multiline_comment|/*&n;&t; * At this point, &quot;first&quot; is the location of the lowest object&n;&t; * with an object name that could match &quot;bin_pfx&quot;.  See if we have&n;&t; * 0, 1 or more objects that actually match(es).&n;&t; */
 r_for
 c_loop
 (paren
@@ -594,7 +594,7 @@ c_func
 (paren
 id|len
 comma
-id|match
+id|bin_pfx
 comma
 id|current
 )paren
@@ -661,7 +661,7 @@ r_const
 r_int
 r_char
 op_star
-id|match
+id|bin_pfx
 comma
 r_int
 r_char
@@ -716,7 +716,7 @@ c_func
 (paren
 id|len
 comma
-id|match
+id|bin_pfx
 comma
 id|p
 comma
@@ -760,12 +760,12 @@ id|len
 comma
 r_char
 op_star
-id|canonical
+id|hex_pfx
 comma
 r_int
 r_char
 op_star
-id|res
+id|bin_pfx
 comma
 r_int
 r_char
@@ -802,7 +802,7 @@ c_func
 (paren
 id|len
 comma
-id|canonical
+id|hex_pfx
 comma
 id|unpacked_sha1
 )paren
@@ -814,7 +814,7 @@ c_func
 (paren
 id|len
 comma
-id|res
+id|bin_pfx
 comma
 id|packed_sha1
 )paren
@@ -928,14 +928,14 @@ comma
 id|status
 suffix:semicolon
 r_char
-id|canonical
+id|hex_pfx
 (braket
 l_int|40
 )braket
 suffix:semicolon
 r_int
 r_char
-id|res
+id|bin_pfx
 (braket
 l_int|20
 )braket
@@ -953,13 +953,13 @@ suffix:semicolon
 id|hashclr
 c_func
 (paren
-id|res
+id|bin_pfx
 )paren
 suffix:semicolon
 id|memset
 c_func
 (paren
-id|canonical
+id|hex_pfx
 comma
 l_char|&squot;x&squot;
 comma
@@ -1059,7 +1059,7 @@ r_else
 r_return
 l_int|1
 suffix:semicolon
-id|canonical
+id|hex_pfx
 (braket
 id|i
 )braket
@@ -1080,7 +1080,7 @@ id|val
 op_lshift_assign
 l_int|4
 suffix:semicolon
-id|res
+id|bin_pfx
 (braket
 id|i
 op_rshift
@@ -1097,9 +1097,9 @@ c_func
 (paren
 id|i
 comma
-id|canonical
+id|hex_pfx
 comma
-id|res
+id|bin_pfx
 comma
 id|sha1
 )paren
@@ -1124,7 +1124,7 @@ l_string|&quot;short SHA1 %.*s is ambiguous.&quot;
 comma
 id|len
 comma
-id|canonical
+id|hex_pfx
 )paren
 suffix:semicolon
 r_return
