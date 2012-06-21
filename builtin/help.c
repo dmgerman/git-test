@@ -7,6 +7,10 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;column.h&quot;
 macro_line|#include &quot;help.h&quot;
+macro_line|#ifndef DEFAULT_HELP_FORMAT
+DECL|macro|DEFAULT_HELP_FORMAT
+mdefine_line|#define DEFAULT_HELP_FORMAT &quot;man&quot;
+macro_line|#endif
 DECL|struct|man_viewer_list
 r_static
 r_struct
@@ -2609,9 +2613,18 @@ r_if
 c_cond
 (paren
 id|parsed_help_format
-op_ne
+op_eq
 id|HELP_FORMAT_NONE
 )paren
+id|help_format
+op_assign
+id|parse_help_format
+c_func
+(paren
+id|DEFAULT_HELP_FORMAT
+)paren
+suffix:semicolon
+r_else
 id|help_format
 op_assign
 id|parsed_help_format
