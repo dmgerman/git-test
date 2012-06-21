@@ -1399,7 +1399,14 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * The return code for --no-index imitates diff(1):&n;&t; * 0 = no changes, 1 = changes, else error&n;&t; */
 m_exit
 (paren
-id|revs-&gt;diffopt.found_changes
+id|diff_result_code
+c_func
+(paren
+op_amp
+id|revs-&gt;diffopt
+comma
+l_int|0
+)paren
 )paren
 suffix:semicolon
 )brace
