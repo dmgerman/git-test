@@ -685,6 +685,65 @@ id|refspec.buf
 )paren
 suffix:semicolon
 )brace
+DECL|variable|warn_unspecified_push_default_msg
+r_static
+r_char
+id|warn_unspecified_push_default_msg
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;push.default is unset; its implicit value is changing in&bslash;n&quot;
+l_string|&quot;Git 2.0 from &squot;matching&squot; to &squot;simple&squot;. To squelch this message&bslash;n&quot;
+l_string|&quot;and maintain the current behavior after the default changes, use:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git config --global push.default matching&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;To squelch this message and adopt the new behavior now, use:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git config --global push.default simple&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;See &squot;git help config&squot; and search for &squot;push.default&squot; for further information.&bslash;n&quot;
+l_string|&quot;(the &squot;simple&squot; mode was introduced in Git 1.7.11. Use the similar mode&bslash;n&quot;
+l_string|&quot;&squot;current&squot; instead of &squot;simple&squot; if you sometimes use older versions of Git)&quot;
+)paren
+suffix:semicolon
+DECL|function|warn_unspecified_push_default_configuration
+r_static
+r_void
+id|warn_unspecified_push_default_configuration
+c_func
+(paren
+r_void
+)paren
+(brace
+r_static
+r_int
+id|warn_once
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|warn_once
+op_increment
+)paren
+r_return
+suffix:semicolon
+id|warning
+c_func
+(paren
+l_string|&quot;%s&bslash;n&quot;
+comma
+id|_
+c_func
+(paren
+id|warn_unspecified_push_default_msg
+)paren
+)paren
+suffix:semicolon
+)brace
 DECL|function|setup_default_push_refspecs
 r_static
 r_void
@@ -711,6 +770,11 @@ suffix:colon
 id|default_matching_used
 op_assign
 l_int|1
+suffix:semicolon
+id|warn_unspecified_push_default_configuration
+c_func
+(paren
+)paren
 suffix:semicolon
 multiline_comment|/* fallthru */
 r_case
@@ -809,8 +873,8 @@ c_func
 (paren
 l_string|&quot;Updates were rejected because a pushed branch tip is behind its remote&bslash;n&quot;
 l_string|&quot;counterpart. If you did not intend to push that branch, you may want to&bslash;n&quot;
-l_string|&quot;specify branches to push or set the &squot;push.default&squot; configuration&bslash;n&quot;
-l_string|&quot;variable to &squot;current&squot; or &squot;upstream&squot; to push only the current branch.&quot;
+l_string|&quot;specify branches to push or set the &squot;push.default&squot; configuration variable&bslash;n&quot;
+l_string|&quot;to &squot;simple&squot;, &squot;current&squot; or &squot;upstream&squot; to push only the current branch.&quot;
 )paren
 suffix:semicolon
 DECL|variable|message_advice_checkout_pull_push
