@@ -1005,7 +1005,6 @@ id|value
 suffix:semicolon
 )brace
 DECL|function|credential_write
-r_static
 r_void
 id|credential_write
 c_func
