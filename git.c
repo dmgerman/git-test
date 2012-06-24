@@ -2080,6 +2080,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;credential&quot;
+comma
+id|cmd_credential
+comma
+id|RUN_SETUP_GENTLY
+)brace
+comma
+(brace
 l_string|&quot;describe&quot;
 comma
 id|cmd_describe
