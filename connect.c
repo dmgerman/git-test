@@ -2731,7 +2731,7 @@ op_assign
 id|get_port
 c_func
 (paren
-id|host
+id|end
 )paren
 suffix:semicolon
 r_if
