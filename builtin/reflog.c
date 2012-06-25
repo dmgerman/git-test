@@ -1431,20 +1431,25 @@ c_cond
 (paren
 op_logical_neg
 id|cb-&gt;newlog
-op_logical_or
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;would prune %s&quot;
+comma
+id|message
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 id|cb-&gt;cmd-&gt;verbose
 )paren
 id|printf
 c_func
 (paren
-l_string|&quot;%sprune %s&quot;
-comma
-id|cb-&gt;newlog
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot;would &quot;
+l_string|&quot;prune %s&quot;
 comma
 id|message
 )paren

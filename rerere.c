@@ -3312,11 +3312,17 @@ id|path
 )paren
 )paren
 (brace
+r_const
+r_char
+op_star
+id|msg
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|rerere_autoupdate
 )paren
+(brace
 id|string_list_insert
 c_func
 (paren
@@ -3326,19 +3332,22 @@ comma
 id|path
 )paren
 suffix:semicolon
+id|msg
+op_assign
+l_string|&quot;Staged &squot;%s&squot; using previous resolution.&bslash;n&quot;
+suffix:semicolon
+)brace
+r_else
+id|msg
+op_assign
+l_string|&quot;Resolved &squot;%s&squot; using previous resolution.&bslash;n&quot;
+suffix:semicolon
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-l_string|&quot;%s &squot;%s&squot; using previous resolution.&bslash;n&quot;
-comma
-id|rerere_autoupdate
-ques
-c_cond
-l_string|&quot;Staged&quot;
-suffix:colon
-l_string|&quot;Resolved&quot;
+id|msg
 comma
 id|path
 )paren
