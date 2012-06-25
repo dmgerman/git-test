@@ -614,12 +614,14 @@ id|header
 )paren
 (brace
 r_const
+r_int
 r_char
 op_star
 id|p
 op_assign
 (paren
 r_const
+r_int
 r_char
 op_star
 )paren
@@ -636,6 +638,12 @@ c_loop
 (paren
 id|p
 OL
+(paren
+r_const
+r_int
+r_char
+op_star
+)paren
 id|header-&gt;chksum
 )paren
 id|chksum
@@ -667,6 +675,7 @@ id|p
 OL
 (paren
 r_const
+r_int
 r_char
 op_star
 )paren
