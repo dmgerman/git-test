@@ -125,8 +125,8 @@ id|ofs_last
 suffix:semicolon
 )brace
 suffix:semicolon
-macro_line|#if !defined(NO_PTHREADS) &amp;&amp; defined(NO_PREAD)
-multiline_comment|/* NO_PREAD uses compat/pread.c, which is not thread-safe. Disable threading. */
+macro_line|#if !defined(NO_PTHREADS) &amp;&amp; defined(NO_THREAD_SAFE_PREAD)
+multiline_comment|/* pread() emulation is not thread-safe. Disable threading. */
 DECL|macro|NO_PTHREADS
 mdefine_line|#define NO_PTHREADS
 macro_line|#endif
