@@ -940,6 +940,26 @@ l_int|0
 )paren
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|strchr
+c_func
+(paren
+id|path
+comma
+l_char|&squot; &squot;
+)paren
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;&bslash;&quot;%s&bslash;&quot;&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+r_else
 id|printf
 c_func
 (paren
