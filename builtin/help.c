@@ -2330,6 +2330,19 @@ multiline_comment|/* Check that we have a git documentation directory. */
 r_if
 c_cond
 (paren
+op_logical_neg
+id|strstr
+c_func
+(paren
+id|html_path
+comma
+l_string|&quot;://&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|stat
 c_func
 (paren
@@ -2355,15 +2368,12 @@ id|st.st_mode
 id|die
 c_func
 (paren
-id|_
-c_func
-(paren
 l_string|&quot;&squot;%s&squot;: not a documentation directory.&quot;
-)paren
 comma
 id|html_path
 )paren
 suffix:semicolon
+)brace
 id|strbuf_init
 c_func
 (paren
