@@ -1566,6 +1566,8 @@ id|argv
 (braket
 id|i
 )braket
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
