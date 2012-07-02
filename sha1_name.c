@@ -1595,6 +1595,9 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|lookup_flags
 )paren
 suffix:semicolon
 DECL|function|get_sha1_basic
@@ -1825,6 +1828,8 @@ comma
 id|buf.len
 comma
 id|sha1
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -2228,6 +2233,8 @@ comma
 id|len
 comma
 id|sha1
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_struct
@@ -2383,6 +2390,8 @@ comma
 id|len
 comma
 id|sha1
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -2851,6 +2860,8 @@ id|name
 l_int|2
 comma
 id|outer
+comma
+l_int|0
 )paren
 )paren
 r_return
@@ -3192,6 +3203,9 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_int
+id|lookup_flags
 )paren
 (brace
 r_int
@@ -5703,6 +5717,8 @@ comma
 id|namelen
 comma
 id|sha1
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -6188,6 +6204,8 @@ op_minus
 id|name
 comma
 id|tree_sha1
+comma
+l_int|0
 )paren
 )paren
 (brace
