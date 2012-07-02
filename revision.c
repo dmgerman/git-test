@@ -5494,6 +5494,8 @@ c_func
 (paren
 id|arg
 comma
+l_int|0
+comma
 id|sha1
 comma
 op_amp
@@ -9875,6 +9877,8 @@ id|get_sha1_with_context
 c_func
 (paren
 id|revs-&gt;def
+comma
+l_int|0
 comma
 id|sha1
 comma

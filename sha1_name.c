@@ -5179,6 +5179,8 @@ c_func
 (paren
 id|name
 comma
+l_int|0
+comma
 id|sha1
 comma
 op_amp
@@ -5768,6 +5770,14 @@ op_star
 id|name
 comma
 r_int
+id|flags
+comma
+r_const
+r_char
+op_star
+id|prefix
+comma
+r_int
 r_char
 op_star
 id|sha1
@@ -5776,14 +5786,6 @@ r_struct
 id|object_context
 op_star
 id|oc
-comma
-r_int
-id|only_to_die
-comma
-r_const
-r_char
-op_star
-id|prefix
 )paren
 (brace
 r_int
@@ -5804,6 +5806,13 @@ r_const
 r_char
 op_star
 id|cp
+suffix:semicolon
+r_int
+id|only_to_die
+op_assign
+id|flags
+op_amp
+id|GET_SHA1_ONLY_TO_DIE
 suffix:semicolon
 id|memset
 c_func
@@ -5834,7 +5843,7 @@ id|namelen
 comma
 id|sha1
 comma
-l_int|0
+id|flags
 )paren
 suffix:semicolon
 r_if
@@ -5846,7 +5855,7 @@ id|ret
 r_return
 id|ret
 suffix:semicolon
-multiline_comment|/* sha1:path --&gt; object name of path in ent sha1&n;&t; * :path -&gt; object name of absolute path in index&n;&t; * :./path -&gt; object name of path relative to cwd in index&n;&t; * :[0-3]:path -&gt; object name of path in index at stage&n;&t; * :/foo -&gt; recent commit matching foo&n;&t; */
+multiline_comment|/*&n;&t; * sha1:path --&gt; object name of path in ent sha1&n;&t; * :path -&gt; object name of absolute path in index&n;&t; * :./path -&gt; object name of path relative to cwd in index&n;&t; * :[0-3]:path -&gt; object name of path in index at stage&n;&t; * :/foo -&gt; recent commit matching foo&n;&t; */
 r_if
 c_cond
 (paren
@@ -6494,14 +6503,14 @@ c_func
 (paren
 id|name
 comma
+id|GET_SHA1_ONLY_TO_DIE
+comma
+id|prefix
+comma
 id|sha1
 comma
 op_amp
 id|oc
-comma
-l_int|1
-comma
-id|prefix
 )paren
 suffix:semicolon
 )brace
@@ -6514,6 +6523,9 @@ r_const
 r_char
 op_star
 id|str
+comma
+r_int
+id|flags
 comma
 r_int
 r_char
@@ -6532,13 +6544,13 @@ c_func
 (paren
 id|str
 comma
+id|flags
+comma
+l_int|NULL
+comma
 id|sha1
 comma
 id|orc
-comma
-l_int|0
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 )brace
