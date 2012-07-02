@@ -5022,7 +5022,7 @@ r_int
 id|flags
 comma
 r_int
-id|cant_be_filename
+id|revarg_opt
 )paren
 (brace
 r_struct
@@ -5054,6 +5054,13 @@ op_star
 id|arg
 op_assign
 id|arg_
+suffix:semicolon
+r_int
+id|cant_be_filename
+op_assign
+id|revarg_opt
+op_amp
+id|REVARG_CANNOT_BE_FILENAME
 suffix:semicolon
 id|dotdot
 op_assign
@@ -5872,7 +5879,7 @@ id|revs
 comma
 l_int|0
 comma
-l_int|1
+id|REVARG_CANNOT_BE_FILENAME
 )paren
 )paren
 id|die
@@ -9364,6 +9371,8 @@ comma
 id|got_rev_arg
 op_assign
 l_int|0
+comma
+id|revarg_opt
 suffix:semicolon
 r_struct
 id|cmdline_pathspec
@@ -9486,6 +9495,15 @@ suffix:semicolon
 multiline_comment|/* Second, deal with arguments and options */
 id|flags
 op_assign
+l_int|0
+suffix:semicolon
+id|revarg_opt
+op_assign
+id|seen_dashdash
+ques
+c_cond
+id|REVARG_CANNOT_BE_FILENAME
+suffix:colon
 l_int|0
 suffix:semicolon
 id|read_from_stdin
@@ -9684,7 +9702,7 @@ id|revs
 comma
 id|flags
 comma
-id|seen_dashdash
+id|revarg_opt
 )paren
 )paren
 (brace

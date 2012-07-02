@@ -10760,7 +10760,7 @@ id|revs
 comma
 id|flags
 comma
-l_int|1
+id|REVARG_CANNOT_BE_FILENAME
 )paren
 )paren
 id|die
