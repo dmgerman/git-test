@@ -392,17 +392,7 @@ op_star
 id|arg
 )paren
 (brace
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
-r_int
-id|mode
-suffix:semicolon
-multiline_comment|/*&n;&t; * Saying &quot;&squot;(icase)foo&squot; does not exist in the index&quot; when the&n;&t; * user gave us &quot;:(icase)foo&quot; is just stupid.  A magic pathspec&n;&t; * begins with a colon and is followed by a non-alnum; do not&n;&t; * let get_sha1_with_mode_1(only_to_die=1) to even trigger.&n;&t; */
+multiline_comment|/*&n;&t; * Saying &quot;&squot;(icase)foo&squot; does not exist in the index&quot; when the&n;&t; * user gave us &quot;:(icase)foo&quot; is just stupid.  A magic pathspec&n;&t; * begins with a colon and is followed by a non-alnum; do not&n;&t; * let maybe_die_on_misspelt_object_name() even trigger.&n;&t; */
 r_if
 c_cond
 (paren
@@ -426,18 +416,10 @@ l_int|1
 )paren
 )paren
 )paren
-multiline_comment|/* try a detailed diagnostic ... */
-id|get_sha1_with_mode_1
+id|maybe_die_on_misspelt_object_name
 c_func
 (paren
 id|arg
-comma
-id|sha1
-comma
-op_amp
-id|mode
-comma
-l_int|1
 comma
 id|prefix
 )paren
