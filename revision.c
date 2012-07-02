@@ -5025,8 +5025,9 @@ r_int
 id|cant_be_filename
 )paren
 (brace
-r_int
-id|mode
+r_struct
+id|object_context
+id|oc
 suffix:semicolon
 r_char
 op_star
@@ -5488,7 +5489,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1_with_mode
+id|get_sha1_with_context
 c_func
 (paren
 id|arg
@@ -5496,7 +5497,7 @@ comma
 id|sha1
 comma
 op_amp
-id|mode
+id|oc
 )paren
 )paren
 r_return
@@ -5562,7 +5563,7 @@ id|object
 comma
 id|arg
 comma
-id|mode
+id|oc.mode
 )paren
 suffix:semicolon
 r_return
@@ -9863,13 +9864,14 @@ id|object
 op_star
 id|object
 suffix:semicolon
-r_int
-id|mode
+r_struct
+id|object_context
+id|oc
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1_with_mode
+id|get_sha1_with_context
 c_func
 (paren
 id|revs-&gt;def
@@ -9877,7 +9879,7 @@ comma
 id|sha1
 comma
 op_amp
-id|mode
+id|oc
 )paren
 )paren
 id|die
@@ -9911,7 +9913,7 @@ id|object
 comma
 id|revs-&gt;def
 comma
-id|mode
+id|oc.mode
 )paren
 suffix:semicolon
 )brace
