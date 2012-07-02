@@ -4322,7 +4322,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|arg
@@ -5149,7 +5149,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|this
@@ -5158,7 +5158,7 @@ id|from_sha1
 )paren
 op_logical_and
 op_logical_neg
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|next
