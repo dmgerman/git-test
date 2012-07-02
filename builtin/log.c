@@ -1596,6 +1596,10 @@ id|opt.def
 op_assign
 l_string|&quot;HEAD&quot;
 suffix:semicolon
+id|opt.revarg_opt
+op_assign
+id|REVARG_COMMITTISH
+suffix:semicolon
 id|cmd_log_init
 c_func
 (paren
@@ -2651,6 +2655,10 @@ suffix:semicolon
 id|opt.def
 op_assign
 l_string|&quot;HEAD&quot;
+suffix:semicolon
+id|opt.revarg_opt
+op_assign
+id|REVARG_COMMITTISH
 suffix:semicolon
 id|cmd_log_init
 c_func
@@ -6169,6 +6177,10 @@ suffix:semicolon
 id|s_r_opt.def
 op_assign
 l_string|&quot;HEAD&quot;
+suffix:semicolon
+id|s_r_opt.revarg_opt
+op_assign
+id|REVARG_COMMITTISH
 suffix:semicolon
 r_if
 c_cond
