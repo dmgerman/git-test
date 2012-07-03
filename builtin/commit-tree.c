@@ -249,7 +249,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_tree
 c_func
 (paren
 id|argv
@@ -263,7 +263,7 @@ id|tree_sha1
 id|die
 c_func
 (paren
-l_string|&quot;Not a valid object name %s&quot;
+l_string|&quot;Not a valid tree object name %s&quot;
 comma
 id|argv
 (braket
@@ -333,7 +333,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_commit
 c_func
 (paren
 id|argv
@@ -625,7 +625,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_tree
 c_func
 (paren
 id|arg
