@@ -14967,7 +14967,7 @@ r_else
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_blob
 c_func
 (paren
 id|patch-&gt;old_sha1_prefix
