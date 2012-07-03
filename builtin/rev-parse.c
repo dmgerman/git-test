@@ -1009,7 +1009,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|this
@@ -1018,7 +1018,7 @@ id|sha1
 )paren
 op_logical_and
 op_logical_neg
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|next
@@ -1244,7 +1244,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|arg
