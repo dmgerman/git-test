@@ -928,7 +928,7 @@ op_logical_neg
 id|ds-&gt;candidate_ok
 )paren
 r_return
-id|SHORT_NAME_NOT_FOUND
+id|SHORT_NAME_AMBIGUOUS
 suffix:semicolon
 id|hashcpy
 c_func
