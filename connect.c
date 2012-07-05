@@ -230,6 +230,37 @@ id|extra-&gt;nr
 op_increment
 suffix:semicolon
 )brace
+DECL|function|die_initial_contact
+r_static
+r_void
+id|die_initial_contact
+c_func
+(paren
+r_int
+id|got_at_least_one_head
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|got_at_least_one_head
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;The remote end hung up upon initial contact&quot;
+)paren
+suffix:semicolon
+r_else
+id|die
+c_func
+(paren
+l_string|&quot;Could not read from remote repository.&bslash;n&bslash;n&quot;
+l_string|&quot;Please make sure you have the correct access rights&bslash;n&quot;
+l_string|&quot;and the repository exists.&quot;
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/*&n; * Read all the refs from the other end&n; */
 DECL|function|get_remote_heads
 r_struct
@@ -258,6 +289,11 @@ op_star
 id|extra_have
 )paren
 (brace
+r_int
+id|got_at_least_one_head
+op_assign
+l_int|0
+suffix:semicolon
 op_star
 id|list
 op_assign
@@ -300,7 +336,7 @@ id|name_len
 suffix:semicolon
 id|len
 op_assign
-id|packet_read_line
+id|packet_read
 c_func
 (paren
 id|in
@@ -311,6 +347,19 @@ r_sizeof
 (paren
 id|buffer
 )paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|len
+OL
+l_int|0
+)paren
+id|die_initial_contact
+c_func
+(paren
+id|got_at_least_one_head
 )paren
 suffix:semicolon
 r_if
@@ -515,6 +564,10 @@ id|list
 op_assign
 op_amp
 id|ref-&gt;next
+suffix:semicolon
+id|got_at_least_one_head
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 r_return
