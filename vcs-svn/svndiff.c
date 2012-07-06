@@ -200,6 +200,14 @@ r_int
 id|len
 )paren
 (brace
+m_assert
+(paren
+op_star
+id|delta_len
+op_ge
+l_int|0
+)paren
+suffix:semicolon
 id|strbuf_reset
 c_func
 (paren
@@ -211,6 +219,9 @@ c_cond
 (paren
 id|len
 OG
+(paren
+r_uintmax
+)paren
 op_star
 id|delta_len
 op_logical_or
@@ -1456,6 +1467,10 @@ op_logical_and
 id|preimage
 op_logical_and
 id|postimage
+op_logical_and
+id|delta_len
+op_ge
+l_int|0
 )paren
 suffix:semicolon
 r_if
