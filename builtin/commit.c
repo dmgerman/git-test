@@ -3582,6 +3582,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|use_editor
+op_logical_and
+(paren
+op_logical_neg
 id|buffer
 op_logical_or
 id|buffer
@@ -3590,6 +3594,7 @@ l_int|2
 )braket
 op_eq
 l_char|&squot;&bslash;0&squot;
+)paren
 )paren
 id|die
 c_func
