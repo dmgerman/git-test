@@ -4793,6 +4793,22 @@ id|branch_ref
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts-&gt;new_branch
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;You are on a branch yet to be born&quot;
+)paren
+)paren
+suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
