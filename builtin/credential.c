@@ -1,6 +1,6 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;credential.h&quot;
-macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;builtin.h&quot;
 DECL|variable|usage_msg
 r_static
 r_const
@@ -9,11 +9,11 @@ id|usage_msg
 (braket
 )braket
 op_assign
-l_string|&quot;test-credential &lt;fill|approve|reject&gt; [helper...]&quot;
+l_string|&quot;git credential [fill|approve|reject]&quot;
 suffix:semicolon
-DECL|function|main
+DECL|function|cmd_credential
 r_int
-id|main
+id|cmd_credential
 c_func
 (paren
 r_int
@@ -24,6 +24,11 @@ r_char
 op_star
 op_star
 id|argv
+comma
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_const
@@ -36,9 +41,6 @@ id|credential
 id|c
 op_assign
 id|CREDENTIAL_INIT
-suffix:semicolon
-r_int
-id|i
 suffix:semicolon
 id|op
 op_assign
@@ -57,32 +59,6 @@ id|usage
 c_func
 (paren
 id|usage_msg
-)paren
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|i
-op_assign
-l_int|2
-suffix:semicolon
-id|i
-OL
-id|argc
-suffix:semicolon
-id|i
-op_increment
-)paren
-id|string_list_append
-c_func
-(paren
-op_amp
-id|c.helpers
-comma
-id|argv
-(braket
-id|i
-)braket
 )paren
 suffix:semicolon
 r_if
@@ -125,30 +101,13 @@ op_amp
 id|c
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|c.username
-)paren
-id|printf
+id|credential_write
 c_func
 (paren
-l_string|&quot;username=%s&bslash;n&quot;
+op_amp
+id|c
 comma
-id|c.username
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|c.password
-)paren
-id|printf
-c_func
-(paren
-l_string|&quot;password=%s&bslash;n&quot;
-comma
-id|c.password
+id|stdout
 )paren
 suffix:semicolon
 )brace
@@ -165,6 +124,7 @@ comma
 l_string|&quot;approve&quot;
 )paren
 )paren
+(brace
 id|credential_approve
 c_func
 (paren
@@ -172,6 +132,7 @@ op_amp
 id|c
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -185,6 +146,7 @@ comma
 l_string|&quot;reject&quot;
 )paren
 )paren
+(brace
 id|credential_reject
 c_func
 (paren
@@ -192,13 +154,16 @@ op_amp
 id|c
 )paren
 suffix:semicolon
+)brace
 r_else
+(brace
 id|usage
 c_func
 (paren
 id|usage_msg
 )paren
 suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
