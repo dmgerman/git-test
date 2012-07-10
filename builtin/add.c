@@ -1541,7 +1541,7 @@ id|O_CREAT
 op_or
 id|O_WRONLY
 comma
-l_int|0644
+l_int|0666
 )paren
 suffix:semicolon
 r_if
