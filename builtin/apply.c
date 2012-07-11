@@ -16510,6 +16510,14 @@ id|mode
 suffix:semicolon
 id|ce-&gt;ce_flags
 op_assign
+id|create_ce_flags
+c_func
+(paren
+l_int|0
+)paren
+suffix:semicolon
+id|ce-&gt;ce_namelen
+op_assign
 id|namelen
 suffix:semicolon
 r_if

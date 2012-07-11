@@ -10107,10 +10107,12 @@ op_assign
 id|create_ce_flags
 c_func
 (paren
-id|len
-comma
 l_int|0
 )paren
+suffix:semicolon
+id|ce-&gt;ce_namelen
+op_assign
+id|len
 suffix:semicolon
 id|ce-&gt;ce_mode
 op_assign
