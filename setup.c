@@ -390,6 +390,9 @@ r_const
 r_char
 op_star
 id|arg
+comma
+r_int
+id|diagnose_misspelt_rev
 )paren
 (brace
 r_int
@@ -401,6 +404,21 @@ l_int|20
 suffix:semicolon
 r_int
 id|mode
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|diagnose_misspelt_rev
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;%s: no such path in the working tree.&bslash;n&quot;
+l_string|&quot;Use &squot;-- &lt;path&gt;...&squot; to specify paths that do not exist locally.&quot;
+comma
+id|arg
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Saying &quot;&squot;(icase)foo&squot; does not exist in the index&quot; when the&n;&t; * user gave us &quot;:(icase)foo&quot; is just stupid.  A magic pathspec&n;&t; * begins with a colon and is followed by a non-alnum; do not&n;&t; * let get_sha1_with_mode_1(only_to_die=1) to even trigger.&n;&t; */
 r_if
@@ -453,7 +471,7 @@ id|arg
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Verify a filename that we got as an argument for a pathspec&n; * entry. Note that a filename that begins with &quot;-&quot; never verifies&n; * as true, because even if such a filename were to exist, we want&n; * it to be preceded by the &quot;--&quot; marker (or we want the user to&n; * use a format like &quot;./-filename&quot;)&n; */
+multiline_comment|/*&n; * Verify a filename that we got as an argument for a pathspec&n; * entry. Note that a filename that begins with &quot;-&quot; never verifies&n; * as true, because even if such a filename were to exist, we want&n; * it to be preceded by the &quot;--&quot; marker (or we want the user to&n; * use a format like &quot;./-filename&quot;)&n; *&n; * The &quot;diagnose_misspelt_rev&quot; is used to provide a user-friendly&n; * diagnosis when dying upon finding that &quot;name&quot; is not a pathname.&n; * If set to 1, the diagnosis will try to diagnose &quot;name&quot; as an&n; * invalid object name (e.g. HEAD:foo). If set to 0, the diagnosis&n; * will only complain about an inexisting file.&n; *&n; * This function is typically called to check that a &quot;file or rev&quot;&n; * argument is unambiguous. In this case, the caller will want&n; * diagnose_misspelt_rev == 1 when verifying the first non-rev&n; * argument (which could have been a revision), and&n; * diagnose_misspelt_rev == 0 for the next ones (because we already&n; * saw a filename, there&squot;s not ambiguity anymore).&n; */
 DECL|function|verify_filename
 r_void
 id|verify_filename
@@ -468,6 +486,9 @@ r_const
 r_char
 op_star
 id|arg
+comma
+r_int
+id|diagnose_misspelt_rev
 )paren
 (brace
 r_if
@@ -505,6 +526,8 @@ c_func
 id|prefix
 comma
 id|arg
+comma
+id|diagnose_misspelt_rev
 )paren
 suffix:semicolon
 )brace
