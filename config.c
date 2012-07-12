@@ -5015,6 +5015,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|xdg_config
+op_logical_and
 op_logical_neg
 id|access
 c_func
@@ -5045,6 +5047,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|user_config
+op_logical_and
 op_logical_neg
 id|access
 c_func
