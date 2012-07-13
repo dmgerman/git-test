@@ -277,6 +277,13 @@ id|merge_log_config
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|precomposed_unicode
+r_int
+id|precomposed_unicode
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* see probe_utf8_pathname_composition() */
 DECL|variable|startup_info
 r_struct
 id|startup_info

@@ -2815,6 +2815,14 @@ id|options
 )paren
 suffix:semicolon
 )brace
+id|precompose_argv
+c_func
+(paren
+id|argc
+comma
+id|argv
+)paren
+suffix:semicolon
 r_return
 id|parse_options_end
 c_func
