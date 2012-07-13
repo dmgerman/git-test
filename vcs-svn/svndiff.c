@@ -200,6 +200,14 @@ r_int
 id|len
 )paren
 (brace
+m_assert
+(paren
+op_star
+id|delta_len
+op_ge
+l_int|0
+)paren
+suffix:semicolon
 id|strbuf_reset
 c_func
 (paren
@@ -211,6 +219,9 @@ c_cond
 (paren
 id|len
 OG
+(paren
+r_uintmax
+)paren
 op_star
 id|delta_len
 op_logical_or
@@ -1257,6 +1268,11 @@ op_star
 id|out
 )paren
 (brace
+r_int
+id|rv
+op_assign
+l_int|1
+suffix:semicolon
 r_struct
 id|window
 id|ctx
@@ -1377,6 +1393,8 @@ op_ne
 id|out_len
 )paren
 (brace
+id|rv
+op_assign
 id|error
 c_func
 (paren
@@ -1402,14 +1420,8 @@ id|out
 r_goto
 id|error_out
 suffix:semicolon
-id|window_release
-c_func
-(paren
-op_amp
-id|ctx
-)paren
-suffix:semicolon
-r_return
+id|rv
+op_assign
 l_int|0
 suffix:semicolon
 id|error_out
@@ -1422,7 +1434,7 @@ id|ctx
 )paren
 suffix:semicolon
 r_return
-l_int|1
+id|rv
 suffix:semicolon
 )brace
 DECL|function|svndiff0_apply
@@ -1455,6 +1467,10 @@ op_logical_and
 id|preimage
 op_logical_and
 id|postimage
+op_logical_and
+id|delta_len
+op_ge
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -1482,9 +1498,8 @@ multiline_comment|/* For each window: */
 id|off_t
 id|pre_off
 op_assign
-id|pre_off
+l_int|1
 suffix:semicolon
-multiline_comment|/* stupid GCC... */
 r_int
 id|pre_len
 suffix:semicolon

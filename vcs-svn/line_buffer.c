@@ -616,16 +616,4 @@ r_return
 id|done
 suffix:semicolon
 )brace
-DECL|function|buffer_reset
-r_void
-id|buffer_reset
-c_func
-(paren
-r_struct
-id|line_buffer
-op_star
-id|buf
-)paren
-(brace
-)brace
 eof

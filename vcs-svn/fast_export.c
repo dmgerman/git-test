@@ -125,22 +125,6 @@ l_string|&quot;error closing fast-import feedback stream&quot;
 )paren
 suffix:semicolon
 )brace
-DECL|function|fast_export_reset
-r_void
-id|fast_export_reset
-c_func
-(paren
-r_void
-)paren
-(brace
-id|buffer_reset
-c_func
-(paren
-op_amp
-id|report_buffer
-)paren
-suffix:semicolon
-)brace
 DECL|function|fast_export_delete
 r_void
 id|fast_export_delete
@@ -823,20 +807,12 @@ id|header
 suffix:semicolon
 id|type
 op_assign
-id|memmem
+id|strstr
 c_func
 (paren
 id|header
 comma
-id|headerlen
-comma
 l_string|&quot; blob &quot;
-comma
-id|strlen
-c_func
-(paren
-l_string|&quot; blob &quot;
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -1485,6 +1461,9 @@ c_cond
 id|response_end
 id|response
 OL
+(paren
+r_int
+)paren
 id|strlen
 c_func
 (paren
@@ -1568,6 +1547,9 @@ c_cond
 id|response_end
 id|response
 OL
+(paren
+r_int
+)paren
 id|strlen
 c_func
 (paren

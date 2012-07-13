@@ -529,13 +529,6 @@ c_func
 l_string|&quot;output error&quot;
 )paren
 suffix:semicolon
-id|buffer_reset
-c_func
-(paren
-op_amp
-id|stdin_buf
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
