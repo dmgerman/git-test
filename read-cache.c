@@ -5137,10 +5137,10 @@ id|pathspec
 comma
 id|ce-&gt;name
 comma
-id|strlen
+id|ce_namelen
 c_func
 (paren
-id|ce-&gt;name
+id|ce
 )paren
 comma
 l_int|0
@@ -8679,10 +8679,10 @@ l_int|1
 suffix:semicolon
 id|len
 op_assign
-id|strlen
+id|ce_namelen
 c_func
 (paren
-id|ce-&gt;name
+id|ce
 )paren
 suffix:semicolon
 id|size

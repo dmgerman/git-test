@@ -5749,10 +5749,10 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * First let&squot;s make sure we do not have a local modification&n;&t; * in that directory.&n;&t; */
 id|namelen
 op_assign
-id|strlen
+id|ce_namelen
 c_func
 (paren
-id|ce-&gt;name
+id|ce
 )paren
 suffix:semicolon
 r_for
