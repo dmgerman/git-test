@@ -6319,6 +6319,24 @@ r_else
 r_if
 c_cond
 (paren
+id|is_null_sha1
+c_func
+(paren
+id|matched_src-&gt;new_sha1
+)paren
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;unable to delete &squot;%s&squot;: remote ref does not exist&quot;
+comma
+id|dst_value
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 (paren
 id|dst_guess
 op_assign
