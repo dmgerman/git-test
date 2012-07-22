@@ -12395,7 +12395,13 @@ r_return
 id|c
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Now pick up what they want to give us&n;&t; */
+multiline_comment|/*&n;&t; * If our max_count counter has reached zero, then we are done. We&n;&t; * don&squot;t simply return NULL because we still might need to show&n;&t; * boundary commits. But we want to avoid calling get_revision_1, which&n;&t; * might do a considerable amount of work finding the next commit only&n;&t; * for us to throw it away.&n;&t; *&n;&t; * If it is non-zero, then either we don&squot;t have a max_count at all&n;&t; * (-1), or it is still counting, in which case we decrement.&n;&t; */
+r_if
+c_cond
+(paren
+id|revs-&gt;max_count
+)paren
+(brace
 id|c
 op_assign
 id|get_revision_1
@@ -12439,29 +12445,13 @@ r_break
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Check the max_count.&n;&t; */
-r_switch
+r_if
 c_cond
 (paren
 id|revs-&gt;max_count
-)paren
-(brace
-r_case
-l_int|1
-suffix:colon
-r_break
-suffix:semicolon
-r_case
+OG
 l_int|0
-suffix:colon
-id|c
-op_assign
-l_int|NULL
-suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
+)paren
 id|revs-&gt;max_count
 op_decrement
 suffix:semicolon
