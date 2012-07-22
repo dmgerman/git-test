@@ -4011,7 +4011,7 @@ c_func
 (paren
 id|work_tree
 comma
-l_int|0755
+l_int|0777
 )paren
 )paren
 id|die_errno

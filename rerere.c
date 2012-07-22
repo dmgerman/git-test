@@ -3197,7 +3197,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|mkdir
+id|mkdir_in_gitdir
 c_func
 (paren
 id|git_path
@@ -3207,8 +3207,6 @@ l_string|&quot;rr-cache/%s&quot;
 comma
 id|hex
 )paren
-comma
-l_int|0755
 )paren
 )paren
 r_continue
