@@ -51,9 +51,6 @@ multiline_comment|/* WT_STATUS_REMOTE_BRANCH */
 id|GIT_COLOR_NIL
 comma
 multiline_comment|/* WT_STATUS_ONBRANCH */
-id|GIT_COLOR_NORMAL
-comma
-multiline_comment|/* WT_STATUS_IN_PROGRESS */
 )brace
 suffix:semicolon
 DECL|function|color
@@ -5362,7 +5359,7 @@ op_assign
 id|color
 c_func
 (paren
-id|WT_STATUS_IN_PROGRESS
+id|WT_STATUS_HEADER
 comma
 id|s
 )paren
