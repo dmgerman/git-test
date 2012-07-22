@@ -2292,6 +2292,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|user_config
+)paren
+multiline_comment|/*&n;&t;&t;&t; * It is unknown if HOME/.gitconfig exists, so&n;&t;&t;&t; * we do not know if we should write to XDG&n;&t;&t;&t; * location; error out even if XDG_CONFIG_HOME&n;&t;&t;&t; * is set and points at a sane location.&n;&t;&t;&t; */
+id|die
+c_func
+(paren
+l_string|&quot;$HOME not set&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|access
 c_func
 (paren
@@ -2299,6 +2312,8 @@ id|user_config
 comma
 id|R_OK
 )paren
+op_logical_and
+id|xdg_config
 op_logical_and
 op_logical_neg
 id|access
@@ -2314,21 +2329,9 @@ op_assign
 id|xdg_config
 suffix:semicolon
 r_else
-r_if
-c_cond
-(paren
-id|user_config
-)paren
 id|given_config_file
 op_assign
 id|user_config
-suffix:semicolon
-r_else
-id|die
-c_func
-(paren
-l_string|&quot;$HOME not set&quot;
-)paren
 suffix:semicolon
 )brace
 r_else
