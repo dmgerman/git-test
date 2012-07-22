@@ -1521,7 +1521,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|argv
@@ -1575,7 +1575,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|rev
@@ -1595,6 +1595,7 @@ comma
 id|rev
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * NOTE: As &quot;git reset $treeish -- $path&quot; should be usable on&n;&t; * any tree-ish, this is not strictly correct. We are not&n;&t; * moving the HEAD to any commit; we are merely resetting the&n;&t; * entries in the index to that of a treeish.&n;&t; */
 id|commit
 op_assign
 id|lookup_commit_reference

@@ -348,7 +348,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|get_sha1
+id|get_sha1_committish
 c_func
 (paren
 id|name
