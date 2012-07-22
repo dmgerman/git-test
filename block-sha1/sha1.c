@@ -46,7 +46,7 @@ DECL|macro|W
 mdefine_line|#define W(x) (array[(x)&amp;15])
 multiline_comment|/*&n; * Where do we get the source from? The first 16 iterations get it from&n; * the input data, the next mix it from the 512-bit array.&n; */
 DECL|macro|SHA_SRC
-mdefine_line|#define SHA_SRC(t) get_be32(data + t)
+mdefine_line|#define SHA_SRC(t) get_be32((unsigned char *) block + t*4)
 DECL|macro|SHA_MIX
 mdefine_line|#define SHA_MIX(t) SHA_ROL(W(t+13) ^ W(t+8) ^ W(t+2) ^ W(t), 1)
 DECL|macro|SHA_ROUND
@@ -72,10 +72,9 @@ op_star
 id|ctx
 comma
 r_const
-r_int
-r_int
+r_void
 op_star
-id|data
+id|block
 )paren
 (brace
 r_int
@@ -132,7 +131,7 @@ id|ctx-&gt;H
 l_int|4
 )braket
 suffix:semicolon
-multiline_comment|/* Round 1 - iterations 0-16 take their input from &squot;data&squot; */
+multiline_comment|/* Round 1 - iterations 0-16 take their input from &squot;block&squot; */
 id|T_0_15
 c_func
 (paren
