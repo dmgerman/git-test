@@ -140,7 +140,7 @@ comma
 id|advice
 )paren
 suffix:semicolon
-id|strbuf_addf
+id|strbuf_vaddf
 c_func
 (paren
 op_amp
