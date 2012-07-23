@@ -4139,7 +4139,7 @@ comma
 id|git_committer_info
 c_func
 (paren
-l_int|0
+id|IDENT_STRICT
 )paren
 )paren
 suffix:semicolon
