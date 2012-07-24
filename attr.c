@@ -2489,6 +2489,12 @@ op_assign
 id|xdg_attributes_file
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|git_attributes_file
+)paren
+(brace
 id|elem
 op_assign
 id|read_attr_from_file
@@ -2517,6 +2523,7 @@ id|attr_stack
 op_assign
 id|elem
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
