@@ -869,7 +869,11 @@ l_int|0
 id|printf
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;(bad commit)&bslash;n&quot;
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -976,7 +980,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;addinfo_cache failed for path &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -1324,7 +1332,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;error building trees&quot;
+)paren
 )paren
 suffix:semicolon
 id|result
@@ -2385,7 +2397,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;diff setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|diff_tree_sha1
@@ -3172,7 +3188,11 @@ id|ret
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;merge-recursive: disk full?&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -3485,7 +3505,11 @@ r_char
 op_star
 id|msg
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;failed to create path &squot;%s&squot;%s&quot;
+)paren
 suffix:semicolon
 multiline_comment|/* Unlink any D/F conflict files that are in the way */
 r_for
@@ -3567,7 +3591,11 @@ id|o
 comma
 l_int|3
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Removing %s to make room for subdirectory&bslash;n&quot;
+)paren
 comma
 id|df_path
 )paren
@@ -3624,7 +3652,11 @@ id|msg
 comma
 id|path
 comma
+id|_
+c_func
+(paren
 l_string|&quot;: perhaps a D/F conflict?&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -3656,7 +3688,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;refusing to lose untracked file at &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -3695,7 +3731,11 @@ id|msg
 comma
 id|path
 comma
+id|_
+c_func
+(paren
 l_string|&quot;: perhaps a D/F conflict?&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -3800,7 +3840,11 @@ id|buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot read object %s &squot;%s&squot;&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3821,7 +3865,11 @@ id|OBJ_BLOB
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;blob expected for %s &squot;%s&squot;&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -3982,7 +4030,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to open &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -4053,7 +4105,11 @@ id|path
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed to symlink &squot;%s&squot;&quot;
+)paren
 comma
 id|path
 )paren
@@ -4069,7 +4125,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;do not know what to do with %06o %s &squot;%s&squot;&quot;
+)paren
 comma
 id|mode
 comma
@@ -4827,7 +4887,11 @@ id|result_buf.ptr
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to execute internal merge&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -4848,7 +4912,11 @@ id|result.sha
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to add %s to database&quot;
+)paren
 comma
 id|a-&gt;path
 )paren
@@ -4940,7 +5008,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unsupported object type in the tree&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -5402,6 +5474,13 @@ op_logical_neg
 id|a_sha
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|renamed
+)paren
+(brace
 id|output
 c_func
 (paren
@@ -5409,8 +5488,58 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;CONFLICT (%s/delete): %s deleted in %s &quot;
-l_string|&quot;and %s in %s. Version %s of %s left in tree%s%s.&quot;
+l_string|&quot;and %s in %s. Version %s of %s left in tree.&quot;
+)paren
+comma
+id|change
+comma
+id|path
+comma
+id|o-&gt;branch1
+comma
+id|change_past
+comma
+id|o-&gt;branch2
+comma
+id|o-&gt;branch2
+comma
+id|path
+)paren
+suffix:semicolon
+id|update_file
+c_func
+(paren
+id|o
+comma
+l_int|0
+comma
+id|b_sha
+comma
+id|b_mode
+comma
+id|path
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|output
+c_func
+(paren
+id|o
+comma
+l_int|1
+comma
+id|_
+c_func
+(paren
+l_string|&quot;CONFLICT (%s/delete): %s deleted in %s &quot;
+l_string|&quot;and %s in %s. Version %s of %s left in tree at %s.&quot;
+)paren
 comma
 id|change
 comma
@@ -5426,22 +5555,6 @@ id|o-&gt;branch2
 comma
 id|path
 comma
-l_int|NULL
-op_eq
-id|renamed
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot; at &quot;
-comma
-l_int|NULL
-op_eq
-id|renamed
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
 id|renamed
 )paren
 suffix:semicolon
@@ -5457,10 +5570,45 @@ comma
 id|b_mode
 comma
 id|renamed
-ques
+)paren
+suffix:semicolon
+)brace
+)brace
+r_else
+(brace
+r_if
 c_cond
+(paren
+op_logical_neg
 id|renamed
-suffix:colon
+)paren
+(brace
+id|output
+c_func
+(paren
+id|o
+comma
+l_int|1
+comma
+id|_
+c_func
+(paren
+l_string|&quot;CONFLICT (%s/delete): %s deleted in %s &quot;
+l_string|&quot;and %s in %s. Version %s of %s left in tree.&quot;
+)paren
+comma
+id|change
+comma
+id|path
+comma
+id|o-&gt;branch2
+comma
+id|change_past
+comma
+id|o-&gt;branch1
+comma
+id|o-&gt;branch1
+comma
 id|path
 )paren
 suffix:semicolon
@@ -5474,8 +5622,12 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;CONFLICT (%s/delete): %s deleted in %s &quot;
-l_string|&quot;and %s in %s. Version %s of %s left in tree%s%s.&quot;
+l_string|&quot;and %s in %s. Version %s of %s left in tree at %s.&quot;
+)paren
 comma
 id|change
 comma
@@ -5491,30 +5643,9 @@ id|o-&gt;branch1
 comma
 id|path
 comma
-l_int|NULL
-op_eq
-id|renamed
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
-l_string|&quot; at &quot;
-comma
-l_int|NULL
-op_eq
-id|renamed
-ques
-c_cond
-l_string|&quot;&quot;
-suffix:colon
 id|renamed
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|renamed
-)paren
 id|update_file
 c_func
 (paren
@@ -5529,6 +5660,7 @@ comma
 id|renamed
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t;&t; * No need to call update_file() on path when !renamed, since&n;&t;&t; * that would needlessly touch path.  We could call&n;&t;&t; * update_file_flags() with update_cache=0 and update_wd=0,&n;&t;&t; * but that&squot;s a no-op.&n;&t;&t; */
 )brace
 id|free
@@ -5659,9 +5791,17 @@ id|b_sha
 comma
 id|b_mode
 comma
+id|_
+c_func
+(paren
 l_string|&quot;rename&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 l_string|&quot;renamed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -5980,7 +6120,11 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;%s is a directory in %s adding as %s instead&quot;
+)paren
 comma
 id|rename-&gt;path
 comma
@@ -6097,9 +6241,13 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;CONFLICT (rename/rename): &quot;
 l_string|&quot;Rename &bslash;&quot;%s&bslash;&quot;-&gt;&bslash;&quot;%s&bslash;&quot; in branch &bslash;&quot;%s&bslash;&quot; &quot;
 l_string|&quot;rename &bslash;&quot;%s&bslash;&quot;-&gt;&bslash;&quot;%s&bslash;&quot; in &bslash;&quot;%s&bslash;&quot;%s&quot;
+)paren
 comma
 id|one-&gt;path
 comma
@@ -6116,7 +6264,11 @@ comma
 id|o-&gt;call_depth
 ques
 c_cond
+id|_
+c_func
+(paren
 l_string|&quot; (left unresolved)&quot;
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
@@ -6361,9 +6513,13 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;CONFLICT (rename/rename): &quot;
 l_string|&quot;Rename %s-&gt;%s in %s. &quot;
 l_string|&quot;Rename %s-&gt;%s in %s&quot;
+)paren
 comma
 id|a-&gt;path
 comma
@@ -6541,7 +6697,11 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Renaming %s to %s and %s to %s instead&quot;
+)paren
 comma
 id|a-&gt;path
 comma
@@ -7420,8 +7580,12 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;CONFLICT (rename/add): Rename %s-&gt;%s in %s. &quot;
 l_string|&quot;%s added in %s&quot;
+)paren
 comma
 id|ren1_src
 comma
@@ -7477,7 +7641,11 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Adding merged %s&quot;
+)paren
 comma
 id|ren1_dst
 )paren
@@ -7524,7 +7692,11 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Adding as %s instead&quot;
+)paren
 comma
 id|new_path
 )paren
@@ -7772,7 +7944,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;cannot read object %s&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -7799,7 +7975,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;object %s is not a blob&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -8055,9 +8235,17 @@ id|b_sha
 comma
 id|b_mode
 comma
+id|_
+c_func
+(paren
 l_string|&quot;modify&quot;
+)paren
 comma
+id|_
+c_func
+(paren
 l_string|&quot;modified&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -8112,7 +8300,11 @@ r_char
 op_star
 id|reason
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;content&quot;
+)paren
 suffix:semicolon
 r_const
 r_char
@@ -8152,7 +8344,11 @@ id|o_sha
 (brace
 id|reason
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;add/add&quot;
+)paren
 suffix:semicolon
 id|o_sha
 op_assign
@@ -8327,7 +8523,11 @@ id|o
 comma
 l_int|3
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Skipped %s (merged same as existing)&quot;
+)paren
 comma
 id|path
 )paren
@@ -8386,7 +8586,11 @@ id|o
 comma
 l_int|2
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Auto-merging %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -8409,7 +8613,11 @@ id|mfi.mode
 )paren
 id|reason
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;submodule&quot;
+)paren
 suffix:semicolon
 id|output
 c_func
@@ -8418,7 +8626,11 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;CONFLICT (%s): Merge conflict in %s&quot;
+)paren
 comma
 id|reason
 comma
@@ -8567,7 +8779,11 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Adding as %s instead&quot;
+)paren
 comma
 id|new_path
 )paren
@@ -8931,7 +9147,11 @@ id|o
 comma
 l_int|2
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Removing %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -9055,7 +9275,11 @@ id|a_sha
 suffix:semicolon
 id|conf
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;file/directory&quot;
+)paren
 suffix:semicolon
 )brace
 r_else
@@ -9078,7 +9302,11 @@ id|b_sha
 suffix:semicolon
 id|conf
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot;directory/file&quot;
+)paren
 suffix:semicolon
 )brace
 r_if
@@ -9119,8 +9347,12 @@ id|o
 comma
 l_int|1
 comma
+id|_
+c_func
+(paren
 l_string|&quot;CONFLICT (%s): There is a directory with name %s in %s. &quot;
 l_string|&quot;Adding %s as %s&quot;
+)paren
 comma
 id|conf
 comma
@@ -9185,7 +9417,11 @@ id|o
 comma
 l_int|2
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Adding %s&quot;
+)paren
 comma
 id|path
 )paren
@@ -9279,7 +9515,11 @@ r_else
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Fatal merge failure, shouldn&squot;t happen.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
@@ -9373,7 +9613,11 @@ id|o
 comma
 l_int|0
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Already up-to-date!&quot;
+)paren
 )paren
 suffix:semicolon
 op_star
@@ -9423,7 +9667,11 @@ id|o-&gt;call_depth
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;merging of trees %s and %s failed&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -9664,7 +9912,11 @@ id|e-&gt;processed
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unprocessed path??? %s&quot;
+)paren
 comma
 id|entries-&gt;items
 (braket
@@ -9853,7 +10105,11 @@ id|o
 comma
 l_int|4
 comma
+id|_
+c_func
+(paren
 l_string|&quot;Merging:&quot;
+)paren
 )paren
 suffix:semicolon
 id|output_commit_title
@@ -9920,7 +10176,11 @@ id|o
 comma
 l_int|5
 comma
+id|_
+c_func
+(paren
 l_string|&quot;found %u common ancestor(s):&quot;
+)paren
 comma
 id|commit_list_count
 c_func
@@ -10075,7 +10335,11 @@ id|merged_common_ancestors
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;merge returned no commit&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -10457,7 +10721,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Could not parse object &squot;%s&squot;&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -10533,7 +10801,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unable to write index.&quot;
+)paren
 )paren
 suffix:semicolon
 r_return
