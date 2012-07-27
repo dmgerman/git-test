@@ -3593,11 +3593,6 @@ r_struct
 id|patch_ids
 op_star
 id|ids
-comma
-r_const
-r_char
-op_star
-id|prefix
 )paren
 (brace
 r_struct
@@ -3703,7 +3698,7 @@ c_func
 op_amp
 id|check_rev
 comma
-id|prefix
+id|rev-&gt;prefix
 )paren
 suffix:semicolon
 id|o1-&gt;flags
@@ -6973,8 +6968,6 @@ id|rev
 comma
 op_amp
 id|ids
-comma
-id|prefix
 )paren
 suffix:semicolon
 )brace
@@ -8062,8 +8055,6 @@ id|revs
 comma
 op_amp
 id|ids
-comma
-id|prefix
 )paren
 suffix:semicolon
 r_if
