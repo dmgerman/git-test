@@ -797,6 +797,8 @@ id|d1
 comma
 id|null_sha1
 comma
+l_int|0
+comma
 id|mode1
 )paren
 suffix:semicolon
@@ -806,6 +808,8 @@ c_func
 id|d2
 comma
 id|null_sha1
+comma
+l_int|0
 comma
 id|mode2
 )paren

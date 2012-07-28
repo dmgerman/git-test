@@ -1544,6 +1544,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|sha1_valid
+comma
 r_const
 r_char
 op_star
@@ -1613,6 +1616,12 @@ r_int
 r_char
 op_star
 id|new_sha1
+comma
+r_int
+id|old_sha1_valid
+comma
+r_int
+id|new_sha1_valid
 comma
 r_const
 r_char

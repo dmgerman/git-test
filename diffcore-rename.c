@@ -244,6 +244,8 @@ id|two
 comma
 id|two-&gt;sha1
 comma
+id|two-&gt;sha1_valid
+comma
 id|two-&gt;mode
 )paren
 suffix:semicolon

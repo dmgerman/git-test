@@ -648,6 +648,8 @@ id|df
 comma
 id|sha1
 comma
+l_int|1
+comma
 id|mode
 )paren
 suffix:semicolon
@@ -4383,6 +4385,8 @@ c_func
 id|df
 comma
 id|null_sha1
+comma
+l_int|0
 comma
 id|st.st_mode
 )paren
