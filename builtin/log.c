@@ -3701,6 +3701,10 @@ comma
 id|rev-&gt;prefix
 )paren
 suffix:semicolon
+id|check_rev.max_parents
+op_assign
+l_int|1
+suffix:semicolon
 id|o1-&gt;flags
 op_xor_assign
 id|UNINTERESTING
@@ -3768,16 +3772,6 @@ op_ne
 l_int|NULL
 )paren
 (brace
-multiline_comment|/* ignore merges */
-r_if
-c_cond
-(paren
-id|commit-&gt;parents
-op_logical_and
-id|commit-&gt;parents-&gt;next
-)paren
-r_continue
-suffix:semicolon
 id|add_commit_patch_id
 c_func
 (paren
@@ -7931,6 +7925,10 @@ comma
 id|prefix
 )paren
 suffix:semicolon
+id|revs.max_parents
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -8102,16 +8100,6 @@ op_ne
 l_int|NULL
 )paren
 (brace
-multiline_comment|/* ignore merges */
-r_if
-c_cond
-(paren
-id|commit-&gt;parents
-op_logical_and
-id|commit-&gt;parents-&gt;next
-)paren
-r_continue
-suffix:semicolon
 id|commit_list_insert
 c_func
 (paren
