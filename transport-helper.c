@@ -2417,6 +2417,7 @@ id|fastimport.argv
 op_assign
 l_int|NULL
 suffix:semicolon
+multiline_comment|/*&n;&t; * The fast-import stream of a remote helper that advertises&n;&t; * the &quot;refspec&quot; capability writes to the refs named after the&n;&t; * right hand side of the first refspec matching each ref we&n;&t; * were fetching.&n;&t; *&n;&t; * (If no &quot;refspec&quot; capability was specified, for historical&n;&t; * reasons we default to *:*.)&n;&t; *&n;&t; * Store the result in to_fetch[i].old_sha1.  Callers such&n;&t; * as &quot;git fetch&quot; can use the value to write feedback to the&n;&t; * terminal, populate FETCH_HEAD, and determine what new value&n;&t; * should be written to peer_ref if the update is a&n;&t; * fast-forward or this is a forced update.&n;&t; */
 r_for
 c_loop
 (paren
