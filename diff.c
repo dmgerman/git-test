@@ -7837,16 +7837,18 @@ l_int|0
 )paren
 suffix:semicolon
 r_return
-id|fputs
+id|fprintf
 c_func
 (paren
+id|fp
+comma
+l_string|&quot;%s&bslash;n&quot;
+comma
 id|_
 c_func
 (paren
-l_string|&quot; 0 files changed&bslash;n&quot;
+l_string|&quot; 0 files changed&quot;
 )paren
-comma
-id|fp
 )paren
 suffix:semicolon
 )brace
