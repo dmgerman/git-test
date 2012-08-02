@@ -634,6 +634,11 @@ c_func
 (paren
 )paren
 comma
+id|OPT_END
+c_func
+(paren
+)paren
+comma
 )brace
 suffix:semicolon
 r_if
@@ -688,6 +693,19 @@ op_amp
 id|opts-&gt;allow_empty
 comma
 l_string|&quot;preserve initially empty commits&quot;
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;allow-empty-message&quot;
+comma
+op_amp
+id|opts-&gt;allow_empty_message
+comma
+l_string|&quot;allow commits with empty messages&quot;
 )paren
 comma
 id|OPT_BOOLEAN
