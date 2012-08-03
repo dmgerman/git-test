@@ -10,6 +10,7 @@ macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;transport.h&quot;
+macro_line|#include &quot;version.h&quot;
 DECL|variable|transfer_unpack_limit
 r_static
 r_int
@@ -1546,6 +1547,20 @@ op_amp
 id|c
 comma
 l_string|&quot; ofs-delta&quot;
+)paren
+suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|c
+comma
+l_string|&quot; agent=%s&quot;
+comma
+id|git_user_agent_sanitized
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|packet_buf_write

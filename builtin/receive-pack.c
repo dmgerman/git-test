@@ -12,6 +12,7 @@ macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
 macro_line|#include &quot;connected.h&quot;
+macro_line|#include &quot;version.h&quot;
 DECL|variable|receive_pack_usage
 r_static
 r_const
@@ -625,7 +626,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s %s%c%s%s&bslash;n&quot;
+l_string|&quot;%s %s%c%s%s agent=%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -645,6 +646,11 @@ c_cond
 l_string|&quot; ofs-delta&quot;
 suffix:colon
 l_string|&quot;&quot;
+comma
+id|git_user_agent_sanitized
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 id|sent_capabilities

@@ -8,6 +8,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;send-pack.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;transport.h&quot;
+macro_line|#include &quot;version.h&quot;
 DECL|variable|send_pack_usage
 r_static
 r_const
@@ -1440,7 +1441,7 @@ c_func
 op_amp
 id|req_buf
 comma
-l_string|&quot;%s %s %s%c%s%s%s&quot;
+l_string|&quot;%s %s %s%c%s%s%s agent=%s&quot;
 comma
 id|old_hex
 comma
@@ -1470,6 +1471,11 @@ c_cond
 l_string|&quot; quiet&quot;
 suffix:colon
 l_string|&quot;&quot;
+comma
+id|git_user_agent_sanitized
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 )brace
