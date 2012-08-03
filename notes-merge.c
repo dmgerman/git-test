@@ -616,22 +616,11 @@ id|opt.output_format
 op_assign
 id|DIFF_FORMAT_NO_OUTPUT
 suffix:semicolon
-r_if
-c_cond
-(paren
 id|diff_setup_done
 c_func
 (paren
 op_amp
 id|opt
-)paren
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;diff_setup_done failed&quot;
 )paren
 suffix:semicolon
 id|diff_tree_sha1
@@ -1014,22 +1003,11 @@ id|opt.output_format
 op_assign
 id|DIFF_FORMAT_NO_OUTPUT
 suffix:semicolon
-r_if
-c_cond
-(paren
 id|diff_setup_done
 c_func
 (paren
 op_amp
 id|opt
-)paren
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;diff_setup_done failed&quot;
 )paren
 suffix:semicolon
 id|diff_tree_sha1

@@ -3088,22 +3088,11 @@ id|diff_opts.format_callback
 op_assign
 id|submodule_collect_changed_cb
 suffix:semicolon
-r_if
-c_cond
-(paren
 id|diff_setup_done
 c_func
 (paren
 op_amp
 id|diff_opts
-)paren
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;diff_setup_done failed&quot;
 )paren
 suffix:semicolon
 id|diff_tree_sha1
