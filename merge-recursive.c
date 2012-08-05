@@ -10169,6 +10169,15 @@ l_int|5
 )paren
 )paren
 (brace
+r_int
+id|cnt
+op_assign
+id|commit_list_count
+c_func
+(paren
+id|ca
+)paren
+suffix:semicolon
 id|output
 c_func
 (paren
@@ -10176,17 +10185,17 @@ id|o
 comma
 l_int|5
 comma
-id|_
+id|Q_
 c_func
 (paren
-l_string|&quot;found %u common ancestor(s):&quot;
+l_string|&quot;found %u common ancestor:&quot;
+comma
+l_string|&quot;found %u common ancestors:&quot;
+comma
+id|cnt
 )paren
 comma
-id|commit_list_count
-c_func
-(paren
-id|ca
-)paren
+id|cnt
 )paren
 suffix:semicolon
 r_for
