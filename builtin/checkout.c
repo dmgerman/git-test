@@ -3356,8 +3356,6 @@ id|refname
 comma
 id|sha1
 comma
-id|flags
-op_or
 id|UNINTERESTING
 )paren
 suffix:semicolon
