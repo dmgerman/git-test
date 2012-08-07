@@ -113,6 +113,13 @@ id|expire
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_only
+op_logical_or
+id|verbose
+)paren
 id|printf
 c_func
 (paren
