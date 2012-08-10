@@ -1431,7 +1431,7 @@ id|status_report
 op_logical_or
 id|use_sideband
 op_logical_or
-id|args-&gt;quiet
+id|quiet
 )paren
 )paren
 (brace
