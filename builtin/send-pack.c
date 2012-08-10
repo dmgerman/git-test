@@ -1203,6 +1203,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|agent_supported
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|cmds_sent
 op_assign
 l_int|0
@@ -1277,6 +1282,19 @@ l_string|&quot;quiet&quot;
 )paren
 )paren
 id|quiet_supported
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|server_supports
+c_func
+(paren
+l_string|&quot;agent&quot;
+)paren
+)paren
+id|agent_supported
 op_assign
 l_int|1
 suffix:semicolon
@@ -1432,6 +1450,8 @@ op_logical_or
 id|use_sideband
 op_logical_or
 id|quiet
+op_logical_or
+id|agent_supported
 )paren
 )paren
 (brace
@@ -1441,7 +1461,7 @@ c_func
 op_amp
 id|req_buf
 comma
-l_string|&quot;%s %s %s%c%s%s%s agent=%s&quot;
+l_string|&quot;%s %s %s%c%s%s%s%s%s&quot;
 comma
 id|old_hex
 comma
@@ -1472,10 +1492,22 @@ l_string|&quot; quiet&quot;
 suffix:colon
 l_string|&quot;&quot;
 comma
+id|agent_supported
+ques
+c_cond
+l_string|&quot; agent=&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|agent_supported
+ques
+c_cond
 id|git_user_agent_sanitized
 c_func
 (paren
 )paren
+suffix:colon
+l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace

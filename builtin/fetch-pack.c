@@ -58,6 +58,11 @@ id|transfer_fsck_objects
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|agent_supported
+r_static
+r_int
+id|agent_supported
+suffix:semicolon
 DECL|variable|args
 r_static
 r_struct
@@ -1549,6 +1554,11 @@ comma
 l_string|&quot; ofs-delta&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|agent_supported
+)paren
 id|strbuf_addf
 c_func
 (paren
@@ -4217,6 +4227,19 @@ r_else
 id|prefer_ofs_delta
 op_assign
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|server_supports
+c_func
+(paren
+l_string|&quot;agent&quot;
+)paren
+)paren
+id|agent_supported
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
