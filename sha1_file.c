@@ -1271,14 +1271,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|strcmp
 c_func
 (paren
 id|ent-&gt;base
 comma
 id|objdir
-comma
-id|pfxlen
 )paren
 )paren
 (brace
