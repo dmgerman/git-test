@@ -23,7 +23,11 @@ id|fast_export_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git fast-export [rev-list-opts]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -3310,7 +3314,11 @@ comma
 op_amp
 id|progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show progress after &lt;n&gt; objects&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -3323,9 +3331,17 @@ comma
 op_amp
 id|signed_tag_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mode&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;select handling of signed tags&quot;
+)paren
 comma
 id|parse_opt_signed_tag_mode
 )paren
@@ -3340,9 +3356,17 @@ comma
 op_amp
 id|tag_of_filtered_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mode&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;select handling of tags that tag filtered objects&quot;
+)paren
 comma
 id|parse_opt_tag_of_filtered_mode
 )paren
@@ -3357,9 +3381,17 @@ comma
 op_amp
 id|export_filename
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Dump marks to this file&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -3372,9 +3404,17 @@ comma
 op_amp
 id|import_filename
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Import marks from this file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3387,7 +3427,11 @@ comma
 op_amp
 id|fake_missing_tagger
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Fake a tagger when tags lack one&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3400,7 +3444,11 @@ comma
 op_amp
 id|full_tree
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Output full tree for each commit&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3413,7 +3461,11 @@ comma
 op_amp
 id|use_done_feature
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Use the done feature to terminate the stream&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -3426,7 +3478,11 @@ comma
 op_amp
 id|no_data
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Skip output of blob data&quot;
+)paren
 )paren
 comma
 id|OPT_END
