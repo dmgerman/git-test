@@ -31,9 +31,17 @@ id|checkout_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git checkout [options] &lt;branch&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git checkout [options] [&lt;branch&gt;] -- &lt;file&gt;...&quot;
+)paren
 comma
 l_int|NULL
 comma
@@ -4914,7 +4922,11 @@ c_func
 op_amp
 id|opts.quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress progress reporting&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -4927,9 +4939,17 @@ comma
 op_amp
 id|opts.new_branch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;branch&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create and checkout a new branch&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -4942,9 +4962,17 @@ comma
 op_amp
 id|opts.new_branch_force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;branch&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create/reset and checkout a branch&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4957,7 +4985,11 @@ comma
 op_amp
 id|opts.new_branch_log
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create reflog for new branch&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4970,7 +5002,11 @@ comma
 op_amp
 id|opts.force_detach
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;detach the HEAD at named commit&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -4983,7 +5019,11 @@ comma
 op_amp
 id|opts.track
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;set upstream info for new branch&quot;
+)paren
 comma
 id|BRANCH_TRACK_EXPLICIT
 )paren
@@ -4998,9 +5038,17 @@ comma
 op_amp
 id|opts.new_orphan_branch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;new branch&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;new unparented branch&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -5013,7 +5061,11 @@ comma
 op_amp
 id|opts.writeout_stage
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;checkout our version for unmerged files&quot;
+)paren
 comma
 l_int|2
 )paren
@@ -5028,7 +5080,11 @@ comma
 op_amp
 id|opts.writeout_stage
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;checkout their version for unmerged files&quot;
+)paren
 comma
 l_int|3
 )paren
@@ -5039,7 +5095,11 @@ c_func
 op_amp
 id|opts.force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force checkout (throw away local modifications)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5052,7 +5112,11 @@ comma
 op_amp
 id|opts.merge
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;perform a 3-way merge with the new branch&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5065,7 +5129,11 @@ comma
 op_amp
 id|opts.overwrite_ignore
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update ignored files (default)&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -5078,9 +5146,17 @@ comma
 op_amp
 id|conflict_style
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;style&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;conflict style (merge or diff3)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5093,7 +5169,11 @@ comma
 op_amp
 id|patch_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;select hunks interactively&quot;
+)paren
 )paren
 comma
 (brace
@@ -5108,7 +5188,11 @@ id|dwim_new_local_branch
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;second guess &squot;git checkout no-such-branch&squot;&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
