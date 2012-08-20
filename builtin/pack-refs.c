@@ -12,7 +12,11 @@ id|pack_refs_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git pack-refs [options]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -60,7 +64,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pack everything&quot;
+)paren
 comma
 id|PACK_REFS_ALL
 )paren
@@ -75,7 +83,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prune loose refs (default)&quot;
+)paren
 comma
 id|PACK_REFS_PRUNE
 )paren
