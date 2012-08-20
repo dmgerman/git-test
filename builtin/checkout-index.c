@@ -686,7 +686,11 @@ id|builtin_checkout_index_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git checkout-index [options] [--] [&lt;file&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -983,7 +987,11 @@ comma
 op_amp
 id|all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;checks out all files in the index&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -992,7 +1000,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;forces overwrite of existing files&quot;
+)paren
 )paren
 comma
 id|OPT__QUIET
@@ -1001,7 +1013,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;no warning for existing files and files not in index&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1014,7 +1030,11 @@ comma
 op_amp
 id|not_new
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t checkout new files&quot;
+)paren
 )paren
 comma
 (brace
@@ -1029,7 +1049,11 @@ id|newfd
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update stat information in the index file&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -1047,7 +1071,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;paths are separated with NUL character&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -1064,7 +1092,11 @@ comma
 op_amp
 id|read_from_stdin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read list of paths from the standard input&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1077,7 +1109,11 @@ comma
 op_amp
 id|to_tempfile
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write the content to temporary files&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -1089,9 +1125,17 @@ l_string|&quot;prefix&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;string&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;when creating files, prepend &lt;string&gt;&quot;
+)paren
 comma
 id|option_parse_prefix
 )paren
@@ -1107,7 +1151,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;copy out the files from named stage&quot;
+)paren
 comma
 id|option_parse_stage
 )paren
