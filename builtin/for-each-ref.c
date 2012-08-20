@@ -5492,7 +5492,11 @@ id|for_each_ref_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git for-each-ref [options] [&lt;pattern&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -5579,7 +5583,11 @@ comma
 op_amp
 id|quote_style
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;quote placeholders suitably for shells&quot;
+)paren
 comma
 id|QUOTE_SHELL
 )paren
@@ -5594,7 +5602,11 @@ comma
 op_amp
 id|quote_style
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;quote placeholders suitably for perl&quot;
+)paren
 comma
 id|QUOTE_PERL
 )paren
@@ -5609,7 +5621,11 @@ comma
 op_amp
 id|quote_style
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;quote placeholders suitably for python&quot;
+)paren
 comma
 id|QUOTE_PYTHON
 )paren
@@ -5624,7 +5640,11 @@ comma
 op_amp
 id|quote_style
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;quote placeholders suitably for tcl&quot;
+)paren
 comma
 id|QUOTE_TCL
 )paren
@@ -5645,7 +5665,11 @@ comma
 op_amp
 id|maxcount
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show only &lt;n&gt; matched refs&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -5658,9 +5682,17 @@ comma
 op_amp
 id|format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;format&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;format to use for the output&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -5672,9 +5704,17 @@ l_string|&quot;sort&quot;
 comma
 id|sort_tail
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;key&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;field name to sort on&quot;
+)paren
 comma
 op_amp
 id|opt_parse_sort
