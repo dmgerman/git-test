@@ -541,9 +541,17 @@ comma
 op_amp
 id|output
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write the archive to this file&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -556,9 +564,17 @@ comma
 op_amp
 id|remote
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;repo&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;retrieve the archive from remote repository &lt;repo&gt;&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -571,9 +587,17 @@ comma
 op_amp
 id|exec
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;cmd&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path to the remote git-upload-archive command&quot;
+)paren
 )paren
 comma
 id|OPT_END
