@@ -16,7 +16,11 @@ id|builtin_mv_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git mv [options] &lt;source&gt;... &lt;destination&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -367,7 +371,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT__DRY_RUN
@@ -376,7 +384,11 @@ c_func
 op_amp
 id|show_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -385,7 +397,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force move/rename even if target exists&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -398,7 +414,11 @@ comma
 op_amp
 id|ignore_errors
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;skip move/rename errors&quot;
+)paren
 )paren
 comma
 id|OPT_END
