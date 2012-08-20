@@ -2428,7 +2428,11 @@ id|init_db_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git init [-q | --quiet] [--bare] [--template=&lt;template-directory&gt;] [--shared[=&lt;permissions&gt;]] [directory]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -2502,9 +2506,17 @@ comma
 op_amp
 id|template_dir
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;template-directory&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;directory from which templates will be used&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -2517,7 +2529,11 @@ comma
 op_amp
 id|is_bare_repository_cfg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create a bare repository&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -2532,9 +2548,17 @@ comma
 op_amp
 id|init_shared_repository
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;permissions&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;specify that the git repository is to be shared amongst several users&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 op_or
@@ -2555,7 +2579,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be quiet&quot;
+)paren
 comma
 id|INIT_DB_QUIET
 )paren
@@ -2570,9 +2598,17 @@ comma
 op_amp
 id|real_git_dir
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;gitdir&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;separate git dir from working tree&quot;
+)paren
 )paren
 comma
 id|OPT_END
