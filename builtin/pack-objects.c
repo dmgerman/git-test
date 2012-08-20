@@ -28,9 +28,17 @@ id|pack_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git pack-objects --stdout [options...] [&lt; ref-list | &lt; object-list]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git pack-objects [options...] base-name [&lt; ref-list | &lt; object-list]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -11699,7 +11707,11 @@ comma
 op_amp
 id|progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not show progress meter&quot;
+)paren
 comma
 l_int|0
 )paren
@@ -11714,7 +11726,11 @@ comma
 op_amp
 id|progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show progress meter&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -11729,7 +11745,11 @@ comma
 op_amp
 id|progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show progress meter during object writing phase&quot;
+)paren
 comma
 l_int|2
 )paren
@@ -11744,7 +11764,11 @@ comma
 op_amp
 id|all_progress_implied
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;similar to --all-progress when progress meter is shown&quot;
+)paren
 )paren
 comma
 (brace
@@ -11756,9 +11780,17 @@ l_string|&quot;index-version&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;version[,offset]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write the pack index file in the specified idx format version&quot;
+)paren
 comma
 l_int|0
 comma
@@ -11775,7 +11807,11 @@ comma
 op_amp
 id|pack_size_limit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;maximum size of each output pack file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -11788,7 +11824,11 @@ comma
 op_amp
 id|local
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore borrowed objects from alternate object store&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -11801,7 +11841,11 @@ comma
 op_amp
 id|incremental
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore packed objects&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -11814,7 +11858,11 @@ comma
 op_amp
 id|window
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;limit pack window by objects&quot;
+)paren
 )paren
 comma
 id|OPT_ULONG
@@ -11827,7 +11875,11 @@ comma
 op_amp
 id|window_memory_limit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;limit pack window by memory in addition to object limit&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -11840,7 +11892,11 @@ comma
 op_amp
 id|depth
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;maximum length of delta chain allowed in the resulting pack&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -11853,7 +11909,11 @@ comma
 op_amp
 id|reuse_delta
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse existing deltas&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -11866,7 +11926,11 @@ comma
 op_amp
 id|reuse_object
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse existing objects&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -11879,7 +11943,11 @@ comma
 op_amp
 id|allow_ofs_delta
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use OFS_DELTA objects&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -11892,7 +11960,11 @@ comma
 op_amp
 id|delta_search_threads
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use threads when searching for best delta matches&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -11905,7 +11977,11 @@ comma
 op_amp
 id|non_empty
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not create an empty pack output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -11918,7 +11994,11 @@ comma
 op_amp
 id|use_internal_rev_list
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read revision arguments from standard input&quot;
+)paren
 )paren
 comma
 (brace
@@ -11933,7 +12013,11 @@ id|rev_list_unpacked
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;limit the objects to those that are not yet packed&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -11956,7 +12040,11 @@ id|rev_list_all
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;include objects reachable from any reference&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -11979,7 +12067,11 @@ id|rev_list_reflog
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;include objects referred by reflog entries&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -12000,7 +12092,11 @@ comma
 op_amp
 id|pack_to_stdout
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;output pack to stdout&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -12013,7 +12109,11 @@ comma
 op_amp
 id|include_tag
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;include tag objects that refer to objects to be packed&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -12026,7 +12126,11 @@ comma
 op_amp
 id|keep_unreachable
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;keep unreachable objects&quot;
+)paren
 )paren
 comma
 (brace
@@ -12038,9 +12142,17 @@ l_string|&quot;unpack-unreachable&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;time&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;unpack unreachable objects newer than &lt;time&gt;&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -12057,7 +12169,11 @@ comma
 op_amp
 id|thin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create thin packs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -12070,7 +12186,11 @@ comma
 op_amp
 id|ignore_packed_keep
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore packs that have companion .keep file&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -12083,7 +12203,11 @@ comma
 op_amp
 id|pack_compression_level
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pack compression level&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -12096,7 +12220,11 @@ comma
 op_amp
 id|grafts_replace_parents
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not hide commits by grafts&quot;
+)paren
 comma
 l_int|0
 )paren
