@@ -14,11 +14,23 @@ id|git_replace_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git replace [-f] &lt;object&gt; &lt;replacement&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git replace -d &lt;object&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git replace -l [&lt;pattern&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -622,7 +634,11 @@ comma
 op_amp
 id|list
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list replace refs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -635,7 +651,11 @@ comma
 op_amp
 r_delete
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;delete replace refs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -648,7 +668,11 @@ comma
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;replace the ref if it exists&quot;
+)paren
 )paren
 comma
 id|OPT_END
