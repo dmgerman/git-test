@@ -18,9 +18,17 @@ id|revert_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git revert [options] &lt;commit-ish&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git revert &lt;subcommand&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -36,9 +44,17 @@ id|cherry_pick_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git cherry-pick [options] &lt;commit-ish&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git cherry-pick &lt;subcommand&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -481,7 +497,11 @@ comma
 op_amp
 id|remove_state
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;end revert or cherry-pick sequence&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -494,7 +514,11 @@ comma
 op_amp
 id|contin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;resume revert or cherry-pick sequence&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -507,7 +531,11 @@ comma
 op_amp
 id|rollback
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;cancel revert or cherry-pick sequence&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -520,7 +548,11 @@ comma
 op_amp
 id|opts-&gt;no_commit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t automatically commit&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -533,7 +565,11 @@ comma
 op_amp
 id|opts-&gt;edit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;edit the commit message&quot;
+)paren
 )paren
 comma
 id|OPT_NOOP_NOARG
@@ -554,7 +590,11 @@ comma
 op_amp
 id|opts-&gt;signoff
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add Signed-off-by:&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -567,7 +607,11 @@ comma
 op_amp
 id|opts-&gt;mainline
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;parent number&quot;
+)paren
 )paren
 comma
 id|OPT_RERERE_AUTOUPDATE
@@ -587,9 +631,17 @@ comma
 op_amp
 id|opts-&gt;strategy
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;strategy&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;merge strategy&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -602,9 +654,17 @@ comma
 op_amp
 id|opts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;option&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;option for merge strategy&quot;
+)paren
 comma
 id|option_parse_x
 )paren
@@ -661,7 +721,11 @@ comma
 op_amp
 id|opts-&gt;record_origin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;append commit name&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -674,7 +738,11 @@ comma
 op_amp
 id|opts-&gt;allow_ff
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow fast-forward&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -687,7 +755,11 @@ comma
 op_amp
 id|opts-&gt;allow_empty
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;preserve initially empty commits&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -700,7 +772,11 @@ comma
 op_amp
 id|opts-&gt;keep_redundant_commits
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;keep redundant, empty commits&quot;
+)paren
 )paren
 comma
 id|OPT_END
