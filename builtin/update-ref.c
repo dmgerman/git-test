@@ -129,7 +129,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;deletes the reference&quot;
+l_string|&quot;delete the reference&quot;
 )paren
 )paren
 comma

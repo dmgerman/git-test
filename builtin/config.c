@@ -365,7 +365,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;adds a new variable: name value&quot;
+l_string|&quot;add a new variable: name value&quot;
 )paren
 comma
 id|ACTION_ADD
@@ -384,7 +384,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;removes a variable: name [value-regex]&quot;
+l_string|&quot;remove a variable: name [value-regex]&quot;
 )paren
 comma
 id|ACTION_UNSET
@@ -403,7 +403,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;removes all matches: name [value-regex]&quot;
+l_string|&quot;remove all matches: name [value-regex]&quot;
 )paren
 comma
 id|ACTION_UNSET_ALL
@@ -479,7 +479,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;opens an editor&quot;
+l_string|&quot;open an editor&quot;
 )paren
 comma
 id|ACTION_EDIT

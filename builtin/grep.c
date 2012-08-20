@@ -3603,7 +3603,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;finds in contents not managed by git&quot;
+l_string|&quot;find in contents not managed by git&quot;
 )paren
 comma
 l_int|1

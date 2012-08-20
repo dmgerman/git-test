@@ -1825,7 +1825,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;controls recursive pushing of submodules&quot;
+l_string|&quot;control recursive pushing of submodules&quot;
 )paren
 comma
 id|PARSE_OPT_OPTARG

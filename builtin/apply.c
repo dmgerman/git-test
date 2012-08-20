@@ -20548,7 +20548,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;shows number of added and deleted lines in decimal notation&quot;
+l_string|&quot;show number of added and deleted lines in decimal notation&quot;
 )paren
 )paren
 comma

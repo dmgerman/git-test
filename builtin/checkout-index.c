@@ -990,7 +990,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;checks out all files in the index&quot;
+l_string|&quot;check out all files in the index&quot;
 )paren
 )paren
 comma
@@ -1003,7 +1003,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;forces overwrite of existing files&quot;
+l_string|&quot;force overwrite of existing files&quot;
 )paren
 )paren
 comma
