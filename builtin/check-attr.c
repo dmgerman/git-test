@@ -29,9 +29,17 @@ id|check_attr_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git check-attr [-a | --all | attr...] [--] pathname...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git check-attr --stdin [-a | --all | attr...] &lt; &lt;list-of-paths&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -61,7 +69,11 @@ comma
 op_amp
 id|all_attrs
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;report all attributes set on file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -74,7 +86,11 @@ comma
 op_amp
 id|cached_attrs
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use .gitattributes only from the index&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -87,7 +103,11 @@ comma
 op_amp
 id|stdin_paths
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read file names from stdin&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -100,7 +120,11 @@ comma
 op_amp
 id|null_term_line
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;input paths are terminated by a null character&quot;
+)paren
 )paren
 comma
 id|OPT_END
