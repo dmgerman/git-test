@@ -2601,7 +2601,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;key-id&quot;
+l_string|&quot;key id&quot;
 )paren
 comma
 id|N_

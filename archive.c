@@ -2091,7 +2091,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;cmd&quot;
+l_string|&quot;command&quot;
 )paren
 comma
 id|N_

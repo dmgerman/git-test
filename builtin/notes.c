@@ -3084,7 +3084,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;msg&quot;
+l_string|&quot;message&quot;
 )paren
 comma
 id|N_
@@ -4068,7 +4068,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;msg&quot;
+l_string|&quot;message&quot;
 )paren
 comma
 id|N_
