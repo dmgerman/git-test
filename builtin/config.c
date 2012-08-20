@@ -13,7 +13,11 @@ id|builtin_config_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git config [options]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -181,7 +185,11 @@ op_assign
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Config file location&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -194,7 +202,11 @@ comma
 op_amp
 id|use_global_config
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use global config file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -207,7 +219,11 @@ comma
 op_amp
 id|use_system_config
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use system config file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -220,7 +236,11 @@ comma
 op_amp
 id|use_local_config
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use repository config file&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -233,15 +253,27 @@ comma
 op_amp
 id|given_config_file
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use given config file&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Action&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -254,7 +286,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;get value: name [value-regex]&quot;
+)paren
 comma
 id|ACTION_GET
 )paren
@@ -269,7 +305,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;get all values: key [value-regex]&quot;
+)paren
 comma
 id|ACTION_GET_ALL
 )paren
@@ -284,7 +324,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;get values for regexp: name-regex [value-regex]&quot;
+)paren
 comma
 id|ACTION_GET_REGEXP
 )paren
@@ -299,7 +343,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;replace all matching variables: name value [value_regex]&quot;
+)paren
 comma
 id|ACTION_REPLACE_ALL
 )paren
@@ -314,7 +362,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;adds a new variable: name value&quot;
+)paren
 comma
 id|ACTION_ADD
 )paren
@@ -329,7 +381,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;removes a variable: name [value-regex]&quot;
+)paren
 comma
 id|ACTION_UNSET
 )paren
@@ -344,7 +400,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;removes all matches: name [value-regex]&quot;
+)paren
 comma
 id|ACTION_UNSET_ALL
 )paren
@@ -359,7 +419,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;rename section: old-name new-name&quot;
+)paren
 comma
 id|ACTION_RENAME_SECTION
 )paren
@@ -374,7 +438,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;remove a section: name&quot;
+)paren
 comma
 id|ACTION_REMOVE_SECTION
 )paren
@@ -389,7 +457,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list all&quot;
+)paren
 comma
 id|ACTION_LIST
 )paren
@@ -404,7 +476,11 @@ comma
 op_amp
 id|actions
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;opens an editor&quot;
+)paren
 comma
 id|ACTION_EDIT
 )paren
@@ -419,9 +495,17 @@ comma
 op_amp
 id|get_color_slot
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;slot&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;find the color configured: [default]&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -434,15 +518,27 @@ comma
 op_amp
 id|get_colorbool_slot
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;slot&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;find the color setting: [stdout-is-tty]&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Type&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -455,7 +551,11 @@ comma
 op_amp
 id|types
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;value is &bslash;&quot;true&bslash;&quot; or &bslash;&quot;false&bslash;&quot;&quot;
+)paren
 comma
 id|TYPE_BOOL
 )paren
@@ -470,7 +570,11 @@ comma
 op_amp
 id|types
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;value is decimal number&quot;
+)paren
 comma
 id|TYPE_INT
 )paren
@@ -485,7 +589,11 @@ comma
 op_amp
 id|types
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;value is --bool or --int&quot;
+)paren
 comma
 id|TYPE_BOOL_OR_INT
 )paren
@@ -500,7 +608,11 @@ comma
 op_amp
 id|types
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;value is a path (file or directory name)&quot;
+)paren
 comma
 id|TYPE_PATH
 )paren
@@ -508,7 +620,11 @@ comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Other&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -521,7 +637,11 @@ comma
 op_amp
 id|end_null
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;terminate values with NUL byte&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -534,7 +654,11 @@ comma
 op_amp
 id|respect_includes
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;respect include directives on lookup&quot;
+)paren
 )paren
 comma
 id|OPT_END
