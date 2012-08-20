@@ -21,29 +21,77 @@ id|git_notes_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] [list [&lt;object&gt;]]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] add [-f] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] copy [-f] &lt;from-object&gt; &lt;to-object&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] append [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] edit [&lt;object&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] show [&lt;object&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] merge [-v | -q] [-s &lt;strategy&gt; ] &lt;notes_ref&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes merge --commit [-v | -q]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes merge --abort [-v | -q]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] remove [&lt;object&gt;...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] prune [-n | -v]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [--ref &lt;notes_ref&gt;] get-ref&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -59,7 +107,11 @@ id|git_notes_list_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes [list [&lt;object&gt;]]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -75,7 +127,11 @@ id|git_notes_add_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes add [&lt;options&gt;] [&lt;object&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -91,9 +147,17 @@ id|git_notes_copy_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes copy [&lt;options&gt;] &lt;from-object&gt; &lt;to-object&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes copy --stdin [&lt;from-object&gt; &lt;to-object&gt;]...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -109,7 +173,11 @@ id|git_notes_append_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes append [&lt;options&gt;] [&lt;object&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -125,7 +193,11 @@ id|git_notes_edit_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes edit [&lt;object&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -141,7 +213,11 @@ id|git_notes_show_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes show [&lt;object&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -157,11 +233,23 @@ id|git_notes_merge_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes merge [&lt;options&gt;] &lt;notes_ref&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes merge --commit [&lt;options&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git notes merge --abort [&lt;options&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -177,7 +265,11 @@ id|git_notes_remove_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes remove [&lt;object&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -193,7 +285,11 @@ id|git_notes_prune_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes prune [&lt;options&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -209,7 +305,11 @@ id|git_notes_get_ref_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git notes get-ref&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -2981,9 +3081,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;msg&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;note contents as a string&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3000,9 +3108,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;note contents in a file&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3019,9 +3135,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;object&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse and edit specified note object&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3038,9 +3162,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;object&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse specified note object&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3053,7 +3185,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;replace existing notes&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -3445,7 +3581,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;replace existing notes&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3458,7 +3598,11 @@ comma
 op_amp
 id|from_stdin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read objects from stdin&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -3471,10 +3615,18 @@ comma
 op_amp
 id|rewrite_cmd
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;command&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;load rewriting config for &lt;command&gt; (implies &quot;
 l_string|&quot;--stdin)&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -3913,9 +4065,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;msg&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;note contents as a string&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3932,9 +4092,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;note contents in a file&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3951,9 +4119,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;object&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse and edit specified note object&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3970,9 +4146,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;object&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse specified note object&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -4938,7 +5122,11 @@ op_assign
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;General options&quot;
+)paren
 )paren
 comma
 id|OPT__VERBOSITY
@@ -4951,7 +5139,11 @@ comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Merge options&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -4964,16 +5156,28 @@ comma
 op_amp
 id|strategy
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;strategy&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;resolve notes conflicts using the given strategy &quot;
 l_string|&quot;(manual/ours/theirs/union/cat_sort_uniq)&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Committing unmerged notes&quot;
+)paren
 )paren
 comma
 (brace
@@ -4988,7 +5192,11 @@ id|do_commit
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;finalize notes merge by committing unmerged notes&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -4998,7 +5206,11 @@ comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Aborting notes merge resolution&quot;
+)paren
 )paren
 comma
 (brace
@@ -5013,7 +5225,11 @@ id|do_abort
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;abort notes merge&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -5648,7 +5864,11 @@ comma
 op_amp
 id|flag
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;attempt to remove non-existent note is not an error&quot;
+)paren
 comma
 id|IGNORE_MISSING
 )paren
@@ -5663,7 +5883,11 @@ comma
 op_amp
 id|from_stdin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read object names from the standard input&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -6139,9 +6363,17 @@ comma
 op_amp
 id|override_notes_ref
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;notes_ref&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use notes from &lt;notes_ref&gt;&quot;
+)paren
 )paren
 comma
 id|OPT_END
