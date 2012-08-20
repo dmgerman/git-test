@@ -62,7 +62,11 @@ id|ls_tree_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git ls-tree [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -583,7 +587,11 @@ comma
 op_amp
 id|ls_options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only show trees&quot;
+)paren
 comma
 id|LS_TREE_ONLY
 )paren
@@ -598,7 +606,11 @@ comma
 op_amp
 id|ls_options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;recurse into subtrees&quot;
+)paren
 comma
 id|LS_RECURSIVE
 )paren
@@ -613,7 +625,11 @@ comma
 op_amp
 id|ls_options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show trees when recursing&quot;
+)paren
 comma
 id|LS_SHOW_TREES
 )paren
@@ -628,7 +644,11 @@ comma
 op_amp
 id|line_termination
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;terminate entries with NUL byte&quot;
+)paren
 comma
 l_int|0
 )paren
@@ -643,7 +663,11 @@ comma
 op_amp
 id|ls_options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;include object size&quot;
+)paren
 comma
 id|LS_SHOW_SIZE
 )paren
@@ -658,7 +682,11 @@ comma
 op_amp
 id|ls_options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list only filenames&quot;
+)paren
 comma
 id|LS_NAME_ONLY
 )paren
@@ -673,7 +701,11 @@ comma
 op_amp
 id|ls_options
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list only filenames&quot;
+)paren
 comma
 id|LS_NAME_ONLY
 )paren
@@ -688,7 +720,11 @@ comma
 op_amp
 id|chomp_prefix
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use full path names&quot;
+)paren
 comma
 l_int|0
 )paren
@@ -703,8 +739,12 @@ comma
 op_amp
 id|full_tree
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list entire tree; not just current directory &quot;
 l_string|&quot;(implies --full-name)&quot;
+)paren
 )paren
 comma
 id|OPT__ABBREV
