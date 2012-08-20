@@ -7606,7 +7606,11 @@ id|cherry_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git cherry [-v] [&lt;upstream&gt; [&lt;head&gt; [&lt;limit&gt;]]]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -7795,7 +7799,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT_END
