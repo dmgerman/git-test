@@ -19,7 +19,11 @@ id|fmt_merge_msg_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git fmt-merge-msg [-m &lt;message&gt;] [--log[=&lt;n&gt;]|--no-log] [--file &lt;file&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -3863,9 +3867,17 @@ comma
 op_amp
 id|shortlog_len
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;populate log with at most &lt;n&gt; entries from shortlog&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -3884,9 +3896,17 @@ comma
 op_amp
 id|shortlog_len
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;alias for --log (deprecated)&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 op_or
@@ -3907,9 +3927,17 @@ comma
 op_amp
 id|message
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;text&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use &lt;text&gt; as start of message&quot;
+)paren
 )paren
 comma
 id|OPT_FILENAME
@@ -3922,7 +3950,11 @@ comma
 op_amp
 id|inpath
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file to read from&quot;
+)paren
 )paren
 comma
 id|OPT_END
