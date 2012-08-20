@@ -17,7 +17,11 @@ id|builtin_gc_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git gc [options]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -780,7 +784,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress progress reporting&quot;
+)paren
 )paren
 comma
 (brace
@@ -793,9 +801,17 @@ comma
 op_amp
 id|prune_expire
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;date&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prune unreferenced objects&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -817,7 +833,11 @@ comma
 op_amp
 id|aggressive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be more thorough (increased runtime)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -830,7 +850,11 @@ comma
 op_amp
 id|auto_gc
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;enable auto-gc mode&quot;
+)paren
 )paren
 comma
 id|OPT_END
