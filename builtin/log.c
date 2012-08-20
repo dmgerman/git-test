@@ -76,8 +76,16 @@ id|builtin_log_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git log [&lt;options&gt;] [&lt;since&gt;..&lt;until&gt;] [[--] &lt;path&gt;...]&bslash;n&quot;
+)paren
+id|N_
+c_func
+(paren
 l_string|&quot;   or: git show [options] &lt;object&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -382,7 +390,11 @@ comma
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress diff output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -395,7 +407,11 @@ comma
 op_amp
 id|source
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show source&quot;
+)paren
 )paren
 comma
 (brace
@@ -409,7 +425,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;decorate options&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
