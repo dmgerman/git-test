@@ -17,7 +17,11 @@ id|rerere_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git rerere [clear | forget path... | status | remaining | diff | gc]&quot;
+)paren
 comma
 l_int|NULL
 comma
@@ -307,7 +311,11 @@ comma
 op_amp
 id|autoupdate
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;register clean resolutions in index&quot;
+)paren
 comma
 l_int|1
 )paren
