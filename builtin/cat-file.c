@@ -1166,9 +1166,17 @@ id|cat_file_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git cat-file (-t|-s|-e|-p|&lt;type&gt;|--textconv) &lt;object&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git cat-file (--batch|--batch-check) &lt; &lt;list_of_objects&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -1274,7 +1282,11 @@ op_assign
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;&lt;type&gt; can be one of: blob, tree, commit, tag&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -1287,7 +1299,11 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show object type&quot;
+)paren
 comma
 l_char|&squot;t&squot;
 )paren
@@ -1302,7 +1318,11 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show object size&quot;
+)paren
 comma
 l_char|&squot;s&squot;
 )paren
@@ -1317,7 +1337,11 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;exit with zero when there&squot;s no error&quot;
+)paren
 comma
 l_char|&squot;e&squot;
 )paren
@@ -1332,7 +1356,11 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pretty-print object&squot;s content&quot;
+)paren
 comma
 l_char|&squot;p&squot;
 )paren
@@ -1347,7 +1375,11 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;for blob objects, run textconv on object&squot;s content&quot;
+)paren
 comma
 l_char|&squot;c&squot;
 )paren
@@ -1362,7 +1394,11 @@ comma
 op_amp
 id|batch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show info and content of objects fed from the standard input&quot;
+)paren
 comma
 id|BATCH
 )paren
@@ -1377,7 +1413,11 @@ comma
 op_amp
 id|batch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show info about objects fed from the standard input&quot;
+)paren
 comma
 id|BATCH_CHECK
 )paren
