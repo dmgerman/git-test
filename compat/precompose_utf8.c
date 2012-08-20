@@ -28,10 +28,10 @@ id|path_encoding
 op_assign
 l_string|&quot;UTF-8-MAC&quot;
 suffix:semicolon
-DECL|function|has_utf8
+DECL|function|has_non_ascii
 r_static
 r_int
-id|has_utf8
+id|has_non_ascii
 c_func
 (paren
 r_const
@@ -50,7 +50,7 @@ id|strlen_c
 r_const
 r_uint8
 op_star
-id|utf8p
+id|ptr
 op_assign
 (paren
 r_const
@@ -73,11 +73,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|utf8p
+id|ptr
 op_logical_or
 op_logical_neg
 op_star
-id|utf8p
+id|ptr
 )paren
 r_return
 l_int|0
@@ -86,7 +86,7 @@ r_while
 c_loop
 (paren
 op_star
-id|utf8p
+id|ptr
 op_logical_and
 id|maxlen
 )paren
@@ -95,7 +95,7 @@ r_if
 c_cond
 (paren
 op_star
-id|utf8p
+id|ptr
 op_amp
 l_int|0x80
 )paren
@@ -105,7 +105,7 @@ suffix:semicolon
 id|strlen_chars
 op_increment
 suffix:semicolon
-id|utf8p
+id|ptr
 op_increment
 suffix:semicolon
 id|maxlen
@@ -361,7 +361,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_utf8
+id|has_non_ascii
 c_func
 (paren
 id|oldarg
@@ -621,7 +621,7 @@ op_eq
 l_int|1
 )paren
 op_logical_and
-id|has_utf8
+id|has_non_ascii
 c_func
 (paren
 id|res-&gt;d_name
