@@ -329,9 +329,17 @@ id|hash_object_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--path=&lt;file&gt;|--no-filters] [--stdin] [--] &lt;file&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git hash-object  --stdin-paths &lt; &lt;list-of-paths&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -385,9 +393,17 @@ comma
 op_amp
 id|type
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;type&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;object type&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -400,7 +416,11 @@ comma
 op_amp
 id|write_object
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write the object into the object database&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -413,7 +433,11 @@ comma
 op_amp
 id|hashstdin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read the object from stdin&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -426,7 +450,11 @@ comma
 op_amp
 id|stdin_paths
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read file names from stdin&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -439,7 +467,11 @@ comma
 op_amp
 id|no_filters
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;store file as is without filters&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -452,9 +484,17 @@ comma
 op_amp
 id|vpath
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;process file as it were from this path&quot;
+)paren
 )paren
 comma
 id|OPT_END
