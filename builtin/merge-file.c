@@ -14,7 +14,11 @@ id|merge_file_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git merge-file [options] [-L name1 [-L orig [-L name2]]] file1 orig_file file2&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -186,7 +190,11 @@ comma
 op_amp
 id|to_stdout
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;send results to standard output&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -199,7 +207,11 @@ comma
 op_amp
 id|xmp.style
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use a diff3 based merge&quot;
+)paren
 comma
 id|XDL_MERGE_DIFF3
 )paren
@@ -214,7 +226,11 @@ comma
 op_amp
 id|xmp.favor
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;for conflicts, use our version&quot;
+)paren
 comma
 id|XDL_MERGE_FAVOR_OURS
 )paren
@@ -229,7 +245,11 @@ comma
 op_amp
 id|xmp.favor
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;for conflicts, use their version&quot;
+)paren
 comma
 id|XDL_MERGE_FAVOR_THEIRS
 )paren
@@ -244,7 +264,11 @@ comma
 op_amp
 id|xmp.favor
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;for conflicts, use a union version&quot;
+)paren
 comma
 id|XDL_MERGE_FAVOR_UNION
 )paren
@@ -259,7 +283,11 @@ comma
 op_amp
 id|xmp.marker_size
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;for conflicts, use this marker size&quot;
+)paren
 )paren
 comma
 id|OPT__QUIET
@@ -268,7 +296,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not warn about conflicts&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -280,9 +312,17 @@ l_int|NULL
 comma
 id|names
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;name&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;set labels for file1/orig_file/file2&quot;
+)paren
 comma
 op_amp
 id|label_cb
