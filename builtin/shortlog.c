@@ -19,11 +19,19 @@ id|shortlog_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git shortlog [-n] [-s] [-e] [-w] [rev-opts] [--] [&lt;commit-id&gt;... ]&quot;
+)paren
 comma
 l_string|&quot;&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;[rev-opts] are documented in git-rev-list(1)&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -1510,7 +1518,11 @@ comma
 op_amp
 id|log.sort_by_number
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;sort output according to the number of commits per author&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1523,7 +1535,11 @@ comma
 op_amp
 id|log.summary
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Suppress commit descriptions, only provides commit count&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1536,7 +1552,11 @@ comma
 op_amp
 id|log.email
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show the email address of each author&quot;
+)paren
 )paren
 comma
 (brace
@@ -1549,9 +1569,17 @@ comma
 op_amp
 id|log
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;w[,i1[,i2]]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Linewrap output&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
