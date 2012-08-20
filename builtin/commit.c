@@ -53,7 +53,11 @@ id|builtin_status_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git status [options] [--] &lt;filepattern&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -6294,7 +6298,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -6307,7 +6315,11 @@ comma
 op_amp
 id|status_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show status concisely&quot;
+)paren
 comma
 id|STATUS_FORMAT_SHORT
 )paren
@@ -6322,7 +6334,11 @@ comma
 op_amp
 id|s.show_branch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show branch information&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -6335,7 +6351,11 @@ comma
 op_amp
 id|status_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;machine-readable output&quot;
+)paren
 comma
 id|STATUS_FORMAT_PORCELAIN
 )paren
@@ -6350,7 +6370,11 @@ comma
 op_amp
 id|s.null_termination
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;terminate entries with NUL&quot;
+)paren
 )paren
 comma
 (brace
@@ -6363,9 +6387,17 @@ comma
 op_amp
 id|untracked_files_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mode&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show untracked files, optional modes: all, normal, no. (Default: all)&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -6387,7 +6419,11 @@ comma
 op_amp
 id|show_ignored_in_status
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show ignored files&quot;
+)paren
 )paren
 comma
 (brace
@@ -6400,9 +6436,17 @@ comma
 op_amp
 id|ignore_submodule_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;when&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore changes to submodules, optional when: all, dirty, untracked. (Default: all)&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
