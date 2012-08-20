@@ -401,7 +401,11 @@ id|mktree_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git mktree [-z] [--missing] [--batch]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -835,7 +839,11 @@ comma
 op_amp
 id|line_termination
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;input is NUL terminated&quot;
+)paren
 comma
 l_char|&squot;&bslash;0&squot;
 )paren
@@ -850,7 +858,11 @@ comma
 op_amp
 id|allow_missing
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow missing objects&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -865,7 +877,11 @@ comma
 op_amp
 id|is_batch_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow creation of more than one tree&quot;
+)paren
 comma
 l_int|1
 )paren
