@@ -33,7 +33,11 @@ id|builtin_commit_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git commit [options] [--] &lt;filepattern&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -6420,7 +6424,11 @@ comma
 op_amp
 id|s.colopts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list untracked files in columns&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -7479,7 +7487,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress summary after successful commit&quot;
+)paren
 )paren
 comma
 id|OPT__VERBOSE
@@ -7488,13 +7500,21 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show diff in commit message template&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Commit message options&quot;
+)paren
 )paren
 comma
 id|OPT_FILENAME
@@ -7507,7 +7527,11 @@ comma
 op_amp
 id|logfile
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read message from file&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -7520,9 +7544,17 @@ comma
 op_amp
 id|force_author
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;author&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;override author for commit&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -7535,9 +7567,17 @@ comma
 op_amp
 id|force_date
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;date&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;override date for commit&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -7550,9 +7590,17 @@ comma
 op_amp
 id|message
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;message&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit message&quot;
+)paren
 comma
 id|opt_parse_m
 )paren
@@ -7567,9 +7615,17 @@ comma
 op_amp
 id|edit_message
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse and edit message from specified commit&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -7582,9 +7638,17 @@ comma
 op_amp
 id|use_message
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reuse message from specified commit&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -7597,9 +7661,17 @@ comma
 op_amp
 id|fixup_message
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use autosquash formatted message to fixup specified commit&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -7612,9 +7684,17 @@ comma
 op_amp
 id|squash_message
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use autosquash formatted message to squash specified commit&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7627,7 +7707,11 @@ comma
 op_amp
 id|renew_authorship
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;the commit is authored by me now (used with -C/-c/--amend)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7640,7 +7724,11 @@ comma
 op_amp
 id|signoff
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add Signed-off-by:&quot;
+)paren
 )paren
 comma
 id|OPT_FILENAME
@@ -7653,7 +7741,11 @@ comma
 op_amp
 id|template_file
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use specified template file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -7666,7 +7758,11 @@ comma
 op_amp
 id|edit_flag
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force edit of commit&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -7679,9 +7775,17 @@ comma
 op_amp
 id|cleanup_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;default&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;how to strip spaces and #comments from message&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7694,7 +7798,11 @@ comma
 op_amp
 id|include_status
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;include status in commit message template&quot;
+)paren
 )paren
 comma
 (brace
@@ -7707,9 +7815,17 @@ comma
 op_amp
 id|sign_commit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;key id&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;GPG sign commit&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -7725,7 +7841,11 @@ multiline_comment|/* end commit message options */
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Commit contents options&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7738,7 +7858,11 @@ comma
 op_amp
 id|all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit all changed files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7751,7 +7875,11 @@ comma
 op_amp
 id|also
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add specified files to index for commit&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7764,7 +7892,11 @@ comma
 op_amp
 id|interactive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;interactively add files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7777,7 +7909,11 @@ comma
 op_amp
 id|patch_interactive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;interactively add changes&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7790,7 +7926,11 @@ comma
 op_amp
 id|only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit only specified files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7803,7 +7943,11 @@ comma
 op_amp
 id|no_verify
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;bypass pre-commit hook&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7816,7 +7960,11 @@ comma
 op_amp
 id|dry_run
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show what would be committed&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -7829,7 +7977,11 @@ comma
 op_amp
 id|status_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show status concisely&quot;
+)paren
 comma
 id|STATUS_FORMAT_SHORT
 )paren
@@ -7844,7 +7996,11 @@ comma
 op_amp
 id|s.show_branch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show branch information&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -7857,7 +8013,11 @@ comma
 op_amp
 id|status_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;machine-readable output&quot;
+)paren
 comma
 id|STATUS_FORMAT_PORCELAIN
 )paren
@@ -7872,7 +8032,11 @@ comma
 op_amp
 id|s.null_termination
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;terminate entries with NUL&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7885,7 +8049,11 @@ comma
 op_amp
 id|amend
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;amend previous commit&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7898,7 +8066,11 @@ comma
 op_amp
 id|no_post_rewrite
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;bypass post-rewrite hook&quot;
+)paren
 )paren
 comma
 (brace
@@ -7911,9 +8083,17 @@ comma
 op_amp
 id|untracked_files_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mode&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show untracked files, optional modes: all, normal, no. (Default: all)&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -7938,7 +8118,11 @@ id|allow_empty
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ok to record an empty change&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -7957,7 +8141,11 @@ id|allow_empty_message
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ok to record a change with an empty message&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
