@@ -13,7 +13,11 @@ id|git_symbolic_ref_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git symbolic-ref [options] name [ref]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -180,7 +184,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress error message for non-symbolic (detached) refs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -193,7 +201,11 @@ comma
 op_amp
 id|shorten
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;shorten ref output&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -206,9 +218,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reason&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reason of the update&quot;
+)paren
 )paren
 comma
 id|OPT_END
