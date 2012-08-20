@@ -2151,7 +2151,11 @@ id|ls_files_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git ls-files [options] [&lt;file&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -2380,7 +2384,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;paths are separated with NUL character&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -2397,7 +2405,11 @@ comma
 op_amp
 id|show_tag
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;identify the file status with tags&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2410,7 +2422,11 @@ comma
 op_amp
 id|show_valid_bit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use lowercase letters for &squot;assume unchanged&squot; files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2423,7 +2439,11 @@ comma
 op_amp
 id|show_cached
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show cached files in the output (default)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2436,7 +2456,11 @@ comma
 op_amp
 id|show_deleted
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show deleted files in the output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2449,7 +2473,11 @@ comma
 op_amp
 id|show_modified
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show modified files in the output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2462,7 +2490,11 @@ comma
 op_amp
 id|show_others
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show other files in the output&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -2475,7 +2507,11 @@ comma
 op_amp
 id|dir.flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show ignored files in the output&quot;
+)paren
 comma
 id|DIR_SHOW_IGNORED
 )paren
@@ -2490,7 +2526,11 @@ comma
 op_amp
 id|show_stage
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show staged contents&squot; object name in the output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2503,7 +2543,11 @@ comma
 op_amp
 id|show_killed
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show files on the filesystem that need to be removed&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -2516,7 +2560,11 @@ comma
 op_amp
 id|dir.flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show &squot;other&squot; directories&squot; name only&quot;
+)paren
 comma
 id|DIR_SHOW_OTHER_DIRECTORIES
 )paren
@@ -2531,7 +2579,11 @@ comma
 op_amp
 id|dir.flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t show empty directories&quot;
+)paren
 comma
 id|DIR_HIDE_EMPTY_DIRECTORIES
 )paren
@@ -2546,7 +2598,11 @@ comma
 op_amp
 id|show_unmerged
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show unmerged files in the output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2559,7 +2615,11 @@ comma
 op_amp
 id|show_resolve_undo
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show resolve-undo information&quot;
+)paren
 )paren
 comma
 (brace
@@ -2575,9 +2635,17 @@ id|dir.exclude_list
 id|EXC_CMDL
 )braket
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pattern&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;skip files matching pattern&quot;
+)paren
 comma
 l_int|0
 comma
@@ -2594,9 +2662,17 @@ comma
 op_amp
 id|dir
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;exclude patterns are read from &lt;file&gt;&quot;
+)paren
 comma
 l_int|0
 comma
@@ -2613,9 +2689,17 @@ comma
 op_amp
 id|dir.exclude_per_dir
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read additional per-directory exclude patterns in &lt;file&gt;&quot;
+)paren
 )paren
 comma
 (brace
@@ -2630,7 +2714,11 @@ id|dir
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add the standard git exclusions&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -2649,7 +2737,11 @@ id|prefix_len
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;make the output relative to the project top directory&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -2668,7 +2760,11 @@ comma
 op_amp
 id|error_unmatch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;if any &lt;file&gt; is not in the index, treat this as an error&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -2681,9 +2777,17 @@ comma
 op_amp
 id|with_tree
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;tree-ish&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pretend that paths removed since &lt;tree-ish&gt; are still present&quot;
+)paren
 )paren
 comma
 id|OPT__ABBREV
@@ -2703,7 +2807,11 @@ comma
 op_amp
 id|debug_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show debugging data&quot;
+)paren
 )paren
 comma
 id|OPT_END
