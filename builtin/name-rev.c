@@ -903,11 +903,23 @@ id|name_rev_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git name-rev [options] &lt;commit&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git name-rev [options] --all&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git name-rev [options] --stdin&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -1224,7 +1236,11 @@ comma
 op_amp
 id|data.name_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print only names (no SHA-1)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1237,7 +1253,11 @@ comma
 op_amp
 id|data.tags_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only use tags to name the commits&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -1250,9 +1270,17 @@ comma
 op_amp
 id|data.ref_filter
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pattern&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only use refs matching &lt;pattern&gt;&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
@@ -1271,7 +1299,11 @@ comma
 op_amp
 id|all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list all commits reachable from all refs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1284,7 +1316,11 @@ comma
 op_amp
 id|transform_stdin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read from stdin&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1297,7 +1333,11 @@ comma
 op_amp
 id|allow_undefined
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow to print `undefined` names&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1310,7 +1350,11 @@ comma
 op_amp
 id|always
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show abbreviated commit object as fallback&quot;
+)paren
 )paren
 comma
 id|OPT_END
