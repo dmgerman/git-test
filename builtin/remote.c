@@ -17,29 +17,77 @@ id|builtin_remote_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote [-v | --verbose]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--tags|--no-tags] [--mirror=&lt;fetch|push&gt;] &lt;name&gt; &lt;url&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote rename &lt;old&gt; &lt;new&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote rm &lt;name&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-head &lt;name&gt; (-a | -d | &lt;branch&gt;)&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote [-v | --verbose] show [-n] &lt;name&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote prune [-n | --dry-run] &lt;name&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote [-v | --verbose] update [-p | --prune] [(&lt;group&gt; | &lt;remote&gt;)...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-branches [--add] &lt;name&gt; &lt;branch&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-url [--push] &lt;name&gt; &lt;newurl&gt; [&lt;oldurl&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-url --add &lt;name&gt; &lt;newurl&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-url --delete &lt;name&gt; &lt;url&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -55,7 +103,11 @@ id|builtin_remote_add_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote add [&lt;options&gt;] &lt;name&gt; &lt;url&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -71,7 +123,11 @@ id|builtin_remote_rename_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote rename &lt;old&gt; &lt;new&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -87,7 +143,11 @@ id|builtin_remote_rm_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote rm &lt;name&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -103,7 +163,11 @@ id|builtin_remote_sethead_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-head &lt;name&gt; (-a | -d | &lt;branch&gt;])&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -119,9 +183,17 @@ id|builtin_remote_setbranches_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-branches &lt;name&gt; &lt;branch&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-branches --add &lt;name&gt; &lt;branch&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -137,7 +209,11 @@ id|builtin_remote_show_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote show [&lt;options&gt;] &lt;name&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -153,7 +229,11 @@ id|builtin_remote_prune_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote prune [&lt;options&gt;] &lt;name&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -169,7 +249,11 @@ id|builtin_remote_update_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote update [&lt;options&gt;] [&lt;group&gt; | &lt;remote&gt;]...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -185,11 +269,23 @@ id|builtin_remote_seturl_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-url [--push] &lt;name&gt; &lt;newurl&gt; [&lt;oldurl&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-url --add &lt;name&gt; &lt;newurl&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git remote set-url --delete &lt;name&gt; &lt;url&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -709,7 +805,11 @@ comma
 op_amp
 id|fetch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;fetch the remote branches&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -722,7 +822,11 @@ comma
 op_amp
 id|fetch_tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;import all tags and associated objects when fetching&quot;
+)paren
 comma
 id|TAGS_SET
 )paren
@@ -737,7 +841,11 @@ comma
 op_amp
 id|fetch_tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;or do not fetch any tag at all (--no-tags)&quot;
+)paren
 comma
 id|TAGS_UNSET
 )paren
@@ -752,9 +860,17 @@ comma
 op_amp
 id|track
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;branch&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;branch(es) to track&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -767,9 +883,17 @@ comma
 op_amp
 id|master
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;branch&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;master branch&quot;
+)paren
 )paren
 comma
 (brace
@@ -782,9 +906,17 @@ comma
 op_amp
 id|mirror
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;push|fetch&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;set up remote as a mirror to push to or fetch from&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -6382,7 +6514,11 @@ comma
 op_amp
 id|no_query
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not query remotes&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -7067,7 +7203,11 @@ comma
 op_amp
 id|opt_a
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;set refs/remotes/&lt;name&gt;/HEAD according to remote&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -7080,7 +7220,11 @@ comma
 op_amp
 id|opt_d
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;delete refs/remotes/&lt;name&gt;/HEAD&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -7502,7 +7646,11 @@ c_func
 op_amp
 id|dry_run
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -7885,7 +8033,11 @@ comma
 op_amp
 id|prune
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prune remotes after fetching&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -8386,7 +8538,11 @@ comma
 op_amp
 id|add_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add branch&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -8565,7 +8721,11 @@ comma
 op_amp
 id|push_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;manipulate push URLs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -8578,7 +8738,11 @@ comma
 op_amp
 id|add_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add URL&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -8591,7 +8755,11 @@ comma
 op_amp
 id|delete_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;delete URLs&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -9336,7 +9504,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose; must be placed before a subcommand&quot;
+)paren
 )paren
 comma
 id|OPT_END
