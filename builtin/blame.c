@@ -23,7 +23,11 @@ id|blame_usage
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;git blame [options] [rev-opts] [rev] [--] file&quot;
+)paren
 suffix:semicolon
 DECL|variable|blame_opt_usage
 r_static
@@ -39,7 +43,11 @@ id|blame_usage
 comma
 l_string|&quot;&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;[rev-opts] are documented in git-rev-list(1)&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -10823,7 +10831,11 @@ comma
 op_amp
 id|incremental
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show blame entries as we find them, incrementally&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -10836,7 +10848,11 @@ comma
 op_amp
 id|blank_boundary
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show blank SHA-1 for boundary commits (Default: off)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -10849,7 +10865,11 @@ comma
 op_amp
 id|show_root
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Do not treat root commits as boundaries (Default: off)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -10862,7 +10882,11 @@ comma
 op_amp
 id|show_stats
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show work cost statistics&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -10875,7 +10899,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show output score for blame entries&quot;
+)paren
 comma
 id|OUTPUT_SHOW_SCORE
 )paren
@@ -10890,7 +10918,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show original filename (Default: auto)&quot;
+)paren
 comma
 id|OUTPUT_SHOW_NAME
 )paren
@@ -10905,7 +10937,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show original linenumber (Default: off)&quot;
+)paren
 comma
 id|OUTPUT_SHOW_NUMBER
 )paren
@@ -10920,7 +10956,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show in a format designed for machine consumption&quot;
+)paren
 comma
 id|OUTPUT_PORCELAIN
 )paren
@@ -10935,7 +10975,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show porcelain format with per-line commit information&quot;
+)paren
 comma
 id|OUTPUT_PORCELAIN
 op_or
@@ -10952,7 +10996,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Use the same output mode as git-annotate (Default: off)&quot;
+)paren
 comma
 id|OUTPUT_ANNOTATE_COMPAT
 )paren
@@ -10967,7 +11015,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show raw timestamp (Default: off)&quot;
+)paren
 comma
 id|OUTPUT_RAW_TIMESTAMP
 )paren
@@ -10982,7 +11034,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show long commit SHA1 (Default: off)&quot;
+)paren
 comma
 id|OUTPUT_LONG_OBJECT_NAME
 )paren
@@ -10997,7 +11053,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Suppress author name and timestamp (Default: off)&quot;
+)paren
 comma
 id|OUTPUT_NO_AUTHOR
 )paren
@@ -11012,7 +11072,11 @@ comma
 op_amp
 id|output_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Show author email instead of name (Default: off)&quot;
+)paren
 comma
 id|OUTPUT_SHOW_EMAIL
 )paren
@@ -11027,7 +11091,11 @@ comma
 op_amp
 id|xdl_opts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Ignore whitespace differences&quot;
+)paren
 comma
 id|XDF_IGNORE_WHITESPACE
 )paren
@@ -11042,7 +11110,11 @@ comma
 op_amp
 id|xdl_opts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Spend extra cycles to find better match&quot;
+)paren
 comma
 id|XDF_NEED_MINIMAL
 )paren
@@ -11057,9 +11129,17 @@ comma
 op_amp
 id|revs_file
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Use revisions from &lt;file&gt; instead of calling git-rev-list&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -11072,9 +11152,17 @@ comma
 op_amp
 id|contents_from
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Use &lt;file&gt;&squot;s contents as the final image&quot;
+)paren
 )paren
 comma
 (brace
@@ -11087,9 +11175,17 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;score&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Find line copies within and across files&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -11106,9 +11202,17 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;score&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Find line movements within and across files&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -11125,9 +11229,17 @@ comma
 op_amp
 id|bottomtop
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n,m&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Process only line range n,m, counting from 1&quot;
+)paren
 comma
 id|blame_bottomtop_callback
 )paren
