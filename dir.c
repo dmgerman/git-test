@@ -1878,22 +1878,10 @@ id|errno
 op_ne
 id|ENOENT
 )paren
-id|warning
+id|warn_on_inaccessible
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;unable to access &squot;%s&squot;: %s&quot;
-)paren
-comma
 id|fname
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
 )paren
 suffix:semicolon
 r_if
