@@ -17142,7 +17142,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|diff_setup_done
-r_int
+r_void
 id|diff_setup_done
 c_func
 (paren
@@ -17474,9 +17474,6 @@ id|EXIT_WITH_STATUS
 )paren
 suffix:semicolon
 )brace
-r_return
-l_int|0
-suffix:semicolon
 )brace
 DECL|function|opt_arg
 r_static
