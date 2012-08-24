@@ -259,6 +259,16 @@ op_logical_neg
 id|echo
 )paren
 (brace
+id|fseek
+c_func
+(paren
+id|fh
+comma
+id|SEEK_CUR
+comma
+l_int|0
+)paren
+suffix:semicolon
 id|putc
 c_func
 (paren
