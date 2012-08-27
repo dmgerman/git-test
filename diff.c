@@ -3367,6 +3367,14 @@ comma
 id|DIFF_PLAIN
 )paren
 suffix:semicolon
+id|putc
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+comma
+id|ecb-&gt;opt-&gt;file
+)paren
+suffix:semicolon
 id|emit_line_0
 c_func
 (paren
