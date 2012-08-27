@@ -548,10 +548,7 @@ c_func
 (paren
 id|rev
 comma
-op_amp
 id|reference_rev
-comma
-l_int|1
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * After the safety valve is fully redefined to &quot;check with&n;&t; * upstream, if any, otherwise with HEAD&quot;, we should just&n;&t; * return the result of the in_merge_bases() above without&n;&t; * any of the following code, but during the transition period,&n;&t; * a gentle reminder is in order.&n;&t; */
@@ -569,10 +566,7 @@ c_func
 (paren
 id|rev
 comma
-op_amp
 id|head_rev
-comma
-l_int|1
 )paren
 op_ne
 id|merged

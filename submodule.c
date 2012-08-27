@@ -4336,10 +4336,7 @@ c_func
 (paren
 id|b
 comma
-op_amp
 id|commit
-comma
-l_int|1
 )paren
 )paren
 id|add_object_array
@@ -4435,10 +4432,7 @@ c_func
 (paren
 id|m2
 comma
-op_amp
 id|m1
-comma
-l_int|1
 )paren
 )paren
 (brace
@@ -4744,10 +4738,7 @@ c_func
 (paren
 id|commit_base
 comma
-op_amp
 id|commit_a
-comma
-l_int|1
 )paren
 op_logical_or
 op_logical_neg
@@ -4756,10 +4747,7 @@ c_func
 (paren
 id|commit_base
 comma
-op_amp
 id|commit_b
-comma
-l_int|1
 )paren
 )paren
 (brace
@@ -4784,10 +4772,7 @@ c_func
 (paren
 id|commit_a
 comma
-op_amp
 id|commit_b
-comma
-l_int|1
 )paren
 )paren
 (brace
@@ -4811,10 +4796,7 @@ c_func
 (paren
 id|commit_b
 comma
-op_amp
 id|commit_a
-comma
-l_int|1
 )paren
 )paren
 (brace

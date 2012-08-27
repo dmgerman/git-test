@@ -3946,6 +3946,7 @@ id|cleanup
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Is &quot;commit&quot; a decendant of one of the elements on the &quot;with_commit&quot; list?&n; */
 DECL|function|is_descendant_of
 r_int
 id|is_descendant_of
@@ -3998,10 +3999,7 @@ c_func
 (paren
 id|other
 comma
-op_amp
 id|commit
-comma
-l_int|1
 )paren
 )paren
 r_return
@@ -4012,6 +4010,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Is &quot;commit&quot; an ancestor of (i.e. reachable from) the &quot;reference&quot;?&n; */
 DECL|function|in_merge_bases
 r_int
 id|in_merge_bases
@@ -4025,11 +4024,7 @@ comma
 r_struct
 id|commit
 op_star
-op_star
 id|reference
-comma
-r_int
-id|num
 )paren
 (brace
 r_struct
@@ -4045,13 +4040,6 @@ id|ret
 op_assign
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|num
-op_eq
-l_int|1
-)paren
 id|bases
 op_assign
 id|get_merge_bases
@@ -4059,17 +4047,9 @@ c_func
 (paren
 id|commit
 comma
-op_star
 id|reference
 comma
 l_int|1
-)paren
-suffix:semicolon
-r_else
-id|die
-c_func
-(paren
-l_string|&quot;not yet&quot;
 )paren
 suffix:semicolon
 r_for
