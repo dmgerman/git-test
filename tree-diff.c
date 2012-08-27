@@ -330,6 +330,10 @@ id|sha1
 comma
 id|sha2
 comma
+l_int|1
+comma
+l_int|1
+comma
 id|base-&gt;buf
 comma
 l_int|0
@@ -375,6 +379,10 @@ comma
 id|sha1
 comma
 id|sha2
+comma
+l_int|1
+comma
+l_int|1
 comma
 id|base-&gt;buf
 comma
@@ -674,6 +682,8 @@ id|mode
 comma
 id|sha1
 comma
+l_int|1
+comma
 id|base-&gt;buf
 comma
 l_int|0
@@ -734,6 +744,8 @@ comma
 id|mode
 comma
 id|sha1
+comma
+l_int|1
 comma
 id|base-&gt;buf
 comma
