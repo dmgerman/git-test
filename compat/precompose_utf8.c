@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Converts filenames from decomposed unicode into precomposed unicode.&n; * Used on MacOS X.&n;*/
+multiline_comment|/*&n; * Converts filenames from decomposed unicode into precomposed unicode.&n; * Used on MacOS X.&n; */
 DECL|macro|PRECOMPOSE_UNICODE_C
 mdefine_line|#define PRECOMPOSE_UNICODE_C
 macro_line|#include &quot;cache.h&quot;
@@ -11,8 +11,8 @@ op_star
 id|iconv_ibp
 suffix:semicolon
 DECL|variable|repo_encoding
-r_const
 r_static
+r_const
 r_char
 op_star
 id|repo_encoding
@@ -20,18 +20,18 @@ op_assign
 l_string|&quot;UTF-8&quot;
 suffix:semicolon
 DECL|variable|path_encoding
-r_const
 r_static
+r_const
 r_char
 op_star
 id|path_encoding
 op_assign
 l_string|&quot;UTF-8-MAC&quot;
 suffix:semicolon
-DECL|function|has_utf8
+DECL|function|has_non_ascii
 r_static
 r_int
-id|has_utf8
+id|has_non_ascii
 c_func
 (paren
 r_const
@@ -50,7 +50,7 @@ id|strlen_c
 r_const
 r_uint8
 op_star
-id|utf8p
+id|ptr
 op_assign
 (paren
 r_const
@@ -72,29 +72,21 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
 op_logical_neg
-id|utf8p
-)paren
+id|ptr
 op_logical_or
-(paren
 op_logical_neg
 op_star
-id|utf8p
+id|ptr
 )paren
-)paren
-(brace
 r_return
 l_int|0
 suffix:semicolon
-)brace
 r_while
 c_loop
 (paren
-(paren
 op_star
-id|utf8p
-)paren
+id|ptr
 op_logical_and
 id|maxlen
 )paren
@@ -103,7 +95,7 @@ r_if
 c_cond
 (paren
 op_star
-id|utf8p
+id|ptr
 op_amp
 l_int|0x80
 )paren
@@ -113,7 +105,7 @@ suffix:semicolon
 id|strlen_chars
 op_increment
 suffix:semicolon
-id|utf8p
+id|ptr
 op_increment
 suffix:semicolon
 id|maxlen
@@ -147,16 +139,16 @@ r_int
 id|len
 )paren
 (brace
-r_const
 r_static
+r_const
 r_char
 op_star
 id|auml_nfc
 op_assign
 l_string|&quot;&bslash;xc3&bslash;xa4&quot;
 suffix:semicolon
-r_const
 r_static
+r_const
 r_char
 op_star
 id|auml_nfd
@@ -176,13 +168,6 @@ l_int|1
 r_return
 suffix:semicolon
 multiline_comment|/* We found it defined in the global config, respect it */
-id|path
-(braket
-id|len
-)braket
-op_assign
-l_int|0
-suffix:semicolon
 id|strcpy
 c_func
 (paren
@@ -223,13 +208,6 @@ c_func
 id|output_fd
 )paren
 suffix:semicolon
-id|path
-(braket
-id|len
-)braket
-op_assign
-l_int|0
-suffix:semicolon
 id|strcpy
 c_func
 (paren
@@ -244,8 +222,7 @@ multiline_comment|/* Indicate to the user, that we can configure it to true */
 r_if
 c_cond
 (paren
-l_int|0
-op_eq
+op_logical_neg
 id|access
 c_func
 (paren
@@ -267,13 +244,6 @@ id|precomposed_unicode
 op_assign
 l_int|0
 suffix:semicolon
-id|path
-(braket
-id|len
-)braket
-op_assign
-l_int|0
-suffix:semicolon
 id|strcpy
 c_func
 (paren
@@ -284,9 +254,24 @@ comma
 id|auml_nfc
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|unlink
 c_func
 (paren
+id|path
+)paren
+)paren
+id|die_errno
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;failed to unlink &squot;%s&squot;&quot;
+)paren
+comma
 id|path
 )paren
 suffix:semicolon
@@ -376,7 +361,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_utf8
+id|has_non_ascii
 c_func
 (paren
 id|oldarg
@@ -636,7 +621,7 @@ op_eq
 l_int|1
 )paren
 op_logical_and
-id|has_utf8
+id|has_non_ascii
 c_func
 (paren
 id|res-&gt;d_name
