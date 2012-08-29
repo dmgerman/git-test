@@ -995,7 +995,7 @@ l_int|NULL
 suffix:semicolon
 id|opts-&gt;revs-&gt;no_walk
 op_assign
-id|REVISION_WALK_NO_WALK_SORTED
+id|REVISION_WALK_NO_WALK_UNSORTED
 suffix:semicolon
 r_if
 c_cond
