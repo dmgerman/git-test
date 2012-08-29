@@ -8,6 +8,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;send-pack.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;transport.h&quot;
+macro_line|#include &quot;version.h&quot;
 DECL|variable|send_pack_usage
 r_static
 r_const
@@ -1202,6 +1203,11 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
+id|agent_supported
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|cmds_sent
 op_assign
 l_int|0
@@ -1276,6 +1282,19 @@ l_string|&quot;quiet&quot;
 )paren
 )paren
 id|quiet_supported
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|server_supports
+c_func
+(paren
+l_string|&quot;agent&quot;
+)paren
+)paren
+id|agent_supported
 op_assign
 l_int|1
 suffix:semicolon
@@ -1430,7 +1449,9 @@ id|status_report
 op_logical_or
 id|use_sideband
 op_logical_or
-id|args-&gt;quiet
+id|quiet
+op_logical_or
+id|agent_supported
 )paren
 )paren
 (brace
@@ -1440,7 +1461,7 @@ c_func
 op_amp
 id|req_buf
 comma
-l_string|&quot;%s %s %s%c%s%s%s&quot;
+l_string|&quot;%s %s %s%c%s%s%s%s%s&quot;
 comma
 id|old_hex
 comma
@@ -1468,6 +1489,23 @@ id|quiet
 ques
 c_cond
 l_string|&quot; quiet&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|agent_supported
+ques
+c_cond
+l_string|&quot; agent=&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+id|agent_supported
+ques
+c_cond
+id|git_user_agent_sanitized
+c_func
+(paren
+)paren
 suffix:colon
 l_string|&quot;&quot;
 )paren
