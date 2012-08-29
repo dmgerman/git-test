@@ -63,10 +63,6 @@ DECL|member|writeout_stage
 r_int
 id|writeout_stage
 suffix:semicolon
-DECL|member|writeout_error
-r_int
-id|writeout_error
-suffix:semicolon
 DECL|member|overwrite_ignore
 r_int
 id|overwrite_ignore
@@ -1137,6 +1133,7 @@ r_char
 op_star
 id|prefix
 comma
+r_const
 r_struct
 id|checkout_opts
 op_star
@@ -1771,6 +1768,7 @@ id|object
 op_star
 id|head
 comma
+r_const
 r_struct
 id|diff_options
 op_star
@@ -1906,6 +1904,7 @@ id|tree
 op_star
 id|tree
 comma
+r_const
 r_struct
 id|checkout_opts
 op_star
@@ -1913,6 +1912,10 @@ id|o
 comma
 r_int
 id|worktree
+comma
+r_int
+op_star
+id|writeout_error
 )paren
 (brace
 r_struct
@@ -2019,7 +2022,8 @@ id|opts
 r_case
 l_int|2
 suffix:colon
-id|o-&gt;writeout_error
+op_star
+id|writeout_error
 op_assign
 l_int|1
 suffix:semicolon
@@ -2143,6 +2147,7 @@ r_int
 id|merge_working_tree
 c_func
 (paren
+r_const
 r_struct
 id|checkout_opts
 op_star
@@ -2157,6 +2162,10 @@ r_struct
 id|branch_info
 op_star
 r_new
+comma
+r_int
+op_star
+id|writeout_error
 )paren
 (brace
 r_int
@@ -2235,6 +2244,8 @@ comma
 id|opts
 comma
 l_int|1
+comma
+id|writeout_error
 )paren
 suffix:semicolon
 r_if
@@ -2549,6 +2560,8 @@ comma
 id|opts
 comma
 l_int|1
+comma
+id|writeout_error
 )paren
 suffix:semicolon
 r_if
@@ -2603,6 +2616,8 @@ comma
 id|opts
 comma
 l_int|0
+comma
+id|writeout_error
 )paren
 suffix:semicolon
 r_if
@@ -2737,6 +2752,7 @@ r_void
 id|update_refs_for_switch
 c_func
 (paren
+r_const
 r_struct
 id|checkout_opts
 op_star
@@ -3793,6 +3809,7 @@ r_int
 id|switch_branches
 c_func
 (paren
+r_const
 r_struct
 id|checkout_opts
 op_star
@@ -3826,6 +3843,10 @@ l_int|20
 suffix:semicolon
 r_int
 id|flag
+comma
+id|writeout_error
+op_assign
+l_int|0
 suffix:semicolon
 id|memset
 c_func
@@ -3965,6 +3986,9 @@ op_amp
 id|old
 comma
 r_new
+comma
+op_amp
+id|writeout_error
 )paren
 suffix:semicolon
 r_if
@@ -4044,7 +4068,7 @@ suffix:semicolon
 r_return
 id|ret
 op_logical_or
-id|opts-&gt;writeout_error
+id|writeout_error
 suffix:semicolon
 )brace
 DECL|function|git_checkout_config
@@ -4763,6 +4787,7 @@ r_int
 id|switch_unborn_to_new_branch
 c_func
 (paren
+r_const
 r_struct
 id|checkout_opts
 op_star
