@@ -1209,9 +1209,13 @@ id|hdr-&gt;hdr_version
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;pack version %&quot;
 id|PRIu32
 l_string|&quot; unsupported&quot;
+)paren
 comma
 id|ntohl
 c_func
@@ -5396,7 +5400,11 @@ id|ret
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to create thread: %s&quot;
+)paren
 comma
 id|strerror
 c_func
@@ -5656,7 +5664,11 @@ c_func
 (paren
 id|msg
 comma
+id|_
+c_func
+(paren
 l_string|&quot;completed with %d local objects&quot;
+)paren
 comma
 id|nr_objects
 id|nr_objects_initial
@@ -5723,8 +5735,12 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unexpected tail checksum for %s &quot;
 l_string|&quot;(disk corruption?)&quot;
+)paren
 comma
 id|curr_pack
 )paren
@@ -7005,8 +7021,12 @@ l_int|2
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad pack.indexversion=%&quot;
 id|PRIu32
+)paren
 comma
 id|opts-&gt;version
 )paren
@@ -7048,7 +7068,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid number of threads specified (%d)&quot;
+)paren
 comma
 id|nr_threads
 )paren
@@ -7064,7 +7088,11 @@ l_int|1
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no threads support, ignoring %s&quot;
+)paren
 comma
 id|k
 )paren
@@ -8113,8 +8141,12 @@ l_int|1
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;no threads support, &quot;
 l_string|&quot;ignoring %s&quot;
+)paren
 comma
 id|arg
 )paren
