@@ -344,7 +344,6 @@ c_func
 (paren
 r_char
 op_star
-op_star
 )paren
 id|array-&gt;argv
 (braket
