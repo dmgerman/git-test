@@ -5652,9 +5652,8 @@ op_assign
 id|fetch_populated_submodules
 c_func
 (paren
-id|options.argc
-comma
-id|options.argv
+op_amp
+id|options
 comma
 id|submodule_prefix
 comma
