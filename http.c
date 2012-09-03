@@ -3770,6 +3770,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070c00
 r_if
 c_cond
 (paren
@@ -3796,6 +3797,7 @@ id|curl_errorstr
 )paren
 )paren
 suffix:semicolon
+macro_line|#endif
 id|ret
 op_assign
 id|HTTP_ERROR
