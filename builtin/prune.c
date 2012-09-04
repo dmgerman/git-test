@@ -927,10 +927,7 @@ c_func
 suffix:semicolon
 id|s
 op_assign
-id|xstrdup
-c_func
-(paren
-id|mkpath
+id|mkpathdup
 c_func
 (paren
 l_string|&quot;%s/pack&quot;
@@ -938,7 +935,6 @@ comma
 id|get_object_directory
 c_func
 (paren
-)paren
 )paren
 )paren
 suffix:semicolon
