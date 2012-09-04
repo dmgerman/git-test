@@ -179,11 +179,11 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-DECL|function|git_vsnpath
+DECL|function|vsnpath
 r_static
 r_char
 op_star
-id|git_vsnpath
+id|vsnpath
 c_func
 (paren
 r_char
@@ -357,7 +357,7 @@ suffix:semicolon
 (paren
 r_void
 )paren
-id|git_vsnpath
+id|vsnpath
 c_func
 (paren
 id|buf
@@ -415,7 +415,7 @@ suffix:semicolon
 (paren
 r_void
 )paren
-id|git_vsnpath
+id|vsnpath
 c_func
 (paren
 id|path
