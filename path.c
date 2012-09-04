@@ -343,6 +343,10 @@ dot
 dot
 )paren
 (brace
+r_char
+op_star
+id|ret
+suffix:semicolon
 id|va_list
 id|args
 suffix:semicolon
@@ -354,9 +358,8 @@ comma
 id|fmt
 )paren
 suffix:semicolon
-(paren
-r_void
-)paren
+id|ret
+op_assign
 id|vsnpath
 c_func
 (paren
@@ -376,7 +379,7 @@ id|args
 )paren
 suffix:semicolon
 r_return
-id|buf
+id|ret
 suffix:semicolon
 )brace
 DECL|function|git_pathdup
@@ -400,6 +403,9 @@ id|path
 (braket
 id|PATH_MAX
 )braket
+comma
+op_star
+id|ret
 suffix:semicolon
 id|va_list
 id|args
@@ -412,9 +418,8 @@ comma
 id|fmt
 )paren
 suffix:semicolon
-(paren
-r_void
-)paren
+id|ret
+op_assign
 id|vsnpath
 c_func
 (paren
@@ -440,7 +445,7 @@ r_return
 id|xstrdup
 c_func
 (paren
-id|path
+id|ret
 )paren
 suffix:semicolon
 )brace
