@@ -1367,12 +1367,14 @@ id|display
 comma
 l_string|&quot;= %-*s %-*s -&gt; %s&quot;
 comma
-id|TRANSPORT_SUMMARY_WIDTH
-comma
+id|TRANSPORT_SUMMARY
+c_func
+(paren
 id|_
 c_func
 (paren
 l_string|&quot;[up to date]&quot;
+)paren
 )paren
 comma
 id|REFCOL_WIDTH
@@ -1430,12 +1432,14 @@ c_func
 l_string|&quot;! %-*s %-*s -&gt; %s  (can&squot;t fetch in current branch)&quot;
 )paren
 comma
-id|TRANSPORT_SUMMARY_WIDTH
-comma
+id|TRANSPORT_SUMMARY
+c_func
+(paren
 id|_
 c_func
 (paren
 l_string|&quot;[rejected]&quot;
+)paren
 )paren
 comma
 id|REFCOL_WIDTH
@@ -1498,12 +1502,14 @@ l_char|&squot;!&squot;
 suffix:colon
 l_char|&squot;-&squot;
 comma
-id|TRANSPORT_SUMMARY_WIDTH
-comma
+id|TRANSPORT_SUMMARY
+c_func
+(paren
 id|_
 c_func
 (paren
 l_string|&quot;[tag update]&quot;
+)paren
 )paren
 comma
 id|REFCOL_WIDTH
@@ -1699,9 +1705,11 @@ l_char|&squot;!&squot;
 suffix:colon
 l_char|&squot;*&squot;
 comma
-id|TRANSPORT_SUMMARY_WIDTH
-comma
+id|TRANSPORT_SUMMARY
+c_func
+(paren
 id|what
+)paren
 comma
 id|REFCOL_WIDTH
 comma
@@ -1998,12 +2006,14 @@ id|display
 comma
 l_string|&quot;! %-*s %-*s -&gt; %s  %s&quot;
 comma
-id|TRANSPORT_SUMMARY_WIDTH
-comma
+id|TRANSPORT_SUMMARY
+c_func
+(paren
 id|_
 c_func
 (paren
 l_string|&quot;[rejected]&quot;
+)paren
 )paren
 comma
 id|REFCOL_WIDTH
@@ -3065,12 +3075,14 @@ id|stderr
 comma
 l_string|&quot; x %-*s %-*s -&gt; %s&bslash;n&quot;
 comma
-id|TRANSPORT_SUMMARY_WIDTH
-comma
+id|TRANSPORT_SUMMARY
+c_func
+(paren
 id|_
 c_func
 (paren
 l_string|&quot;[deleted]&quot;
+)paren
 )paren
 comma
 id|REFCOL_WIDTH
