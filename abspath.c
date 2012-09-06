@@ -624,6 +624,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+op_star
+id|path
+)paren
+(brace
+id|die
+c_func
+(paren
+l_string|&quot;The empty string is not a valid path&quot;
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 id|is_absolute_path
 c_func
 (paren
