@@ -194,11 +194,6 @@ c_cond
 id|last_slash
 )paren
 (brace
-op_star
-id|last_slash
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
 id|last_elem
 op_assign
 id|xstrdup
@@ -208,6 +203,13 @@ id|last_slash
 op_plus
 l_int|1
 )paren
+suffix:semicolon
+id|last_slash
+(braket
+l_int|1
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
 r_else
