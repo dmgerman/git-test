@@ -1249,11 +1249,7 @@ id|s
 comma
 id|c
 comma
-id|_
-c_func
-(paren
-l_string|&quot;%s files:&quot;
-)paren
+l_string|&quot;%s:&quot;
 comma
 id|what
 )paren
@@ -5965,7 +5961,7 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;Untracked&quot;
+l_string|&quot;Untracked files&quot;
 )paren
 comma
 l_string|&quot;add&quot;
@@ -5987,7 +5983,7 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;Ignored&quot;
+l_string|&quot;Ignored files&quot;
 )paren
 comma
 l_string|&quot;add -f&quot;
@@ -6076,81 +6072,105 @@ c_cond
 (paren
 id|s-&gt;workdir_dirty
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
 id|printf
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;no changes added to commit%s&bslash;n&quot;
+l_string|&quot;no changes added to commit &quot;
+l_string|&quot;(use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit -a&bslash;&quot;)&bslash;n&quot;
 )paren
-comma
-id|advice_status_hints
-ques
-c_cond
+)paren
+suffix:semicolon
+r_else
+id|printf
+c_func
+(paren
 id|_
 c_func
 (paren
-l_string|&quot; (use &bslash;&quot;git add&bslash;&quot; and/or &bslash;&quot;git commit -a&bslash;&quot;)&quot;
+l_string|&quot;no changes added to commit&bslash;n&quot;
 )paren
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
 (paren
 id|s-&gt;untracked.nr
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
 id|printf
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;nothing added to commit but untracked files present%s&bslash;n&quot;
+l_string|&quot;nothing added to commit but untracked files &quot;
+l_string|&quot;present (use &bslash;&quot;git add&bslash;&quot; to track)&bslash;n&quot;
 )paren
-comma
-id|advice_status_hints
-ques
-c_cond
+)paren
+suffix:semicolon
+r_else
+id|printf
+c_func
+(paren
 id|_
 c_func
 (paren
-l_string|&quot; (use &bslash;&quot;git add&bslash;&quot; to track)&quot;
+l_string|&quot;nothing added to commit but untracked files present&bslash;n&quot;
 )paren
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
 (paren
 id|s-&gt;is_initial
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
 id|printf
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;nothing to commit%s&bslash;n&quot;
+l_string|&quot;nothing to commit (create/copy files &quot;
+l_string|&quot;and use &bslash;&quot;git add&bslash;&quot; to track)&bslash;n&quot;
 )paren
-comma
-id|advice_status_hints
-ques
-c_cond
+)paren
+suffix:semicolon
+r_else
+id|printf
+c_func
+(paren
 id|_
 c_func
 (paren
-l_string|&quot; (create/copy files and use &bslash;&quot;git add&bslash;&quot; to track)&quot;
+l_string|&quot;nothing to commit&bslash;n&quot;
 )paren
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -6158,25 +6178,20 @@ c_cond
 op_logical_neg
 id|s-&gt;show_untracked_files
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
 id|printf
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;nothing to commit%s&bslash;n&quot;
+l_string|&quot;nothing to commit (use -u to show untracked files)&bslash;n&quot;
 )paren
-comma
-id|advice_status_hints
-ques
-c_cond
-id|_
-c_func
-(paren
-l_string|&quot; (use -u to show untracked files)&quot;
-)paren
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 r_else
@@ -6186,19 +6201,20 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;nothing to commit%s&bslash;n&quot;
+l_string|&quot;nothing to commit&bslash;n&quot;
 )paren
-comma
-id|advice_status_hints
-ques
-c_cond
+)paren
+suffix:semicolon
+)brace
+r_else
+id|printf
+c_func
+(paren
 id|_
 c_func
 (paren
-l_string|&quot; (working directory clean)&quot;
+l_string|&quot;nothing to commit, working directory clean&bslash;n&quot;
 )paren
-suffix:colon
-l_string|&quot;&quot;
 )paren
 suffix:semicolon
 )brace
