@@ -126,6 +126,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+op_star
+id|path
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;The empty string is not a valid path&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|strlcpy
 c_func
 (paren
