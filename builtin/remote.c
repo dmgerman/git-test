@@ -23,7 +23,7 @@ l_string|&quot;git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--ta
 comma
 l_string|&quot;git remote rename &lt;old&gt; &lt;new&gt;&quot;
 comma
-l_string|&quot;git remote rm &lt;name&gt;&quot;
+l_string|&quot;git remote remove &lt;name&gt;&quot;
 comma
 l_string|&quot;git remote set-head &lt;name&gt; (-a | -d | &lt;branch&gt;)&quot;
 comma
@@ -87,7 +87,7 @@ id|builtin_remote_rm_usage
 )braket
 op_assign
 (brace
-l_string|&quot;git remote rm &lt;name&gt;&quot;
+l_string|&quot;git remote remove &lt;name&gt;&quot;
 comma
 l_int|NULL
 )brace
@@ -9446,6 +9446,18 @@ l_int|0
 )braket
 comma
 l_string|&quot;rm&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+l_string|&quot;remove&quot;
 )paren
 )paren
 id|result
