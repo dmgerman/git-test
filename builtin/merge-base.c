@@ -102,11 +102,23 @@ id|merge_base_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git merge-base [-a|--all] &lt;commit&gt; &lt;commit&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git merge-base [-a|--all] --octopus &lt;commit&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git merge-base --independent &lt;commit&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -384,7 +396,11 @@ comma
 op_amp
 id|show_all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;output all common ancestors&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -397,7 +413,11 @@ comma
 op_amp
 id|octopus
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;find ancestors for a single n-way merge&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -410,7 +430,11 @@ comma
 op_amp
 id|reduce
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list revs not reachable from others&quot;
+)paren
 )paren
 comma
 id|OPT_END

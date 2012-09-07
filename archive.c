@@ -16,13 +16,29 @@ id|archive_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git archive [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git archive --list&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] --list&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -1793,9 +1809,17 @@ comma
 op_amp
 id|format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;fmt&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;archive format&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -1808,9 +1832,17 @@ comma
 op_amp
 id|base
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prefix&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prepend prefix to each pathname in the archive&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -1823,9 +1855,17 @@ comma
 op_amp
 id|output
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write the archive to this file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -1838,7 +1878,11 @@ comma
 op_amp
 id|worktree_attributes
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read .gitattributes in working directory&quot;
+)paren
 )paren
 comma
 id|OPT__VERBOSE
@@ -1847,7 +1891,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;report archived files on stderr&quot;
+)paren
 )paren
 comma
 id|OPT__COMPR
@@ -1858,7 +1906,11 @@ comma
 op_amp
 id|compression_level
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;store only&quot;
+)paren
 comma
 l_int|0
 )paren
@@ -1871,7 +1923,11 @@ comma
 op_amp
 id|compression_level
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;compress faster&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -1961,7 +2017,11 @@ comma
 op_amp
 id|compression_level
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;compress better&quot;
+)paren
 comma
 l_int|9
 )paren
@@ -1982,7 +2042,11 @@ comma
 op_amp
 id|list
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list supported archive formats&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
@@ -2001,9 +2065,17 @@ comma
 op_amp
 id|remote
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;repo&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;retrieve the archive from remote repository &lt;repo&gt;&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -2016,9 +2088,17 @@ comma
 op_amp
 id|exec
 comma
-l_string|&quot;cmd&quot;
+id|N_
+c_func
+(paren
+l_string|&quot;command&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path to the remote git-upload-archive command&quot;
+)paren
 )paren
 comma
 id|OPT_END

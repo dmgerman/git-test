@@ -76,8 +76,16 @@ id|builtin_log_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git log [&lt;options&gt;] [&lt;since&gt;..&lt;until&gt;] [[--] &lt;path&gt;...]&bslash;n&quot;
+)paren
+id|N_
+c_func
+(paren
 l_string|&quot;   or: git show [options] &lt;object&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -382,7 +390,11 @@ comma
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress diff output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -395,7 +407,11 @@ comma
 op_amp
 id|source
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show source&quot;
+)paren
 )paren
 comma
 (brace
@@ -409,7 +425,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;decorate options&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -4665,7 +4685,11 @@ id|builtin_format_patch_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git format-patch [options] [&lt;since&gt; | &lt;revision range&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -5646,7 +5670,11 @@ id|numbered
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use [PATCH n/m] even with a single patch&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -5665,7 +5693,11 @@ id|numbered
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use [PATCH] even with multiple patches&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -5682,7 +5714,11 @@ comma
 op_amp
 id|do_signoff
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add Signed-off-by:&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5695,7 +5731,11 @@ comma
 op_amp
 id|use_stdout
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print patches to standard out&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5708,7 +5748,11 @@ comma
 op_amp
 id|cover_letter
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;generate a cover letter&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5721,7 +5765,11 @@ comma
 op_amp
 id|numbered_files
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use simple number sequence for output file names&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -5734,9 +5782,17 @@ comma
 op_amp
 id|fmt_patch_suffix
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;sfx&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use &lt;sfx&gt; instead of &squot;.patch&squot;&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -5749,7 +5805,11 @@ comma
 op_amp
 id|start_number
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;start numbering patches at &lt;n&gt; instead of 1&quot;
+)paren
 )paren
 comma
 (brace
@@ -5762,9 +5822,17 @@ comma
 op_amp
 id|rev
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prefix&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Use [&lt;prefix&gt;] instead of [PATCH]&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -5781,9 +5849,17 @@ comma
 op_amp
 id|output_directory
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dir&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;store resulting files in &lt;dir&gt;&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -5802,7 +5878,11 @@ id|rev
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t strip/add [PATCH]&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -5821,7 +5901,11 @@ comma
 op_amp
 id|no_binary_diff
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t output binary diffs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -5834,7 +5918,11 @@ comma
 op_amp
 id|ignore_if_in_upstream
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t include a patch matching a commit upstream&quot;
+)paren
 )paren
 comma
 (brace
@@ -5849,7 +5937,11 @@ id|use_patch_format
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show patch format instead of default (patch + stat)&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 op_or
@@ -5859,7 +5951,11 @@ comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Messaging&quot;
+)paren
 )paren
 comma
 (brace
@@ -5871,9 +5967,17 @@ l_string|&quot;add-header&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;header&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add email header&quot;
+)paren
 comma
 l_int|0
 comma
@@ -5889,9 +5993,17 @@ l_string|&quot;to&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;email&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add To: header&quot;
+)paren
 comma
 l_int|0
 comma
@@ -5907,9 +6019,17 @@ l_string|&quot;cc&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;email&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add Cc: header&quot;
+)paren
 comma
 l_int|0
 comma
@@ -5926,9 +6046,17 @@ comma
 op_amp
 id|in_reply_to
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;message-id&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;make first mail a reply to &lt;message-id&gt;&quot;
+)paren
 )paren
 comma
 (brace
@@ -5941,9 +6069,17 @@ comma
 op_amp
 id|rev
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;boundary&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;attach the patch&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -5960,9 +6096,17 @@ comma
 op_amp
 id|rev
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;boundary&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;inline the patch&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 op_or
@@ -5981,9 +6125,17 @@ comma
 op_amp
 id|thread
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;style&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;enable message threading, styles: shallow, deep&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -6000,9 +6152,17 @@ comma
 op_amp
 id|signature
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;signature&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add a signature&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -6015,7 +6175,11 @@ comma
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t print the patch filenames&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -7593,7 +7757,11 @@ id|cherry_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git cherry [-v] [&lt;upstream&gt; [&lt;head&gt; [&lt;limit&gt;]]]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -7782,7 +7950,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT_END

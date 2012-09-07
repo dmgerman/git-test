@@ -22,13 +22,29 @@ id|builtin_branch_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git branch [options] [-r | -a] [--merged | --no-merged]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git branch [options] [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git branch [options] [-r] (-d | -D) &lt;branchname&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git branch [options] (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt;&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -3936,7 +3952,11 @@ op_assign
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Generic options&quot;
+)paren
 )paren
 comma
 id|OPT__VERBOSE
@@ -3945,7 +3965,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show hash and subject, give twice for upstream branch&quot;
+)paren
 )paren
 comma
 id|OPT__QUIET
@@ -3954,7 +3978,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress informational messages&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -3967,7 +3995,11 @@ comma
 op_amp
 id|track
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;set up tracking mode (see git-pull(1))&quot;
+)paren
 comma
 id|BRANCH_TRACK_EXPLICIT
 )paren
@@ -3982,7 +4014,11 @@ comma
 op_amp
 id|track
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;change upstream info&quot;
+)paren
 comma
 id|BRANCH_TRACK_OVERRIDE
 )paren
@@ -3993,7 +4029,11 @@ c_func
 op_amp
 id|branch_use_color
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use colored output&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -4006,7 +4046,11 @@ comma
 op_amp
 id|kinds
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;act on remote-tracking branches&quot;
+)paren
 comma
 id|REF_REMOTE_BRANCH
 )paren
@@ -4021,9 +4065,17 @@ comma
 op_amp
 id|with_commit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print only branches that contain the commit&quot;
+)paren
 comma
 id|PARSE_OPT_LASTARG_DEFAULT
 comma
@@ -4046,9 +4098,17 @@ comma
 op_amp
 id|with_commit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print only branches that contain the commit&quot;
+)paren
 comma
 id|PARSE_OPT_HIDDEN
 op_or
@@ -4073,7 +4133,11 @@ comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Specific git-branch actions:&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -4086,7 +4150,11 @@ comma
 op_amp
 id|kinds
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list both remote-tracking and local branches&quot;
+)paren
 comma
 id|REF_REMOTE_BRANCH
 op_or
@@ -4103,7 +4171,11 @@ comma
 op_amp
 r_delete
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;delete fully merged branch&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -4118,7 +4190,11 @@ comma
 op_amp
 r_delete
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;delete branch (even if not merged)&quot;
+)paren
 comma
 l_int|2
 )paren
@@ -4133,7 +4209,11 @@ comma
 op_amp
 id|rename
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;move/rename a branch and its reflog&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -4148,7 +4228,11 @@ comma
 op_amp
 id|rename
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;move/rename a branch, even if target exists&quot;
+)paren
 comma
 l_int|2
 )paren
@@ -4163,7 +4247,11 @@ comma
 op_amp
 id|list
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list branch names&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4176,7 +4264,11 @@ comma
 op_amp
 id|reflog
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create the branch&squot;s reflog&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4189,7 +4281,11 @@ comma
 op_amp
 id|edit_description
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;edit the description for the branch&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -4198,7 +4294,11 @@ c_func
 op_amp
 id|force_create
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force creation (when already exists)&quot;
+)paren
 )paren
 comma
 (brace
@@ -4211,9 +4311,17 @@ comma
 op_amp
 id|merge_filter_ref
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print only not merged branches&quot;
+)paren
 comma
 id|PARSE_OPT_LASTARG_DEFAULT
 op_or
@@ -4238,9 +4346,17 @@ comma
 op_amp
 id|merge_filter_ref
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print only merged branches&quot;
+)paren
 comma
 id|PARSE_OPT_LASTARG_DEFAULT
 op_or
@@ -4265,7 +4381,11 @@ comma
 op_amp
 id|colopts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list branches in columns&quot;
+)paren
 )paren
 comma
 id|OPT_END

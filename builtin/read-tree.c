@@ -101,7 +101,11 @@ id|read_tree_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git read-tree [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u [--exclude-per-directory=&lt;gitignore&gt;] | -i]] [--no-sparse-checkout] [--index-output=&lt;file&gt;] (--empty | &lt;tree-ish1&gt; [&lt;tree-ish2&gt; [&lt;tree-ish3&gt;]])&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -465,9 +469,17 @@ l_string|&quot;index-output&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write resulting index to &lt;file&gt;&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -484,7 +496,11 @@ comma
 op_amp
 id|read_empty
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only empty the index&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -495,13 +511,21 @@ c_func
 op_amp
 id|opts.verbose_update
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Merging&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -514,7 +538,11 @@ comma
 op_amp
 id|opts.merge
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;perform a merge in addition to a read&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -529,7 +557,11 @@ comma
 op_amp
 id|opts.trivial_merges_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;3-way merge if no file level merging required&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -544,7 +576,11 @@ comma
 op_amp
 id|opts.aggressive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;3-way merge in presence of adds and removes&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -559,7 +595,11 @@ comma
 op_amp
 id|opts.reset
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;same as -m, but discard unmerged entries&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -574,9 +614,17 @@ comma
 op_amp
 id|opts.prefix
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;&lt;subdirectory&gt;/&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read the tree into the index under &lt;subdirectory&gt;/&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 op_or
@@ -593,7 +641,11 @@ comma
 op_amp
 id|opts.update
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update working tree with merge result&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -608,9 +660,17 @@ comma
 op_amp
 id|opts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;gitignore&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow explicitly ignored files to be overwritten&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -627,7 +687,11 @@ comma
 op_amp
 id|opts.index_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t check the working tree after merging&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -638,7 +702,11 @@ c_func
 op_amp
 id|opts.dry_run
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t update the index or the work tree&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -651,7 +719,11 @@ comma
 op_amp
 id|opts.skip_sparse_checkout
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;skip applying sparse checkout filter&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -666,7 +738,11 @@ comma
 op_amp
 id|opts.debug_unpack
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;debug unpack-trees&quot;
+)paren
 comma
 l_int|1
 )paren

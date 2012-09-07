@@ -127,7 +127,11 @@ comma
 op_amp
 id|show_all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print all available commands&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -140,7 +144,11 @@ comma
 op_amp
 id|help_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show man page&quot;
+)paren
 comma
 id|HELP_FORMAT_MAN
 )paren
@@ -155,7 +163,11 @@ comma
 op_amp
 id|help_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show manual in web browser&quot;
+)paren
 comma
 id|HELP_FORMAT_WEB
 )paren
@@ -170,7 +182,11 @@ comma
 op_amp
 id|help_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show info page&quot;
+)paren
 comma
 id|HELP_FORMAT_INFO
 )paren
@@ -193,7 +209,11 @@ id|builtin_help_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git help [--all] [--man|--web|--info] [command]&quot;
+)paren
 comma
 l_int|NULL
 )brace

@@ -24,7 +24,11 @@ id|builtin_clean_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git clean [-d] [-f] [-n] [-q] [-e &lt;pattern&gt;] [-x | -X] [--] &lt;paths&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -236,7 +240,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not print names of files removed&quot;
+)paren
 )paren
 comma
 id|OPT__DRY_RUN
@@ -245,7 +253,11 @@ c_func
 op_amp
 id|show_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -254,7 +266,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -267,7 +283,11 @@ comma
 op_amp
 id|remove_directories
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;remove whole directories&quot;
+)paren
 )paren
 comma
 (brace
@@ -280,9 +300,17 @@ comma
 op_amp
 id|exclude_list
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pattern&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add &lt;pattern&gt; to ignore rules&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -299,7 +327,11 @@ comma
 op_amp
 id|ignored
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;remove ignored files, too&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -312,7 +344,11 @@ comma
 op_amp
 id|ignored_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;remove only ignored files&quot;
+)paren
 )paren
 comma
 id|OPT_END

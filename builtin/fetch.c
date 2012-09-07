@@ -23,13 +23,29 @@ id|builtin_fetch_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git fetch [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git fetch [&lt;options&gt;] &lt;group&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git fetch --multiple [&lt;options&gt;] [(&lt;repository&gt; | &lt;group&gt;)...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git fetch --all [&lt;options&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -230,7 +246,11 @@ comma
 op_amp
 id|all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;fetch from all remotes&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -243,7 +263,11 @@ comma
 op_amp
 id|append
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;append to .git/FETCH_HEAD instead of overwriting&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -256,9 +280,17 @@ comma
 op_amp
 id|upload_pack
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path to upload pack on remote end&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -267,7 +299,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force overwrite of local branch&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -280,7 +316,11 @@ comma
 op_amp
 id|multiple
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;fetch from multiple remotes&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -293,7 +333,11 @@ comma
 op_amp
 id|tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;fetch all tags and associated objects&quot;
+)paren
 comma
 id|TAGS_SET
 )paren
@@ -308,7 +352,11 @@ comma
 op_amp
 id|tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not fetch all tags (--no-tags)&quot;
+)paren
 comma
 id|TAGS_UNSET
 )paren
@@ -323,7 +371,11 @@ comma
 op_amp
 id|prune
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prune remote-tracking branches no longer on remote&quot;
+)paren
 )paren
 comma
 (brace
@@ -335,9 +387,17 @@ l_string|&quot;recurse-submodules&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;on-demand&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;control recursive fetching of submodules&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -354,7 +414,11 @@ comma
 op_amp
 id|dry_run
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -367,7 +431,11 @@ comma
 op_amp
 id|keep
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;keep downloaded pack&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -380,7 +448,11 @@ comma
 op_amp
 id|update_head_ok
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow updating of HEAD ref&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -393,7 +465,11 @@ comma
 op_amp
 id|progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force progress reporting&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -406,9 +482,17 @@ comma
 op_amp
 id|depth
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;depth&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;deepen history of shallow clone&quot;
+)paren
 )paren
 comma
 (brace
@@ -421,9 +505,17 @@ comma
 op_amp
 id|submodule_prefix
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dir&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prepend this to submodule path output&quot;
+)paren
 comma
 id|PARSE_OPT_HIDDEN
 )brace
@@ -440,7 +532,11 @@ id|recurse_submodules_default
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;default mode for recursion&quot;
+)paren
 comma
 id|PARSE_OPT_HIDDEN
 )brace

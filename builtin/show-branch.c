@@ -14,9 +14,17 @@ id|show_branch_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git show-branch [-a|--all] [-r|--remotes] [--topo-order | --date-order] [--current] [--color[=&lt;when&gt;] | --no-color] [--sparse] [--more=&lt;n&gt; | --list | --independent | --merge-base] [--no-name | --sha1-name] [--topics] [(&lt;rev&gt; | &lt;glob&gt;)...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git show-branch (-g|--reflog)[=&lt;n&gt;[,&lt;base&gt;]] [--list] [&lt;ref&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -3362,7 +3370,11 @@ comma
 op_amp
 id|all_heads
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show remote-tracking and local branches&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3375,7 +3387,11 @@ comma
 op_amp
 id|all_remotes
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show remote-tracking branches&quot;
+)paren
 )paren
 comma
 id|OPT__COLOR
@@ -3384,7 +3400,11 @@ c_func
 op_amp
 id|showbranch_use_color
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;color &squot;*!+-&squot; corresponding to the branch&quot;
+)paren
 )paren
 comma
 (brace
@@ -3397,9 +3417,17 @@ comma
 op_amp
 id|extra
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show &lt;n&gt; more commits after the common ancestor&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -3421,7 +3449,11 @@ comma
 op_amp
 id|extra
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;synonym to more=-1&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3436,7 +3468,11 @@ comma
 op_amp
 id|no_name
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;suppress naming strings&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3449,7 +3485,11 @@ comma
 op_amp
 id|with_current_branch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;include the current branch&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3462,7 +3502,11 @@ comma
 op_amp
 id|sha1_name
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;name commits with their object names&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3475,7 +3519,11 @@ comma
 op_amp
 id|merge_base
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show possible merge bases&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3488,7 +3536,11 @@ comma
 op_amp
 id|independent
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show refs unreachable from any other ref&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3501,7 +3553,11 @@ comma
 op_amp
 id|lifo
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show commits in topological order&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3514,7 +3570,11 @@ comma
 op_amp
 id|topics
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show only commits not on the first branch&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -3527,7 +3587,11 @@ comma
 op_amp
 id|dense
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show merges reachable from only one tip&quot;
+)paren
 comma
 l_int|0
 )paren
@@ -3542,8 +3606,12 @@ comma
 op_amp
 id|lifo
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show commits where no parent comes before its &quot;
 l_string|&quot;children&quot;
+)paren
 comma
 l_int|0
 )paren
@@ -3558,10 +3626,18 @@ comma
 op_amp
 id|reflog_base
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;&lt;n&gt;[,&lt;base&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show &lt;n&gt; most recent ref-log entries starting at &quot;
 l_string|&quot;base&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 op_or

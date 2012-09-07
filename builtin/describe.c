@@ -22,9 +22,17 @@ id|describe_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git describe [options] &lt;committish&gt;*&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git describe [options] --dirty&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -2148,7 +2156,11 @@ comma
 op_amp
 id|contains
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;find the tag that comes after the commit&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2161,7 +2173,11 @@ comma
 op_amp
 id|debug
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;debug search strategy on stderr&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2174,7 +2190,11 @@ comma
 op_amp
 id|all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use any ref in .git/refs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2187,7 +2207,11 @@ comma
 op_amp
 id|tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use any tag in .git/refs/tags&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2200,7 +2224,11 @@ comma
 op_amp
 id|longformat
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;always use long format&quot;
+)paren
 )paren
 comma
 id|OPT__ABBREV
@@ -2220,7 +2248,11 @@ comma
 op_amp
 id|max_candidates
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only output exact matches&quot;
+)paren
 comma
 l_int|0
 )paren
@@ -2235,7 +2267,11 @@ comma
 op_amp
 id|max_candidates
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;consider &lt;n&gt; most recent tags (default: 10)&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -2248,9 +2284,17 @@ comma
 op_amp
 id|pattern
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pattern&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only consider tags matching &lt;pattern&gt;&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2263,7 +2307,11 @@ comma
 op_amp
 id|always
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show abbreviated commit object as fallback&quot;
+)paren
 )paren
 comma
 (brace
@@ -2276,9 +2324,17 @@ comma
 op_amp
 id|dirty
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mark&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;append &lt;mark&gt; on dirty working tree (default: &bslash;&quot;-dirty&bslash;&quot;)&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma

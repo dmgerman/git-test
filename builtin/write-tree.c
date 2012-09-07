@@ -15,7 +15,11 @@ id|write_tree_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git write-tree [--missing-ok] [--prefix=&lt;prefix&gt;/]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -85,7 +89,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow missing objects&quot;
+)paren
 comma
 id|WRITE_TREE_MISSING_OK
 )paren
@@ -100,9 +108,17 @@ comma
 op_amp
 id|prefix
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;&lt;prefix&gt;/&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write tree object for a subdirectory &lt;prefix&gt;&quot;
+)paren
 comma
 id|PARSE_OPT_LITERAL_ARGHELP
 )brace
@@ -119,7 +135,11 @@ id|flags
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only useful for debugging&quot;
+)paren
 comma
 id|PARSE_OPT_HIDDEN
 op_or

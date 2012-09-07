@@ -21,7 +21,11 @@ id|builtin_add_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git add [options] [--] &lt;filepattern&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -1773,7 +1777,11 @@ c_func
 op_amp
 id|show_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 )paren
 comma
 id|OPT__VERBOSE
@@ -1782,7 +1790,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
@@ -1801,7 +1813,11 @@ comma
 op_amp
 id|add_interactive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;interactive picking&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1814,7 +1830,11 @@ comma
 op_amp
 id|patch_interactive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;select hunks interactively&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1827,7 +1847,11 @@ comma
 op_amp
 id|edit_interactive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;edit current diff and apply&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -1836,7 +1860,11 @@ c_func
 op_amp
 id|ignored_too
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow adding otherwise ignored files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1849,7 +1877,11 @@ comma
 op_amp
 id|take_worktree_changes
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update tracked files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1862,7 +1894,11 @@ comma
 op_amp
 id|intent_to_add
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;record only the fact that the path will be added later&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1875,7 +1911,11 @@ comma
 op_amp
 id|addremove
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add changes from all tracked and untracked files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1888,7 +1928,11 @@ comma
 op_amp
 id|refresh_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t add, only refresh the index&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1901,7 +1945,11 @@ comma
 op_amp
 id|ignore_add_errors
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;just skip files which cannot be added because of errors&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1914,7 +1962,11 @@ comma
 op_amp
 id|ignore_missing
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;check if - even missing - files are ignored in dry run&quot;
+)paren
 )paren
 comma
 id|OPT_END

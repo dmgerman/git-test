@@ -13,7 +13,11 @@ id|prune_packed_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git prune-packed [-n|--dry-run] [-q|--quiet]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -453,7 +457,11 @@ comma
 op_amp
 id|opts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 comma
 id|DRY_RUN
 )paren
@@ -468,7 +476,11 @@ comma
 op_amp
 id|opts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be quiet&quot;
+)paren
 comma
 id|VERBOSE
 )paren

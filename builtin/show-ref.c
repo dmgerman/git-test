@@ -16,9 +16,17 @@ id|show_ref_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git show-ref [-q|--quiet] [--verify] [--head] [-d|--dereference] [-s|--hash[=&lt;n&gt;]] [--abbrev[=&lt;n&gt;]] [--tags] [--heads] [--] [pattern*] &quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git show-ref --exclude-existing[=pattern] &lt; ref-list&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -967,7 +975,11 @@ comma
 op_amp
 id|tags_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only show tags (can be combined with heads)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -980,7 +992,11 @@ comma
 op_amp
 id|heads_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only show heads (can be combined with tags)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -993,8 +1009,12 @@ comma
 op_amp
 id|verify
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;stricter reference checking, &quot;
 l_string|&quot;requires exact ref path&quot;
+)paren
 )paren
 comma
 (brace
@@ -1009,7 +1029,11 @@ id|show_head
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show the HEAD reference&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -1026,7 +1050,11 @@ comma
 op_amp
 id|show_head
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show the HEAD reference&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1039,7 +1067,11 @@ comma
 op_amp
 id|deref_tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dereference tags into object IDs&quot;
+)paren
 )paren
 comma
 (brace
@@ -1052,9 +1084,17 @@ comma
 op_amp
 id|abbrev
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only show SHA1 hash using &lt;n&gt; digits&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -1075,7 +1115,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not print results to stdout (useful with --verify)&quot;
+)paren
 )paren
 comma
 (brace
@@ -1088,9 +1132,17 @@ comma
 op_amp
 id|exclude_existing_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pattern&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show refs from stdin that aren&squot;t in local repository&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 op_or
@@ -1110,7 +1162,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show usage&quot;
+)paren
 comma
 id|PARSE_OPT_HIDDEN
 op_or

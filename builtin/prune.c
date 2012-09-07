@@ -18,7 +18,11 @@ id|prune_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git prune [-n] [-v] [--expire &lt;time&gt;] [--] [&lt;head&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -686,7 +690,11 @@ c_func
 op_amp
 id|show_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not remove, show only&quot;
+)paren
 )paren
 comma
 id|OPT__VERBOSE
@@ -695,7 +703,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;report pruned objects&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -708,7 +720,11 @@ comma
 op_amp
 id|show_progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show progress&quot;
+)paren
 )paren
 comma
 id|OPT_DATE
@@ -721,7 +737,11 @@ comma
 op_amp
 id|expire
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;expire objects older than &lt;time&gt;&quot;
+)paren
 )paren
 comma
 id|OPT_END

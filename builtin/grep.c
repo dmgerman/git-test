@@ -24,7 +24,11 @@ id|grep_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git grep [options] [-e] &lt;pattern&gt; [&lt;rev&gt;...] [[--] &lt;path&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -3795,7 +3799,11 @@ comma
 op_amp
 id|cached
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;search in index instead of in the work tree&quot;
+)paren
 )paren
 comma
 id|OPT_NEGBIT
@@ -3808,7 +3816,11 @@ comma
 op_amp
 id|use_index
 comma
-l_string|&quot;finds in contents not managed by git&quot;
+id|N_
+c_func
+(paren
+l_string|&quot;find in contents not managed by git&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3823,7 +3835,11 @@ comma
 op_amp
 id|untracked
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;search in both tracked and untracked files&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -3836,7 +3852,11 @@ comma
 op_amp
 id|opt_exclude
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;search also in ignored files&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3857,7 +3877,11 @@ comma
 op_amp
 id|opt.invert
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show non-matching lines&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3870,7 +3894,11 @@ comma
 op_amp
 id|opt.ignore_case
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;case insensitive matching&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3883,7 +3911,11 @@ comma
 op_amp
 id|opt.word_regexp
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;match patterns only at word boundaries&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -3896,7 +3928,11 @@ comma
 op_amp
 id|opt.binary
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;process binary files as text&quot;
+)paren
 comma
 id|GREP_BINARY_TEXT
 )paren
@@ -3911,7 +3947,11 @@ comma
 op_amp
 id|opt.binary
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t match patterns in binary files&quot;
+)paren
 comma
 id|GREP_BINARY_NOMATCH
 )paren
@@ -3926,9 +3966,17 @@ comma
 op_amp
 id|opt.max_depth
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;depth&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;descend at most &lt;depth&gt; levels&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -3953,7 +4001,11 @@ comma
 op_amp
 id|pattern_type_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use extended POSIX regular expressions&quot;
+)paren
 comma
 id|GREP_PATTERN_TYPE_ERE
 )paren
@@ -3968,7 +4020,11 @@ comma
 op_amp
 id|pattern_type_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use basic POSIX regular expressions (default)&quot;
+)paren
 comma
 id|GREP_PATTERN_TYPE_BRE
 )paren
@@ -3983,7 +4039,11 @@ comma
 op_amp
 id|pattern_type_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;interpret patterns as fixed strings&quot;
+)paren
 comma
 id|GREP_PATTERN_TYPE_FIXED
 )paren
@@ -3998,7 +4058,11 @@ comma
 op_amp
 id|pattern_type_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use Perl-compatible regular expressions&quot;
+)paren
 comma
 id|GREP_PATTERN_TYPE_PCRE
 )paren
@@ -4019,7 +4083,11 @@ comma
 op_amp
 id|opt.linenum
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show line numbers&quot;
+)paren
 )paren
 comma
 id|OPT_NEGBIT
@@ -4032,7 +4100,11 @@ comma
 op_amp
 id|opt.pathname
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t show filenames&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -4047,7 +4119,11 @@ comma
 op_amp
 id|opt.pathname
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show filenames&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -4062,7 +4138,11 @@ comma
 op_amp
 id|opt.relative
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show filenames relative to top directory&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -4077,7 +4157,11 @@ comma
 op_amp
 id|opt.name_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show only filenames instead of matching lines&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4090,7 +4174,11 @@ comma
 op_amp
 id|opt.name_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;synonym for --files-with-matches&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4103,7 +4191,11 @@ comma
 op_amp
 id|opt.unmatch_name_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show only the names of files without match&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4116,7 +4208,11 @@ comma
 op_amp
 id|opt.null_following_name
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print NUL after filenames&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4129,7 +4225,11 @@ comma
 op_amp
 id|opt.count
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show the number of matches instead of matching lines&quot;
+)paren
 )paren
 comma
 id|OPT__COLOR
@@ -4138,7 +4238,11 @@ c_func
 op_amp
 id|opt.color
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;highlight matches&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4151,7 +4255,11 @@ comma
 op_amp
 id|opt.file_break
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print empty line between matches from different files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4164,7 +4272,11 @@ comma
 op_amp
 id|opt.heading
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show filename only once above matches from same file&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
@@ -4183,9 +4295,17 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show &lt;n&gt; context lines before and after matches&quot;
+)paren
 comma
 id|context_callback
 )paren
@@ -4200,7 +4320,11 @@ comma
 op_amp
 id|opt.pre_context
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show &lt;n&gt; context lines before matches&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -4213,7 +4337,11 @@ comma
 op_amp
 id|opt.post_context
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show &lt;n&gt; context lines after matches&quot;
+)paren
 )paren
 comma
 id|OPT_NUMBER_CALLBACK
@@ -4222,7 +4350,11 @@ c_func
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;shortcut for -C NUM&quot;
+)paren
 comma
 id|context_callback
 )paren
@@ -4237,7 +4369,11 @@ comma
 op_amp
 id|opt.funcname
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show a line with the function name before matches&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4250,7 +4386,11 @@ comma
 op_amp
 id|opt.funcbody
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show the surrounding function&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
@@ -4269,9 +4409,17 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;file&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read patterns from file&quot;
+)paren
 comma
 id|file_callback
 )paren
@@ -4286,9 +4434,17 @@ comma
 op_amp
 id|opt
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pattern&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;match &lt;pattern&gt;&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 comma
@@ -4307,7 +4463,11 @@ id|opt
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;combine patterns specified with -e&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -4402,7 +4562,11 @@ c_func
 op_amp
 id|opt.status_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;indicate hit with exit status without output&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -4415,7 +4579,11 @@ comma
 op_amp
 id|opt.all_match
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show only matches from files that match all patterns&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
@@ -4434,9 +4602,17 @@ comma
 op_amp
 id|show_in_pager
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;pager&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show matching files in the pager&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -4458,7 +4634,11 @@ comma
 op_amp
 id|external_grep_allowed__ignored
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow calling of grep(1) (ignored by this build)&quot;
+)paren
 )paren
 comma
 (brace
@@ -4473,7 +4653,11 @@ id|options
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show usage&quot;
+)paren
 comma
 id|PARSE_OPT_HIDDEN
 op_or

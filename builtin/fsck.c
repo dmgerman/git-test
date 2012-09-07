@@ -2878,7 +2878,11 @@ id|fsck_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git fsck [options] [&lt;object&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -2898,7 +2902,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be verbose&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2911,7 +2919,11 @@ comma
 op_amp
 id|show_unreachable
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show unreachable objects&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -2924,7 +2936,11 @@ comma
 op_amp
 id|show_dangling
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show dangling objects&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2937,7 +2953,11 @@ comma
 op_amp
 id|show_tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;report tags&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2950,7 +2970,11 @@ comma
 op_amp
 id|show_root
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;report root nodes&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2963,7 +2987,11 @@ comma
 op_amp
 id|keep_cache_objects
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;make index objects head nodes&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2976,7 +3004,11 @@ comma
 op_amp
 id|include_reflogs
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;make reflogs head nodes (default)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2989,7 +3021,11 @@ comma
 op_amp
 id|check_full
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;also consider packs and alternate objects&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3002,7 +3038,11 @@ comma
 op_amp
 id|check_strict
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;enable more strict checking&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3015,7 +3055,11 @@ comma
 op_amp
 id|write_lost_and_found
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write dangling objects in .git/lost-found&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -3028,7 +3072,11 @@ comma
 op_amp
 id|show_progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show progress&quot;
+)paren
 )paren
 comma
 id|OPT_END

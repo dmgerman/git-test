@@ -18,7 +18,11 @@ id|push_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git push [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]&quot;
+)paren
 comma
 l_int|NULL
 comma
@@ -1720,9 +1724,17 @@ comma
 op_amp
 id|repo
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;repository&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;repository&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -1735,7 +1747,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;push all refs&quot;
+)paren
 comma
 id|TRANSPORT_PUSH_ALL
 )paren
@@ -1750,7 +1766,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mirror all refs&quot;
+)paren
 comma
 (paren
 id|TRANSPORT_PUSH_MIRROR
@@ -1769,7 +1789,11 @@ comma
 op_amp
 id|deleterefs
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;delete refs&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1782,7 +1806,11 @@ comma
 op_amp
 id|tags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;push tags (can&squot;t be used with --all or --mirror)&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -1795,7 +1823,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 comma
 id|TRANSPORT_PUSH_DRY_RUN
 )paren
@@ -1810,7 +1842,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;machine-readable output&quot;
+)paren
 comma
 id|TRANSPORT_PUSH_PORCELAIN
 )paren
@@ -1825,7 +1861,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force updates&quot;
+)paren
 comma
 id|TRANSPORT_PUSH_FORCE
 )paren
@@ -1840,9 +1880,17 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;check&quot;
+)paren
 comma
-l_string|&quot;controls recursive pushing of submodules&quot;
+id|N_
+c_func
+(paren
+l_string|&quot;control recursive pushing of submodules&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -1859,7 +1907,11 @@ comma
 op_amp
 id|thin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use thin pack&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -1874,7 +1926,11 @@ id|receivepack
 comma
 l_string|&quot;receive-pack&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;receive pack program&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -1889,7 +1945,11 @@ id|receivepack
 comma
 l_string|&quot;receive-pack&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;receive pack program&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -1902,7 +1962,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;set upstream for git pull/status&quot;
+)paren
 comma
 id|TRANSPORT_PUSH_SET_UPSTREAM
 )paren
@@ -1917,7 +1981,11 @@ comma
 op_amp
 id|progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force progress reporting&quot;
+)paren
 )paren
 comma
 id|OPT_BIT
@@ -1930,7 +1998,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;prune locally removed refs&quot;
+)paren
 comma
 id|TRANSPORT_PUSH_PRUNE
 )paren

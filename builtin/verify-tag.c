@@ -17,7 +17,11 @@ id|verify_tag_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git verify-tag [-v|--verbose] &lt;tag&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -342,7 +346,11 @@ c_func
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print tag contents&quot;
+)paren
 )paren
 comma
 id|OPT_END

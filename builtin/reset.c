@@ -23,11 +23,23 @@ id|git_reset_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [&lt;commit&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git reset [-q] &lt;commit&gt; [--] &lt;paths&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git reset --patch [&lt;commit&gt;] [--] [&lt;paths&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -1325,7 +1337,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;be quiet, only report errors&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -1338,7 +1354,11 @@ comma
 op_amp
 id|reset_type
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reset HEAD and index&quot;
+)paren
 comma
 id|MIXED
 )paren
@@ -1353,7 +1373,11 @@ comma
 op_amp
 id|reset_type
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reset only HEAD&quot;
+)paren
 comma
 id|SOFT
 )paren
@@ -1368,7 +1392,11 @@ comma
 op_amp
 id|reset_type
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reset HEAD, index and working tree&quot;
+)paren
 comma
 id|HARD
 )paren
@@ -1383,7 +1411,11 @@ comma
 op_amp
 id|reset_type
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reset HEAD, index and working tree&quot;
+)paren
 comma
 id|MERGE
 )paren
@@ -1398,7 +1430,11 @@ comma
 op_amp
 id|reset_type
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reset HEAD but keep local changes&quot;
+)paren
 comma
 id|KEEP
 )paren
@@ -1413,7 +1449,11 @@ comma
 op_amp
 id|patch_mode
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;select hunks interactively&quot;
+)paren
 )paren
 comma
 id|OPT_END

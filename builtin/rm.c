@@ -16,7 +16,11 @@ id|builtin_rm_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git rm [options] [--] &lt;file&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -428,7 +432,11 @@ c_func
 op_amp
 id|show_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;dry run&quot;
+)paren
 )paren
 comma
 id|OPT__QUIET
@@ -437,7 +445,11 @@ c_func
 op_amp
 id|quiet
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not list removed files&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -450,7 +462,11 @@ comma
 op_amp
 id|index_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only remove from the index&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -459,7 +475,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;override the up-to-date check&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -472,7 +492,11 @@ comma
 op_amp
 id|recursive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow recursive removal&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -485,7 +509,11 @@ comma
 op_amp
 id|ignore_unmatch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;exit with a zero status even if nothing matched&quot;
+)paren
 )paren
 comma
 id|OPT_END

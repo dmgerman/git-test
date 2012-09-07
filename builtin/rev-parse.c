@@ -1511,7 +1511,11 @@ id|parseopt_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git rev-parse --parseopt [options] -- [&lt;args&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -1534,7 +1538,11 @@ comma
 op_amp
 id|keep_dashdash
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;keep the `--` passed as an arg&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1547,8 +1555,12 @@ comma
 op_amp
 id|stop_at_non_option
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;stop parsing after the &quot;
 l_string|&quot;first non-option argument&quot;
+)paren
 )paren
 comma
 id|OPT_END
@@ -2221,11 +2233,15 @@ id|builtin_rev_parse_usage
 (braket
 )braket
 op_assign
+id|N_
+c_func
+(paren
 l_string|&quot;git rev-parse --parseopt [options] -- [&lt;args&gt;...]&bslash;n&quot;
 l_string|&quot;   or: git rev-parse --sq-quote [&lt;arg&gt;...]&bslash;n&quot;
 l_string|&quot;   or: git rev-parse [options] [&lt;arg&gt;...]&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;Run &bslash;&quot;git rev-parse --parseopt -h&bslash;&quot; for more information on the first usage.&quot;
+)paren
 suffix:semicolon
 DECL|function|cmd_rev_parse
 r_int

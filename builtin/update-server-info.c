@@ -12,7 +12,11 @@ id|update_server_info_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git update-server-info [--force]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -55,7 +59,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update the info files from scratch&quot;
+)paren
 )paren
 comma
 id|OPT_END

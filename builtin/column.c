@@ -15,7 +15,11 @@ id|builtin_column_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git column [options]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -127,9 +131,17 @@ comma
 op_amp
 id|real_command
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;name&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;lookup config vars&quot;
+)paren
 )paren
 comma
 id|OPT_COLUMN
@@ -142,7 +154,11 @@ comma
 op_amp
 id|colopts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;layout to use&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -155,7 +171,11 @@ comma
 op_amp
 id|colopts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;layout to use&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -168,7 +188,11 @@ comma
 op_amp
 id|copts.width
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Maximum width&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -181,9 +205,17 @@ comma
 op_amp
 id|copts.indent
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;string&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Padding space on left border&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -196,7 +228,11 @@ comma
 op_amp
 id|copts.nl
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Padding space on right border&quot;
+)paren
 )paren
 comma
 id|OPT_INTEGER
@@ -209,7 +245,11 @@ comma
 op_amp
 id|copts.padding
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Padding space between columns&quot;
+)paren
 )paren
 comma
 id|OPT_END

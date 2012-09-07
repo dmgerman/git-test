@@ -1840,7 +1840,11 @@ id|update_index_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git update-index [options] [--] [&lt;file&gt;...]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -3494,7 +3498,11 @@ comma
 op_amp
 id|refresh_args.flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;continue refresh even when index needs update&quot;
+)paren
 comma
 id|REFRESH_QUIET
 )paren
@@ -3509,7 +3517,11 @@ comma
 op_amp
 id|refresh_args.flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;refresh: ignore submodules&quot;
+)paren
 comma
 id|REFRESH_IGNORE_SUBMODULES
 )paren
@@ -3524,7 +3536,11 @@ comma
 op_amp
 id|allow_add
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not ignore new files&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3539,7 +3555,11 @@ comma
 op_amp
 id|allow_replace
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;let files replace directories and vice-versa&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3554,7 +3574,11 @@ comma
 op_amp
 id|allow_remove
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;notice files missing from worktree&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3569,7 +3593,11 @@ comma
 op_amp
 id|refresh_args.flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;refresh even if index contains unmerged entries&quot;
+)paren
 comma
 id|REFRESH_UNMERGED
 )paren
@@ -3586,7 +3614,11 @@ id|refresh_args
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;refresh stat information&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3607,7 +3639,11 @@ id|refresh_args
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;like --refresh, but ignore assume-unchanged setting&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3625,9 +3661,17 @@ l_string|&quot;cacheinfo&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;&lt;mode&gt; &lt;object&gt; &lt;path&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add the specified entry to the index&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3653,9 +3697,17 @@ comma
 op_amp
 id|set_executable_bit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;(+/-)x&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;override the executable bit of the listed files&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 op_or
@@ -3676,7 +3728,11 @@ id|mark_valid_only
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mark files as &bslash;&quot;not changing&bslash;&quot;&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3699,7 +3755,11 @@ id|mark_valid_only
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;clear assumed-unchanged bit&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3722,7 +3782,11 @@ id|mark_skip_worktree_only
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mark files as &bslash;&quot;index-only&bslash;&quot;&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3745,7 +3809,11 @@ id|mark_skip_worktree_only
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;clear skip-worktree bit&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3766,7 +3834,11 @@ comma
 op_amp
 id|info_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add to index only; do not add content to object database&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3781,7 +3853,11 @@ comma
 op_amp
 id|force_remove
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;remove named paths even if present in worktree&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3796,7 +3872,11 @@ comma
 op_amp
 id|line_termination
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;with --stdin: input lines are terminated by null bytes&quot;
+)paren
 comma
 l_char|&squot;&bslash;0&squot;
 )paren
@@ -3813,7 +3893,11 @@ id|read_from_stdin
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read list of paths to be updated from standard input&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 op_or
@@ -3838,7 +3922,11 @@ id|line_termination
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add entries from standard input to the index&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 op_or
@@ -3863,7 +3951,11 @@ id|has_errors
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;repopulate stages #2 and #3 for the listed paths&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 op_or
@@ -3888,7 +3980,11 @@ id|has_errors
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;only update entries that differ from HEAD&quot;
+)paren
 comma
 id|PARSE_OPT_NONEG
 op_or
@@ -3911,7 +4007,11 @@ comma
 op_amp
 id|refresh_args.flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;ignore files missing from worktree&quot;
+)paren
 comma
 id|REFRESH_IGNORE_MISSING
 )paren
@@ -3926,7 +4026,11 @@ comma
 op_amp
 id|verbose
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;report actions to standard output&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -3942,7 +4046,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;(for porcelains) forget saved unresolved conflicts&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -3961,7 +4069,11 @@ comma
 op_amp
 id|preferred_index_format
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;write index in this format&quot;
+)paren
 )paren
 comma
 id|OPT_END

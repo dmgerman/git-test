@@ -259,7 +259,11 @@ id|verify_pack_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git verify-pack [-v|--verbose] [-s|--stat-only] &lt;pack&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -316,7 +320,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;verbose&quot;
+)paren
 comma
 id|VERIFY_PACK_VERBOSE
 )paren
@@ -331,7 +339,11 @@ comma
 op_amp
 id|flags
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show statistics only&quot;
+)paren
 comma
 id|VERIFY_PACK_STAT_ONLY
 )paren

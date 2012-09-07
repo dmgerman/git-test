@@ -56,11 +56,23 @@ id|builtin_merge_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git merge [options] [&lt;commit&gt;...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git merge [options] &lt;msg&gt; HEAD &lt;commit&gt;&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git merge --abort&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -955,7 +967,11 @@ l_int|NULL
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;do not show a diffstat at the end of the merge&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 comma
@@ -972,7 +988,11 @@ comma
 op_amp
 id|show_diffstat
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show a diffstat at the end of the merge&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -985,7 +1005,11 @@ comma
 op_amp
 id|show_diffstat
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;(synonym to --stat)&quot;
+)paren
 )paren
 comma
 (brace
@@ -998,9 +1022,17 @@ comma
 op_amp
 id|shortlog_len
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;add (at most &lt;n&gt;) entries from shortlog to merge commit message&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -1019,7 +1051,11 @@ comma
 op_amp
 id|squash
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create a single commit instead of doing a merge&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1032,7 +1068,11 @@ comma
 op_amp
 id|option_commit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;perform a commit if the merge succeeds (default)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -1045,7 +1085,11 @@ comma
 op_amp
 id|option_edit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;edit message before committing&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1058,7 +1102,11 @@ comma
 op_amp
 id|allow_fast_forward
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;allow fast-forward (default)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -1071,7 +1119,11 @@ comma
 op_amp
 id|fast_forward_only
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;abort if fast-forward is not possible&quot;
+)paren
 )paren
 comma
 id|OPT_RERERE_AUTOUPDATE
@@ -1091,9 +1143,17 @@ comma
 op_amp
 id|use_strategies
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;strategy&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;merge strategy to use&quot;
+)paren
 comma
 id|option_parse_strategy
 )paren
@@ -1108,9 +1168,17 @@ comma
 op_amp
 id|xopts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;option=value&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;option for selected merge strategy&quot;
+)paren
 comma
 id|option_parse_x
 )paren
@@ -1125,9 +1193,17 @@ comma
 op_amp
 id|merge_msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;message&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;merge commit message (for a non-fast-forward merge)&quot;
+)paren
 comma
 id|option_parse_message
 )paren
@@ -1149,7 +1225,11 @@ comma
 op_amp
 id|abort_current_merge
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;abort the current in-progress merge&quot;
+)paren
 )paren
 comma
 id|OPT_SET_INT
@@ -1162,7 +1242,11 @@ comma
 op_amp
 id|show_progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force progress reporting&quot;
+)paren
 comma
 l_int|1
 )paren
@@ -1177,9 +1261,17 @@ comma
 op_amp
 id|sign_commit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;key id&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;GPG sign commit&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -1201,7 +1293,11 @@ comma
 op_amp
 id|overwrite_ignore
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update ignored files (default)&quot;
+)paren
 )paren
 comma
 id|OPT_END

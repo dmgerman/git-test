@@ -21,14 +21,30 @@ id|git_tag_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git tag [-a|-s|-u &lt;key-id&gt;] [-f] [-m &lt;msg&gt;|-F &lt;file&gt;] &lt;tagname&gt; [&lt;head&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git tag -d &lt;tagname&gt;...&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git tag -l [-n[&lt;num&gt;]] [--contains &lt;commit&gt;] [--points-at &lt;object&gt;] &quot;
 l_string|&quot;&bslash;n&bslash;t&bslash;t[&lt;pattern&gt;...]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git tag -v &lt;tagname&gt;...&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -2393,7 +2409,11 @@ comma
 op_amp
 id|list
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;list tag names&quot;
+)paren
 )paren
 comma
 (brace
@@ -2406,9 +2426,17 @@ comma
 op_amp
 id|lines
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;n&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print &lt;n&gt; lines of each tag message&quot;
+)paren
 comma
 id|PARSE_OPT_OPTARG
 comma
@@ -2427,7 +2455,11 @@ comma
 op_amp
 r_delete
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;delete tags&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2440,13 +2472,21 @@ comma
 op_amp
 id|verify
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;verify tags&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Tag creation options&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2459,7 +2499,11 @@ comma
 op_amp
 id|annotate
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;annotated tag, needs a message&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -2472,9 +2516,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;message&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;tag message&quot;
+)paren
 comma
 id|parse_msg_arg
 )paren
@@ -2489,7 +2541,11 @@ comma
 op_amp
 id|msgfile
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;read message from file&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -2502,7 +2558,11 @@ comma
 op_amp
 id|opt.sign
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;annotated and GPG-signed tag&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -2515,9 +2575,17 @@ comma
 op_amp
 id|cleanup_arg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;mode&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;how to strip spaces and #comments from message&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -2530,9 +2598,17 @@ comma
 op_amp
 id|keyid
 comma
-l_string|&quot;key-id&quot;
+id|N_
+c_func
+(paren
+l_string|&quot;key id&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use another key to sign the tag&quot;
+)paren
 )paren
 comma
 id|OPT__FORCE
@@ -2541,7 +2617,11 @@ c_func
 op_amp
 id|force
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;replace the tag if exists&quot;
+)paren
 )paren
 comma
 id|OPT_COLUMN
@@ -2554,13 +2634,21 @@ comma
 op_amp
 id|colopts
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;show tag list in columns&quot;
+)paren
 )paren
 comma
 id|OPT_GROUP
 c_func
 (paren
+id|N_
+c_func
+(paren
 l_string|&quot;Tag listing options&quot;
+)paren
 )paren
 comma
 (brace
@@ -2573,9 +2661,17 @@ comma
 op_amp
 id|with_commit
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;commit&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print only tags that contain the commit&quot;
+)paren
 comma
 id|PARSE_OPT_LASTARG_DEFAULT
 comma
@@ -2597,9 +2693,17 @@ l_string|&quot;points-at&quot;
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;object&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;print only tags of the object&quot;
+)paren
 comma
 l_int|0
 comma

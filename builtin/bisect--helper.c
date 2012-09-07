@@ -13,7 +13,11 @@ id|git_bisect_helper_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git bisect--helper --next-all [--no-checkout]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -65,7 +69,11 @@ comma
 op_amp
 id|next_all
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;perform &squot;git bisect next&squot;&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -78,7 +86,11 @@ comma
 op_amp
 id|no_checkout
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update BISECT_HEAD instead of checking out the current commit&quot;
+)paren
 )paren
 comma
 id|OPT_END

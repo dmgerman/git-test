@@ -13,9 +13,17 @@ id|git_update_ref_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git update-ref [options] -d &lt;refname&gt; [&lt;oldval&gt;]&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;git update-ref [options]    &lt;refname&gt; &lt;newval&gt; [&lt;oldval&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -95,9 +103,17 @@ comma
 op_amp
 id|msg
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reason&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reason of the update&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -110,7 +126,11 @@ comma
 op_amp
 r_delete
 comma
-l_string|&quot;deletes the reference&quot;
+id|N_
+c_func
+(paren
+l_string|&quot;delete the reference&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -123,7 +143,11 @@ comma
 op_amp
 id|no_deref
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;update &lt;refname&gt; not the one it points to&quot;
+)paren
 )paren
 comma
 id|OPT_END

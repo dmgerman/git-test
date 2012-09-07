@@ -26,7 +26,11 @@ id|builtin_clone_usage
 )braket
 op_assign
 (brace
+id|N_
+c_func
+(paren
 l_string|&quot;git clone [options] [--] &lt;repo&gt; [&lt;dir&gt;]&quot;
+)paren
 comma
 l_int|NULL
 )brace
@@ -203,7 +207,11 @@ comma
 op_amp
 id|option_progress
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;force progress reporting&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -216,7 +224,11 @@ comma
 op_amp
 id|option_no_checkout
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t create a checkout&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -229,7 +241,11 @@ comma
 op_amp
 id|option_bare
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create a bare repository&quot;
+)paren
 )paren
 comma
 (brace
@@ -244,7 +260,11 @@ id|option_bare
 comma
 l_int|NULL
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create a bare repository&quot;
+)paren
 comma
 id|PARSE_OPT_NOARG
 op_or
@@ -261,7 +281,11 @@ comma
 op_amp
 id|option_mirror
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create a mirror repository (implies bare)&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -274,7 +298,11 @@ comma
 op_amp
 id|option_local
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;to clone from a local repository&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -287,7 +315,11 @@ comma
 op_amp
 id|option_no_hardlinks
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;don&squot;t use local hardlinks, always copy&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -300,7 +332,11 @@ comma
 op_amp
 id|option_shared
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;setup as shared repository&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -313,7 +349,11 @@ comma
 op_amp
 id|option_recursive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;initialize submodules in the clone&quot;
+)paren
 )paren
 comma
 id|OPT_BOOLEAN
@@ -326,7 +366,11 @@ comma
 op_amp
 id|option_recursive
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;initialize submodules in the clone&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -339,9 +383,17 @@ comma
 op_amp
 id|option_template
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;template-directory&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;directory from which templates will be used&quot;
+)paren
 )paren
 comma
 id|OPT_CALLBACK
@@ -354,9 +406,17 @@ comma
 op_amp
 id|option_reference
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;repo&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;reference repository&quot;
+)paren
 comma
 op_amp
 id|opt_parse_reference
@@ -372,9 +432,17 @@ comma
 op_amp
 id|option_origin
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;name&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;use &lt;name&gt; instead of &squot;origin&squot; to track upstream&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -387,9 +455,17 @@ comma
 op_amp
 id|option_branch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;branch&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;checkout &lt;branch&gt; instead of the remote&squot;s HEAD&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -402,9 +478,17 @@ comma
 op_amp
 id|option_upload_pack
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;path to git-upload-pack on the remote&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -417,9 +501,17 @@ comma
 op_amp
 id|option_depth
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;depth&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;create a shallow clone of that depth&quot;
+)paren
 )paren
 comma
 id|OPT_BOOL
@@ -432,7 +524,11 @@ comma
 op_amp
 id|option_single_branch
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;clone only one branch, HEAD or --branch&quot;
+)paren
 )paren
 comma
 id|OPT_STRING
@@ -445,9 +541,17 @@ comma
 op_amp
 id|real_git_dir
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;gitdir&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;separate git dir from working tree&quot;
+)paren
 )paren
 comma
 id|OPT_STRING_LIST
@@ -460,9 +564,17 @@ comma
 op_amp
 id|option_config
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;key=value&quot;
+)paren
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;set config inside the new repository&quot;
+)paren
 )paren
 comma
 id|OPT_END
