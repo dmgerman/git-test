@@ -11,6 +11,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;column.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|variable|builtin_branch_usage
 r_static
 r_const
@@ -1192,12 +1193,12 @@ op_star
 id|dest
 suffix:semicolon
 DECL|member|kind
-DECL|member|len
+DECL|member|width
 r_int
 r_int
 id|kind
 comma
-id|len
+id|width
 suffix:semicolon
 DECL|member|commit
 r_struct
@@ -1786,9 +1787,9 @@ id|newitem-&gt;commit
 op_assign
 id|commit
 suffix:semicolon
-id|newitem-&gt;len
+id|newitem-&gt;width
 op_assign
-id|strlen
+id|utf8_strwidth
 c_func
 (paren
 id|refname
@@ -1816,20 +1817,20 @@ id|ref_list-&gt;kinds
 op_ne
 id|REF_REMOTE_BRANCH
 )paren
-id|newitem-&gt;len
+id|newitem-&gt;width
 op_add_assign
 l_int|8
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|newitem-&gt;len
+id|newitem-&gt;width
 OG
 id|ref_list-&gt;maxwidth
 )paren
 id|ref_list-&gt;maxwidth
 op_assign
-id|newitem-&gt;len
+id|newitem-&gt;width
 suffix:semicolon
 r_return
 l_int|0
@@ -2538,6 +2539,21 @@ c_cond
 (paren
 id|verbose
 )paren
+(brace
+r_int
+id|utf8_compensation
+op_assign
+id|strlen
+c_func
+(paren
+id|name.buf
+)paren
+id|utf8_strwidth
+c_func
+(paren
+id|name.buf
+)paren
+suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
@@ -2555,6 +2571,8 @@ id|color
 )paren
 comma
 id|maxwidth
+op_plus
+id|utf8_compensation
 comma
 id|name.buf
 comma
@@ -2565,6 +2583,7 @@ id|BRANCH_COLOR_RESET
 )paren
 )paren
 suffix:semicolon
+)brace
 r_else
 id|strbuf_addf
 c_func
@@ -2740,7 +2759,7 @@ id|refs-&gt;list
 id|i
 )braket
 dot
-id|len
+id|width
 OG
 id|w
 )paren
@@ -2751,7 +2770,7 @@ id|refs-&gt;list
 id|i
 )braket
 dot
-id|len
+id|width
 suffix:semicolon
 )brace
 r_return
@@ -2813,9 +2832,9 @@ l_string|&quot;(no branch)&quot;
 )paren
 )paren
 suffix:semicolon
-id|item.len
+id|item.width
 op_assign
-id|strlen
+id|utf8_strwidth
 c_func
 (paren
 id|item.name
@@ -2836,13 +2855,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|item.len
+id|item.width
 OG
 id|ref_list-&gt;maxwidth
 )paren
 id|ref_list-&gt;maxwidth
 op_assign
-id|item.len
+id|item.width
 suffix:semicolon
 id|print_ref_item
 c_func
