@@ -2728,6 +2728,11 @@ op_assign
 id|next
 )paren
 (brace
+r_int
+id|keep
+op_assign
+l_int|0
+suffix:semicolon
 id|next
 op_assign
 id|ref-&gt;next
@@ -2777,31 +2782,12 @@ l_string|&quot;refs/tags/&quot;
 )paren
 )paren
 )paren
-(brace
-op_star
-id|newtail
-op_assign
-id|ref
-suffix:semicolon
-id|ref-&gt;next
-op_assign
-l_int|NULL
-suffix:semicolon
-id|newtail
-op_assign
-op_amp
-id|ref-&gt;next
-suffix:semicolon
-r_continue
-suffix:semicolon
-)brace
-r_else
-(brace
-r_int
-id|cmp
+id|keep
 op_assign
 l_int|1
 suffix:semicolon
+r_else
+(brace
 r_while
 c_loop
 (paren
@@ -2810,6 +2796,7 @@ OL
 id|sought-&gt;nr
 )paren
 (brace
+r_int
 id|cmp
 op_assign
 id|strcmp
@@ -2832,9 +2819,9 @@ id|cmp
 OL
 l_int|0
 )paren
-multiline_comment|/* definitely do not have it */
 r_break
 suffix:semicolon
+multiline_comment|/* definitely do not have it */
 r_else
 r_if
 c_cond
@@ -2844,6 +2831,10 @@ op_eq
 l_int|0
 )paren
 (brace
+id|keep
+op_assign
+l_int|1
+suffix:semicolon
 multiline_comment|/* definitely have it */
 id|sought-&gt;items
 (braket
@@ -2855,6 +2846,22 @@ id|util
 op_assign
 l_string|&quot;matched&quot;
 suffix:semicolon
+r_break
+suffix:semicolon
+)brace
+r_else
+id|sought_pos
+op_increment
+suffix:semicolon
+multiline_comment|/* might have it; keep looking */
+)brace
+)brace
+r_if
+c_cond
+(paren
+id|keep
+)paren
+(brace
 op_star
 id|newtail
 op_assign
@@ -2869,31 +2876,16 @@ op_assign
 op_amp
 id|ref-&gt;next
 suffix:semicolon
-r_break
-suffix:semicolon
 )brace
 r_else
-multiline_comment|/* might have it; keep looking */
-id|sought_pos
-op_increment
-suffix:semicolon
-)brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|cmp
-)paren
-r_continue
-suffix:semicolon
-multiline_comment|/* we will link it later */
-)brace
+(brace
 id|free
 c_func
 (paren
 id|ref
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
