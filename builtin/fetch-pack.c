@@ -5271,9 +5271,8 @@ c_func
 id|conn
 )paren
 )paren
-id|ref
-op_assign
-l_int|NULL
+r_return
+l_int|1
 suffix:semicolon
 id|ret
 op_assign
@@ -5283,8 +5282,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|ret
+id|ref
 op_logical_and
 id|sought.nr
 )paren
