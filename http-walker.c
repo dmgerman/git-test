@@ -1660,10 +1660,10 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-DECL|function|fetch_pack
+DECL|function|http_fetch_pack
 r_static
 r_int
-id|fetch_pack
+id|http_fetch_pack
 c_func
 (paren
 r_struct
@@ -2286,7 +2286,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|fetch_pack
+id|http_fetch_pack
 c_func
 (paren
 id|walker
