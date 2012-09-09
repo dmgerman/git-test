@@ -5278,14 +5278,10 @@ id|ret
 op_assign
 op_logical_neg
 id|ref
-suffix:semicolon
-r_if
-c_cond
-(paren
+op_logical_or
 id|sought.nr
-)paren
-(brace
-multiline_comment|/* If the heads to pull were given, we should have&n;&t;&t; * consumed all of them by matching the remote.&n;&t;&t; * Otherwise, &squot;git fetch remote no-such-ref&squot; would&n;&t;&t; * silently succeed without issuing an error.&n;&t;&t; */
+suffix:semicolon
+multiline_comment|/*&n;&t; * If the heads to pull were given, we should have consumed&n;&t; * all of them by matching the remote.  Otherwise, &squot;git fetch&n;&t; * remote no-such-ref&squot; would silently succeed without issuing&n;&t; * an error.&n;&t; */
 r_for
 c_loop
 (paren
@@ -5313,11 +5309,6 @@ dot
 id|string
 )paren
 suffix:semicolon
-id|ret
-op_assign
-l_int|1
-suffix:semicolon
-)brace
 r_while
 c_loop
 (paren
