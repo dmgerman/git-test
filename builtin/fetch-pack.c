@@ -2889,9 +2889,17 @@ l_int|0
 )paren
 (brace
 multiline_comment|/* definitely have it */
+id|return_refs
+(braket
+id|sought_pos
+)braket
+op_assign
+id|ref
+suffix:semicolon
 id|sought-&gt;items
 (braket
 id|sought_pos
+op_increment
 )braket
 dot
 id|string
@@ -2900,13 +2908,6 @@ l_int|0
 )braket
 op_assign
 l_char|&squot;&bslash;0&squot;
-suffix:semicolon
-id|return_refs
-(braket
-id|sought_pos
-)braket
-op_assign
-id|ref
 suffix:semicolon
 r_break
 suffix:semicolon
