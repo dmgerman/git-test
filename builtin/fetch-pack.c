@@ -5282,8 +5282,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ref
-op_logical_and
 id|sought.nr
 )paren
 (brace
