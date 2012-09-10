@@ -8432,6 +8432,24 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|is_null_sha1
+c_func
+(paren
+id|ce-&gt;sha1
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;cache entry has null sha1: %s&quot;
+comma
+id|ce-&gt;name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|ce_write_entry
 c_func
 (paren

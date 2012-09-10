@@ -315,6 +315,9 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+id|sha1_valid
+comma
 r_char
 op_star
 op_star
@@ -350,6 +353,8 @@ c_func
 id|df
 comma
 id|sha1
+comma
+id|sha1_valid
 comma
 id|mode
 )paren
@@ -461,6 +466,8 @@ comma
 id|o-&gt;mode
 comma
 id|o-&gt;blob_sha1
+comma
+l_int|1
 comma
 op_amp
 id|file-&gt;ptr
@@ -9841,6 +9848,8 @@ id|mode
 comma
 id|null_sha1
 comma
+l_int|0
+comma
 op_amp
 id|buf_ptr
 comma
@@ -11947,6 +11956,8 @@ comma
 id|o-&gt;mode
 comma
 id|o-&gt;blob_sha1
+comma
+l_int|1
 comma
 (paren
 r_char
