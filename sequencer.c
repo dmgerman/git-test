@@ -2744,12 +2744,16 @@ op_star
 id|opts
 )paren
 (brace
+multiline_comment|/*&n;&t; * picking (but not reverting) ranges (but not individual revisions)&n;&t; * should be done in reverse&n;&t; */
 r_if
 c_cond
 (paren
 id|opts-&gt;action
-op_ne
-id|REPLAY_REVERT
+op_eq
+id|REPLAY_PICK
+op_logical_and
+op_logical_neg
+id|opts-&gt;revs-&gt;no_walk
 )paren
 id|opts-&gt;revs-&gt;reverse
 op_xor_assign
