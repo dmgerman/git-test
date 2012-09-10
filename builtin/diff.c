@@ -74,6 +74,12 @@ r_char
 op_star
 id|new_sha1
 comma
+r_int
+id|old_sha1_valid
+comma
+r_int
+id|new_sha1_valid
+comma
 r_const
 r_char
 op_star
@@ -242,6 +248,8 @@ id|one
 comma
 id|old_sha1
 comma
+id|old_sha1_valid
+comma
 id|old_mode
 )paren
 suffix:semicolon
@@ -251,6 +259,8 @@ c_func
 id|two
 comma
 id|new_sha1
+comma
+id|new_sha1_valid
 comma
 id|new_mode
 )paren
@@ -434,6 +444,10 @@ id|sha1
 comma
 id|null_sha1
 comma
+l_int|1
+comma
+l_int|0
+comma
 id|path
 comma
 id|path
@@ -582,6 +596,10 @@ l_int|1
 )braket
 dot
 id|sha1
+comma
+l_int|1
+comma
+l_int|1
 comma
 id|blob
 (braket

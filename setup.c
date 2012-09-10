@@ -523,7 +523,7 @@ id|die
 c_func
 (paren
 l_string|&quot;%s: no such path in the working tree.&bslash;n&quot;
-l_string|&quot;Use &squot;-- &lt;path&gt;...&squot; to specify paths that do not exist locally.&quot;
+l_string|&quot;Use &squot;git &lt;command&gt; -- &lt;path&gt;...&squot; to specify paths that do not exist locally.&quot;
 comma
 id|arg
 )paren
@@ -565,7 +565,8 @@ id|die
 c_func
 (paren
 l_string|&quot;ambiguous argument &squot;%s&squot;: unknown revision or path not in the working tree.&bslash;n&quot;
-l_string|&quot;Use &squot;--&squot; to separate paths from revisions&quot;
+l_string|&quot;Use &squot;--&squot; to separate paths from revisions, like this:&bslash;n&quot;
+l_string|&quot;&squot;git &lt;command&gt; [&lt;revision&gt;...] -- [&lt;file&gt;...]&squot;&quot;
 comma
 id|arg
 )paren
@@ -693,7 +694,8 @@ id|die
 c_func
 (paren
 l_string|&quot;ambiguous argument &squot;%s&squot;: both revision and filename&bslash;n&quot;
-l_string|&quot;Use &squot;--&squot; to separate filenames from revisions&quot;
+l_string|&quot;Use &squot;--&squot; to separate paths from revisions, like this:&bslash;n&quot;
+l_string|&quot;&squot;git &lt;command&gt; [&lt;revision&gt;...] -- [&lt;file&gt;...]&squot;&quot;
 comma
 id|arg
 )paren

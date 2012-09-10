@@ -360,6 +360,8 @@ id|s
 comma
 id|null_sha1
 comma
+l_int|0
+comma
 id|mode
 )paren
 suffix:semicolon
