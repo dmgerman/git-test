@@ -1270,22 +1270,11 @@ op_amp
 id|diff_opts
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
 id|diff_setup_done
 c_func
 (paren
 op_amp
 id|diff_opts
-)paren
-OL
-l_int|0
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;unable to set up diff options to follow renames&quot;
 )paren
 suffix:semicolon
 id|diff_tree
