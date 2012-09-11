@@ -1829,10 +1829,7 @@ c_func
 (paren
 id|current
 comma
-op_amp
 id|updated
-comma
-l_int|1
 )paren
 )paren
 (brace
