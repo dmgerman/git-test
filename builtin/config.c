@@ -1038,7 +1038,7 @@ id|regex_
 r_int
 id|ret
 op_assign
-l_int|1
+id|CONFIG_GENERIC_ERROR
 suffix:semicolon
 r_char
 op_star
@@ -1269,6 +1269,10 @@ c_func
 id|key
 )paren
 suffix:semicolon
+id|ret
+op_assign
+id|CONFIG_INVALID_PATTERN
+suffix:semicolon
 r_goto
 id|free_strings
 suffix:semicolon
@@ -1290,9 +1294,15 @@ comma
 l_int|NULL
 )paren
 )paren
+(brace
+id|ret
+op_assign
+id|CONFIG_INVALID_KEY
+suffix:semicolon
 r_goto
 id|free_strings
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
@@ -1357,6 +1367,10 @@ l_string|&quot;Invalid pattern: %s&bslash;n&quot;
 comma
 id|regex_
 )paren
+suffix:semicolon
+id|ret
+op_assign
+id|CONFIG_INVALID_PATTERN
 suffix:semicolon
 r_goto
 id|free_strings
