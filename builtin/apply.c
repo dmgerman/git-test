@@ -660,11 +660,6 @@ DECL|member|ws_rule
 r_int
 id|ws_rule
 suffix:semicolon
-DECL|member|deflate_origlen
-r_int
-r_int
-id|deflate_origlen
-suffix:semicolon
 DECL|member|lines_added
 DECL|member|lines_deleted
 r_int

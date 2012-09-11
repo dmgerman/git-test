@@ -3367,6 +3367,14 @@ comma
 id|DIFF_PLAIN
 )paren
 suffix:semicolon
+id|putc
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+comma
+id|ecb-&gt;opt-&gt;file
+)paren
+suffix:semicolon
 id|emit_line_0
 c_func
 (paren
@@ -17140,7 +17148,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|diff_setup_done
-r_int
+r_void
 id|diff_setup_done
 c_func
 (paren
@@ -17472,9 +17480,6 @@ id|EXIT_WITH_STATUS
 )paren
 suffix:semicolon
 )brace
-r_return
-l_int|0
-suffix:semicolon
 )brace
 DECL|function|opt_arg
 r_static
