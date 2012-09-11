@@ -6500,10 +6500,6 @@ comma
 op_star
 id|previous_name
 suffix:semicolon
-id|errno
-op_assign
-id|EBUSY
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6511,10 +6507,6 @@ id|istate-&gt;initialized
 )paren
 r_return
 id|istate-&gt;cache_nr
-suffix:semicolon
-id|errno
-op_assign
-id|ENOENT
 suffix:semicolon
 id|istate-&gt;timestamp.sec
 op_assign
@@ -6577,10 +6569,6 @@ c_func
 l_string|&quot;cannot stat the open index&quot;
 )paren
 suffix:semicolon
-id|errno
-op_assign
-id|EINVAL
-suffix:semicolon
 id|mmap_size
 op_assign
 id|xsize_t
@@ -6628,12 +6616,6 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|close
-c_func
-(paren
-id|fd
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6645,6 +6627,12 @@ id|die_errno
 c_func
 (paren
 l_string|&quot;unable to map index file&quot;
+)paren
+suffix:semicolon
+id|close
+c_func
+(paren
+id|fd
 )paren
 suffix:semicolon
 id|hdr
@@ -6933,10 +6921,6 @@ id|mmap
 comma
 id|mmap_size
 )paren
-suffix:semicolon
-id|errno
-op_assign
-id|EINVAL
 suffix:semicolon
 id|die
 c_func
