@@ -3393,6 +3393,61 @@ id|p-&gt;next
 suffix:semicolon
 )brace
 )brace
+DECL|function|get_max_fd_limit
+r_static
+r_int
+r_int
+id|get_max_fd_limit
+c_func
+(paren
+r_void
+)paren
+(brace
+macro_line|#ifdef RLIMIT_NOFILE
+r_struct
+id|rlimit
+id|lim
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|getrlimit
+c_func
+(paren
+id|RLIMIT_NOFILE
+comma
+op_amp
+id|lim
+)paren
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;cannot get RLIMIT_NOFILE&quot;
+)paren
+suffix:semicolon
+r_return
+id|lim.rlim_cur
+suffix:semicolon
+macro_line|#elif defined(_SC_OPEN_MAX)
+r_return
+id|sysconf
+c_func
+(paren
+id|_SC_OPEN_MAX
+)paren
+suffix:semicolon
+macro_line|#elif defined(OPEN_MAX)
+r_return
+id|OPEN_MAX
+suffix:semicolon
+macro_line|#else
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* see the caller ;-) */
+macro_line|#endif
+)brace
 multiline_comment|/*&n; * Do not call this directly as this leaks p-&gt;pack_fd on error return;&n; * call open_packed_git() instead.&n; */
 DECL|function|open_packed_git_1
 r_static
@@ -3457,35 +3512,14 @@ op_logical_neg
 id|pack_max_fds
 )paren
 (brace
-r_struct
-id|rlimit
-id|lim
-suffix:semicolon
 r_int
 r_int
-id|max_fds
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|getrlimit
-c_func
-(paren
-id|RLIMIT_NOFILE
-comma
-op_amp
-id|lim
-)paren
-)paren
-id|die_errno
-c_func
-(paren
-l_string|&quot;cannot get RLIMIT_NOFILE&quot;
-)paren
-suffix:semicolon
 id|max_fds
 op_assign
-id|lim.rlim_cur
+id|get_max_fd_limit
+c_func
+(paren
+)paren
 suffix:semicolon
 multiline_comment|/* Save 3 for stdin/stdout/stderr, 22 for work */
 r_if
