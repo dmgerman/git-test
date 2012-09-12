@@ -38,7 +38,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git remote rm &lt;name&gt;&quot;
+l_string|&quot;git remote remove &lt;name&gt;&quot;
 )paren
 comma
 id|N_
@@ -146,7 +146,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git remote rm &lt;name&gt;&quot;
+l_string|&quot;git remote remove &lt;name&gt;&quot;
 )paren
 comma
 l_int|NULL
@@ -9618,6 +9618,18 @@ l_int|0
 )braket
 comma
 l_string|&quot;rm&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+l_string|&quot;remove&quot;
 )paren
 )paren
 id|result
