@@ -5504,12 +5504,13 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|stop_at_slash
+multiline_comment|/*&n; * Skip p_value leading components from &quot;line&quot;; as we do not accept&n; * absolute paths, return NULL in that case.&n; */
+DECL|function|skip_tree_prefix
 r_static
 r_const
 r_char
 op_star
-id|stop_at_slash
+id|skip_tree_prefix
 c_func
 (paren
 r_const
@@ -5523,11 +5524,36 @@ id|llen
 (brace
 r_int
 id|nslash
-op_assign
-id|p_value
 suffix:semicolon
 r_int
 id|i
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|p_value
+)paren
+r_return
+(paren
+id|llen
+op_logical_and
+id|line
+(braket
+l_int|0
+)braket
+op_eq
+l_char|&squot;/&squot;
+)paren
+ques
+c_cond
+l_int|NULL
+suffix:colon
+id|line
+suffix:semicolon
+id|nslash
+op_assign
+id|p_value
 suffix:semicolon
 r_for
 c_loop
@@ -5565,10 +5591,21 @@ op_le
 l_int|0
 )paren
 r_return
+(paren
+id|i
+op_eq
+l_int|0
+)paren
+ques
+c_cond
+l_int|NULL
+suffix:colon
 op_amp
 id|line
 (braket
 id|i
+op_plus
+l_int|1
 )braket
 suffix:semicolon
 )brace
@@ -5670,10 +5707,10 @@ id|second
 r_goto
 id|free_and_fail1
 suffix:semicolon
-multiline_comment|/* advance to the first slash */
+multiline_comment|/* strip the a/b prefix including trailing slash */
 id|cp
 op_assign
-id|stop_at_slash
+id|skip_tree_prefix
 c_func
 (paren
 id|first.buf
@@ -5681,16 +5718,11 @@ comma
 id|first.len
 )paren
 suffix:semicolon
-multiline_comment|/* we do not accept absolute paths */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|cp
-op_logical_or
-id|cp
-op_eq
-id|first.buf
 )paren
 r_goto
 id|free_and_fail1
@@ -5704,8 +5736,6 @@ comma
 l_int|0
 comma
 id|cp
-op_plus
-l_int|1
 id|first.buf
 )paren
 suffix:semicolon
@@ -5771,7 +5801,7 @@ id|free_and_fail1
 suffix:semicolon
 id|cp
 op_assign
-id|stop_at_slash
+id|skip_tree_prefix
 c_func
 (paren
 id|sp.buf
@@ -5784,10 +5814,6 @@ c_cond
 (paren
 op_logical_neg
 id|cp
-op_logical_or
-id|cp
-op_eq
-id|sp.buf
 )paren
 r_goto
 id|free_and_fail1
@@ -5800,8 +5826,6 @@ id|strcmp
 c_func
 (paren
 id|cp
-op_plus
-l_int|1
 comma
 id|first.buf
 )paren
@@ -5830,7 +5854,7 @@ suffix:semicolon
 multiline_comment|/* unquoted second */
 id|cp
 op_assign
-id|stop_at_slash
+id|skip_tree_prefix
 c_func
 (paren
 id|second
@@ -5846,16 +5870,9 @@ c_cond
 (paren
 op_logical_neg
 id|cp
-op_logical_or
-id|cp
-op_eq
-id|second
 )paren
 r_goto
 id|free_and_fail1
-suffix:semicolon
-id|cp
-op_increment
 suffix:semicolon
 r_if
 c_cond
@@ -5866,8 +5883,6 @@ id|llen
 id|cp
 op_ne
 id|first.len
-op_plus
-l_int|1
 op_logical_or
 id|memcmp
 c_func
@@ -5915,7 +5930,7 @@ suffix:semicolon
 multiline_comment|/* unquoted first name */
 id|name
 op_assign
-id|stop_at_slash
+id|skip_tree_prefix
 c_func
 (paren
 id|line
@@ -5928,16 +5943,9 @@ c_cond
 (paren
 op_logical_neg
 id|name
-op_logical_or
-id|name
-op_eq
-id|line
 )paren
 r_return
 l_int|NULL
-suffix:semicolon
-id|name
-op_increment
 suffix:semicolon
 multiline_comment|/*&n;&t; * since the first name is unquoted, a dq if exists must be&n;&t; * the beginning of the second name.&n;&t; */
 r_for
@@ -5996,7 +6004,7 @@ id|free_and_fail2
 suffix:semicolon
 id|np
 op_assign
-id|stop_at_slash
+id|skip_tree_prefix
 c_func
 (paren
 id|sp.buf
@@ -6009,16 +6017,9 @@ c_cond
 (paren
 op_logical_neg
 id|np
-op_logical_or
-id|np
-op_eq
-id|sp.buf
 )paren
 r_goto
 id|free_and_fail2
-suffix:semicolon
-id|np
-op_increment
 suffix:semicolon
 id|len
 op_assign
@@ -6156,17 +6157,39 @@ suffix:colon
 r_case
 l_char|&squot; &squot;
 suffix:colon
+multiline_comment|/*&n;&t;&t;&t; * Is this the separator between the preimage&n;&t;&t;&t; * and the postimage pathname?  Again, we are&n;&t;&t;&t; * only interested in the case where there is&n;&t;&t;&t; * no rename, as this is only to set def_name&n;&t;&t;&t; * and a rename patch has the names elsewhere&n;&t;&t;&t; * in an unambiguous form.&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|name
+(braket
+id|len
+op_plus
+l_int|1
+)braket
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+multiline_comment|/* no postimage name */
 id|second
 op_assign
-id|stop_at_slash
+id|skip_tree_prefix
 c_func
 (paren
 id|name
 op_plus
 id|len
+op_plus
+l_int|1
 comma
 id|line_len
+(paren
 id|len
+op_plus
+l_int|1
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6178,9 +6201,7 @@ id|second
 r_return
 l_int|NULL
 suffix:semicolon
-id|second
-op_increment
-suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Does len bytes starting at &quot;name&quot; and &quot;second&quot;&n;&t;&t;&t; * (that are separated by one HT or SP we just&n;&t;&t;&t; * found) exactly match?&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -6202,7 +6223,6 @@ comma
 id|len
 )paren
 )paren
-(brace
 r_return
 id|xmemdupz
 c_func
@@ -6212,7 +6232,6 @@ comma
 id|len
 )paren
 suffix:semicolon
-)brace
 )brace
 )brace
 )brace

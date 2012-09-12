@@ -5423,9 +5423,6 @@ multiline_comment|/* should --no-sort void the list ? */
 r_return
 l_int|1
 suffix:semicolon
-op_star
-id|sort_tail
-op_assign
 id|s
 op_assign
 id|xcalloc
@@ -5439,6 +5436,16 @@ op_star
 id|s
 )paren
 )paren
+suffix:semicolon
+id|s-&gt;next
+op_assign
+op_star
+id|sort_tail
+suffix:semicolon
+op_star
+id|sort_tail
+op_assign
+id|s
 suffix:semicolon
 r_if
 c_cond
