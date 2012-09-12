@@ -125,7 +125,7 @@ comma
 r_const
 r_char
 op_star
-id|path_unused
+id|path
 comma
 id|mmfile_t
 op_star
@@ -195,6 +195,19 @@ id|opts-&gt;variant
 (brace
 r_default
 suffix:colon
+id|warning
+c_func
+(paren
+l_string|&quot;Cannot merge binary files: %s (%s vs. %s)&bslash;n&quot;
+comma
+id|path
+comma
+id|name1
+comma
+id|name2
+)paren
+suffix:semicolon
+multiline_comment|/* fallthru */
 r_case
 id|XDL_MERGE_FAVOR_OURS
 suffix:colon
@@ -333,18 +346,6 @@ id|src2-&gt;size
 )paren
 )paren
 (brace
-id|warning
-c_func
-(paren
-l_string|&quot;Cannot merge binary files: %s (%s vs. %s)&bslash;n&quot;
-comma
-id|path
-comma
-id|name1
-comma
-id|name2
-)paren
-suffix:semicolon
 r_return
 id|ll_binary_merge
 c_func
