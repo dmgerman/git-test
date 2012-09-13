@@ -4202,6 +4202,29 @@ comma
 l_string|&quot;show only matches from files that match all patterns&quot;
 )paren
 comma
+(brace
+id|OPTION_SET_INT
+comma
+l_int|0
+comma
+l_string|&quot;debug&quot;
+comma
+op_amp
+id|opt.debug
+comma
+l_int|NULL
+comma
+l_string|&quot;show parse tree for grep expression&quot;
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+comma
+l_int|NULL
+comma
+l_int|1
+)brace
+comma
 id|OPT_GROUP
 c_func
 (paren
