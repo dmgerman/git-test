@@ -7844,11 +7844,7 @@ id|fp
 comma
 l_string|&quot;%s&bslash;n&quot;
 comma
-id|_
-c_func
-(paren
 l_string|&quot; 0 files changed&quot;
-)paren
 )paren
 suffix:semicolon
 )brace
@@ -7858,15 +7854,16 @@ c_func
 op_amp
 id|sb
 comma
-id|Q_
-c_func
 (paren
-l_string|&quot; %d file changed&quot;
-comma
-l_string|&quot; %d files changed&quot;
-comma
 id|files
+op_eq
+l_int|1
 )paren
+ques
+c_cond
+l_string|&quot; %d file changed&quot;
+suffix:colon
+l_string|&quot; %d files changed&quot;
 comma
 id|files
 )paren
@@ -7889,15 +7886,16 @@ c_func
 op_amp
 id|sb
 comma
-id|Q_
-c_func
 (paren
-l_string|&quot;, %d insertion(+)&quot;
-comma
-l_string|&quot;, %d insertions(+)&quot;
-comma
 id|insertions
+op_eq
+l_int|1
 )paren
+ques
+c_cond
+l_string|&quot;, %d insertion(+)&quot;
+suffix:colon
+l_string|&quot;, %d insertions(+)&quot;
 comma
 id|insertions
 )paren
@@ -7920,15 +7918,16 @@ c_func
 op_amp
 id|sb
 comma
-id|Q_
-c_func
 (paren
-l_string|&quot;, %d deletion(-)&quot;
-comma
-l_string|&quot;, %d deletions(-)&quot;
-comma
 id|deletions
+op_eq
+l_int|1
 )paren
+ques
+c_cond
+l_string|&quot;, %d deletion(-)&quot;
+suffix:colon
+l_string|&quot;, %d deletions(-)&quot;
 comma
 id|deletions
 )paren
