@@ -868,6 +868,10 @@ id|o-&gt;output
 op_assign
 id|strbuf_out
 suffix:semicolon
+id|o-&gt;debug
+op_assign
+l_int|0
+suffix:semicolon
 id|compile_grep_patterns
 c_func
 (paren
