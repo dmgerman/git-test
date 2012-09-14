@@ -907,16 +907,12 @@ id|name
 suffix:semicolon
 id|name
 op_assign
-id|xstrdup
-c_func
-(paren
-id|mkpath
+id|mkpathdup
 c_func
 (paren
 id|fmt
 comma
 id|bname.buf
-)paren
 )paren
 suffix:semicolon
 r_if
