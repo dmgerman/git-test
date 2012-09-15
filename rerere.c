@@ -71,6 +71,7 @@ id|file
 suffix:semicolon
 )brace
 DECL|function|has_rerere_resolution
+r_static
 r_int
 id|has_rerere_resolution
 c_func
