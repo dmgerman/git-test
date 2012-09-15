@@ -1381,7 +1381,7 @@ id|builtin_attr
 )braket
 op_assign
 (brace
-l_string|&quot;[attr]binary -diff -text&quot;
+l_string|&quot;[attr]binary -diff -merge -text&quot;
 comma
 l_int|NULL
 comma
