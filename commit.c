@@ -8,6 +8,27 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;notes.h&quot;
 macro_line|#include &quot;gpg-interface.h&quot;
 macro_line|#include &quot;mergesort.h&quot;
+r_static
+r_struct
+id|commit_extra_header
+op_star
+id|read_commit_extra_header_lines
+c_func
+(paren
+r_const
+r_char
+op_star
+id|buf
+comma
+r_int
+id|len
+comma
+r_const
+r_char
+op_star
+op_star
+)paren
+suffix:semicolon
 DECL|variable|save_commit_buffer
 r_int
 id|save_commit_buffer
@@ -5767,6 +5788,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|read_commit_extra_header_lines
+r_static
 r_struct
 id|commit_extra_header
 op_star
