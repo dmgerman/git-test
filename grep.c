@@ -2,6 +2,28 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;grep.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
+r_static
+r_int
+id|grep_source_load
+c_func
+(paren
+r_struct
+id|grep_source
+op_star
+id|gs
+)paren
+suffix:semicolon
+r_static
+r_int
+id|grep_source_is_binary
+c_func
+(paren
+r_struct
+id|grep_source
+op_star
+id|gs
+)paren
+suffix:semicolon
 DECL|function|create_grep_pat
 r_static
 r_struct
@@ -2140,6 +2162,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|dump_grep_expression
+r_static
 r_void
 id|dump_grep_expression
 c_func
