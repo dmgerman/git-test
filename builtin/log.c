@@ -2145,7 +2145,7 @@ l_int|1
 suffix:semicolon
 id|rev.no_walk
 op_assign
-l_int|1
+id|REVISION_WALK_NO_WALK_SORTED
 suffix:semicolon
 id|rev.diffopt.stat_width
 op_assign
