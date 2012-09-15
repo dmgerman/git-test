@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 multiline_comment|/*&n; * Parse an argument into a string list.  arg should either be a&n; * &squot;:&squot;-separated list of strings, or &quot;-&quot; to indicate an empty string&n; * list (as opposed to &quot;&quot;, which indicates a string list containing a&n; * single empty string).  list-&gt;strdup_strings must be set.&n; */
 DECL|function|parse_string_list
+r_static
 r_void
 id|parse_string_list
 c_func
@@ -48,6 +49,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|write_list
+r_static
 r_void
 id|write_list
 c_func
@@ -93,6 +95,7 @@ id|string
 suffix:semicolon
 )brace
 DECL|function|write_list_compact
+r_static
 r_void
 id|write_list_compact
 c_func
@@ -170,6 +173,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|prefix_cb
+r_static
 r_int
 id|prefix_cb
 c_func
