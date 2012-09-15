@@ -10,6 +10,33 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;notes-merge.h&quot;
+r_static
+r_void
+id|commit_notes
+c_func
+(paren
+r_struct
+id|notes_tree
+op_star
+id|t
+comma
+r_const
+r_char
+op_star
+id|msg
+)paren
+suffix:semicolon
+r_static
+id|combine_notes_fn
+id|parse_combine_notes_fn
+c_func
+(paren
+r_const
+r_char
+op_star
+id|v
+)paren
+suffix:semicolon
 DECL|variable|git_notes_usage
 r_static
 r_const
@@ -1554,6 +1581,7 @@ id|unset
 suffix:semicolon
 )brace
 DECL|function|commit_notes
+r_static
 r_void
 id|commit_notes
 c_func
@@ -1708,6 +1736,7 @@ id|buf
 suffix:semicolon
 )brace
 DECL|function|parse_combine_notes_fn
+r_static
 id|combine_notes_fn
 id|parse_combine_notes_fn
 c_func
