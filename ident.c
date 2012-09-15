@@ -931,9 +931,13 @@ c_cond
 op_logical_neg
 id|split-&gt;name_end
 )paren
-r_return
-id|status
+(brace
+multiline_comment|/* no human readable name */
+id|split-&gt;name_end
+op_assign
+id|split-&gt;name_begin
 suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
