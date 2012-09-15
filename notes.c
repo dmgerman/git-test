@@ -6016,7 +6016,9 @@ id|notes_tree
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Fill the given strbuf with the notes associated with the given object.&n; *&n; * If the given notes_tree structure is not initialized, it will be auto-&n; * initialized to the default value (see documentation for init_notes() above).&n; * If the given notes_tree is NULL, the internal/default notes_tree will be&n; * used instead.&n; *&n; * &squot;flags&squot; is a bitwise combination of the flags for format_display_notes.&n; */
 DECL|function|format_note
+r_static
 r_void
 id|format_note
 c_func
