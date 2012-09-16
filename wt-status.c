@@ -528,6 +528,7 @@ id|ap
 suffix:semicolon
 )brace
 DECL|function|status_printf_more
+r_static
 r_void
 id|status_printf_more
 c_func
