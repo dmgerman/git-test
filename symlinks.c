@@ -1,4 +1,45 @@
 macro_line|#include &quot;cache.h&quot;
+r_static
+r_int
+id|threaded_check_leading_path
+c_func
+(paren
+r_struct
+id|cache_def
+op_star
+id|cache
+comma
+r_const
+r_char
+op_star
+id|name
+comma
+r_int
+id|len
+)paren
+suffix:semicolon
+r_static
+r_int
+id|threaded_has_dirs_only_path
+c_func
+(paren
+r_struct
+id|cache_def
+op_star
+id|cache
+comma
+r_const
+r_char
+op_star
+id|name
+comma
+r_int
+id|len
+comma
+r_int
+id|prefix_len
+)paren
+suffix:semicolon
 multiline_comment|/*&n; * Returns the length (on a path component basis) of the longest&n; * common prefix match of &squot;name_a&squot; and &squot;name_b&squot;.&n; */
 DECL|function|longest_path_match
 r_static
@@ -812,6 +853,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Return zero if path &squot;name&squot; has a leading symlink component or&n; * if some leading path component does not exists.&n; *&n; * Return -1 if leading path exists and is a directory.&n; *&n; * Return path length if leading path exists and is neither a&n; * directory nor a symlink.&n; */
 DECL|function|threaded_check_leading_path
+r_static
 r_int
 id|threaded_check_leading_path
 c_func
@@ -918,6 +960,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Return non-zero if all path components of &squot;name&squot; exists as a&n; * directory.  If prefix_len &gt; 0, we will test with the stat()&n; * function instead of the lstat() function for a prefix length of&n; * &squot;prefix_len&squot;, thus we then allow for symlinks in the prefix part as&n; * long as those points to real existing directories.&n; */
 DECL|function|threaded_has_dirs_only_path
+r_static
 r_int
 id|threaded_has_dirs_only_path
 c_func
