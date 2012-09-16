@@ -423,6 +423,7 @@ id|email
 suffix:semicolon
 )brace
 DECL|function|ident_default_name
+r_static
 r_const
 r_char
 op_star
@@ -542,6 +543,7 @@ id|git_default_email.buf
 suffix:semicolon
 )brace
 DECL|function|ident_default_date
+r_static
 r_const
 r_char
 op_star
