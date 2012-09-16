@@ -17,6 +17,7 @@ macro_line|#include &quot;argv-array.h&quot;
 DECL|macro|GIT_REFLOG_ACTION
 mdefine_line|#define GIT_REFLOG_ACTION &quot;GIT_REFLOG_ACTION&quot;
 DECL|function|remove_sequencer_state
+r_static
 r_void
 id|remove_sequencer_state
 c_func
