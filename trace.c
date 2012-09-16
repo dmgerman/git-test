@@ -226,6 +226,7 @@ l_string|&quot;Could not trace into fd given by &quot;
 l_string|&quot;GIT_TRACE environment variable&quot;
 suffix:semicolon
 DECL|function|trace_vprintf
+r_static
 r_void
 id|trace_vprintf
 c_func
