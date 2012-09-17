@@ -31,7 +31,7 @@ op_assign
 (brace
 l_string|&quot;git check-attr [-a | --all | attr...] [--] pathname...&quot;
 comma
-l_string|&quot;git check-attr --stdin [-a | --all | attr...] &lt; &lt;list-of-paths&gt;&quot;
+l_string|&quot;git check-attr --stdin [-z] [-a | --all | attr...] &lt; &lt;list-of-paths&gt;&quot;
 comma
 l_int|NULL
 )brace
