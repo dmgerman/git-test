@@ -3,7 +3,9 @@ multiline_comment|/* Tell gcc not to warn about the (nfd &lt; 0) tests, below.  
 macro_line|#if (__GNUC__ == 4 &amp;&amp; 3 &lt;= __GNUC_MINOR__) || 4 &lt; __GNUC__
 macro_line|# pragma GCC diagnostic ignored &quot;-Wtype-limits&quot;
 macro_line|#endif
-macro_line|#include &lt;malloc.h&gt;
+macro_line|#if defined(WIN32)
+macro_line|# include &lt;malloc.h&gt;
+macro_line|#endif
 macro_line|#include &lt;sys/types.h&gt;
 multiline_comment|/* Specification.  */
 macro_line|#include &lt;poll.h&gt;
@@ -25,7 +27,9 @@ macro_line|# include &lt;conio.h&gt;
 macro_line|#else
 macro_line|# include &lt;sys/time.h&gt;
 macro_line|# include &lt;sys/socket.h&gt;
-macro_line|# include &lt;sys/select.h&gt;
+macro_line|# ifndef NO_SYS_SELECT_H
+macro_line|#  include &lt;sys/select.h&gt;
+macro_line|# endif
 macro_line|# include &lt;unistd.h&gt;
 macro_line|#endif
 macro_line|#ifdef HAVE_SYS_IOCTL_H
