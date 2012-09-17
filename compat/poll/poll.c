@@ -1247,6 +1247,8 @@ c_cond
 (paren
 op_logical_neg
 id|pfd
+op_logical_and
+id|nfd
 )paren
 (brace
 id|errno
