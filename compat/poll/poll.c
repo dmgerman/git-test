@@ -1081,6 +1081,26 @@ id|happened
 op_or_assign
 id|POLLHUP
 suffix:semicolon
+multiline_comment|/* some systems can&squot;t use recv() on non-socket, including HP NonStop */
+r_else
+r_if
+c_cond
+(paren
+multiline_comment|/* (r == -1) &amp;&amp; */
+id|socket_errno
+op_eq
+id|ENOTSOCK
+)paren
+id|happened
+op_or_assign
+(paren
+id|POLLIN
+op_or
+id|POLLRDNORM
+)paren
+op_amp
+id|sought
+suffix:semicolon
 r_else
 id|happened
 op_or_assign
