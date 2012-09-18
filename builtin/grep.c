@@ -872,6 +872,10 @@ id|o-&gt;output
 op_assign
 id|strbuf_out
 suffix:semicolon
+id|o-&gt;debug
+op_assign
+l_int|0
+suffix:semicolon
 id|compile_grep_patterns
 c_func
 (paren
@@ -4585,6 +4589,33 @@ c_func
 l_string|&quot;show only matches from files that match all patterns&quot;
 )paren
 )paren
+comma
+(brace
+id|OPTION_SET_INT
+comma
+l_int|0
+comma
+l_string|&quot;debug&quot;
+comma
+op_amp
+id|opt.debug
+comma
+l_int|NULL
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;show parse tree for grep expression&quot;
+)paren
+comma
+id|PARSE_OPT_NOARG
+op_or
+id|PARSE_OPT_HIDDEN
+comma
+l_int|NULL
+comma
+l_int|1
+)brace
 comma
 id|OPT_GROUP
 c_func
