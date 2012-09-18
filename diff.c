@@ -38,6 +38,7 @@ r_int
 id|diff_suppress_blank_empty
 suffix:semicolon
 DECL|variable|diff_use_color_default
+r_static
 r_int
 id|diff_use_color_default
 op_assign

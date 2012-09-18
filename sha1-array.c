@@ -75,6 +75,7 @@ id|b
 suffix:semicolon
 )brace
 DECL|function|sha1_array_sort
+r_static
 r_void
 id|sha1_array_sort
 c_func

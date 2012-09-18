@@ -26,6 +26,7 @@ op_assign
 l_string|&quot;Signed-off-by: &quot;
 suffix:semicolon
 DECL|function|remove_sequencer_state
+r_static
 r_void
 id|remove_sequencer_state
 c_func

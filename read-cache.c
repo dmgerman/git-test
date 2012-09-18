@@ -1775,6 +1775,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|index_name_stage_pos
+r_static
 r_int
 id|index_name_stage_pos
 c_func
