@@ -1874,6 +1874,19 @@ l_int|0
 r_if
 c_cond
 (paren
+id|errno
+op_ne
+id|ENOENT
+)paren
+id|warn_on_inaccessible
+c_func
+(paren
+id|fname
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 l_int|0
 op_le
 id|fd
@@ -6145,7 +6158,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|access
+id|access_or_warn
 c_func
 (paren
 id|path
@@ -6167,7 +6180,7 @@ c_cond
 id|excludes_file
 op_logical_and
 op_logical_neg
-id|access
+id|access_or_warn
 c_func
 (paren
 id|excludes_file

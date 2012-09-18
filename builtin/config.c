@@ -2319,7 +2319,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|access
+id|access_or_warn
 c_func
 (paren
 id|user_config
@@ -2330,7 +2330,7 @@ op_logical_and
 id|xdg_config
 op_logical_and
 op_logical_neg
-id|access
+id|access_or_warn
 c_func
 (paren
 id|xdg_config
