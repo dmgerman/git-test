@@ -1,6 +1,8 @@
 multiline_comment|/*&n; * Copyright (c) 2010 &AElig;var Arnfj&ouml;r&eth; Bjarmason&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;gettext.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 macro_line|#ifndef NO_GETTEXT
 macro_line|#&t;include &lt;locale.h&gt;
 macro_line|#&t;include &lt;libintl.h&gt;
@@ -53,6 +55,13 @@ suffix:semicolon
 )brace
 macro_line|#endif
 macro_line|#ifndef NO_GETTEXT
+DECL|variable|charset
+r_static
+r_const
+r_char
+op_star
+id|charset
+suffix:semicolon
 DECL|function|init_gettext_charset
 r_static
 r_void
@@ -65,11 +74,6 @@ op_star
 id|domain
 )paren
 (brace
-r_const
-r_char
-op_star
-id|charset
-suffix:semicolon
 multiline_comment|/*&n;&t;   This trick arranges for messages to be emitted in the user&squot;s&n;&t;   requested encoding, but avoids setting LC_CTYPE from the&n;&t;   environment for the whole program.&n;&n;&t;   This primarily done to avoid a bug in vsnprintf in the GNU C&n;&t;   Library [1]. which triggered a &quot;your vsnprintf is broken&quot; error&n;&t;   on Git&squot;s own repository when inspecting v0.99.6~1 under a UTF-8&n;&t;   locale.&n;&n;&t;   That commit contains a ISO-8859-1 encoded author name, which&n;&t;   the locale aware vsnprintf(3) won&squot;t interpolate in the format&n;&t;   argument, due to mismatch between the data encoding and the&n;&t;   locale.&n;&n;&t;   Even if it wasn&squot;t for that bug we wouldn&squot;t want to use LC_CTYPE at&n;&t;   this point, because it&squot;d require auditing all the code that uses C&n;&t;   functions whose semantics are modified by LC_CTYPE.&n;&n;&t;   But only setting LC_MESSAGES as we do creates a problem, since&n;&t;   we declare the encoding of our PO files[2] the gettext&n;&t;   implementation will try to recode it to the user&squot;s locale, but&n;&t;   without LC_CTYPE it&squot;ll emit something like this on &squot;git init&squot;&n;&t;   under the Icelandic locale:&n;&n;&t;       Bj? til t?ma Git lind ? /hlagh/.git/&n;&n;&t;   Gettext knows about the encoding of our PO file, but we haven&squot;t&n;&t;   told it about the user&squot;s encoding, so all the non-US-ASCII&n;&t;   characters get encoded to question marks.&n;&n;&t;   But we&squot;re in luck! We can set LC_CTYPE from the environment&n;&t;   only while we call nl_langinfo and&n;&t;   bind_textdomain_codeset. That suffices to tell gettext what&n;&t;   encoding it should emit in, so it&squot;ll now say:&n;&n;&t;       Bj&oacute; til t&oacute;ma Git lind &iacute; /hlagh/.git/&n;&n;&t;   And the equivalent ISO-8859-1 string will be emitted under a&n;&t;   ISO-8859-1 locale.&n;&n;&t;   With this change way we get the advantages of setting LC_CTYPE&n;&t;   (talk to the user in his language/encoding), without the major&n;&t;   drawbacks (changed semantics for C functions we rely on).&n;&n;&t;   However foreign functions using other message catalogs that&n;&t;   aren&squot;t using our neat trick will still have a problem, e.g. if&n;&t;   we have to call perror(3):&n;&n;&t;   #include &lt;stdio.h&gt;&n;&t;   #include &lt;locale.h&gt;&n;&t;   #include &lt;errno.h&gt;&n;&n;&t;   int main(void)&n;&t;   {&n;&t;&t;   setlocale(LC_MESSAGES, &quot;&quot;);&n;&t;&t;   setlocale(LC_CTYPE, &quot;C&quot;);&n;&t;&t;   errno = ENODEV;&n;&t;&t;   perror(&quot;test&quot;);&n;&t;&t;   return 0;&n;&t;   }&n;&n;&t;   Running that will give you a message with question marks:&n;&n;&t;   $ LANGUAGE= LANG=de_DE.utf8 ./test&n;&t;   test: Kein passendes Ger?t gefunden&n;&n;&t;   In the long term we should probably see about getting that&n;&t;   vsnprintf bug in glibc fixed, and audit our code so it won&squot;t&n;&t;   fall apart under a non-C locale.&n;&n;&t;   Then we could simply set LC_CTYPE from the environment, which would&n;&t;   make things like the external perror(3) messages work.&n;&n;&t;   See t/t0203-gettext-setlocale-sanity.sh&squot;s &quot;gettext.c&quot; tests for&n;&t;   regression tests.&n;&n;&t;   1. http://sourceware.org/bugzilla/show_bug.cgi?id=6530&n;&t;   2. E.g. &quot;Content-Type: text/plain; charset=UTF-8&bslash;n&quot; in po/is.po&n;&t;*/
 id|setlocale
 c_func
@@ -158,6 +162,59 @@ id|textdomain
 c_func
 (paren
 l_string|&quot;git&quot;
+)paren
+suffix:semicolon
+)brace
+multiline_comment|/* return the number of columns of string &squot;s&squot; in current locale */
+DECL|function|gettext_width
+r_int
+id|gettext_width
+c_func
+(paren
+r_const
+r_char
+op_star
+id|s
+)paren
+(brace
+r_static
+r_int
+id|is_utf8
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_utf8
+op_eq
+l_int|1
+)paren
+id|is_utf8
+op_assign
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|charset
+comma
+l_string|&quot;UTF-8&quot;
+)paren
+suffix:semicolon
+r_return
+id|is_utf8
+ques
+c_cond
+id|utf8_strwidth
+c_func
+(paren
+id|s
+)paren
+suffix:colon
+id|strlen
+c_func
+(paren
+id|s
 )paren
 suffix:semicolon
 )brace
