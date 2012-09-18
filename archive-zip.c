@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Copyright (c) 2006 Rene Scharfe&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;archive.h&quot;
 macro_line|#include &quot;streaming.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|variable|zip_date
 r_static
 r_int
@@ -46,7 +47,9 @@ suffix:semicolon
 DECL|macro|ZIP_DIRECTORY_MIN_SIZE
 mdefine_line|#define ZIP_DIRECTORY_MIN_SIZE&t;(1024 * 1024)
 DECL|macro|ZIP_STREAM
-mdefine_line|#define ZIP_STREAM (8)
+mdefine_line|#define ZIP_STREAM&t;(1 &lt;&lt;  3)
+DECL|macro|ZIP_UTF8
+mdefine_line|#define ZIP_UTF8&t;(1 &lt;&lt; 11)
 DECL|struct|zip_local_header
 r_struct
 id|zip_local_header
@@ -853,6 +856,57 @@ id|size
 )paren
 suffix:semicolon
 )brace
+DECL|function|has_only_ascii
+r_static
+r_int
+id|has_only_ascii
+c_func
+(paren
+r_const
+r_char
+op_star
+id|s
+)paren
+(brace
+r_for
+c_loop
+(paren
+suffix:semicolon
+suffix:semicolon
+)paren
+(brace
+r_int
+id|c
+op_assign
+op_star
+id|s
+op_increment
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|c
+op_eq
+l_char|&squot;&bslash;0&squot;
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|isascii
+c_func
+(paren
+id|c
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+)brace
+)brace
 DECL|macro|STREAM_BUFFER_SIZE
 mdefine_line|#define STREAM_BUFFER_SIZE (1024 * 16)
 DECL|function|write_zip_entry
@@ -956,6 +1010,40 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|has_only_ascii
+c_func
+(paren
+id|path
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|is_utf8
+c_func
+(paren
+id|path
+)paren
+)paren
+id|flags
+op_or_assign
+id|ZIP_UTF8
+suffix:semicolon
+r_else
+id|warning
+c_func
+(paren
+l_string|&quot;Path is not valid UTF-8: %s&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
