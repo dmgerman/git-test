@@ -288,8 +288,19 @@ comma
 r_int
 r_int
 id|timestamp
+comma
+r_const
+r_char
+op_star
+id|note_ref
 )paren
 (brace
+r_static
+r_int
+id|firstnote
+op_assign
+l_int|1
+suffix:semicolon
 r_int
 id|loglen
 op_assign
@@ -302,7 +313,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;commit refs/notes/svn/revs&bslash;n&quot;
+l_string|&quot;commit %s&bslash;n&quot;
+comma
+id|note_ref
 )paren
 suffix:semicolon
 id|printf
@@ -344,6 +357,32 @@ comma
 id|stdout
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|firstnote
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|revision
+OG
+l_int|1
+)paren
+id|printf
+c_func
+(paren
+l_string|&quot;from %s^0&quot;
+comma
+id|note_ref
+)paren
+suffix:semicolon
+id|firstnote
+op_assign
+l_int|0
+suffix:semicolon
+)brace
 id|fputc
 c_func
 (paren

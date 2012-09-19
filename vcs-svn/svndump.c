@@ -1325,7 +1325,10 @@ r_void
 id|end_revision
 c_func
 (paren
-r_void
+r_const
+r_char
+op_star
+id|note_ref
 )paren
 (brace
 r_struct
@@ -1356,6 +1359,8 @@ comma
 l_string|&quot;Note created by remote-svn.&quot;
 comma
 id|rev_ctx.timestamp
+comma
+id|note_ref
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -1401,6 +1406,11 @@ r_const
 r_char
 op_star
 id|local_ref
+comma
+r_const
+r_char
+op_star
+id|notes_ref
 )paren
 (brace
 r_char
@@ -1619,6 +1629,7 @@ id|DUMP_CTX
 id|end_revision
 c_func
 (paren
+id|notes_ref
 )paren
 suffix:semicolon
 id|active_ctx
@@ -2390,6 +2401,7 @@ id|DUMP_CTX
 id|end_revision
 c_func
 (paren
+id|notes_ref
 )paren
 suffix:semicolon
 )brace
