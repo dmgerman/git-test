@@ -2017,7 +2017,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_ENCODING
 comma
-l_string|&quot;&quot;
+l_int|NULL
 )paren
 suffix:semicolon
 id|curl_easy_setopt
@@ -2286,7 +2286,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_ENCODING
 comma
-l_string|&quot;&quot;
+l_string|&quot;gzip&quot;
 )paren
 suffix:semicolon
 id|headers
