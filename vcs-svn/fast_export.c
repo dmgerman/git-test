@@ -1,6 +1,5 @@
 multiline_comment|/*&n; * Licensed under a two-clause BSD-style license.&n; * See LICENSE for details.&n; */
-macro_line|#include &quot;git-compat-util.h&quot;
-macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;fast_export.h&quot;
 macro_line|#include &quot;repo_tree.h&quot;
@@ -265,6 +264,92 @@ id|putchar
 c_func
 (paren
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+)brace
+DECL|function|fast_export_begin_note
+r_void
+id|fast_export_begin_note
+c_func
+(paren
+r_uint32
+id|revision
+comma
+r_const
+r_char
+op_star
+id|author
+comma
+r_const
+r_char
+op_star
+id|log
+comma
+r_int
+r_int
+id|timestamp
+)paren
+(brace
+r_int
+id|loglen
+op_assign
+id|strlen
+c_func
+(paren
+id|log
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;commit refs/notes/svn/revs&bslash;n&quot;
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;committer %s &lt;%s@%s&gt; %ld +0000&bslash;n&quot;
+comma
+id|author
+comma
+id|author
+comma
+l_string|&quot;local&quot;
+comma
+id|timestamp
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;data %&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
+comma
+(paren
+r_uintmax
+)paren
+id|loglen
+)paren
+suffix:semicolon
+id|fwrite
+c_func
+(paren
+id|log
+comma
+id|loglen
+comma
+l_int|1
+comma
+id|stdout
+)paren
+suffix:semicolon
+id|fputc
+c_func
+(paren
+l_char|&squot;&bslash;n&squot;
+comma
+id|stdout
 )paren
 suffix:semicolon
 )brace
