@@ -35,6 +35,13 @@ id|remote_ref
 op_assign
 l_string|&quot;refs/heads/master&quot;
 suffix:semicolon
+DECL|variable|marksfilename
+r_static
+r_const
+r_char
+op_star
+id|marksfilename
+suffix:semicolon
 r_static
 r_int
 id|cmd_capabilities
@@ -374,6 +381,18 @@ op_assign
 id|svndump_proc.out
 suffix:semicolon
 )brace
+multiline_comment|/* setup marks file import/export */
+id|printf
+c_func
+(paren
+l_string|&quot;feature import-marks-if-exists=%s&bslash;n&quot;
+l_string|&quot;feature export-marks=%s&bslash;n&quot;
+comma
+id|marksfilename
+comma
+id|marksfilename
+)paren
+suffix:semicolon
 id|svndump_init_fd
 c_func
 (paren
@@ -742,6 +761,10 @@ comma
 id|private_ref_sb
 op_assign
 id|STRBUF_INIT
+comma
+id|marksfilename_sb
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_static
 r_struct
@@ -884,6 +907,26 @@ id|private_ref
 op_assign
 id|private_ref_sb.buf
 suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|marksfilename_sb
+comma
+l_string|&quot;%s/info/fast-import/remote-svn/%s.marks&quot;
+comma
+id|get_git_dir
+c_func
+(paren
+)paren
+comma
+id|remote-&gt;name
+)paren
+suffix:semicolon
+id|marksfilename
+op_assign
+id|marksfilename_sb.buf
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -969,6 +1012,13 @@ c_func
 (paren
 op_amp
 id|private_ref_sb
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|marksfilename_sb
 )paren
 suffix:semicolon
 r_return
