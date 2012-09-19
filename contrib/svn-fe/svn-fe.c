@@ -43,6 +43,8 @@ l_int|1
 )braket
 suffix:colon
 l_int|NULL
+comma
+l_string|&quot;refs/heads/master&quot;
 )paren
 suffix:semicolon
 id|svndump_deinit

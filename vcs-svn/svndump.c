@@ -1274,7 +1274,10 @@ r_void
 id|begin_revision
 c_func
 (paren
-r_void
+r_const
+r_char
+op_star
+id|remote_ref
 )paren
 (brace
 r_if
@@ -1301,6 +1304,8 @@ comma
 id|dump_ctx.url.buf
 comma
 id|rev_ctx.timestamp
+comma
+id|remote_ref
 )paren
 suffix:semicolon
 )brace
@@ -1334,6 +1339,11 @@ r_const
 r_char
 op_star
 id|url
+comma
+r_const
+r_char
+op_star
+id|local_ref
 )paren
 (brace
 r_char
@@ -1539,6 +1549,7 @@ id|REV_CTX
 id|begin_revision
 c_func
 (paren
+id|local_ref
 )paren
 suffix:semicolon
 r_if
@@ -1629,6 +1640,7 @@ id|REV_CTX
 id|begin_revision
 c_func
 (paren
+id|local_ref
 )paren
 suffix:semicolon
 id|active_ctx
@@ -2242,6 +2254,7 @@ id|REV_CTX
 id|begin_revision
 c_func
 (paren
+id|local_ref
 )paren
 suffix:semicolon
 r_if

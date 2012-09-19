@@ -229,6 +229,8 @@ id|svndump_read
 c_func
 (paren
 l_int|NULL
+comma
+l_string|&quot;refs/heads/master&quot;
 )paren
 suffix:semicolon
 id|svndump_deinit

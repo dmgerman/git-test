@@ -308,6 +308,11 @@ comma
 r_int
 r_int
 id|timestamp
+comma
+r_const
+r_char
+op_star
+id|local_ref
 )paren
 (brace
 r_static
@@ -369,7 +374,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;commit refs/heads/master&bslash;n&quot;
+l_string|&quot;commit %s&bslash;n&quot;
+comma
+id|local_ref
 )paren
 suffix:semicolon
 id|printf
