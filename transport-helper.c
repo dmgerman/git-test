@@ -2083,6 +2083,11 @@ c_func
 op_amp
 id|argv
 comma
+id|debug
+ques
+c_cond
+l_string|&quot;--stats&quot;
+suffix:colon
 l_string|&quot;--quiet&quot;
 )paren
 suffix:semicolon
