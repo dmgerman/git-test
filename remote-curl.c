@@ -476,7 +476,7 @@ suffix:semicolon
 r_int
 id|http_ret
 comma
-id|is_http
+id|maybe_smart
 op_assign
 l_int|0
 suffix:semicolon
@@ -536,7 +536,7 @@ l_string|&quot;https://&quot;
 )paren
 )paren
 (brace
-id|is_http
+id|maybe_smart
 op_assign
 l_int|1
 suffix:semicolon
@@ -693,7 +693,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|is_http
+id|maybe_smart
 op_logical_and
 l_int|5
 op_le
