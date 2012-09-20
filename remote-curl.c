@@ -517,6 +517,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 op_logical_neg
 id|prefixcmp
 c_func
@@ -533,6 +534,15 @@ c_func
 id|url
 comma
 l_string|&quot;https://&quot;
+)paren
+)paren
+op_logical_and
+id|git_env_bool
+c_func
+(paren
+l_string|&quot;GIT_SMART_HTTP&quot;
+comma
+l_int|1
 )paren
 )paren
 (brace
