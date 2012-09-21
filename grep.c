@@ -7510,6 +7510,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|grep_source_load
+r_static
 r_int
 id|grep_source_load
 c_func
@@ -7625,6 +7626,7 @@ c_func
 suffix:semicolon
 )brace
 DECL|function|grep_source_is_binary
+r_static
 r_int
 id|grep_source_is_binary
 c_func
