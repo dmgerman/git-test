@@ -3719,7 +3719,7 @@ id|cmd-&gt;next
 )paren
 id|cmd-&gt;error_string
 op_assign
-l_string|&quot;n/a (unpacker error)&quot;
+l_string|&quot;unpacker error&quot;
 suffix:semicolon
 r_return
 suffix:semicolon
