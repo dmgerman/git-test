@@ -1096,21 +1096,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|quiet
 )paren
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-id|_
-c_func
-(paren
-l_string|&quot;Auto packing the repository for optimum performance.&bslash;n&quot;
-)paren
-)paren
-suffix:semicolon
-r_else
 id|fprintf
 c_func
 (paren
