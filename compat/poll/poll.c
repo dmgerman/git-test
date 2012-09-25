@@ -3,7 +3,9 @@ multiline_comment|/* Tell gcc not to warn about the (nfd &lt; 0) tests, below.  
 macro_line|#if (__GNUC__ == 4 &amp;&amp; 3 &lt;= __GNUC_MINOR__) || 4 &lt; __GNUC__
 macro_line|# pragma GCC diagnostic ignored &quot;-Wtype-limits&quot;
 macro_line|#endif
-macro_line|#include &lt;malloc.h&gt;
+macro_line|#if defined(WIN32)
+macro_line|# include &lt;malloc.h&gt;
+macro_line|#endif
 macro_line|#include &lt;sys/types.h&gt;
 multiline_comment|/* Specification.  */
 macro_line|#include &lt;poll.h&gt;
@@ -25,7 +27,9 @@ macro_line|# include &lt;conio.h&gt;
 macro_line|#else
 macro_line|# include &lt;sys/time.h&gt;
 macro_line|# include &lt;sys/socket.h&gt;
-macro_line|# include &lt;sys/select.h&gt;
+macro_line|# ifndef NO_SYS_SELECT_H
+macro_line|#  include &lt;sys/select.h&gt;
+macro_line|# endif
 macro_line|# include &lt;unistd.h&gt;
 macro_line|#endif
 macro_line|#ifdef HAVE_SYS_IOCTL_H
@@ -1077,6 +1081,26 @@ id|happened
 op_or_assign
 id|POLLHUP
 suffix:semicolon
+multiline_comment|/* some systems can&squot;t use recv() on non-socket, including HP NonStop */
+r_else
+r_if
+c_cond
+(paren
+multiline_comment|/* (r == -1) &amp;&amp; */
+id|socket_errno
+op_eq
+id|ENOTSOCK
+)paren
+id|happened
+op_or_assign
+(paren
+id|POLLIN
+op_or
+id|POLLRDNORM
+)paren
+op_amp
+id|sought
+suffix:semicolon
 r_else
 id|happened
 op_or_assign
@@ -1243,6 +1267,8 @@ c_cond
 (paren
 op_logical_neg
 id|pfd
+op_logical_and
+id|nfd
 )paren
 (brace
 id|errno
