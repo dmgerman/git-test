@@ -35,6 +35,22 @@ op_assign
 id|IPATTERN
 c_func
 (paren
+l_string|&quot;ada&quot;
+comma
+l_string|&quot;!^(.*[ &bslash;t])?(is new|renames|is separate)([ &bslash;t].*)?$&bslash;n&quot;
+l_string|&quot;!^[ &bslash;t]*with[ &bslash;t].*$&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*((procedure|function)[ &bslash;t]+.*)$&bslash;n&quot;
+l_string|&quot;^[ &bslash;t]*((package|protected|task)[ &bslash;t]+.*)$&quot;
+comma
+multiline_comment|/* -- */
+l_string|&quot;[a-zA-Z][a-zA-Z0-9_]*&quot;
+l_string|&quot;|[0-9][-+0-9#_.eE]&quot;
+l_string|&quot;|=&gt;|&bslash;&bslash;.&bslash;&bslash;.|&bslash;&bslash;*&bslash;&bslash;*|:=|/=|&gt;=|&lt;=|&lt;&lt;|&gt;&gt;|&lt;&gt;&quot;
+)paren
+comma
+id|IPATTERN
+c_func
+(paren
 l_string|&quot;fortran&quot;
 comma
 l_string|&quot;!^([C*]|[ &bslash;t]*!)&bslash;n&quot;
