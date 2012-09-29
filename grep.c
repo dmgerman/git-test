@@ -3638,6 +3638,12 @@ comma
 l_int|10
 )brace
 comma
+(brace
+l_string|&quot;reflog &quot;
+comma
+l_int|7
+)brace
+comma
 )brace
 suffix:semicolon
 DECL|function|match_one_pattern
