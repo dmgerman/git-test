@@ -330,6 +330,17 @@ comma
 id|field
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|field
+op_eq
+id|GREP_HEADER_REFLOG
+)paren
+id|opt-&gt;use_reflog_filter
+op_assign
+l_int|1
+suffix:semicolon
 id|do_append_grep_pat
 c_func
 (paren

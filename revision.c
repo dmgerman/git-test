@@ -10424,6 +10424,20 @@ c_func
 l_string|&quot;cannot combine --walk-reflogs with --graph&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;reflog_info
+op_logical_and
+id|revs-&gt;grep_filter.use_reflog_filter
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot use --grep-reflog without --walk-reflogs&quot;
+)paren
+suffix:semicolon
 r_return
 id|left
 suffix:semicolon
@@ -11759,10 +11773,11 @@ id|opt-&gt;grep_filter.header_list
 r_return
 l_int|1
 suffix:semicolon
+multiline_comment|/* Prepend &quot;fake&quot; headers as needed */
 r_if
 c_cond
 (paren
-id|opt-&gt;reflog_info
+id|opt-&gt;grep_filter.use_reflog_filter
 )paren
 (brace
 id|strbuf_addstr
@@ -11792,6 +11807,13 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
+)brace
+multiline_comment|/* Copy the commit to temporary if we are using &quot;fake&quot; headers */
+r_if
+c_cond
+(paren
+id|buf.len
+)paren
 id|strbuf_addstr
 c_func
 (paren
@@ -11801,7 +11823,7 @@ comma
 id|commit-&gt;buffer
 )paren
 suffix:semicolon
-)brace
+multiline_comment|/* Find either in the commit object, or in the temporary */
 r_if
 c_cond
 (paren
