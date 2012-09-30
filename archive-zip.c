@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Copyright (c) 2006 Rene Scharfe&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;archive.h&quot;
 macro_line|#include &quot;streaming.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|variable|zip_date
 r_static
 r_int
@@ -46,7 +47,9 @@ suffix:semicolon
 DECL|macro|ZIP_DIRECTORY_MIN_SIZE
 mdefine_line|#define ZIP_DIRECTORY_MIN_SIZE&t;(1024 * 1024)
 DECL|macro|ZIP_STREAM
-mdefine_line|#define ZIP_STREAM (8)
+mdefine_line|#define ZIP_STREAM&t;(1 &lt;&lt;  3)
+DECL|macro|ZIP_UTF8
+mdefine_line|#define ZIP_UTF8&t;(1 &lt;&lt; 11)
 DECL|struct|zip_local_header
 r_struct
 id|zip_local_header
@@ -423,6 +426,52 @@ l_int|1
 suffix:semicolon
 )brace
 suffix:semicolon
+DECL|struct|zip_extra_mtime
+r_struct
+id|zip_extra_mtime
+(brace
+DECL|member|magic
+r_int
+r_char
+id|magic
+(braket
+l_int|2
+)braket
+suffix:semicolon
+DECL|member|extra_size
+r_int
+r_char
+id|extra_size
+(braket
+l_int|2
+)braket
+suffix:semicolon
+DECL|member|flags
+r_int
+r_char
+id|flags
+(braket
+l_int|1
+)braket
+suffix:semicolon
+DECL|member|mtime
+r_int
+r_char
+id|mtime
+(braket
+l_int|4
+)braket
+suffix:semicolon
+DECL|member|_end
+r_int
+r_char
+id|_end
+(braket
+l_int|1
+)braket
+suffix:semicolon
+)brace
+suffix:semicolon
 multiline_comment|/*&n; * On ARM, padding is added at the end of the struct, so a simple&n; * sizeof(struct ...) reports two bytes more than the payload size&n; * we&squot;re interested in.&n; */
 DECL|macro|ZIP_LOCAL_HEADER_SIZE
 mdefine_line|#define ZIP_LOCAL_HEADER_SIZE&t;offsetof(struct zip_local_header, _end)
@@ -432,6 +481,10 @@ DECL|macro|ZIP_DIR_HEADER_SIZE
 mdefine_line|#define ZIP_DIR_HEADER_SIZE&t;offsetof(struct zip_dir_header, _end)
 DECL|macro|ZIP_DIR_TRAILER_SIZE
 mdefine_line|#define ZIP_DIR_TRAILER_SIZE&t;offsetof(struct zip_dir_trailer, _end)
+DECL|macro|ZIP_EXTRA_MTIME_SIZE
+mdefine_line|#define ZIP_EXTRA_MTIME_SIZE&t;offsetof(struct zip_extra_mtime, _end)
+DECL|macro|ZIP_EXTRA_MTIME_PAYLOAD_SIZE
+mdefine_line|#define ZIP_EXTRA_MTIME_PAYLOAD_SIZE &bslash;&n;&t;(ZIP_EXTRA_MTIME_SIZE - offsetof(struct zip_extra_mtime, flags))
 DECL|function|copy_le16
 r_static
 r_void
@@ -853,6 +906,57 @@ id|size
 )paren
 suffix:semicolon
 )brace
+DECL|function|has_only_ascii
+r_static
+r_int
+id|has_only_ascii
+c_func
+(paren
+r_const
+r_char
+op_star
+id|s
+)paren
+(brace
+r_for
+c_loop
+(paren
+suffix:semicolon
+suffix:semicolon
+)paren
+(brace
+r_int
+id|c
+op_assign
+op_star
+id|s
+op_increment
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|c
+op_eq
+l_char|&squot;&bslash;0&squot;
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|isascii
+c_func
+(paren
+id|c
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+)brace
+)brace
 DECL|macro|STREAM_BUFFER_SIZE
 mdefine_line|#define STREAM_BUFFER_SIZE (1024 * 16)
 DECL|function|write_zip_entry
@@ -892,6 +996,10 @@ suffix:semicolon
 r_struct
 id|zip_dir_header
 id|dirent
+suffix:semicolon
+r_struct
+id|zip_extra_mtime
+id|extra
 suffix:semicolon
 r_int
 r_int
@@ -956,6 +1064,40 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|has_only_ascii
+c_func
+(paren
+id|path
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|is_utf8
+c_func
+(paren
+id|path
+)paren
+)paren
+id|flags
+op_or_assign
+id|ZIP_UTF8
+suffix:semicolon
+r_else
+id|warning
+c_func
+(paren
+l_string|&quot;Path is not valid UTF-8: %s&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1336,12 +1478,46 @@ id|size
 suffix:semicolon
 )brace
 )brace
+id|copy_le16
+c_func
+(paren
+id|extra.magic
+comma
+l_int|0x5455
+)paren
+suffix:semicolon
+id|copy_le16
+c_func
+(paren
+id|extra.extra_size
+comma
+id|ZIP_EXTRA_MTIME_PAYLOAD_SIZE
+)paren
+suffix:semicolon
+id|extra.flags
+(braket
+l_int|0
+)braket
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* just mtime */
+id|copy_le32
+c_func
+(paren
+id|extra.mtime
+comma
+id|args-&gt;time
+)paren
+suffix:semicolon
 multiline_comment|/* make sure we have enough free space in the dictionary */
 id|direntsize
 op_assign
 id|ZIP_DIR_HEADER_SIZE
 op_plus
 id|pathlen
+op_plus
+id|ZIP_EXTRA_MTIME_SIZE
 suffix:semicolon
 r_while
 c_loop
@@ -1473,7 +1649,7 @@ c_func
 (paren
 id|dirent.extra_length
 comma
-l_int|0
+id|ZIP_EXTRA_MTIME_SIZE
 )paren
 suffix:semicolon
 id|copy_le16
@@ -1611,7 +1787,7 @@ c_func
 (paren
 id|header.extra_length
 comma
-l_int|0
+id|ZIP_EXTRA_MTIME_SIZE
 )paren
 suffix:semicolon
 id|write_or_die
@@ -1642,6 +1818,21 @@ suffix:semicolon
 id|zip_offset
 op_add_assign
 id|pathlen
+suffix:semicolon
+id|write_or_die
+c_func
+(paren
+l_int|1
+comma
+op_amp
+id|extra
+comma
+id|ZIP_EXTRA_MTIME_SIZE
+)paren
+suffix:semicolon
+id|zip_offset
+op_add_assign
+id|ZIP_EXTRA_MTIME_SIZE
 suffix:semicolon
 r_if
 c_cond
@@ -2164,6 +2355,23 @@ suffix:semicolon
 id|zip_dir_offset
 op_add_assign
 id|pathlen
+suffix:semicolon
+id|memcpy
+c_func
+(paren
+id|zip_dir
+op_plus
+id|zip_dir_offset
+comma
+op_amp
+id|extra
+comma
+id|ZIP_EXTRA_MTIME_SIZE
+)paren
+suffix:semicolon
+id|zip_dir_offset
+op_add_assign
+id|ZIP_EXTRA_MTIME_SIZE
 suffix:semicolon
 id|zip_dir_entries
 op_increment
