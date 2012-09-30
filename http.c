@@ -3809,6 +3809,16 @@ comma
 id|headers
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|slot-&gt;curl
+comma
+id|CURLOPT_ENCODING
+comma
+l_string|&quot;gzip&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
