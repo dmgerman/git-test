@@ -476,7 +476,7 @@ suffix:semicolon
 r_int
 id|http_ret
 comma
-id|is_http
+id|maybe_smart
 op_assign
 l_int|0
 suffix:semicolon
@@ -517,6 +517,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
 op_logical_neg
 id|prefixcmp
 c_func
@@ -535,8 +536,17 @@ comma
 l_string|&quot;https://&quot;
 )paren
 )paren
+op_logical_and
+id|git_env_bool
+c_func
+(paren
+l_string|&quot;GIT_SMART_HTTP&quot;
+comma
+l_int|1
+)paren
+)paren
 (brace
-id|is_http
+id|maybe_smart
 op_assign
 l_int|1
 suffix:semicolon
@@ -693,7 +703,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|is_http
+id|maybe_smart
 op_logical_and
 l_int|5
 op_le
