@@ -8128,6 +8128,11 @@ op_amp
 id|s
 )paren
 suffix:semicolon
+id|gitmodules_config
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
