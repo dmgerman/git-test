@@ -5470,14 +5470,10 @@ id|OBJ_TAG
 (brace
 id|o
 op_assign
-id|deref_tag
+id|deref_tag_noverify
 c_func
 (paren
 id|o
-comma
-id|refname
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_if
