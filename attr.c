@@ -1223,6 +1223,10 @@ r_char
 op_star
 id|origin
 suffix:semicolon
+DECL|member|originlen
+r_int
+id|originlen
+suffix:semicolon
 DECL|member|num_matches
 r_int
 id|num_matches
@@ -2530,6 +2534,10 @@ c_func
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
+id|elem-&gt;originlen
+op_assign
+l_int|0
+suffix:semicolon
 id|elem-&gt;prev
 op_assign
 id|attr_stack
@@ -2870,7 +2878,8 @@ c_func
 op_amp
 id|pathbuf
 comma
-l_int|NULL
+op_amp
+id|elem-&gt;originlen
 )paren
 suffix:semicolon
 id|elem-&gt;prev
@@ -3298,11 +3307,7 @@ id|a-&gt;u.pattern
 comma
 id|base
 comma
-id|strlen
-c_func
-(paren
-id|base
-)paren
+id|stk-&gt;originlen
 )paren
 )paren
 id|rem
