@@ -197,6 +197,11 @@ op_star
 id|name
 comma
 r_const
+r_char
+op_star
+id|path
+comma
+r_const
 r_void
 op_star
 id|id
@@ -250,6 +255,8 @@ comma
 id|type
 comma
 id|name
+comma
+id|path
 comma
 id|id
 )paren
@@ -1467,6 +1474,11 @@ id|filename
 comma
 r_int
 id|tree_name_len
+comma
+r_const
+r_char
+op_star
+id|path
 )paren
 (brace
 r_struct
@@ -1540,6 +1552,8 @@ id|GREP_SOURCE_SHA1
 comma
 id|pathbuf.buf
 comma
+id|path
+comma
 id|sha1
 )paren
 suffix:semicolon
@@ -1573,6 +1587,8 @@ comma
 id|GREP_SOURCE_SHA1
 comma
 id|pathbuf.buf
+comma
+id|path
 comma
 id|sha1
 )paren
@@ -1677,6 +1693,8 @@ comma
 id|buf.buf
 comma
 id|filename
+comma
+id|filename
 )paren
 suffix:semicolon
 id|strbuf_release
@@ -1709,6 +1727,8 @@ comma
 id|GREP_SOURCE_FILE
 comma
 id|buf.buf
+comma
+id|filename
 comma
 id|filename
 )paren
@@ -2076,6 +2096,8 @@ comma
 id|ce-&gt;name
 comma
 l_int|0
+comma
+id|ce-&gt;name
 )paren
 suffix:semicolon
 )brace
@@ -2176,6 +2198,9 @@ id|base
 comma
 r_int
 id|tn_len
+comma
+r_int
+id|check_attr
 )paren
 (brace
 r_int
@@ -2295,6 +2320,15 @@ comma
 id|base-&gt;buf
 comma
 id|tn_len
+comma
+id|check_attr
+ques
+c_cond
+id|base-&gt;buf
+op_plus
+id|tn_len
+suffix:colon
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -2395,6 +2429,8 @@ comma
 id|base
 comma
 id|tn_len
+comma
+id|check_attr
 )paren
 suffix:semicolon
 id|free
@@ -2472,6 +2508,8 @@ comma
 id|name
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -2634,6 +2672,10 @@ op_amp
 id|base
 comma
 id|base.len
+comma
+id|obj-&gt;type
+op_eq
+id|OBJ_COMMIT
 )paren
 suffix:semicolon
 id|strbuf_release
