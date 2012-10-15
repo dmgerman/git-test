@@ -2889,9 +2889,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|namelen
-op_logical_or
-op_logical_neg
 id|fnmatch_icase
 c_func
 (paren
