@@ -1346,7 +1346,6 @@ l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
 DECL|function|parse_exclude_pattern
-r_static
 r_void
 id|parse_exclude_pattern
 c_func
@@ -2606,7 +2605,6 @@ l_char|&squot;&bslash;0&squot;
 suffix:semicolon
 )brace
 DECL|function|match_basename
-r_static
 r_int
 id|match_basename
 c_func
@@ -2721,7 +2719,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|match_pathname
-r_static
 r_int
 id|match_pathname
 c_func
