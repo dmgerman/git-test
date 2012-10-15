@@ -16,14 +16,6 @@ DECL|macro|FALSE
 mdefine_line|#define FALSE 0
 DECL|macro|TRUE
 mdefine_line|#define TRUE 1
-DECL|macro|NOMATCH
-mdefine_line|#define NOMATCH 1
-DECL|macro|MATCH
-mdefine_line|#define MATCH 0
-DECL|macro|ABORT_ALL
-mdefine_line|#define ABORT_ALL -1
-DECL|macro|ABORT_TO_STARSTAR
-mdefine_line|#define ABORT_TO_STARSTAR -2
 DECL|macro|CC_EQ
 mdefine_line|#define CC_EQ(class, len, litmatch) ((len) == sizeof (litmatch)-1 &bslash;&n;&t;&t;&t;&t;    &amp;&amp; *(class) == *(litmatch) &bslash;&n;&t;&t;&t;&t;    &amp;&amp; strncmp((char*)class, litmatch, len) == 0)
 macro_line|#if defined STDC_HEADERS || !defined isascii
@@ -240,6 +232,14 @@ op_eq
 l_char|&squot;*&squot;
 )paren
 (brace
+r_const
+id|uchar
+op_star
+id|prev_p
+op_assign
+id|p
+l_int|2
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -251,9 +251,57 @@ l_char|&squot;*&squot;
 )paren
 (brace
 )brace
+r_if
+c_cond
+(paren
+(paren
+id|prev_p
+op_eq
+id|text
+op_logical_or
+op_star
+id|prev_p
+op_eq
+l_char|&squot;/&squot;
+)paren
+op_logical_or
+(paren
+op_star
+id|p
+op_eq
+l_char|&squot;&bslash;0&squot;
+op_logical_or
+op_star
+id|p
+op_eq
+l_char|&squot;/&squot;
+op_logical_or
+(paren
+id|p
+(braket
+l_int|0
+)braket
+op_eq
+l_char|&squot;&bslash;&bslash;&squot;
+op_logical_and
+id|p
+(braket
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+)paren
+)paren
+)paren
+(brace
 id|special
 op_assign
 id|TRUE
+suffix:semicolon
+)brace
+r_else
+r_return
+id|ABORT_MALFORMED
 suffix:semicolon
 )brace
 r_else
