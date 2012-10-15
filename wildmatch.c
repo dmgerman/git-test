@@ -161,7 +161,7 @@ id|p_ch
 r_case
 l_char|&squot;&bslash;&bslash;&squot;
 suffix:colon
-multiline_comment|/* Literal match with following character.  Note that the test&n;&t;     * in &quot;default&quot; handles the p[1] == &squot;&bslash;0&squot; failure case. */
+multiline_comment|/* Literal match with following character.  Note that the test&n;&t;&t;&t; * in &quot;default&quot; handles the p[1] == &squot;&bslash;0&squot; failure case. */
 id|p_ch
 op_assign
 op_star
@@ -244,7 +244,7 @@ op_eq
 l_char|&squot;&bslash;0&squot;
 )paren
 (brace
-multiline_comment|/* Trailing &quot;**&quot; matches everything.  Trailing &quot;*&quot; matches&n;&t;&t; * only if there are no more slash characters. */
+multiline_comment|/* Trailing &quot;**&quot; matches everything.  Trailing &quot;*&quot; matches&n;&t;&t;&t;&t; * only if there are no more slash characters. */
 r_if
 c_cond
 (paren
