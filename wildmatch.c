@@ -16,6 +16,10 @@ DECL|macro|FALSE
 mdefine_line|#define FALSE 0
 DECL|macro|TRUE
 mdefine_line|#define TRUE 1
+DECL|macro|NOMATCH
+mdefine_line|#define NOMATCH 1
+DECL|macro|MATCH
+mdefine_line|#define MATCH 0
 DECL|macro|ABORT_ALL
 mdefine_line|#define ABORT_ALL -1
 DECL|macro|ABORT_TO_STARSTAR
@@ -188,7 +192,7 @@ op_ne
 id|p_ch
 )paren
 r_return
-id|FALSE
+id|NOMATCH
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -204,7 +208,7 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 r_return
-id|FALSE
+id|NOMATCH
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -277,11 +281,11 @@ op_ne
 l_int|NULL
 )paren
 r_return
-id|FALSE
+id|NOMATCH
 suffix:semicolon
 )brace
 r_return
-id|TRUE
+id|MATCH
 suffix:semicolon
 )brace
 r_while
@@ -314,7 +318,7 @@ id|text
 )paren
 )paren
 op_ne
-id|FALSE
+id|NOMATCH
 )paren
 (brace
 r_if
@@ -1036,7 +1040,7 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 r_return
-id|FALSE
+id|NOMATCH
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -1047,9 +1051,9 @@ op_star
 id|text
 ques
 c_cond
-id|FALSE
+id|NOMATCH
 suffix:colon
-id|TRUE
+id|MATCH
 suffix:semicolon
 )brace
 multiline_comment|/* Match the &quot;pattern&quot; against the &quot;text&quot; string. */
@@ -1087,8 +1091,6 @@ op_star
 )paren
 id|text
 )paren
-op_eq
-id|TRUE
 suffix:semicolon
 )brace
 multiline_comment|/* Match the &quot;pattern&quot; against the forced-to-lower-case &quot;text&quot; string. */
@@ -1134,8 +1136,6 @@ op_star
 )paren
 id|text
 )paren
-op_eq
-id|TRUE
 suffix:semicolon
 id|force_lower_case
 op_assign

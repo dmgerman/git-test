@@ -30,6 +30,8 @@ l_string|&quot;wildmatch&quot;
 )paren
 )paren
 r_return
+op_logical_neg
+op_logical_neg
 id|wildmatch
 c_func
 (paren
@@ -43,11 +45,6 @@ id|argv
 l_int|2
 )braket
 )paren
-ques
-c_cond
-l_int|0
-suffix:colon
-l_int|1
 suffix:semicolon
 r_else
 r_if
@@ -66,6 +63,8 @@ l_string|&quot;iwildmatch&quot;
 )paren
 )paren
 r_return
+op_logical_neg
+op_logical_neg
 id|iwildmatch
 c_func
 (paren
@@ -79,11 +78,6 @@ id|argv
 l_int|2
 )braket
 )paren
-ques
-c_cond
-l_int|0
-suffix:colon
-l_int|1
 suffix:semicolon
 r_else
 r_if
