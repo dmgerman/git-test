@@ -37,6 +37,7 @@ multiline_comment|/* other non-alnum, except for ] and } */
 )brace
 suffix:semicolon
 DECL|variable|sane_ctype
+r_const
 r_int
 r_char
 id|sane_ctype
