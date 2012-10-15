@@ -1,5 +1,12 @@
 multiline_comment|/*&n;**  Do shell-style pattern matching for ?, &bslash;, [], and * characters.&n;**  It is 8bit clean.&n;**&n;**  Written by Rich $alz, mirror!rs, Wed Nov 26 19:03:17 EST 1986.&n;**  Rich $alz is now &lt;rsalz@bbn.com&gt;.&n;**&n;**  Modified by Wayne Davison to special-case &squot;/&squot; matching, to make &squot;**&squot;&n;**  work differently than &squot;*&squot;, and to fix the character-class code.&n;*/
-macro_line|#include &quot;rsync.h&quot;
+macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;wildmatch.h&quot;
+DECL|typedef|uchar
+r_typedef
+r_int
+r_char
+id|uchar
+suffix:semicolon
 multiline_comment|/* What character marks an inverted character class? */
 DECL|macro|NEGATE_CLASS
 mdefine_line|#define NEGATE_CLASS&t;&squot;!&squot;
