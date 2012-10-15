@@ -44,6 +44,8 @@ id|argv
 (braket
 l_int|2
 )braket
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_else
@@ -65,7 +67,7 @@ l_string|&quot;iwildmatch&quot;
 r_return
 op_logical_neg
 op_logical_neg
-id|iwildmatch
+id|wildmatch
 c_func
 (paren
 id|argv
@@ -77,6 +79,8 @@ id|argv
 (braket
 l_int|2
 )braket
+comma
+id|FNM_CASEFOLD
 )paren
 suffix:semicolon
 r_else
