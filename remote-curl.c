@@ -1829,6 +1829,9 @@ id|handle_curl_result
 c_func
 (paren
 id|slot
+comma
+op_amp
+id|results
 )paren
 suffix:semicolon
 r_if
