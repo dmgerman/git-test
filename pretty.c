@@ -1262,6 +1262,20 @@ r_char
 id|ch
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|ch
+op_eq
+l_char|&squot; &squot;
+op_logical_or
+id|ch
+op_eq
+l_char|&squot;&bslash;n&squot;
+)paren
+r_return
+l_int|1
+suffix:semicolon
 r_return
 (paren
 id|non_ascii
@@ -1323,6 +1337,14 @@ op_assign
 l_int|78
 suffix:semicolon
 multiline_comment|/* per rfc2822 */
+r_static
+r_const
+r_int
+id|max_encoded_length
+op_assign
+l_int|76
+suffix:semicolon
+multiline_comment|/* per rfc2047 */
 r_int
 id|i
 suffix:semicolon
@@ -1519,13 +1541,33 @@ id|i
 op_amp
 l_int|0xFF
 suffix:semicolon
+r_int
+id|is_special
+op_assign
+id|is_rfc2047_special
+c_func
+(paren
+id|ch
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * According to RFC 2047, we could encode the special character&n;&t;&t; * &squot; &squot; (space) with &squot;_&squot; (underscore) for readability. But many&n;&t;&t; * programs do not understand this and just leave the&n;&t;&t; * underscore in place. Thus, we do nothing special here, which&n;&t;&t; * causes &squot; &squot; to be encoded as &squot;=20&squot;, avoiding this problem.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|line_len
-op_ge
-id|max_length
+op_plus
 l_int|2
+op_plus
+(paren
+id|is_special
+ques
+c_cond
+l_int|3
+suffix:colon
+l_int|1
+)paren
+OG
+id|max_encoded_length
 )paren
 (brace
 id|strbuf_addf
@@ -1552,23 +1594,10 @@ l_int|1
 suffix:semicolon
 multiline_comment|/* =??q? plus SP */
 )brace
-multiline_comment|/*&n;&t;&t; * We encode &squot; &squot; using &squot;=20&squot; even though rfc2047&n;&t;&t; * allows using &squot;_&squot; for readability.  Unfortunately,&n;&t;&t; * many programs do not understand this and just&n;&t;&t; * leave the underscore in place.&n;&t;&t; */
 r_if
 c_cond
 (paren
-id|is_rfc2047_special
-c_func
-(paren
-id|ch
-)paren
-op_logical_or
-id|ch
-op_eq
-l_char|&squot; &squot;
-op_logical_or
-id|ch
-op_eq
-l_char|&squot;&bslash;n&squot;
+id|is_special
 )paren
 (brace
 id|strbuf_addf
