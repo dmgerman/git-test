@@ -5686,7 +5686,7 @@ c_func
 (paren
 )paren
 comma
-l_int|0
+l_int|1
 )paren
 suffix:semicolon
 r_return
@@ -7539,9 +7539,7 @@ id|sb
 comma
 id|encoding
 comma
-id|NOTES_SHOW_HEADER
-op_or
-id|NOTES_INDENT
+l_int|0
 )paren
 suffix:semicolon
 id|free
