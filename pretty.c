@@ -1444,12 +1444,11 @@ id|line
 comma
 id|len
 comma
-l_int|0
+id|line_len
 comma
 l_int|1
 comma
 id|max_length
-id|line_len
 )paren
 suffix:semicolon
 r_return
