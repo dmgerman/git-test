@@ -6170,11 +6170,10 @@ op_logical_and
 op_star
 id|output_encoding
 op_logical_and
-id|strcmp
+op_logical_neg
+id|is_encoding_utf8
 c_func
 (paren
-id|utf8
-comma
 id|output_encoding
 )paren
 )paren
