@@ -723,13 +723,6 @@ id|path
 comma
 id|peeled
 )paren
-op_logical_and
-op_logical_neg
-id|is_null_sha1
-c_func
-(paren
-id|peeled
-)paren
 )paren
 (brace
 id|is_tag

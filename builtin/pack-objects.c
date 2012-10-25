@@ -9550,14 +9550,6 @@ id|peeled
 )paren
 op_logical_and
 multiline_comment|/* peelable? */
-op_logical_neg
-id|is_null_sha1
-c_func
-(paren
-id|peeled
-)paren
-op_logical_and
-multiline_comment|/* annotated tag? */
 id|locate_object_entry
 c_func
 (paren
