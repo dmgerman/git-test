@@ -6,54 +6,6 @@ DECL|macro|DEFAULT_PAGER
 mdefine_line|#define DEFAULT_PAGER &quot;less&quot;
 macro_line|#endif
 multiline_comment|/*&n; * This is split up from the rest of git so that we can do&n; * something different on Windows.&n; */
-macro_line|#ifndef WIN32
-DECL|function|pager_preexec
-r_static
-r_void
-id|pager_preexec
-c_func
-(paren
-r_void
-)paren
-(brace
-multiline_comment|/*&n;&t; * Work around bug in &quot;less&quot; by not starting it until we&n;&t; * have real input&n;&t; */
-id|fd_set
-id|in
-suffix:semicolon
-id|FD_ZERO
-c_func
-(paren
-op_amp
-id|in
-)paren
-suffix:semicolon
-id|FD_SET
-c_func
-(paren
-l_int|0
-comma
-op_amp
-id|in
-)paren
-suffix:semicolon
-id|select
-c_func
-(paren
-l_int|1
-comma
-op_amp
-id|in
-comma
-l_int|NULL
-comma
-op_amp
-id|in
-comma
-l_int|NULL
-)paren
-suffix:semicolon
-)brace
-macro_line|#endif
 DECL|variable|pager_argv
 r_static
 r_const
@@ -358,12 +310,6 @@ op_assign
 id|env
 suffix:semicolon
 )brace
-macro_line|#ifndef WIN32
-id|pager_process.preexec_cb
-op_assign
-id|pager_preexec
-suffix:semicolon
-macro_line|#endif
 r_if
 c_cond
 (paren
