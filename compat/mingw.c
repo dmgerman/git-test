@@ -2094,6 +2094,45 @@ id|stream
 )paren
 suffix:semicolon
 )brace
+DECL|macro|fflush
+macro_line|#undef fflush
+DECL|function|mingw_fflush
+r_int
+id|mingw_fflush
+c_func
+(paren
+id|FILE
+op_star
+id|stream
+)paren
+(brace
+r_int
+id|ret
+op_assign
+id|fflush
+c_func
+(paren
+id|stream
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t; * write() is used behind the scenes of stdio output functions.&n;&t; * Since git code does not check for errors after each stdio write&n;&t; * operation, it can happen that write() is called by a later&n;&t; * stdio function even if an earlier write() call failed. In the&n;&t; * case of a pipe whose readable end was closed, only the first&n;&t; * call to write() reports EPIPE on Windows. Subsequent write()&n;&t; * calls report EINVAL. It is impossible to notice whether this&n;&t; * fflush invocation triggered such a case, therefore, we have to&n;&t; * catch all EINVAL errors whole-sale.&n;&t; */
+r_if
+c_cond
+(paren
+id|ret
+op_logical_and
+id|errno
+op_eq
+id|EINVAL
+)paren
+id|errno
+op_assign
+id|EPIPE
+suffix:semicolon
+r_return
+id|ret
+suffix:semicolon
+)brace
 multiline_comment|/*&n; * The unit of FILETIME is 100-nanoseconds since January 1, 1601, UTC.&n; * Returns the 100-nanoseconds (&quot;hekto nanoseconds&quot;) since the epoch.&n; */
 DECL|function|filetime_to_hnsec
 r_static
