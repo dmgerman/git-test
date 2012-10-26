@@ -63,18 +63,6 @@ r_static
 r_int
 id|agent_supported
 suffix:semicolon
-DECL|variable|args
-r_static
-r_struct
-id|fetch_pack_args
-id|args
-op_assign
-(brace
-multiline_comment|/* .uploadpack = */
-l_string|&quot;git-upload-pack&quot;
-comma
-)brace
-suffix:semicolon
 DECL|variable|fetch_pack_usage
 r_static
 r_const
@@ -697,6 +685,11 @@ r_void
 id|consume_shallow_list
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_int
 id|fd
 )paren
@@ -704,9 +697,9 @@ id|fd
 r_if
 c_cond
 (paren
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 op_logical_and
-id|args.depth
+id|args-&gt;depth
 OG
 l_int|0
 )paren
@@ -1094,6 +1087,11 @@ r_void
 id|send_request
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_int
 id|fd
 comma
@@ -1106,7 +1104,7 @@ id|buf
 r_if
 c_cond
 (paren
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 )paren
 (brace
 id|send_sideband
@@ -1184,6 +1182,11 @@ r_int
 id|next_flush
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_int
 id|count
 )paren
@@ -1191,7 +1194,7 @@ id|count
 r_int
 id|flush_limit
 op_assign
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 ques
 c_cond
 id|LARGE_FLUSH
@@ -1224,6 +1227,11 @@ r_int
 id|find_common
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_int
 id|fd
 (braket
@@ -1294,7 +1302,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 op_logical_and
 id|multi_ack
 op_eq
@@ -1501,7 +1509,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.use_thin_pack
+id|args-&gt;use_thin_pack
 )paren
 id|strbuf_addstr
 c_func
@@ -1515,7 +1523,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.no_progress
+id|args-&gt;no_progress
 )paren
 id|strbuf_addstr
 c_func
@@ -1529,7 +1537,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.include_tag
+id|args-&gt;include_tag
 )paren
 id|strbuf_addstr
 c_func
@@ -1657,7 +1665,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.depth
+id|args-&gt;depth
 OG
 l_int|0
 )paren
@@ -1669,7 +1677,7 @@ id|req_buf
 comma
 l_string|&quot;deepen %d&quot;
 comma
-id|args.depth
+id|args-&gt;depth
 )paren
 suffix:semicolon
 id|packet_buf_flush
@@ -1686,7 +1694,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.depth
+id|args-&gt;depth
 OG
 l_int|0
 )paren
@@ -1707,6 +1715,8 @@ suffix:semicolon
 id|send_request
 c_func
 (paren
+id|args
+comma
 id|fd
 (braket
 l_int|1
@@ -1885,11 +1895,13 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 )paren
 id|send_request
 c_func
 (paren
+id|args
+comma
 id|fd
 (braket
 l_int|1
@@ -1903,7 +1915,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 )paren
 (brace
 multiline_comment|/* If we aren&squot;t using the stateless-rpc interface&n;&t;&t; * we don&squot;t need to retain the headers.&n;&t;&t; */
@@ -1960,7 +1972,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -2001,6 +2013,8 @@ suffix:semicolon
 id|send_request
 c_func
 (paren
+id|args
+comma
 id|fd
 (braket
 l_int|1
@@ -2027,6 +2041,8 @@ op_assign
 id|next_flush
 c_func
 (paren
+id|args
+comma
 id|count
 )paren
 suffix:semicolon
@@ -2035,7 +2051,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 op_logical_and
 id|count
 op_eq
@@ -2046,6 +2062,8 @@ suffix:semicolon
 id|consume_shallow_list
 c_func
 (paren
+id|args
+comma
 id|fd
 (braket
 l_int|0
@@ -2070,7 +2088,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 op_logical_and
 id|ack
 )paren
@@ -2156,7 +2174,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 op_logical_and
 id|ack
 op_eq
@@ -2264,7 +2282,7 @@ id|in_vain
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -2304,6 +2322,8 @@ suffix:semicolon
 id|send_request
 c_func
 (paren
+id|args
+comma
 id|fd
 (braket
 l_int|1
@@ -2317,7 +2337,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -2353,6 +2373,8 @@ suffix:semicolon
 id|consume_shallow_list
 c_func
 (paren
+id|args
+comma
 id|fd
 (braket
 l_int|0
@@ -2390,7 +2412,7 @@ id|ack
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -2584,6 +2606,11 @@ r_void
 id|mark_recent_complete_commits
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_int
 r_int
 id|cutoff
@@ -2602,7 +2629,7 @@ id|complete-&gt;item-&gt;date
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -2670,6 +2697,11 @@ r_void
 id|filter_refs
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_struct
 id|ref
 op_star
@@ -2839,11 +2871,11 @@ c_cond
 op_logical_neg
 id|keep
 op_logical_and
-id|args.fetch_all
+id|args-&gt;fetch_all
 op_logical_and
 (paren
 op_logical_neg
-id|args.depth
+id|args-&gt;depth
 op_logical_or
 id|prefixcmp
 c_func
@@ -2943,6 +2975,11 @@ r_int
 id|everything_local
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_struct
 id|ref
 op_star
@@ -3050,7 +3087,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.depth
+id|args-&gt;depth
 )paren
 (brace
 id|for_each_ref
@@ -3077,6 +3114,8 @@ id|cutoff
 id|mark_recent_complete_commits
 c_func
 (paren
+id|args
+comma
 id|cutoff
 )paren
 suffix:semicolon
@@ -3181,6 +3220,8 @@ suffix:semicolon
 id|filter_refs
 c_func
 (paren
+id|args
+comma
 id|refs
 comma
 id|sought
@@ -3255,7 +3296,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.verbose
+id|args-&gt;verbose
 )paren
 r_continue
 suffix:semicolon
@@ -3290,7 +3331,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.verbose
+id|args-&gt;verbose
 )paren
 r_continue
 suffix:semicolon
@@ -3370,6 +3411,11 @@ r_int
 id|get_pack
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_int
 id|xd
 (braket
@@ -3415,7 +3461,7 @@ suffix:semicolon
 r_int
 id|do_keep
 op_assign
-id|args.keep_pack
+id|args-&gt;keep_pack
 suffix:semicolon
 r_struct
 id|child_process
@@ -3511,7 +3557,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.keep_pack
+id|args-&gt;keep_pack
 op_logical_and
 id|unpack_limit
 )paren
@@ -3618,10 +3664,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.quiet
+id|args-&gt;quiet
 op_logical_and
 op_logical_neg
-id|args.no_progress
+id|args-&gt;no_progress
 )paren
 op_star
 id|av
@@ -3632,7 +3678,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.use_thin_pack
+id|args-&gt;use_thin_pack
 )paren
 op_star
 id|av
@@ -3643,7 +3689,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.lock_pack
+id|args-&gt;lock_pack
 op_logical_or
 id|unpack_limit
 )paren
@@ -3715,9 +3761,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.quiet
+id|args-&gt;quiet
 op_logical_or
-id|args.no_progress
+id|args-&gt;no_progress
 )paren
 op_star
 id|av
@@ -3873,6 +3919,11 @@ op_star
 id|do_fetch_pack
 c_func
 (paren
+r_struct
+id|fetch_pack_args
+op_star
+id|args
+comma
 r_int
 id|fd
 (braket
@@ -3965,7 +4016,7 @@ l_string|&quot;multi_ack_detailed&quot;
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -3992,7 +4043,7 @@ l_string|&quot;no-done&quot;
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -4005,7 +4056,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 )paren
 id|no_done
 op_assign
@@ -4027,7 +4078,7 @@ l_string|&quot;multi_ack&quot;
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -4055,7 +4106,7 @@ l_string|&quot;side-band-64k&quot;
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -4084,7 +4135,7 @@ l_string|&quot;side-band&quot;
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -4109,7 +4160,7 @@ c_func
 l_string|&quot;thin-pack&quot;
 )paren
 )paren
-id|args.use_thin_pack
+id|args-&gt;use_thin_pack
 op_assign
 l_int|0
 suffix:semicolon
@@ -4123,7 +4174,7 @@ c_func
 l_string|&quot;no-progress&quot;
 )paren
 )paren
-id|args.no_progress
+id|args-&gt;no_progress
 op_assign
 l_int|0
 suffix:semicolon
@@ -4137,7 +4188,7 @@ c_func
 l_string|&quot;include-tag&quot;
 )paren
 )paren
-id|args.include_tag
+id|args-&gt;include_tag
 op_assign
 l_int|0
 suffix:semicolon
@@ -4154,7 +4205,7 @@ l_string|&quot;ofs-delta&quot;
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 )paren
 id|fprintf
 c_func
@@ -4194,7 +4245,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.verbose
+id|args-&gt;verbose
 op_logical_and
 id|agent_len
 )paren
@@ -4217,6 +4268,8 @@ c_cond
 id|everything_local
 c_func
 (paren
+id|args
+comma
 op_amp
 id|ref
 comma
@@ -4243,6 +4296,8 @@ c_cond
 id|find_common
 c_func
 (paren
+id|args
+comma
 id|fd
 comma
 id|sha1
@@ -4256,7 +4311,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|args.keep_pack
+id|args-&gt;keep_pack
 )paren
 multiline_comment|/* When cloning, it is not unusual to have&n;&t;&t;&t; * no common commit.&n;&t;&t;&t; */
 id|warning
@@ -4268,7 +4323,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.stateless_rpc
+id|args-&gt;stateless_rpc
 )paren
 id|packet_flush
 c_func
@@ -4285,6 +4340,8 @@ c_cond
 id|get_pack
 c_func
 (paren
+id|args
+comma
 id|fd
 comma
 id|pack_lockfile
@@ -4604,11 +4661,33 @@ id|child_process
 op_star
 id|conn
 suffix:semicolon
+r_struct
+id|fetch_pack_args
+id|args
+suffix:semicolon
 id|packet_trace_identity
 c_func
 (paren
 l_string|&quot;fetch-pack&quot;
 )paren
+suffix:semicolon
+id|memset
+c_func
+(paren
+op_amp
+id|args
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+id|args
+)paren
+)paren
+suffix:semicolon
+id|args.uploadpack
+op_assign
+l_string|&quot;git-upload-pack&quot;
 suffix:semicolon
 r_for
 c_loop
@@ -5344,7 +5423,7 @@ c_func
 r_struct
 id|fetch_pack_args
 op_star
-id|my_args
+id|args
 comma
 r_int
 id|fd
@@ -5395,29 +5474,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_amp
-id|args
-op_ne
-id|my_args
-)paren
-id|memcpy
-c_func
-(paren
-op_amp
-id|args
-comma
-id|my_args
-comma
-r_sizeof
-(paren
-id|args
-)paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|args.depth
+id|args-&gt;depth
 OG
 l_int|0
 )paren
@@ -5492,6 +5549,8 @@ op_assign
 id|do_fetch_pack
 c_func
 (paren
+id|args
+comma
 id|fd
 comma
 id|ref
@@ -5504,7 +5563,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|args.depth
+id|args-&gt;depth
 OG
 l_int|0
 )paren
