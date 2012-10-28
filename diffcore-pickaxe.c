@@ -524,7 +524,7 @@ c_func
 (paren
 id|regexp
 comma
-id|p-&gt;two-&gt;data
+id|mf2.ptr
 comma
 l_int|1
 comma
@@ -552,7 +552,7 @@ c_func
 (paren
 id|regexp
 comma
-id|p-&gt;one-&gt;data
+id|mf1.ptr
 comma
 l_int|1
 comma
