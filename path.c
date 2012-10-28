@@ -2799,7 +2799,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * path = Canonical absolute path&n; * prefix_list = Colon-separated list of absolute paths&n; *&n; * Determines, for each path in prefix_list, whether the &quot;prefix&quot; really&n; * is an ancestor directory of path.  Returns the length of the longest&n; * ancestor directory, excluding any trailing slashes, or -1 if no prefix&n; * is an ancestor.  (Note that this means 0 is returned if prefix_list is&n; * &quot;/&quot;.) &quot;/foo&quot; is not considered an ancestor of &quot;/foobar&quot;.  Directories&n; * are not considered to be their own ancestors.  path must be in a&n; * canonical form: empty components, or &quot;.&quot; or &quot;..&quot; components are not&n; * allowed.  prefix_list may be null, which is like &quot;&quot;.&n; */
+multiline_comment|/*&n; * path = Canonical absolute path&n; * prefixes = string_list containing absolute paths&n; *&n; * Determines, for each path in prefixes, whether the &quot;prefix&quot; really&n; * is an ancestor directory of path.  Returns the length of the longest&n; * ancestor directory, excluding any trailing slashes, or -1 if no prefix&n; * is an ancestor.  (Note that this means 0 is returned if prefixes is&n; * [&quot;/&quot;].) &quot;/foo&quot; is not considered an ancestor of &quot;/foobar&quot;.  Directories&n; * are not considered to be their own ancestors.  path must be in a&n; * canonical form: empty components, or &quot;.&quot; or &quot;..&quot; components are not&n; * allowed.  Empty strings in prefixes are ignored.&n; */
 DECL|function|longest_ancestor_length
 r_int
 id|longest_ancestor_length
@@ -2810,18 +2810,12 @@ r_char
 op_star
 id|path
 comma
-r_const
-r_char
-op_star
-id|prefix_list
-)paren
-(brace
 r_struct
 id|string_list
+op_star
 id|prefixes
-op_assign
-id|STRING_LIST_INIT_DUP
-suffix:semicolon
+)paren
+(brace
 r_char
 id|buf
 (braket
@@ -2840,10 +2834,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefix_list
-op_eq
-l_int|NULL
-op_logical_or
 op_logical_neg
 id|strcmp
 c_func
@@ -2856,19 +2846,6 @@ l_string|&quot;/&quot;
 r_return
 l_int|1
 suffix:semicolon
-id|string_list_split
-c_func
-(paren
-op_amp
-id|prefixes
-comma
-id|prefix_list
-comma
-id|PATH_SEP
-comma
-l_int|1
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -2878,7 +2855,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|prefixes.nr
+id|prefixes-&gt;nr
 suffix:semicolon
 id|i
 op_increment
@@ -2889,7 +2866,7 @@ r_char
 op_star
 id|ceil
 op_assign
-id|prefixes.items
+id|prefixes-&gt;items
 (braket
 id|i
 )braket
@@ -3004,15 +2981,6 @@ id|len
 suffix:semicolon
 )brace
 )brace
-id|string_list_clear
-c_func
-(paren
-op_amp
-id|prefixes
-comma
-l_int|0
-)paren
-suffix:semicolon
 r_return
 id|max_len
 suffix:semicolon

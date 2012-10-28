@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|variable|inside_git_dir
 r_static
 r_int
@@ -3062,6 +3063,12 @@ c_func
 id|CEILING_DIRECTORIES_ENVIRONMENT
 )paren
 suffix:semicolon
+r_struct
+id|string_list
+id|ceiling_dirs
+op_assign
+id|STRING_LIST_INIT_DUP
+suffix:semicolon
 r_static
 r_char
 id|cwd
@@ -3091,6 +3098,8 @@ comma
 id|offset_parent
 comma
 id|ceil_offset
+op_assign
+l_int|1
 suffix:semicolon
 id|dev_t
 id|current_device
@@ -3173,6 +3182,25 @@ comma
 id|nongit_ok
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|env_ceiling_dirs
+)paren
+(brace
+id|string_list_split
+c_func
+(paren
+op_amp
+id|ceiling_dirs
+comma
+id|env_ceiling_dirs
+comma
+id|PATH_SEP
+comma
+l_int|1
+)paren
+suffix:semicolon
 id|ceil_offset
 op_assign
 id|longest_ancestor_length
@@ -3180,9 +3208,20 @@ c_func
 (paren
 id|cwd
 comma
-id|env_ceiling_dirs
+op_amp
+id|ceiling_dirs
 )paren
 suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|ceiling_dirs
+comma
+l_int|0
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
