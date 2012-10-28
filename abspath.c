@@ -90,6 +90,7 @@ id|retval
 op_assign
 l_int|NULL
 suffix:semicolon
+multiline_comment|/*&n;&t; * If we have to temporarily chdir(), store the original CWD&n;&t; * here so that we can chdir() back to it at the end of the&n;&t; * function:&n;&t; */
 r_char
 id|cwd
 (braket
