@@ -3435,11 +3435,6 @@ id|handle_curl_result
 c_func
 (paren
 r_struct
-id|active_request_slot
-op_star
-id|slot
-comma
-r_struct
 id|slot_results
 op_star
 id|results
@@ -3512,12 +3507,6 @@ c_func
 (paren
 op_amp
 id|http_auth
-)paren
-suffix:semicolon
-id|init_curl_http_auth
-c_func
-(paren
-id|slot-&gt;curl
 )paren
 suffix:semicolon
 r_return
@@ -3838,8 +3827,6 @@ op_assign
 id|handle_curl_result
 c_func
 (paren
-id|slot
-comma
 op_amp
 id|results
 )paren
