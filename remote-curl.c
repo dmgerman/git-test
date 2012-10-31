@@ -2133,6 +2133,9 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_int
+id|gzip_size
+suffix:semicolon
+r_int
 id|err
 comma
 id|large_request
@@ -2423,9 +2426,6 @@ id|rpc-&gt;len
 )paren
 (brace
 multiline_comment|/* The client backend isn&squot;t giving us compressed data so&n;&t;&t; * we can try to deflate it ourselves, this may save on.&n;&t;&t; * the transfer time.&n;&t;&t; */
-r_int
-id|size
-suffix:semicolon
 id|git_zstream
 id|stream
 suffix:semicolon
@@ -2455,7 +2455,7 @@ comma
 id|Z_BEST_COMPRESSION
 )paren
 suffix:semicolon
-id|size
+id|gzip_size
 op_assign
 id|git_deflate_bound
 c_func
@@ -2471,7 +2471,7 @@ op_assign
 id|xmalloc
 c_func
 (paren
-id|size
+id|gzip_size
 )paren
 suffix:semicolon
 id|stream.next_in
@@ -2498,7 +2498,7 @@ id|gzip_body
 suffix:semicolon
 id|stream.avail_out
 op_assign
-id|size
+id|gzip_size
 suffix:semicolon
 id|ret
 op_assign
@@ -2550,7 +2550,7 @@ comma
 id|ret
 )paren
 suffix:semicolon
-id|size
+id|gzip_size
 op_assign
 id|stream.total_out
 suffix:semicolon
@@ -2581,7 +2581,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_POSTFIELDSIZE
 comma
-id|size
+id|gzip_size
 )paren
 suffix:semicolon
 r_if
@@ -2611,7 +2611,7 @@ comma
 r_int
 r_int
 )paren
-id|size
+id|gzip_size
 )paren
 suffix:semicolon
 id|fflush
