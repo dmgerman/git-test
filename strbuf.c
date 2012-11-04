@@ -588,7 +588,7 @@ r_int
 id|slen
 comma
 r_int
-id|delim
+id|terminator
 comma
 r_int
 id|max
@@ -651,7 +651,7 @@ c_func
 (paren
 id|str
 comma
-id|delim
+id|terminator
 comma
 id|slen
 )paren
