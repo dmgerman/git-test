@@ -4376,15 +4376,7 @@ r_struct
 id|string_list
 id|sort_uniq_list
 op_assign
-(brace
-l_int|NULL
-comma
-l_int|0
-comma
-l_int|0
-comma
-l_int|1
-)brace
+id|STRING_LIST_INIT_DUP
 suffix:semicolon
 r_struct
 id|strbuf
