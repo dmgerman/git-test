@@ -1336,10 +1336,8 @@ r_char
 op_star
 id|alt
 comma
-r_const
-r_char
-op_star
-id|ep
+r_int
+id|len
 comma
 r_int
 id|sep
@@ -1392,8 +1390,7 @@ c_func
 (paren
 id|alt
 comma
-id|ep
-id|alt
+id|len
 )paren
 suffix:semicolon
 id|string_list_split_in_place
@@ -1651,8 +1648,6 @@ c_func
 (paren
 id|map
 comma
-id|map
-op_plus
 id|mapsz
 comma
 l_char|&squot;&bslash;n&squot;
@@ -1767,8 +1762,6 @@ c_func
 (paren
 id|alt
 comma
-id|alt
-op_plus
 id|strlen
 c_func
 (paren
@@ -1881,8 +1874,6 @@ c_func
 (paren
 id|alt
 comma
-id|alt
-op_plus
 id|strlen
 c_func
 (paren
