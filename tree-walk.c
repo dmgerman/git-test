@@ -2360,7 +2360,8 @@ comma
 r_int
 id|matchlen
 comma
-r_int
+r_enum
+id|interesting
 op_star
 id|never_interesting
 )paren
@@ -2376,6 +2377,8 @@ c_cond
 (paren
 op_star
 id|never_interesting
+op_ne
+id|entry_not_interesting
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * We have not seen any match that sorts later&n;&t;&t; * than the current path.&n;&t;&t; */
@@ -2415,7 +2418,7 @@ multiline_comment|/*&n;&t;&t; * If we come here even once, that means there is a
 op_star
 id|never_interesting
 op_assign
-l_int|0
+id|entry_not_interesting
 suffix:semicolon
 )brace
 r_if
@@ -2602,7 +2605,8 @@ op_assign
 id|base-&gt;len
 id|base_offset
 suffix:semicolon
-r_int
+r_enum
+id|interesting
 id|never_interesting
 op_assign
 id|ps-&gt;has_wildcard
