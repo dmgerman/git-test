@@ -987,6 +987,8 @@ c_func
 id|from
 comma
 id|to
+comma
+l_int|1
 )paren
 )paren
 m_exit
