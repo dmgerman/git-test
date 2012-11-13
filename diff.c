@@ -12159,6 +12159,8 @@ id|two-&gt;sha1
 comma
 id|two-&gt;dirty_submodule
 comma
+id|meta
+comma
 id|del
 comma
 id|add
