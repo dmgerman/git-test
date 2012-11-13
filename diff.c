@@ -11996,7 +11996,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|set
+id|meta
 op_assign
 id|diff_get_color_opt
 c_func
@@ -12343,7 +12343,7 @@ l_string|&quot;%s%sdiff --git %s %s%s&bslash;n&quot;
 comma
 id|line_prefix
 comma
-id|set
+id|meta
 comma
 id|a_one
 comma
@@ -12377,7 +12377,7 @@ l_string|&quot;%s%snew file mode %06o%s&bslash;n&quot;
 comma
 id|line_prefix
 comma
-id|set
+id|meta
 comma
 id|two-&gt;mode
 comma
@@ -12428,7 +12428,7 @@ l_string|&quot;%s%sdeleted file mode %06o%s&bslash;n&quot;
 comma
 id|line_prefix
 comma
-id|set
+id|meta
 comma
 id|one-&gt;mode
 comma
@@ -12474,7 +12474,7 @@ l_string|&quot;%s%sold mode %06o%s&bslash;n&quot;
 comma
 id|line_prefix
 comma
-id|set
+id|meta
 comma
 id|one-&gt;mode
 comma
@@ -12491,7 +12491,7 @@ l_string|&quot;%s%snew mode %06o%s&bslash;n&quot;
 comma
 id|line_prefix
 comma
-id|set
+id|meta
 comma
 id|two-&gt;mode
 comma
