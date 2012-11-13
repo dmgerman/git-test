@@ -3601,7 +3601,6 @@ op_logical_neg
 id|opt-&gt;no_commit_id
 )paren
 (brace
-multiline_comment|/* When showing a verbose header (i.e. log message),&n;&t;&t; * and not in --pretty=oneline format, we would want&n;&t;&t; * an extra newline between the end of log and the&n;&t;&t; * output for readability.&n;&t;&t; */
 id|show_log
 c_func
 (paren
@@ -3625,6 +3624,7 @@ op_ne
 id|CMIT_FMT_ONELINE
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * When showing a verbose header (i.e. log message),&n;&t;&t;&t; * and not in --pretty=oneline format, we would want&n;&t;&t;&t; * an extra newline between the end of log and the&n;&t;&t;&t; * diff/diffstat output for readability.&n;&t;&t;&t; */
 r_int
 id|pch
 op_assign
@@ -3671,16 +3671,13 @@ id|stdout
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t;&t; * We may have shown three-dashes line early&n;&t;&t;&t; * between notes and the log message, in which&n;&t;&t;&t; * case we only want a blank line after the&n;&t;&t;&t; * notes without (an extra) three-dashes line.&n;&t;&t;&t; * Otherwise, we show the three-dashes line if&n;&t;&t;&t; * we are showing the patch with diffstat, but&n;&t;&t;&t; * in that case, there is no extra blank line&n;&t;&t;&t; * after the three-dashes line.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|opt-&gt;shown_dashes
-)paren
-(brace
-r_if
-c_cond
-(paren
+op_logical_and
 (paren
 id|pch
 op_amp
@@ -3701,7 +3698,6 @@ c_func
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-)brace
 )brace
 )brace
 id|diff_flush
