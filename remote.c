@@ -8970,6 +8970,7 @@ c_cond
 op_logical_neg
 id|num_theirs
 )paren
+(brace
 id|strbuf_addf
 c_func
 (paren
@@ -8990,6 +8991,19 @@ comma
 id|num_ours
 )paren
 suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+id|sb
+comma
+id|_
+c_func
+(paren
+l_string|&quot;  (use &bslash;&quot;git push&bslash;&quot; to publish your local commits)&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -8997,6 +9011,7 @@ c_cond
 op_logical_neg
 id|num_ours
 )paren
+(brace
 id|strbuf_addf
 c_func
 (paren
@@ -9019,7 +9034,21 @@ comma
 id|num_theirs
 )paren
 suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+id|sb
+comma
+id|_
+c_func
+(paren
+l_string|&quot;  (use &bslash;&quot;git pull&bslash;&quot; to update your local branch)&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 r_else
+(brace
 id|strbuf_addf
 c_func
 (paren
@@ -9046,6 +9075,19 @@ comma
 id|num_theirs
 )paren
 suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+id|sb
+comma
+id|_
+c_func
+(paren
+l_string|&quot;  (use &bslash;&quot;git pull&bslash;&quot; to merge the remote branch into yours)&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
 r_return
 l_int|1
 suffix:semicolon
