@@ -3764,7 +3764,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|user_ident_sufficiently_given
+id|committer_ident_sufficiently_given
 c_func
 (paren
 )paren
@@ -6829,7 +6829,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|user_ident_sufficiently_given
+id|committer_ident_sufficiently_given
 c_func
 (paren
 )paren
