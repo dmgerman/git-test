@@ -5836,7 +5836,7 @@ id|notes_tree
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Fill the given strbuf with the notes associated with the given object.&n; *&n; * If the given notes_tree structure is not initialized, it will be auto-&n; * initialized to the default value (see documentation for init_notes() above).&n; * If the given notes_tree is NULL, the internal/default notes_tree will be&n; * used instead.&n; *&n; * &squot;flags&squot; is a bitwise combination of the flags for format_display_notes.&n; */
+multiline_comment|/*&n; * Fill the given strbuf with the notes associated with the given object.&n; *&n; * If the given notes_tree structure is not initialized, it will be auto-&n; * initialized to the default value (see documentation for init_notes() above).&n; * If the given notes_tree is NULL, the internal/default notes_tree will be&n; * used instead.&n; *&n; * (raw != 0) gives the %N userformat; otherwise, the note message is given&n; * for human consumption.&n; */
 DECL|function|format_note
 r_static
 r_void
@@ -5865,7 +5865,7 @@ op_star
 id|output_encoding
 comma
 r_int
-id|flags
+id|raw
 )paren
 (brace
 r_static
@@ -6060,9 +6060,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|flags
-op_amp
-id|NOTES_SHOW_HEADER
+op_logical_neg
+id|raw
 )paren
 (brace
 r_const
@@ -6177,9 +6176,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|flags
-op_amp
-id|NOTES_INDENT
+op_logical_neg
+id|raw
 )paren
 id|strbuf_addstr
 c_func
@@ -6237,7 +6235,7 @@ op_star
 id|output_encoding
 comma
 r_int
-id|flags
+id|raw
 )paren
 (brace
 r_int
@@ -6277,7 +6275,7 @@ id|sb
 comma
 id|output_encoding
 comma
-id|flags
+id|raw
 )paren
 suffix:semicolon
 )brace

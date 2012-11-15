@@ -11925,7 +11925,7 @@ c_func
 (paren
 )paren
 comma
-l_int|0
+l_int|1
 )paren
 suffix:semicolon
 )brace
