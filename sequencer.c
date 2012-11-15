@@ -231,7 +231,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strcmp
+id|same_encoding
 c_func
 (paren
 id|encoding
