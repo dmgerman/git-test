@@ -24,7 +24,14 @@ id|git_default_date
 l_int|50
 )braket
 suffix:semicolon
+DECL|macro|IDENT_NAME_GIVEN
+mdefine_line|#define IDENT_NAME_GIVEN 01
+DECL|macro|IDENT_MAIL_GIVEN
+mdefine_line|#define IDENT_MAIL_GIVEN 02
+DECL|macro|IDENT_ALL_GIVEN
+mdefine_line|#define IDENT_ALL_GIVEN (IDENT_NAME_GIVEN|IDENT_MAIL_GIVEN)
 DECL|variable|user_ident_explicitly_given
+r_static
 r_int
 id|user_ident_explicitly_given
 suffix:semicolon
