@@ -4982,6 +4982,26 @@ op_amp
 id|branch_ref
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts-&gt;quiet
+)paren
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Switched to a new branch &squot;%s&squot;&bslash;n&quot;
+)paren
+comma
+id|opts-&gt;new_branch
+)paren
+suffix:semicolon
 r_return
 id|status
 suffix:semicolon
