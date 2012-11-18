@@ -1,6 +1,6 @@
 DECL|macro|WIN32_LEAN_AND_MEAN
 mdefine_line|#define WIN32_LEAN_AND_MEAN
-macro_line|#ifdef V15_MINGW_HEADERS
+macro_line|#ifdef CYGWIN_V15_WIN32API
 macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#include &quot;win32.h&quot;
 macro_line|#else
