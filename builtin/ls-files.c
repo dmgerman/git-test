@@ -1850,9 +1850,14 @@ id|pathspec.items
 l_int|0
 )braket
 dot
-id|use_wildcard
+id|nowildcard_len
 op_assign
+id|pathspec.items
+(braket
 l_int|0
+)braket
+dot
+id|len
 suffix:semicolon
 )brace
 r_else

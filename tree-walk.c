@@ -2835,7 +2835,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|item-&gt;use_wildcard
+id|item-&gt;nowildcard_len
+OL
+id|item-&gt;len
 )paren
 (brace
 r_if
@@ -2881,8 +2883,9 @@ suffix:colon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|item-&gt;use_wildcard
+id|item-&gt;nowildcard_len
+op_eq
+id|item-&gt;len
 )paren
 r_continue
 suffix:semicolon
