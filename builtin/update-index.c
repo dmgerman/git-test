@@ -2819,6 +2819,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|read_cache_preload
+c_func
+(paren
+l_int|NULL
+)paren
+suffix:semicolon
 op_star
 id|o-&gt;has_errors
 op_or_assign
