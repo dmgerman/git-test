@@ -2071,6 +2071,9 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_int
+id|gzip_size
+suffix:semicolon
+r_int
 id|err
 comma
 id|large_request
@@ -2353,6 +2356,35 @@ r_else
 r_if
 c_cond
 (paren
+id|gzip_body
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * If we are looping to retry authentication, then the previous&n;&t;&t; * run will have set up the headers and gzip buffer already,&n;&t;&t; * and we just need to send it.&n;&t;&t; */
+id|curl_easy_setopt
+c_func
+(paren
+id|slot-&gt;curl
+comma
+id|CURLOPT_POSTFIELDS
+comma
+id|gzip_body
+)paren
+suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|slot-&gt;curl
+comma
+id|CURLOPT_POSTFIELDSIZE
+comma
+id|gzip_size
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 id|use_gzip
 op_logical_and
 l_int|1024
@@ -2361,9 +2393,6 @@ id|rpc-&gt;len
 )paren
 (brace
 multiline_comment|/* The client backend isn&squot;t giving us compressed data so&n;&t;&t; * we can try to deflate it ourselves, this may save on.&n;&t;&t; * the transfer time.&n;&t;&t; */
-r_int
-id|size
-suffix:semicolon
 id|git_zstream
 id|stream
 suffix:semicolon
@@ -2393,7 +2422,7 @@ comma
 id|Z_BEST_COMPRESSION
 )paren
 suffix:semicolon
-id|size
+id|gzip_size
 op_assign
 id|git_deflate_bound
 c_func
@@ -2409,7 +2438,7 @@ op_assign
 id|xmalloc
 c_func
 (paren
-id|size
+id|gzip_size
 )paren
 suffix:semicolon
 id|stream.next_in
@@ -2436,7 +2465,7 @@ id|gzip_body
 suffix:semicolon
 id|stream.avail_out
 op_assign
-id|size
+id|gzip_size
 suffix:semicolon
 id|ret
 op_assign
@@ -2488,7 +2517,7 @@ comma
 id|ret
 )paren
 suffix:semicolon
-id|size
+id|gzip_size
 op_assign
 id|stream.total_out
 suffix:semicolon
@@ -2519,7 +2548,7 @@ id|slot-&gt;curl
 comma
 id|CURLOPT_POSTFIELDSIZE
 comma
-id|size
+id|gzip_size
 )paren
 suffix:semicolon
 r_if
@@ -2549,7 +2578,7 @@ comma
 r_int
 r_int
 )paren
-id|size
+id|gzip_size
 )paren
 suffix:semicolon
 id|fflush
@@ -2662,9 +2691,6 @@ id|HTTP_REAUTH
 op_logical_and
 op_logical_neg
 id|large_request
-op_logical_and
-op_logical_neg
-id|use_gzip
 )paren
 r_goto
 id|retry
