@@ -2072,6 +2072,8 @@ l_int|NULL
 suffix:semicolon
 r_int
 id|gzip_size
+op_assign
+l_int|0
 suffix:semicolon
 r_int
 id|err
