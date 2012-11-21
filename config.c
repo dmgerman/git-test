@@ -6622,6 +6622,11 @@ op_star
 id|store_key
 )paren
 suffix:semicolon
+op_star
+id|store_key
+op_assign
+l_int|NULL
+suffix:semicolon
 r_return
 id|CONFIG_INVALID_KEY
 suffix:semicolon
