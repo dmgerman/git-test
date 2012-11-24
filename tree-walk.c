@@ -2853,6 +2853,13 @@ id|baselen
 comma
 id|entry-&gt;path
 comma
+id|item-&gt;flags
+op_amp
+id|PATHSPEC_ONESTAR
+ques
+c_cond
+id|GFNM_ONESTAR
+suffix:colon
 l_int|0
 comma
 id|item-&gt;nowildcard_len
@@ -2916,6 +2923,13 @@ id|base-&gt;buf
 op_plus
 id|base_offset
 comma
+id|item-&gt;flags
+op_amp
+id|PATHSPEC_ONESTAR
+ques
+c_cond
+id|GFNM_ONESTAR
+suffix:colon
 l_int|0
 comma
 id|item-&gt;nowildcard_len
