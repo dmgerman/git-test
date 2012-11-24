@@ -2844,7 +2844,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|fnmatch
+id|git_fnmatch
 c_func
 (paren
 id|match
@@ -2854,6 +2854,9 @@ comma
 id|entry-&gt;path
 comma
 l_int|0
+comma
+id|item-&gt;nowildcard_len
+id|baselen
 )paren
 )paren
 r_return
@@ -2904,7 +2907,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|fnmatch
+id|git_fnmatch
 c_func
 (paren
 id|match
@@ -2914,6 +2917,8 @@ op_plus
 id|base_offset
 comma
 l_int|0
+comma
+id|item-&gt;nowildcard_len
 )paren
 )paren
 (brace
