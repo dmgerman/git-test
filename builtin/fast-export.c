@@ -3214,6 +3214,16 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|object-&gt;type
+op_ne
+id|OBJ_COMMIT
+)paren
+multiline_comment|/* only commits */
+r_continue
+suffix:semicolon
 id|mark_object
 c_func
 (paren
