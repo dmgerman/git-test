@@ -153,11 +153,13 @@ DECL|struct|msg_data
 r_struct
 id|msg_data
 (brace
+multiline_comment|/* NUL-terminated data: */
 DECL|member|data
 r_char
 op_star
 id|data
 suffix:semicolon
+multiline_comment|/* length of data (not including NUL): */
 DECL|member|len
 r_int
 id|len
@@ -6855,6 +6857,8 @@ c_func
 id|msg-&gt;len
 op_plus
 id|lfnum
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 r_if
@@ -6978,6 +6982,13 @@ op_assign
 l_char|&squot;&bslash;n&squot;
 suffix:semicolon
 )brace
+r_new
+(braket
+id|j
+)braket
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
 id|msg-&gt;len
 op_add_assign
 id|lfnum
