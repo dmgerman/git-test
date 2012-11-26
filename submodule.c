@@ -1576,6 +1576,11 @@ comma
 r_const
 r_char
 op_star
+id|meta
+comma
+r_const
+r_char
+op_star
 id|del
 comma
 r_const
@@ -1790,7 +1795,9 @@ c_func
 op_amp
 id|sb
 comma
-l_string|&quot;Submodule %s %s..&quot;
+l_string|&quot;%sSubmodule %s %s..&quot;
+comma
+id|meta
 comma
 id|path
 comma
@@ -1849,9 +1856,11 @@ c_func
 op_amp
 id|sb
 comma
-l_string|&quot; %s&bslash;n&quot;
+l_string|&quot; %s%s&bslash;n&quot;
 comma
 id|message
+comma
+id|reset
 )paren
 suffix:semicolon
 r_else
@@ -1861,7 +1870,7 @@ c_func
 op_amp
 id|sb
 comma
-l_string|&quot;%s:&bslash;n&quot;
+l_string|&quot;%s:%s&bslash;n&quot;
 comma
 id|fast_backward
 ques
@@ -1869,6 +1878,8 @@ c_cond
 l_string|&quot; (rewind)&quot;
 suffix:colon
 l_string|&quot;&quot;
+comma
+id|reset
 )paren
 suffix:semicolon
 id|fwrite
