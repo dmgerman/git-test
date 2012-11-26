@@ -1100,7 +1100,7 @@ r_if
 c_cond
 (paren
 id|c1
-op_eq
+OG
 id|CHAR_CLASS_MAX_LENGTH
 )paren
 multiline_comment|/* The name is too long and therefore the pattern&n;&t;&t;&t;     is ill-formed.  */
