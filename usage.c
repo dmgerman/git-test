@@ -1,6 +1,11 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;cache.h&quot;
+DECL|variable|dying
+r_static
+r_int
+id|dying
+suffix:semicolon
 DECL|function|vreportf
 r_void
 id|vreportf
@@ -482,6 +487,30 @@ dot
 id|va_list
 id|params
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|dying
+)paren
+(brace
+id|fputs
+c_func
+(paren
+l_string|&quot;fatal: recursion detected in die handler&bslash;n&quot;
+comma
+id|stderr
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|128
+)paren
+suffix:semicolon
+)brace
+id|dying
+op_assign
+l_int|1
+suffix:semicolon
 id|va_start
 c_func
 (paren
@@ -543,6 +572,30 @@ r_int
 id|i
 comma
 id|j
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|dying
+)paren
+(brace
+id|fputs
+c_func
+(paren
+l_string|&quot;fatal: recursion detected in die_errno handler&bslash;n&quot;
+comma
+id|stderr
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|128
+)paren
+suffix:semicolon
+)brace
+id|dying
+op_assign
+l_int|1
 suffix:semicolon
 id|err
 op_assign
