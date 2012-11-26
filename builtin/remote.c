@@ -166,7 +166,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git remote set-head &lt;name&gt; (-a | -d | &lt;branch&gt;])&quot;
+l_string|&quot;git remote set-head &lt;name&gt; (-a | -d | &lt;branch&gt;)&quot;
 )paren
 comma
 l_int|NULL
