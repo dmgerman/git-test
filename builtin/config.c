@@ -1036,6 +1036,9 @@ op_eq
 id|TYPE_PATH
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|git_config_pathname
 c_func
 (paren
@@ -1046,6 +1049,11 @@ id|key_
 comma
 id|value_
 )paren
+OL
+l_int|0
+)paren
+r_return
+l_int|1
 suffix:semicolon
 id|must_free_vptr
 op_assign
