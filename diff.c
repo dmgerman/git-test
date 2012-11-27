@@ -9031,6 +9031,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|file-&gt;is_unmerged
+op_logical_or
+(paren
 op_logical_neg
 id|file-&gt;is_interesting
 op_logical_and
@@ -9040,6 +9043,7 @@ op_plus
 id|deleted
 op_eq
 l_int|0
+)paren
 )paren
 )paren
 (brace
@@ -9054,9 +9058,6 @@ c_cond
 (paren
 op_logical_neg
 id|file-&gt;is_binary
-op_logical_and
-op_logical_neg
-id|file-&gt;is_unmerged
 )paren
 (brace
 id|adds
