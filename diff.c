@@ -13206,7 +13206,7 @@ id|data-&gt;is_interesting
 op_assign
 id|p-&gt;status
 op_ne
-l_int|0
+id|DIFF_STATUS_UNKNOWN
 suffix:semicolon
 r_if
 c_cond
