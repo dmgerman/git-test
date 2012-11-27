@@ -8593,7 +8593,7 @@ op_or_assign
 id|repack_without_ref
 c_func
 (paren
-id|refname
+id|lock-&gt;ref_name
 )paren
 suffix:semicolon
 id|unlink_or_warn
