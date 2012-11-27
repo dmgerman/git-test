@@ -8310,7 +8310,7 @@ id|count
 op_assign
 id|i
 suffix:semicolon
-multiline_comment|/* min(count, data-&gt;nr) */
+multiline_comment|/* where we can stop scanning in data-&gt;files[] */
 multiline_comment|/*&n;&t; * We have width = stat_width or term_columns() columns total.&n;&t; * We want a maximum of min(max_len, stat_name_width) for the name part.&n;&t; * We want a maximum of min(max_change, stat_graph_width) for the +- part.&n;&t; * We also need 1 for &quot; &quot; and 4 + decimal_width(max_change)&n;&t; * for &quot; | NNNN &quot; and one the empty column at the end, altogether&n;&t; * 6 + decimal_width(max_change).&n;&t; *&n;&t; * If there&squot;s not enough space, we will use the smaller of&n;&t; * stat_name_width (if set) and 5/8*width for the filename,&n;&t; * and the rest for constant elements + graph part, but no more&n;&t; * than stat_graph_width for the graph part.&n;&t; * (5/8 gives 50 for filename and 30 for the constant parts + graph&n;&t; * for the standard terminal size).&n;&t; *&n;&t; * In other words: stat_width limits the maximum width, and&n;&t; * stat_name_width fixes the maximum width of the filename,&n;&t; * and is also used to divide available columns if there&n;&t; * aren&squot;t enough.&n;&t; *&n;&t; * Binary files are displayed with &quot;Bin XXX -&gt; YYY bytes&quot;&n;&t; * instead of the change count and graph. This part is treated&n;&t; * similarly to the graph part, except that it is not&n;&t; * &quot;scaled&quot;. If total width is too small to accomodate the&n;&t; * guaranteed minimum width of the filename part and the&n;&t; * separators and this message, this message will &quot;overflow&quot;&n;&t; * making the line longer than the maximum width.&n;&t; */
 r_if
 c_cond
@@ -8588,13 +8588,8 @@ op_eq
 l_int|0
 )paren
 )paren
-(brace
-id|total_files
-op_decrement
-suffix:semicolon
 r_continue
 suffix:semicolon
-)brace
 multiline_comment|/*&n;&t;&t; * &quot;scale&quot; the filename&n;&t;&t; */
 id|len
 op_assign
@@ -8822,14 +8817,6 @@ id|del
 op_assign
 id|deleted
 suffix:semicolon
-id|adds
-op_add_assign
-id|add
-suffix:semicolon
-id|dels
-op_add_assign
-id|del
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -9011,7 +8998,7 @@ c_loop
 (paren
 id|i
 op_assign
-id|count
+l_int|0
 suffix:semicolon
 id|i
 OL
@@ -9062,6 +9049,16 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|file-&gt;is_binary
+op_logical_and
+op_logical_neg
+id|file-&gt;is_unmerged
+)paren
+(brace
 id|adds
 op_add_assign
 id|added
@@ -9069,6 +9066,16 @@ suffix:semicolon
 id|dels
 op_add_assign
 id|deleted
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|i
+OL
+id|count
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
