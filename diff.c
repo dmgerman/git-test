@@ -9207,11 +9207,7 @@ id|i
 )braket
 op_member_access_from_pointer
 id|is_unmerged
-)paren
-r_continue
-suffix:semicolon
-r_if
-c_cond
+op_logical_or
 (paren
 op_logical_neg
 id|data-&gt;files
@@ -9227,6 +9223,7 @@ op_plus
 id|deleted
 op_eq
 l_int|0
+)paren
 )paren
 )paren
 (brace
