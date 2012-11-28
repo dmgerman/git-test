@@ -2705,12 +2705,16 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * This ref will not be updated through a commit, lets make&n;&t;&t; * sure it gets properly updated eventually.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|commit-&gt;util
+op_logical_or
+id|commit-&gt;object.flags
+op_amp
+id|SHOWN
 )paren
-multiline_comment|/* more than one name for the same object */
 id|string_list_append
 c_func
 (paren
@@ -2723,7 +2727,12 @@ id|util
 op_assign
 id|commit
 suffix:semicolon
-r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|commit-&gt;util
+)paren
 id|commit-&gt;util
 op_assign
 id|full_name
