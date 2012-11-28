@@ -2515,8 +2515,6 @@ r_struct
 id|commit
 op_star
 id|commit
-op_assign
-id|commit
 suffix:semicolon
 r_char
 op_star
