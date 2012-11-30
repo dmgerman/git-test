@@ -4082,6 +4082,16 @@ id|REF_STATUS_REJECT_NONFASTFORWARD
 r_if
 c_cond
 (paren
+id|ref-&gt;not_forwardable
+)paren
+op_star
+id|reject_reasons
+op_or_assign
+id|REJECT_ALREADY_EXISTS
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|strcmp
 c_func
