@@ -910,7 +910,7 @@ id|N_
 c_func
 (paren
 l_string|&quot;Updates were rejected because the destination reference already exists&bslash;n&quot;
-l_string|&quot;in the remote and the update is not a fast-forward.&quot;
+l_string|&quot;in the remote.&quot;
 )paren
 suffix:semicolon
 DECL|function|advise_pull_before_push

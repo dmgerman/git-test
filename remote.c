@@ -7343,7 +7343,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* This part determines what can overwrite what.&n;&t;&t; * The rules are:&n;&t;&t; *&n;&t;&t; * (0) you can always use --force or +A:B notation to&n;&t;&t; *     selectively force individual ref pairs.&n;&t;&t; *&n;&t;&t; * (1) if the old thing does not exist, it is OK.&n;&t;&t; *&n;&t;&t; * (2) if you do not have the old thing, you are not allowed&n;&t;&t; *     to overwrite it; you would not know what you are losing&n;&t;&t; *     otherwise.&n;&t;&t; *&n;&t;&t; * (3) if both new and old are commit-ish, and new is a&n;&t;&t; *     descendant of old, it is OK.&n;&t;&t; *&n;&t;&t; * (4) regardless of all of the above, removing :B is&n;&t;&t; *     always allowed.&n;&t;&t; */
+multiline_comment|/* This part determines what can overwrite what.&n;&t;&t; * The rules are:&n;&t;&t; *&n;&t;&t; * (0) you can always use --force or +A:B notation to&n;&t;&t; *     selectively force individual ref pairs.&n;&t;&t; *&n;&t;&t; * (1) if the old thing does not exist, it is OK.&n;&t;&t; *&n;&t;&t; * (2) if the destination is under refs/tags/ you are&n;&t;&t; *     not allowed to overwrite it; tags are expected&n;&t;&t; *     to be static once created&n;&t;&t; *&n;&t;&t; * (3) if you do not have the old thing, you are not allowed&n;&t;&t; *     to overwrite it; you would not know what you are losing&n;&t;&t; *     otherwise.&n;&t;&t; *&n;&t;&t; * (4) if both new and old are commit-ish, and new is a&n;&t;&t; *     descendant of old, it is OK.&n;&t;&t; *&n;&t;&t; * (5) regardless of all of the above, removing :B is&n;&t;&t; *     always allowed.&n;&t;&t; */
 id|ref-&gt;not_forwardable
 op_assign
 op_logical_neg
@@ -7389,6 +7389,32 @@ comma
 id|ref-&gt;old_sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ref-&gt;not_forwardable
+)paren
+(brace
+id|ref-&gt;requires_force
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|force_ref_update
+)paren
+(brace
+id|ref-&gt;status
+op_assign
+id|REF_STATUS_REJECT_ALREADY_EXISTS
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+)brace
+r_else
 r_if
 c_cond
 (paren
