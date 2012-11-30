@@ -1155,6 +1155,17 @@ c_func
 id|status
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|code
+op_ne
+id|SIGINT
+op_logical_and
+id|code
+op_ne
+id|SIGQUIT
+)paren
 id|error
 c_func
 (paren
