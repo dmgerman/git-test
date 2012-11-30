@@ -330,9 +330,8 @@ r_int
 id|flags
 suffix:semicolon
 r_int
-id|nonfastforward
-op_assign
-l_int|0
+r_int
+id|reject_reasons
 suffix:semicolon
 r_int
 id|progress
@@ -1021,7 +1020,7 @@ comma
 l_int|0
 comma
 op_amp
-id|nonfastforward
+id|reject_reasons
 )paren
 suffix:semicolon
 r_if
