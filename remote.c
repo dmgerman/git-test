@@ -7228,6 +7228,11 @@ op_star
 id|ref
 )paren
 (brace
+r_struct
+id|object
+op_star
+id|o
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -7239,6 +7244,28 @@ id|ref-&gt;name
 comma
 l_string|&quot;refs/tags/&quot;
 )paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* old object must be a commit */
+id|o
+op_assign
+id|parse_object
+c_func
+(paren
+id|ref-&gt;old_sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|o
+op_logical_or
+id|o-&gt;type
+op_ne
+id|OBJ_COMMIT
 )paren
 r_return
 l_int|0
@@ -7343,7 +7370,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/* This part determines what can overwrite what.&n;&t;&t; * The rules are:&n;&t;&t; *&n;&t;&t; * (0) you can always use --force or +A:B notation to&n;&t;&t; *     selectively force individual ref pairs.&n;&t;&t; *&n;&t;&t; * (1) if the old thing does not exist, it is OK.&n;&t;&t; *&n;&t;&t; * (2) if the destination is under refs/tags/ you are&n;&t;&t; *     not allowed to overwrite it; tags are expected&n;&t;&t; *     to be static once created&n;&t;&t; *&n;&t;&t; * (3) if you do not have the old thing, you are not allowed&n;&t;&t; *     to overwrite it; you would not know what you are losing&n;&t;&t; *     otherwise.&n;&t;&t; *&n;&t;&t; * (4) if both new and old are commit-ish, and new is a&n;&t;&t; *     descendant of old, it is OK.&n;&t;&t; *&n;&t;&t; * (5) regardless of all of the above, removing :B is&n;&t;&t; *     always allowed.&n;&t;&t; */
+multiline_comment|/* This part determines what can overwrite what.&n;&t;&t; * The rules are:&n;&t;&t; *&n;&t;&t; * (0) you can always use --force or +A:B notation to&n;&t;&t; *     selectively force individual ref pairs.&n;&t;&t; *&n;&t;&t; * (1) if the old thing does not exist, it is OK.&n;&t;&t; *&n;&t;&t; * (2) if the destination is under refs/tags/ you are&n;&t;&t; *     not allowed to overwrite it; tags are expected&n;&t;&t; *     to be static once created&n;&t;&t; *&n;&t;&t; * (3) if you do not have the old thing, you are not allowed&n;&t;&t; *     to overwrite it; you would not know what you are losing&n;&t;&t; *     otherwise.&n;&t;&t; *&n;&t;&t; * (4) if old is a commit and new is a descendant of old&n;&t;&t; *     (implying new is commit-ish), it is OK.&n;&t;&t; *&n;&t;&t; * (5) regardless of all of the above, removing :B is&n;&t;&t; *     always allowed.&n;&t;&t; */
 id|ref-&gt;not_forwardable
 op_assign
 op_logical_neg
