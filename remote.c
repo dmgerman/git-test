@@ -7346,7 +7346,7 @@ c_func
 id|ref
 )paren
 suffix:semicolon
-id|ref-&gt;nonfastforward
+id|ref-&gt;update
 op_assign
 op_logical_neg
 id|ref-&gt;deletion
@@ -7357,8 +7357,15 @@ c_func
 (paren
 id|ref-&gt;old_sha1
 )paren
-op_logical_and
+suffix:semicolon
+r_if
+c_cond
 (paren
+id|ref-&gt;update
+)paren
+(brace
+id|ref-&gt;nonfastforward
+op_assign
 op_logical_neg
 id|has_sha1_file
 c_func
@@ -7373,7 +7380,6 @@ c_func
 id|ref-&gt;new_sha1
 comma
 id|ref-&gt;old_sha1
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -7394,6 +7400,7 @@ id|REF_STATUS_REJECT_NONFASTFORWARD
 suffix:semicolon
 r_continue
 suffix:semicolon
+)brace
 )brace
 )brace
 )brace
