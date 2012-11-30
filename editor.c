@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 macro_line|#ifndef DEFAULT_EDITOR
 DECL|macro|DEFAULT_EDITOR
 mdefine_line|#define DEFAULT_EDITOR &quot;vi&quot;
@@ -197,6 +198,9 @@ r_struct
 id|child_process
 id|p
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -244,15 +248,47 @@ comma
 id|editor
 )paren
 suffix:semicolon
-r_if
-c_cond
+id|sigchain_push
+c_func
 (paren
+id|SIGINT
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
+id|sigchain_push
+c_func
+(paren
+id|SIGQUIT
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
+id|ret
+op_assign
 id|finish_command
 c_func
 (paren
 op_amp
 id|p
 )paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGINT
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGQUIT
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
 )paren
 r_return
 id|error
