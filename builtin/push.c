@@ -929,7 +929,7 @@ op_logical_neg
 id|advice_push_non_ff_current
 op_logical_or
 op_logical_neg
-id|advice_push_nonfastforward
+id|advice_push_update_rejected
 )paren
 r_return
 suffix:semicolon
@@ -960,7 +960,7 @@ op_logical_neg
 id|advice_push_non_ff_default
 op_logical_or
 op_logical_neg
-id|advice_push_nonfastforward
+id|advice_push_update_rejected
 )paren
 r_return
 suffix:semicolon
@@ -991,7 +991,7 @@ op_logical_neg
 id|advice_push_non_ff_matching
 op_logical_or
 op_logical_neg
-id|advice_push_nonfastforward
+id|advice_push_update_rejected
 )paren
 r_return
 suffix:semicolon
