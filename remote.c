@@ -9002,6 +9002,11 @@ comma
 id|num_ours
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
 id|strbuf_addf
 c_func
 (paren
@@ -9045,6 +9050,11 @@ comma
 id|num_theirs
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
 id|strbuf_addf
 c_func
 (paren
@@ -9086,6 +9096,11 @@ comma
 id|num_theirs
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
 id|strbuf_addf
 c_func
 (paren
