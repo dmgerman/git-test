@@ -1015,6 +1015,17 @@ c_func
 r_void
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|advice_push_already_exists
+op_logical_or
+op_logical_neg
+id|advice_push_update_rejected
+)paren
+r_return
+suffix:semicolon
 id|advise
 c_func
 (paren

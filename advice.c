@@ -23,6 +23,12 @@ id|advice_push_non_ff_matching
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_push_already_exists
+r_int
+id|advice_push_already_exists
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|advice_status_hints
 r_int
 id|advice_status_hints
@@ -100,6 +106,13 @@ l_string|&quot;pushnonffmatching&quot;
 comma
 op_amp
 id|advice_push_non_ff_matching
+)brace
+comma
+(brace
+l_string|&quot;pushalreadyexists&quot;
+comma
+op_amp
+id|advice_push_already_exists
 )brace
 comma
 (brace
