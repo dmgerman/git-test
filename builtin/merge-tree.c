@@ -14,13 +14,6 @@ id|merge_tree_usage
 op_assign
 l_string|&quot;git merge-tree &lt;base-tree&gt; &lt;branch1&gt; &lt;branch2&gt;&quot;
 suffix:semicolon
-DECL|variable|resolve_directories
-r_static
-r_int
-id|resolve_directories
-op_assign
-l_int|1
-suffix:semicolon
 DECL|struct|merge_list
 r_struct
 id|merge_list
@@ -1014,15 +1007,6 @@ id|buf1
 comma
 op_star
 id|buf2
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|resolve_directories
-)paren
-r_return
-l_int|0
 suffix:semicolon
 id|p
 op_assign
