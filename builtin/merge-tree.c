@@ -3,7 +3,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
-macro_line|#include &quot;merge-file.h&quot;
+macro_line|#include &quot;merge-blobs.h&quot;
 DECL|variable|merge_tree_usage
 r_static
 r_const
@@ -324,7 +324,7 @@ op_assign
 id|entry-&gt;blob
 suffix:semicolon
 r_return
-id|merge_file
+id|merge_blobs
 c_func
 (paren
 id|path

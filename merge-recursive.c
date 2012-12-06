@@ -5083,11 +5083,11 @@ r_return
 id|mfi
 suffix:semicolon
 )brace
-DECL|function|merge_file
+DECL|function|merge_file_one
 r_static
 r_struct
 id|merge_file_info
-id|merge_file
+id|merge_file_one
 c_func
 (paren
 r_struct
@@ -6167,7 +6167,7 @@ id|add
 suffix:semicolon
 id|mfi
 op_assign
-id|merge_file
+id|merge_file_one
 c_func
 (paren
 id|o
@@ -7483,7 +7483,7 @@ id|mfi
 suffix:semicolon
 id|mfi
 op_assign
-id|merge_file
+id|merge_file_one
 c_func
 (paren
 id|o
