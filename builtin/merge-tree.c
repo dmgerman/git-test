@@ -44,11 +44,6 @@ r_int
 id|stage
 suffix:colon
 l_int|2
-comma
-DECL|member|flags
-id|flags
-suffix:colon
-l_int|30
 suffix:semicolon
 DECL|member|mode
 r_int
