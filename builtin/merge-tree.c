@@ -883,7 +883,7 @@ comma
 r_struct
 id|name_entry
 op_star
-id|branch1
+id|ours
 comma
 r_struct
 id|name_entry
@@ -904,12 +904,12 @@ r_char
 op_star
 id|path
 suffix:semicolon
-multiline_comment|/* If it&squot;s already branch1, don&squot;t bother showing it */
+multiline_comment|/* If it&squot;s already ours, don&squot;t bother showing it */
 r_if
 c_cond
 (paren
 op_logical_neg
-id|branch1
+id|ours
 )paren
 r_return
 suffix:semicolon
@@ -930,9 +930,9 @@ c_func
 (paren
 l_int|2
 comma
-id|branch1-&gt;mode
+id|ours-&gt;mode
 comma
-id|branch1-&gt;sha1
+id|ours-&gt;sha1
 comma
 id|path
 )paren
@@ -1045,6 +1045,7 @@ id|p-&gt;mode
 r_return
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK: this is broken. The path can originally be a file&n;&t; * and then one side may have turned it into a directory, in which&n;&t; * case we return and let the three-way merge as if the tree were&n;&t; * a regular file.  If the path that was originally a tree is&n;&t; * now a file in either branch, fill_tree_descriptor() below will&n;&t; * die when fed a blob sha1.&n;&t; */
 id|newbase
 op_assign
 id|traverse_path
@@ -1384,6 +1385,7 @@ dot
 id|sha1
 )paren
 (brace
+multiline_comment|/* Modified identically */
 id|resolve
 c_func
 (paren
@@ -1400,6 +1402,7 @@ r_return
 id|mask
 suffix:semicolon
 )brace
+multiline_comment|/* &quot;Both added the same&quot; is left unresolved */
 )brace
 r_if
 c_cond
@@ -1440,6 +1443,7 @@ id|mode
 )paren
 )paren
 (brace
+multiline_comment|/* We did not touch, they modified -- take theirs */
 id|resolve
 c_func
 (paren
@@ -1458,6 +1462,7 @@ r_return
 id|mask
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * If we did not touch a directory but they made it&n;&t;&t; * into a file, we fall through and unresolved()&n;&t;&t; * recurses down.  Likewise for the opposite case.&n;&t;&t; */
 )brace
 r_if
 c_cond
@@ -1498,6 +1503,7 @@ id|mode
 )paren
 )paren
 (brace
+multiline_comment|/* We modified, they did not touch -- take ours */
 id|resolve
 c_func
 (paren
