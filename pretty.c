@@ -2877,8 +2877,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcmp
+id|same_encoding
 c_func
 (paren
 id|use_encoding

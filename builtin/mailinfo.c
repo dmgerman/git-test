@@ -2563,8 +2563,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|strcasecmp
+id|same_encoding
 c_func
 (paren
 id|metainfo_charset
