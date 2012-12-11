@@ -3004,8 +3004,14 @@ id|badexit
 suffix:semicolon
 )brace
 multiline_comment|/* We really want to make sure this goes into memory now but we&n;&t;&t;have to be careful of breaking aliasing rules, so write it twice */
+(brace
+r_volatile
+r_struct
+id|malloc_state
 op_star
-(paren
+op_star
+id|_m
+op_assign
 (paren
 r_volatile
 r_struct
@@ -3018,15 +3024,20 @@ id|p-&gt;m
 (braket
 id|end
 )braket
-)paren
+suffix:semicolon
+op_star
+id|_m
 op_assign
+(paren
 id|p-&gt;m
 (braket
 id|end
 )braket
 op_assign
 id|temp
+)paren
 suffix:semicolon
+)brace
 id|ACQUIRE_LOCK
 c_func
 (paren
