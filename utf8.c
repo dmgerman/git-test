@@ -1897,7 +1897,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Wrap the text, if necessary. The variable indent is the indent for the&n; * first line, indent2 is the indent for all other lines.&n; * If indent is negative, assume that already -indent columns have been&n; * consumed (and no extra indent is necessary for the first line).&n; */
 DECL|function|strbuf_add_wrapped_text
-r_int
+r_void
 id|strbuf_add_wrapped_text
 c_func
 (paren
@@ -1969,7 +1969,6 @@ id|indent2
 )paren
 suffix:semicolon
 r_return
-l_int|1
 suffix:semicolon
 )brace
 id|retry
@@ -2082,7 +2081,6 @@ op_eq
 id|start
 )paren
 r_return
-id|w
 suffix:semicolon
 r_if
 c_cond
@@ -2122,7 +2120,6 @@ op_logical_neg
 id|c
 )paren
 r_return
-id|w
 suffix:semicolon
 id|space
 op_assign
@@ -2300,7 +2297,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|strbuf_add_wrapped_bytes
-r_int
+r_void
 id|strbuf_add_wrapped_bytes
 c_func
 (paren
@@ -2339,9 +2336,6 @@ comma
 id|len
 )paren
 suffix:semicolon
-r_int
-id|r
-op_assign
 id|strbuf_add_wrapped_text
 c_func
 (paren
@@ -2361,9 +2355,6 @@ c_func
 (paren
 id|tmp
 )paren
-suffix:semicolon
-r_return
-id|r
 suffix:semicolon
 )brace
 DECL|function|is_encoding_utf8
