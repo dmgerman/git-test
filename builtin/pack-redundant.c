@@ -1472,9 +1472,6 @@ op_star
 id|new_pll
 op_assign
 l_int|NULL
-comma
-op_star
-id|pll
 suffix:semicolon
 r_if
 c_cond
@@ -1519,7 +1516,8 @@ c_func
 (paren
 r_sizeof
 (paren
-id|pll
+op_star
+id|new_pll
 )paren
 )paren
 suffix:semicolon
@@ -1583,7 +1581,8 @@ c_func
 (paren
 r_sizeof
 (paren
-id|pll
+op_star
+id|new_pll
 )paren
 )paren
 suffix:semicolon
