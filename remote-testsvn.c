@@ -499,6 +499,9 @@ id|res-&gt;rev_nr
 op_assign
 id|i
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
 )brace
 id|msg
 op_add_assign
@@ -507,8 +510,9 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/* didn&squot;t find it */
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|note2mark_cb
