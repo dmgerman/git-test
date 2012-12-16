@@ -1256,19 +1256,16 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * Find the subtrees and update them.&n;&t; */
-r_for
-c_loop
-(paren
 id|i
 op_assign
 l_int|0
 suffix:semicolon
+r_while
+c_loop
+(paren
 id|i
 OL
 id|entries
-suffix:semicolon
-id|i
-op_increment
 )paren
 (brace
 r_struct
@@ -1351,8 +1348,13 @@ c_cond
 op_logical_neg
 id|slash
 )paren
+(brace
+id|i
+op_increment
+suffix:semicolon
 r_continue
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t;&t; * a/bbb/c (base = a/, slash = /c)&n;&t;&t; * ==&gt;&n;&t;&t; * path+baselen = bbb/c, sublen = 3&n;&t;&t; */
 id|sublen
 op_assign
@@ -1430,7 +1432,6 @@ suffix:semicolon
 id|i
 op_add_assign
 id|subcnt
-l_int|1
 suffix:semicolon
 id|sub-&gt;used
 op_assign
@@ -1453,19 +1454,16 @@ comma
 l_int|8192
 )paren
 suffix:semicolon
-r_for
-c_loop
-(paren
 id|i
 op_assign
 l_int|0
 suffix:semicolon
+r_while
+c_loop
+(paren
 id|i
 OL
 id|entries
-suffix:semicolon
-id|i
-op_increment
 )paren
 (brace
 r_struct
@@ -1603,7 +1601,6 @@ suffix:semicolon
 id|i
 op_add_assign
 id|sub-&gt;cache_tree-&gt;entry_count
-l_int|1
 suffix:semicolon
 id|sha1
 op_assign
@@ -1628,6 +1625,9 @@ id|entlen
 op_assign
 id|pathlen
 id|baselen
+suffix:semicolon
+id|i
+op_increment
 suffix:semicolon
 )brace
 r_if
