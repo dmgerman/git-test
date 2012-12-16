@@ -1217,6 +1217,11 @@ op_amp
 id|WRITE_TREE_DRY_RUN
 suffix:semicolon
 r_int
+id|to_invalidate
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|i
 suffix:semicolon
 op_star
@@ -1634,6 +1639,17 @@ id|mode
 op_assign
 id|S_IFDIR
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|sub-&gt;cache_tree-&gt;entry_count
+OL
+l_int|0
+)paren
+id|to_invalidate
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 r_else
 (brace
@@ -1721,6 +1737,7 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * CE_INTENT_TO_ADD entries exist on on-disk index but&n;&t;&t; * they are not part of generated trees. Invalidate up&n;&t;&t; * to root to force cache-tree users to read elsewhere.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -1728,8 +1745,14 @@ id|ce-&gt;ce_flags
 op_amp
 id|CE_INTENT_TO_ADD
 )paren
+(brace
+id|to_invalidate
+op_assign
+l_int|1
+suffix:semicolon
 r_continue
 suffix:semicolon
+)brace
 id|strbuf_grow
 c_func
 (paren
@@ -1844,6 +1867,11 @@ id|buffer
 suffix:semicolon
 id|it-&gt;entry_count
 op_assign
+id|to_invalidate
+ques
+c_cond
+l_int|1
+suffix:colon
 id|i
 op_star
 id|skip_count
