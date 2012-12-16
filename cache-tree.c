@@ -1191,6 +1191,10 @@ r_int
 id|baselen
 comma
 r_int
+op_star
+id|skip_count
+comma
+r_int
 id|flags
 )paren
 (brace
@@ -1214,6 +1218,11 @@ id|WRITE_TREE_DRY_RUN
 suffix:semicolon
 r_int
 id|i
+suffix:semicolon
+op_star
+id|skip_count
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -1297,6 +1306,8 @@ comma
 id|sublen
 comma
 id|subcnt
+comma
+id|subskip
 suffix:semicolon
 id|path
 op_assign
@@ -1416,6 +1427,9 @@ id|sublen
 op_plus
 l_int|1
 comma
+op_amp
+id|subskip
+comma
 id|flags
 )paren
 suffix:semicolon
@@ -1432,6 +1446,16 @@ suffix:semicolon
 id|i
 op_add_assign
 id|subcnt
+suffix:semicolon
+id|sub-&gt;count
+op_assign
+id|subcnt
+suffix:semicolon
+multiline_comment|/* to be used in the next loop */
+op_star
+id|skip_count
+op_add_assign
+id|subskip
 suffix:semicolon
 id|sub-&gt;used
 op_assign
@@ -1600,7 +1624,7 @@ id|path
 suffix:semicolon
 id|i
 op_add_assign
-id|sub-&gt;cache_tree-&gt;entry_count
+id|sub-&gt;count
 suffix:semicolon
 id|sha1
 op_assign
@@ -1677,20 +1701,35 @@ id|path
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * CE_REMOVE entries are removed before the index is&n;&t;&t; * written to disk. Skip them to remain consistent&n;&t;&t; * with the future on-disk index.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|ce-&gt;ce_flags
 op_amp
-(paren
 id|CE_REMOVE
-op_or
-id|CE_INTENT_TO_ADD
 )paren
+(brace
+op_star
+id|skip_count
+op_assign
+op_star
+id|skip_count
+op_plus
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_INTENT_TO_ADD
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* entry being removed or placeholder */
 id|strbuf_grow
 c_func
 (paren
@@ -1806,6 +1845,8 @@ suffix:semicolon
 id|it-&gt;entry_count
 op_assign
 id|i
+op_star
+id|skip_count
 suffix:semicolon
 macro_line|#if DEBUG
 id|fprintf
@@ -1856,6 +1897,8 @@ id|flags
 (brace
 r_int
 id|i
+comma
+id|skip
 suffix:semicolon
 id|i
 op_assign
@@ -1891,6 +1934,9 @@ comma
 l_string|&quot;&quot;
 comma
 l_int|0
+comma
+op_amp
+id|skip
 comma
 id|flags
 )paren
