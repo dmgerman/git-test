@@ -3289,6 +3289,10 @@ id|ctx.fmt
 op_assign
 id|opt-&gt;commit_format
 suffix:semicolon
+id|ctx.color
+op_assign
+id|opt-&gt;diffopt.use_color
+suffix:semicolon
 id|pretty_print_commit
 c_func
 (paren
