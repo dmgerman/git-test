@@ -4473,12 +4473,6 @@ id|cb
 )paren
 suffix:semicolon
 )brace
-DECL|variable|lock
-r_static
-r_struct
-id|lock_file
-id|lock
-suffix:semicolon
 DECL|function|fetch_pack_setup
 r_static
 r_void
@@ -5509,6 +5503,11 @@ OG
 l_int|0
 )paren
 (brace
+r_static
+r_struct
+id|lock_file
+id|lock
+suffix:semicolon
 r_struct
 id|cache_time
 id|mtime
