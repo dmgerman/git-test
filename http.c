@@ -1128,6 +1128,14 @@ c_func
 l_string|&quot;cert&quot;
 )paren
 suffix:semicolon
+id|cert_auth.username
+op_assign
+id|xstrdup
+c_func
+(paren
+l_string|&quot;&quot;
+)paren
+suffix:semicolon
 id|cert_auth.path
 op_assign
 id|xstrdup
