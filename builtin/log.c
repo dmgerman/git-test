@@ -4033,9 +4033,6 @@ r_int
 id|use_stdout
 comma
 r_int
-id|numbered
-comma
-r_int
 id|numbered_files
 comma
 r_struct
@@ -7379,8 +7376,6 @@ op_amp
 id|rev
 comma
 id|use_stdout
-comma
-id|numbered
 comma
 id|numbered_files
 comma
