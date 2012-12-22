@@ -4032,9 +4032,6 @@ comma
 r_int
 id|use_stdout
 comma
-r_int
-id|numbered_files
-comma
 r_struct
 id|commit
 op_star
@@ -4153,7 +4150,7 @@ c_func
 (paren
 l_int|NULL
 comma
-id|numbered_files
+id|rev-&gt;numbered_files
 ques
 c_cond
 l_int|NULL
@@ -5571,11 +5568,10 @@ op_assign
 l_int|1
 suffix:semicolon
 r_int
-id|numbered_files
+id|just_numbers
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* _just_ numbers */
 r_int
 id|ignore_if_in_upstream
 op_assign
@@ -5760,7 +5756,7 @@ comma
 l_string|&quot;numbered-files&quot;
 comma
 op_amp
-id|numbered_files
+id|just_numbers
 comma
 id|N_
 c_func
@@ -7343,7 +7339,7 @@ suffix:semicolon
 )brace
 id|rev.numbered_files
 op_assign
-id|numbered_files
+id|just_numbers
 suffix:semicolon
 id|rev.patch_suffix
 op_assign
@@ -7376,8 +7372,6 @@ op_amp
 id|rev
 comma
 id|use_stdout
-comma
-id|numbered_files
 comma
 id|origin
 comma
@@ -7506,7 +7500,7 @@ op_logical_and
 id|reopen_stdout
 c_func
 (paren
-id|numbered_files
+id|rev.numbered_files
 ques
 c_cond
 l_int|NULL
