@@ -3465,7 +3465,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|fmt_patch_suffix
+id|rev-&gt;patch_suffix
 )paren
 op_plus
 l_int|1
@@ -3535,7 +3535,7 @@ id|subject
 comma
 id|rev-&gt;nr
 comma
-id|fmt_patch_suffix
+id|rev-&gt;patch_suffix
 comma
 op_amp
 id|filename
