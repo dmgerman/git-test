@@ -3114,10 +3114,10 @@ l_int|1
 suffix:semicolon
 multiline_comment|/* undecided */
 )brace
-DECL|function|excluded
+DECL|function|is_excluded
 r_static
 r_int
-id|excluded
+id|is_excluded
 c_func
 (paren
 r_struct
@@ -3324,7 +3324,7 @@ op_assign
 op_amp
 id|check-&gt;path
 suffix:semicolon
-multiline_comment|/*&n;&t; * we allow the caller to pass namelen as an optimization; it&n;&t; * must match the length of the name, as we eventually call&n;&t; * excluded() on the whole name string.&n;&t; */
+multiline_comment|/*&n;&t; * we allow the caller to pass namelen as an optimization; it&n;&t; * must match the length of the name, as we eventually call&n;&t; * is_excluded() on the whole name string.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3426,7 +3426,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|excluded
+id|is_excluded
 c_func
 (paren
 id|check-&gt;dir
@@ -3460,7 +3460,7 @@ l_int|0
 )paren
 suffix:semicolon
 r_return
-id|excluded
+id|is_excluded
 c_func
 (paren
 id|check-&gt;dir
@@ -4615,7 +4615,7 @@ id|de
 r_int
 id|exclude
 op_assign
-id|excluded
+id|is_excluded
 c_func
 (paren
 id|dir
