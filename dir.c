@@ -3290,9 +3290,9 @@ id|check-&gt;path
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Is this name excluded?  This is for a caller like show_files() that&n; * do not honor directory hierarchy and iterate through paths that are&n; * possibly in an ignored directory.&n; *&n; * A path to a directory known to be excluded is left in check-&gt;path to&n; * optimize for repeated checks for files in the same excluded directory.&n; */
-DECL|function|path_excluded
+DECL|function|is_path_excluded
 r_int
-id|path_excluded
+id|is_path_excluded
 c_func
 (paren
 r_struct

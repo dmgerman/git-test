@@ -6106,7 +6106,7 @@ c_cond
 (paren
 id|o-&gt;dir
 op_logical_and
-id|path_excluded
+id|is_path_excluded
 c_func
 (paren
 id|o-&gt;path_exclude_check
