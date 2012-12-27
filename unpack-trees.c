@@ -5187,7 +5187,7 @@ id|o-&gt;result
 suffix:semicolon
 id|done
 suffix:colon
-id|free_excludes
+id|clear_exclude_list
 c_func
 (paren
 op_amp

@@ -1848,9 +1848,10 @@ r_return
 id|data
 suffix:semicolon
 )brace
-DECL|function|free_excludes
+multiline_comment|/*&n; * Frees memory within el which was allocated for exclude patterns and&n; * the file buffer.  Does not free el itself.&n; */
+DECL|function|clear_exclude_list
 r_void
-id|free_excludes
+id|clear_exclude_list
 c_func
 (paren
 r_struct
