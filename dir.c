@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * This handles recursive filename detection with exclude&n; * files, index knowledge etc..&n; *&n; * Copyright (C) Linus Torvalds, 2005-2006&n; *&t;&t; Junio Hamano, 2005-2006&n; */
+multiline_comment|/*&n; * This handles recursive filename detection with exclude&n; * files, index knowledge etc..&n; *&n; * See Documentation/technical/api-directory-listing.txt&n; *&n; * Copyright (C) Linus Torvalds, 2005-2006&n; *&t;&t; Junio Hamano, 2005-2006&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;refs.h&quot;
@@ -2310,6 +2310,7 @@ id|fname
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Loads the per-directory exclude list for the substring of base&n; * which has a char length of baselen.&n; */
 DECL|function|prep_exclude
 r_static
 r_void
@@ -2368,7 +2369,7 @@ id|PATH_MAX
 r_return
 suffix:semicolon
 multiline_comment|/* too long a path -- ignore */
-multiline_comment|/* Pop the ones that are not the prefix of the path being checked. */
+multiline_comment|/* Pop the directories that are not the prefix of the path being checked. */
 id|el
 op_assign
 op_amp
