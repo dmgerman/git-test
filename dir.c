@@ -2893,9 +2893,9 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* Scan the list and let the last match determine the fate.&n; * Return 1 for exclude, 0 for include and -1 for undecided.&n; */
-DECL|function|excluded_from_list
+DECL|function|is_excluded_from_list
 r_int
-id|excluded_from_list
+id|is_excluded_from_list
 c_func
 (paren
 r_const
@@ -3203,7 +3203,7 @@ op_increment
 r_switch
 c_cond
 (paren
-id|excluded_from_list
+id|is_excluded_from_list
 c_func
 (paren
 id|pathname
