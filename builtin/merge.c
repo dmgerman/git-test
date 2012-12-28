@@ -8156,6 +8156,14 @@ id|opts.shortlog_len
 op_assign
 id|shortlog_len
 suffix:semicolon
+id|opts.credit_people
+op_assign
+(paren
+l_int|0
+OL
+id|option_edit
+)paren
+suffix:semicolon
 id|fmt_merge_msg
 c_func
 (paren
