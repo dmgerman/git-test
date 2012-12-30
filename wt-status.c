@@ -3031,7 +3031,16 @@ suffix:semicolon
 id|dir.flags
 op_assign
 id|DIR_SHOW_IGNORED
-op_or
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|s-&gt;show_untracked_files
+op_ne
+id|SHOW_ALL_UNTRACKED_FILES
+)paren
+id|dir.flags
+op_or_assign
 id|DIR_SHOW_OTHER_DIRECTORIES
 suffix:semicolon
 id|fill_directory
