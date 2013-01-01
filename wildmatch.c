@@ -113,7 +113,9 @@ op_increment
 r_int
 id|matched
 comma
-id|special
+id|match_slash
+comma
+id|negated
 suffix:semicolon
 id|uchar
 id|t_ch
@@ -329,7 +331,7 @@ id|MATCH
 r_return
 id|MATCH
 suffix:semicolon
-id|special
+id|match_slash
 op_assign
 id|TRUE
 suffix:semicolon
@@ -340,7 +342,7 @@ id|ABORT_MALFORMED
 suffix:semicolon
 )brace
 r_else
-id|special
+id|match_slash
 op_assign
 id|FALSE
 suffix:semicolon
@@ -358,7 +360,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|special
+id|match_slash
 )paren
 (brace
 r_if
@@ -425,7 +427,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|special
+id|match_slash
 op_logical_or
 id|matched
 op_ne
@@ -440,7 +442,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|special
+id|match_slash
 op_logical_and
 id|t_ch
 op_eq
@@ -482,7 +484,7 @@ id|NEGATE_CLASS
 suffix:semicolon
 macro_line|#endif
 multiline_comment|/* Assign literal TRUE/FALSE because of &quot;matched&quot; comparison. */
-id|special
+id|negated
 op_assign
 id|p_ch
 op_eq
@@ -496,7 +498,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|special
+id|negated
 )paren
 (brace
 multiline_comment|/* Inverted character class. */
@@ -1133,7 +1135,7 @@ c_cond
 (paren
 id|matched
 op_eq
-id|special
+id|negated
 op_logical_or
 id|t_ch
 op_eq
