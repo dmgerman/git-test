@@ -1,3 +1,7 @@
+macro_line|#ifdef USE_WILDMATCH
+DECL|macro|USE_WILDMATCH
+macro_line|#undef USE_WILDMATCH  /* We need real fnmatch implementation here */
+macro_line|#endif
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;wildmatch.h&quot;
 DECL|function|perf
