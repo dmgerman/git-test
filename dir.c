@@ -2886,12 +2886,16 @@ id|pattern
 comma
 id|name
 comma
+id|WM_PATHNAME
+op_or
+(paren
 id|ignore_case
 ques
 c_cond
 id|WM_CASEFOLD
 suffix:colon
 l_int|0
+)paren
 comma
 l_int|NULL
 )paren
