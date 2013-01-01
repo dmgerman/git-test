@@ -73,7 +73,8 @@ op_star
 id|text
 comma
 r_int
-id|force_lower_case
+r_int
+id|flags
 )paren
 (brace
 id|uchar
@@ -140,7 +141,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|force_lower_case
+(paren
+id|flags
+op_amp
+id|WM_CASEFOLD
+)paren
 op_logical_and
 id|ISUPPER
 c_func
@@ -159,7 +164,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|force_lower_case
+(paren
+id|flags
+op_amp
+id|WM_CASEFOLD
+)paren
 op_logical_and
 id|ISUPPER
 c_func
@@ -319,7 +328,7 @@ l_int|1
 comma
 id|text
 comma
-id|force_lower_case
+id|flags
 )paren
 op_eq
 id|WM_MATCH
@@ -412,7 +421,7 @@ id|p
 comma
 id|text
 comma
-id|force_lower_case
+id|flags
 )paren
 )paren
 op_ne
@@ -1199,13 +1208,6 @@ op_star
 id|text
 comma
 id|flags
-op_amp
-id|WM_CASEFOLD
-ques
-c_cond
-l_int|1
-suffix:colon
-l_int|0
 )paren
 suffix:semicolon
 )brace
