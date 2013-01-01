@@ -110,6 +110,8 @@ l_int|2
 )braket
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_else
@@ -144,7 +146,9 @@ id|argv
 l_int|2
 )braket
 comma
-id|FNM_CASEFOLD
+id|WM_CASEFOLD
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_else

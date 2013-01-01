@@ -2889,9 +2889,11 @@ comma
 id|ignore_case
 ques
 c_cond
-id|FNM_CASEFOLD
+id|WM_CASEFOLD
 suffix:colon
 l_int|0
+comma
+l_int|NULL
 )paren
 op_eq
 l_int|0

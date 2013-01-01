@@ -12,10 +12,6 @@ DECL|macro|NEGATE_CLASS
 mdefine_line|#define NEGATE_CLASS&t;&squot;!&squot;
 DECL|macro|NEGATE_CLASS2
 mdefine_line|#define NEGATE_CLASS2&t;&squot;^&squot;
-DECL|macro|FALSE
-mdefine_line|#define FALSE 0
-DECL|macro|TRUE
-mdefine_line|#define TRUE 1
 DECL|macro|CC_EQ
 mdefine_line|#define CC_EQ(class, len, litmatch) ((len) == sizeof (litmatch)-1 &bslash;&n;&t;&t;&t;&t;    &amp;&amp; *(class) == *(litmatch) &bslash;&n;&t;&t;&t;&t;    &amp;&amp; strncmp((char*)class, litmatch, len) == 0)
 macro_line|#if defined STDC_HEADERS || !defined isascii
@@ -139,7 +135,7 @@ op_ne
 l_char|&squot;*&squot;
 )paren
 r_return
-id|ABORT_ALL
+id|WM_ABORT_ALL
 suffix:semicolon
 r_if
 c_cond
@@ -208,7 +204,7 @@ op_ne
 id|p_ch
 )paren
 r_return
-id|NOMATCH
+id|WM_NOMATCH
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -224,7 +220,7 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 r_return
-id|NOMATCH
+id|WM_NOMATCH
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -326,25 +322,25 @@ comma
 id|force_lower_case
 )paren
 op_eq
-id|MATCH
+id|WM_MATCH
 )paren
 r_return
-id|MATCH
+id|WM_MATCH
 suffix:semicolon
 id|match_slash
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
 r_return
-id|ABORT_MALFORMED
+id|WM_ABORT_MALFORMED
 suffix:semicolon
 )brace
 r_else
 id|match_slash
 op_assign
-id|FALSE
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -381,11 +377,11 @@ op_ne
 l_int|NULL
 )paren
 r_return
-id|NOMATCH
+id|WM_NOMATCH
 suffix:semicolon
 )brace
 r_return
-id|MATCH
+id|WM_MATCH
 suffix:semicolon
 )brace
 r_while
@@ -420,7 +416,7 @@ id|force_lower_case
 )paren
 )paren
 op_ne
-id|NOMATCH
+id|WM_NOMATCH
 )paren
 (brace
 r_if
@@ -431,7 +427,7 @@ id|match_slash
 op_logical_or
 id|matched
 op_ne
-id|ABORT_TO_STARSTAR
+id|WM_ABORT_TO_STARSTAR
 )paren
 r_return
 id|matched
@@ -449,7 +445,7 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 r_return
-id|ABORT_TO_STARSTAR
+id|WM_ABORT_TO_STARSTAR
 suffix:semicolon
 id|t_ch
 op_assign
@@ -459,7 +455,7 @@ id|text
 suffix:semicolon
 )brace
 r_return
-id|ABORT_ALL
+id|WM_ABORT_ALL
 suffix:semicolon
 r_case
 l_char|&squot;[&squot;
@@ -483,7 +479,7 @@ op_assign
 id|NEGATE_CLASS
 suffix:semicolon
 macro_line|#endif
-multiline_comment|/* Assign literal TRUE/FALSE because of &quot;matched&quot; comparison. */
+multiline_comment|/* Assign literal 1/0 because of &quot;matched&quot; comparison. */
 id|negated
 op_assign
 id|p_ch
@@ -491,9 +487,9 @@ op_eq
 id|NEGATE_CLASS
 ques
 c_cond
-id|TRUE
+l_int|1
 suffix:colon
-id|FALSE
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -515,7 +511,7 @@ l_int|0
 suffix:semicolon
 id|matched
 op_assign
-id|FALSE
+l_int|0
 suffix:semicolon
 r_do
 (brace
@@ -526,7 +522,7 @@ op_logical_neg
 id|p_ch
 )paren
 r_return
-id|ABORT_ALL
+id|WM_ABORT_ALL
 suffix:semicolon
 r_if
 c_cond
@@ -549,7 +545,7 @@ op_logical_neg
 id|p_ch
 )paren
 r_return
-id|ABORT_ALL
+id|WM_ABORT_ALL
 suffix:semicolon
 r_if
 c_cond
@@ -560,7 +556,7 @@ id|p_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -613,7 +609,7 @@ op_logical_neg
 id|p_ch
 )paren
 r_return
-id|ABORT_ALL
+id|WM_ABORT_ALL
 suffix:semicolon
 )brace
 r_if
@@ -629,7 +625,7 @@ id|prev_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 id|p_ch
 op_assign
@@ -694,7 +690,7 @@ op_logical_neg
 id|p_ch
 )paren
 r_return
-id|ABORT_ALL
+id|WM_ABORT_ALL
 suffix:semicolon
 id|i
 op_assign
@@ -736,7 +732,7 @@ id|p_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -766,7 +762,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -795,7 +791,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -824,7 +820,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -853,7 +849,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -882,7 +878,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -911,7 +907,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -940,7 +936,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -969,7 +965,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -998,7 +994,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -1027,7 +1023,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -1056,7 +1052,7 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -1085,13 +1081,13 @@ id|t_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_else
 multiline_comment|/* malformed [:class:] string */
 r_return
-id|ABORT_ALL
+id|WM_ABORT_ALL
 suffix:semicolon
 id|p_ch
 op_assign
@@ -1109,7 +1105,7 @@ id|p_ch
 )paren
 id|matched
 op_assign
-id|TRUE
+l_int|1
 suffix:semicolon
 )brace
 r_while
@@ -1142,7 +1138,7 @@ op_eq
 l_char|&squot;/&squot;
 )paren
 r_return
-id|NOMATCH
+id|WM_NOMATCH
 suffix:semicolon
 r_continue
 suffix:semicolon
@@ -1153,9 +1149,9 @@ op_star
 id|text
 ques
 c_cond
-id|NOMATCH
+id|WM_NOMATCH
 suffix:colon
-id|MATCH
+id|WM_MATCH
 suffix:semicolon
 )brace
 multiline_comment|/* Match the &quot;pattern&quot; against the &quot;text&quot; string. */
@@ -1175,7 +1171,13 @@ op_star
 id|text
 comma
 r_int
+r_int
 id|flags
+comma
+r_struct
+id|wildopts
+op_star
+id|wo
 )paren
 (brace
 r_return
@@ -1198,7 +1200,7 @@ id|text
 comma
 id|flags
 op_amp
-id|FNM_CASEFOLD
+id|WM_CASEFOLD
 ques
 c_cond
 l_int|1
