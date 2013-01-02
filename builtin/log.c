@@ -5843,7 +5843,7 @@ comma
 id|OPT_INTEGER
 c_func
 (paren
-l_int|0
+l_char|&squot;v&squot;
 comma
 l_string|&quot;reroll-count&quot;
 comma
