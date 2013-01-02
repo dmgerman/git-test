@@ -3837,6 +3837,13 @@ c_loop
 (paren
 op_logical_neg
 id|shown_commit_line
+op_logical_and
+op_logical_neg
+id|graph_is_commit_finished
+c_func
+(paren
+id|graph
+)paren
 )paren
 (brace
 id|shown_commit_line
