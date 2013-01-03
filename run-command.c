@@ -1048,9 +1048,6 @@ r_const
 r_char
 op_star
 id|argv0
-comma
-r_int
-id|silent_exec_failure
 )paren
 (brace
 r_int
@@ -1158,6 +1155,17 @@ c_func
 id|status
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|code
+op_ne
+id|SIGINT
+op_logical_and
+id|code
+op_ne
+id|SIGQUIT
+)paren
 id|error
 c_func
 (paren
@@ -2084,8 +2092,6 @@ id|cmd-&gt;argv
 (braket
 l_int|0
 )braket
-comma
-id|cmd-&gt;silent_exec_failure
 )paren
 suffix:semicolon
 id|failed_errno
@@ -2667,8 +2673,6 @@ id|cmd-&gt;argv
 (braket
 l_int|0
 )braket
-comma
-id|cmd-&gt;silent_exec_failure
 )paren
 suffix:semicolon
 )brace
