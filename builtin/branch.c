@@ -3825,7 +3825,12 @@ c_func
 (paren
 id|name.buf
 comma
+id|buf.len
+ques
+c_cond
 id|buf.buf
+suffix:colon
+l_int|NULL
 )paren
 suffix:semicolon
 id|strbuf_release
