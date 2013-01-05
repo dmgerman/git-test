@@ -278,7 +278,6 @@ suffix:semicolon
 id|sig
 op_assign
 id|ret
-op_plus
 l_int|128
 suffix:semicolon
 id|sigchain_pop
