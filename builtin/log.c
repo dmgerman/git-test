@@ -17,6 +17,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;streaming.h&quot;
 macro_line|#include &quot;version.h&quot;
+macro_line|#include &quot;mailmap.h&quot;
 multiline_comment|/* Set a default date-time format for git log (&quot;log.date&quot; config variable) */
 DECL|variable|default_date_mode
 r_static
@@ -371,6 +372,10 @@ comma
 id|source
 op_assign
 l_int|0
+comma
+id|mailmap
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_struct
@@ -411,6 +416,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;show source&quot;
+)paren
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;use-mailmap&quot;
+comma
+op_amp
+id|mailmap
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;Use mail map file&quot;
 )paren
 )paren
 comma
@@ -609,6 +631,35 @@ id|rev-&gt;show_source
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|mailmap
+)paren
+(brace
+id|rev-&gt;mailmap
+op_assign
+id|xcalloc
+c_func
+(paren
+l_int|1
+comma
+r_sizeof
+(paren
+r_struct
+id|string_list
+)paren
+)paren
+suffix:semicolon
+id|read_mailmap
+c_func
+(paren
+id|rev-&gt;mailmap
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
