@@ -11,12 +11,6 @@ id|advice_push_non_ff_current
 op_assign
 l_int|1
 suffix:semicolon
-DECL|variable|advice_push_non_ff_default
-r_int
-id|advice_push_non_ff_default
-op_assign
-l_int|1
-suffix:semicolon
 DECL|variable|advice_push_non_ff_matching
 r_int
 id|advice_push_non_ff_matching
@@ -86,13 +80,6 @@ l_string|&quot;pushnonffcurrent&quot;
 comma
 op_amp
 id|advice_push_non_ff_current
-)brace
-comma
-(brace
-l_string|&quot;pushnonffdefault&quot;
-comma
-op_amp
-id|advice_push_non_ff_default
 )brace
 comma
 (brace
