@@ -3347,6 +3347,10 @@ id|ctx.fmt
 op_assign
 id|opt-&gt;commit_format
 suffix:semicolon
+id|ctx.mailmap
+op_assign
+id|opt-&gt;mailmap
+suffix:semicolon
 id|pretty_print_commit
 c_func
 (paren
