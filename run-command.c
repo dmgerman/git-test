@@ -3630,8 +3630,6 @@ c_func
 id|async-&gt;pid
 comma
 l_string|&quot;child process&quot;
-comma
-l_int|0
 )paren
 suffix:semicolon
 macro_line|#else
