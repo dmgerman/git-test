@@ -2555,10 +2555,16 @@ c_cond
 (paren
 id|real_git_dir
 )paren
+(brace
 id|git_dir
 op_assign
 id|real_git_dir
 suffix:semicolon
+id|junk_git_dir
+op_assign
+id|real_git_dir
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
