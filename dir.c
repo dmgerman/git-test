@@ -1553,6 +1553,9 @@ r_struct
 id|exclude_list
 op_star
 id|el
+comma
+r_int
+id|srcpos
 )paren
 (brace
 r_struct
@@ -1686,6 +1689,10 @@ id|x-&gt;flags
 op_assign
 id|flags
 suffix:semicolon
+id|x-&gt;srcpos
+op_assign
+id|srcpos
+suffix:semicolon
 id|ALLOC_GROW
 c_func
 (paren
@@ -1705,6 +1712,10 @@ op_increment
 )braket
 op_assign
 id|x
+suffix:semicolon
+id|x-&gt;el
+op_assign
+id|el
 suffix:semicolon
 )brace
 DECL|function|read_skip_worktree_file_from_index
@@ -1946,6 +1957,10 @@ r_int
 id|fd
 comma
 id|i
+comma
+id|lineno
+op_assign
+l_int|1
 suffix:semicolon
 r_int
 id|size
@@ -2243,9 +2258,14 @@ comma
 id|baselen
 comma
 id|el
+comma
+id|lineno
 )paren
 suffix:semicolon
 )brace
+id|lineno
+op_increment
+suffix:semicolon
 id|entry
 op_assign
 id|buf
@@ -2274,6 +2294,11 @@ id|dir
 comma
 r_int
 id|group_type
+comma
+r_const
+r_char
+op_star
+id|src
 )paren
 (brace
 r_struct
@@ -2329,6 +2354,10 @@ id|el
 )paren
 )paren
 suffix:semicolon
+id|el-&gt;src
+op_assign
+id|src
+suffix:semicolon
 r_return
 id|el
 suffix:semicolon
@@ -2363,6 +2392,8 @@ c_func
 id|dir
 comma
 id|EXC_FILE
+comma
+id|fname
 )paren
 suffix:semicolon
 r_if
@@ -2510,6 +2541,17 @@ id|dir-&gt;exclude_stack
 op_assign
 id|stk-&gt;prev
 suffix:semicolon
+id|free
+c_func
+(paren
+(paren
+r_char
+op_star
+)paren
+id|el-&gt;src
+)paren
+suffix:semicolon
+multiline_comment|/* see strdup() below */
 id|clear_exclude_list
 c_func
 (paren
@@ -2649,6 +2691,7 @@ comma
 id|dir-&gt;exclude_per_dir
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * dir-&gt;basebuf gets reused by the traversal, but we&n;&t;&t; * need fname to remain unchanged to ensure the src&n;&t;&t; * member of each struct exclude correctly&n;&t;&t; * back-references its source file.  Other invocations&n;&t;&t; * of add_exclude_list provide stable strings, so we&n;&t;&t; * strdup() and free() here in the caller.&n;&t;&t; */
 id|el
 op_assign
 id|add_exclude_list
@@ -2657,6 +2700,12 @@ c_func
 id|dir
 comma
 id|EXC_DIRS
+comma
+id|strdup
+c_func
+(paren
+id|dir-&gt;basebuf
+)paren
 )paren
 suffix:semicolon
 id|stk-&gt;exclude_ix

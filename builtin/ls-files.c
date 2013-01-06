@@ -117,6 +117,11 @@ r_static
 r_int
 id|exc_given
 suffix:semicolon
+DECL|variable|exclude_args
+r_static
+r_int
+id|exclude_args
+suffix:semicolon
 DECL|variable|tag_cached
 r_static
 r_const
@@ -2236,6 +2241,9 @@ id|group-&gt;el
 (braket
 l_int|0
 )braket
+comma
+op_decrement
+id|exclude_args
 )paren
 suffix:semicolon
 r_return
@@ -2805,6 +2813,8 @@ op_amp
 id|dir
 comma
 id|EXC_CMDL
+comma
+l_string|&quot;--exclude option&quot;
 )paren
 suffix:semicolon
 id|argc

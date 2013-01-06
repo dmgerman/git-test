@@ -497,6 +497,8 @@ op_amp
 id|dir
 comma
 id|EXC_CMDL
+comma
+l_string|&quot;--exclude option&quot;
 )paren
 suffix:semicolon
 r_for
@@ -537,6 +539,12 @@ id|el
 (braket
 l_int|0
 )braket
+comma
+(paren
+id|i
+op_plus
+l_int|1
+)paren
 )paren
 suffix:semicolon
 id|pathspec
