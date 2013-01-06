@@ -2212,9 +2212,9 @@ id|unset
 )paren
 (brace
 r_struct
-id|exclude_list
+id|exclude_list_group
 op_star
-id|list
+id|group
 op_assign
 id|opt-&gt;value
 suffix:semicolon
@@ -2231,7 +2231,11 @@ l_string|&quot;&quot;
 comma
 l_int|0
 comma
-id|list
+op_amp
+id|group-&gt;el
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 r_return
@@ -2570,7 +2574,7 @@ comma
 l_string|&quot;exclude&quot;
 comma
 op_amp
-id|dir.exclude_list
+id|dir.exclude_list_group
 (braket
 id|EXC_CMDL
 )braket
@@ -2792,6 +2796,15 @@ id|die
 c_func
 (paren
 l_string|&quot;index file corrupt&quot;
+)paren
+suffix:semicolon
+id|add_exclude_list
+c_func
+(paren
+op_amp
+id|dir
+comma
+id|EXC_CMDL
 )paren
 suffix:semicolon
 id|argc
