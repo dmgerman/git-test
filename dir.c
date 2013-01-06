@@ -3311,6 +3311,13 @@ id|len
 r_if
 c_cond
 (paren
+op_logical_neg
+(paren
+id|dir-&gt;flags
+op_amp
+id|DIR_SHOW_IGNORED
+)paren
+op_logical_and
 id|cache_name_exists
 c_func
 (paren
@@ -3973,7 +3980,7 @@ op_amp
 id|DIR_SHOW_IGNORED
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * Optimization:&n;&t;&t; * Don&squot;t spend time on indexed files, they won&squot;t be&n;&t;&t; * added to the list anyway&n;&t;&t; */
+multiline_comment|/* Always exclude indexed files */
 r_struct
 id|cache_entry
 op_star
