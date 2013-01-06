@@ -1021,9 +1021,6 @@ op_star
 id|validate_pathspec
 c_func
 (paren
-r_int
-id|argc
-comma
 r_const
 r_char
 op_star
@@ -1351,8 +1348,6 @@ op_assign
 id|validate_pathspec
 c_func
 (paren
-id|argc
-comma
 id|argv
 comma
 id|prefix
@@ -2467,8 +2462,6 @@ op_assign
 id|validate_pathspec
 c_func
 (paren
-id|argc
-comma
 id|argv
 comma
 id|prefix
