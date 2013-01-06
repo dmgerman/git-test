@@ -1141,6 +1141,9 @@ r_case
 id|REF_STATUS_REJECT_NONFASTFORWARD
 suffix:colon
 r_case
+id|REF_STATUS_REJECT_ALREADY_EXISTS
+suffix:colon
+r_case
 id|REF_STATUS_UPTODATE
 suffix:colon
 r_continue

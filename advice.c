@@ -1,7 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
-DECL|variable|advice_push_nonfastforward
+DECL|variable|advice_push_update_rejected
 r_int
-id|advice_push_nonfastforward
+id|advice_push_update_rejected
 op_assign
 l_int|1
 suffix:semicolon
@@ -20,6 +20,12 @@ suffix:semicolon
 DECL|variable|advice_push_non_ff_matching
 r_int
 id|advice_push_non_ff_matching
+op_assign
+l_int|1
+suffix:semicolon
+DECL|variable|advice_push_already_exists
+r_int
+id|advice_push_already_exists
 op_assign
 l_int|1
 suffix:semicolon
@@ -75,10 +81,10 @@ id|advice_config
 op_assign
 (brace
 (brace
-l_string|&quot;pushnonfastforward&quot;
+l_string|&quot;pushupdaterejected&quot;
 comma
 op_amp
-id|advice_push_nonfastforward
+id|advice_push_update_rejected
 )brace
 comma
 (brace
@@ -100,6 +106,13 @@ l_string|&quot;pushnonffmatching&quot;
 comma
 op_amp
 id|advice_push_non_ff_matching
+)brace
+comma
+(brace
+l_string|&quot;pushalreadyexists&quot;
+comma
+op_amp
+id|advice_push_already_exists
 )brace
 comma
 (brace
@@ -137,6 +150,13 @@ op_amp
 id|advice_detached_head
 )brace
 comma
+multiline_comment|/* make this an alias for backward compatibility */
+(brace
+l_string|&quot;pushnonfastforward&quot;
+comma
+op_amp
+id|advice_push_update_rejected
+)brace
 )brace
 suffix:semicolon
 DECL|function|advise

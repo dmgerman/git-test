@@ -122,6 +122,19 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
+id|REF_STATUS_REJECT_ALREADY_EXISTS
+suffix:colon
+id|res
+op_assign
+l_string|&quot;error&quot;
+suffix:semicolon
+id|msg
+op_assign
+l_string|&quot;already exists&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
 id|REF_STATUS_REJECT_NODELETE
 suffix:colon
 r_case
@@ -330,9 +343,8 @@ r_int
 id|flags
 suffix:semicolon
 r_int
-id|nonfastforward
-op_assign
-l_int|0
+r_int
+id|reject_reasons
 suffix:semicolon
 r_int
 id|progress
@@ -1021,7 +1033,7 @@ comma
 l_int|0
 comma
 op_amp
-id|nonfastforward
+id|reject_reasons
 )paren
 suffix:semicolon
 r_if
