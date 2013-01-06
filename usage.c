@@ -728,6 +728,8 @@ id|params
 )paren
 suffix:semicolon
 )brace
+DECL|macro|error
+macro_line|#undef error
 DECL|function|error
 r_int
 id|error

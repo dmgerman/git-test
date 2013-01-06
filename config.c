@@ -8357,6 +8357,8 @@ id|new_name
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Call this to report error for your variable that should not&n; * get a boolean value (i.e. &quot;[my] var&quot; means &quot;true&quot;).&n; */
+DECL|macro|config_error_nonbool
+macro_line|#undef config_error_nonbool
 DECL|function|config_error_nonbool
 r_int
 id|config_error_nonbool
