@@ -1,10 +1,10 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;pathspec.h&quot;
-multiline_comment|/*&n; * Finds which of the given pathspecs match items in the index.&n; *&n; * For each pathspec, sets the corresponding entry in the seen[] array&n; * (which should be specs items long, i.e. the same size as pathspec)&n; * to the nature of the &quot;closest&quot; (i.e. most specific) match found for&n; * that pathspec in the index, if it was a closer type of match than&n; * the existing entry.  As an optimization, matching is skipped&n; * altogether if seen[] already only contains non-zero entries.&n; *&n; * If seen[] has not already been written to, it may make sense&n; * to use find_used_pathspec() instead.&n; */
-DECL|function|fill_pathspec_matches
+multiline_comment|/*&n; * Finds which of the given pathspecs match items in the index.&n; *&n; * For each pathspec, sets the corresponding entry in the seen[] array&n; * (which should be specs items long, i.e. the same size as pathspec)&n; * to the nature of the &quot;closest&quot; (i.e. most specific) match found for&n; * that pathspec in the index, if it was a closer type of match than&n; * the existing entry.  As an optimization, matching is skipped&n; * altogether if seen[] already only contains non-zero entries.&n; *&n; * If seen[] has not already been written to, it may make sense&n; * to use find_pathspecs_matching_against_index() instead.&n; */
+DECL|function|add_pathspec_matches_against_index
 r_void
-id|fill_pathspec_matches
+id|add_pathspec_matches_against_index
 c_func
 (paren
 r_const
@@ -108,11 +108,11 @@ id|seen
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * Finds which of the given pathspecs match items in the index.&n; *&n; * This is a one-shot wrapper around fill_pathspec_matches() which&n; * allocates, populates, and returns a seen[] array indicating the&n; * nature of the &quot;closest&quot; (i.e. most specific) matches which each of&n; * the given pathspecs achieves against all items in the index.&n; */
-DECL|function|find_used_pathspec
+multiline_comment|/*&n; * Finds which of the given pathspecs match items in the index.&n; *&n; * This is a one-shot wrapper around add_pathspec_matches_against_index()&n; * which allocates, populates, and returns a seen[] array indicating the&n; * nature of the &quot;closest&quot; (i.e. most specific) matches which each of the&n; * given pathspecs achieves against all items in the index.&n; */
+DECL|function|find_pathspecs_matching_against_index
 r_char
 op_star
-id|find_used_pathspec
+id|find_pathspecs_matching_against_index
 c_func
 (paren
 r_const
@@ -156,7 +156,7 @@ comma
 l_int|1
 )paren
 suffix:semicolon
-id|fill_pathspec_matches
+id|add_pathspec_matches_against_index
 c_func
 (paren
 id|pathspec

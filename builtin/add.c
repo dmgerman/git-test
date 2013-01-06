@@ -527,7 +527,7 @@ op_assign
 id|dst
 id|dir-&gt;entries
 suffix:semicolon
-id|fill_pathspec_matches
+id|add_pathspec_matches_against_index
 c_func
 (paren
 id|pathspec
@@ -2448,7 +2448,7 @@ id|seen
 )paren
 id|seen
 op_assign
-id|find_used_pathspec
+id|find_pathspecs_matching_against_index
 c_func
 (paren
 id|pathspec
