@@ -741,7 +741,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Given a name and a list of pathspecs, see if the name matches&n; * any of the pathspecs.  The caller is also interested in seeing&n; * all pathspec matches some names it calls this function with&n; * (otherwise the user could have mistyped the unmatched pathspec),&n; * and a mark is left in seen[] array for pathspec element that&n; * actually matched anything.&n; */
+multiline_comment|/*&n; * Given a name and a list of pathspecs, returns the nature of the&n; * closest (i.e. most specific) match of the name to any of the&n; * pathspecs.&n; *&n; * The caller typically calls this multiple times with the same&n; * pathspec and seen[] array but with different name/namelen&n; * (e.g. entries from the index) and is interested in seeing if and&n; * how each pathspec matches all the names it calls this function&n; * with.  A mark is left in the seen[] array for each pathspec element&n; * indicating the closest type of match that element achieved, so if&n; * seen[n] remains zero after multiple invocations, that means the nth&n; * pathspec did not match any names, which could indicate that the&n; * user mistyped the nth pathspec.&n; */
 DECL|function|match_pathspec
 r_int
 id|match_pathspec
@@ -1021,7 +1021,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Given a name and a list of pathspecs, see if the name matches&n; * any of the pathspecs.  The caller is also interested in seeing&n; * all pathspec matches some names it calls this function with&n; * (otherwise the user could have mistyped the unmatched pathspec),&n; * and a mark is left in seen[] array for pathspec element that&n; * actually matched anything.&n; */
+multiline_comment|/*&n; * Given a name and a list of pathspecs, returns the nature of the&n; * closest (i.e. most specific) match of the name to any of the&n; * pathspecs.&n; *&n; * The caller typically calls this multiple times with the same&n; * pathspec and seen[] array but with different name/namelen&n; * (e.g. entries from the index) and is interested in seeing if and&n; * how each pathspec matches all the names it calls this function&n; * with.  A mark is left in the seen[] array for each pathspec element&n; * indicating the closest type of match that element achieved, so if&n; * seen[n] remains zero after multiple invocations, that means the nth&n; * pathspec did not match any names, which could indicate that the&n; * user mistyped the nth pathspec.&n; */
 DECL|function|match_pathspec_depth
 r_int
 id|match_pathspec_depth
