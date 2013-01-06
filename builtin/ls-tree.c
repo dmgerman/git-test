@@ -923,9 +923,14 @@ id|pathspec.items
 id|i
 )braket
 dot
-id|use_wildcard
+id|nowildcard_len
 op_assign
-l_int|0
+id|pathspec.items
+(braket
+id|i
+)braket
+dot
+id|len
 suffix:semicolon
 id|pathspec.has_wildcard
 op_assign
