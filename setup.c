@@ -1143,6 +1143,7 @@ id|copyfrom
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * N.B. get_pathspec() is deprecated in favor of the &quot;struct pathspec&quot;&n; * based interface - see pathspec_magic above.&n; *&n; * Arguments:&n; *  - prefix - a path relative to the root of the working tree&n; *  - pathspec - a list of paths underneath the prefix path&n; *&n; * Iterates over pathspec, prepending each path with prefix,&n; * and return the resulting list.&n; *&n; * If pathspec is empty, return a singleton list containing prefix.&n; *&n; * If pathspec and prefix are both empty, return an empty list.&n; *&n; * This is typically used by built-in commands such as add.c, in order&n; * to normalize argv arguments provided to the built-in into a list of&n; * paths to process, all relative to the root of the working tree.&n; */
 DECL|function|get_pathspec
 r_const
 r_char
