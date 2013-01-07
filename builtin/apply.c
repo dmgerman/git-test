@@ -10095,6 +10095,8 @@ r_int
 id|i
 comma
 id|ctx
+comma
+id|reduced
 suffix:semicolon
 r_char
 op_star
@@ -10126,8 +10128,15 @@ l_int|1
 suffix:semicolon
 m_assert
 (paren
+id|postlen
+ques
+c_cond
 id|fixed_preimage.nr
 op_eq
+id|preimage-&gt;nr
+suffix:colon
+id|fixed_preimage.nr
+op_le
 id|preimage-&gt;nr
 )paren
 suffix:semicolon
@@ -10140,7 +10149,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|preimage-&gt;nr
+id|fixed_preimage.nr
 suffix:semicolon
 id|i
 op_increment
@@ -10203,6 +10212,8 @@ r_for
 c_loop
 (paren
 id|i
+op_assign
+id|reduced
 op_assign
 id|ctx
 op_assign
@@ -10303,6 +10314,7 @@ id|ctx
 op_increment
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t;&t; * preimage is expected to run out, if the caller&n;&t;&t; * fixed addition of trailing blank lines.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -10310,16 +10322,13 @@ id|preimage-&gt;nr
 op_le
 id|ctx
 )paren
-id|die
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;oops&quot;
-)paren
-)paren
+(brace
+id|reduced
+op_increment
 suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 multiline_comment|/* and copy it in, while fixing the line length */
 id|len
 op_assign
@@ -10366,6 +10375,10 @@ id|postimage-&gt;len
 op_assign
 r_new
 id|postimage-&gt;buf
+suffix:semicolon
+id|postimage-&gt;nr
+op_sub_assign
+id|reduced
 suffix:semicolon
 )brace
 DECL|function|match_fragment
