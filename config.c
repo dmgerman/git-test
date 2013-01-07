@@ -208,7 +208,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|access_or_warn
+id|access_or_die
 c_func
 (paren
 id|path
@@ -5003,7 +5003,7 @@ c_func
 )paren
 op_logical_and
 op_logical_neg
-id|access_or_warn
+id|access_or_die
 c_func
 (paren
 id|git_etc_gitconfig
@@ -5041,7 +5041,7 @@ c_cond
 id|xdg_config
 op_logical_and
 op_logical_neg
-id|access_or_warn
+id|access_or_die
 c_func
 (paren
 id|xdg_config
@@ -5073,7 +5073,7 @@ c_cond
 id|user_config
 op_logical_and
 op_logical_neg
-id|access_or_warn
+id|access_or_die
 c_func
 (paren
 id|user_config
@@ -5105,7 +5105,7 @@ c_cond
 id|repo_config
 op_logical_and
 op_logical_neg
-id|access_or_warn
+id|access_or_die
 c_func
 (paren
 id|repo_config
