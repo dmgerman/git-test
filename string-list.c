@@ -32,6 +32,16 @@ id|right
 op_assign
 id|list-&gt;nr
 suffix:semicolon
+id|compare_strings_fn
+id|cmp
+op_assign
+id|list-&gt;cmp
+ques
+c_cond
+id|list-&gt;cmp
+suffix:colon
+id|strcmp
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -56,7 +66,7 @@ suffix:semicolon
 r_int
 id|compare
 op_assign
-id|strcmp
+id|cmp
 c_func
 (paren
 id|string
@@ -521,6 +531,16 @@ id|src
 comma
 id|dst
 suffix:semicolon
+id|compare_strings_fn
+id|cmp
+op_assign
+id|list-&gt;cmp
+ques
+c_cond
+id|list-&gt;cmp
+suffix:colon
+id|strcmp
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -542,7 +562,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|cmp
 c_func
 (paren
 id|list-&gt;items
@@ -1323,6 +1343,13 @@ id|string
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* Yuck */
+DECL|variable|compare_for_qsort
+r_static
+id|compare_strings_fn
+id|compare_for_qsort
+suffix:semicolon
+multiline_comment|/* Only call this from inside sort_string_list! */
 DECL|function|cmp_items
 r_static
 r_int
@@ -1357,7 +1384,7 @@ op_assign
 id|b
 suffix:semicolon
 r_return
-id|strcmp
+id|compare_for_qsort
 c_func
 (paren
 id|one-&gt;string
@@ -1377,6 +1404,15 @@ op_star
 id|list
 )paren
 (brace
+id|compare_for_qsort
+op_assign
+id|list-&gt;cmp
+ques
+c_cond
+id|list-&gt;cmp
+suffix:colon
+id|strcmp
+suffix:semicolon
 id|qsort
 c_func
 (paren
@@ -1415,6 +1451,16 @@ id|string
 r_int
 id|i
 suffix:semicolon
+id|compare_strings_fn
+id|cmp
+op_assign
+id|list-&gt;cmp
+ques
+c_cond
+id|list-&gt;cmp
+suffix:colon
+id|strcmp
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1433,7 +1479,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|cmp
 c_func
 (paren
 id|string
