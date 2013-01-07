@@ -8240,6 +8240,8 @@ c_cond
 (paren
 id|o-&gt;reset
 op_logical_and
+id|o-&gt;update
+op_logical_and
 op_logical_neg
 id|ce_uptodate
 c_func
