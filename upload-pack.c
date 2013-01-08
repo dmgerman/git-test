@@ -3061,6 +3061,25 @@ comma
 id|line
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|object-&gt;type
+op_ne
+id|OBJ_COMMIT
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;invalid shallow object %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+suffix:semicolon
 id|object-&gt;flags
 op_or_assign
 id|CLIENT_SHALLOW
