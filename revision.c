@@ -12114,6 +12114,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|opt-&gt;grep_filter.header_list
+op_logical_and
 id|opt-&gt;mailmap
 )paren
 (brace
