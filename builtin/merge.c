@@ -5003,6 +5003,9 @@ op_amp
 id|msg
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|run_hook
 c_func
 (paren
@@ -5022,6 +5025,14 @@ comma
 l_string|&quot;merge&quot;
 comma
 l_int|NULL
+comma
+l_int|NULL
+)paren
+)paren
+id|abort_commit
+c_func
+(paren
+id|remoteheads
 comma
 l_int|NULL
 )paren
