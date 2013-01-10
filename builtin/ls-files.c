@@ -1078,7 +1078,7 @@ id|ce
 )paren
 suffix:semicolon
 r_return
-id|path_excluded
+id|is_path_excluded
 c_func
 (paren
 id|check

@@ -2741,7 +2741,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|path_excluded
+id|is_path_excluded
 c_func
 (paren
 op_amp

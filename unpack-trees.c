@@ -3932,7 +3932,7 @@ suffix:semicolon
 r_int
 id|ret
 op_assign
-id|excluded_from_list
+id|is_excluded_from_list
 c_func
 (paren
 id|prefix
@@ -4008,7 +4008,7 @@ id|prefix_len
 r_break
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * TODO: check el, if there are no patterns that may conflict&n;&t; * with ret (iow, we know in advance the incl/excl&n;&t; * decision for the entire directory), clear flag here without&n;&t; * calling clear_ce_flags_1(). That function will call&n;&t; * the expensive excluded_from_list() on every entry.&n;&t; */
+multiline_comment|/*&n;&t; * TODO: check el, if there are no patterns that may conflict&n;&t; * with ret (iow, we know in advance the incl/excl&n;&t; * decision for the entire directory), clear flag here without&n;&t; * calling clear_ce_flags_1(). That function will call&n;&t; * the expensive is_excluded_from_list() on every entry.&n;&t; */
 r_return
 id|clear_ce_flags_1
 c_func
@@ -4293,7 +4293,7 @@ id|ce
 suffix:semicolon
 id|ret
 op_assign
-id|excluded_from_list
+id|is_excluded_from_list
 c_func
 (paren
 id|ce-&gt;name
@@ -5189,7 +5189,7 @@ id|o-&gt;result
 suffix:semicolon
 id|done
 suffix:colon
-id|free_excludes
+id|clear_exclude_list
 c_func
 (paren
 op_amp
@@ -6108,7 +6108,7 @@ c_cond
 (paren
 id|o-&gt;dir
 op_logical_and
-id|path_excluded
+id|is_path_excluded
 c_func
 (paren
 id|o-&gt;path_exclude_check
