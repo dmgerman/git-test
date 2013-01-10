@@ -25,7 +25,7 @@ macro_line|# include &lt;wchar.h&gt;
 macro_line|# include &lt;wctype.h&gt;
 macro_line|#endif
 multiline_comment|/* Comment out all this code if we are using the GNU C Library, and are not&n;   actually compiling the library itself.  This code is part of the GNU C&n;   Library, but also included in many other GNU distributions.  Compiling&n;   and linking in this code is a waste when using the GNU C library&n;   (especially if it is a shared library).  Rather than having every GNU&n;   program understand `configure --with-gnu-libc&squot; and omit the object files,&n;   it is simpler to just do this in the source for each such file.  */
-macro_line|#if defined _LIBC || !defined __GNU_LIBRARY__
+macro_line|#if defined NO_FNMATCH || defined NO_FNMATCH_CASEFOLD || &bslash;&n;    defined _LIBC || !defined __GNU_LIBRARY__
 macro_line|# if defined STDC_HEADERS || !defined isascii
 DECL|macro|ISASCII
 macro_line|#  define ISASCII(c) 1

@@ -2,6 +2,7 @@ multiline_comment|/*&n; * This handles recursive filename detection with exclude
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;wildmatch.h&quot;
 DECL|struct|path_simplify
 r_struct
 id|path_simplify
@@ -3072,14 +3073,19 @@ id|prefix
 suffix:semicolon
 )brace
 r_return
-id|fnmatch_icase
+id|wildmatch
 c_func
 (paren
 id|pattern
 comma
 id|name
 comma
-id|FNM_PATHNAME
+id|ignore_case
+ques
+c_cond
+id|FNM_CASEFOLD
+suffix:colon
+l_int|0
 )paren
 op_eq
 l_int|0
