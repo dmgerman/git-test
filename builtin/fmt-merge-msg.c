@@ -1348,6 +1348,8 @@ r_const
 r_char
 op_star
 id|field
+suffix:semicolon
+id|field
 op_assign
 (paren
 id|which
@@ -1912,8 +1914,10 @@ id|rev_info
 op_star
 id|rev
 comma
-r_int
-id|limit
+r_struct
+id|fmt_merge_msg_opts
+op_star
+id|opts
 comma
 r_struct
 id|strbuf
@@ -1982,6 +1986,11 @@ op_star
 id|sha1
 op_assign
 id|origin_data-&gt;sha1
+suffix:semicolon
+r_int
+id|limit
+op_assign
+id|opts-&gt;shortlog_len
 suffix:semicolon
 id|branch
 op_assign
@@ -2100,6 +2109,11 @@ id|commit-&gt;parents-&gt;next
 )paren
 (brace
 multiline_comment|/* do not list a merge but count committer */
+r_if
+c_cond
+(paren
+id|opts-&gt;credit_people
+)paren
 id|record_person
 c_func
 (paren
@@ -2119,6 +2133,8 @@ c_cond
 (paren
 op_logical_neg
 id|count
+op_logical_and
+id|opts-&gt;credit_people
 )paren
 multiline_comment|/* the &squot;tip&squot; committer */
 id|record_person
@@ -2132,6 +2148,11 @@ comma
 id|commit
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|opts-&gt;credit_people
+)paren
 id|record_person
 c_func
 (paren
@@ -2213,6 +2234,11 @@ l_int|NULL
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|opts-&gt;credit_people
+)paren
 id|add_people_info
 c_func
 (paren
@@ -3783,7 +3809,7 @@ comma
 op_amp
 id|rev
 comma
-id|opts-&gt;shortlog_len
+id|opts
 comma
 id|out
 )paren
@@ -4144,6 +4170,10 @@ id|opts.add_title
 op_assign
 op_logical_neg
 id|message
+suffix:semicolon
+id|opts.credit_people
+op_assign
+l_int|1
 suffix:semicolon
 id|opts.shortlog_len
 op_assign
