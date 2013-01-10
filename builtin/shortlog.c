@@ -1862,9 +1862,6 @@ op_star
 id|log
 )paren
 (brace
-r_int
-id|col
-op_assign
 id|strbuf_add_wrapped_text
 c_func
 (paren
@@ -1879,13 +1876,6 @@ comma
 id|log-&gt;wrap
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|col
-op_ne
-id|log-&gt;wrap
-)paren
 id|strbuf_addch
 c_func
 (paren
