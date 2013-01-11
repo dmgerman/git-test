@@ -3938,6 +3938,21 @@ comma
 id|option_origin
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|real_git_dir
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;--bare and --separate-git-dir are incompatible.&quot;
+)paren
+)paren
+suffix:semicolon
 id|option_no_checkout
 op_assign
 l_int|1
