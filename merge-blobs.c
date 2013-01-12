@@ -3,7 +3,7 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;blob.h&quot;
-macro_line|#include &quot;merge-file.h&quot;
+macro_line|#include &quot;merge-blobs.h&quot;
 DECL|function|fill_mmfile_blob
 r_static
 r_int
@@ -380,10 +380,10 @@ id|ecb
 )paren
 suffix:semicolon
 )brace
-DECL|function|merge_file
+DECL|function|merge_blobs
 r_void
 op_star
-id|merge_file
+id|merge_blobs
 c_func
 (paren
 r_const
