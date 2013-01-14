@@ -1178,7 +1178,7 @@ id|code
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * This return value is chosen so that code &amp; 0xff&n;&t;&t; * mimics the exit code that a POSIX shell would report for&n;&t;&t; * a program that died from this signal.&n;&t;&t; */
 id|code
-op_sub_assign
+op_add_assign
 l_int|128
 suffix:semicolon
 )brace
