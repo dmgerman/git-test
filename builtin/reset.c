@@ -922,7 +922,7 @@ id|unused
 l_int|20
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * Possible arguments are:&n;&t; *&n;&t; * git reset [-opts] &lt;rev&gt; &lt;paths&gt;...&n;&t; * git reset [-opts] &lt;rev&gt; -- &lt;paths&gt;...&n;&t; * git reset [-opts] -- &lt;paths&gt;...&n;&t; * git reset [-opts] &lt;paths&gt;...&n;&t; *&n;&t; * At this point, argv points immediately after [-opts].&n;&t; */
+multiline_comment|/*&n;&t; * Possible arguments are:&n;&t; *&n;&t; * git reset [-opts] [&lt;rev&gt;]&n;&t; * git reset [-opts] &lt;tree&gt; [&lt;paths&gt;...]&n;&t; * git reset [-opts] &lt;tree&gt; -- [&lt;paths&gt;...]&n;&t; * git reset [-opts] -- [&lt;paths&gt;...]&n;&t; * git reset [-opts] &lt;paths&gt;...&n;&t; *&n;&t; * At this point, argv points immediately after [-opts].&n;&t; */
 r_if
 c_cond
 (paren
@@ -987,11 +987,18 @@ op_add_assign
 l_int|2
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * Otherwise, argv[0] could be either &lt;rev&gt; or &lt;paths&gt; and&n;&t;&t; * has to be unambiguous.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Otherwise, argv[0] could be either &lt;rev&gt; or &lt;paths&gt; and&n;&t;&t; * has to be unambiguous. If there is a single argument, it&n;&t;&t; * can not be a tree&n;&t;&t; */
 r_else
 r_if
 c_cond
 (paren
+(paren
+op_logical_neg
+id|argv
+(braket
+l_int|1
+)braket
+op_logical_and
 op_logical_neg
 id|get_sha1_committish
 c_func
@@ -1004,8 +1011,28 @@ comma
 id|unused
 )paren
 )paren
+op_logical_or
+(paren
+id|argv
+(braket
+l_int|1
+)braket
+op_logical_and
+op_logical_neg
+id|get_sha1_treeish
+c_func
+(paren
+id|argv
+(braket
+l_int|0
+)braket
+comma
+id|unused
+)paren
+)paren
+)paren
 (brace
-multiline_comment|/*&n;&t;&t;&t; * Ok, argv[0] looks like a rev; it should not&n;&t;&t;&t; * be a filename.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * Ok, argv[0] looks like a commit/tree; it should not&n;&t;&t;&t; * be a filename.&n;&t;&t;&t; */
 id|verify_non_filename
 c_func
 (paren
@@ -1289,11 +1316,6 @@ id|pathspec
 op_assign
 l_int|NULL
 suffix:semicolon
-r_struct
-id|commit
-op_star
-id|commit
-suffix:semicolon
 r_const
 r_struct
 id|option
@@ -1475,6 +1497,18 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|pathspec
+)paren
+(brace
+r_struct
+id|commit
+op_star
+id|commit
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|get_sha1_committish
 c_func
 (paren
@@ -1489,13 +1523,12 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Failed to resolve &squot;%s&squot; as a valid ref.&quot;
+l_string|&quot;Failed to resolve &squot;%s&squot; as a valid revision.&quot;
 )paren
 comma
 id|rev
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * NOTE: As &quot;git reset $treeish -- $path&quot; should be usable on&n;&t; * any tree-ish, this is not strictly correct. We are not&n;&t; * moving the HEAD to any commit; we are merely resetting the&n;&t; * entries in the index to that of a treeish.&n;&t; */
 id|commit
 op_assign
 id|lookup_commit_reference
@@ -1530,6 +1563,72 @@ comma
 id|commit-&gt;object.sha1
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+r_struct
+id|tree
+op_star
+id|tree
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|get_sha1_treeish
+c_func
+(paren
+id|rev
+comma
+id|sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Failed to resolve &squot;%s&squot; as a valid tree.&quot;
+)paren
+comma
+id|rev
+)paren
+suffix:semicolon
+id|tree
+op_assign
+id|parse_tree_indirect
+c_func
+(paren
+id|sha1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|tree
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Could not parse object &squot;%s&squot;.&quot;
+)paren
+comma
+id|rev
+)paren
+suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|sha1
+comma
+id|tree-&gt;object.sha1
+)paren
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -1909,7 +2008,11 @@ id|quiet
 id|print_new_head_line
 c_func
 (paren
-id|commit
+id|lookup_commit_reference
+c_func
+(paren
+id|sha1
+)paren
 )paren
 suffix:semicolon
 id|remove_branch_state
