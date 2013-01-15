@@ -26,33 +26,10 @@ op_star
 id|name
 suffix:semicolon
 multiline_comment|/* foreign! maybe preset? */
-DECL|member|path
-r_char
-op_star
-id|path
-suffix:semicolon
-multiline_comment|/* own */
 DECL|member|uidvalidity
 r_int
 id|uidvalidity
 suffix:semicolon
-DECL|member|opts
-r_int
-r_char
-id|opts
-suffix:semicolon
-multiline_comment|/* maybe preset? */
-multiline_comment|/* note that the following do _not_ reflect stats from msgs, but mailbox totals */
-DECL|member|count
-r_int
-id|count
-suffix:semicolon
-multiline_comment|/* # of messages */
-DECL|member|recent
-r_int
-id|recent
-suffix:semicolon
-multiline_comment|/* # of recent messages - don&squot;t trust this beyond the initial read */
 )brace
 suffix:semicolon
 DECL|variable|imap_send_usage
@@ -4002,6 +3979,7 @@ comma
 id|arg
 )paren
 )paren
+(brace
 id|parse_capability
 c_func
 (paren
@@ -4010,6 +3988,7 @@ comma
 id|cmd
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -4026,47 +4005,8 @@ id|cmd
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
-l_string|&quot;EXISTS&quot;
-comma
-id|arg1
-)paren
-)paren
-id|ctx-&gt;gen.count
-op_assign
-id|atoi
-c_func
-(paren
-id|arg
-)paren
 suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
-l_string|&quot;RECENT&quot;
-comma
-id|arg1
-)paren
-)paren
-id|ctx-&gt;gen.recent
-op_assign
-id|atoi
-c_func
-(paren
-id|arg
-)paren
-suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t;&t;   * Unhandled response-data with at least two words.&n;&t;&t;&t;&t;   * Ignore it.&n;&t;&t;&t;&t;   *&n;&t;&t;&t;&t;   * NEEDSWORK: Previously this case handled &squot;&lt;num&gt; EXISTS&squot;&n;&t;&t;&t;&t;   * and &squot;&lt;num&gt; RECENT&squot; but as a probably-unintended side&n;&t;&t;&t;&t;   * effect it ignores other unrecognized two-word&n;&t;&t;&t;&t;   * responses.  imap-send doesn&squot;t ever try to read&n;&t;&t;&t;&t;   * messages or mailboxes these days, so consider&n;&t;&t;&t;&t;   * eliminating this case.&n;&t;&t;&t;&t;   */
 )brace
 r_else
 (brace
@@ -6816,9 +6756,6 @@ id|DRV_OK
 )paren
 r_return
 id|ret
-suffix:semicolon
-id|gctx-&gt;count
-op_increment
 suffix:semicolon
 r_return
 id|DRV_OK
