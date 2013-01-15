@@ -471,23 +471,6 @@ comma
 multiline_comment|/* auth_method */
 )brace
 suffix:semicolon
-DECL|struct|imap_store_conf
-r_struct
-id|imap_store_conf
-(brace
-DECL|member|gen
-r_struct
-id|store_conf
-id|gen
-suffix:semicolon
-DECL|member|server
-r_struct
-id|imap_server_conf
-op_star
-id|server
-suffix:semicolon
-)brace
-suffix:semicolon
 DECL|macro|NIL
 mdefine_line|#define NIL&t;(void *)0x1
 DECL|macro|LIST
