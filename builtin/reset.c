@@ -1930,9 +1930,22 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|err
-op_logical_and
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Could not reset index file to revision &squot;%s&squot;.&quot;
+)paren
+comma
+id|rev
+)paren
+suffix:semicolon
+r_if
+c_cond
 (paren
 id|write_cache
 c_func
@@ -1950,11 +1963,7 @@ c_func
 id|lock
 )paren
 )paren
-)paren
-(brace
-id|err
-op_assign
-id|error
+id|die
 c_func
 (paren
 id|_
@@ -1962,24 +1971,6 @@ c_func
 (paren
 l_string|&quot;Could not write new index file.&quot;
 )paren
-)paren
-suffix:semicolon
-)brace
-r_if
-c_cond
-(paren
-id|err
-)paren
-id|die
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Could not reset index file to revision &squot;%s&squot;.&quot;
-)paren
-comma
-id|rev
 )paren
 suffix:semicolon
 )brace
