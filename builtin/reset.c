@@ -1091,9 +1091,6 @@ op_star
 id|parse_args
 c_func
 (paren
-r_int
-id|argc
-comma
 r_const
 r_char
 op_star
@@ -1112,11 +1109,6 @@ op_star
 id|rev_ret
 )paren
 (brace
-r_int
-id|i
-op_assign
-l_int|0
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -1131,13 +1123,14 @@ id|unused
 l_int|20
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * Possible arguments are:&n;&t; *&n;&t; * git reset [-opts] &lt;rev&gt; &lt;paths&gt;...&n;&t; * git reset [-opts] &lt;rev&gt; -- &lt;paths&gt;...&n;&t; * git reset [-opts] -- &lt;paths&gt;...&n;&t; * git reset [-opts] &lt;paths&gt;...&n;&t; *&n;&t; * At this point, argv[i] points immediately after [-opts].&n;&t; */
+multiline_comment|/*&n;&t; * Possible arguments are:&n;&t; *&n;&t; * git reset [-opts] &lt;rev&gt; &lt;paths&gt;...&n;&t; * git reset [-opts] &lt;rev&gt; -- &lt;paths&gt;...&n;&t; * git reset [-opts] -- &lt;paths&gt;...&n;&t; * git reset [-opts] &lt;paths&gt;...&n;&t; *&n;&t; * At this point, argv points immediately after [-opts].&n;&t; */
 r_if
 c_cond
 (paren
-id|i
-OL
-id|argc
+id|argv
+(braket
+l_int|0
+)braket
 )paren
 (brace
 r_if
@@ -1149,14 +1142,14 @@ c_func
 (paren
 id|argv
 (braket
-id|i
+l_int|0
 )braket
 comma
 l_string|&quot;--&quot;
 )paren
 )paren
 (brace
-id|i
+id|argv
 op_increment
 suffix:semicolon
 multiline_comment|/* reset to HEAD, possibly with paths */
@@ -1165,11 +1158,10 @@ r_else
 r_if
 c_cond
 (paren
-id|i
-op_plus
+id|argv
+(braket
 l_int|1
-OL
-id|argc
+)braket
 op_logical_and
 op_logical_neg
 id|strcmp
@@ -1177,8 +1169,6 @@ c_func
 (paren
 id|argv
 (braket
-id|i
-op_plus
 l_int|1
 )braket
 comma
@@ -1190,15 +1180,15 @@ id|rev
 op_assign
 id|argv
 (braket
-id|i
+l_int|0
 )braket
 suffix:semicolon
-id|i
+id|argv
 op_add_assign
 l_int|2
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * Otherwise, argv[i] could be either &lt;rev&gt; or &lt;paths&gt; and&n;&t;&t; * has to be unambiguous.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Otherwise, argv[0] could be either &lt;rev&gt; or &lt;paths&gt; and&n;&t;&t; * has to be unambiguous.&n;&t;&t; */
 r_else
 r_if
 c_cond
@@ -1209,14 +1199,14 @@ c_func
 (paren
 id|argv
 (braket
-id|i
+l_int|0
 )braket
 comma
 id|unused
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t; * Ok, argv[i] looks like a rev; it should not&n;&t;&t;&t; * be a filename.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * Ok, argv[0] looks like a rev; it should not&n;&t;&t;&t; * be a filename.&n;&t;&t;&t; */
 id|verify_non_filename
 c_func
 (paren
@@ -1224,17 +1214,15 @@ id|prefix
 comma
 id|argv
 (braket
-id|i
+l_int|0
 )braket
 )paren
 suffix:semicolon
 id|rev
 op_assign
+op_star
 id|argv
-(braket
-id|i
 op_increment
-)braket
 suffix:semicolon
 )brace
 r_else
@@ -1247,7 +1235,7 @@ id|prefix
 comma
 id|argv
 (braket
-id|i
+l_int|0
 )braket
 comma
 l_int|1
@@ -1261,9 +1249,10 @@ op_assign
 id|rev
 suffix:semicolon
 r_return
-id|i
-OL
-id|argc
+id|argv
+(braket
+l_int|0
+)braket
 ques
 c_cond
 id|get_pathspec
@@ -1272,8 +1261,6 @@ c_func
 id|prefix
 comma
 id|argv
-op_plus
-id|i
 )paren
 suffix:colon
 l_int|NULL
@@ -1538,8 +1525,6 @@ op_assign
 id|parse_args
 c_func
 (paren
-id|argc
-comma
 id|argv
 comma
 id|prefix
