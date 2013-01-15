@@ -14,24 +14,6 @@ macro_line|#else
 macro_line|#include &lt;openssl/evp.h&gt;
 macro_line|#include &lt;openssl/hmac.h&gt;
 macro_line|#endif
-DECL|struct|store
-r_struct
-id|store
-(brace
-multiline_comment|/* currently open mailbox */
-DECL|member|name
-r_const
-r_char
-op_star
-id|name
-suffix:semicolon
-multiline_comment|/* foreign! maybe preset? */
-DECL|member|uidvalidity
-r_int
-id|uidvalidity
-suffix:semicolon
-)brace
-suffix:semicolon
 DECL|variable|imap_send_usage
 r_static
 r_const
@@ -442,10 +424,17 @@ DECL|struct|imap_store
 r_struct
 id|imap_store
 (brace
-DECL|member|gen
-r_struct
-id|store
-id|gen
+multiline_comment|/* currently open mailbox */
+DECL|member|name
+r_const
+r_char
+op_star
+id|name
+suffix:semicolon
+multiline_comment|/* foreign! maybe preset? */
+DECL|member|uidvalidity
+r_int
+id|uidvalidity
 suffix:semicolon
 DECL|member|imap
 r_struct
@@ -2989,7 +2978,7 @@ id|s
 op_logical_or
 op_logical_neg
 (paren
-id|ctx-&gt;gen.uidvalidity
+id|ctx-&gt;uidvalidity
 op_assign
 id|atoi
 c_func
@@ -3169,7 +3158,7 @@ id|s
 op_logical_or
 op_logical_neg
 (paren
-id|ctx-&gt;gen.uidvalidity
+id|ctx-&gt;uidvalidity
 op_assign
 id|atoi
 c_func
@@ -6147,7 +6136,7 @@ l_int|NULL
 suffix:semicolon
 id|box
 op_assign
-id|ctx-&gt;gen.name
+id|ctx-&gt;name
 suffix:semicolon
 id|prefix
 op_assign
@@ -7304,7 +7293,7 @@ suffix:colon
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|ctx-&gt;gen.name
+id|ctx-&gt;name
 op_assign
 id|imap_folder
 suffix:semicolon
