@@ -604,9 +604,6 @@ r_int
 id|flags
 )paren
 (brace
-r_int
-id|result
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -639,8 +636,6 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-id|result
-op_assign
 id|refresh_index
 c_func
 (paren
@@ -661,11 +656,6 @@ c_func
 l_string|&quot;Unstaged changes after reset:&quot;
 )paren
 )paren
-ques
-c_cond
-l_int|1
-suffix:colon
-l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -693,7 +683,7 @@ l_string|&quot;Could not refresh index&quot;
 )paren
 suffix:semicolon
 r_return
-id|result
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|update_index_from_diff
