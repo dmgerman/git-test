@@ -1874,7 +1874,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pathspec
+id|reset_type
+op_eq
+id|MIXED
 )paren
 (brace
 r_if
