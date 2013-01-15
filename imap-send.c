@@ -14,42 +14,6 @@ macro_line|#else
 macro_line|#include &lt;openssl/evp.h&gt;
 macro_line|#include &lt;openssl/hmac.h&gt;
 macro_line|#endif
-multiline_comment|/* For message-&gt;status */
-DECL|macro|M_RECENT
-mdefine_line|#define M_RECENT       (1&lt;&lt;0) /* unsyncable flag; maildir_* depend on this being 1&lt;&lt;0 */
-DECL|macro|M_DEAD
-mdefine_line|#define M_DEAD         (1&lt;&lt;1) /* expunged */
-DECL|macro|M_FLAGS
-mdefine_line|#define M_FLAGS        (1&lt;&lt;2) /* flags fetched */
-DECL|struct|message
-r_struct
-id|message
-(brace
-DECL|member|next
-r_struct
-id|message
-op_star
-id|next
-suffix:semicolon
-DECL|member|size
-r_int
-id|size
-suffix:semicolon
-multiline_comment|/* zero implies &quot;not fetched&quot; */
-DECL|member|uid
-r_int
-id|uid
-suffix:semicolon
-DECL|member|flags
-DECL|member|status
-r_int
-r_char
-id|flags
-comma
-id|status
-suffix:semicolon
-)brace
-suffix:semicolon
 DECL|struct|store
 r_struct
 id|store
@@ -66,13 +30,6 @@ DECL|member|path
 r_char
 op_star
 id|path
-suffix:semicolon
-multiline_comment|/* own */
-DECL|member|msgs
-r_struct
-id|message
-op_star
-id|msgs
 suffix:semicolon
 multiline_comment|/* own */
 DECL|member|uidvalidity
@@ -190,16 +147,6 @@ c_func
 (paren
 r_char
 op_star
-op_star
-)paren
-suffix:semicolon
-r_static
-r_void
-id|free_generic_messages
-c_func
-(paren
-r_struct
-id|message
 op_star
 )paren
 suffix:semicolon
@@ -1925,46 +1872,6 @@ suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
-)brace
-DECL|function|free_generic_messages
-r_static
-r_void
-id|free_generic_messages
-c_func
-(paren
-r_struct
-id|message
-op_star
-id|msgs
-)paren
-(brace
-r_struct
-id|message
-op_star
-id|tmsg
-suffix:semicolon
-r_for
-c_loop
-(paren
-suffix:semicolon
-id|msgs
-suffix:semicolon
-id|msgs
-op_assign
-id|tmsg
-)paren
-(brace
-id|tmsg
-op_assign
-id|msgs-&gt;next
-suffix:semicolon
-id|free
-c_func
-(paren
-id|msgs
-)paren
-suffix:semicolon
-)brace
 )brace
 DECL|function|nfsnprintf
 r_static
@@ -4848,12 +4755,6 @@ id|imap_store
 op_star
 )paren
 id|ctx
-)paren
-suffix:semicolon
-id|free_generic_messages
-c_func
-(paren
-id|ctx-&gt;msgs
 )paren
 suffix:semicolon
 id|free
