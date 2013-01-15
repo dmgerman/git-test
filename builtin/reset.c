@@ -1985,18 +1985,13 @@ comma
 id|sha1
 )paren
 suffix:semicolon
-r_switch
-c_cond
-(paren
-id|reset_type
-)paren
-(brace
-r_case
-id|HARD
-suffix:colon
 r_if
 c_cond
 (paren
+id|reset_type
+op_eq
+id|HARD
+op_logical_and
 op_logical_neg
 id|update_ref_status
 op_logical_and
@@ -2009,17 +2004,14 @@ c_func
 id|commit
 )paren
 suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-id|SOFT
-suffix:colon
-multiline_comment|/* Nothing else to do. */
-r_break
-suffix:semicolon
-r_case
+r_else
+r_if
+c_cond
+(paren
+id|reset_type
+op_eq
 id|MIXED
-suffix:colon
+)paren
 multiline_comment|/* Report what has not been updated. */
 id|update_index_refresh
 c_func
@@ -2036,9 +2028,6 @@ suffix:colon
 id|REFRESH_IN_PORCELAIN
 )paren
 suffix:semicolon
-r_break
-suffix:semicolon
-)brace
 id|remove_branch_state
 c_func
 (paren
