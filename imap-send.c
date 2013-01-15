@@ -149,17 +149,6 @@ suffix:semicolon
 multiline_comment|/* # of recent messages - don&squot;t trust this beyond the initial read */
 )brace
 suffix:semicolon
-DECL|struct|msg_data
-r_struct
-id|msg_data
-(brace
-DECL|member|data
-r_struct
-id|strbuf
-id|data
-suffix:semicolon
-)brace
-suffix:semicolon
 DECL|variable|imap_send_usage
 r_static
 r_const
@@ -6867,7 +6856,7 @@ op_star
 id|gctx
 comma
 r_struct
-id|msg_data
+id|strbuf
 op_star
 id|msg
 )paren
@@ -6909,8 +6898,7 @@ suffix:semicolon
 id|lf_to_crlf
 c_func
 (paren
-op_amp
-id|msg-&gt;data
+id|msg
 )paren
 suffix:semicolon
 id|memset
@@ -6929,15 +6917,14 @@ id|cb
 suffix:semicolon
 id|cb.dlen
 op_assign
-id|msg-&gt;data.len
+id|msg-&gt;len
 suffix:semicolon
 id|cb.data
 op_assign
 id|strbuf_detach
 c_func
 (paren
-op_amp
-id|msg-&gt;data
+id|msg
 comma
 l_int|NULL
 )paren
@@ -7843,12 +7830,10 @@ op_assign
 id|STRBUF_INIT
 suffix:semicolon
 r_struct
-id|msg_data
+id|strbuf
 id|msg
 op_assign
-(brace
 id|STRBUF_INIT
-)brace
 suffix:semicolon
 r_struct
 id|store
@@ -8150,7 +8135,7 @@ op_amp
 id|all_msgs
 comma
 op_amp
-id|msg.data
+id|msg
 comma
 op_amp
 id|ofs
@@ -8167,7 +8152,7 @@ id|wrap_in_html
 c_func
 (paren
 op_amp
-id|msg.data
+id|msg
 )paren
 suffix:semicolon
 id|r
