@@ -14,50 +14,6 @@ macro_line|#else
 macro_line|#include &lt;openssl/evp.h&gt;
 macro_line|#include &lt;openssl/hmac.h&gt;
 macro_line|#endif
-DECL|struct|store_conf
-r_struct
-id|store_conf
-(brace
-DECL|member|name
-r_char
-op_star
-id|name
-suffix:semicolon
-DECL|member|path
-r_const
-r_char
-op_star
-id|path
-suffix:semicolon
-multiline_comment|/* should this be here? its interpretation is driver-specific */
-DECL|member|map_inbox
-r_char
-op_star
-id|map_inbox
-suffix:semicolon
-DECL|member|trash
-r_char
-op_star
-id|trash
-suffix:semicolon
-DECL|member|max_size
-r_int
-id|max_size
-suffix:semicolon
-multiline_comment|/* off_t is overkill */
-DECL|member|trash_remote_new
-DECL|member|trash_only_new
-r_int
-id|trash_remote_new
-suffix:colon
-l_int|1
-comma
-id|trash_only_new
-suffix:colon
-l_int|1
-suffix:semicolon
-)brace
-suffix:semicolon
 multiline_comment|/* For message-&gt;status */
 DECL|macro|M_RECENT
 mdefine_line|#define M_RECENT       (1&lt;&lt;0) /* unsyncable flag; maildir_* depend on this being 1&lt;&lt;0 */
@@ -98,13 +54,6 @@ DECL|struct|store
 r_struct
 id|store
 (brace
-DECL|member|conf
-r_struct
-id|store_conf
-op_star
-id|conf
-suffix:semicolon
-multiline_comment|/* foreign */
 multiline_comment|/* currently open mailbox */
 DECL|member|name
 r_const
