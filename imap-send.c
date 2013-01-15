@@ -463,13 +463,6 @@ r_char
 op_star
 id|prefix
 suffix:semicolon
-DECL|member|trashnc
-r_int
-multiline_comment|/*currentnc:1,*/
-id|trashnc
-suffix:colon
-l_int|1
-suffix:semicolon
 )brace
 suffix:semicolon
 DECL|struct|imap_cmd_cb
@@ -5841,10 +5834,6 @@ multiline_comment|/* !preauth */
 id|ctx-&gt;prefix
 op_assign
 l_string|&quot;&quot;
-suffix:semicolon
-id|ctx-&gt;trashnc
-op_assign
-l_int|1
 suffix:semicolon
 r_return
 (paren
