@@ -447,10 +447,6 @@ r_struct
 id|store
 id|gen
 suffix:semicolon
-DECL|member|uidvalidity
-r_int
-id|uidvalidity
-suffix:semicolon
 DECL|member|imap
 r_struct
 id|imap
