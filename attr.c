@@ -2810,6 +2810,15 @@ id|path
 )paren
 id|path
 suffix:semicolon
+multiline_comment|/*&n;&t; * find_basename() includes the trailing slash, but we do&n;&t; * _not_ want it.&n;&t; */
+r_if
+c_cond
+(paren
+id|dirlen
+)paren
+id|dirlen
+op_decrement
+suffix:semicolon
 multiline_comment|/*&n;&t; * At the bottom of the attribute stack is the built-in&n;&t; * set of attribute definitions, followed by the contents&n;&t; * of $(prefix)/etc/gitattributes and a file specified by&n;&t; * core.attributesfile.  Then, contents from&n;&t; * .gitattribute files from directories closer to the&n;&t; * root to the ones in deeper directories are pushed&n;&t; * to the stack.  Finally, at the very top of the stack&n;&t; * we always keep the contents of $GIT_DIR/info/attributes.&n;&t; *&n;&t; * When checking, we use entries from near the top of the&n;&t; * stack, preferring $GIT_DIR/info/attributes, then&n;&t; * .gitattributes in deeper directories to shallower ones,&n;&t; * and finally use the built-in set as the default.&n;&t; */
 id|bootstrap_attr_stack
 c_func
