@@ -212,6 +212,11 @@ id|exclude_list
 op_assign
 id|STRING_LIST_INIT_NODUP
 suffix:semicolon
+r_struct
+id|exclude_list
+op_star
+id|el
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -490,6 +495,8 @@ op_amp
 id|dir
 )paren
 suffix:semicolon
+id|el
+op_assign
 id|add_exclude_list
 c_func
 (paren
@@ -529,16 +536,7 @@ l_string|&quot;&quot;
 comma
 l_int|0
 comma
-op_amp
-id|dir.exclude_list_group
-(braket
-id|EXC_CMDL
-)braket
-dot
 id|el
-(braket
-l_int|0
-)braket
 comma
 (paren
 id|i
