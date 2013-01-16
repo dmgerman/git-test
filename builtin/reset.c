@@ -32,13 +32,13 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git reset [-q] &lt;commit&gt; [--] &lt;paths&gt;...&quot;
+l_string|&quot;git reset [-q] &lt;tree-ish&gt; [--] &lt;paths&gt;...&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git reset --patch [&lt;commit&gt;] [--] [&lt;paths&gt;...]&quot;
+l_string|&quot;git reset --patch [&lt;tree-ish&gt;] [--] [&lt;paths&gt;...]&quot;
 )paren
 comma
 l_int|NULL
