@@ -194,7 +194,7 @@ c_func
 op_amp
 id|sb
 comma
-l_char|&squot;#&squot;
+id|comment_line_char
 )paren
 suffix:semicolon
 r_if
@@ -294,7 +294,7 @@ c_func
 op_amp
 id|linebuf
 comma
-l_char|&squot;#&squot;
+id|comment_line_char
 )paren
 suffix:semicolon
 r_if
@@ -4332,7 +4332,9 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;# %.*s&quot;
+l_string|&quot;%c %.*s&quot;
+comma
+id|comment_line_char
 comma
 (paren
 r_int
@@ -4358,7 +4360,9 @@ comma
 id|s
 )paren
 comma
-l_string|&quot;#&quot;
+l_string|&quot;%c&quot;
+comma
+id|comment_line_char
 )paren
 suffix:semicolon
 )brace

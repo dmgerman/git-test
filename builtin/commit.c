@@ -3666,9 +3666,11 @@ id|_
 c_func
 (paren
 l_string|&quot;Please enter the commit message for your changes.&quot;
-l_string|&quot; Lines starting&bslash;nwith &squot;#&squot; will be ignored, and an empty&quot;
+l_string|&quot; Lines starting&bslash;nwith &squot;%c&squot; will be ignored, and an empty&quot;
 l_string|&quot; message aborts the commit.&bslash;n&quot;
 )paren
+comma
+id|comment_line_char
 )paren
 suffix:semicolon
 r_else
@@ -3685,10 +3687,12 @@ c_func
 (paren
 l_string|&quot;Please enter the commit message for your changes.&quot;
 l_string|&quot; Lines starting&bslash;n&quot;
-l_string|&quot;with &squot;#&squot; will be kept; you may remove them&quot;
+l_string|&quot;with &squot;%c&squot; will be kept; you may remove them&quot;
 l_string|&quot; yourself if you want to.&bslash;n&quot;
 l_string|&quot;An empty message aborts the commit.&bslash;n&quot;
 )paren
+comma
+id|comment_line_char
 )paren
 suffix:semicolon
 r_if

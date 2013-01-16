@@ -4920,7 +4920,7 @@ c_func
 l_string|&quot;Please enter a commit message to explain why this merge is necessary,&bslash;n&quot;
 l_string|&quot;especially if it merges an updated upstream into a topic branch.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;Lines starting with &squot;#&squot; will be ignored, and an empty message aborts&bslash;n&quot;
+l_string|&quot;Lines starting with &squot;%c&squot; will be ignored, and an empty message aborts&bslash;n&quot;
 l_string|&quot;the commit.&bslash;n&quot;
 )paren
 suffix:semicolon
@@ -4941,17 +4941,6 @@ id|strbuf
 id|msg
 op_assign
 id|STRBUF_INIT
-suffix:semicolon
-r_const
-r_char
-op_star
-id|comment
-op_assign
-id|_
-c_func
-(paren
-id|merge_editor_comment
-)paren
 suffix:semicolon
 id|strbuf_addbuf
 c_func
@@ -4979,21 +4968,19 @@ l_int|0
 OL
 id|option_edit
 )paren
-id|strbuf_add_lines
+id|strbuf_commented_addf
 c_func
 (paren
 op_amp
 id|msg
 comma
-l_string|&quot;# &quot;
-comma
-id|comment
-comma
-id|strlen
+id|_
 c_func
 (paren
-id|comment
+id|merge_editor_comment
 )paren
+comma
+id|comment_line_char
 )paren
 suffix:semicolon
 id|write_merge_msg

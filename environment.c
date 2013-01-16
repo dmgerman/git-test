@@ -295,6 +295,13 @@ r_int
 r_int
 id|pack_size_limit_cfg
 suffix:semicolon
+multiline_comment|/*&n; * The character that begins a commented line in user-editable file&n; * that is subject to stripspace.&n; */
+DECL|variable|comment_line_char
+r_char
+id|comment_line_char
+op_assign
+l_char|&squot;#&squot;
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int

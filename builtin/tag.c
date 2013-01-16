@@ -1275,11 +1275,8 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;#&bslash;n&quot;
-l_string|&quot;# Write a tag message&bslash;n&quot;
-l_string|&quot;# Lines starting with &squot;#&squot; will be ignored.&bslash;n&quot;
-l_string|&quot;#&bslash;n&quot;
+l_string|&quot;&bslash;nWrite a tag message&bslash;n&quot;
+l_string|&quot;Lines starting with &squot;%c&squot; will be ignored.&bslash;n&quot;
 )paren
 suffix:semicolon
 DECL|variable|tag_template_nocleanup
@@ -1293,12 +1290,9 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;#&bslash;n&quot;
-l_string|&quot;# Write a tag message&bslash;n&quot;
-l_string|&quot;# Lines starting with &squot;#&squot; will be kept; you may remove them&quot;
+l_string|&quot;&bslash;nWrite a tag message&bslash;n&quot;
+l_string|&quot;Lines starting with &squot;%c&squot; will be kept; you may remove them&quot;
 l_string|&quot; yourself if you want to.&bslash;n&quot;
-l_string|&quot;#&bslash;n&quot;
 )paren
 suffix:semicolon
 DECL|function|git_tag_config
@@ -1813,6 +1807,7 @@ c_func
 id|prev
 )paren
 )paren
+(brace
 id|write_tag_body
 c_func
 (paren
@@ -1821,7 +1816,24 @@ comma
 id|prev
 )paren
 suffix:semicolon
+)brace
 r_else
+(brace
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|strbuf_addch
+c_func
+(paren
+op_amp
+id|buf
+comma
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1829,10 +1841,11 @@ id|opt-&gt;cleanup_mode
 op_eq
 id|CLEANUP_ALL
 )paren
-id|write_or_die
+id|strbuf_commented_addf
 c_func
 (paren
-id|fd
+op_amp
+id|buf
 comma
 id|_
 c_func
@@ -1840,40 +1853,43 @@ c_func
 id|tag_template
 )paren
 comma
-id|strlen
-c_func
-(paren
-id|_
-c_func
-(paren
-id|tag_template
-)paren
-)paren
+id|comment_line_char
 )paren
 suffix:semicolon
 r_else
+id|strbuf_commented_addf
+c_func
+(paren
+op_amp
+id|buf
+comma
+id|_
+c_func
+(paren
+id|tag_template_nocleanup
+)paren
+comma
+id|comment_line_char
+)paren
+suffix:semicolon
 id|write_or_die
 c_func
 (paren
 id|fd
 comma
-id|_
-c_func
-(paren
-id|tag_template_nocleanup
-)paren
+id|buf.buf
 comma
-id|strlen
-c_func
-(paren
-id|_
-c_func
-(paren
-id|tag_template_nocleanup
-)paren
-)paren
+id|buf.len
 )paren
 suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
+)brace
 id|close
 c_func
 (paren
