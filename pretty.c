@@ -5010,14 +5010,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|prefixcmp
 c_func
 (paren
 id|begin
 comma
 l_string|&quot;auto,&quot;
-comma
-l_int|5
 )paren
 )paren
 (brace
@@ -6751,14 +6749,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;parent &quot;
-comma
-l_int|7
 )paren
 )paren
 (brace
@@ -6847,14 +6843,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;author &quot;
-comma
-l_int|7
 )paren
 )paren
 (brace
@@ -6889,14 +6883,12 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;committer &quot;
-comma
-l_int|10
 )paren
 op_logical_and
 (paren
