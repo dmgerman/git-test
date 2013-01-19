@@ -12,6 +12,7 @@ macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;version.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 DECL|variable|upload_pack_usage
 r_static
 r_const
@@ -3709,6 +3710,7 @@ id|shallows.objects
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* return non-zero if the ref is hidden, otherwise 0 */
 DECL|function|mark_our_ref
 r_static
 r_int
@@ -3744,6 +3746,18 @@ c_func
 (paren
 id|sha1
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ref_is_hidden
+c_func
+(paren
+id|refname
+)paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -3824,6 +3838,9 @@ id|peeled
 l_int|20
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|mark_our_ref
 c_func
 (paren
@@ -3835,6 +3852,9 @@ id|flag
 comma
 id|cb_data
 )paren
+)paren
+r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -4020,6 +4040,39 @@ c_func
 )paren
 suffix:semicolon
 )brace
+)brace
+DECL|function|upload_pack_config
+r_static
+r_int
+id|upload_pack_config
+c_func
+(paren
+r_const
+r_char
+op_star
+id|var
+comma
+r_const
+r_char
+op_star
+id|value
+comma
+r_void
+op_star
+id|unused
+)paren
+(brace
+r_return
+id|parse_hide_refs_config
+c_func
+(paren
+id|var
+comma
+id|value
+comma
+l_string|&quot;uploadpack&quot;
+)paren
+suffix:semicolon
 )brace
 DECL|function|main
 r_int
@@ -4276,6 +4329,14 @@ id|die
 c_func
 (paren
 l_string|&quot;attempt to fetch/clone from a shallow repository&quot;
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|upload_pack_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
