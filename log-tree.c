@@ -3386,6 +3386,10 @@ id|ctx.fmt
 op_assign
 id|opt-&gt;commit_format
 suffix:semicolon
+id|ctx.mailmap
+op_assign
+id|opt-&gt;mailmap
+suffix:semicolon
 id|ctx.color
 op_assign
 id|opt-&gt;diffopt.use_color
