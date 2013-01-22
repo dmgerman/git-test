@@ -3613,7 +3613,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ref-&gt;requires_force
+id|ref-&gt;forced_update
 )paren
 (brace
 id|strcat
