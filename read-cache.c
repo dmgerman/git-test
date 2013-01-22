@@ -867,6 +867,8 @@ c_cond
 (paren
 id|trust_ctime
 op_logical_and
+id|check_stat
+op_logical_and
 id|ce-&gt;ce_ctime.sec
 op_ne
 (paren
@@ -883,6 +885,8 @@ macro_line|#ifdef USE_NSEC
 r_if
 c_cond
 (paren
+id|check_stat
+op_logical_and
 id|ce-&gt;ce_mtime.nsec
 op_ne
 id|ST_MTIME_NSEC
@@ -901,6 +905,8 @@ c_cond
 (paren
 id|trust_ctime
 op_logical_and
+id|check_stat
+op_logical_and
 id|ce-&gt;ce_ctime.nsec
 op_ne
 id|ST_CTIME_NSEC
@@ -915,6 +921,12 @@ op_or_assign
 id|CTIME_CHANGED
 suffix:semicolon
 macro_line|#endif
+r_if
+c_cond
+(paren
+id|check_stat
+)paren
+(brace
 r_if
 c_cond
 (paren
@@ -953,11 +965,14 @@ id|changed
 op_or_assign
 id|INODE_CHANGED
 suffix:semicolon
+)brace
 macro_line|#ifdef USE_STDEV
 multiline_comment|/*&n;&t; * st_dev breaks on network filesystems where different&n;&t; * clients will have different views of what &quot;device&quot;&n;&t; * the filesystem is on&n;&t; */
 r_if
 c_cond
 (paren
+id|check_stat
+op_logical_and
 id|ce-&gt;ce_dev
 op_ne
 (paren
