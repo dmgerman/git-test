@@ -122,6 +122,32 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
+id|REF_STATUS_REJECT_FETCH_FIRST
+suffix:colon
+id|res
+op_assign
+l_string|&quot;error&quot;
+suffix:semicolon
+id|msg
+op_assign
+l_string|&quot;fetch first&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
+id|REF_STATUS_REJECT_NEEDS_FORCE
+suffix:colon
+id|res
+op_assign
+l_string|&quot;error&quot;
+suffix:semicolon
+id|msg
+op_assign
+l_string|&quot;needs force&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
 id|REF_STATUS_REJECT_ALREADY_EXISTS
 suffix:colon
 id|res

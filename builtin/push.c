@@ -898,6 +898,24 @@ l_string|&quot;(e.g. &squot;git pull&squot;) before pushing again.&bslash;n&quot
 l_string|&quot;See the &squot;Note about fast-forwards&squot; in &squot;git push --help&squot; for details.&quot;
 )paren
 suffix:semicolon
+DECL|variable|message_advice_ref_fetch_first
+r_static
+r_const
+r_char
+id|message_advice_ref_fetch_first
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;Updates were rejected because the remote contains work that you do&bslash;n&quot;
+l_string|&quot;not have locally. This is usually caused by another repository pushing&bslash;n&quot;
+l_string|&quot;to the same ref. You may want to first merge the remote changes (e.g.,&bslash;n&quot;
+l_string|&quot;&squot;git pull&squot;) before pushing again.&bslash;n&quot;
+l_string|&quot;See the &squot;Note about fast-forwards&squot; in &squot;git push --help&squot; for details.&quot;
+)paren
+suffix:semicolon
 DECL|variable|message_advice_ref_already_exists
 r_static
 r_const
@@ -911,6 +929,22 @@ c_func
 (paren
 l_string|&quot;Updates were rejected because the destination reference already exists&bslash;n&quot;
 l_string|&quot;in the remote.&quot;
+)paren
+suffix:semicolon
+DECL|variable|message_advice_ref_needs_force
+r_static
+r_const
+r_char
+id|message_advice_ref_needs_force
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;You cannot update a remote ref that points at a non-commit object,&bslash;n&quot;
+l_string|&quot;or update a remote ref to make it point at a non-commit object,&bslash;n&quot;
+l_string|&quot;without using the &squot;--force&squot; option.&bslash;n&quot;
 )paren
 suffix:semicolon
 DECL|function|advise_pull_before_push
@@ -1033,6 +1067,68 @@ id|_
 c_func
 (paren
 id|message_advice_ref_already_exists
+)paren
+)paren
+suffix:semicolon
+)brace
+DECL|function|advise_ref_fetch_first
+r_static
+r_void
+id|advise_ref_fetch_first
+c_func
+(paren
+r_void
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|advice_push_fetch_first
+op_logical_or
+op_logical_neg
+id|advice_push_update_rejected
+)paren
+r_return
+suffix:semicolon
+id|advise
+c_func
+(paren
+id|_
+c_func
+(paren
+id|message_advice_ref_fetch_first
+)paren
+)paren
+suffix:semicolon
+)brace
+DECL|function|advise_ref_needs_force
+r_static
+r_void
+id|advise_ref_needs_force
+c_func
+(paren
+r_void
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|advice_push_needs_force
+op_logical_or
+op_logical_neg
+id|advice_push_update_rejected
+)paren
+r_return
+suffix:semicolon
+id|advise
+c_func
+(paren
+id|_
+c_func
+(paren
+id|message_advice_ref_needs_force
 )paren
 )paren
 suffix:semicolon
@@ -1223,6 +1319,36 @@ id|REJECT_ALREADY_EXISTS
 )paren
 (brace
 id|advise_ref_already_exists
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|reject_reasons
+op_amp
+id|REJECT_FETCH_FIRST
+)paren
+(brace
+id|advise_ref_fetch_first
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|reject_reasons
+op_amp
+id|REJECT_NEEDS_FORCE
+)paren
+(brace
+id|advise_ref_needs_force
 c_func
 (paren
 )paren
