@@ -1883,6 +1883,16 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;check-ignore&quot;
+comma
+id|cmd_check_ignore
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
 l_string|&quot;check-ref-format&quot;
 comma
 id|cmd_check_ref_format

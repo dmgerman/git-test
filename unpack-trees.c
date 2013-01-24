@@ -4653,8 +4653,6 @@ l_string|&quot;&quot;
 comma
 l_int|0
 comma
-l_int|NULL
-comma
 op_amp
 id|el
 comma
