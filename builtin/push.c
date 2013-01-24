@@ -2067,6 +2067,25 @@ comma
 id|TRANSPORT_PUSH_PRUNE
 )paren
 comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;no-verify&quot;
+comma
+op_amp
+id|flags
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;bypass pre-push hook&quot;
+)paren
+comma
+id|TRANSPORT_PUSH_NO_HOOK
+)paren
+comma
 id|OPT_END
 c_func
 (paren
