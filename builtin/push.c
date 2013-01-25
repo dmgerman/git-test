@@ -927,8 +927,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;Updates were rejected because the destination reference already exists&bslash;n&quot;
-l_string|&quot;in the remote.&quot;
+l_string|&quot;Updates were rejected because the tag already exists in the remote.&quot;
 )paren
 suffix:semicolon
 DECL|variable|message_advice_ref_needs_force
