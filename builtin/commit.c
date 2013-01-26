@@ -4823,11 +4823,7 @@ l_int|NULL
 )paren
 id|out
 op_assign
-id|xstrdup
-c_func
-(paren
 id|commit-&gt;buffer
-)paren
 suffix:semicolon
 r_return
 id|out
