@@ -4761,9 +4761,6 @@ r_const
 r_char
 op_star
 id|out_enc
-comma
-op_star
-id|out
 suffix:semicolon
 r_struct
 id|commit
@@ -4803,8 +4800,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|out
-op_assign
+r_return
 id|logmsg_reencode
 c_func
 (paren
@@ -4812,21 +4808,6 @@ id|commit
 comma
 id|out_enc
 )paren
-suffix:semicolon
-multiline_comment|/*&n;&t; * If we failed to reencode the buffer, just copy it&n;&t; * byte for byte so the user can try to fix it up.&n;&t; * This also handles the case where input and output&n;&t; * encodings are identical.&n;&t; */
-r_if
-c_cond
-(paren
-id|out
-op_eq
-l_int|NULL
-)paren
-id|out
-op_assign
-id|commit-&gt;buffer
-suffix:semicolon
-r_return
-id|out
 suffix:semicolon
 )brace
 DECL|function|parse_and_validate_options
