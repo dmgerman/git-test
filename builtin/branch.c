@@ -2432,7 +2432,11 @@ r_char
 op_star
 id|sub
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot; **** invalid ref ****&quot;
+)paren
 suffix:semicolon
 r_struct
 id|commit
@@ -3148,7 +3152,11 @@ id|filter
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;object &squot;%s&squot; does not point to a commit&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -4954,7 +4962,11 @@ id|detached
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot give description to detached HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 id|branch_name
@@ -5027,7 +5039,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No commit on branch &squot;%s&squot; yet.&quot;
+)paren
 comma
 id|branch_name
 )paren
@@ -5037,7 +5053,11 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;No such branch &squot;%s&squot;.&quot;
+id|_
+c_func
+(paren
+l_string|&quot;No branch named &squot;%s&squot;.&quot;
+)paren
 comma
 id|branch_name
 )paren
