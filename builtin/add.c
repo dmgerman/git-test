@@ -2195,6 +2195,59 @@ r_return
 id|exit_status
 suffix:semicolon
 )brace
+DECL|function|warn_pathless_add
+r_static
+r_void
+id|warn_pathless_add
+c_func
+(paren
+r_const
+r_char
+op_star
+id|option_name
+comma
+r_const
+r_char
+op_star
+id|short_name
+)paren
+(brace
+multiline_comment|/*&n;&t; * To be consistent with &quot;git add -p&quot; and most Git&n;&t; * commands, we should default to being tree-wide, but&n;&t; * this is not the original behavior and can&squot;t be&n;&t; * changed until users trained themselves not to type&n;&t; * &quot;git add -u&quot; or &quot;git add -A&quot;. For now, we warn and&n;&t; * keep the old behavior. Later, this warning can be&n;&t; * turned into a die(...), and eventually we may&n;&t; * reallow the command with a new behavior.&n;&t; */
+id|warning
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;The behavior of &squot;git add %s (or %s)&squot; with no path argument from a&bslash;n&quot;
+l_string|&quot;subdirectory of the tree will change in Git 2.0 and should not be used anymore.&bslash;n&quot;
+l_string|&quot;To add content for the whole tree, run:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git add %s :/&bslash;n&quot;
+l_string|&quot;  (or git add %s :/)&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;To restrict the command to the current directory, run:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git add %s .&bslash;n&quot;
+l_string|&quot;  (or git add %s .)&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;With the current Git version, the command is restricted to the current directory.&quot;
+)paren
+comma
+id|option_name
+comma
+id|short_name
+comma
+id|option_name
+comma
+id|short_name
+comma
+id|option_name
+comma
+id|short_name
+)paren
+suffix:semicolon
+)brace
 DECL|function|cmd_add
 r_int
 id|cmd_add
@@ -2245,6 +2298,20 @@ suffix:semicolon
 r_char
 op_star
 id|seen
+op_assign
+l_int|NULL
+suffix:semicolon
+r_const
+r_char
+op_star
+id|option_with_implicit_dot
+op_assign
+l_int|NULL
+suffix:semicolon
+r_const
+r_char
+op_star
+id|short_option_with_implicit_dot
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -2366,11 +2433,37 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
 id|addremove
-op_logical_or
+)paren
+(brace
+id|option_with_implicit_dot
+op_assign
+l_string|&quot;--all&quot;
+suffix:semicolon
+id|short_option_with_implicit_dot
+op_assign
+l_string|&quot;-A&quot;
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|take_worktree_changes
 )paren
+(brace
+id|option_with_implicit_dot
+op_assign
+l_string|&quot;--update&quot;
+suffix:semicolon
+id|short_option_with_implicit_dot
+op_assign
+l_string|&quot;-u&quot;
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|option_with_implicit_dot
 op_logical_and
 op_logical_neg
 id|argc
@@ -2390,6 +2483,19 @@ l_string|&quot;.&quot;
 comma
 l_int|NULL
 )brace
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|prefix
+)paren
+id|warn_pathless_add
+c_func
+(paren
+id|option_with_implicit_dot
+comma
+id|short_option_with_implicit_dot
+)paren
 suffix:semicolon
 id|argc
 op_assign
