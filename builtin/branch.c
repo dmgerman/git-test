@@ -4836,6 +4836,23 @@ c_cond
 (paren
 r_delete
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|argc
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;branch name required&quot;
+)paren
+)paren
+suffix:semicolon
 r_return
 id|delete_branches
 c_func
@@ -4853,6 +4870,7 @@ comma
 id|quiet
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
