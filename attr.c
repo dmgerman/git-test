@@ -3318,7 +3318,7 @@ ques
 c_cond
 id|a-&gt;u.attr-&gt;name
 suffix:colon
-id|a-&gt;u.pattern
+id|a-&gt;u.pat.pattern
 comma
 id|attr
 comma
