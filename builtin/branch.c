@@ -4976,12 +4976,14 @@ l_int|0
 )braket
 suffix:semicolon
 r_else
-id|usage_with_options
+id|die
 c_func
 (paren
-id|builtin_branch_usage
-comma
-id|options
+id|_
+c_func
+(paren
+l_string|&quot;cannot edit description of more than one branch&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -5115,12 +5117,14 @@ l_int|1
 )paren
 suffix:semicolon
 r_else
-id|usage_with_options
+id|die
 c_func
 (paren
-id|builtin_branch_usage
-comma
-id|options
+id|_
+c_func
+(paren
+l_string|&quot;too many branches for a rename operation&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
