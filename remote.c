@@ -3319,7 +3319,7 @@ comma
 l_char|&squot;:&squot;
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Before going on, special case &quot;:&quot; (or &quot;+:&quot;) as a refspec&n;&t;&t; * for matching refs.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Before going on, special case &quot;:&quot; (or &quot;+:&quot;) as a refspec&n;&t;&t; * for pushing matching refs.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -3516,7 +3516,7 @@ c_cond
 id|fetch
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t; * LHS&n;&t;&t;&t; * - empty is allowed; it means HEAD.&n;&t;&t;&t; * - otherwise it must be a valid looking ref.&n;&t;&t;&t; */
+multiline_comment|/* LHS */
 r_if
 c_cond
 (paren
@@ -3530,11 +3530,12 @@ dot
 id|src
 )paren
 suffix:semicolon
-multiline_comment|/* empty is ok */
+multiline_comment|/* empty is ok; it means &quot;HEAD&quot; */
 r_else
 r_if
 c_cond
 (paren
+op_logical_neg
 id|check_refname_format
 c_func
 (paren
@@ -3548,10 +3549,13 @@ comma
 id|flags
 )paren
 )paren
+suffix:semicolon
+multiline_comment|/* valid looking ref is ok */
+r_else
 r_goto
 id|invalid
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * RHS&n;&t;&t;&t; * - missing is ok, and is same as empty.&n;&t;&t;&t; * - empty is ok; it means not to store.&n;&t;&t;&t; * - otherwise it must be a valid looking ref.&n;&t;&t;&t; */
+multiline_comment|/* RHS */
 r_if
 c_cond
 (paren
@@ -3564,7 +3568,7 @@ dot
 id|dst
 )paren
 suffix:semicolon
-multiline_comment|/* ok */
+multiline_comment|/* missing is ok; it is the same as empty */
 r_else
 r_if
 c_cond
@@ -3579,11 +3583,12 @@ dot
 id|dst
 )paren
 suffix:semicolon
-multiline_comment|/* ok */
+multiline_comment|/* empty is ok; it means &quot;do not store&quot; */
 r_else
 r_if
 c_cond
 (paren
+op_logical_neg
 id|check_refname_format
 c_func
 (paren
@@ -3597,6 +3602,9 @@ comma
 id|flags
 )paren
 )paren
+suffix:semicolon
+multiline_comment|/* valid looking ref is ok */
+r_else
 r_goto
 id|invalid
 suffix:semicolon
