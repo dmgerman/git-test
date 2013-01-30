@@ -14,6 +14,12 @@ id|trust_ctime
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|check_stat
+r_int
+id|check_stat
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|has_symlinks
 r_int
 id|has_symlinks
