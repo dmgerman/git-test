@@ -1276,6 +1276,10 @@ id|failed_errno
 op_assign
 id|failed_errno
 suffix:semicolon
+r_char
+op_star
+id|str
+suffix:semicolon
 multiline_comment|/*&n;&t; * In case of errors we must keep the promise to close FDs&n;&t; * that have been passed in via -&gt;in and -&gt;out.&n;&t; */
 id|need_in
 op_assign
@@ -1320,6 +1324,10 @@ c_func
 (paren
 id|cmd-&gt;out
 )paren
+suffix:semicolon
+id|str
+op_assign
+l_string|&quot;standard input&quot;
 suffix:semicolon
 r_goto
 id|fail_pipe
@@ -1389,6 +1397,10 @@ c_func
 (paren
 id|cmd-&gt;in
 )paren
+suffix:semicolon
+id|str
+op_assign
+l_string|&quot;standard output&quot;
 suffix:semicolon
 r_goto
 id|fail_pipe
@@ -1479,12 +1491,18 @@ c_func
 id|cmd-&gt;out
 )paren
 suffix:semicolon
+id|str
+op_assign
+l_string|&quot;standard error&quot;
+suffix:semicolon
 id|fail_pipe
 suffix:colon
 id|error
 c_func
 (paren
-l_string|&quot;cannot create pipe for %s: %s&quot;
+l_string|&quot;cannot create %s pipe for %s: %s&quot;
+comma
+id|str
 comma
 id|cmd-&gt;argv
 (braket
