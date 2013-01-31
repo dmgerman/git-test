@@ -122,7 +122,7 @@ comma
 (paren
 id|off_t
 )paren
-id|strtoull
+id|strtoumax
 c_func
 (paren
 id|argv
