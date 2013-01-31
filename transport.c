@@ -4147,6 +4147,10 @@ id|NON_FF_HEAD
 r_if
 c_cond
 (paren
+id|head
+op_ne
+l_int|NULL
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
