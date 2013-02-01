@@ -4416,22 +4416,6 @@ c_func
 id|remove_junk_on_signal
 )paren
 suffix:semicolon
-id|setenv
-c_func
-(paren
-id|CONFIG_ENVIRONMENT
-comma
-id|mkpath
-c_func
-(paren
-l_string|&quot;%s/config&quot;
-comma
-id|git_dir
-)paren
-comma
-l_int|1
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4532,13 +4516,6 @@ c_func
 (paren
 op_amp
 id|option_config
-)paren
-suffix:semicolon
-multiline_comment|/*&n;&t; * At this point, the config exists, so we do not need the&n;&t; * environment variable.  We actually need to unset it, too, to&n;&t; * re-enable parsing of the global configs.&n;&t; */
-id|unsetenv
-c_func
-(paren
-id|CONFIG_ENVIRONMENT
 )paren
 suffix:semicolon
 id|git_config
