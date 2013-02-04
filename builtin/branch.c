@@ -4919,6 +4919,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|argc
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|detached
 )paren
 id|die
@@ -4927,16 +4934,11 @@ c_func
 l_string|&quot;Cannot give description to detached HEAD&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|argc
-)paren
 id|branch_name
 op_assign
 id|head
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
