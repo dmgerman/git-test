@@ -1144,6 +1144,12 @@ r_case
 id|REF_STATUS_REJECT_ALREADY_EXISTS
 suffix:colon
 r_case
+id|REF_STATUS_REJECT_FETCH_FIRST
+suffix:colon
+r_case
+id|REF_STATUS_REJECT_NEEDS_FORCE
+suffix:colon
+r_case
 id|REF_STATUS_UPTODATE
 suffix:colon
 r_continue
