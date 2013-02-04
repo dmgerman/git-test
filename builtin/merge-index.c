@@ -258,10 +258,10 @@ r_return
 id|found
 suffix:semicolon
 )brace
-DECL|function|merge_file
+DECL|function|merge_one_path
 r_static
 r_void
-id|merge_file
+id|merge_one_path
 c_func
 (paren
 r_const
@@ -565,7 +565,7 @@ id|arg
 )paren
 suffix:semicolon
 )brace
-id|merge_file
+id|merge_one_path
 c_func
 (paren
 id|arg
