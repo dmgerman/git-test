@@ -3837,17 +3837,19 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-id|strbuf_addf
+id|strbuf_commented_addf
 c_func
 (paren
 op_amp
 id|buf
 comma
-l_string|&quot;# Please edit the description for the branch&bslash;n&quot;
-l_string|&quot;#   %s&bslash;n&quot;
-l_string|&quot;# Lines starting with &squot;#&squot; will be stripped.&bslash;n&quot;
+l_string|&quot;Please edit the description for the branch&bslash;n&quot;
+l_string|&quot;  %s&bslash;n&quot;
+l_string|&quot;Lines starting with &squot;%c&squot; will be stripped.&bslash;n&quot;
 comma
 id|branch_name
+comma
+id|comment_line_char
 )paren
 suffix:semicolon
 id|fp

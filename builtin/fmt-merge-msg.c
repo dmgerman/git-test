@@ -2802,12 +2802,10 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-id|strbuf_add_lines
+id|strbuf_add_commented_lines
 c_func
 (paren
 id|tagbuf
-comma
-l_string|&quot;# &quot;
 comma
 id|sig-&gt;buf
 comma
