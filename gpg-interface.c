@@ -672,6 +672,7 @@ c_cond
 (paren
 id|gpg_output
 )paren
+(brace
 id|strbuf_read
 c_func
 (paren
@@ -682,6 +683,13 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+id|close
+c_func
+(paren
+id|gpg.err
+)paren
+suffix:semicolon
+)brace
 id|ret
 op_assign
 id|finish_command
