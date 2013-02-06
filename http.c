@@ -3898,6 +3898,12 @@ r_char
 op_star
 id|t
 suffix:semicolon
+id|strbuf_reset
+c_func
+(paren
+id|type
+)paren
+suffix:semicolon
 id|curl_easy_getinfo
 c_func
 (paren
