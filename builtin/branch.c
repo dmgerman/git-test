@@ -2432,7 +2432,11 @@ r_char
 op_star
 id|sub
 op_assign
+id|_
+c_func
+(paren
 l_string|&quot; **** invalid ref ****&quot;
+)paren
 suffix:semicolon
 r_struct
 id|commit
@@ -3148,7 +3152,11 @@ id|filter
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;object &squot;%s&squot; does not point to a commit&quot;
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -4749,6 +4757,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|with_commit
+op_logical_or
+id|merge_filter
+op_ne
+id|NO_FILTER
+)paren
+id|list
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 op_logical_neg
 r_delete
@@ -4838,6 +4859,23 @@ c_cond
 (paren
 r_delete
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|argc
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;branch name required&quot;
+)paren
+)paren
+suffix:semicolon
 r_return
 id|delete_branches
 c_func
@@ -4855,6 +4893,7 @@ comma
 id|quiet
 )paren
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
@@ -4938,7 +4977,11 @@ id|detached
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot give description to detached HEAD&quot;
+)paren
 )paren
 suffix:semicolon
 id|branch_name
@@ -4962,12 +5005,14 @@ l_int|0
 )braket
 suffix:semicolon
 r_else
-id|usage_with_options
+id|die
 c_func
 (paren
-id|builtin_branch_usage
-comma
-id|options
+id|_
+c_func
+(paren
+l_string|&quot;cannot edit description of more than one branch&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -5009,7 +5054,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;No commit on branch &squot;%s&squot; yet.&quot;
+)paren
 comma
 id|branch_name
 )paren
@@ -5019,7 +5068,11 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;No such branch &squot;%s&squot;.&quot;
+id|_
+c_func
+(paren
+l_string|&quot;No branch named &squot;%s&squot;.&quot;
+)paren
 comma
 id|branch_name
 )paren
@@ -5101,12 +5154,14 @@ l_int|1
 )paren
 suffix:semicolon
 r_else
-id|usage_with_options
+id|die
 c_func
 (paren
-id|builtin_branch_usage
-comma
-id|options
+id|_
+c_func
+(paren
+l_string|&quot;too many branches for a rename operation&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
