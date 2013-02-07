@@ -11360,6 +11360,7 @@ id|mmfile_t
 op_star
 id|two
 comma
+r_const
 r_char
 op_star
 id|prefix
@@ -11693,6 +11694,7 @@ id|mmfile_t
 op_star
 id|two
 comma
+r_const
 r_char
 op_star
 id|prefix
