@@ -16714,12 +16714,6 @@ op_assign
 id|patch-&gt;next
 )paren
 (brace
-r_const
-r_int
-r_char
-op_star
-id|sha1_ptr
-suffix:semicolon
 r_int
 r_char
 id|sha1
@@ -16755,10 +16749,41 @@ id|patch-&gt;is_new
 )paren
 r_continue
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|S_ISGITLINK
+c_func
+(paren
+id|patch-&gt;old_mode
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|get_sha1_hex
+c_func
+(paren
+id|patch-&gt;old_sha1_prefix
+comma
+id|sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;submoule change for %s without full index name&quot;
+comma
+id|name
+)paren
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
 (paren
+op_logical_neg
 id|get_sha1_blob
 c_func
 (paren
@@ -16767,7 +16792,11 @@ comma
 id|sha1
 )paren
 )paren
-multiline_comment|/* git diff has no index line for mode/type changes */
+(brace
+suffix:semicolon
+multiline_comment|/* ok */
+)brace
+r_else
 r_if
 c_cond
 (paren
@@ -16778,6 +16807,7 @@ op_logical_neg
 id|patch-&gt;lines_deleted
 )paren
 (brace
+multiline_comment|/* mode-only change: update the current */
 r_if
 c_cond
 (paren
@@ -16798,10 +16828,6 @@ comma
 id|name
 )paren
 suffix:semicolon
-id|sha1_ptr
-op_assign
-id|sha1
-suffix:semicolon
 )brace
 r_else
 id|die
@@ -16813,11 +16839,6 @@ comma
 id|name
 )paren
 suffix:semicolon
-r_else
-id|sha1_ptr
-op_assign
-id|sha1
-suffix:semicolon
 id|ce
 op_assign
 id|make_cache_entry
@@ -16825,7 +16846,7 @@ c_func
 (paren
 id|patch-&gt;old_mode
 comma
-id|sha1_ptr
+id|sha1
 comma
 id|name
 comma
