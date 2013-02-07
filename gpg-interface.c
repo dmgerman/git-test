@@ -541,7 +541,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not create temporary file &squot;%s&squot;: %s&quot;
+)paren
 comma
 id|path
 comma
@@ -571,7 +575,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;failed writing detached signature to &squot;%s&squot;: %s&quot;
+)paren
 comma
 id|path
 comma
@@ -647,7 +655,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;could not run gpg.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
