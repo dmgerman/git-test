@@ -12043,6 +12043,15 @@ id|opt
 r_int
 id|retval
 suffix:semicolon
+r_const
+r_char
+op_star
+id|encoding
+suffix:semicolon
+r_char
+op_star
+id|message
+suffix:semicolon
 r_struct
 id|strbuf
 id|buf
@@ -12096,6 +12105,24 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * We grep in the user&squot;s output encoding, under the assumption that it&n;&t; * is the encoding they are most likely to write their grep pattern&n;&t; * for. In addition, it means we will match the &quot;notes&quot; encoding below,&n;&t; * so we will not end up with a buffer that has two different encodings&n;&t; * in it.&n;&t; */
+id|encoding
+op_assign
+id|get_log_output_encoding
+c_func
+(paren
+)paren
+suffix:semicolon
+id|message
+op_assign
+id|logmsg_reencode
+c_func
+(paren
+id|commit
+comma
+id|encoding
+)paren
+suffix:semicolon
 multiline_comment|/* Copy the commit to temporary if we are using &quot;fake&quot; headers */
 r_if
 c_cond
@@ -12108,7 +12135,7 @@ c_func
 op_amp
 id|buf
 comma
-id|commit-&gt;buffer
+id|message
 )paren
 suffix:semicolon
 r_if
@@ -12131,7 +12158,7 @@ c_func
 op_amp
 id|buf
 comma
-id|commit-&gt;buffer
+id|message
 )paren
 suffix:semicolon
 id|commit_rewrite_person
@@ -12176,7 +12203,7 @@ c_func
 op_amp
 id|buf
 comma
-id|commit-&gt;buffer
+id|message
 )paren
 suffix:semicolon
 id|format_display_notes
@@ -12187,16 +12214,13 @@ comma
 op_amp
 id|buf
 comma
-id|get_log_output_encoding
-c_func
-(paren
-)paren
+id|encoding
 comma
 l_int|1
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Find either in the commit object, or in the temporary */
+multiline_comment|/* Find either in the original commit message, or in the temporary */
 r_if
 c_cond
 (paren
@@ -12224,12 +12248,12 @@ c_func
 op_amp
 id|opt-&gt;grep_filter
 comma
-id|commit-&gt;buffer
+id|message
 comma
 id|strlen
 c_func
 (paren
-id|commit-&gt;buffer
+id|message
 )paren
 )paren
 suffix:semicolon
@@ -12238,6 +12262,14 @@ c_func
 (paren
 op_amp
 id|buf
+)paren
+suffix:semicolon
+id|logmsg_free
+c_func
+(paren
+id|message
+comma
+id|commit
 )paren
 suffix:semicolon
 r_return
