@@ -5614,11 +5614,6 @@ op_assign
 id|sb-&gt;len
 id|ignore_footer
 suffix:semicolon
-r_int
-id|first
-op_assign
-l_int|1
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -5729,34 +5724,6 @@ suffix:semicolon
 multiline_comment|/* do nothing */
 id|k
 op_increment
-suffix:semicolon
-r_if
-c_cond
-(paren
-(paren
-id|buf
-(braket
-id|k
-)braket
-op_eq
-l_char|&squot; &squot;
-op_logical_or
-id|buf
-(braket
-id|k
-)braket
-op_eq
-l_char|&squot;&bslash;t&squot;
-)paren
-op_logical_and
-op_logical_neg
-id|first
-)paren
-r_continue
-suffix:semicolon
-id|first
-op_assign
-l_int|0
 suffix:semicolon
 r_for
 c_loop
