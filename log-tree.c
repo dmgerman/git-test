@@ -9,6 +9,8 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;gpg-interface.h&quot;
+DECL|macro|APPEND_SIGNOFF_DEDUP
+mdefine_line|#define APPEND_SIGNOFF_DEDUP (1u &lt;&lt;0)
 DECL|variable|name_decoration
 r_struct
 id|decoration
@@ -1265,12 +1267,20 @@ id|strbuf
 op_star
 id|sb
 comma
-r_const
-r_char
-op_star
-id|signoff
+r_int
+id|ignore_footer
+comma
+r_int
+id|flag
 )paren
 (brace
+r_int
+id|no_dup_sob
+op_assign
+id|flag
+op_amp
+id|APPEND_SIGNOFF_DEDUP
+suffix:semicolon
 r_static
 r_const
 r_char
@@ -1279,6 +1289,30 @@ id|signed_off_by
 )braket
 op_assign
 l_string|&quot;Signed-off-by: &quot;
+suffix:semicolon
+r_char
+op_star
+id|signoff
+op_assign
+id|xstrdup
+c_func
+(paren
+id|fmt_name
+c_func
+(paren
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_COMMITTER_NAME&quot;
+)paren
+comma
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_COMMITTER_EMAIL&quot;
+)paren
+)paren
+)paren
 suffix:semicolon
 r_int
 id|signoff_len
@@ -1375,6 +1409,12 @@ id|signoff_len
 r_continue
 suffix:semicolon
 multiline_comment|/* we already have him */
+id|free
+c_func
+(paren
+id|signoff
+)paren
+suffix:semicolon
 r_return
 suffix:semicolon
 )brace
@@ -1432,6 +1472,12 @@ c_func
 id|sb
 comma
 l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|signoff
 )paren
 suffix:semicolon
 )brace
@@ -3310,13 +3356,29 @@ c_cond
 id|ctx.need_8bit_cte
 op_ge
 l_int|0
+op_logical_and
+id|opt-&gt;add_signoff
 )paren
 id|ctx.need_8bit_cte
 op_assign
 id|has_non_ascii
 c_func
 (paren
-id|opt-&gt;add_signoff
+id|fmt_name
+c_func
+(paren
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_COMMITTER_NAME&quot;
+)paren
+comma
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_COMMITTER_EMAIL&quot;
+)paren
+)paren
 )paren
 suffix:semicolon
 id|ctx.date_mode
@@ -3370,7 +3432,9 @@ c_func
 op_amp
 id|msgbuf
 comma
-id|opt-&gt;add_signoff
+l_int|0
+comma
+id|APPEND_SIGNOFF_DEDUP
 )paren
 suffix:semicolon
 r_if
