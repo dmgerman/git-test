@@ -5809,6 +5809,24 @@ op_assign
 id|ch
 suffix:semicolon
 )brace
+multiline_comment|/* require at least one blank line */
+r_if
+c_cond
+(paren
+id|prev
+op_ne
+l_char|&squot;&bslash;n&squot;
+op_logical_or
+id|buf
+(braket
+id|i
+)braket
+op_ne
+l_char|&squot;&bslash;n&squot;
+)paren
+r_return
+l_int|0
+suffix:semicolon
 multiline_comment|/* advance to start of last paragraph */
 r_while
 c_loop
@@ -6011,9 +6029,6 @@ id|sob.buf
 r_if
 c_cond
 (paren
-op_logical_neg
-id|i
-op_logical_or
 op_logical_neg
 id|has_conforming_footer
 c_func
