@@ -4883,20 +4883,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|has_extension
-c_func
-(paren
-id|de-&gt;d_name
-comma
-l_string|&quot;.idx&quot;
-)paren
-)paren
-r_continue
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|len
 op_plus
 id|namelen
@@ -4910,7 +4896,6 @@ id|path
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/* Don&squot;t reopen a pack we already have. */
 id|strcpy
 c_func
 (paren
@@ -4921,6 +4906,19 @@ comma
 id|de-&gt;d_name
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|has_extension
+c_func
+(paren
+id|de-&gt;d_name
+comma
+l_string|&quot;.idx&quot;
+)paren
+)paren
+(brace
+multiline_comment|/* Don&squot;t reopen a pack we already have. */
 r_for
 c_loop
 (paren
@@ -4959,10 +4957,11 @@ r_if
 c_cond
 (paren
 id|p
-)paren
-r_continue
-suffix:semicolon
-multiline_comment|/* See if it really is a valid .idx file with corresponding&n;&t;&t; * .pack file that we can map.&n;&t;&t; */
+op_eq
+l_int|NULL
+op_logical_and
+multiline_comment|/*&n;&t;&t;&t;     * See if it really is a valid .idx file with&n;&t;&t;&t;     * corresponding .pack file that we can map.&n;&t;&t;&t;     */
+(paren
 id|p
 op_assign
 id|add_packed_git
@@ -4976,21 +4975,17 @@ id|namelen
 comma
 id|local
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|p
 )paren
-r_continue
-suffix:semicolon
+op_ne
+l_int|NULL
+)paren
 id|install_packed_git
 c_func
 (paren
 id|p
 )paren
 suffix:semicolon
+)brace
 )brace
 id|closedir
 c_func
