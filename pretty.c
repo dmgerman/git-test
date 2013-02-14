@@ -3562,6 +3562,11 @@ r_char
 op_star
 id|gpg_output
 suffix:semicolon
+DECL|member|gpg_status
+r_char
+op_star
+id|gpg_status
+suffix:semicolon
 DECL|member|good_bad
 r_char
 id|good_bad
@@ -4561,13 +4566,13 @@ op_assign
 (brace
 l_char|&squot;G&squot;
 comma
-l_string|&quot;: Good signature from &quot;
+l_string|&quot;&bslash;n[GNUPG:] GOODSIG &quot;
 )brace
 comma
 (brace
 l_char|&squot;B&squot;
 comma
-l_string|&quot;: BAD signature from &quot;
+l_string|&quot;&bslash;n[GNUPG:] BADSIG &quot;
 )brace
 comma
 )brace
@@ -4589,7 +4594,7 @@ r_char
 op_star
 id|buf
 op_assign
-id|ctx-&gt;signature.gpg_output
+id|ctx-&gt;signature.gpg_status
 suffix:semicolon
 r_int
 id|i
@@ -4665,6 +4670,8 @@ id|i
 dot
 id|check
 )paren
+op_plus
+l_int|17
 suffix:semicolon
 id|next
 op_assign
@@ -4721,6 +4728,12 @@ id|gpg_output
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_struct
+id|strbuf
+id|gpg_status
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 r_int
 id|status
 suffix:semicolon
@@ -4764,7 +4777,8 @@ comma
 op_amp
 id|gpg_output
 comma
-l_int|NULL
+op_amp
+id|gpg_status
 )paren
 suffix:semicolon
 r_if
@@ -4789,6 +4803,17 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|ctx-&gt;signature.gpg_status
+op_assign
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|gpg_status
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|parse_signature_lines
 c_func
 (paren
@@ -4797,6 +4822,13 @@ id|ctx
 suffix:semicolon
 id|out
 suffix:colon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|gpg_status
+)paren
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
