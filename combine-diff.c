@@ -2623,6 +2623,11 @@ id|sline
 op_star
 id|sline
 comma
+r_const
+r_char
+op_star
+id|line_prefix
+comma
 r_int
 r_int
 id|cnt
@@ -2940,12 +2945,14 @@ op_sub_assign
 id|null_context
 suffix:semicolon
 )brace
-id|fputs
+id|printf
 c_func
 (paren
-id|c_frag
+l_string|&quot;%s%s&quot;
 comma
-id|stdout
+id|line_prefix
+comma
+id|c_frag
 )paren
 suffix:semicolon
 r_for
@@ -3193,12 +3200,14 @@ c_loop
 id|ll
 )paren
 (brace
-id|fputs
+id|printf
 c_func
 (paren
-id|c_old
+l_string|&quot;%s%s&quot;
 comma
-id|stdout
+id|line_prefix
+comma
+id|c_old
 )paren
 suffix:semicolon
 r_for
@@ -3268,6 +3277,14 @@ suffix:semicolon
 id|p_mask
 op_assign
 l_int|1
+suffix:semicolon
+id|fputs
+c_func
+(paren
+id|line_prefix
+comma
+id|stdout
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -3516,6 +3533,11 @@ comma
 r_const
 r_char
 op_star
+id|line_prefix
+comma
+r_const
+r_char
+op_star
 id|c_meta
 comma
 r_const
@@ -3536,6 +3558,15 @@ c_func
 (paren
 op_amp
 id|buf
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|buf
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 id|strbuf_addstr
@@ -3606,6 +3637,11 @@ r_struct
 id|rev_info
 op_star
 id|rev
+comma
+r_const
+r_char
+op_star
+id|line_prefix
 comma
 r_int
 id|mode_differs
@@ -3734,6 +3770,8 @@ l_string|&quot;&quot;
 comma
 id|elem-&gt;path
 comma
+id|line_prefix
+comma
 id|c_meta
 comma
 id|c_reset
@@ -3742,7 +3780,9 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%sindex &quot;
+l_string|&quot;%s%sindex &quot;
+comma
+id|line_prefix
 comma
 id|c_meta
 )paren
@@ -3870,7 +3910,9 @@ id|added
 id|printf
 c_func
 (paren
-l_string|&quot;%snew file mode %06o&quot;
+l_string|&quot;%s%snew file mode %06o&quot;
+comma
+id|line_prefix
 comma
 id|c_meta
 comma
@@ -3887,7 +3929,9 @@ id|deleted
 id|printf
 c_func
 (paren
-l_string|&quot;%sdeleted file &quot;
+l_string|&quot;%s%sdeleted file &quot;
+comma
+id|line_prefix
 comma
 id|c_meta
 )paren
@@ -3979,6 +4023,8 @@ l_string|&quot;&quot;
 comma
 l_string|&quot;/dev/null&quot;
 comma
+id|line_prefix
+comma
 id|c_meta
 comma
 id|c_reset
@@ -3993,6 +4039,8 @@ comma
 id|a_prefix
 comma
 id|elem-&gt;path
+comma
+id|line_prefix
 comma
 id|c_meta
 comma
@@ -4013,6 +4061,8 @@ l_string|&quot;&quot;
 comma
 l_string|&quot;/dev/null&quot;
 comma
+id|line_prefix
+comma
 id|c_meta
 comma
 id|c_reset
@@ -4027,6 +4077,8 @@ comma
 id|b_prefix
 comma
 id|elem-&gt;path
+comma
+id|line_prefix
 comma
 id|c_meta
 comma
@@ -4121,6 +4173,17 @@ l_int|NULL
 suffix:semicolon
 r_int
 id|is_binary
+suffix:semicolon
+r_const
+r_char
+op_star
+id|line_prefix
+op_assign
+id|diff_line_prefix
+c_func
+(paren
+id|opt
+)paren
 suffix:semicolon
 id|context
 op_assign
@@ -4831,6 +4894,8 @@ id|dense
 comma
 id|rev
 comma
+id|line_prefix
+comma
 id|mode_differs
 comma
 l_int|0
@@ -5289,6 +5354,8 @@ id|dense
 comma
 id|rev
 comma
+id|line_prefix
+comma
 id|mode_differs
 comma
 l_int|1
@@ -5298,6 +5365,8 @@ id|dump_sline
 c_func
 (paren
 id|sline
+comma
+id|line_prefix
 comma
 id|cnt
 comma
@@ -5432,6 +5501,17 @@ id|inter_name_termination
 comma
 id|i
 suffix:semicolon
+r_const
+r_char
+op_star
+id|line_prefix
+op_assign
+id|diff_line_prefix
+c_func
+(paren
+id|opt
+)paren
+suffix:semicolon
 id|line_termination
 op_assign
 id|opt-&gt;line_termination
@@ -5472,6 +5552,14 @@ op_amp
 id|DIFF_FORMAT_RAW
 )paren
 (brace
+id|printf
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|line_prefix
+)paren
+suffix:semicolon
 multiline_comment|/* As many colons as there are parents */
 r_for
 c_loop
@@ -6285,9 +6373,17 @@ id|rev-&gt;verbose_header
 op_logical_and
 id|opt-&gt;output_format
 )paren
-id|putchar
+id|printf
 c_func
 (paren
+l_string|&quot;%s%c&quot;
+comma
+id|diff_line_prefix
+c_func
+(paren
+id|opt
+)paren
+comma
 id|opt-&gt;line_termination
 )paren
 suffix:semicolon
@@ -6432,9 +6528,17 @@ c_cond
 (paren
 id|needsep
 )paren
-id|putchar
+id|printf
 c_func
 (paren
+l_string|&quot;%s%c&quot;
+comma
+id|diff_line_prefix
+c_func
+(paren
+id|opt
+)paren
+comma
 id|opt-&gt;line_termination
 )paren
 suffix:semicolon
