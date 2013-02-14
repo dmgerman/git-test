@@ -449,7 +449,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Run &quot;gpg&quot; to see if the payload matches the detached signature.&n; * gpg_output, when set, receives the diagnostic output from GPG.&n; */
+multiline_comment|/*&n; * Run &quot;gpg&quot; to see if the payload matches the detached signature.&n; * gpg_output, when set, receives the diagnostic output from GPG.&n; * gpg_status, when set, receives the status output from GPG.&n; */
 DECL|function|verify_signed_buffer
 r_int
 id|verify_signed_buffer
@@ -491,6 +491,8 @@ op_assign
 (brace
 l_int|NULL
 comma
+l_string|&quot;--status-fd=1&quot;
+comma
 l_string|&quot;--verify&quot;
 comma
 l_string|&quot;FILE&quot;
@@ -510,6 +512,12 @@ r_int
 id|fd
 comma
 id|ret
+suffix:semicolon
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|args_gpg
 (braket
@@ -610,6 +618,10 @@ id|gpg.in
 op_assign
 l_int|1
 suffix:semicolon
+id|gpg.out
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -621,7 +633,7 @@ l_int|1
 suffix:semicolon
 id|args_gpg
 (braket
-l_int|2
+l_int|3
 )braket
 op_assign
 id|path
@@ -690,6 +702,23 @@ id|gpg.err
 )paren
 suffix:semicolon
 )brace
+id|strbuf_read
+c_func
+(paren
+op_amp
+id|buf
+comma
+id|gpg.out
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|close
+c_func
+(paren
+id|gpg.out
+)paren
+suffix:semicolon
 id|ret
 op_assign
 id|finish_command
@@ -703,6 +732,24 @@ id|unlink_or_warn
 c_func
 (paren
 id|path
+)paren
+suffix:semicolon
+id|ret
+op_or_assign
+op_logical_neg
+id|strstr
+c_func
+(paren
+id|buf.buf
+comma
+l_string|&quot;&bslash;n[GNUPG:] GOODSIG &quot;
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
 )paren
 suffix:semicolon
 r_return
