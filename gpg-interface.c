@@ -475,6 +475,11 @@ r_struct
 id|strbuf
 op_star
 id|gpg_output
+comma
+r_struct
+id|strbuf
+op_star
+id|gpg_status
 )paren
 (brace
 r_struct
@@ -518,6 +523,14 @@ id|strbuf
 id|buf
 op_assign
 id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|strbuf
+op_star
+id|pbuf
+op_assign
+op_amp
+id|buf
 suffix:semicolon
 id|args_gpg
 (braket
@@ -702,11 +715,19 @@ id|gpg.err
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|gpg_status
+)paren
+id|pbuf
+op_assign
+id|gpg_status
+suffix:semicolon
 id|strbuf_read
 c_func
 (paren
-op_amp
-id|buf
+id|pbuf
 comma
 id|gpg.out
 comma
@@ -740,7 +761,7 @@ op_logical_neg
 id|strstr
 c_func
 (paren
-id|buf.buf
+id|pbuf-&gt;buf
 comma
 l_string|&quot;&bslash;n[GNUPG:] GOODSIG &quot;
 )paren
@@ -752,6 +773,7 @@ op_amp
 id|buf
 )paren
 suffix:semicolon
+multiline_comment|/* no matter it was used or not */
 r_return
 id|ret
 suffix:semicolon

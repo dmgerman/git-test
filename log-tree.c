@@ -2244,6 +2244,8 @@ id|signature.len
 comma
 op_amp
 id|gpg_output
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -2622,6 +2624,8 @@ id|payload_size
 comma
 op_amp
 id|verify_message
+comma
+l_int|NULL
 )paren
 )paren
 (brace

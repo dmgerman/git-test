@@ -103,6 +103,8 @@ id|size
 id|len
 comma
 l_int|NULL
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
