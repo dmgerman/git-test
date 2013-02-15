@@ -10,7 +10,11 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#ifdef EXPAT_NEEDS_XMLPARSE_H
+macro_line|#include &lt;xmlparse.h&gt;
+macro_line|#else
 macro_line|#include &lt;expat.h&gt;
+macro_line|#endif
 DECL|variable|http_push_usage
 r_static
 r_const
