@@ -3,6 +3,43 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+DECL|variable|garbage
+r_static
+r_int
+r_int
+id|garbage
+suffix:semicolon
+DECL|function|real_report_garbage
+r_static
+r_void
+id|real_report_garbage
+c_func
+(paren
+r_const
+r_char
+op_star
+id|desc
+comma
+r_const
+r_char
+op_star
+id|path
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;%s: %s&quot;
+comma
+id|desc
+comma
+id|path
+)paren
+suffix:semicolon
+id|garbage
+op_increment
+suffix:semicolon
+)brace
 DECL|function|count_objects
 r_static
 r_void
@@ -446,10 +483,6 @@ comma
 id|packed_loose
 op_assign
 l_int|0
-comma
-id|garbage
-op_assign
-l_int|0
 suffix:semicolon
 id|off_t
 id|loose_size
@@ -514,6 +547,15 @@ id|count_objects_usage
 comma
 id|opts
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+id|report_garbage
+op_assign
+id|real_report_garbage
 suffix:semicolon
 id|memcpy
 c_func
