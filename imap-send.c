@@ -1022,6 +1022,7 @@ id|func
 suffix:semicolon
 )brace
 )brace
+macro_line|#ifdef NO_OPENSSL
 DECL|function|ssl_socket_connect
 r_static
 r_int
@@ -1040,7 +1041,6 @@ r_int
 id|verify
 )paren
 (brace
-macro_line|#ifdef NO_OPENSSL
 id|fprintf
 c_func
 (paren
@@ -1052,7 +1052,26 @@ suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 macro_line|#else
+DECL|function|ssl_socket_connect
+r_static
+r_int
+id|ssl_socket_connect
+c_func
+(paren
+r_struct
+id|imap_socket
+op_star
+id|sock
+comma
+r_int
+id|use_tls_only
+comma
+r_int
+id|verify
+)paren
+(brace
 macro_line|#if (OPENSSL_VERSION_NUMBER &gt;= 0x10000000L)
 r_const
 id|SSL_METHOD
@@ -1273,8 +1292,8 @@ suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
-macro_line|#endif
 )brace
+macro_line|#endif
 DECL|function|socket_read
 r_static
 r_int
