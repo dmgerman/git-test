@@ -505,11 +505,6 @@ id|seen
 (braket
 id|i
 )braket
-op_logical_and
-id|path
-(braket
-l_int|0
-)braket
 )paren
 (brace
 id|exclude

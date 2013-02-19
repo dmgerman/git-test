@@ -53,7 +53,12 @@ id|hash
 op_assign
 l_int|0x123
 suffix:semicolon
-r_do
+r_while
+c_loop
+(paren
+id|namelen
+op_decrement
+)paren
 (brace
 r_int
 r_char
@@ -80,13 +85,6 @@ op_plus
 id|c
 suffix:semicolon
 )brace
-r_while
-c_loop
-(paren
-op_decrement
-id|namelen
-)paren
-suffix:semicolon
 r_return
 id|hash
 suffix:semicolon
