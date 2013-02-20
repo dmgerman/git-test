@@ -93,48 +93,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|strlen
-c_func
-(paren
-id|argv
-(braket
-l_int|1
-)braket
-)paren
-op_plus
-l_int|1
-OG
-r_sizeof
-(paren
-id|buf
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;insanely long repository name&quot;
-)paren
-suffix:semicolon
-id|strcpy
-c_func
-(paren
-id|buf
-comma
-id|argv
-(braket
-l_int|1
-)braket
-)paren
-suffix:semicolon
-multiline_comment|/* enter-repo smudges its argument */
-r_if
-c_cond
-(paren
 op_logical_neg
 id|enter_repo
 c_func
 (paren
-id|buf
+id|argv
+(braket
+l_int|1
+)braket
 comma
 l_int|0
 )paren
@@ -144,7 +110,10 @@ c_func
 (paren
 l_string|&quot;&squot;%s&squot; does not appear to be a git repository&quot;
 comma
-id|buf
+id|argv
+(braket
+l_int|1
+)braket
 )paren
 suffix:semicolon
 multiline_comment|/* put received options in sent_argv[] */
