@@ -249,8 +249,7 @@ r_return
 id|sz
 suffix:semicolon
 )brace
-r_return
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|fd
@@ -259,6 +258,9 @@ id|data
 comma
 id|sz
 )paren
+suffix:semicolon
+r_return
+id|sz
 suffix:semicolon
 )brace
 DECL|variable|pack_pipe

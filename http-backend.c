@@ -359,7 +359,7 @@ c_func
 l_string|&quot;protocol error: impossibly long line&quot;
 )paren
 suffix:semicolon
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|fd
@@ -587,7 +587,7 @@ c_func
 r_void
 )paren
 (brace
-id|safe_write
+id|write_or_die
 c_func
 (paren
 l_int|1
@@ -838,7 +838,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-id|safe_write
+id|write_or_die
 c_func
 (paren
 l_int|1
@@ -1026,7 +1026,7 @@ id|n
 )paren
 r_break
 suffix:semicolon
-id|safe_write
+id|write_or_die
 c_func
 (paren
 l_int|1

@@ -1352,7 +1352,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|out

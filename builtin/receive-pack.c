@@ -4902,7 +4902,7 @@ id|use_sideband
 )paren
 suffix:semicolon
 r_else
-id|safe_write
+id|write_or_die
 c_func
 (paren
 l_int|1

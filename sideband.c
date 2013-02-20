@@ -1,3 +1,4 @@
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;sideband.h&quot;
 multiline_comment|/*&n; * Receive multiplexed output stream over git native protocol.&n; * in_stream is the input stream from the remote, which carries data&n; * in pkt_line format with band designator.  Demultiplex it into out&n; * and err and return error appropriately.  Band #1 carries the&n; * primary payload.  Things coming over band #2 is not necessarily&n; * error; they are usually informative message on the standard error&n; * stream, aka &quot;verbose&quot;).  A message over band #3 is a signal that&n; * the remote died unexpectedly.  A flush() concludes the stream.&n; */
@@ -478,7 +479,7 @@ suffix:semicolon
 r_case
 l_int|1
 suffix:colon
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|out
@@ -612,7 +613,7 @@ l_int|4
 op_assign
 id|band
 suffix:semicolon
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|fd
@@ -637,7 +638,7 @@ op_plus
 l_int|4
 )paren
 suffix:semicolon
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|fd
@@ -648,7 +649,7 @@ l_int|4
 )paren
 suffix:semicolon
 )brace
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|fd

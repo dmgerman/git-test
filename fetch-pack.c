@@ -1127,7 +1127,7 @@ id|fd
 suffix:semicolon
 )brace
 r_else
-id|safe_write
+id|write_or_die
 c_func
 (paren
 id|fd
