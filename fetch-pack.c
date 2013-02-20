@@ -1010,6 +1010,16 @@ id|result_sha1
 r_if
 c_cond
 (paren
+id|len
+OL
+l_int|45
+)paren
+r_return
+id|ACK
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|strstr
 c_func
 (paren
