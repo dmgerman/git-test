@@ -347,6 +347,8 @@ r_sizeof
 (paren
 id|buffer
 )paren
+comma
+id|PACKET_READ_GENTLE_ON_EOF
 )paren
 suffix:semicolon
 r_if
