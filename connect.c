@@ -273,6 +273,13 @@ c_func
 r_int
 id|in
 comma
+r_char
+op_star
+id|src_buf
+comma
+r_int
+id|src_len
+comma
 r_struct
 id|ref
 op_star
@@ -340,9 +347,11 @@ c_func
 (paren
 id|in
 comma
-l_int|NULL
+op_amp
+id|src_buf
 comma
-l_int|NULL
+op_amp
+id|src_len
 comma
 id|packet_buffer
 comma

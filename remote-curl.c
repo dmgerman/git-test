@@ -1009,6 +1009,10 @@ c_func
 (paren
 id|async.out
 comma
+l_int|NULL
+comma
+l_int|0
+comma
 op_amp
 id|list
 comma

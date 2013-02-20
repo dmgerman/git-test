@@ -908,6 +908,10 @@ id|fd
 l_int|0
 )braket
 comma
+l_int|NULL
+comma
+l_int|0
+comma
 op_amp
 id|remote_refs
 comma

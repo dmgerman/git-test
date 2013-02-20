@@ -2762,6 +2762,10 @@ id|data-&gt;fd
 l_int|0
 )braket
 comma
+l_int|NULL
+comma
+l_int|0
+comma
 op_amp
 id|refs
 comma
@@ -2959,6 +2963,10 @@ id|data-&gt;fd
 (braket
 l_int|0
 )braket
+comma
+l_int|NULL
+comma
+l_int|0
 comma
 op_amp
 id|refs_tmp
@@ -4406,6 +4414,10 @@ id|data-&gt;fd
 (braket
 l_int|0
 )braket
+comma
+l_int|NULL
+comma
+l_int|0
 comma
 op_amp
 id|tmp_refs
