@@ -514,18 +514,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|len
-OL
-l_int|10
-op_logical_or
-id|memcmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;unpack &quot;
-comma
-l_int|7
 )paren
 )paren
 r_return
@@ -538,14 +532,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+id|strcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;unpack ok&bslash;n&quot;
-comma
-l_int|10
 )paren
 )paren
 (brace
@@ -634,39 +626,27 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|len
-OL
-l_int|3
-op_logical_or
-(paren
-id|memcmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;ok &quot;
-comma
-l_int|3
 )paren
 op_logical_and
-id|memcmp
+id|prefixcmp
 c_func
 (paren
 id|line
 comma
 l_string|&quot;ng &quot;
-comma
-l_int|3
-)paren
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;protocol error: %s&bslash;n&quot;
+l_string|&quot;invalid ref status from remote: %s&quot;
 comma
 id|line
 )paren
