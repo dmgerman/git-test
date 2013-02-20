@@ -3044,6 +3044,17 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|object-&gt;flags
+op_amp
+id|CLIENT_SHALLOW
+)paren
+)paren
+(brace
 id|object-&gt;flags
 op_or_assign
 id|CLIENT_SHALLOW
@@ -3059,6 +3070,7 @@ op_amp
 id|shallows
 )paren
 suffix:semicolon
+)brace
 r_continue
 suffix:semicolon
 )brace
