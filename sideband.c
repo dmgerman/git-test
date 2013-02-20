@@ -122,7 +122,7 @@ id|len
 suffix:semicolon
 id|len
 op_assign
-id|packet_read_line
+id|packet_read
 c_func
 (paren
 id|in_stream
@@ -132,6 +132,8 @@ op_plus
 id|pf
 comma
 id|LARGE_PACKET_MAX
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

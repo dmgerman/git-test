@@ -1657,7 +1657,7 @@ l_int|0
 suffix:semicolon
 id|avail
 op_assign
-id|packet_read_line
+id|packet_read
 c_func
 (paren
 id|rpc-&gt;out
@@ -1665,6 +1665,8 @@ comma
 id|rpc-&gt;buf
 comma
 id|rpc-&gt;alloc
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -2181,7 +2183,7 @@ suffix:semicolon
 )brace
 id|n
 op_assign
-id|packet_read_line
+id|packet_read
 c_func
 (paren
 id|rpc-&gt;out
@@ -2189,6 +2191,8 @@ comma
 id|buf
 comma
 id|left
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -3006,7 +3010,7 @@ id|err
 r_int
 id|n
 op_assign
-id|packet_read_line
+id|packet_read
 c_func
 (paren
 id|rpc-&gt;out
@@ -3014,6 +3018,8 @@ comma
 id|rpc-&gt;buf
 comma
 id|rpc-&gt;alloc
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

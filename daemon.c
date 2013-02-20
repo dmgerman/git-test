@@ -2951,7 +2951,7 @@ id|timeout
 suffix:semicolon
 id|pktlen
 op_assign
-id|packet_read_line
+id|packet_read
 c_func
 (paren
 l_int|0
@@ -2962,6 +2962,8 @@ r_sizeof
 (paren
 id|line
 )paren
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|alarm
