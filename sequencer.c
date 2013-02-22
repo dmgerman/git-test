@@ -6144,8 +6144,20 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|len
-op_logical_and
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * The buffer is completely empty.  Leave foom for&n;&t;&t;&t; * the title and body to be filled in by the user.&n;&t;&t;&t; */
+id|append_newlines
+op_assign
+l_string|&quot;&bslash;n&bslash;n&quot;
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 id|msgbuf-&gt;buf
 (braket
 id|len
@@ -6154,18 +6166,32 @@ l_int|1
 op_ne
 l_char|&squot;&bslash;n&squot;
 )paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * Incomplete line.  Complete the line and add a&n;&t;&t;&t; * blank one so that there is an empty line between&n;&t;&t;&t; * the message body and the sob.&n;&t;&t;&t; */
 id|append_newlines
 op_assign
 l_string|&quot;&bslash;n&bslash;n&quot;
 suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
 (paren
 id|len
-OG
+op_eq
 l_int|1
-op_logical_and
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * Buffer contains a single newline.  Add another&n;&t;&t;&t; * so that we leave room for the title and body.&n;&t;&t;&t; */
+id|append_newlines
+op_assign
+l_string|&quot;&bslash;n&quot;
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 id|msgbuf-&gt;buf
 (braket
 id|len
@@ -6174,10 +6200,14 @@ l_int|2
 op_ne
 l_char|&squot;&bslash;n&squot;
 )paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * Buffer ends with a single newline.  Add another&n;&t;&t;&t; * so that there is an empty line between the message&n;&t;&t;&t; * body and the sob.&n;&t;&t;&t; */
 id|append_newlines
 op_assign
 l_string|&quot;&bslash;n&quot;
 suffix:semicolon
+)brace
+multiline_comment|/* else, the buffer already ends with two newlines. */
 r_if
 c_cond
 (paren
