@@ -4107,13 +4107,12 @@ comma
 l_string|&quot;-h&quot;
 )paren
 )paren
-id|usage
+id|usage_with_options
 c_func
 (paren
 id|update_index_usage
-(braket
-l_int|0
-)braket
+comma
+id|options
 )paren
 suffix:semicolon
 id|git_config
