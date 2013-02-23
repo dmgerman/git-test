@@ -6682,14 +6682,21 @@ id|sfx_length
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * Note:&n;&t; * if pfx_length is 0, old/new will never reach a - 1 because it&n;&t; * would mean the whole string is common suffix. But then, the&n;&t; * whole string would also be a common prefix, and we would not&n;&t; * have pfx_length equals 0.&n;&t; */
 r_while
 c_loop
 (paren
 id|a
+op_plus
+id|pfx_length
+l_int|1
 op_le
 id|old
 op_logical_and
 id|b
+op_plus
+id|pfx_length
+l_int|1
 op_le
 r_new
 op_logical_and
