@@ -127,6 +127,10 @@ c_func
 (paren
 id|in_stream
 comma
+l_int|NULL
+comma
+l_int|NULL
+comma
 id|buf
 op_plus
 id|pf

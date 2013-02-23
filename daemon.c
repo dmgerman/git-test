@@ -2955,6 +2955,10 @@ c_func
 (paren
 l_int|0
 comma
+l_int|NULL
+comma
+l_int|NULL
+comma
 id|packet_buffer
 comma
 r_sizeof

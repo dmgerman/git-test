@@ -340,6 +340,10 @@ c_func
 (paren
 id|in
 comma
+l_int|NULL
+comma
+l_int|NULL
+comma
 id|packet_buffer
 comma
 r_sizeof
