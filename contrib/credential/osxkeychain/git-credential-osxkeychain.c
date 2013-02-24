@@ -719,7 +719,7 @@ r_char
 op_star
 id|usage
 op_assign
-l_string|&quot;Usage: git credential-osxkeychain &lt;get|store|erase&gt;&quot;
+l_string|&quot;usage: git credential-osxkeychain &lt;get|store|erase&gt;&quot;
 suffix:semicolon
 r_if
 c_cond
