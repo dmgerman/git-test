@@ -89,7 +89,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Usage: %s&bslash;n&quot;
+l_string|&quot;usage: %s&bslash;n&quot;
 comma
 id|usage_str
 )paren
