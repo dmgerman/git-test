@@ -2186,7 +2186,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;use any ref in .git/refs&quot;
+l_string|&quot;use any ref&quot;
 )paren
 )paren
 comma
@@ -2203,7 +2203,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;use any tag in .git/refs/tags&quot;
+l_string|&quot;use any tag, even unannotated&quot;
 )paren
 )paren
 comma
