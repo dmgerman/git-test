@@ -2253,6 +2253,13 @@ multiline_comment|/* Be it commit time or author time, it does not make&n;&t;&t;
 r_if
 c_cond
 (paren
+(paren
+id|specified
+op_ne
+l_int|1
+)paren
+op_logical_and
+(paren
 id|now
 op_plus
 l_int|10
@@ -2262,6 +2269,7 @@ op_star
 l_int|3600
 OL
 id|specified
+)paren
 )paren
 r_return
 l_int|0
