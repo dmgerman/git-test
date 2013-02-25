@@ -7662,6 +7662,8 @@ id|url
 comma
 l_int|NULL
 comma
+l_int|NULL
+comma
 l_int|0
 )paren
 )paren
@@ -7783,6 +7785,8 @@ id|http_get_strbuf
 c_func
 (paren
 id|url
+comma
+l_int|NULL
 comma
 op_amp
 id|buffer
