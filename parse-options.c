@@ -3,6 +3,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;color.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 r_static
 r_int
 id|parse_options_usage
@@ -2908,7 +2909,7 @@ suffix:colon
 l_string|&quot; &lt;%s&gt;&quot;
 suffix:semicolon
 r_return
-id|fprintf
+id|utf8_fprintf
 c_func
 (paren
 id|outfile
@@ -3280,12 +3281,16 @@ id|OPTION_NUMBER
 )paren
 id|pos
 op_add_assign
-id|fprintf
+id|utf8_fprintf
 c_func
 (paren
 id|outfile
 comma
+id|_
+c_func
+(paren
 l_string|&quot;-NUM&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
