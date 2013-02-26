@@ -6516,6 +6516,9 @@ comma
 id|sfx_length
 suffix:semicolon
 r_int
+id|pfx_adjust_for_slash
+suffix:semicolon
+r_int
 id|len_a
 op_assign
 id|strlen
@@ -6682,21 +6685,32 @@ id|sfx_length
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * Note:&n;&t; * if pfx_length is 0, old/new will never reach a - 1 because it&n;&t; * would mean the whole string is common suffix. But then, the&n;&t; * whole string would also be a common prefix, and we would not&n;&t; * have pfx_length equals 0.&n;&t; */
+multiline_comment|/*&n;&t; * If there is a common prefix, it must end in a slash.  In&n;&t; * that case we let this loop run 1 into the prefix to see the&n;&t; * same slash.&n;&t; *&n;&t; * If there is no common prefix, we cannot do this as it would&n;&t; * underrun the input strings.&n;&t; */
+id|pfx_adjust_for_slash
+op_assign
+(paren
+id|pfx_length
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
 id|a
 op_plus
 id|pfx_length
-l_int|1
+id|pfx_adjust_for_slash
 op_le
 id|old
 op_logical_and
 id|b
 op_plus
 id|pfx_length
-l_int|1
+id|pfx_adjust_for_slash
 op_le
 r_new
 op_logical_and
