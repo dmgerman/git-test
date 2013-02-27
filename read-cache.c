@@ -111,6 +111,8 @@ suffix:semicolon
 id|remove_name_hash
 c_func
 (paren
+id|istate
+comma
 id|old
 )paren
 suffix:semicolon
@@ -1974,6 +1976,8 @@ suffix:semicolon
 id|remove_name_hash
 c_func
 (paren
+id|istate
+comma
 id|ce
 )paren
 suffix:semicolon
@@ -2082,6 +2086,8 @@ id|CE_REMOVE
 id|remove_name_hash
 c_func
 (paren
+id|istate
+comma
 id|ce_array
 (braket
 id|i
@@ -7056,15 +7062,10 @@ id|istate-&gt;timestamp.nsec
 op_assign
 l_int|0
 suffix:semicolon
-id|istate-&gt;name_hash_initialized
-op_assign
-l_int|0
-suffix:semicolon
-id|free_hash
+id|free_name_hash
 c_func
 (paren
-op_amp
-id|istate-&gt;name_hash
+id|istate
 )paren
 suffix:semicolon
 id|cache_tree_free
