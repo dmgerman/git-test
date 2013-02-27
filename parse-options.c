@@ -2796,6 +2796,16 @@ l_int|2
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+id|isascii
+c_func
+(paren
+op_star
+id|ctx.opt
+)paren
+)paren
 (brace
 id|error
 c_func
@@ -2804,6 +2814,20 @@ l_string|&quot;unknown switch `%c&squot;&quot;
 comma
 op_star
 id|ctx.opt
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|error
+c_func
+(paren
+l_string|&quot;unknown non-ascii option in string: `%s&squot;&quot;
+comma
+id|ctx.argv
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 )brace
