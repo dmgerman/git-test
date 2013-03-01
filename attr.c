@@ -1200,17 +1200,22 @@ id|res-&gt;u.pat.flags
 op_amp
 id|EXC_FLAG_NEGATIVE
 )paren
-id|die
+(brace
+id|warning
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;Negative patterns are forbidden in git attributes&bslash;n&quot;
+l_string|&quot;Negative patterns are ignored in git attributes&bslash;n&quot;
 l_string|&quot;Use &squot;&bslash;&bslash;!&squot; for literal leading exclamation.&quot;
 )paren
 )paren
 suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
 )brace
 id|res-&gt;is_macro
 op_assign
