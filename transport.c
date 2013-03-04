@@ -5735,6 +5735,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_FOLLOW_TAGS
+)paren
+id|match_flags
+op_or_assign
+id|MATCH_REFS_FOLLOW_TAGS
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|match_push_refs
 c_func
 (paren
