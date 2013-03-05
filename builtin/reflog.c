@@ -1896,7 +1896,7 @@ id|elem-&gt;next
 id|clear_commit_marks
 c_func
 (paren
-id|tip_commit
+id|elem-&gt;item
 comma
 id|REACHABLE
 )paren
