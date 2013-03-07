@@ -852,15 +852,8 @@ id|copyfrom
 id|len
 )braket
 op_eq
-l_char|&squot;)&squot;
+l_char|&squot;,&squot;
 )paren
-id|nextat
-op_assign
-id|copyfrom
-op_plus
-id|len
-suffix:semicolon
-r_else
 id|nextat
 op_assign
 id|copyfrom
@@ -868,6 +861,14 @@ op_plus
 id|len
 op_plus
 l_int|1
+suffix:semicolon
+r_else
+multiline_comment|/* handle &squot;)&squot; and &squot;&bslash;0&squot; */
+id|nextat
+op_assign
+id|copyfrom
+op_plus
+id|len
 suffix:semicolon
 r_if
 c_cond
