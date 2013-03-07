@@ -1062,6 +1062,11 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|r
+op_assign
+op_amp
+id|header-&gt;prerequisites
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1082,11 +1087,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|r
-op_assign
-op_amp
-id|header-&gt;prerequisites
-suffix:semicolon
 id|printf_ln
 c_func
 (paren
