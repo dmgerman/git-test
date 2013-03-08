@@ -2382,6 +2382,37 @@ suffix:semicolon
 )brace
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|git_env_bool
+c_func
+(paren
+id|GIT_IMPLICIT_WORK_TREE_ENVIRONMENT
+comma
+l_int|1
+)paren
+)paren
+(brace
+multiline_comment|/* #16d */
+id|set_git_dir
+c_func
+(paren
+id|gitdirenv
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|gitfile
+)paren
+suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
+r_else
 multiline_comment|/* #2, #10 */
 id|set_git_work_tree
 c_func
@@ -2780,6 +2811,16 @@ id|nongit_ok
 )paren
 r_return
 l_int|NULL
+suffix:semicolon
+id|setenv
+c_func
+(paren
+id|GIT_IMPLICIT_WORK_TREE_ENVIRONMENT
+comma
+l_string|&quot;0&quot;
+comma
+l_int|1
+)paren
 suffix:semicolon
 multiline_comment|/* --work-tree is set without --git-dir; use discovered one */
 r_if
