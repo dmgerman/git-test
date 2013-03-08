@@ -3689,7 +3689,7 @@ id|prefix
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_PREFIX&quot;
+id|GIT_PREFIX_ENVIRONMENT
 comma
 id|prefix
 comma
@@ -3700,7 +3700,7 @@ r_else
 id|setenv
 c_func
 (paren
-l_string|&quot;GIT_PREFIX&quot;
+id|GIT_PREFIX_ENVIRONMENT
 comma
 l_string|&quot;&quot;
 comma
