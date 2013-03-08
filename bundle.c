@@ -1042,9 +1042,9 @@ c_func
 id|Q_
 c_func
 (paren
-l_string|&quot;The bundle contains %d ref&quot;
+l_string|&quot;The bundle contains this ref:&quot;
 comma
-l_string|&quot;The bundle contains %d refs&quot;
+l_string|&quot;The bundle contains these %d refs:&quot;
 comma
 id|r-&gt;nr
 )paren
@@ -1093,9 +1093,9 @@ c_func
 id|Q_
 c_func
 (paren
-l_string|&quot;The bundle requires this ref&quot;
+l_string|&quot;The bundle requires this ref:&quot;
 comma
-l_string|&quot;The bundle requires these %d refs&quot;
+l_string|&quot;The bundle requires these %d refs:&quot;
 comma
 id|r-&gt;nr
 )paren
