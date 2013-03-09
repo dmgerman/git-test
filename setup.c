@@ -973,9 +973,17 @@ c_cond
 (paren
 op_star
 id|copyfrom
-op_eq
+op_ne
 l_char|&squot;)&squot;
 )paren
+id|die
+c_func
+(paren
+l_string|&quot;Missing &squot;)&squot; at the end of pathspec magic in &squot;%s&squot;&quot;
+comma
+id|elt
+)paren
+suffix:semicolon
 id|copyfrom
 op_increment
 suffix:semicolon
