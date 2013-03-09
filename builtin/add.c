@@ -1401,20 +1401,12 @@ DECL|variable|refresh_only
 r_static
 r_int
 id|verbose
-op_assign
-l_int|0
 comma
 id|show_only
-op_assign
-l_int|0
 comma
 id|ignored_too
-op_assign
-l_int|0
 comma
 id|refresh_only
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|ignore_add_errors
 DECL|variable|addremove
@@ -1429,8 +1421,6 @@ comma
 id|intent_to_add
 comma
 id|ignore_missing
-op_assign
-l_int|0
 suffix:semicolon
 DECL|variable|builtin_add_options
 r_static
@@ -1473,7 +1463,7 @@ c_func
 l_string|&quot;&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;i&squot;
@@ -1490,7 +1480,7 @@ l_string|&quot;interactive picking&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;
@@ -1507,7 +1497,7 @@ l_string|&quot;select hunks interactively&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;e&squot;
@@ -1537,7 +1527,7 @@ l_string|&quot;allow adding otherwise ignored files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;u&squot;
@@ -1554,7 +1544,7 @@ l_string|&quot;update tracked files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;N&squot;
@@ -1571,7 +1561,7 @@ l_string|&quot;record only the fact that the path will be added later&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;A&squot;
@@ -1588,7 +1578,7 @@ l_string|&quot;add changes from all tracked and untracked files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1605,7 +1595,7 @@ l_string|&quot;don&squot;t add, only refresh the index&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1622,7 +1612,7 @@ l_string|&quot;just skip files which cannot be added because of errors&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
