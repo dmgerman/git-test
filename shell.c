@@ -7,6 +7,8 @@ DECL|macro|COMMAND_DIR
 mdefine_line|#define COMMAND_DIR &quot;git-shell-commands&quot;
 DECL|macro|HELP_COMMAND
 mdefine_line|#define HELP_COMMAND COMMAND_DIR &quot;/help&quot;
+DECL|macro|NOLOGIN_COMMAND
+mdefine_line|#define NOLOGIN_COMMAND COMMAND_DIR &quot;/no-interactive-login&quot;
 DECL|function|do_generic_cmd
 r_static
 r_int
@@ -345,6 +347,64 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|access
+c_func
+(paren
+id|NOLOGIN_COMMAND
+comma
+id|F_OK
+)paren
+)paren
+(brace
+multiline_comment|/* Interactive login disabled. */
+r_const
+r_char
+op_star
+id|argv
+(braket
+)braket
+op_assign
+(brace
+id|NOLOGIN_COMMAND
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+r_int
+id|status
+suffix:semicolon
+id|status
+op_assign
+id|run_command_v_opt
+c_func
+(paren
+id|argv
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|status
+OL
+l_int|0
+)paren
+m_exit
+(paren
+l_int|127
+)paren
+suffix:semicolon
+m_exit
+(paren
+id|status
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* Print help if enabled */
 id|run_command_v_opt
 c_func
