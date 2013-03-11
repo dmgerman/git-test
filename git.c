@@ -3263,7 +3263,11 @@ c_func
 (paren
 l_string|&quot;&bslash;n%s&bslash;n&quot;
 comma
+id|_
+c_func
+(paren
 id|git_more_info_string
+)paren
 )paren
 suffix:semicolon
 m_exit
