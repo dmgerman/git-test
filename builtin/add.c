@@ -110,7 +110,9 @@ l_string|&quot;&bslash;n&quot;
 l_string|&quot;  git add %s .&bslash;n&quot;
 l_string|&quot;  (or git add %s .)&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;With the current Git version, the command is restricted to the current directory.&quot;
+l_string|&quot;With the current Git version, the command is restricted to &quot;
+l_string|&quot;the current directory.&bslash;n&quot;
+l_string|&quot;&quot;
 )paren
 comma
 id|option_with_implicit_dot
