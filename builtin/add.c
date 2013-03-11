@@ -1880,7 +1880,7 @@ op_star
 id|short_name
 )paren
 (brace
-multiline_comment|/*&n;&t; * To be consistent with &quot;git add -p&quot; and most Git&n;&t; * commands, we should default to being tree-wide, but&n;&t; * this is not the original behavior and can&squot;t be&n;&t; * changed until users trained themselves not to type&n;&t; * &quot;git add -u&quot; or &quot;git add -A&quot;. For now, we warn and&n;&t; * keep the old behavior. Later, this warning can be&n;&t; * turned into a die(...), and eventually we may&n;&t; * reallow the command with a new behavior.&n;&t; */
+multiline_comment|/*&n;&t; * To be consistent with &quot;git add -p&quot; and most Git&n;&t; * commands, we should default to being tree-wide, but&n;&t; * this is not the original behavior and can&squot;t be&n;&t; * changed until users trained themselves not to type&n;&t; * &quot;git add -u&quot; or &quot;git add -A&quot;. For now, we warn and&n;&t; * keep the old behavior. Later, the behavior can be changed&n;&t; * to tree-wide, keeping the warning for a while, and&n;&t; * eventually we can drop the warning.&n;&t; */
 id|warning
 c_func
 (paren
