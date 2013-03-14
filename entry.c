@@ -1044,7 +1044,7 @@ op_assign
 id|get_stream_filter
 c_func
 (paren
-id|path
+id|ce-&gt;name
 comma
 id|ce-&gt;sha1
 )paren
