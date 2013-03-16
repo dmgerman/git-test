@@ -3292,7 +3292,7 @@ l_int|1
 suffix:semicolon
 id|o
 op_assign
-id|lookup_object
+id|parse_object
 c_func
 (paren
 id|sha1_buf
@@ -3303,13 +3303,6 @@ c_cond
 (paren
 op_logical_neg
 id|o
-op_logical_or
-op_logical_neg
-id|parse_object
-c_func
-(paren
-id|o-&gt;sha1
-)paren
 )paren
 id|die
 c_func
