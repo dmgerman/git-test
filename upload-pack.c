@@ -3303,6 +3303,13 @@ c_cond
 (paren
 op_logical_neg
 id|o
+op_logical_or
+op_logical_neg
+id|parse_object
+c_func
+(paren
+id|o-&gt;sha1
+)paren
 )paren
 id|die
 c_func
