@@ -5873,6 +5873,9 @@ r_const
 r_char
 op_star
 id|object_name
+comma
+r_int
+id|object_name_len
 )paren
 (brace
 r_struct
@@ -5915,9 +5918,11 @@ id|st
 id|die
 c_func
 (paren
-l_string|&quot;Path &squot;%s&squot; exists on disk, but not in &squot;%s&squot;.&quot;
+l_string|&quot;Path &squot;%s&squot; exists on disk, but not in &squot;%.*s&squot;.&quot;
 comma
 id|filename
+comma
+id|object_name_len
 comma
 id|object_name
 )paren
@@ -5994,15 +5999,19 @@ id|die
 c_func
 (paren
 l_string|&quot;Path &squot;%s&squot; exists, but not &squot;%s&squot;.&bslash;n&quot;
-l_string|&quot;Did you mean &squot;%s:%s&squot; aka &squot;%s:./%s&squot;?&quot;
+l_string|&quot;Did you mean &squot;%.*s:%s&squot; aka &squot;%.*s:./%s&squot;?&quot;
 comma
 id|fullname
 comma
 id|filename
 comma
+id|object_name_len
+comma
 id|object_name
 comma
 id|fullname
+comma
+id|object_name_len
 comma
 id|object_name
 comma
@@ -6013,9 +6022,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;Path &squot;%s&squot; does not exist in &squot;%s&squot;&quot;
+l_string|&quot;Path &squot;%s&squot; does not exist in &squot;%.*s&squot;&quot;
 comma
 id|filename
+comma
+id|object_name_len
 comma
 id|object_name
 )paren
@@ -6927,52 +6938,12 @@ id|tree_sha1
 l_int|20
 )braket
 suffix:semicolon
-r_char
-op_star
-id|object_name
+r_int
+id|len
 op_assign
-l_int|NULL
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|only_to_die
-)paren
-(brace
-id|object_name
-op_assign
-id|xmalloc
-c_func
-(paren
 id|cp
-op_minus
 id|name
-op_plus
-l_int|1
-)paren
 suffix:semicolon
-id|strncpy
-c_func
-(paren
-id|object_name
-comma
-id|name
-comma
-id|cp
-op_minus
-id|name
-)paren
-suffix:semicolon
-id|object_name
-(braket
-id|cp
-op_minus
-id|name
-)braket
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -6982,9 +6953,7 @@ c_func
 (paren
 id|name
 comma
-id|cp
-op_minus
-id|name
+id|len
 comma
 id|tree_sha1
 comma
@@ -7056,13 +7025,9 @@ id|filename
 comma
 id|tree_sha1
 comma
-id|object_name
-)paren
-suffix:semicolon
-id|free
-c_func
-(paren
-id|object_name
+id|name
+comma
+id|len
 )paren
 suffix:semicolon
 )brace
@@ -7119,9 +7084,11 @@ id|only_to_die
 id|die
 c_func
 (paren
-l_string|&quot;Invalid object name &squot;%s&squot;.&quot;
+l_string|&quot;Invalid object name &squot;%.*s&squot;.&quot;
 comma
-id|object_name
+id|len
+comma
+id|name
 )paren
 suffix:semicolon
 )brace
