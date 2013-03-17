@@ -1721,6 +1721,17 @@ op_amp
 id|file_table
 )paren
 suffix:semicolon
+id|preallocate_hash
+c_func
+(paren
+op_amp
+id|file_table
+comma
+id|rename_src_nr
+op_plus
+id|rename_dst_nr
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
