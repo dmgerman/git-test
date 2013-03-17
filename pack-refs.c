@@ -184,10 +184,12 @@ id|object
 op_star
 id|o
 op_assign
-id|parse_object
+id|parse_object_or_die
 c_func
 (paren
 id|sha1
+comma
+id|path
 )paren
 suffix:semicolon
 r_if
