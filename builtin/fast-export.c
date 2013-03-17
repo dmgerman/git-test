@@ -550,10 +550,10 @@ id|counter
 )paren
 suffix:semicolon
 )brace
-DECL|function|handle_object
+DECL|function|export_blob
 r_static
 r_void
-id|handle_object
+id|export_blob
 c_func
 (paren
 r_const
@@ -1614,7 +1614,7 @@ op_member_access_from_pointer
 id|two-&gt;mode
 )paren
 )paren
-id|handle_object
+id|export_blob
 c_func
 (paren
 id|diff_queued_diff.queue
@@ -2653,7 +2653,7 @@ suffix:semicolon
 r_case
 id|OBJ_BLOB
 suffix:colon
-id|handle_object
+id|export_blob
 c_func
 (paren
 id|tag-&gt;object.sha1
