@@ -636,7 +636,7 @@ c_func
 (paren
 id|cbdata.refs_file
 comma
-l_string|&quot;# pack-refs with: peeled &bslash;n&quot;
+l_string|&quot;# pack-refs with: peeled fully-peeled &bslash;n&quot;
 )paren
 suffix:semicolon
 id|for_each_ref
