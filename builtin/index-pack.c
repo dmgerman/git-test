@@ -230,6 +230,11 @@ r_static
 r_int
 id|verbose
 suffix:semicolon
+DECL|variable|show_stat
+r_static
+r_int
+id|show_stat
+suffix:semicolon
 DECL|variable|progress
 r_static
 r_struct
@@ -332,6 +337,15 @@ DECL|macro|work_lock
 mdefine_line|#define work_lock()&t;&t;lock_mutex(&amp;work_mutex)
 DECL|macro|work_unlock
 mdefine_line|#define work_unlock()&t;&t;unlock_mutex(&amp;work_mutex)
+DECL|variable|deepest_delta_mutex
+r_static
+id|pthread_mutex_t
+id|deepest_delta_mutex
+suffix:semicolon
+DECL|macro|deepest_delta_lock
+mdefine_line|#define deepest_delta_lock()&t;lock_mutex(&amp;deepest_delta_mutex)
+DECL|macro|deepest_delta_unlock
+mdefine_line|#define deepest_delta_unlock()&t;unlock_mutex(&amp;deepest_delta_mutex)
 DECL|variable|key
 r_static
 id|pthread_key_t
@@ -420,6 +434,20 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_stat
+)paren
+id|pthread_mutex_init
+c_func
+(paren
+op_amp
+id|deepest_delta_mutex
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|pthread_key_create
 c_func
 (paren
@@ -490,6 +518,18 @@ op_amp
 id|work_mutex
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_stat
+)paren
+id|pthread_mutex_destroy
+c_func
+(paren
+op_amp
+id|deepest_delta_mutex
+)paren
+suffix:semicolon
 id|pthread_key_delete
 c_func
 (paren
@@ -516,6 +556,10 @@ DECL|macro|work_lock
 mdefine_line|#define work_lock()
 DECL|macro|work_unlock
 mdefine_line|#define work_unlock()
+DECL|macro|deepest_delta_lock
+mdefine_line|#define deepest_delta_lock()
+DECL|macro|deepest_delta_unlock
+mdefine_line|#define deepest_delta_unlock()
 macro_line|#endif
 DECL|function|mark_link
 r_static
@@ -4222,11 +4266,22 @@ id|delta_obj-&gt;real_type
 op_assign
 id|base-&gt;obj-&gt;real_type
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|show_stat
+)paren
+(brace
 id|delta_obj-&gt;delta_depth
 op_assign
 id|base-&gt;obj-&gt;delta_depth
 op_plus
 l_int|1
+suffix:semicolon
+id|deepest_delta_lock
+c_func
+(paren
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -4239,6 +4294,12 @@ id|deepest_delta
 op_assign
 id|delta_obj-&gt;delta_depth
 suffix:semicolon
+id|deepest_delta_unlock
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
 id|delta_obj-&gt;base_object_no
 op_assign
 id|base-&gt;obj
@@ -7717,10 +7778,6 @@ comma
 id|stat_only
 op_assign
 l_int|0
-comma
-id|stat
-op_assign
-l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -7975,7 +8032,7 @@ id|verify
 op_assign
 l_int|1
 suffix:semicolon
-id|stat
+id|show_stat
 op_assign
 l_int|1
 suffix:semicolon
@@ -7998,7 +8055,7 @@ id|verify
 op_assign
 l_int|1
 suffix:semicolon
-id|stat
+id|show_stat
 op_assign
 l_int|1
 suffix:semicolon
@@ -8783,7 +8840,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|stat
+id|show_stat
 )paren
 id|show_pack_info
 c_func
