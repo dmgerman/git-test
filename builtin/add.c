@@ -61,6 +61,72 @@ id|add_errors
 suffix:semicolon
 )brace
 suffix:semicolon
+DECL|variable|option_with_implicit_dot
+r_static
+r_const
+r_char
+op_star
+id|option_with_implicit_dot
+suffix:semicolon
+DECL|variable|short_option_with_implicit_dot
+r_static
+r_const
+r_char
+op_star
+id|short_option_with_implicit_dot
+suffix:semicolon
+DECL|function|warn_pathless_add
+r_static
+r_void
+id|warn_pathless_add
+c_func
+(paren
+r_void
+)paren
+(brace
+m_assert
+(paren
+id|option_with_implicit_dot
+op_logical_and
+id|short_option_with_implicit_dot
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t; * To be consistent with &quot;git add -p&quot; and most Git&n;&t; * commands, we should default to being tree-wide, but&n;&t; * this is not the original behavior and can&squot;t be&n;&t; * changed until users trained themselves not to type&n;&t; * &quot;git add -u&quot; or &quot;git add -A&quot;. For now, we warn and&n;&t; * keep the old behavior. Later, the behavior can be changed&n;&t; * to tree-wide, keeping the warning for a while, and&n;&t; * eventually we can drop the warning.&n;&t; */
+id|warning
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;The behavior of &squot;git add %s (or %s)&squot; with no path argument from a&bslash;n&quot;
+l_string|&quot;subdirectory of the tree will change in Git 2.0 and should not be used anymore.&bslash;n&quot;
+l_string|&quot;To add content for the whole tree, run:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git add %s :/&bslash;n&quot;
+l_string|&quot;  (or git add %s :/)&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;To restrict the command to the current directory, run:&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;  git add %s .&bslash;n&quot;
+l_string|&quot;  (or git add %s .)&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;With the current Git version, the command is restricted to the current directory.&quot;
+)paren
+comma
+id|option_with_implicit_dot
+comma
+id|short_option_with_implicit_dot
+comma
+id|option_with_implicit_dot
+comma
+id|short_option_with_implicit_dot
+comma
+id|option_with_implicit_dot
+comma
+id|short_option_with_implicit_dot
+)paren
+suffix:semicolon
+)brace
 DECL|function|fix_unmerged_status
 r_static
 r_int
@@ -1863,59 +1929,6 @@ r_return
 id|exit_status
 suffix:semicolon
 )brace
-DECL|function|warn_pathless_add
-r_static
-r_void
-id|warn_pathless_add
-c_func
-(paren
-r_const
-r_char
-op_star
-id|option_name
-comma
-r_const
-r_char
-op_star
-id|short_name
-)paren
-(brace
-multiline_comment|/*&n;&t; * To be consistent with &quot;git add -p&quot; and most Git&n;&t; * commands, we should default to being tree-wide, but&n;&t; * this is not the original behavior and can&squot;t be&n;&t; * changed until users trained themselves not to type&n;&t; * &quot;git add -u&quot; or &quot;git add -A&quot;. For now, we warn and&n;&t; * keep the old behavior. Later, the behavior can be changed&n;&t; * to tree-wide, keeping the warning for a while, and&n;&t; * eventually we can drop the warning.&n;&t; */
-id|warning
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;The behavior of &squot;git add %s (or %s)&squot; with no path argument from a&bslash;n&quot;
-l_string|&quot;subdirectory of the tree will change in Git 2.0 and should not be used anymore.&bslash;n&quot;
-l_string|&quot;To add content for the whole tree, run:&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;  git add %s :/&bslash;n&quot;
-l_string|&quot;  (or git add %s :/)&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;To restrict the command to the current directory, run:&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;  git add %s .&bslash;n&quot;
-l_string|&quot;  (or git add %s .)&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;With the current Git version, the command is restricted to the current directory.&quot;
-)paren
-comma
-id|option_name
-comma
-id|short_name
-comma
-id|option_name
-comma
-id|short_name
-comma
-id|option_name
-comma
-id|short_name
-)paren
-suffix:semicolon
-)brace
 DECL|function|cmd_add
 r_int
 id|cmd_add
@@ -1966,20 +1979,6 @@ suffix:semicolon
 r_char
 op_star
 id|seen
-op_assign
-l_int|NULL
-suffix:semicolon
-r_const
-r_char
-op_star
-id|option_with_implicit_dot
-op_assign
-l_int|NULL
-suffix:semicolon
-r_const
-r_char
-op_star
-id|short_option_with_implicit_dot
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -2160,9 +2159,6 @@ id|prefix
 id|warn_pathless_add
 c_func
 (paren
-id|option_with_implicit_dot
-comma
-id|short_option_with_implicit_dot
 )paren
 suffix:semicolon
 id|argc
