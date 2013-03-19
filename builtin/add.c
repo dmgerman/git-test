@@ -579,6 +579,8 @@ op_logical_neg
 id|data.add_errors
 suffix:semicolon
 )brace
+DECL|macro|WARN_IMPLICIT_DOT
+mdefine_line|#define WARN_IMPLICIT_DOT (1u &lt;&lt; 0)
 DECL|function|prune_directory
 r_static
 r_char
@@ -599,6 +601,9 @@ id|pathspec
 comma
 r_int
 id|prefix
+comma
+r_int
+id|flag
 )paren
 (brace
 r_char
@@ -697,6 +702,20 @@ id|dst
 op_increment
 op_assign
 id|entry
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|flag
+op_amp
+id|WARN_IMPLICIT_DOT
+)paren
+multiline_comment|/*&n;&t;&t;&t; * &quot;git add -A&quot; was run from a subdirectory with a&n;&t;&t;&t; * new file outside that directory.&n;&t;&t;&t; *&n;&t;&t;&t; * &quot;git add -A&quot; will behave like &quot;git add -A :/&quot;&n;&t;&t;&t; * instead of &quot;git add -A .&quot; in the future.&n;&t;&t;&t; * Warn about the coming behavior change.&n;&t;&t;&t; */
+id|warn_pathless_add
+c_func
+(paren
+)paren
 suffix:semicolon
 )brace
 id|dir-&gt;nr
@@ -2263,18 +2282,6 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|prefix
-op_logical_and
-id|addremove
-)paren
-id|warn_pathless_add
-c_func
-(paren
-)paren
-suffix:semicolon
 id|argc
 op_assign
 l_int|1
@@ -2501,6 +2508,11 @@ c_func
 op_amp
 id|dir
 comma
+id|implicit_dot
+ques
+c_cond
+l_int|NULL
+suffix:colon
 id|pathspec
 )paren
 suffix:semicolon
@@ -2520,6 +2532,13 @@ comma
 id|pathspec
 comma
 id|baselen
+comma
+id|implicit_dot
+ques
+c_cond
+id|WARN_IMPLICIT_DOT
+suffix:colon
+l_int|0
 )paren
 suffix:semicolon
 )brace
