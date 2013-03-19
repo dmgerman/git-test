@@ -488,7 +488,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Usage: %s %s&bslash;n&quot;
+l_string|&quot;usage: %s %s&bslash;n&quot;
 comma
 id|argv
 (braket

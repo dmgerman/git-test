@@ -1510,7 +1510,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Usage: %s &lt;&quot;
+l_string|&quot;usage: %s &lt;&quot;
 comma
 id|basename
 )paren
