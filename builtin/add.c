@@ -84,12 +84,27 @@ c_func
 r_void
 )paren
 (brace
+r_static
+r_int
+id|shown
+suffix:semicolon
 m_assert
 (paren
 id|option_with_implicit_dot
 op_logical_and
 id|short_option_with_implicit_dot
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|shown
+)paren
+r_return
+suffix:semicolon
+id|shown
+op_assign
+l_int|1
 suffix:semicolon
 multiline_comment|/*&n;&t; * To be consistent with &quot;git add -p&quot; and most Git&n;&t; * commands, we should default to being tree-wide, but&n;&t; * this is not the original behavior and can&squot;t be&n;&t; * changed until users trained themselves not to type&n;&t; * &quot;git add -u&quot; or &quot;git add -A&quot;. For now, we warn and&n;&t; * keep the old behavior. Later, the behavior can be changed&n;&t; * to tree-wide, keeping the warning for a while, and&n;&t; * eventually we can drop the warning.&n;&t; */
 id|warning
