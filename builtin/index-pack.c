@@ -4890,7 +4890,7 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
-id|work_lock
+id|counter_lock
 c_func
 (paren
 )paren
@@ -4901,6 +4901,16 @@ c_func
 id|progress
 comma
 id|nr_resolved_deltas
+)paren
+suffix:semicolon
+id|counter_unlock
+c_func
+(paren
+)paren
+suffix:semicolon
+id|work_lock
+c_func
+(paren
 )paren
 suffix:semicolon
 r_while
