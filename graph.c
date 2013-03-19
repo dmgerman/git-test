@@ -5,40 +5,6 @@ macro_line|#include &quot;graph.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 multiline_comment|/* Internal API */
-multiline_comment|/*&n; * Output the next line for a graph.&n; * This formats the next graph line into the specified strbuf.  It is not&n; * terminated with a newline.&n; *&n; * Returns 1 if the line includes the current commit, and 0 otherwise.&n; * graph_next_line() will return 1 exactly once for each time&n; * graph_update() is called.&n; */
-r_static
-r_int
-id|graph_next_line
-c_func
-(paren
-r_struct
-id|git_graph
-op_star
-id|graph
-comma
-r_struct
-id|strbuf
-op_star
-id|sb
-)paren
-suffix:semicolon
-multiline_comment|/*&n; * Set up a custom scheme for column colors.&n; *&n; * The default column color scheme inserts ANSI color escapes to colorize&n; * the graph. The various color escapes are stored in an array of strings&n; * where each entry corresponds to a color, except for the last entry,&n; * which denotes the escape for resetting the color back to the default.&n; * When generating the graph, strings from this array are inserted before&n; * and after the various column characters.&n; *&n; * This function allows you to enable a custom array of color escapes.&n; * The &squot;colors_max&squot; argument is the index of the last &quot;reset&quot; entry.&n; *&n; * This functions must be called BEFORE graph_init() is called.&n; */
-r_static
-r_void
-id|graph_set_column_colors
-c_func
-(paren
-r_const
-r_char
-op_star
-op_star
-id|colors
-comma
-r_int
-r_int
-id|colors_max
-)paren
-suffix:semicolon
 multiline_comment|/*&n; * Output a padding line in the graph.&n; * This is similar to graph_next_line().  However, it is guaranteed to&n; * never print the current commit line.  Instead, if the commit line is&n; * next, it will simply output a line of vertical padding, extending the&n; * branch lines downwards, but leaving them otherwise unchanged.&n; */
 r_static
 r_void
@@ -132,7 +98,6 @@ r_int
 id|column_colors_max
 suffix:semicolon
 DECL|function|graph_set_column_colors
-r_static
 r_void
 id|graph_set_column_colors
 c_func
@@ -3482,7 +3447,6 @@ id|GRAPH_PADDING
 suffix:semicolon
 )brace
 DECL|function|graph_next_line
-r_static
 r_int
 id|graph_next_line
 c_func
