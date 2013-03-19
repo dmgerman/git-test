@@ -1042,9 +1042,9 @@ c_func
 id|Q_
 c_func
 (paren
-l_string|&quot;The bundle contains %d ref&quot;
+l_string|&quot;The bundle contains this ref:&quot;
 comma
-l_string|&quot;The bundle contains %d refs&quot;
+l_string|&quot;The bundle contains these %d refs:&quot;
 comma
 id|r-&gt;nr
 )paren
@@ -1061,6 +1061,11 @@ l_int|0
 comma
 l_int|NULL
 )paren
+suffix:semicolon
+id|r
+op_assign
+op_amp
+id|header-&gt;prerequisites
 suffix:semicolon
 r_if
 c_cond
@@ -1082,20 +1087,15 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|r
-op_assign
-op_amp
-id|header-&gt;prerequisites
-suffix:semicolon
 id|printf_ln
 c_func
 (paren
 id|Q_
 c_func
 (paren
-l_string|&quot;The bundle requires this ref&quot;
+l_string|&quot;The bundle requires this ref:&quot;
 comma
-l_string|&quot;The bundle requires these %d refs&quot;
+l_string|&quot;The bundle requires these %d refs:&quot;
 comma
 id|r-&gt;nr
 )paren
