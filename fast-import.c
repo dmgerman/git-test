@@ -12554,8 +12554,6 @@ r_struct
 id|object_entry
 op_star
 id|oe
-op_assign
-id|oe
 suffix:semicolon
 r_struct
 id|branch
