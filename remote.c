@@ -32,6 +32,8 @@ l_int|1
 comma
 l_int|0
 comma
+l_int|0
+comma
 l_string|&quot;refs/tags/*&quot;
 comma
 l_string|&quot;refs/tags/*&quot;
@@ -3319,7 +3321,7 @@ comma
 l_char|&squot;:&squot;
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Before going on, special case &quot;:&quot; (or &quot;+:&quot;) as a refspec&n;&t;&t; * for matching refs.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Before going on, special case &quot;:&quot; (or &quot;+:&quot;) as a refspec&n;&t;&t; * for pushing matching refs.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -3516,7 +3518,14 @@ c_cond
 id|fetch
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t; * LHS&n;&t;&t;&t; * - empty is allowed; it means HEAD.&n;&t;&t;&t; * - otherwise it must be a valid looking ref.&n;&t;&t;&t; */
+r_int
+r_char
+id|unused
+(braket
+l_int|40
+)braket
+suffix:semicolon
+multiline_comment|/* LHS */
 r_if
 c_cond
 (paren
@@ -3530,11 +3539,44 @@ dot
 id|src
 )paren
 suffix:semicolon
-multiline_comment|/* empty is ok */
+multiline_comment|/* empty is ok; it means &quot;HEAD&quot; */
 r_else
 r_if
 c_cond
 (paren
+id|llen
+op_eq
+l_int|40
+op_logical_and
+op_logical_neg
+id|get_sha1_hex
+c_func
+(paren
+id|rs
+(braket
+id|i
+)braket
+dot
+id|src
+comma
+id|unused
+)paren
+)paren
+id|rs
+(braket
+id|i
+)braket
+dot
+id|exact_sha1
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* ok */
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
 id|check_refname_format
 c_func
 (paren
@@ -3548,10 +3590,13 @@ comma
 id|flags
 )paren
 )paren
+suffix:semicolon
+multiline_comment|/* valid looking ref is ok */
+r_else
 r_goto
 id|invalid
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * RHS&n;&t;&t;&t; * - missing is ok, and is same as empty.&n;&t;&t;&t; * - empty is ok; it means not to store.&n;&t;&t;&t; * - otherwise it must be a valid looking ref.&n;&t;&t;&t; */
+multiline_comment|/* RHS */
 r_if
 c_cond
 (paren
@@ -3564,7 +3609,7 @@ dot
 id|dst
 )paren
 suffix:semicolon
-multiline_comment|/* ok */
+multiline_comment|/* missing is ok; it is the same as empty */
 r_else
 r_if
 c_cond
@@ -3579,11 +3624,12 @@ dot
 id|dst
 )paren
 suffix:semicolon
-multiline_comment|/* ok */
+multiline_comment|/* empty is ok; it means &quot;do not store&quot; */
 r_else
 r_if
 c_cond
 (paren
+op_logical_neg
 id|check_refname_format
 c_func
 (paren
@@ -3597,6 +3643,9 @@ comma
 id|flags
 )paren
 )paren
+suffix:semicolon
+multiline_comment|/* valid looking ref is ok */
+r_else
 r_goto
 id|invalid
 suffix:semicolon
@@ -8177,6 +8226,31 @@ id|refspec-&gt;src
 suffix:colon
 l_string|&quot;HEAD&quot;
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|refspec-&gt;exact_sha1
+)paren
+(brace
+id|ref_map
+op_assign
+id|alloc_ref
+c_func
+(paren
+id|name
+)paren
+suffix:semicolon
+id|get_sha1_hex
+c_func
+(paren
+id|name
+comma
+id|ref_map-&gt;old_sha1
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|ref_map
 op_assign
 id|get_remote_ref
@@ -8187,6 +8261,7 @@ comma
 id|name
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
