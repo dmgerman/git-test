@@ -25741,7 +25741,7 @@ suffix:semicolon
 id|diff_warn_rename_limit
 c_func
 (paren
-l_string|&quot;diff.renamelimit&quot;
+l_string|&quot;diff.renameLimit&quot;
 comma
 id|opt-&gt;needed_rename_limit
 comma

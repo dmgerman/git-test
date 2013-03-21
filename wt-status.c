@@ -1571,8 +1571,6 @@ id|s
 suffix:semicolon
 r_int
 id|status
-op_assign
-id|status
 suffix:semicolon
 r_char
 op_star
@@ -1739,6 +1737,16 @@ op_assign
 id|d-&gt;worktree_status
 suffix:semicolon
 r_break
+suffix:semicolon
+r_default
+suffix:colon
+id|die
+c_func
+(paren
+l_string|&quot;BUG: unhandled change_type %d in wt_status_print_change_data&quot;
+comma
+id|change_type
+)paren
 suffix:semicolon
 )brace
 id|one
