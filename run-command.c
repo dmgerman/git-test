@@ -1281,8 +1281,6 @@ l_int|2
 suffix:semicolon
 r_int
 id|failed_errno
-op_assign
-id|failed_errno
 suffix:semicolon
 r_char
 op_star
@@ -1589,6 +1587,10 @@ id|fork
 c_func
 (paren
 )paren
+suffix:semicolon
+id|failed_errno
+op_assign
+id|errno
 suffix:semicolon
 r_if
 c_cond
@@ -2049,8 +2051,6 @@ comma
 id|strerror
 c_func
 (paren
-id|failed_errno
-op_assign
 id|errno
 )paren
 )paren
