@@ -11568,8 +11568,6 @@ r_struct
 id|object_entry
 op_star
 id|oe
-op_assign
-id|oe
 suffix:semicolon
 r_int
 r_char
@@ -11708,6 +11706,11 @@ id|inline_data
 op_assign
 l_int|1
 suffix:semicolon
+id|oe
+op_assign
+l_int|NULL
+suffix:semicolon
+multiline_comment|/* not used with inline_data, but makes gcc happy */
 id|p
 op_add_assign
 id|strlen
