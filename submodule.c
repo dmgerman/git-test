@@ -1562,12 +1562,12 @@ id|commit
 op_star
 id|left
 op_assign
-id|left
+l_int|NULL
 comma
 op_star
 id|right
 op_assign
-id|right
+l_int|NULL
 suffix:semicolon
 r_const
 r_char
@@ -1662,12 +1662,10 @@ id|message
 op_assign
 l_string|&quot;(commits not present)&quot;
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|message
-op_logical_and
 id|prepare_submodule_summary
 c_func
 (paren
@@ -1859,7 +1857,7 @@ c_cond
 op_logical_neg
 id|message
 )paren
-(brace
+multiline_comment|/* only NULL if we succeeded in setting up the walk */
 id|print_submodule_summary
 c_func
 (paren
@@ -1875,6 +1873,11 @@ comma
 id|reset
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|left
+)paren
 id|clear_commit_marks
 c_func
 (paren
@@ -1884,6 +1887,11 @@ op_complement
 l_int|0
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|right
+)paren
 id|clear_commit_marks
 c_func
 (paren
@@ -1893,7 +1901,6 @@ op_complement
 l_int|0
 )paren
 suffix:semicolon
-)brace
 id|strbuf_release
 c_func
 (paren
