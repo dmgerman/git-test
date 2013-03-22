@@ -10170,7 +10170,7 @@ id|preimage
 op_assign
 id|fixed_preimage
 suffix:semicolon
-multiline_comment|/*&n;&t; * Adjust the common context lines in postimage. This can be&n;&t; * done in-place when we are just doing whitespace fixing,&n;&t; * which does not make the string grow, but needs a new buffer&n;&t; * when ignoring whitespace causes the update, since in this case&n;&t; * we could have e.g. tabs converted to multiple spaces.&n;&t; * We trust the caller to tell us if the update can be done&n;&t; * in place (postlen==0) or not.&n;&t; */
+multiline_comment|/*&n;&t; * Adjust the common context lines in postimage. This can be&n;&t; * done in-place when we are shrinking it with whitespace&n;&t; * fixing, but needs a new buffer when ignoring whitespace or&n;&t; * expanding leading tabs to spaces.&n;&t; *&n;&t; * We trust the caller to tell us if the update can be done&n;&t; * in place (postlen==0) or not.&n;&t; */
 id|old
 op_assign
 id|postimage-&gt;buf
@@ -10428,6 +10428,8 @@ id|fixed
 suffix:semicolon
 r_int
 id|fixed_len
+comma
+id|postlen
 suffix:semicolon
 r_int
 id|preimage_limit
@@ -10964,6 +10966,10 @@ id|img-&gt;buf
 op_plus
 r_try
 suffix:semicolon
+id|postlen
+op_assign
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -11077,6 +11083,10 @@ id|fixed.len
 id|fixstart
 )paren
 )paren
+suffix:semicolon
+id|postlen
+op_add_assign
+id|tgtfix.len
 suffix:semicolon
 id|strbuf_release
 c_func
@@ -11199,6 +11209,17 @@ op_amp
 id|fixed_len
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|postlen
+OL
+id|postimage-&gt;len
+)paren
+id|postlen
+op_assign
+l_int|0
+suffix:semicolon
 id|update_pre_post_images
 c_func
 (paren
@@ -11210,7 +11231,7 @@ id|fixed_buf
 comma
 id|fixed_len
 comma
-l_int|0
+id|postlen
 )paren
 suffix:semicolon
 r_return
