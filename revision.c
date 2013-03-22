@@ -3034,7 +3034,7 @@ r_if
 c_cond
 (paren
 id|date
-OL
+op_le
 id|src-&gt;item-&gt;date
 )paren
 r_return
