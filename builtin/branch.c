@@ -2977,7 +2977,7 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;(no branch, bisecting %s)&quot;
+l_string|&quot;(no branch, bisect started on %s)&quot;
 )paren
 comma
 id|state.branch

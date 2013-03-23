@@ -5416,7 +5416,7 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;You are currently bisecting branch &squot;%s&squot;.&quot;
+l_string|&quot;You are currently bisecting, started from branch &squot;%s&squot;.&quot;
 )paren
 comma
 id|state-&gt;branch
