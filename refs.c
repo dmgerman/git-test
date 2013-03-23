@@ -12178,8 +12178,8 @@ r_if
 c_cond
 (paren
 id|nread
-OL
-l_int|0
+op_ne
+l_int|1
 )paren
 r_return
 id|error
