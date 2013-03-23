@@ -1,3 +1,5 @@
+DECL|macro|CYGWIN_C
+mdefine_line|#define CYGWIN_C
 DECL|macro|WIN32_LEAN_AND_MEAN
 mdefine_line|#define WIN32_LEAN_AND_MEAN
 macro_line|#ifdef CYGWIN_V15_WIN32API
@@ -10,6 +12,52 @@ macro_line|#include &quot;win32.h&quot;
 macro_line|#include &quot;../git-compat-util.h&quot;
 macro_line|#endif
 macro_line|#include &quot;../cache.h&quot; /* to read configuration */
+multiline_comment|/*&n; * Return POSIX permission bits, regardless of core.ignorecygwinfstricks&n; */
+DECL|function|cygwin_get_st_mode_bits
+r_int
+id|cygwin_get_st_mode_bits
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+comma
+r_int
+op_star
+id|mode
+)paren
+(brace
+r_struct
+id|stat
+id|st
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|lstat
+c_func
+(paren
+id|path
+comma
+op_amp
+id|st
+)paren
+OL
+l_int|0
+)paren
+r_return
+l_int|1
+suffix:semicolon
+op_star
+id|mode
+op_assign
+id|st.st_mode
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 DECL|function|filetime_to_timespec
 r_static
 r_inline
