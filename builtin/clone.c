@@ -3353,6 +3353,9 @@ comma
 id|tree-&gt;size
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|unpack_trees
 c_func
 (paren
@@ -3363,6 +3366,18 @@ id|t
 comma
 op_amp
 id|opts
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;unable to checkout working tree&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
