@@ -1983,6 +1983,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|readlen
+OL
+l_int|0
+)paren
+r_goto
+id|close_and_exit
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|readlen
 )paren
