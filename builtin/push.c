@@ -2211,6 +2211,25 @@ comma
 id|TRANSPORT_PUSH_NO_HOOK
 )paren
 comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;follow-tags&quot;
+comma
+op_amp
+id|flags
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;push missing but relevant tags&quot;
+)paren
+comma
+id|TRANSPORT_PUSH_FOLLOW_TAGS
+)paren
+comma
 id|OPT_END
 c_func
 (paren
