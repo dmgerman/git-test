@@ -360,7 +360,7 @@ comma
 op_star
 id|git_graft_file
 suffix:semicolon
-multiline_comment|/*&n; * Repository-local GIT_* environment variables&n; * Remember to update local_repo_env_size in cache.h when&n; * the size of the list changes&n; */
+multiline_comment|/*&n; * Repository-local GIT_* environment variables; see cache.h for details.&n; */
 DECL|variable|local_repo_env
 r_const
 r_char
@@ -368,9 +368,6 @@ op_star
 r_const
 id|local_repo_env
 (braket
-id|LOCAL_REPO_ENV_SIZE
-op_plus
-l_int|1
 )braket
 op_assign
 (brace
@@ -386,11 +383,15 @@ id|GIT_DIR_ENVIRONMENT
 comma
 id|GIT_WORK_TREE_ENVIRONMENT
 comma
+id|GIT_IMPLICIT_WORK_TREE_ENVIRONMENT
+comma
 id|GRAFT_ENVIRONMENT
 comma
 id|INDEX_ENVIRONMENT
 comma
 id|NO_REPLACE_OBJECTS_ENVIRONMENT
+comma
+id|GIT_PREFIX_ENVIRONMENT
 comma
 l_int|NULL
 )brace
