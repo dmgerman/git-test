@@ -949,7 +949,8 @@ id|fs-&gt;i_end
 OL
 l_int|0
 )paren
-r_break
+r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
