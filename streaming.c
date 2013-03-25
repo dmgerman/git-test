@@ -1224,9 +1224,15 @@ id|status
 op_ne
 id|Z_OK
 op_logical_and
+(paren
 id|status
 op_ne
 id|Z_BUF_ERROR
+op_logical_or
+id|total_read
+OL
+id|sz
+)paren
 )paren
 (brace
 id|git_inflate_end
