@@ -834,22 +834,10 @@ id|object
 op_star
 id|object
 op_assign
-id|parse_object
+id|parse_object_or_die
 c_func
 (paren
 id|sha1
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|object
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;bad object: %s&quot;
 comma
 id|name
 )paren

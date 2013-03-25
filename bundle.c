@@ -1676,10 +1676,12 @@ id|object
 op_star
 id|object
 op_assign
-id|parse_object
+id|parse_object_or_die
 c_func
 (paren
 id|sha1
+comma
+id|buf.buf
 )paren
 suffix:semicolon
 id|object-&gt;flags
@@ -1722,10 +1724,12 @@ id|object
 op_star
 id|object
 op_assign
-id|parse_object
+id|parse_object_or_die
 c_func
 (paren
 id|sha1
+comma
+id|buf.buf
 )paren
 suffix:semicolon
 id|object-&gt;flags
@@ -2029,10 +2033,12 @@ id|one-&gt;object
 multiline_comment|/*&n;&t;&t;&t;&t; * Need to include e-&gt;name as an&n;&t;&t;&t;&t; * independent ref to the pack-objects&n;&t;&t;&t;&t; * input, so that the tag is included&n;&t;&t;&t;&t; * in the output; otherwise we would&n;&t;&t;&t;&t; * end up triggering &quot;empty bundle&quot;&n;&t;&t;&t;&t; * error.&n;&t;&t;&t;&t; */
 id|obj
 op_assign
-id|parse_object
+id|parse_object_or_die
 c_func
 (paren
 id|sha1
+comma
+id|e-&gt;name
 )paren
 suffix:semicolon
 id|obj-&gt;flags
