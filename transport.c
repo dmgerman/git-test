@@ -467,7 +467,11 @@ suffix:semicolon
 (brace
 r_int
 id|cmp
-comma
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* assigned before used */
+r_int
 id|len
 suffix:semicolon
 r_if
