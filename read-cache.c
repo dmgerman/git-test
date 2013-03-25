@@ -5732,9 +5732,9 @@ c_cond
 (paren
 id|hdr_version
 OL
-l_int|2
+id|INDEX_FORMAT_LB
 op_logical_or
-l_int|4
+id|INDEX_FORMAT_UB
 OL
 id|hdr_version
 )paren
