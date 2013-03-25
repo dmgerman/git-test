@@ -3265,7 +3265,7 @@ c_cond
 (paren
 id|p-&gt;field
 OL
-l_int|0
+id|GREP_HEADER_FIELD_MIN
 op_logical_or
 id|GREP_HEADER_FIELD_MAX
 op_le
