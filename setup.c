@@ -893,15 +893,8 @@ id|copyfrom
 id|len
 )braket
 op_eq
-l_char|&squot;)&squot;
+l_char|&squot;,&squot;
 )paren
-id|nextat
-op_assign
-id|copyfrom
-op_plus
-id|len
-suffix:semicolon
-r_else
 id|nextat
 op_assign
 id|copyfrom
@@ -909,6 +902,14 @@ op_plus
 id|len
 op_plus
 l_int|1
+suffix:semicolon
+r_else
+multiline_comment|/* handle &squot;)&squot; and &squot;&bslash;0&squot; */
+id|nextat
+op_assign
+id|copyfrom
+op_plus
+id|len
 suffix:semicolon
 r_if
 c_cond
@@ -1013,9 +1014,17 @@ c_cond
 (paren
 op_star
 id|copyfrom
-op_eq
+op_ne
 l_char|&squot;)&squot;
 )paren
+id|die
+c_func
+(paren
+l_string|&quot;Missing &squot;)&squot; at the end of pathspec magic in &squot;%s&squot;&quot;
+comma
+id|elt
+)paren
+suffix:semicolon
 id|copyfrom
 op_increment
 suffix:semicolon
