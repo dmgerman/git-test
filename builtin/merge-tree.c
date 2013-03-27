@@ -1308,7 +1308,7 @@ op_or_assign
 (paren
 l_int|1
 op_lshift
-l_int|1
+id|i
 )paren
 suffix:semicolon
 r_if
