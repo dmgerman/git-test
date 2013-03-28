@@ -13,6 +13,7 @@ macro_line|#include &quot;patch-ids.h&quot;
 macro_line|#include &quot;decorate.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;line-log.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 DECL|variable|show_early_output
 r_volatile
@@ -10416,6 +10417,21 @@ id|revs-&gt;diffopt.abbrev
 op_assign
 id|revs-&gt;abbrev
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;line_level_traverse
+)paren
+(brace
+id|revs-&gt;limited
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;topo_order
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 id|diff_setup_done
 c_func
 (paren
@@ -11551,6 +11567,17 @@ op_amp
 id|revs-&gt;commits
 comma
 id|revs-&gt;lifo
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;line_level_traverse
+)paren
+id|line_log_filter
+c_func
+(paren
+id|revs
 )paren
 suffix:semicolon
 r_if
