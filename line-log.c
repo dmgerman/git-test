@@ -12,6 +12,7 @@ macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;graph.h&quot;
+macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;line-log.h&quot;
 DECL|function|range_set_grow
 r_static
@@ -2969,6 +2970,8 @@ id|begin
 comma
 op_amp
 id|end
+comma
+id|spec-&gt;path
 )paren
 )paren
 id|die

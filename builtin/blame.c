@@ -8781,6 +8781,8 @@ comma
 id|bottom
 comma
 id|top
+comma
+id|sb-&gt;path
 )paren
 )paren
 id|usage
