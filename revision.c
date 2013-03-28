@@ -11579,20 +11579,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|enum|rewrite_result
-r_enum
-id|rewrite_result
-(brace
-DECL|enumerator|rewrite_one_ok
-id|rewrite_one_ok
-comma
-DECL|enumerator|rewrite_one_noparents
-id|rewrite_one_noparents
-comma
-DECL|enumerator|rewrite_one_error
-id|rewrite_one_error
-)brace
-suffix:semicolon
 DECL|function|rewrite_one
 r_static
 r_enum
@@ -11712,7 +11698,6 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|rewrite_parents
-r_static
 r_int
 id|rewrite_parents
 c_func
@@ -11726,6 +11711,9 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+id|rewrite_parent_fn_t
+id|rewrite_parent
 )paren
 (brace
 r_struct
@@ -11755,7 +11743,7 @@ suffix:semicolon
 r_switch
 c_cond
 (paren
-id|rewrite_one
+id|rewrite_parent
 c_func
 (paren
 id|revs
@@ -12561,6 +12549,8 @@ c_func
 id|revs
 comma
 id|commit
+comma
+id|rewrite_one
 )paren
 OL
 l_int|0
