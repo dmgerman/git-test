@@ -2938,6 +2938,9 @@ l_char|&squot;/&squot;
 id|pattern
 op_increment
 suffix:semicolon
+id|patternlen
+op_decrement
+suffix:semicolon
 id|prefix
 op_decrement
 suffix:semicolon
