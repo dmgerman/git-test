@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * I&squot;m tired of doing &quot;vsnprintf()&quot; etc just to open a&n; * file, so here&squot;s a &quot;return static buffer with printf&quot;&n; * interface for paths.&n; *&n; * It&squot;s obviously not thread-safe. Sue me. But it&squot;s quite&n; * useful for doing things like&n; *&n; *   f = open(mkpath(&quot;%s/%s.git&quot;, base, name), O_RDONLY);&n; *&n; * which is what it&squot;s designed for.&n; */
+multiline_comment|/*&n; * Utilities for paths and pathnames&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;string-list.h&quot;
@@ -2031,18 +2031,15 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-DECL|function|set_shared_perm
+DECL|function|adjust_shared_perm
 r_int
-id|set_shared_perm
+id|adjust_shared_perm
 c_func
 (paren
 r_const
 r_char
 op_star
 id|path
-comma
-r_int
-id|mode
 )paren
 (brace
 r_int
@@ -2051,6 +2048,8 @@ comma
 id|shared
 comma
 id|orig_mode
+comma
+id|mode
 suffix:semicolon
 r_if
 c_cond
@@ -2059,34 +2058,10 @@ op_logical_neg
 id|shared_repository
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|mode
-)paren
-r_return
-id|chmod
-c_func
-(paren
-id|path
-comma
-id|mode
-op_amp
-op_complement
-id|S_IFMT
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|mode
-)paren
-(brace
 r_if
 c_cond
 (paren
@@ -2107,12 +2082,6 @@ suffix:semicolon
 id|orig_mode
 op_assign
 id|mode
-suffix:semicolon
-)brace
-r_else
-id|orig_mode
-op_assign
-l_int|0
 suffix:semicolon
 r_if
 c_cond
