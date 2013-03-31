@@ -5108,6 +5108,23 @@ id|rename
 r_if
 c_cond
 (paren
+op_logical_neg
+id|argc
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;branch name required&quot;
+)paren
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 id|argc
 op_eq
 l_int|1
