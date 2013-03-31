@@ -7628,6 +7628,24 @@ suffix:colon
 r_break
 suffix:semicolon
 r_case
+l_char|&squot;U&squot;
+suffix:colon
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Commit %s has an untrusted GPG signature, &quot;
+l_string|&quot;allegedly by %s.&quot;
+)paren
+comma
+id|hex
+comma
+id|signature_check.signer
+)paren
+suffix:semicolon
+r_case
 l_char|&squot;B&squot;
 suffix:colon
 id|die

@@ -5558,6 +5558,18 @@ comma
 l_string|&quot;&bslash;n[GNUPG:] BADSIG &quot;
 )brace
 comma
+(brace
+l_char|&squot;U&squot;
+comma
+l_string|&quot;&bslash;n[GNUPG:] TRUST_NEVER&quot;
+)brace
+comma
+(brace
+l_char|&squot;U&squot;
+comma
+l_string|&quot;&bslash;n[GNUPG:] TRUST_UNDEFINED&quot;
+)brace
+comma
 )brace
 suffix:semicolon
 DECL|function|parse_gpg_output
@@ -5697,6 +5709,15 @@ id|i
 dot
 id|result
 suffix:semicolon
+multiline_comment|/* The trust messages are not followed by key/signer information */
+r_if
+c_cond
+(paren
+id|sigc-&gt;result
+op_ne
+l_char|&squot;U&squot;
+)paren
+(brace
 id|sigc-&gt;key
 op_assign
 id|xmemdupz
@@ -5732,8 +5753,7 @@ id|next
 id|found
 )paren
 suffix:semicolon
-r_break
-suffix:semicolon
+)brace
 )brace
 )brace
 DECL|function|check_commit_signature
