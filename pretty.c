@@ -5820,6 +5820,12 @@ suffix:colon
 r_case
 l_char|&squot;B&squot;
 suffix:colon
+r_case
+l_char|&squot;U&squot;
+suffix:colon
+r_case
+l_char|&squot;N&squot;
+suffix:colon
 id|strbuf_addch
 c_func
 (paren
