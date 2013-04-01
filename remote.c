@@ -7509,13 +7509,6 @@ r_char
 op_star
 id|dst_name
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|ref-&gt;peer_ref
-)paren
-r_continue
-suffix:semicolon
 id|dst_name
 op_assign
 id|get_ref_match
