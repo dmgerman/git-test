@@ -247,7 +247,7 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-id|safe_write
+id|write_or_die
 c_func
 (paren
 l_int|1
@@ -907,6 +907,10 @@ id|fd
 (braket
 l_int|0
 )braket
+comma
+l_int|NULL
+comma
+l_int|0
 comma
 op_amp
 id|remote_refs

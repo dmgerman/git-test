@@ -5,6 +5,7 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;version.h&quot;
+macro_line|#include &quot;pkt-line.h&quot;
 DECL|variable|active_requests
 r_int
 id|active_requests
