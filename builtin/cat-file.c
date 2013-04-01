@@ -920,6 +920,8 @@ suffix:semicolon
 r_void
 op_star
 id|contents
+op_assign
+l_int|NULL
 suffix:semicolon
 r_if
 c_cond
