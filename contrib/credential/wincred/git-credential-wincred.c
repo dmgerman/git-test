@@ -1428,7 +1428,7 @@ r_char
 op_star
 id|usage
 op_assign
-l_string|&quot;Usage: git credential-wincred &lt;get|store|erase&gt;&bslash;n&quot;
+l_string|&quot;usage: git credential-wincred &lt;get|store|erase&gt;&bslash;n&quot;
 suffix:semicolon
 r_if
 c_cond
