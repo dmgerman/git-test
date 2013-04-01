@@ -47,6 +47,12 @@ id|advice_status_hints
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_status_u_option
+r_int
+id|advice_status_u_option
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|advice_commit_before_merge
 r_int
 id|advice_commit_before_merge
@@ -146,6 +152,13 @@ l_string|&quot;statushints&quot;
 comma
 op_amp
 id|advice_status_hints
+)brace
+comma
+(brace
+l_string|&quot;statusuoption&quot;
+comma
+op_amp
+id|advice_status_u_option
 )brace
 comma
 (brace
