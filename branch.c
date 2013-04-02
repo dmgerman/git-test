@@ -958,6 +958,20 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|variable|upstream_not_branch
+r_static
+r_const
+r_char
+id|upstream_not_branch
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
+)paren
+suffix:semicolon
 DECL|function|create_branch
 r_void
 id|create_branch
@@ -1154,7 +1168,11 @@ id|explicit_tracking
 id|die
 c_func
 (paren
-l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
+id|_
+c_func
+(paren
+id|upstream_not_branch
+)paren
 )paren
 suffix:semicolon
 r_break
@@ -1191,7 +1209,11 @@ id|explicit_tracking
 id|die
 c_func
 (paren
-l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
+id|_
+c_func
+(paren
+id|upstream_not_branch
+)paren
 )paren
 suffix:semicolon
 r_else
