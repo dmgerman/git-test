@@ -13,7 +13,7 @@ id|commit_tree_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git commit-tree [(-p &lt;sha1&gt;)...] [-S&lt;signer&gt;] [-m &lt;message&gt;] [-F &lt;file&gt;] &lt;sha1&gt; &lt;changelog&quot;
+l_string|&quot;git commit-tree [(-p &lt;sha1&gt;)...] [-S[&lt;keyid&gt;]] [-m &lt;message&gt;] [-F &lt;file&gt;] &lt;sha1&gt; &lt;changelog&quot;
 suffix:semicolon
 DECL|function|new_parent
 r_static
