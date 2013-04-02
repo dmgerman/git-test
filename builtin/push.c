@@ -1382,7 +1382,7 @@ id|remote
 op_star
 id|remote
 op_assign
-id|remote_get
+id|pushremote_get
 c_func
 (paren
 id|repo
