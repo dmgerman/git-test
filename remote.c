@@ -2323,6 +2323,32 @@ id|key
 op_plus
 l_int|7
 suffix:semicolon
+multiline_comment|/* Handle remote.* variables */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|name
+comma
+l_string|&quot;pushdefault&quot;
+)paren
+)paren
+r_return
+id|git_config_string
+c_func
+(paren
+op_amp
+id|pushremote_name
+comma
+id|key
+comma
+id|value
+)paren
+suffix:semicolon
+multiline_comment|/* Handle remote.&lt;name&gt;.* variables */
 r_if
 c_cond
 (paren
