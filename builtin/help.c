@@ -93,6 +93,13 @@ id|show_all
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|show_guides
+r_static
+r_int
+id|show_guides
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|colopts
 r_static
 r_int
@@ -130,6 +137,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;print all available commands&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_char|&squot;g&squot;
+comma
+l_string|&quot;guides&quot;
+comma
+op_amp
+id|show_guides
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print list of useful guides&quot;
 )paren
 )paren
 comma
@@ -211,7 +235,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git help [--all] [--man|--web|--info] [command]&quot;
+l_string|&quot;git help [--all] [--guides] [--man|--web|--info] [command]&quot;
 )paren
 comma
 l_int|NULL
@@ -2475,7 +2499,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|show_guides
+)paren
+(brace
+multiline_comment|/* do action - next patch */
+)brace
+r_if
+c_cond
+(paren
 id|show_all
+op_logical_or
+id|show_guides
 )paren
 (brace
 id|printf
