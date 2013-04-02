@@ -969,7 +969,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
+l_string|&quot;Cannot setup tracking information; starting point &squot;%s&squot; is not a branch.&quot;
 )paren
 suffix:semicolon
 DECL|variable|upstream_missing
@@ -983,7 +983,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;Cannot setup tracking information; starting point does not exist&quot;
+l_string|&quot;Cannot setup tracking information; starting point &squot;%s&squot; does not exist&quot;
 )paren
 suffix:semicolon
 DECL|function|create_branch
@@ -1155,6 +1155,8 @@ c_func
 (paren
 id|upstream_missing
 )paren
+comma
+id|start_name
 )paren
 suffix:semicolon
 id|die
@@ -1204,6 +1206,8 @@ c_func
 (paren
 id|upstream_not_branch
 )paren
+comma
+id|start_name
 )paren
 suffix:semicolon
 r_break
@@ -1245,6 +1249,8 @@ c_func
 (paren
 id|upstream_not_branch
 )paren
+comma
+id|start_name
 )paren
 suffix:semicolon
 r_else
