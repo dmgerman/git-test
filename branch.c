@@ -972,6 +972,20 @@ c_func
 l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
 )paren
 suffix:semicolon
+DECL|variable|upstream_missing
+r_static
+r_const
+r_char
+id|upstream_missing
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;Cannot setup tracking information; starting point does not exist&quot;
+)paren
+suffix:semicolon
 DECL|function|create_branch
 r_void
 id|create_branch
@@ -1127,6 +1141,22 @@ comma
 id|sha1
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|explicit_tracking
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+id|upstream_missing
+)paren
+)paren
+suffix:semicolon
 id|die
 c_func
 (paren
@@ -1135,6 +1165,7 @@ comma
 id|start_name
 )paren
 suffix:semicolon
+)brace
 r_switch
 c_cond
 (paren
