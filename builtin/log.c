@@ -18,6 +18,7 @@ macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;streaming.h&quot;
 macro_line|#include &quot;version.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
+macro_line|#include &quot;gpg-interface.h&quot;
 multiline_comment|/* Set a default date-time format for git log (&quot;log.date&quot; config variable) */
 DECL|variable|default_date_mode
 r_static
@@ -1636,6 +1637,24 @@ r_if
 c_cond
 (paren
 id|grep_config
+c_func
+(paren
+id|var
+comma
+id|value
+comma
+id|cb
+)paren
+OL
+l_int|0
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|git_gpg_config
 c_func
 (paren
 id|var
