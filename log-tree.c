@@ -3464,8 +3464,6 @@ r_const
 r_char
 op_star
 id|sha1
-op_assign
-id|commit-&gt;object.sha1
 suffix:semicolon
 r_if
 c_cond
@@ -3485,6 +3483,16 @@ id|EXIT_WITH_STATUS
 )paren
 r_return
 l_int|0
+suffix:semicolon
+id|parse_commit
+c_func
+(paren
+id|commit
+)paren
+suffix:semicolon
+id|sha1
+op_assign
+id|commit-&gt;tree-&gt;object.sha1
 suffix:semicolon
 multiline_comment|/* Root commit? */
 id|parents
@@ -3567,10 +3575,16 @@ id|opt-&gt;first_parent_only
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * Generate merge log entry only for the first&n;&t;&t;&t; * parent, showing summary diff of the others&n;&t;&t;&t; * we merged _in_.&n;&t;&t;&t; */
+id|parse_commit
+c_func
+(paren
+id|parents-&gt;item
+)paren
+suffix:semicolon
 id|diff_tree_sha1
 c_func
 (paren
-id|parents-&gt;item-&gt;object.sha1
+id|parents-&gt;item-&gt;tree-&gt;object.sha1
 comma
 id|sha1
 comma
@@ -3615,10 +3629,16 @@ id|parent
 op_assign
 id|parents-&gt;item
 suffix:semicolon
+id|parse_commit
+c_func
+(paren
+id|parent
+)paren
+suffix:semicolon
 id|diff_tree_sha1
 c_func
 (paren
-id|parent-&gt;object.sha1
+id|parent-&gt;tree-&gt;object.sha1
 comma
 id|sha1
 comma
