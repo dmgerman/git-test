@@ -27,7 +27,9 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;See &squot;git help &lt;command&gt;&squot; for more information on a specific command.&quot;
+l_string|&quot;&squot;git help -a&squot; and &squot;git help -g&squot; lists available subcommands and some&bslash;n&quot;
+l_string|&quot;concept guides. See &squot;git help &lt;command&gt;&squot; or &squot;git help &lt;concept&gt;&squot;&bslash;n&quot;
+l_string|&quot;to read about a specific subcommand or concept.&quot;
 )paren
 suffix:semicolon
 DECL|variable|git_startup_info
