@@ -116,7 +116,7 @@ id|builtin_help_options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -2471,6 +2471,13 @@ op_amp
 id|other_cmds
 )paren
 suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|show_all
+)paren
+(brace
 id|printf
 c_func
 (paren
@@ -2483,6 +2490,7 @@ id|git_more_info_string
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;* We&squot;re done. Ignore any remaining args&n;&t;&t;*/
 r_return
 l_int|0
 suffix:semicolon
