@@ -77,6 +77,12 @@ id|advice_detached_head
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_set_upstream_failure
+r_int
+id|advice_set_upstream_failure
+op_assign
+l_int|1
+suffix:semicolon
 r_static
 r_struct
 (brace
@@ -187,6 +193,13 @@ l_string|&quot;detachedhead&quot;
 comma
 op_amp
 id|advice_detached_head
+)brace
+comma
+(brace
+l_string|&quot;setupstreamfailure&quot;
+comma
+op_amp
+id|advice_set_upstream_failure
 )brace
 comma
 multiline_comment|/* make this an alias for backward compatibility */
