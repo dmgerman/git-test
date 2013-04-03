@@ -2358,17 +2358,12 @@ l_int|12345
 suffix:semicolon
 r_return
 (paren
-(paren
-r_int
-)paren
-(paren
 id|count
 op_div
 l_int|65536
 )paren
 op_mod
 id|PRN_MODULO
-)paren
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Custom integer square root from&n; * http://en.wikipedia.org/wiki/Integer_square_root&n; */
