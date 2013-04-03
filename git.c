@@ -804,6 +804,16 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+id|setenv
+c_func
+(paren
+id|GIT_IMPLICIT_WORK_TREE_ENVIRONMENT
+comma
+l_string|&quot;0&quot;
+comma
+l_int|1
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
