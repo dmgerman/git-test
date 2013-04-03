@@ -3471,6 +3471,13 @@ c_cond
 (paren
 id|force
 op_logical_and
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|prev
+)paren
+op_logical_and
 id|hashcmp
 c_func
 (paren
