@@ -106,6 +106,11 @@ id|cb
 op_assign
 id|cb_data
 suffix:semicolon
+r_struct
+id|object
+op_star
+id|o
+suffix:semicolon
 r_int
 id|is_tag_ref
 suffix:semicolon
@@ -173,21 +178,14 @@ comma
 id|path
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|is_tag_ref
-)paren
-(brace
-r_struct
-id|object
-op_star
 id|o
 op_assign
-id|parse_object
+id|parse_object_or_die
 c_func
 (paren
 id|sha1
+comma
+id|path
 )paren
 suffix:semicolon
 r_if
@@ -229,7 +227,6 @@ id|o-&gt;sha1
 )paren
 )paren
 suffix:semicolon
-)brace
 )brace
 r_if
 c_cond
@@ -639,7 +636,7 @@ c_func
 (paren
 id|cbdata.refs_file
 comma
-l_string|&quot;# pack-refs with: peeled &bslash;n&quot;
+l_string|&quot;# pack-refs with: peeled fully-peeled &bslash;n&quot;
 )paren
 suffix:semicolon
 id|for_each_ref
