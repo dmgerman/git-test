@@ -2954,6 +2954,8 @@ id|len
 comma
 op_amp
 id|sig
+comma
+l_int|NULL
 )paren
 )paren
 (brace
