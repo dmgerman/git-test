@@ -1383,6 +1383,10 @@ id|pathspec
 r_if
 c_cond
 (paren
+op_star
+op_star
+id|pathspec
+op_logical_and
 op_logical_neg
 id|path_exists
 c_func
