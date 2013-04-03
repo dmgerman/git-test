@@ -1594,6 +1594,34 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+macro_line|#ifdef SSL_CTRL_SET_TLSEXT_HOSTNAME
+multiline_comment|/*&n;&t; * SNI (RFC4366)&n;&t; * OpenSSL does not document this function, but the implementation&n;&t; * returns 1 on success, 0 on failure after calling SSLerr().&n;&t; */
+id|ret
+op_assign
+id|SSL_set_tlsext_host_name
+c_func
+(paren
+id|sock-&gt;ssl
+comma
+id|server.host
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+op_ne
+l_int|1
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;SSL_set_tlsext_host_name(%s) failed.&quot;
+comma
+id|server.host
+)paren
+suffix:semicolon
+macro_line|#endif
 id|ret
 op_assign
 id|SSL_connect
