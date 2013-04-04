@@ -7252,6 +7252,10 @@ op_logical_and
 id|errno
 op_ne
 id|ENOENT
+op_logical_and
+id|errno
+op_ne
+id|ENOTDIR
 )paren
 r_return
 l_int|1
