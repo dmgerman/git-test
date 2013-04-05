@@ -1104,6 +1104,10 @@ suffix:semicolon
 r_case
 id|HTTP_MISSING_TARGET
 suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|show_http_message
 c_func
 (paren
@@ -1112,6 +1116,14 @@ id|type
 comma
 op_amp
 id|buffer
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;repository &squot;%s&squot; not found&quot;
+comma
+id|url
 )paren
 suffix:semicolon
 id|die
