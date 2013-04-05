@@ -1138,7 +1138,9 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;Authentication failed&quot;
+l_string|&quot;Authentication failed for &squot;%s&squot;&quot;
+comma
+id|url
 )paren
 suffix:semicolon
 r_default
@@ -1156,7 +1158,7 @@ suffix:semicolon
 id|http_error
 c_func
 (paren
-id|refs_url
+id|url
 comma
 id|http_ret
 )paren
