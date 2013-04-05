@@ -19952,13 +19952,19 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+(paren
+id|argcount
+op_assign
+id|parse_long_opt
 c_func
 (paren
-id|arg
+l_string|&quot;diff-algorithm&quot;
 comma
-l_string|&quot;--diff-algorithm=&quot;
+id|av
+comma
+op_amp
+id|optarg
+)paren
 )paren
 )paren
 (brace
@@ -19968,9 +19974,7 @@ op_assign
 id|parse_algorithm_value
 c_func
 (paren
-id|arg
-op_plus
-l_int|17
+id|optarg
 )paren
 suffix:semicolon
 r_if
@@ -20005,6 +20009,9 @@ suffix:semicolon
 id|options-&gt;xdl_opts
 op_or_assign
 id|value
+suffix:semicolon
+r_return
+id|argcount
 suffix:semicolon
 )brace
 multiline_comment|/* flags options */
