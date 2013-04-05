@@ -4297,11 +4297,11 @@ id|url
 id|error
 c_func
 (paren
-l_string|&quot;%s while accessing %s&quot;
-comma
-id|curl_errorstr
+l_string|&quot;unable to access &squot;%s&squot;: %s&quot;
 comma
 id|url
+comma
+id|curl_errorstr
 )paren
 suffix:semicolon
 )brace
