@@ -492,10 +492,12 @@ c_func
 id|p-&gt;two
 )paren
 )paren
-r_return
+id|hit
+op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* ignore unmerged */
+r_else
 multiline_comment|/* created &quot;two&quot; -- does it have what we are looking for? */
 id|hit
 op_assign
@@ -1145,6 +1147,7 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* ignore unmerged */
+r_else
 multiline_comment|/* created */
 id|ret
 op_assign
