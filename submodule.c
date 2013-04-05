@@ -1268,6 +1268,11 @@ comma
 r_const
 r_char
 op_star
+id|line_prefix
+comma
+r_const
+r_char
+op_star
 id|del
 comma
 r_const
@@ -1334,6 +1339,15 @@ op_amp
 id|sb
 comma
 l_int|0
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|sb
+comma
+id|line_prefix
 )paren
 suffix:semicolon
 r_if
@@ -1514,6 +1528,11 @@ r_const
 r_char
 op_star
 id|path
+comma
+r_const
+r_char
+op_star
+id|line_prefix
 comma
 r_int
 r_char
@@ -1701,7 +1720,9 @@ c_func
 (paren
 id|f
 comma
-l_string|&quot;Submodule %s contains untracked content&bslash;n&quot;
+l_string|&quot;%sSubmodule %s contains untracked content&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|path
 )paren
@@ -1718,7 +1739,9 @@ c_func
 (paren
 id|f
 comma
-l_string|&quot;Submodule %s contains modified content&bslash;n&quot;
+l_string|&quot;%sSubmodule %s contains modified content&bslash;n&quot;
+comma
+id|line_prefix
 comma
 id|path
 )paren
@@ -1752,7 +1775,9 @@ c_func
 op_amp
 id|sb
 comma
-l_string|&quot;%sSubmodule %s %s..&quot;
+l_string|&quot;%s%sSubmodule %s %s..&quot;
+comma
+id|line_prefix
 comma
 id|meta
 comma
@@ -1865,6 +1890,8 @@ op_amp
 id|rev
 comma
 id|f
+comma
+id|line_prefix
 comma
 id|del
 comma

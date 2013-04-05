@@ -12103,6 +12103,8 @@ id|one-&gt;path
 suffix:colon
 id|two-&gt;path
 comma
+id|line_prefix
+comma
 id|one-&gt;sha1
 comma
 id|two-&gt;sha1
