@@ -1104,10 +1104,6 @@ suffix:semicolon
 r_case
 id|HTTP_MISSING_TARGET
 suffix:colon
-r_if
-c_cond
-(paren
-op_logical_neg
 id|show_http_message
 c_func
 (paren
@@ -1117,22 +1113,13 @@ comma
 op_amp
 id|buffer
 )paren
-)paren
+suffix:semicolon
 id|die
 c_func
 (paren
 l_string|&quot;repository &squot;%s&squot; not found&quot;
 comma
 id|url
-)paren
-suffix:semicolon
-id|die
-c_func
-(paren
-l_string|&quot;%s not found: did you run git update-server-info on the&quot;
-l_string|&quot; server?&quot;
-comma
-id|refs_url
 )paren
 suffix:semicolon
 r_case
