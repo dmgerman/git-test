@@ -1155,16 +1155,14 @@ op_amp
 id|buffer
 )paren
 suffix:semicolon
-id|http_error
-c_func
-(paren
-id|url
-)paren
-suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;HTTP request failed&quot;
+l_string|&quot;unable to access &squot;%s&squot;: %s&quot;
+comma
+id|url
+comma
+id|curl_errorstr
 )paren
 suffix:semicolon
 )brace
