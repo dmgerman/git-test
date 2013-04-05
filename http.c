@@ -3927,12 +3927,17 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|error
+id|snprintf
 c_func
 (paren
-l_string|&quot;Unable to start HTTP request for %s&quot;
+id|curl_errorstr
 comma
-id|url
+r_sizeof
+(paren
+id|curl_errorstr
+)paren
+comma
+l_string|&quot;failed to start HTTP request&quot;
 )paren
 suffix:semicolon
 id|ret
@@ -4279,7 +4284,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|http_error
-r_int
+r_void
 id|http_error
 c_func
 (paren
@@ -4287,19 +4292,8 @@ r_const
 r_char
 op_star
 id|url
-comma
-r_int
-id|ret
 )paren
 (brace
-multiline_comment|/* http_request has already handled HTTP_START_FAILED. */
-r_if
-c_cond
-(paren
-id|ret
-op_ne
-id|HTTP_START_FAILED
-)paren
 id|error
 c_func
 (paren
@@ -4309,9 +4303,6 @@ id|curl_errorstr
 comma
 id|url
 )paren
-suffix:semicolon
-r_return
-id|ret
 suffix:semicolon
 )brace
 DECL|function|http_fetch_ref

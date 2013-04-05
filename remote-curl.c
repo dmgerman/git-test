@@ -1159,8 +1159,6 @@ id|http_error
 c_func
 (paren
 id|url
-comma
-id|http_ret
 )paren
 suffix:semicolon
 id|die

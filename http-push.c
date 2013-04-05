@@ -7592,8 +7592,6 @@ id|http_error
 c_func
 (paren
 id|url
-comma
-id|HTTP_ERROR
 )paren
 suffix:semicolon
 r_default
