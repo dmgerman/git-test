@@ -400,6 +400,18 @@ id|p
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|DIFF_OPT_TST
+c_func
+(paren
+id|o
+comma
+id|ALLOW_TEXTCONV
+)paren
+)paren
+(brace
 id|textconv_one
 op_assign
 id|get_textconv
@@ -416,6 +428,7 @@ c_func
 id|p-&gt;two
 )paren
 suffix:semicolon
+)brace
 id|mf1.size
 op_assign
 id|fill_textconv
@@ -1006,6 +1019,18 @@ l_int|0
 r_return
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|DIFF_OPT_TST
+c_func
+(paren
+id|o
+comma
+id|ALLOW_TEXTCONV
+)paren
+)paren
+(brace
 id|textconv_one
 op_assign
 id|get_textconv
@@ -1022,6 +1047,7 @@ c_func
 id|p-&gt;two
 )paren
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * If we have an unmodified pair, we know that the count will be the&n;&t; * same and don&squot;t even have to load the blobs. Unless textconv is in&n;&t; * play, _and_ we are using two different textconv filters (e.g.,&n;&t; * because a pair is an exact rename with different textconv attributes&n;&t; * for each side, which might generate different content).&n;&t; */
 r_if
 c_cond
