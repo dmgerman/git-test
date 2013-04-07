@@ -391,7 +391,7 @@ id|builtin_log_options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -408,7 +408,7 @@ l_string|&quot;suppress diff output&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -425,7 +425,7 @@ l_string|&quot;show source&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -5875,7 +5875,7 @@ comma
 id|no_numbered_callback
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;s&squot;
@@ -5892,7 +5892,7 @@ l_string|&quot;add Signed-off-by:&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -5909,7 +5909,7 @@ l_string|&quot;print patches to standard out&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -5926,7 +5926,7 @@ l_string|&quot;generate a cover letter&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
