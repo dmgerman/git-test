@@ -958,6 +958,55 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|variable|upstream_not_branch
+r_static
+r_const
+r_char
+id|upstream_not_branch
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;Cannot setup tracking information; starting point &squot;%s&squot; is not a branch.&quot;
+)paren
+suffix:semicolon
+DECL|variable|upstream_missing
+r_static
+r_const
+r_char
+id|upstream_missing
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;the requested upstream branch &squot;%s&squot; does not exist&quot;
+)paren
+suffix:semicolon
+DECL|variable|upstream_advice
+r_static
+r_const
+r_char
+id|upstream_advice
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;If you are planning on basing your work on an upstream&bslash;n&quot;
+l_string|&quot;branch that already exists at the remote, you may need to&bslash;n&quot;
+l_string|&quot;run &bslash;&quot;git fetch&bslash;&quot; to retrieve it.&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;If you are planning to push out a new local branch that&bslash;n&quot;
+l_string|&quot;will track its remote counterpart, you may want to use&bslash;n&quot;
+l_string|&quot;&bslash;&quot;git push -u&bslash;&quot; to set the upstream config as you push.&quot;
+)paren
+suffix:semicolon
 DECL|function|create_branch
 r_void
 id|create_branch
@@ -1113,6 +1162,60 @@ comma
 id|sha1
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|explicit_tracking
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|advice_set_upstream_failure
+)paren
+(brace
+id|error
+c_func
+(paren
+id|_
+c_func
+(paren
+id|upstream_missing
+)paren
+comma
+id|start_name
+)paren
+suffix:semicolon
+id|advise
+c_func
+(paren
+id|_
+c_func
+(paren
+id|upstream_advice
+)paren
+)paren
+suffix:semicolon
+m_exit
+(paren
+l_int|1
+)paren
+suffix:semicolon
+)brace
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+id|upstream_missing
+)paren
+comma
+id|start_name
+)paren
+suffix:semicolon
+)brace
 id|die
 c_func
 (paren
@@ -1121,6 +1224,7 @@ comma
 id|start_name
 )paren
 suffix:semicolon
+)brace
 r_switch
 c_cond
 (paren
@@ -1154,7 +1258,13 @@ id|explicit_tracking
 id|die
 c_func
 (paren
-l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
+id|_
+c_func
+(paren
+id|upstream_not_branch
+)paren
+comma
+id|start_name
 )paren
 suffix:semicolon
 r_break
@@ -1191,7 +1301,13 @@ id|explicit_tracking
 id|die
 c_func
 (paren
-l_string|&quot;Cannot setup tracking information; starting point is not a branch.&quot;
+id|_
+c_func
+(paren
+id|upstream_not_branch
+)paren
+comma
+id|start_name
 )paren
 suffix:semicolon
 r_else
