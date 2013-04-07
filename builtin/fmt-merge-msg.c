@@ -1718,7 +1718,7 @@ l_char|&squot;a&squot;
 (brace
 id|label
 op_assign
-l_string|&quot;&bslash;n# By &quot;
+l_string|&quot;By&quot;
 suffix:semicolon
 id|me
 op_assign
@@ -1733,7 +1733,7 @@ r_else
 (brace
 id|label
 op_assign
-l_string|&quot;&bslash;n# Via &quot;
+l_string|&quot;Via&quot;
 suffix:semicolon
 id|me
 op_assign
@@ -1782,10 +1782,14 @@ l_string|&quot; &lt;&quot;
 )paren
 r_return
 suffix:semicolon
-id|strbuf_addstr
+id|strbuf_addf
 c_func
 (paren
 id|out
+comma
+l_string|&quot;&bslash;n%c %s &quot;
+comma
+id|comment_line_char
 comma
 id|label
 )paren
