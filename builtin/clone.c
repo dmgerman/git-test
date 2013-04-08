@@ -1475,7 +1475,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;reference repository &squot;%s&squot; is not a local directory.&quot;
+l_string|&quot;reference repository &squot;%s&squot; is not a local repository.&quot;
 )paren
 comma
 id|item-&gt;string
