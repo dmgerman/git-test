@@ -225,9 +225,10 @@ comma
 l_string|&quot;Debug: Remote helper quit.&bslash;n&quot;
 )paren
 suffix:semicolon
-m_exit
+id|die
+c_func
 (paren
-l_int|128
+l_string|&quot;Reading from remote helper failed&quot;
 )paren
 suffix:semicolon
 )brace
