@@ -175,6 +175,11 @@ r_struct
 id|strbuf
 op_star
 id|buffer
+comma
+r_const
+r_char
+op_star
+id|name
 )paren
 (brace
 id|strbuf_reset
@@ -228,7 +233,9 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;Reading from remote helper failed&quot;
+l_string|&quot;Reading from helper &squot;git-remote-%s&squot; failed&quot;
+comma
+id|name
 )paren
 suffix:semicolon
 )brace
@@ -275,6 +282,8 @@ c_func
 id|helper-&gt;out
 comma
 id|buffer
+comma
+id|helper-&gt;name
 )paren
 suffix:semicolon
 )brace
@@ -2754,6 +2763,8 @@ id|input
 comma
 op_amp
 id|cmdbuf
+comma
+id|name
 )paren
 suffix:semicolon
 r_if
