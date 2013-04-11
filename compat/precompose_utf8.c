@@ -653,7 +653,7 @@ c_func
 (paren
 l_string|&quot;iconv_open(%s,%s) failed, but needed:&bslash;n&quot;
 l_string|&quot;    precomposed unicode is not supported.&bslash;n&quot;
-l_string|&quot;    If you wnat to use decomposed unicode, run&bslash;n&quot;
+l_string|&quot;    If you want to use decomposed unicode, run&bslash;n&quot;
 l_string|&quot;    &bslash;&quot;git config core.precomposeunicode false&bslash;&quot;&bslash;n&quot;
 comma
 id|repo_encoding
