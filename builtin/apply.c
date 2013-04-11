@@ -9232,7 +9232,7 @@ r_return
 id|used
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Read the patch text in &quot;buffer&quot; taht extends for &quot;size&quot; bytes; stop&n; * reading after seeing a single patch (i.e. changes to a single file).&n; * Create fragments (i.e. patch hunks) and hang them to the given patch.&n; * Return the number of bytes consumed, so that the caller can call us&n; * again for the next patch.&n; */
+multiline_comment|/*&n; * Read the patch text in &quot;buffer&quot; that extends for &quot;size&quot; bytes; stop&n; * reading after seeing a single patch (i.e. changes to a single file).&n; * Create fragments (i.e. patch hunks) and hang them to the given patch.&n; * Return the number of bytes consumed, so that the caller can call us&n; * again for the next patch.&n; */
 DECL|function|parse_chunk
 r_static
 r_int
@@ -13855,7 +13855,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * item-&gt;util in the filename table records the status of the path.&n; * Usually it points at a patch (whose result records the contents&n; * of it after applying it), but it could be PATH_WAS_DELETED for a&n; * path that a previously applied patch has already removed, or&n; * PATH_TO_BE_DELETED for a path that a later patch would remove.&n; *&n; * The latter is needed to deal with a case where two paths A and B&n; * are swapped by first renaming A to B and then renaming B to A;&n; * moving A to B should not be prevented due to presense of B as we&n; * will remove it in a later patch.&n; */
+multiline_comment|/*&n; * item-&gt;util in the filename table records the status of the path.&n; * Usually it points at a patch (whose result records the contents&n; * of it after applying it), but it could be PATH_WAS_DELETED for a&n; * path that a previously applied patch has already removed, or&n; * PATH_TO_BE_DELETED for a path that a later patch would remove.&n; *&n; * The latter is needed to deal with a case where two paths A and B&n; * are swapped by first renaming A to B and then renaming B to A;&n; * moving A to B should not be prevented due to presence of B as we&n; * will remove it in a later patch.&n; */
 DECL|macro|PATH_TO_BE_DELETED
 mdefine_line|#define PATH_TO_BE_DELETED ((struct patch *) -2)
 DECL|macro|PATH_WAS_DELETED
@@ -16241,7 +16241,7 @@ id|old_name
 op_assign
 id|patch-&gt;old_name
 suffix:semicolon
-multiline_comment|/*&n;&t; * A type-change diff is always split into a patch to delete&n;&t; * old, immediately followed by a patch to create new (see&n;&t; * diff.c::run_diff()); in such a case it is Ok that the entry&n;&t; * to be deleted by the previous patch is still in the working&n;&t; * tree and in the index.&n;&t; *&n;&t; * A patch to swap-rename between A and B would first rename A&n;&t; * to B and then rename B to A.  While applying the first one,&n;&t; * the presense of B should not stop A from getting renamed to&n;&t; * B; ask to_be_deleted() about the later rename.  Removal of&n;&t; * B and rename from A to B is handled the same way by asking&n;&t; * was_deleted().&n;&t; */
+multiline_comment|/*&n;&t; * A type-change diff is always split into a patch to delete&n;&t; * old, immediately followed by a patch to create new (see&n;&t; * diff.c::run_diff()); in such a case it is Ok that the entry&n;&t; * to be deleted by the previous patch is still in the working&n;&t; * tree and in the index.&n;&t; *&n;&t; * A patch to swap-rename between A and B would first rename A&n;&t; * to B and then rename B to A.  While applying the first one,&n;&t; * the presence of B should not stop A from getting renamed to&n;&t; * B; ask to_be_deleted() about the later rename.  Removal of&n;&t; * B and rename from A to B is handled the same way by asking&n;&t; * was_deleted().&n;&t; */
 r_if
 c_cond
 (paren

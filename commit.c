@@ -4449,7 +4449,7 @@ id|cleanup
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Is &quot;commit&quot; a decendant of one of the elements on the &quot;with_commit&quot; list?&n; */
+multiline_comment|/*&n; * Is &quot;commit&quot; a descendant of one of the elements on the &quot;with_commit&quot; list?&n; */
 DECL|function|is_descendant_of
 r_int
 id|is_descendant_of

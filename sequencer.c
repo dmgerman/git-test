@@ -706,7 +706,7 @@ comma
 id|msg
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * A conflict has occured but the porcelain&n;&t;&t; * (typically rebase --interactive) wants to take care&n;&t;&t; * of the commit itself so remove CHERRY_PICK_HEAD&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * A conflict has occurred but the porcelain&n;&t;&t; * (typically rebase --interactive) wants to take care&n;&t;&t; * of the commit itself so remove CHERRY_PICK_HEAD&n;&t;&t; */
 id|unlink
 c_func
 (paren

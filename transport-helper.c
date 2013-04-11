@@ -5014,7 +5014,7 @@ DECL|member|dest_is_sock
 r_int
 id|dest_is_sock
 suffix:semicolon
-multiline_comment|/* Transfer state (TRANSFERING/FLUSHING/FINISHED) */
+multiline_comment|/* Transfer state (TRANSFERRING/FLUSHING/FINISHED) */
 DECL|member|state
 r_int
 id|state
