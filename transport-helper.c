@@ -4131,6 +4131,14 @@ l_int|NULL
 )paren
 )paren
 suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|ref-&gt;old_sha1
+comma
+id|sha1
+)paren
+suffix:semicolon
 )brace
 id|free
 c_func
