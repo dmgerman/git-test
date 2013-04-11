@@ -8909,7 +8909,7 @@ suffix:semicolon
 )brace
 "&f;"
 multiline_comment|/* Functions for parser.  */
-multiline_comment|/* Entry point of the parser.&n;   Parse the regular expression REGEXP and return the structure tree.&n;   If an error is occured, ERR is set by error code, and return NULL.&n;   This function build the following tree, from regular expression &lt;reg_exp&gt;:&n;&t;   CAT&n;&t;   / &bslash;&n;&t;  /   &bslash;&n;   &lt;reg_exp&gt;  EOR&n;&n;   CAT means concatenation.&n;   EOR means end of regular expression.  */
+multiline_comment|/* Entry point of the parser.&n;   Parse the regular expression REGEXP and return the structure tree.&n;   If an error has occurred, ERR is set by error code, and return NULL.&n;   This function build the following tree, from regular expression &lt;reg_exp&gt;:&n;&t;   CAT&n;&t;   / &bslash;&n;&t;  /   &bslash;&n;   &lt;reg_exp&gt;  EOR&n;&n;   CAT means concatenation.&n;   EOR means end of regular expression.  */
 r_static
 id|bin_tree_t
 op_star
@@ -16040,7 +16040,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-multiline_comment|/* This is intended for the expressions like &quot;a{1,3}&quot;.&n;   Fetch a number from `input&squot;, and return the number.&n;   Return -1, if the number field is empty like &quot;{,1}&quot;.&n;   Return -2, If an error is occured.  */
+multiline_comment|/* This is intended for the expressions like &quot;a{1,3}&quot;.&n;   Fetch a number from `input&squot;, and return the number.&n;   Return -1, if the number field is empty like &quot;{,1}&quot;.&n;   Return -2, if an error has occurred.  */
 r_static
 r_int
 DECL|function|fetch_number
