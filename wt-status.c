@@ -6083,42 +6083,14 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;It took %.2f seconds to enumerate untracked files.&quot;
-l_string|&quot;  &squot;status -uno&squot;&quot;
+l_string|&quot;It took %.2f seconds to enumerate untracked files. &squot;status -uno&squot;&bslash;n&quot;
+l_string|&quot;may speed it up, but you have to be careful not to forget to add&bslash;n&quot;
+l_string|&quot;new files yourself (see &squot;git help status&squot;).&quot;
 )paren
 comma
 id|s-&gt;untracked_in_ms
 op_div
 l_float|1000.0
-)paren
-suffix:semicolon
-id|status_printf_ln
-c_func
-(paren
-id|s
-comma
-id|GIT_COLOR_NORMAL
-comma
-id|_
-c_func
-(paren
-l_string|&quot;may speed it up, but you have to be careful not&quot;
-l_string|&quot; to forget to add&quot;
-)paren
-)paren
-suffix:semicolon
-id|status_printf_ln
-c_func
-(paren
-id|s
-comma
-id|GIT_COLOR_NORMAL
-comma
-id|_
-c_func
-(paren
-l_string|&quot;new files yourself (see &squot;git help status&squot;).&quot;
-)paren
 )paren
 suffix:semicolon
 )brace
