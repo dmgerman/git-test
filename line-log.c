@@ -5968,6 +5968,16 @@ id|pairdiff
 op_assign
 l_int|NULL
 suffix:semicolon
+r_struct
+id|diff_filepair
+op_star
+id|pair
+op_assign
+id|queue-&gt;queue
+(braket
+id|i
+)braket
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5976,10 +5986,7 @@ c_func
 (paren
 id|rev
 comma
-id|queue-&gt;queue
-(braket
-id|i
-)braket
+id|pair
 comma
 op_star
 id|range_out
@@ -5989,6 +5996,7 @@ id|pairdiff
 )paren
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * Store away the diff for later output.  We&n;&t;&t;&t; * tuck it in the ranges we got as _input_,&n;&t;&t;&t; * since that&squot;s the commit that caused the&n;&t;&t;&t; * diff.&n;&t;&t;&t; *&n;&t;&t;&t; * NEEDSWORK not enough when we get around to&n;&t;&t;&t; * doing something interesting with merges;&n;&t;&t;&t; * currently each invocation on a merge parent&n;&t;&t;&t; * trashes the previous one&squot;s diff.&n;&t;&t;&t; *&n;&t;&t;&t; * NEEDSWORK tramples over data structures not owned here&n;&t;&t;&t; */
 r_struct
 id|line_log_data
 op_star
@@ -5999,7 +6007,6 @@ suffix:semicolon
 id|changed
 op_increment
 suffix:semicolon
-multiline_comment|/* NEEDSWORK tramples over data structures not owned here */
 r_while
 c_loop
 (paren
@@ -6010,12 +6017,7 @@ c_func
 (paren
 id|rg-&gt;path
 comma
-id|queue-&gt;queue
-(braket
-id|i
-)braket
-op_member_access_from_pointer
-id|two-&gt;path
+id|pair-&gt;two-&gt;path
 )paren
 )paren
 id|rg
