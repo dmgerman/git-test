@@ -148,6 +148,16 @@ multiline_comment|/* we do not break too small filepair */
 r_if
 c_cond
 (paren
+op_logical_neg
+id|src-&gt;size
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* we do not let empty files get renamed */
+r_if
+c_cond
+(paren
 id|diffcore_count_changes
 c_func
 (paren
