@@ -2410,43 +2410,71 @@ op_assign
 (brace
 l_string|&quot;attributes&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Defining attributes per path&quot;
+)paren
 )brace
 comma
 (brace
 l_string|&quot;glossary&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;A Git glossary&quot;
+)paren
 )brace
 comma
 (brace
 l_string|&quot;ignore&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Specifies intentionally untracked files to ignore&quot;
+)paren
 )brace
 comma
 (brace
 l_string|&quot;modules&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Defining submodule properties&quot;
+)paren
 )brace
 comma
 (brace
 l_string|&quot;revisions&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Specifying revisions and ranges for Git&quot;
+)paren
 )brace
 comma
 (brace
 l_string|&quot;tutorial&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;A tutorial introduction to Git (for version 1.5.1 or newer)&quot;
+)paren
 )brace
 comma
 (brace
 l_string|&quot;workflows&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;An overview of recommended workflows with Git&quot;
+)paren
 )brace
 comma
 )brace
