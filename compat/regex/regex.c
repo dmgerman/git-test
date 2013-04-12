@@ -2,7 +2,7 @@ multiline_comment|/* Extended regular expression matching and search library.&n;
 macro_line|#ifdef HAVE_CONFIG_H
 macro_line|#include &quot;config.h&quot;
 macro_line|#endif
-multiline_comment|/* Make sure noone compiles this code with a C++ compiler.  */
+multiline_comment|/* Make sure no one compiles this code with a C++ compiler.  */
 macro_line|#ifdef __cplusplus
 macro_line|# error &quot;This is C code, use a C compiler&quot;
 macro_line|#endif

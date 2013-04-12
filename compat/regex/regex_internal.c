@@ -5650,7 +5650,7 @@ r_return
 id|REG_NOERROR
 suffix:semicolon
 )brace
-multiline_comment|/* Insert the new element ELEM to the re_node_set* SET.&n;   SET should not already have ELEM.&n;   return -1 if an error is occured, return 1 otherwise.  */
+multiline_comment|/* Insert the new element ELEM to the re_node_set* SET.&n;   SET should not already have ELEM.&n;   return -1 if an error has occurred, return 1 otherwise.  */
 r_static
 r_int
 id|internal_function
@@ -5869,7 +5869,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/* Insert the new element ELEM to the re_node_set* SET.&n;   SET should not already have any element greater than or equal to ELEM.&n;   Return -1 if an error is occured, return 1 otherwise.  */
+multiline_comment|/* Insert the new element ELEM to the re_node_set* SET.&n;   SET should not already have any element greater than or equal to ELEM.&n;   Return -1 if an error has occurred, return 1 otherwise.  */
 r_static
 r_int
 id|internal_function
@@ -6190,7 +6190,7 @@ l_int|1
 suffix:semicolon
 )brace
 "&f;"
-multiline_comment|/* Add the token TOKEN to dfa-&gt;nodes, and return the index of the token.&n;   Or return -1, if an error will be occured.  */
+multiline_comment|/* Add the token TOKEN to dfa-&gt;nodes, and return the index of the token.&n;   Or return -1, if an error has occurred.  */
 r_static
 r_int
 id|internal_function

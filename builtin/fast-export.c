@@ -198,7 +198,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;Unknown signed-tag mode: %s&quot;
+l_string|&quot;Unknown signed-tags mode: %s&quot;
 comma
 id|arg
 )paren
@@ -2256,7 +2256,7 @@ suffix:colon
 id|die
 (paren
 l_string|&quot;Encountered signed tag %s; use &quot;
-l_string|&quot;--signed-tag=&lt;mode&gt; to handle it.&quot;
+l_string|&quot;--signed-tags=&lt;mode&gt; to handle it.&quot;
 comma
 id|sha1_to_hex
 c_func

@@ -38,7 +38,7 @@ op_star
 op_star
 id|records
 comma
-multiline_comment|/* an ocurrence */
+multiline_comment|/* an occurrence */
 DECL|member|line_map
 op_star
 op_star

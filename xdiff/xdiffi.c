@@ -2289,7 +2289,7 @@ id|ix
 id|ixs
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * Try to move back the possibly merged group of changes, to match&n;&t;&t; * the recorded postion in the other file.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Try to move back the possibly merged group of changes, to match&n;&t;&t; * the recorded position in the other file.&n;&t;&t; */
 r_while
 c_loop
 (paren
