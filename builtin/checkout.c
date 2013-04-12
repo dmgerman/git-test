@@ -79,6 +79,10 @@ DECL|member|overwrite_ignore
 r_int
 id|overwrite_ignore
 suffix:semicolon
+DECL|member|ignore_skipworktree
+r_int
+id|ignore_skipworktree
+suffix:semicolon
 DECL|member|new_branch
 r_const
 r_char
@@ -1471,6 +1475,20 @@ id|ce-&gt;ce_flags
 op_and_assign
 op_complement
 id|CE_MATCHED
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts-&gt;ignore_skipworktree
+op_logical_and
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
@@ -5568,6 +5586,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;select hunks interactively&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ignore-skip-worktree-bits&quot;
+comma
+op_amp
+id|opts.ignore_skipworktree
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;do not limit pathspecs to sparse entries only&quot;
 )paren
 )paren
 comma
