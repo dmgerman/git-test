@@ -1346,7 +1346,7 @@ op_assign
 id|strcmp
 c_func
 (paren
-id|p-&gt;spec-&gt;path
+id|p-&gt;path
 comma
 id|path
 )paren
@@ -1383,6 +1383,7 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Note: takes ownership of &squot;path&squot;, which happens to be what the only&n; * caller needs.&n; */
 DECL|function|line_log_data_insert
 r_static
 r_void
@@ -1395,10 +1396,9 @@ op_star
 op_star
 id|list
 comma
-r_struct
-id|diff_filespec
+r_char
 op_star
-id|spec
+id|path
 comma
 r_int
 id|begin
@@ -1423,7 +1423,7 @@ c_func
 op_star
 id|list
 comma
-id|spec-&gt;path
+id|path
 comma
 op_amp
 id|ip
@@ -1453,10 +1453,10 @@ op_amp
 id|p-&gt;ranges
 )paren
 suffix:semicolon
-id|free_filespec
+id|free
 c_func
 (paren
-id|spec
+id|path
 )paren
 suffix:semicolon
 r_return
@@ -1476,9 +1476,9 @@ id|line_log_data
 )paren
 )paren
 suffix:semicolon
-id|p-&gt;spec
+id|p-&gt;path
 op_assign
-id|spec
+id|path
 suffix:semicolon
 id|range_set_append
 c_func
@@ -1820,7 +1820,7 @@ l_int|4096
 comma
 l_string|&quot;file %s&bslash;n&quot;
 comma
-id|r-&gt;spec-&gt;path
+id|r-&gt;path
 )paren
 suffix:semicolon
 id|dump_range_set
@@ -2957,7 +2957,6 @@ comma
 op_star
 id|range_part
 suffix:semicolon
-r_const
 r_char
 op_star
 id|full_name
@@ -3105,7 +3104,7 @@ comma
 op_amp
 id|end
 comma
-id|spec-&gt;path
+id|full_name
 )paren
 )paren
 id|die
@@ -3168,11 +3167,17 @@ c_func
 op_amp
 id|ranges
 comma
-id|spec
+id|full_name
 comma
 id|begin
 comma
 id|end
+)paren
+suffix:semicolon
+id|free_filespec
+c_func
+(paren
+id|spec
 )paren
 suffix:semicolon
 id|free
@@ -3240,17 +3245,13 @@ op_amp
 id|r-&gt;ranges
 )paren
 suffix:semicolon
-id|ret-&gt;spec
+id|ret-&gt;path
 op_assign
-id|r-&gt;spec
-suffix:semicolon
-m_assert
+id|xstrdup
+c_func
 (paren
-id|ret-&gt;spec
+id|r-&gt;path
 )paren
-suffix:semicolon
-id|ret-&gt;spec-&gt;count
-op_increment
 suffix:semicolon
 r_return
 id|ret
@@ -3430,9 +3431,9 @@ op_assign
 id|strcmp
 c_func
 (paren
-id|a-&gt;spec-&gt;path
+id|a-&gt;path
 comma
-id|b-&gt;spec-&gt;path
+id|b-&gt;path
 )paren
 suffix:semicolon
 r_if
@@ -3507,12 +3508,13 @@ c_func
 id|d
 )paren
 suffix:semicolon
-id|d-&gt;spec
+id|d-&gt;path
 op_assign
-id|src-&gt;spec
-suffix:semicolon
-id|d-&gt;spec-&gt;count
-op_increment
+id|xstrdup
+c_func
+(paren
+id|src-&gt;path
+)paren
 suffix:semicolon
 op_star
 id|pp
@@ -3940,7 +3942,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|r-&gt;spec-&gt;path
+id|r-&gt;path
 )paren
 suffix:semicolon
 id|r
@@ -4250,7 +4252,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|rg-&gt;spec-&gt;path
+id|rg-&gt;path
 comma
 id|p-&gt;two-&gt;path
 )paren
@@ -5579,7 +5581,7 @@ id|rg
 (brace
 m_assert
 (paren
-id|rg-&gt;spec-&gt;path
+id|rg-&gt;path
 )paren
 suffix:semicolon
 r_if
@@ -5589,7 +5591,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|rg-&gt;spec-&gt;path
+id|rg-&gt;path
 comma
 id|pair-&gt;two-&gt;path
 )paren
@@ -5696,7 +5698,13 @@ id|diff
 )paren
 suffix:semicolon
 multiline_comment|/* NEEDSWORK should apply some heuristics to prevent mismatches */
-id|rg-&gt;spec-&gt;path
+id|free
+c_func
+(paren
+id|rg-&gt;path
+)paren
+suffix:semicolon
+id|rg-&gt;path
 op_assign
 id|xstrdup
 c_func
@@ -6000,7 +6008,7 @@ op_logical_and
 id|strcmp
 c_func
 (paren
-id|rg-&gt;spec-&gt;path
+id|rg-&gt;path
 comma
 id|queue-&gt;queue
 (braket
