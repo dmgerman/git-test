@@ -7366,6 +7366,8 @@ c_func
 id|path
 comma
 id|R_OK
+comma
+l_int|0
 )paren
 )paren
 id|add_excludes_from_file
@@ -7388,6 +7390,8 @@ c_func
 id|excludes_file
 comma
 id|R_OK
+comma
+l_int|0
 )paren
 )paren
 id|add_excludes_from_file
