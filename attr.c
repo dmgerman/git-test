@@ -1819,6 +1819,8 @@ op_amp
 id|the_index
 comma
 id|path
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
