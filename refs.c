@@ -480,7 +480,8 @@ id|entries
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/* ISSYMREF=0x01, ISPACKED=0x02, and ISBROKEN=0x04 are public interfaces */
+multiline_comment|/*&n; * Bit values for ref_entry::flag.  REF_ISSYMREF=0x01,&n; * REF_ISPACKED=0x02, and REF_ISBROKEN=0x04 are public values; see&n; * refs.h.&n; */
+multiline_comment|/*&n; * The field ref_entry-&gt;u.value.peeled of this value entry contains&n; * the correct peeled value for the reference, which might be&n; * null_sha1 if the reference is not a tag or if it is broken.&n; */
 DECL|macro|REF_KNOWS_PEELED
 mdefine_line|#define REF_KNOWS_PEELED 0x08
 multiline_comment|/* ref_entry represents a directory of references */
