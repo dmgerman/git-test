@@ -2212,7 +2212,7 @@ op_assign
 id|xcalloc
 c_func
 (paren
-l_int|5
+l_int|6
 op_plus
 id|revlist_args-&gt;nr
 comma
@@ -2238,6 +2238,14 @@ op_increment
 )braket
 op_assign
 l_string|&quot;--use-done-feature&quot;
+suffix:semicolon
+id|fastexport-&gt;argv
+(braket
+id|argc
+op_increment
+)braket
+op_assign
+l_string|&quot;--signed-tags=warn-strip&quot;
 suffix:semicolon
 r_if
 c_cond
