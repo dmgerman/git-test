@@ -40,6 +40,7 @@ suffix:semicolon
 DECL|enumerator|ABORT
 DECL|enumerator|VERBATIM
 DECL|enumerator|WARN
+DECL|enumerator|WARN_STRIP
 DECL|enumerator|STRIP
 DECL|variable|signed_tag_mode
 r_static
@@ -50,6 +51,8 @@ comma
 id|VERBATIM
 comma
 id|WARN
+comma
+id|WARN_STRIP
 comma
 id|STRIP
 )brace
@@ -175,6 +178,23 @@ l_string|&quot;warn&quot;
 id|signed_tag_mode
 op_assign
 id|WARN
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;warn-strip&quot;
+)paren
+)paren
+id|signed_tag_mode
+op_assign
+id|WARN_STRIP
 suffix:semicolon
 r_else
 r_if
@@ -2285,6 +2305,21 @@ id|VERBATIM
 suffix:colon
 r_break
 suffix:semicolon
+r_case
+id|WARN_STRIP
+suffix:colon
+id|warning
+(paren
+l_string|&quot;Stripping signature from tag %s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|tag-&gt;object.sha1
+)paren
+)paren
+suffix:semicolon
+multiline_comment|/* fallthru */
 r_case
 id|STRIP
 suffix:colon
