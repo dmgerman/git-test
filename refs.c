@@ -426,6 +426,7 @@ DECL|struct|ref_value
 r_struct
 id|ref_value
 (brace
+multiline_comment|/*&n;&t; * The name of the object to which this reference resolves&n;&t; * (which may be a tag object).  If REF_ISBROKEN, this is&n;&t; * null.  If REF_ISSYMREF, then this is the name of the object&n;&t; * referred to by the last reference in the symlink chain.&n;&t; */
 DECL|member|sha1
 r_int
 r_char
@@ -434,6 +435,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
+multiline_comment|/*&n;&t; * If REF_KNOWS_PEELED, then this field holds the peeled value&n;&t; * of this reference, or null if the reference is known not to&n;&t; * be peelable.&n;&t; */
 DECL|member|peeled
 r_int
 r_char
