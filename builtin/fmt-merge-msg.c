@@ -1718,7 +1718,7 @@ l_char|&squot;a&squot;
 (brace
 id|label
 op_assign
-l_string|&quot;&bslash;n# By &quot;
+l_string|&quot;By&quot;
 suffix:semicolon
 id|me
 op_assign
@@ -1733,7 +1733,7 @@ r_else
 (brace
 id|label
 op_assign
-l_string|&quot;&bslash;n# Via &quot;
+l_string|&quot;Via&quot;
 suffix:semicolon
 id|me
 op_assign
@@ -1782,10 +1782,14 @@ l_string|&quot; &lt;&quot;
 )paren
 r_return
 suffix:semicolon
-id|strbuf_addstr
+id|strbuf_addf
 c_func
 (paren
 id|out
+comma
+l_string|&quot;&bslash;n%c %s &quot;
+comma
+id|comment_line_char
 comma
 id|label
 )paren
@@ -3018,13 +3022,20 @@ id|tagline
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-id|strbuf_addf
+id|strbuf_addch
 c_func
 (paren
 op_amp
 id|tagline
 comma
-l_string|&quot;&bslash;n# %s&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+id|strbuf_add_commented_lines
+c_func
+(paren
+op_amp
+id|tagline
 comma
 id|origins.items
 (braket
@@ -3032,6 +3043,17 @@ id|first_tag
 )braket
 dot
 id|string
+comma
+id|strlen
+c_func
+(paren
+id|origins.items
+(braket
+id|first_tag
+)braket
+dot
+id|string
+)paren
 )paren
 suffix:semicolon
 id|strbuf_insert
@@ -3055,13 +3077,20 @@ id|tagline
 )paren
 suffix:semicolon
 )brace
-id|strbuf_addf
+id|strbuf_addch
 c_func
 (paren
 op_amp
 id|tagbuf
 comma
-l_string|&quot;&bslash;n# %s&bslash;n&quot;
+l_char|&squot;&bslash;n&squot;
+)paren
+suffix:semicolon
+id|strbuf_add_commented_lines
+c_func
+(paren
+op_amp
+id|tagbuf
 comma
 id|origins.items
 (braket
@@ -3069,6 +3098,17 @@ id|i
 )braket
 dot
 id|string
+comma
+id|strlen
+c_func
+(paren
+id|origins.items
+(braket
+id|i
+)braket
+dot
+id|string
+)paren
 )paren
 suffix:semicolon
 id|fmt_tag_signature
