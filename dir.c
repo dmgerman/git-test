@@ -6052,7 +6052,7 @@ id|path.buf
 comma
 id|path.len
 comma
-l_int|0
+id|check_only
 comma
 id|simplify
 )paren
