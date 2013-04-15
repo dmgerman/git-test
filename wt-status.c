@@ -3065,6 +3065,8 @@ id|SHOW_ALL_UNTRACKED_FILES
 id|dir.flags
 op_or_assign
 id|DIR_SHOW_OTHER_DIRECTORIES
+op_or
+id|DIR_HIDE_EMPTY_DIRECTORIES
 suffix:semicolon
 id|fill_directory
 c_func

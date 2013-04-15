@@ -4889,10 +4889,6 @@ op_and_assign
 op_complement
 id|DIR_SHOW_IGNORED
 suffix:semicolon
-id|dir-&gt;flags
-op_or_assign
-id|DIR_HIDE_EMPTY_DIRECTORIES
-suffix:semicolon
 id|ignored
 op_assign
 id|read_directory_recursive
@@ -4910,11 +4906,6 @@ id|simplify
 )paren
 suffix:semicolon
 id|dir-&gt;flags
-op_and_assign
-op_complement
-id|DIR_HIDE_EMPTY_DIRECTORIES
-suffix:semicolon
-id|dir-&gt;flags
 op_or_assign
 id|DIR_SHOW_IGNORED
 suffix:semicolon
@@ -4930,13 +4921,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
-id|dir-&gt;flags
-op_amp
-id|DIR_SHOW_IGNORED
-)paren
-op_logical_and
 op_logical_neg
 (paren
 id|dir-&gt;flags
