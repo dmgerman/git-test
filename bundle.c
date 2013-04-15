@@ -274,9 +274,9 @@ id|sha1
 )paren
 op_logical_or
 (paren
-l_int|40
-op_le
 id|buf.len
+OG
+l_int|40
 op_logical_and
 op_logical_neg
 id|isspace
