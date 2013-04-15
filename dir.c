@@ -4867,7 +4867,7 @@ id|check
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * We are looking for ignored files and our directory is not ignored,&n;&t; * check if it contains only ignored files&n;&t; */
+multiline_comment|/*&n;&t; * We are looking for ignored files and our directory is not ignored,&n;&t; * check if it contains untracked files (i.e. is listed as untracked)&n;&t; */
 r_if
 c_cond
 (paren
@@ -4909,13 +4909,13 @@ id|dir-&gt;flags
 op_or_assign
 id|DIR_SHOW_IGNORED
 suffix:semicolon
-r_return
-id|ignored
-ques
+r_if
 c_cond
+(paren
+id|ignored
+)paren
+r_return
 id|ignore_directory
-suffix:colon
-id|show_directory
 suffix:semicolon
 )brace
 r_if
