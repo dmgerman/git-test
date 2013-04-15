@@ -7588,12 +7588,14 @@ suffix:semicolon
 r_case
 id|HTTP_ERROR
 suffix:colon
-id|http_error
+id|error
 c_func
 (paren
+l_string|&quot;unable to access &squot;%s&squot;: %s&quot;
+comma
 id|url
 comma
-id|HTTP_ERROR
+id|curl_errorstr
 )paren
 suffix:semicolon
 r_default
