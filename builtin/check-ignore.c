@@ -374,10 +374,6 @@ id|dir
 )paren
 )paren
 suffix:semicolon
-id|dir.flags
-op_or_assign
-id|DIR_COLLECT_IGNORED
-suffix:semicolon
 id|setup_standard_excludes
 c_func
 (paren
