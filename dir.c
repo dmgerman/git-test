@@ -6360,6 +6360,11 @@ r_char
 op_star
 id|cp
 suffix:semicolon
+r_int
+id|old_flags
+op_assign
+id|dir-&gt;flags
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -6388,6 +6393,11 @@ suffix:semicolon
 id|baselen
 op_assign
 l_int|0
+suffix:semicolon
+id|dir-&gt;flags
+op_and_assign
+op_complement
+id|DIR_SHOW_OTHER_DIRECTORIES
 suffix:semicolon
 r_while
 c_loop
@@ -6529,6 +6539,10 @@ c_func
 op_amp
 id|sb
 )paren
+suffix:semicolon
+id|dir-&gt;flags
+op_assign
+id|old_flags
 suffix:semicolon
 r_return
 id|rc
