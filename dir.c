@@ -4310,13 +4310,6 @@ id|len
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
-id|dir-&gt;flags
-op_amp
-id|DIR_SHOW_IGNORED
-)paren
-op_logical_and
 id|cache_name_exists
 c_func
 (paren
@@ -4668,7 +4661,7 @@ r_return
 id|index_nonexistent
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * When we find a directory when traversing the filesystem, we&n; * have three distinct cases:&n; *&n; *  - ignore it&n; *  - see it as a directory&n; *  - recurse into it&n; *&n; * and which one we choose depends on a combination of existing&n; * git index contents and the flags passed into the directory&n; * traversal routine.&n; *&n; * Case 1: If we *already* have entries in the index under that&n; * directory name, we recurse into the directory to see all the files,&n; * unless the directory is excluded and we want to show ignored&n; * directories&n; *&n; * Case 2: If we *already* have that directory name as a gitlink,&n; * we always continue to see it as a gitlink, regardless of whether&n; * there is an actual git directory there or not (it might not&n; * be checked out as a subproject!)&n; *&n; * Case 3: if we didn&squot;t have it in the index previously, we&n; * have a few sub-cases:&n; *&n; *  (a) if &quot;show_other_directories&quot; is true, we show it as&n; *      just a directory, unless &quot;hide_empty_directories&quot; is&n; *      also true and the directory is empty, in which case&n; *      we just ignore it entirely.&n; *      if we are looking for ignored directories, look if it&n; *      contains only ignored files to decide if it must be shown as&n; *      ignored or not.&n; *  (b) if it looks like a git directory, and we don&squot;t have&n; *      &squot;no_gitlinks&squot; set we treat it as a gitlink, and show it&n; *      as a directory.&n; *  (c) otherwise, we recurse into it.&n; */
+multiline_comment|/*&n; * When we find a directory when traversing the filesystem, we&n; * have three distinct cases:&n; *&n; *  - ignore it&n; *  - see it as a directory&n; *  - recurse into it&n; *&n; * and which one we choose depends on a combination of existing&n; * git index contents and the flags passed into the directory&n; * traversal routine.&n; *&n; * Case 1: If we *already* have entries in the index under that&n; * directory name, we always recurse into the directory to see&n; * all the files.&n; *&n; * Case 2: If we *already* have that directory name as a gitlink,&n; * we always continue to see it as a gitlink, regardless of whether&n; * there is an actual git directory there or not (it might not&n; * be checked out as a subproject!)&n; *&n; * Case 3: if we didn&squot;t have it in the index previously, we&n; * have a few sub-cases:&n; *&n; *  (a) if &quot;show_other_directories&quot; is true, we show it as&n; *      just a directory, unless &quot;hide_empty_directories&quot; is&n; *      also true and the directory is empty, in which case&n; *      we just ignore it entirely.&n; *      if we are looking for ignored directories, look if it&n; *      contains only ignored files to decide if it must be shown as&n; *      ignored or not.&n; *  (b) if it looks like a git directory, and we don&squot;t have&n; *      &squot;no_gitlinks&squot; set we treat it as a gitlink, and show it&n; *      as a directory.&n; *  (c) otherwise, we recurse into it.&n; */
 DECL|enum|directory_treatment
 r_enum
 id|directory_treatment
@@ -4731,19 +4724,6 @@ l_int|1
 r_case
 id|index_directory
 suffix:colon
-r_if
-c_cond
-(paren
-(paren
-id|dir-&gt;flags
-op_amp
-id|DIR_SHOW_OTHER_DIRECTORIES
-)paren
-op_logical_and
-id|exclude
-)paren
-r_break
-suffix:semicolon
 r_return
 id|recurse_into_directory
 suffix:semicolon
