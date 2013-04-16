@@ -2315,6 +2315,7 @@ op_star
 id|prefix
 )paren
 (brace
+multiline_comment|/*&n;&t; * The format of this string should be kept stable for compatibility&n;&t; * with external projects that rely on the output of &quot;git version&quot;.&n;&t; */
 id|printf
 c_func
 (paren
