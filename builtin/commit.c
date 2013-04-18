@@ -4823,6 +4823,8 @@ c_func
 (paren
 id|commit
 comma
+l_int|NULL
+comma
 id|out_enc
 )paren
 suffix:semicolon
