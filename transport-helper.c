@@ -4021,6 +4021,18 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|data-&gt;refspecs
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;remote-helper doesn&squot;t support push; refspec needed&quot;
+)paren
+suffix:semicolon
 id|helper
 op_assign
 id|get_helper
@@ -4068,14 +4080,6 @@ id|sha1
 (braket
 l_int|20
 )braket
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|data-&gt;refspecs
-)paren
-r_continue
 suffix:semicolon
 r_private
 op_assign
