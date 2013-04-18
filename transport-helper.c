@@ -1200,6 +1200,24 @@ id|refspecs
 )paren
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|data-&gt;import
+op_logical_or
+id|data-&gt;bidi_import
+op_logical_or
+id|data-&gt;export
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;This remote helper should implement refspec capability.&quot;
+)paren
+suffix:semicolon
+)brace
 id|strbuf_release
 c_func
 (paren
