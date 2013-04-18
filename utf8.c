@@ -17,7 +17,6 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|display_mode_esc_sequence_len
-r_static
 r_int
 id|display_mode_esc_sequence_len
 c_func
