@@ -3775,10 +3775,12 @@ l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&
 l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
 )paren
 comma
-id|sha1_to_hex
+id|find_unique_abbrev
 c_func
 (paren
 id|commit-&gt;object.sha1
+comma
+id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
