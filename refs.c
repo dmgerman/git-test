@@ -9279,11 +9279,11 @@ id|r-&gt;next
 suffix:semicolon
 )brace
 )brace
-DECL|variable|packed
+DECL|variable|packlock
 r_static
 r_struct
 id|lock_file
-id|packed
+id|packlock
 suffix:semicolon
 DECL|function|pack_refs
 r_int
@@ -9326,7 +9326,7 @@ id|hold_lock_file_for_update
 c_func
 (paren
 op_amp
-id|packed
+id|packlock
 comma
 id|git_path
 c_func
@@ -9420,7 +9420,7 @@ l_string|&quot;failed to write ref-pack file&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Since the lock file was fdopen()&squot;ed and then fclose()&squot;ed above,&n;&t; * assign -1 to the lock file descriptor so that commit_lock_file()&n;&t; * won&squot;t try to close() it.&n;&t; */
-id|packed.fd
+id|packlock.fd
 op_assign
 l_int|1
 suffix:semicolon
@@ -9431,7 +9431,7 @@ id|commit_lock_file
 c_func
 (paren
 op_amp
-id|packed
+id|packlock
 )paren
 OL
 l_int|0
@@ -9608,12 +9608,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|variable|packlock
-r_static
-r_struct
-id|lock_file
-id|packlock
-suffix:semicolon
 DECL|function|repack_without_ref
 r_static
 r_int
