@@ -8780,29 +8780,6 @@ id|refs_file
 suffix:semicolon
 )brace
 suffix:semicolon
-DECL|function|do_not_prune
-r_static
-r_int
-id|do_not_prune
-c_func
-(paren
-r_int
-id|flags
-)paren
-(brace
-multiline_comment|/* If it is already packed or if it is a symref,&n;&t; * do not prune it.&n;&t; */
-r_return
-(paren
-id|flags
-op_amp
-(paren
-id|REF_ISSYMREF
-op_or
-id|REF_ISPACKED
-)paren
-)paren
-suffix:semicolon
-)brace
 DECL|function|pack_one_ref
 r_static
 r_int
@@ -8955,6 +8932,7 @@ id|o-&gt;sha1
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* If the ref was already packed, there is no need to prune it. */
 r_if
 c_cond
 (paren
@@ -8965,10 +8943,10 @@ id|PACK_REFS_PRUNE
 )paren
 op_logical_and
 op_logical_neg
-id|do_not_prune
-c_func
 (paren
 id|entry-&gt;flag
+op_amp
+id|REF_ISPACKED
 )paren
 )paren
 (brace
