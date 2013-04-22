@@ -8812,7 +8812,7 @@ c_func
 r_const
 r_char
 op_star
-id|path
+id|refname
 comma
 r_const
 r_int
@@ -8862,7 +8862,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|path
+id|refname
 comma
 l_string|&quot;refs/tags/&quot;
 )paren
@@ -8904,7 +8904,7 @@ c_func
 id|sha1
 )paren
 comma
-id|path
+id|refname
 )paren
 suffix:semicolon
 id|o
@@ -8914,7 +8914,7 @@ c_func
 (paren
 id|sha1
 comma
-id|path
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -8932,7 +8932,7 @@ c_func
 (paren
 id|o
 comma
-id|path
+id|refname
 comma
 l_int|0
 )paren
@@ -8980,7 +8980,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|path
+id|refname
 )paren
 op_plus
 l_int|1
@@ -9017,7 +9017,7 @@ c_func
 (paren
 id|n-&gt;name
 comma
-id|path
+id|refname
 )paren
 suffix:semicolon
 id|n-&gt;next
