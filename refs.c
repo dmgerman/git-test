@@ -435,7 +435,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * If REF_KNOWS_PEELED, then this field holds the peeled value&n;&t; * of this reference, or null if the reference is known not to&n;&t; * be peelable.&n;&t; */
+multiline_comment|/*&n;&t; * If REF_KNOWS_PEELED, then this field holds the peeled value&n;&t; * of this reference, or null if the reference is known not to&n;&t; * be peelable.  See the documentation for peel_ref() for an&n;&t; * exact definition of &quot;peelable&quot;.&n;&t; */
 DECL|member|peeled
 r_int
 r_char
@@ -5565,6 +5565,18 @@ id|REF_KNOWS_PEELED
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|is_null_sha1
+c_func
+(paren
+id|r-&gt;u.value.peeled
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
 id|hashcpy
 c_func
 (paren
