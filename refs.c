@@ -1793,8 +1793,9 @@ op_assign
 id|i
 suffix:semicolon
 )brace
+multiline_comment|/* Include broken references in a do_for_each_ref*() iteration: */
 DECL|macro|DO_FOR_EACH_INCLUDE_BROKEN
-mdefine_line|#define DO_FOR_EACH_INCLUDE_BROKEN 01
+mdefine_line|#define DO_FOR_EACH_INCLUDE_BROKEN 0x01
 DECL|variable|current_ref
 r_static
 r_struct
@@ -1802,6 +1803,7 @@ id|ref_entry
 op_star
 id|current_ref
 suffix:semicolon
+multiline_comment|/*&n; * Handle one reference in a do_for_each_ref*()-style iteration.&n; */
 DECL|function|do_one_ref
 r_static
 r_int
@@ -5782,6 +5784,7 @@ id|data
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Call fn for each reference in the specified submodule for which the&n; * refname begins with base.  If trim is non-zero, then trim that many&n; * characters off the beginning of each refname before passing the&n; * refname to fn.  flags can be DO_FOR_EACH_INCLUDE_BROKEN to include&n; * broken references in the iteration.  If fn ever returns a non-zero&n; * value, stop the iteration and return that value; otherwise, return&n; * 0.&n; */
 DECL|function|do_for_each_ref
 r_static
 r_int
