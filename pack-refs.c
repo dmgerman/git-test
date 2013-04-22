@@ -74,10 +74,10 @@ id|REF_ISPACKED
 )paren
 suffix:semicolon
 )brace
-DECL|function|handle_one_ref
+DECL|function|pack_one_ref
 r_static
 r_int
-id|handle_one_ref
+id|pack_one_ref
 c_func
 (paren
 r_const
@@ -642,7 +642,7 @@ suffix:semicolon
 id|for_each_ref
 c_func
 (paren
-id|handle_one_ref
+id|pack_one_ref
 comma
 op_amp
 id|cbdata
