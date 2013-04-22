@@ -22,15 +22,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git shortlog [-n] [-s] [-e] [-w] [rev-opts] [--] [&lt;commit-id&gt;... ]&quot;
-)paren
-comma
-l_string|&quot;&quot;
-comma
-id|N_
-c_func
-(paren
-l_string|&quot;[rev-opts] are documented in git-rev-list(1)&quot;
+l_string|&quot;git shortlog [&lt;options&gt;] [&lt;revision range&gt;] [[--] [&lt;path&gt;...]]&quot;
 )paren
 comma
 l_int|NULL
