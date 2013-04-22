@@ -1796,6 +1796,7 @@ suffix:semicolon
 multiline_comment|/* Include broken references in a do_for_each_ref*() iteration: */
 DECL|macro|DO_FOR_EACH_INCLUDE_BROKEN
 mdefine_line|#define DO_FOR_EACH_INCLUDE_BROKEN 0x01
+multiline_comment|/*&n; * current_ref is a performance hack: when iterating over references&n; * using the for_each_ref*() functions, current_ref is set to the&n; * current reference&squot;s entry before calling the callback function.  If&n; * the callback function calls peel_ref(), then peel_ref() first&n; * checks whether the reference to be peeled is the current reference&n; * (it usually is) and if so, returns that reference&squot;s peeled version&n; * if it is available.  This avoids a refname lookup in a common case.&n; */
 DECL|variable|current_ref
 r_static
 r_struct
