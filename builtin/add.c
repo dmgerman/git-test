@@ -69,11 +69,6 @@ DECL|member|implicit_dot_len
 r_int
 id|implicit_dot_len
 suffix:semicolon
-multiline_comment|/* only needed for 2.0 transition preparation */
-DECL|member|warn_add_would_remove
-r_int
-id|warn_add_would_remove
-suffix:semicolon
 )brace
 suffix:semicolon
 DECL|variable|option_with_implicit_dot
@@ -207,54 +202,6 @@ r_else
 multiline_comment|/*&n;&t;&t; * Either an explicit add request, or path exists&n;&t;&t; * in the working tree.  An attempt to explicitly&n;&t;&t; * add a path that does not exist in the working tree&n;&t;&t; * will be caught as an error by the caller immediately.&n;&t;&t; */
 r_return
 id|DIFF_STATUS_MODIFIED
-suffix:semicolon
-)brace
-DECL|variable|add_would_remove_warning
-r_static
-r_const
-r_char
-op_star
-id|add_would_remove_warning
-op_assign
-id|N_
-c_func
-(paren
-l_string|&quot;You ran &squot;git add&squot; with neither &squot;-A (--all)&squot; or &squot;--ignore-removal&squot;,&bslash;n&quot;
-l_string|&quot;whose behaviour will change in Git 2.0 with respect to paths you removed.&bslash;n&quot;
-l_string|&quot;Paths like &squot;%s&squot; that are&bslash;n&quot;
-l_string|&quot;removed from your working tree are ignored with this version of Git.&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;* &squot;git add --ignore-removal &lt;pathspec&gt;&squot;, which is the current default,&bslash;n&quot;
-l_string|&quot;  ignores paths you removed from your working tree.&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;* &squot;git add --all &lt;pathspec&gt;&squot; will let you also record the removals.&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;Run &squot;git status&squot; to check the paths you removed from your working tree.&bslash;n&quot;
-)paren
-suffix:semicolon
-DECL|function|warn_add_would_remove
-r_static
-r_void
-id|warn_add_would_remove
-c_func
-(paren
-r_const
-r_char
-op_star
-id|path
-)paren
-(brace
-id|warning
-c_func
-(paren
-id|_
-c_func
-(paren
-id|add_would_remove_warning
-)paren
-comma
-id|path
-)paren
 suffix:semicolon
 )brace
 DECL|function|update_callback
@@ -433,23 +380,6 @@ suffix:semicolon
 r_case
 id|DIFF_STATUS_DELETED
 suffix:colon
-r_if
-c_cond
-(paren
-id|data-&gt;warn_add_would_remove
-)paren
-(brace
-id|warn_add_would_remove
-c_func
-(paren
-id|path
-)paren
-suffix:semicolon
-id|data-&gt;warn_add_would_remove
-op_assign
-l_int|0
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -1683,7 +1613,7 @@ comma
 id|ignore_missing
 suffix:semicolon
 DECL|macro|ADDREMOVE_DEFAULT
-mdefine_line|#define ADDREMOVE_DEFAULT 0 /* Change to 1 in Git 2.0 */
+mdefine_line|#define ADDREMOVE_DEFAULT 1
 DECL|variable|addremove
 r_static
 r_int
@@ -2378,35 +2308,6 @@ l_string|&quot;-A and -u are mutually incompatible&quot;
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Warn when &quot;git add pathspec...&quot; was given without &quot;-u&quot; or &quot;-A&quot;&n;&t; * and pathspec... covers a removed path.&n;&t; */
-id|memset
-c_func
-(paren
-op_amp
-id|update_data
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|update_data
-)paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|take_worktree_changes
-op_logical_and
-id|addremove_explicit
-OL
-l_int|0
-)paren
-id|update_data.warn_add_would_remove
-op_assign
-l_int|1
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2419,9 +2320,11 @@ l_int|0
 op_logical_and
 id|argc
 )paren
-multiline_comment|/*&n;&t;&t; * Turn &quot;git add pathspec...&quot; to &quot;git add -A pathspec...&quot;&n;&t;&t; * in Git 2.0 but not yet&n;&t;&t; */
+multiline_comment|/* Turn &quot;git add pathspec...&quot; to &quot;git add -A pathspec...&quot; */
+id|addremove
+op_assign
+l_int|1
 suffix:semicolon
-multiline_comment|/* addremove = 1; */
 r_if
 c_cond
 (paren
@@ -2941,6 +2844,20 @@ suffix:semicolon
 id|plug_bulk_checkin
 c_func
 (paren
+)paren
+suffix:semicolon
+id|memset
+c_func
+(paren
+op_amp
+id|update_data
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+id|update_data
+)paren
 )paren
 suffix:semicolon
 r_if
