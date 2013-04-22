@@ -21,7 +21,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git revert [options] &lt;commit-ish&gt;&quot;
+l_string|&quot;git revert [options] &lt;commit-ish&gt;...&quot;
 )paren
 comma
 id|N_
@@ -47,7 +47,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git cherry-pick [options] &lt;commit-ish&gt;&quot;
+l_string|&quot;git cherry-pick [options] &lt;commit-ish&gt;...&quot;
 )paren
 comma
 id|N_
