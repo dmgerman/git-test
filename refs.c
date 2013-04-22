@@ -6061,17 +6061,17 @@ id|data
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Call fn for each reference in the specified submodule, omitting&n; * references not in the containing_dir of base.  fn is called for all&n; * references, including broken ones.  If fn ever returns a non-zero&n; * value, stop the iteration and return that value; otherwise, return&n; * 0.&n; */
+multiline_comment|/*&n; * Call fn for each reference in the specified ref_cache, omitting&n; * references not in the containing_dir of base.  fn is called for all&n; * references, including broken ones.  If fn ever returns a non-zero&n; * value, stop the iteration and return that value; otherwise, return&n; * 0.&n; */
 DECL|function|do_for_each_entry
 r_static
 r_int
 id|do_for_each_entry
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|ref_cache
 op_star
-id|submodule
+id|refs
 comma
 r_const
 r_char
@@ -6086,17 +6086,6 @@ op_star
 id|cb_data
 )paren
 (brace
-r_struct
-id|ref_cache
-op_star
-id|refs
-op_assign
-id|get_ref_cache
-c_func
-(paren
-id|submodule
-)paren
-suffix:semicolon
 r_struct
 id|ref_dir
 op_star
@@ -6253,17 +6242,17 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Call fn for each reference in the specified submodule for which the&n; * refname begins with base.  If trim is non-zero, then trim that many&n; * characters off the beginning of each refname before passing the&n; * refname to fn.  flags can be DO_FOR_EACH_INCLUDE_BROKEN to include&n; * broken references in the iteration.  If fn ever returns a non-zero&n; * value, stop the iteration and return that value; otherwise, return&n; * 0.&n; */
+multiline_comment|/*&n; * Call fn for each reference in the specified ref_cache for which the&n; * refname begins with base.  If trim is non-zero, then trim that many&n; * characters off the beginning of each refname before passing the&n; * refname to fn.  flags can be DO_FOR_EACH_INCLUDE_BROKEN to include&n; * broken references in the iteration.  If fn ever returns a non-zero&n; * value, stop the iteration and return that value; otherwise, return&n; * 0.&n; */
 DECL|function|do_for_each_ref
 r_static
 r_int
 id|do_for_each_ref
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|ref_cache
 op_star
-id|submodule
+id|refs
 comma
 r_const
 r_char
@@ -6312,7 +6301,7 @@ r_return
 id|do_for_each_entry
 c_func
 (paren
-id|submodule
+id|refs
 comma
 id|base
 comma
@@ -6496,7 +6485,11 @@ r_return
 id|do_for_each_ref
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 l_int|NULL
+)paren
 comma
 l_string|&quot;&quot;
 comma
@@ -6532,7 +6525,11 @@ r_return
 id|do_for_each_ref
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 id|submodule
+)paren
 comma
 l_string|&quot;&quot;
 comma
@@ -6568,7 +6565,11 @@ r_return
 id|do_for_each_ref
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 l_int|NULL
+)paren
 comma
 id|prefix
 comma
@@ -6613,7 +6614,11 @@ r_return
 id|do_for_each_ref
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 id|submodule
+)paren
 comma
 id|prefix
 comma
@@ -6819,7 +6824,11 @@ r_return
 id|do_for_each_ref
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 l_int|NULL
+)paren
 comma
 l_string|&quot;refs/replace/&quot;
 comma
@@ -6964,7 +6973,11 @@ op_assign
 id|do_for_each_ref
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 l_int|NULL
+)paren
 comma
 id|buf.buf
 comma
@@ -7197,7 +7210,11 @@ r_return
 id|do_for_each_ref
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 l_int|NULL
+)paren
 comma
 l_string|&quot;&quot;
 comma
@@ -9341,7 +9358,11 @@ suffix:semicolon
 id|do_for_each_entry
 c_func
 (paren
+id|get_ref_cache
+c_func
+(paren
 l_int|NULL
+)paren
 comma
 l_string|&quot;&quot;
 comma
