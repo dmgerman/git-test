@@ -3220,6 +3220,17 @@ suffix:semicolon
 multiline_comment|/* The length of a peeled reference line in packed-refs, including EOL: */
 DECL|macro|PEELED_LINE_LENGTH
 mdefine_line|#define PEELED_LINE_LENGTH 42
+multiline_comment|/*&n; * The packed-refs header line that we write out.  Perhaps other&n; * traits will be added later.  The trailing space is required.&n; */
+DECL|variable|PACKED_REFS_HEADER
+r_static
+r_const
+r_char
+id|PACKED_REFS_HEADER
+(braket
+)braket
+op_assign
+l_string|&quot;# pack-refs with: peeled fully-peeled &bslash;n&quot;
+suffix:semicolon
 multiline_comment|/*&n; * Parse one line from a packed-refs file.  Write the SHA1 to sha1.&n; * Return a pointer to the refname within the line (null-terminated),&n; * or NULL if there was a problem.&n; */
 DECL|function|parse_ref_line
 r_static
@@ -5604,7 +5615,7 @@ r_return
 id|PEEL_PEELED
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Peel the entry (if possible) and return its new peel_status.&n; */
+multiline_comment|/*&n; * Peel the entry (if possible) and return its new peel_status.&n; *&n; * It is OK to call this function with a packed reference entry that&n; * might be stale and might even refer to an object that has since&n; * been garbage-collected.  In such a case, if the entry has&n; * REF_KNOWS_PEELED then leave the status unchanged and return&n; * PEEL_PEELED or PEEL_NON_TAG; otherwise, return PEEL_INVALID.&n; */
 DECL|function|peel_entry
 r_static
 r_enum
@@ -8768,6 +8779,60 @@ comma
 id|len
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|peel_entry
+c_func
+(paren
+id|entry
+)paren
+)paren
+(brace
+multiline_comment|/* This reference could be peeled; write the peeled value: */
+r_if
+c_cond
+(paren
+id|snprintf
+c_func
+(paren
+id|line
+comma
+r_sizeof
+(paren
+id|line
+)paren
+comma
+l_string|&quot;^%s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|entry-&gt;u.value.peeled
+)paren
+)paren
+op_ne
+id|PEELED_LINE_LENGTH
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;internal error&quot;
+)paren
+suffix:semicolon
+id|write_or_die
+c_func
+(paren
+op_star
+id|fd
+comma
+id|line
+comma
+id|PEELED_LINE_LENGTH
+)paren
+suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon
@@ -8911,6 +8976,20 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+id|write_or_die
+c_func
+(paren
+id|fd
+comma
+id|PACKED_REFS_HEADER
+comma
+id|strlen
+c_func
+(paren
+id|PACKED_REFS_HEADER
+)paren
+)paren
+suffix:semicolon
 id|do_for_each_entry_in_dir
 c_func
 (paren
