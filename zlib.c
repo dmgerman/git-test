@@ -746,7 +746,6 @@ id|level
 )paren
 (brace
 multiline_comment|/*&n;&t; * Use default 15 bits, +16 is to generate gzip header/trailer&n;&t; * instead of the zlib wrapper.&n;&t; */
-r_return
 id|do_git_deflate_init
 c_func
 (paren
@@ -774,7 +773,6 @@ id|level
 )paren
 (brace
 multiline_comment|/*&n;&t; * Use default 15 bits, negate the value to get raw compressed&n;&t; * data without zlib header and trailer.&n;&t; */
-r_return
 id|do_git_deflate_init
 c_func
 (paren
