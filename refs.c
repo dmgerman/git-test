@@ -8809,19 +8809,10 @@ r_int
 id|pack_one_ref
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|ref_entry
 op_star
-id|refname
-comma
-r_const
-r_int
-r_char
-op_star
-id|sha1
-comma
-r_int
-id|flags
+id|entry
 comma
 r_void
 op_star
@@ -8843,14 +8834,21 @@ suffix:semicolon
 r_int
 id|is_tag_ref
 suffix:semicolon
-multiline_comment|/* Do not pack the symbolic refs */
+multiline_comment|/* Do not pack symbolic or broken refs: */
 r_if
 c_cond
 (paren
 (paren
-id|flags
+id|entry-&gt;flag
 op_amp
 id|REF_ISSYMREF
+)paren
+op_logical_or
+op_logical_neg
+id|ref_resolves_to_object
+c_func
+(paren
+id|entry
 )paren
 )paren
 r_return
@@ -8862,7 +8860,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|refname
+id|entry-&gt;name
 comma
 l_string|&quot;refs/tags/&quot;
 )paren
@@ -8883,7 +8881,7 @@ id|is_tag_ref
 op_logical_and
 op_logical_neg
 (paren
-id|flags
+id|entry-&gt;flag
 op_amp
 id|REF_ISPACKED
 )paren
@@ -8901,10 +8899,10 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|sha1
+id|entry-&gt;u.value.sha1
 )paren
 comma
-id|refname
+id|entry-&gt;name
 )paren
 suffix:semicolon
 id|o
@@ -8912,9 +8910,9 @@ op_assign
 id|parse_object_or_die
 c_func
 (paren
-id|sha1
+id|entry-&gt;u.value.sha1
 comma
-id|refname
+id|entry-&gt;name
 )paren
 suffix:semicolon
 r_if
@@ -8932,7 +8930,7 @@ c_func
 (paren
 id|o
 comma
-id|refname
+id|entry-&gt;name
 comma
 l_int|0
 )paren
@@ -8970,7 +8968,7 @@ op_logical_neg
 id|do_not_prune
 c_func
 (paren
-id|flags
+id|entry-&gt;flag
 )paren
 )paren
 (brace
@@ -8980,7 +8978,7 @@ op_assign
 id|strlen
 c_func
 (paren
-id|refname
+id|entry-&gt;name
 )paren
 op_plus
 l_int|1
@@ -9009,7 +9007,7 @@ c_func
 (paren
 id|n-&gt;sha1
 comma
-id|sha1
+id|entry-&gt;u.value.sha1
 )paren
 suffix:semicolon
 id|strcpy
@@ -9017,7 +9015,7 @@ c_func
 (paren
 id|n-&gt;name
 comma
-id|refname
+id|entry-&gt;name
 )paren
 suffix:semicolon
 id|n-&gt;next
@@ -9368,9 +9366,13 @@ comma
 l_string|&quot;# pack-refs with: peeled fully-peeled &bslash;n&quot;
 )paren
 suffix:semicolon
-id|for_each_ref
+id|do_for_each_entry
 c_func
 (paren
+l_int|NULL
+comma
+l_string|&quot;&quot;
+comma
 id|pack_one_ref
 comma
 op_amp
