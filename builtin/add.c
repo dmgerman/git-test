@@ -116,6 +116,29 @@ r_return
 id|DIFF_STATUS_MODIFIED
 suffix:semicolon
 )brace
+DECL|variable|add_would_remove_warning
+r_static
+r_const
+r_char
+op_star
+id|add_would_remove_warning
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;You ran &squot;git add&squot; with neither &squot;-A (--all)&squot; or &squot;--no-all&squot;, whose&bslash;n&quot;
+l_string|&quot;behaviour will change in Git 2.0 with respect to paths you removed from&bslash;n&quot;
+l_string|&quot;your working tree. Paths like &squot;%s&squot; that are&bslash;n&quot;
+l_string|&quot;removed are ignored with this version of Git.&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;* &squot;git add --no-all &lt;pathspec&gt;&squot;, which is the current default, ignores&bslash;n&quot;
+l_string|&quot;  paths you removed from your working tree.&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;* &squot;git add --all &lt;pathspec&gt;&squot; will let you also record the removals.&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;Run &squot;git status&squot; to check the paths you removed from your working tree.&bslash;n&quot;
+)paren
+suffix:semicolon
 DECL|function|warn_add_would_remove
 r_static
 r_void
@@ -134,12 +157,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;In Git 2.0, &squot;git add &lt;pathspec&gt;...&squot; will also update the&bslash;n&quot;
-l_string|&quot;index for paths removed from the working tree that match&bslash;n&quot;
-l_string|&quot;the given pathspec. If you want to &squot;add&squot; only changed&bslash;n&quot;
-l_string|&quot;or newly created paths, say &squot;git add --no-all &lt;pathspec&gt;...&squot;&quot;
-l_string|&quot; instead.&bslash;n&bslash;n&quot;
-l_string|&quot;&squot;%s&squot; would be removed from the index without --no-all.&quot;
+id|add_would_remove_warning
 )paren
 comma
 id|path
