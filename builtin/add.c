@@ -219,13 +219,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;You ran &squot;git add&squot; with neither &squot;-A (--all)&squot; or &squot;--no-all&squot;, whose&bslash;n&quot;
-l_string|&quot;behaviour will change in Git 2.0 with respect to paths you removed from&bslash;n&quot;
-l_string|&quot;your working tree. Paths like &squot;%s&squot; that are&bslash;n&quot;
-l_string|&quot;removed are ignored with this version of Git.&bslash;n&quot;
+l_string|&quot;You ran &squot;git add&squot; with neither &squot;-A (--all)&squot; or &squot;--ignore-removal&squot;,&bslash;n&quot;
+l_string|&quot;whose behaviour will change in Git 2.0 with respect to paths you removed.&bslash;n&quot;
+l_string|&quot;Paths like &squot;%s&squot; that are&bslash;n&quot;
+l_string|&quot;removed from your working tree are ignored with this version of Git.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;* &squot;git add --no-all &lt;pathspec&gt;&squot;, which is the current default, ignores&bslash;n&quot;
-l_string|&quot;  paths you removed from your working tree.&bslash;n&quot;
+l_string|&quot;* &squot;git add --ignore-removal &lt;pathspec&gt;&squot;, which is the current default,&bslash;n&quot;
+l_string|&quot;  ignores paths you removed from your working tree.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;* &squot;git add --all &lt;pathspec&gt;&squot; will let you also record the removals.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
