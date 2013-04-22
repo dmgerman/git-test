@@ -5297,10 +5297,34 @@ id|filter-&gt;cb_data
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Peel the named object; i.e., if the object is a tag, resolve the&n; * tag recursively until a non-tag is found.  Store the result to sha1&n; * and return 0 iff successful.  If the object is not a tag or is not&n; * valid, return -1 and leave sha1 unchanged.&n; */
+DECL|enum|peel_status
+r_enum
+id|peel_status
+(brace
+multiline_comment|/* object was peeled successfully: */
+DECL|enumerator|PEEL_PEELED
+id|PEEL_PEELED
+op_assign
+l_int|0
+comma
+multiline_comment|/*&n;&t; * object cannot be peeled because the named object (or an&n;&t; * object referred to by a tag in the peel chain), does not&n;&t; * exist.&n;&t; */
+DECL|enumerator|PEEL_INVALID
+id|PEEL_INVALID
+op_assign
+l_int|1
+comma
+multiline_comment|/* object cannot be peeled because it is not a tag: */
+DECL|enumerator|PEEL_NON_TAG
+id|PEEL_NON_TAG
+op_assign
+l_int|2
+)brace
+suffix:semicolon
+multiline_comment|/*&n; * Peel the named object; i.e., if the object is a tag, resolve the&n; * tag recursively until a non-tag is found.  If successful, store the&n; * result to sha1 and return PEEL_PEELED.  If the object is not a tag&n; * or is not valid, return PEEL_NON_TAG or PEEL_INVALID, respectively,&n; * and leave sha1 unchanged.&n; */
 DECL|function|peel_object
 r_static
-r_int
+r_enum
+id|peel_status
 id|peel_object
 c_func
 (paren
@@ -5354,7 +5378,7 @@ OL
 l_int|0
 )paren
 r_return
-l_int|1
+id|PEEL_INVALID
 suffix:semicolon
 id|o-&gt;type
 op_assign
@@ -5369,7 +5393,7 @@ op_ne
 id|OBJ_TAG
 )paren
 r_return
-l_int|1
+id|PEEL_NON_TAG
 suffix:semicolon
 id|o
 op_assign
@@ -5386,7 +5410,7 @@ op_logical_neg
 id|o
 )paren
 r_return
-l_int|1
+id|PEEL_INVALID
 suffix:semicolon
 id|hashcpy
 c_func
@@ -5397,7 +5421,7 @@ id|o-&gt;sha1
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|PEEL_PEELED
 suffix:semicolon
 )brace
 DECL|function|peel_ref
