@@ -9,7 +9,6 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;dir.h&quot;
-macro_line|#include &quot;pack-refs.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;remote.h&quot;

@@ -1,6 +1,6 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
-macro_line|#include &quot;pack-refs.h&quot;
+macro_line|#include &quot;refs.h&quot;
 DECL|variable|pack_refs_usage
 r_static
 r_char
