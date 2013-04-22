@@ -3080,6 +3080,9 @@ id|refs
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* The length of a peeled reference line in packed-refs, including EOL: */
+DECL|macro|PEELED_LINE_LENGTH
+mdefine_line|#define PEELED_LINE_LENGTH 42
 multiline_comment|/*&n; * Parse one line from a packed-refs file.  Write the SHA1 to sha1.&n; * Return a pointer to the refname within the line (null-terminated),&n; * or NULL if there was a problem.&n; */
 DECL|function|parse_ref_line
 r_static
@@ -3426,11 +3429,12 @@ c_func
 id|refline
 )paren
 op_eq
-l_int|42
+id|PEELED_LINE_LENGTH
 op_logical_and
 id|refline
 (braket
-l_int|41
+id|PEELED_LINE_LENGTH
+l_int|1
 )braket
 op_eq
 l_char|&squot;&bslash;n&squot;
