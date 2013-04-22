@@ -251,7 +251,11 @@ id|origin
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not setting branch %s as its own upstream.&quot;
+)paren
 comma
 id|local
 )paren
@@ -364,15 +368,23 @@ id|remote_is_branch
 op_logical_and
 id|origin
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
 id|rebasing
 ques
 c_cond
-l_string|&quot;Branch %s set up to track remote branch %s from %s by rebasing.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track remote branch %s from %s by rebasing.&quot;
+)paren
 suffix:colon
-l_string|&quot;Branch %s set up to track remote branch %s from %s.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track remote branch %s from %s.&quot;
+)paren
 comma
 id|local
 comma
@@ -390,15 +402,23 @@ op_logical_and
 op_logical_neg
 id|origin
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
 id|rebasing
 ques
 c_cond
-l_string|&quot;Branch %s set up to track local branch %s by rebasing.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track local branch %s by rebasing.&quot;
+)paren
 suffix:colon
-l_string|&quot;Branch %s set up to track local branch %s.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track local branch %s.&quot;
+)paren
 comma
 id|local
 comma
@@ -414,15 +434,23 @@ id|remote_is_branch
 op_logical_and
 id|origin
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
 id|rebasing
 ques
 c_cond
-l_string|&quot;Branch %s set up to track remote ref %s by rebasing.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track remote ref %s by rebasing.&quot;
+)paren
 suffix:colon
-l_string|&quot;Branch %s set up to track remote ref %s.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track remote ref %s.&quot;
+)paren
 comma
 id|local
 comma
@@ -439,15 +467,23 @@ op_logical_and
 op_logical_neg
 id|origin
 )paren
-id|printf
+id|printf_ln
 c_func
 (paren
 id|rebasing
 ques
 c_cond
-l_string|&quot;Branch %s set up to track local ref %s by rebasing.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track local ref %s by rebasing.&quot;
+)paren
 suffix:colon
-l_string|&quot;Branch %s set up to track local ref %s.&bslash;n&quot;
+id|_
+c_func
+(paren
+l_string|&quot;Branch %s set up to track local ref %s.&quot;
+)paren
 comma
 id|local
 comma
@@ -524,7 +560,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Tracking not set up: name too long: %s&quot;
+)paren
 comma
 id|new_ref
 )paren
@@ -606,7 +646,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not tracking: ambiguous information for ref %s&quot;
+)paren
 comma
 id|orig_ref
 )paren
@@ -852,7 +896,11 @@ id|name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;&squot;%s&squot; is not a valid branch name.&quot;
+)paren
 comma
 id|name
 )paren
@@ -883,7 +931,11 @@ id|attr_only
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;A branch named &squot;%s&squot; already exists.&quot;
+)paren
 comma
 id|ref-&gt;buf
 op_plus
@@ -950,7 +1002,11 @@ id|ref-&gt;buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Cannot force update the current branch.&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1219,7 +1275,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a valid object name: &squot;%s&squot;.&quot;
+)paren
 comma
 id|start_name
 )paren
@@ -1323,7 +1383,11 @@ suffix:colon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Ambiguous object name: &squot;%s&squot;.&quot;
+)paren
 comma
 id|start_name
 )paren
@@ -1349,7 +1413,11 @@ l_int|NULL
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a valid branch point: &squot;%s&squot;.&quot;
+)paren
 comma
 id|start_name
 )paren
@@ -1390,7 +1458,11 @@ id|lock
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to lock ref for update&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -1486,7 +1558,11 @@ l_int|0
 id|die_errno
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Failed to write ref&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_release
