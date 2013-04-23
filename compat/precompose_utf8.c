@@ -387,6 +387,8 @@ comma
 id|namelen
 comma
 id|ic_precompose
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
