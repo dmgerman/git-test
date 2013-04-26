@@ -219,13 +219,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;You ran &squot;git add&squot; with neither &squot;-A (--all)&squot; or &squot;--no-all&squot;, whose&bslash;n&quot;
-l_string|&quot;behaviour will change in Git 2.0 with respect to paths you removed from&bslash;n&quot;
-l_string|&quot;your working tree. Paths like &squot;%s&squot; that are&bslash;n&quot;
-l_string|&quot;removed are ignored with this version of Git.&bslash;n&quot;
+l_string|&quot;You ran &squot;git add&squot; with neither &squot;-A (--all)&squot; or &squot;--ignore-removal&squot;,&bslash;n&quot;
+l_string|&quot;whose behaviour will change in Git 2.0 with respect to paths you removed.&bslash;n&quot;
+l_string|&quot;Paths like &squot;%s&squot; that are&bslash;n&quot;
+l_string|&quot;removed from your working tree are ignored with this version of Git.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;* &squot;git add --no-all &lt;pathspec&gt;&squot;, which is the current default, ignores&bslash;n&quot;
-l_string|&quot;  paths you removed from your working tree.&bslash;n&quot;
+l_string|&quot;* &squot;git add --ignore-removal &lt;pathspec&gt;&squot;, which is the current default,&bslash;n&quot;
+l_string|&quot;  ignores paths you removed from your working tree.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;* &squot;git add --all &lt;pathspec&gt;&squot; will let you also record the removals.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
@@ -1699,6 +1699,47 @@ op_assign
 l_int|1
 suffix:semicolon
 multiline_comment|/* unspecified */
+DECL|function|ignore_removal_cb
+r_static
+r_int
+id|ignore_removal_cb
+c_func
+(paren
+r_const
+r_struct
+id|option
+op_star
+id|opt
+comma
+r_const
+r_char
+op_star
+id|arg
+comma
+r_int
+id|unset
+)paren
+(brace
+multiline_comment|/* if we are told to ignore, we are not adding removals */
+op_star
+(paren
+r_int
+op_star
+)paren
+id|opt-&gt;value
+op_assign
+op_logical_neg
+id|unset
+ques
+c_cond
+l_int|0
+suffix:colon
+l_int|1
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 DECL|variable|builtin_add_options
 r_static
 r_struct
@@ -1854,6 +1895,30 @@ c_func
 l_string|&quot;add changes from all tracked and untracked files&quot;
 )paren
 )paren
+comma
+(brace
+id|OPTION_CALLBACK
+comma
+l_int|0
+comma
+l_string|&quot;ignore-removal&quot;
+comma
+op_amp
+id|addremove_explicit
+comma
+l_int|NULL
+multiline_comment|/* takes no arguments */
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;ignore paths removed in the working tree (same as --no-all)&quot;
+)paren
+comma
+id|PARSE_OPT_NOARG
+comma
+id|ignore_removal_cb
+)brace
 comma
 id|OPT_BOOL
 c_func
