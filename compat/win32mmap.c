@@ -136,7 +136,7 @@ c_func
 id|fd
 )paren
 comma
-l_int|0
+l_int|NULL
 comma
 id|PAGE_WRITECOPY
 comma
@@ -144,7 +144,7 @@ l_int|0
 comma
 l_int|0
 comma
-l_int|0
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
