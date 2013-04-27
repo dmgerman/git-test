@@ -195,7 +195,7 @@ id|pthread_t
 id|t
 op_assign
 (brace
-l_int|0
+l_int|NULL
 )brace
 suffix:semicolon
 id|t.tid
