@@ -1563,7 +1563,7 @@ c_func
 (paren
 id|entry
 op_plus
-l_int|0
+l_int|1
 comma
 id|entry
 op_plus
