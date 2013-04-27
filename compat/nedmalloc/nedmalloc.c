@@ -422,6 +422,7 @@ r_void
 id|nedmalloc_stats
 c_func
 (paren
+r_void
 )paren
 id|THROWSPEC
 (brace
@@ -436,6 +437,7 @@ r_int
 id|nedmalloc_footprint
 c_func
 (paren
+r_void
 )paren
 id|THROWSPEC
 (brace
