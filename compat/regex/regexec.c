@@ -10260,6 +10260,7 @@ multiline_comment|/* Retry, we now have a transition table.  */
 )brace
 )brace
 multiline_comment|/* Update the state_log if we need */
+r_static
 id|re_dfastate_t
 op_star
 id|internal_function
@@ -10325,7 +10326,7 @@ id|mctx-&gt;state_log
 id|cur_idx
 )braket
 op_eq
-l_int|0
+l_int|NULL
 )paren
 (brace
 id|mctx-&gt;state_log
@@ -10562,6 +10563,7 @@ id|next_state
 suffix:semicolon
 )brace
 multiline_comment|/* Skip bytes in the input that correspond to part of a&n;   multi-byte match, then look in the log for a state&n;   from which to restart matching.  */
+r_static
 id|re_dfastate_t
 op_star
 id|internal_function
