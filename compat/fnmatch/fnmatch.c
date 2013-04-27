@@ -7,6 +7,7 @@ macro_line|#ifndef _GNU_SOURCE
 DECL|macro|_GNU_SOURCE
 macro_line|# define _GNU_SOURCE&t;1
 macro_line|#endif
+macro_line|#include &lt;stddef.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;fnmatch.h&gt;
 macro_line|#include &lt;ctype.h&gt;
@@ -99,6 +100,10 @@ r_char
 op_star
 id|getenv
 (paren
+r_const
+r_char
+op_star
+id|name
 )paren
 suffix:semicolon
 macro_line|# endif
