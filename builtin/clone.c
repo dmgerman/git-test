@@ -2306,6 +2306,7 @@ r_static
 id|pid_t
 id|junk_pid
 suffix:semicolon
+r_static
 r_enum
 (brace
 DECL|enumerator|JUNK_LEAVE_NONE
