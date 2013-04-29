@@ -2935,13 +2935,7 @@ c_cond
 op_logical_neg
 id|object
 )paren
-id|die
-c_func
-(paren
-l_string|&quot;did not find object for %s&quot;
-comma
-id|line
-)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
