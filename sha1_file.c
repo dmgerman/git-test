@@ -9732,12 +9732,6 @@ comma
 id|p-&gt;pack_name
 )paren
 suffix:semicolon
-id|free
-c_func
-(paren
-id|base
-)paren
-suffix:semicolon
 id|data
 op_assign
 l_int|NULL
