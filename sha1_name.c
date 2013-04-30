@@ -5318,17 +5318,24 @@ c_cond
 op_logical_neg
 id|len
 )paren
+(brace
 r_return
 id|len
 suffix:semicolon
 multiline_comment|/* syntax Ok, not enough switches */
+)brace
+r_else
 r_if
 c_cond
 (paren
-l_int|0
-OL
 id|len
-op_logical_and
+OG
+l_int|0
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|len
 op_eq
 id|namelen
@@ -5338,13 +5345,6 @@ id|len
 suffix:semicolon
 multiline_comment|/* consumed all */
 r_else
-r_if
-c_cond
-(paren
-l_int|0
-OL
-id|len
-)paren
 r_return
 id|reinterpret
 c_func
@@ -5358,6 +5358,7 @@ comma
 id|buf
 )paren
 suffix:semicolon
+)brace
 id|cp
 op_assign
 id|strchr
