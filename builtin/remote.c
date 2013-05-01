@@ -951,7 +951,7 @@ r_if
 c_cond
 (paren
 id|argc
-OL
+op_ne
 l_int|2
 )paren
 id|usage_with_options
