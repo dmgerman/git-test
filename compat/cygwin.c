@@ -2,15 +2,10 @@ DECL|macro|CYGWIN_C
 mdefine_line|#define CYGWIN_C
 DECL|macro|WIN32_LEAN_AND_MEAN
 mdefine_line|#define WIN32_LEAN_AND_MEAN
-macro_line|#ifdef CYGWIN_V15_WIN32API
-macro_line|#include &quot;../git-compat-util.h&quot;
-macro_line|#include &quot;win32.h&quot;
-macro_line|#else
 macro_line|#include &lt;sys/stat.h&gt;
 macro_line|#include &lt;sys/errno.h&gt;
 macro_line|#include &quot;win32.h&quot;
 macro_line|#include &quot;../git-compat-util.h&quot;
-macro_line|#endif
 macro_line|#include &quot;../cache.h&quot; /* to read configuration */
 multiline_comment|/*&n; * Return POSIX permission bits, regardless of core.ignorecygwinfstricks&n; */
 DECL|function|cygwin_get_st_mode_bits
