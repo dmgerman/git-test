@@ -26,7 +26,7 @@ r_int
 id|ncpus
 suffix:semicolon
 macro_line|#endif
-macro_line|#ifdef _WIN32
+macro_line|#ifdef GIT_WINDOWS_NATIVE
 id|SYSTEM_INFO
 id|info
 suffix:semicolon
