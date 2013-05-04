@@ -2791,6 +2791,20 @@ op_eq
 l_char|&squot;:&squot;
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|path
+OL
+id|strchrnul
+c_func
+(paren
+id|host
+comma
+l_char|&squot;/&squot;
+)paren
+)paren
+(brace
 id|protocol
 op_assign
 id|PROTO_SSH
@@ -2800,6 +2814,13 @@ id|path
 op_increment
 op_assign
 l_char|&squot;&bslash;0&squot;
+suffix:semicolon
+)brace
+r_else
+multiline_comment|/* &squot;/&squot; in the host part, assume local path */
+id|path
+op_assign
+id|end
 suffix:semicolon
 )brace
 )brace

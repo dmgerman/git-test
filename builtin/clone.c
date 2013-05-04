@@ -4172,6 +4172,26 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|option_local
+OG
+l_int|0
+op_logical_and
+op_logical_neg
+id|is_local
+)paren
+id|warning
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;--local is ignored&quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|argc
 op_eq
 l_int|2
