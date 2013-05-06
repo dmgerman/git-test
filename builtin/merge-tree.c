@@ -1337,16 +1337,18 @@ op_lshift
 id|i
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Treat missing entries as directories so that we return&n;&t;&t; * after unresolved_directory has handled this.&n;&t;&t; */
 r_if
 c_cond
 (paren
+op_logical_neg
 id|n
 (braket
 id|i
 )braket
 dot
 id|mode
-op_logical_and
+op_logical_or
 id|S_ISDIR
 c_func
 (paren
