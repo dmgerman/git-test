@@ -2329,7 +2329,6 @@ id|ret
 OG
 l_int|0
 )paren
-(brace
 multiline_comment|/* substitute this branch name and restart */
 r_return
 id|get_sha1_1
@@ -2344,7 +2343,6 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-)brace
 r_else
 r_if
 c_cond
@@ -2353,11 +2351,9 @@ id|ret
 op_eq
 l_int|0
 )paren
-(brace
 r_return
 l_int|1
 suffix:semicolon
-)brace
 multiline_comment|/* allow &quot;@{...}&quot; to mean the current branch reflog */
 id|refs_found
 op_assign
