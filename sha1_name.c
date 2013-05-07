@@ -2317,8 +2317,6 @@ id|interpret_branch_name
 c_func
 (paren
 id|str
-op_plus
-id|at
 comma
 op_amp
 id|buf
