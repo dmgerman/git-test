@@ -2206,7 +2206,7 @@ id|at
 op_assign
 id|len
 op_minus
-l_int|2
+l_int|4
 suffix:semicolon
 id|at
 op_ge
