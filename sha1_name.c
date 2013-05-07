@@ -2259,18 +2259,27 @@ l_char|&squot;{&squot;
 r_if
 c_cond
 (paren
-id|at
-op_eq
-l_int|0
-op_logical_and
 id|str
 (braket
+id|at
+op_plus
 l_int|2
 )braket
 op_eq
 l_char|&squot;-&squot;
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|at
+op_ne
+l_int|0
+)paren
+multiline_comment|/* @{-N} not at start */
+r_return
+l_int|1
+suffix:semicolon
 id|nth_prior
 op_assign
 l_int|1
@@ -2510,22 +2519,6 @@ r_int
 id|co_tz
 comma
 id|co_cnt
-suffix:semicolon
-multiline_comment|/* a @{-N} placed anywhere except the start is an error */
-r_if
-c_cond
-(paren
-id|str
-(braket
-id|at
-op_plus
-l_int|2
-)braket
-op_eq
-l_char|&squot;-&squot;
-)paren
-r_return
-l_int|1
 suffix:semicolon
 multiline_comment|/* Is it asking for N-th entry, or approxidate? */
 r_for
