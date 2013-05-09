@@ -1192,7 +1192,6 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-(brace
 id|free
 c_func
 (paren
@@ -1206,7 +1205,6 @@ id|i
 )braket
 )paren
 suffix:semicolon
-)brace
 id|free
 c_func
 (paren
