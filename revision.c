@@ -6018,7 +6018,11 @@ c_cond
 id|handle_revision_arg
 c_func
 (paren
+id|xstrdup
+c_func
+(paren
 id|sb.buf
+)paren
 comma
 id|revs
 comma
