@@ -3525,6 +3525,23 @@ comma
 id|GREP_BINARY_NOMATCH
 )paren
 comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;textconv&quot;
+comma
+op_amp
+id|opt.allow_textconv
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;process binary files with textconv filters&quot;
+)paren
+)paren
+comma
 (brace
 id|OPTION_INTEGER
 comma
