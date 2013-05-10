@@ -334,6 +334,10 @@ c_func
 id|default_date_mode
 )paren
 suffix:semicolon
+id|rev-&gt;diffopt.touched_flags
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|cmd_log_init_finish
 r_static
