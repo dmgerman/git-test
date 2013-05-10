@@ -3620,7 +3620,12 @@ op_assign
 id|msg
 suffix:semicolon
 r_return
-l_int|0
+op_logical_neg
+(paren
+id|status
+op_eq
+id|REF_STATUS_OK
+)paren
 suffix:semicolon
 )brace
 DECL|function|push_update_refs_status
