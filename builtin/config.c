@@ -2047,6 +2047,10 @@ id|get_diff_color_found
 op_assign
 l_int|1
 suffix:semicolon
+id|get_color_ui_found
+op_assign
+l_int|1
+suffix:semicolon
 id|git_config_with_options
 c_func
 (paren
@@ -2095,6 +2099,18 @@ op_assign
 id|get_color_ui_found
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|get_colorbool_found
+OL
+l_int|0
+)paren
+multiline_comment|/* default value if none found in config */
+id|get_colorbool_found
+op_assign
+l_int|0
+suffix:semicolon
 id|get_colorbool_found
 op_assign
 id|want_color
