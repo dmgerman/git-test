@@ -2862,10 +2862,11 @@ c_cond
 op_logical_neg
 id|revs-&gt;simplify_history
 op_logical_or
+op_logical_neg
+id|relevant_commit
+c_func
 (paren
-id|p-&gt;object.flags
-op_amp
-id|UNINTERESTING
+id|p
 )paren
 )paren
 (brace
