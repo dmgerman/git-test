@@ -4187,6 +4187,24 @@ c_cond
 (paren
 id|ref-&gt;peer_ref
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|strcmp
+c_func
+(paren
+id|ref-&gt;peer_ref-&gt;name
+comma
+id|ref-&gt;name
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;remote-helpers do not support old:new syntax&quot;
+)paren
+suffix:semicolon
 id|string_list_append
 c_func
 (paren
@@ -4196,6 +4214,7 @@ comma
 id|ref-&gt;peer_ref-&gt;name
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
