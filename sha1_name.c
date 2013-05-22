@@ -5307,8 +5307,7 @@ c_cond
 op_logical_neg
 id|upstream
 )paren
-r_return
-id|error
+id|die
 c_func
 (paren
 id|_
@@ -5343,8 +5342,7 @@ c_func
 id|upstream-&gt;refname
 )paren
 )paren
-r_return
-id|error
+id|die
 c_func
 (paren
 id|_
@@ -5362,8 +5360,8 @@ c_cond
 op_logical_neg
 id|upstream-&gt;merge
 )paren
-r_return
-id|error
+(brace
+id|die
 c_func
 (paren
 id|_
@@ -5375,8 +5373,8 @@ comma
 id|upstream-&gt;name
 )paren
 suffix:semicolon
-r_return
-id|error
+)brace
+id|die
 c_func
 (paren
 id|_
