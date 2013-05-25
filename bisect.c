@@ -25,7 +25,6 @@ id|skipped_revs
 suffix:semicolon
 DECL|variable|current_bad_sha1
 r_static
-r_const
 r_int
 r_char
 op_star
@@ -1833,7 +1832,19 @@ l_string|&quot;bad&quot;
 (brace
 id|current_bad_sha1
 op_assign
+id|xmalloc
+c_func
+(paren
+l_int|20
+)paren
+suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|current_bad_sha1
+comma
 id|sha1
+)paren
 suffix:semicolon
 )brace
 r_else
