@@ -4360,7 +4360,7 @@ c_func
 r_const
 r_char
 op_star
-id|path
+id|refname
 comma
 r_const
 r_int
@@ -4392,7 +4392,7 @@ c_func
 (paren
 id|refs
 comma
-id|path
+id|refname
 )paren
 )paren
 id|string_list_append
@@ -4400,7 +4400,7 @@ c_func
 (paren
 id|refs
 comma
-id|path
+id|refname
 )paren
 suffix:semicolon
 r_return
