@@ -3394,7 +3394,7 @@ r_struct
 id|string_list
 id|existing_refs
 op_assign
-id|STRING_LIST_INIT_NODUP
+id|STRING_LIST_INIT_DUP
 suffix:semicolon
 r_struct
 id|string_list
@@ -3858,7 +3858,7 @@ r_struct
 id|string_list
 id|existing_refs
 op_assign
-id|STRING_LIST_INIT_NODUP
+id|STRING_LIST_INIT_DUP
 suffix:semicolon
 r_struct
 id|string_list_item
