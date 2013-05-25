@@ -2244,7 +2244,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|refname
 comma
 r_const
 r_int
@@ -2290,7 +2290,7 @@ op_assign
 id|resolve_ref_unsafe
 c_func
 (paren
-id|name
+id|refname
 comma
 id|unused
 comma
