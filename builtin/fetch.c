@@ -3861,13 +3861,6 @@ op_assign
 id|STRING_LIST_INIT_DUP
 suffix:semicolon
 r_struct
-id|string_list_item
-op_star
-id|peer_item
-op_assign
-l_int|NULL
-suffix:semicolon
-r_struct
 id|ref
 op_star
 id|ref_map
@@ -4024,6 +4017,9 @@ c_cond
 id|rm-&gt;peer_ref
 )paren
 (brace
+r_struct
+id|string_list_item
+op_star
 id|peer_item
 op_assign
 id|string_list_lookup
