@@ -1825,9 +1825,8 @@ op_amp
 id|ent
 )paren
 suffix:semicolon
-r_continue
-suffix:semicolon
 )brace
+r_else
 r_if
 c_cond
 (paren
@@ -1889,9 +1888,9 @@ suffix:semicolon
 id|blobs
 op_increment
 suffix:semicolon
-r_continue
-suffix:semicolon
 )brace
+r_else
+(brace
 id|die
 c_func
 (paren
@@ -1904,6 +1903,7 @@ comma
 id|name
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
