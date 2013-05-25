@@ -3811,6 +3811,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Add an entry to refs-&gt;cmdline with the specified information.&n; * *name is copied.&n; */
 DECL|function|add_rev_cmdline
 r_static
 r_void
@@ -3880,7 +3881,11 @@ id|nr
 dot
 id|name
 op_assign
+id|xstrdup
+c_func
+(paren
 id|name
+)paren
 suffix:semicolon
 id|info-&gt;rev
 (braket
