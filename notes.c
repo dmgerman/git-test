@@ -4407,6 +4407,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The list argument must have strdup_strings set on it.&n; */
 DECL|function|string_list_add_refs_by_glob
 r_void
 id|string_list_add_refs_by_glob
@@ -4423,6 +4424,11 @@ op_star
 id|glob
 )paren
 (brace
+m_assert
+(paren
+id|list-&gt;strdup_strings
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
