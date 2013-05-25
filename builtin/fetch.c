@@ -3298,11 +3298,19 @@ id|refname
 suffix:semicolon
 id|item-&gt;util
 op_assign
+id|xmalloc
+c_func
 (paren
-r_void
-op_star
+l_int|20
 )paren
+suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|item-&gt;util
+comma
 id|sha1
+)paren
 suffix:semicolon
 r_return
 l_int|0
@@ -3597,7 +3605,7 @@ c_func
 op_amp
 id|existing_refs
 comma
-l_int|0
+l_int|1
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * We may have a final lightweight tag that needs to be&n;&t; * checked to see if it needs fetching.&n;&t; */
@@ -4343,7 +4351,7 @@ c_func
 op_amp
 id|existing_refs
 comma
-l_int|0
+l_int|1
 )paren
 suffix:semicolon
 r_return
