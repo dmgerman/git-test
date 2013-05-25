@@ -5074,12 +5074,7 @@ id|i
 dot
 id|item
 comma
-id|merges.objects
-(braket
-id|i
-)braket
-dot
-id|name
+l_int|NULL
 comma
 id|result
 )paren
