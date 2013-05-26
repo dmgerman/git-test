@@ -3071,6 +3071,11 @@ r_const
 r_char
 op_star
 id|msg
+comma
+r_struct
+id|transport
+op_star
+id|transport
 )paren
 (brace
 r_const
@@ -3101,7 +3106,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|check_everything_connected
+id|check_everything_connected_with_transport
 c_func
 (paren
 id|iterate_ref_map
@@ -3110,6 +3115,8 @@ l_int|0
 comma
 op_amp
 id|rm
+comma
+id|transport
 )paren
 )paren
 id|die
@@ -5037,6 +5044,18 @@ comma
 id|option_upload_pack
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|transport-&gt;smart_options
+op_logical_and
+op_logical_neg
+id|option_depth
+)paren
+id|transport-&gt;smart_options-&gt;check_self_contained_and_connected
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 id|refs
 op_assign
@@ -5280,6 +5299,8 @@ comma
 id|branch_top.buf
 comma
 id|reflog_msg.buf
+comma
+id|transport
 )paren
 suffix:semicolon
 id|update_head
