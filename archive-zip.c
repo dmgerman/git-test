@@ -1167,10 +1167,6 @@ id|buffer
 op_assign
 l_int|NULL
 suffix:semicolon
-id|size
-op_assign
-l_int|0
-suffix:semicolon
 )brace
 r_else
 r_if
