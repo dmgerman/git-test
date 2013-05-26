@@ -3829,20 +3829,11 @@ op_star
 )paren
 id|data
 suffix:semicolon
-r_if
-c_cond
+m_assert
 (paren
-op_logical_neg
-id|buf
-)paren
-id|buf
-op_assign
-id|new_data
-op_assign
-id|get_data_from_pack
-c_func
-(paren
-id|obj_entry
+id|data
+op_logical_and
+l_string|&quot;data can only be NULL for large _blobs_&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * we do not need to free the memory here, as the&n;&t;&t;&t; * buf is deleted by the caller.&n;&t;&t;&t; */
