@@ -22,10 +22,6 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-DECL|macro|DRY_RUN
-mdefine_line|#define DRY_RUN 01
-DECL|macro|VERBOSE
-mdefine_line|#define VERBOSE 02
 DECL|variable|progress
 r_static
 r_struct
@@ -168,7 +164,7 @@ c_cond
 (paren
 id|opts
 op_amp
-id|DRY_RUN
+id|PRUNE_PACKED_DRY_RUN
 )paren
 id|printf
 c_func
@@ -239,8 +235,8 @@ r_if
 c_cond
 (paren
 id|opts
-op_eq
-id|VERBOSE
+op_amp
+id|PRUNE_PACKED_VERBOSE
 )paren
 id|progress
 op_assign
@@ -435,7 +431,7 @@ l_int|2
 )paren
 ques
 c_cond
-id|VERBOSE
+id|PRUNE_PACKED_VERBOSE
 suffix:colon
 l_int|0
 suffix:semicolon
@@ -463,7 +459,7 @@ c_func
 l_string|&quot;dry run&quot;
 )paren
 comma
-id|DRY_RUN
+id|PRUNE_PACKED_DRY_RUN
 )paren
 comma
 id|OPT_NEGBIT
@@ -482,7 +478,7 @@ c_func
 l_string|&quot;be quiet&quot;
 )paren
 comma
-id|VERBOSE
+id|PRUNE_PACKED_VERBOSE
 )paren
 comma
 id|OPT_END

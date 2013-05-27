@@ -929,6 +929,11 @@ id|prune_packed_objects
 c_func
 (paren
 id|show_only
+ques
+c_cond
+id|PRUNE_PACKED_DRY_RUN
+suffix:colon
+l_int|0
 )paren
 suffix:semicolon
 id|remove_temporary_files
