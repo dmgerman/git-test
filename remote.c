@@ -8183,13 +8183,13 @@ op_assign
 id|xcalloc
 c_func
 (paren
+id|ret-&gt;merge_nr
+comma
 r_sizeof
 (paren
 op_star
 id|ret-&gt;merge
 )paren
-comma
-id|ret-&gt;merge_nr
 )paren
 suffix:semicolon
 r_for
