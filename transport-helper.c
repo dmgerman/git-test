@@ -11,6 +11,7 @@ macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;thread-utils.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
+macro_line|#include &quot;refs.h&quot;
 DECL|variable|debug
 r_static
 r_int
@@ -180,6 +181,11 @@ r_struct
 id|strbuf
 op_star
 id|buffer
+comma
+r_const
+r_char
+op_star
+id|name
 )paren
 (brace
 id|strbuf_reset
@@ -230,9 +236,12 @@ comma
 l_string|&quot;Debug: Remote helper quit.&bslash;n&quot;
 )paren
 suffix:semicolon
-m_exit
+id|die
+c_func
 (paren
-l_int|128
+l_string|&quot;Reading from helper &squot;git-remote-%s&squot; failed&quot;
+comma
+id|name
 )paren
 suffix:semicolon
 )brace
@@ -279,6 +288,8 @@ c_func
 id|helper-&gt;out
 comma
 id|buffer
+comma
+id|helper-&gt;name
 )paren
 suffix:semicolon
 )brace
@@ -1209,6 +1220,24 @@ id|free
 c_func
 (paren
 id|refspecs
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+id|data-&gt;import
+op_logical_or
+id|data-&gt;bidi_import
+op_logical_or
+id|data-&gt;export
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;This remote helper should implement refspec capability.&quot;
 )paren
 suffix:semicolon
 )brace
@@ -2499,7 +2528,7 @@ c_func
 id|fastimport.argv
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * The fast-import stream of a remote helper that advertises&n;&t; * the &quot;refspec&quot; capability writes to the refs named after the&n;&t; * right hand side of the first refspec matching each ref we&n;&t; * were fetching.&n;&t; *&n;&t; * (If no &quot;refspec&quot; capability was specified, for historical&n;&t; * reasons we default to *:*.)&n;&t; *&n;&t; * Store the result in to_fetch[i].old_sha1.  Callers such&n;&t; * as &quot;git fetch&quot; can use the value to write feedback to the&n;&t; * terminal, populate FETCH_HEAD, and determine what new value&n;&t; * should be written to peer_ref if the update is a&n;&t; * fast-forward or this is a forced update.&n;&t; */
+multiline_comment|/*&n;&t; * The fast-import stream of a remote helper that advertises&n;&t; * the &quot;refspec&quot; capability writes to the refs named after the&n;&t; * right hand side of the first refspec matching each ref we&n;&t; * were fetching.&n;&t; *&n;&t; * (If no &quot;refspec&quot; capability was specified, for historical&n;&t; * reasons we default to the equivalent of *:*.)&n;&t; *&n;&t; * Store the result in to_fetch[i].old_sha1.  Callers such&n;&t; * as &quot;git fetch&quot; can use the value to write feedback to the&n;&t; * terminal, populate FETCH_HEAD, and determine what new value&n;&t; * should be written to peer_ref if the update is a&n;&t; * fast-forward or this is a forced update.&n;&t; */
 r_for
 c_loop
 (paren
@@ -2788,6 +2817,8 @@ id|input
 comma
 op_amp
 id|cmdbuf
+comma
+id|name
 )paren
 suffix:semicolon
 r_if
@@ -3185,7 +3216,7 @@ suffix:semicolon
 )brace
 DECL|function|push_update_ref_status
 r_static
-r_void
+r_int
 id|push_update_ref_status
 c_func
 (paren
@@ -3577,6 +3608,7 @@ id|refname
 )paren
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -3601,6 +3633,7 @@ op_eq
 id|REF_STATUS_NONE
 )paren
 r_return
+l_int|1
 suffix:semicolon
 )brace
 (paren
@@ -3620,6 +3653,14 @@ op_member_access_from_pointer
 id|remote_status
 op_assign
 id|msg
+suffix:semicolon
+r_return
+op_logical_neg
+(paren
+id|status
+op_eq
+id|REF_STATUS_OK
+)paren
 suffix:semicolon
 )brace
 DECL|function|push_update_refs_status
@@ -3659,6 +3700,10 @@ suffix:semicolon
 suffix:semicolon
 )paren
 (brace
+r_char
+op_star
+r_private
+suffix:semicolon
 id|recvline
 c_func
 (paren
@@ -3676,6 +3721,9 @@ id|buf.len
 )paren
 r_break
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|push_update_ref_status
 c_func
 (paren
@@ -3686,6 +3734,59 @@ op_amp
 id|ref
 comma
 id|remote_refs
+)paren
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|data-&gt;refspecs
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* propagate back the update to the remote namespace */
+r_private
+op_assign
+id|apply_refspecs
+c_func
+(paren
+id|data-&gt;refspecs
+comma
+id|data-&gt;refspec_nr
+comma
+id|ref-&gt;name
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+r_private
+)paren
+r_continue
+suffix:semicolon
+id|update_ref
+c_func
+(paren
+l_string|&quot;update by helper&quot;
+comma
+r_private
+comma
+id|ref-&gt;new_sha1
+comma
+l_int|NULL
+comma
+l_int|0
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+r_private
 )paren
 suffix:semicolon
 )brace
@@ -4044,6 +4145,18 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|data-&gt;refspecs
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;remote-helper doesn&squot;t support push; refspec needed&quot;
+)paren
+suffix:semicolon
 id|helper
 op_assign
 id|get_helper
@@ -4095,10 +4208,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|data-&gt;refspecs
+id|ref-&gt;deletion
 )paren
-r_continue
+id|die
+c_func
+(paren
+l_string|&quot;remote-helpers do not support ref deletion&quot;
+)paren
 suffix:semicolon
 r_private
 op_assign
@@ -4169,19 +4285,6 @@ c_func
 r_private
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|ref-&gt;deletion
-)paren
-(brace
-id|die
-c_func
-(paren
-l_string|&quot;remote-helpers do not support ref deletion&quot;
-)paren
-suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
