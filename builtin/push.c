@@ -506,6 +506,24 @@ id|advice_maybe
 )paren
 suffix:semicolon
 )brace
+DECL|variable|message_detached_head_die
+r_static
+r_const
+r_char
+id|message_detached_head_die
+(braket
+)braket
+op_assign
+id|N_
+c_func
+(paren
+l_string|&quot;You are not currently on a branch.&bslash;n&quot;
+l_string|&quot;To push the history leading to the current (detached HEAD)&bslash;n&quot;
+l_string|&quot;state now, use&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;    git push %s HEAD:&lt;name-of-remote-branch&gt;&bslash;n&quot;
+)paren
+suffix:semicolon
 DECL|function|setup_push_upstream
 r_static
 r_void
@@ -550,11 +568,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;You are not currently on a branch.&bslash;n&quot;
-l_string|&quot;To push the history leading to the current (detached HEAD)&bslash;n&quot;
-l_string|&quot;state now, use&bslash;n&quot;
-l_string|&quot;&bslash;n&quot;
-l_string|&quot;    git push %s HEAD:&lt;name-of-remote-branch&gt;&bslash;n&quot;
+id|message_detached_head_die
 )paren
 comma
 id|remote-&gt;name
