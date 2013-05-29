@@ -727,7 +727,7 @@ l_string|&quot;show progress&quot;
 )paren
 )paren
 comma
-id|OPT_DATE
+id|OPT_EXPIRY_DATE
 c_func
 (paren
 l_int|0
