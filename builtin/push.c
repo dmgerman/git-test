@@ -869,7 +869,7 @@ suffix:semicolon
 id|add_refspec
 c_func
 (paren
-l_string|&quot;HEAD&quot;
+id|branch-&gt;name
 )paren
 suffix:semicolon
 r_break
