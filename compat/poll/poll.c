@@ -2350,7 +2350,7 @@ id|SOCKET
 )paren
 id|h
 comma
-l_int|0
+l_int|NULL
 comma
 l_int|0
 )paren

@@ -121,7 +121,6 @@ c_func
 r_int
 id|argc
 comma
-r_const
 r_char
 op_star
 op_star

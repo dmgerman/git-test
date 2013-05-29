@@ -580,7 +580,6 @@ c_func
 r_int
 id|argc
 comma
-r_const
 r_char
 op_star
 op_star
@@ -659,6 +658,12 @@ c_func
 (paren
 id|argc
 comma
+(paren
+r_const
+r_char
+op_star
+op_star
+)paren
 id|argv
 comma
 l_int|NULL

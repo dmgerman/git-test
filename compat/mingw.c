@@ -4739,11 +4739,10 @@ DECL|member|proc
 id|HANDLE
 id|proc
 suffix:semicolon
-DECL|variable|pinfo_t
 )brace
-id|pinfo_t
 suffix:semicolon
 DECL|variable|pinfo
+r_static
 r_struct
 id|pinfo_t
 op_star
@@ -6973,7 +6972,7 @@ id|sin
 suffix:semicolon
 id|ai-&gt;ai_next
 op_assign
-l_int|0
+l_int|NULL
 suffix:semicolon
 r_return
 l_int|0

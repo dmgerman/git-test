@@ -9,12 +9,6 @@ op_star
 id|name
 )paren
 (brace
-r_extern
-r_char
-op_star
-op_star
-id|environ
-suffix:semicolon
 r_int
 id|src
 comma
