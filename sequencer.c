@@ -2355,6 +2355,8 @@ comma
 id|unborn
 op_assign
 l_int|0
+comma
+id|allow
 suffix:semicolon
 r_if
 c_cond
@@ -3156,10 +3158,10 @@ c_func
 id|opts-&gt;allow_rerere_auto
 )paren
 suffix:semicolon
+r_goto
+id|leave
+suffix:semicolon
 )brace
-r_else
-(brace
-r_int
 id|allow
 op_assign
 id|allow_empty
@@ -3198,7 +3200,8 @@ comma
 id|allow
 )paren
 suffix:semicolon
-)brace
+id|leave
+suffix:colon
 id|free_message
 c_func
 (paren
