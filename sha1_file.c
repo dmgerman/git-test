@@ -10267,6 +10267,7 @@ l_string|&quot;failed to apply delta&quot;
 )paren
 suffix:semicolon
 id|free
+c_func
 (paren
 id|delta_data
 )paren
