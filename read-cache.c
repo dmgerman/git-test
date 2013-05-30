@@ -2907,8 +2907,7 @@ op_assign
 id|index_name_exists
 c_func
 (paren
-op_amp
-id|the_index
+id|istate
 comma
 id|ce-&gt;name
 comma
