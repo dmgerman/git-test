@@ -60,6 +60,11 @@ r_static
 r_int
 id|longformat
 suffix:semicolon
+DECL|variable|first_parent
+r_static
+r_int
+id|first_parent
+suffix:semicolon
 DECL|variable|abbrev
 r_static
 r_int
@@ -1779,6 +1784,13 @@ id|parents
 op_assign
 id|parents-&gt;next
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|first_parent
+)paren
+r_break
+suffix:semicolon
 )brace
 )brace
 r_if
@@ -2209,6 +2221,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;always use long format&quot;
+)paren
+)paren
+comma
+id|OPT_BOOLEAN
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;first-parent&quot;
+comma
+op_amp
+id|first_parent
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;only follow first parent&quot;
 )paren
 )paren
 comma
