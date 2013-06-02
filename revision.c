@@ -13,6 +13,7 @@ macro_line|#include &quot;patch-ids.h&quot;
 macro_line|#include &quot;decorate.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;line-log.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 DECL|variable|show_early_output
 r_volatile
@@ -10505,6 +10506,21 @@ id|revs-&gt;diffopt.abbrev
 op_assign
 id|revs-&gt;abbrev
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;line_level_traverse
+)paren
+(brace
+id|revs-&gt;limited
+op_assign
+l_int|1
+suffix:semicolon
+id|revs-&gt;topo_order
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 id|diff_setup_done
 c_func
 (paren
@@ -11644,6 +11660,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|revs-&gt;line_level_traverse
+)paren
+id|line_log_filter
+c_func
+(paren
+id|revs
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|revs-&gt;simplify_merges
 )paren
 id|simplify_merges
@@ -11667,20 +11694,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|enum|rewrite_result
-r_enum
-id|rewrite_result
-(brace
-DECL|enumerator|rewrite_one_ok
-id|rewrite_one_ok
-comma
-DECL|enumerator|rewrite_one_noparents
-id|rewrite_one_noparents
-comma
-DECL|enumerator|rewrite_one_error
-id|rewrite_one_error
-)brace
-suffix:semicolon
 DECL|function|rewrite_one
 r_static
 r_enum
@@ -11800,7 +11813,6 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|rewrite_parents
-r_static
 r_int
 id|rewrite_parents
 c_func
@@ -11814,6 +11826,9 @@ r_struct
 id|commit
 op_star
 id|commit
+comma
+id|rewrite_parent_fn_t
+id|rewrite_parent
 )paren
 (brace
 r_struct
@@ -11843,7 +11858,7 @@ suffix:semicolon
 r_switch
 c_cond
 (paren
-id|rewrite_one
+id|rewrite_parent
 c_func
 (paren
 id|revs
@@ -12651,6 +12666,8 @@ c_func
 id|revs
 comma
 id|commit
+comma
+id|rewrite_one
 )paren
 OL
 l_int|0

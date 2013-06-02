@@ -10,6 +10,7 @@ macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;gpg-interface.h&quot;
 macro_line|#include &quot;sequencer.h&quot;
+macro_line|#include &quot;line-log.h&quot;
 DECL|variable|name_decoration
 r_struct
 id|decoration
@@ -3789,6 +3790,20 @@ id|opt-&gt;loginfo
 op_assign
 op_amp
 id|log
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;line_level_traverse
+)paren
+r_return
+id|line_log_print
+c_func
+(paren
+id|opt
+comma
+id|commit
+)paren
 suffix:semicolon
 id|shown
 op_assign
