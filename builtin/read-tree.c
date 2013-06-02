@@ -310,9 +310,11 @@ r_int
 id|debug_merge
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
+r_const
 op_star
 id|stages
 comma
