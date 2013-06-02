@@ -9397,7 +9397,7 @@ id|end
 op_ne
 l_char|&squot; &squot;
 op_logical_or
-id|get_sha1
+id|get_sha1_hex
 c_func
 (paren
 id|end
