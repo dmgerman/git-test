@@ -350,6 +350,7 @@ r_int
 id|ce_compare_data
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -434,6 +435,7 @@ r_int
 id|ce_compare_link
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -546,6 +548,7 @@ r_int
 id|ce_compare_gitlink
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -594,6 +597,7 @@ r_int
 id|ce_modified_check_fs
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -695,6 +699,7 @@ r_int
 id|ce_match_stat_basic
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1042,6 +1047,7 @@ id|index_state
 op_star
 id|istate
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1095,6 +1101,7 @@ id|index_state
 op_star
 id|istate
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1243,6 +1250,7 @@ id|index_state
 op_star
 id|istate
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
