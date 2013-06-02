@@ -1091,6 +1091,7 @@ r_int
 id|verify_uptodate_sparse
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1107,6 +1108,7 @@ r_int
 id|verify_absent_sparse
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1440,6 +1442,7 @@ r_int
 id|locate_in_src_index
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -4535,6 +4538,7 @@ r_int
 id|verify_absent
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5243,6 +5247,7 @@ r_int
 id|reject_merge
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5272,11 +5277,13 @@ r_int
 id|same
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
 id|a
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5345,6 +5352,7 @@ r_int
 id|verify_uptodate_1
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5502,6 +5510,7 @@ r_int
 id|verify_uptodate
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5546,6 +5555,7 @@ r_int
 id|verify_uptodate_sparse
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5575,6 +5585,7 @@ r_void
 id|invalidate_ce_path
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5607,6 +5618,7 @@ r_int
 id|verify_clean_submodule
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -5632,6 +5644,7 @@ r_int
 id|verify_clean_subdirectory
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6033,6 +6046,7 @@ comma
 r_int
 id|dtype
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6189,6 +6203,7 @@ r_int
 id|verify_absent_1
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6407,6 +6422,7 @@ r_int
 id|verify_absent
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6455,6 +6471,7 @@ r_int
 id|verify_absent_sparse
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6511,6 +6528,7 @@ id|cache_entry
 op_star
 id|ce
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6704,11 +6722,13 @@ r_int
 id|deleted_entry
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
 id|ce
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6799,6 +6819,7 @@ r_int
 id|keep_entry
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6911,16 +6932,19 @@ op_star
 id|o
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
 id|index
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
 id|head
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -7310,6 +7334,7 @@ op_assign
 op_logical_neg
 id|remote
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -7680,6 +7705,7 @@ op_star
 id|o
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -7690,6 +7716,7 @@ id|src
 l_int|0
 )braket
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -7700,6 +7727,7 @@ id|src
 l_int|1
 )braket
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -8050,6 +8078,7 @@ op_star
 id|o
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -8060,6 +8089,7 @@ id|src
 l_int|0
 )braket
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -8161,6 +8191,7 @@ op_star
 id|o
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -8171,6 +8202,7 @@ id|src
 l_int|0
 )braket
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star

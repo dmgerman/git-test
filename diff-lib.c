@@ -137,6 +137,7 @@ id|diff_options
 op_star
 id|diffopt
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1044,6 +1045,7 @@ r_char
 op_star
 id|prefix
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1095,6 +1097,7 @@ r_int
 id|get_stat_data
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1279,6 +1282,7 @@ id|rev_info
 op_star
 id|revs
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1371,11 +1375,13 @@ id|rev_info
 op_star
 id|revs
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
 id|old
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1755,11 +1761,13 @@ id|unpack_trees_options
 op_star
 id|o
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
 id|idx
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1946,6 +1954,7 @@ op_star
 id|o
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1956,6 +1965,7 @@ id|src
 l_int|0
 )braket
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
