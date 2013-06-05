@@ -3960,6 +3960,10 @@ id|item-&gt;buffer
 op_assign
 l_int|NULL
 suffix:semicolon
+id|obj-&gt;parsed
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_if
 c_cond

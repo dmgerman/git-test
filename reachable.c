@@ -394,15 +394,11 @@ id|cp
 )paren
 suffix:semicolon
 )brace
-id|free
+id|free_tree_buffer
 c_func
 (paren
-id|tree-&gt;buffer
+id|tree
 )paren
-suffix:semicolon
-id|tree-&gt;buffer
-op_assign
-l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|process_tag
