@@ -3179,9 +3179,15 @@ id|allow
 OL
 l_int|0
 )paren
-r_return
+(brace
+id|res
+op_assign
 id|allow
 suffix:semicolon
+r_goto
+id|leave
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
