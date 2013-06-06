@@ -225,6 +225,11 @@ r_static
 r_int
 id|strict
 suffix:semicolon
+DECL|variable|do_fsck_object
+r_static
+r_int
+id|do_fsck_object
+suffix:semicolon
 DECL|variable|verbose
 r_static
 r_int
@@ -234,6 +239,11 @@ DECL|variable|show_stat
 r_static
 r_int
 id|show_stat
+suffix:semicolon
+DECL|variable|check_self_contained_and_connected
+r_static
+r_int
+id|check_self_contained_and_connected
 suffix:semicolon
 DECL|variable|progress
 r_static
@@ -627,7 +637,7 @@ suffix:semicolon
 multiline_comment|/* The content of each linked object must have been checked&n;   or it must be already present in the object database */
 DECL|function|check_object
 r_static
-r_void
+r_int
 id|check_object
 c_func
 (paren
@@ -644,6 +654,7 @@ op_logical_neg
 id|obj
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -656,6 +667,7 @@ id|FLAG_LINK
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -710,12 +722,16 @@ op_or_assign
 id|FLAG_CHECKED
 suffix:semicolon
 r_return
+l_int|1
 suffix:semicolon
 )brace
+r_return
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|check_objects
 r_static
-r_void
+r_int
 id|check_objects
 c_func
 (paren
@@ -726,6 +742,10 @@ r_int
 id|i
 comma
 id|max
+comma
+id|foreign_nr
+op_assign
+l_int|0
 suffix:semicolon
 id|max
 op_assign
@@ -748,6 +768,8 @@ suffix:semicolon
 id|i
 op_increment
 )paren
+id|foreign_nr
+op_add_assign
 id|check_object
 c_func
 (paren
@@ -757,6 +779,9 @@ c_func
 id|i
 )paren
 )paren
+suffix:semicolon
+r_return
+id|foreign_nr
 suffix:semicolon
 )brace
 multiline_comment|/* Discard current buffer used content. */
@@ -3829,20 +3854,11 @@ op_star
 )paren
 id|data
 suffix:semicolon
-r_if
-c_cond
+m_assert
 (paren
-op_logical_neg
-id|buf
-)paren
-id|buf
-op_assign
-id|new_data
-op_assign
-id|get_data_from_pack
-c_func
-(paren
-id|obj_entry
+id|data
+op_logical_and
+l_string|&quot;data can only be NULL for large _blobs_&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * we do not need to free the memory here, as the&n;&t;&t;&t; * buf is deleted by the caller.&n;&t;&t;&t; */
@@ -3887,6 +3903,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|do_fsck_object
+op_logical_and
 id|fsck_object
 c_func
 (paren
@@ -7905,6 +7923,12 @@ id|pack_sha1
 l_int|20
 )braket
 suffix:semicolon
+r_int
+id|foreign_nr
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* zero is a &quot;good&quot; value, assume bad */
 r_if
 c_cond
 (paren
@@ -8057,6 +8081,33 @@ l_string|&quot;--strict&quot;
 )paren
 (brace
 id|strict
+op_assign
+l_int|1
+suffix:semicolon
+id|do_fsck_object
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--check-self-contained-and-connected&quot;
+)paren
+)paren
+(brace
+id|strict
+op_assign
+l_int|1
+suffix:semicolon
+id|check_self_contained_and_connected
 op_assign
 l_int|1
 suffix:semicolon
@@ -8902,6 +8953,8 @@ c_cond
 (paren
 id|strict
 )paren
+id|foreign_nr
+op_assign
 id|check_objects
 c_func
 (paren
@@ -9067,6 +9120,17 @@ op_star
 )paren
 id|curr_index
 )paren
+suffix:semicolon
+multiline_comment|/*&n;&t; * Let the caller know this pack is not self contained&n;&t; */
+r_if
+c_cond
+(paren
+id|check_self_contained_and_connected
+op_logical_and
+id|foreign_nr
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_return
 l_int|0

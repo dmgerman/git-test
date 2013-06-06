@@ -4,6 +4,7 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;help.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;commit.h&quot;
 DECL|variable|git_usage_string
 r_const
 r_char
@@ -947,6 +948,55 @@ comma
 l_string|&quot;0&quot;
 comma
 l_int|1
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|envchanged
+)paren
+op_star
+id|envchanged
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|cmd
+comma
+l_string|&quot;--shallow-file&quot;
+)paren
+)paren
+(brace
+(paren
+op_star
+id|argv
+)paren
+op_increment
+suffix:semicolon
+(paren
+op_star
+id|argc
+)paren
+op_decrement
+suffix:semicolon
+id|set_alternate_shallow_file
+c_func
+(paren
+(paren
+op_star
+id|argv
+)paren
+(braket
+l_int|0
+)braket
 )paren
 suffix:semicolon
 r_if

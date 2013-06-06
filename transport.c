@@ -2904,6 +2904,10 @@ id|args.depth
 op_assign
 id|data-&gt;options.depth
 suffix:semicolon
+id|args.check_self_contained_and_connected
+op_assign
+id|data-&gt;options.check_self_contained_and_connected
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3013,6 +3017,10 @@ suffix:semicolon
 id|data-&gt;got_remote_heads
 op_assign
 l_int|0
+suffix:semicolon
+id|data-&gt;options.self_contained_and_connected
+op_assign
+id|args.self_contained_and_connected
 suffix:semicolon
 id|free_refs
 c_func
