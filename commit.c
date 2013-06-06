@@ -2747,8 +2747,9 @@ op_star
 op_star
 id|list
 comma
-r_int
-id|lifo
+r_enum
+id|rev_sort_order
+id|sort_order
 )paren
 (brace
 r_struct
@@ -2970,8 +2971,9 @@ multiline_comment|/* process the list in topological order */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|lifo
+id|sort_order
+op_ne
+id|REV_SORT_IN_GRAPH_ORDER
 )paren
 id|commit_list_sort_by_date
 c_func
@@ -3080,12 +3082,15 @@ op_eq
 l_int|1
 )paren
 (brace
-r_if
+r_switch
 c_cond
 (paren
-op_logical_neg
-id|lifo
+id|sort_order
 )paren
+(brace
+r_case
+id|REV_SORT_BY_COMMIT_DATE
+suffix:colon
 id|commit_list_insert_by_date
 c_func
 (paren
@@ -3095,7 +3100,11 @@ op_amp
 id|work
 )paren
 suffix:semicolon
-r_else
+r_break
+suffix:semicolon
+r_default
+suffix:colon
+multiline_comment|/* REV_SORT_IN_GRAPH_ORDER */
 id|commit_list_insert
 c_func
 (paren
@@ -3105,6 +3114,9 @@ op_amp
 id|work
 )paren
 suffix:semicolon
+r_break
+suffix:semicolon
+)brace
 )brace
 )brace
 multiline_comment|/*&n;&t;&t; * work_item is a commit all of whose children&n;&t;&t; * have already been emitted. we can emit it now.&n;&t;&t; */

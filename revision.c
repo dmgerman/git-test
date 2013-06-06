@@ -4635,9 +4635,9 @@ id|revs-&gt;pruning.change
 op_assign
 id|file_change
 suffix:semicolon
-id|revs-&gt;lifo
+id|revs-&gt;sort_order
 op_assign
-l_int|1
+id|REV_SORT_IN_GRAPH_ORDER
 suffix:semicolon
 id|revs-&gt;dense
 op_assign
@@ -6874,9 +6874,9 @@ l_string|&quot;--topo-order&quot;
 )paren
 )paren
 (brace
-id|revs-&gt;lifo
+id|revs-&gt;sort_order
 op_assign
-l_int|1
+id|REV_SORT_IN_GRAPH_ORDER
 suffix:semicolon
 id|revs-&gt;topo_order
 op_assign
@@ -6981,9 +6981,9 @@ l_string|&quot;--date-order&quot;
 )paren
 )paren
 (brace
-id|revs-&gt;lifo
+id|revs-&gt;sort_order
 op_assign
-l_int|0
+id|REV_SORT_BY_COMMIT_DATE
 suffix:semicolon
 id|revs-&gt;topo_order
 op_assign
@@ -11550,7 +11550,7 @@ c_func
 op_amp
 id|revs-&gt;commits
 comma
-id|revs-&gt;lifo
+id|revs-&gt;sort_order
 )paren
 suffix:semicolon
 r_if
@@ -13013,7 +13013,7 @@ c_func
 op_amp
 id|revs-&gt;commits
 comma
-id|revs-&gt;lifo
+id|revs-&gt;sort_order
 )paren
 suffix:semicolon
 )brace

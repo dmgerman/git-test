@@ -942,7 +942,7 @@ c_func
 op_amp
 id|list
 comma
-id|revs-&gt;lifo
+id|revs-&gt;sort_order
 )paren
 suffix:semicolon
 r_while
