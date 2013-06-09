@@ -3496,12 +3496,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|the_index.initialized
-)paren
-r_if
-c_cond
-(paren
 id|read_cache
 c_func
 (paren
