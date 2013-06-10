@@ -2275,6 +2275,8 @@ c_func
 id|user_config
 comma
 id|R_OK
+comma
+l_int|0
 )paren
 op_logical_and
 id|xdg_config
@@ -2286,6 +2288,8 @@ c_func
 id|xdg_config
 comma
 id|R_OK
+comma
+l_int|0
 )paren
 )paren
 id|given_config_file

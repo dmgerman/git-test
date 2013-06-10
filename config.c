@@ -214,6 +214,8 @@ c_func
 id|path
 comma
 id|R_OK
+comma
+l_int|0
 )paren
 )paren
 (brace
@@ -5108,6 +5110,8 @@ c_func
 )paren
 comma
 id|R_OK
+comma
+l_int|0
 )paren
 )paren
 (brace
@@ -5143,6 +5147,8 @@ c_func
 id|xdg_config
 comma
 id|R_OK
+comma
+id|ACCESS_EACCES_OK
 )paren
 )paren
 (brace
@@ -5175,6 +5181,8 @@ c_func
 id|user_config
 comma
 id|R_OK
+comma
+id|ACCESS_EACCES_OK
 )paren
 )paren
 (brace
@@ -5207,6 +5215,8 @@ c_func
 id|repo_config
 comma
 id|R_OK
+comma
+l_int|0
 )paren
 )paren
 (brace
