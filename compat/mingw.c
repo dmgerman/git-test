@@ -9112,8 +9112,6 @@ id|handler
 (brace
 id|sig_handler_t
 id|old
-op_assign
-id|timer_fn
 suffix:semicolon
 r_switch
 c_cond
@@ -9124,6 +9122,10 @@ id|sig
 r_case
 id|SIGALRM
 suffix:colon
+id|old
+op_assign
+id|timer_fn
+suffix:semicolon
 id|timer_fn
 op_assign
 id|handler
@@ -9133,6 +9135,10 @@ suffix:semicolon
 r_case
 id|SIGINT
 suffix:colon
+id|old
+op_assign
+id|sigint_fn
+suffix:semicolon
 id|sigint_fn
 op_assign
 id|handler
