@@ -2109,7 +2109,7 @@ l_int|0
 multiline_comment|/* default value if none found in config */
 id|get_colorbool_found
 op_assign
-l_int|0
+id|GIT_COLOR_AUTO
 suffix:semicolon
 id|get_colorbool_found
 op_assign
