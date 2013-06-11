@@ -11341,17 +11341,7 @@ op_logical_neg
 id|map
 )paren
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;unable to find %s&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|sha1
-)paren
-)paren
+l_int|1
 suffix:semicolon
 r_if
 c_cond
