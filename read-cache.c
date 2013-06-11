@@ -2936,8 +2936,7 @@ op_assign
 id|index_name_exists
 c_func
 (paren
-op_amp
-id|the_index
+id|istate
 comma
 id|ce-&gt;name
 comma
@@ -4540,9 +4539,8 @@ id|istate-&gt;cache_alloc
 op_star
 r_sizeof
 (paren
-r_struct
-id|cache_entry
 op_star
+id|istate-&gt;cache
 )paren
 )paren
 suffix:semicolon
@@ -6764,9 +6762,8 @@ id|istate-&gt;cache_alloc
 comma
 r_sizeof
 (paren
-r_struct
-id|cache_entry
 op_star
+id|istate-&gt;cache
 )paren
 )paren
 suffix:semicolon
