@@ -614,7 +614,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;invalid log-grep regex: %s&quot;
+l_string|&quot;invalid regex: %s&quot;
 comma
 id|errbuf
 )paren
@@ -1278,7 +1278,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;invalid pickaxe regex: %s&quot;
+l_string|&quot;invalid regex: %s&quot;
 comma
 id|errbuf
 )paren
