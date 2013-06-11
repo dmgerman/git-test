@@ -978,7 +978,7 @@ id|path
 id|PATH_MAX
 )braket
 suffix:semicolon
-macro_line|#ifndef WIN32
+macro_line|#ifndef GIT_WINDOWS_NATIVE
 r_if
 c_cond
 (paren

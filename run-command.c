@@ -288,7 +288,7 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-macro_line|#ifndef WIN32
+macro_line|#ifndef GIT_WINDOWS_NATIVE
 DECL|function|dup_devnull
 r_static
 r_inline
@@ -712,7 +712,7 @@ l_int|0
 )paren
 )paren
 (brace
-macro_line|#ifndef WIN32
+macro_line|#ifndef GIT_WINDOWS_NATIVE
 id|nargv
 (braket
 id|nargc
@@ -833,7 +833,7 @@ r_return
 id|nargv
 suffix:semicolon
 )brace
-macro_line|#ifndef WIN32
+macro_line|#ifndef GIT_WINDOWS_NATIVE
 DECL|function|execv_shell_cmd
 r_static
 r_int
@@ -894,7 +894,7 @@ l_int|1
 suffix:semicolon
 )brace
 macro_line|#endif
-macro_line|#ifndef WIN32
+macro_line|#ifndef GIT_WINDOWS_NATIVE
 DECL|variable|child_err
 r_static
 r_int
@@ -1552,7 +1552,7 @@ c_func
 l_int|NULL
 )paren
 suffix:semicolon
-macro_line|#ifndef WIN32
+macro_line|#ifndef GIT_WINDOWS_NATIVE
 (brace
 r_int
 id|notify_pipe

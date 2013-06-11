@@ -585,7 +585,7 @@ id|st.st_mode
 r_return
 l_int|0
 suffix:semicolon
-macro_line|#if defined(WIN32) || defined(__CYGWIN__)
+macro_line|#if defined(GIT_WINDOWS_NATIVE) || defined(__CYGWIN__)
 macro_line|#if defined(__CYGWIN__)
 r_if
 c_cond

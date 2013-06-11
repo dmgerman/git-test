@@ -2,7 +2,7 @@ macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;compat/terminal.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
-macro_line|#if defined(HAVE_DEV_TTY) || defined(WIN32)
+macro_line|#if defined(HAVE_DEV_TTY) || defined(GIT_WINDOWS_NATIVE)
 r_static
 r_void
 id|restore_term
@@ -186,7 +186,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-macro_line|#elif defined(WIN32)
+macro_line|#elif defined(GIT_WINDOWS_NATIVE)
 DECL|macro|INPUT_PATH
 mdefine_line|#define INPUT_PATH &quot;CONIN$&quot;
 DECL|macro|OUTPUT_PATH

@@ -160,7 +160,7 @@ id|mode
 op_assign
 l_int|0
 suffix:semicolon
-macro_line|#ifdef _WIN32
+macro_line|#ifdef GIT_WINDOWS_NATIVE
 r_else
 r_if
 c_cond

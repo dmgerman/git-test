@@ -333,7 +333,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-macro_line|#ifdef WIN32
+macro_line|#ifdef GIT_WINDOWS_NATIVE
 r_if
 c_cond
 (paren
