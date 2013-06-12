@@ -208,6 +208,11 @@ dot
 id|string
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_rm_hints
+)paren
 id|strbuf_addstr
 c_func
 (paren
