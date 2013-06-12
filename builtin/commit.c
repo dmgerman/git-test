@@ -9306,6 +9306,8 @@ id|finish_copy_notes_for_rewrite
 c_func
 (paren
 id|cfg
+comma
+l_string|&quot;Notes added by &squot;git commit --amend&squot;&quot;
 )paren
 suffix:semicolon
 )brace

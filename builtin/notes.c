@@ -2293,6 +2293,11 @@ r_struct
 id|notes_rewrite_cfg
 op_star
 id|c
+comma
+r_const
+r_char
+op_star
+id|msg
 )paren
 (brace
 r_int
@@ -2322,7 +2327,7 @@ id|c-&gt;trees
 id|i
 )braket
 comma
-l_string|&quot;Notes added by &squot;git notes copy&squot;&quot;
+id|msg
 )paren
 suffix:semicolon
 id|free_notes
@@ -2387,6 +2392,13 @@ r_int
 id|ret
 op_assign
 l_int|0
+suffix:semicolon
+r_const
+r_char
+op_star
+id|msg
+op_assign
+l_string|&quot;Notes added by &squot;git notes copy&squot;&quot;
 suffix:semicolon
 r_if
 c_cond
@@ -2680,7 +2692,7 @@ c_func
 (paren
 id|t
 comma
-l_string|&quot;Notes added by &squot;git notes copy&squot;&quot;
+id|msg
 )paren
 suffix:semicolon
 id|free_notes
@@ -2696,6 +2708,8 @@ id|finish_copy_notes_for_rewrite
 c_func
 (paren
 id|c
+comma
+id|msg
 )paren
 suffix:semicolon
 )brace
