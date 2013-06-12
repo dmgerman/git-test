@@ -23,6 +23,7 @@ macro_line|#include &quot;submodule.h&quot;
 macro_line|#include &quot;gpg-interface.h&quot;
 macro_line|#include &quot;column.h&quot;
 macro_line|#include &quot;sequencer.h&quot;
+macro_line|#include &quot;notes-utils.h&quot;
 DECL|variable|builtin_commit_usage
 r_static
 r_const
