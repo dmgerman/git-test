@@ -278,7 +278,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|base
+id|decoration
 )paren
 r_continue
 suffix:semicolon
