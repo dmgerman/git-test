@@ -2244,7 +2244,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|refname
 comma
 r_const
 r_int
@@ -2277,7 +2277,7 @@ id|REF_ISSYMREF
 (brace
 r_int
 r_char
-id|sha1
+id|unused
 (braket
 l_int|20
 )braket
@@ -2290,9 +2290,9 @@ op_assign
 id|resolve_ref_unsafe
 c_func
 (paren
-id|name
+id|refname
 comma
-id|sha1
+id|unused
 comma
 l_int|1
 comma

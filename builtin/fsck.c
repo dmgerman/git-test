@@ -534,11 +534,7 @@ c_func
 (paren
 id|obj
 comma
-(paren
-r_void
-op_star
-)paren
-id|parent
+l_int|NULL
 comma
 op_amp
 id|pending

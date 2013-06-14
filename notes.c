@@ -4360,7 +4360,7 @@ c_func
 r_const
 r_char
 op_star
-id|path
+id|refname
 comma
 r_const
 r_int
@@ -4392,7 +4392,7 @@ c_func
 (paren
 id|refs
 comma
-id|path
+id|refname
 )paren
 )paren
 id|string_list_append
@@ -4400,13 +4400,14 @@ c_func
 (paren
 id|refs
 comma
-id|path
+id|refname
 )paren
 suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The list argument must have strdup_strings set on it.&n; */
 DECL|function|string_list_add_refs_by_glob
 r_void
 id|string_list_add_refs_by_glob
@@ -4423,6 +4424,11 @@ op_star
 id|glob
 )paren
 (brace
+m_assert
+(paren
+id|list-&gt;strdup_strings
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
