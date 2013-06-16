@@ -5854,10 +5854,6 @@ DECL|struct|grab_1st_switch_cbdata
 r_struct
 id|grab_1st_switch_cbdata
 (brace
-DECL|member|found
-r_int
-id|found
-suffix:semicolon
 DECL|member|buf
 r_struct
 id|strbuf
@@ -6022,10 +6018,6 @@ comma
 id|end
 id|target
 )paren
-suffix:semicolon
-id|cb-&gt;found
-op_assign
-l_int|1
 suffix:semicolon
 r_return
 l_int|1
