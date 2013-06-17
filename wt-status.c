@@ -5414,7 +5414,7 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;  (fix conflicts and run &bslash;&quot;git commit&bslash;&quot;)&quot;
+l_string|&quot;  (fix conflicts and run &bslash;&quot;git cherry-pick --continue&bslash;&quot;)&quot;
 )paren
 )paren
 suffix:semicolon
@@ -5429,7 +5429,21 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;  (all conflicts fixed: run &bslash;&quot;git commit&bslash;&quot;)&quot;
+l_string|&quot;  (all conflicts fixed: run &bslash;&quot;git cherry-pick --continue&bslash;&quot;)&quot;
+)paren
+)paren
+suffix:semicolon
+id|status_printf_ln
+c_func
+(paren
+id|s
+comma
+id|color
+comma
+id|_
+c_func
+(paren
+l_string|&quot;  (use &bslash;&quot;git cherry-pick --abort&bslash;&quot; to cancel the cherry-pick operation)&quot;
 )paren
 )paren
 suffix:semicolon
