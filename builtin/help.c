@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * builtin-help.c&n; *&n; * Builtin help command&n; */
+multiline_comment|/*&n; * Builtin help command&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;

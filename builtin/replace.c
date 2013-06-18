@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Builtin &quot;git replace&quot;&n; *&n; * Copyright (c) 2008 Christian Couder &lt;chriscool@tuxfamily.org&gt;&n; *&n; * Based on builtin-tag.c by Kristian H&oslash;gsberg &lt;krh@redhat.com&gt;&n; * and Carlos Rica &lt;jasampler@gmail.com&gt; that was itself based on&n; * git-tag.sh and mktag.c by Linus Torvalds.&n; */
+multiline_comment|/*&n; * Builtin &quot;git replace&quot;&n; *&n; * Copyright (c) 2008 Christian Couder &lt;chriscool@tuxfamily.org&gt;&n; *&n; * Based on builtin/tag.c by Kristian H&oslash;gsberg &lt;krh@redhat.com&gt;&n; * and Carlos Rica &lt;jasampler@gmail.com&gt; that was itself based on&n; * git-tag.sh and mktag.c by Linus Torvalds.&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;refs.h&quot;
