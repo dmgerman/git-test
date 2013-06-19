@@ -4904,6 +4904,9 @@ comma
 id|refname
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * We might have to loop back here to avoid a race&n;&t;&t; * condition: first we lstat() the file, then we try&n;&t;&t; * to read it as a link or as a file.  But if somebody&n;&t;&t; * changes the type of the file (file &lt;-&gt; directory&n;&t;&t; * &lt;-&gt; symlink) between the lstat() and reading, then&n;&t;&t; * we don&squot;t want to report that as an error but rather&n;&t;&t; * try again starting with the lstat().&n;&t;&t; */
+id|stat_ref
+suffix:colon
 r_if
 c_cond
 (paren
@@ -4979,9 +4982,27 @@ id|len
 OL
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|ENOENT
+op_logical_or
+id|errno
+op_eq
+id|EINVAL
+)paren
+multiline_comment|/* inconsistent with lstat; retry */
+r_goto
+id|stat_ref
+suffix:semicolon
+r_else
 r_return
 l_int|NULL
 suffix:semicolon
+)brace
 id|buffer
 (braket
 id|len
@@ -5074,9 +5095,23 @@ id|fd
 OL
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|ENOENT
+)paren
+multiline_comment|/* inconsistent with lstat; retry */
+r_goto
+id|stat_ref
+suffix:semicolon
+r_else
 r_return
 l_int|NULL
 suffix:semicolon
+)brace
 id|len
 op_assign
 id|read_in_full
