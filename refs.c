@@ -2953,7 +2953,7 @@ r_int
 r_int
 id|referrers
 suffix:semicolon
-multiline_comment|/*&n;&t; * Iff the packed-refs file associated with this instance is&n;&t; * currently locked for writing, this points at the associated&n;&t; * lock (which is owned by somebody else).&n;&t; */
+multiline_comment|/*&n;&t; * Iff the packed-refs file associated with this instance is&n;&t; * currently locked for writing, this points at the associated&n;&t; * lock (which is owned by somebody else).  The referrer count&n;&t; * is also incremented when the file is locked and decremented&n;&t; * when it is unlocked.&n;&t; */
 DECL|member|lock
 r_struct
 id|lock_file
@@ -9123,6 +9123,13 @@ op_assign
 op_amp
 id|packlock
 suffix:semicolon
+multiline_comment|/* Increment the reference count to prevent it from being freed: */
+id|acquire_packed_ref_cache
+c_func
+(paren
+id|packed_ref_cache
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -9212,6 +9219,12 @@ id|packed_ref_cache-&gt;lock
 op_assign
 l_int|NULL
 suffix:semicolon
+id|release_packed_ref_cache
+c_func
+(paren
+id|packed_ref_cache
+)paren
+suffix:semicolon
 r_return
 id|error
 suffix:semicolon
@@ -9257,6 +9270,12 @@ suffix:semicolon
 id|packed_ref_cache-&gt;lock
 op_assign
 l_int|NULL
+suffix:semicolon
+id|release_packed_ref_cache
+c_func
+(paren
+id|packed_ref_cache
+)paren
 suffix:semicolon
 id|clear_packed_ref_cache
 c_func
