@@ -7101,7 +7101,20 @@ id|istate-&gt;initialized
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* no need to throw away allocated active_cache */
+id|free
+c_func
+(paren
+id|istate-&gt;cache
+)paren
+suffix:semicolon
+id|istate-&gt;cache
+op_assign
+l_int|NULL
+suffix:semicolon
+id|istate-&gt;cache_alloc
+op_assign
+l_int|0
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
