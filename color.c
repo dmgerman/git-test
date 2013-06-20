@@ -5,7 +5,7 @@ r_static
 r_int
 id|git_use_color_default
 op_assign
-l_int|0
+id|GIT_COLOR_AUTO
 suffix:semicolon
 DECL|variable|color_stdout_is_tty
 r_int
