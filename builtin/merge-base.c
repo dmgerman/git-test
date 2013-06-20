@@ -603,9 +603,9 @@ id|is_ancestor
 op_logical_and
 (paren
 id|show_all
-op_or
+op_logical_or
 id|octopus
-op_or
+op_logical_or
 id|reduce
 )paren
 )paren

@@ -16310,13 +16310,9 @@ l_int|0
 OL
 id|patch-&gt;is_new
 )paren
-op_or
-(paren
-l_int|0
-OL
+op_logical_or
 id|patch-&gt;is_rename
-)paren
-op_or
+op_logical_or
 id|patch-&gt;is_copy
 )paren
 )paren
