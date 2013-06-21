@@ -236,12 +236,9 @@ comma
 l_string|&quot;Debug: Remote helper quit.&bslash;n&quot;
 )paren
 suffix:semicolon
-id|die
-c_func
+m_exit
 (paren
-l_string|&quot;Reading from helper &squot;git-remote-%s&squot; failed&quot;
-comma
-id|name
+l_int|128
 )paren
 suffix:semicolon
 )brace
