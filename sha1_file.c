@@ -10305,13 +10305,14 @@ op_amp
 id|size
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * We could not apply the delta; warn the user, but keep going.&n;&t;&t; * Our failure will be noticed either in the next iteration of&n;&t;&t; * the loop, or if this is the final delta, in the caller when&n;&t;&t; * we return NULL. Those code paths will take care of making&n;&t;&t; * a more explicit warning and retrying with another copy of&n;&t;&t; * the object.&n;&t;&t; */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|data
 )paren
-id|die
+id|error
 c_func
 (paren
 l_string|&quot;failed to apply delta&quot;
