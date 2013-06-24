@@ -685,6 +685,11 @@ id|s-&gt;ignored.strdup_strings
 op_assign
 l_int|1
 suffix:semicolon
+id|s-&gt;show_branch
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* unspecified */
 )brace
 DECL|function|wt_status_print_unmerged_header
 r_static
