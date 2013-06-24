@@ -8302,6 +8302,11 @@ op_amp
 id|s
 )paren
 suffix:semicolon
+id|status_format
+op_assign
+id|STATUS_FORMAT_NONE
+suffix:semicolon
+multiline_comment|/* Ignore status.short */
 id|determine_whence
 c_func
 (paren
