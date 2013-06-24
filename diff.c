@@ -14207,6 +14207,22 @@ id|err
 op_assign
 l_int|0
 suffix:semicolon
+multiline_comment|/*&n;&t; * demote FAIL to WARN to allow inspecting the situation&n;&t; * instead of refusing.&n;&t; */
+r_enum
+id|safe_crlf
+id|crlf_warn
+op_assign
+(paren
+id|safe_crlf
+op_eq
+id|SAFE_CRLF_FAIL
+ques
+c_cond
+id|SAFE_CRLF_WARN
+suffix:colon
+id|safe_crlf
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -14496,7 +14512,7 @@ comma
 op_amp
 id|buf
 comma
-id|safe_crlf
+id|crlf_warn
 )paren
 )paren
 (brace
