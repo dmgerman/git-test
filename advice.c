@@ -89,6 +89,12 @@ id|advice_object_name_warning
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|advice_rm_hints
+r_int
+id|advice_rm_hints
+op_assign
+l_int|1
+suffix:semicolon
 r_static
 r_struct
 (brace
@@ -213,6 +219,13 @@ l_string|&quot;object_name_warning&quot;
 comma
 op_amp
 id|advice_object_name_warning
+)brace
+comma
+(brace
+l_string|&quot;rmhints&quot;
+comma
+op_amp
+id|advice_rm_hints
 )brace
 comma
 multiline_comment|/* make this an alias for backward compatibility */

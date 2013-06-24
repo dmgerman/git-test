@@ -5,6 +5,7 @@ macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 DECL|variable|builtin_rm_usage
 r_static
@@ -127,6 +128,120 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|function|print_error_files
+r_static
+r_void
+id|print_error_files
+c_func
+(paren
+r_struct
+id|string_list
+op_star
+id|files_list
+comma
+r_const
+r_char
+op_star
+id|main_msg
+comma
+r_const
+r_char
+op_star
+id|hints_msg
+comma
+r_int
+op_star
+id|errs
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|files_list-&gt;nr
+)paren
+(brace
+r_int
+id|i
+suffix:semicolon
+r_struct
+id|strbuf
+id|err_msg
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|err_msg
+comma
+id|main_msg
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|files_list-&gt;nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|err_msg
+comma
+l_string|&quot;&bslash;n    %s&quot;
+comma
+id|files_list-&gt;items
+(braket
+id|i
+)braket
+dot
+id|string
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_rm_hints
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|err_msg
+comma
+id|hints_msg
+)paren
+suffix:semicolon
+op_star
+id|errs
+op_assign
+id|error
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|err_msg.buf
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|err_msg
+)paren
+suffix:semicolon
+)brace
+)brace
 DECL|function|check_submodules_use_gitfiles
 r_static
 r_int
@@ -143,6 +258,12 @@ r_int
 id|errs
 op_assign
 l_int|0
+suffix:semicolon
+r_struct
+id|string_list
+id|files
+op_assign
+id|STRING_LIST_INIT_NODUP
 suffix:semicolon
 r_for
 c_loop
@@ -273,24 +394,54 @@ c_func
 id|name
 )paren
 )paren
-id|errs
-op_assign
-id|error
+id|string_list_append
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;submodule &squot;%s&squot; (or one of its nested &quot;
-l_string|&quot;submodules) uses a .git directory&bslash;n&quot;
-l_string|&quot;(use &squot;rm -rf&squot; if you really want to remove &quot;
-l_string|&quot;it including all of its history)&quot;
-)paren
+op_amp
+id|files
 comma
 id|name
 )paren
 suffix:semicolon
 )brace
+id|print_error_files
+c_func
+(paren
+op_amp
+id|files
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;the following submodule (or one of its nested &quot;
+l_string|&quot;submodules)&bslash;n uses a .git directory:&quot;
+comma
+l_string|&quot;the following submodules (or one of its nested &quot;
+l_string|&quot;submodules)&bslash;n use a .git directory:&quot;
+comma
+id|files.nr
+)paren
+comma
+id|_
+c_func
+(paren
+l_string|&quot;&bslash;n(use &squot;rm -rf&squot; if you really want to remove &quot;
+l_string|&quot;it including all of its history)&quot;
+)paren
+comma
+op_amp
+id|errs
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|files
+comma
+l_int|0
+)paren
+suffix:semicolon
 r_return
 id|errs
 suffix:semicolon
@@ -320,6 +471,30 @@ r_int
 id|errs
 op_assign
 l_int|0
+suffix:semicolon
+r_struct
+id|string_list
+id|files_staged
+op_assign
+id|STRING_LIST_INIT_NODUP
+suffix:semicolon
+r_struct
+id|string_list
+id|files_cached
+op_assign
+id|STRING_LIST_INIT_NODUP
+suffix:semicolon
+r_struct
+id|string_list
+id|files_submodule
+op_assign
+id|STRING_LIST_INIT_NODUP
+suffix:semicolon
+r_struct
+id|string_list
+id|files_local
+op_assign
+id|STRING_LIST_INIT_NODUP
 suffix:semicolon
 id|no_head
 op_assign
@@ -626,18 +801,11 @@ op_amp
 id|CE_INTENT_TO_ADD
 )paren
 )paren
-id|errs
-op_assign
-id|error
+id|string_list_append
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;&squot;%s&squot; has staged content different &quot;
-l_string|&quot;from both the file and the HEAD&bslash;n&quot;
-l_string|&quot;(use -f to force removal)&quot;
-)paren
+op_amp
+id|files_staged
 comma
 id|name
 )paren
@@ -656,18 +824,11 @@ c_cond
 (paren
 id|staged_changes
 )paren
-id|errs
-op_assign
-id|error
+id|string_list_append
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;&squot;%s&squot; has changes staged in the index&bslash;n&quot;
-l_string|&quot;(use --cached to keep the file, &quot;
-l_string|&quot;or -f to force removal)&quot;
-)paren
+op_amp
+id|files_cached
 comma
 id|name
 )paren
@@ -694,38 +855,21 @@ c_func
 id|name
 )paren
 )paren
-(brace
-id|errs
-op_assign
-id|error
+id|string_list_append
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;submodule &squot;%s&squot; (or one of its nested &quot;
-l_string|&quot;submodules) uses a .git directory&bslash;n&quot;
-l_string|&quot;(use &squot;rm -rf&squot; if you really want to remove &quot;
-l_string|&quot;it including all of its history)&quot;
-)paren
+op_amp
+id|files_submodule
 comma
 id|name
 )paren
 suffix:semicolon
-)brace
 r_else
-id|errs
-op_assign
-id|error
+id|string_list_append
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;&squot;%s&squot; has local modifications&bslash;n&quot;
-l_string|&quot;(use --cached to keep the file, &quot;
-l_string|&quot;or -f to force removal)&quot;
-)paren
+op_amp
+id|files_local
 comma
 id|name
 )paren
@@ -733,6 +877,156 @@ suffix:semicolon
 )brace
 )brace
 )brace
+id|print_error_files
+c_func
+(paren
+op_amp
+id|files_staged
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;the following file has staged content different &quot;
+l_string|&quot;from both the&bslash;nfile and the HEAD:&quot;
+comma
+l_string|&quot;the following files have staged content different&quot;
+l_string|&quot; from both the&bslash;nfile and the HEAD:&quot;
+comma
+id|files_staged.nr
+)paren
+comma
+id|_
+c_func
+(paren
+l_string|&quot;&bslash;n(use -f to force removal)&quot;
+)paren
+comma
+op_amp
+id|errs
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|files_staged
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|print_error_files
+c_func
+(paren
+op_amp
+id|files_cached
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;the following file has changes &quot;
+l_string|&quot;staged in the index:&quot;
+comma
+l_string|&quot;the following files have changes &quot;
+l_string|&quot;staged in the index:&quot;
+comma
+id|files_cached.nr
+)paren
+comma
+id|_
+c_func
+(paren
+l_string|&quot;&bslash;n(use --cached to keep the file,&quot;
+l_string|&quot; or -f to force removal)&quot;
+)paren
+comma
+op_amp
+id|errs
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|files_cached
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|print_error_files
+c_func
+(paren
+op_amp
+id|files_submodule
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;the following submodule (or one of its nested &quot;
+l_string|&quot;submodule)&bslash;nuses a .git directory:&quot;
+comma
+l_string|&quot;the following submodules (or one of its nested &quot;
+l_string|&quot;submodule)&bslash;nuse a .git directory:&quot;
+comma
+id|files_submodule.nr
+)paren
+comma
+id|_
+c_func
+(paren
+l_string|&quot;&bslash;n(use &squot;rm -rf&squot; if you really &quot;
+l_string|&quot;want to remove it including all &quot;
+l_string|&quot;of its history)&quot;
+)paren
+comma
+op_amp
+id|errs
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|files_submodule
+comma
+l_int|0
+)paren
+suffix:semicolon
+id|print_error_files
+c_func
+(paren
+op_amp
+id|files_local
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;the following file has local modifications:&quot;
+comma
+l_string|&quot;the following files have local modifications:&quot;
+comma
+id|files_local.nr
+)paren
+comma
+id|_
+c_func
+(paren
+l_string|&quot;&bslash;n(use --cached to keep the file,&quot;
+l_string|&quot; or -f to force removal)&quot;
+)paren
+comma
+op_amp
+id|errs
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|files_local
+comma
+l_int|0
+)paren
+suffix:semicolon
 r_return
 id|errs
 suffix:semicolon
