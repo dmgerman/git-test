@@ -720,6 +720,12 @@ l_string|&quot;relative_path&quot;
 )paren
 )paren
 (brace
+r_struct
+id|strbuf
+id|sb
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -763,6 +769,9 @@ c_func
 id|in
 comma
 id|prefix
+comma
+op_amp
+id|sb
 )paren
 suffix:semicolon
 r_if
@@ -793,6 +802,13 @@ c_cond
 id|rel
 suffix:colon
 l_string|&quot;(empty)&quot;
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|sb
 )paren
 suffix:semicolon
 r_return
