@@ -2079,12 +2079,10 @@ id|pathspec
 id|num
 )braket
 comma
-l_int|1
+id|prefix
 comma
 op_amp
 id|sb
-comma
-id|prefix
 )paren
 suffix:semicolon
 id|error
