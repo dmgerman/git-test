@@ -209,6 +209,7 @@ r_int
 id|len
 )paren
 (brace
+multiline_comment|/*&n;&t; * With &quot;--full-name&quot;, prefix_len=0; write_name_quoted_relative()&n;&t; * ignores prefix_len, so this caller needs to pass empty string&n;&t; * in that case (a NULL is good for &quot;&quot;).&n;&t; */
 id|write_name_quoted_relative
 c_func
 (paren
@@ -216,7 +217,12 @@ id|name
 comma
 id|len
 comma
+id|prefix_len
+ques
+c_cond
 id|prefix
+suffix:colon
+l_int|NULL
 comma
 id|prefix_len
 comma
