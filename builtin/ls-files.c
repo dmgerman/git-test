@@ -204,18 +204,13 @@ r_const
 r_char
 op_star
 id|name
-comma
-r_int
-id|len
 )paren
 (brace
-multiline_comment|/*&n;&t; * With &quot;--full-name&quot;, prefix_len=0; write_name_quoted_relative()&n;&t; * ignores prefix_len, so this caller needs to pass empty string&n;&t; * in that case (a NULL is good for &quot;&quot;).&n;&t; */
+multiline_comment|/*&n;&t; * With &quot;--full-name&quot;, prefix_len=0; this caller needs to pass&n;&t; * an empty string in that case (a NULL is good for &quot;&quot;).&n;&t; */
 id|write_name_quoted_relative
 c_func
 (paren
 id|name
-comma
-id|len
 comma
 id|prefix_len
 ques
@@ -223,8 +218,6 @@ c_cond
 id|prefix
 suffix:colon
 l_int|NULL
-comma
-id|prefix_len
 comma
 id|stdout
 comma
@@ -299,8 +292,6 @@ id|write_name
 c_func
 (paren
 id|ent-&gt;name
-comma
-id|ent-&gt;len
 )paren
 suffix:semicolon
 )brace
@@ -843,12 +834,6 @@ id|write_name
 c_func
 (paren
 id|ce-&gt;name
-comma
-id|ce_namelen
-c_func
-(paren
-id|ce
-)paren
 )paren
 suffix:semicolon
 r_if
@@ -1055,8 +1040,6 @@ id|write_name
 c_func
 (paren
 id|path
-comma
-id|len
 )paren
 suffix:semicolon
 )brace

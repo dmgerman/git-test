@@ -1648,16 +1648,10 @@ r_char
 op_star
 id|name
 comma
-r_int
-id|len
-comma
 r_const
 r_char
 op_star
 id|prefix
-comma
-r_int
-id|prefix_len
 comma
 id|FILE
 op_star
