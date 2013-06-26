@@ -6627,7 +6627,7 @@ op_logical_neg
 id|nr_heads
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * When deepening of a shallow repository is requested,&n;&t;&t; * then local and remote refs are likely to still be equal.&n;&t;&t; * Just feed them all to the fetch method in that case.&n;&t;&t; * This condition shouldn&squot;t be met in a non-deepening fetch&n;&t;&t; * (see builtin-fetch.c:quickfetch()).&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * When deepening of a shallow repository is requested,&n;&t;&t; * then local and remote refs are likely to still be equal.&n;&t;&t; * Just feed them all to the fetch method in that case.&n;&t;&t; * This condition shouldn&squot;t be met in a non-deepening fetch&n;&t;&t; * (see builtin/fetch.c:quickfetch()).&n;&t;&t; */
 id|heads
 op_assign
 id|xmalloc

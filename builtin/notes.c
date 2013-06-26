@@ -1,4 +1,4 @@
-multiline_comment|/*&n; * Builtin &quot;git notes&quot;&n; *&n; * Copyright (c) 2010 Johan Herland &lt;johan@herland.net&gt;&n; *&n; * Based on git-notes.sh by Johannes Schindelin,&n; * and builtin-tag.c by Kristian H&oslash;gsberg and Carlos Rica.&n; */
+multiline_comment|/*&n; * Builtin &quot;git notes&quot;&n; *&n; * Copyright (c) 2010 Johan Herland &lt;johan@herland.net&gt;&n; *&n; * Based on git-notes.sh by Johannes Schindelin,&n; * and builtin/tag.c by Kristian H&oslash;gsberg and Carlos Rica.&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;notes.h&quot;
