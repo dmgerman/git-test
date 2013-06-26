@@ -830,6 +830,13 @@ id|ctx.date_mode
 op_assign
 id|DATE_NORMAL
 suffix:semicolon
+id|ctx.output_encoding
+op_assign
+id|get_log_output_encoding
+c_func
+(paren
+)paren
+suffix:semicolon
 id|pretty_print_commit
 c_func
 (paren
