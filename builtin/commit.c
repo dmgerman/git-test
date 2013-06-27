@@ -340,9 +340,12 @@ op_assign
 l_int|1
 suffix:semicolon
 DECL|variable|show_ignored_in_status
+DECL|variable|have_option_m
 r_static
 r_int
 id|show_ignored_in_status
+comma
+id|have_option_m
 suffix:semicolon
 DECL|variable|only_include_assumed
 r_static
@@ -412,6 +415,11 @@ c_cond
 (paren
 id|unset
 )paren
+(brace
+id|have_option_m
+op_assign
+l_int|0
+suffix:semicolon
 id|strbuf_setlen
 c_func
 (paren
@@ -420,8 +428,13 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+)brace
 r_else
 (brace
+id|have_option_m
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4942,7 +4955,7 @@ c_cond
 (paren
 id|logfile
 op_logical_or
-id|message.len
+id|have_option_m
 op_logical_or
 id|use_message
 op_logical_or
