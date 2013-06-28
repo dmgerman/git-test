@@ -3084,6 +3084,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+l_int|0
+op_le
+id|option_verbosity
+)paren
+id|printf
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Checking connectivity... &quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|check_everything_connected
 c_func
 (paren
@@ -3102,6 +3119,23 @@ id|_
 c_func
 (paren
 l_string|&quot;remote did not send all necessary objects&quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+l_int|0
+op_le
+id|option_verbosity
+)paren
+id|printf
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;done&bslash;n&quot;
 )paren
 )paren
 suffix:semicolon
