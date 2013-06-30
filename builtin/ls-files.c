@@ -851,14 +851,22 @@ c_cond
 id|debug_mode
 )paren
 (brace
+r_struct
+id|stat_data
+op_star
+id|sd
+op_assign
+op_amp
+id|ce-&gt;ce_stat_data
+suffix:semicolon
 id|printf
 c_func
 (paren
 l_string|&quot;  ctime: %d:%d&bslash;n&quot;
 comma
-id|ce-&gt;ce_ctime.sec
+id|sd-&gt;sd_ctime.sec
 comma
-id|ce-&gt;ce_ctime.nsec
+id|sd-&gt;sd_ctime.nsec
 )paren
 suffix:semicolon
 id|printf
@@ -866,9 +874,9 @@ c_func
 (paren
 l_string|&quot;  mtime: %d:%d&bslash;n&quot;
 comma
-id|ce-&gt;ce_mtime.sec
+id|sd-&gt;sd_mtime.sec
 comma
-id|ce-&gt;ce_mtime.nsec
+id|sd-&gt;sd_mtime.nsec
 )paren
 suffix:semicolon
 id|printf
@@ -876,9 +884,9 @@ c_func
 (paren
 l_string|&quot;  dev: %d&bslash;tino: %d&bslash;n&quot;
 comma
-id|ce-&gt;ce_dev
+id|sd-&gt;sd_dev
 comma
-id|ce-&gt;ce_ino
+id|sd-&gt;sd_ino
 )paren
 suffix:semicolon
 id|printf
@@ -886,9 +894,9 @@ c_func
 (paren
 l_string|&quot;  uid: %d&bslash;tgid: %d&bslash;n&quot;
 comma
-id|ce-&gt;ce_uid
+id|sd-&gt;sd_uid
 comma
-id|ce-&gt;ce_gid
+id|sd-&gt;sd_gid
 )paren
 suffix:semicolon
 id|printf
@@ -896,7 +904,7 @@ c_func
 (paren
 l_string|&quot;  size: %d&bslash;tflags: %x&bslash;n&quot;
 comma
-id|ce-&gt;ce_size
+id|sd-&gt;sd_size
 comma
 id|ce-&gt;ce_flags
 )paren

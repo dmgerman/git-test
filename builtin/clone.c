@@ -2830,6 +2830,12 @@ id|ref
 op_star
 id|r
 suffix:semicolon
+id|lock_packed_refs
+c_func
+(paren
+id|LOCK_DIE_ON_ERROR
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -2861,10 +2867,18 @@ id|r-&gt;old_sha1
 )paren
 suffix:semicolon
 )brace
-id|pack_refs
+r_if
+c_cond
+(paren
+id|commit_packed_refs
 c_func
 (paren
-id|PACK_REFS_ALL
+)paren
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;unable to overwrite old ref-pack file&quot;
 )paren
 suffix:semicolon
 )brace
