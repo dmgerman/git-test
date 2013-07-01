@@ -8,6 +8,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;notes.h&quot;
 macro_line|#include &quot;gpg-interface.h&quot;
 macro_line|#include &quot;mergesort.h&quot;
+macro_line|#include &quot;commit-slab.h&quot;
 r_static
 r_struct
 id|commit_extra_header
@@ -42,6 +43,11 @@ op_star
 id|commit_type
 op_assign
 l_string|&quot;commit&quot;
+suffix:semicolon
+DECL|variable|commit_count
+r_static
+r_int
+id|commit_count
 suffix:semicolon
 DECL|function|check_commit
 r_static
@@ -305,6 +311,22 @@ c_cond
 op_logical_neg
 id|obj
 )paren
+(brace
+r_struct
+id|commit
+op_star
+id|c
+op_assign
+id|alloc_commit_node
+c_func
+(paren
+)paren
+suffix:semicolon
+id|c-&gt;index
+op_assign
+id|commit_count
+op_increment
+suffix:semicolon
 r_return
 id|create_object
 c_func
@@ -313,12 +335,10 @@ id|sha1
 comma
 id|OBJ_COMMIT
 comma
-id|alloc_commit_node
-c_func
-(paren
-)paren
+id|c
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2748,6 +2768,16 @@ r_return
 id|item
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Topological sort support&n; */
+multiline_comment|/* count number of children that have not been emitted */
+id|define_commit_slab
+c_func
+(paren
+id|indegree_slab
+comma
+r_int
+)paren
+suffix:semicolon
 multiline_comment|/*&n; * Performs an in-place topological sort on the list supplied.&n; */
 DECL|function|sort_in_topological_order
 r_void
@@ -2790,6 +2820,10 @@ op_star
 op_star
 id|pptr
 suffix:semicolon
+r_struct
+id|indegree_slab
+id|indegree
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2802,6 +2836,13 @@ op_star
 id|list
 op_assign
 l_int|NULL
+suffix:semicolon
+id|init_indegree_slab
+c_func
+(paren
+op_amp
+id|indegree
+)paren
 suffix:semicolon
 multiline_comment|/* Mark them and clear the indegree */
 r_for
@@ -2825,7 +2866,17 @@ id|commit
 op_assign
 id|next-&gt;item
 suffix:semicolon
-id|commit-&gt;indegree
+op_star
+(paren
+id|indegree_slab_at
+c_func
+(paren
+op_amp
+id|indegree
+comma
+id|commit
+)paren
+)paren
 op_assign
 l_int|1
 suffix:semicolon
@@ -2865,12 +2916,29 @@ id|parent
 op_assign
 id|parents-&gt;item
 suffix:semicolon
+r_int
+op_star
+id|pi
+op_assign
+id|indegree_slab_at
+c_func
+(paren
+op_amp
+id|indegree
+comma
+id|parent
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|parent-&gt;indegree
+op_star
+id|pi
 )paren
-id|parent-&gt;indegree
+(paren
+op_star
+id|pi
+)paren
 op_increment
 suffix:semicolon
 id|parents
@@ -2913,7 +2981,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|commit-&gt;indegree
+op_star
+(paren
+id|indegree_slab_at
+c_func
+(paren
+op_amp
+id|indegree
+comma
+id|commit
+)paren
+)paren
 op_eq
 l_int|1
 )paren
@@ -3010,11 +3088,25 @@ id|parent
 op_assign
 id|parents-&gt;item
 suffix:semicolon
+r_int
+op_star
+id|pi
+op_assign
+id|indegree_slab_at
+c_func
+(paren
+op_amp
+id|indegree
+comma
+id|parent
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
 op_logical_neg
-id|parent-&gt;indegree
+op_star
+id|pi
 )paren
 r_continue
 suffix:semicolon
@@ -3023,7 +3115,10 @@ r_if
 c_cond
 (paren
 op_decrement
-id|parent-&gt;indegree
+(paren
+op_star
+id|pi
+)paren
 op_eq
 l_int|1
 )paren
@@ -3056,7 +3151,17 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n;&t;&t; * work_item is a commit all of whose children&n;&t;&t; * have already been emitted. we can emit it now.&n;&t;&t; */
-id|commit-&gt;indegree
+op_star
+(paren
+id|indegree_slab_at
+c_func
+(paren
+op_amp
+id|indegree
+comma
+id|commit
+)paren
+)paren
 op_assign
 l_int|0
 suffix:semicolon
@@ -3071,6 +3176,13 @@ op_amp
 id|work_item-&gt;next
 suffix:semicolon
 )brace
+id|clear_indegree_slab
+c_func
+(paren
+op_amp
+id|indegree
+)paren
+suffix:semicolon
 )brace
 multiline_comment|/* merge-base stuff */
 multiline_comment|/* bits #0..15 in revision.h */
