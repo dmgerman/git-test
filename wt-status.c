@@ -4676,7 +4676,7 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;  (fix conflicts and then run &bslash;&quot;git am --resolved&bslash;&quot;)&quot;
+l_string|&quot;  (fix conflicts and then run &bslash;&quot;git am --continue&bslash;&quot;)&quot;
 )paren
 )paren
 suffix:semicolon
