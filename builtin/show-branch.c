@@ -3264,10 +3264,11 @@ id|all_mask
 comma
 id|all_revs
 suffix:semicolon
-r_int
-id|lifo
+r_enum
+id|rev_sort_order
+id|sort_order
 op_assign
-l_int|1
+id|REV_SORT_IN_GRAPH_ORDER
 suffix:semicolon
 r_char
 id|head
@@ -3532,7 +3533,7 @@ l_string|&quot;show refs unreachable from any other ref&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_SET_INT
 c_func
 (paren
 l_int|0
@@ -3540,13 +3541,15 @@ comma
 l_string|&quot;topo-order&quot;
 comma
 op_amp
-id|lifo
+id|sort_order
 comma
 id|N_
 c_func
 (paren
 l_string|&quot;show commits in topological order&quot;
 )paren
+comma
+id|REV_SORT_IN_GRAPH_ORDER
 )paren
 comma
 id|OPT_BOOLEAN
@@ -3593,7 +3596,7 @@ comma
 l_string|&quot;date-order&quot;
 comma
 op_amp
-id|lifo
+id|sort_order
 comma
 id|N_
 c_func
@@ -3602,7 +3605,7 @@ l_string|&quot;show commits where no parent comes before its &quot;
 l_string|&quot;children&quot;
 )paren
 comma
-l_int|0
+id|REV_SORT_BY_COMMIT_DATE
 )paren
 comma
 (brace
@@ -4802,7 +4805,7 @@ c_func
 op_amp
 id|seen
 comma
-id|lifo
+id|sort_order
 )paren
 suffix:semicolon
 multiline_comment|/* Give names to commits */
