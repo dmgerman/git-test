@@ -3121,7 +3121,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|compare_commits_by_commit_date
-r_static
 r_int
 id|compare_commits_by_commit_date
 c_func
