@@ -1845,7 +1845,6 @@ r_void
 id|pp_user_info
 c_func
 (paren
-r_const
 r_struct
 id|pretty_print_context
 op_star
@@ -7581,7 +7580,6 @@ r_void
 id|pp_header
 c_func
 (paren
-r_const
 r_struct
 id|pretty_print_context
 op_star
@@ -7875,7 +7873,6 @@ r_void
 id|pp_title_line
 c_func
 (paren
-r_const
 r_struct
 id|pretty_print_context
 op_star
@@ -8108,7 +8105,6 @@ r_void
 id|pp_remainder
 c_func
 (paren
-r_const
 r_struct
 id|pretty_print_context
 op_star
@@ -8271,7 +8267,6 @@ r_void
 id|pretty_print_commit
 c_func
 (paren
-r_const
 r_struct
 id|pretty_print_context
 op_star
