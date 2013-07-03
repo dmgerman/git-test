@@ -6564,19 +6564,17 @@ c_cond
 op_logical_neg
 id|commit
 )paren
-id|die
+id|help_unknown_ref
 c_func
 (paren
-id|_
-c_func
-(paren
-l_string|&quot;%s - not something we can merge&quot;
-)paren
-comma
 id|argv
 (braket
 id|i
 )braket
+comma
+l_string|&quot;merge&quot;
+comma
+l_string|&quot;not something we can merge&quot;
 )paren
 suffix:semicolon
 id|remotes
