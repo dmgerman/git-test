@@ -3954,7 +3954,7 @@ l_string|&quot;refs/heads/&quot;
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t;&t; * otherwise, the next &quot;git fetch&quot; will&n;&t;&t;&t; * simply fetch from HEAD without updating&n;&t;&t;&t; * any remote tracking branch, which is what&n;&t;&t;&t; * we want.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * otherwise, the next &quot;git fetch&quot; will&n;&t;&t;&t; * simply fetch from HEAD without updating&n;&t;&t;&t; * any remote-tracking branch, which is what&n;&t;&t;&t; * we want.&n;&t;&t;&t; */
 )brace
 r_else
 (brace

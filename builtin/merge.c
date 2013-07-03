@@ -5860,7 +5860,7 @@ r_return
 id|cnt
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Pretend as if the user told us to merge with the tracking&n; * branch we have for the upstream of the current branch&n; */
+multiline_comment|/*&n; * Pretend as if the user told us to merge with the remote-tracking&n; * branch we have for the upstream of the current branch&n; */
 DECL|function|setup_with_upstream
 r_static
 r_int
@@ -5991,7 +5991,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;No remote tracking branch for %s from %s&quot;
+l_string|&quot;No remote-tracking branch for %s from %s&quot;
 )paren
 comma
 id|branch-&gt;merge
