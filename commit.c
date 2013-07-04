@@ -6750,6 +6750,24 @@ id|offset
 op_assign
 l_int|0
 suffix:semicolon
+r_static
+r_const
+r_int
+r_int
+id|max_codepoint
+(braket
+)braket
+op_assign
+(brace
+l_int|0x7f
+comma
+l_int|0x7ff
+comma
+l_int|0xffff
+comma
+l_int|0x10ffff
+)brace
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -6772,6 +6790,12 @@ suffix:semicolon
 r_int
 r_int
 id|codepoint
+suffix:semicolon
+r_int
+r_int
+id|min_val
+comma
+id|max_val
 suffix:semicolon
 id|len
 op_decrement
@@ -6842,7 +6866,7 @@ id|bytes
 r_return
 id|bad_offset
 suffix:semicolon
-multiline_comment|/* Place the encoded bits at the bottom of the value. */
+multiline_comment|/*&n;&t;&t; * Place the encoded bits at the bottom of the value and compute the&n;&t;&t; * valid range.&n;&t;&t; */
 id|codepoint
 op_assign
 (paren
@@ -6852,6 +6876,24 @@ l_int|0x7f
 )paren
 op_rshift
 id|bytes
+suffix:semicolon
+id|min_val
+op_assign
+id|max_codepoint
+(braket
+id|bytes
+op_minus
+l_int|1
+)braket
+op_plus
+l_int|1
+suffix:semicolon
+id|max_val
+op_assign
+id|max_codepoint
+(braket
+id|bytes
+)braket
 suffix:semicolon
 id|offset
 op_add_assign
@@ -6899,13 +6941,13 @@ op_decrement
 id|bytes
 )paren
 suffix:semicolon
-multiline_comment|/* No codepoints can ever be allocated beyond U+10FFFF. */
+multiline_comment|/* Reject codepoints that are out of range for the sequence length. */
 r_if
 c_cond
 (paren
 id|codepoint
-OG
-l_int|0x10ffff
+template_param
+id|max_val
 )paren
 r_return
 id|bad_offset
@@ -6945,7 +6987,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This verifies that the buffer is in proper utf8 format.&n; *&n; * If it isn&squot;t, it assumes any non-utf8 characters are Latin1,&n; * and does the conversion.&n; *&n; * Fixme: we should probably also disallow overlong forms.&n; * But we don&squot;t do that currently.&n; */
+multiline_comment|/*&n; * This verifies that the buffer is in proper utf8 format.&n; *&n; * If it isn&squot;t, it assumes any non-utf8 characters are Latin1,&n; * and does the conversion.&n; */
 DECL|function|verify_utf8
 r_static
 r_int
