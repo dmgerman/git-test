@@ -6769,6 +6769,10 @@ id|bytes
 comma
 id|bad_offset
 suffix:semicolon
+r_int
+r_int
+id|codepoint
+suffix:semicolon
 id|len
 op_decrement
 suffix:semicolon
@@ -6812,13 +6816,17 @@ id|bytes
 op_increment
 suffix:semicolon
 )brace
-multiline_comment|/* Must be between 1 and 5 more bytes */
+multiline_comment|/*&n;&t;&t; * Must be between 1 and 3 more bytes.  Longer sequences result in&n;&t;&t; * codepoints beyond U+10FFFF, which are guaranteed never to exist.&n;&t;&t; */
 r_if
 c_cond
 (paren
 id|bytes
-template_param
-l_int|5
+OL
+l_int|1
+op_logical_or
+l_int|3
+OL
+id|bytes
 )paren
 r_return
 id|bad_offset
@@ -6834,6 +6842,17 @@ id|bytes
 r_return
 id|bad_offset
 suffix:semicolon
+multiline_comment|/* Place the encoded bits at the bottom of the value. */
+id|codepoint
+op_assign
+(paren
+id|c
+op_amp
+l_int|0x7f
+)paren
+op_rshift
+id|bytes
+suffix:semicolon
 id|offset
 op_add_assign
 id|bytes
@@ -6845,6 +6864,17 @@ suffix:semicolon
 multiline_comment|/* And verify that they are good continuation bytes */
 r_do
 (brace
+id|codepoint
+op_lshift_assign
+l_int|6
+suffix:semicolon
+id|codepoint
+op_or_assign
+op_star
+id|buf
+op_amp
+l_int|0x3f
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -6869,13 +6899,53 @@ op_decrement
 id|bytes
 )paren
 suffix:semicolon
-multiline_comment|/* We could/should check the value and length here too */
+multiline_comment|/* No codepoints can ever be allocated beyond U+10FFFF. */
+r_if
+c_cond
+(paren
+id|codepoint
+OG
+l_int|0x10ffff
+)paren
+r_return
+id|bad_offset
+suffix:semicolon
+multiline_comment|/* Surrogates are only for UTF-16 and cannot be encoded in UTF-8. */
+r_if
+c_cond
+(paren
+(paren
+id|codepoint
+op_amp
+l_int|0x1ff800
+)paren
+op_eq
+l_int|0xd800
+)paren
+r_return
+id|bad_offset
+suffix:semicolon
+multiline_comment|/* U+FFFE and U+FFFF are guaranteed non-characters. */
+r_if
+c_cond
+(paren
+(paren
+id|codepoint
+op_amp
+l_int|0x1ffffe
+)paren
+op_eq
+l_int|0xfffe
+)paren
+r_return
+id|bad_offset
+suffix:semicolon
 )brace
 r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * This verifies that the buffer is in proper utf8 format.&n; *&n; * If it isn&squot;t, it assumes any non-utf8 characters are Latin1,&n; * and does the conversion.&n; *&n; * Fixme: we should probably also disallow overlong forms and&n; * invalid characters. But we don&squot;t do that currently.&n; */
+multiline_comment|/*&n; * This verifies that the buffer is in proper utf8 format.&n; *&n; * If it isn&squot;t, it assumes any non-utf8 characters are Latin1,&n; * and does the conversion.&n; *&n; * Fixme: we should probably also disallow overlong forms.&n; * But we don&squot;t do that currently.&n; */
 DECL|function|verify_utf8
 r_static
 r_int
