@@ -401,6 +401,18 @@ r_int
 id|flags
 )paren
 (brace
+multiline_comment|/*&n;&t; * subtract 5 from size to make sure there&squot;s room for adding&n;&t; * &quot;.lock&quot; for the lock file name&n;&t; */
+r_static
+r_const
+r_int
+id|max_path_len
+op_assign
+r_sizeof
+(paren
+id|lk-&gt;filename
+)paren
+l_int|5
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -410,10 +422,7 @@ c_func
 id|path
 )paren
 op_ge
-r_sizeof
-(paren
-id|lk-&gt;filename
-)paren
+id|max_path_len
 )paren
 r_return
 l_int|1
@@ -426,7 +435,6 @@ comma
 id|path
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * subtract 5 from size to make sure there&squot;s room for adding&n;&t; * &quot;.lock&quot; for the lock file name&n;&t; */
 r_if
 c_cond
 (paren
@@ -442,12 +450,7 @@ c_func
 (paren
 id|lk-&gt;filename
 comma
-r_sizeof
-(paren
-id|lk-&gt;filename
-)paren
-op_minus
-l_int|5
+id|max_path_len
 )paren
 suffix:semicolon
 id|strcat
