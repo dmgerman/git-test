@@ -11693,6 +11693,10 @@ id|sizep
 r_struct
 id|object_info
 id|oi
+op_assign
+(brace
+l_int|0
+)brace
 suffix:semicolon
 id|oi.sizep
 op_assign
