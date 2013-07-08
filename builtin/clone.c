@@ -3071,6 +3071,9 @@ r_const
 r_char
 op_star
 id|msg
+comma
+r_int
+id|check_connectivity
 )paren
 (brace
 r_const
@@ -3081,6 +3084,12 @@ id|rm
 op_assign
 id|mapped_refs
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|check_connectivity
+)paren
+(brace
 r_if
 c_cond
 (paren
@@ -3105,6 +3114,7 @@ l_string|&quot;remote did not send all necessary objects&quot;
 )paren
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -5246,6 +5256,9 @@ comma
 id|branch_top.buf
 comma
 id|reflog_msg.buf
+comma
+op_logical_neg
+id|is_local
 )paren
 suffix:semicolon
 id|update_head
