@@ -7906,6 +7906,11 @@ id|ref-&gt;force
 op_logical_or
 id|force_update
 suffix:semicolon
+r_int
+id|reject_reason
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -7959,7 +7964,33 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * Decide whether an individual refspec A:B can be&n;&t;&t; * pushed.  The push will succeed if any of the&n;&t;&t; * following are true:&n;&t;&t; *&n;&t;&t; * (1) the remote reference B does not exist&n;&t;&t; *&n;&t;&t; * (2) the remote reference B is being removed (i.e.,&n;&t;&t; *     pushing :B where no source is specified)&n;&t;&t; *&n;&t;&t; * (3) the destination is not under refs/tags/, and&n;&t;&t; *     if the old and new value is a commit, the new&n;&t;&t; *     is a descendant of the old.&n;&t;&t; *&n;&t;&t; * (4) it is forced using the +A:B notation, or by&n;&t;&t; *     passing the --force argument&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Bypass the usual &quot;must fast-forward&quot; check but&n;&t;&t; * replace it with a weaker &quot;the old value must be&n;&t;&t; * this value we observed&quot;.  If the remote ref has&n;&t;&t; * moved and is now different from what we expect,&n;&t;&t; * reject any push.&n;&t;&t; *&n;&t;&t; * It also is an error if the user told us to check&n;&t;&t; * with the remote-tracking branch to find the value&n;&t;&t; * to expect, but we did not have such a tracking&n;&t;&t; * branch.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|ref-&gt;expect_old_sha1
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|ref-&gt;expect_old_no_trackback
+op_logical_or
+id|hashcmp
+c_func
+(paren
+id|ref-&gt;old_sha1
+comma
+id|ref-&gt;old_sha1_expect
+)paren
+)paren
+id|reject_reason
+op_assign
+id|REF_STATUS_REJECT_STALE
+suffix:semicolon
+)brace
+multiline_comment|/*&n;&t;&t; * The usual &quot;must fast-forward&quot; rules.&n;&t;&t; *&n;&t;&t; * Decide whether an individual refspec A:B can be&n;&t;&t; * pushed.  The push will succeed if any of the&n;&t;&t; * following are true:&n;&t;&t; *&n;&t;&t; * (1) the remote reference B does not exist&n;&t;&t; *&n;&t;&t; * (2) the remote reference B is being removed (i.e.,&n;&t;&t; *     pushing :B where no source is specified)&n;&t;&t; *&n;&t;&t; * (3) the destination is not under refs/tags/, and&n;&t;&t; *     if the old and new value is a commit, the new&n;&t;&t; *     is a descendant of the old.&n;&t;&t; *&n;&t;&t; * (4) it is forced using the +A:B notation, or by&n;&t;&t; *     passing the --force argument&n;&t;&t; */
+r_else
 r_if
 c_cond
 (paren
@@ -7974,12 +8005,6 @@ id|ref-&gt;old_sha1
 )paren
 )paren
 (brace
-r_int
-id|why
-op_assign
-l_int|0
-suffix:semicolon
-multiline_comment|/* why would this push require --force? */
 r_if
 c_cond
 (paren
@@ -7992,7 +8017,7 @@ comma
 l_string|&quot;refs/tags/&quot;
 )paren
 )paren
-id|why
+id|reject_reason
 op_assign
 id|REF_STATUS_REJECT_ALREADY_EXISTS
 suffix:semicolon
@@ -8007,7 +8032,7 @@ c_func
 id|ref-&gt;old_sha1
 )paren
 )paren
-id|why
+id|reject_reason
 op_assign
 id|REF_STATUS_REJECT_FETCH_FIRST
 suffix:semicolon
@@ -8033,7 +8058,7 @@ comma
 l_int|1
 )paren
 )paren
-id|why
+id|reject_reason
 op_assign
 id|REF_STATUS_REJECT_NEEDS_FORCE
 suffix:semicolon
@@ -8050,10 +8075,12 @@ comma
 id|ref-&gt;old_sha1
 )paren
 )paren
-id|why
+id|reject_reason
 op_assign
 id|REF_STATUS_REJECT_NONFASTFORWARD
 suffix:semicolon
+)brace
+multiline_comment|/*&n;&t;&t; * &quot;--force&quot; will defeat any rejection implemented&n;&t;&t; * by the rules above.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -8062,19 +8089,18 @@ id|force_ref_update
 )paren
 id|ref-&gt;status
 op_assign
-id|why
+id|reject_reason
 suffix:semicolon
 r_else
 r_if
 c_cond
 (paren
-id|why
+id|reject_reason
 )paren
 id|ref-&gt;forced_update
 op_assign
 l_int|1
 suffix:semicolon
-)brace
 )brace
 )brace
 DECL|function|branch_get

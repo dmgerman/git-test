@@ -149,6 +149,19 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
+id|REF_STATUS_REJECT_STALE
+suffix:colon
+id|res
+op_assign
+l_string|&quot;error&quot;
+suffix:semicolon
+id|msg
+op_assign
+l_string|&quot;stale info&quot;
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
 id|REF_STATUS_REJECT_ALREADY_EXISTS
 suffix:colon
 id|res

@@ -1077,6 +1077,9 @@ r_case
 id|REF_STATUS_REJECT_NEEDS_FORCE
 suffix:colon
 r_case
+id|REF_STATUS_REJECT_STALE
+suffix:colon
+r_case
 id|REF_STATUS_UPTODATE
 suffix:colon
 r_continue
