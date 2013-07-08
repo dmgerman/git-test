@@ -1,6 +1,8 @@
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
+macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;connect.h&quot;
 DECL|variable|fetch_pack_usage
 r_static
 r_const

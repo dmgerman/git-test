@@ -3,6 +3,8 @@ macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
+macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;send-pack.h&quot;
 macro_line|#include &quot;walker.h&quot;
 macro_line|#include &quot;bundle.h&quot;

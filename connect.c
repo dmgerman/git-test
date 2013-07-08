@@ -5,6 +5,7 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;url.h&quot;
 DECL|variable|server_capabilities
 r_static
