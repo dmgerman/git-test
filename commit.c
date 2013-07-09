@@ -6967,17 +6967,32 @@ l_int|0xd800
 r_return
 id|bad_offset
 suffix:semicolon
-multiline_comment|/* U+FFFE and U+FFFF are guaranteed non-characters. */
+multiline_comment|/* U+xxFFFE and U+xxFFFF are guaranteed non-characters. */
 r_if
 c_cond
 (paren
 (paren
 id|codepoint
 op_amp
-l_int|0x1ffffe
+l_int|0xffffe
 )paren
 op_eq
 l_int|0xfffe
+)paren
+r_return
+id|bad_offset
+suffix:semicolon
+multiline_comment|/* So are anything in the range U+FDD0..U+FDEF. */
+r_if
+c_cond
+(paren
+id|codepoint
+op_ge
+l_int|0xfdd0
+op_logical_and
+id|codepoint
+op_le
+l_int|0xfdef
 )paren
 r_return
 id|bad_offset
