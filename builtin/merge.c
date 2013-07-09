@@ -5585,6 +5585,7 @@ id|pos
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star

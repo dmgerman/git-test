@@ -4301,6 +4301,7 @@ r_int
 id|len
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -4438,6 +4439,7 @@ OL
 id|active_nr
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -4876,6 +4878,7 @@ id|len
 r_int
 id|pos
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star

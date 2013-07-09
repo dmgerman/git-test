@@ -13785,6 +13785,7 @@ r_int
 id|read_file_or_gitlink
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -14226,6 +14227,7 @@ r_int
 id|verify_index_match
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -14291,6 +14293,7 @@ id|strbuf
 op_star
 id|buf
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -14433,6 +14436,7 @@ id|stat
 op_star
 id|st
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -15050,6 +15054,7 @@ id|stat
 op_star
 id|st
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -15457,6 +15462,7 @@ id|stat
 op_star
 id|st
 comma
+r_const
 r_struct
 id|cache_entry
 op_star

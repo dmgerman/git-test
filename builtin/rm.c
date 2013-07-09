@@ -295,6 +295,7 @@ suffix:semicolon
 r_int
 id|pos
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -526,6 +527,7 @@ suffix:semicolon
 r_int
 id|pos
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1464,6 +1466,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star

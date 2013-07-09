@@ -413,6 +413,7 @@ op_star
 id|read_blob_entry
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -480,6 +481,7 @@ r_char
 op_star
 id|path
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -604,6 +606,7 @@ r_int
 id|streaming_write_entry
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star

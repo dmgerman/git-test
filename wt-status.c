@@ -2220,6 +2220,7 @@ id|pos
 comma
 id|mask
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2777,6 +2778,7 @@ id|wt_status_change_data
 op_star
 id|d
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star

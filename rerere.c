@@ -1797,6 +1797,7 @@ comma
 l_int|0
 )brace
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2185,6 +2186,7 @@ op_star
 id|type
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2259,6 +2261,7 @@ OL
 id|active_nr
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2269,6 +2272,7 @@ id|active_cache
 id|i
 )braket
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2400,6 +2404,7 @@ suffix:semicolon
 r_int
 id|conflict_type
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2493,6 +2498,7 @@ suffix:semicolon
 r_int
 id|conflict_type
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star

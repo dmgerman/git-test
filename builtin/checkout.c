@@ -419,6 +419,7 @@ r_int
 id|skip_same_name
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -465,6 +466,7 @@ c_func
 r_int
 id|stage
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -561,6 +563,7 @@ c_func
 r_int
 id|stages
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1591,6 +1594,7 @@ id|pos
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star

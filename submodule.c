@@ -3618,6 +3618,7 @@ id|submodule_prefix
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star

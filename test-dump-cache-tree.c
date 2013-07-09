@@ -324,6 +324,14 @@ c_func
 (paren
 id|another
 comma
+(paren
+r_const
+r_struct
+id|cache_entry
+op_star
+r_const
+op_star
+)paren
 id|active_cache
 comma
 id|active_nr
