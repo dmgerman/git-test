@@ -679,10 +679,11 @@ r_do
 r_int
 id|mi
 op_assign
-(paren
 id|lo
 op_plus
+(paren
 id|hi
+id|lo
 )paren
 op_div
 l_int|2
