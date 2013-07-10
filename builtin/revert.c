@@ -185,6 +185,13 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+id|__attribute__
+c_func
+(paren
+(paren
+id|sentinel
+)paren
+)paren
 DECL|function|verify_opt_compatible
 r_static
 r_void
@@ -282,6 +289,13 @@ id|base_opt
 )paren
 suffix:semicolon
 )brace
+id|__attribute__
+c_func
+(paren
+(paren
+id|sentinel
+)paren
+)paren
 DECL|function|verify_opt_mutually_compatible
 r_static
 r_void
