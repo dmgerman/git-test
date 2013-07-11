@@ -52,6 +52,10 @@ r_char
 op_star
 id|name
 suffix:semicolon
+DECL|member|die_on_error
+r_int
+id|die_on_error
+suffix:semicolon
 DECL|member|linenr
 r_int
 id|linenr
@@ -2116,7 +2120,24 @@ l_int|0
 r_break
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|cf-&gt;die_on_error
+)paren
 id|die
+c_func
+(paren
+l_string|&quot;bad config file line %d in %s&quot;
+comma
+id|cf-&gt;linenr
+comma
+id|cf-&gt;name
+)paren
+suffix:semicolon
+r_else
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;bad config file line %d in %s&quot;
@@ -5007,7 +5028,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * All source specific fields in the union, name and the callbacks&n; * fgetc, ungetc, ftell of top need to be initialized before calling&n; * this function.&n; */
+multiline_comment|/*&n; * All source specific fields in the union, die_on_error, name and the callbacks&n; * fgetc, ungetc, ftell of top need to be initialized before calling&n; * this function.&n; */
 DECL|function|do_config_from
 r_static
 r_int
@@ -5153,6 +5174,10 @@ id|top.name
 op_assign
 id|filename
 suffix:semicolon
+id|top.die_on_error
+op_assign
+l_int|1
+suffix:semicolon
 id|top.fgetc
 op_assign
 id|config_file_fgetc
@@ -5234,6 +5259,10 @@ suffix:semicolon
 id|top.name
 op_assign
 id|name
+suffix:semicolon
+id|top.die_on_error
+op_assign
+l_int|0
 suffix:semicolon
 id|top.fgetc
 op_assign
