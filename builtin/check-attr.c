@@ -123,7 +123,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;input paths are terminated by a NUL character&quot;
+l_string|&quot;terminate input and output records by a NUL character&quot;
 )paren
 )paren
 comma
@@ -224,6 +224,47 @@ id|value
 op_assign
 l_string|&quot;unspecified&quot;
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|nul_term_line
+)paren
+(brace
+id|printf
+c_func
+(paren
+l_string|&quot;%s%c&quot;
+multiline_comment|/* path */
+l_string|&quot;%s%c&quot;
+multiline_comment|/* attrname */
+l_string|&quot;%s%c&quot;
+multiline_comment|/* attrvalue */
+comma
+id|file
+comma
+l_int|0
+comma
+id|git_attr_name
+c_func
+(paren
+id|check
+(braket
+id|j
+)braket
+dot
+id|attr
+)paren
+comma
+l_int|0
+comma
+id|value
+comma
+l_int|0
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
 id|quote_c_style
 c_func
 (paren
@@ -255,6 +296,7 @@ comma
 id|value
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 DECL|function|check_attr
