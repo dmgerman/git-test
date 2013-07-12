@@ -709,9 +709,8 @@ id|var
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
+id|ssl_cert_password_required
+op_assign
 id|git_config_bool
 c_func
 (paren
@@ -719,10 +718,6 @@ id|var
 comma
 id|value
 )paren
-)paren
-id|ssl_cert_password_required
-op_assign
-l_int|1
 suffix:semicolon
 r_return
 l_int|0
