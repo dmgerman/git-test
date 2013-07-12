@@ -110,7 +110,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;input paths are terminated by a NUL character&quot;
+l_string|&quot;terminate input and output records by a NUL character&quot;
 )paren
 )paren
 comma
