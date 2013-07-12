@@ -11531,7 +11531,7 @@ id|pack_entry
 id|e
 suffix:semicolon
 r_int
-id|status
+id|type
 comma
 id|rtype
 suffix:semicolon
@@ -11596,7 +11596,7 @@ id|e
 )paren
 (brace
 multiline_comment|/* Most likely it&squot;s a loose object. */
-id|status
+id|type
 op_assign
 id|sha1_loose_object_info
 c_func
@@ -11611,7 +11611,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|status
+id|type
 op_ge
 l_int|0
 )paren
@@ -11621,7 +11621,7 @@ op_assign
 id|OI_LOOSE
 suffix:semicolon
 r_return
-id|status
+id|type
 suffix:semicolon
 )brace
 multiline_comment|/* Not a loose object; someone else may have just packed it. */
@@ -11644,10 +11644,10 @@ id|e
 )paren
 )paren
 r_return
-id|status
+id|type
 suffix:semicolon
 )brace
-id|status
+id|type
 op_assign
 id|packed_object_info
 c_func
@@ -11667,7 +11667,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|status
+id|type
 OL
 l_int|0
 )paren
@@ -11680,7 +11680,7 @@ comma
 id|sha1
 )paren
 suffix:semicolon
-id|status
+id|type
 op_assign
 id|sha1_object_info_extended
 c_func
@@ -11737,7 +11737,7 @@ id|OBJ_OFS_DELTA
 suffix:semicolon
 )brace
 r_return
-id|status
+id|type
 suffix:semicolon
 )brace
 DECL|function|sha1_object_info
