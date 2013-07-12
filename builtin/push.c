@@ -984,8 +984,8 @@ id|N_
 c_func
 (paren
 l_string|&quot;Updates were rejected because the tip of your current branch is behind&bslash;n&quot;
-l_string|&quot;its remote counterpart. Merge the remote changes (e.g. &squot;git pull&squot;)&bslash;n&quot;
-l_string|&quot;before pushing again.&bslash;n&quot;
+l_string|&quot;its remote counterpart. Integrate the remote changes (e.g.&bslash;n&quot;
+l_string|&quot;&squot;git pull ...&squot;) before pushing again.&bslash;n&quot;
 l_string|&quot;See the &squot;Note about fast-forwards&squot; in &squot;git push --help&squot; for details.&quot;
 )paren
 suffix:semicolon
@@ -1018,8 +1018,8 @@ id|N_
 c_func
 (paren
 l_string|&quot;Updates were rejected because a pushed branch tip is behind its remote&bslash;n&quot;
-l_string|&quot;counterpart. Check out this branch and merge the remote changes&bslash;n&quot;
-l_string|&quot;(e.g. &squot;git pull&squot;) before pushing again.&bslash;n&quot;
+l_string|&quot;counterpart. Check out this branch and integrate the remote changes&bslash;n&quot;
+l_string|&quot;(e.g. &squot;git pull ...&squot;) before pushing again.&bslash;n&quot;
 l_string|&quot;See the &squot;Note about fast-forwards&squot; in &squot;git push --help&squot; for details.&quot;
 )paren
 suffix:semicolon
@@ -1036,8 +1036,8 @@ c_func
 (paren
 l_string|&quot;Updates were rejected because the remote contains work that you do&bslash;n&quot;
 l_string|&quot;not have locally. This is usually caused by another repository pushing&bslash;n&quot;
-l_string|&quot;to the same ref. You may want to first merge the remote changes (e.g.,&bslash;n&quot;
-l_string|&quot;&squot;git pull&squot;) before pushing again.&bslash;n&quot;
+l_string|&quot;to the same ref. You may want to first integrate the remote changes&bslash;n&quot;
+l_string|&quot;(e.g., &squot;git pull ...&squot;) before pushing again.&bslash;n&quot;
 l_string|&quot;See the &squot;Note about fast-forwards&squot; in &squot;git push --help&squot; for details.&quot;
 )paren
 suffix:semicolon
