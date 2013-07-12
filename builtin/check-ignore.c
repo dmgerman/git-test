@@ -33,10 +33,10 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-DECL|variable|null_term_line
+DECL|variable|nul_term_line
 r_static
 r_int
-id|null_term_line
+id|nul_term_line
 suffix:semicolon
 DECL|variable|check_ignore_options
 r_static
@@ -105,12 +105,12 @@ comma
 l_int|NULL
 comma
 op_amp
-id|null_term_line
+id|nul_term_line
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;input paths are terminated by a null character&quot;
+l_string|&quot;input paths are terminated by a NUL character&quot;
 )paren
 )paren
 comma
@@ -167,7 +167,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|null_term_line
+id|nul_term_line
 )paren
 (brace
 r_if
@@ -610,7 +610,7 @@ suffix:semicolon
 r_int
 id|line_termination
 op_assign
-id|null_term_line
+id|nul_term_line
 ques
 c_cond
 l_int|0
@@ -899,7 +899,7 @@ r_else
 r_if
 c_cond
 (paren
-id|null_term_line
+id|nul_term_line
 )paren
 id|die
 c_func
