@@ -11268,13 +11268,14 @@ c_cond
 id|revs-&gt;prune_data.nr
 )paren
 (brace
-id|diff_tree_setup_paths
+id|copy_pathspec
 c_func
 (paren
-id|revs-&gt;prune_data.raw
+op_amp
+id|revs-&gt;pruning.pathspec
 comma
 op_amp
-id|revs-&gt;pruning
+id|revs-&gt;prune_data
 )paren
 suffix:semicolon
 multiline_comment|/* Can&squot;t prune commits with rename following: the paths change.. */
@@ -11301,13 +11302,14 @@ c_cond
 op_logical_neg
 id|revs-&gt;full_diff
 )paren
-id|diff_tree_setup_paths
+id|copy_pathspec
 c_func
 (paren
-id|revs-&gt;prune_data.raw
+op_amp
+id|revs-&gt;diffopt.pathspec
 comma
 op_amp
-id|revs-&gt;diffopt
+id|revs-&gt;prune_data
 )paren
 suffix:semicolon
 )brace
