@@ -1257,10 +1257,12 @@ id|DIFF_FORMAT_NO_OUTPUT
 suffix:semicolon
 id|diff_opts.single_follow
 op_assign
-id|opt-&gt;pathspec.raw
+id|opt-&gt;pathspec.items
 (braket
 l_int|0
 )braket
+dot
+id|match
 suffix:semicolon
 id|diff_opts.break_opt
 op_assign
@@ -1354,10 +1356,12 @@ c_func
 (paren
 id|p-&gt;two-&gt;path
 comma
-id|opt-&gt;pathspec.raw
+id|opt-&gt;pathspec.items
 (braket
 l_int|0
 )braket
+dot
+id|match
 )paren
 )paren
 (brace
