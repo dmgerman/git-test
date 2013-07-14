@@ -110,7 +110,7 @@ l_int|1
 suffix:semicolon
 id|s
 op_assign
-id|pathspec.raw
+id|pathspec._raw
 suffix:semicolon
 r_if
 c_cond

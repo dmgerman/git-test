@@ -721,7 +721,7 @@ comma
 id|pathspec-&gt;nr
 ques
 c_cond
-id|pathspec-&gt;raw
+id|pathspec-&gt;_raw
 (braket
 l_int|0
 )braket
@@ -5853,7 +5853,7 @@ c_func
 id|pathspec
 ques
 c_cond
-id|pathspec-&gt;raw
+id|pathspec-&gt;_raw
 suffix:colon
 l_int|NULL
 )paren

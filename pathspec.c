@@ -1332,7 +1332,7 @@ id|pathspec-&gt;nr
 op_assign
 l_int|1
 suffix:semicolon
-id|pathspec-&gt;raw
+id|pathspec-&gt;_raw
 op_assign
 id|raw
 suffix:semicolon
@@ -1374,7 +1374,7 @@ op_star
 id|n
 )paren
 suffix:semicolon
-id|pathspec-&gt;raw
+id|pathspec-&gt;_raw
 op_assign
 id|argv
 suffix:semicolon
@@ -1630,7 +1630,7 @@ id|pathspec
 )paren
 suffix:semicolon
 r_return
-id|ps.raw
+id|ps._raw
 suffix:semicolon
 )brace
 DECL|function|copy_pathspec
