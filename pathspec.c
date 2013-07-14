@@ -1785,6 +1785,20 @@ id|pathspec-&gt;magic
 op_amp
 id|PATHSPEC_MAXDEPTH
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|PATHSPEC_KEEP_ORDER
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: PATHSPEC_MAXDEPTH_VALID and PATHSPEC_KEEP_ORDER are incompatible&quot;
+)paren
+suffix:semicolon
 id|qsort
 c_func
 (paren
@@ -1801,6 +1815,7 @@ comma
 id|pathspec_item_cmp
 )paren
 suffix:semicolon
+)brace
 )brace
 multiline_comment|/*&n; * N.B. get_pathspec() is deprecated in favor of the &quot;struct pathspec&quot;&n; * based interface - see pathspec.c:parse_pathspec().&n; *&n; * Arguments:&n; *  - prefix - a path relative to the root of the working tree&n; *  - pathspec - a list of paths underneath the prefix path&n; *&n; * Iterates over pathspec, prepending each path with prefix,&n; * and return the resulting list.&n; *&n; * If pathspec is empty, return a singleton list containing prefix.&n; *&n; * If pathspec and prefix are both empty, return an empty list.&n; *&n; * This is typically used by built-in commands such as add.c, in order&n; * to normalize argv arguments provided to the built-in into a list of&n; * paths to process, all relative to the root of the working tree.&n; */
 DECL|function|get_pathspec
