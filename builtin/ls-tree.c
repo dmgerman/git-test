@@ -895,7 +895,7 @@ c_func
 op_amp
 id|pathspec
 comma
-l_int|0
+id|PATHSPEC_GLOB
 comma
 id|PATHSPEC_PREFER_CWD
 comma
