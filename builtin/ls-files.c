@@ -2946,7 +2946,8 @@ op_assign
 id|common_prefix
 c_func
 (paren
-id|pathspec.raw
+op_amp
+id|pathspec
 )paren
 suffix:semicolon
 id|max_prefix_len

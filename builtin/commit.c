@@ -725,7 +725,7 @@ op_assign
 id|common_prefix
 c_func
 (paren
-id|pattern-&gt;raw
+id|pattern
 )paren
 suffix:semicolon
 id|overlay_tree_on_cache
