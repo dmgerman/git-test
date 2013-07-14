@@ -143,7 +143,7 @@ r_return
 id|seen
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Magic pathspec&n; *&n; * Possible future magic semantics include stuff like:&n; *&n; *&t;{ PATHSPEC_ICASE, &squot;&bslash;0&squot;, &quot;icase&quot; },&n; *&t;{ PATHSPEC_RECURSIVE, &squot;*&squot;, &quot;recursive&quot; },&n; *&t;{ PATHSPEC_REGEXP, &squot;&bslash;0&squot;, &quot;regexp&quot; },&n; *&n; */
+multiline_comment|/*&n; * Magic pathspec&n; *&n; * Possible future magic semantics include stuff like:&n; *&n; *&t;{ PATHSPEC_RECURSIVE, &squot;*&squot;, &quot;recursive&quot; },&n; *&t;{ PATHSPEC_REGEXP, &squot;&bslash;0&squot;, &quot;regexp&quot; },&n; *&n; */
 DECL|struct|pathspec_magic
 r_static
 r_struct
@@ -193,6 +193,14 @@ comma
 l_char|&squot;&bslash;0&squot;
 comma
 l_string|&quot;glob&quot;
+)brace
+comma
+(brace
+id|PATHSPEC_ICASE
+comma
+l_char|&squot;&bslash;0&squot;
+comma
+l_string|&quot;icase&quot;
 )brace
 comma
 )brace
@@ -251,6 +259,12 @@ suffix:semicolon
 r_static
 r_int
 id|noglob_global
+op_assign
+l_int|1
+suffix:semicolon
+r_static
+r_int
+id|icase_global
 op_assign
 l_int|1
 suffix:semicolon
@@ -375,6 +389,32 @@ c_func
 l_string|&quot;global &squot;glob&squot; and &squot;noglob&squot; pathspec settings are incompatible&quot;
 )paren
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|icase_global
+OL
+l_int|0
+)paren
+id|icase_global
+op_assign
+id|git_env_bool
+c_func
+(paren
+id|GIT_ICASE_PATHSPECS_ENVIRONMENT
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|icase_global
+)paren
+id|global_magic
+op_or_assign
+id|PATHSPEC_ICASE
 suffix:semicolon
 r_if
 c_cond

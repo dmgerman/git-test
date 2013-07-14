@@ -896,6 +896,8 @@ op_amp
 id|pathspec
 comma
 id|PATHSPEC_GLOB
+op_or
+id|PATHSPEC_ICASE
 comma
 id|PATHSPEC_PREFER_CWD
 comma

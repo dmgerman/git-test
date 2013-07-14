@@ -2638,6 +2638,8 @@ op_or
 id|PATHSPEC_LITERAL
 op_or
 id|PATHSPEC_GLOB
+op_or
+id|PATHSPEC_ICASE
 )paren
 suffix:semicolon
 r_for
@@ -2685,7 +2687,11 @@ id|i
 dot
 id|magic
 op_amp
+(paren
 id|PATHSPEC_GLOB
+op_or
+id|PATHSPEC_ICASE
+)paren
 )paren
 op_logical_or
 op_logical_neg
