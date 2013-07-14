@@ -858,6 +858,10 @@ id|item-&gt;match
 op_assign
 id|match
 suffix:semicolon
+id|item-&gt;original
+op_assign
+id|elt
+suffix:semicolon
 id|item-&gt;len
 op_assign
 id|strlen
@@ -1239,6 +1243,10 @@ id|item
 )paren
 suffix:semicolon
 id|item-&gt;match
+op_assign
+id|prefix
+suffix:semicolon
+id|item-&gt;original
 op_assign
 id|prefix
 suffix:semicolon

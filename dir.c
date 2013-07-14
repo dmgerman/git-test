@@ -7378,6 +7378,10 @@ id|item-&gt;match
 op_assign
 id|path
 suffix:semicolon
+id|item-&gt;original
+op_assign
+id|path
+suffix:semicolon
 id|item-&gt;len
 op_assign
 id|strlen
