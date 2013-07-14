@@ -7,6 +7,7 @@ macro_line|#include &quot;tree.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|abbrev
 r_static
 r_int

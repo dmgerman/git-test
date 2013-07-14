@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;wildmatch.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|struct|path_simplify
 r_struct
 id|path_simplify

@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Copyright (C) 2008 Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 macro_line|#ifdef NO_PTHREADS
 DECL|function|preload_index
 r_static

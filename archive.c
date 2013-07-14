@@ -5,6 +5,7 @@ macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;archive.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|archive_usage
 r_static
 r_char

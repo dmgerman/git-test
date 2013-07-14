@@ -6,6 +6,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|line_termination
 r_static
 r_int

@@ -3,6 +3,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;tree.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|function|get_mode
 r_static
 r_const
