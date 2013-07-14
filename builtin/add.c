@@ -518,8 +518,8 @@ op_star
 id|prefix
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 comma
@@ -555,7 +555,12 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|init_pathspec
+r_if
+c_cond
+(paren
+id|pathspec
+)paren
+id|copy_pathspec
 c_func
 (paren
 op_amp
@@ -602,8 +607,8 @@ op_star
 id|prefix
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 comma
@@ -2835,7 +2840,8 @@ c_func
 (paren
 id|prefix
 comma
-id|pathspec.raw
+op_amp
+id|pathspec
 comma
 op_amp
 id|update_data

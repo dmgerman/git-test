@@ -1399,7 +1399,8 @@ id|prefix
 suffix:colon
 l_int|NULL
 comma
-id|pathspec.raw
+op_amp
+id|pathspec
 comma
 l_int|0
 )paren
