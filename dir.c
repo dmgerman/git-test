@@ -1419,6 +1419,13 @@ c_cond
 op_logical_neg
 id|ps-&gt;recursive
 op_logical_or
+op_logical_neg
+(paren
+id|ps-&gt;magic
+op_amp
+id|PATHSPEC_MAXDEPTH
+)paren
+op_logical_or
 id|ps-&gt;max_depth
 op_eq
 l_int|1
@@ -1510,6 +1517,12 @@ r_if
 c_cond
 (paren
 id|ps-&gt;recursive
+op_logical_and
+(paren
+id|ps-&gt;magic
+op_amp
+id|PATHSPEC_MAXDEPTH
+)paren
 op_logical_and
 id|ps-&gt;max_depth
 op_ne

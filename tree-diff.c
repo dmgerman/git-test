@@ -903,10 +903,6 @@ comma
 id|RECURSIVE
 )paren
 suffix:semicolon
-id|opt-&gt;pathspec.max_depth
-op_assign
-l_int|1
-suffix:semicolon
 id|strbuf_init
 c_func
 (paren

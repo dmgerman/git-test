@@ -1185,6 +1185,17 @@ id|pathspec
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|flags
+op_amp
+id|PATHSPEC_MAXDEPTH_VALID
+)paren
+id|pathspec-&gt;magic
+op_or_assign
+id|PATHSPEC_MAXDEPTH
+suffix:semicolon
 multiline_comment|/* No arguments, no prefix -&gt; no pathspec */
 r_if
 c_cond
@@ -1498,6 +1509,13 @@ dot
 id|magic
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|pathspec-&gt;magic
+op_amp
+id|PATHSPEC_MAXDEPTH
+)paren
 id|qsort
 c_func
 (paren

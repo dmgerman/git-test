@@ -4745,6 +4745,17 @@ comma
 l_int|0
 comma
 id|PATHSPEC_PREFER_CWD
+op_or
+(paren
+id|opt.max_depth
+op_ne
+l_int|1
+ques
+c_cond
+id|PATHSPEC_MAXDEPTH_VALID
+suffix:colon
+l_int|0
+)paren
 comma
 id|prefix
 comma
