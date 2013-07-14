@@ -1505,7 +1505,8 @@ c_func
 (paren
 id|ps_matched
 comma
-id|opts-&gt;pathspec.raw
+op_amp
+id|opts-&gt;pathspec
 comma
 id|opts-&gt;prefix
 )paren

@@ -1836,8 +1836,8 @@ op_star
 id|ps_matched
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 comma
@@ -1854,11 +1854,6 @@ id|sb
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-r_const
-r_char
-op_star
-id|name
-suffix:semicolon
 r_int
 id|num
 comma
@@ -1873,10 +1868,9 @@ id|num
 op_assign
 l_int|0
 suffix:semicolon
-id|pathspec
-(braket
 id|num
-)braket
+OL
+id|pathspec-&gt;nr
 suffix:semicolon
 id|num
 op_increment
@@ -1897,7 +1891,7 @@ id|num
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * The caller might have fed identical pathspec&n;&t;&t; * twice.  Do not barf on such a mistake.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * The caller might have fed identical pathspec&n;&t;&t; * twice.  Do not barf on such a mistake.&n;&t;&t; * FIXME: parse_pathspec should have eliminated&n;&t;&t; * duplicate pathspec.&n;&t;&t; */
 r_for
 c_loop
 (paren
@@ -1910,10 +1904,9 @@ suffix:semicolon
 op_logical_neg
 id|found_dup
 op_logical_and
-id|pathspec
-(braket
 id|other
-)braket
+OL
+id|pathspec-&gt;nr
 suffix:semicolon
 id|other
 op_increment
@@ -1941,15 +1934,19 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|pathspec
+id|pathspec-&gt;items
 (braket
 id|other
 )braket
+dot
+id|original
 comma
-id|pathspec
+id|pathspec-&gt;items
 (braket
 id|num
 )braket
+dot
+id|original
 )paren
 )paren
 multiline_comment|/*&n;&t;&t;&t;&t; * Ok, we have a match already.&n;&t;&t;&t;&t; */
@@ -1965,30 +1962,17 @@ id|found_dup
 )paren
 r_continue
 suffix:semicolon
-id|name
-op_assign
-id|quote_path_relative
-c_func
-(paren
-id|pathspec
-(braket
-id|num
-)braket
-comma
-l_int|1
-comma
-op_amp
-id|sb
-comma
-id|prefix
-)paren
-suffix:semicolon
 id|error
 c_func
 (paren
 l_string|&quot;pathspec &squot;%s&squot; did not match any file(s) known to git.&quot;
 comma
-id|name
+id|pathspec-&gt;items
+(braket
+id|num
+)braket
+dot
+id|original
 )paren
 suffix:semicolon
 id|errors
@@ -3111,7 +3095,8 @@ c_func
 (paren
 id|ps_matched
 comma
-id|pathspec.raw
+op_amp
+id|pathspec
 comma
 id|prefix
 )paren
