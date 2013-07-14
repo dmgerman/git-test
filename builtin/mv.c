@@ -25,13 +25,13 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-DECL|function|copy_pathspec
+DECL|function|internal_copy_pathspec
 r_static
 r_const
 r_char
 op_star
 op_star
-id|copy_pathspec
+id|internal_copy_pathspec
 c_func
 (paren
 r_const
@@ -541,7 +541,7 @@ l_string|&quot;index file corrupt&quot;
 suffix:semicolon
 id|source
 op_assign
-id|copy_pathspec
+id|internal_copy_pathspec
 c_func
 (paren
 id|prefix
@@ -569,7 +569,7 @@ id|update_mode
 suffix:semicolon
 id|dest_path
 op_assign
-id|copy_pathspec
+id|internal_copy_pathspec
 c_func
 (paren
 id|prefix
@@ -599,7 +599,7 @@ l_char|&squot;&bslash;0&squot;
 multiline_comment|/* special case: &quot;.&quot; was normalized to &quot;&quot; */
 id|destination
 op_assign
-id|copy_pathspec
+id|internal_copy_pathspec
 c_func
 (paren
 id|dest_path
@@ -654,7 +654,7 @@ l_int|0
 suffix:semicolon
 id|destination
 op_assign
-id|copy_pathspec
+id|internal_copy_pathspec
 c_func
 (paren
 id|dest_path
