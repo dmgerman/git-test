@@ -7,6 +7,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;submodule.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|builtin_rm_usage
 r_static
 r_const
@@ -1202,10 +1203,8 @@ id|i
 comma
 id|newfd
 suffix:semicolon
-r_const
-r_char
-op_star
-op_star
+r_struct
+id|pathspec
 id|pathspec
 suffix:semicolon
 r_char
@@ -1393,11 +1392,16 @@ id|pathlen
 suffix:semicolon
 )brace
 )brace
-id|pathspec
-op_assign
-id|get_pathspec
+id|parse_pathspec
 c_func
 (paren
+op_amp
+id|pathspec
+comma
+l_int|0
+comma
+id|PATHSPEC_PREFER_CWD
+comma
 id|prefix
 comma
 id|argv
@@ -1411,7 +1415,7 @@ id|the_index
 comma
 id|REFRESH_QUIET
 comma
-id|pathspec
+id|pathspec.raw
 comma
 l_int|NULL
 comma
@@ -1421,30 +1425,13 @@ suffix:semicolon
 id|seen
 op_assign
 l_int|NULL
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|i
-op_assign
-l_int|0
-suffix:semicolon
-id|pathspec
-(braket
-id|i
-)braket
-suffix:semicolon
-id|i
-op_increment
-)paren
-multiline_comment|/* nothing */
 suffix:semicolon
 id|seen
 op_assign
 id|xcalloc
 c_func
 (paren
-id|i
+id|pathspec.nr
 comma
 l_int|1
 )paren
@@ -1478,9 +1465,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|match_pathspec
+id|match_pathspec_depth
 c_func
 (paren
+op_amp
 id|pathspec
 comma
 id|ce-&gt;name
@@ -1537,13 +1525,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pathspec
+id|pathspec.nr
 )paren
 (brace
 r_const
 r_char
 op_star
-id|match
+id|original
 suffix:semicolon
 r_int
 id|seen_any
@@ -1557,21 +1545,23 @@ id|i
 op_assign
 l_int|0
 suffix:semicolon
-(paren
-id|match
-op_assign
-id|pathspec
-(braket
 id|i
-)braket
-)paren
-op_ne
-l_int|NULL
+OL
+id|pathspec.nr
 suffix:semicolon
 id|i
 op_increment
 )paren
 (brace
+id|original
+op_assign
+id|pathspec.items
+(braket
+id|i
+)braket
+dot
+id|original
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1598,7 +1588,7 @@ c_func
 l_string|&quot;pathspec &squot;%s&squot; did not match any files&quot;
 )paren
 comma
-id|match
+id|original
 )paren
 suffix:semicolon
 )brace
@@ -1633,10 +1623,10 @@ l_string|&quot;not removing &squot;%s&squot; recursively without -r&quot;
 )paren
 comma
 op_star
-id|match
+id|original
 ques
 c_cond
-id|match
+id|original
 suffix:colon
 l_string|&quot;.&quot;
 )paren
