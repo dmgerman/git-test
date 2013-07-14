@@ -818,8 +818,8 @@ r_int
 id|verbose
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 )paren
@@ -830,32 +830,13 @@ id|seen
 suffix:semicolon
 r_int
 id|i
-comma
-id|specs
-suffix:semicolon
-r_for
-c_loop
-(paren
-id|specs
-op_assign
-l_int|0
-suffix:semicolon
-id|pathspec
-(braket
-id|specs
-)braket
-suffix:semicolon
-id|specs
-op_increment
-)paren
-multiline_comment|/* nothing */
 suffix:semicolon
 id|seen
 op_assign
 id|xcalloc
 c_func
 (paren
-id|specs
+id|pathspec-&gt;nr
 comma
 l_int|1
 )paren
@@ -893,7 +874,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|specs
+id|pathspec-&gt;nr
 suffix:semicolon
 id|i
 op_increment
@@ -917,10 +898,12 @@ c_func
 l_string|&quot;pathspec &squot;%s&squot; did not match any files&quot;
 )paren
 comma
-id|pathspec
+id|pathspec-&gt;items
 (braket
 id|i
 )braket
+dot
+id|match
 )paren
 suffix:semicolon
 )brace
@@ -2594,7 +2577,8 @@ c_func
 (paren
 id|verbose
 comma
-id|pathspec.raw
+op_amp
+id|pathspec
 )paren
 suffix:semicolon
 r_goto

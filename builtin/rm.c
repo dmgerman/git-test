@@ -1415,7 +1415,8 @@ id|the_index
 comma
 id|REFRESH_QUIET
 comma
-id|pathspec.raw
+op_amp
+id|pathspec
 comma
 l_int|NULL
 comma

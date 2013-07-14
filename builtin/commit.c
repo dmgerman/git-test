@@ -6657,7 +6657,8 @@ id|REFRESH_QUIET
 op_or
 id|REFRESH_UNMERGED
 comma
-id|s.pathspec.raw
+op_amp
+id|s.pathspec
 comma
 l_int|NULL
 comma
