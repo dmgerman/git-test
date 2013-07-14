@@ -1618,7 +1618,6 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Return the length of the &quot;simple&quot; part of a path match limiter.&n; */
 DECL|function|simple_length
-r_static
 r_int
 id|simple_length
 c_func
@@ -1671,7 +1670,6 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|no_wildcard
-r_static
 r_int
 id|no_wildcard
 c_func
