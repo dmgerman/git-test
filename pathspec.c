@@ -305,6 +305,8 @@ l_int|0
 )braket
 op_ne
 l_char|&squot;:&squot;
+op_logical_or
+id|literal_global
 )paren
 (brace
 suffix:semicolon
