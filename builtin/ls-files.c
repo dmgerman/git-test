@@ -1134,7 +1134,8 @@ c_func
 (paren
 id|dir
 comma
-id|pathspec.raw
+op_amp
+id|pathspec
 )paren
 suffix:semicolon
 r_if

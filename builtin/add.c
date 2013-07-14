@@ -2489,6 +2489,10 @@ id|add_new_files
 r_int
 id|baselen
 suffix:semicolon
+r_struct
+id|pathspec
+id|empty_pathspec
+suffix:semicolon
 multiline_comment|/* Set up the default git porcelain excludes */
 id|memset
 c_func
@@ -2523,6 +2527,20 @@ id|dir
 )paren
 suffix:semicolon
 )brace
+id|memset
+c_func
+(paren
+op_amp
+id|empty_pathspec
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+id|empty_pathspec
+)paren
+)paren
+suffix:semicolon
 multiline_comment|/* This picks up the paths that are not tracked */
 id|baselen
 op_assign
@@ -2535,9 +2553,11 @@ comma
 id|implicit_dot
 ques
 c_cond
-l_int|NULL
+op_amp
+id|empty_pathspec
 suffix:colon
-id|pathspec.raw
+op_amp
+id|pathspec
 )paren
 suffix:semicolon
 r_if

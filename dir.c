@@ -699,8 +699,8 @@ op_star
 id|dir
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 )paren
@@ -714,7 +714,7 @@ op_assign
 id|common_prefix_len
 c_func
 (paren
-id|pathspec
+id|pathspec-&gt;raw
 )paren
 suffix:semicolon
 multiline_comment|/* Read the directory and prune it */
@@ -723,11 +723,13 @@ c_func
 (paren
 id|dir
 comma
-id|pathspec
+id|pathspec-&gt;nr
 ques
 c_cond
-op_star
-id|pathspec
+id|pathspec-&gt;raw
+(braket
+l_int|0
+)braket
 suffix:colon
 l_string|&quot;&quot;
 comma
@@ -6228,8 +6230,8 @@ r_int
 id|len
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 )paren
@@ -6238,6 +6240,22 @@ r_struct
 id|path_simplify
 op_star
 id|simplify
+suffix:semicolon
+multiline_comment|/*&n;&t; * Check out create_simplify()&n;&t; */
+r_if
+c_cond
+(paren
+id|pathspec
+)paren
+id|GUARD_PATHSPEC
+c_func
+(paren
+id|pathspec
+comma
+id|PATHSPEC_FROMTOP
+op_or
+id|PATHSPEC_MAXDEPTH
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -6259,6 +6277,11 @@ id|create_simplify
 c_func
 (paren
 id|pathspec
+ques
+c_cond
+id|pathspec-&gt;raw
+suffix:colon
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

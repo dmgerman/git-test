@@ -2969,7 +2969,8 @@ c_func
 op_amp
 id|dir
 comma
-id|s-&gt;pathspec.raw
+op_amp
+id|s-&gt;pathspec
 )paren
 suffix:semicolon
 r_for
