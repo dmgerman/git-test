@@ -6,6 +6,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|force
 r_static
 r_int
@@ -922,11 +923,8 @@ r_struct
 id|dir_struct
 id|dir
 suffix:semicolon
-r_static
-r_const
-r_char
-op_star
-op_star
+r_struct
+id|pathspec
 id|pathspec
 suffix:semicolon
 r_struct
@@ -1300,11 +1298,16 @@ l_int|1
 )paren
 )paren
 suffix:semicolon
-id|pathspec
-op_assign
-id|get_pathspec
+id|parse_pathspec
 c_func
 (paren
+op_amp
+id|pathspec
+comma
+l_int|0
+comma
+id|PATHSPEC_PREFER_CWD
+comma
 id|prefix
 comma
 id|argv
@@ -1316,7 +1319,7 @@ c_func
 op_amp
 id|dir
 comma
-id|pathspec
+id|pathspec.raw
 )paren
 suffix:semicolon
 r_for
@@ -1469,13 +1472,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|pathspec
+id|pathspec.nr
 )paren
 id|matches
 op_assign
-id|match_pathspec
+id|match_pathspec_depth
 c_func
 (paren
+op_amp
 id|pathspec
 comma
 id|ent-&gt;name
@@ -1602,7 +1606,7 @@ r_else
 r_if
 c_cond
 (paren
-id|pathspec
+id|pathspec.nr
 op_logical_and
 op_logical_neg
 id|matches
