@@ -298,6 +298,7 @@ comma
 r_int
 id|stage
 comma
+r_const
 r_struct
 id|pathspec
 op_star
@@ -647,6 +648,7 @@ comma
 r_int
 id|stage
 comma
+r_const
 r_struct
 id|pathspec
 op_star
