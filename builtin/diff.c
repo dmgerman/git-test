@@ -1921,6 +1921,8 @@ op_amp
 id|rev.prune_data
 comma
 id|PATHSPEC_FROMTOP
+op_or
+id|PATHSPEC_LITERAL
 )paren
 suffix:semicolon
 r_if

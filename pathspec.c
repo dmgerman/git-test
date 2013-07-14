@@ -179,6 +179,14 @@ comma
 l_string|&quot;top&quot;
 )brace
 comma
+(brace
+id|PATHSPEC_LITERAL
+comma
+l_int|0
+comma
+l_string|&quot;literal&quot;
+)brace
+comma
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * Take an element of a pathspec and check for magic signatures.&n; * Append the result to the prefix. Return the magic bitmap.&n; *&n; * For now, we only parse the syntax and throw out anything other than&n; * &quot;top&quot; magic.&n; *&n; * NEEDSWORK: This needs to be rewritten when we start migrating&n; * get_pathspec() users to use the &quot;struct pathspec&quot; interface.  For&n; * example, a pathspec element may be marked as case-insensitive, but&n; * the prefix part must always match literally, and a single stupid&n; * string cannot express such a case.&n; */
@@ -234,6 +242,10 @@ comma
 id|short_magic
 op_assign
 l_int|0
+comma
+id|global_magic
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -274,6 +286,15 @@ id|GIT_LITERAL_PATHSPECS_ENVIRONMENT
 comma
 l_int|0
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|literal_global
+)paren
+id|global_magic
+op_or_assign
+id|PATHSPEC_LITERAL
 suffix:semicolon
 r_if
 c_cond
@@ -683,6 +704,10 @@ op_star
 id|p_short_magic
 op_assign
 id|short_magic
+suffix:semicolon
+id|magic
+op_or_assign
+id|global_magic
 suffix:semicolon
 r_if
 c_cond
@@ -1120,7 +1145,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|literal_global
+id|magic
+op_amp
+id|PATHSPEC_LITERAL
 )paren
 id|item-&gt;nowildcard_len
 op_assign
@@ -1896,7 +1923,11 @@ comma
 id|PATHSPEC_ALL_MAGIC
 op_amp
 op_complement
+(paren
 id|PATHSPEC_FROMTOP
+op_or
+id|PATHSPEC_LITERAL
+)paren
 comma
 id|PATHSPEC_PREFER_CWD
 comma

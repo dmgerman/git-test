@@ -2634,6 +2634,8 @@ op_amp
 id|pathspec
 comma
 id|PATHSPEC_FROMTOP
+op_or
+id|PATHSPEC_LITERAL
 )paren
 suffix:semicolon
 r_for
