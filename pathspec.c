@@ -628,7 +628,11 @@ id|i
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Invalid pathspec magic &squot;%.*s&squot; in &squot;%s&squot;&quot;
+)paren
 comma
 (paren
 r_int
@@ -652,7 +656,11 @@ l_char|&squot;)&squot;
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Missing &squot;)&squot; at the end of pathspec magic in &squot;%s&squot;&quot;
+)paren
 comma
 id|elt
 )paren
@@ -760,7 +768,11 @@ id|i
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unimplemented pathspec magic &squot;%c&squot; in &squot;%s&squot;&quot;
+)paren
 comma
 id|ch
 comma
