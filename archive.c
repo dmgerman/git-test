@@ -5,7 +5,6 @@ macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;archive.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
-macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|archive_usage
 r_static
 r_char
@@ -913,10 +912,6 @@ r_struct
 id|tree_desc
 id|t
 suffix:semicolon
-r_struct
-id|pathspec
-id|pathspec
-suffix:semicolon
 r_int
 id|err
 suffix:semicolon
@@ -1095,15 +1090,6 @@ id|the_index
 )paren
 suffix:semicolon
 )brace
-id|init_pathspec
-c_func
-(paren
-op_amp
-id|pathspec
-comma
-id|args-&gt;pathspec
-)paren
-suffix:semicolon
 id|err
 op_assign
 id|read_tree_recursive
@@ -1118,19 +1104,12 @@ comma
 l_int|0
 comma
 op_amp
-id|pathspec
+id|args-&gt;pathspec
 comma
 id|write_archive_entry
 comma
 op_amp
 id|context
-)paren
-suffix:semicolon
-id|free_pathspec
-c_func
-(paren
-op_amp
-id|pathspec
 )paren
 suffix:semicolon
 r_if
@@ -1295,11 +1274,17 @@ suffix:semicolon
 r_int
 id|ret
 suffix:semicolon
-id|init_pathspec
+id|parse_pathspec
 c_func
 (paren
 op_amp
 id|pathspec
+comma
+l_int|0
+comma
+l_int|0
+comma
+l_string|&quot;&quot;
 comma
 id|paths
 )paren
@@ -1356,13 +1341,17 @@ op_star
 id|ar_args
 )paren
 (brace
-id|ar_args-&gt;pathspec
-op_assign
-id|pathspec
-op_assign
-id|get_pathspec
+multiline_comment|/*&n;&t; * must be consistent with parse_pathspec in path_exists()&n;&t; * Also if pathspec patterns are dependent, we&squot;re in big&n;&t; * trouble as we test each one separately&n;&t; */
+id|parse_pathspec
 c_func
 (paren
+op_amp
+id|ar_args-&gt;pathspec
+comma
+l_int|0
+comma
+id|PATHSPEC_PREFER_FULL
+comma
 l_string|&quot;&quot;
 comma
 id|pathspec
@@ -1401,7 +1390,11 @@ id|pathspec
 id|die
 c_func
 (paren
-l_string|&quot;path not found: %s&quot;
+id|_
+c_func
+(paren
+l_string|&quot;pathspec &squot;%s&squot; did not match any files&quot;
+)paren
 comma
 op_star
 id|pathspec
