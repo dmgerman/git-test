@@ -2327,13 +2327,14 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|init_pathspec
+id|copy_pathspec
 c_func
 (paren
 op_amp
 id|revs.prune_data
 comma
-id|opt-&gt;pathspec.raw
+op_amp
+id|opt-&gt;pathspec
 )paren
 suffix:semicolon
 id|revs.diffopt
