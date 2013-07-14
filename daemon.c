@@ -3864,8 +3864,6 @@ r_else
 r_if
 c_cond
 (paren
-id|addr
-op_logical_and
 id|addr-&gt;sa_family
 op_eq
 id|AF_INET6
