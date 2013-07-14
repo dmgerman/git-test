@@ -1406,6 +1406,16 @@ id|retval
 op_assign
 l_int|0
 suffix:semicolon
+id|GUARD_PATHSPEC
+c_func
+(paren
+id|ps
+comma
+id|PATHSPEC_FROMTOP
+op_or
+id|PATHSPEC_MAXDEPTH
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

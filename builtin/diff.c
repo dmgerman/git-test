@@ -1911,6 +1911,16 @@ c_cond
 id|rev.prune_data.nr
 )paren
 (brace
+multiline_comment|/* builtin_diff_b_f() */
+id|GUARD_PATHSPEC
+c_func
+(paren
+op_amp
+id|rev.prune_data
+comma
+id|PATHSPEC_FROMTOP
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

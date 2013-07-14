@@ -1194,6 +1194,34 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+multiline_comment|/*&n;&t; * follow-rename code is very specific, we need exactly one&n;&t; * path. Magic that matches more than one path is not&n;&t; * supported.&n;&t; */
+id|GUARD_PATHSPEC
+c_func
+(paren
+op_amp
+id|opt-&gt;pathspec
+comma
+id|PATHSPEC_FROMTOP
+)paren
+suffix:semicolon
+macro_line|#if 0
+multiline_comment|/*&n;&t; * We should reject wildcards as well. Unfortunately we&n;&t; * haven&squot;t got a reliable way to detect that &squot;foo&bslash;*bar&squot; in&n;&t; * fact has no wildcards. nowildcard_len is merely a hint for&n;&t; * optimization. Let it slip for now until wildmatch is taught&n;&t; * about dry-run mode and returns wildcard info.&n;&t; */
+r_if
+c_cond
+(paren
+id|opt-&gt;pathspec.has_wildcard
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG:%s:%d: wildcards are not supported&quot;
+comma
+id|__FILE__
+comma
+id|__LINE__
+)paren
+suffix:semicolon
+macro_line|#endif
 multiline_comment|/* Remove the file creation entry from the diff queue, and remember it */
 id|choice
 op_assign

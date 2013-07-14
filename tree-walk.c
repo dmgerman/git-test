@@ -2746,6 +2746,16 @@ id|entry_not_interesting
 suffix:colon
 id|all_entries_not_interesting
 suffix:semicolon
+id|GUARD_PATHSPEC
+c_func
+(paren
+id|ps
+comma
+id|PATHSPEC_FROMTOP
+op_or
+id|PATHSPEC_MAXDEPTH
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
