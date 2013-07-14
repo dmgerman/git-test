@@ -1223,7 +1223,8 @@ c_cond
 id|read_cache_preload
 c_func
 (paren
-id|pathspec.raw
+op_amp
+id|pathspec
 )paren
 OL
 l_int|0
@@ -6657,7 +6658,8 @@ suffix:semicolon
 id|read_cache_preload
 c_func
 (paren
-id|s.pathspec.raw
+op_amp
+id|s.pathspec
 )paren
 suffix:semicolon
 id|refresh_index

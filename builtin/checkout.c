@@ -1388,7 +1388,8 @@ c_cond
 id|read_cache_preload
 c_func
 (paren
-id|opts-&gt;pathspec.raw
+op_amp
+id|opts-&gt;pathspec
 )paren
 OL
 l_int|0
