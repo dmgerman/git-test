@@ -888,21 +888,22 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-id|init_pathspec
+multiline_comment|/*&n;&t; * show_recursive() rolls its own matching code and is&n;&t; * generally ignorant of &squot;struct pathspec&squot;. The magic mask&n;&t; * cannot be lifted until it is converted to use&n;&t; * match_pathspec_depth() or tree_entry_interesting()&n;&t; */
+id|parse_pathspec
 c_func
 (paren
 op_amp
 id|pathspec
 comma
-id|get_pathspec
-c_func
-(paren
+l_int|0
+comma
+id|PATHSPEC_PREFER_CWD
+comma
 id|prefix
 comma
 id|argv
 op_plus
 l_int|1
-)paren
 )paren
 suffix:semicolon
 r_for
