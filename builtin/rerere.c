@@ -6,6 +6,7 @@ macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;rerere.h&quot;
 macro_line|#include &quot;xdiff/xdiff.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|rerere_usage
 r_static
 r_const
@@ -397,10 +398,8 @@ l_string|&quot;forget&quot;
 )paren
 )paren
 (brace
-r_const
-r_char
-op_star
-op_star
+r_struct
+id|pathspec
 id|pathspec
 suffix:semicolon
 r_if
@@ -416,11 +415,16 @@ c_func
 l_string|&quot;&squot;git rerere forget&squot; without paths is deprecated&quot;
 )paren
 suffix:semicolon
-id|pathspec
-op_assign
-id|get_pathspec
+id|parse_pathspec
 c_func
 (paren
+op_amp
+id|pathspec
+comma
+l_int|0
+comma
+id|PATHSPEC_PREFER_CWD
+comma
 id|prefix
 comma
 id|argv
@@ -432,6 +436,7 @@ r_return
 id|rerere_forget
 c_func
 (paren
+op_amp
 id|pathspec
 )paren
 suffix:semicolon
