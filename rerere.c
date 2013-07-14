@@ -3975,7 +3975,7 @@ suffix:semicolon
 id|unmerge_cache
 c_func
 (paren
-id|pathspec-&gt;raw
+id|pathspec
 )paren
 suffix:semicolon
 id|find_conflict

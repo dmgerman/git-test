@@ -956,8 +956,8 @@ op_star
 id|istate
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 )paren
@@ -1002,7 +1002,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|match_pathspec
+id|match_pathspec_depth
 c_func
 (paren
 id|pathspec
