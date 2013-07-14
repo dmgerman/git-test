@@ -9060,12 +9060,6 @@ id|max_change
 r_int
 id|total
 op_assign
-id|add
-op_plus
-id|del
-suffix:semicolon
-id|total
-op_assign
 id|scale_linear
 c_func
 (paren
