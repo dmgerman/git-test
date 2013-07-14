@@ -464,7 +464,8 @@ op_assign
 id|find_pathspecs_matching_against_index
 c_func
 (paren
-id|pathspec.raw
+op_amp
+id|pathspec
 )paren
 suffix:semicolon
 r_for
@@ -484,10 +485,12 @@ op_increment
 (brace
 id|full_path
 op_assign
-id|pathspec.raw
+id|pathspec.items
 (braket
 id|i
 )braket
+dot
+id|match
 suffix:semicolon
 id|exclude
 op_assign
