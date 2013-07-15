@@ -1090,13 +1090,13 @@ id|up
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-id|strbuf_reset
-c_func
+multiline_comment|/*&n;&t;&t; * Note that we assume we only ever have a single set of&n;&t;&t; * credentials in a given program run, so we do not have&n;&t;&t; * to worry about updating this buffer, only setting its&n;&t;&t; * initial value.&n;&t;&t; */
+r_if
+c_cond
 (paren
-op_amp
-id|up
+op_logical_neg
+id|up.len
 )paren
-suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
