@@ -11,6 +11,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;version.h&quot;
+macro_line|#include &quot;prio-queue.h&quot;
 DECL|variable|transfer_unpack_limit
 r_static
 r_int
@@ -97,9 +98,12 @@ mdefine_line|#define MAX_IN_VAIN 256
 DECL|variable|rev_list
 r_static
 r_struct
-id|commit_list
-op_star
+id|prio_queue
 id|rev_list
+op_assign
+(brace
+id|compare_commits_by_commit_date
+)brace
 suffix:semicolon
 DECL|variable|non_common_revs
 DECL|variable|multi_ack
@@ -164,13 +168,13 @@ id|commit
 )paren
 r_return
 suffix:semicolon
-id|commit_list_insert_by_date
+id|prio_queue_put
 c_func
 (paren
-id|commit
-comma
 op_amp
 id|rev_list
+comma
+id|commit
 )paren
 suffix:semicolon
 r_if
@@ -517,9 +521,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|rev_list
+id|rev_list.nr
 op_eq
-l_int|NULL
+l_int|0
 op_logical_or
 id|non_common_revs
 op_eq
@@ -530,7 +534,12 @@ l_int|NULL
 suffix:semicolon
 id|commit
 op_assign
-id|rev_list-&gt;item
+id|prio_queue_get
+c_func
+(paren
+op_amp
+id|rev_list
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -652,10 +661,6 @@ op_assign
 id|parents-&gt;next
 suffix:semicolon
 )brace
-id|rev_list
-op_assign
-id|rev_list-&gt;next
-suffix:semicolon
 )brace
 r_return
 id|commit-&gt;object.sha1
@@ -2227,9 +2232,12 @@ op_eq
 id|ACK_ready
 )paren
 (brace
+id|clear_prio_queue
+c_func
+(paren
+op_amp
 id|rev_list
-op_assign
-l_int|NULL
+)paren
 suffix:semicolon
 id|got_ready
 op_assign
@@ -2566,7 +2574,7 @@ id|commit-&gt;object.flags
 op_or_assign
 id|COMPLETE
 suffix:semicolon
-id|commit_list_insert_by_date
+id|commit_list_insert
 c_func
 (paren
 id|commit
@@ -3122,6 +3130,13 @@ c_func
 id|mark_alternate_complete
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|commit_list_sort_by_date
+c_func
+(paren
+op_amp
+id|complete
 )paren
 suffix:semicolon
 r_if
