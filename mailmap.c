@@ -1604,12 +1604,18 @@ c_func
 (paren
 l_string|&quot;map_user: map &squot;%.*s&squot; &lt;%.*s&gt;&bslash;n&quot;
 comma
+(paren
+r_int
+)paren
 op_star
 id|namelen
 comma
 op_star
 id|name
 comma
+(paren
+r_int
+)paren
 op_star
 id|emaillen
 comma
@@ -1778,12 +1784,18 @@ c_func
 (paren
 l_string|&quot;map_user:  to &squot;%.*s&squot; &lt;%.*s&gt;&bslash;n&quot;
 comma
+(paren
+r_int
+)paren
 op_star
 id|namelen
 comma
 op_star
 id|name
 comma
+(paren
+r_int
+)paren
 op_star
 id|emaillen
 comma
