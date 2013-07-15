@@ -1776,7 +1776,7 @@ suffix:semicolon
 id|debug_mm
 c_func
 (paren
-l_string|&quot;map_user:  to &squot;%.*s&squot; &lt;.*%s&gt;&bslash;n&quot;
+l_string|&quot;map_user:  to &squot;%.*s&squot; &lt;%.*s&gt;&bslash;n&quot;
 comma
 op_star
 id|namelen
