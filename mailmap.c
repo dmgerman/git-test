@@ -1605,10 +1605,10 @@ c_func
 l_string|&quot;map_user: map &squot;%.*s&squot; &lt;%.*s&gt;&bslash;n&quot;
 comma
 op_star
-id|name
+id|namelen
 comma
 op_star
-id|namelen
+id|name
 comma
 op_star
 id|emaillen
