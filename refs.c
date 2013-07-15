@@ -2128,6 +2128,11 @@ id|data
 op_assign
 id|cb_data
 suffix:semicolon
+r_struct
+id|ref_entry
+op_star
+id|old_current_ref
+suffix:semicolon
 r_int
 id|retval
 suffix:semicolon
@@ -2165,6 +2170,11 @@ id|entry
 r_return
 l_int|0
 suffix:semicolon
+multiline_comment|/* Store the old value, in case this is a recursive call: */
+id|old_current_ref
+op_assign
+id|current_ref
+suffix:semicolon
 id|current_ref
 op_assign
 id|entry
@@ -2189,7 +2199,7 @@ id|data-&gt;cb_data
 suffix:semicolon
 id|current_ref
 op_assign
-l_int|NULL
+id|old_current_ref
 suffix:semicolon
 r_return
 id|retval
