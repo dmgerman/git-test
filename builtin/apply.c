@@ -4492,7 +4492,7 @@ id|name
 suffix:semicolon
 id|patch-&gt;new_name
 op_assign
-id|xstrdup
+id|null_strdup
 c_func
 (paren
 id|name
