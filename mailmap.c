@@ -1717,8 +1717,7 @@ c_cond
 id|me-&gt;namemap.nr
 )paren
 (brace
-multiline_comment|/* The item has multiple items, so we&squot;ll look up on name too */
-multiline_comment|/* If the name is not found, we choose the simple entry      */
+multiline_comment|/*&n;&t;&t;&t; * The item has multiple items, so we&squot;ll look up on&n;&t;&t;&t; * name too. If the name is not found, we choose the&n;&t;&t;&t; * simple entry.&n;&t;&t;&t; */
 r_struct
 id|string_list_item
 op_star
