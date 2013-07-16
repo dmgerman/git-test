@@ -19198,6 +19198,15 @@ id|arg
 comma
 l_string|&quot;-s&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--no-patch&quot;
+)paren
 )paren
 id|options-&gt;output_format
 op_or_assign
