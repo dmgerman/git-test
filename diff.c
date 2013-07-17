@@ -24954,10 +24954,10 @@ r_void
 id|diffcore_apply_filter
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|diff_options
 op_star
-id|filter
+id|options
 )paren
 (brace
 r_int
@@ -24974,6 +24974,13 @@ suffix:semicolon
 r_struct
 id|diff_queue_struct
 id|outq
+suffix:semicolon
+r_const
+r_char
+op_star
+id|filter
+op_assign
+id|options-&gt;filter
 suffix:semicolon
 id|DIFF_QUEUE_CLEAR
 c_func
@@ -25708,7 +25715,7 @@ suffix:semicolon
 id|diffcore_apply_filter
 c_func
 (paren
-id|options-&gt;filter
+id|options
 )paren
 suffix:semicolon
 r_if
