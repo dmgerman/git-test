@@ -18983,9 +18983,12 @@ c_cond
 op_logical_neg
 id|bit
 )paren
-r_continue
+r_return
+id|optarg
+(braket
+id|i
+)braket
 suffix:semicolon
-multiline_comment|/* ignore unknown ones, like we always have */
 id|opt-&gt;filter
 op_or_assign
 id|bit
