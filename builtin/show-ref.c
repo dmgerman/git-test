@@ -174,6 +174,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|show_head
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|refname
+comma
+l_string|&quot;HEAD&quot;
+)paren
+)paren
+r_goto
+id|match
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|tags_only
 op_logical_or
 id|heads_only
@@ -917,7 +934,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;show the HEAD reference&quot;
+l_string|&quot;show the HEAD reference, even if it would be filtered out&quot;
 )paren
 comma
 id|PARSE_OPT_NOARG
@@ -938,7 +955,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;show the HEAD reference&quot;
+l_string|&quot;show the HEAD reference, even if it would be filtered out&quot;
 )paren
 )paren
 comma
