@@ -524,6 +524,10 @@ suffix:semicolon
 r_struct
 id|object_info
 id|oi
+op_assign
+(brace
+l_int|0
+)brace
 suffix:semicolon
 r_const
 r_int
