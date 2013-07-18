@@ -2485,6 +2485,8 @@ id|args
 comma
 l_string|&quot;name-rev&quot;
 comma
+l_string|&quot;--peel-tag&quot;
+comma
 l_string|&quot;--name-only&quot;
 comma
 l_string|&quot;--no-undefined&quot;
