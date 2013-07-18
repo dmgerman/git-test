@@ -3593,13 +3593,13 @@ comma
 l_string|&quot;date-order&quot;
 comma
 op_amp
-id|lifo
+id|sort_order
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;show commits where no parent comes before its &quot;
-l_string|&quot;children&quot;
+l_string|&quot;topologically sort, maintaining date order &quot;
+l_string|&quot;where possible&quot;
 )paren
 comma
 l_int|0
