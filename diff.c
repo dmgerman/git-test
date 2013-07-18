@@ -19115,6 +19115,39 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* Used only by &quot;diff-files&quot; and &quot;diff --no-index&quot; */
+DECL|function|handle_deprecated_show_diff_q
+r_void
+id|handle_deprecated_show_diff_q
+c_func
+(paren
+r_struct
+id|diff_options
+op_star
+id|opt
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;&squot;diff -q&squot; and &squot;diff-files -q&squot; are deprecated.&quot;
+)paren
+suffix:semicolon
+id|warning
+c_func
+(paren
+l_string|&quot;Use &squot;diff --diff-filter=d&squot; instead to ignore deleted filepairs.&quot;
+)paren
+suffix:semicolon
+id|parse_diff_filter_opt
+c_func
+(paren
+l_string|&quot;d&quot;
+comma
+id|opt
+)paren
+suffix:semicolon
+)brace
 DECL|function|diff_opt_parse
 r_int
 id|diff_opt_parse
