@@ -1091,7 +1091,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;cannot create temporary subproject %s&quot;
+l_string|&quot;cannot create temporary submodule %s&quot;
 comma
 id|path
 )paren
@@ -1113,7 +1113,7 @@ r_return
 id|error
 c_func
 (paren
-l_string|&quot;cannot create subproject directory %s&quot;
+l_string|&quot;cannot create submodule directory %s&quot;
 comma
 id|path
 )paren
