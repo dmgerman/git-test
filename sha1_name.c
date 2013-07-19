@@ -1069,7 +1069,7 @@ op_assign
 id|deref_tag
 c_func
 (paren
-id|lookup_object
+id|parse_object
 c_func
 (paren
 id|sha1
