@@ -3550,12 +3550,6 @@ id|p_value
 (brace
 r_int
 id|len
-op_assign
-id|strlen
-c_func
-(paren
-id|line
-)paren
 suffix:semicolon
 r_int
 id|date_len

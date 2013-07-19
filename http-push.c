@@ -2902,8 +2902,6 @@ r_struct
 id|transfer_request
 op_star
 id|request
-op_assign
-id|request_queue_head
 suffix:semicolon
 r_struct
 id|packed_git
