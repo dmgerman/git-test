@@ -9,6 +9,14 @@ op_star
 id|name
 )paren
 (brace
+macro_line|#if !defined(__MINGW32__)
+r_extern
+r_char
+op_star
+op_star
+id|environ
+suffix:semicolon
+macro_line|#endif
 r_int
 id|src
 comma
