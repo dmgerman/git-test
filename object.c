@@ -722,8 +722,8 @@ id|object
 op_star
 id|obj
 suffix:semicolon
-r_int
-id|eaten
+op_star
+id|eaten_p
 op_assign
 l_int|0
 suffix:semicolon
@@ -843,7 +843,8 @@ id|size
 r_return
 l_int|NULL
 suffix:semicolon
-id|eaten
+op_star
+id|eaten_p
 op_assign
 l_int|1
 suffix:semicolon
@@ -903,7 +904,8 @@ id|commit-&gt;buffer
 op_assign
 id|buffer
 suffix:semicolon
-id|eaten
+op_star
+id|eaten_p
 op_assign
 l_int|1
 suffix:semicolon
@@ -997,11 +999,6 @@ id|OBJ_NONE
 id|obj-&gt;type
 op_assign
 id|type
-suffix:semicolon
-op_star
-id|eaten_p
-op_assign
-id|eaten
 suffix:semicolon
 r_return
 id|obj
