@@ -5083,6 +5083,20 @@ multiline_comment|/* This should be enough to hold debugging message. */
 DECL|macro|PBUFFERSIZE
 mdefine_line|#define PBUFFERSIZE 8192
 multiline_comment|/* Print bidirectional transfer loop debug message. */
+id|__attribute__
+c_func
+(paren
+(paren
+id|format
+(paren
+id|printf
+comma
+l_int|1
+comma
+l_int|2
+)paren
+)paren
+)paren
 DECL|function|transfer_debug
 r_static
 r_void
@@ -5417,6 +5431,9 @@ l_string|&quot;%s EOF (with %i bytes in buffer)&quot;
 comma
 id|t-&gt;src_name
 comma
+(paren
+r_int
+)paren
 id|t-&gt;bufuse
 )paren
 suffix:semicolon

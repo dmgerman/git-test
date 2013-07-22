@@ -185,6 +185,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+id|LAST_ARG_MUST_BE_NULL
 DECL|function|verify_opt_compatible
 r_static
 r_void
@@ -282,6 +283,7 @@ id|base_opt
 )paren
 suffix:semicolon
 )brace
+id|LAST_ARG_MUST_BE_NULL
 DECL|function|verify_opt_mutually_compatible
 r_static
 r_void
