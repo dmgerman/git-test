@@ -2085,7 +2085,7 @@ id|rval
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/* I hope we needn&squot;t fill ther regs with -1&squot;s when no match was found.  */
+multiline_comment|/* I hope we needn&squot;t fill their regs with -1&squot;s when no match was found.  */
 r_if
 c_cond
 (paren
@@ -4739,7 +4739,7 @@ r_return
 id|dfa-&gt;init_state
 suffix:semicolon
 )brace
-multiline_comment|/* Check whether the regular expression match input string INPUT or not,&n;   and return the index where the matching end, return -1 if not match,&n;   or return -2 in case of an error.&n;   FL_LONGEST_MATCH means we want the POSIX longest matching.&n;   If P_MATCH_FIRST is not NULL, and the match fails, it is set to the&n;   next place where we may want to try matching.&n;   Note that the matcher assume that the maching starts from the current&n;   index of the buffer.  */
+multiline_comment|/* Check whether the regular expression match input string INPUT or not,&n;   and return the index where the matching end, return -1 if not match,&n;   or return -2 in case of an error.&n;   FL_LONGEST_MATCH means we want the POSIX longest matching.&n;   If P_MATCH_FIRST is not NULL, and the match fails, it is set to the&n;   next place where we may want to try matching.&n;   Note that the matcher assume that the matching starts from the current&n;   index of the buffer.  */
 r_static
 r_int
 id|internal_function
@@ -10032,7 +10032,7 @@ id|node_idx
 )braket
 )paren
 )paren
-multiline_comment|/* The node can&squot;t accept the `multi byte&squot;, or the&n;       destination was already thrown away, then the node&n;       could&squot;t accept the current input `multi byte&squot;.   */
+multiline_comment|/* The node can&squot;t accept the `multi byte&squot;, or the&n;       destination was already thrown away, then the node&n;       couldn&squot;t accept the current input `multi byte&squot;.   */
 id|naccepted
 op_assign
 l_int|0

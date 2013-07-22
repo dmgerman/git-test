@@ -11368,7 +11368,7 @@ multiline_comment|/* Size of the names for collating symbol/equivalence_class/ch
 DECL|macro|BRACKET_NAME_BUF_SIZE
 mdefine_line|#define BRACKET_NAME_BUF_SIZE 32
 macro_line|#ifndef _LIBC
-multiline_comment|/* Local function for parse_bracket_exp only used in case of NOT _LIBC.&n;     Build the range expression which starts from START_ELEM, and ends&n;     at END_ELEM.  The result are written to MBCSET and SBCSET.&n;     RANGE_ALLOC is the allocated size of mbcset-&gt;range_starts, and&n;     mbcset-&gt;range_ends, is a pointer argument sinse we may&n;     update it.  */
+multiline_comment|/* Local function for parse_bracket_exp only used in case of NOT _LIBC.&n;     Build the range expression which starts from START_ELEM, and ends&n;     at END_ELEM.  The result are written to MBCSET and SBCSET.&n;     RANGE_ALLOC is the allocated size of mbcset-&gt;range_starts, and&n;     mbcset-&gt;range_ends, is a pointer argument since we may&n;     update it.  */
 r_static
 id|reg_errcode_t
 id|internal_function
@@ -12146,7 +12146,7 @@ r_char
 op_star
 id|extra
 suffix:semicolon
-multiline_comment|/* Local function for parse_bracket_exp used in _LIBC environement.&n;     Seek the collating symbol entry correspondings to NAME.&n;     Return the index of the symbol in the SYMB_TABLE.  */
+multiline_comment|/* Local function for parse_bracket_exp used in _LIBC environment.&n;     Seek the collating symbol entry correspondings to NAME.&n;     Return the index of the symbol in the SYMB_TABLE.  */
 r_auto
 r_inline
 r_int32
@@ -12591,7 +12591,7 @@ r_return
 id|UINT_MAX
 suffix:semicolon
 )brace
-multiline_comment|/* Local function for parse_bracket_exp used in _LIBC environement.&n;     Build the range expression which starts from START_ELEM, and ends&n;     at END_ELEM.  The result are written to MBCSET and SBCSET.&n;     RANGE_ALLOC is the allocated size of mbcset-&gt;range_starts, and&n;     mbcset-&gt;range_ends, is a pointer argument sinse we may&n;     update it.  */
+multiline_comment|/* Local function for parse_bracket_exp used in _LIBC environment.&n;     Build the range expression which starts from START_ELEM, and ends&n;     at END_ELEM.  The result are written to MBCSET and SBCSET.&n;     RANGE_ALLOC is the allocated size of mbcset-&gt;range_starts, and&n;     mbcset-&gt;range_ends, is a pointer argument since we may&n;     update it.  */
 r_auto
 r_inline
 id|reg_errcode_t
@@ -12915,7 +12915,7 @@ r_return
 id|REG_NOERROR
 suffix:semicolon
 )brace
-multiline_comment|/* Local function for parse_bracket_exp used in _LIBC environement.&n;     Build the collating element which is represented by NAME.&n;     The result are written to MBCSET and SBCSET.&n;     COLL_SYM_ALLOC is the allocated size of mbcset-&gt;coll_sym, is a&n;     pointer argument sinse we may update it.  */
+multiline_comment|/* Local function for parse_bracket_exp used in _LIBC environment.&n;     Build the collating element which is represented by NAME.&n;     The result are written to MBCSET and SBCSET.&n;     COLL_SYM_ALLOC is the allocated size of mbcset-&gt;coll_sym, is a&n;     pointer argument since we may update it.  */
 r_auto
 r_inline
 id|reg_errcode_t
@@ -14776,7 +14776,7 @@ r_return
 id|REG_NOERROR
 suffix:semicolon
 )brace
-multiline_comment|/* Helper function for parse_bracket_exp.&n;     Build the equivalence class which is represented by NAME.&n;     The result are written to MBCSET and SBCSET.&n;     EQUIV_CLASS_ALLOC is the allocated size of mbcset-&gt;equiv_classes,&n;     is a pointer argument sinse we may update it.  */
+multiline_comment|/* Helper function for parse_bracket_exp.&n;     Build the equivalence class which is represented by NAME.&n;     The result are written to MBCSET and SBCSET.&n;     EQUIV_CLASS_ALLOC is the allocated size of mbcset-&gt;equiv_classes,&n;     is a pointer argument since we may update it.  */
 r_static
 id|reg_errcode_t
 macro_line|#ifdef RE_ENABLE_I18N
@@ -15237,7 +15237,7 @@ r_return
 id|REG_NOERROR
 suffix:semicolon
 )brace
-multiline_comment|/* Helper function for parse_bracket_exp.&n;     Build the character class which is represented by NAME.&n;     The result are written to MBCSET and SBCSET.&n;     CHAR_CLASS_ALLOC is the allocated size of mbcset-&gt;char_classes,&n;     is a pointer argument sinse we may update it.  */
+multiline_comment|/* Helper function for parse_bracket_exp.&n;     Build the character class which is represented by NAME.&n;     The result are written to MBCSET and SBCSET.&n;     CHAR_CLASS_ALLOC is the allocated size of mbcset-&gt;char_classes,&n;     is a pointer argument since we may update it.  */
 r_static
 id|reg_errcode_t
 macro_line|#ifdef RE_ENABLE_I18N
