@@ -1261,12 +1261,10 @@ id|filename
 op_plus
 id|tree_name_len
 comma
-l_int|1
+id|opt-&gt;prefix
 comma
 op_amp
 id|pathbuf
-comma
-id|opt-&gt;prefix
 )paren
 suffix:semicolon
 id|strbuf_insert
@@ -1417,12 +1415,10 @@ c_func
 (paren
 id|filename
 comma
-l_int|1
+id|opt-&gt;prefix
 comma
 op_amp
 id|buf
-comma
-id|opt-&gt;prefix
 )paren
 suffix:semicolon
 r_else
