@@ -1452,6 +1452,10 @@ id|rev.diffopt.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
+id|rev.diffopt.use_color
+op_assign
+l_int|0
+suffix:semicolon
 id|DIFF_OPT_SET
 c_func
 (paren
