@@ -2043,7 +2043,7 @@ r_char
 op_star
 id|cp
 suffix:semicolon
-multiline_comment|/*&n;&t; * Proposed &quot;new-style&quot; GNU patch/diff format; see&n;&t; * http://marc.theaimsgroup.com/?l=git&amp;m=112927316408690&amp;w=2&n;&t; */
+multiline_comment|/*&n;&t; * Proposed &quot;new-style&quot; GNU patch/diff format; see&n;&t; * http://marc.info/?l=git&amp;m=112927316408690&amp;w=2&n;&t; */
 r_if
 c_cond
 (paren
