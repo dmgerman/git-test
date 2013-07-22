@@ -3469,11 +3469,13 @@ r_int
 id|ce_same_name
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
 id|a
 comma
+r_const
 r_struct
 id|cache_entry
 op_star

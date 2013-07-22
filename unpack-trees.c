@@ -733,6 +733,7 @@ r_void
 id|unlink_entry
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -858,6 +859,7 @@ id|cnt
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -931,6 +933,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1674,6 +1677,7 @@ r_void
 id|add_same_unmerged
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -3096,6 +3100,7 @@ id|pos
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6008,6 +6013,7 @@ op_star
 id|st
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -6084,6 +6090,7 @@ op_star
 id|o
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star

@@ -1240,6 +1240,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1320,6 +1321,14 @@ c_func
 (paren
 id|active_cache_tree
 comma
+(paren
+r_const
+r_struct
+id|cache_entry
+op_star
+r_const
+op_star
+)paren
 id|active_cache
 comma
 id|active_nr
@@ -1771,6 +1780,7 @@ id|stage_data
 op_star
 id|e
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star

@@ -621,6 +621,7 @@ r_char
 op_star
 id|tag
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -851,6 +852,7 @@ c_cond
 id|debug_mode
 )paren
 (brace
+r_const
 r_struct
 id|stat_data
 op_star
@@ -1075,6 +1077,7 @@ id|dir_struct
 op_star
 id|dir
 comma
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1181,6 +1184,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1287,6 +1291,7 @@ id|i
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1493,6 +1498,7 @@ id|first
 op_rshift
 l_int|1
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star

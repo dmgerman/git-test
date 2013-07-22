@@ -1762,6 +1762,7 @@ id|active_nr
 suffix:semicolon
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -1939,6 +1940,14 @@ c_func
 (paren
 id|active_cache_tree
 comma
+(paren
+r_const
+r_struct
+id|cache_entry
+op_star
+r_const
+op_star
+)paren
 id|active_cache
 comma
 id|active_nr

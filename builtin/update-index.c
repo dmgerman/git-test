@@ -318,6 +318,7 @@ r_int
 id|add_one_path
 c_func
 (paren
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -553,6 +554,7 @@ op_ge
 l_int|0
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -630,6 +632,7 @@ OL
 id|active_nr
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -751,6 +754,7 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2115,6 +2119,7 @@ OL
 id|active_nr
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2176,6 +2181,7 @@ OL
 id|active_nr
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star
@@ -2648,6 +2654,7 @@ id|pos
 op_increment
 )paren
 (brace
+r_const
 r_struct
 id|cache_entry
 op_star

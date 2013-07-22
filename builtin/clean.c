@@ -1380,6 +1380,7 @@ id|matches
 op_assign
 l_int|0
 suffix:semicolon
+r_const
 r_struct
 id|cache_entry
 op_star
