@@ -17984,7 +17984,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;corrupt patch for subproject %s&quot;
+l_string|&quot;corrupt patch for submodule %s&quot;
 )paren
 comma
 id|path

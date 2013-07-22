@@ -3601,8 +3601,8 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;show commits where no parent comes before its &quot;
-l_string|&quot;children&quot;
+l_string|&quot;topologically sort, maintaining date order &quot;
+l_string|&quot;where possible&quot;
 )paren
 comma
 id|REV_SORT_BY_COMMIT_DATE
