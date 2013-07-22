@@ -3215,6 +3215,12 @@ id|cmd
 op_assign
 l_string|&quot;git-help&quot;
 suffix:semicolon
+multiline_comment|/*&n;&t; * Always open file descriptors 0/1/2 to avoid clobbering files&n;&t; * in die().  It also avoids messing up when the pipes are dup&squot;ed&n;&t; * onto stdin/stdout/stderr in the child processes we spawn.&n;&t; */
+id|sanitize_stdfds
+c_func
+(paren
+)paren
+suffix:semicolon
 id|git_setup_gettext
 c_func
 (paren

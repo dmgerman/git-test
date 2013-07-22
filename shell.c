@@ -832,9 +832,6 @@ op_star
 id|cmd
 suffix:semicolon
 r_int
-id|devnull_fd
-suffix:semicolon
-r_int
 id|count
 suffix:semicolon
 id|git_setup_gettext
@@ -851,52 +848,10 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * Always open file descriptors 0/1/2 to avoid clobbering files&n;&t; * in die().  It also avoids not messing up when the pipes are&n;&t; * dup&squot;ed onto stdin/stdout/stderr in the child processes we spawn.&n;&t; */
-id|devnull_fd
-op_assign
-id|open
+multiline_comment|/*&n;&t; * Always open file descriptors 0/1/2 to avoid clobbering files&n;&t; * in die().  It also avoids messing up when the pipes are dup&squot;ed&n;&t; * onto stdin/stdout/stderr in the child processes we spawn.&n;&t; */
+id|sanitize_stdfds
 c_func
 (paren
-l_string|&quot;/dev/null&quot;
-comma
-id|O_RDWR
-)paren
-suffix:semicolon
-r_while
-c_loop
-(paren
-id|devnull_fd
-op_ge
-l_int|0
-op_logical_and
-id|devnull_fd
-op_le
-l_int|2
-)paren
-id|devnull_fd
-op_assign
-id|dup
-c_func
-(paren
-id|devnull_fd
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|devnull_fd
-op_eq
-l_int|1
-)paren
-id|die_errno
-c_func
-(paren
-l_string|&quot;opening /dev/null failed&quot;
-)paren
-suffix:semicolon
-id|close
-(paren
-id|devnull_fd
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Special hack to pretend to be a CVS server&n;&t; */
