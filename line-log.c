@@ -1533,6 +1533,13 @@ comma
 id|end
 )paren
 suffix:semicolon
+id|sort_and_merge_range_set
+c_func
+(paren
+op_amp
+id|p-&gt;ranges
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
