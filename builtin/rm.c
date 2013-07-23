@@ -1425,10 +1425,6 @@ l_int|NULL
 suffix:semicolon
 id|seen
 op_assign
-l_int|NULL
-suffix:semicolon
-id|seen
-op_assign
 id|xcalloc
 c_func
 (paren
