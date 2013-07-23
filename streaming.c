@@ -628,8 +628,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|st
-op_logical_and
 id|filter
 )paren
 (brace
