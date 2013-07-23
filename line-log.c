@@ -485,7 +485,7 @@ suffix:semicolon
 r_int
 id|o
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 multiline_comment|/* output cursor */
 id|qsort
@@ -509,7 +509,7 @@ c_loop
 (paren
 id|i
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 id|i
 OL
@@ -522,6 +522,10 @@ op_increment
 r_if
 c_cond
 (paren
+id|o
+OG
+l_int|0
+op_logical_and
 id|rs-&gt;ranges
 (braket
 id|i
