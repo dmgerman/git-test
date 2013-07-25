@@ -24742,7 +24742,7 @@ id|DIFF_FROM_CONTENTS
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * run diff_flush_patch for the exit status. setting&n;&t;&t; * options-&gt;file to /dev/null should be safe, becaue we&n;&t;&t; * aren&squot;t supposed to produce any output anyway.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * run diff_flush_patch for the exit status. setting&n;&t;&t; * options-&gt;file to /dev/null should be safe, because we&n;&t;&t; * aren&squot;t supposed to produce any output anyway.&n;&t;&t; */
 r_if
 c_cond
 (paren

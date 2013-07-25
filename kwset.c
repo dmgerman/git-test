@@ -105,7 +105,7 @@ DECL|member|maxshift
 r_int
 id|maxshift
 suffix:semicolon
-multiline_comment|/* Max shift of self and descendents. */
+multiline_comment|/* Max shift of self and descendants. */
 )brace
 suffix:semicolon
 multiline_comment|/* Structure returned opaquely to the caller, containing everything. */
@@ -1247,7 +1247,7 @@ comma
 id|recourse
 )paren
 suffix:semicolon
-multiline_comment|/* Find, in the chain of fails going back to the root, the first&n;     node that has a descendent on the current label. */
+multiline_comment|/* Find, in the chain of fails going back to the root, the first&n;     node that has a descendant on the current label. */
 r_while
 c_loop
 (paren
@@ -1772,7 +1772,7 @@ op_assign
 id|curr-&gt;next
 )paren
 (brace
-multiline_comment|/* Enqueue the immediate descendents in the level order queue. */
+multiline_comment|/* Enqueue the immediate descendants in the level order queue. */
 id|enqueue
 c_func
 (paren
@@ -1790,7 +1790,7 @@ id|curr-&gt;maxshift
 op_assign
 id|kwset-&gt;mind
 suffix:semicolon
-multiline_comment|/* Update the delta table for the descendents of this node. */
+multiline_comment|/* Update the delta table for the descendants of this node. */
 id|treedelta
 c_func
 (paren
@@ -1853,7 +1853,7 @@ op_assign
 id|curr-&gt;depth
 id|fail-&gt;depth
 suffix:semicolon
-multiline_comment|/* If the current node is accepting then the shift at the&n;&t;&t; fail and its descendents should be no larger than the&n;&t;&t; difference of their depths. */
+multiline_comment|/* If the current node is accepting then the shift at the&n;&t;&t; fail and its descendants should be no larger than the&n;&t;&t; difference of their depths. */
 r_if
 c_cond
 (paren

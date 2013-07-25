@@ -235,7 +235,7 @@ op_logical_neg
 id|ds-&gt;candidate_ok
 )paren
 (brace
-multiline_comment|/* discard the candidate; we know it does not satisify fn */
+multiline_comment|/* discard the candidate; we know it does not satisfy fn */
 id|hashcpy
 c_func
 (paren

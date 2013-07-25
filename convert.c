@@ -3896,7 +3896,7 @@ id|SAFE_CRLF_FALSE
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*****************************************************************&n; *&n; * Streaming converison support&n; *&n; *****************************************************************/
+multiline_comment|/*****************************************************************&n; *&n; * Streaming conversion support&n; *&n; *****************************************************************/
 DECL|typedef|filter_fn
 r_typedef
 r_int
