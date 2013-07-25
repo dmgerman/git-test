@@ -9289,14 +9289,6 @@ id|packed_ref_cache
 op_star
 id|packed_ref_cache
 suffix:semicolon
-multiline_comment|/* Discard the old cache because it might be invalid: */
-id|clear_packed_ref_cache
-c_func
-(paren
-op_amp
-id|ref_cache
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -9320,7 +9312,7 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* Read the current packed-refs while holding the lock: */
+multiline_comment|/*&n;&t; * Get the current packed-refs while holding the lock.  If the&n;&t; * packed-refs file has been modified since we last read it,&n;&t; * this will automatically invalidate the cache and re-read&n;&t; * the packed-refs file.&n;&t; */
 id|packed_ref_cache
 op_assign
 id|get_packed_ref_cache
