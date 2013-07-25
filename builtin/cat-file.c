@@ -717,9 +717,14 @@ id|len
 r_if
 c_cond
 (paren
-op_logical_neg
 id|data-&gt;mark_query
 )paren
+id|data-&gt;info.typep
+op_assign
+op_amp
+id|data-&gt;type
+suffix:semicolon
+r_else
 id|strbuf_addstr
 c_func
 (paren
@@ -1187,8 +1192,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-id|data-&gt;type
-op_assign
+r_if
+c_cond
+(paren
 id|sha1_object_info_extended
 c_func
 (paren
@@ -1197,12 +1203,7 @@ comma
 op_amp
 id|data-&gt;info
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|data-&gt;type
-op_le
+OL
 l_int|0
 )paren
 (brace
@@ -1362,6 +1363,11 @@ id|data
 )paren
 suffix:semicolon
 id|data.mark_query
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/*&n;&t; * We are going to call get_sha1 on a potentially very large number of&n;&t; * objects. In most large cases, these will be actual object sha1s. The&n;&t; * cost to double-check that each one is not also a ref (just so we can&n;&t; * warn) ends up dwarfing the actual cost of the object lookups&n;&t; * themselves. We can work around it by just turning off the warning.&n;&t; */
+id|warn_on_object_refname_ambiguity
 op_assign
 l_int|0
 suffix:semicolon

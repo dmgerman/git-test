@@ -2222,6 +2222,12 @@ id|sha1
 )paren
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|warn_on_object_refname_ambiguity
+)paren
+(brace
 id|refs_found
 op_assign
 id|dwim_ref
@@ -2283,6 +2289,7 @@ c_func
 id|real_ref
 )paren
 suffix:semicolon
+)brace
 r_return
 l_int|0
 suffix:semicolon

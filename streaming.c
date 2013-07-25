@@ -421,6 +421,10 @@ suffix:semicolon
 r_int
 id|status
 suffix:semicolon
+id|oi-&gt;typep
+op_assign
+id|type
+suffix:semicolon
 id|oi-&gt;sizep
 op_assign
 op_amp
@@ -445,11 +449,6 @@ l_int|0
 )paren
 r_return
 id|stream_error
-suffix:semicolon
-op_star
-id|type
-op_assign
-id|status
 suffix:semicolon
 r_switch
 c_cond
@@ -526,7 +525,7 @@ id|object_info
 id|oi
 op_assign
 (brace
-l_int|0
+l_int|NULL
 )brace
 suffix:semicolon
 r_const

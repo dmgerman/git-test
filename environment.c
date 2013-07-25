@@ -69,6 +69,12 @@ id|warn_ambiguous_refs
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|warn_on_object_refname_ambiguity
+r_int
+id|warn_on_object_refname_ambiguity
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|repository_format_version
 r_int
 id|repository_format_version
