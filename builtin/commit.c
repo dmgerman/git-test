@@ -2413,31 +2413,6 @@ l_string|&quot;&lt;&quot;
 )paren
 )paren
 suffix:semicolon
-id|date
-op_assign
-id|xmemdupz
-c_func
-(paren
-id|rb
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;&gt; &quot;
-)paren
-comma
-id|eol
-(paren
-id|rb
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;&gt; &quot;
-)paren
-)paren
-)paren
-suffix:semicolon
 id|len
 op_assign
 id|eol
