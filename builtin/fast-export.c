@@ -2056,7 +2056,7 @@ id|commit
 op_star
 id|p
 suffix:semicolon
-multiline_comment|/* Trees have no identifer in fast-export output, thus we have no way&n;&t; * to output tags of trees, tags of tags of trees, etc.  Simply omit&n;&t; * such tags.&n;&t; */
+multiline_comment|/* Trees have no identifier in fast-export output, thus we have no way&n;&t; * to output tags of trees, tags of tags of trees, etc.  Simply omit&n;&t; * such tags.&n;&t; */
 id|tagged
 op_assign
 id|tag-&gt;tagged

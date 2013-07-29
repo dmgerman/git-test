@@ -964,7 +964,7 @@ r_return
 r_new
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Coalesce new lines into base by finding the LCS&n;&t; * - Create the table to run dynamic programing&n;&t; * - Compute the LCS&n;&t; * - Then reverse read the direction structure:&n;&t; *   - If we have MATCH, assign parent to base flag, and consume&n;&t; *   both baseend and newend&n;&t; *   - Else if we have BASE, consume baseend&n;&t; *   - Else if we have NEW, insert newend lline into base and&n;&t; *   consume newend&n;&t; */
+multiline_comment|/*&n;&t; * Coalesce new lines into base by finding the LCS&n;&t; * - Create the table to run dynamic programming&n;&t; * - Compute the LCS&n;&t; * - Then reverse read the direction structure:&n;&t; *   - If we have MATCH, assign parent to base flag, and consume&n;&t; *   both baseend and newend&n;&t; *   - Else if we have BASE, consume baseend&n;&t; *   - Else if we have NEW, insert newend lline into base and&n;&t; *   consume newend&n;&t; */
 id|lcs
 op_assign
 id|xcalloc

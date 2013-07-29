@@ -2114,7 +2114,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Remove all cache ententries marked for removal, that is where&n; * CE_REMOVE is set in ce_flags.  This is much more effective than&n; * calling remove_index_entry_at() for each entry to be removed.&n; */
+multiline_comment|/*&n; * Remove all cache entries marked for removal, that is where&n; * CE_REMOVE is set in ce_flags.  This is much more effective than&n; * calling remove_index_entry_at() for each entry to be removed.&n; */
 DECL|function|remove_marked_cache_entries
 r_void
 id|remove_marked_cache_entries
@@ -8240,7 +8240,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Opportunisticly update the index but do not complain if we can&squot;t&n; */
+multiline_comment|/*&n; * Opportunistically update the index but do not complain if we can&squot;t&n; */
 DECL|function|update_index_if_able
 r_void
 id|update_index_if_able
