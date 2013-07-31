@@ -121,6 +121,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|num
+op_eq
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;-L invalid empty range&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|spec
 (braket
 l_int|0
