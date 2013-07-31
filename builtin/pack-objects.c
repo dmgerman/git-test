@@ -8516,8 +8516,6 @@ id|release_pack_memory
 c_func
 (paren
 id|size
-comma
-l_int|1
 )paren
 suffix:semicolon
 id|read_unlock
