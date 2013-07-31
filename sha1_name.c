@@ -2175,7 +2175,7 @@ l_string|&quot;  git checkout -b $br $(git rev-parse ...)&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;where &bslash;&quot;$br&bslash;&quot; is somehow empty and a 40-hex ref is created. Please&bslash;n&quot;
 l_string|&quot;examine these refs and maybe delete them. Turn this message off by&bslash;n&quot;
-l_string|&quot;running &bslash;&quot;git config advice.object_name_warning false&bslash;&quot;&quot;
+l_string|&quot;running &bslash;&quot;git config advice.objectNameWarning false&bslash;&quot;&quot;
 )paren
 suffix:semicolon
 r_int
