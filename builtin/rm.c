@@ -242,6 +242,60 @@ id|err_msg
 suffix:semicolon
 )brace
 )brace
+DECL|function|error_removing_concrete_submodules
+r_static
+r_void
+id|error_removing_concrete_submodules
+c_func
+(paren
+r_struct
+id|string_list
+op_star
+id|files
+comma
+r_int
+op_star
+id|errs
+)paren
+(brace
+id|print_error_files
+c_func
+(paren
+id|files
+comma
+id|Q_
+c_func
+(paren
+l_string|&quot;the following submodule (or one of its nested &quot;
+l_string|&quot;submodules)&bslash;n&quot;
+l_string|&quot;uses a .git directory:&quot;
+comma
+l_string|&quot;the following submodules (or one of its nested &quot;
+l_string|&quot;submodules)&bslash;n&quot;
+l_string|&quot;use a .git directory:&quot;
+comma
+id|files-&gt;nr
+)paren
+comma
+id|_
+c_func
+(paren
+l_string|&quot;&bslash;n(use &squot;rm -rf&squot; if you really want to remove &quot;
+l_string|&quot;it including all of its history)&quot;
+)paren
+comma
+id|errs
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+id|files
+comma
+l_int|0
+)paren
+suffix:semicolon
+)brace
 DECL|function|check_submodules_use_gitfiles
 r_static
 r_int
@@ -405,42 +459,14 @@ id|name
 )paren
 suffix:semicolon
 )brace
-id|print_error_files
+id|error_removing_concrete_submodules
 c_func
 (paren
 op_amp
 id|files
-comma
-id|Q_
-c_func
-(paren
-l_string|&quot;the following submodule (or one of its nested &quot;
-l_string|&quot;submodules)&bslash;n uses a .git directory:&quot;
-comma
-l_string|&quot;the following submodules (or one of its nested &quot;
-l_string|&quot;submodules)&bslash;n use a .git directory:&quot;
-comma
-id|files.nr
-)paren
-comma
-id|_
-c_func
-(paren
-l_string|&quot;&bslash;n(use &squot;rm -rf&squot; if you really want to remove &quot;
-l_string|&quot;it including all of its history)&quot;
-)paren
 comma
 op_amp
 id|errs
-)paren
-suffix:semicolon
-id|string_list_clear
-c_func
-(paren
-op_amp
-id|files
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_return
@@ -954,43 +980,14 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|print_error_files
+id|error_removing_concrete_submodules
 c_func
 (paren
 op_amp
 id|files_submodule
-comma
-id|Q_
-c_func
-(paren
-l_string|&quot;the following submodule (or one of its nested &quot;
-l_string|&quot;submodule)&bslash;nuses a .git directory:&quot;
-comma
-l_string|&quot;the following submodules (or one of its nested &quot;
-l_string|&quot;submodule)&bslash;nuse a .git directory:&quot;
-comma
-id|files_submodule.nr
-)paren
-comma
-id|_
-c_func
-(paren
-l_string|&quot;&bslash;n(use &squot;rm -rf&squot; if you really &quot;
-l_string|&quot;want to remove it including all &quot;
-l_string|&quot;of its history)&quot;
-)paren
 comma
 op_amp
 id|errs
-)paren
-suffix:semicolon
-id|string_list_clear
-c_func
-(paren
-op_amp
-id|files_submodule
-comma
-l_int|0
 )paren
 suffix:semicolon
 id|print_error_files
