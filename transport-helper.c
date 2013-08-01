@@ -5731,7 +5731,7 @@ suffix:semicolon
 multiline_comment|/* Just some non-NULL value. */
 )brace
 macro_line|#ifndef NO_PTHREADS
-multiline_comment|/*&n; * Join thread, with apporiate errors on failure. Name is name for the&n; * thread (for error messages). Returns 0 on success, 1 on failure.&n; */
+multiline_comment|/*&n; * Join thread, with appropriate errors on failure. Name is name for the&n; * thread (for error messages). Returns 0 on success, 1 on failure.&n; */
 DECL|function|tloop_join
 r_static
 r_int
@@ -5981,7 +5981,7 @@ id|t-&gt;dest
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Join process, with apporiate errors on failure. Name is name for the&n; * process (for error messages). Returns 0 on success, 1 on failure.&n; */
+multiline_comment|/*&n; * Join process, with appropriate errors on failure. Name is name for the&n; * process (for error messages). Returns 0 on success, 1 on failure.&n; */
 DECL|function|tloop_join
 r_static
 r_int

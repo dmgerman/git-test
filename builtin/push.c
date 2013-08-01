@@ -458,7 +458,7 @@ l_int|0
 op_member_access_from_pointer
 id|src
 suffix:semicolon
-multiline_comment|/*&n;&t; * Don&squot;t show advice for people who explicitely set&n;&t; * push.default.&n;&t; */
+multiline_comment|/*&n;&t; * Don&squot;t show advice for people who explicitly set&n;&t; * push.default.&n;&t; */
 r_if
 c_cond
 (paren
