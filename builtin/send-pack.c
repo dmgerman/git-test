@@ -833,7 +833,7 @@ l_char|&squot;=&squot;
 op_plus
 l_int|1
 comma
-l_int|1
+l_int|0
 )paren
 OL
 l_int|0
