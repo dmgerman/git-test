@@ -2,9 +2,8 @@ multiline_comment|/*&n; * Utilities for paths and pathnames&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;string-list.h&quot;
-macro_line|#ifndef get_st_mode_bits
-multiline_comment|/*&n; * The replacement lstat(2) we use on Cygwin is incomplete and&n; * may return wrong permission bits. Most of the time we do not care,&n; * but the callsites of this wrapper do care.&n; */
 DECL|function|get_st_mode_bits
+r_static
 r_int
 id|get_st_mode_bits
 c_func
@@ -49,7 +48,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-macro_line|#endif
 DECL|variable|bad_path
 r_static
 r_char
