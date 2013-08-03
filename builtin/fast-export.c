@@ -3586,7 +3586,7 @@ l_string|&quot;Import marks from this file&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3603,7 +3603,7 @@ l_string|&quot;Fake a tagger when tags lack one&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3620,7 +3620,7 @@ l_string|&quot;Output full tree for each commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

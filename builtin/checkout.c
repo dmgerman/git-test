@@ -5455,7 +5455,7 @@ l_string|&quot;create/reset and checkout a branch&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;l&squot;
@@ -5472,7 +5472,7 @@ l_string|&quot;create reflog for new branch&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -5582,7 +5582,7 @@ l_string|&quot;force checkout (throw away local modifications)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;m&squot;
@@ -5599,7 +5599,7 @@ l_string|&quot;perform a 3-way merge with the new branch&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -5639,7 +5639,7 @@ l_string|&quot;conflict style (merge or diff3)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;

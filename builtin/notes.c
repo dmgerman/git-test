@@ -2818,7 +2818,7 @@ l_string|&quot;replace existing notes&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -5111,7 +5111,7 @@ comma
 id|IGNORE_MISSING
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -645,7 +645,7 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;l&squot;
@@ -662,7 +662,7 @@ l_string|&quot;list replace refs&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;d&squot;
@@ -679,7 +679,7 @@ l_string|&quot;delete replace refs&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;f&squot;

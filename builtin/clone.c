@@ -214,7 +214,7 @@ l_string|&quot;force progress reporting&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;n&squot;
@@ -265,7 +265,7 @@ l_string|&quot;create a bare repository&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -299,7 +299,7 @@ l_string|&quot;to clone from a local repository&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -316,7 +316,7 @@ l_string|&quot;don&squot;t use local hardlinks, always copy&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;s&squot;
@@ -333,7 +333,7 @@ l_string|&quot;setup as shared repository&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -350,7 +350,7 @@ l_string|&quot;initialize submodules in the clone&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -6379,7 +6379,7 @@ comma
 id|keep_callback
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -6396,7 +6396,7 @@ l_string|&quot;don&squot;t output binary diffs&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

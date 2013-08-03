@@ -729,7 +729,7 @@ comma
 l_int|0
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -652,7 +652,7 @@ l_string|&quot;Other&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;z&squot;

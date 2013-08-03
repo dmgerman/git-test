@@ -823,7 +823,7 @@ r_intptr
 id|prune_expire
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -840,7 +840,7 @@ l_string|&quot;be more thorough (increased runtime)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

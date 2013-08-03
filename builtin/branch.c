@@ -4468,7 +4468,7 @@ comma
 l_string|&quot;change the upstream info&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -4695,7 +4695,7 @@ comma
 l_int|2
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -4712,7 +4712,7 @@ l_string|&quot;list branch names&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;l&squot;
@@ -4729,7 +4729,7 @@ l_string|&quot;create the branch&squot;s reflog&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

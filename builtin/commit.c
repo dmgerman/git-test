@@ -6402,7 +6402,7 @@ comma
 id|STATUS_FORMAT_LONG
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;z&squot;
@@ -6451,7 +6451,7 @@ r_intptr
 l_string|&quot;all&quot;
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -7797,7 +7797,7 @@ l_string|&quot;use autosquash formatted message to squash specified commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -7814,7 +7814,7 @@ l_string|&quot;the commit is authored by me now (used with -C/-c/--amend)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;s&squot;
@@ -7888,7 +7888,7 @@ l_string|&quot;how to strip spaces and #comments from message&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -7948,7 +7948,7 @@ l_string|&quot;Commit contents options&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -7965,7 +7965,7 @@ l_string|&quot;commit all changed files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;i&squot;
@@ -7982,7 +7982,7 @@ l_string|&quot;add specified files to index for commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -7999,7 +7999,7 @@ l_string|&quot;interactively add files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;
@@ -8016,7 +8016,7 @@ l_string|&quot;interactively add changes&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;o&squot;
@@ -8033,7 +8033,7 @@ l_string|&quot;commit only specified files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;n&squot;
@@ -8050,7 +8050,7 @@ l_string|&quot;bypass pre-commit hook&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -8141,7 +8141,7 @@ comma
 id|STATUS_FORMAT_LONG
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;z&squot;
@@ -8158,7 +8158,7 @@ l_string|&quot;terminate entries with NUL&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -8175,7 +8175,7 @@ l_string|&quot;amend previous commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -1656,7 +1656,7 @@ id|opts
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1673,7 +1673,7 @@ l_string|&quot;print only names (no SHA-1)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1719,7 +1719,7 @@ c_func
 l_string|&quot;&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1736,7 +1736,7 @@ l_string|&quot;list all commits reachable from all refs&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1753,7 +1753,7 @@ l_string|&quot;read from stdin&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1766,11 +1766,11 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;allow to print `undefined` names&quot;
+l_string|&quot;allow to print `undefined` names (default)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

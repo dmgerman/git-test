@@ -867,7 +867,7 @@ id|show_ref_options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -884,7 +884,7 @@ l_string|&quot;only show tags (can be combined with heads)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -901,7 +901,7 @@ l_string|&quot;only show heads (can be combined with tags)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -936,7 +936,7 @@ l_string|&quot;show the HEAD reference, even if it would be filtered out&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -953,7 +953,7 @@ l_string|&quot;show the HEAD reference, even if it would be filtered out&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;d&squot;

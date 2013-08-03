@@ -1024,7 +1024,7 @@ comma
 id|option_parse_n
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1041,7 +1041,7 @@ l_string|&quot;show a diffstat at the end of the merge&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1087,7 +1087,7 @@ comma
 id|DEFAULT_MERGE_LOG_LEN
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1104,7 +1104,7 @@ l_string|&quot;create a single commit instead of doing a merge&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1287,7 +1287,7 @@ op_amp
 id|verbosity
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1355,7 +1355,7 @@ r_intptr
 l_string|&quot;&quot;
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -116,7 +116,7 @@ l_string|&quot;reason of the update&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;d&squot;
@@ -133,7 +133,7 @@ l_string|&quot;delete the reference&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

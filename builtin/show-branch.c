@@ -3350,7 +3350,7 @@ id|builtin_show_branch_options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -3367,7 +3367,7 @@ l_string|&quot;show remote-tracking and local branches&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;r&squot;
@@ -3448,7 +3448,7 @@ comma
 l_int|1
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3465,7 +3465,7 @@ l_string|&quot;suppress naming strings&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3482,7 +3482,7 @@ l_string|&quot;include the current branch&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3499,7 +3499,7 @@ l_string|&quot;name commits with their object names&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3516,7 +3516,7 @@ l_string|&quot;show possible merge bases&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3552,7 +3552,7 @@ comma
 id|REV_SORT_IN_GRAPH_ORDER
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
