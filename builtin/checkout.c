@@ -5673,9 +5673,9 @@ l_string|&quot;do not limit pathspecs to sparse entries only&quot;
 )paren
 )paren
 comma
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
 l_int|0
 comma
 l_string|&quot;guess&quot;
@@ -5683,18 +5683,12 @@ comma
 op_amp
 id|dwim_new_local_branch
 comma
-l_int|NULL
-comma
 id|N_
 c_func
 (paren
 l_string|&quot;second guess &squot;git checkout no-such-branch&squot;&quot;
 )paren
-comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-)brace
+)paren
 comma
 id|OPT_END
 c_func

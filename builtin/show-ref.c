@@ -919,9 +919,9 @@ l_string|&quot;requires exact ref path&quot;
 )paren
 )paren
 comma
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
 l_char|&squot;h&squot;
 comma
 l_int|NULL
@@ -929,18 +929,12 @@ comma
 op_amp
 id|show_head
 comma
-l_int|NULL
-comma
 id|N_
 c_func
 (paren
 l_string|&quot;show the HEAD reference, even if it would be filtered out&quot;
 )paren
-comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-)brace
+)paren
 comma
 id|OPT_BOOLEAN
 c_func

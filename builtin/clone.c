@@ -231,7 +231,7 @@ l_string|&quot;don&squot;t create a checkout&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -248,9 +248,9 @@ l_string|&quot;create a bare repository&quot;
 )paren
 )paren
 comma
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
 l_int|0
 comma
 l_string|&quot;naked&quot;
@@ -258,18 +258,12 @@ comma
 op_amp
 id|option_bare
 comma
-l_int|NULL
-comma
 id|N_
 c_func
 (paren
 l_string|&quot;create a bare repository&quot;
 )paren
-comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-)brace
+)paren
 comma
 id|OPT_BOOLEAN
 c_func

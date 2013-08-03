@@ -4411,7 +4411,7 @@ l_string|&quot;Committing unmerged notes&quot;
 )paren
 comma
 (brace
-id|OPTION_BOOLEAN
+id|OPTION_SET_INT
 comma
 l_int|0
 comma
@@ -4431,6 +4431,10 @@ comma
 id|PARSE_OPT_NOARG
 op_or
 id|PARSE_OPT_NONEG
+comma
+l_int|NULL
+comma
+l_int|1
 )brace
 comma
 id|OPT_GROUP
@@ -4444,7 +4448,7 @@ l_string|&quot;Aborting notes merge resolution&quot;
 )paren
 comma
 (brace
-id|OPTION_BOOLEAN
+id|OPTION_SET_INT
 comma
 l_int|0
 comma
@@ -4464,6 +4468,10 @@ comma
 id|PARSE_OPT_NOARG
 op_or
 id|PARSE_OPT_NONEG
+comma
+l_int|NULL
+comma
+l_int|1
 )brace
 comma
 id|OPT_END

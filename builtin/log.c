@@ -6414,7 +6414,7 @@ l_string|&quot;don&squot;t include a patch matching a commit upstream&quot;
 )paren
 comma
 (brace
-id|OPTION_BOOLEAN
+id|OPTION_SET_INT
 comma
 l_char|&squot;p&squot;
 comma
@@ -6434,6 +6434,10 @@ comma
 id|PARSE_OPT_NONEG
 op_or
 id|PARSE_OPT_NOARG
+comma
+l_int|NULL
+comma
+l_int|1
 )brace
 comma
 id|OPT_GROUP

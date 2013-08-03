@@ -8225,9 +8225,9 @@ l_string|&quot;all&quot;
 )brace
 comma
 multiline_comment|/* end commit contents options */
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
 l_int|0
 comma
 l_string|&quot;allow-empty&quot;
@@ -8235,22 +8235,16 @@ comma
 op_amp
 id|allow_empty
 comma
-l_int|NULL
-comma
 id|N_
 c_func
 (paren
 l_string|&quot;ok to record an empty change&quot;
 )paren
+)paren
 comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-)brace
-comma
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
 l_int|0
 comma
 l_string|&quot;allow-empty-message&quot;
@@ -8258,18 +8252,12 @@ comma
 op_amp
 id|allow_empty_message
 comma
-l_int|NULL
-comma
 id|N_
 c_func
 (paren
 l_string|&quot;ok to record a change with an empty message&quot;
 )paren
-comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-)brace
+)paren
 comma
 id|OPT_END
 c_func
