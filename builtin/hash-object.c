@@ -423,7 +423,7 @@ l_string|&quot;write the object into the object database&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_COUNTUP
 c_func
 (paren
 l_int|0
