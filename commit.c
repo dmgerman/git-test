@@ -7557,7 +7557,7 @@ c_cond
 (paren
 id|codepoint
 op_amp
-l_int|0xffffe
+l_int|0xfffe
 )paren
 op_eq
 l_int|0xfffe
