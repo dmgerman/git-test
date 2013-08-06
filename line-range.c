@@ -3,7 +3,7 @@ macro_line|#include &quot;line-range.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
-multiline_comment|/*&n; * Parse one item in the -L option&n; */
+multiline_comment|/*&n; * Parse one item in the -L option&n; *&n; * &squot;begin&squot; is applicable only to relative range anchors. Absolute anchors&n; * ignore this value.&n; *&n; * When parsing &quot;-L A,B&quot;, parse_loc() is called once for A and once for B.&n; *&n; * When parsing A, &squot;begin&squot; must be a negative number, the absolute value of&n; * which is the line at which relative start-of-range anchors should be&n; * based. Beginning of file is represented by -1.&n; *&n; * When parsing B, &squot;begin&squot; must be the positive line number immediately&n; * following the line computed for &squot;A&squot;.&n; */
 DECL|function|parse_loc
 r_static
 r_const
@@ -224,6 +224,17 @@ r_return
 id|term
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|begin
+OL
+l_int|0
+)paren
+id|begin
+op_assign
+id|begin
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -462,9 +473,13 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;-L parameter &squot;%s&squot;: %s&quot;
+l_string|&quot;-L parameter &squot;%s&squot; starting at line %ld: %s&quot;
 comma
 id|spec
+op_plus
+l_int|1
+comma
+id|begin
 op_plus
 l_int|1
 comma
@@ -1236,6 +1251,9 @@ r_int
 id|lines
 comma
 r_int
+id|anchor
+comma
+r_int
 op_star
 id|begin
 comma
@@ -1256,6 +1274,30 @@ op_star
 id|end
 op_assign
 l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|anchor
+OL
+l_int|1
+)paren
+id|anchor
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|anchor
+OG
+id|lines
+)paren
+id|anchor
+op_assign
+id|lines
+op_plus
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -1315,7 +1357,7 @@ id|cb_data
 comma
 id|lines
 comma
-l_int|1
+id|anchor
 comma
 id|begin
 )paren

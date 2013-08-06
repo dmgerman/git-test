@@ -11880,6 +11880,8 @@ id|sb
 comma
 id|lno
 comma
+l_int|1
+comma
 op_amp
 id|bottom
 comma

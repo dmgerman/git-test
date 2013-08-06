@@ -3142,6 +3142,8 @@ id|cb_data
 comma
 id|lines
 comma
+l_int|1
+comma
 op_amp
 id|begin
 comma
