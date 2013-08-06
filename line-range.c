@@ -835,6 +835,9 @@ r_int
 id|lines
 comma
 r_int
+id|anchor
+comma
+r_int
 op_star
 id|begin
 comma
@@ -972,6 +975,10 @@ l_int|1
 )paren
 )paren
 suffix:semicolon
+id|anchor
+op_decrement
+suffix:semicolon
+multiline_comment|/* input is in human terms */
 id|start
 op_assign
 id|nth_line_cb
@@ -979,7 +986,7 @@ c_func
 (paren
 id|cb_data
 comma
-l_int|0
+id|anchor
 )paren
 suffix:semicolon
 id|drv
@@ -1107,9 +1114,13 @@ id|p
 id|die
 c_func
 (paren
-l_string|&quot;-L parameter &squot;%s&squot;: no match&quot;
+l_string|&quot;-L parameter &squot;%s&squot; starting at line %ld: no match&quot;
 comma
 id|pattern
+comma
+id|anchor
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 op_star
@@ -1343,6 +1354,8 @@ id|cb_data
 comma
 id|lines
 comma
+id|anchor
+comma
 id|begin
 comma
 id|end
@@ -1494,6 +1507,8 @@ comma
 l_int|NULL
 comma
 l_int|NULL
+comma
+l_int|0
 comma
 l_int|0
 comma
