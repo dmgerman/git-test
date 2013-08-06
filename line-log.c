@@ -46,7 +46,6 @@ multiline_comment|/* Either initialization would be fine */
 DECL|macro|RANGE_SET_INIT
 mdefine_line|#define RANGE_SET_INIT {0}
 DECL|function|range_set_init
-r_static
 r_void
 id|range_set_init
 c_func
@@ -85,7 +84,6 @@ id|prealloc
 suffix:semicolon
 )brace
 DECL|function|range_set_release
-r_static
 r_void
 id|range_set_release
 c_func
@@ -208,7 +206,6 @@ suffix:semicolon
 )brace
 multiline_comment|/* tack on a _new_ range _at the end_ */
 DECL|function|range_set_append_unsafe
-r_static
 r_void
 id|range_set_append_unsafe
 c_func
@@ -263,7 +260,6 @@ op_increment
 suffix:semicolon
 )brace
 DECL|function|range_set_append
-r_static
 r_void
 id|range_set_append
 c_func
@@ -468,7 +464,6 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * In-place pass of sorting and merging the ranges in the range set,&n; * to establish the invariants when we get the ranges from the user&n; */
 DECL|function|sort_and_merge_range_set
-r_static
 r_void
 id|sort_and_merge_range_set
 c_func
