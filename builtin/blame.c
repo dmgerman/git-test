@@ -10931,6 +10931,9 @@ r_int
 r_int
 id|range_i
 suffix:semicolon
+r_int
+id|anchor
+suffix:semicolon
 id|git_config
 c_func
 (paren
@@ -11831,6 +11834,10 @@ l_string|&quot;1&quot;
 )paren
 )paren
 suffix:semicolon
+id|anchor
+op_assign
+l_int|1
+suffix:semicolon
 id|range_set_init
 c_func
 (paren
@@ -11880,7 +11887,7 @@ id|sb
 comma
 id|lno
 comma
-l_int|1
+id|anchor
 comma
 op_amp
 id|bottom
@@ -11961,6 +11968,12 @@ id|bottom
 comma
 id|top
 )paren
+suffix:semicolon
+id|anchor
+op_assign
+id|top
+op_plus
+l_int|1
 suffix:semicolon
 )brace
 id|sort_and_merge_range_set
