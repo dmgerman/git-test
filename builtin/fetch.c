@@ -142,12 +142,12 @@ id|default_rla
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-DECL|variable|transport
+DECL|variable|gtransport
 r_static
 r_struct
 id|transport
 op_star
-id|transport
+id|gtransport
 suffix:semicolon
 DECL|variable|submodule_prefix
 r_static
@@ -590,12 +590,12 @@ r_void
 r_if
 c_cond
 (paren
-id|transport
+id|gtransport
 )paren
 id|transport_unlock_pack
 c_func
 (paren
-id|transport
+id|gtransport
 )paren
 suffix:semicolon
 )brace
@@ -4468,7 +4468,7 @@ op_assign
 id|transport_set_option
 c_func
 (paren
-id|transport
+id|gtransport
 comma
 id|name
 comma
@@ -4495,7 +4495,7 @@ id|name
 comma
 id|value
 comma
-id|transport-&gt;url
+id|gtransport-&gt;url
 )paren
 suffix:semicolon
 r_if
@@ -4516,7 +4516,7 @@ l_string|&quot;Option &bslash;&quot;%s&bslash;&quot; is ignored for %s&bslash;n&
 comma
 id|name
 comma
-id|transport-&gt;url
+id|gtransport-&gt;url
 )paren
 suffix:semicolon
 )brace
@@ -5216,7 +5216,7 @@ l_string|&quot;remote name from which new revisions should be fetched.&quot;
 )paren
 )paren
 suffix:semicolon
-id|transport
+id|gtransport
 op_assign
 id|transport_get
 c_func
@@ -5229,7 +5229,7 @@ suffix:semicolon
 id|transport_set_verbosity
 c_func
 (paren
-id|transport
+id|gtransport
 comma
 id|verbosity
 comma
@@ -5478,7 +5478,7 @@ op_assign
 id|do_fetch
 c_func
 (paren
-id|transport
+id|gtransport
 comma
 id|refspec
 comma
@@ -5496,10 +5496,10 @@ suffix:semicolon
 id|transport_disconnect
 c_func
 (paren
-id|transport
+id|gtransport
 )paren
 suffix:semicolon
-id|transport
+id|gtransport
 op_assign
 l_int|NULL
 suffix:semicolon
