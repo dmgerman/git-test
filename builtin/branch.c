@@ -5050,14 +5050,10 @@ id|force_create
 op_plus
 op_logical_neg
 op_logical_neg
-id|list
-op_plus
-op_logical_neg
-op_logical_neg
 id|new_upstream
 op_plus
-op_logical_neg
-op_logical_neg
+id|list
+op_plus
 id|unset_upstream
 OG
 l_int|1

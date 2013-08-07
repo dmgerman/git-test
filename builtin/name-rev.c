@@ -1852,12 +1852,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-op_logical_neg
 id|all
 op_plus
-op_logical_neg
-op_logical_neg
 id|transform_stdin
 op_plus
 op_logical_neg
