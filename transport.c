@@ -4788,6 +4788,10 @@ op_amp
 id|data-&gt;options
 )paren
 suffix:semicolon
+id|transport-&gt;cannot_reuse
+op_assign
+l_int|1
+suffix:semicolon
 )brace
 DECL|function|is_local
 r_static
