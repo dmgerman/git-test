@@ -12085,7 +12085,7 @@ c_func
 (paren
 id|o-&gt;file
 comma
-id|one
+id|one-&gt;path
 ques
 c_cond
 id|one-&gt;path
