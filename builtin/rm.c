@@ -1200,12 +1200,17 @@ r_int
 id|i
 comma
 id|newfd
+comma
+id|seen_any
 suffix:semicolon
 r_const
 r_char
 op_star
 op_star
 id|pathspec
+comma
+op_star
+id|match
 suffix:semicolon
 r_char
 op_star
@@ -1417,10 +1422,6 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|seen
-op_assign
-l_int|NULL
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1534,18 +1535,6 @@ id|ce-&gt;ce_mode
 )paren
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|pathspec
-)paren
-(brace
-r_const
-r_char
-op_star
-id|match
-suffix:semicolon
-r_int
 id|seen_any
 op_assign
 l_int|0
@@ -1653,7 +1642,6 @@ m_exit
 l_int|0
 )paren
 suffix:semicolon
-)brace
 multiline_comment|/*&n;&t; * If not forced, the file, the index and the HEAD (if exists)&n;&t; * must match; but the file can already been removed, since&n;&t; * this sequence is a natural &quot;novice&quot; way:&n;&t; *&n;&t; *&t;rm F; git rm F&n;&t; *&n;&t; * Further, if HEAD commit exists, &quot;diff-index --cached&quot; must&n;&t; * report no changes unless forced.&n;&t; */
 r_if
 c_cond
