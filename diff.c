@@ -4001,11 +4001,6 @@ id|whitespace_rule
 c_func
 (paren
 id|name_b
-ques
-c_cond
-id|name_b
-suffix:colon
-id|name_a
 )paren
 suffix:semicolon
 id|ecbdata.opt
@@ -12932,11 +12927,6 @@ id|whitespace_rule
 c_func
 (paren
 id|name_b
-ques
-c_cond
-id|name_b
-suffix:colon
-id|name_a
 )paren
 suffix:semicolon
 r_if
