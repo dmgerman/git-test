@@ -16,8 +16,9 @@ id|argv
 (brace
 r_const
 r_char
-op_star
 id|usage
+(braket
+)braket
 op_assign
 l_string|&quot;test-urlmatch-normalization [-p | -l] &lt;url1&gt; | &lt;url1&gt; &lt;url2&gt;&quot;
 suffix:semicolon
@@ -111,6 +112,8 @@ l_int|3
 id|die
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|usage
 )paren
 suffix:semicolon
@@ -192,6 +195,8 @@ id|opt_l
 id|die
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|usage
 )paren
 suffix:semicolon

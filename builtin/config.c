@@ -2467,6 +2467,8 @@ id|config.url
 id|die
 c_func
 (paren
+l_string|&quot;%s&quot;
+comma
 id|config.url.err
 )paren
 suffix:semicolon
