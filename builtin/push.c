@@ -32,6 +32,8 @@ DECL|variable|thin
 r_static
 r_int
 id|thin
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|deleterefs
 r_static
@@ -1304,11 +1306,6 @@ comma
 id|receivepack
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|thin
-)paren
 id|transport_set_option
 c_func
 (paren
@@ -1316,7 +1313,12 @@ id|transport
 comma
 id|TRANS_OPT_THIN
 comma
+id|thin
+ques
+c_cond
 l_string|&quot;yes&quot;
+suffix:colon
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
