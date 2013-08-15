@@ -2101,14 +2101,6 @@ r_void
 op_star
 id|data
 suffix:semicolon
-r_struct
-id|index_state
-op_star
-id|istate
-op_assign
-op_amp
-id|the_index
-suffix:semicolon
 id|len
 op_assign
 id|strlen
@@ -2119,11 +2111,9 @@ id|path
 suffix:semicolon
 id|pos
 op_assign
-id|index_name_pos
+id|cache_name_pos
 c_func
 (paren
-id|istate
-comma
 id|path
 comma
 id|len
@@ -2146,7 +2136,7 @@ op_logical_neg
 id|ce_skip_worktree
 c_func
 (paren
-id|istate-&gt;cache
+id|active_cache
 (braket
 id|pos
 )braket
@@ -2160,7 +2150,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|istate-&gt;cache
+id|active_cache
 (braket
 id|pos
 )braket
@@ -4271,7 +4261,7 @@ DECL|enumerator|index_gitdir
 id|index_gitdir
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Do not use the alphabetically stored index to look up&n; * the directory name; instead, use the case insensitive&n; * name hash.&n; */
+multiline_comment|/*&n; * Do not use the alphabetically sorted index to look up&n; * the directory name; instead, use the case insensitive&n; * name hash.&n; */
 DECL|function|directory_exists_in_index_icase
 r_static
 r_enum
@@ -4293,12 +4283,9 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|index_name_exists
+id|cache_name_exists
 c_func
 (paren
-op_amp
-id|the_index
-comma
 id|dirname
 comma
 id|len
