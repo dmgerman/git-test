@@ -1259,10 +1259,6 @@ id|i
 )paren
 OL
 id|hsize
-op_logical_and
-id|i
-OL
-l_int|31
 suffix:semicolon
 id|i
 op_increment
