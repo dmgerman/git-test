@@ -773,6 +773,16 @@ c_func
 id|graft-&gt;sha1
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|graft-&gt;nr_parent
+op_ne
+l_int|1
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|data-&gt;count
 op_increment
 suffix:semicolon
