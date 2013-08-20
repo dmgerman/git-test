@@ -498,7 +498,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|xread
+id|read_in_full
 c_func
 (paren
 id|fd
