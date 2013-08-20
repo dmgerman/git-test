@@ -868,11 +868,6 @@ r_char
 op_star
 id|cp
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|repo_abbrev
-)paren
 id|free
 c_func
 (paren
