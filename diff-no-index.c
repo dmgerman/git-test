@@ -1141,6 +1141,33 @@ id|i
 op_plus
 l_int|2
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|no_index
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * There was no --no-index and there were not two&n;&t;&t;&t; * paths. It is possible that the user intended&n;&t;&t;&t; * to do an inside-repository operation.&n;&t;&t;&t; */
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Not a git repository&bslash;n&quot;
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;To compare two paths outside a working tree:&bslash;n&quot;
+)paren
+suffix:semicolon
+)brace
+multiline_comment|/* Give the usage message for non-repository usage and exit. */
 id|usagef
 c_func
 (paren
@@ -1154,6 +1181,7 @@ suffix:colon
 l_string|&quot;[--no-index]&quot;
 )paren
 suffix:semicolon
+)brace
 id|diff_setup
 c_func
 (paren
