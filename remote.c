@@ -9874,21 +9874,6 @@ r_break
 suffix:semicolon
 r_default
 suffix:colon
-(brace
-)brace
-multiline_comment|/* Nothing to report if neither side has changes. */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|ours
-op_logical_and
-op_logical_neg
-id|theirs
-)paren
-r_return
-l_int|0
-suffix:semicolon
 multiline_comment|/* with base */
 r_break
 suffix:semicolon
@@ -9947,6 +9932,32 @@ c_func
 (paren
 l_string|&quot;  (use &bslash;&quot;git branch --unset-upstream&bslash;&quot; to fixup)&bslash;n&quot;
 )paren
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ours
+op_logical_and
+op_logical_neg
+id|theirs
+)paren
+(brace
+id|strbuf_addf
+c_func
+(paren
+id|sb
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Your branch is up-to-date with &squot;%s&squot;.&bslash;n&quot;
+)paren
+comma
+id|base
 )paren
 suffix:semicolon
 )brace
