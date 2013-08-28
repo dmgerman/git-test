@@ -4028,6 +4028,7 @@ id|transport-&gt;url
 suffix:semicolon
 )brace
 DECL|function|prepare_transport
+r_static
 r_struct
 id|transport
 op_star
