@@ -1275,7 +1275,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;&bslash;nWrite a tag message&bslash;n&quot;
+l_string|&quot;&bslash;nWrite a message for tag:&bslash;n  %s&bslash;n&quot;
 l_string|&quot;Lines starting with &squot;%c&squot; will be ignored.&bslash;n&quot;
 )paren
 suffix:semicolon
@@ -1290,7 +1290,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;&bslash;nWrite a tag message&bslash;n&quot;
+l_string|&quot;&bslash;nWrite a message for tag:&bslash;n  %s&bslash;n&quot;
 l_string|&quot;Lines starting with &squot;%c&squot; will be kept; you may remove them&quot;
 l_string|&quot; yourself if you want to.&bslash;n&quot;
 )paren
@@ -1852,6 +1852,8 @@ c_func
 id|tag_template
 )paren
 comma
+id|tag
+comma
 id|comment_line_char
 )paren
 suffix:semicolon
@@ -1867,6 +1869,8 @@ c_func
 (paren
 id|tag_template_nocleanup
 )paren
+comma
+id|tag
 comma
 id|comment_line_char
 )paren
