@@ -1882,8 +1882,8 @@ l_int|1
 comma
 r_sizeof
 (paren
-r_struct
-id|lock_file
+op_star
+id|lock
 )paren
 )paren
 suffix:semicolon
