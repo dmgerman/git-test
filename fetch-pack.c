@@ -4648,6 +4648,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_else
+id|alternate_shallow_file
+op_assign
+l_int|NULL
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5152,6 +5157,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|args-&gt;depth
+OG
+l_int|0
+op_logical_and
 id|alternate_shallow_file
 )paren
 (brace
