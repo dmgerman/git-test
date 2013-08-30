@@ -2711,6 +2711,8 @@ comma
 id|old_sha1
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if

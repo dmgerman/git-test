@@ -9025,6 +9025,10 @@ id|old_sha1
 comma
 r_int
 id|flags
+comma
+r_int
+op_star
+id|type_p
 )paren
 (brace
 r_if
@@ -9051,7 +9055,7 @@ id|old_sha1
 comma
 id|flags
 comma
-l_int|NULL
+id|type_p
 )paren
 suffix:semicolon
 )brace
@@ -14776,6 +14780,8 @@ comma
 id|oldval
 comma
 id|flags
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
