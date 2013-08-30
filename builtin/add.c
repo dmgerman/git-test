@@ -1412,6 +1412,7 @@ OL
 l_int|0
 )paren
 id|die
+c_func
 (paren
 id|_
 c_func
@@ -1487,6 +1488,7 @@ OL
 l_int|0
 )paren
 id|die
+c_func
 (paren
 id|_
 c_func
@@ -1524,6 +1526,7 @@ l_int|0
 )paren
 )paren
 id|die
+c_func
 (paren
 id|_
 c_func
@@ -1615,6 +1618,7 @@ id|child
 )paren
 )paren
 id|die
+c_func
 (paren
 id|_
 c_func
