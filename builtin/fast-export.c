@@ -97,6 +97,14 @@ r_static
 r_int
 id|full_tree
 suffix:semicolon
+DECL|variable|extra_refs
+r_static
+r_struct
+id|string_list
+id|extra_refs
+op_assign
+id|STRING_LIST_INIT_NODUP
+suffix:semicolon
 DECL|function|parse_opt_signed_tag_mode
 r_static
 r_int
@@ -2561,11 +2569,6 @@ r_struct
 id|rev_cmdline_info
 op_star
 id|info
-comma
-r_struct
-id|string_list
-op_star
-id|extra_refs
 )paren
 (brace
 r_struct
@@ -2701,6 +2704,7 @@ suffix:semicolon
 id|string_list_append
 c_func
 (paren
+op_amp
 id|extra_refs
 comma
 id|full_name
@@ -2814,6 +2818,7 @@ id|SHOWN
 id|string_list_append
 c_func
 (paren
+op_amp
 id|extra_refs
 comma
 id|full_name
@@ -2841,10 +2846,7 @@ r_void
 id|handle_tags_and_duplicates
 c_func
 (paren
-r_struct
-id|string_list
-op_star
-id|extra_refs
+r_void
 )paren
 (brace
 r_struct
@@ -2860,7 +2862,7 @@ c_loop
 (paren
 id|i
 op_assign
-id|extra_refs-&gt;nr
+id|extra_refs.nr
 l_int|1
 suffix:semicolon
 id|i
@@ -2876,7 +2878,7 @@ r_char
 op_star
 id|name
 op_assign
-id|extra_refs-&gt;items
+id|extra_refs.items
 (braket
 id|i
 )braket
@@ -2888,7 +2890,7 @@ id|object
 op_star
 id|object
 op_assign
-id|extra_refs-&gt;items
+id|extra_refs.items
 (braket
 id|i
 )braket
@@ -3442,12 +3444,6 @@ op_assign
 id|OBJECT_ARRAY_INIT
 suffix:semicolon
 r_struct
-id|string_list
-id|extra_refs
-op_assign
-id|STRING_LIST_INIT_NODUP
-suffix:semicolon
-r_struct
 id|commit
 op_star
 id|commit
@@ -3793,9 +3789,6 @@ c_func
 (paren
 op_amp
 id|revs.cmdline
-comma
-op_amp
-id|extra_refs
 )paren
 suffix:semicolon
 r_if
@@ -3891,8 +3884,6 @@ suffix:semicolon
 id|handle_tags_and_duplicates
 c_func
 (paren
-op_amp
-id|extra_refs
 )paren
 suffix:semicolon
 r_if
