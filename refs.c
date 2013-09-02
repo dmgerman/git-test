@@ -8005,6 +8005,9 @@ c_func
 op_star
 id|string
 comma
+op_star
+id|len
+comma
 op_amp
 id|buf
 )paren

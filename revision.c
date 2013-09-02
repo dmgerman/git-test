@@ -885,6 +885,8 @@ c_func
 (paren
 id|name
 comma
+l_int|0
+comma
 op_amp
 id|buf
 )paren
