@@ -283,6 +283,22 @@ id|component_count
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|refname
+comma
+l_string|&quot;@&quot;
+)paren
+)paren
+multiline_comment|/* Refname is a single character &squot;@&squot;. */
+r_return
+l_int|1
+suffix:semicolon
 r_while
 c_loop
 (paren
