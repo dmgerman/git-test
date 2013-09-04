@@ -7293,7 +7293,7 @@ comma
 id|builtin_merge_options
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * This could be traditional &quot;merge &lt;msg&gt; HEAD &lt;commit&gt;...&quot;  and&n;&t; * the way we can tell it is to see if the second token is HEAD,&n;&t; * but some people might have misused the interface and used a&n;&t; * committish that is the same as HEAD there instead.&n;&t; * Traditional format never would have &quot;-m&quot; so it is an&n;&t; * additional safety measure to check for it.&n;&t; */
+multiline_comment|/*&n;&t; * This could be traditional &quot;merge &lt;msg&gt; HEAD &lt;commit&gt;...&quot;  and&n;&t; * the way we can tell it is to see if the second token is HEAD,&n;&t; * but some people might have misused the interface and used a&n;&t; * commit-ish that is the same as HEAD there instead.&n;&t; * Traditional format never would have &quot;-m&quot; so it is an&n;&t; * additional safety measure to check for it.&n;&t; */
 r_if
 c_cond
 (paren

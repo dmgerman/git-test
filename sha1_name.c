@@ -5838,7 +5838,7 @@ id|unused
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Many callers know that the user meant to name a committish by&n; * syntactical positions where the object name appears.  Calling this&n; * function allows the machinery to disambiguate shorter-than-unique&n; * abbreviated object names between committish and others.&n; *&n; * Note that this does NOT error out when the named object is not a&n; * committish. It is merely to give a hint to the disambiguation&n; * machinery.&n; */
+multiline_comment|/*&n; * Many callers know that the user meant to name a commit-ish by&n; * syntactical positions where the object name appears.  Calling this&n; * function allows the machinery to disambiguate shorter-than-unique&n; * abbreviated object names between commit-ish and others.&n; *&n; * Note that this does NOT error out when the named object is not a&n; * commit-ish. It is merely to give a hint to the disambiguation&n; * machinery.&n; */
 DECL|function|get_sha1_committish
 r_int
 id|get_sha1_committish
