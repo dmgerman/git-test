@@ -1603,7 +1603,7 @@ id|parseopt_opts
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1620,7 +1620,7 @@ l_string|&quot;keep the `--` passed as an arg&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

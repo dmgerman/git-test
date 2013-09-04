@@ -2504,7 +2504,7 @@ l_string|&quot;Tag creation options&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -2563,7 +2563,7 @@ l_string|&quot;read message from file&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;s&squot;

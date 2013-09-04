@@ -1335,7 +1335,7 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;n&squot;
@@ -1352,7 +1352,7 @@ l_string|&quot;sort output according to the number of commits per author&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;s&squot;
@@ -1369,7 +1369,7 @@ l_string|&quot;Suppress commit descriptions, only provides commit count&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;e&squot;

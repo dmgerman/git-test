@@ -180,7 +180,7 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;

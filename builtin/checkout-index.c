@@ -977,7 +977,7 @@ id|builtin_checkout_index_options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -1020,7 +1020,7 @@ l_string|&quot;no warning for existing files and files not in index&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;n&squot;
@@ -1082,7 +1082,7 @@ comma
 id|option_parse_z
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1099,7 +1099,7 @@ l_string|&quot;read list of paths from the standard input&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

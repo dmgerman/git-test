@@ -1461,7 +1461,7 @@ comma
 id|KEEP
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;

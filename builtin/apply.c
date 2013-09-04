@@ -20703,7 +20703,7 @@ comma
 id|option_parse_p
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20720,7 +20720,7 @@ l_string|&quot;ignore additions made by the patch&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20753,7 +20753,7 @@ comma
 l_string|&quot;binary&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20770,7 +20770,7 @@ l_string|&quot;show number of added and deleted lines in decimal notation&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20787,7 +20787,7 @@ l_string|&quot;instead of applying the patch, output a summary for the input&quo
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20804,7 +20804,7 @@ l_string|&quot;instead of applying the patch, see if the patch is applicable&quo
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20821,7 +20821,7 @@ l_string|&quot;make sure the patch is applicable to the current index&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20838,7 +20838,7 @@ l_string|&quot;apply a patch without touching the working tree&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -20999,7 +20999,7 @@ comma
 id|option_parse_space_change
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;R&squot;
@@ -21016,7 +21016,7 @@ l_string|&quot;apply the patch in reverse&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -21033,7 +21033,7 @@ l_string|&quot;don&squot;t expect at least one line of context&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -21050,7 +21050,7 @@ l_string|&quot;leave the rejected hunks in corresponding *.rej files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

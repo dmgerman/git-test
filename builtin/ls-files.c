@@ -2369,7 +2369,7 @@ comma
 id|option_parse_z
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;t&squot;
@@ -2386,7 +2386,7 @@ l_string|&quot;identify the file status with tags&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;v&squot;
@@ -2403,7 +2403,7 @@ l_string|&quot;use lowercase letters for &squot;assume unchanged&squot; files&qu
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;c&squot;
@@ -2420,7 +2420,7 @@ l_string|&quot;show cached files in the output (default)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;d&squot;
@@ -2437,7 +2437,7 @@ l_string|&quot;show deleted files in the output&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;m&squot;
@@ -2454,7 +2454,7 @@ l_string|&quot;show modified files in the output&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;o&squot;
@@ -2490,7 +2490,7 @@ comma
 id|DIR_SHOW_IGNORED
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;s&squot;
@@ -2507,7 +2507,7 @@ l_string|&quot;show staged contents&squot; object name in the output&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;k&squot;
@@ -2562,7 +2562,7 @@ comma
 id|DIR_HIDE_EMPTY_DIRECTORIES
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;u&squot;
@@ -2579,7 +2579,7 @@ l_string|&quot;show unmerged files in the output&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2721,7 +2721,7 @@ comma
 l_int|NULL
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2768,7 +2768,7 @@ op_amp
 id|abbrev
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

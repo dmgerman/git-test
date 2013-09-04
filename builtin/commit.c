@@ -5497,20 +5497,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-op_logical_neg
 id|also
 op_plus
-op_logical_neg
-op_logical_neg
 id|only
 op_plus
-op_logical_neg
-op_logical_neg
 id|all
 op_plus
-op_logical_neg
-op_logical_neg
 id|interactive
 OG
 l_int|1
@@ -6491,7 +6483,7 @@ comma
 id|STATUS_FORMAT_LONG
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;z&squot;
@@ -6540,7 +6532,7 @@ r_intptr
 l_string|&quot;all&quot;
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -7886,7 +7878,7 @@ l_string|&quot;use autosquash formatted message to squash specified commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -7903,7 +7895,7 @@ l_string|&quot;the commit is authored by me now (used with -C/-c/--amend)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;s&squot;
@@ -7977,7 +7969,7 @@ l_string|&quot;how to strip spaces and #comments from message&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -8037,7 +8029,7 @@ l_string|&quot;Commit contents options&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -8054,7 +8046,7 @@ l_string|&quot;commit all changed files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;i&squot;
@@ -8071,7 +8063,7 @@ l_string|&quot;add specified files to index for commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -8088,7 +8080,7 @@ l_string|&quot;interactively add files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;
@@ -8105,7 +8097,7 @@ l_string|&quot;interactively add changes&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;o&squot;
@@ -8122,7 +8114,7 @@ l_string|&quot;commit only specified files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;n&squot;
@@ -8139,7 +8131,7 @@ l_string|&quot;bypass pre-commit hook&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -8230,7 +8222,7 @@ comma
 id|STATUS_FORMAT_LONG
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;z&squot;
@@ -8247,7 +8239,7 @@ l_string|&quot;terminate entries with NUL&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -8264,7 +8256,7 @@ l_string|&quot;amend previous commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -8314,9 +8306,9 @@ l_string|&quot;all&quot;
 )brace
 comma
 multiline_comment|/* end commit contents options */
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
 l_int|0
 comma
 l_string|&quot;allow-empty&quot;
@@ -8324,22 +8316,16 @@ comma
 op_amp
 id|allow_empty
 comma
-l_int|NULL
-comma
 id|N_
 c_func
 (paren
 l_string|&quot;ok to record an empty change&quot;
 )paren
+)paren
 comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-)brace
-comma
-(brace
-id|OPTION_BOOLEAN
-comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
 l_int|0
 comma
 l_string|&quot;allow-empty-message&quot;
@@ -8347,18 +8333,12 @@ comma
 op_amp
 id|allow_empty_message
 comma
-l_int|NULL
-comma
 id|N_
 c_func
 (paren
 l_string|&quot;ok to record a change with an empty message&quot;
 )paren
-comma
-id|PARSE_OPT_NOARG
-op_or
-id|PARSE_OPT_HIDDEN
-)brace
+)paren
 comma
 id|OPT_END
 c_func

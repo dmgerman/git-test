@@ -482,13 +482,9 @@ id|builtin_log_options
 )braket
 op_assign
 (brace
-id|OPT_BOOL
+id|OPT__QUIET
 c_func
 (paren
-l_int|0
-comma
-l_string|&quot;quiet&quot;
-comma
 op_amp
 id|quiet
 comma
@@ -6379,7 +6375,7 @@ comma
 id|keep_callback
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -6396,7 +6392,7 @@ l_string|&quot;don&squot;t output binary diffs&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -6414,7 +6410,7 @@ l_string|&quot;don&squot;t include a patch matching a commit upstream&quot;
 )paren
 comma
 (brace
-id|OPTION_BOOLEAN
+id|OPTION_SET_INT
 comma
 l_char|&squot;p&squot;
 comma
@@ -6434,6 +6430,10 @@ comma
 id|PARSE_OPT_NONEG
 op_or
 id|PARSE_OPT_NOARG
+comma
+l_int|NULL
+comma
+l_int|1
 )brace
 comma
 id|OPT_GROUP
@@ -6680,13 +6680,9 @@ l_string|&quot;add a signature&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT__QUIET
 c_func
 (paren
-l_int|0
-comma
-l_string|&quot;quiet&quot;
-comma
 op_amp
 id|quiet
 comma

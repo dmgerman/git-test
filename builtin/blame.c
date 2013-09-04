@@ -10590,7 +10590,7 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -10607,7 +10607,7 @@ l_string|&quot;Show blame entries as we find them, incrementally&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;b&squot;
@@ -10624,7 +10624,7 @@ l_string|&quot;Show blank SHA-1 for boundary commits (Default: off)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -10641,7 +10641,7 @@ l_string|&quot;Do not treat root commits as boundaries (Default: off)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -475,7 +475,7 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -492,7 +492,7 @@ l_string|&quot;output all common ancestors&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -509,7 +509,7 @@ l_string|&quot;find ancestors for a single n-way merge&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -526,7 +526,7 @@ l_string|&quot;list revs not reachable from others&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

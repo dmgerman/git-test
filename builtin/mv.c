@@ -404,7 +404,7 @@ l_string|&quot;force move/rename even if target exists&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;k&squot;

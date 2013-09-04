@@ -4410,7 +4410,7 @@ l_string|&quot;interactive cleaning&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;d&squot;
@@ -4454,7 +4454,7 @@ comma
 id|exclude_cb
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;x&squot;
@@ -4471,7 +4471,7 @@ l_string|&quot;remove ignored files, too&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;X&squot;

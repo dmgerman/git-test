@@ -2905,7 +2905,7 @@ l_string|&quot;be verbose&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2939,7 +2939,7 @@ l_string|&quot;show dangling objects&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2956,7 +2956,7 @@ l_string|&quot;report tags&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2973,7 +2973,7 @@ l_string|&quot;report root nodes&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2990,7 +2990,7 @@ l_string|&quot;make index objects head nodes&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3007,7 +3007,7 @@ l_string|&quot;make reflogs head nodes (default)&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3024,7 +3024,7 @@ l_string|&quot;also consider packs and alternate objects&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3041,7 +3041,7 @@ l_string|&quot;enable more strict checking&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

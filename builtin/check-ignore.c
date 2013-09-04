@@ -83,7 +83,7 @@ c_func
 l_string|&quot;&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -100,7 +100,7 @@ l_string|&quot;read file names from stdin&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;z&squot;
@@ -117,7 +117,7 @@ l_string|&quot;terminate input and output records by a NUL character&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;n&squot;

@@ -2153,7 +2153,7 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2170,7 +2170,7 @@ l_string|&quot;find the tag that comes after the commit&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2187,7 +2187,7 @@ l_string|&quot;debug search strategy on stderr&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2204,7 +2204,7 @@ l_string|&quot;use any ref&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2221,7 +2221,7 @@ l_string|&quot;use any tag, even unannotated&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2238,7 +2238,7 @@ l_string|&quot;always use long format&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2321,7 +2321,7 @@ l_string|&quot;only consider tags matching &lt;pattern&gt;&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

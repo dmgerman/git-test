@@ -406,7 +406,7 @@ l_string|&quot;object type&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;w&squot;
@@ -423,7 +423,7 @@ l_string|&quot;write the object into the object database&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_COUNTUP
 c_func
 (paren
 l_int|0
@@ -440,7 +440,7 @@ l_string|&quot;read the object from stdin&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -457,7 +457,7 @@ l_string|&quot;read file names from stdin&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -240,7 +240,7 @@ op_amp
 id|verbosity
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -257,7 +257,7 @@ l_string|&quot;fetch from all remotes&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;a&squot;
@@ -310,7 +310,7 @@ l_string|&quot;force overwrite of local branch&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;m&squot;
@@ -365,7 +365,7 @@ comma
 id|TAGS_UNSET
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;
@@ -408,7 +408,7 @@ comma
 id|option_parse_recurse_submodules
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -425,7 +425,7 @@ l_string|&quot;dry run&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;k&squot;
@@ -442,7 +442,7 @@ l_string|&quot;keep downloaded pack&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;u&squot;

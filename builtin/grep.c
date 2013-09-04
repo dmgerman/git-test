@@ -3355,7 +3355,7 @@ id|options
 )braket
 op_assign
 (brace
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3391,7 +3391,7 @@ comma
 l_int|1
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3433,7 +3433,7 @@ c_func
 l_string|&quot;&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;v&squot;
@@ -3450,7 +3450,7 @@ l_string|&quot;show non-matching lines&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;i&squot;
@@ -3467,7 +3467,7 @@ l_string|&quot;case insensitive matching&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;w&squot;
@@ -3639,7 +3639,7 @@ c_func
 l_string|&quot;&quot;
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;n&squot;
@@ -3713,7 +3713,7 @@ comma
 l_int|1
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;l&squot;
@@ -3730,7 +3730,7 @@ l_string|&quot;show only filenames instead of matching lines&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3747,7 +3747,7 @@ l_string|&quot;synonym for --files-with-matches&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;L&squot;
@@ -3764,7 +3764,7 @@ l_string|&quot;show only the names of files without match&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;z&squot;
@@ -3781,7 +3781,7 @@ l_string|&quot;print NUL after filenames&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;c&squot;
@@ -3811,7 +3811,7 @@ l_string|&quot;highlight matches&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3828,7 +3828,7 @@ l_string|&quot;print empty line between matches from different files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -3925,7 +3925,7 @@ comma
 id|context_callback
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;p&squot;
@@ -3942,7 +3942,7 @@ l_string|&quot;show a line with the function name before matches&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;W&squot;
@@ -4042,7 +4042,7 @@ comma
 id|and_callback
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -4135,7 +4135,7 @@ l_string|&quot;indicate hit with exit status without output&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -4217,7 +4217,7 @@ r_intptr
 id|default_pager
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

@@ -1105,7 +1105,7 @@ l_string|&quot;do not list removed files&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -1135,7 +1135,7 @@ l_string|&quot;override the up-to-date check&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_char|&squot;r&squot;
@@ -1152,7 +1152,7 @@ l_string|&quot;allow recursive removal&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0

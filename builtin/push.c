@@ -2089,7 +2089,7 @@ id|TRANSPORT_PUSH_FORCE
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2106,7 +2106,7 @@ l_string|&quot;delete refs&quot;
 )paren
 )paren
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
@@ -2207,7 +2207,7 @@ comma
 id|option_parse_recurse_submodules
 )brace
 comma
-id|OPT_BOOLEAN
+id|OPT_BOOL
 c_func
 (paren
 l_int|0
