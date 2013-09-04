@@ -10,26 +10,6 @@ r_void
 op_star
 id|SSL
 suffix:semicolon
-macro_line|#else
-macro_line|#ifdef APPLE_COMMON_CRYPTO
-macro_line|#include &lt;CommonCrypto/CommonHMAC.h&gt;
-DECL|macro|HMAC_CTX
-mdefine_line|#define HMAC_CTX CCHmacContext
-DECL|macro|HMAC_Init
-mdefine_line|#define HMAC_Init(hmac, key, len, algo) CCHmacInit(hmac, algo, key, len)
-DECL|macro|HMAC_Update
-mdefine_line|#define HMAC_Update CCHmacUpdate
-DECL|macro|HMAC_Final
-mdefine_line|#define HMAC_Final(hmac, hash, ptr) CCHmacFinal(hmac, hash)
-DECL|macro|HMAC_CTX_cleanup
-mdefine_line|#define HMAC_CTX_cleanup(ignore)
-DECL|macro|EVP_md5
-mdefine_line|#define EVP_md5() kCCHmacAlgMD5
-macro_line|#else
-macro_line|#include &lt;openssl/evp.h&gt;
-macro_line|#include &lt;openssl/hmac.h&gt;
-macro_line|#endif
-macro_line|#include &lt;openssl/x509v3.h&gt;
 macro_line|#endif
 DECL|variable|imap_send_usage
 r_static
