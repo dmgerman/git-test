@@ -189,7 +189,11 @@ op_assign
 (brace
 id|editor
 comma
+id|real_path
+c_func
+(paren
 id|path
+)paren
 comma
 l_int|NULL
 )brace
