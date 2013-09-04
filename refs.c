@@ -10279,16 +10279,20 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|repack_without_ref
+DECL|function|repack_without_refs
 r_static
 r_int
-id|repack_without_ref
+id|repack_without_refs
 c_func
 (paren
 r_const
 r_char
 op_star
-id|refname
+op_star
+id|refnames
+comma
+r_int
+id|n
 )paren
 (brace
 r_struct
@@ -10307,20 +10311,54 @@ id|string_list_item
 op_star
 id|ref_to_delete
 suffix:semicolon
+r_int
+id|i
+comma
+id|removed
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* Look for a packed ref */
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|n
+suffix:semicolon
+id|i
+op_increment
+)paren
 r_if
 c_cond
 (paren
-op_logical_neg
 id|get_packed_ref
 c_func
 (paren
-id|refname
+id|refnames
+(braket
+id|i
+)braket
 )paren
+)paren
+r_break
+suffix:semicolon
+multiline_comment|/* Avoid locking if we have nothing to do */
+r_if
+c_cond
+(paren
+id|i
+op_eq
+id|n
 )paren
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/* refname does not exist in packed refs */
+multiline_comment|/* no refname exists in packed refs */
 r_if
 c_cond
 (paren
@@ -10349,7 +10387,10 @@ c_func
 (paren
 l_string|&quot;cannot delete &squot;%s&squot; from packed refs&quot;
 comma
-id|refname
+id|refnames
+(braket
+id|i
+)braket
 )paren
 suffix:semicolon
 )brace
@@ -10362,7 +10403,21 @@ op_amp
 id|ref_cache
 )paren
 suffix:semicolon
-multiline_comment|/* Remove refname from the cache: */
+multiline_comment|/* Remove refnames from the cache */
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|n
+suffix:semicolon
+id|i
+op_increment
+)paren
 r_if
 c_cond
 (paren
@@ -10371,13 +10426,26 @@ c_func
 (paren
 id|packed
 comma
-id|refname
+id|refnames
+(braket
+id|i
+)braket
 )paren
-op_eq
+op_ne
 l_int|1
 )paren
+id|removed
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|removed
+)paren
 (brace
-multiline_comment|/*&n;&t;&t; * The packed entry disappeared while we were&n;&t;&t; * acquiring the lock.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * All packed entries disappeared while we were&n;&t;&t; * acquiring the lock.&n;&t;&t; */
 id|rollback_packed_refs
 c_func
 (paren
@@ -10387,7 +10455,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* Remove any other accumulated cruft: */
+multiline_comment|/* Remove any other accumulated cruft */
 id|do_for_each_entry_in_dir
 c_func
 (paren
@@ -10430,11 +10498,34 @@ l_string|&quot;internal error&quot;
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Write what remains: */
+multiline_comment|/* Write what remains */
 r_return
 id|commit_packed_refs
 c_func
 (paren
+)paren
+suffix:semicolon
+)brace
+DECL|function|repack_without_ref
+r_static
+r_int
+id|repack_without_ref
+c_func
+(paren
+r_const
+r_char
+op_star
+id|refname
+)paren
+(brace
+r_return
+id|repack_without_refs
+c_func
+(paren
+op_amp
+id|refname
+comma
+l_int|1
 )paren
 suffix:semicolon
 )brace
