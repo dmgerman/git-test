@@ -15703,7 +15703,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;Not a treeish: %s&quot;
+l_string|&quot;Not a tree-ish: %s&quot;
 comma
 id|command_buf.buf
 )paren
@@ -16200,7 +16200,7 @@ op_assign
 l_int|NULL
 )brace
 suffix:semicolon
-multiline_comment|/* ls SP (&lt;treeish&gt; SP)? &lt;path&gt; */
+multiline_comment|/* ls SP (&lt;tree-ish&gt; SP)? &lt;path&gt; */
 id|p
 op_assign
 id|command_buf.buf
