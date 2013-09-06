@@ -708,7 +708,7 @@ c_func
 (paren
 l_char|&squot;l&squot;
 comma
-l_int|NULL
+l_string|&quot;list&quot;
 comma
 op_amp
 id|list
@@ -725,7 +725,7 @@ c_func
 (paren
 l_char|&squot;d&squot;
 comma
-l_int|NULL
+l_string|&quot;delete&quot;
 comma
 op_amp
 r_delete
@@ -742,7 +742,7 @@ c_func
 (paren
 l_char|&squot;f&squot;
 comma
-l_int|NULL
+l_string|&quot;force&quot;
 comma
 op_amp
 id|force
