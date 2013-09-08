@@ -116,7 +116,7 @@ r_static
 r_int
 id|keepalive
 op_assign
-l_int|1
+l_int|5
 suffix:semicolon
 multiline_comment|/* 0 for no sideband,&n; * otherwise maximum packet size (up to 65520 bytes).&n; */
 DECL|variable|use_sideband
