@@ -2499,10 +2499,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|git_parse_long
+DECL|function|git_parse_int
 r_static
 r_int
-id|git_parse_long
+id|git_parse_int
 c_func
 (paren
 r_const
@@ -2655,14 +2655,12 @@ id|value
 (brace
 r_int
 id|ret
-op_assign
-l_int|0
 suffix:semicolon
 r_if
 c_cond
 (paren
 op_logical_neg
-id|git_parse_long
+id|git_parse_int
 c_func
 (paren
 id|value
@@ -2871,7 +2869,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|git_parse_long
+id|git_parse_int
 c_func
 (paren
 id|value
