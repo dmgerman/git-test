@@ -2631,18 +2631,47 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|die_bad_config
+DECL|function|die_bad_number
 r_static
 r_void
-id|die_bad_config
+id|die_bad_number
 c_func
 (paren
 r_const
 r_char
 op_star
 id|name
+comma
+r_const
+r_char
+op_star
+id|value
 )paren
 (brace
+r_const
+r_char
+op_star
+id|reason
+op_assign
+id|errno
+op_eq
+id|ERANGE
+ques
+c_cond
+l_string|&quot;out of range&quot;
+suffix:colon
+l_string|&quot;invalid unit&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|value
+)paren
+id|value
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2653,19 +2682,27 @@ id|cf-&gt;name
 id|die
 c_func
 (paren
-l_string|&quot;bad config value for &squot;%s&squot; in %s&quot;
+l_string|&quot;bad numeric config value &squot;%s&squot; for &squot;%s&squot; in %s: %s&quot;
+comma
+id|value
 comma
 id|name
 comma
 id|cf-&gt;name
+comma
+id|reason
 )paren
 suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;bad config value for &squot;%s&squot;&quot;
+l_string|&quot;bad numeric config value &squot;%s&squot; for &squot;%s&squot;: %s&quot;
+comma
+id|value
 comma
 id|name
+comma
+id|reason
 )paren
 suffix:semicolon
 )brace
@@ -2701,10 +2738,12 @@ op_amp
 id|ret
 )paren
 )paren
-id|die_bad_config
+id|die_bad_number
 c_func
 (paren
 id|name
+comma
+id|value
 )paren
 suffix:semicolon
 r_return
@@ -2745,10 +2784,12 @@ op_amp
 id|ret
 )paren
 )paren
-id|die_bad_config
+id|die_bad_number
 c_func
 (paren
 id|name
+comma
+id|value
 )paren
 suffix:semicolon
 r_return
