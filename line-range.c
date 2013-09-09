@@ -64,7 +64,7 @@ r_if
 c_cond
 (paren
 l_int|1
-OL
+op_le
 id|begin
 op_logical_and
 (paren
@@ -117,6 +117,19 @@ id|ret
 )paren
 r_return
 id|term
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|num
+op_eq
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;-L invalid empty range&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
