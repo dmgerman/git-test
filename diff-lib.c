@@ -2181,10 +2181,6 @@ id|opts.pathspec-&gt;recursive
 op_assign
 l_int|1
 suffix:semicolon
-id|opts.pathspec-&gt;max_depth
-op_assign
-l_int|1
-suffix:semicolon
 id|init_tree_desc
 c_func
 (paren
@@ -2324,13 +2320,14 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|init_pathspec
+id|copy_pathspec
 c_func
 (paren
 op_amp
 id|revs.prune_data
 comma
-id|opt-&gt;pathspec.raw
+op_amp
+id|opt-&gt;pathspec
 )paren
 suffix:semicolon
 id|revs.diffopt

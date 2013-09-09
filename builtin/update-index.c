@@ -7,6 +7,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -2592,33 +2593,25 @@ id|has_head
 op_assign
 l_int|1
 suffix:semicolon
-r_const
-r_char
-op_star
-op_star
-id|paths
-op_assign
-id|get_pathspec
-c_func
-(paren
-id|prefix
-comma
-id|av
-op_plus
-l_int|1
-)paren
-suffix:semicolon
 r_struct
 id|pathspec
 id|pathspec
 suffix:semicolon
-id|init_pathspec
+id|parse_pathspec
 c_func
 (paren
 op_amp
 id|pathspec
 comma
-id|paths
+l_int|0
+comma
+id|PATHSPEC_PREFER_CWD
+comma
+id|prefix
+comma
+id|av
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 r_if

@@ -6,6 +6,7 @@ macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|line_termination
 r_static
 r_int
@@ -109,7 +110,7 @@ l_int|1
 suffix:semicolon
 id|s
 op_assign
-id|pathspec.raw
+id|pathspec._raw
 suffix:semicolon
 r_if
 c_cond
@@ -887,21 +888,24 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-id|init_pathspec
+multiline_comment|/*&n;&t; * show_recursive() rolls its own matching code and is&n;&t; * generally ignorant of &squot;struct pathspec&squot;. The magic mask&n;&t; * cannot be lifted until it is converted to use&n;&t; * match_pathspec_depth() or tree_entry_interesting()&n;&t; */
+id|parse_pathspec
 c_func
 (paren
 op_amp
 id|pathspec
 comma
-id|get_pathspec
-c_func
-(paren
+id|PATHSPEC_GLOB
+op_or
+id|PATHSPEC_ICASE
+comma
+id|PATHSPEC_PREFER_CWD
+comma
 id|prefix
 comma
 id|argv
 op_plus
 l_int|1
-)paren
 )paren
 suffix:semicolon
 r_for

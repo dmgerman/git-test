@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 macro_line|#include &quot;wt-status.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;dir.h&quot;
@@ -2571,12 +2572,13 @@ id|rev.diffopt.format_callback_data
 op_assign
 id|s
 suffix:semicolon
-id|init_pathspec
+id|copy_pathspec
 c_func
 (paren
 op_amp
 id|rev.prune_data
 comma
+op_amp
 id|s-&gt;pathspec
 )paren
 suffix:semicolon
@@ -2705,12 +2707,13 @@ id|rev.diffopt.break_opt
 op_assign
 l_int|0
 suffix:semicolon
-id|init_pathspec
+id|copy_pathspec
 c_func
 (paren
 op_amp
 id|rev.prune_data
 comma
+op_amp
 id|s-&gt;pathspec
 )paren
 suffix:semicolon
@@ -2736,21 +2739,8 @@ op_star
 id|s
 )paren
 (brace
-r_struct
-id|pathspec
-id|pathspec
-suffix:semicolon
 r_int
 id|i
-suffix:semicolon
-id|init_pathspec
-c_func
-(paren
-op_amp
-id|pathspec
-comma
-id|s-&gt;pathspec
-)paren
 suffix:semicolon
 r_for
 c_loop
@@ -2798,7 +2788,7 @@ c_func
 id|ce
 comma
 op_amp
-id|pathspec
+id|s-&gt;pathspec
 )paren
 )paren
 r_continue
@@ -2880,13 +2870,6 @@ op_assign
 id|DIFF_STATUS_ADDED
 suffix:semicolon
 )brace
-id|free_pathspec
-c_func
-(paren
-op_amp
-id|pathspec
-)paren
-suffix:semicolon
 )brace
 DECL|function|wt_status_collect_untracked
 r_static
@@ -2982,6 +2965,7 @@ c_func
 op_amp
 id|dir
 comma
+op_amp
 id|s-&gt;pathspec
 )paren
 suffix:semicolon
@@ -3021,9 +3005,10 @@ comma
 id|ent-&gt;len
 )paren
 op_logical_and
-id|match_pathspec
+id|match_pathspec_depth
 c_func
 (paren
+op_amp
 id|s-&gt;pathspec
 comma
 id|ent-&gt;name
@@ -3087,9 +3072,10 @@ comma
 id|ent-&gt;len
 )paren
 op_logical_and
-id|match_pathspec
+id|match_pathspec_depth
 c_func
 (paren
+op_amp
 id|s-&gt;pathspec
 comma
 id|ent-&gt;name

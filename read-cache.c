@@ -5056,8 +5056,8 @@ r_int
 id|flags
 comma
 r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 comma
@@ -5303,7 +5303,7 @@ c_cond
 id|pathspec
 op_logical_and
 op_logical_neg
-id|match_pathspec
+id|match_pathspec_depth
 c_func
 (paren
 id|pathspec

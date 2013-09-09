@@ -6,6 +6,7 @@ macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;attr.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|macro|RESOLVED
 mdefine_line|#define RESOLVED 0
 DECL|macro|PUNTED
@@ -3926,9 +3927,8 @@ r_int
 id|rerere_forget
 c_func
 (paren
-r_const
-r_char
-op_star
+r_struct
+id|pathspec
 op_star
 id|pathspec
 )paren
@@ -4021,7 +4021,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|match_pathspec
+id|match_pathspec_depth
 c_func
 (paren
 id|pathspec

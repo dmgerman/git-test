@@ -909,11 +909,11 @@ op_amp
 id|opt
 )paren
 suffix:semicolon
-id|diff_tree_release_paths
+id|free_pathspec
 c_func
 (paren
 op_amp
-id|opt
+id|opt.pathspec
 )paren
 suffix:semicolon
 op_star
@@ -1313,11 +1313,11 @@ op_amp
 id|opt
 )paren
 suffix:semicolon
-id|diff_tree_release_paths
+id|free_pathspec
 c_func
 (paren
 op_amp
-id|opt
+id|opt.pathspec
 )paren
 suffix:semicolon
 )brace

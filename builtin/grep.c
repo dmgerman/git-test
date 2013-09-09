@@ -13,6 +13,7 @@ macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;grep.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;pathspec.h&quot;
 DECL|variable|grep_usage
 r_static
 r_char
@@ -2646,7 +2647,7 @@ c_func
 op_amp
 id|dir
 comma
-id|pathspec-&gt;raw
+id|pathspec
 )paren
 suffix:semicolon
 r_for
@@ -3313,14 +3314,6 @@ id|object_array
 id|list
 op_assign
 id|OBJECT_ARRAY_INIT
-suffix:semicolon
-r_const
-r_char
-op_star
-op_star
-id|paths
-op_assign
-l_int|NULL
 suffix:semicolon
 r_struct
 id|pathspec
@@ -4740,25 +4733,32 @@ id|i
 )paren
 suffix:semicolon
 )brace
-id|paths
-op_assign
-id|get_pathspec
-c_func
-(paren
-id|prefix
-comma
-id|argv
-op_plus
-id|i
-)paren
-suffix:semicolon
-id|init_pathspec
+id|parse_pathspec
 c_func
 (paren
 op_amp
 id|pathspec
 comma
-id|paths
+l_int|0
+comma
+id|PATHSPEC_PREFER_CWD
+op_or
+(paren
+id|opt.max_depth
+op_ne
+l_int|1
+ques
+c_cond
+id|PATHSPEC_MAXDEPTH_VALID
+suffix:colon
+l_int|0
+)paren
+comma
+id|prefix
+comma
+id|argv
+op_plus
+id|i
 )paren
 suffix:semicolon
 id|pathspec.max_depth
