@@ -1071,6 +1071,18 @@ multiline_comment|/* Preserve the actual prefix length of each pattern */
 r_if
 c_cond
 (paren
+id|short_magic
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: prefixing on short magic is not supported&quot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
 id|long_magic_end
 )paren
 (brace

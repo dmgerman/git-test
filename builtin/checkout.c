@@ -5979,7 +5979,6 @@ c_cond
 id|argc
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * In patch mode (opts.patch_mode != 0), we pass the&n;&t;&t; * pathspec to an external program, git-add--interactive.&n;&t;&t; * Do not accept any kind of magic that that program&n;&t;&t; * cannot handle. Magic mask is pretty safe to be&n;&t;&t; * lifted for new magic when opts.patch_mode == 0.&n;&t;&t; */
 id|parse_pathspec
 c_func
 (paren

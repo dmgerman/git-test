@@ -1072,17 +1072,13 @@ r_struct
 id|pathspec
 id|pathspec
 suffix:semicolon
-multiline_comment|/*&n;&t; * git-add--interactive itself does not parse pathspec. It&n;&t; * simply passes the pathspec to other builtin commands. Let&squot;s&n;&t; * hope all of them support all magic, or we&squot;ll need to limit&n;&t; * the magic here.&n;&t; */
 id|parse_pathspec
 c_func
 (paren
 op_amp
 id|pathspec
 comma
-id|PATHSPEC_ALL_MAGIC
-op_amp
-op_complement
-id|PATHSPEC_FROMTOP
+l_int|0
 comma
 id|PATHSPEC_PREFER_FULL
 op_or
