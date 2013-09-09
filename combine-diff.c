@@ -10,6 +10,7 @@ macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
+macro_line|#include &quot;revision.h&quot;
 DECL|function|intersect_paths
 r_static
 r_struct
@@ -7669,7 +7670,13 @@ id|commit_list
 op_star
 id|parent
 op_assign
-id|commit-&gt;parents
+id|get_saved_parents
+c_func
+(paren
+id|rev
+comma
+id|commit
+)paren
 suffix:semicolon
 r_struct
 id|sha1_array

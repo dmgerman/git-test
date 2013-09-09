@@ -3586,7 +3586,13 @@ suffix:semicolon
 multiline_comment|/* Root commit? */
 id|parents
 op_assign
-id|commit-&gt;parents
+id|get_saved_parents
+c_func
+(paren
+id|opt
+comma
+id|commit
+)paren
 suffix:semicolon
 r_if
 c_cond
