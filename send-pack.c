@@ -5,6 +5,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;send-pack.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;transport.h&quot;
@@ -1074,6 +1075,9 @@ id|REF_STATUS_REJECT_FETCH_FIRST
 suffix:colon
 r_case
 id|REF_STATUS_REJECT_NEEDS_FORCE
+suffix:colon
+r_case
+id|REF_STATUS_REJECT_STALE
 suffix:colon
 r_case
 id|REF_STATUS_UPTODATE

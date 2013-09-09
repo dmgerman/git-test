@@ -10,6 +10,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;list-objects.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;version.h&quot;
 macro_line|#include &quot;string-list.h&quot;

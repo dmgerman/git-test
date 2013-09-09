@@ -8,6 +8,7 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;

@@ -3,6 +3,8 @@ macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
+macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;send-pack.h&quot;
 macro_line|#include &quot;walker.h&quot;
 macro_line|#include &quot;bundle.h&quot;
@@ -3853,6 +3855,27 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
+id|REF_STATUS_REJECT_STALE
+suffix:colon
+id|print_ref_status
+c_func
+(paren
+l_char|&squot;!&squot;
+comma
+l_string|&quot;[rejected]&quot;
+comma
+id|ref
+comma
+id|ref-&gt;peer_ref
+comma
+l_string|&quot;stale info&quot;
+comma
+id|porcelain
+)paren
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
 id|REF_STATUS_REMOTE_REJECT
 suffix:colon
 id|print_ref_status
@@ -5803,6 +5826,15 @@ c_cond
 (paren
 id|r-&gt;status
 op_eq
+id|REF_STATUS_REJECT_STALE
+)paren
+r_continue
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|r-&gt;status
+op_eq
 id|REF_STATUS_UPTODATE
 )paren
 r_continue
@@ -6131,6 +6163,30 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|transport-&gt;smart_options
+op_logical_and
+id|transport-&gt;smart_options-&gt;cas
+op_logical_and
+op_logical_neg
+id|is_empty_cas
+c_func
+(paren
+id|transport-&gt;smart_options-&gt;cas
+)paren
+)paren
+id|apply_push_cas
+c_func
+(paren
+id|transport-&gt;smart_options-&gt;cas
+comma
+id|transport-&gt;remote
+comma
+id|remote_refs
+)paren
+suffix:semicolon
 id|set_ref_status_for_push
 c_func
 (paren

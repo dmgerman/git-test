@@ -9,6 +9,7 @@ macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;version.h&quot;
 macro_line|#include &quot;prio-queue.h&quot;
