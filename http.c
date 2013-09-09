@@ -3,6 +3,7 @@ macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;url.h&quot;
+macro_line|#include &quot;urlmatch.h&quot;
 macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;version.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
@@ -714,9 +715,8 @@ id|var
 )paren
 )paren
 (brace
-r_if
-c_cond
-(paren
+id|ssl_cert_password_required
+op_assign
 id|git_config_bool
 c_func
 (paren
@@ -724,10 +724,6 @@ id|var
 comma
 id|value
 )paren
-)paren
-id|ssl_cert_password_required
-op_assign
-l_int|1
 suffix:semicolon
 r_return
 l_int|0
@@ -1651,16 +1647,66 @@ r_char
 op_star
 id|low_speed_time
 suffix:semicolon
+r_char
+op_star
+id|normalized_url
+suffix:semicolon
+r_struct
+id|urlmatch_config
+id|config
+op_assign
+(brace
+id|STRING_LIST_INIT_DUP
+)brace
+suffix:semicolon
+id|config.section
+op_assign
+l_string|&quot;http&quot;
+suffix:semicolon
+id|config.key
+op_assign
+l_int|NULL
+suffix:semicolon
+id|config.collect_fn
+op_assign
+id|http_options
+suffix:semicolon
+id|config.cascade_fn
+op_assign
+id|git_default_config
+suffix:semicolon
+id|config.cb
+op_assign
+l_int|NULL
+suffix:semicolon
 id|http_is_verbose
 op_assign
 l_int|0
 suffix:semicolon
+id|normalized_url
+op_assign
+id|url_normalize
+c_func
+(paren
+id|url
+comma
+op_amp
+id|config.url
+)paren
+suffix:semicolon
 id|git_config
 c_func
 (paren
-id|http_options
+id|urlmatch_config_entry
 comma
-l_int|NULL
+op_amp
+id|config
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|normalized_url
 )paren
 suffix:semicolon
 id|curl_global_init
