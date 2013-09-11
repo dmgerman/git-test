@@ -1121,6 +1121,16 @@ op_logical_or
 id|show_killed
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|show_others
+)paren
+id|dir-&gt;flags
+op_or_assign
+id|DIR_COLLECT_KILLED_ONLY
+suffix:semicolon
 id|fill_directory
 c_func
 (paren
