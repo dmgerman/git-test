@@ -2770,8 +2770,6 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-DECL|macro|fstat
-macro_line|#undef fstat
 DECL|function|mingw_fstat
 r_int
 id|mingw_fstat
