@@ -633,6 +633,11 @@ c_func
 id|s
 )paren
 suffix:semicolon
+id|s-&gt;hints
+op_assign
+id|advice_status_hints
+suffix:semicolon
+multiline_comment|/* must come after git_config() */
 )brace
 DECL|function|rollback_index_files
 r_static
