@@ -1194,9 +1194,10 @@ r_const
 r_char
 op_star
 id|seg_start
+suffix:semicolon
+r_int
+id|seg_start_off
 op_assign
-id|norm.buf
-op_plus
 id|norm.len
 suffix:semicolon
 r_const
@@ -1271,6 +1272,12 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
+id|seg_start
+op_assign
+id|norm.buf
+op_plus
+id|seg_start_off
+suffix:semicolon
 r_if
 c_cond
 (paren
