@@ -3513,6 +3513,11 @@ id|commit_editmsg
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Most hints are counter-productive when the commit has&n;&t; * already started.&n;&t; */
+id|s-&gt;hints
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
