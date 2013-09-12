@@ -918,9 +918,10 @@ c_func
 (paren
 id|value
 comma
-l_string|&quot;%d&quot;
+l_string|&quot;%&quot;
+id|PRId64
 comma
-id|git_config_int
+id|git_config_int64
 c_func
 (paren
 id|key_
@@ -1729,10 +1730,10 @@ op_eq
 id|TYPE_INT
 )paren
 (brace
-r_int
+r_int64
 id|v
 op_assign
-id|git_config_int
+id|git_config_int64
 c_func
 (paren
 id|key
@@ -1745,7 +1746,8 @@ c_func
 (paren
 id|normalized
 comma
-l_string|&quot;%d&quot;
+l_string|&quot;%&quot;
+id|PRId64
 comma
 id|v
 )paren
