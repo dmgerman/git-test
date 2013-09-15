@@ -1831,9 +1831,16 @@ comma
 id|fname
 )paren
 )paren
-m_exit
+id|die_errno
+c_func
 (paren
-id|errno
+id|_
+c_func
+(paren
+l_string|&quot;renaming &squot;%s&squot; failed&quot;
+)paren
+comma
+id|fname_old
 )paren
 suffix:semicolon
 id|free
@@ -1896,9 +1903,24 @@ id|ext
 )braket
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|remove_path
 c_func
 (paren
+id|fname
+)paren
+)paren
+id|warning
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;removing &squot;%s&squot; failed&quot;
+)paren
+comma
 id|fname
 )paren
 suffix:semicolon
