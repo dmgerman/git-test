@@ -1304,7 +1304,7 @@ c_cond
 id|ret
 )paren
 r_return
-l_int|1
+id|ret
 suffix:semicolon
 id|nr_packs
 op_assign
@@ -1384,7 +1384,7 @@ c_cond
 id|ret
 )paren
 r_return
-l_int|1
+id|ret
 suffix:semicolon
 id|argv_array_clear
 c_func
