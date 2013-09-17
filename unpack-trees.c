@@ -6029,7 +6029,7 @@ id|src
 suffix:semicolon
 id|src
 op_assign
-id|index_name_exists
+id|index_file_exists
 c_func
 (paren
 id|o-&gt;src_index
@@ -6181,7 +6181,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * The previous round may already have decided to&n;&t; * delete this path, which is in a subdirectory that&n;&t; * is being replaced with a blob.&n;&t; */
 id|result
 op_assign
-id|index_name_exists
+id|index_file_exists
 c_func
 (paren
 op_amp

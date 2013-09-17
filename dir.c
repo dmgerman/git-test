@@ -3844,7 +3844,7 @@ id|len
 r_if
 c_cond
 (paren
-id|cache_name_exists
+id|cache_file_exists
 c_func
 (paren
 id|pathname
@@ -3965,7 +3965,7 @@ DECL|enumerator|index_gitdir
 id|index_gitdir
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Do not use the alphabetically sorted index to look up&n; * the directory name; instead, use the case insensitive&n; * name hash.&n; */
+multiline_comment|/*&n; * Do not use the alphabetically sorted index to look up&n; * the directory name; instead, use the case insensitive&n; * directory hash.&n; */
 DECL|function|directory_exists_in_index_icase
 r_static
 r_enum
@@ -3988,7 +3988,7 @@ id|cache_entry
 op_star
 id|ce
 op_assign
-id|cache_name_exists
+id|cache_dir_exists
 c_func
 (paren
 id|dirname
@@ -3996,8 +3996,6 @@ comma
 id|len
 op_plus
 l_int|1
-comma
-id|ignore_case
 )paren
 suffix:semicolon
 r_int
@@ -4554,7 +4552,7 @@ id|ce
 suffix:semicolon
 id|ce
 op_assign
-id|cache_name_exists
+id|cache_file_exists
 c_func
 (paren
 id|path
@@ -4866,7 +4864,7 @@ id|has_path_in_index
 op_assign
 op_logical_neg
 op_logical_neg
-id|cache_name_exists
+id|cache_file_exists
 c_func
 (paren
 id|path-&gt;buf
