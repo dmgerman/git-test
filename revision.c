@@ -661,15 +661,11 @@ suffix:semicolon
 )brace
 )brace
 multiline_comment|/*&n;&t; * We don&squot;t care about the tree any more&n;&t; * after it has been marked uninteresting.&n;&t; */
-id|free
+id|free_tree_buffer
 c_func
 (paren
-id|tree-&gt;buffer
+id|tree
 )paren
-suffix:semicolon
-id|tree-&gt;buffer
-op_assign
-l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|mark_parents_uninteresting

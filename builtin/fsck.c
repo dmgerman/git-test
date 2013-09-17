@@ -17,6 +17,8 @@ DECL|macro|REACHABLE
 mdefine_line|#define REACHABLE 0x0001
 DECL|macro|SEEN
 mdefine_line|#define SEEN      0x0002
+DECL|macro|HAS_OBJ
+mdefine_line|#define HAS_OBJ   0x0004
 DECL|variable|show_root
 r_static
 r_int
@@ -470,7 +472,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|obj-&gt;parsed
+(paren
+id|obj-&gt;flags
+op_amp
+id|HAS_OBJ
+)paren
 )paren
 (brace
 r_if
@@ -597,10 +603,6 @@ op_eq
 id|OBJ_TREE
 )paren
 (brace
-id|obj-&gt;parsed
-op_assign
-l_int|0
-suffix:semicolon
 id|tree
 op_assign
 (paren
@@ -643,18 +645,12 @@ c_cond
 (paren
 id|tree
 )paren
-(brace
-id|free
+id|free_tree_buffer
 c_func
 (paren
-id|tree-&gt;buffer
+id|tree
 )paren
 suffix:semicolon
-id|tree-&gt;buffer
-op_assign
-l_int|NULL
-suffix:semicolon
-)brace
 r_return
 id|result
 suffix:semicolon
@@ -817,7 +813,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|obj-&gt;parsed
+(paren
+id|obj-&gt;flags
+op_amp
+id|HAS_OBJ
+)paren
 )paren
 (brace
 r_if
@@ -1329,15 +1329,11 @@ op_star
 )paren
 id|obj
 suffix:semicolon
-id|free
+id|free_tree_buffer
 c_func
 (paren
-id|item-&gt;buffer
+id|item
 )paren
-suffix:semicolon
-id|item-&gt;buffer
-op_assign
-l_int|NULL
 suffix:semicolon
 )brace
 r_if
@@ -1505,6 +1501,10 @@ id|sha1
 )paren
 suffix:semicolon
 )brace
+id|obj-&gt;flags
+op_or_assign
+id|HAS_OBJ
+suffix:semicolon
 r_return
 id|fsck_obj
 c_func
@@ -1588,6 +1588,10 @@ id|sha1
 )paren
 suffix:semicolon
 )brace
+id|obj-&gt;flags
+op_assign
+id|HAS_OBJ
+suffix:semicolon
 r_return
 id|fsck_obj
 c_func
