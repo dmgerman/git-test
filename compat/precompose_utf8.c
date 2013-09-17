@@ -218,11 +218,8 @@ comma
 id|auml_nfd
 )paren
 suffix:semicolon
-multiline_comment|/* Indicate to the user, that we can configure it to true */
-r_if
-c_cond
-(paren
-op_logical_neg
+id|precomposed_unicode
+op_assign
 id|access
 c_func
 (paren
@@ -230,19 +227,24 @@ id|path
 comma
 id|R_OK
 )paren
-)paren
+ques
+c_cond
+l_int|0
+suffix:colon
+l_int|1
+suffix:semicolon
 id|git_config_set
 c_func
 (paren
 l_string|&quot;core.precomposeunicode&quot;
 comma
+id|precomposed_unicode
+ques
+c_cond
+l_string|&quot;true&quot;
+suffix:colon
 l_string|&quot;false&quot;
 )paren
-suffix:semicolon
-multiline_comment|/* To be backward compatible, set precomposed_unicode to 0 */
-id|precomposed_unicode
-op_assign
-l_int|0
 suffix:semicolon
 id|strcpy
 c_func
