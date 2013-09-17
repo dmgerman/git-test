@@ -106,7 +106,7 @@ id|one
 id|die
 c_func
 (paren
-l_string|&quot;not a treeish %s&quot;
+l_string|&quot;not a tree-ish %s&quot;
 comma
 id|av
 (braket
@@ -131,7 +131,7 @@ id|two
 id|die
 c_func
 (paren
-l_string|&quot;not a treeish %s&quot;
+l_string|&quot;not a tree-ish %s&quot;
 comma
 id|av
 (braket

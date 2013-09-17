@@ -26,7 +26,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git describe [options] &lt;committish&gt;*&quot;
+l_string|&quot;git describe [options] &lt;commit-ish&gt;*&quot;
 )paren
 comma
 id|N_
@@ -2727,7 +2727,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;--dirty is incompatible with committishes&quot;
+l_string|&quot;--dirty is incompatible with commit-ishes&quot;
 )paren
 )paren
 suffix:semicolon
