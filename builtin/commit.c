@@ -24,6 +24,7 @@ macro_line|#include &quot;gpg-interface.h&quot;
 macro_line|#include &quot;column.h&quot;
 macro_line|#include &quot;sequencer.h&quot;
 macro_line|#include &quot;notes-utils.h&quot;
+macro_line|#include &quot;mailmap.h&quot;
 DECL|variable|builtin_commit_usage
 r_static
 r_const
@@ -4588,6 +4589,12 @@ id|buf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_struct
+id|string_list
+id|mailmap
+op_assign
+id|STRING_LIST_INIT_NODUP
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -4666,6 +4673,19 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|revs.mailmap
+op_assign
+op_amp
+id|mailmap
+suffix:semicolon
+id|read_mailmap
+c_func
+(paren
+id|revs.mailmap
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|prepare_revision_walk
 c_func
 (paren
@@ -4712,13 +4732,20 @@ c_func
 (paren
 id|commit
 comma
-l_string|&quot;%an &lt;%ae&gt;&quot;
+l_string|&quot;%aN &lt;%aE&gt;&quot;
 comma
 op_amp
 id|buf
 comma
 op_amp
 id|ctx
+)paren
+suffix:semicolon
+id|clear_mailmap
+c_func
+(paren
+op_amp
+id|mailmap
 )paren
 suffix:semicolon
 r_return
