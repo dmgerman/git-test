@@ -229,7 +229,7 @@ r_int
 id|namelen
 )paren
 (brace
-multiline_comment|/*&n;&t; * Throw each directory component in the hash for quick lookup&n;&t; * during a git status. Directory components are stored with their&n;&t; * closing slash.  Despite submodules being a directory, they never&n;&t; * reach this point, because they are stored without a closing slash&n;&t; * in index_state.name_hash (as ordinary cache_entries).&n;&t; *&n;&t; * Note that the cache_entry stored with the dir_entry merely&n;&t; * supplies the name of the directory (up to dir_entry.namelen). We&n;&t; * track the number of &squot;active&squot; files in a directory in dir_entry.nr,&n;&t; * so we can tell if the directory is still relevant, e.g. for git&n;&t; * status. However, if cache_entries are removed, we cannot pinpoint&n;&t; * an exact cache_entry that&squot;s still active. It is very possible that&n;&t; * multiple dir_entries point to the same cache_entry.&n;&t; */
+multiline_comment|/*&n;&t; * Throw each directory component in the hash for quick lookup&n;&t; * during a git status. Directory components are stored without their&n;&t; * closing slash.  Despite submodules being a directory, they never&n;&t; * reach this point, because they are stored&n;&t; * in index_state.name_hash (as ordinary cache_entries).&n;&t; *&n;&t; * Note that the cache_entry stored with the dir_entry merely&n;&t; * supplies the name of the directory (up to dir_entry.namelen). We&n;&t; * track the number of &squot;active&squot; files in a directory in dir_entry.nr,&n;&t; * so we can tell if the directory is still relevant, e.g. for git&n;&t; * status. However, if cache_entries are removed, we cannot pinpoint&n;&t; * an exact cache_entry that&squot;s still active. It is very possible that&n;&t; * multiple dir_entries point to the same cache_entry.&n;&t; */
 r_struct
 id|dir_entry
 op_star
@@ -266,6 +266,9 @@ l_int|0
 )paren
 r_return
 l_int|NULL
+suffix:semicolon
+id|namelen
+op_decrement
 suffix:semicolon
 multiline_comment|/* lookup existing entry for that directory */
 id|dir
@@ -368,7 +371,6 @@ comma
 id|ce
 comma
 id|namelen
-l_int|1
 )paren
 suffix:semicolon
 )brace
@@ -1007,7 +1009,6 @@ comma
 id|name
 comma
 id|namelen
-l_int|1
 comma
 l_int|1
 )paren
@@ -1181,6 +1182,7 @@ comma
 id|name
 comma
 id|namelen
+l_int|1
 )paren
 suffix:semicolon
 r_return

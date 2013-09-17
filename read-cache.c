@@ -3005,6 +3005,7 @@ id|ce-&gt;name
 comma
 id|ptr
 id|ce-&gt;name
+l_int|1
 )paren
 suffix:semicolon
 r_if

@@ -3994,8 +3994,6 @@ c_func
 id|dirname
 comma
 id|len
-op_plus
-l_int|1
 )paren
 suffix:semicolon
 r_int
