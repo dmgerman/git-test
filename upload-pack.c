@@ -3811,7 +3811,7 @@ id|sha1
 comma
 id|flag
 comma
-id|cb_data
+l_int|NULL
 )paren
 )paren
 r_return
