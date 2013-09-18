@@ -3113,9 +3113,7 @@ id|check_connectivity
 r_if
 c_cond
 (paren
-l_int|0
-op_le
-id|option_verbosity
+id|transport-&gt;progress
 )paren
 id|fprintf
 c_func
@@ -3158,9 +3156,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-l_int|0
-op_le
-id|option_verbosity
+id|transport-&gt;progress
 )paren
 id|fprintf
 c_func
