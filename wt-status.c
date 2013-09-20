@@ -844,7 +844,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 r_return
 suffix:semicolon
@@ -1034,7 +1034,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 r_return
 suffix:semicolon
@@ -1145,7 +1145,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 r_return
 suffix:semicolon
@@ -1279,7 +1279,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 r_return
 suffix:semicolon
@@ -4762,7 +4762,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|status_printf_ln
 c_func
@@ -4798,7 +4798,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|status_printf_ln
 c_func
@@ -4880,7 +4880,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 (brace
 r_if
@@ -5295,7 +5295,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 (brace
 id|status_printf_ln
@@ -5404,7 +5404,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|status_printf_ln
 c_func
@@ -5473,7 +5473,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|status_printf_ln
 c_func
@@ -5533,7 +5533,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 op_logical_and
 op_logical_neg
 id|s-&gt;amend
@@ -5615,7 +5615,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 (brace
 r_if
@@ -5725,7 +5725,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 (brace
 r_if
@@ -5849,7 +5849,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|status_printf_ln
 c_func
@@ -7450,7 +7450,7 @@ c_func
 l_string|&quot;Untracked files not listed%s&quot;
 )paren
 comma
-id|advice_status_hints
+id|s-&gt;hints
 ques
 c_cond
 id|_
@@ -7517,7 +7517,7 @@ id|s-&gt;workdir_dirty
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|printf
 c_func
@@ -7552,7 +7552,7 @@ id|s-&gt;untracked.nr
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|printf
 c_func
@@ -7587,7 +7587,7 @@ id|s-&gt;is_initial
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|printf
 c_func
@@ -7623,7 +7623,7 @@ id|s-&gt;show_untracked_files
 r_if
 c_cond
 (paren
-id|advice_status_hints
+id|s-&gt;hints
 )paren
 id|printf
 c_func
