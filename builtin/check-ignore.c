@@ -8,6 +8,7 @@ DECL|variable|quiet
 DECL|variable|verbose
 DECL|variable|stdin_paths
 DECL|variable|show_non_matching
+DECL|variable|no_index
 r_static
 r_int
 id|quiet
@@ -17,6 +18,8 @@ comma
 id|stdin_paths
 comma
 id|show_non_matching
+comma
+id|no_index
 suffix:semicolon
 DECL|variable|check_ignore_usage
 r_static
@@ -131,6 +134,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;show non-matching input paths&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;no-index&quot;
+comma
+op_amp
+id|no_index
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;ignore index when checking&quot;
 )paren
 )paren
 comma
@@ -928,6 +948,9 @@ multiline_comment|/* read_cache() is only necessary so we can watch out for subm
 r_if
 c_cond
 (paren
+op_logical_neg
+id|no_index
+op_logical_and
 id|read_cache
 c_func
 (paren
