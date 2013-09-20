@@ -1061,7 +1061,6 @@ id|tracking_branch
 suffix:semicolon
 r_return
 op_logical_neg
-(paren
 id|remote_find_tracking
 c_func
 (paren
@@ -1069,15 +1068,6 @@ id|remote
 comma
 op_amp
 id|query
-)paren
-op_logical_or
-id|prefixcmp
-c_func
-(paren
-id|query.src
-comma
-l_string|&quot;refs/heads/&quot;
-)paren
 )paren
 suffix:semicolon
 )brace
