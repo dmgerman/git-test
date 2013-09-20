@@ -9547,7 +9547,7 @@ r_return
 id|found
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Return true if there is anything to report, otherwise false.&n; */
+multiline_comment|/*&n; * Compare a branch with its upstream, and save their differences (number&n; * of commits) in *num_ours and *num_theirs.&n; *&n; * Return 0 if branch has no upstream (no base), -1 if upstream is missing&n; * (with &quot;gone&quot; base), otherwise 1 (with base).&n; */
 DECL|function|stat_tracking_info
 r_int
 id|stat_tracking_info
@@ -9606,7 +9606,7 @@ suffix:semicolon
 r_int
 id|rev_argc
 suffix:semicolon
-multiline_comment|/*&n;&t; * Nothing to report unless we are marked to build on top of&n;&t; * somebody else.&n;&t; */
+multiline_comment|/* Cannot stat unless we are marked to build on top of somebody else. */
 r_if
 c_cond
 (paren
@@ -9633,7 +9633,7 @@ id|dst
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * If what we used to build on no longer exists, there is&n;&t; * nothing to report.&n;&t; */
+multiline_comment|/* Cannot stat if what we used to build on no longer exists */
 id|base
 op_assign
 id|branch-&gt;merge
@@ -9655,7 +9655,7 @@ id|sha1
 )paren
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 id|theirs
 op_assign
@@ -9672,7 +9672,7 @@ op_logical_neg
 id|theirs
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -9686,7 +9686,7 @@ id|sha1
 )paren
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 id|ours
 op_assign
@@ -9703,7 +9703,7 @@ op_logical_neg
 id|ours
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 multiline_comment|/* are we the same? */
 r_if
@@ -9713,9 +9713,19 @@ id|theirs
 op_eq
 id|ours
 )paren
-r_return
+(brace
+op_star
+id|num_theirs
+op_assign
+op_star
+id|num_ours
+op_assign
 l_int|0
 suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 multiline_comment|/* Run &quot;rev-list --left-right ours...theirs&quot; internally... */
 id|rev_argc
 op_assign
@@ -9922,34 +9932,59 @@ id|sb
 )paren
 (brace
 r_int
-id|num_ours
+id|ours
 comma
-id|num_theirs
+id|theirs
 suffix:semicolon
 r_const
 r_char
 op_star
 id|base
 suffix:semicolon
-r_if
+r_int
+id|upstream_is_gone
+op_assign
+l_int|0
+suffix:semicolon
+r_switch
 c_cond
 (paren
-op_logical_neg
 id|stat_tracking_info
 c_func
 (paren
 id|branch
 comma
 op_amp
-id|num_ours
+id|ours
 comma
 op_amp
-id|num_theirs
+id|theirs
 )paren
 )paren
+(brace
+r_case
+l_int|0
+suffix:colon
+multiline_comment|/* no base */
 r_return
 l_int|0
 suffix:semicolon
+r_case
+l_int|1
+suffix:colon
+multiline_comment|/* with &quot;gone&quot; base */
+id|upstream_is_gone
+op_assign
+l_int|1
+suffix:semicolon
+r_break
+suffix:semicolon
+r_default
+suffix:colon
+multiline_comment|/* with base */
+r_break
+suffix:semicolon
+)brace
 id|base
 op_assign
 id|branch-&gt;merge
@@ -9972,8 +10007,73 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|upstream_is_gone
+)paren
+(brace
+id|strbuf_addf
+c_func
+(paren
+id|sb
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Your branch is based on &squot;%s&squot;, but the upstream is gone.&bslash;n&quot;
+)paren
+comma
+id|base
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|advice_status_hints
+)paren
+id|strbuf_addf
+c_func
+(paren
+id|sb
+comma
+id|_
+c_func
+(paren
+l_string|&quot;  (use &bslash;&quot;git branch --unset-upstream&bslash;&quot; to fixup)&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
 op_logical_neg
-id|num_theirs
+id|ours
+op_logical_and
+op_logical_neg
+id|theirs
+)paren
+(brace
+id|strbuf_addf
+c_func
+(paren
+id|sb
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Your branch is up-to-date with &squot;%s&squot;.&bslash;n&quot;
+)paren
+comma
+id|base
+)paren
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|theirs
 )paren
 (brace
 id|strbuf_addf
@@ -9988,12 +10088,12 @@ l_string|&quot;Your branch is ahead of &squot;%s&squot; by %d commit.&bslash;n&q
 comma
 l_string|&quot;Your branch is ahead of &squot;%s&squot; by %d commits.&bslash;n&quot;
 comma
-id|num_ours
+id|ours
 )paren
 comma
 id|base
 comma
-id|num_ours
+id|ours
 )paren
 suffix:semicolon
 r_if
@@ -10019,7 +10119,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|num_ours
+id|ours
 )paren
 (brace
 id|strbuf_addf
@@ -10036,12 +10136,12 @@ comma
 l_string|&quot;Your branch is behind &squot;%s&squot; by %d commits, &quot;
 l_string|&quot;and can be fast-forwarded.&bslash;n&quot;
 comma
-id|num_theirs
+id|theirs
 )paren
 comma
 id|base
 comma
-id|num_theirs
+id|theirs
 )paren
 suffix:semicolon
 r_if
@@ -10080,14 +10180,14 @@ l_string|&quot;Your branch and &squot;%s&squot; have diverged,&bslash;n&quot;
 l_string|&quot;and have %d and %d different commits each, &quot;
 l_string|&quot;respectively.&bslash;n&quot;
 comma
-id|num_theirs
+id|theirs
 )paren
 comma
 id|base
 comma
-id|num_ours
+id|ours
 comma
-id|num_theirs
+id|theirs
 )paren
 suffix:semicolon
 r_if
