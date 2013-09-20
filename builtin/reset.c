@@ -1130,10 +1130,10 @@ id|argv
 )paren
 suffix:semicolon
 )brace
-DECL|function|update_refs
+DECL|function|reset_refs
 r_static
 r_int
-id|update_refs
+id|reset_refs
 c_func
 (paren
 r_const
@@ -2060,7 +2060,7 @@ id|unborn
 multiline_comment|/* Any resets without paths update HEAD to the head being&n;&t;&t; * switched to, saving the previous head in ORIG_HEAD before. */
 id|update_ref_status
 op_assign
-id|update_refs
+id|reset_refs
 c_func
 (paren
 id|rev
