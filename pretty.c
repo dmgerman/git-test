@@ -1987,6 +1987,15 @@ r_if
 c_cond
 (paren
 id|pp-&gt;from_ident
+op_logical_and
+id|ident_cmp
+c_func
+(paren
+id|pp-&gt;from_ident
+comma
+op_amp
+id|ident
+)paren
 )paren
 (brace
 r_struct
