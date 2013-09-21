@@ -180,8 +180,9 @@ c_func
 (paren
 r_sizeof
 (paren
-r_char
 op_star
+op_star
+id|argv
 )paren
 op_star
 id|size
@@ -466,7 +467,6 @@ r_return
 id|split_cmdline_errors
 (braket
 id|split_cmdline_errno
-op_minus
 l_int|1
 )braket
 suffix:semicolon
