@@ -415,6 +415,7 @@ id|object
 suffix:semicolon
 )brace
 DECL|function|keyring_get
+r_static
 r_int
 id|keyring_get
 c_func
@@ -589,6 +590,7 @@ id|EXIT_SUCCESS
 suffix:semicolon
 )brace
 DECL|function|keyring_store
+r_static
 r_int
 id|keyring_store
 c_func
@@ -677,6 +679,7 @@ id|EXIT_SUCCESS
 suffix:semicolon
 )brace
 DECL|function|keyring_erase
+r_static
 r_int
 id|keyring_erase
 c_func
@@ -861,6 +864,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Table with helper operation callbacks, used by generic&n; * credential helper main function.&n; */
 DECL|variable|credential_helper_ops
+r_static
 r_struct
 id|credential_operation
 r_const
@@ -892,6 +896,7 @@ id|CREDENTIAL_OP_END
 suffix:semicolon
 multiline_comment|/* ------------------ credential functions ------------------ */
 DECL|function|credential_init
+r_static
 r_void
 id|credential_init
 c_func
@@ -918,6 +923,7 @@ id|c
 suffix:semicolon
 )brace
 DECL|function|credential_clear
+r_static
 r_void
 id|credential_clear
 c_func
@@ -966,6 +972,7 @@ id|c
 suffix:semicolon
 )brace
 DECL|function|credential_read
+r_static
 r_int
 id|credential_read
 c_func
@@ -1279,6 +1286,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|credential_write_item
+r_static
 r_void
 id|credential_write_item
 c_func
@@ -1320,6 +1328,7 @@ id|value
 suffix:semicolon
 )brace
 DECL|function|credential_write
+r_static
 r_void
 id|credential_write
 c_func
