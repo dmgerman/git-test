@@ -4,7 +4,6 @@ macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;stdarg.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
-macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;glib.h&gt;
 macro_line|#include &lt;gnome-keyring.h&gt;
 macro_line|#include &lt;gnome-keyring-memory.h&gt;
@@ -200,75 +199,6 @@ id|ap
 )paren
 suffix:semicolon
 )brace
-DECL|function|die_errno
-r_static
-r_inline
-r_void
-id|die_errno
-c_func
-(paren
-r_int
-id|err
-)paren
-(brace
-id|error
-c_func
-(paren
-l_string|&quot;%s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|err
-)paren
-)paren
-suffix:semicolon
-m_exit
-(paren
-id|EXIT_FAILURE
-)paren
-suffix:semicolon
-)brace
-DECL|function|xstrdup
-r_static
-r_inline
-r_char
-op_star
-id|xstrdup
-c_func
-(paren
-r_const
-r_char
-op_star
-id|str
-)paren
-(brace
-r_char
-op_star
-id|ret
-op_assign
-id|strdup
-c_func
-(paren
-id|str
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|ret
-)paren
-id|die_errno
-c_func
-(paren
-id|errno
-)paren
-suffix:semicolon
-r_return
-id|ret
-suffix:semicolon
-)brace
 multiline_comment|/* ----------------- GNOME Keyring functions ----------------- */
 multiline_comment|/* create a special keyring option string, if path is given */
 DECL|function|keyring_object
@@ -401,7 +331,7 @@ op_amp
 id|entries
 )paren
 suffix:semicolon
-id|free
+id|g_free
 c_func
 (paren
 id|object
@@ -482,7 +412,7 @@ id|c-&gt;username
 )paren
 id|c-&gt;username
 op_assign
-id|xstrdup
+id|g_strdup
 c_func
 (paren
 id|password_data-&gt;user
@@ -577,7 +507,7 @@ op_amp
 id|item_id
 )paren
 suffix:semicolon
-id|free
+id|g_free
 c_func
 (paren
 id|object
@@ -668,7 +598,7 @@ op_amp
 id|entries
 )paren
 suffix:semicolon
-id|free
+id|g_free
 c_func
 (paren
 id|object
@@ -843,25 +773,25 @@ op_star
 id|c
 )paren
 (brace
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;protocol
 )paren
 suffix:semicolon
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;host
 )paren
 suffix:semicolon
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;path
 )paren
 suffix:semicolon
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;username
@@ -1023,7 +953,7 @@ l_string|&quot;protocol&quot;
 )paren
 )paren
 (brace
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;protocol
@@ -1031,7 +961,7 @@ id|c-&gt;protocol
 suffix:semicolon
 id|c-&gt;protocol
 op_assign
-id|xstrdup
+id|g_strdup
 c_func
 (paren
 id|value
@@ -1052,7 +982,7 @@ l_string|&quot;host&quot;
 )paren
 )paren
 (brace
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;host
@@ -1060,7 +990,7 @@ id|c-&gt;host
 suffix:semicolon
 id|c-&gt;host
 op_assign
-id|xstrdup
+id|g_strdup
 c_func
 (paren
 id|value
@@ -1112,7 +1042,7 @@ l_string|&quot;path&quot;
 )paren
 )paren
 (brace
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;path
@@ -1120,7 +1050,7 @@ id|c-&gt;path
 suffix:semicolon
 id|c-&gt;path
 op_assign
-id|xstrdup
+id|g_strdup
 c_func
 (paren
 id|value
@@ -1141,7 +1071,7 @@ l_string|&quot;username&quot;
 )paren
 )paren
 (brace
-id|free
+id|g_free
 c_func
 (paren
 id|c-&gt;username
@@ -1149,7 +1079,7 @@ id|c-&gt;username
 suffix:semicolon
 id|c-&gt;username
 op_assign
-id|xstrdup
+id|g_strdup
 c_func
 (paren
 id|value
