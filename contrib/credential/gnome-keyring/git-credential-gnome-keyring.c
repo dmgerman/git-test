@@ -893,10 +893,8 @@ id|c
 )paren
 (brace
 r_char
+op_star
 id|buf
-(braket
-l_int|1024
-)braket
 suffix:semicolon
 r_int
 id|line_len
@@ -904,12 +902,20 @@ suffix:semicolon
 r_char
 op_star
 id|key
-op_assign
-id|buf
 suffix:semicolon
 r_char
 op_star
 id|value
+suffix:semicolon
+id|key
+op_assign
+id|buf
+op_assign
+id|gnome_keyring_memory_alloc
+c_func
+(paren
+l_int|1024
+)paren
 suffix:semicolon
 r_while
 c_loop
@@ -919,10 +925,7 @@ c_func
 (paren
 id|buf
 comma
-r_sizeof
-(paren
-id|buf
-)paren
+l_int|1024
 comma
 id|stdin
 )paren
@@ -989,6 +992,12 @@ c_func
 l_string|&quot;invalid credential line: %s&quot;
 comma
 id|key
+)paren
+suffix:semicolon
+id|gnome_keyring_memory_free
+c_func
+(paren
+id|buf
 )paren
 suffix:semicolon
 r_return
@@ -1190,6 +1199,12 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * Ignore other lines; we don&squot;t know what they mean, but&n;&t;&t; * this future-proofs us when later versions of git do&n;&t;&t; * learn new lines, and the helpers are updated to match.&n;&t;&t; */
 )brace
+id|gnome_keyring_memory_free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
