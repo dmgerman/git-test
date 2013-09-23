@@ -989,10 +989,8 @@ id|buf
 l_int|1024
 )braket
 suffix:semicolon
-id|ssize_t
+r_int
 id|line_len
-op_assign
-l_int|0
 suffix:semicolon
 r_char
 op_star
