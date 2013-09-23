@@ -7,6 +7,7 @@ macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;errno.h&gt;
 macro_line|#include &lt;glib.h&gt;
 macro_line|#include &lt;gnome-keyring.h&gt;
+macro_line|#include &lt;gnome-keyring-memory.h&gt;
 multiline_comment|/*&n; * This credential struct and API is simplified from git&squot;s credential.{h,c}&n; */
 DECL|struct|credential
 r_struct
@@ -77,51 +78,6 @@ suffix:semicolon
 DECL|macro|CREDENTIAL_OP_END
 mdefine_line|#define CREDENTIAL_OP_END &bslash;&n;  { NULL,NULL }
 multiline_comment|/* ---------------- common helper functions ----------------- */
-DECL|function|free_password
-r_static
-r_inline
-r_void
-id|free_password
-c_func
-(paren
-r_char
-op_star
-id|password
-)paren
-(brace
-r_char
-op_star
-id|c
-op_assign
-id|password
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|password
-)paren
-r_return
-suffix:semicolon
-r_while
-c_loop
-(paren
-op_star
-id|c
-)paren
-op_star
-id|c
-op_increment
-op_assign
-l_char|&squot;&bslash;0&squot;
-suffix:semicolon
-id|free
-c_func
-(paren
-id|password
-)paren
-suffix:semicolon
-)brace
 DECL|function|warning
 r_static
 r_inline
@@ -504,7 +460,7 @@ op_star
 )paren
 id|entries-&gt;data
 suffix:semicolon
-id|free_password
+id|gnome_keyring_memory_free
 c_func
 (paren
 id|c-&gt;password
@@ -512,7 +468,7 @@ id|c-&gt;password
 suffix:semicolon
 id|c-&gt;password
 op_assign
-id|xstrdup
+id|gnome_keyring_memory_strdup
 c_func
 (paren
 id|password_data-&gt;password
@@ -911,7 +867,7 @@ c_func
 id|c-&gt;username
 )paren
 suffix:semicolon
-id|free_password
+id|gnome_keyring_memory_free
 c_func
 (paren
 id|c-&gt;password
@@ -1205,7 +1161,7 @@ l_string|&quot;password&quot;
 )paren
 )paren
 (brace
-id|free_password
+id|gnome_keyring_memory_free
 c_func
 (paren
 id|c-&gt;password
@@ -1213,7 +1169,7 @@ id|c-&gt;password
 suffix:semicolon
 id|c-&gt;password
 op_assign
-id|xstrdup
+id|gnome_keyring_memory_strdup
 c_func
 (paren
 id|value
