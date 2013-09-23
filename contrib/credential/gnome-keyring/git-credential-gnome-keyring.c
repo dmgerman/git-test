@@ -5,6 +5,7 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;stdarg.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;errno.h&gt;
+macro_line|#include &lt;glib.h&gt;
 macro_line|#include &lt;gnome-keyring.h&gt;
 multiline_comment|/*&n; * This credential struct and API is simplified from git&squot;s credential.{h,c}&n; */
 DECL|struct|credential
@@ -1525,6 +1526,12 @@ id|EXIT_FAILURE
 )paren
 suffix:semicolon
 )brace
+id|g_set_application_name
+c_func
+(paren
+l_string|&quot;Git Credential Helper&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* lookup operation callback */
 r_while
 c_loop
