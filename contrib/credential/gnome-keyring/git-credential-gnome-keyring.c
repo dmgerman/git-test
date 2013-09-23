@@ -2,7 +2,6 @@ multiline_comment|/*&n; * Copyright (C) 2011 John Szakmeister &lt;john@szakmeist
 multiline_comment|/*&n; * Credits:&n; * - GNOME Keyring API handling originally written by John Szakmeister&n; * - ported to credential helper API by Philipp A. Hartmann&n; */
 macro_line|#include &lt;stdio.h&gt;
 macro_line|#include &lt;string.h&gt;
-macro_line|#include &lt;stdarg.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;glib.h&gt;
 macro_line|#include &lt;gnome-keyring.h&gt;
@@ -76,129 +75,6 @@ suffix:semicolon
 suffix:semicolon
 DECL|macro|CREDENTIAL_OP_END
 mdefine_line|#define CREDENTIAL_OP_END &bslash;&n;  { NULL,NULL }
-multiline_comment|/* ---------------- common helper functions ----------------- */
-DECL|function|warning
-r_static
-r_inline
-r_void
-id|warning
-c_func
-(paren
-r_const
-r_char
-op_star
-id|fmt
-comma
-dot
-dot
-dot
-)paren
-(brace
-id|va_list
-id|ap
-suffix:semicolon
-id|va_start
-c_func
-(paren
-id|ap
-comma
-id|fmt
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;warning: &quot;
-)paren
-suffix:semicolon
-id|vfprintf
-c_func
-(paren
-id|stderr
-comma
-id|fmt
-comma
-id|ap
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;&bslash;n&quot;
-)paren
-suffix:semicolon
-id|va_end
-c_func
-(paren
-id|ap
-)paren
-suffix:semicolon
-)brace
-DECL|function|error
-r_static
-r_inline
-r_void
-id|error
-c_func
-(paren
-r_const
-r_char
-op_star
-id|fmt
-comma
-dot
-dot
-dot
-)paren
-(brace
-id|va_list
-id|ap
-suffix:semicolon
-id|va_start
-c_func
-(paren
-id|ap
-comma
-id|fmt
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;error: &quot;
-)paren
-suffix:semicolon
-id|vfprintf
-c_func
-(paren
-id|stderr
-comma
-id|fmt
-comma
-id|ap
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;&bslash;n&quot;
-)paren
-suffix:semicolon
-id|va_end
-c_func
-(paren
-id|ap
-)paren
-suffix:semicolon
-)brace
 multiline_comment|/* ----------------- GNOME Keyring functions ----------------- */
 multiline_comment|/* create a special keyring option string, if path is given */
 DECL|function|keyring_object
@@ -365,7 +241,7 @@ op_ne
 id|GNOME_KEYRING_RESULT_OK
 )paren
 (brace
-id|error
+id|g_critical
 c_func
 (paren
 l_string|&quot;%s&quot;
@@ -632,7 +508,7 @@ op_ne
 id|GNOME_KEYRING_RESULT_OK
 )paren
 (brace
-id|error
+id|g_critical
 c_func
 (paren
 l_string|&quot;%s&quot;
@@ -681,7 +557,7 @@ op_ne
 id|GNOME_KEYRING_RESULT_OK
 )paren
 (brace
-id|error
+id|g_critical
 c_func
 (paren
 l_string|&quot;%s&quot;
@@ -916,7 +792,7 @@ op_logical_neg
 id|value
 )paren
 (brace
-id|warning
+id|g_warning
 c_func
 (paren
 l_string|&quot;invalid credential line: %s&quot;
