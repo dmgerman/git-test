@@ -372,20 +372,17 @@ c_cond
 op_logical_neg
 id|object
 )paren
-(brace
 id|die_errno
 c_func
 (paren
 id|errno
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
 id|c-&gt;port
 )paren
-(brace
 id|sprintf
 c_func
 (paren
@@ -400,7 +397,6 @@ comma
 id|c-&gt;path
 )paren
 suffix:semicolon
-)brace
 r_else
 id|sprintf
 c_func
@@ -1038,7 +1034,6 @@ l_int|1
 op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
-(brace
 id|buf
 (braket
 op_decrement
@@ -1047,17 +1042,14 @@ id|line_len
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
 op_logical_neg
 id|line_len
 )paren
-(brace
 r_break
 suffix:semicolon
-)brace
 id|value
 op_assign
 id|strchr
@@ -1443,7 +1435,6 @@ c_cond
 (paren
 id|try_op-&gt;name
 )paren
-(brace
 id|fprintf
 c_func
 (paren
@@ -1454,7 +1445,6 @@ comma
 l_string|&quot;|&quot;
 )paren
 suffix:semicolon
-)brace
 )brace
 id|fprintf
 c_func
@@ -1541,11 +1531,9 @@ comma
 id|try_op-&gt;name
 )paren
 )paren
-(brace
 id|try_op
 op_increment
 suffix:semicolon
-)brace
 multiline_comment|/* unsupported operation given -- ignore silently */
 r_if
 c_cond
@@ -1556,11 +1544,9 @@ op_logical_or
 op_logical_neg
 id|try_op-&gt;op
 )paren
-(brace
 r_goto
 id|out
 suffix:semicolon
-)brace
 id|ret
 op_assign
 id|credential_read
@@ -1575,11 +1561,9 @@ c_cond
 (paren
 id|ret
 )paren
-(brace
 r_goto
 id|out
 suffix:semicolon
-)brace
 multiline_comment|/* perform credential operation */
 id|ret
 op_assign
