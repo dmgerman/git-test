@@ -5,7 +5,102 @@ macro_line|#include &lt;string.h&gt;
 macro_line|#include &lt;stdlib.h&gt;
 macro_line|#include &lt;glib.h&gt;
 macro_line|#include &lt;gnome-keyring.h&gt;
+macro_line|#ifdef GNOME_KEYRING_DEFAULT
+multiline_comment|/* Modern gnome-keyring */
 macro_line|#include &lt;gnome-keyring-memory.h&gt;
+macro_line|#else
+multiline_comment|/*&n;    * Support ancient gnome-keyring, circ. RHEL 5.X.&n;    * GNOME_KEYRING_DEFAULT seems to have been introduced with Gnome 2.22,&n;    * and the other features roughly around Gnome 2.20, 6 months before.&n;    * Ubuntu 8.04 used Gnome 2.22 (I think).  Not sure any distro used 2.20.&n;    * So the existence/non-existence of GNOME_KEYRING_DEFAULT seems like&n;    * a decent thing to use as an indicator.&n;    */
+DECL|macro|GNOME_KEYRING_DEFAULT
+mdefine_line|#define GNOME_KEYRING_DEFAULT NULL
+multiline_comment|/*&n; * ancient gnome-keyring returns DENIED when an entry is not found.&n; * Setting NO_MATCH to DENIED will prevent us from reporting DENIED&n; * errors during get and erase operations, but we will still report&n; * DENIED errors during a store.&n; */
+DECL|macro|GNOME_KEYRING_RESULT_NO_MATCH
+mdefine_line|#define GNOME_KEYRING_RESULT_NO_MATCH GNOME_KEYRING_RESULT_DENIED
+DECL|macro|gnome_keyring_memory_alloc
+mdefine_line|#define gnome_keyring_memory_alloc g_malloc
+DECL|macro|gnome_keyring_memory_free
+mdefine_line|#define gnome_keyring_memory_free gnome_keyring_free_password
+DECL|macro|gnome_keyring_memory_strdup
+mdefine_line|#define gnome_keyring_memory_strdup g_strdup
+DECL|function|gnome_keyring_result_to_message
+r_static
+r_const
+r_char
+op_star
+id|gnome_keyring_result_to_message
+c_func
+(paren
+id|GnomeKeyringResult
+id|result
+)paren
+(brace
+r_switch
+c_cond
+(paren
+id|result
+)paren
+(brace
+r_case
+id|GNOME_KEYRING_RESULT_OK
+suffix:colon
+r_return
+l_string|&quot;OK&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_DENIED
+suffix:colon
+r_return
+l_string|&quot;Denied&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_NO_KEYRING_DAEMON
+suffix:colon
+r_return
+l_string|&quot;No Keyring Daemon&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_ALREADY_UNLOCKED
+suffix:colon
+r_return
+l_string|&quot;Already UnLocked&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_NO_SUCH_KEYRING
+suffix:colon
+r_return
+l_string|&quot;No Such Keyring&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_BAD_ARGUMENTS
+suffix:colon
+r_return
+l_string|&quot;Bad Arguments&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_IO_ERROR
+suffix:colon
+r_return
+l_string|&quot;IO Error&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_CANCELLED
+suffix:colon
+r_return
+l_string|&quot;Cancelled&quot;
+suffix:semicolon
+r_case
+id|GNOME_KEYRING_RESULT_ALREADY_EXISTS
+suffix:colon
+r_return
+l_string|&quot;Already Exists&quot;
+suffix:semicolon
+r_default
+suffix:colon
+r_return
+l_string|&quot;Unknown Error&quot;
+suffix:semicolon
+)brace
+)brace
+macro_line|#endif
 multiline_comment|/*&n; * This credential struct and API is simplified from git&squot;s credential.{h,c}&n; */
 DECL|struct|credential
 r_struct
