@@ -1519,8 +1519,10 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-r_goto
-id|out
+m_exit
+(paren
+id|EXIT_FAILURE
+)paren
 suffix:semicolon
 )brace
 multiline_comment|/* lookup operation callback */
