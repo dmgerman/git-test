@@ -1030,6 +1030,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|line_len
+op_logical_and
 id|buf
 (braket
 id|line_len
