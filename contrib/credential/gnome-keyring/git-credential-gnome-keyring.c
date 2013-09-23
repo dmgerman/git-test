@@ -45,47 +45,6 @@ suffix:semicolon
 suffix:semicolon
 DECL|macro|CREDENTIAL_INIT
 mdefine_line|#define CREDENTIAL_INIT &bslash;&n;  { NULL,NULL,0,NULL,NULL,NULL }
-r_void
-id|credential_init
-c_func
-(paren
-r_struct
-id|credential
-op_star
-id|c
-)paren
-suffix:semicolon
-r_void
-id|credential_clear
-c_func
-(paren
-r_struct
-id|credential
-op_star
-id|c
-)paren
-suffix:semicolon
-r_int
-id|credential_read
-c_func
-(paren
-r_struct
-id|credential
-op_star
-id|c
-)paren
-suffix:semicolon
-r_void
-id|credential_write
-c_func
-(paren
-r_const
-r_struct
-id|credential
-op_star
-id|c
-)paren
-suffix:semicolon
 DECL|typedef|credential_op_cb
 r_typedef
 r_int
@@ -116,15 +75,6 @@ suffix:semicolon
 suffix:semicolon
 DECL|macro|CREDENTIAL_OP_END
 mdefine_line|#define CREDENTIAL_OP_END &bslash;&n;  { NULL,NULL }
-multiline_comment|/*&n; * Table with operation callbacks is defined in concrete&n; * credential helper implementation and contains entries&n; * like { &quot;get&quot;, function_to_get_credential } terminated&n; * by CREDENTIAL_OP_END.&n; */
-DECL|variable|credential_helper_ops
-r_struct
-id|credential_operation
-r_const
-id|credential_helper_ops
-(braket
-)braket
-suffix:semicolon
 multiline_comment|/* ---------------- common helper functions ----------------- */
 DECL|function|free_password
 r_static
