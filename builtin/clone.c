@@ -3158,7 +3158,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;done&bslash;n&quot;
+l_string|&quot;done.&bslash;n&quot;
 )paren
 )paren
 suffix:semicolon
