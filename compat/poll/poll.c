@@ -15,7 +15,7 @@ macro_line|#include &lt;assert.h&gt;
 macro_line|#if (defined _WIN32 || defined __WIN32__) &amp;&amp; ! defined __CYGWIN__
 DECL|macro|WIN32_NATIVE
 macro_line|# define WIN32_NATIVE
-macro_line|# if defined (_MSC_VER)
+macro_line|# if defined (_MSC_VER) &amp;&amp; !defined(_WIN32_WINNT)
 DECL|macro|_WIN32_WINNT
 macro_line|#  define _WIN32_WINNT 0x0502
 macro_line|# endif
