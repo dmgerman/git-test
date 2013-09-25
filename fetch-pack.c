@@ -3353,6 +3353,9 @@ r_char
 op_star
 op_star
 id|av
+comma
+op_star
+id|cmd_name
 suffix:semicolon
 r_int
 id|do_keep
@@ -3570,6 +3573,8 @@ op_star
 id|av
 op_increment
 op_assign
+id|cmd_name
+op_assign
 l_string|&quot;index-pack&quot;
 suffix:semicolon
 op_star
@@ -3685,6 +3690,8 @@ op_star
 id|av
 op_increment
 op_assign
+id|cmd_name
+op_assign
 l_string|&quot;unpack-objects&quot;
 suffix:semicolon
 r_if
@@ -3771,10 +3778,7 @@ c_func
 (paren
 l_string|&quot;fetch-pack: unable to fork off %s&quot;
 comma
-id|argv
-(braket
-l_int|0
-)braket
+id|cmd_name
 )paren
 suffix:semicolon
 r_if
@@ -3838,10 +3842,7 @@ c_func
 (paren
 l_string|&quot;%s failed&quot;
 comma
-id|argv
-(braket
-l_int|0
-)braket
+id|cmd_name
 )paren
 suffix:semicolon
 r_if
