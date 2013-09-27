@@ -2794,6 +2794,10 @@ l_char|&squot;:&squot;
 r_if
 c_cond
 (paren
+id|host
+op_ne
+id|url
+op_logical_or
 id|path
 OL
 id|strchrnul
