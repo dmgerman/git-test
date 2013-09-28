@@ -4301,11 +4301,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
 id|ret
 op_eq
 id|HTTP_OK
-)paren
 op_logical_and
 id|move_temp_to_file
 c_func
