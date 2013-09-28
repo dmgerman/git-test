@@ -8,6 +8,7 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
+macro_line|#include &quot;credential.h&quot;
 DECL|variable|remote
 r_static
 r_struct
@@ -2246,6 +2247,20 @@ c_func
 id|rpc
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+op_eq
+id|HTTP_REAUTH
+)paren
+id|credential_fill
+c_func
+(paren
+op_amp
+id|http_auth
+)paren
+suffix:semicolon
 )brace
 r_while
 c_loop
@@ -2774,9 +2789,18 @@ op_logical_and
 op_logical_neg
 id|large_request
 )paren
+(brace
+id|credential_fill
+c_func
+(paren
+op_amp
+id|http_auth
+)paren
+suffix:semicolon
 r_goto
 id|retry
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren

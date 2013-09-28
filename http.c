@@ -150,7 +150,6 @@ op_star
 id|curl_cookie_file
 suffix:semicolon
 DECL|variable|http_auth
-r_static
 r_struct
 id|credential
 id|http_auth
@@ -3622,13 +3621,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|credential_fill
-c_func
-(paren
-op_amp
-id|http_auth
-)paren
-suffix:semicolon
 r_return
 id|HTTP_REAUTH
 suffix:semicolon
@@ -4176,6 +4168,13 @@ l_string|&quot;BUG: HTTP_KEEP_ERROR is only supported with strbufs&quot;
 suffix:semicolon
 )brace
 )brace
+id|credential_fill
+c_func
+(paren
+op_amp
+id|http_auth
+)paren
+suffix:semicolon
 r_return
 id|http_request
 c_func
