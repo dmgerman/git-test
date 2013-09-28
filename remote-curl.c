@@ -16,14 +16,15 @@ id|remote
 op_star
 id|remote
 suffix:semicolon
+multiline_comment|/* always ends with a trailing slash */
 DECL|variable|url
 r_static
-r_const
-r_char
-op_star
+r_struct
+id|strbuf
 id|url
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
-multiline_comment|/* always ends with a trailing slash */
 DECL|struct|options
 r_struct
 id|options
@@ -589,7 +590,7 @@ c_func
 (paren
 l_string|&quot;%sinfo/refs not valid: is this a git repository?&quot;
 comma
-id|url
+id|url.buf
 )paren
 suffix:semicolon
 id|data
@@ -702,7 +703,7 @@ op_logical_neg
 id|http_fetch_ref
 c_func
 (paren
-id|url
+id|url.buf
 comma
 id|ref
 )paren
@@ -987,7 +988,7 @@ id|refs_url
 comma
 l_string|&quot;%sinfo/refs&quot;
 comma
-id|url
+id|url.buf
 )paren
 suffix:semicolon
 r_if
@@ -998,7 +999,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|url
+id|url.buf
 comma
 l_string|&quot;http://&quot;
 )paren
@@ -1007,7 +1008,7 @@ op_logical_neg
 id|prefixcmp
 c_func
 (paren
-id|url
+id|url.buf
 comma
 l_string|&quot;https://&quot;
 )paren
@@ -1033,7 +1034,7 @@ op_logical_neg
 id|strchr
 c_func
 (paren
-id|url
+id|url.buf
 comma
 l_char|&squot;?&squot;
 )paren
@@ -1139,7 +1140,7 @@ c_func
 (paren
 l_string|&quot;repository &squot;%s&squot; not found&quot;
 comma
-id|url
+id|url.buf
 )paren
 suffix:semicolon
 r_case
@@ -1160,7 +1161,7 @@ c_func
 (paren
 l_string|&quot;Authentication failed for &squot;%s&squot;&quot;
 comma
-id|url
+id|url.buf
 )paren
 suffix:semicolon
 r_default
@@ -1180,7 +1181,7 @@ c_func
 (paren
 l_string|&quot;unable to access &squot;%s&squot;: %s&quot;
 comma
-id|url
+id|url.buf
 comma
 id|curl_errorstr
 )paren
@@ -2978,7 +2979,7 @@ id|buf
 comma
 l_string|&quot;%s%s&quot;
 comma
-id|url
+id|url.buf
 comma
 id|svc
 )paren
@@ -3300,7 +3301,7 @@ op_assign
 id|get_http_walker
 c_func
 (paren
-id|url
+id|url.buf
 )paren
 suffix:semicolon
 id|walker-&gt;get_all
@@ -3589,7 +3590,7 @@ id|argc
 op_increment
 )braket
 op_assign
-id|url
+id|url.buf
 suffix:semicolon
 id|argv
 (braket
@@ -4187,7 +4188,7 @@ id|argc
 op_increment
 )braket
 op_assign
-id|url
+id|url.buf
 suffix:semicolon
 r_for
 c_loop
@@ -4390,7 +4391,7 @@ c_func
 op_amp
 id|args
 comma
-id|url
+id|url.buf
 )paren
 suffix:semicolon
 r_for
@@ -4843,7 +4844,7 @@ id|end_url_with_slash
 c_func
 (paren
 op_amp
-id|buf
+id|url
 comma
 id|argv
 (braket
@@ -4858,7 +4859,7 @@ id|end_url_with_slash
 c_func
 (paren
 op_amp
-id|buf
+id|url
 comma
 id|remote-&gt;url
 (braket
@@ -4867,23 +4868,12 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
-id|url
-op_assign
-id|strbuf_detach
-c_func
-(paren
-op_amp
-id|buf
-comma
-l_int|NULL
-)paren
-suffix:semicolon
 id|http_init
 c_func
 (paren
 id|remote
 comma
-id|url
+id|url.buf
 comma
 l_int|0
 )paren
