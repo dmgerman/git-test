@@ -769,6 +769,13 @@ l_string|&quot;To squelch this message and adopt the new behavior now, use:&bsla
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;  git config --global push.default simple&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
+l_string|&quot;When push.default is set to &squot;matching&squot;, git will push local branches&bslash;n&quot;
+l_string|&quot;to the remote branches that already exist with the same name.&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
+l_string|&quot;In Git 2.0, Git will default to the more conservative &squot;simple&squot;&bslash;n&quot;
+l_string|&quot;behavior, which only pushes the current branch to the corresponding&bslash;n&quot;
+l_string|&quot;remote branch that &squot;git pull&squot; uses to update the current branch.&bslash;n&quot;
+l_string|&quot;&bslash;n&quot;
 l_string|&quot;See &squot;git help config&squot; and search for &squot;push.default&squot; for further information.&bslash;n&quot;
 l_string|&quot;(the &squot;simple&squot; mode was introduced in Git 1.7.11. Use the similar mode&bslash;n&quot;
 l_string|&quot;&squot;current&squot; instead of &squot;simple&squot; if you sometimes use older versions of Git)&quot;
