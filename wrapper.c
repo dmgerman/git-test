@@ -1725,6 +1725,7 @@ id|mode
 )paren
 suffix:semicolon
 )brace
+macro_line|#ifdef NO_MKSTEMPS
 DECL|function|gitmkstemps
 r_int
 id|gitmkstemps
@@ -1750,6 +1751,7 @@ l_int|0600
 )paren
 suffix:semicolon
 )brace
+macro_line|#endif
 DECL|function|xmkstemp_mode
 r_int
 id|xmkstemp_mode
