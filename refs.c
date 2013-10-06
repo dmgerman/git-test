@@ -15123,7 +15123,7 @@ id|oldval
 comma
 id|flags
 comma
-l_int|0
+l_int|NULL
 comma
 id|onerr
 )paren
