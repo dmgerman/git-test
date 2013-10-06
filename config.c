@@ -2405,6 +2405,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|git_parse_unsigned
+r_static
 r_int
 id|git_parse_unsigned
 c_func
