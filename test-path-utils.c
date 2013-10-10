@@ -716,7 +716,7 @@ id|argv
 l_int|1
 )braket
 comma
-l_string|&quot;mingw_path&quot;
+l_string|&quot;print_path&quot;
 )paren
 )paren
 (brace
