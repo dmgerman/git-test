@@ -5239,6 +5239,25 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_if
+c_cond
+(paren
+id|option_branch
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Remote branch %s not found in upstream %s&quot;
+)paren
+comma
+id|option_branch
+comma
+id|option_origin
+)paren
+suffix:semicolon
 id|warning
 c_func
 (paren
