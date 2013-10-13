@@ -317,6 +317,8 @@ r_struct
 id|lock_file
 id|lock_file
 suffix:semicolon
+DECL|macro|SUBMODULE_WITH_GITDIR
+mdefine_line|#define SUBMODULE_WITH_GITDIR ((const char *)1)
 DECL|function|cmd_mv
 r_int
 id|cmd_mv
@@ -1012,6 +1014,14 @@ id|i
 )braket
 )paren
 suffix:semicolon
+r_else
+id|submodule_gitfile
+(braket
+id|i
+)braket
+op_assign
+id|SUBMODULE_WITH_GITDIR
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
@@ -1666,6 +1676,17 @@ id|submodule_gitfile
 id|i
 )braket
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|submodule_gitfile
+(braket
+id|i
+)braket
+op_ne
+id|SUBMODULE_WITH_GITDIR
+)paren
 id|connect_work_tree_and_git_dir
 c_func
 (paren
@@ -1693,6 +1714,7 @@ id|gitmodules_modified
 op_assign
 l_int|1
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
