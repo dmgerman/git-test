@@ -5608,7 +5608,15 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;You are currently cherry-picking.&quot;
+l_string|&quot;You are currently cherry-picking commit %s.&quot;
+)paren
+comma
+id|find_unique_abbrev
+c_func
+(paren
+id|state-&gt;cherry_pick_head_sha1
+comma
+id|DEFAULT_ABBREV
 )paren
 )paren
 suffix:semicolon
@@ -6701,11 +6709,28 @@ comma
 op_amp
 id|st
 )paren
+op_logical_and
+op_logical_neg
+id|get_sha1
+c_func
+(paren
+l_string|&quot;CHERRY_PICK_HEAD&quot;
+comma
+id|sha1
+)paren
 )paren
 (brace
 id|state-&gt;cherry_pick_in_progress
 op_assign
 l_int|1
+suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|state-&gt;cherry_pick_head_sha1
+comma
+id|sha1
+)paren
 suffix:semicolon
 )brace
 r_if
