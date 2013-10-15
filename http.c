@@ -1117,7 +1117,30 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* curl 7.25.0 has CURLOPT_TCP_KEEPALIVE, too, but we support older curl */
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071900
+DECL|function|set_curl_keepalive
+r_static
+r_void
+id|set_curl_keepalive
+c_func
+(paren
+id|CURL
+op_star
+id|c
+)paren
+(brace
+id|curl_easy_setopt
+c_func
+(paren
+id|c
+comma
+id|CURLOPT_TCP_KEEPALIVE
+comma
+l_int|1
+)paren
+suffix:semicolon
+)brace
+macro_line|#elif LIBCURL_VERSION_NUM &gt;= 0x071000
 DECL|function|sockopt_callback
 r_static
 r_int
@@ -1209,6 +1232,43 @@ l_int|0
 suffix:semicolon
 multiline_comment|/* CURL_SOCKOPT_OK only exists since curl 7.21.5 */
 )brace
+DECL|function|set_curl_keepalive
+r_static
+r_void
+id|set_curl_keepalive
+c_func
+(paren
+id|CURL
+op_star
+id|c
+)paren
+(brace
+id|curl_easy_setopt
+c_func
+(paren
+id|c
+comma
+id|CURLOPT_SOCKOPTFUNCTION
+comma
+id|sockopt_callback
+)paren
+suffix:semicolon
+)brace
+macro_line|#else
+DECL|function|set_curl_keepalive
+r_static
+r_void
+id|set_curl_keepalive
+c_func
+(paren
+id|CURL
+op_star
+id|c
+)paren
+(brace
+multiline_comment|/* not supported on older curl versions */
+)brace
+macro_line|#endif
 DECL|function|get_curl_handle
 r_static
 id|CURL
@@ -1541,18 +1601,12 @@ comma
 id|curl_http_proxy
 )paren
 suffix:semicolon
-macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071000
-id|curl_easy_setopt
+id|set_curl_keepalive
 c_func
 (paren
 id|result
-comma
-id|CURLOPT_SOCKOPTFUNCTION
-comma
-id|sockopt_callback
 )paren
 suffix:semicolon
-macro_line|#endif
 r_return
 id|result
 suffix:semicolon
