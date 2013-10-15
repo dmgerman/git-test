@@ -2579,7 +2579,6 @@ op_logical_or
 id|filename
 (braket
 id|prefixlen
-op_minus
 l_int|1
 )braket
 op_ne
