@@ -120,7 +120,7 @@ id|size
 suffix:semicolon
 )brace
 DECL|macro|REPORT
-mdefine_line|#define REPORT(name)&t;&bslash;&n;    report(#name, name##_allocs, name##_allocs*sizeof(struct name) &gt;&gt; 10)
+mdefine_line|#define REPORT(name)&t;&bslash;&n;    report(#name, name##_allocs, name##_allocs * sizeof(struct name) &gt;&gt; 10)
 DECL|function|alloc_report
 r_void
 id|alloc_report
