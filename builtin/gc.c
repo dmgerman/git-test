@@ -3,6 +3,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
 DECL|macro|FAILED_RUN
 mdefine_line|#define FAILED_RUN &quot;failed to run %s&quot;
@@ -103,6 +104,61 @@ id|rerere
 op_assign
 id|ARGV_ARRAY_INIT
 suffix:semicolon
+DECL|variable|pidfile
+r_static
+r_char
+op_star
+id|pidfile
+suffix:semicolon
+DECL|function|remove_pidfile
+r_static
+r_void
+id|remove_pidfile
+c_func
+(paren
+r_void
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|pidfile
+)paren
+id|unlink
+c_func
+(paren
+id|pidfile
+)paren
+suffix:semicolon
+)brace
+DECL|function|remove_pidfile_on_signal
+r_static
+r_void
+id|remove_pidfile_on_signal
+c_func
+(paren
+r_int
+id|signo
+)paren
+(brace
+id|remove_pidfile
+c_func
+(paren
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|signo
+)paren
+suffix:semicolon
+id|raise
+c_func
+(paren
+id|signo
+)paren
+suffix:semicolon
+)brace
 DECL|function|gc_config
 r_static
 r_int
@@ -796,6 +852,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|pidfile
+)paren
+multiline_comment|/* already locked */
+r_return
+l_int|NULL
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|gethostname
 c_func
 (paren
@@ -1021,6 +1086,26 @@ c_func
 (paren
 op_amp
 id|lock
+)paren
+suffix:semicolon
+id|pidfile
+op_assign
+id|git_pathdup
+c_func
+(paren
+l_string|&quot;gc.pid&quot;
+)paren
+suffix:semicolon
+id|sigchain_push_common
+c_func
+(paren
+id|remove_pidfile_on_signal
+)paren
+suffix:semicolon
+id|atexit
+c_func
+(paren
+id|remove_pidfile
 )paren
 suffix:semicolon
 r_return
