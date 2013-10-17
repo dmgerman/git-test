@@ -3312,6 +3312,7 @@ comma
 l_string|&quot;HTTP/1.1&quot;
 )paren
 )paren
+(brace
 id|http_status
 c_func
 (paren
@@ -3320,6 +3321,27 @@ comma
 l_string|&quot;Method Not Allowed&quot;
 )paren
 suffix:semicolon
+id|hdr_str
+c_func
+(paren
+l_string|&quot;Allow&quot;
+comma
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|c-&gt;method
+comma
+l_string|&quot;GET&quot;
+)paren
+ques
+c_cond
+l_string|&quot;GET, HEAD&quot;
+suffix:colon
+id|c-&gt;method
+)paren
+suffix:semicolon
+)brace
 r_else
 id|http_status
 c_func
