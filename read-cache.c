@@ -2996,7 +2996,7 @@ id|ptr
 suffix:semicolon
 id|foundce
 op_assign
-id|index_name_exists
+id|index_dir_exists
 c_func
 (paren
 id|istate
@@ -3005,8 +3005,7 @@ id|ce-&gt;name
 comma
 id|ptr
 id|ce-&gt;name
-comma
-id|ignore_case
+l_int|1
 )paren
 suffix:semicolon
 r_if
@@ -3045,7 +3044,7 @@ suffix:semicolon
 )brace
 id|alias
 op_assign
-id|index_name_exists
+id|index_file_exists
 c_func
 (paren
 id|istate
