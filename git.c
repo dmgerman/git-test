@@ -2714,6 +2714,14 @@ id|cmd_remote_fd
 )brace
 comma
 (brace
+l_string|&quot;repack&quot;
+comma
+id|cmd_repack
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;replace&quot;
 comma
 id|cmd_replace
