@@ -5925,7 +5925,7 @@ id|revs-&gt;prune_data
 comma
 id|PATHSPEC_ALL_MAGIC
 comma
-l_int|0
+id|PATHSPEC_PREFER_FULL
 comma
 l_string|&quot;&quot;
 comma
