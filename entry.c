@@ -1254,6 +1254,7 @@ id|st
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Write the contents from ce out to the working tree.&n; *&n; * When topath[] is not NULL, instead of writing to the working tree&n; * file named by ce, a temporary file is created by this function and&n; * its name is returned in topath[], which must be able to hold at&n; * least TEMPORARY_FILENAME_LENGTH bytes long.&n; */
 DECL|function|checkout_entry
 r_int
 id|checkout_entry
