@@ -1437,8 +1437,6 @@ id|revs.tree_objects
 id|mark_edges_uninteresting
 c_func
 (paren
-id|revs.commits
-comma
 op_amp
 id|revs
 comma
