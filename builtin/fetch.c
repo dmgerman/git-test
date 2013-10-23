@@ -918,10 +918,10 @@ comma
 r_struct
 id|refspec
 op_star
-id|refs
+id|refspecs
 comma
 r_int
-id|ref_count
+id|refspec_count
 comma
 r_int
 id|tags
@@ -970,7 +970,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ref_count
+id|refspec_count
 op_logical_or
 id|tags
 op_eq
@@ -992,7 +992,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|ref_count
+id|refspec_count
 suffix:semicolon
 id|i
 op_increment
@@ -1004,7 +1004,7 @@ c_func
 id|remote_refs
 comma
 op_amp
-id|refs
+id|refspecs
 (braket
 id|i
 )braket
@@ -1018,14 +1018,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|refs
+id|refspecs
 (braket
 id|i
 )braket
 dot
 id|dst
 op_logical_and
-id|refs
+id|refspecs
 (braket
 id|i
 )braket
