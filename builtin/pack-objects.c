@@ -108,12 +108,6 @@ r_int
 id|z_delta_size
 suffix:semicolon
 multiline_comment|/* delta data size (compressed) */
-DECL|member|hash
-r_int
-r_int
-id|hash
-suffix:semicolon
-multiline_comment|/* name hint hash */
 DECL|member|type
 r_enum
 id|object_type
@@ -125,6 +119,11 @@ id|object_type
 id|in_pack_type
 suffix:semicolon
 multiline_comment|/* could be delta */
+DECL|member|hash
+r_uint32
+id|hash
+suffix:semicolon
+multiline_comment|/* name hint hash */
 DECL|member|in_pack_header_size
 r_int
 r_char
@@ -132,25 +131,29 @@ id|in_pack_header_size
 suffix:semicolon
 DECL|member|preferred_base
 r_int
-r_char
 id|preferred_base
+suffix:colon
+l_int|1
 suffix:semicolon
-multiline_comment|/* we do not pack this, but is available&n;&t;&t;&t;&t;       * to be used as the base object to delta&n;&t;&t;&t;&t;       * objects against.&n;&t;&t;&t;&t;       */
+multiline_comment|/*&n;&t;&t;&t;&t;    * we do not pack this, but is available&n;&t;&t;&t;&t;    * to be used as the base object to delta&n;&t;&t;&t;&t;    * objects against.&n;&t;&t;&t;&t;    */
 DECL|member|no_try_delta
 r_int
-r_char
 id|no_try_delta
+suffix:colon
+l_int|1
 suffix:semicolon
 DECL|member|tagged
 r_int
-r_char
 id|tagged
+suffix:colon
+l_int|1
 suffix:semicolon
 multiline_comment|/* near the very tip of refs */
 DECL|member|filled
 r_int
-r_char
 id|filled
+suffix:colon
+l_int|1
 suffix:semicolon
 multiline_comment|/* assigned write-order */
 )brace
@@ -4315,7 +4318,7 @@ suffix:semicolon
 )brace
 DECL|function|name_hash
 r_static
-r_int
+r_uint32
 id|name_hash
 c_func
 (paren
@@ -4325,7 +4328,7 @@ op_star
 id|name
 )paren
 (brace
-r_int
+r_uint32
 id|c
 comma
 id|hash
@@ -4537,7 +4540,7 @@ suffix:semicolon
 r_int
 id|ix
 suffix:semicolon
-r_int
+r_uint32
 id|hash
 op_assign
 id|name_hash
