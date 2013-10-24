@@ -1006,12 +1006,6 @@ id|flags
 )paren
 r_continue
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|p-&gt;object.parsed
-)paren
 id|parse_commit
 c_func
 (paren

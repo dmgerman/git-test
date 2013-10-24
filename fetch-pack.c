@@ -152,14 +152,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
-id|commit-&gt;object.parsed
-)paren
-)paren
-r_if
-c_cond
-(paren
 id|parse_commit
 c_func
 (paren
@@ -541,12 +533,6 @@ op_amp
 id|rev_list
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|commit-&gt;object.parsed
-)paren
 id|parse_commit
 c_func
 (paren

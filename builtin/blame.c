@@ -6812,12 +6812,6 @@ id|commit
 op_assign
 id|suspect-&gt;commit
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|commit-&gt;object.parsed
-)paren
 id|parse_commit
 c_func
 (paren
