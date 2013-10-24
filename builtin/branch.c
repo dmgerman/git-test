@@ -2569,8 +2569,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|commit
-op_logical_and
 op_logical_neg
 id|parse_commit
 c_func
