@@ -1500,7 +1500,7 @@ id|rev-&gt;diffopt.output_format
 op_assign
 id|DIFF_FORMAT_CALLBACK
 suffix:semicolon
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 id|commit
@@ -1633,7 +1633,7 @@ op_logical_neg
 id|full_tree
 )paren
 (brace
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 id|commit-&gt;parents-&gt;item

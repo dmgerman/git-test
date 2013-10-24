@@ -4181,7 +4181,7 @@ l_string|&quot;You are on a branch yet to be born&quot;
 )paren
 )paren
 suffix:semicolon
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 r_new
@@ -4912,7 +4912,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 r_new
