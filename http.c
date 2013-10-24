@@ -4801,7 +4801,7 @@ id|url
 comma
 id|tmp
 comma
-l_int|0
+l_int|NULL
 )paren
 op_ne
 id|HTTP_OK
