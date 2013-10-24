@@ -3180,6 +3180,25 @@ id|commit-&gt;object.flags
 op_or_assign
 id|ADDED
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;include_check
+op_logical_and
+op_logical_neg
+id|revs
+op_member_access_from_pointer
+id|include_check
+c_func
+(paren
+id|commit
+comma
+id|revs-&gt;include_check_data
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
 multiline_comment|/*&n;&t; * If the commit is uninteresting, don&squot;t try to&n;&t; * prune parents - we want the maximal uninteresting&n;&t; * set.&n;&t; *&n;&t; * Normally we haven&squot;t parsed the parent&n;&t; * yet, so we won&squot;t have a parent of a parent&n;&t; * here. However, it may turn out that we&squot;ve&n;&t; * reached this commit some other way (where it&n;&t; * wasn&squot;t uninteresting), in which case we need&n;&t; * to mark its parents recursively too..&n;&t; */
 r_if
 c_cond
