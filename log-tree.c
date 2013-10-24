@@ -3573,7 +3573,7 @@ id|EXIT_WITH_STATUS
 r_return
 l_int|0
 suffix:semicolon
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 id|commit
@@ -3664,7 +3664,7 @@ id|opt-&gt;first_parent_only
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * Generate merge log entry only for the first&n;&t;&t;&t; * parent, showing summary diff of the others&n;&t;&t;&t; * we merged _in_.&n;&t;&t;&t; */
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 id|parents-&gt;item
@@ -3718,7 +3718,7 @@ id|parent
 op_assign
 id|parents-&gt;item
 suffix:semicolon
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 id|parent
