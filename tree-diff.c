@@ -1416,8 +1416,11 @@ op_amp
 id|opt-&gt;pathspec
 comma
 id|PATHSPEC_ALL_MAGIC
+op_amp
+op_complement
+id|PATHSPEC_LITERAL
 comma
-l_int|0
+id|PATHSPEC_LITERAL_PATH
 comma
 l_string|&quot;&quot;
 comma
