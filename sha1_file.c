@@ -11762,7 +11762,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* returns enum object_type or negative */
 DECL|function|sha1_object_info_extended
 r_int
 id|sha1_object_info_extended
@@ -11996,6 +11995,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* returns enum object_type or negative */
 DECL|function|sha1_object_info
 r_int
 id|sha1_object_info
