@@ -780,7 +780,8 @@ c_cond
 op_logical_neg
 id|author
 )paren
-id|die
+(brace
+id|warning
 c_func
 (paren
 id|_
@@ -796,6 +797,9 @@ id|commit-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
+r_return
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
