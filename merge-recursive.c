@@ -11139,7 +11139,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|prefixcmp
 c_func
 (paren
 id|s
@@ -11156,7 +11156,11 @@ c_func
 (paren
 id|s
 op_plus
-l_int|15
+id|strlen
+c_func
+(paren
+l_string|&quot;diff-algorithm=&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
