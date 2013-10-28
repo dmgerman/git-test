@@ -3077,11 +3077,7 @@ r_return
 suffix:semicolon
 id|default_remote_name
 op_assign
-id|xstrdup
-c_func
-(paren
 l_string|&quot;origin&quot;
-)paren
 suffix:semicolon
 id|current_branch
 op_assign
