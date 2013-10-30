@@ -7556,8 +7556,6 @@ comma
 l_int|NULL
 comma
 l_int|NULL
-comma
-l_int|0
 )paren
 )paren
 (brace
@@ -7681,12 +7679,10 @@ c_func
 (paren
 id|url
 comma
-l_int|NULL
-comma
 op_amp
 id|buffer
 comma
-l_int|0
+l_int|NULL
 )paren
 op_ne
 id|HTTP_OK
