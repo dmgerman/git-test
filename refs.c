@@ -15984,6 +15984,9 @@ multiline_comment|/* the rule list is NULL terminated, count them first */
 r_for
 c_loop
 (paren
+id|nr_rules
+op_assign
+l_int|0
 suffix:semicolon
 id|ref_rev_parse_rules
 (braket
