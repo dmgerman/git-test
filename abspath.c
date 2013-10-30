@@ -427,7 +427,6 @@ c_func
 id|buf
 (braket
 id|len
-op_minus
 l_int|1
 )braket
 )paren
@@ -904,7 +903,6 @@ c_func
 id|cwd
 (braket
 id|len
-op_minus
 l_int|1
 )braket
 )paren
