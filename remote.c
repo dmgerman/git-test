@@ -8580,6 +8580,7 @@ id|REF_ISSYMREF
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Create and return a list of (struct ref) consisting of copies of&n; * each remote_ref that matches refspec.  refspec must be a pattern.&n; * Fill in the copies&squot; peer_ref to describe the local tracking refs to&n; * which they map.  Omit any references that would map to an existing&n; * local symbolic ref.&n; */
 DECL|function|get_expanded_map
 r_static
 r_struct
