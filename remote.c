@@ -4509,7 +4509,7 @@ r_continue
 suffix:semicolon
 id|item
 op_assign
-id|string_list_lookup
+id|string_list_insert
 c_func
 (paren
 op_amp
@@ -4521,9 +4521,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|item
+id|item-&gt;util
 )paren
 (brace
+multiline_comment|/* Entry already existed */
 r_if
 c_cond
 (paren
@@ -4586,24 +4587,14 @@ op_assign
 id|prev
 suffix:semicolon
 multiline_comment|/* skip this; we freed it */
-r_continue
-suffix:semicolon
 )brace
-id|item
-op_assign
-id|string_list_insert
-c_func
-(paren
-op_amp
-id|refs
-comma
-id|ref_map-&gt;peer_ref-&gt;name
-)paren
-suffix:semicolon
+r_else
+(brace
 id|item-&gt;util
 op_assign
 id|ref_map
 suffix:semicolon
+)brace
 )brace
 id|string_list_clear
 c_func
