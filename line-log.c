@@ -4069,7 +4069,7 @@ id|rev-&gt;diffopt.pathspec
 comma
 l_int|0
 comma
-l_int|0
+id|PATHSPEC_PREFER_FULL
 comma
 l_string|&quot;&quot;
 comma
