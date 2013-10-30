@@ -4924,7 +4924,6 @@ id|end
 )paren
 )paren
 suffix:semicolon
-suffix:semicolon
 r_for
 c_loop
 (paren
