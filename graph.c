@@ -2227,6 +2227,8 @@ l_int|2
 )paren
 op_plus
 id|dashless_commits
+op_plus
+id|graph-&gt;commit_index
 suffix:semicolon
 id|strbuf_write_column
 c_func
@@ -2252,6 +2254,8 @@ l_int|2
 )paren
 op_plus
 id|dashless_commits
+op_plus
+id|graph-&gt;commit_index
 suffix:semicolon
 id|strbuf_write_column
 c_func
