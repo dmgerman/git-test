@@ -32,7 +32,7 @@ id|topath
 l_int|4
 )braket
 (braket
-id|PATH_MAX
+id|TEMPORARY_FILENAME_LENGTH
 op_plus
 l_int|1
 )braket
