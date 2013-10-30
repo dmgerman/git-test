@@ -8313,7 +8313,7 @@ id|i
 comma
 id|prune
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 r_struct
 id|option
@@ -8390,6 +8390,8 @@ r_if
 c_cond
 (paren
 id|prune
+op_ne
+l_int|1
 )paren
 id|argv_array_push
 c_func
@@ -8397,7 +8399,12 @@ c_func
 op_amp
 id|fetch_argv
 comma
+id|prune
+ques
+c_cond
 l_string|&quot;--prune&quot;
+suffix:colon
+l_string|&quot;--no-prune&quot;
 )paren
 suffix:semicolon
 r_if
