@@ -1827,14 +1827,12 @@ op_amp
 id|rm-&gt;next
 suffix:semicolon
 )brace
+r_return
 id|ref_remove_duplicates
 c_func
 (paren
 id|ref_map
 )paren
-suffix:semicolon
-r_return
-id|ref_map
 suffix:semicolon
 )brace
 DECL|macro|STORE_REF_ERROR_OTHER
