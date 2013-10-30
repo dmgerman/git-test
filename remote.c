@@ -4475,7 +4475,11 @@ id|ref2-&gt;name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s tracks both %s and %s&quot;
+)paren
 comma
 id|ref2-&gt;peer_ref-&gt;name
 comma
