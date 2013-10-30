@@ -3805,6 +3805,20 @@ id|cmd.out
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|use_sideband
+)paren
+multiline_comment|/* Closed by start_command() */
+id|xd
+(braket
+l_int|0
+)braket
+op_assign
+l_int|1
+suffix:semicolon
 id|ret
 op_assign
 id|finish_command
