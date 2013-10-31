@@ -4522,17 +4522,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|ref-&gt;deletion
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;remote-helpers do not support ref deletion&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|ref-&gt;peer_ref
 )paren
 (brace
