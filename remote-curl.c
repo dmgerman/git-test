@@ -1842,6 +1842,11 @@ r_struct
 id|active_request_slot
 op_star
 id|slot
+comma
+r_struct
+id|slot_results
+op_star
+id|results
 )paren
 (brace
 r_int
@@ -1849,11 +1854,21 @@ id|err
 suffix:semicolon
 r_struct
 id|slot_results
+id|results_buf
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|results
+)paren
+id|results
+op_assign
+op_amp
+id|results_buf
 suffix:semicolon
 id|slot-&gt;results
 op_assign
-op_amp
 id|results
 suffix:semicolon
 id|slot-&gt;curl_result
@@ -1875,7 +1890,6 @@ op_assign
 id|handle_curl_result
 c_func
 (paren
-op_amp
 id|results
 )paren
 suffix:semicolon
@@ -1896,9 +1910,9 @@ c_func
 (paren
 l_string|&quot;RPC failed; result=%d, HTTP code = %ld&quot;
 comma
-id|results.curl_result
+id|results-&gt;curl_result
 comma
-id|results.http_code
+id|results-&gt;http_code
 )paren
 suffix:semicolon
 )brace
@@ -1916,6 +1930,11 @@ r_struct
 id|rpc_state
 op_star
 id|rpc
+comma
+r_struct
+id|slot_results
+op_star
+id|results
 )paren
 (brace
 r_struct
@@ -2063,6 +2082,8 @@ id|run_slot
 c_func
 (paren
 id|slot
+comma
+id|results
 )paren
 suffix:semicolon
 id|curl_slist_free_all
@@ -2217,6 +2238,8 @@ id|probe_rpc
 c_func
 (paren
 id|rpc
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -2735,6 +2758,8 @@ id|run_slot
 c_func
 (paren
 id|slot
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
