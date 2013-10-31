@@ -2150,6 +2150,11 @@ id|large_request
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|needs_100_continue
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/* Try to load the entire request, if we can fit it into the&n;&t; * allocated buffer space we can use HTTP/1.0 and avoid the&n;&t; * chunked encoding mess.&n;&t; */
 r_while
 c_loop
@@ -2230,6 +2235,10 @@ c_cond
 id|large_request
 )paren
 (brace
+r_struct
+id|slot_results
+id|results
+suffix:semicolon
 r_do
 (brace
 id|err
@@ -2239,7 +2248,8 @@ c_func
 (paren
 id|rpc
 comma
-l_int|NULL
+op_amp
+id|results
 )paren
 suffix:semicolon
 )brace
@@ -2259,6 +2269,17 @@ op_ne
 id|HTTP_OK
 )paren
 r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|results.auth_avail
+op_amp
+id|CURLAUTH_GSSNEGOTIATE
+)paren
+id|needs_100_continue
+op_assign
 l_int|1
 suffix:semicolon
 )brace
@@ -2289,6 +2310,11 @@ c_func
 (paren
 id|headers
 comma
+id|needs_100_continue
+ques
+c_cond
+l_string|&quot;Expect: 100-continue&quot;
+suffix:colon
 l_string|&quot;Expect:&quot;
 )paren
 suffix:semicolon
