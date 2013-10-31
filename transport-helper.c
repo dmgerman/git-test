@@ -3788,6 +3788,9 @@ r_struct
 id|ref
 op_star
 id|remote_refs
+comma
+r_int
+id|flags
 )paren
 (brace
 r_struct
@@ -3851,6 +3854,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_DRY_RUN
+op_logical_or
 op_logical_neg
 id|data-&gt;refspecs
 op_logical_or
@@ -4290,6 +4297,8 @@ c_func
 id|data
 comma
 id|remote_refs
+comma
+id|flags
 )paren
 suffix:semicolon
 r_return
@@ -4596,6 +4605,8 @@ c_func
 id|data
 comma
 id|remote_refs
+comma
+id|flags
 )paren
 suffix:semicolon
 r_return
