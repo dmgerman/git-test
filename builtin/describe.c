@@ -9,7 +9,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;hash.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
 DECL|macro|SEEN
-mdefine_line|#define SEEN&t;&t;(1u&lt;&lt;0)
+mdefine_line|#define SEEN&t;&t;(1u &lt;&lt; 0)
 DECL|macro|MAX_TAGS
 mdefine_line|#define MAX_TAGS&t;(FLAG_BITS - 1)
 DECL|variable|describe_usage
@@ -2742,7 +2742,6 @@ op_decrement
 OG
 l_int|0
 )paren
-(brace
 id|describe
 c_func
 (paren
@@ -2755,7 +2754,6 @@ op_eq
 l_int|0
 )paren
 suffix:semicolon
-)brace
 )brace
 r_return
 l_int|0
