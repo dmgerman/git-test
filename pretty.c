@@ -2406,7 +2406,6 @@ c_func
 id|line
 (braket
 id|len
-op_minus
 l_int|1
 )braket
 )paren
