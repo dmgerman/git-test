@@ -18063,7 +18063,7 @@ op_eq
 l_char|&squot;=&squot;
 )paren
 (brace
-multiline_comment|/* sticked form: --option=value */
+multiline_comment|/* stuck form: --option=value */
 op_star
 id|optarg
 op_assign
