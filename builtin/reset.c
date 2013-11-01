@@ -1741,11 +1741,7 @@ r_return
 id|run_add_interactive
 c_func
 (paren
-id|sha1_to_hex
-c_func
-(paren
-id|sha1
-)paren
+id|rev
 comma
 l_string|&quot;--patch=reset&quot;
 comma
