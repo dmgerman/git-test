@@ -5,6 +5,8 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
+macro_line|#include &quot;diff.h&quot;
+macro_line|#include &quot;revision.h&quot;
 DECL|macro|DO_REVS
 mdefine_line|#define DO_REVS&t;&t;1
 DECL|macro|DO_NOREV
@@ -67,6 +69,13 @@ DECL|variable|output_sq
 r_static
 r_int
 id|output_sq
+suffix:semicolon
+DECL|variable|ref_excludes
+r_static
+r_struct
+id|string_list
+op_star
+id|ref_excludes
 suffix:semicolon
 multiline_comment|/*&n; * Some arguments are relevant &quot;revision&quot; arguments,&n; * others are about output format or other details.&n; * This sorts it all out.&n; */
 DECL|function|is_rev_argument
@@ -715,6 +724,20 @@ op_star
 id|cb_data
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|ref_excluded
+c_func
+(paren
+id|ref_excludes
+comma
+id|refname
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|show_rev
 c_func
 (paren
@@ -3392,6 +3415,13 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|clear_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
@@ -3414,6 +3444,13 @@ c_func
 id|show_reference
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|clear_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
 )paren
 suffix:semicolon
 r_continue
@@ -3446,6 +3483,13 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|clear_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
@@ -3468,6 +3512,13 @@ c_func
 id|show_reference
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|clear_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
 )paren
 suffix:semicolon
 r_continue
@@ -3496,6 +3547,13 @@ op_plus
 l_int|7
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|clear_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
 )paren
 suffix:semicolon
 r_continue
@@ -3528,6 +3586,13 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|clear_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
+)paren
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
@@ -3550,6 +3615,40 @@ c_func
 id|show_reference
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+id|clear_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
+)paren
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--exclude=&quot;
+)paren
+)paren
+(brace
+id|add_ref_exclusion
+c_func
+(paren
+op_amp
+id|ref_excludes
+comma
+id|arg
+op_plus
+l_int|10
 )paren
 suffix:semicolon
 r_continue
