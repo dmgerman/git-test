@@ -5692,7 +5692,6 @@ c_func
 id|branch
 )paren
 )paren
-(brace
 id|die
 c_func
 (paren
@@ -5705,7 +5704,6 @@ comma
 id|branch-&gt;name
 )paren
 suffix:semicolon
-)brace
 id|strbuf_addf
 c_func
 (paren

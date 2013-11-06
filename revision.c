@@ -14680,9 +14680,9 @@ id|c
 r_while
 c_loop
 (paren
-l_int|0
-OL
 id|revs-&gt;skip_count
+OG
+l_int|0
 )paren
 (brace
 id|revs-&gt;skip_count
@@ -14732,11 +14732,9 @@ c_cond
 op_logical_neg
 id|revs-&gt;boundary
 )paren
-(brace
 r_return
 id|c
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
@@ -14877,7 +14875,6 @@ id|revs
 )paren
 )paren
 )paren
-(brace
 id|commit_list_insert
 c_func
 (paren
@@ -14887,7 +14884,6 @@ op_amp
 id|reversed
 )paren
 suffix:semicolon
-)brace
 id|revs-&gt;commits
 op_assign
 id|reversed

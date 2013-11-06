@@ -893,7 +893,6 @@ suffix:semicolon
 id|sha1
 (braket
 l_int|1
-op_minus
 id|swap
 )braket
 op_assign
