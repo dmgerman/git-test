@@ -2730,14 +2730,6 @@ id|RUN_SETUP
 )brace
 comma
 (brace
-l_string|&quot;repo-config&quot;
-comma
-id|cmd_repo_config
-comma
-id|RUN_SETUP_GENTLY
-)brace
-comma
-(brace
 l_string|&quot;rerere&quot;
 comma
 id|cmd_rerere
