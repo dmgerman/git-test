@@ -2632,14 +2632,6 @@ id|cmd_patch_id
 )brace
 comma
 (brace
-l_string|&quot;peek-remote&quot;
-comma
-id|cmd_ls_remote
-comma
-id|RUN_SETUP_GENTLY
-)brace
-comma
-(brace
 l_string|&quot;pickaxe&quot;
 comma
 id|cmd_blame
