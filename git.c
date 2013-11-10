@@ -2862,12 +2862,6 @@ id|RUN_SETUP
 )brace
 comma
 (brace
-l_string|&quot;tar-tree&quot;
-comma
-id|cmd_tar_tree
-)brace
-comma
-(brace
 l_string|&quot;unpack-file&quot;
 comma
 id|cmd_unpack_file
