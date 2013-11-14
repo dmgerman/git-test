@@ -2160,6 +2160,11 @@ id|upstream_is_gone
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|added_decoration
+op_assign
+l_int|1
+suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -2287,6 +2292,11 @@ comma
 id|fancy.buf
 )paren
 suffix:semicolon
+r_else
+id|added_decoration
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_else
 r_if
@@ -2317,6 +2327,11 @@ l_string|&quot;[%s]&quot;
 comma
 id|fancy.buf
 )paren
+suffix:semicolon
+r_else
+id|added_decoration
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 r_else
@@ -2459,6 +2474,11 @@ op_amp
 id|fancy
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|added_decoration
+)paren
 id|strbuf_addch
 c_func
 (paren
