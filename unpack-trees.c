@@ -388,8 +388,6 @@ id|clear
 id|clear
 op_or_assign
 id|CE_HASHED
-op_or
-id|CE_UNHASHED
 suffix:semicolon
 r_if
 c_cond

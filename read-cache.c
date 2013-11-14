@@ -197,7 +197,7 @@ op_member_access_from_pointer
 id|ce_flags
 op_and_assign
 op_complement
-id|CE_STATE_MASK
+id|CE_HASHED
 suffix:semicolon
 r_new
 op_member_access_from_pointer
