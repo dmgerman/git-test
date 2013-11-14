@@ -2752,12 +2752,10 @@ id|update_one
 c_func
 (paren
 id|ce-&gt;name
-op_plus
-id|prefix_length
 comma
-id|prefix
+l_int|NULL
 comma
-id|prefix_length
+l_int|0
 )paren
 suffix:semicolon
 r_if
