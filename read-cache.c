@@ -116,6 +116,12 @@ comma
 id|old
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|old
+)paren
+suffix:semicolon
 id|set_index_entry
 c_func
 (paren
@@ -2067,6 +2073,12 @@ comma
 id|ce
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 id|istate-&gt;cache_changed
 op_assign
 l_int|1
@@ -2169,6 +2181,7 @@ id|ce_flags
 op_amp
 id|CE_REMOVE
 )paren
+(brace
 id|remove_name_hash
 c_func
 (paren
@@ -2180,6 +2193,16 @@ id|i
 )braket
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|ce_array
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+)brace
 r_else
 id|ce_array
 (braket
@@ -8999,7 +9022,7 @@ c_func
 (paren
 l_string|&quot;%s: cannot drop to stage #0&quot;
 comma
-id|ce-&gt;name
+id|new_ce-&gt;name
 )paren
 suffix:semicolon
 id|i

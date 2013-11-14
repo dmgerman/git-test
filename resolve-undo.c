@@ -655,6 +655,10 @@ l_int|0
 comma
 id|matched
 suffix:semicolon
+r_char
+op_star
+id|name
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -752,6 +756,14 @@ id|ce-&gt;ce_flags
 op_amp
 id|CE_MATCHED
 suffix:semicolon
+id|name
+op_assign
+id|xstrdup
+c_func
+(paren
+id|ce-&gt;name
+)paren
+suffix:semicolon
 id|remove_index_entry_at
 c_func
 (paren
@@ -806,7 +818,7 @@ id|ru-&gt;sha1
 id|i
 )braket
 comma
-id|ce-&gt;name
+id|name
 comma
 id|i
 op_plus
@@ -847,11 +859,17 @@ c_func
 (paren
 l_string|&quot;cannot unmerge &squot;%s&squot;&quot;
 comma
-id|ce-&gt;name
+id|name
 )paren
 suffix:semicolon
 )brace
 )brace
+id|free
+c_func
+(paren
+id|name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
