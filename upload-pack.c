@@ -3787,15 +3787,6 @@ op_amp
 id|symref
 )paren
 suffix:semicolon
-id|for_each_namespaced_ref
-c_func
-(paren
-id|find_symref
-comma
-op_amp
-id|symref
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
