@@ -9,6 +9,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;color.h&quot;
 multiline_comment|/* Quoting styles */
 DECL|macro|QUOTE_NONE
 mdefine_line|#define QUOTE_NONE 0
@@ -277,6 +278,10 @@ l_string|&quot;flag&quot;
 comma
 (brace
 l_string|&quot;HEAD&quot;
+)brace
+comma
+(brace
+l_string|&quot;color&quot;
 )brace
 comma
 )brace
@@ -3819,6 +3824,51 @@ l_int|0
 )braket
 op_member_access_from_pointer
 id|dst
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|name
+comma
+l_string|&quot;color:&quot;
+)paren
+)paren
+(brace
+r_char
+id|color
+(braket
+id|COLOR_MAXLEN
+)braket
+op_assign
+l_string|&quot;&quot;
+suffix:semicolon
+id|color_parse
+c_func
+(paren
+id|name
+op_plus
+l_int|6
+comma
+l_string|&quot;--format&quot;
+comma
+id|color
+)paren
+suffix:semicolon
+id|v-&gt;s
+op_assign
+id|xstrdup
+c_func
+(paren
+id|color
+)paren
+suffix:semicolon
+r_continue
 suffix:semicolon
 )brace
 r_else
