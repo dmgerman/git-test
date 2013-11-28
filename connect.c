@@ -2937,7 +2937,7 @@ op_star
 id|end
 suffix:semicolon
 r_int
-id|c
+id|separator
 suffix:semicolon
 r_enum
 id|protocol
@@ -3015,7 +3015,7 @@ id|host
 op_add_assign
 l_int|3
 suffix:semicolon
-id|c
+id|separator
 op_assign
 l_char|&squot;/&squot;
 suffix:semicolon
@@ -3026,7 +3026,7 @@ id|host
 op_assign
 id|url
 suffix:semicolon
-id|c
+id|separator
 op_assign
 l_char|&squot;:&squot;
 suffix:semicolon
@@ -3100,7 +3100,7 @@ c_func
 (paren
 id|end
 comma
-id|c
+id|separator
 )paren
 suffix:semicolon
 r_if
@@ -3119,7 +3119,7 @@ id|end
 r_if
 c_cond
 (paren
-id|c
+id|separator
 op_eq
 l_char|&squot;:&squot;
 )paren
@@ -3189,10 +3189,6 @@ c_cond
 id|protocol
 op_ne
 id|PROTO_LOCAL
-op_logical_and
-id|host
-op_ne
-id|url
 )paren
 (brace
 r_char
@@ -3243,9 +3239,9 @@ id|protocol
 op_eq
 id|PROTO_SSH
 op_logical_and
-id|host
-op_ne
-id|url
+id|separator
+op_eq
+l_char|&squot;/&squot;
 )paren
 id|port
 op_assign
