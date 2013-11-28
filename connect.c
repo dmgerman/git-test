@@ -2759,8 +2759,6 @@ r_return
 id|proxy
 suffix:semicolon
 )brace
-DECL|macro|MAX_CMD_LEN
-mdefine_line|#define MAX_CMD_LEN 1024
 DECL|function|get_port
 r_static
 r_char
@@ -2936,6 +2934,8 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|cmd
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 multiline_comment|/* Without this we cannot rely on waitpid() to tell&n;&t; * what happened to our children.&n;&t; */
 id|signal
@@ -3357,15 +3357,6 @@ id|conn
 )paren
 )paren
 suffix:semicolon
-id|strbuf_init
-c_func
-(paren
-op_amp
-id|cmd
-comma
-id|MAX_CMD_LEN
-)paren
-suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
@@ -3391,19 +3382,6 @@ op_amp
 id|cmd
 comma
 id|path
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|cmd.len
-op_ge
-id|MAX_CMD_LEN
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;command line too long&quot;
 )paren
 suffix:semicolon
 id|conn-&gt;in
