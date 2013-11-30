@@ -2661,8 +2661,7 @@ l_int|0
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|found_ref
@@ -2694,8 +2693,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|found_ref
@@ -2727,8 +2725,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|found_ref
@@ -3392,8 +3389,7 @@ c_cond
 (paren
 id|branch
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|k
@@ -3401,8 +3397,7 @@ comma
 l_string|&quot;branch.&quot;
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|k
@@ -6863,8 +6858,7 @@ c_cond
 (paren
 id|branch
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|branch

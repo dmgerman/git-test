@@ -487,8 +487,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -506,8 +505,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -766,7 +764,8 @@ c_cond
 (paren
 id|data-&gt;tags_only
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|path

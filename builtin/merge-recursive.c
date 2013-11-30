@@ -158,8 +158,7 @@ id|argv
 l_int|0
 )braket
 op_logical_and
-op_logical_neg
-id|suffixcmp
+id|ends_with
 c_func
 (paren
 id|argv
@@ -220,8 +219,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg

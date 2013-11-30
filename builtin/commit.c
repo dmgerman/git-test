@@ -3592,8 +3592,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|sb.buf
@@ -4434,8 +4433,7 @@ op_le
 id|eol
 id|i
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|sb-&gt;buf
@@ -6046,8 +6044,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|k
@@ -6243,8 +6240,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|k
@@ -6252,8 +6248,7 @@ comma
 l_string|&quot;status.color.&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|k
@@ -7302,8 +7297,7 @@ c_func
 (paren
 l_string|&quot;[%s%s &quot;
 comma
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|head

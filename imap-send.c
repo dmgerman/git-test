@@ -6779,8 +6779,7 @@ l_int|1
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|p
@@ -6950,7 +6949,8 @@ id|len
 OL
 l_int|5
 op_logical_or
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|data
@@ -7196,8 +7196,7 @@ id|key
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|val
@@ -7213,8 +7212,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|val
@@ -7235,8 +7233,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|val

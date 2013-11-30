@@ -1370,8 +1370,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|var
@@ -1379,8 +1378,7 @@ comma
 l_string|&quot;diff.color.&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|var
@@ -1546,8 +1544,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|var
@@ -6924,8 +6921,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line
@@ -13021,8 +13017,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|diffopts
@@ -13048,8 +13043,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|diffopts
@@ -18035,7 +18029,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|arg
@@ -18202,8 +18197,7 @@ suffix:colon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -18298,8 +18292,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -18394,8 +18387,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -18490,8 +18482,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19388,8 +19379,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19412,8 +19402,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19480,8 +19469,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19634,8 +19622,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19658,8 +19645,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19667,8 +19653,7 @@ comma
 l_string|&quot;-B&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19717,8 +19702,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19726,8 +19710,7 @@ comma
 l_string|&quot;-M&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19808,8 +19791,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19817,8 +19799,7 @@ comma
 l_string|&quot;-C&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -19966,8 +19947,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -20435,8 +20415,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -20521,8 +20500,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -20576,8 +20554,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -20878,8 +20855,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -20932,8 +20908,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -21203,8 +21178,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -21698,8 +21672,7 @@ multiline_comment|/* convert the long-form arguments into short-form versions */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|opt
@@ -21739,8 +21712,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|opt
@@ -21780,8 +21752,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|opt
@@ -23949,8 +23920,7 @@ multiline_comment|/* Ignore line numbers when computing the SHA1 of the patch */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line

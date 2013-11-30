@@ -825,8 +825,7 @@ id|flag
 op_amp
 id|REF_ISSYMREF
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|tmp
@@ -845,7 +844,8 @@ c_cond
 op_logical_neg
 id|localname
 op_logical_or
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|localname
@@ -861,7 +861,8 @@ c_cond
 op_logical_neg
 id|remotename
 op_logical_or
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|remotename
@@ -925,7 +926,8 @@ id|url
 )paren
 (brace
 r_return
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|url
@@ -1520,7 +1522,8 @@ c_cond
 (paren
 id|flags
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|name
@@ -1528,7 +1531,8 @@ comma
 l_string|&quot;refs/heads/&quot;
 )paren
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|name
@@ -3533,8 +3537,7 @@ c_func
 l_char|&squot;*&squot;
 comma
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
@@ -5060,8 +5063,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|p
@@ -5100,8 +5102,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url
@@ -5201,8 +5202,7 @@ c_func
 id|url
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url
@@ -5210,8 +5210,7 @@ comma
 l_string|&quot;file://&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url
@@ -5219,8 +5218,7 @@ comma
 l_string|&quot;git://&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url
@@ -5228,8 +5226,7 @@ comma
 l_string|&quot;ssh://&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url
@@ -5237,8 +5234,7 @@ comma
 l_string|&quot;git+ssh://&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url

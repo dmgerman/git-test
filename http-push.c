@@ -3406,8 +3406,7 @@ id|DAV_ACTIVELOCK_TIMEOUT
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|ctx-&gt;cdata
@@ -7734,8 +7733,7 @@ multiline_comment|/* If it&squot;s a symref, set the refname; otherwise try for 
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 (paren

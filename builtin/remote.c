@@ -1446,8 +1446,7 @@ id|cb
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|key
@@ -1494,8 +1493,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|suffixcmp
+id|ends_with
 c_func
 (paren
 id|key
@@ -1528,8 +1526,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|suffixcmp
+id|ends_with
 c_func
 (paren
 id|key
@@ -1562,8 +1559,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|suffixcmp
+id|ends_with
 c_func
 (paren
 id|key
@@ -3015,7 +3011,8 @@ multiline_comment|/* don&squot;t delete non-remote-tracking refs */
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|refname
@@ -3028,8 +3025,7 @@ multiline_comment|/* advise user how to delete local branches */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -3201,8 +3197,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname

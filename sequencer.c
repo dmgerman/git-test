@@ -134,8 +134,7 @@ id|cherry_picked_prefix
 op_plus
 l_int|1
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf
@@ -877,8 +876,7 @@ multiline_comment|/* do nothing */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|p
@@ -3628,8 +3626,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|bol
@@ -3655,8 +3652,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|bol

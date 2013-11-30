@@ -2155,7 +2155,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|entry-&gt;name
@@ -3702,8 +3703,7 @@ id|peeled
 op_eq
 id|PEELED_TAGS
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -5294,8 +5294,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer
@@ -5456,7 +5455,8 @@ multiline_comment|/*&n;&t;&t; * Is it a symbolic ref?&n;&t;&t; */
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|buffer
@@ -7443,7 +7443,8 @@ c_cond
 op_logical_neg
 id|prefix
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|pattern
@@ -7642,8 +7643,7 @@ r_return
 id|name
 op_plus
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -7654,8 +7654,7 @@ ques
 c_cond
 l_int|11
 suffix:colon
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -7666,8 +7665,7 @@ ques
 c_cond
 l_int|10
 suffix:colon
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -9557,8 +9555,7 @@ suffix:semicolon
 r_int
 id|is_tag_ref
 op_assign
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|entry-&gt;name
@@ -11666,8 +11663,7 @@ c_cond
 id|log_all_ref_updates
 op_logical_and
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -11675,8 +11671,7 @@ comma
 l_string|&quot;refs/heads/&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -11684,8 +11679,7 @@ comma
 l_string|&quot;refs/remotes/&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -12134,8 +12128,7 @@ comma
 l_string|&quot;HEAD&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -16281,8 +16274,7 @@ id|var
 op_logical_or
 multiline_comment|/* NEEDSWORK: use parse_config_key() once both are merged */
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|var
@@ -16453,7 +16445,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|refname

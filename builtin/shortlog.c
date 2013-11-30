@@ -339,8 +339,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|oneline
@@ -576,7 +575,8 @@ op_eq
 l_char|&squot;a&squot;
 )paren
 op_logical_or
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|author
@@ -754,8 +754,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer

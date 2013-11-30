@@ -320,8 +320,7 @@ op_increment
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url
@@ -1398,8 +1397,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer
@@ -1423,8 +1421,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer
@@ -1448,8 +1445,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer
@@ -1947,8 +1943,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|key
@@ -2127,8 +2122,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|key
@@ -2278,7 +2272,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|key
@@ -3109,8 +3104,7 @@ op_amp
 id|REF_ISSYMREF
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|head_ref
@@ -5834,7 +5828,8 @@ op_ne
 id|namelen
 l_int|5
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|name
@@ -5842,7 +5837,8 @@ comma
 l_string|&quot;refs/heads/&quot;
 )paren
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|name
@@ -6149,8 +6145,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|r
@@ -6171,8 +6166,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|r
@@ -6394,7 +6388,8 @@ op_amp
 id|REF_ISSYMREF
 )paren
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|dst_value
@@ -6890,7 +6885,8 @@ c_cond
 op_logical_neg
 id|send_mirror
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
@@ -7188,8 +7184,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
@@ -7242,7 +7237,8 @@ id|ref-&gt;next
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
@@ -8167,8 +8163,7 @@ id|ref-&gt;old_sha1
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
@@ -8870,8 +8865,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -8889,8 +8883,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -8898,8 +8891,7 @@ comma
 l_string|&quot;heads/&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -8907,8 +8899,7 @@ comma
 l_string|&quot;tags/&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -9117,7 +9108,8 @@ id|peer_ref
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 (paren
@@ -10499,8 +10491,7 @@ id|r
 op_ne
 id|head
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|r-&gt;name

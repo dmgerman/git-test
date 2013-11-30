@@ -933,8 +933,7 @@ id|ATTRIBUTE_MACRO_PREFIX
 OL
 id|namelen
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name

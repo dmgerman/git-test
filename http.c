@@ -2153,8 +2153,7 @@ c_func
 l_string|&quot;GIT_SSL_CERT_PASSWORD_PROTECTED&quot;
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url
@@ -4401,7 +4400,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|asked
@@ -4887,8 +4887,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer.buf
@@ -5424,8 +5423,7 @@ l_int|52
 op_le
 id|buf.len
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|data
@@ -5435,8 +5433,7 @@ comma
 l_string|&quot; pack-&quot;
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|data

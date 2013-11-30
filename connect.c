@@ -712,8 +712,7 @@ id|len
 OG
 l_int|4
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer

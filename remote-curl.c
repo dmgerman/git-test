@@ -1123,8 +1123,7 @@ r_if
 c_cond
 (paren
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url.buf
@@ -1132,8 +1131,7 @@ comma
 l_string|&quot;http://&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|url.buf
@@ -4005,8 +4003,7 @@ r_do
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf-&gt;buf
@@ -4772,8 +4769,7 @@ r_do
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf-&gt;buf
@@ -5119,8 +5115,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf.buf
@@ -5161,8 +5156,7 @@ comma
 l_string|&quot;list&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf.buf
@@ -5201,8 +5195,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf.buf
@@ -5223,8 +5216,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf.buf

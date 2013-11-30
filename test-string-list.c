@@ -201,8 +201,7 @@ op_star
 id|cb_data
 suffix:semicolon
 r_return
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|item-&gt;string
