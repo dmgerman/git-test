@@ -845,8 +845,6 @@ c_func
 (paren
 )paren
 )paren
-op_ne
-l_int|0
 )paren
 r_return
 l_int|NULL
