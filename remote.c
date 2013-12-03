@@ -4920,7 +4920,6 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|query_refspecs
-r_static
 r_int
 id|query_refspecs
 c_func
@@ -5719,7 +5718,6 @@ id|cmp
 suffix:semicolon
 )brace
 DECL|function|count_refspec_match
-r_static
 r_int
 id|count_refspec_match
 c_func
