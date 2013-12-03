@@ -872,7 +872,7 @@ id|p_short_magic
 op_assign
 id|short_magic
 suffix:semicolon
-multiline_comment|/* --noglob-pathspec adds :(literal) _unless_ :(glob) is specifed */
+multiline_comment|/* --noglob-pathspec adds :(literal) _unless_ :(glob) is specified */
 r_if
 c_cond
 (paren
@@ -889,7 +889,7 @@ id|global_magic
 op_or_assign
 id|PATHSPEC_LITERAL
 suffix:semicolon
-multiline_comment|/* --glob-pathspec is overriden by :(literal) */
+multiline_comment|/* --glob-pathspec is overridden by :(literal) */
 r_if
 c_cond
 (paren
