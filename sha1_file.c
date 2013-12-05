@@ -11780,7 +11780,7 @@ id|hdr
 l_int|32
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * If we don&squot;t care about type or size, then we don&squot;t&n;&t; * need to look inside the object at all.&n;&t; */
+multiline_comment|/*&n;&t; * If we don&squot;t care about type or size, then we don&squot;t&n;&t; * need to look inside the object at all. Note that we&n;&t; * do not optimize out the stat call, even if the&n;&t; * caller doesn&squot;t care about the disk-size, since our&n;&t; * return value implicitly indicates whether the&n;&t; * object even exists.&n;&t; */
 r_if
 c_cond
 (paren
@@ -11789,12 +11789,6 @@ id|oi-&gt;typep
 op_logical_and
 op_logical_neg
 id|oi-&gt;sizep
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|oi-&gt;disk_sizep
 )paren
 (brace
 r_struct
@@ -11818,12 +11812,16 @@ l_int|0
 r_return
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|oi-&gt;disk_sizep
+)paren
 op_star
 id|oi-&gt;disk_sizep
 op_assign
 id|st.st_size
 suffix:semicolon
-)brace
 r_return
 l_int|0
 suffix:semicolon
