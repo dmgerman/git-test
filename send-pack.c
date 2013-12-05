@@ -1028,6 +1028,18 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|args-&gt;dry_run
+)paren
+id|advertise_shallow_grafts
+c_func
+(paren
+id|out
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * Finally, tell the other end!&n;&t; */
 id|new_refs
 op_assign

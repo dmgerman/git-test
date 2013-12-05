@@ -933,6 +933,8 @@ id|is_repository_shallow
 c_func
 (paren
 )paren
+op_logical_and
+id|args.stateless_rpc
 )paren
 id|die
 c_func
