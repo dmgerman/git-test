@@ -3,6 +3,7 @@ macro_line|#include &quot;pkt-line.h&quot;
 macro_line|#include &quot;fetch-pack.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;connect.h&quot;
+macro_line|#include &quot;sha1-array.h&quot;
 DECL|variable|fetch_pack_usage
 r_static
 r_const
@@ -292,6 +293,12 @@ suffix:semicolon
 r_struct
 id|fetch_pack_args
 id|args
+suffix:semicolon
+r_struct
+id|sha1_array
+id|shallow
+op_assign
+id|SHA1_ARRAY_INIT
 suffix:semicolon
 id|packet_trace_identity
 c_func
@@ -671,6 +678,46 @@ suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--cloning&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|args.cloning
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;--update-shallow&quot;
+comma
+id|arg
+)paren
+)paren
+(brace
+id|args.update_shallow
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
 id|usage
 c_func
 (paren
@@ -902,7 +949,8 @@ l_int|0
 comma
 l_int|NULL
 comma
-l_int|NULL
+op_amp
+id|shallow
 )paren
 suffix:semicolon
 id|ref
@@ -925,7 +973,8 @@ id|sought
 comma
 id|nr_sought
 comma
-l_int|NULL
+op_amp
+id|shallow
 comma
 id|pack_lockfile_ptr
 )paren
