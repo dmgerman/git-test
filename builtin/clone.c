@@ -5054,6 +5054,10 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+id|transport-&gt;cloning
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren

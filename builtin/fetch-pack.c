@@ -877,6 +877,8 @@ id|sought
 comma
 id|nr_sought
 comma
+l_int|NULL
+comma
 id|pack_lockfile_ptr
 )paren
 suffix:semicolon
