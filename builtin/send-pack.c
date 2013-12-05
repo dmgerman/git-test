@@ -935,22 +935,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|is_repository_shallow
-c_func
-(paren
-)paren
-op_logical_and
-id|args.stateless_rpc
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;attempt to push from a shallow repository&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|remote_name
 )paren
 (brace
