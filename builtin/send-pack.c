@@ -1067,6 +1067,8 @@ id|REF_NORMAL
 comma
 op_amp
 id|extra_have
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|transport_verify_remote_names

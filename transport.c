@@ -2783,6 +2783,8 @@ l_int|0
 comma
 op_amp
 id|data-&gt;extra_have
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|data-&gt;got_remote_heads
@@ -2944,6 +2946,8 @@ op_amp
 id|refs_tmp
 comma
 l_int|0
+comma
+l_int|NULL
 comma
 l_int|NULL
 )paren
@@ -4412,6 +4416,8 @@ op_amp
 id|tmp_refs
 comma
 id|REF_NORMAL
+comma
+l_int|NULL
 comma
 l_int|NULL
 )paren
