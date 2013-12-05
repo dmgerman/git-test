@@ -1510,6 +1510,8 @@ op_amp
 id|req_buf
 comma
 l_int|1
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -4432,6 +4434,8 @@ id|shallow_lock
 comma
 op_amp
 id|alternate_shallow_file
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_else

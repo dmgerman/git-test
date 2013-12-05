@@ -314,6 +314,7 @@ op_assign
 id|setup_temporary_shallow
 c_func
 (paren
+l_int|NULL
 )paren
 suffix:semicolon
 id|argv
