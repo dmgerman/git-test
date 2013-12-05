@@ -68,6 +68,11 @@ r_static
 r_int
 id|output_sq
 suffix:semicolon
+DECL|variable|stuck_long
+r_static
+r_int
+id|stuck_long
+suffix:semicolon
 multiline_comment|/*&n; * Some arguments are relevant &quot;revision&quot; arguments,&n; * others are about output format or other details.&n; * This sorts it all out.&n; */
 DECL|function|is_rev_argument
 r_static
@@ -1465,6 +1470,15 @@ r_if
 c_cond
 (paren
 id|o-&gt;short_name
+op_logical_and
+(paren
+id|o-&gt;long_name
+op_eq
+l_int|NULL
+op_logical_or
+op_logical_neg
+id|stuck_long
+)paren
 )paren
 id|strbuf_addf
 c_func
@@ -1493,12 +1507,32 @@ c_cond
 id|arg
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|stuck_long
+)paren
 id|strbuf_addch
 c_func
 (paren
 id|parsed
 comma
 l_char|&squot; &squot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|o-&gt;long_name
+)paren
+id|strbuf_addch
+c_func
+(paren
+id|parsed
+comma
+l_char|&squot;=&squot;
 )paren
 suffix:semicolon
 id|sq_quote_buf
@@ -1635,6 +1669,23 @@ c_func
 (paren
 l_string|&quot;stop parsing after the &quot;
 l_string|&quot;first non-option argument&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;stuck-long&quot;
+comma
+op_amp
+id|stuck_long
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;output in stuck long form&quot;
 )paren
 )paren
 comma
