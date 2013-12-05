@@ -3820,6 +3820,12 @@ op_amp
 id|symref
 )paren
 suffix:semicolon
+id|advertise_shallow_grafts
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
 id|packet_flush
 c_func
 (paren
@@ -4225,11 +4231,13 @@ id|is_repository_shallow
 c_func
 (paren
 )paren
+op_logical_and
+id|stateless_rpc
 )paren
 id|die
 c_func
 (paren
-l_string|&quot;attempt to fetch/clone from a shallow repository&quot;
+l_string|&quot;attempt to push into a shallow repository&quot;
 )paren
 suffix:semicolon
 id|git_config

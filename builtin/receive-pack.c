@@ -879,6 +879,12 @@ comma
 id|null_sha1
 )paren
 suffix:semicolon
+id|advertise_shallow_grafts
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
 multiline_comment|/* EOF */
 id|packet_flush
 c_func
@@ -5209,6 +5215,8 @@ id|is_repository_shallow
 c_func
 (paren
 )paren
+op_logical_and
+id|stateless_rpc
 )paren
 id|die
 c_func
