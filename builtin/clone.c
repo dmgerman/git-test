@@ -4500,6 +4500,32 @@ l_string|&quot;--local is ignored&quot;
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/* no need to be strict, transport_set_option() will validate it again */
+r_if
+c_cond
+(paren
+id|option_depth
+op_logical_and
+id|atoi
+c_func
+(paren
+id|option_depth
+)paren
+OL
+l_int|1
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;depth %s is not a positive number&quot;
+)paren
+comma
+id|option_depth
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

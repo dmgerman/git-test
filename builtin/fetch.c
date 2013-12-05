@@ -5811,6 +5811,32 @@ id|inf_depth
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/* no need to be strict, transport_set_option() will validate it again */
+r_if
+c_cond
+(paren
+id|depth
+op_logical_and
+id|atoi
+c_func
+(paren
+id|depth
+)paren
+OL
+l_int|1
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;depth %s is not a positive number&quot;
+)paren
+comma
+id|depth
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
