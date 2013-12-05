@@ -5924,8 +5924,13 @@ op_amp
 id|revs-&gt;prune_data
 comma
 id|PATHSPEC_ALL_MAGIC
+op_amp
+op_complement
+id|PATHSPEC_LITERAL
 comma
 id|PATHSPEC_PREFER_FULL
+op_or
+id|PATHSPEC_LITERAL_PATH
 comma
 l_string|&quot;&quot;
 comma
