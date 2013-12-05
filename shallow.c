@@ -36,6 +36,9 @@ r_const
 r_char
 op_star
 id|path
+comma
+r_int
+id|override
 )paren
 (brace
 r_if
@@ -50,6 +53,16 @@ c_func
 (paren
 l_string|&quot;BUG: is_repository_shallow must not be called before set_alternate_shallow_file&quot;
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|alternate_shallow_file
+op_logical_and
+op_logical_neg
+id|override
+)paren
+r_return
 suffix:semicolon
 id|free
 c_func
