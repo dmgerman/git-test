@@ -3002,6 +3002,12 @@ c_cond
 id|depth
 op_eq
 id|INFINITE_DEPTH
+op_logical_and
+op_logical_neg
+id|is_repository_shallow
+c_func
+(paren
+)paren
 )paren
 r_for
 c_loop
