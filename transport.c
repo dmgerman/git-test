@@ -4482,7 +4482,8 @@ id|REF_NORMAL
 comma
 l_int|NULL
 comma
-l_int|NULL
+op_amp
+id|data-&gt;shallow
 )paren
 suffix:semicolon
 id|data-&gt;got_remote_heads
@@ -4490,17 +4491,6 @@ op_assign
 l_int|1
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|data-&gt;shallow.nr
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;pushing to a shallow repository is not supported&quot;
-)paren
-suffix:semicolon
 id|memset
 c_func
 (paren

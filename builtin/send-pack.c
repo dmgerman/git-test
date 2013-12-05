@@ -355,6 +355,12 @@ op_assign
 id|SHA1_ARRAY_INIT
 suffix:semicolon
 r_struct
+id|sha1_array
+id|shallow
+op_assign
+id|SHA1_ARRAY_INIT
+suffix:semicolon
+r_struct
 id|ref
 op_star
 id|remote_refs
@@ -1070,7 +1076,8 @@ comma
 op_amp
 id|extra_have
 comma
-l_int|NULL
+op_amp
+id|shallow
 )paren
 suffix:semicolon
 id|transport_verify_remote_names
