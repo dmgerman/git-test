@@ -14,6 +14,7 @@ macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;sha1-array.h&quot;
 multiline_comment|/* rsync support */
 multiline_comment|/*&n; * We copy packed-refs and refs/ into a temporary file, then read the&n; * loose refs recursively (sorting whenever possible), and then inserting&n; * those packed refs that are not yet in the list (not validating, but&n; * assuming that the file is sorted).&n; *&n; * Appears refactoring this from refs.c is too cumbersome.&n; */
 DECL|function|str_cmp
@@ -2450,7 +2451,7 @@ l_int|1
 suffix:semicolon
 DECL|member|extra_have
 r_struct
-id|extra_have_objects
+id|sha1_array
 id|extra_have
 suffix:semicolon
 )brace

@@ -8,6 +8,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;sha1-array.h&quot;
 DECL|variable|server_capabilities
 r_static
 r_char
@@ -199,56 +200,6 @@ id|ref-&gt;name
 comma
 id|flags
 )paren
-suffix:semicolon
-)brace
-DECL|function|add_extra_have
-r_static
-r_void
-id|add_extra_have
-c_func
-(paren
-r_struct
-id|extra_have_objects
-op_star
-id|extra
-comma
-r_int
-r_char
-op_star
-id|sha1
-)paren
-(brace
-id|ALLOC_GROW
-c_func
-(paren
-id|extra-&gt;array
-comma
-id|extra-&gt;nr
-op_plus
-l_int|1
-comma
-id|extra-&gt;alloc
-)paren
-suffix:semicolon
-id|hashcpy
-c_func
-(paren
-op_amp
-(paren
-id|extra-&gt;array
-(braket
-id|extra-&gt;nr
-)braket
-(braket
-l_int|0
-)braket
-)paren
-comma
-id|sha1
-)paren
-suffix:semicolon
-id|extra-&gt;nr
-op_increment
 suffix:semicolon
 )brace
 DECL|function|die_initial_contact
@@ -602,7 +553,7 @@ r_int
 id|flags
 comma
 r_struct
-id|extra_have_objects
+id|sha1_array
 op_star
 id|extra_have
 )paren
@@ -825,7 +776,7 @@ l_int|5
 )paren
 )paren
 (brace
-id|add_extra_have
+id|sha1_array_append
 c_func
 (paren
 id|extra_have

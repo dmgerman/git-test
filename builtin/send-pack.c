@@ -10,6 +10,7 @@ macro_line|#include &quot;send-pack.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;version.h&quot;
+macro_line|#include &quot;sha1-array.h&quot;
 DECL|variable|send_pack_usage
 r_static
 r_const
@@ -348,8 +349,10 @@ op_star
 id|conn
 suffix:semicolon
 r_struct
-id|extra_have_objects
+id|sha1_array
 id|extra_have
+op_assign
+id|SHA1_ARRAY_INIT
 suffix:semicolon
 r_struct
 id|ref
@@ -1031,20 +1034,6 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
-id|memset
-c_func
-(paren
-op_amp
-id|extra_have
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|extra_have
-)paren
-)paren
-suffix:semicolon
 id|get_remote_heads
 c_func
 (paren

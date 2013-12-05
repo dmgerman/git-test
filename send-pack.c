@@ -10,6 +10,7 @@ macro_line|#include &quot;send-pack.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;version.h&quot;
+macro_line|#include &quot;sha1-array.h&quot;
 DECL|function|feed_object
 r_static
 r_int
@@ -119,7 +120,7 @@ op_star
 id|refs
 comma
 r_struct
-id|extra_have_objects
+id|sha1_array
 op_star
 id|extra
 comma
@@ -297,7 +298,7 @@ op_logical_neg
 id|feed_object
 c_func
 (paren
-id|extra-&gt;array
+id|extra-&gt;sha1
 (braket
 id|i
 )braket
@@ -856,7 +857,7 @@ op_star
 id|remote_refs
 comma
 r_struct
-id|extra_have_objects
+id|sha1_array
 op_star
 id|extra_have
 )paren
