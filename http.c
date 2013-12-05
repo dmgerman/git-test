@@ -3403,6 +3403,24 @@ id|slot-&gt;results-&gt;http_code
 op_assign
 id|slot-&gt;http_code
 suffix:semicolon
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070a08
+id|curl_easy_getinfo
+c_func
+(paren
+id|slot-&gt;curl
+comma
+id|CURLINFO_HTTPAUTH_AVAIL
+comma
+op_amp
+id|slot-&gt;results-&gt;auth_avail
+)paren
+suffix:semicolon
+macro_line|#else
+id|slot-&gt;results-&gt;auth_avail
+op_assign
+l_int|0
+suffix:semicolon
+macro_line|#endif
 )brace
 multiline_comment|/* Run callback if appropriate */
 r_if
