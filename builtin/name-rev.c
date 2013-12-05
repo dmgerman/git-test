@@ -88,12 +88,6 @@ id|parent_number
 op_assign
 l_int|1
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|commit-&gt;object.parsed
-)paren
 id|parse_commit
 c_func
 (paren

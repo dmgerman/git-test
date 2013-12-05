@@ -1982,12 +1982,16 @@ id|sb
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|parse_commit
 c_func
 (paren
 id|commit
 )paren
-suffix:semicolon
+)paren
 id|pp_commit_easy
 c_func
 (paren
@@ -3552,12 +3556,6 @@ op_star
 id|commit
 )paren
 (brace
-id|parse_commit
-c_func
-(paren
-id|commit
-)paren
-suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
@@ -3588,6 +3586,16 @@ comma
 l_char|&squot; &squot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|parse_commit
+c_func
+(paren
+id|commit
+)paren
+)paren
 id|pp_commit_easy
 c_func
 (paren
@@ -4137,7 +4145,7 @@ l_string|&quot;You are on a branch yet to be born&quot;
 )paren
 )paren
 suffix:semicolon
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 r_new
@@ -4971,7 +4979,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 r_new

@@ -3186,10 +3186,7 @@ id|object-&gt;parsed
 op_assign
 l_int|0
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|parse_commit
+id|parse_commit_or_die
 c_func
 (paren
 (paren
@@ -3198,12 +3195,6 @@ id|commit
 op_star
 )paren
 id|object
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;invalid commit&quot;
 )paren
 suffix:semicolon
 id|parents
