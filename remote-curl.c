@@ -3807,7 +3807,13 @@ c_func
 op_amp
 id|preamble
 comma
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s %s&bslash;n&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|ref-&gt;old_sha1
+)paren
 comma
 id|ref-&gt;name
 )paren
