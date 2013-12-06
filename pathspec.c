@@ -204,6 +204,14 @@ comma
 l_string|&quot;icase&quot;
 )brace
 comma
+(brace
+id|PATHSPEC_EXCLUDE
+comma
+l_char|&squot;!&squot;
+comma
+l_string|&quot;exclude&quot;
+)brace
+comma
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * Take an element of a pathspec and check for magic signatures.&n; * Append the result to the prefix. Return the magic bitmap.&n; *&n; * For now, we only parse the syntax and throw out anything other than&n; * &quot;top&quot; magic.&n; *&n; * NEEDSWORK: This needs to be rewritten when we start migrating&n; * get_pathspec() users to use the &quot;struct pathspec&quot; interface.  For&n; * example, a pathspec element may be marked as case-insensitive, but&n; * the prefix part must always match literally, and a single stupid&n; * string cannot express such a case.&n; */
@@ -1723,6 +1731,10 @@ comma
 id|n
 comma
 id|prefixlen
+comma
+id|nr_exclude
+op_assign
+l_int|0
 suffix:semicolon
 id|memset
 c_func
@@ -2041,6 +2053,21 @@ id|i
 dot
 id|magic
 op_amp
+id|PATHSPEC_EXCLUDE
+)paren
+id|nr_exclude
+op_increment
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|item
+(braket
+id|i
+)braket
+dot
+id|magic
+op_amp
 id|magic_mask
 )paren
 id|unsupported_magic
@@ -2132,6 +2159,24 @@ dot
 id|magic
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|nr_exclude
+op_eq
+id|n
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;There is nothing to exclude from by :(exclude) patterns.&bslash;n&quot;
+l_string|&quot;Perhaps you forgot to add either &squot;:/&squot; or &squot;.&squot; ?&quot;
+)paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
