@@ -598,6 +598,7 @@ id|cwd
 )paren
 )paren
 id|die_errno
+c_func
 (paren
 l_string|&quot;Could not change back to &squot;%s&squot;&quot;
 comma
