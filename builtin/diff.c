@@ -1507,6 +1507,12 @@ l_char|&squot;-&squot;
 r_break
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|no_index
+)paren
 id|prefix
 op_assign
 id|setup_git_directory_gently
@@ -1564,6 +1570,12 @@ id|no_index
 op_assign
 id|DIFF_NO_INDEX_IMPLICIT
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|no_index
+)paren
 id|gitmodules_config
 c_func
 (paren
