@@ -1205,6 +1205,8 @@ id|data-&gt;sha1
 comma
 op_amp
 id|data-&gt;info
+comma
+id|LOOKUP_REPLACE_OBJECT
 )paren
 OL
 l_int|0

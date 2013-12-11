@@ -438,6 +438,8 @@ c_func
 id|sha1
 comma
 id|oi
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if

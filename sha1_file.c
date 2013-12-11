@@ -11983,6 +11983,9 @@ r_struct
 id|object_info
 op_star
 id|oi
+comma
+r_int
+id|flags
 )paren
 (brace
 r_struct
@@ -12149,6 +12152,8 @@ c_func
 id|sha1
 comma
 id|oi
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -12250,6 +12255,8 @@ id|sha1
 comma
 op_amp
 id|oi
+comma
+id|LOOKUP_REPLACE_OBJECT
 )paren
 OL
 l_int|0
