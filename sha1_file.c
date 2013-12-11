@@ -12726,7 +12726,7 @@ op_assign
 (paren
 id|flag
 op_amp
-id|READ_SHA1_FILE_REPLACE
+id|LOOKUP_REPLACE_OBJECT
 )paren
 ques
 c_cond
