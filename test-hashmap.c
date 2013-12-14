@@ -1,6 +1,5 @@
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;hashmap.h&quot;
-macro_line|#include &lt;stdio.h&gt;
 DECL|struct|test_entry
 r_struct
 id|test_entry
