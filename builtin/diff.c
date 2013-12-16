@@ -1602,11 +1602,7 @@ r_if
 c_cond
 (paren
 id|no_index
-)paren
-(brace
-r_if
-c_cond
-(paren
+op_logical_and
 id|argc
 op_ne
 id|i
@@ -1622,7 +1618,7 @@ op_eq
 id|DIFF_NO_INDEX_IMPLICIT
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t;&t; * There was no --no-index and there were not two&n;&t;&t;&t;&t; * paths. It is possible that the user intended&n;&t;&t;&t;&t; * to do an inside-repository operation.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t; * There was no --no-index and there were not two&n;&t;&t;&t; * paths. It is possible that the user intended&n;&t;&t;&t; * to do an inside-repository operation.&n;&t;&t;&t; */
 id|fprintf
 c_func
 (paren
@@ -1657,6 +1653,11 @@ l_string|&quot;[--no-index]&quot;
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|no_index
+)paren
 multiline_comment|/* If this is a no-index diff, just run it and exit there. */
 id|diff_no_index
 c_func
@@ -1671,7 +1672,6 @@ comma
 id|prefix
 )paren
 suffix:semicolon
-)brace
 multiline_comment|/* Otherwise, we are doing the usual &quot;git&quot; diff */
 id|rev.diffopt.skip_stat_unmatch
 op_assign
