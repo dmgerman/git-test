@@ -1617,8 +1617,7 @@ multiline_comment|/* negated and abbreviated very much? */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 l_string|&quot;no-&quot;
@@ -1639,7 +1638,8 @@ multiline_comment|/* negated? */
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|arg
@@ -1651,8 +1651,7 @@ l_string|&quot;no-&quot;
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|long_name
@@ -1699,8 +1698,7 @@ c_cond
 op_logical_neg
 id|rest
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|long_name
@@ -1949,8 +1947,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|arg
@@ -1995,8 +1992,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|options-&gt;long_name

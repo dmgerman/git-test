@@ -493,7 +493,8 @@ multiline_comment|/* &quot;object &quot; + sha1 + &quot;&bslash;n&quot; */
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|bufptr
@@ -692,8 +693,7 @@ l_int|4
 OL
 id|tail
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|bufptr
@@ -759,8 +759,7 @@ l_int|7
 OL
 id|tail
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|bufptr
@@ -936,7 +935,8 @@ id|len
 OL
 id|size
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|buf
@@ -946,7 +946,8 @@ comma
 id|PGP_SIGNATURE
 )paren
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|buf

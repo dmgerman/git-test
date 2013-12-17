@@ -417,8 +417,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|k
@@ -537,8 +536,7 @@ multiline_comment|/* note that a refs/ prefix is implied in the&n;&t;&t; * under
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|v

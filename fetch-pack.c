@@ -724,8 +724,7 @@ l_int|NULL
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line
@@ -738,8 +737,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line
@@ -820,8 +818,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line
@@ -1582,8 +1579,7 @@ l_int|NULL
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line
@@ -1625,8 +1621,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line
@@ -2677,7 +2672,8 @@ op_logical_and
 op_logical_neg
 id|args-&gt;depth
 op_logical_or
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name

@@ -122,8 +122,7 @@ id|len
 op_ge
 l_int|4
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf
@@ -137,8 +136,7 @@ id|len
 op_ge
 l_int|5
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buf

@@ -438,7 +438,8 @@ comma
 l_string|&quot;HEAD&quot;
 )paren
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|argv

@@ -4761,7 +4761,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|s-&gt;branch
@@ -6230,8 +6231,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|sb.buf
@@ -6258,8 +6258,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|sb.buf
@@ -6434,7 +6433,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|message
@@ -6663,8 +6663,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|ref
@@ -6684,8 +6683,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|ref
@@ -7305,8 +7303,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|branch_name
@@ -8628,8 +8625,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|branch_name

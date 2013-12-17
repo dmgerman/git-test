@@ -2477,7 +2477,8 @@ comma
 l_string|&quot;email&quot;
 )paren
 op_logical_and
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|name
@@ -2586,8 +2587,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -2722,8 +2722,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -3820,8 +3819,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -3837,8 +3835,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -3859,8 +3856,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -3873,7 +3869,8 @@ multiline_comment|/* only local branches may have an upstream */
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|ref-&gt;refname
@@ -3932,8 +3929,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -4211,8 +4207,7 @@ comma
 l_string|&quot;track&quot;
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -4345,8 +4340,7 @@ comma
 l_string|&quot;trackshort&quot;
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name

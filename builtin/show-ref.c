@@ -203,8 +203,7 @@ id|match
 op_assign
 id|heads_only
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -216,8 +215,7 @@ id|match
 op_or_assign
 id|tags_only
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -1204,8 +1202,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 op_star

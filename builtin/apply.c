@@ -6996,7 +6996,8 @@ id|size
 OL
 l_int|3
 op_logical_or
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|line
@@ -7015,7 +7016,8 @@ id|size
 OL
 l_int|5
 op_logical_or
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|line
@@ -8692,8 +8694,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer
@@ -8725,8 +8726,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|buffer
@@ -16761,8 +16761,7 @@ id|hunk-&gt;size
 op_ne
 l_int|NULL
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 op_increment
@@ -16801,8 +16800,7 @@ op_eq
 l_char|&squot;&bslash;n&squot;
 op_logical_and
 multiline_comment|/* does the abbreviated name on the index line agree with it? */
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|preimage

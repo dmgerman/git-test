@@ -185,8 +185,7 @@ multiline_comment|/*&n;&t;&t; * Check remaining flags.&n;&t;&t; */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|cmd
@@ -500,8 +499,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|cmd
@@ -614,8 +612,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|cmd
@@ -728,8 +725,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|cmd
@@ -3419,8 +3415,7 @@ multiline_comment|/*&n;&t; * &quot;git-xxxx&quot; is the same as &quot;git xxxx&
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|cmd
@@ -3487,8 +3482,7 @@ l_int|0
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|argv

@@ -698,8 +698,7 @@ id|cb_data
 r_int
 id|is_tag
 op_assign
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|path

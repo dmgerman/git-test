@@ -1743,8 +1743,7 @@ multiline_comment|/* for inbody stuff */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line-&gt;buf
@@ -1774,8 +1773,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line-&gt;buf
@@ -1889,8 +1887,7 @@ multiline_comment|/* Count mbox From headers as headers */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|cp
@@ -1898,8 +1895,7 @@ comma
 l_string|&quot;From &quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|cp
@@ -3446,8 +3442,7 @@ multiline_comment|/* Beginning of a &quot;diff -&quot; header? */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line-&gt;buf
@@ -3462,8 +3457,7 @@ multiline_comment|/* CVS &quot;Index: &quot; line? */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line-&gt;buf
@@ -3488,8 +3482,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|line-&gt;buf
@@ -4947,7 +4940,8 @@ id|unused
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|var
@@ -5154,8 +5148,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|argv

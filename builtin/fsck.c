@@ -2063,8 +2063,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|de-&gt;d_name
@@ -2294,8 +2293,7 @@ comma
 l_string|&quot;HEAD&quot;
 )paren
 op_logical_or
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname
@@ -2677,7 +2675,8 @@ r_else
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|head_points_at

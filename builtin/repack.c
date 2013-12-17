@@ -338,7 +338,8 @@ l_int|NULL
 r_if
 c_cond
 (paren
-id|suffixcmp
+op_logical_neg
+id|ends_with
 c_func
 (paren
 id|e-&gt;d_name

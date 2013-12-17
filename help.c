@@ -797,7 +797,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|de-&gt;d_name
@@ -1461,8 +1462,7 @@ multiline_comment|/* Also use aliases for command lookup */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|var
@@ -1943,8 +1943,7 @@ multiline_comment|/* use the entry from common_cmds[] */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|candidate
@@ -2391,8 +2390,7 @@ multiline_comment|/* A remote branch of the same name is deemed similar */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|refname

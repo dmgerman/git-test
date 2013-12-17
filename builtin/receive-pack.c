@@ -2195,7 +2195,8 @@ multiline_comment|/* only refs/... are allowed */
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|name
@@ -2373,8 +2374,7 @@ c_cond
 (paren
 id|deny_deletes
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -2481,8 +2481,7 @@ c_func
 id|old_sha1
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name

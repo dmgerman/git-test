@@ -206,8 +206,7 @@ suffix:semicolon
 r_int
 id|remote_is_branch
 op_assign
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|remote
@@ -1415,7 +1414,8 @@ multiline_comment|/* Unique completion -- good, only if it is a real branch */
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|real_ref

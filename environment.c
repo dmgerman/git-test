@@ -835,7 +835,8 @@ id|namespaced_ref
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|namespaced_ref
@@ -845,8 +846,6 @@ c_func
 (paren
 )paren
 )paren
-op_ne
-l_int|0
 )paren
 r_return
 l_int|NULL

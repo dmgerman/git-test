@@ -1085,7 +1085,8 @@ id|ref-&gt;next
 r_if
 c_cond
 (paren
-id|prefixcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
@@ -1099,8 +1100,7 @@ multiline_comment|/*&n;&t;&t; * The peeled ref always follows the matching base&
 r_if
 c_cond
 (paren
-op_logical_neg
-id|suffixcmp
+id|ends_with
 c_func
 (paren
 id|ref-&gt;name
@@ -2202,8 +2202,7 @@ c_func
 id|ref-&gt;old_sha1
 )paren
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
@@ -2332,8 +2331,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -2359,8 +2357,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|name
@@ -3165,8 +3162,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|rm-&gt;name
@@ -3190,8 +3186,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|rm-&gt;name
@@ -3215,8 +3210,7 @@ r_else
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|rm-&gt;name
@@ -4741,8 +4735,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|key

@@ -132,8 +132,7 @@ id|transport-&gt;smart_options-&gt;self_contained_and_connected
 op_logical_and
 id|transport-&gt;pack_lockfile
 op_logical_and
-op_logical_neg
-id|suffixcmp
+id|ends_with
 c_func
 (paren
 id|transport-&gt;pack_lockfile
