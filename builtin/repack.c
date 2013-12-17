@@ -606,8 +606,6 @@ op_assign
 id|STRBUF_INIT
 suffix:semicolon
 r_int
-id|nr_packs
-comma
 id|ext
 comma
 id|ret
@@ -1306,10 +1304,6 @@ id|ret
 r_return
 id|ret
 suffix:semicolon
-id|nr_packs
-op_assign
-l_int|0
-suffix:semicolon
 id|out
 op_assign
 id|xfdopen
@@ -1359,9 +1353,6 @@ comma
 id|line.buf
 )paren
 suffix:semicolon
-id|nr_packs
-op_increment
-suffix:semicolon
 )brace
 id|fclose
 c_func
@@ -1397,7 +1388,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|nr_packs
+id|names.nr
 op_logical_and
 op_logical_neg
 id|quiet
