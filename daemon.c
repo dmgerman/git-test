@@ -6535,7 +6535,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|prefixcmp
+id|strcmp
 c_func
 (paren
 id|arg
@@ -6555,7 +6555,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|prefixcmp
+id|strcmp
 c_func
 (paren
 id|arg
