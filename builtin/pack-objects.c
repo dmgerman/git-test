@@ -3640,18 +3640,6 @@ comma
 id|nr_remaining
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|offset
-)paren
-id|die_errno
-c_func
-(paren
-l_string|&quot;unable to write pack header&quot;
-)paren
-suffix:semicolon
 id|nr_written
 op_assign
 l_int|0
