@@ -5645,6 +5645,14 @@ c_func
 (paren
 id|de-&gt;d_name
 comma
+l_string|&quot;.bitmap&quot;
+)paren
+op_logical_or
+id|has_extension
+c_func
+(paren
+id|de-&gt;d_name
+comma
 l_string|&quot;.keep&quot;
 )paren
 )paren
