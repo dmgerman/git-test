@@ -557,7 +557,6 @@ r_char
 op_star
 id|exts
 (braket
-l_int|2
 )braket
 op_assign
 (brace
@@ -1431,7 +1430,11 @@ l_int|0
 suffix:semicolon
 id|ext
 OL
-l_int|2
+id|ARRAY_SIZE
+c_func
+(paren
+id|exts
+)paren
 suffix:semicolon
 id|ext
 op_increment
@@ -1735,7 +1738,11 @@ l_int|0
 suffix:semicolon
 id|ext
 OL
-l_int|2
+id|ARRAY_SIZE
+c_func
+(paren
+id|exts
+)paren
 suffix:semicolon
 id|ext
 op_increment
@@ -1876,7 +1883,11 @@ l_int|0
 suffix:semicolon
 id|ext
 OL
-l_int|2
+id|ARRAY_SIZE
+c_func
+(paren
+id|exts
+)paren
 suffix:semicolon
 id|ext
 op_increment
