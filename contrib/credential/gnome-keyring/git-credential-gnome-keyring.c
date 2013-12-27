@@ -299,7 +299,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|macro|CREDENTIAL_INIT
-mdefine_line|#define CREDENTIAL_INIT &bslash;&n;  { NULL,NULL,0,NULL,NULL,NULL }
+mdefine_line|#define CREDENTIAL_INIT { NULL, NULL, 0, NULL, NULL, NULL }
 DECL|typedef|credential_op_cb
 r_typedef
 r_int
@@ -329,7 +329,7 @@ suffix:semicolon
 )brace
 suffix:semicolon
 DECL|macro|CREDENTIAL_OP_END
-mdefine_line|#define CREDENTIAL_OP_END &bslash;&n;  { NULL,NULL }
+mdefine_line|#define CREDENTIAL_OP_END { NULL, NULL }
 multiline_comment|/* ----------------- GNOME Keyring functions ----------------- */
 multiline_comment|/* create a special keyring option string, if path is given */
 DECL|function|keyring_object
