@@ -13,6 +13,7 @@ id|sha1file
 op_star
 id|f
 comma
+r_const
 r_void
 op_star
 id|buf
@@ -448,6 +449,7 @@ id|sha1file
 op_star
 id|f
 comma
+r_const
 r_void
 op_star
 id|buf
@@ -489,6 +491,7 @@ id|left
 suffix:colon
 id|count
 suffix:semicolon
+r_const
 r_void
 op_star
 id|data

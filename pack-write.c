@@ -248,6 +248,7 @@ id|pack_idx_option
 op_star
 id|opts
 comma
+r_const
 r_int
 r_char
 op_star
@@ -288,9 +289,6 @@ r_int
 id|i
 comma
 id|fd
-suffix:semicolon
-id|git_SHA_CTX
-id|ctx
 suffix:semicolon
 r_uint32
 id|index_version
@@ -638,14 +636,6 @@ op_star
 l_int|4
 )paren
 suffix:semicolon
-multiline_comment|/* compute the SHA1 hash of sorted object names. */
-id|git_SHA1_Init
-c_func
-(paren
-op_amp
-id|ctx
-)paren
-suffix:semicolon
 multiline_comment|/*&n;&t; * Write the actual SHA1 entries..&n;&t; */
 id|list
 op_assign
@@ -708,17 +698,6 @@ id|sha1write
 c_func
 (paren
 id|f
-comma
-id|obj-&gt;sha1
-comma
-l_int|20
-)paren
-suffix:semicolon
-id|git_SHA1_Update
-c_func
-(paren
-op_amp
-id|ctx
 comma
 id|obj-&gt;sha1
 comma
@@ -1018,15 +997,6 @@ id|CSUM_CLOSE
 suffix:colon
 id|CSUM_FSYNC
 )paren
-)paren
-suffix:semicolon
-id|git_SHA1_Final
-c_func
-(paren
-id|sha1
-comma
-op_amp
-id|ctx
 )paren
 suffix:semicolon
 r_return
