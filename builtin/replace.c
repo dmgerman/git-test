@@ -35,18 +35,18 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-DECL|enum|repl_fmt
-DECL|enumerator|SHORT
-DECL|enumerator|MEDIUM
-DECL|enumerator|FULL
+DECL|enum|replace_format
 r_enum
-id|repl_fmt
+id|replace_format
 (brace
-id|SHORT
+DECL|enumerator|REPLACE_FORMAT_SHORT
+id|REPLACE_FORMAT_SHORT
 comma
-id|MEDIUM
+DECL|enumerator|REPLACE_FORMAT_MEDIUM
+id|REPLACE_FORMAT_MEDIUM
 comma
-id|FULL
+DECL|enumerator|REPLACE_FORMAT_LONG
+id|REPLACE_FORMAT_LONG
 )brace
 suffix:semicolon
 DECL|struct|show_data
@@ -59,10 +59,10 @@ r_char
 op_star
 id|pattern
 suffix:semicolon
-DECL|member|fmt
+DECL|member|format
 r_enum
-id|repl_fmt
-id|fmt
+id|replace_format
+id|format
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -116,9 +116,9 @@ l_int|0
 r_if
 c_cond
 (paren
-id|data-&gt;fmt
+id|data-&gt;format
 op_eq
-id|SHORT
+id|REPLACE_FORMAT_SHORT
 )paren
 id|printf
 c_func
@@ -132,9 +132,9 @@ r_else
 r_if
 c_cond
 (paren
-id|data-&gt;fmt
+id|data-&gt;format
 op_eq
-id|MEDIUM
+id|REPLACE_FORMAT_MEDIUM
 )paren
 id|printf
 c_func
@@ -152,7 +152,7 @@ id|sha1
 suffix:semicolon
 r_else
 (brace
-multiline_comment|/* data-&gt;fmt == FULL */
+multiline_comment|/* data-&gt;format == REPLACE_FORMAT_LONG */
 r_int
 r_char
 id|object
@@ -293,9 +293,9 @@ comma
 l_string|&quot;short&quot;
 )paren
 )paren
-id|data.fmt
+id|data.format
 op_assign
-id|SHORT
+id|REPLACE_FORMAT_SHORT
 suffix:semicolon
 r_else
 r_if
@@ -310,9 +310,9 @@ comma
 l_string|&quot;medium&quot;
 )paren
 )paren
-id|data.fmt
+id|data.format
 op_assign
-id|MEDIUM
+id|REPLACE_FORMAT_MEDIUM
 suffix:semicolon
 r_else
 r_if
@@ -324,19 +324,19 @@ c_func
 (paren
 id|format
 comma
-l_string|&quot;full&quot;
+l_string|&quot;long&quot;
 )paren
 )paren
-id|data.fmt
+id|data.format
 op_assign
-id|FULL
+id|REPLACE_FORMAT_LONG
 suffix:semicolon
 r_else
 id|die
 c_func
 (paren
 l_string|&quot;invalid replace format &squot;%s&squot;&bslash;n&quot;
-l_string|&quot;valid formats are &squot;short&squot;, &squot;medium&squot; and &squot;full&squot;&bslash;n&quot;
+l_string|&quot;valid formats are &squot;short&squot;, &squot;medium&squot; and &squot;long&squot;&bslash;n&quot;
 comma
 id|format
 )paren
