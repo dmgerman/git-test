@@ -302,14 +302,11 @@ op_star
 id|used_atom_type
 suffix:semicolon
 DECL|variable|used_atom_cnt
-DECL|variable|sort_atom_limit
 DECL|variable|need_tagged
 DECL|variable|need_symref
 r_static
 r_int
 id|used_atom_cnt
-comma
-id|sort_atom_limit
 comma
 id|need_tagged
 comma
@@ -6358,10 +6355,6 @@ id|default_sort
 c_func
 (paren
 )paren
-suffix:semicolon
-id|sort_atom_limit
-op_assign
-id|used_atom_cnt
 suffix:semicolon
 multiline_comment|/* for warn_ambiguous_refs */
 id|git_config
