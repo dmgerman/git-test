@@ -373,10 +373,14 @@ id|revs
 suffix:semicolon
 id|result
 op_assign
+id|reduce_heads
+c_func
+(paren
 id|get_octopus_merge_bases
 c_func
 (paren
 id|revs
+)paren
 )paren
 suffix:semicolon
 r_if
