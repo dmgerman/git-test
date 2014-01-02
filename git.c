@@ -2021,10 +2021,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|handle_internal_command
+DECL|function|handle_builtin
 r_static
 r_void
-id|handle_internal_command
+id|handle_builtin
 c_func
 (paren
 r_int
@@ -3296,8 +3296,8 @@ c_loop
 l_int|1
 )paren
 (brace
-multiline_comment|/* See if it&squot;s an internal command */
-id|handle_internal_command
+multiline_comment|/* See if it&squot;s a builtin */
+id|handle_builtin
 c_func
 (paren
 op_star
@@ -3411,7 +3411,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * &quot;git-xxxx&quot; is the same as &quot;git xxxx&quot;, but we obviously:&n;&t; *&n;&t; *  - cannot take flags in between the &quot;git&quot; and the &quot;xxxx&quot;.&n;&t; *  - cannot execute it externally (since it would just do&n;&t; *    the same thing over again)&n;&t; *&n;&t; * So we just directly call the internal command handler, and&n;&t; * die if that one cannot handle it.&n;&t; */
+multiline_comment|/*&n;&t; * &quot;git-xxxx&quot; is the same as &quot;git xxxx&quot;, but we obviously:&n;&t; *&n;&t; *  - cannot take flags in between the &quot;git&quot; and the &quot;xxxx&quot;.&n;&t; *  - cannot execute it externally (since it would just do&n;&t; *    the same thing over again)&n;&t; *&n;&t; * So we just directly call the builtin handler, and die if&n;&t; * that one cannot handle it.&n;&t; */
 r_if
 c_cond
 (paren
@@ -3435,7 +3435,7 @@ l_int|0
 op_assign
 id|cmd
 suffix:semicolon
-id|handle_internal_command
+id|handle_builtin
 c_func
 (paren
 id|argc
@@ -3446,7 +3446,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;cannot handle %s internally&quot;
+l_string|&quot;cannot handle %s as a builtin&quot;
 comma
 id|cmd
 )paren
