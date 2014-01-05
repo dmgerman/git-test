@@ -881,6 +881,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|advertise_shallow_grafts_buf
+r_static
 r_void
 id|advertise_shallow_grafts_buf
 c_func
