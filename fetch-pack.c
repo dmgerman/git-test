@@ -5098,7 +5098,6 @@ c_func
 id|si
 )paren
 suffix:semicolon
-multiline_comment|/* XXX remove_nonexistent_ours_in_pack() */
 r_if
 c_cond
 (paren
