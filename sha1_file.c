@@ -348,7 +348,7 @@ id|path
 (brace
 r_char
 op_star
-id|pos
+id|next_component
 op_assign
 id|path
 op_plus
@@ -361,7 +361,7 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-id|pos
+id|next_component
 )paren
 (brace
 r_struct
@@ -375,7 +375,7 @@ op_assign
 id|strchr
 c_func
 (paren
-id|pos
+id|next_component
 comma
 l_char|&squot;/&squot;
 )paren
@@ -403,7 +403,7 @@ l_char|&squot;/&squot;
 id|slash
 op_increment
 suffix:semicolon
-id|pos
+id|next_component
 op_assign
 id|slash
 op_plus
@@ -414,7 +414,7 @@ c_cond
 (paren
 op_logical_neg
 op_star
-id|pos
+id|next_component
 )paren
 r_break
 suffix:semicolon
