@@ -499,6 +499,19 @@ id|st.st_mode
 suffix:semicolon
 multiline_comment|/* somebody created it since we checked */
 r_else
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|ENOENT
+)paren
+multiline_comment|/*&n;&t;&t;&t;&t; * Either mkdir() failed because&n;&t;&t;&t;&t; * somebody just pruned the containing&n;&t;&t;&t;&t; * directory, or stat() failed because&n;&t;&t;&t;&t; * the file that was in our way was&n;&t;&t;&t;&t; * just removed.  Either way, inform&n;&t;&t;&t;&t; * the caller that it might be worth&n;&t;&t;&t;&t; * trying again:&n;&t;&t;&t;&t; */
+id|ret
+op_assign
+id|SCLD_VANISHED
+suffix:semicolon
+r_else
 id|ret
 op_assign
 id|SCLD_FAILED
