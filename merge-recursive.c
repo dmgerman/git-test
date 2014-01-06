@@ -3547,7 +3547,7 @@ c_cond
 (paren
 id|status
 op_eq
-l_int|3
+id|SCLD_EXISTS
 )paren
 (brace
 multiline_comment|/* something else exists */

@@ -2722,7 +2722,7 @@ l_int|0
 )paren
 (brace
 r_case
-l_int|3
+id|SCLD_EXISTS
 suffix:colon
 id|errno
 op_assign
@@ -2730,7 +2730,7 @@ id|EEXIST
 suffix:semicolon
 multiline_comment|/* fallthru */
 r_case
-l_int|1
+id|SCLD_FAILED
 suffix:colon
 id|die_errno
 c_func
