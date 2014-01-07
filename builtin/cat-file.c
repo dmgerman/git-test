@@ -1469,6 +1469,13 @@ id|retval
 r_break
 suffix:semicolon
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|buf
+)paren
+suffix:semicolon
 r_return
 id|retval
 suffix:semicolon
