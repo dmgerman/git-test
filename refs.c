@@ -15945,6 +15945,11 @@ id|total_len
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|offset
+op_assign
+l_int|0
+suffix:semicolon
 multiline_comment|/* the rule list is NULL terminated, count them first */
 r_for
 c_loop
@@ -15989,7 +15994,7 @@ op_plus
 id|total_len
 )paren
 suffix:semicolon
-id|total_len
+id|offset
 op_assign
 l_int|0
 suffix:semicolon
@@ -16023,7 +16028,7 @@ id|scanf_fmts
 id|nr_rules
 )braket
 op_plus
-id|total_len
+id|offset
 suffix:semicolon
 id|gen_scanf_fmt
 c_func
@@ -16039,7 +16044,7 @@ id|i
 )braket
 )paren
 suffix:semicolon
-id|total_len
+id|offset
 op_add_assign
 id|strlen
 c_func
