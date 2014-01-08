@@ -15868,7 +15868,7 @@ suffix:semicolon
 id|nr_rules
 op_increment
 )paren
-multiline_comment|/* no +1 because strlen(&quot;%s&quot;) &lt; strlen(&quot;%.*s&quot;) */
+multiline_comment|/* -2 for strlen(&quot;%.*s&quot;) - strlen(&quot;%s&quot;); +1 for NUL */
 id|total_len
 op_add_assign
 id|strlen
@@ -15879,6 +15879,9 @@ id|ref_rev_parse_rules
 id|nr_rules
 )braket
 )paren
+l_int|2
+op_plus
+l_int|1
 suffix:semicolon
 id|scanf_fmts
 op_assign
