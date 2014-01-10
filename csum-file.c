@@ -440,7 +440,7 @@ id|fd
 suffix:semicolon
 )brace
 DECL|function|sha1write
-r_int
+r_void
 id|sha1write
 c_func
 (paren
@@ -609,9 +609,6 @@ op_assign
 id|offset
 suffix:semicolon
 )brace
-r_return
-l_int|0
-suffix:semicolon
 )brace
 DECL|function|sha1fd
 r_struct

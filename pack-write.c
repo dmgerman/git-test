@@ -1045,9 +1045,6 @@ c_func
 id|nr_entries
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
 id|sha1write
 c_func
 (paren
@@ -1061,9 +1058,6 @@ r_sizeof
 id|hdr
 )paren
 )paren
-)paren
-r_return
-l_int|0
 suffix:semicolon
 r_return
 r_sizeof
