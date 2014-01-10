@@ -3642,6 +3642,7 @@ r_void
 )paren
 (brace
 macro_line|#ifdef RLIMIT_NOFILE
+(brace
 r_struct
 id|rlimit
 id|lim
@@ -3649,6 +3650,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|getrlimit
 c_func
 (paren
@@ -3658,24 +3660,36 @@ op_amp
 id|lim
 )paren
 )paren
-id|die_errno
-c_func
-(paren
-l_string|&quot;cannot get RLIMIT_NOFILE&quot;
-)paren
-suffix:semicolon
 r_return
 id|lim.rlim_cur
 suffix:semicolon
-macro_line|#elif defined(_SC_OPEN_MAX)
-r_return
+)brace
+macro_line|#endif
+macro_line|#ifdef _SC_OPEN_MAX
+(brace
+r_int
+id|open_max
+op_assign
 id|sysconf
 c_func
 (paren
 id|_SC_OPEN_MAX
 )paren
 suffix:semicolon
-macro_line|#elif defined(OPEN_MAX)
+r_if
+c_cond
+(paren
+l_int|0
+OL
+id|open_max
+)paren
+r_return
+id|open_max
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * Otherwise, we got -1 for one of the two&n;&t;&t; * reasons:&n;&t;&t; *&n;&t;&t; * (1) sysconf() did not understand _SC_OPEN_MAX&n;&t;&t; *     and signaled an error with -1; or&n;&t;&t; * (2) sysconf() said there is no limit.&n;&t;&t; *&n;&t;&t; * We _could_ clear errno before calling sysconf() to&n;&t;&t; * tell these two cases apart and return a huge number&n;&t;&t; * in the latter case to let the caller cap it to a&n;&t;&t; * value that is not so selfish, but letting the&n;&t;&t; * fallback OPEN_MAX codepath take care of these cases&n;&t;&t; * is a lot simpler.&n;&t;&t; */
+)brace
+macro_line|#endif
+macro_line|#ifdef OPEN_MAX
 r_return
 id|OPEN_MAX
 suffix:semicolon
