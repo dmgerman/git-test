@@ -6516,7 +6516,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|starts_with
+op_logical_neg
+id|strcmp
 c_func
 (paren
 id|arg
@@ -6535,7 +6536,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|starts_with
+op_logical_neg
+id|strcmp
 c_func
 (paren
 id|arg
