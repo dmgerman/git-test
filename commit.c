@@ -7350,6 +7350,7 @@ id|strbuf
 op_star
 id|msg
 comma
+r_const
 r_int
 r_char
 op_star
@@ -7864,6 +7865,7 @@ id|strbuf
 op_star
 id|msg
 comma
+r_const
 r_int
 r_char
 op_star
