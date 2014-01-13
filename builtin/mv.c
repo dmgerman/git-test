@@ -26,6 +26,10 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+DECL|macro|DUP_BASENAME
+mdefine_line|#define DUP_BASENAME 1
+DECL|macro|KEEP_TRAILING_SLASH
+mdefine_line|#define KEEP_TRAILING_SLASH 2
 DECL|function|internal_copy_pathspec
 r_static
 r_const
@@ -50,7 +54,7 @@ r_int
 id|count
 comma
 r_int
-id|base_name
+id|flags
 )paren
 (brace
 r_int
@@ -138,6 +142,13 @@ suffix:semicolon
 r_while
 c_loop
 (paren
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|KEEP_TRAILING_SLASH
+)paren
+op_logical_and
 id|to_copy
 OG
 l_int|0
@@ -165,7 +176,9 @@ id|to_copy
 op_ne
 id|length
 op_logical_or
-id|base_name
+id|flags
+op_amp
+id|DUP_BASENAME
 )paren
 (brace
 r_char
@@ -186,7 +199,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|base_name
+id|flags
+op_amp
+id|DUP_BASENAME
 )paren
 (brace
 id|result
@@ -583,6 +598,7 @@ id|update_mode
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Keep trailing slash, needed to let&n;&t; * &quot;git mv file no-such-dir/&quot; error out.&n;&t; */
 id|dest_path
 op_assign
 id|internal_copy_pathspec
@@ -596,7 +612,7 @@ id|argc
 comma
 l_int|1
 comma
-l_int|0
+id|KEEP_TRAILING_SLASH
 )paren
 suffix:semicolon
 id|submodule_gitfile
@@ -641,7 +657,7 @@ id|argv
 comma
 id|argc
 comma
-l_int|1
+id|DUP_BASENAME
 )paren
 suffix:semicolon
 r_else
@@ -696,7 +712,7 @@ id|argv
 comma
 id|argc
 comma
-l_int|1
+id|DUP_BASENAME
 )paren
 suffix:semicolon
 )brace
@@ -1458,6 +1474,32 @@ id|_
 c_func
 (paren
 l_string|&quot;multiple sources for the same target&quot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|is_dir_sep
+c_func
+(paren
+id|dst
+(braket
+id|strlen
+c_func
+(paren
+id|dst
+)paren
+l_int|1
+)braket
+)paren
+)paren
+id|bad
+op_assign
+id|_
+c_func
+(paren
+l_string|&quot;destination directory does not exist&quot;
 )paren
 suffix:semicolon
 r_else
