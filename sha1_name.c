@@ -2225,6 +2225,8 @@ id|sha1
 r_if
 c_cond
 (paren
+id|warn_ambiguous_refs
+op_logical_and
 id|warn_on_object_refname_ambiguity
 )paren
 (brace
@@ -2249,8 +2251,6 @@ c_cond
 id|refs_found
 OG
 l_int|0
-op_logical_and
-id|warn_ambiguous_refs
 )paren
 (brace
 id|warning
