@@ -998,6 +998,10 @@ id|pid
 comma
 l_int|0
 )paren
+op_logical_or
+id|errno
+op_eq
+id|EPERM
 )paren
 suffix:semicolon
 r_if
