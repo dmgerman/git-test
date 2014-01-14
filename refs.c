@@ -7683,6 +7683,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|variable|ref_rev_parse_rules
+r_static
 r_const
 r_char
 op_star
@@ -7720,12 +7721,6 @@ r_const
 r_char
 op_star
 id|full_name
-comma
-r_const
-r_char
-op_star
-op_star
-id|rules
 )paren
 (brace
 r_const
@@ -7749,7 +7744,7 @@ c_loop
 (paren
 id|p
 op_assign
-id|rules
+id|ref_rev_parse_rules
 suffix:semicolon
 op_star
 id|p
