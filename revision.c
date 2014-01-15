@@ -1336,6 +1336,10 @@ id|tag-&gt;tagged-&gt;sha1
 )paren
 suffix:semicolon
 )brace
+id|object-&gt;flags
+op_or_assign
+id|flags
+suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Commit object? Just return it, we&squot;ll do all the complex&n;&t; * reachability crud.&n;&t; */
 r_if
@@ -1385,10 +1389,6 @@ op_amp
 id|UNINTERESTING
 )paren
 (brace
-id|commit-&gt;object.flags
-op_or_assign
-id|UNINTERESTING
-suffix:semicolon
 id|mark_parents_uninteresting
 c_func
 (paren
@@ -1458,10 +1458,6 @@ op_amp
 id|UNINTERESTING
 )paren
 (brace
-id|tree-&gt;object.flags
-op_or_assign
-id|UNINTERESTING
-suffix:semicolon
 id|mark_tree_contents_uninteresting
 c_func
 (paren
@@ -1495,18 +1491,6 @@ op_eq
 id|OBJ_BLOB
 )paren
 (brace
-r_struct
-id|blob
-op_star
-id|blob
-op_assign
-(paren
-r_struct
-id|blob
-op_star
-)paren
-id|object
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1523,15 +1507,9 @@ id|flags
 op_amp
 id|UNINTERESTING
 )paren
-(brace
-id|blob-&gt;object.flags
-op_or_assign
-id|UNINTERESTING
-suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
-)brace
 id|add_pending_object
 c_func
 (paren
