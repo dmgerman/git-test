@@ -2124,6 +2124,9 @@ r_char
 op_star
 id|name
 comma
+r_int
+id|namelen
+comma
 r_struct
 id|strbuf
 op_star
@@ -2462,6 +2465,8 @@ id|interpret_nth_prior_checkout
 c_func
 (paren
 id|str
+comma
+id|len
 comma
 op_amp
 id|buf
@@ -4809,6 +4814,9 @@ r_char
 op_star
 id|name
 comma
+r_int
+id|namelen
+comma
 r_struct
 id|strbuf
 op_star
@@ -4833,6 +4841,16 @@ suffix:semicolon
 r_char
 op_star
 id|num_end
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|namelen
+OL
+l_int|4
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -4863,12 +4881,14 @@ l_int|1
 suffix:semicolon
 id|brace
 op_assign
-id|strchr
+id|memchr
 c_func
 (paren
 id|name
 comma
 l_char|&squot;}&squot;
+comma
+id|namelen
 )paren
 suffix:semicolon
 r_if
@@ -5284,7 +5304,7 @@ suffix:semicolon
 multiline_comment|/* make sure it&squot;s a single @, or @@{.*}, not @foo */
 id|next
 op_assign
-id|strchr
+id|memchr
 c_func
 (paren
 id|name
@@ -5294,6 +5314,10 @@ op_plus
 l_int|1
 comma
 l_char|&squot;@&squot;
+comma
+id|namelen
+id|len
+l_int|1
 )paren
 suffix:semicolon
 r_if
@@ -5773,6 +5797,8 @@ c_func
 (paren
 id|name
 comma
+id|namelen
+comma
 id|buf
 )paren
 suffix:semicolon
@@ -5839,12 +5865,14 @@ suffix:semicolon
 )brace
 id|at
 op_assign
-id|strchr
+id|memchr
 c_func
 (paren
 id|name
 comma
 l_char|&squot;@&squot;
+comma
+id|namelen
 )paren
 suffix:semicolon
 r_if
