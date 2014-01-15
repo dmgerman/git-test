@@ -5763,7 +5763,7 @@ id|buf
 (brace
 r_char
 op_star
-id|cp
+id|at
 suffix:semicolon
 r_int
 id|len
@@ -5837,7 +5837,7 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-id|cp
+id|at
 op_assign
 id|strchr
 c_func
@@ -5851,7 +5851,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|cp
+id|at
 )paren
 r_return
 l_int|1
@@ -5865,7 +5865,7 @@ id|name
 comma
 id|namelen
 comma
-id|cp
+id|at
 id|name
 comma
 id|buf
@@ -5900,7 +5900,7 @@ id|name
 comma
 id|namelen
 comma
-id|cp
+id|at
 id|name
 comma
 id|buf
