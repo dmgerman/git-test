@@ -5,6 +5,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
+macro_line|#include &quot;commit.h&quot;
 DECL|macro|FAILED_RUN
 mdefine_line|#define FAILED_RUN &quot;failed to run %s&quot;
 DECL|variable|builtin_gc_usage

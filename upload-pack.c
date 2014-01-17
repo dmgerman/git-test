@@ -314,6 +314,7 @@ op_assign
 id|setup_temporary_shallow
 c_func
 (paren
+l_int|NULL
 )paren
 suffix:semicolon
 id|argv
@@ -2999,6 +3000,12 @@ c_cond
 id|depth
 op_eq
 id|INFINITE_DEPTH
+op_logical_and
+op_logical_neg
+id|is_repository_shallow
+c_func
+(paren
+)paren
 )paren
 r_for
 c_loop
@@ -3809,6 +3816,12 @@ op_amp
 id|symref
 )paren
 suffix:semicolon
+id|advertise_shallow_grafts
+c_func
+(paren
+l_int|1
+)paren
+suffix:semicolon
 id|packet_flush
 c_func
 (paren
@@ -4204,20 +4217,6 @@ c_func
 l_string|&quot;&squot;%s&squot; does not appear to be a git repository&quot;
 comma
 id|dir
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|is_repository_shallow
-c_func
-(paren
-)paren
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;attempt to fetch/clone from a shallow repository&quot;
 )paren
 suffix:semicolon
 id|git_config

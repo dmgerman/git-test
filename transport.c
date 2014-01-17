@@ -14,6 +14,7 @@ macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;sha1-array.h&quot;
 multiline_comment|/* rsync support */
 multiline_comment|/*&n; * We copy packed-refs and refs/ into a temporary file, then read the&n; * loose refs recursively (sorting whenever possible), and then inserting&n; * those packed refs that are not yet in the list (not validating, but&n; * assuming that the file is sorted).&n; *&n; * Appears refactoring this from refs.c is too cumbersome.&n; */
 DECL|function|str_cmp
@@ -2454,8 +2455,13 @@ l_int|1
 suffix:semicolon
 DECL|member|extra_have
 r_struct
-id|extra_have_objects
+id|sha1_array
 id|extra_have
+suffix:semicolon
+DECL|member|shallow
+r_struct
+id|sha1_array
+id|shallow
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -2587,6 +2593,30 @@ id|TRANS_OPT_KEEP
 )paren
 (brace
 id|opts-&gt;keep
+op_assign
+op_logical_neg
+op_logical_neg
+id|value
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|name
+comma
+id|TRANS_OPT_UPDATE_SHALLOW
+)paren
+)paren
+(brace
+id|opts-&gt;update_shallow
 op_assign
 op_logical_neg
 op_logical_neg
@@ -2786,6 +2816,9 @@ l_int|0
 comma
 op_amp
 id|data-&gt;extra_have
+comma
+op_amp
+id|data-&gt;shallow
 )paren
 suffix:semicolon
 id|data-&gt;got_remote_heads
@@ -2914,6 +2947,14 @@ id|args.check_self_contained_and_connected
 op_assign
 id|data-&gt;options.check_self_contained_and_connected
 suffix:semicolon
+id|args.cloning
+op_assign
+id|transport-&gt;cloning
+suffix:semicolon
+id|args.update_shallow
+op_assign
+id|data-&gt;options.update_shallow
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2949,6 +2990,9 @@ comma
 l_int|0
 comma
 l_int|NULL
+comma
+op_amp
+id|data-&gt;shallow
 )paren
 suffix:semicolon
 id|data-&gt;got_remote_heads
@@ -2980,6 +3024,9 @@ comma
 id|to_fetch
 comma
 id|nr_heads
+comma
+op_amp
+id|data-&gt;shallow
 comma
 op_amp
 id|transport-&gt;pack_lockfile
@@ -3879,6 +3926,27 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
+id|REF_STATUS_REJECT_SHALLOW
+suffix:colon
+id|print_ref_status
+c_func
+(paren
+l_char|&squot;!&squot;
+comma
+l_string|&quot;[rejected]&quot;
+comma
+id|ref
+comma
+id|ref-&gt;peer_ref
+comma
+l_string|&quot;new shallow roots not allowed&quot;
+comma
+id|porcelain
+)paren
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
 id|REF_STATUS_REMOTE_REJECT
 suffix:colon
 id|print_ref_status
@@ -4416,6 +4484,9 @@ comma
 id|REF_NORMAL
 comma
 l_int|NULL
+comma
+op_amp
+id|data-&gt;shallow
 )paren
 suffix:semicolon
 id|data-&gt;got_remote_heads

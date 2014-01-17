@@ -2,6 +2,7 @@ multiline_comment|/*&n; * We put all the git config variables in this same objec
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;fmt-merge-msg.h&quot;
+macro_line|#include &quot;commit.h&quot;
 DECL|variable|trust_executable_bit
 r_int
 id|trust_executable_bit
@@ -393,6 +394,8 @@ id|NO_REPLACE_OBJECTS_ENVIRONMENT
 comma
 id|GIT_PREFIX_ENVIRONMENT
 comma
+id|GIT_SHALLOW_FILE_ENVIRONMENT
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -575,6 +578,11 @@ r_char
 op_star
 id|gitfile
 suffix:semicolon
+r_const
+r_char
+op_star
+id|shallow_file
+suffix:semicolon
 id|git_dir
 op_assign
 id|getenv
@@ -747,6 +755,27 @@ id|strlen
 c_func
 (paren
 r_namespace
+)paren
+suffix:semicolon
+id|shallow_file
+op_assign
+id|getenv
+c_func
+(paren
+id|GIT_SHALLOW_FILE_ENVIRONMENT
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|shallow_file
+)paren
+id|set_alternate_shallow_file
+c_func
+(paren
+id|shallow_file
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
