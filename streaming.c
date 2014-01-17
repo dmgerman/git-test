@@ -2132,7 +2132,7 @@ id|off_t
 )paren
 l_int|1
 op_logical_or
-id|write
+id|xwrite
 c_func
 (paren
 id|fd

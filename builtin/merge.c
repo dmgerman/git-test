@@ -2201,7 +2201,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write
+id|write_in_full
 c_func
 (paren
 id|fd
@@ -2210,8 +2210,8 @@ id|out.buf
 comma
 id|out.len
 )paren
-OL
-l_int|0
+op_ne
+id|out.len
 )paren
 id|die_errno
 c_func
