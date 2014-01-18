@@ -10784,7 +10784,7 @@ id|newrefname
 r_int
 id|attempts_remaining
 op_assign
-l_int|3
+l_int|4
 suffix:semicolon
 id|retry
 suffix:colon
@@ -10841,6 +10841,7 @@ id|newrefname
 r_if
 c_cond
 (paren
+(paren
 id|errno
 op_eq
 id|EISDIR
@@ -10848,6 +10849,12 @@ op_logical_or
 id|errno
 op_eq
 id|ENOTDIR
+)paren
+op_logical_and
+op_decrement
+id|attempts_remaining
+OG
+l_int|0
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * rename(a, b) when b is an existing&n;&t;&t;&t; * directory ought to result in ISDIR, but&n;&t;&t;&t; * Solaris 5.8 gives ENOTDIR.  Sheesh.&n;&t;&t;&t; */
