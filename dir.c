@@ -6491,13 +6491,17 @@ op_logical_neg
 id|dir
 )paren
 (brace
-multiline_comment|/* an empty dir could be removed even if it is unreadble */
 r_if
 c_cond
 (paren
+id|errno
+op_eq
+id|EACCES
+op_logical_and
 op_logical_neg
 id|keep_toplevel
 )paren
+multiline_comment|/*&n;&t;&t;&t; * An empty dir could be removable even if it&n;&t;&t;&t; * is unreadable:&n;&t;&t;&t; */
 r_return
 id|rmdir
 c_func
