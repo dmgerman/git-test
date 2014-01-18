@@ -10788,7 +10788,7 @@ l_int|4
 suffix:semicolon
 id|retry
 suffix:colon
-r_if
+r_switch
 c_cond
 (paren
 id|safe_create_leading_directories
@@ -10804,6 +10804,29 @@ id|newrefname
 )paren
 )paren
 (brace
+r_case
+id|SCLD_OK
+suffix:colon
+r_break
+suffix:semicolon
+multiline_comment|/* success */
+r_case
+id|SCLD_VANISHED
+suffix:colon
+r_if
+c_cond
+(paren
+op_decrement
+id|attempts_remaining
+OG
+l_int|0
+)paren
+r_goto
+id|retry
+suffix:semicolon
+multiline_comment|/* fall through */
+r_default
+suffix:colon
 id|error
 c_func
 (paren
