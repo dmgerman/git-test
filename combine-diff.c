@@ -175,10 +175,6 @@ id|len
 op_assign
 l_int|0
 suffix:semicolon
-id|p-&gt;len
-op_assign
-id|len
-suffix:semicolon
 id|p-&gt;next
 op_assign
 l_int|NULL
@@ -6791,14 +6787,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|p-&gt;len
-)paren
-r_return
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|opt-&gt;output_format
 op_amp
 (paren
@@ -7135,15 +7123,6 @@ id|p
 op_assign
 id|p-&gt;next
 )paren
-(brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|p-&gt;len
-)paren
-r_continue
-suffix:semicolon
 id|q.queue
 (braket
 id|i
@@ -7158,7 +7137,6 @@ comma
 id|num_parent
 )paren
 suffix:semicolon
-)brace
 id|opt
 op_member_access_from_pointer
 id|format_callback
@@ -7494,7 +7472,7 @@ id|diffopts
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* find out surviving paths */
+multiline_comment|/* find out number of surviving paths */
 r_for
 c_loop
 (paren
@@ -7512,16 +7490,9 @@ id|p
 op_assign
 id|p-&gt;next
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|p-&gt;len
-)paren
 id|num_paths
 op_increment
 suffix:semicolon
-)brace
 multiline_comment|/* order paths according to diffcore_order */
 r_if
 c_cond
@@ -7692,12 +7663,6 @@ id|p
 op_assign
 id|p-&gt;next
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|p-&gt;len
-)paren
 id|show_raw_diff
 c_func
 (paren
@@ -7708,7 +7673,6 @@ comma
 id|rev
 )paren
 suffix:semicolon
-)brace
 id|needsep
 op_assign
 l_int|1
@@ -7790,12 +7754,6 @@ id|p
 op_assign
 id|p-&gt;next
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|p-&gt;len
-)paren
 id|show_patch_diff
 c_func
 (paren
@@ -7810,7 +7768,6 @@ comma
 id|rev
 )paren
 suffix:semicolon
-)brace
 )brace
 )brace
 multiline_comment|/* Clean things up */
