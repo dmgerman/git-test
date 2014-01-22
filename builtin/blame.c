@@ -655,12 +655,6 @@ DECL|struct|blame_entry
 r_struct
 id|blame_entry
 (brace
-DECL|member|prev
-r_struct
-id|blame_entry
-op_star
-id|prev
-suffix:semicolon
 DECL|member|next
 r_struct
 id|blame_entry
@@ -890,15 +884,6 @@ suffix:semicolon
 id|ent-&gt;next
 op_assign
 id|next-&gt;next
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|ent-&gt;next
-)paren
-id|ent-&gt;next-&gt;prev
-op_assign
-id|ent
 suffix:semicolon
 id|origin_decref
 c_func
@@ -1871,10 +1856,6 @@ op_assign
 id|ent
 suffix:semicolon
 multiline_comment|/* prev, if not NULL, is the last one that is below e */
-id|e-&gt;prev
-op_assign
-id|prev
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1901,15 +1882,6 @@ op_assign
 id|e
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|e-&gt;next
-)paren
-id|e-&gt;next-&gt;prev
-op_assign
-id|e
-suffix:semicolon
 )brace
 multiline_comment|/*&n; * src typically is on-stack; we want to copy the information in it to&n; * a malloced blame_entry that is already on the linked list of the&n; * scoreboard.  The origin of dst loses a refcnt while the origin of src&n; * gains one.&n; */
 DECL|function|dup_entry
@@ -1932,14 +1904,7 @@ id|src
 r_struct
 id|blame_entry
 op_star
-id|p
-comma
-op_star
 id|n
-suffix:semicolon
-id|p
-op_assign
-id|dst-&gt;prev
 suffix:semicolon
 id|n
 op_assign
@@ -1970,10 +1935,6 @@ op_star
 id|src
 )paren
 )paren
-suffix:semicolon
-id|dst-&gt;prev
-op_assign
-id|p
 suffix:semicolon
 id|dst-&gt;next
 op_assign
@@ -12014,15 +11975,6 @@ suffix:semicolon
 id|ent-&gt;next
 op_assign
 id|next
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|next
-)paren
-id|next-&gt;prev
-op_assign
-id|ent
 suffix:semicolon
 id|origin_incref
 c_func
