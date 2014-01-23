@@ -1096,7 +1096,7 @@ c_func
 op_amp
 id|cmd_args
 comma
-l_string|&quot;--max_pack_size=%u&quot;
+l_string|&quot;--max-pack-size=%u&quot;
 comma
 id|max_pack_size
 )paren
