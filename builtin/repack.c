@@ -629,6 +629,7 @@ id|delete_redundant
 op_assign
 l_int|0
 suffix:semicolon
+r_const
 r_char
 op_star
 id|unpack_unreachable
