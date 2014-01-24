@@ -890,6 +890,8 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|macro|DO_MATCH_EXCLUDE
+mdefine_line|#define DO_MATCH_EXCLUDE   1
 multiline_comment|/*&n; * Does &squot;match&squot; match the given name?&n; * A match is found if&n; *&n; * (1) the &squot;match&squot; string is leading directory of &squot;name&squot;, or&n; * (2) the &squot;match&squot; string is a wildcard and matches &squot;name&squot;, or&n; * (3) the &squot;match&squot; string is exactly the same as &squot;name&squot;.&n; *&n; * and the return value tells which case it was.&n; *&n; * It returns 0 when there is no match.&n; */
 DECL|function|match_pathspec_item
 r_static
@@ -913,6 +915,9 @@ id|name
 comma
 r_int
 id|namelen
+comma
+r_int
+id|flags
 )paren
 (brace
 multiline_comment|/* name/namelen has prefix cut off by caller */
@@ -1079,7 +1084,7 @@ op_star
 id|seen
 comma
 r_int
-id|exclude
+id|flags
 )paren
 (brace
 r_int
@@ -1088,6 +1093,12 @@ comma
 id|retval
 op_assign
 l_int|0
+comma
+id|exclude
+op_assign
+id|flags
+op_amp
+id|DO_MATCH_EXCLUDE
 suffix:semicolon
 id|GUARD_PATHSPEC
 c_func
@@ -1269,6 +1280,8 @@ comma
 id|name
 comma
 id|namelen
+comma
+id|flags
 )paren
 suffix:semicolon
 r_if
@@ -1419,6 +1432,11 @@ id|positive
 comma
 id|negative
 suffix:semicolon
+r_int
+id|flags
+op_assign
+l_int|0
+suffix:semicolon
 id|positive
 op_assign
 id|do_match_pathspec
@@ -1434,7 +1452,7 @@ id|prefix
 comma
 id|seen
 comma
-l_int|0
+id|flags
 )paren
 suffix:semicolon
 r_if
@@ -1468,7 +1486,9 @@ id|prefix
 comma
 id|seen
 comma
-l_int|1
+id|flags
+op_or
+id|DO_MATCH_EXCLUDE
 )paren
 suffix:semicolon
 r_return
