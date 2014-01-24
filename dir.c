@@ -1466,6 +1466,9 @@ comma
 r_char
 op_star
 id|seen
+comma
+r_int
+id|is_dir
 )paren
 (brace
 r_int
@@ -1476,6 +1479,11 @@ suffix:semicolon
 r_int
 id|flags
 op_assign
+id|is_dir
+ques
+c_cond
+id|DO_MATCH_DIRECTORY
+suffix:colon
 l_int|0
 suffix:semicolon
 id|positive

@@ -666,6 +666,18 @@ comma
 id|len
 comma
 id|ps_matched
+comma
+id|S_ISDIR
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
+op_logical_or
+id|S_ISGITLINK
+c_func
+(paren
+id|ce-&gt;ce_mode
+)paren
 )paren
 )paren
 r_return
@@ -987,6 +999,8 @@ comma
 id|max_prefix_len
 comma
 id|ps_matched
+comma
+l_int|0
 )paren
 )paren
 r_continue
