@@ -16,6 +16,7 @@ macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;line-log.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
 macro_line|#include &quot;commit-slab.h&quot;
+macro_line|#include &quot;dir.h&quot;
 DECL|variable|show_early_output
 r_volatile
 id|show_early_output_fn_t
@@ -6027,6 +6028,8 @@ id|ce
 comma
 op_amp
 id|revs-&gt;prune_data
+comma
+l_int|NULL
 )paren
 )paren
 (brace

@@ -2924,6 +2924,8 @@ id|ce
 comma
 op_amp
 id|s-&gt;pathspec
+comma
+l_int|NULL
 )paren
 )paren
 r_continue
