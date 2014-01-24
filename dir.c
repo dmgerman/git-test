@@ -892,6 +892,8 @@ suffix:semicolon
 )brace
 DECL|macro|DO_MATCH_EXCLUDE
 mdefine_line|#define DO_MATCH_EXCLUDE   1
+DECL|macro|DO_MATCH_DIRECTORY
+mdefine_line|#define DO_MATCH_DIRECTORY 2
 multiline_comment|/*&n; * Does &squot;match&squot; match the given name?&n; * A match is found if&n; *&n; * (1) the &squot;match&squot; string is leading directory of &squot;name&squot;, or&n; * (2) the &squot;match&squot; string is a wildcard and matches &squot;name&squot;, or&n; * (3) the &squot;match&squot; string is exactly the same as &squot;name&squot;.&n; *&n; * and the return value tells which case it was.&n; *&n; * It returns 0 when there is no match.&n; */
 DECL|function|match_pathspec_item
 r_static
@@ -1027,6 +1029,45 @@ r_return
 id|MATCHED_RECURSIVELY
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+(paren
+id|flags
+op_amp
+id|DO_MATCH_DIRECTORY
+)paren
+op_logical_and
+id|match
+(braket
+id|matchlen
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+op_logical_and
+id|namelen
+op_eq
+id|matchlen
+l_int|1
+op_logical_and
+op_logical_neg
+id|ps_strncmp
+c_func
+(paren
+id|item
+comma
+id|match
+comma
+id|name
+comma
+id|namelen
+)paren
+)paren
+r_return
+id|MATCHED_EXACTLY
+suffix:semicolon
 r_if
 c_cond
 (paren
