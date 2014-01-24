@@ -4021,7 +4021,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|match_pathspec_depth
+id|match_pathspec
 c_func
 (paren
 id|pathspec

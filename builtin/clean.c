@@ -4896,7 +4896,7 @@ id|pathspec.nr
 )paren
 id|matches
 op_assign
-id|match_pathspec_depth
+id|match_pathspec
 c_func
 (paren
 op_amp

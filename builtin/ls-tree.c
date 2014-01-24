@@ -888,7 +888,7 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * show_recursive() rolls its own matching code and is&n;&t; * generally ignorant of &squot;struct pathspec&squot;. The magic mask&n;&t; * cannot be lifted until it is converted to use&n;&t; * match_pathspec_depth() or tree_entry_interesting()&n;&t; */
+multiline_comment|/*&n;&t; * show_recursive() rolls its own matching code and is&n;&t; * generally ignorant of &squot;struct pathspec&squot;. The magic mask&n;&t; * cannot be lifted until it is converted to use&n;&t; * match_pathspec() or tree_entry_interesting()&n;&t; */
 id|parse_pathspec
 c_func
 (paren
