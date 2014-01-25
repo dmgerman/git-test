@@ -3045,8 +3045,7 @@ op_amp
 id|matched
 )paren
 )paren
-r_return
-id|entry_not_interesting
+r_continue
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * Concatenate base and entry-&gt;path into one and do&n;&t;&t; * fnmatch() on it.&n;&t;&t; *&n;&t;&t; * While we could avoid concatenation in certain cases&n;&t;&t; * [1], which saves a memcpy and potentially a&n;&t;&t; * realloc, it turns out not worth it. Measurement on&n;&t;&t; * linux-2.6 does not show any clear improvements,&n;&t;&t; * partly because of the nowildcard_len optimization&n;&t;&t; * in git_fnmatch(). Avoid micro-optimizations here.&n;&t;&t; *&n;&t;&t; * [1] if match_wildcard_base() says the base&n;&t;&t; * directory is already matched, we only need to match&n;&t;&t; * the rest, which is shorter so _in theory_ faster.&n;&t;&t; */
 id|strbuf_add
