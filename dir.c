@@ -6666,13 +6666,33 @@ op_logical_neg
 id|dir
 )paren
 (brace
-multiline_comment|/* an empty dir could be removed even if it is unreadble */
 r_if
 c_cond
 (paren
+id|errno
+op_eq
+id|ENOENT
+)paren
+r_return
+id|keep_toplevel
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|EACCES
+op_logical_and
 op_logical_neg
 id|keep_toplevel
 )paren
+multiline_comment|/*&n;&t;&t;&t; * An empty dir could be removable even if it&n;&t;&t;&t; * is unreadable:&n;&t;&t;&t; */
 r_return
 id|rmdir
 c_func
@@ -6767,8 +6787,19 @@ op_amp
 id|st
 )paren
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|errno
+op_eq
+id|ENOENT
+)paren
+multiline_comment|/*&n;&t;&t;&t;&t; * file disappeared, which is what we&n;&t;&t;&t;&t; * wanted anyway&n;&t;&t;&t;&t; */
+r_continue
 suffix:semicolon
 multiline_comment|/* fall thru */
+)brace
 r_else
 r_if
 c_cond
@@ -6806,16 +6837,24 @@ c_cond
 op_logical_neg
 id|only_empty
 op_logical_and
+(paren
 op_logical_neg
 id|unlink
 c_func
 (paren
 id|path-&gt;buf
 )paren
+op_logical_or
+id|errno
+op_eq
+id|ENOENT
 )paren
+)paren
+(brace
 r_continue
 suffix:semicolon
 multiline_comment|/* happy, too */
+)brace
 multiline_comment|/* path too long, stat fails, or non-directory still exists */
 id|ret
 op_assign
@@ -6852,11 +6891,23 @@ id|kept_down
 )paren
 id|ret
 op_assign
+(paren
+op_logical_neg
 id|rmdir
 c_func
 (paren
 id|path-&gt;buf
 )paren
+op_logical_or
+id|errno
+op_eq
+id|ENOENT
+)paren
+ques
+c_cond
+l_int|0
+suffix:colon
+l_int|1
 suffix:semicolon
 r_else
 r_if

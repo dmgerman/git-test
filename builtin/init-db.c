@@ -2723,15 +2723,22 @@ l_int|0
 )paren
 (brace
 r_case
-l_int|3
+id|SCLD_OK
+suffix:colon
+r_case
+id|SCLD_PERMS
+suffix:colon
+r_break
+suffix:semicolon
+r_case
+id|SCLD_EXISTS
 suffix:colon
 id|errno
 op_assign
 id|EEXIST
 suffix:semicolon
 multiline_comment|/* fallthru */
-r_case
-l_int|1
+r_default
 suffix:colon
 id|die_errno
 c_func
@@ -2748,10 +2755,6 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
 r_break
 suffix:semicolon
 )brace
