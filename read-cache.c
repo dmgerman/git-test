@@ -24,7 +24,8 @@ op_star
 id|ce
 comma
 r_int
-id|really
+r_int
+id|options
 )paren
 suffix:semicolon
 multiline_comment|/* Mask for the name length in ce_flags in the on-disk index */
@@ -3346,7 +3347,8 @@ r_int
 id|stage
 comma
 r_int
-id|refresh
+r_int
+id|refresh_options
 )paren
 (brace
 r_int
@@ -3446,22 +3448,14 @@ c_func
 id|mode
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|refresh
-)paren
 r_return
 id|refresh_cache_entry
 c_func
 (paren
 id|ce
 comma
-l_int|0
+id|refresh_options
 )paren
-suffix:semicolon
-r_return
-id|ce
 suffix:semicolon
 )brace
 DECL|function|ce_same_name
@@ -4713,6 +4707,13 @@ comma
 id|size
 suffix:semicolon
 r_int
+id|refresh
+op_assign
+id|options
+op_amp
+id|CE_MATCH_REFRESH
+suffix:semicolon
+r_int
 id|ignore_valid
 op_assign
 id|options
@@ -4736,6 +4737,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|refresh
+op_logical_or
 id|ce_uptodate
 c_func
 (paren
@@ -5172,6 +5176,8 @@ r_int
 id|options
 op_assign
 (paren
+id|CE_MATCH_REFRESH
+op_or
 (paren
 id|really
 ques
@@ -5597,7 +5603,8 @@ op_star
 id|ce
 comma
 r_int
-id|really
+r_int
+id|options
 )paren
 (brace
 r_return
@@ -5609,7 +5616,7 @@ id|the_index
 comma
 id|ce
 comma
-id|really
+id|options
 comma
 l_int|NULL
 comma

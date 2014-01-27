@@ -967,7 +967,14 @@ id|path
 comma
 id|stage
 comma
+(paren
 id|refresh
+ques
+c_cond
+id|CE_MATCH_REFRESH
+suffix:colon
+l_int|0
+)paren
 )paren
 suffix:semicolon
 r_if
