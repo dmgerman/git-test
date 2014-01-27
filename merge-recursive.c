@@ -971,7 +971,11 @@ comma
 id|refresh
 ques
 c_cond
+(paren
 id|CE_MATCH_REFRESH
+op_or
+id|CE_MATCH_IGNORE_MISSING
+)paren
 suffix:colon
 l_int|0
 )paren
