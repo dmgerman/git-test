@@ -23000,7 +23000,7 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;queue[%d] %s size %lu flags %d&bslash;n&quot;
+l_string|&quot;queue[%d] %s size %lu&bslash;n&quot;
 comma
 id|x
 comma
@@ -23012,8 +23012,6 @@ suffix:colon
 l_string|&quot;&quot;
 comma
 id|s-&gt;size
-comma
-id|s-&gt;xfrm_flags
 )paren
 suffix:semicolon
 )brace
