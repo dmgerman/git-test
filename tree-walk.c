@@ -2476,6 +2476,13 @@ c_func
 (paren
 id|entry-&gt;mode
 )paren
+op_logical_and
+op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|entry-&gt;mode
+)paren
 )paren
 r_return
 l_int|0
