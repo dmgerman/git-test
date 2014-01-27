@@ -5925,8 +5925,6 @@ c_func
 id|pattern
 comma
 id|name
-comma
-id|ref_rev_parse_rules
 )paren
 )paren
 r_continue
@@ -8631,8 +8629,6 @@ op_member_access_from_pointer
 id|src
 comma
 id|refname
-comma
-id|ref_fetch_rules
 )paren
 suffix:semicolon
 )brace
@@ -8889,8 +8885,6 @@ c_func
 id|name
 comma
 id|ref-&gt;name
-comma
-id|ref_fetch_rules
 )paren
 )paren
 r_return
@@ -11381,8 +11375,6 @@ c_func
 id|entry-&gt;refname
 comma
 id|ref-&gt;name
-comma
-id|ref_rev_parse_rules
 )paren
 )paren
 r_continue
