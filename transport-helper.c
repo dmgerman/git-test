@@ -5742,7 +5742,7 @@ id|t-&gt;dest_name
 suffix:semicolon
 id|bytes
 op_assign
-id|write
+id|xwrite
 c_func
 (paren
 id|t-&gt;dest
@@ -5762,14 +5762,6 @@ op_logical_and
 id|errno
 op_ne
 id|EWOULDBLOCK
-op_logical_and
-id|errno
-op_ne
-id|EAGAIN
-op_logical_and
-id|errno
-op_ne
-id|EINTR
 )paren
 (brace
 id|error
