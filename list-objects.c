@@ -681,6 +681,12 @@ id|show_edge
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|revs-&gt;edge_hint
+)paren
+(brace
 r_for
 c_loop
 (paren
@@ -745,8 +751,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs-&gt;edge_hint
-op_logical_and
 op_logical_neg
 (paren
 id|obj-&gt;flags
@@ -765,6 +769,7 @@ c_func
 id|commit
 )paren
 suffix:semicolon
+)brace
 )brace
 )brace
 )brace
