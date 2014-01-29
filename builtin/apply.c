@@ -9319,31 +9319,11 @@ id|patchsize
 r_static
 r_const
 r_char
-op_star
-id|binhdr
-(braket
-)braket
-op_assign
-(brace
-l_string|&quot;Binary files &quot;
-comma
-l_string|&quot;Files &quot;
-comma
-l_int|NULL
-comma
-)brace
-suffix:semicolon
-r_static
-r_const
-r_char
 id|git_binary
 (braket
 )braket
 op_assign
 l_string|&quot;GIT binary patch&bslash;n&quot;
-suffix:semicolon
-r_int
-id|i
 suffix:semicolon
 r_int
 id|hd
@@ -9454,6 +9434,26 @@ l_int|8
 )paren
 )paren
 (brace
+r_static
+r_const
+r_char
+op_star
+id|binhdr
+(braket
+)braket
+op_assign
+(brace
+l_string|&quot;Binary files &quot;
+comma
+l_string|&quot;Files &quot;
+comma
+l_int|NULL
+comma
+)brace
+suffix:semicolon
+r_int
+id|i
+suffix:semicolon
 r_for
 c_loop
 (paren
