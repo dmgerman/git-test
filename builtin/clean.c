@@ -735,8 +735,6 @@ op_assign
 id|path-&gt;len
 comma
 id|len
-comma
-id|i
 suffix:semicolon
 r_int
 r_char
@@ -1235,6 +1233,9 @@ op_logical_neg
 id|quiet
 )paren
 (brace
+r_int
+id|i
+suffix:semicolon
 r_for
 c_loop
 (paren
