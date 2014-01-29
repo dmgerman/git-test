@@ -3185,9 +3185,6 @@ r_int
 id|no_checkout
 )paren
 (brace
-r_int
-id|res
-suffix:semicolon
 id|mark_expected_rev
 c_func
 (paren
@@ -3236,6 +3233,9 @@ suffix:semicolon
 )brace
 r_else
 (brace
+r_int
+id|res
+suffix:semicolon
 id|res
 op_assign
 id|run_command_v_opt
