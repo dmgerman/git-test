@@ -5416,9 +5416,6 @@ op_star
 id|argv
 )paren
 (brace
-r_int
-id|i
-suffix:semicolon
 r_static
 r_const
 r_char
@@ -5516,6 +5513,9 @@ r_int
 id|j
 op_assign
 l_int|0
+suffix:semicolon
+r_int
+id|i
 suffix:semicolon
 id|refs
 op_assign
