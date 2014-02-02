@@ -1481,7 +1481,7 @@ op_assign
 id|mkpathdup
 c_func
 (paren
-l_string|&quot;%s/%s%s&quot;
+l_string|&quot;%s/pack-%s%s&quot;
 comma
 id|packdir
 comma
@@ -1923,7 +1923,7 @@ op_assign
 id|mkpath
 c_func
 (paren
-l_string|&quot;%s/old-pack-%s%s&quot;
+l_string|&quot;%s/old-%s%s&quot;
 comma
 id|packdir
 comma
