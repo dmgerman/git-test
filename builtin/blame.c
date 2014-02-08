@@ -7840,7 +7840,6 @@ comma
 r_sizeof
 (paren
 r_int
-op_star
 )paren
 op_star
 (paren
@@ -7892,7 +7891,6 @@ comma
 r_sizeof
 (paren
 r_int
-op_star
 )paren
 op_star
 (paren
