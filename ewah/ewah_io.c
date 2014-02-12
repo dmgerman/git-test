@@ -547,6 +547,9 @@ id|ptr
 op_assign
 id|map
 suffix:semicolon
+r_int
+id|i
+suffix:semicolon
 id|self-&gt;bit_size
 op_assign
 id|get_be32
@@ -628,11 +631,6 @@ r_sizeof
 r_uint64
 )paren
 suffix:semicolon
-macro_line|#if __BYTE_ORDER != __BIG_ENDIAN
-(brace
-r_int
-id|i
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -661,8 +659,6 @@ id|i
 )braket
 )paren
 suffix:semicolon
-)brace
-macro_line|#endif
 id|self-&gt;rlw
 op_assign
 id|self-&gt;buffer
