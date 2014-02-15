@@ -1,9 +1,4 @@
-macro_line|#ifdef USE_WILDMATCH
-DECL|macro|USE_WILDMATCH
-macro_line|#undef USE_WILDMATCH  /* We need real fnmatch implementation here */
-macro_line|#endif
 macro_line|#include &quot;cache.h&quot;
-macro_line|#include &quot;wildmatch.h&quot;
 DECL|function|main
 r_int
 id|main
@@ -192,41 +187,6 @@ comma
 l_int|0
 comma
 l_int|NULL
-)paren
-suffix:semicolon
-r_else
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strcmp
-c_func
-(paren
-id|argv
-(braket
-l_int|1
-)braket
-comma
-l_string|&quot;fnmatch&quot;
-)paren
-)paren
-r_return
-op_logical_neg
-op_logical_neg
-id|fnmatch
-c_func
-(paren
-id|argv
-(braket
-l_int|3
-)braket
-comma
-id|argv
-(braket
-l_int|2
-)braket
-comma
-id|FNM_PATHNAME
 )paren
 suffix:semicolon
 r_else
