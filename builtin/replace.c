@@ -102,7 +102,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 id|data-&gt;pattern
@@ -110,6 +110,8 @@ comma
 id|refname
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 )paren
 (brace

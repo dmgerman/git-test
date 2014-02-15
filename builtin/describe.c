@@ -741,7 +741,7 @@ op_logical_and
 op_logical_neg
 id|is_tag
 op_logical_or
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 id|pattern
@@ -751,6 +751,8 @@ op_plus
 l_int|10
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 )paren
 )paren
