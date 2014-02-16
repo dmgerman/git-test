@@ -15199,6 +15199,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|S_ISGITLINK
+c_func
+(paren
+id|one-&gt;mode
+)paren
+op_logical_and
+(paren
+op_logical_neg
 id|one-&gt;sha1_valid
 op_logical_or
 id|reuse_worktree_file
@@ -15209,6 +15217,7 @@ comma
 id|one-&gt;sha1
 comma
 l_int|1
+)paren
 )paren
 )paren
 (brace
