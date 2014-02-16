@@ -1153,6 +1153,13 @@ id|len_w_slash
 r_break
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|src_w_slash
+op_ne
+id|src
+)paren
 id|free
 c_func
 (paren
