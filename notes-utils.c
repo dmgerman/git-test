@@ -474,6 +474,7 @@ c_cond
 op_logical_neg
 id|v
 )paren
+r_return
 id|config_error_nonbool
 c_func
 (paren
