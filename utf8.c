@@ -2976,6 +2976,9 @@ c_cond
 (paren
 id|cnt
 op_eq
+(paren
+r_int
+)paren
 l_int|1
 )paren
 (brace
