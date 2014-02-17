@@ -18,6 +18,7 @@ macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 DECL|variable|cut_line
 r_static
+r_const
 r_char
 id|cut_line
 (braket
