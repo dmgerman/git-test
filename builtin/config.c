@@ -2237,6 +2237,17 @@ r_void
 r_if
 c_cond
 (paren
+id|given_config_source.use_stdin
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;writing to stdin is not supported&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|given_config_source.blob
 )paren
 id|die
@@ -2820,6 +2831,30 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|given_config_source.file
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|given_config_source.file
+comma
+l_string|&quot;-&quot;
+)paren
+)paren
+(brace
+id|given_config_source.file
+op_assign
+l_int|NULL
+suffix:semicolon
+id|given_config_source.use_stdin
+op_assign
+l_int|1
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 id|use_global_config
 )paren
 (brace
@@ -3230,6 +3265,17 @@ id|die
 c_func
 (paren
 l_string|&quot;not in a git directory&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|given_config_source.use_stdin
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;editing stdin is not supported&quot;
 )paren
 suffix:semicolon
 r_if
