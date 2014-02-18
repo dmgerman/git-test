@@ -6115,15 +6115,10 @@ r_void
 op_star
 id|data
 comma
-r_const
-r_char
+r_struct
+id|git_config_source
 op_star
-id|filename
-comma
-r_const
-r_char
-op_star
-id|blob_ref
+id|config_source
 comma
 r_int
 id|respect_includes
@@ -6172,7 +6167,9 @@ multiline_comment|/*&n;&t; * If we have a specific filename, use it. Otherwise, 
 r_if
 c_cond
 (paren
-id|filename
+id|config_source
+op_logical_and
+id|config_source-&gt;file
 )paren
 r_return
 id|git_config_from_file
@@ -6180,7 +6177,7 @@ c_func
 (paren
 id|fn
 comma
-id|filename
+id|config_source-&gt;file
 comma
 id|data
 )paren
@@ -6189,7 +6186,9 @@ r_else
 r_if
 c_cond
 (paren
-id|blob_ref
+id|config_source
+op_logical_and
+id|config_source-&gt;blob
 )paren
 r_return
 id|git_config_from_blob_ref
@@ -6197,7 +6196,7 @@ c_func
 (paren
 id|fn
 comma
-id|blob_ref
+id|config_source-&gt;blob
 comma
 id|data
 )paren
@@ -6257,8 +6256,6 @@ c_func
 id|fn
 comma
 id|data
-comma
-l_int|NULL
 comma
 l_int|NULL
 comma
