@@ -2236,10 +2236,10 @@ suffix:colon
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|check_blob_write
+DECL|function|check_write
 r_static
 r_void
-id|check_blob_write
+id|check_write
 c_func
 (paren
 r_void
@@ -3296,7 +3296,7 @@ id|ACTION_SET
 r_int
 id|ret
 suffix:semicolon
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
@@ -3374,7 +3374,7 @@ op_eq
 id|ACTION_SET_ALL
 )paren
 (brace
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
@@ -3436,7 +3436,7 @@ op_eq
 id|ACTION_ADD
 )paren
 (brace
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
@@ -3495,7 +3495,7 @@ op_eq
 id|ACTION_REPLACE_ALL
 )paren
 (brace
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
@@ -3713,7 +3713,7 @@ op_eq
 id|ACTION_UNSET
 )paren
 (brace
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
@@ -3781,7 +3781,7 @@ op_eq
 id|ACTION_UNSET_ALL
 )paren
 (brace
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
@@ -3830,7 +3830,7 @@ id|ACTION_RENAME_SECTION
 r_int
 id|ret
 suffix:semicolon
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
@@ -3899,7 +3899,7 @@ id|ACTION_REMOVE_SECTION
 r_int
 id|ret
 suffix:semicolon
-id|check_blob_write
+id|check_write
 c_func
 (paren
 )paren
