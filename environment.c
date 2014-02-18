@@ -204,13 +204,12 @@ id|auto_crlf
 op_assign
 id|AUTO_CRLF_FALSE
 suffix:semicolon
-DECL|variable|read_replace_refs
+DECL|variable|check_replace_refs
 r_int
-id|read_replace_refs
+id|check_replace_refs
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/* NEEDSWORK: rename to use_replace_refs */
 DECL|variable|core_eol
 r_enum
 id|eol
@@ -733,7 +732,7 @@ c_func
 id|NO_REPLACE_OBJECTS_ENVIRONMENT
 )paren
 )paren
-id|read_replace_refs
+id|check_replace_refs
 op_assign
 l_int|0
 suffix:semicolon
