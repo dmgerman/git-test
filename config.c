@@ -52,6 +52,12 @@ r_char
 op_star
 id|name
 suffix:semicolon
+DECL|member|path
+r_const
+r_char
+op_star
+id|path
+suffix:semicolon
 DECL|member|die_on_error
 r_int
 id|die_on_error
@@ -370,7 +376,7 @@ op_logical_neg
 id|cf
 op_logical_or
 op_logical_neg
-id|cf-&gt;name
+id|cf-&gt;path
 )paren
 r_return
 id|error
@@ -384,7 +390,7 @@ op_assign
 id|find_last_dir_sep
 c_func
 (paren
-id|cf-&gt;name
+id|cf-&gt;path
 )paren
 suffix:semicolon
 r_if
@@ -398,10 +404,10 @@ c_func
 op_amp
 id|buf
 comma
-id|cf-&gt;name
+id|cf-&gt;path
 comma
 id|slash
-id|cf-&gt;name
+id|cf-&gt;path
 op_plus
 l_int|1
 )paren
@@ -5442,6 +5448,8 @@ id|f
 suffix:semicolon
 id|top.name
 op_assign
+id|top.path
+op_assign
 id|filename
 suffix:semicolon
 id|top.die_on_error
@@ -5529,6 +5537,10 @@ suffix:semicolon
 id|top.name
 op_assign
 id|name
+suffix:semicolon
+id|top.path
+op_assign
+l_int|NULL
 suffix:semicolon
 id|top.die_on_error
 op_assign
