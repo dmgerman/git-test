@@ -124,6 +124,7 @@ comma
 l_int|0
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * A pointer to the last packed_git in which an object was found.&n; * When an object is sought, we look in this packfile first, because&n; * objects that are looked up at similar times are often in the same&n; * packfile as one another.&n; */
 DECL|variable|last_found_pack
 r_static
 r_struct
@@ -11726,8 +11727,13 @@ c_cond
 id|p
 op_eq
 id|last_found_pack
-op_logical_or
-op_logical_neg
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* we already checked this one */
+r_if
+c_cond
+(paren
 id|fill_pack_entry
 c_func
 (paren
@@ -11738,8 +11744,7 @@ comma
 id|p
 )paren
 )paren
-r_continue
-suffix:semicolon
+(brace
 id|last_found_pack
 op_assign
 id|p
@@ -11747,6 +11752,7 @@ suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 )brace
 r_return
 l_int|0
