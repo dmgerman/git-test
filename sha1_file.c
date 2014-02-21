@@ -699,7 +699,6 @@ l_int|0xf
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * NOTE! This returns a statically allocated buffer, so you have to be&n; * careful about using it. Do an &quot;xstrdup()&quot; if you need to save the&n; * filename.&n; *&n; * Also note that this returns the location for creating.  Reading&n; * SHA1 file can happen from any alternate directory listed in the&n; * DB_ENVIRONMENT environment variable if it is not found in&n; * the primary object database.&n; */
 DECL|function|sha1_file_name
 r_const
 r_char
@@ -813,6 +812,7 @@ r_return
 id|buf
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Return the name of the pack or index file with the specified sha1&n; * in its filename.  *base and *name are scratch space that must be&n; * provided by the caller.  which should be &quot;pack&quot; or &quot;idx&quot;.&n; */
 DECL|function|sha1_get_pack_name
 r_static
 r_char
@@ -2237,6 +2237,7 @@ id|peak_pack_mapped
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Open and mmap the index file at path, perform a couple of&n; * consistency checks, then record its information to p.  Return 0 on&n; * success.&n; */
 DECL|function|check_packed_git_idx
 r_static
 r_int
@@ -11627,6 +11628,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Iff a pack file contains the object named by sha1, return true and&n; * store its location to e.&n; */
 DECL|function|find_pack_entry
 r_static
 r_int
