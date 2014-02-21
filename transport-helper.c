@@ -3794,7 +3794,7 @@ id|ref
 )paren
 op_member_access_from_pointer
 id|forced_update
-op_assign
+op_or_assign
 id|forced
 suffix:semicolon
 (paren
