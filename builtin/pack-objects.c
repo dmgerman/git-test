@@ -3562,7 +3562,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Writing objects&quot;
+)paren
 comma
 id|nr_result
 )paren
@@ -9765,7 +9769,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Compressing objects&quot;
+)paren
 comma
 id|nr_deltas
 )paren
@@ -12555,7 +12563,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Counting objects&quot;
+)paren
 comma
 l_int|0
 )paren

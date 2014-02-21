@@ -692,7 +692,11 @@ op_assign
 id|start_progress_delay
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Checking connectivity&quot;
+)paren
 comma
 l_int|0
 comma
@@ -2525,7 +2529,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Checking object directories&quot;
+)paren
 comma
 l_int|256
 )paren
@@ -3323,7 +3331,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Checking objects&quot;
+)paren
 comma
 id|total
 )paren

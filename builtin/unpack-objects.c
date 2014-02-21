@@ -2515,7 +2515,11 @@ op_assign
 id|start_progress
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Unpacking objects&quot;
+)paren
 comma
 id|nr_objects
 )paren

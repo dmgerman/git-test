@@ -890,7 +890,11 @@ op_assign
 id|start_progress_delay
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Checking out files&quot;
+)paren
 comma
 id|total
 comma

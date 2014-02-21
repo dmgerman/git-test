@@ -254,7 +254,11 @@ op_assign
 id|start_progress_delay
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Removing duplicate objects&quot;
+)paren
 comma
 l_int|256
 comma

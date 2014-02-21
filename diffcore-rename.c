@@ -2588,7 +2588,11 @@ op_assign
 id|start_progress_delay
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Performing inexact rename detection&quot;
+)paren
 comma
 id|rename_dst_nr
 op_star

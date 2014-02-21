@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Simple text-based progress display module for GIT&n; *&n; * Copyright (c) 2007 by Nicolas Pitre &lt;nico@fluxnic.net&gt;&n; *&n; * This code is free software; you can redistribute it and/or modify&n; * it under the terms of the GNU General Public License version 2 as&n; * published by the Free Software Foundation.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;gettext.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 DECL|macro|TP_IDX_MAX
@@ -964,7 +965,11 @@ c_func
 (paren
 id|p_progress
 comma
+id|_
+c_func
+(paren
 l_string|&quot;done&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
