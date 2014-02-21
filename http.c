@@ -6340,6 +6340,7 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+r_const
 r_char
 op_star
 id|filename
