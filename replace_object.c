@@ -2,18 +2,24 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;sha1-lookup.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
+multiline_comment|/*&n; * An array of replacements.  The array is kept sorted by the original&n; * sha1.&n; */
 DECL|struct|replace_object
 r_static
 r_struct
 id|replace_object
 (brace
-DECL|member|sha1
+DECL|member|original
 r_int
 r_char
-id|sha1
+id|original
 (braket
-l_int|2
+l_int|20
 )braket
+suffix:semicolon
+DECL|member|replacement
+r_int
+r_char
+id|replacement
 (braket
 l_int|20
 )braket
@@ -63,10 +69,7 @@ id|replace
 id|index
 )braket
 op_member_access_from_pointer
-id|sha1
-(braket
-l_int|0
-)braket
+id|original
 suffix:semicolon
 )brace
 DECL|function|replace_object_pos
@@ -117,10 +120,7 @@ op_assign
 id|replace_object_pos
 c_func
 (paren
-id|replace-&gt;sha1
-(braket
-l_int|0
-)braket
+id|replace-&gt;original
 )paren
 suffix:semicolon
 r_if
@@ -332,10 +332,7 @@ c_func
 (paren
 id|hash
 comma
-id|repl_obj-&gt;sha1
-(braket
-l_int|0
-)braket
+id|repl_obj-&gt;original
 )paren
 )paren
 (brace
@@ -361,10 +358,7 @@ multiline_comment|/* Copy sha1 from the read ref */
 id|hashcpy
 c_func
 (paren
-id|repl_obj-&gt;sha1
-(braket
-l_int|1
-)braket
+id|repl_obj-&gt;replacement
 comma
 id|sha1
 )paren
@@ -519,10 +513,7 @@ id|replace_object
 id|pos
 )braket
 op_member_access_from_pointer
-id|sha1
-(braket
-l_int|1
-)braket
+id|replacement
 suffix:semicolon
 )brace
 r_while
