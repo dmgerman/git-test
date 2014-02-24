@@ -1412,6 +1412,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|date_overflows
+c_func
+(paren
 id|strtoul
 c_func
 (paren
@@ -1423,8 +1426,7 @@ id|end
 comma
 l_int|10
 )paren
-op_eq
-id|ULONG_MAX
+)paren
 )paren
 r_return
 id|error_func
