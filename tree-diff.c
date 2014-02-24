@@ -29,10 +29,11 @@ op_star
 id|t2
 )paren
 suffix:semicolon
-DECL|function|compare_tree_entry
+multiline_comment|/*&n; * Compare two tree entries, taking into account only path/S_ISDIR(mode),&n; * but not their sha1&squot;s.&n; *&n; * NOTE files and directories *always* compare differently, even when having&n; *      the same name - thanks to base_name_compare().&n; */
+DECL|function|tree_entry_pathcmp
 r_static
 r_int
-id|compare_tree_entry
+id|tree_entry_pathcmp
 c_func
 (paren
 r_struct
@@ -121,7 +122,6 @@ op_amp
 id|t2-&gt;entry
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * NOTE files and directories *always* compare differently,&n;&t; * even when having the same name.&n;&t; */
 id|cmp
 op_assign
 id|base_name_compare
@@ -805,7 +805,7 @@ suffix:semicolon
 )brace
 id|cmp
 op_assign
-id|compare_tree_entry
+id|tree_entry_pathcmp
 c_func
 (paren
 id|t1
