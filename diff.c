@@ -26167,6 +26167,7 @@ op_star
 id|options
 )paren
 (brace
+multiline_comment|/* NOTE please keep the following in sync with diff_tree_combined() */
 r_if
 c_cond
 (paren
