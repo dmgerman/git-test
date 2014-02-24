@@ -3,32 +3,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;tree.h&quot;
-r_static
-r_void
-id|show_path
-c_func
-(paren
-r_struct
-id|strbuf
-op_star
-id|base
-comma
-r_struct
-id|diff_options
-op_star
-id|opt
-comma
-r_struct
-id|tree_desc
-op_star
-id|t1
-comma
-r_struct
-id|tree_desc
-op_star
-id|t2
-)paren
-suffix:semicolon
 multiline_comment|/*&n; * Compare two tree entries, taking into account only path/S_ISDIR(mode),&n; * but not their sha1&squot;s.&n; *&n; * NOTE files and directories *always* compare differently, even when having&n; *      the same name - thanks to base_name_compare().&n; */
 DECL|function|tree_entry_pathcmp
 r_static
