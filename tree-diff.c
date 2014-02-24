@@ -569,6 +569,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|diff_tree
+r_static
 r_int
 id|diff_tree
 c_func
