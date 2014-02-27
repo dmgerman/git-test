@@ -1410,7 +1410,11 @@ id|list.nr
 dot
 id|name
 op_assign
+id|xstrdup
+c_func
+(paren
 id|ce-&gt;name
+)paren
 suffix:semicolon
 id|list.entry
 (braket
