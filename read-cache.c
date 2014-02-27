@@ -2631,10 +2631,9 @@ r_return
 r_new
 suffix:semicolon
 )brace
-DECL|function|record_intent_to_add
-r_static
+DECL|function|set_object_name_for_intent_to_add_entry
 r_void
-id|record_intent_to_add
+id|set_object_name_for_intent_to_add_entry
 c_func
 (paren
 r_struct
@@ -3174,7 +3173,7 @@ id|path
 suffix:semicolon
 )brace
 r_else
-id|record_intent_to_add
+id|set_object_name_for_intent_to_add_entry
 c_func
 (paren
 id|ce
