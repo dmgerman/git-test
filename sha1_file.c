@@ -1062,17 +1062,6 @@ op_star
 op_star
 id|alt_odb_tail
 suffix:semicolon
-r_static
-r_int
-id|git_open_noatime
-c_func
-(paren
-r_const
-r_char
-op_star
-id|name
-)paren
-suffix:semicolon
 multiline_comment|/*&n; * Prepare alternate object database registry.&n; *&n; * The variable alt_odb_list points at the list of struct&n; * alternate_object_database.  The elements on this list come from&n; * non-empty elements from colon separated ALTERNATE_DB_ENVIRONMENT&n; * environment variable, and $GIT_OBJECT_DIRECTORY/info/alternates,&n; * whose contents is similar to that environment variable but can be&n; * LF separated.  Its base points at a statically allocated buffer that&n; * contains &quot;/the/directory/corresponding/to/.git/objects/...&quot;, while&n; * its name points just after the slash at the end of &quot;.git/objects/&quot;&n; * in the example above, and has enough space to hold 40-byte hex&n; * SHA1, an extra slash for the first level indirection, and the&n; * terminating NUL.&n; */
 DECL|function|link_alt_odb_entry
 r_static
@@ -5706,6 +5695,14 @@ c_func
 (paren
 id|de-&gt;d_name
 comma
+l_string|&quot;.bitmap&quot;
+)paren
+op_logical_or
+id|has_extension
+c_func
+(paren
+id|de-&gt;d_name
+comma
 l_string|&quot;.keep&quot;
 )paren
 )paren
@@ -6105,11 +6102,6 @@ c_func
 r_void
 )paren
 (brace
-id|discard_revindex
-c_func
-(paren
-)paren
-suffix:semicolon
 id|prepare_packed_git_run_once
 op_assign
 l_int|0
@@ -6530,7 +6522,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|git_open_noatime
-r_static
 r_int
 id|git_open_noatime
 c_func

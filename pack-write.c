@@ -1933,6 +1933,11 @@ c_func
 l_string|&quot;unable to rename temporary index file&quot;
 )paren
 suffix:semicolon
+op_star
+id|end_of_name_prefix
+op_assign
+l_char|&squot;&bslash;0&squot;
+suffix:semicolon
 id|free
 c_func
 (paren
