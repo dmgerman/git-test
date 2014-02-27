@@ -186,7 +186,11 @@ id|path
 suffix:semicolon
 id|desc-&gt;entry.mode
 op_assign
+id|canon_mode
+c_func
+(paren
 id|mode
+)paren
 suffix:semicolon
 id|desc-&gt;entry.sha1
 op_assign
