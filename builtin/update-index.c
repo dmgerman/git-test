@@ -8,6 +8,7 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;pathspec.h&quot;
+macro_line|#include &quot;dir.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -2637,6 +2638,8 @@ id|ce
 comma
 op_amp
 id|pathspec
+comma
+l_int|NULL
 )paren
 )paren
 r_continue

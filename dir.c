@@ -890,6 +890,10 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+DECL|macro|DO_MATCH_EXCLUDE
+mdefine_line|#define DO_MATCH_EXCLUDE   1
+DECL|macro|DO_MATCH_DIRECTORY
+mdefine_line|#define DO_MATCH_DIRECTORY 2
 multiline_comment|/*&n; * Does &squot;match&squot; match the given name?&n; * A match is found if&n; *&n; * (1) the &squot;match&squot; string is leading directory of &squot;name&squot;, or&n; * (2) the &squot;match&squot; string is a wildcard and matches &squot;name&squot;, or&n; * (3) the &squot;match&squot; string is exactly the same as &squot;name&squot;.&n; *&n; * and the return value tells which case it was.&n; *&n; * It returns 0 when there is no match.&n; */
 DECL|function|match_pathspec_item
 r_static
@@ -913,6 +917,9 @@ id|name
 comma
 r_int
 id|namelen
+comma
+r_int
+id|flags
 )paren
 (brace
 multiline_comment|/* name/namelen has prefix cut off by caller */
@@ -931,7 +938,7 @@ op_assign
 id|item-&gt;len
 id|prefix
 suffix:semicolon
-multiline_comment|/*&n;&t; * The normal call pattern is:&n;&t; * 1. prefix = common_prefix_len(ps);&n;&t; * 2. prune something, or fill_directory&n;&t; * 3. match_pathspec_depth()&n;&t; *&n;&t; * &squot;prefix&squot; at #1 may be shorter than the command&squot;s prefix and&n;&t; * it&squot;s ok for #2 to match extra files. Those extras will be&n;&t; * trimmed at #3.&n;&t; *&n;&t; * Suppose the pathspec is &squot;foo&squot; and &squot;../bar&squot; running from&n;&t; * subdir &squot;xyz&squot;. The common prefix at #1 will be empty, thanks&n;&t; * to &quot;../&quot;. We may have xyz/foo _and_ XYZ/foo after #2. The&n;&t; * user does not want XYZ/foo, only the &quot;foo&quot; part should be&n;&t; * case-insensitive. We need to filter out XYZ/foo here. In&n;&t; * other words, we do not trust the caller on comparing the&n;&t; * prefix part when :(icase) is involved. We do exact&n;&t; * comparison ourselves.&n;&t; *&n;&t; * Normally the caller (common_prefix_len() in fact) does&n;&t; * _exact_ matching on name[-prefix+1..-1] and we do not need&n;&t; * to check that part. Be defensive and check it anyway, in&n;&t; * case common_prefix_len is changed, or a new caller is&n;&t; * introduced that does not use common_prefix_len.&n;&t; *&n;&t; * If the penalty turns out too high when prefix is really&n;&t; * long, maybe change it to&n;&t; * strncmp(match, name, item-&gt;prefix - prefix)&n;&t; */
+multiline_comment|/*&n;&t; * The normal call pattern is:&n;&t; * 1. prefix = common_prefix_len(ps);&n;&t; * 2. prune something, or fill_directory&n;&t; * 3. match_pathspec()&n;&t; *&n;&t; * &squot;prefix&squot; at #1 may be shorter than the command&squot;s prefix and&n;&t; * it&squot;s ok for #2 to match extra files. Those extras will be&n;&t; * trimmed at #3.&n;&t; *&n;&t; * Suppose the pathspec is &squot;foo&squot; and &squot;../bar&squot; running from&n;&t; * subdir &squot;xyz&squot;. The common prefix at #1 will be empty, thanks&n;&t; * to &quot;../&quot;. We may have xyz/foo _and_ XYZ/foo after #2. The&n;&t; * user does not want XYZ/foo, only the &quot;foo&quot; part should be&n;&t; * case-insensitive. We need to filter out XYZ/foo here. In&n;&t; * other words, we do not trust the caller on comparing the&n;&t; * prefix part when :(icase) is involved. We do exact&n;&t; * comparison ourselves.&n;&t; *&n;&t; * Normally the caller (common_prefix_len() in fact) does&n;&t; * _exact_ matching on name[-prefix+1..-1] and we do not need&n;&t; * to check that part. Be defensive and check it anyway, in&n;&t; * case common_prefix_len is changed, or a new caller is&n;&t; * introduced that does not use common_prefix_len.&n;&t; *&n;&t; * If the penalty turns out too high when prefix is really&n;&t; * long, maybe change it to&n;&t; * strncmp(match, name, item-&gt;prefix - prefix)&n;&t; */
 r_if
 c_cond
 (paren
@@ -1022,6 +1029,45 @@ r_return
 id|MATCHED_RECURSIVELY
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+(paren
+id|flags
+op_amp
+id|DO_MATCH_DIRECTORY
+)paren
+op_logical_and
+id|match
+(braket
+id|matchlen
+l_int|1
+)braket
+op_eq
+l_char|&squot;/&squot;
+op_logical_and
+id|namelen
+op_eq
+id|matchlen
+l_int|1
+op_logical_and
+op_logical_neg
+id|ps_strncmp
+c_func
+(paren
+id|item
+comma
+id|match
+comma
+id|name
+comma
+id|namelen
+)paren
+)paren
+r_return
+id|MATCHED_EXACTLY
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1051,10 +1097,10 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Given a name and a list of pathspecs, returns the nature of the&n; * closest (i.e. most specific) match of the name to any of the&n; * pathspecs.&n; *&n; * The caller typically calls this multiple times with the same&n; * pathspec and seen[] array but with different name/namelen&n; * (e.g. entries from the index) and is interested in seeing if and&n; * how each pathspec matches all the names it calls this function&n; * with.  A mark is left in the seen[] array for each pathspec element&n; * indicating the closest type of match that element achieved, so if&n; * seen[n] remains zero after multiple invocations, that means the nth&n; * pathspec did not match any names, which could indicate that the&n; * user mistyped the nth pathspec.&n; */
-DECL|function|match_pathspec_depth_1
+DECL|function|do_match_pathspec
 r_static
 r_int
-id|match_pathspec_depth_1
+id|do_match_pathspec
 c_func
 (paren
 r_const
@@ -1079,7 +1125,7 @@ op_star
 id|seen
 comma
 r_int
-id|exclude
+id|flags
 )paren
 (brace
 r_int
@@ -1088,6 +1134,12 @@ comma
 id|retval
 op_assign
 l_int|0
+comma
+id|exclude
+op_assign
+id|flags
+op_amp
+id|DO_MATCH_EXCLUDE
 suffix:semicolon
 id|GUARD_PATHSPEC
 c_func
@@ -1269,6 +1321,8 @@ comma
 id|name
 comma
 id|namelen
+comma
+id|flags
 )paren
 suffix:semicolon
 r_if
@@ -1387,9 +1441,9 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-DECL|function|match_pathspec_depth
+DECL|function|match_pathspec
 r_int
-id|match_pathspec_depth
+id|match_pathspec
 c_func
 (paren
 r_const
@@ -1412,6 +1466,9 @@ comma
 r_char
 op_star
 id|seen
+comma
+r_int
+id|is_dir
 )paren
 (brace
 r_int
@@ -1419,9 +1476,19 @@ id|positive
 comma
 id|negative
 suffix:semicolon
+r_int
+id|flags
+op_assign
+id|is_dir
+ques
+c_cond
+id|DO_MATCH_DIRECTORY
+suffix:colon
+l_int|0
+suffix:semicolon
 id|positive
 op_assign
-id|match_pathspec_depth_1
+id|do_match_pathspec
 c_func
 (paren
 id|ps
@@ -1434,7 +1501,7 @@ id|prefix
 comma
 id|seen
 comma
-l_int|0
+id|flags
 )paren
 suffix:semicolon
 r_if
@@ -1455,7 +1522,7 @@ id|positive
 suffix:semicolon
 id|negative
 op_assign
-id|match_pathspec_depth_1
+id|do_match_pathspec
 c_func
 (paren
 id|ps
@@ -1468,7 +1535,9 @@ id|prefix
 comma
 id|seen
 comma
-l_int|1
+id|flags
+op_or
+id|DO_MATCH_EXCLUDE
 )paren
 suffix:semicolon
 r_return
