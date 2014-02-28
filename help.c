@@ -433,10 +433,10 @@ op_assign
 id|cj
 suffix:semicolon
 )brace
-DECL|function|pretty_print_string_list
+DECL|function|pretty_print_cmdnames
 r_static
 r_void
-id|pretty_print_string_list
+id|pretty_print_cmdnames
 c_func
 (paren
 r_struct
@@ -1152,7 +1152,7 @@ c_func
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-id|pretty_print_string_list
+id|pretty_print_cmdnames
 c_func
 (paren
 id|main_cmds
@@ -1189,7 +1189,7 @@ c_func
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-id|pretty_print_string_list
+id|pretty_print_cmdnames
 c_func
 (paren
 id|other_cmds
