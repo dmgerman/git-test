@@ -170,6 +170,7 @@ id|str
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Return a numerical hash value between 0 and n-1 for the object with&n; * the specified sha1.  n must be a power of 2.  Please note that the&n; * return value is *not* consistent across computer architectures.&n; */
 DECL|function|hash_obj
 r_static
 r_int
@@ -192,6 +193,7 @@ r_int
 r_int
 id|hash
 suffix:semicolon
+multiline_comment|/*&n;&t; * Since the sha1 is essentially random, we just take the&n;&t; * required number of bits directly from the first&n;&t; * sizeof(unsigned int) bytes of sha1.  First we have to copy&n;&t; * the bytes into a properly aligned integer.  If we cared&n;&t; * about getting consistent results across architectures, we&n;&t; * would have to call ntohl() here, too.&n;&t; */
 id|memcpy
 c_func
 (paren
@@ -207,7 +209,6 @@ r_int
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/* Assumes power-of-2 hash sizes in grow_object_hash */
 r_return
 id|hash
 op_amp
@@ -217,6 +218,7 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Insert obj into the hash table hash, which has length size (which&n; * must be a power of 2).  On collisions, simply overflow to the next&n; * empty bucket.&n; */
 DECL|function|insert_obj_hash
 r_static
 r_void
@@ -283,6 +285,7 @@ op_assign
 id|obj
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Look up the record for the given sha1 in the hash map stored in&n; * obj_hash.  Return NULL if it was not found.&n; */
 DECL|function|lookup_object
 r_struct
 id|object
@@ -416,6 +419,7 @@ r_return
 id|obj
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Increase the size of the hash map stored in obj_hash to the next&n; * power of 2 (but at least 32).  Copy the existing values to the new&n; * hash map.&n; */
 DECL|function|grow_object_hash
 r_static
 r_void
