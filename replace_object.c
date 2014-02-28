@@ -439,6 +439,7 @@ suffix:semicolon
 multiline_comment|/* We allow &quot;recursive&quot; replacement. Only within reason, though */
 DECL|macro|MAXREPLACEDEPTH
 mdefine_line|#define MAXREPLACEDEPTH 5
+multiline_comment|/*&n; * If a replacement for object sha1 has been set up, return the&n; * replacement object&squot;s name (replaced recursively, if necessary).&n; * The return value is either sha1 or a pointer to a&n; * permanently-allocated value.  This function always respects replace&n; * references, regardless of the value of check_replace_refs.&n; */
 DECL|function|do_lookup_replace_object
 r_const
 r_int
