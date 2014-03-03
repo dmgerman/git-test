@@ -4066,7 +4066,7 @@ c_func
 (paren
 l_string|&quot;failed utime() on %s: %s&quot;
 comma
-id|tmpname
+id|pack_tmp_name
 comma
 id|strerror
 c_func
