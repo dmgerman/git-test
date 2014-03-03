@@ -8268,14 +8268,12 @@ c_func
 l_int|20
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|gs-&gt;identifier
 comma
 id|identifier
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_break

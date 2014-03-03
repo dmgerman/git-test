@@ -4579,14 +4579,12 @@ l_int|NULL
 r_return
 l_int|1
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|sha1
 comma
 id|ref-&gt;u.value.sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 r_return

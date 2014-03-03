@@ -2415,14 +2415,12 @@ c_func
 id|writer.selected_nr
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|header.checksum
 comma
 id|writer.pack_checksum
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|sha1write
