@@ -56,6 +56,13 @@ id|gc_auto_pack_limit
 op_assign
 l_int|50
 suffix:semicolon
+DECL|variable|detach_auto
+r_static
+r_int
+id|detach_auto
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|prune_expire
 r_static
 r_const
@@ -297,6 +304,33 @@ l_string|&quot;gc.autopacklimit&quot;
 id|gc_auto_pack_limit
 op_assign
 id|git_config_int
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;gc.autodetach&quot;
+)paren
+)paren
+(brace
+id|detach_auto
+op_assign
+id|git_config_bool
 c_func
 (paren
 id|var
@@ -1511,6 +1545,12 @@ c_cond
 op_logical_neg
 id|quiet
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|detach_auto
+)paren
 id|fprintf
 c_func
 (paren
@@ -1519,10 +1559,45 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;Auto packing the repository for optimum performance. You may also&bslash;n&quot;
-l_string|&quot;run &bslash;&quot;git gc&bslash;&quot; manually. See &quot;
-l_string|&quot;&bslash;&quot;git help gc&bslash;&quot; for more information.&bslash;n&quot;
+l_string|&quot;Auto packing the repository in background for optimum performance.&bslash;n&quot;
 )paren
+)paren
+suffix:semicolon
+r_else
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;Auto packing the repository for optimum performance.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;See &bslash;&quot;git help gc&bslash;&quot; for manual housekeeping.&bslash;n&quot;
+)paren
+)paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|detach_auto
+)paren
+multiline_comment|/*&n;&t;&t;&t; * failure to daemonize is ok, we&squot;ll continue&n;&t;&t;&t; * in foreground&n;&t;&t;&t; */
+id|daemonize
+c_func
+(paren
 )paren
 suffix:semicolon
 )brace
