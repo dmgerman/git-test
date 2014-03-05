@@ -2762,9 +2762,6 @@ c_loop
 (paren
 op_star
 id|slash
-op_logical_and
-op_star
-id|slash
 op_eq
 l_char|&squot;/&squot;
 )paren
