@@ -499,10 +499,6 @@ id|dpath-&gt;next
 op_assign
 l_int|NULL
 suffix:semicolon
-id|dpath-&gt;len
-op_assign
-id|path_len
-suffix:semicolon
 id|memcpy
 c_func
 (paren
@@ -1537,10 +1533,6 @@ suffix:semicolon
 id|p-&gt;next
 op_assign
 l_int|NULL
-suffix:semicolon
-id|p-&gt;len
-op_assign
-id|pathlen
 suffix:semicolon
 id|memcpy
 c_func
