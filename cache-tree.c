@@ -2728,7 +2728,7 @@ comma
 l_char|&squot;/&squot;
 )paren
 suffix:semicolon
-multiline_comment|/* between path and slash is the name of the&n;&t;&t; * subtree to look for.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Between path and slash is the name of the subtree&n;&t;&t; * to look for.&n;&t;&t; */
 id|sub
 op_assign
 id|find_subtree
