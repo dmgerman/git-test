@@ -2768,17 +2768,6 @@ l_char|&squot;/&squot;
 id|slash
 op_increment
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-op_star
-id|slash
-)paren
-r_return
-id|it
-suffix:semicolon
-multiline_comment|/* prefix ended with slashes */
 id|path
 op_assign
 id|slash
