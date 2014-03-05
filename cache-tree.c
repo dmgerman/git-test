@@ -2773,11 +2773,6 @@ id|it
 op_assign
 id|sub-&gt;cache_tree
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|slash
-)paren
 r_while
 c_loop
 (paren
@@ -2795,9 +2790,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|slash
-op_logical_or
 op_logical_neg
 op_star
 id|slash
