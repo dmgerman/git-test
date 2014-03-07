@@ -1847,12 +1847,12 @@ r_if
 c_cond
 (paren
 id|tz
-op_eq
-id|LONG_MAX
+op_ge
+id|INT_MAX
 op_logical_or
 id|tz
-op_eq
-id|LONG_MIN
+op_le
+id|INT_MIN
 )paren
 id|tz
 op_assign
