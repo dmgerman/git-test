@@ -83,11 +83,6 @@ r_static
 r_int
 id|refspec_alloc
 suffix:semicolon
-DECL|variable|default_matching_used
-r_static
-r_int
-id|default_matching_used
-suffix:semicolon
 DECL|function|add_refspec
 r_static
 r_void
@@ -1002,9 +997,9 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;push.default is unset; its implicit value is changing in&bslash;n&quot;
+l_string|&quot;push.default is unset; its implicit value has changed in&bslash;n&quot;
 l_string|&quot;Git 2.0 from &squot;matching&squot; to &squot;simple&squot;. To squelch this message&bslash;n&quot;
-l_string|&quot;and maintain the current behavior after the default changes, use:&bslash;n&quot;
+l_string|&quot;and maintain the traditional behavior, use:&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
 l_string|&quot;  git config --global push.default matching&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
@@ -1132,19 +1127,6 @@ id|push_default
 r_default
 suffix:colon
 r_case
-id|PUSH_DEFAULT_UNSPECIFIED
-suffix:colon
-id|default_matching_used
-op_assign
-l_int|1
-suffix:semicolon
-id|warn_unspecified_push_default_configuration
-c_func
-(paren
-)paren
-suffix:semicolon
-multiline_comment|/* fallthru */
-r_case
 id|PUSH_DEFAULT_MATCHING
 suffix:colon
 id|add_refspec
@@ -1155,6 +1137,15 @@ l_string|&quot;:&quot;
 suffix:semicolon
 r_break
 suffix:semicolon
+r_case
+id|PUSH_DEFAULT_UNSPECIFIED
+suffix:colon
+id|warn_unspecified_push_default_configuration
+c_func
+(paren
+)paren
+suffix:semicolon
+multiline_comment|/* fallthru */
 r_case
 id|PUSH_DEFAULT_SIMPLE
 suffix:colon
@@ -1245,23 +1236,6 @@ l_string|&quot;Updates were rejected because the tip of your current branch is b
 l_string|&quot;its remote counterpart. Integrate the remote changes (e.g.&bslash;n&quot;
 l_string|&quot;&squot;git pull ...&squot;) before pushing again.&bslash;n&quot;
 l_string|&quot;See the &squot;Note about fast-forwards&squot; in &squot;git push --help&squot; for details.&quot;
-)paren
-suffix:semicolon
-DECL|variable|message_advice_use_upstream
-r_static
-r_const
-r_char
-id|message_advice_use_upstream
-(braket
-)braket
-op_assign
-id|N_
-c_func
-(paren
-l_string|&quot;Updates were rejected because a pushed branch tip is behind its remote&bslash;n&quot;
-l_string|&quot;counterpart. If you did not intend to push that branch, you may want to&bslash;n&quot;
-l_string|&quot;specify branches to push or set the &squot;push.default&squot; configuration variable&bslash;n&quot;
-l_string|&quot;to &squot;simple&squot;, &squot;current&squot; or &squot;upstream&squot; to push only the current branch.&quot;
 )paren
 suffix:semicolon
 DECL|variable|message_advice_checkout_pull_push
@@ -1356,37 +1330,6 @@ id|_
 c_func
 (paren
 id|message_advice_pull_before_push
-)paren
-)paren
-suffix:semicolon
-)brace
-DECL|function|advise_use_upstream
-r_static
-r_void
-id|advise_use_upstream
-c_func
-(paren
-r_void
-)paren
-(brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|advice_push_non_ff_default
-op_logical_or
-op_logical_neg
-id|advice_push_update_rejected
-)paren
-r_return
-suffix:semicolon
-id|advise
-c_func
-(paren
-id|_
-c_func
-(paren
-id|message_advice_use_upstream
 )paren
 )paren
 suffix:semicolon
@@ -1706,17 +1649,6 @@ op_amp
 id|REJECT_NON_FF_OTHER
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|default_matching_used
-)paren
-id|advise_use_upstream
-c_func
-(paren
-)paren
-suffix:semicolon
-r_else
 id|advise_checkout_pull_push
 c_func
 (paren
