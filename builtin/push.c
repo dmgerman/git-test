@@ -1010,7 +1010,7 @@ l_string|&quot;&bslash;n&quot;
 l_string|&quot;When push.default is set to &squot;matching&squot;, git will push local branches&bslash;n&quot;
 l_string|&quot;to the remote branches that already exist with the same name.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;In Git 2.0, Git will default to the more conservative &squot;simple&squot;&bslash;n&quot;
+l_string|&quot;Since Git 2.0, Git defaults to the more conservative &squot;simple&squot;&bslash;n&quot;
 l_string|&quot;behavior, which only pushes the current branch to the corresponding&bslash;n&quot;
 l_string|&quot;remote branch that &squot;git pull&squot; uses to update the current branch.&bslash;n&quot;
 l_string|&quot;&bslash;n&quot;
