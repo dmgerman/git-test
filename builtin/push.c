@@ -261,8 +261,7 @@ id|push_default
 op_eq
 id|PUSH_DEFAULT_UPSTREAM
 op_logical_and
-op_logical_neg
-id|prefixcmp
+id|starts_with
 c_func
 (paren
 id|matched-&gt;name
