@@ -2674,7 +2674,7 @@ r_char
 op_star
 id|eol
 op_assign
-id|strchr
+id|strchrnul
 c_func
 (paren
 id|line
@@ -2699,6 +2699,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
+op_star
 id|eol
 )paren
 (brace
@@ -2712,16 +2713,6 @@ c_func
 (paren
 id|commit-&gt;object.sha1
 )paren
-)paren
-suffix:semicolon
-id|eol
-op_assign
-id|line
-op_plus
-id|strlen
-c_func
-(paren
-id|line
 )paren
 suffix:semicolon
 id|next
