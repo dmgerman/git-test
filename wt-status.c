@@ -1582,7 +1582,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;new file&quot;
+l_string|&quot;new file:&quot;
 )paren
 suffix:semicolon
 r_case
@@ -1592,7 +1592,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;copied&quot;
+l_string|&quot;copied:&quot;
 )paren
 suffix:semicolon
 r_case
@@ -1602,7 +1602,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;deleted&quot;
+l_string|&quot;deleted:&quot;
 )paren
 suffix:semicolon
 r_case
@@ -1612,7 +1612,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;modified&quot;
+l_string|&quot;modified:&quot;
 )paren
 suffix:semicolon
 r_case
@@ -1622,7 +1622,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;renamed&quot;
+l_string|&quot;renamed:&quot;
 )paren
 suffix:semicolon
 r_case
@@ -1632,7 +1632,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;typechange&quot;
+l_string|&quot;typechange:&quot;
 )paren
 suffix:semicolon
 r_case
@@ -1642,7 +1642,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;unknown&quot;
+l_string|&quot;unknown:&quot;
 )paren
 suffix:semicolon
 r_case
@@ -1652,7 +1652,7 @@ r_return
 id|_
 c_func
 (paren
-l_string|&quot;unmerged&quot;
+l_string|&quot;unmerged:&quot;
 )paren
 suffix:semicolon
 r_default
@@ -1742,6 +1742,10 @@ r_char
 op_star
 id|padding
 suffix:semicolon
+r_static
+r_int
+id|label_width
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -1757,11 +1761,6 @@ op_logical_neg
 id|padding
 )paren
 (brace
-r_int
-id|width
-op_assign
-l_int|0
-suffix:semicolon
 multiline_comment|/* If DIFF_STATUS_* uses outside this range, we&squot;re in trouble */
 r_for
 c_loop
@@ -1804,24 +1803,27 @@ c_cond
 (paren
 id|len
 OG
-id|width
+id|label_width
 )paren
-id|width
+id|label_width
 op_assign
 id|len
 suffix:semicolon
 )brace
-id|width
+id|label_width
 op_add_assign
-l_int|2
+id|strlen
+c_func
+(paren
+l_string|&quot; &quot;
+)paren
 suffix:semicolon
-multiline_comment|/* colon and a space */
 id|padding
 op_assign
 id|xmallocz
 c_func
 (paren
-id|width
+id|label_width
 )paren
 suffix:semicolon
 id|memset
@@ -1831,7 +1833,7 @@ id|padding
 comma
 l_char|&squot; &squot;
 comma
-id|width
+id|label_width
 )paren
 suffix:semicolon
 )brace
@@ -2048,22 +2050,13 @@ comma
 id|status
 )paren
 suffix:semicolon
-multiline_comment|/* 1 for colon, which is not part of &quot;what&quot; */
 id|len
 op_assign
-id|strlen
-c_func
-(paren
-id|padding
-)paren
-(paren
+id|label_width
 id|utf8_strwidth
 c_func
 (paren
 id|what
-)paren
-op_plus
-l_int|1
 )paren
 suffix:semicolon
 m_assert
@@ -2091,7 +2084,7 @@ id|s
 comma
 id|c
 comma
-l_string|&quot;%s:%.*s%s -&gt; %s&quot;
+l_string|&quot;%s%.*s%s -&gt; %s&quot;
 comma
 id|what
 comma
@@ -2112,7 +2105,7 @@ id|s
 comma
 id|c
 comma
-l_string|&quot;%s:%.*s%s&quot;
+l_string|&quot;%s%.*s%s&quot;
 comma
 id|what
 comma
