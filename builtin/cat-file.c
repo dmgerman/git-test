@@ -1323,6 +1323,9 @@ id|expand_data
 id|data
 suffix:semicolon
 r_int
+id|save_warning
+suffix:semicolon
+r_int
 id|retval
 op_assign
 l_int|0
@@ -1375,6 +1378,10 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * We are going to call get_sha1 on a potentially very large number of&n;&t; * objects. In most large cases, these will be actual object sha1s. The&n;&t; * cost to double-check that each one is not also a ref (just so we can&n;&t; * warn) ends up dwarfing the actual cost of the object lookups&n;&t; * themselves. We can work around it by just turning off the warning.&n;&t; */
+id|save_warning
+op_assign
+id|warn_on_object_refname_ambiguity
+suffix:semicolon
 id|warn_on_object_refname_ambiguity
 op_assign
 l_int|0
@@ -1475,6 +1482,10 @@ c_func
 op_amp
 id|buf
 )paren
+suffix:semicolon
+id|warn_on_object_refname_ambiguity
+op_assign
+id|save_warning
 suffix:semicolon
 r_return
 id|retval
