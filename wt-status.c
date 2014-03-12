@@ -1737,17 +1737,6 @@ c_func
 l_string|&quot; &quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|label_width
-OL
-l_int|20
-)paren
-id|label_width
-op_assign
-l_int|20
-suffix:semicolon
 id|padding
 op_assign
 id|xmallocz
