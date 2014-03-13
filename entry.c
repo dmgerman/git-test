@@ -175,8 +175,8 @@ r_void
 id|remove_subtree
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|strbuf
 op_star
 id|path
 )paren
@@ -188,7 +188,7 @@ op_assign
 id|opendir
 c_func
 (paren
-id|path
+id|path-&gt;buf
 )paren
 suffix:semicolon
 r_struct
@@ -196,15 +196,10 @@ id|dirent
 op_star
 id|de
 suffix:semicolon
-r_char
-id|pathbuf
-(braket
-id|PATH_MAX
-)braket
-suffix:semicolon
-r_char
-op_star
-id|name
+r_int
+id|origlen
+op_assign
+id|path-&gt;len
 suffix:semicolon
 r_if
 c_cond
@@ -217,32 +212,8 @@ c_func
 (paren
 l_string|&quot;cannot opendir &squot;%s&squot;&quot;
 comma
-id|path
+id|path-&gt;buf
 )paren
-suffix:semicolon
-id|strcpy
-c_func
-(paren
-id|pathbuf
-comma
-id|path
-)paren
-suffix:semicolon
-id|name
-op_assign
-id|pathbuf
-op_plus
-id|strlen
-c_func
-(paren
-id|path
-)paren
-suffix:semicolon
-op_star
-id|name
-op_increment
-op_assign
-l_char|&squot;/&squot;
 suffix:semicolon
 r_while
 c_loop
@@ -275,10 +246,18 @@ id|de-&gt;d_name
 )paren
 r_continue
 suffix:semicolon
-id|strcpy
+id|strbuf_addch
 c_func
 (paren
-id|name
+id|path
+comma
+l_char|&squot;/&squot;
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+id|path
 comma
 id|de-&gt;d_name
 )paren
@@ -289,7 +268,7 @@ c_cond
 id|lstat
 c_func
 (paren
-id|pathbuf
+id|path-&gt;buf
 comma
 op_amp
 id|st
@@ -300,7 +279,7 @@ c_func
 (paren
 l_string|&quot;cannot lstat &squot;%s&squot;&quot;
 comma
-id|pathbuf
+id|path-&gt;buf
 )paren
 suffix:semicolon
 r_if
@@ -315,7 +294,7 @@ id|st.st_mode
 id|remove_subtree
 c_func
 (paren
-id|pathbuf
+id|path
 )paren
 suffix:semicolon
 r_else
@@ -325,7 +304,7 @@ c_cond
 id|unlink
 c_func
 (paren
-id|pathbuf
+id|path-&gt;buf
 )paren
 )paren
 id|die_errno
@@ -333,7 +312,15 @@ c_func
 (paren
 l_string|&quot;cannot unlink &squot;%s&squot;&quot;
 comma
-id|pathbuf
+id|path-&gt;buf
+)paren
+suffix:semicolon
+id|strbuf_setlen
+c_func
+(paren
+id|path
+comma
+id|origlen
 )paren
 suffix:semicolon
 )brace
@@ -349,7 +336,7 @@ c_cond
 id|rmdir
 c_func
 (paren
-id|path
+id|path-&gt;buf
 )paren
 )paren
 id|die_errno
@@ -357,7 +344,7 @@ c_func
 (paren
 l_string|&quot;cannot rmdir &squot;%s&squot;&quot;
 comma
-id|path
+id|path-&gt;buf
 )paren
 suffix:semicolon
 )brace
@@ -1449,7 +1436,8 @@ suffix:semicolon
 id|remove_subtree
 c_func
 (paren
-id|path.buf
+op_amp
+id|path
 )paren
 suffix:semicolon
 )brace
