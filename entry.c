@@ -1278,20 +1278,13 @@ id|topath
 r_static
 r_struct
 id|strbuf
-id|path_buf
+id|path
 op_assign
 id|STRBUF_INIT
-suffix:semicolon
-r_char
-op_star
-id|path
 suffix:semicolon
 r_struct
 id|stat
 id|st
-suffix:semicolon
-r_int
-id|len
 suffix:semicolon
 r_if
 c_cond
@@ -1315,14 +1308,14 @@ id|strbuf_reset
 c_func
 (paren
 op_amp
-id|path_buf
+id|path
 )paren
 suffix:semicolon
 id|strbuf_add
 c_func
 (paren
 op_amp
-id|path_buf
+id|path
 comma
 id|state-&gt;base_dir
 comma
@@ -1333,7 +1326,7 @@ id|strbuf_add
 c_func
 (paren
 op_amp
-id|path_buf
+id|path
 comma
 id|ce-&gt;name
 comma
@@ -1344,14 +1337,6 @@ id|ce
 )paren
 )paren
 suffix:semicolon
-id|path
-op_assign
-id|path_buf.buf
-suffix:semicolon
-id|len
-op_assign
-id|path_buf.len
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1359,9 +1344,9 @@ op_logical_neg
 id|check_path
 c_func
 (paren
-id|path
+id|path.buf
 comma
-id|len
+id|path.len
 comma
 op_amp
 id|st
@@ -1415,7 +1400,7 @@ id|stderr
 comma
 l_string|&quot;%s already exists, no checkout&bslash;n&quot;
 comma
-id|path
+id|path.buf
 )paren
 suffix:semicolon
 r_return
@@ -1458,13 +1443,13 @@ c_func
 (paren
 l_string|&quot;%s is a directory&quot;
 comma
-id|path
+id|path.buf
 )paren
 suffix:semicolon
 id|remove_subtree
 c_func
 (paren
-id|path
+id|path.buf
 )paren
 suffix:semicolon
 )brace
@@ -1475,7 +1460,7 @@ c_cond
 id|unlink
 c_func
 (paren
-id|path
+id|path.buf
 )paren
 )paren
 r_return
@@ -1484,7 +1469,7 @@ c_func
 (paren
 l_string|&quot;unable to unlink old &squot;%s&squot; (%s)&quot;
 comma
-id|path
+id|path.buf
 comma
 id|strerror
 c_func
@@ -1506,9 +1491,9 @@ suffix:semicolon
 id|create_directories
 c_func
 (paren
-id|path
+id|path.buf
 comma
-id|len
+id|path.len
 comma
 id|state
 )paren
@@ -1519,7 +1504,7 @@ c_func
 (paren
 id|ce
 comma
-id|path
+id|path.buf
 comma
 id|state
 comma
