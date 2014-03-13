@@ -1195,6 +1195,7 @@ r_int
 id|fsck_ident
 c_func
 (paren
+r_const
 r_char
 op_star
 op_star
@@ -1561,6 +1562,7 @@ id|fsck_error
 id|error_func
 )paren
 (brace
+r_const
 r_char
 op_star
 id|buffer
