@@ -2151,7 +2151,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 id|match_ref_pattern
@@ -2159,6 +2159,8 @@ comma
 id|tail
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 )paren
 r_return

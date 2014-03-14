@@ -5808,7 +5808,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 id|filter-&gt;pattern
@@ -5816,6 +5816,8 @@ comma
 id|refname
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 )paren
 r_return

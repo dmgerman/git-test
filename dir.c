@@ -190,7 +190,7 @@ id|flags
 )paren
 (brace
 r_return
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 id|pattern
@@ -203,10 +203,12 @@ op_or
 id|ignore_case
 ques
 c_cond
-id|FNM_CASEFOLD
+id|WM_CASEFOLD
 suffix:colon
 l_int|0
 )paren
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
@@ -260,7 +262,7 @@ id|prefix
 )paren
 )paren
 r_return
-id|FNM_NOMATCH
+id|WM_NOMATCH
 suffix:semicolon
 id|pattern
 op_add_assign
@@ -351,7 +353,7 @@ suffix:semicolon
 r_else
 multiline_comment|/* wildmatch has not learned no FNM_PATHNAME mode yet */
 r_return
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 id|pattern
@@ -363,9 +365,11 @@ op_amp
 id|PATHSPEC_ICASE
 ques
 c_cond
-id|FNM_CASEFOLD
+id|WM_CASEFOLD
 suffix:colon
 l_int|0
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 )brace

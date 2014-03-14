@@ -408,7 +408,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 id|filter
@@ -416,6 +416,8 @@ comma
 id|subpath
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 )paren
 r_return

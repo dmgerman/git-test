@@ -127,7 +127,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|fnmatch
+id|wildmatch
 c_func
 (paren
 op_star
@@ -136,6 +136,8 @@ comma
 id|ref
 comma
 l_int|0
+comma
+l_int|NULL
 )paren
 )paren
 r_return
