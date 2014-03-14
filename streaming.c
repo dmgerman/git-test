@@ -652,12 +652,17 @@ c_cond
 op_logical_neg
 id|nst
 )paren
+(brace
 id|close_istream
 c_func
 (paren
 id|st
 )paren
 suffix:semicolon
+r_return
+l_int|NULL
+suffix:semicolon
+)brace
 id|st
 op_assign
 id|nst

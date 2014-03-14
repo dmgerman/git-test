@@ -7,11 +7,11 @@ r_struct
 id|interval
 (brace
 DECL|member|first
-r_int
+id|ucs_char_t
 id|first
 suffix:semicolon
 DECL|member|last
-r_int
+id|ucs_char_t
 id|last
 suffix:semicolon
 )brace
@@ -2976,6 +2976,9 @@ c_cond
 (paren
 id|cnt
 op_eq
+(paren
+r_int
+)paren
 l_int|1
 )paren
 (brace
