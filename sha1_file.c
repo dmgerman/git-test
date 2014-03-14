@@ -124,6 +124,7 @@ comma
 l_int|0
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * A pointer to the last packed_git in which an object was found.&n; * When an object is sought, we look in this packfile first, because&n; * objects that are looked up at similar times are often in the same&n; * packfile as one another.&n; */
 DECL|variable|last_found_pack
 r_static
 r_struct
@@ -698,8 +699,8 @@ l_int|0xf
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * NOTE! This returns a statically allocated buffer, so you have to be&n; * careful about using it. Do an &quot;xstrdup()&quot; if you need to save the&n; * filename.&n; *&n; * Also note that this returns the location for creating.  Reading&n; * SHA1 file can happen from any alternate directory listed in the&n; * DB_ENVIRONMENT environment variable if it is not found in&n; * the primary object database.&n; */
 DECL|function|sha1_file_name
+r_const
 r_char
 op_star
 id|sha1_file_name
@@ -811,6 +812,7 @@ r_return
 id|buf
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Return the name of the pack or index file with the specified sha1&n; * in its filename.  *base and *name are scratch space that must be&n; * provided by the caller.  which should be &quot;pack&quot; or &quot;idx&quot;.&n; */
 DECL|function|sha1_get_pack_name
 r_static
 r_char
@@ -1984,22 +1986,16 @@ op_star
 id|sha1
 )paren
 (brace
-r_char
-op_star
-id|name
-op_assign
-id|sha1_file_name
-c_func
-(paren
-id|sha1
-)paren
-suffix:semicolon
 r_return
 op_logical_neg
 id|access
 c_func
 (paren
-id|name
+id|sha1_file_name
+c_func
+(paren
+id|sha1
+)paren
 comma
 id|F_OK
 )paren
@@ -2230,6 +2226,7 @@ id|peak_pack_mapped
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Open and mmap the index file at path, perform a couple of&n; * consistency checks, then record its information to p.  Return 0 on&n; * success.&n; */
 DECL|function|check_packed_git_idx
 r_static
 r_int
@@ -6609,16 +6606,6 @@ op_star
 id|st
 )paren
 (brace
-r_char
-op_star
-id|name
-op_assign
-id|sha1_file_name
-c_func
-(paren
-id|sha1
-)paren
-suffix:semicolon
 r_struct
 id|alternate_object_database
 op_star
@@ -6631,7 +6618,11 @@ op_logical_neg
 id|lstat
 c_func
 (paren
-id|name
+id|sha1_file_name
+c_func
+(paren
+id|sha1
+)paren
 comma
 id|st
 )paren
@@ -6662,14 +6653,10 @@ op_assign
 id|alt-&gt;next
 )paren
 (brace
-id|name
-op_assign
-id|alt-&gt;name
-suffix:semicolon
 id|fill_sha1_path
 c_func
 (paren
-id|name
+id|alt-&gt;name
 comma
 id|sha1
 )paren
@@ -6710,16 +6697,6 @@ id|sha1
 r_int
 id|fd
 suffix:semicolon
-r_char
-op_star
-id|name
-op_assign
-id|sha1_file_name
-c_func
-(paren
-id|sha1
-)paren
-suffix:semicolon
 r_struct
 id|alternate_object_database
 op_star
@@ -6730,7 +6707,11 @@ op_assign
 id|git_open_noatime
 c_func
 (paren
-id|name
+id|sha1_file_name
+c_func
+(paren
+id|sha1
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -6766,14 +6747,10 @@ op_assign
 id|alt-&gt;next
 )paren
 (brace
-id|name
-op_assign
-id|alt-&gt;name
-suffix:semicolon
 id|fill_sha1_path
 c_func
 (paren
-id|name
+id|alt-&gt;name
 comma
 id|sha1
 )paren
@@ -11642,6 +11619,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Iff a pack file contains the object named by sha1, return true and&n; * store its location to e.&n; */
 DECL|function|find_pack_entry
 r_static
 r_int
@@ -11717,8 +11695,13 @@ c_cond
 id|p
 op_eq
 id|last_found_pack
-op_logical_or
-op_logical_neg
+)paren
+r_continue
+suffix:semicolon
+multiline_comment|/* we already checked this one */
+r_if
+c_cond
+(paren
 id|fill_pack_entry
 c_func
 (paren
@@ -11729,8 +11712,7 @@ comma
 id|p
 )paren
 )paren
-r_continue
-suffix:semicolon
+(brace
 id|last_found_pack
 op_assign
 id|p
@@ -11738,6 +11720,7 @@ suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 )brace
 r_return
 l_int|0
@@ -12808,10 +12791,6 @@ r_void
 op_star
 id|data
 suffix:semicolon
-r_char
-op_star
-id|path
-suffix:semicolon
 r_const
 r_struct
 id|packed_git
@@ -12913,6 +12892,9 @@ id|repl
 )paren
 )paren
 (brace
+r_const
+r_char
+op_star
 id|path
 op_assign
 id|sha1_file_name
@@ -13859,10 +13841,6 @@ id|parano_sha1
 l_int|20
 )braket
 suffix:semicolon
-r_char
-op_star
-id|filename
-suffix:semicolon
 r_static
 r_char
 id|tmp_file
@@ -13870,6 +13848,9 @@ id|tmp_file
 id|PATH_MAX
 )braket
 suffix:semicolon
+r_const
+r_char
+op_star
 id|filename
 op_assign
 id|sha1_file_name
