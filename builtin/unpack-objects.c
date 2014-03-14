@@ -2619,7 +2619,7 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-id|read_replace_refs
+id|check_replace_refs
 op_assign
 l_int|0
 suffix:semicolon

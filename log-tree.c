@@ -419,7 +419,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|read_replace_refs
+id|check_replace_refs
 )paren
 r_return
 l_int|0
