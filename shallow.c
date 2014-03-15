@@ -1290,11 +1290,6 @@ suffix:semicolon
 r_int
 id|fd
 suffix:semicolon
-id|check_shallow_file_for_update
-c_func
-(paren
-)paren
-suffix:semicolon
 id|fd
 op_assign
 id|hold_lock_file_for_update
@@ -1309,6 +1304,11 @@ l_string|&quot;shallow&quot;
 )paren
 comma
 id|LOCK_DIE_ON_ERROR
+)paren
+suffix:semicolon
+id|check_shallow_file_for_update
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if
@@ -1507,11 +1507,6 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-id|check_shallow_file_for_update
-c_func
-(paren
-)paren
-suffix:semicolon
 id|fd
 op_assign
 id|hold_lock_file_for_update
@@ -1527,6 +1522,11 @@ l_string|&quot;shallow&quot;
 )paren
 comma
 id|LOCK_DIE_ON_ERROR
+)paren
+suffix:semicolon
+id|check_shallow_file_for_update
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if
