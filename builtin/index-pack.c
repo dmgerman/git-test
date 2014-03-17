@@ -6760,6 +6760,11 @@ l_string|&quot;cannot write keep file &squot;%s&squot;&quot;
 )paren
 comma
 id|keep_name
+ques
+c_cond
+id|keep_name
+suffix:colon
+id|name
 )paren
 suffix:semicolon
 )brace
@@ -6815,6 +6820,11 @@ l_string|&quot;cannot close written keep file &squot;%s&squot;&quot;
 )paren
 comma
 id|keep_name
+ques
+c_cond
+id|keep_name
+suffix:colon
+id|name
 )paren
 suffix:semicolon
 id|report
