@@ -1495,7 +1495,7 @@ r_char
 op_star
 id|colon
 op_assign
-id|strchr
+id|strchrnul
 c_func
 (paren
 id|name
@@ -1507,16 +1507,7 @@ r_int
 id|refnamelen
 op_assign
 id|colon
-ques
-c_cond
-id|colon
 id|name
-suffix:colon
-id|strlen
-c_func
-(paren
-id|name
-)paren
 suffix:semicolon
 r_if
 c_cond

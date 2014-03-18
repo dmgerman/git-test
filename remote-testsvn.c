@@ -412,7 +412,7 @@ id|msg
 (brace
 id|end
 op_assign
-id|strchr
+id|strchrnul
 c_func
 (paren
 id|msg
@@ -423,16 +423,7 @@ suffix:semicolon
 id|len
 op_assign
 id|end
-ques
-c_cond
-id|end
 id|msg
-suffix:colon
-id|strlen
-c_func
-(paren
-id|msg
-)paren
 suffix:semicolon
 id|key
 op_assign
