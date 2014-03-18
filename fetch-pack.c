@@ -2204,6 +2204,15 @@ op_amp
 id|req_buf
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|got_ready
+op_logical_or
+op_logical_neg
+id|no_done
+)paren
 id|consume_shallow_list
 c_func
 (paren
