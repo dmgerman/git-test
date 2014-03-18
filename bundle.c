@@ -53,7 +53,7 @@ comma
 id|list-&gt;alloc
 )paren
 suffix:semicolon
-id|memcpy
+id|hashcpy
 c_func
 (paren
 id|list-&gt;list
@@ -64,8 +64,6 @@ dot
 id|sha1
 comma
 id|sha1
-comma
-l_int|20
 )paren
 suffix:semicolon
 id|list-&gt;list
