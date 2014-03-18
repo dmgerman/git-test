@@ -739,14 +739,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|match_pathspec_depth
+id|dir_path_match
 c_func
 (paren
+id|entry
+comma
 id|pathspec
-comma
-id|entry-&gt;name
-comma
-id|entry-&gt;len
 comma
 id|prefix
 comma
