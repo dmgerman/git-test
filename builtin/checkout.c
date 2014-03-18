@@ -159,7 +159,7 @@ id|changed
 )paren
 (brace
 r_return
-id|run_hook
+id|run_hook_le
 c_func
 (paren
 l_int|NULL

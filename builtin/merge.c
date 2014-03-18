@@ -2502,7 +2502,7 @@ id|opts
 suffix:semicolon
 )brace
 multiline_comment|/* Run a post-merge hook */
-id|run_hook
+id|run_hook_le
 c_func
 (paren
 l_int|NULL
@@ -5092,9 +5092,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|run_hook
+id|run_commit_hook
 c_func
 (paren
+l_int|1
+comma
 id|get_index_file
 c_func
 (paren
@@ -5109,8 +5111,6 @@ l_string|&quot;MERGE_MSG&quot;
 )paren
 comma
 l_string|&quot;merge&quot;
-comma
-l_int|NULL
 comma
 l_int|NULL
 )paren

@@ -3761,7 +3761,7 @@ l_string|&quot;unable to write new index file&quot;
 suffix:semicolon
 id|err
 op_or_assign
-id|run_hook
+id|run_hook_le
 c_func
 (paren
 l_int|NULL
