@@ -1,3 +1,4 @@
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;branch.h&quot;
 macro_line|#include &quot;refs.h&quot;
@@ -199,14 +200,7 @@ r_char
 op_star
 id|shortname
 op_assign
-id|remote
-op_plus
-l_int|11
-suffix:semicolon
-r_int
-id|remote_is_branch
-op_assign
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|remote
@@ -232,7 +226,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|remote_is_branch
+id|shortname
 op_logical_and
 op_logical_neg
 id|strcmp
@@ -363,7 +357,7 @@ id|BRANCH_CONFIG_VERBOSE
 r_if
 c_cond
 (paren
-id|remote_is_branch
+id|shortname
 op_logical_and
 id|origin
 )paren
@@ -396,7 +390,7 @@ r_else
 r_if
 c_cond
 (paren
-id|remote_is_branch
+id|shortname
 op_logical_and
 op_logical_neg
 id|origin
@@ -429,7 +423,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|remote_is_branch
+id|shortname
 op_logical_and
 id|origin
 )paren
@@ -461,7 +455,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|remote_is_branch
+id|shortname
 op_logical_and
 op_logical_neg
 id|origin
@@ -493,9 +487,9 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;BUG: impossible combination of %d and %p&quot;
+l_string|&quot;BUG: impossible combination of %p and %p&quot;
 comma
-id|remote_is_branch
+id|shortname
 comma
 id|origin
 )paren
