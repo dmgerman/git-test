@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Copyright (c) 2011, Google Inc.&n; */
 macro_line|#include &quot;bulk-checkin.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;pack.h&quot;
+macro_line|#include &quot;strbuf.h&quot;
 DECL|variable|pack_compression_level
 r_static
 r_int
@@ -78,11 +79,11 @@ id|sha1
 l_int|20
 )braket
 suffix:semicolon
-r_char
+r_struct
+id|strbuf
 id|packname
-(braket
-id|PATH_MAX
-)braket
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_int
 id|i
@@ -177,9 +178,10 @@ id|fd
 )paren
 suffix:semicolon
 )brace
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
+op_amp
 id|packname
 comma
 l_string|&quot;%s/pack/pack-&quot;
@@ -193,6 +195,7 @@ suffix:semicolon
 id|finish_tmp_packfile
 c_func
 (paren
+op_amp
 id|packname
 comma
 id|state-&gt;pack_tmp_name
@@ -250,6 +253,13 @@ r_sizeof
 op_star
 id|state
 )paren
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|packname
 )paren
 suffix:semicolon
 multiline_comment|/* Make objects we just wrote available to ourselves */

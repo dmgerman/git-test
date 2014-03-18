@@ -1772,7 +1772,8 @@ r_void
 id|finish_tmp_packfile
 c_func
 (paren
-r_char
+r_struct
+id|strbuf
 op_star
 id|name_buffer
 comma
@@ -1807,17 +1808,10 @@ r_char
 op_star
 id|idx_tmp_name
 suffix:semicolon
-r_char
-op_star
-id|end_of_name_prefix
+r_int
+id|basename_len
 op_assign
-id|strrchr
-c_func
-(paren
-id|name_buffer
-comma
-l_int|0
-)paren
+id|name_buffer-&gt;len
 suffix:semicolon
 r_if
 c_cond
@@ -1865,10 +1859,10 @@ c_func
 l_string|&quot;unable to make temporary index file readable&quot;
 )paren
 suffix:semicolon
-id|sprintf
+id|strbuf_addf
 c_func
 (paren
-id|end_of_name_prefix
+id|name_buffer
 comma
 l_string|&quot;%s.pack&quot;
 comma
@@ -1882,7 +1876,7 @@ suffix:semicolon
 id|free_pack_by_name
 c_func
 (paren
-id|name_buffer
+id|name_buffer-&gt;buf
 )paren
 suffix:semicolon
 r_if
@@ -1893,7 +1887,7 @@ c_func
 (paren
 id|pack_tmp_name
 comma
-id|name_buffer
+id|name_buffer-&gt;buf
 )paren
 )paren
 id|die_errno
@@ -1902,10 +1896,18 @@ c_func
 l_string|&quot;unable to rename temporary pack file&quot;
 )paren
 suffix:semicolon
-id|sprintf
+id|strbuf_setlen
 c_func
 (paren
-id|end_of_name_prefix
+id|name_buffer
+comma
+id|basename_len
+)paren
+suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+id|name_buffer
 comma
 l_string|&quot;%s.idx&quot;
 comma
@@ -1924,7 +1926,7 @@ c_func
 (paren
 id|idx_tmp_name
 comma
-id|name_buffer
+id|name_buffer-&gt;buf
 )paren
 )paren
 id|die_errno
@@ -1933,10 +1935,13 @@ c_func
 l_string|&quot;unable to rename temporary index file&quot;
 )paren
 suffix:semicolon
-op_star
-id|end_of_name_prefix
-op_assign
-l_char|&squot;&bslash;0&squot;
+id|strbuf_setlen
+c_func
+(paren
+id|name_buffer
+comma
+id|basename_len
+)paren
 suffix:semicolon
 id|free
 c_func
