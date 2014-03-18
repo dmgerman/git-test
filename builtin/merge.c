@@ -5095,7 +5095,9 @@ c_cond
 id|run_commit_hook
 c_func
 (paren
-l_int|1
+l_int|0
+OL
+id|option_edit
 comma
 id|get_index_file
 c_func
