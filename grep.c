@@ -7868,6 +7868,12 @@ id|buf
 l_int|32
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|opt-&gt;pathname
+)paren
+(brace
 id|output_color
 c_func
 (paren
@@ -7892,6 +7898,7 @@ comma
 l_char|&squot;:&squot;
 )paren
 suffix:semicolon
+)brace
 id|snprintf
 c_func
 (paren
