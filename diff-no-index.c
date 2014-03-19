@@ -10,10 +10,10 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;string-list.h&quot;
-DECL|function|read_directory
+DECL|function|read_directory_contents
 r_static
 r_int
-id|read_directory
+id|read_directory_contents
 c_func
 (paren
 r_const
@@ -530,7 +530,7 @@ c_cond
 (paren
 id|name1
 op_logical_and
-id|read_directory
+id|read_directory_contents
 c_func
 (paren
 id|name1
@@ -547,7 +547,7 @@ c_cond
 (paren
 id|name2
 op_logical_and
-id|read_directory
+id|read_directory_contents
 c_func
 (paren
 id|name2
