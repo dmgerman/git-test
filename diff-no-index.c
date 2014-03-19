@@ -10,6 +10,7 @@ macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;dir.h&quot;
 DECL|function|read_directory_contents
 r_static
 r_int
@@ -75,19 +76,10 @@ id|dir
 r_if
 c_cond
 (paren
-id|strcmp
+op_logical_neg
+id|is_dot_or_dotdot
 c_func
 (paren
-l_string|&quot;.&quot;
-comma
-id|e-&gt;d_name
-)paren
-op_logical_and
-id|strcmp
-c_func
-(paren
-l_string|&quot;..&quot;
-comma
 id|e-&gt;d_name
 )paren
 )paren
