@@ -248,7 +248,7 @@ comma
 multiline_comment|/* -- */
 l_string|&quot;[a-zA-Z_][a-zA-Z0-9_]*&quot;
 l_string|&quot;|[-+0-9.e]+[fFlL]?|0[xXbB]?[0-9a-fA-F]+[lL]?&quot;
-l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&quot;
+l_string|&quot;|[-+*/&lt;&gt;%&amp;^|=!]=|--|&bslash;&bslash;+&bslash;&bslash;+|&lt;&lt;=?|&gt;&gt;=?|&amp;&amp;|&bslash;&bslash;|&bslash;&bslash;||::|-&gt;&bslash;&bslash;*?|&bslash;&bslash;.&bslash;&bslash;*&quot;
 )paren
 comma
 id|PATTERNS
