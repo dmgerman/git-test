@@ -2153,6 +2153,35 @@ suffix:colon
 suffix:semicolon
 multiline_comment|/* ok. (usually accepts an argument) */
 )brace
+r_if
+c_cond
+(paren
+id|opts-&gt;argh
+op_logical_and
+id|strcspn
+c_func
+(paren
+id|opts-&gt;argh
+comma
+l_string|&quot; _&quot;
+)paren
+op_ne
+id|strlen
+c_func
+(paren
+id|opts-&gt;argh
+)paren
+)paren
+id|err
+op_or_assign
+id|optbug
+c_func
+(paren
+id|opts
+comma
+l_string|&quot;multi-word argh should use dash to separate words&quot;
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond
