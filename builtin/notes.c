@@ -5631,7 +5631,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;notes_ref&quot;
+l_string|&quot;notes-ref&quot;
 )paren
 comma
 id|N_
