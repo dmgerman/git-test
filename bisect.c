@@ -89,7 +89,7 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
-multiline_comment|/* bits #0-15 in revision.h */
+multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|COUNTED
 mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;16)
 multiline_comment|/*&n; * This is a truly stupid algorithm, but it&squot;s only&n; * used for bisection, and we just don&squot;t care enough.&n; *&n; * We care just barely enough to avoid recursing for&n; * non-merge entries.&n; */

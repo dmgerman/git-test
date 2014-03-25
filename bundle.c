@@ -678,6 +678,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|PREREQ_MARK
 mdefine_line|#define PREREQ_MARK (1u&lt;&lt;16)
 DECL|function|verify_bundle

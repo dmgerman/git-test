@@ -178,7 +178,7 @@ DECL|macro|BLAME_DEFAULT_MOVE_SCORE
 mdefine_line|#define BLAME_DEFAULT_MOVE_SCORE&t;20
 DECL|macro|BLAME_DEFAULT_COPY_SCORE
 mdefine_line|#define BLAME_DEFAULT_COPY_SCORE&t;40
-multiline_comment|/* bits #0..7 in revision.h, #8..11 used for merge_bases() in commit.c */
+multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|METAINFO_SHOWN
 mdefine_line|#define METAINFO_SHOWN&t;&t;(1u&lt;&lt;12)
 DECL|macro|MORE_THAN_ONE_PATH

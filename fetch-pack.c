@@ -79,6 +79,7 @@ r_char
 op_star
 id|alternate_shallow_file
 suffix:semicolon
+multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|COMPLETE
 mdefine_line|#define COMPLETE&t;(1U &lt;&lt; 0)
 DECL|macro|COMMON

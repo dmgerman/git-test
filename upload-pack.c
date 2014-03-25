@@ -24,7 +24,7 @@ id|upload_pack_usage
 op_assign
 l_string|&quot;git upload-pack [--strict] [--timeout=&lt;n&gt;] &lt;dir&gt;&quot;
 suffix:semicolon
-multiline_comment|/* bits #0..7 in revision.h, #8..10 in commit.c */
+multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|THEY_HAVE
 mdefine_line|#define THEY_HAVE&t;(1u &lt;&lt; 11)
 DECL|macro|OUR_REF
