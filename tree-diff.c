@@ -3,6 +3,34 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;tree.h&quot;
+r_static
+r_int
+id|ll_diff_tree_sha1
+c_func
+(paren
+r_const
+r_int
+r_char
+op_star
+id|old
+comma
+r_const
+r_int
+r_char
+op_star
+r_new
+comma
+r_const
+r_char
+op_star
+id|base_str
+comma
+r_struct
+id|diff_options
+op_star
+id|opt
+)paren
+suffix:semicolon
 multiline_comment|/*&n; * Compare two tree entries, taking into account only path/S_ISDIR(mode),&n; * but not their sha1&squot;s.&n; *&n; * NOTE files and directories *always* compare differently, even when having&n; *      the same name - thanks to base_name_compare().&n; *&n; * NOTE empty (=invalid) descriptor(s) take part in comparison as +infty,&n; *      so that they sort *after* valid tree entries.&n; *&n; *      Due to this convention, if trees are scanned in sorted order, all&n; *      non-empty descriptors will be processed first.&n; */
 DECL|function|tree_entry_pathcmp
 r_static
@@ -460,7 +488,7 @@ comma
 l_char|&squot;/&squot;
 )paren
 suffix:semicolon
-id|diff_tree_sha1
+id|ll_diff_tree_sha1
 c_func
 (paren
 id|t1
