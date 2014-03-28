@@ -2999,6 +2999,10 @@ c_cond
 id|haves
 )paren
 (brace
+id|revs-&gt;ignore_missing_links
+op_assign
+l_int|1
+suffix:semicolon
 id|haves_bitmap
 op_assign
 id|find_objects
@@ -3015,6 +3019,10 @@ id|reset_revision_walk
 c_func
 (paren
 )paren
+suffix:semicolon
+id|revs-&gt;ignore_missing_links
+op_assign
+l_int|0
 suffix:semicolon
 r_if
 c_cond
