@@ -810,7 +810,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|run_hook
+id|run_hook_le
 c_func
 (paren
 l_int|NULL
