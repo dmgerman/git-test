@@ -211,7 +211,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|git_fnmatch
-r_inline
 r_int
 id|git_fnmatch
 c_func
