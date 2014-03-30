@@ -487,9 +487,6 @@ id|string
 comma
 l_string|&quot;set string to default&quot;
 comma
-(paren
-r_intptr
-)paren
 l_string|&quot;default&quot;
 )paren
 comma
