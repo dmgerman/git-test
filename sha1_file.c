@@ -3544,7 +3544,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * This is used by git-repack in case a newly created pack happens to&n; * contain the same set of objects as an existing one.  In that case&n; * the resulting file might be different even if its name would be the&n; * same.  It is best to close any reference to the old pack before it is&n; * replaced on disk.  Of course no index pointers nor windows for given pack&n; * must subsist at this point.  If ever objects from this pack are requested&n; * again, the new version of the pack will be reinitialized through&n; * reprepare_packed_git().&n; */
+multiline_comment|/*&n; * This is used by git-repack in case a newly created pack happens to&n; * contain the same set of objects as an existing one.  In that case&n; * the resulting file might be different even if its name would be the&n; * same.  It is best to close any reference to the old pack before it is&n; * replaced on disk.  Of course no index pointers or windows for given pack&n; * must subsist at this point.  If ever objects from this pack are requested&n; * again, the new version of the pack will be reinitialized through&n; * reprepare_packed_git().&n; */
 DECL|function|free_pack_by_name
 r_void
 id|free_pack_by_name
