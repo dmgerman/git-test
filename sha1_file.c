@@ -5103,7 +5103,7 @@ l_int|0
 suffix:colon
 id|msg
 op_assign
-l_string|&quot;no corresponding .idx nor .pack&quot;
+l_string|&quot;no corresponding .idx or .pack&quot;
 suffix:semicolon
 r_break
 suffix:semicolon
