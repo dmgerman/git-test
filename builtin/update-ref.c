@@ -745,6 +745,10 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|update-&gt;have_old
+op_assign
+l_int|1
+suffix:semicolon
 r_if
 c_cond
 (paren
