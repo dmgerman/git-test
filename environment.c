@@ -1106,6 +1106,7 @@ comma
 r_int
 id|namesz
 comma
+r_const
 r_int
 r_char
 op_star
