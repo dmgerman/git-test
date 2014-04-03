@@ -100,7 +100,7 @@ DECL|macro|LOCK_TIME
 mdefine_line|#define LOCK_TIME 600
 DECL|macro|LOCK_REFRESH
 mdefine_line|#define LOCK_REFRESH 30
-multiline_comment|/* bits #0-15 in revision.h */
+multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|LOCAL
 mdefine_line|#define LOCAL    (1u&lt;&lt;16)
 DECL|macro|REMOTE

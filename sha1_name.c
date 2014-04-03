@@ -4184,6 +4184,7 @@ id|lookup_flags
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * This interprets names like &squot;:/Initial revision of &quot;git&quot;&squot; by searching&n; * through history and returning the first commit whose message starts&n; * the given regular expression.&n; *&n; * For future extension, &squot;:/!&squot; is reserved. If you want to match a message&n; * beginning with a &squot;!&squot;, you have to repeat the exclamation mark.&n; */
+multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|ONELINE_SEEN
 mdefine_line|#define ONELINE_SEEN (1u&lt;&lt;20)
 DECL|function|handle_one_ref
