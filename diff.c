@@ -17316,6 +17316,7 @@ comma
 id|RENAME_EMPTY
 )paren
 suffix:semicolon
+multiline_comment|/* pathchange left =NULL by default */
 id|options-&gt;change
 op_assign
 id|diff_change
