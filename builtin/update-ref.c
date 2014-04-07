@@ -737,7 +737,7 @@ id|update-&gt;ref_name
 id|die
 c_func
 (paren
-l_string|&quot;update line missing &lt;ref&gt;&quot;
+l_string|&quot;update: missing &lt;ref&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -763,7 +763,7 @@ id|PARSE_SHA1_ALLOW_EMPTY
 id|die
 c_func
 (paren
-l_string|&quot;update %s missing &lt;newvalue&gt;&quot;
+l_string|&quot;update %s: missing &lt;newvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
@@ -799,7 +799,7 @@ id|line_termination
 id|die
 c_func
 (paren
-l_string|&quot;update %s has extra input: %s&quot;
+l_string|&quot;update %s: extra input: %s&quot;
 comma
 id|update-&gt;ref_name
 comma
@@ -861,7 +861,7 @@ id|update-&gt;ref_name
 id|die
 c_func
 (paren
-l_string|&quot;create line missing &lt;ref&gt;&quot;
+l_string|&quot;create: missing &lt;ref&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -887,7 +887,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;create %s missing &lt;newvalue&gt;&quot;
+l_string|&quot;create %s: missing &lt;newvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
@@ -904,7 +904,7 @@ id|update-&gt;new_sha1
 id|die
 c_func
 (paren
-l_string|&quot;create %s given zero &lt;newvalue&gt;&quot;
+l_string|&quot;create %s: zero &lt;newvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
@@ -920,7 +920,7 @@ id|line_termination
 id|die
 c_func
 (paren
-l_string|&quot;create %s has extra input: %s&quot;
+l_string|&quot;create %s: extra input: %s&quot;
 comma
 id|update-&gt;ref_name
 comma
@@ -982,7 +982,7 @@ id|update-&gt;ref_name
 id|die
 c_func
 (paren
-l_string|&quot;delete line missing &lt;ref&gt;&quot;
+l_string|&quot;delete: missing &lt;ref&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1025,7 +1025,7 @@ id|update-&gt;old_sha1
 id|die
 c_func
 (paren
-l_string|&quot;delete %s given zero &lt;oldvalue&gt;&quot;
+l_string|&quot;delete %s: zero &lt;oldvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
@@ -1046,7 +1046,7 @@ id|line_termination
 id|die
 c_func
 (paren
-l_string|&quot;delete %s has extra input: %s&quot;
+l_string|&quot;delete %s: extra input: %s&quot;
 comma
 id|update-&gt;ref_name
 comma
@@ -1108,7 +1108,7 @@ id|update-&gt;ref_name
 id|die
 c_func
 (paren
-l_string|&quot;verify line missing &lt;ref&gt;&quot;
+l_string|&quot;verify: missing &lt;ref&gt;&quot;
 )paren
 suffix:semicolon
 r_if
@@ -1163,7 +1163,7 @@ id|line_termination
 id|die
 c_func
 (paren
-l_string|&quot;verify %s has extra input: %s&quot;
+l_string|&quot;verify %s: extra input: %s&quot;
 comma
 id|update-&gt;ref_name
 comma
