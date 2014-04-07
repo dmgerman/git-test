@@ -2413,7 +2413,7 @@ id|head
 comma
 l_int|0
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t;&t;&t; * We ignore errors in &squot;gc --auto&squot;, since the&n;&t;&t;&t; * user should see them.&n;&t;&t;&t; */
@@ -7485,7 +7485,7 @@ l_int|NULL
 comma
 l_int|0
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 r_goto
@@ -8154,7 +8154,7 @@ l_int|NULL
 comma
 l_int|0
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 r_if

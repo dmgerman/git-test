@@ -295,7 +295,7 @@ l_int|NULL
 comma
 l_int|0
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 id|strbuf_release

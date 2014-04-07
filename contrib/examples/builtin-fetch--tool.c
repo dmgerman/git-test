@@ -195,7 +195,7 @@ id|oldval
 comma
 l_int|0
 comma
-id|QUIET_ON_ERR
+id|UPDATE_REFS_QUIET_ON_ERR
 )paren
 suffix:semicolon
 )brace

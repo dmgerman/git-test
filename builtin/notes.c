@@ -4261,7 +4261,7 @@ id|parent_sha1
 comma
 l_int|0
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 id|free_notes
@@ -4875,7 +4875,7 @@ l_int|NULL
 comma
 l_int|0
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 r_else
@@ -4895,7 +4895,7 @@ l_int|NULL
 comma
 l_int|0
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 multiline_comment|/* Store ref-to-be-updated into .git/NOTES_MERGE_REF */

@@ -15032,7 +15032,7 @@ id|onerr
 )paren
 (brace
 r_case
-id|MSG_ON_ERR
+id|UPDATE_REFS_MSG_ON_ERR
 suffix:colon
 id|error
 c_func
@@ -15045,7 +15045,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 suffix:colon
 id|die
 c_func
@@ -15058,7 +15058,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|QUIET_ON_ERR
+id|UPDATE_REFS_QUIET_ON_ERR
 suffix:colon
 r_break
 suffix:semicolon
@@ -15130,7 +15130,7 @@ id|onerr
 )paren
 (brace
 r_case
-id|MSG_ON_ERR
+id|UPDATE_REFS_MSG_ON_ERR
 suffix:colon
 id|error
 c_func
@@ -15143,7 +15143,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 suffix:colon
 id|die
 c_func
@@ -15156,7 +15156,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|QUIET_ON_ERR
+id|UPDATE_REFS_QUIET_ON_ERR
 suffix:colon
 r_break
 suffix:semicolon
@@ -15382,7 +15382,7 @@ id|onerr
 )paren
 (brace
 r_case
-id|MSG_ON_ERR
+id|UPDATE_REFS_MSG_ON_ERR
 suffix:colon
 id|error
 c_func
@@ -15400,7 +15400,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 suffix:colon
 id|die
 c_func
@@ -15418,7 +15418,7 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
-id|QUIET_ON_ERR
+id|UPDATE_REFS_QUIET_ON_ERR
 suffix:colon
 r_break
 suffix:semicolon

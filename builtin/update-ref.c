@@ -1669,7 +1669,7 @@ id|updates
 comma
 id|updates_count
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 )brace
@@ -1866,7 +1866,7 @@ l_int|NULL
 comma
 id|flags
 comma
-id|DIE_ON_ERR
+id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 )brace
