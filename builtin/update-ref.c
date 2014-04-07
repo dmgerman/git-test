@@ -608,6 +608,16 @@ id|PARSE_SHA1_ALLOW_EMPTY
 )paren
 (brace
 multiline_comment|/* With -z, treat an empty value as all zeros: */
+id|warning
+c_func
+(paren
+l_string|&quot;%s %s: missing &lt;newvalue&gt;, treating as zero&quot;
+comma
+id|command
+comma
+id|refname
+)paren
+suffix:semicolon
 id|hashclr
 c_func
 (paren
