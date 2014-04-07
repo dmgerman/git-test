@@ -15441,10 +15441,10 @@ r_char
 op_star
 id|action
 comma
-r_const
 r_struct
 id|ref_update
 op_star
+r_const
 op_star
 id|updates_orig
 comma

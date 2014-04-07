@@ -48,7 +48,6 @@ id|updates_count
 suffix:semicolon
 DECL|variable|updates
 r_static
-r_const
 r_struct
 id|ref_update
 op_star
