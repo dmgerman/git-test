@@ -1190,12 +1190,12 @@ comma
 id|value.buf
 )paren
 suffix:semicolon
-id|update_store_new_sha1
+id|hashcpy
 c_func
 (paren
-id|update
+id|update-&gt;new_sha1
 comma
-id|value.buf
+id|update-&gt;old_sha1
 )paren
 suffix:semicolon
 )brace
