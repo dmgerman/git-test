@@ -675,9 +675,9 @@ op_amp
 id|PARSE_SHA1_OLD
 ques
 c_cond
-l_string|&quot;%s %s missing &lt;oldvalue&gt;&quot;
+l_string|&quot;%s %s: unexpected end of input when reading &lt;oldvalue&gt;&quot;
 suffix:colon
-l_string|&quot;%s %s missing &lt;newvalue&gt;&quot;
+l_string|&quot;%s %s: unexpected end of input when reading &lt;newvalue&gt;&quot;
 comma
 id|command
 comma
