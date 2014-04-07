@@ -136,6 +136,11 @@ r_void
 id|update_store_new_sha1
 c_func
 (paren
+r_const
+r_char
+op_star
+id|command
+comma
 r_struct
 id|ref_update
 op_star
@@ -164,7 +169,9 @@ id|update-&gt;new_sha1
 id|die
 c_func
 (paren
-l_string|&quot;invalid new value for ref %s: %s&quot;
+l_string|&quot;%s %s: invalid new value: %s&quot;
+comma
+id|command
 comma
 id|update-&gt;ref_name
 comma
@@ -178,6 +185,11 @@ r_void
 id|update_store_old_sha1
 c_func
 (paren
+r_const
+r_char
+op_star
+id|command
+comma
 r_struct
 id|ref_update
 op_star
@@ -206,7 +218,9 @@ id|update-&gt;old_sha1
 id|die
 c_func
 (paren
-l_string|&quot;invalid old value for ref %s: %s&quot;
+l_string|&quot;%s %s: invalid old value: %s&quot;
+comma
+id|command
 comma
 id|update-&gt;ref_name
 comma
@@ -682,6 +696,8 @@ id|newvalue
 id|update_store_new_sha1
 c_func
 (paren
+l_string|&quot;update&quot;
+comma
 id|update
 comma
 id|newvalue.buf
@@ -716,6 +732,8 @@ id|oldvalue
 id|update_store_old_sha1
 c_func
 (paren
+l_string|&quot;update&quot;
+comma
 id|update
 comma
 id|oldvalue.buf
@@ -838,6 +856,8 @@ id|newvalue
 id|update_store_new_sha1
 c_func
 (paren
+l_string|&quot;create&quot;
+comma
 id|update
 comma
 id|newvalue.buf
@@ -971,6 +991,8 @@ id|oldvalue
 id|update_store_old_sha1
 c_func
 (paren
+l_string|&quot;delete&quot;
+comma
 id|update
 comma
 id|oldvalue.buf
@@ -1113,6 +1135,8 @@ id|value
 id|update_store_old_sha1
 c_func
 (paren
+l_string|&quot;verify&quot;
+comma
 id|update
 comma
 id|value.buf
