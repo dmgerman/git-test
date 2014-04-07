@@ -768,7 +768,7 @@ id|line_termination
 id|die
 c_func
 (paren
-l_string|&quot;update %s missing [&lt;oldvalue&gt;] NUL&quot;
+l_string|&quot;update %s missing &lt;oldvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
@@ -1028,7 +1028,7 @@ id|line_termination
 id|die
 c_func
 (paren
-l_string|&quot;delete %s missing [&lt;oldvalue&gt;] NUL&quot;
+l_string|&quot;delete %s missing &lt;oldvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
@@ -1161,7 +1161,7 @@ id|line_termination
 id|die
 c_func
 (paren
-l_string|&quot;verify %s missing [&lt;oldvalue&gt;] NUL&quot;
+l_string|&quot;verify %s missing &lt;oldvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
