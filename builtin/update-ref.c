@@ -169,7 +169,7 @@ id|update-&gt;new_sha1
 id|die
 c_func
 (paren
-l_string|&quot;%s %s: invalid new value: %s&quot;
+l_string|&quot;%s %s: invalid &lt;newvalue&gt;: %s&quot;
 comma
 id|command
 comma
@@ -218,7 +218,7 @@ id|update-&gt;old_sha1
 id|die
 c_func
 (paren
-l_string|&quot;%s %s: invalid old value: %s&quot;
+l_string|&quot;%s %s: invalid &lt;oldvalue&gt;: %s&quot;
 comma
 id|command
 comma
@@ -884,7 +884,7 @@ id|update-&gt;new_sha1
 id|die
 c_func
 (paren
-l_string|&quot;create %s given zero new value&quot;
+l_string|&quot;create %s given zero &lt;newvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
@@ -1012,7 +1012,7 @@ id|update-&gt;old_sha1
 id|die
 c_func
 (paren
-l_string|&quot;delete %s given zero old value&quot;
+l_string|&quot;delete %s given zero &lt;oldvalue&gt;&quot;
 comma
 id|update-&gt;ref_name
 )paren
