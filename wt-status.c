@@ -8953,6 +8953,8 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+DECL|macro|LABEL
+mdefine_line|#define LABEL(string) (s-&gt;no_gettext ? (string) : _(string))
 id|color_fprintf
 c_func
 (paren
@@ -8976,10 +8978,14 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
-id|_
+id|LABEL
+c_func
+(paren
+id|N_
 c_func
 (paren
 l_string|&quot;gone&quot;
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -8999,10 +9005,14 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
-id|_
+id|LABEL
+c_func
+(paren
+id|N_
 c_func
 (paren
 l_string|&quot;behind &quot;
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -9034,10 +9044,16 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
-id|_
+id|LABEL
 c_func
 (paren
+id|N_
+c_func
+(paren
+(paren
 l_string|&quot;ahead &quot;
+)paren
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -9063,10 +9079,16 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
-id|_
+id|LABEL
 c_func
 (paren
+id|N_
+c_func
+(paren
+(paren
 l_string|&quot;ahead &quot;
+)paren
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -9089,10 +9111,16 @@ id|s-&gt;fp
 comma
 id|header_color
 comma
-id|_
+l_string|&quot;, %s&quot;
+comma
+id|LABEL
 c_func
 (paren
-l_string|&quot;, behind &quot;
+id|N_
+c_func
+(paren
+l_string|&quot;behind &quot;
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -9325,6 +9353,10 @@ suffix:semicolon
 id|s-&gt;prefix
 op_assign
 l_int|NULL
+suffix:semicolon
+id|s-&gt;no_gettext
+op_assign
+l_int|1
 suffix:semicolon
 id|wt_shortstatus_print
 c_func
