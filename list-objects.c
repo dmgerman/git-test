@@ -258,6 +258,14 @@ id|tree
 OL
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+id|revs-&gt;ignore_missing_links
+)paren
+r_return
+suffix:semicolon
 id|die
 c_func
 (paren
@@ -270,6 +278,7 @@ id|obj-&gt;sha1
 )paren
 )paren
 suffix:semicolon
+)brace
 id|obj-&gt;flags
 op_or_assign
 id|SEEN

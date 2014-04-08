@@ -11383,6 +11383,20 @@ suffix:semicolon
 )brace
 )brace
 )brace
+multiline_comment|/*&n; * This tracks any options which a reader of the pack might&n; * not understand, and which would therefore prevent blind reuse&n; * of what we have on disk.&n; */
+DECL|function|pack_options_allow_reuse
+r_static
+r_int
+id|pack_options_allow_reuse
+c_func
+(paren
+r_void
+)paren
+(brace
+r_return
+id|allow_ofs_delta
+suffix:semicolon
+)brace
 DECL|function|get_object_list_from_bitmap
 r_static
 r_int
@@ -11412,6 +11426,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|pack_options_allow_reuse
+c_func
+(paren
+)paren
+op_logical_and
 op_logical_neg
 id|reuse_partial_packfile_from_bitmap
 c_func

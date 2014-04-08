@@ -14745,6 +14745,13 @@ l_int|NULL
 OL
 l_int|0
 )paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|revs-&gt;ignore_missing_links
+)paren
 id|die
 c_func
 (paren
@@ -14757,6 +14764,7 @@ id|commit-&gt;object.sha1
 )paren
 )paren
 suffix:semicolon
+)brace
 )brace
 r_switch
 c_cond
