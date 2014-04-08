@@ -475,25 +475,6 @@ comma
 l_string|&quot;obsolete&quot;
 )paren
 comma
-id|OPT_SET_PTR
-c_func
-(paren
-l_int|0
-comma
-l_string|&quot;default-string&quot;
-comma
-op_amp
-id|string
-comma
-l_string|&quot;set string to default&quot;
-comma
-(paren
-r_int
-r_int
-)paren
-l_string|&quot;default&quot;
-)paren
-comma
 id|OPT_STRING_LIST
 c_func
 (paren
