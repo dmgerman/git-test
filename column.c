@@ -1667,7 +1667,7 @@ id|sep
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * Setting layout implies &quot;always&quot; if neither always, never&n;&t; * nor auto is specified.&n;&t; *&n;&t; * Current value in COL_ENABLE_MASK is disregarded. This means if&n;&t; * you set column.ui = auto and pass --column=row, then &quot;auto&quot;&n;&t; * will become &quot;always&quot;.&n;&t; */
+multiline_comment|/*&n;&t; * If none of &quot;always&quot;, &quot;never&quot;, and &quot;auto&quot; is specified, then setting&n;&t; * layout implies &quot;always&quot;.&n;&t; *&n;&t; * Current value in COL_ENABLE_MASK is disregarded. This means if&n;&t; * you set column.ui = auto and pass --column=row, then &quot;auto&quot;&n;&t; * will become &quot;always&quot;.&n;&t; */
 r_if
 c_cond
 (paren

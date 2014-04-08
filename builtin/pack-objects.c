@@ -5147,7 +5147,7 @@ id|pbase_tree
 op_star
 id|next
 suffix:semicolon
-multiline_comment|/* This is a phony &quot;cache&quot; entry; we are not&n;&t; * going to evict it nor find it through _get()&n;&t; * mechanism -- this is for the toplevel node that&n;&t; * would almost always change with any commit.&n;&t; */
+multiline_comment|/* This is a phony &quot;cache&quot; entry; we are not&n;&t; * going to evict it or find it through _get()&n;&t; * mechanism -- this is for the toplevel node that&n;&t; * would almost always change with any commit.&n;&t; */
 DECL|member|pcache
 r_struct
 id|pbase_tree_cache

@@ -8331,7 +8331,7 @@ op_logical_or
 id|send_mirror
 )paren
 )paren
-multiline_comment|/*&n;&t;&t;&t;&t; * Remote doesn&squot;t have it, and we have no&n;&t;&t;&t;&t; * explicit pattern, and we don&squot;t have&n;&t;&t;&t;&t; * --all nor --mirror.&n;&t;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t;&t;&t; * Remote doesn&squot;t have it, and we have no&n;&t;&t;&t;&t; * explicit pattern, and we don&squot;t have&n;&t;&t;&t;&t; * --all or --mirror.&n;&t;&t;&t;&t; */
 r_goto
 id|free_name
 suffix:semicolon

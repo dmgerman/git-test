@@ -21877,7 +21877,7 @@ l_char|&squot;B&squot;
 r_return
 l_int|1
 suffix:semicolon
-multiline_comment|/* that is not a -M, -C nor -B option */
+multiline_comment|/* that is not a -M, -C, or -B option */
 id|opt1
 op_assign
 id|parse_rename_score

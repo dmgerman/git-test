@@ -5666,7 +5666,7 @@ op_assign
 id|_
 c_func
 (paren
-l_string|&quot;Explicit paths specified without -i nor -o; assuming --only paths...&quot;
+l_string|&quot;Explicit paths specified without -i or -o; assuming --only paths...&quot;
 )paren
 suffix:semicolon
 r_if

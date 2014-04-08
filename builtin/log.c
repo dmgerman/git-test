@@ -2459,7 +2459,7 @@ op_logical_neg
 id|rev-&gt;combine_merges
 )paren
 (brace
-multiline_comment|/* No &quot;--first-parent&quot;, &quot;-c&quot;, nor &quot;--cc&quot; */
+multiline_comment|/* No &quot;--first-parent&quot;, &quot;-c&quot;, or &quot;--cc&quot; */
 id|rev-&gt;combine_merges
 op_assign
 l_int|1

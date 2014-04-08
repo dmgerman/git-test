@@ -19173,7 +19173,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-multiline_comment|/* Normal git tools never deal with .rej, so do not pretend&n;&t; * this is a git patch by saying --git nor give extended&n;&t; * headers.  While at it, maybe please &quot;kompare&quot; that wants&n;&t; * the trailing TAB and some garbage at the end of line ;-).&n;&t; */
+multiline_comment|/* Normal git tools never deal with .rej, so do not pretend&n;&t; * this is a git patch by saying --git or giving extended&n;&t; * headers.  While at it, maybe please &quot;kompare&quot; that wants&n;&t; * the trailing TAB and some garbage at the end of line ;-).&n;&t; */
 id|fprintf
 c_func
 (paren
