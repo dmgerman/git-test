@@ -5578,7 +5578,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;new branch&quot;
+l_string|&quot;new-branch&quot;
 )paren
 comma
 id|N_
