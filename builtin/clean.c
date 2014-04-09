@@ -4590,7 +4590,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;clean.requireForce set to true and neither -i, -n nor -f given; &quot;
+l_string|&quot;clean.requireForce set to true and neither -i, -n, nor -f given; &quot;
 l_string|&quot;refusing to clean&quot;
 )paren
 )paren
@@ -4602,8 +4602,8 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;clean.requireForce defaults to true and neither -i, -n nor -f given; &quot;
-l_string|&quot;refusing to clean&quot;
+l_string|&quot;clean.requireForce defaults to true and neither -i, -n, nor -f given;&quot;
+l_string|&quot; refusing to clean&quot;
 )paren
 )paren
 suffix:semicolon
