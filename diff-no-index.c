@@ -1107,8 +1107,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|j
+op_le
+l_int|0
 )paren
 id|die
 c_func
