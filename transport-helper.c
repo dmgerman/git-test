@@ -246,10 +246,8 @@ comma
 l_string|&quot;Debug: Remote helper quit.&bslash;n&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|128
-)paren
+r_return
+l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -764,6 +762,9 @@ id|mandatory
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|recvline
 c_func
 (paren
@@ -771,6 +772,11 @@ id|data
 comma
 op_amp
 id|buf
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_if
@@ -1631,6 +1637,9 @@ op_amp
 id|buf
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|recvline
 c_func
 (paren
@@ -1638,6 +1647,11 @@ id|data
 comma
 op_amp
 id|buf
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_if
@@ -2027,6 +2041,9 @@ c_loop
 l_int|1
 )paren
 (brace
+r_if
+c_cond
+(paren
 id|recvline
 c_func
 (paren
@@ -2034,6 +2051,11 @@ id|data
 comma
 op_amp
 id|buf
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_if
@@ -2890,6 +2912,9 @@ op_amp
 id|cmdbuf
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|recvline_fh
 c_func
 (paren
@@ -2899,6 +2924,11 @@ op_amp
 id|cmdbuf
 comma
 id|name
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_if
@@ -3856,6 +3886,9 @@ r_char
 op_star
 r_private
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|recvline
 c_func
 (paren
@@ -3863,6 +3896,11 @@ id|data
 comma
 op_amp
 id|buf
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_if
@@ -5027,6 +5065,9 @@ comma
 op_star
 id|eon
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|recvline
 c_func
 (paren
@@ -5034,6 +5075,11 @@ id|data
 comma
 op_amp
 id|buf
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_if
