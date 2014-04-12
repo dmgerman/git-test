@@ -3844,7 +3844,7 @@ suffix:semicolon
 )brace
 DECL|function|push_update_refs_status
 r_static
-r_void
+r_int
 id|push_update_refs_status
 c_func
 (paren
@@ -3875,6 +3875,11 @@ id|ref
 op_assign
 id|remote_refs
 suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|0
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -3898,11 +3903,14 @@ op_amp
 id|buf
 )paren
 )paren
-m_exit
-(paren
-l_int|128
-)paren
+(brace
+id|ret
+op_assign
+l_int|1
 suffix:semicolon
+r_break
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -3992,6 +4000,9 @@ c_func
 op_amp
 id|buf
 )paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|push_refs_with_push
@@ -4368,6 +4379,7 @@ op_amp
 id|buf
 )paren
 suffix:semicolon
+r_return
 id|push_update_refs_status
 c_func
 (paren
@@ -4377,9 +4389,6 @@ id|remote_refs
 comma
 id|flags
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|push_refs_with_export
@@ -4708,6 +4717,7 @@ c_func
 l_string|&quot;Error while running fast-export&quot;
 )paren
 suffix:semicolon
+r_return
 id|push_update_refs_status
 c_func
 (paren
@@ -4717,9 +4727,6 @@ id|remote_refs
 comma
 id|flags
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 DECL|function|push_refs
