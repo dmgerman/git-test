@@ -908,6 +908,9 @@ comma
 id|next
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|ref_transaction_create
 c_func
 (paren
@@ -918,6 +921,17 @@ comma
 id|new_sha1
 comma
 id|update_flags
+comma
+op_amp
+id|err
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|err.buf
 )paren
 suffix:semicolon
 id|update_flags
