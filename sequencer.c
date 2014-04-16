@@ -1433,6 +1433,23 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ref_lock
+)paren
+r_return
+id|error
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Failed to lock HEAD during fast_forward_to&quot;
+)paren
+)paren
+suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
