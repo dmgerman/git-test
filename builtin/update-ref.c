@@ -1072,6 +1072,9 @@ comma
 id|next
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|ref_transaction_delete
 c_func
 (paren
@@ -1084,6 +1087,17 @@ comma
 id|update_flags
 comma
 id|have_old
+comma
+op_amp
+id|err
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|err.buf
 )paren
 suffix:semicolon
 id|update_flags
