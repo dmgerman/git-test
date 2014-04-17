@@ -795,12 +795,12 @@ comma
 id|years
 )paren
 suffix:semicolon
-multiline_comment|/* TRANSLATORS: &quot;%s&quot; is &quot;&lt;n&gt; years&quot; */
 id|strbuf_addf
 c_func
 (paren
 id|timebuf
 comma
+multiline_comment|/* TRANSLATORS: &quot;%s&quot; is &quot;&lt;n&gt; years&quot; */
 id|Q_
 c_func
 (paren
