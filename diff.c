@@ -8150,7 +8150,6 @@ op_eq
 l_int|0
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * TRANSLATORS: &quot;+&quot; in (+) is a line addition marker;&n;&t;&t; * do not translate it.&n;&t;&t; */
 id|strbuf_addf
 c_func
 (paren
@@ -8182,7 +8181,6 @@ op_eq
 l_int|0
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * TRANSLATORS: &quot;-&quot; in (-) is a line removal marker;&n;&t;&t; * do not translate it.&n;&t;&t; */
 id|strbuf_addf
 c_func
 (paren
