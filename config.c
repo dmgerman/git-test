@@ -2703,6 +2703,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|NORETURN
 DECL|function|die_bad_number
 r_static
 r_void
