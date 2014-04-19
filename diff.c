@@ -15684,12 +15684,6 @@ id|name
 )paren
 suffix:semicolon
 )brace
-id|fflush
-c_func
-(paren
-l_int|NULL
-)paren
-suffix:semicolon
 id|argv_array_pushf
 c_func
 (paren
