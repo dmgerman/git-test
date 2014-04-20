@@ -4512,13 +4512,6 @@ comma
 l_string|&quot;export&bslash;n&quot;
 )paren
 suffix:semicolon
-id|strbuf_reset
-c_func
-(paren
-op_amp
-id|buf
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -4631,12 +4624,6 @@ id|ref-&gt;peer_ref-&gt;name
 )paren
 )paren
 (brace
-r_struct
-id|strbuf
-id|buf
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
 r_if
 c_cond
 (paren
