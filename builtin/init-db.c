@@ -2182,7 +2182,7 @@ c_func
 id|git_dir
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * TRANSLATORS: The first &squot;%s&squot; is either &quot;Reinitialized&n;&t;&t; * existing&quot; or &quot;Initialized empty&quot;, the second &quot; shared&quot; or&n;&t;&t; * &quot;&quot;, and the last &squot;%s%s&squot; is the verbatim directory name.&n;&t;&t; */
+multiline_comment|/* TRANSLATORS: The first &squot;%s&squot; is either &quot;Reinitialized&n;&t;&t;   existing&quot; or &quot;Initialized empty&quot;, the second &quot; shared&quot; or&n;&t;&t;   &quot;&quot;, and the last &squot;%s%s&squot; is the verbatim directory name. */
 id|printf
 c_func
 (paren
