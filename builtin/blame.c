@@ -11089,7 +11089,24 @@ suffix:semicolon
 r_case
 id|DATE_RELATIVE
 suffix:colon
-multiline_comment|/* &quot;normal&quot; is used as the fallback for &quot;relative&quot; */
+multiline_comment|/* TRANSLATORS: This string is used to tell us the maximum&n;&t;&t;   display width for a relative timestamp in &quot;git blame&quot;&n;&t;&t;   output.  For C locale, &quot;4 years, 11 months ago&quot;, which&n;&t;&t;   takes 22 places, is the longest among various forms of&n;&t;&t;   relative timestamps, but your language may need more or&n;&t;&t;   fewer display columns. */
+id|blame_date_width
+op_assign
+id|utf8_strwidth
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;4 years, 11 months ago&quot;
+)paren
+)paren
+op_plus
+l_int|1
+suffix:semicolon
+multiline_comment|/* add the null */
+r_break
+suffix:semicolon
 r_case
 id|DATE_LOCAL
 suffix:colon
