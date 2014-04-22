@@ -119,7 +119,7 @@ id|rlw_offset
 op_div
 r_sizeof
 (paren
-r_int
+id|eword_t
 )paren
 )paren
 suffix:semicolon
