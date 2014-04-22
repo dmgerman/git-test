@@ -1802,6 +1802,7 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_else
 r_if
 c_cond
 (paren
