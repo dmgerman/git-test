@@ -1045,6 +1045,25 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|list
+op_logical_and
+op_logical_neg
+r_delete
+)paren
+r_if
+c_cond
+(paren
+op_logical_neg
+id|argc
+)paren
+id|list
+op_assign
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|list
 op_logical_and
 r_delete
@@ -1064,12 +1083,13 @@ c_cond
 (paren
 id|format
 op_logical_and
-r_delete
+op_logical_neg
+id|list
 )paren
 id|usage_msg_opt
 c_func
 (paren
-l_string|&quot;--format and -d cannot be used together&quot;
+l_string|&quot;--format cannot be used when not listing&quot;
 comma
 id|git_replace_usage
 comma
@@ -1158,21 +1178,6 @@ comma
 id|options
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|format
-)paren
-id|usage_msg_opt
-c_func
-(paren
-l_string|&quot;--format cannot be used when not listing&quot;
-comma
-id|git_replace_usage
-comma
-id|options
-)paren
-suffix:semicolon
 r_return
 id|replace_object
 c_func
@@ -1203,21 +1208,6 @@ id|usage_msg_opt
 c_func
 (paren
 l_string|&quot;only one pattern can be given with -l&quot;
-comma
-id|git_replace_usage
-comma
-id|options
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|force
-)paren
-id|usage_msg_opt
-c_func
-(paren
-l_string|&quot;-f needs some arguments&quot;
 comma
 id|git_replace_usage
 comma
