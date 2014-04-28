@@ -11543,6 +11543,28 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+r_static
+r_int
+id|write_ref_sha1
+c_func
+(paren
+r_struct
+id|ref_lock
+op_star
+id|lock
+comma
+r_const
+r_int
+r_char
+op_star
+id|sha1
+comma
+r_const
+r_char
+op_star
+id|logmsg
+)paren
+suffix:semicolon
 DECL|function|rename_ref
 r_int
 id|rename_ref
@@ -12921,8 +12943,9 @@ l_string|&quot;refs/heads/&quot;
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* This function must return a meaningful errno */
+multiline_comment|/*&n; * Write sha1 into the ref specified by the lock. Make sure that errno&n; * is sane on error.&n; */
 DECL|function|write_ref_sha1
+r_static
 r_int
 id|write_ref_sha1
 c_func
