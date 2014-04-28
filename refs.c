@@ -8817,7 +8817,7 @@ r_return
 id|logs_found
 suffix:semicolon
 )brace
-multiline_comment|/* This function should make sure errno is meaningful on error */
+multiline_comment|/*&n; * Locks a &quot;refs/&quot; ref returning the lock on success and NULL on failure.&n; * On failure errno is set to something meaningful.&n; */
 DECL|function|lock_ref_sha1_basic
 r_static
 r_struct
@@ -9289,6 +9289,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|lock_ref_sha1
+r_static
 r_struct
 id|ref_lock
 op_star
