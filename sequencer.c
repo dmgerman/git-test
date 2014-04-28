@@ -3469,6 +3469,10 @@ r_if
 c_cond
 (paren
 id|the_index.cache_changed
+op_logical_and
+id|index_fd
+op_ge
+l_int|0
 )paren
 (brace
 r_if
