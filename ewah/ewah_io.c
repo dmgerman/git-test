@@ -533,6 +533,7 @@ id|ewah_bitmap
 op_star
 id|self
 comma
+r_const
 r_void
 op_star
 id|map
@@ -541,6 +542,7 @@ r_int
 id|len
 )paren
 (brace
+r_const
 r_uint8
 op_star
 id|ptr
