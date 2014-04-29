@@ -15591,6 +15591,22 @@ id|FLEX_ARRAY
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * Transaction states.&n; * OPEN:   The transaction is in a valid state and can accept new updates.&n; *         An OPEN transaction can be committed.&n; * CLOSED: A closed transaction is no longer active and no other operations&n; *         than free can be used on it in this state.&n; *         A transaction can either become closed by successfully committing&n; *         an active transaction or if there is a failure while building&n; *         the transaction thus rendering it failed/inactive.&n; */
+DECL|enum|ref_transaction_state
+r_enum
+id|ref_transaction_state
+(brace
+DECL|enumerator|REF_TRANSACTION_OPEN
+id|REF_TRANSACTION_OPEN
+op_assign
+l_int|0
+comma
+DECL|enumerator|REF_TRANSACTION_CLOSED
+id|REF_TRANSACTION_CLOSED
+op_assign
+l_int|1
+)brace
+suffix:semicolon
 multiline_comment|/*&n; * Data structure for holding a reference transaction, which can&n; * consist of checks and updates to multiple references, carried out&n; * as atomically as possible.  This structure is opaque to callers.&n; */
 DECL|struct|ref_transaction
 r_struct
@@ -15610,6 +15626,11 @@ suffix:semicolon
 DECL|member|nr
 r_int
 id|nr
+suffix:semicolon
+DECL|member|state
+r_enum
+id|ref_transaction_state
+id|state
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -15830,6 +15851,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|transaction-&gt;state
+op_ne
+id|REF_TRANSACTION_OPEN
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: update called for transaction that is not open&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|have_old
 op_logical_and
 op_logical_neg
@@ -15922,6 +15956,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|transaction-&gt;state
+op_ne
+id|REF_TRANSACTION_OPEN
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: create called for transaction that is not open&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|new_sha1
 op_logical_or
@@ -16010,6 +16057,19 @@ r_struct
 id|ref_update
 op_star
 id|update
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|transaction-&gt;state
+op_ne
+id|REF_TRANSACTION_OPEN
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: delete called for transaction that is not open&quot;
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -16363,12 +16423,31 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|transaction-&gt;state
+op_ne
+id|REF_TRANSACTION_OPEN
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: commit called for transaction that is not open&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|n
 )paren
+(brace
+id|transaction-&gt;state
+op_assign
+id|REF_TRANSACTION_CLOSED
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
+)brace
 multiline_comment|/* Allocate work space */
 id|delnames
 op_assign
@@ -16674,6 +16753,10 @@ id|ref_cache
 suffix:semicolon
 id|cleanup
 suffix:colon
+id|transaction-&gt;state
+op_assign
+id|REF_TRANSACTION_CLOSED
+suffix:semicolon
 r_for
 c_loop
 (paren
