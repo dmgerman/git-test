@@ -11711,8 +11711,7 @@ id|sha1
 comma
 l_int|1
 comma
-op_amp
-id|flag
+l_int|NULL
 )paren
 op_logical_and
 id|delete_ref
