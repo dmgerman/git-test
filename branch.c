@@ -1452,6 +1452,8 @@ comma
 op_logical_neg
 id|forcing
 comma
+id|msg
+comma
 op_amp
 id|err
 )paren
@@ -1460,8 +1462,6 @@ id|ref_transaction_commit
 c_func
 (paren
 id|transaction
-comma
-id|msg
 comma
 op_amp
 id|err

@@ -8760,6 +8760,8 @@ l_int|0
 comma
 l_int|1
 comma
+id|msg
+comma
 op_amp
 id|err
 )paren
@@ -8768,8 +8770,6 @@ id|ref_transaction_commit
 c_func
 (paren
 id|transaction
-comma
-id|msg
 comma
 op_amp
 id|err
@@ -8996,6 +8996,8 @@ l_int|0
 comma
 l_int|0
 comma
+id|msg
+comma
 op_amp
 id|err
 )paren
@@ -9023,8 +9025,6 @@ id|ref_transaction_commit
 c_func
 (paren
 id|transaction
-comma
-id|msg
 comma
 op_amp
 id|err
