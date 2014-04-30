@@ -348,7 +348,7 @@ id|i
 op_increment
 )braket
 op_assign
-l_string|&quot;LESS=FRSX&quot;
+l_string|&quot;LESS=FRX&quot;
 suffix:semicolon
 r_if
 c_cond
