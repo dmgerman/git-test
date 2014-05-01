@@ -16595,7 +16595,7 @@ id|i
 suffix:semicolon
 id|update-&gt;lock
 op_assign
-id|lock_any_ref_for_update
+id|lock_ref_sha1_basic
 c_func
 (paren
 id|update-&gt;refname
