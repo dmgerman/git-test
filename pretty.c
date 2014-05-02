@@ -1759,7 +1759,6 @@ l_string|&quot;?=&quot;
 suffix:semicolon
 )brace
 DECL|function|show_ident_date
-r_static
 r_const
 r_char
 op_star
