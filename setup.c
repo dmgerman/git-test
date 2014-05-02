@@ -77,7 +77,11 @@ id|path
 suffix:semicolon
 id|off
 op_assign
-l_int|0
+id|offset_1st_component
+c_func
+(paren
+id|path
+)paren
 suffix:semicolon
 multiline_comment|/* check if work tree is already the prefix */
 r_if
@@ -181,12 +185,6 @@ id|path
 suffix:semicolon
 id|path
 op_add_assign
-id|offset_1st_component
-c_func
-(paren
-id|path
-)paren
-op_plus
 id|off
 suffix:semicolon
 multiline_comment|/* check each &squot;/&squot;-terminated level */
