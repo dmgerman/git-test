@@ -996,6 +996,8 @@ id|s
 comma
 id|c
 comma
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
@@ -1100,6 +1102,8 @@ c_func
 id|s
 comma
 id|c
+comma
+l_string|&quot;%s&quot;
 comma
 l_string|&quot;&quot;
 )paren
@@ -1233,6 +1237,8 @@ id|s
 comma
 id|c
 comma
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
@@ -1315,6 +1321,8 @@ id|s
 comma
 id|c
 comma
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
@@ -1343,6 +1351,8 @@ id|WT_STATUS_HEADER
 comma
 id|s
 )paren
+comma
+l_string|&quot;%s&quot;
 comma
 l_string|&quot;&quot;
 )paren
@@ -4340,6 +4350,8 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
@@ -4797,12 +4809,12 @@ id|comment_line_char
 )paren
 suffix:semicolon
 r_else
-id|fprintf_ln
+id|fputs
 c_func
 (paren
-id|s-&gt;fp
-comma
 l_string|&quot;&quot;
+comma
+id|s-&gt;fp
 )paren
 suffix:semicolon
 )brace
@@ -7337,6 +7349,8 @@ comma
 id|s
 )paren
 comma
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
@@ -7423,6 +7437,8 @@ comma
 id|s
 )paren
 comma
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
@@ -7458,6 +7474,8 @@ id|WT_STATUS_HEADER
 comma
 id|s
 )paren
+comma
+l_string|&quot;%s&quot;
 comma
 l_string|&quot;&quot;
 )paren
@@ -7580,6 +7598,8 @@ c_func
 id|s
 comma
 id|GIT_COLOR_NORMAL
+comma
+l_string|&quot;%s&quot;
 comma
 l_string|&quot;&quot;
 )paren

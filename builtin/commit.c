@@ -3925,6 +3925,8 @@ id|s
 comma
 id|GIT_COLOR_NORMAL
 comma
+l_string|&quot;%s&quot;
+comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
