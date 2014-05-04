@@ -150,7 +150,7 @@ DECL|variable|delta_base_cache_limit
 r_int
 id|delta_base_cache_limit
 op_assign
-l_int|16
+l_int|96
 op_star
 l_int|1024
 op_star
