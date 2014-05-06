@@ -1656,10 +1656,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|file_exists
+id|reflog_exists
 c_func
 (paren
-id|log_file
+id|ref
 )paren
 )paren
 r_goto
