@@ -11065,6 +11065,11 @@ id|lock
 comma
 r_int
 id|flag
+comma
+r_struct
+id|strbuf
+op_star
+id|err
 )paren
 (brace
 r_if
@@ -11094,12 +11099,14 @@ id|lock-&gt;lk
 )paren
 suffix:semicolon
 r_int
-id|err
+id|res
 op_assign
-id|unlink_or_warn
+id|unlink_or_msg
 c_func
 (paren
 id|loose_filename
+comma
+id|err
 )paren
 suffix:semicolon
 id|free
@@ -11111,7 +11118,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|err
+id|res
 )paren
 r_return
 l_int|1
@@ -16688,6 +16695,8 @@ c_func
 id|update-&gt;lock
 comma
 id|update-&gt;type
+comma
+id|err
 )paren
 suffix:semicolon
 r_if
