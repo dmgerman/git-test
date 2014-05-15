@@ -2115,12 +2115,6 @@ id|data
 op_assign
 id|transport-&gt;data
 suffix:semicolon
-r_struct
-id|argv_array
-id|argv
-op_assign
-id|ARGV_ARRAY_INIT
-suffix:semicolon
 r_int
 id|cat_blob_fd
 comma
@@ -2148,7 +2142,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|fastimport-&gt;args
 comma
 l_string|&quot;fast-import&quot;
 )paren
@@ -2157,7 +2151,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|fastimport-&gt;args
 comma
 id|debug
 ques
@@ -2185,7 +2179,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|argv
+id|fastimport-&gt;args
 comma
 l_string|&quot;--cat-blob-fd=%d&quot;
 comma
@@ -2193,10 +2187,6 @@ id|cat_blob_fd
 )paren
 suffix:semicolon
 )brace
-id|fastimport-&gt;argv
-op_assign
-id|argv.argv
-suffix:semicolon
 id|fastimport-&gt;git_cmd
 op_assign
 l_int|1
@@ -2535,12 +2525,6 @@ id|die
 c_func
 (paren
 l_string|&quot;Error while running fast-import&quot;
-)paren
-suffix:semicolon
-id|argv_array_free_detached
-c_func
-(paren
-id|fastimport.argv
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * The fast-import stream of a remote helper that advertises&n;&t; * the &quot;refspec&quot; capability writes to the refs named after the&n;&t; * right hand side of the first refspec matching each ref we&n;&t; * were fetching.&n;&t; *&n;&t; * (If no &quot;refspec&quot; capability was specified, for historical&n;&t; * reasons we default to the equivalent of *:*.)&n;&t; *&n;&t; * Store the result in to_fetch[i].old_sha1.  Callers such&n;&t; * as &quot;git fetch&quot; can use the value to write feedback to the&n;&t; * terminal, populate FETCH_HEAD, and determine what new value&n;&t; * should be written to peer_ref if the update is a&n;&t; * fast-forward or this is a forced update.&n;&t; */
