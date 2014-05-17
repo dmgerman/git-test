@@ -308,6 +308,10 @@ id|comment_line_char
 op_assign
 l_char|&squot;#&squot;
 suffix:semicolon
+DECL|variable|auto_comment_line_char
+r_int
+id|auto_comment_line_char
+suffix:semicolon
 multiline_comment|/* Parallel index stat data preload? */
 DECL|variable|core_preload_index
 r_int
