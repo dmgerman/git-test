@@ -24,6 +24,12 @@ comma
 id|N_
 c_func
 (paren
+l_string|&quot;git replace [-f] --edit &lt;object&gt;&quot;
+)paren
+comma
+id|N_
+c_func
+(paren
 l_string|&quot;git replace -d &lt;object&gt;...&quot;
 )paren
 comma
