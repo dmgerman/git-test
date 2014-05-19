@@ -15620,7 +15620,10 @@ op_star
 id|ref_transaction_begin
 c_func
 (paren
-r_void
+r_struct
+id|strbuf
+op_star
+id|err
 )paren
 (brace
 r_return
