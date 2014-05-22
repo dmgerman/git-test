@@ -1075,7 +1075,7 @@ multiline_comment|/*&n;&t; * We only show text/plain parts, as other types are l
 r_if
 c_cond
 (paren
-id|strcasecmp
+id|strcmp
 c_func
 (paren
 id|type-&gt;buf
