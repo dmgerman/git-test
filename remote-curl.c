@@ -1060,6 +1060,11 @@ comma
 r_struct
 id|strbuf
 op_star
+id|charset
+comma
+r_struct
+id|strbuf
+op_star
 id|msg
 )paren
 (brace
@@ -1071,7 +1076,7 @@ comma
 op_star
 id|eol
 suffix:semicolon
-multiline_comment|/*&n;&t; * We only show text/plain parts, as other types are likely&n;&t; * to be ugly to look at on the user&squot;s terminal.&n;&t; *&n;&t; * TODO should handle &quot;; charset=XXX&quot;, and re-encode into&n;&t; * logoutputencoding&n;&t; */
+multiline_comment|/*&n;&t; * We only show text/plain parts, as other types are likely&n;&t; * to be ugly to look at on the user&squot;s terminal.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1085,6 +1090,24 @@ l_string|&quot;text/plain&quot;
 )paren
 r_return
 l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|charset-&gt;len
+)paren
+id|strbuf_reencode
+c_func
+(paren
+id|msg
+comma
+id|charset-&gt;buf
+comma
+id|get_log_output_encoding
+c_func
+(paren
+)paren
+)paren
 suffix:semicolon
 id|strbuf_trim
 c_func
@@ -1181,6 +1204,12 @@ suffix:semicolon
 r_struct
 id|strbuf
 id|type
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|strbuf
+id|charset
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
@@ -1350,6 +1379,11 @@ op_assign
 op_amp
 id|type
 suffix:semicolon
+id|options.charset
+op_assign
+op_amp
+id|charset
+suffix:semicolon
 id|options.effective_url
 op_assign
 op_amp
@@ -1403,6 +1437,9 @@ op_amp
 id|type
 comma
 op_amp
+id|charset
+comma
+op_amp
 id|buffer
 )paren
 suffix:semicolon
@@ -1424,6 +1461,9 @@ op_amp
 id|type
 comma
 op_amp
+id|charset
+comma
+op_amp
 id|buffer
 )paren
 suffix:semicolon
@@ -1442,6 +1482,9 @@ c_func
 (paren
 op_amp
 id|type
+comma
+op_amp
+id|charset
 comma
 op_amp
 id|buffer
@@ -1661,6 +1704,13 @@ c_func
 (paren
 op_amp
 id|type
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|charset
 )paren
 suffix:semicolon
 id|strbuf_release
