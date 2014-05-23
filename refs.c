@@ -10320,7 +10320,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|repack_without_refs
-r_static
 r_int
 id|repack_without_refs
 c_func
