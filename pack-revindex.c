@@ -160,13 +160,13 @@ op_assign
 id|xcalloc
 c_func
 (paren
+id|pack_revindex_hashsz
+comma
 r_sizeof
 (paren
 op_star
 id|pack_revindex
 )paren
-comma
-id|pack_revindex_hashsz
 )paren
 suffix:semicolon
 r_for
