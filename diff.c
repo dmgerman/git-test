@@ -7664,13 +7664,13 @@ op_assign
 id|xcalloc
 c_func
 (paren
+l_int|1
+comma
 r_sizeof
 (paren
 op_star
 id|x
 )paren
-comma
-l_int|1
 )paren
 suffix:semicolon
 id|ALLOC_GROW
