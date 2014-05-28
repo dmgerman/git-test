@@ -82,6 +82,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|isatty
+c_func
+(paren
+l_int|2
+)paren
+op_logical_and
 id|term
 op_logical_and
 id|strcmp
