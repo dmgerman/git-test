@@ -7354,6 +7354,15 @@ c_func
 (paren
 id|arg
 comma
+l_string|&quot;--exclude=&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|prefixcmp
+c_func
+(paren
+id|arg
+comma
 l_string|&quot;--branches=&quot;
 )paren
 op_logical_or
