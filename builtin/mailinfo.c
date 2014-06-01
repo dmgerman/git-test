@@ -1813,7 +1813,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|strcmp
 c_func
 (paren
 l_string|&quot;Subject&quot;
@@ -1822,8 +1822,6 @@ id|header
 (braket
 id|i
 )braket
-comma
-l_int|7
 )paren
 )paren
 (brace
@@ -4601,7 +4599,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|strcmp
 c_func
 (paren
 id|header
@@ -4610,8 +4608,6 @@ id|i
 )braket
 comma
 l_string|&quot;Subject&quot;
-comma
-l_int|7
 )paren
 )paren
 (brace
@@ -4651,7 +4647,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|memcmp
+id|strcmp
 c_func
 (paren
 id|header
@@ -4660,8 +4656,6 @@ id|i
 )braket
 comma
 l_string|&quot;From&quot;
-comma
-l_int|4
 )paren
 )paren
 (brace
