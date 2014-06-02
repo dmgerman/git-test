@@ -313,7 +313,7 @@ DECL|variable|core_preload_index
 r_int
 id|core_preload_index
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 multiline_comment|/* This is set by setup_git_dir_gently() and/or git_default_config() */
 DECL|variable|git_work_tree_cfg
