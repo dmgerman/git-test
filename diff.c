@@ -17328,6 +17328,7 @@ comma
 id|RENAME_EMPTY
 )paren
 suffix:semicolon
+multiline_comment|/* pathchange left =NULL by default */
 id|options-&gt;change
 op_assign
 id|diff_change
@@ -26157,6 +26158,7 @@ op_star
 id|options
 )paren
 (brace
+multiline_comment|/* NOTE please keep the following in sync with diff_tree_combined() */
 r_if
 c_cond
 (paren
