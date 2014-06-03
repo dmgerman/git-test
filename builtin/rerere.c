@@ -346,6 +346,14 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_xmerge_config
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
