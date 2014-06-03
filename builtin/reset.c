@@ -1293,7 +1293,7 @@ id|old_orig
 comma
 l_int|0
 comma
-id|MSG_ON_ERR
+id|UPDATE_REFS_MSG_ON_ERR
 )paren
 suffix:semicolon
 )brace
@@ -1339,7 +1339,7 @@ id|orig
 comma
 l_int|0
 comma
-id|MSG_ON_ERR
+id|UPDATE_REFS_MSG_ON_ERR
 )paren
 suffix:semicolon
 id|strbuf_release
