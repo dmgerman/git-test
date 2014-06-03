@@ -466,7 +466,7 @@ id|me
 id|error
 c_func
 (paren
-l_string|&quot;&squot;%s&squot; is not possible because you have unmerged files.&quot;
+l_string|&quot;%s is not possible because you have unmerged files.&quot;
 comma
 id|me
 )paren
