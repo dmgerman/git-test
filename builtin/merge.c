@@ -210,6 +210,8 @@ DECL|variable|default_to_upstream
 r_static
 r_int
 id|default_to_upstream
+op_assign
+l_int|1
 suffix:semicolon
 DECL|variable|sign_commit
 r_static
