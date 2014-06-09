@@ -3009,6 +3009,15 @@ r_char
 op_star
 id|endp
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|arg
+)paren
+r_return
+l_int|1
+suffix:semicolon
 id|errno
 op_assign
 l_int|0
