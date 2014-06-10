@@ -140,6 +140,15 @@ c_func
 (paren
 id|var
 comma
+l_string|&quot;repack.writebitmaps&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
 l_string|&quot;pack.writebitmaps&quot;
 )paren
 )paren
