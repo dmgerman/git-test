@@ -21,10 +21,10 @@ id|pack_kept_objects
 op_assign
 l_int|1
 suffix:semicolon
-DECL|variable|write_bitmap
+DECL|variable|write_bitmaps
 r_static
 r_int
-id|write_bitmap
+id|write_bitmaps
 op_assign
 l_int|1
 suffix:semicolon
@@ -146,7 +146,7 @@ l_string|&quot;pack.writebitmaps&quot;
 )paren
 )paren
 (brace
-id|write_bitmap
+id|write_bitmaps
 op_assign
 id|git_config_bool
 c_func
@@ -921,7 +921,7 @@ comma
 l_string|&quot;write-bitmap-index&quot;
 comma
 op_amp
-id|write_bitmap
+id|write_bitmaps
 comma
 id|N_
 c_func
@@ -1079,7 +1079,7 @@ l_int|0
 )paren
 id|pack_kept_objects
 op_assign
-id|write_bitmap
+id|write_bitmaps
 OG
 l_int|0
 suffix:semicolon
@@ -1275,7 +1275,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write_bitmap
+id|write_bitmaps
 op_ge
 l_int|0
 )paren
@@ -1287,7 +1287,7 @@ id|cmd_args
 comma
 l_string|&quot;--%swrite-bitmap-index&quot;
 comma
-id|write_bitmap
+id|write_bitmaps
 ques
 c_cond
 l_string|&quot;&quot;
