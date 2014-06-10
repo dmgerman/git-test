@@ -874,6 +874,8 @@ id|get_cached_commit_buffer
 c_func
 (paren
 id|commit
+comma
+l_int|NULL
 )paren
 )paren
 (brace
@@ -883,6 +885,8 @@ c_func
 id|commit
 comma
 id|buffer
+comma
+id|size
 )paren
 suffix:semicolon
 op_star

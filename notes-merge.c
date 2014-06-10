@@ -3552,6 +3552,8 @@ id|get_commit_buffer
 c_func
 (paren
 id|partial_commit
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_const

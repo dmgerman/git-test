@@ -4010,6 +4010,8 @@ id|detach_commit_buffer
 c_func
 (paren
 id|commit
+comma
+l_int|NULL
 )paren
 op_ne
 id|data

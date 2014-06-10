@@ -3407,6 +3407,8 @@ id|get_commit_buffer
 c_func
 (paren
 id|cur-&gt;item
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|sha1_abbrev

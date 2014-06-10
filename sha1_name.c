@@ -4474,6 +4474,8 @@ id|get_commit_buffer
 c_func
 (paren
 id|commit
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|p

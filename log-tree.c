@@ -2978,6 +2978,8 @@ id|get_cached_commit_buffer
 c_func
 (paren
 id|commit
+comma
+l_int|NULL
 )paren
 )paren
 r_return
