@@ -362,7 +362,11 @@ c_cond
 (paren
 id|revs-&gt;verbose_header
 op_logical_and
-id|commit-&gt;buffer
+id|get_cached_commit_buffer
+c_func
+(paren
+id|commit
+)paren
 )paren
 (brace
 r_struct

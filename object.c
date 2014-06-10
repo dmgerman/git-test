@@ -870,7 +870,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|commit-&gt;buffer
+id|get_cached_commit_buffer
+c_func
+(paren
+id|commit
+)paren
 )paren
 (brace
 id|set_commit_buffer
