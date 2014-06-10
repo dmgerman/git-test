@@ -1051,6 +1051,8 @@ l_int|0
 id|pack_kept_objects
 op_assign
 id|write_bitmap
+OG
+l_int|0
 suffix:semicolon
 id|packdir
 op_assign
