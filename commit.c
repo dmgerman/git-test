@@ -46,11 +46,6 @@ id|commit_type
 op_assign
 l_string|&quot;commit&quot;
 suffix:semicolon
-DECL|variable|commit_count
-r_static
-r_int
-id|commit_count
-suffix:semicolon
 DECL|function|check_commit
 r_static
 r_struct
@@ -323,11 +318,6 @@ id|alloc_commit_node
 c_func
 (paren
 )paren
-suffix:semicolon
-id|c-&gt;index
-op_assign
-id|commit_count
-op_increment
 suffix:semicolon
 r_return
 id|create_object
