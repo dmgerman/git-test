@@ -737,12 +737,12 @@ c_func
 id|msg-&gt;parent_label
 )paren
 suffix:semicolon
-id|logmsg_free
+id|unuse_commit_buffer
 c_func
 (paren
-id|msg-&gt;message
-comma
 id|commit
+comma
+id|msg-&gt;message
 )paren
 suffix:semicolon
 )brace

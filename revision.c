@@ -14172,12 +14172,12 @@ op_amp
 id|buf
 )paren
 suffix:semicolon
-id|logmsg_free
+id|unuse_commit_buffer
 c_func
 (paren
-id|message
-comma
 id|commit
+comma
+id|message
 )paren
 suffix:semicolon
 r_return

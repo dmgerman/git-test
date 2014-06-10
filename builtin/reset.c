@@ -545,12 +545,12 @@ c_func
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
-id|logmsg_free
+id|unuse_commit_buffer
 c_func
 (paren
-id|msg
-comma
 id|commit
+comma
+id|msg
 )paren
 suffix:semicolon
 )brace
