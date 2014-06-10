@@ -9144,16 +9144,9 @@ id|now
 suffix:semicolon
 id|commit
 op_assign
-id|xcalloc
+id|alloc_commit_node
 c_func
 (paren
-l_int|1
-comma
-r_sizeof
-(paren
-op_star
-id|commit
-)paren
 )paren
 suffix:semicolon
 id|commit-&gt;object.parsed
