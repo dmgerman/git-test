@@ -120,7 +120,7 @@ id|size
 suffix:semicolon
 )brace
 DECL|macro|REPORT
-mdefine_line|#define REPORT(name)&t;&bslash;&n;    report(#name, name##_allocs, name##_allocs * sizeof(struct name) &gt;&gt; 10)
+mdefine_line|#define REPORT(name, type)&t;&bslash;&n;    report(#name, name##_allocs, name##_allocs * sizeof(type) &gt;&gt; 10)
 DECL|function|alloc_report
 r_void
 id|alloc_report
@@ -133,11 +133,17 @@ id|REPORT
 c_func
 (paren
 id|blob
+comma
+r_struct
+id|blob
 )paren
 suffix:semicolon
 id|REPORT
 c_func
 (paren
+id|tree
+comma
+r_struct
 id|tree
 )paren
 suffix:semicolon
@@ -145,12 +151,27 @@ id|REPORT
 c_func
 (paren
 id|commit
+comma
+r_struct
+id|commit
 )paren
 suffix:semicolon
 id|REPORT
 c_func
 (paren
 id|tag
+comma
+r_struct
+id|tag
+)paren
+suffix:semicolon
+id|REPORT
+c_func
+(paren
+id|object
+comma
+r_union
+id|any_object
 )paren
 suffix:semicolon
 )brace
