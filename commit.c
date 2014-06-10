@@ -7250,10 +7250,12 @@ id|commit_tree
 c_func
 (paren
 r_const
-r_struct
-id|strbuf
+r_char
 op_star
 id|msg
+comma
+r_int
+id|msg_len
 comma
 r_const
 r_int
@@ -7314,6 +7316,8 @@ id|commit_tree_extended
 c_func
 (paren
 id|msg
+comma
+id|msg_len
 comma
 id|tree
 comma
@@ -7765,10 +7769,12 @@ id|commit_tree_extended
 c_func
 (paren
 r_const
-r_struct
-id|strbuf
+r_char
 op_star
 id|msg
+comma
+r_int
+id|msg_len
 comma
 r_const
 r_int
@@ -7826,11 +7832,11 @@ c_cond
 id|memchr
 c_func
 (paren
-id|msg-&gt;buf
+id|msg
 comma
 l_char|&squot;&bslash;0&squot;
 comma
-id|msg-&gt;len
+id|msg_len
 )paren
 )paren
 r_return
@@ -8009,13 +8015,15 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 multiline_comment|/* And add the comment */
-id|strbuf_addbuf
+id|strbuf_add
 c_func
 (paren
 op_amp
 id|buffer
 comma
 id|msg
+comma
+id|msg_len
 )paren
 suffix:semicolon
 multiline_comment|/* And check the encoding */

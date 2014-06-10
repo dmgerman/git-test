@@ -3458,8 +3458,9 @@ id|local_tree
 comma
 id|parents
 comma
-op_amp
-id|o-&gt;commit_msg
+id|o-&gt;commit_msg.buf
+comma
+id|o-&gt;commit_msg.len
 comma
 id|result_sha1
 )paren
@@ -3874,8 +3875,9 @@ id|partial_tree
 comma
 id|partial_commit-&gt;parents
 comma
-op_amp
-id|sb_msg
+id|sb_msg.buf
+comma
+id|sb_msg.len
 comma
 id|result_sha1
 )paren

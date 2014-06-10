@@ -18,10 +18,12 @@ op_star
 id|parents
 comma
 r_const
-r_struct
-id|strbuf
+r_char
 op_star
 id|msg
+comma
+r_int
+id|msg_len
 comma
 r_int
 r_char
@@ -133,6 +135,8 @@ id|commit_tree
 c_func
 (paren
 id|msg
+comma
+id|msg_len
 comma
 id|tree_sha1
 comma
@@ -262,8 +266,9 @@ id|t
 comma
 l_int|NULL
 comma
-op_amp
-id|buf
+id|buf.buf
+comma
+id|buf.len
 comma
 id|commit_sha1
 )paren
