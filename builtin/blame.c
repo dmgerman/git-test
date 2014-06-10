@@ -9315,8 +9315,11 @@ id|contents_from
 )paren
 )paren
 suffix:semicolon
-id|commit-&gt;buffer
-op_assign
+id|set_commit_buffer
+c_func
+(paren
+id|commit
+comma
 id|strbuf_detach
 c_func
 (paren
@@ -9324,6 +9327,7 @@ op_amp
 id|msg
 comma
 l_int|NULL
+)paren
 )paren
 suffix:semicolon
 r_if

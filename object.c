@@ -873,9 +873,13 @@ op_logical_neg
 id|commit-&gt;buffer
 )paren
 (brace
-id|commit-&gt;buffer
-op_assign
+id|set_commit_buffer
+c_func
+(paren
+id|commit
+comma
 id|buffer
+)paren
 suffix:semicolon
 op_star
 id|eaten_p
