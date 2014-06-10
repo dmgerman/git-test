@@ -3018,6 +3018,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|logmsg_reencode
+r_const
 r_char
 op_star
 id|logmsg_reencode
@@ -3320,6 +3321,7 @@ r_void
 id|logmsg_free
 c_func
 (paren
+r_const
 r_char
 op_star
 id|msg
@@ -3341,6 +3343,10 @@ id|commit-&gt;buffer
 id|free
 c_func
 (paren
+(paren
+r_void
+op_star
+)paren
 id|msg
 )paren
 suffix:semicolon
@@ -3863,6 +3869,7 @@ id|trunc_type
 id|truncate
 suffix:semicolon
 DECL|member|message
+r_const
 r_char
 op_star
 id|message
@@ -8525,6 +8532,7 @@ r_char
 op_star
 id|msg
 suffix:semicolon
+r_const
 r_char
 op_star
 id|reencoded

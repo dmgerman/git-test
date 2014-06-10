@@ -13949,6 +13949,7 @@ r_char
 op_star
 id|encoding
 suffix:semicolon
+r_const
 r_char
 op_star
 id|message
@@ -14123,7 +14124,7 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Find either in the original commit message, or in the temporary */
+multiline_comment|/*&n;&t; * Find either in the original commit message, or in the temporary.&n;&t; * Note that we cast away the constness of &quot;message&quot; here. It is&n;&t; * const because it may come from the cached commit buffer. That&squot;s OK,&n;&t; * because we know that it is modifiable heap memory, and that while&n;&t; * grep_buffer may modify it for speed, it will restore any&n;&t; * changes before returning.&n;&t; */
 r_if
 c_cond
 (paren
@@ -14151,6 +14152,10 @@ c_func
 op_amp
 id|opt-&gt;grep_filter
 comma
+(paren
+r_char
+op_star
+)paren
 id|message
 comma
 id|strlen

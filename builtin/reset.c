@@ -430,6 +430,7 @@ comma
 op_star
 id|body
 suffix:semicolon
+r_const
 r_char
 op_star
 id|msg

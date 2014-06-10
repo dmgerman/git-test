@@ -6103,6 +6103,7 @@ comma
 op_star
 id|encoding
 suffix:semicolon
+r_const
 r_char
 op_star
 id|message
