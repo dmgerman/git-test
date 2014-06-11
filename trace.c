@@ -239,7 +239,7 @@ comma
 r_const
 r_char
 op_star
-id|fmt
+id|format
 comma
 id|va_list
 id|ap
@@ -276,7 +276,7 @@ c_func
 op_amp
 id|buf
 comma
-id|fmt
+id|format
 comma
 id|ap
 )paren
@@ -325,7 +325,7 @@ comma
 r_const
 r_char
 op_star
-id|fmt
+id|format
 comma
 dot
 dot
@@ -340,7 +340,7 @@ c_func
 (paren
 id|ap
 comma
-id|fmt
+id|format
 )paren
 suffix:semicolon
 id|trace_vprintf
@@ -348,7 +348,7 @@ c_func
 (paren
 id|key
 comma
-id|fmt
+id|format
 comma
 id|ap
 )paren
@@ -368,7 +368,7 @@ c_func
 r_const
 r_char
 op_star
-id|fmt
+id|format
 comma
 dot
 dot
@@ -383,7 +383,7 @@ c_func
 (paren
 id|ap
 comma
-id|fmt
+id|format
 )paren
 suffix:semicolon
 id|trace_vprintf
@@ -391,7 +391,7 @@ c_func
 (paren
 l_string|&quot;GIT_TRACE&quot;
 comma
-id|fmt
+id|format
 comma
 id|ap
 )paren
@@ -484,7 +484,7 @@ comma
 r_const
 r_char
 op_star
-id|fmt
+id|format
 comma
 dot
 dot
@@ -538,7 +538,7 @@ c_func
 (paren
 id|ap
 comma
-id|fmt
+id|format
 )paren
 suffix:semicolon
 id|strbuf_vaddf
@@ -547,7 +547,7 @@ c_func
 op_amp
 id|buf
 comma
-id|fmt
+id|format
 comma
 id|ap
 )paren
