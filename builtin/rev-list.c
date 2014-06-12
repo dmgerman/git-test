@@ -616,15 +616,11 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
-id|free
+id|free_commit_buffer
 c_func
 (paren
-id|commit-&gt;buffer
+id|commit
 )paren
-suffix:semicolon
-id|commit-&gt;buffer
-op_assign
-l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|finish_object

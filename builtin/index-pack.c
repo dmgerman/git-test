@@ -4003,9 +4003,22 @@ op_star
 )paren
 id|obj
 suffix:semicolon
-id|commit-&gt;buffer
-op_assign
-l_int|NULL
+r_if
+c_cond
+(paren
+id|detach_commit_buffer
+c_func
+(paren
+id|commit
+)paren
+op_ne
+id|data
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: parse_object_buffer transmogrified our buffer&quot;
+)paren
 suffix:semicolon
 )brace
 id|obj-&gt;flags

@@ -1447,15 +1447,11 @@ id|rev-&gt;reflog_info
 )paren
 (brace
 multiline_comment|/* we allow cycles in reflog ancestry */
-id|free
+id|free_commit_buffer
 c_func
 (paren
-id|commit-&gt;buffer
+id|commit
 )paren
-suffix:semicolon
-id|commit-&gt;buffer
-op_assign
-l_int|NULL
 suffix:semicolon
 )brace
 id|free_commit_list
@@ -8216,15 +8212,11 @@ comma
 id|commit
 )paren
 suffix:semicolon
-id|free
+id|free_commit_buffer
 c_func
 (paren
-id|commit-&gt;buffer
+id|commit
 )paren
-suffix:semicolon
-id|commit-&gt;buffer
-op_assign
-l_int|NULL
 suffix:semicolon
 multiline_comment|/* We put one extra blank line between formatted&n;&t;&t; * patches and this flag is used by log-tree code&n;&t;&t; * to see if it needs to emit a LF before showing&n;&t;&t; * the log; when using one file per patch, we do&n;&t;&t; * not want the extra blank line.&n;&t;&t; */
 r_if
