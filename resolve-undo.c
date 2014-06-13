@@ -613,7 +613,7 @@ l_int|NULL
 suffix:semicolon
 id|istate-&gt;cache_changed
 op_assign
-l_int|1
+id|SOMETHING_CHANGED
 suffix:semicolon
 )brace
 DECL|function|unmerge_index_entry_at

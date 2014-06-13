@@ -141,8 +141,8 @@ id|ce
 )paren
 suffix:semicolon
 id|istate-&gt;cache_changed
-op_assign
-l_int|1
+op_or_assign
+id|CE_ENTRY_CHANGED
 suffix:semicolon
 )brace
 DECL|function|rename_index_entry_at
@@ -2088,8 +2088,8 @@ id|ce
 )paren
 suffix:semicolon
 id|istate-&gt;cache_changed
-op_assign
-l_int|1
+op_or_assign
+id|CE_ENTRY_REMOVED
 suffix:semicolon
 id|istate-&gt;cache_nr
 op_decrement
@@ -2234,8 +2234,8 @@ id|istate-&gt;cache_nr
 r_return
 suffix:semicolon
 id|istate-&gt;cache_changed
-op_assign
-l_int|1
+op_or_assign
+id|CE_ENTRY_REMOVED
 suffix:semicolon
 id|istate-&gt;cache_nr
 op_assign
@@ -4631,8 +4631,8 @@ id|ce
 )paren
 suffix:semicolon
 id|istate-&gt;cache_changed
-op_assign
-l_int|1
+op_or_assign
+id|CE_ENTRY_ADDED
 suffix:semicolon
 r_return
 l_int|0
@@ -4975,6 +4975,7 @@ op_and_assign
 op_complement
 id|CE_VALID
 suffix:semicolon
+multiline_comment|/* istate-&gt;cache_changed is updated in the caller */
 r_return
 id|updated
 suffix:semicolon
@@ -5470,8 +5471,8 @@ op_complement
 id|CE_VALID
 suffix:semicolon
 id|istate-&gt;cache_changed
-op_assign
-l_int|1
+op_or_assign
+id|CE_ENTRY_CHANGED
 suffix:semicolon
 )brace
 r_if

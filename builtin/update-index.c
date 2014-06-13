@@ -205,7 +205,7 @@ id|path
 suffix:semicolon
 id|active_cache_changed
 op_assign
-l_int|1
+id|SOMETHING_CHANGED
 suffix:semicolon
 r_return
 l_int|0
@@ -1206,7 +1206,7 @@ id|path
 suffix:semicolon
 id|active_cache_changed
 op_assign
-l_int|1
+id|SOMETHING_CHANGED
 suffix:semicolon
 id|report
 c_func
@@ -4561,7 +4561,7 @@ id|preferred_index_format
 )paren
 id|active_cache_changed
 op_assign
-l_int|1
+id|SOMETHING_CHANGED
 suffix:semicolon
 id|the_index.version
 op_assign
