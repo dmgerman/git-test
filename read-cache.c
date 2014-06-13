@@ -236,7 +236,7 @@ suffix:semicolon
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|istate-&gt;cache_tree
+id|istate
 comma
 id|old-&gt;name
 )paren
@@ -2291,7 +2291,7 @@ suffix:semicolon
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|istate-&gt;cache_tree
+id|istate
 comma
 id|path
 )paren
@@ -4292,7 +4292,7 @@ suffix:semicolon
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|istate-&gt;cache_tree
+id|istate
 comma
 id|ce-&gt;name
 )paren

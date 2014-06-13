@@ -5669,7 +5669,7 @@ id|ce
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|o-&gt;src_index-&gt;cache_tree
+id|o-&gt;src_index
 comma
 id|ce-&gt;name
 )paren

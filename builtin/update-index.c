@@ -198,7 +198,8 @@ suffix:semicolon
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|active_cache_tree
+op_amp
+id|the_index
 comma
 id|path
 )paren
@@ -1199,7 +1200,8 @@ suffix:semicolon
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|active_cache_tree
+op_amp
+id|the_index
 comma
 id|path
 )paren
