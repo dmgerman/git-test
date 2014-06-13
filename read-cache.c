@@ -7898,6 +7898,9 @@ suffix:semicolon
 id|flags
 op_assign
 id|ce-&gt;ce_flags
+op_amp
+op_complement
+id|CE_NAMEMASK
 suffix:semicolon
 id|flags
 op_or_assign
