@@ -843,6 +843,7 @@ c_func
 l_string|&quot;Which one? -m, --reset, or --prefix?&quot;
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK&n;&t; *&n;&t; * The old index should be read anyway even if we&squot;re going to&n;&t; * destroy all index entries because we still need to preserve&n;&t; * certain information such as index version or split-index&n;&t; * mode.&n;&t; */
 r_if
 c_cond
 (paren
