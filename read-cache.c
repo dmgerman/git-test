@@ -6769,7 +6769,6 @@ suffix:semicolon
 )brace
 multiline_comment|/* remember to discard_cache() before reading a different cache! */
 DECL|function|do_read_index
-r_static
 r_int
 id|do_read_index
 c_func
