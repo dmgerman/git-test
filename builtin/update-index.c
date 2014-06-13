@@ -195,6 +195,15 @@ op_and_assign
 op_complement
 id|flag
 suffix:semicolon
+id|active_cache
+(braket
+id|pos
+)braket
+op_member_access_from_pointer
+id|ce_flags
+op_or_assign
+id|CE_UPDATE_IN_BASE
+suffix:semicolon
 id|cache_tree_invalidate_path
 c_func
 (paren
@@ -1205,6 +1214,10 @@ id|the_index
 comma
 id|path
 )paren
+suffix:semicolon
+id|ce-&gt;ce_flags
+op_or_assign
+id|CE_UPDATE_IN_BASE
 suffix:semicolon
 id|active_cache_changed
 op_or_assign

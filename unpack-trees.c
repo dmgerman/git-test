@@ -1184,10 +1184,16 @@ c_func
 id|ce
 )paren
 )paren
+(brace
+id|ce-&gt;ce_flags
+op_or_assign
+id|CE_UPDATE_IN_BASE
+suffix:semicolon
 id|istate-&gt;cache_changed
 op_or_assign
 id|CE_ENTRY_CHANGED
 suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * if (!was_skip_worktree &amp;&amp; !ce_skip_worktree()) {&n;&t; *&t;This is perfectly normal. Move on;&n;&t; * }&n;&t; */
 multiline_comment|/*&n;&t; * Merge strategies may set CE_UPDATE|CE_REMOVE outside checkout&n;&t; * area as a result of ce_skip_worktree() shortcuts in&n;&t; * verify_absent() and verify_uptodate().&n;&t; * Make sure they don&squot;t modify worktree if they are already&n;&t; * outside checkout area&n;&t; */
 r_if

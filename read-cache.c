@@ -43,7 +43,7 @@ DECL|macro|CACHE_EXT_LINK
 mdefine_line|#define CACHE_EXT_LINK 0x6c696e6b&t;  /* &quot;link&quot; */
 multiline_comment|/* changes that can be kept in $GIT_DIR/index (basically all extensions) */
 DECL|macro|EXTMASK
-mdefine_line|#define EXTMASK (RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | &bslash;&n;&t;&t; CE_ENTRY_ADDED | CE_ENTRY_REMOVED)
+mdefine_line|#define EXTMASK (RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | &bslash;&n;&t;&t; CE_ENTRY_ADDED | CE_ENTRY_REMOVED | CE_ENTRY_CHANGED)
 DECL|variable|the_index
 r_struct
 id|index_state
@@ -122,6 +122,16 @@ id|istate-&gt;cache
 id|nr
 )braket
 suffix:semicolon
+id|replace_index_entry_in_base
+c_func
+(paren
+id|istate
+comma
+id|old
+comma
+id|ce
+)paren
+suffix:semicolon
 id|remove_name_hash
 c_func
 (paren
@@ -145,6 +155,10 @@ id|nr
 comma
 id|ce
 )paren
+suffix:semicolon
+id|ce-&gt;ce_flags
+op_or_assign
+id|CE_UPDATE_IN_BASE
 suffix:semicolon
 id|istate-&gt;cache_changed
 op_or_assign
@@ -5494,6 +5508,10 @@ id|ce-&gt;ce_flags
 op_and_assign
 op_complement
 id|CE_VALID
+suffix:semicolon
+id|ce-&gt;ce_flags
+op_or_assign
+id|CE_UPDATE_IN_BASE
 suffix:semicolon
 id|istate-&gt;cache_changed
 op_or_assign

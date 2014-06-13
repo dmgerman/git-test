@@ -1159,6 +1159,10 @@ op_amp
 id|st
 )paren
 suffix:semicolon
+id|ce-&gt;ce_flags
+op_or_assign
+id|CE_UPDATE_IN_BASE
+suffix:semicolon
 id|state-&gt;istate-&gt;cache_changed
 op_or_assign
 id|CE_ENTRY_CHANGED
