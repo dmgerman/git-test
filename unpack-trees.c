@@ -9,6 +9,7 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;attr.h&quot;
+macro_line|#include &quot;split-index.h&quot;
 multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; and &quot;git merge&quot; replaces&n; * them using setup_unpack_trees_porcelain(), for example.&n; */
 DECL|variable|unpack_plumbing_errors
 r_static
@@ -4787,6 +4788,18 @@ suffix:semicolon
 id|o-&gt;result.version
 op_assign
 id|o-&gt;src_index-&gt;version
+suffix:semicolon
+id|o-&gt;result.split_index
+op_assign
+id|o-&gt;src_index-&gt;split_index
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;result.split_index
+)paren
+id|o-&gt;result.split_index-&gt;refcount
+op_increment
 suffix:semicolon
 id|hashcpy
 c_func
