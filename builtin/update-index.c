@@ -9,6 +9,7 @@ macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;pathspec.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;split-index.h&quot;
 multiline_comment|/*&n; * Default to not allowing changes to the list of files. The&n; * tool doesn&squot;t actually care, but this makes it harder to add&n; * files to the revision control by mistake by doing something&n; * like &quot;git update-index *&quot; and suddenly having all the object&n; * files be revision controlled.&n; */
 DECL|variable|allow_add
 r_static
@@ -3631,6 +3632,11 @@ id|lock_error
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|split_index
+op_assign
+l_int|1
+suffix:semicolon
 r_struct
 id|lock_file
 op_star
@@ -4240,6 +4246,23 @@ l_string|&quot;write index in this format&quot;
 )paren
 )paren
 comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;split-index&quot;
+comma
+op_amp
+id|split_index
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;enable or disable split index&quot;
+)paren
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -4732,6 +4755,46 @@ c_func
 op_amp
 id|buf
 )paren
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|split_index
+OG
+l_int|0
+)paren
+(brace
+id|init_split_index
+c_func
+(paren
+op_amp
+id|the_index
+)paren
+suffix:semicolon
+id|the_index.cache_changed
+op_or_assign
+id|SPLIT_INDEX_ORDERED
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|split_index
+op_logical_and
+id|the_index.split_index
+)paren
+(brace
+multiline_comment|/*&n;&t;&t; * can&squot;t discard_split_index(&amp;the_index); because that&n;&t;&t; * will destroy split_index-&gt;base-&gt;cache[], which may&n;&t;&t; * be shared with the_index.cache[]. So yeah we&squot;re&n;&t;&t; * leaking a bit here.&n;&t;&t; */
+id|the_index.split_index
+op_assign
+l_int|NULL
+suffix:semicolon
+id|the_index.cache_changed
+op_or_assign
+id|SOMETHING_CHANGED
 suffix:semicolon
 )brace
 r_if
