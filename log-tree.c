@@ -1964,7 +1964,7 @@ c_cond
 id|parse_signed_commit
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit
 comma
 op_amp
 id|payload
