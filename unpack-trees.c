@@ -1131,6 +1131,11 @@ id|apply_sparse_checkout
 c_func
 (paren
 r_struct
+id|index_state
+op_star
+id|istate
+comma
+r_struct
 id|cache_entry
 op_star
 id|ce
@@ -1166,6 +1171,21 @@ id|ce-&gt;ce_flags
 op_and_assign
 op_complement
 id|CE_SKIP_WORKTREE
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|was_skip_worktree
+op_ne
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
+)paren
+id|istate-&gt;cache_changed
+op_or_assign
+id|CE_ENTRY_CHANGED
 suffix:semicolon
 multiline_comment|/*&n;&t; * if (!was_skip_worktree &amp;&amp; !ce_skip_worktree()) {&n;&t; *&t;This is perfectly normal. Move on;&n;&t; * }&n;&t; */
 multiline_comment|/*&n;&t; * Merge strategies may set CE_UPDATE|CE_REMOVE outside checkout&n;&t; * area as a result of ce_skip_worktree() shortcuts in&n;&t; * verify_absent() and verify_uptodate().&n;&t; * Make sure they don&squot;t modify worktree if they are already&n;&t; * outside checkout area&n;&t; */
@@ -5121,6 +5141,9 @@ c_cond
 id|apply_sparse_checkout
 c_func
 (paren
+op_amp
+id|o-&gt;result
+comma
 id|ce
 comma
 id|o
