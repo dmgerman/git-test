@@ -2224,6 +2224,15 @@ id|i
 )braket
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|j
+op_eq
+id|istate-&gt;cache_nr
+)paren
+r_return
+suffix:semicolon
 id|istate-&gt;cache_changed
 op_assign
 l_int|1
