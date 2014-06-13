@@ -4788,6 +4788,14 @@ id|o-&gt;result.version
 op_assign
 id|o-&gt;src_index-&gt;version
 suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|o-&gt;result.sha1
+comma
+id|o-&gt;src_index-&gt;sha1
+)paren
+suffix:semicolon
 id|o-&gt;merge_size
 op_assign
 id|len
