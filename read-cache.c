@@ -9959,6 +9959,8 @@ c_cond
 op_logical_neg
 id|si
 op_logical_or
+id|alternate_index_output
+op_logical_or
 (paren
 id|istate-&gt;cache_changed
 op_amp
