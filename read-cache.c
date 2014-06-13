@@ -4328,6 +4328,16 @@ id|option
 op_amp
 id|ADD_CACHE_NEW_ONLY
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|option
+op_amp
+id|ADD_CACHE_KEEP_CACHE_TREE
+)paren
+)paren
 id|cache_tree_invalidate_path
 c_func
 (paren

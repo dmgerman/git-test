@@ -694,6 +694,8 @@ id|i
 comma
 id|ADD_CACHE_OK_TO_ADD
 op_or
+id|ADD_CACHE_KEEP_CACHE_TREE
+op_or
 multiline_comment|/*&n;&t;&t;&t;&t; * we may have to replay what&n;&t;&t;&t;&t; * merge-recursive.c:update_stages()&n;&t;&t;&t;&t; * does, which has this flag on&n;&t;&t;&t;&t; */
 id|ADD_CACHE_SKIP_DFCHECK
 )paren
