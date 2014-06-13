@@ -43,7 +43,7 @@ DECL|macro|CACHE_EXT_LINK
 mdefine_line|#define CACHE_EXT_LINK 0x6c696e6b&t;  /* &quot;link&quot; */
 multiline_comment|/* changes that can be kept in $GIT_DIR/index (basically all extensions) */
 DECL|macro|EXTMASK
-mdefine_line|#define EXTMASK (RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | &bslash;&n;&t;&t; CE_ENTRY_ADDED)
+mdefine_line|#define EXTMASK (RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | &bslash;&n;&t;&t; CE_ENTRY_ADDED | CE_ENTRY_REMOVED)
 DECL|variable|the_index
 r_struct
 id|index_state
@@ -2093,9 +2093,11 @@ comma
 id|ce
 )paren
 suffix:semicolon
-id|free
+id|save_or_free_index_entry
 c_func
 (paren
+id|istate
+comma
 id|ce
 )paren
 suffix:semicolon
@@ -2213,9 +2215,11 @@ id|i
 )braket
 )paren
 suffix:semicolon
-id|free
+id|save_or_free_index_entry
 c_func
 (paren
+id|istate
+comma
 id|ce_array
 (braket
 id|i
@@ -2571,6 +2575,11 @@ id|create_alias_ce
 c_func
 (paren
 r_struct
+id|index_state
+op_star
+id|istate
+comma
+r_struct
 id|cache_entry
 op_star
 id|ce
@@ -2649,9 +2658,11 @@ comma
 id|ce
 )paren
 suffix:semicolon
-id|free
+id|save_or_free_index_entry
 c_func
 (paren
+id|istate
+comma
 id|ce
 )paren
 suffix:semicolon
@@ -3227,6 +3238,8 @@ op_assign
 id|create_alias_ce
 c_func
 (paren
+id|istate
+comma
 id|ce
 comma
 id|alias
