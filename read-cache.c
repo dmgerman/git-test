@@ -7334,17 +7334,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|istate-&gt;cache_nr
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;index in split-index mode must contain no entries&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|split_index-&gt;base
 )paren
 id|discard_index
