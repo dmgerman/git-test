@@ -14053,6 +14053,11 @@ id|checkout_target
 c_func
 (paren
 r_struct
+id|index_state
+op_star
+id|istate
+comma
+r_struct
 id|cache_entry
 op_star
 id|ce
@@ -14088,6 +14093,10 @@ suffix:semicolon
 id|costate.refresh_cache
 op_assign
 l_int|1
+suffix:semicolon
+id|costate.istate
+op_assign
+id|istate
 suffix:semicolon
 r_if
 c_cond
@@ -14926,6 +14935,9 @@ c_cond
 id|checkout_target
 c_func
 (paren
+op_amp
+id|the_index
+comma
 id|ce
 comma
 op_amp
@@ -15806,6 +15818,9 @@ c_cond
 id|checkout_target
 c_func
 (paren
+op_amp
+id|the_index
+comma
 op_star
 id|ce
 comma

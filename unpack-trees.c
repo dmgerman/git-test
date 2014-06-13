@@ -4684,6 +4684,11 @@ id|state.refresh_cache
 op_assign
 l_int|1
 suffix:semicolon
+id|state.istate
+op_assign
+op_amp
+id|o-&gt;result
+suffix:semicolon
 id|memset
 c_func
 (paren

@@ -1130,6 +1130,11 @@ c_cond
 id|state-&gt;refresh_cache
 )paren
 (brace
+m_assert
+(paren
+id|state-&gt;istate
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1153,6 +1158,10 @@ comma
 op_amp
 id|st
 )paren
+suffix:semicolon
+id|state-&gt;istate-&gt;cache_changed
+op_or_assign
+id|CE_ENTRY_CHANGED
 suffix:semicolon
 )brace
 r_return

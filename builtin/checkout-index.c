@@ -732,6 +732,11 @@ id|state.refresh_cache
 op_assign
 l_int|1
 suffix:semicolon
+id|state.istate
+op_assign
+op_amp
+id|the_index
+suffix:semicolon
 r_if
 c_cond
 (paren
