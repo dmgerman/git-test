@@ -1247,7 +1247,7 @@ id|prime_cache_tree
 c_func
 (paren
 op_amp
-id|active_cache_tree
+id|the_index
 comma
 id|trees
 (braket

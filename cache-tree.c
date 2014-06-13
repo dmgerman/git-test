@@ -3171,10 +3171,9 @@ id|prime_cache_tree
 c_func
 (paren
 r_struct
-id|cache_tree
+id|index_state
 op_star
-op_star
-id|it
+id|istate
 comma
 r_struct
 id|tree
@@ -3185,11 +3184,11 @@ id|tree
 id|cache_tree_free
 c_func
 (paren
-id|it
+op_amp
+id|istate-&gt;cache_tree
 )paren
 suffix:semicolon
-op_star
-id|it
+id|istate-&gt;cache_tree
 op_assign
 id|cache_tree
 c_func
@@ -3199,11 +3198,14 @@ suffix:semicolon
 id|prime_cache_tree_rec
 c_func
 (paren
-op_star
-id|it
+id|istate-&gt;cache_tree
 comma
 id|tree
 )paren
+suffix:semicolon
+id|istate-&gt;cache_changed
+op_or_assign
+id|CACHE_TREE_CHANGED
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * find the cache_tree that corresponds to the current level without&n; * exploding the full path into textual form.  The root of the&n; * cache tree is given as &quot;root&quot;, and our current level is &quot;info&quot;.&n; * (1) When at root level, info-&gt;prev is NULL, so it is &quot;root&quot; itself.&n; * (2) Otherwise, find the cache_tree that corresponds to one level&n; *     above us, and find ourselves in there.&n; */
