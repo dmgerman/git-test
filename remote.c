@@ -3279,13 +3279,13 @@ op_assign
 id|xcalloc
 c_func
 (paren
+id|nr_refspec
+comma
 r_sizeof
 (paren
 op_star
 id|rs
 )paren
-comma
-id|nr_refspec
 )paren
 suffix:semicolon
 r_for
