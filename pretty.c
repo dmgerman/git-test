@@ -7527,6 +7527,7 @@ id|context.wrap_start
 op_assign
 id|sb-&gt;len
 suffix:semicolon
+multiline_comment|/*&n;&t; * convert a commit message to UTF-8 first&n;&t; * as far as &squot;format_commit_item&squot; assumes it in UTF-8&n;&t; */
 id|context.message
 op_assign
 id|logmsg_reencode
@@ -7537,7 +7538,7 @@ comma
 op_amp
 id|context.commit_encoding
 comma
-id|output_enc
+id|utf8
 )paren
 suffix:semicolon
 id|strbuf_expand
@@ -7568,6 +7569,7 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+multiline_comment|/* then convert a commit message to an actual output encoding */
 r_if
 c_cond
 (paren
