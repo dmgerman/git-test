@@ -453,7 +453,7 @@ id|me
 id|error
 c_func
 (paren
-l_string|&quot;&squot;%s&squot; is not possible because you have unmerged files.&quot;
+l_string|&quot;%s is not possible because you have unmerged files.&quot;
 comma
 id|me
 )paren
@@ -470,10 +470,9 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Fix them up in the work tree,&bslash;n&quot;
-l_string|&quot;and then use &squot;git add/rm &lt;file&gt;&squot; as&bslash;n&quot;
-l_string|&quot;appropriate to mark resolution and make a commit,&bslash;n&quot;
-l_string|&quot;or use &squot;git commit -a&squot;.&quot;
+l_string|&quot;Fix them up in the work tree, and then use &squot;git add/rm &lt;file&gt;&squot;&bslash;n&quot;
+l_string|&quot;as appropriate to mark resolution and make a commit, or use&bslash;n&quot;
+l_string|&quot;&squot;git commit -a&squot;.&quot;
 )paren
 )paren
 suffix:semicolon
