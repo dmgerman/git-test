@@ -739,6 +739,9 @@ r_const
 r_char
 op_star
 id|capname
+comma
+op_star
+id|arg
 suffix:semicolon
 r_int
 id|mandatory
@@ -936,12 +939,15 @@ c_cond
 op_logical_neg
 id|data-&gt;refspecs
 op_logical_and
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|capname
 comma
 l_string|&quot;refspec &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 (brace
@@ -966,13 +972,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|capname
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;refspec &quot;
-)paren
+id|arg
 )paren
 suffix:semicolon
 )brace
@@ -1018,12 +1018,15 @@ r_else
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|capname
 comma
 l_string|&quot;export-marks &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 (brace
@@ -1032,13 +1035,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|capname
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;export-marks &quot;
-)paren
+id|arg
 )paren
 suffix:semicolon
 )brace
@@ -1046,12 +1043,15 @@ r_else
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|capname
 comma
-l_string|&quot;import-marks&quot;
+l_string|&quot;import-marks &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 (brace
@@ -1060,13 +1060,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|capname
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;import-marks &quot;
-)paren
+id|arg
 )paren
 suffix:semicolon
 )brace
