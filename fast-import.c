@@ -11580,6 +11580,7 @@ c_cond
 (paren
 op_star
 id|end
+op_increment
 op_ne
 l_char|&squot; &squot;
 )paren
@@ -11757,12 +11758,15 @@ r_else
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|p
 comma
 l_string|&quot;inline &quot;
+comma
+op_amp
+id|p
 )paren
 )paren
 (brace
@@ -11775,15 +11779,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 multiline_comment|/* not used with inline_data, but makes gcc happy */
-id|p
-op_add_assign
-id|strlen
-c_func
-(paren
-l_string|&quot;inline&quot;
-)paren
-suffix:semicolon
-multiline_comment|/* advance to space */
 )brace
 r_else
 (brace
@@ -11823,6 +11818,7 @@ c_cond
 (paren
 op_star
 id|p
+op_increment
 op_ne
 l_char|&squot; &squot;
 )paren
@@ -11835,18 +11831,6 @@ id|command_buf.buf
 )paren
 suffix:semicolon
 )brace
-m_assert
-(paren
-op_star
-id|p
-op_eq
-l_char|&squot; &squot;
-)paren
-suffix:semicolon
-id|p
-op_increment
-suffix:semicolon
-multiline_comment|/* skip space */
 id|strbuf_reset
 c_func
 (paren
@@ -12723,12 +12707,15 @@ r_else
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|p
 comma
 l_string|&quot;inline &quot;
+comma
+op_amp
+id|p
 )paren
 )paren
 (brace
@@ -12741,15 +12728,6 @@ op_assign
 l_int|NULL
 suffix:semicolon
 multiline_comment|/* not used with inline_data, but makes gcc happy */
-id|p
-op_add_assign
-id|strlen
-c_func
-(paren
-l_string|&quot;inline&quot;
-)paren
-suffix:semicolon
-multiline_comment|/* advance to space */
 )brace
 r_else
 (brace
@@ -12789,6 +12767,7 @@ c_cond
 (paren
 op_star
 id|p
+op_increment
 op_ne
 l_char|&squot; &squot;
 )paren
@@ -12801,18 +12780,6 @@ id|command_buf.buf
 )paren
 suffix:semicolon
 )brace
-m_assert
-(paren
-op_star
-id|p
-op_eq
-l_char|&squot; &squot;
-)paren
-suffix:semicolon
-id|p
-op_increment
-suffix:semicolon
-multiline_comment|/* skip space */
 multiline_comment|/* &lt;commit-ish&gt; */
 id|s
 op_assign
@@ -16011,6 +15978,26 @@ id|p
 op_add_assign
 l_int|40
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
+(paren
+op_star
+id|p
+)paren
+op_increment
+op_ne
+l_char|&squot; &squot;
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;Missing space after tree-ish: %s&quot;
+comma
+id|command_buf.buf
+)paren
+suffix:semicolon
 )brace
 r_while
 c_loop
@@ -16325,23 +16312,6 @@ id|load_tree
 c_func
 (paren
 id|root
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_star
-id|p
-op_increment
-op_ne
-l_char|&squot; &squot;
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;Missing space after tree-ish: %s&quot;
-comma
-id|command_buf.buf
 )paren
 suffix:semicolon
 )brace
