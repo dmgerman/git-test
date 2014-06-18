@@ -162,9 +162,6 @@ r_const
 r_char
 op_star
 id|var
-comma
-r_int
-id|ofs
 )paren
 (brace
 r_if
@@ -175,8 +172,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;plain&quot;
 )paren
@@ -192,8 +187,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;meta&quot;
 )paren
@@ -209,8 +202,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;frag&quot;
 )paren
@@ -226,8 +217,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;old&quot;
 )paren
@@ -243,8 +232,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;new&quot;
 )paren
@@ -260,8 +247,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;commit&quot;
 )paren
@@ -277,8 +262,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;whitespace&quot;
 )paren
@@ -294,8 +277,6 @@ id|strcasecmp
 c_func
 (paren
 id|var
-op_plus
-id|ofs
 comma
 l_string|&quot;func&quot;
 )paren
@@ -1426,7 +1407,7 @@ id|parse_diff_color_slot
 c_func
 (paren
 id|var
-comma
+op_plus
 l_int|11
 )paren
 suffix:semicolon
