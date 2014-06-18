@@ -3546,10 +3546,8 @@ OG
 l_int|0
 )paren
 (brace
-r_if
-c_cond
-(paren
-id|starts_with
+multiline_comment|/* translate --help and --version into commands */
+id|skip_prefix
 c_func
 (paren
 id|argv
@@ -3558,14 +3556,13 @@ l_int|0
 )braket
 comma
 l_string|&quot;--&quot;
-)paren
-)paren
+comma
+op_amp
 id|argv
 (braket
 l_int|0
 )braket
-op_add_assign
-l_int|2
+)paren
 suffix:semicolon
 )brace
 r_else
