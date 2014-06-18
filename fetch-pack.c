@@ -1540,6 +1540,11 @@ r_char
 op_star
 id|line
 suffix:semicolon
+r_const
+r_char
+op_star
+id|arg
+suffix:semicolon
 r_int
 r_char
 id|sha1
@@ -1583,12 +1588,15 @@ l_int|NULL
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|line
 comma
 l_string|&quot;shallow &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 (brace
@@ -1598,9 +1606,7 @@ c_cond
 id|get_sha1_hex
 c_func
 (paren
-id|line
-op_plus
-l_int|8
+id|arg
 comma
 id|sha1
 )paren
@@ -1625,12 +1631,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|line
 comma
 l_string|&quot;unshallow &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 (brace
@@ -1640,9 +1649,7 @@ c_cond
 id|get_sha1_hex
 c_func
 (paren
-id|line
-op_plus
-l_int|10
+id|arg
 comma
 id|sha1
 )paren

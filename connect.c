@@ -615,6 +615,11 @@ id|buffer
 op_assign
 id|packet_buffer
 suffix:semicolon
+r_const
+r_char
+op_star
+id|arg
+suffix:semicolon
 id|len
 op_assign
 id|packet_read
@@ -668,12 +673,15 @@ id|len
 OG
 l_int|4
 op_logical_and
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|buffer
 comma
 l_string|&quot;ERR &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 id|die
@@ -681,9 +689,7 @@ c_func
 (paren
 l_string|&quot;remote error: %s&quot;
 comma
-id|buffer
-op_plus
-l_int|4
+id|arg
 )paren
 suffix:semicolon
 r_if
@@ -693,12 +699,15 @@ id|len
 op_eq
 l_int|48
 op_logical_and
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|buffer
 comma
 l_string|&quot;shallow &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 (brace
@@ -708,9 +717,7 @@ c_cond
 id|get_sha1_hex
 c_func
 (paren
-id|buffer
-op_plus
-l_int|8
+id|arg
 comma
 id|old_sha1
 )paren
@@ -720,9 +727,7 @@ c_func
 (paren
 l_string|&quot;protocol error: expected shallow sha-1, got &squot;%s&squot;&quot;
 comma
-id|buffer
-op_plus
-l_int|8
+id|arg
 )paren
 suffix:semicolon
 r_if

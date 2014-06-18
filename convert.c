@@ -5012,12 +5012,15 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|str
 comma
 l_string|&quot;$Id: &quot;
+comma
+op_amp
+id|str
 )paren
 )paren
 r_return
@@ -5028,7 +5031,7 @@ c_loop
 (paren
 id|i
 op_assign
-l_int|5
+l_int|0
 suffix:semicolon
 id|str
 (braket
