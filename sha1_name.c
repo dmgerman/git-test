@@ -4702,25 +4702,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|message
 comma
 l_string|&quot;checkout: moving from &quot;
-)paren
-)paren
-(brace
+comma
+op_amp
 id|match
-op_assign
-id|message
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;checkout: moving from &quot;
 )paren
-suffix:semicolon
+)paren
 id|target
 op_assign
 id|strstr
@@ -4731,7 +4723,6 @@ comma
 l_string|&quot; to &quot;
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren

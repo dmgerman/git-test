@@ -520,7 +520,9 @@ suffix:semicolon
 r_char
 op_star
 id|src
-comma
+suffix:semicolon
+r_const
+r_char
 op_star
 id|origin
 suffix:semicolon
@@ -858,25 +860,18 @@ r_else
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|line
 comma
 l_string|&quot;remote-tracking branch &quot;
+comma
+op_amp
+id|origin
 )paren
 )paren
 (brace
-id|origin
-op_assign
-id|line
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;remote-tracking branch &quot;
-)paren
-suffix:semicolon
 id|string_list_append
 c_func
 (paren
