@@ -17969,12 +17969,33 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|skip_prefix
+c_func
+(paren
+id|a
+comma
+l_string|&quot;--&quot;
+comma
+op_amp
+id|a
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unknown option %s&quot;
+comma
+id|a
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|parse_one_option
 c_func
 (paren
 id|a
-op_plus
-l_int|2
 )paren
 )paren
 r_continue
@@ -17986,8 +18007,6 @@ id|parse_one_feature
 c_func
 (paren
 id|a
-op_plus
-l_int|2
 comma
 l_int|0
 )paren
@@ -17997,14 +18016,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|a
-op_plus
-l_int|2
 comma
 l_string|&quot;cat-blob-fd=&quot;
+comma
+op_amp
+id|a
 )paren
 )paren
 (brace
@@ -18012,14 +18032,6 @@ id|option_cat_blob_fd
 c_func
 (paren
 id|a
-op_plus
-l_int|2
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;cat-blob-fd=&quot;
-)paren
 )paren
 suffix:semicolon
 r_continue
@@ -18028,7 +18040,7 @@ suffix:semicolon
 id|die
 c_func
 (paren
-l_string|&quot;unknown option %s&quot;
+l_string|&quot;unknown option --%s&quot;
 comma
 id|a
 )paren
