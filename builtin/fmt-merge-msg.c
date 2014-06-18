@@ -1767,7 +1767,7 @@ id|them-&gt;items-&gt;string
 op_ne
 l_int|NULL
 op_logical_and
-id|skip_prefix
+id|starts_with
 c_func
 (paren
 id|me
