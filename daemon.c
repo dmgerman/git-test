@@ -74,12 +74,14 @@ suffix:semicolon
 multiline_comment|/* Take all paths relative to this one if non-NULL */
 DECL|variable|base_path
 r_static
+r_const
 r_char
 op_star
 id|base_path
 suffix:semicolon
 DECL|variable|interpolated_path
 r_static
+r_const
 r_char
 op_star
 id|interpolated_path
@@ -407,6 +409,7 @@ op_star
 id|path_ok
 c_func
 (paren
+r_const
 r_char
 op_star
 id|directory
@@ -431,6 +434,7 @@ r_char
 op_star
 id|path
 suffix:semicolon
+r_const
 r_char
 op_star
 id|dir
@@ -508,6 +512,7 @@ c_func
 id|dir
 )paren
 suffix:semicolon
+r_const
 r_char
 op_star
 id|slash
@@ -1163,6 +1168,7 @@ suffix:semicolon
 )brace
 DECL|variable|access_hook
 r_static
+r_const
 r_char
 op_star
 id|access_hook
@@ -1515,6 +1521,7 @@ r_int
 id|run_service
 c_func
 (paren
+r_const
 r_char
 op_star
 id|dir
