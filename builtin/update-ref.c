@@ -1790,6 +1790,12 @@ comma
 id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
+id|ref_transaction_free
+c_func
+(paren
+id|transaction
+)paren
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon

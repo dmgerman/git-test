@@ -16377,12 +16377,6 @@ c_func
 id|delnames
 )paren
 suffix:semicolon
-id|ref_transaction_free
-c_func
-(paren
-id|transaction
-)paren
-suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
