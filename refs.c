@@ -15389,6 +15389,14 @@ id|transaction
 r_int
 id|i
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|transaction
+)paren
+r_return
+suffix:semicolon
 r_for
 c_loop
 (paren
