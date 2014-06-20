@@ -2585,15 +2585,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|memcmp
+id|starts_with
 c_func
 (paren
 id|ref-&gt;name
 comma
 l_string|&quot;refs/&quot;
-comma
-l_int|5
 )paren
 op_logical_and
 id|check_refname_format

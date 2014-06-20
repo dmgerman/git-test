@@ -6859,15 +6859,12 @@ suffix:colon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|memcmp
+id|starts_with
 c_func
 (paren
 id|dst_value
 comma
 l_string|&quot;refs/&quot;
-comma
-l_int|5
 )paren
 )paren
 id|matched_dst

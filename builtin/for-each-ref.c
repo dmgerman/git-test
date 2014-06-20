@@ -842,8 +842,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|memcmp
+id|starts_with
 c_func
 (paren
 id|used_atom
@@ -852,8 +851,6 @@ id|at
 )braket
 comma
 l_string|&quot;color:&quot;
-comma
-l_int|6
 )paren
 )paren
 id|need_color_reset_at_eol
