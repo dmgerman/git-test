@@ -1787,6 +1787,8 @@ id|transaction
 comma
 id|msg
 comma
+l_int|NULL
+comma
 id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon

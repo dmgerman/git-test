@@ -16018,6 +16018,11 @@ r_char
 op_star
 id|msg
 comma
+r_struct
+id|strbuf
+op_star
+id|err
+comma
 r_enum
 id|action_on_err
 id|onerr
@@ -16171,6 +16176,21 @@ op_logical_neg
 id|update-&gt;lock
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|err
+)paren
+id|strbuf_addf
+c_func
+(paren
+id|err
+comma
+l_string|&quot;Cannot lock the ref &squot;%s&squot;.&quot;
+comma
+id|update-&gt;refname
+)paren
+suffix:semicolon
 id|ret
 op_assign
 l_int|1
