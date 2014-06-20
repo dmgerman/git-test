@@ -8200,6 +8200,8 @@ id|path
 suffix:semicolon
 r_int
 id|result
+comma
+id|save_errno
 suffix:semicolon
 id|strbuf_init
 c_func
@@ -8230,12 +8232,20 @@ comma
 id|REMOVE_DIR_EMPTY_ONLY
 )paren
 suffix:semicolon
+id|save_errno
+op_assign
+id|errno
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
 op_amp
 id|path
 )paren
+suffix:semicolon
+id|errno
+op_assign
+id|save_errno
 suffix:semicolon
 r_return
 id|result
@@ -8769,6 +8779,7 @@ r_return
 id|logs_found
 suffix:semicolon
 )brace
+multiline_comment|/* This function should make sure errno is meaningful on error */
 DECL|function|lock_ref_sha1_basic
 r_static
 r_struct
