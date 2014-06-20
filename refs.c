@@ -9560,6 +9560,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* This should return a meaningful errno on failure */
 DECL|function|lock_packed_refs
 r_int
 id|lock_packed_refs

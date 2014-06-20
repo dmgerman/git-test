@@ -381,6 +381,7 @@ r_return
 id|p
 suffix:semicolon
 )brace
+multiline_comment|/* Make sure errno contains a meaningful value on error */
 DECL|function|lock_file
 r_static
 r_int
@@ -424,9 +425,15 @@ id|path
 op_ge
 id|max_path_len
 )paren
+(brace
+id|errno
+op_assign
+id|ENAMETOOLONG
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 id|strcpy
 c_func
 (paren
@@ -541,7 +548,12 @@ c_func
 id|lk-&gt;filename
 )paren
 )paren
-r_return
+(brace
+r_int
+id|save_errno
+op_assign
+id|errno
+suffix:semicolon
 id|error
 c_func
 (paren
@@ -550,6 +562,14 @@ comma
 id|lk-&gt;filename
 )paren
 suffix:semicolon
+id|errno
+op_assign
+id|save_errno
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 )brace
 r_else
 id|lk-&gt;filename
@@ -727,6 +747,7 @@ id|buf.buf
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* This should return a meaningful errno on failure */
 DECL|function|hold_lock_file_for_update
 r_int
 id|hold_lock_file_for_update
