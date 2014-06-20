@@ -15446,6 +15446,11 @@ id|ref_lock
 op_star
 id|lock
 comma
+r_struct
+id|strbuf
+op_star
+id|err
+comma
 r_enum
 id|action_on_err
 id|onerr
@@ -15473,6 +15478,21 @@ op_star
 id|str
 op_assign
 l_string|&quot;Cannot update the ref &squot;%s&squot;.&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+)paren
+id|strbuf_addf
+c_func
+(paren
+id|err
+comma
+id|str
+comma
+id|refname
+)paren
 suffix:semicolon
 r_switch
 c_cond
@@ -16060,6 +16080,8 @@ id|sha1
 comma
 id|lock
 comma
+l_int|NULL
+comma
 id|onerr
 )paren
 suffix:semicolon
@@ -16518,6 +16540,8 @@ comma
 id|update-&gt;new_sha1
 comma
 id|update-&gt;lock
+comma
+id|err
 comma
 id|onerr
 )paren
