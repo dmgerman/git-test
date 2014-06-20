@@ -8064,6 +8064,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* This function should make sure errno is meaningful on error */
 DECL|function|verify_lock
 r_static
 r_struct
@@ -8103,6 +8104,11 @@ l_int|NULL
 )paren
 )paren
 (brace
+r_int
+id|save_errno
+op_assign
+id|errno
+suffix:semicolon
 id|error
 c_func
 (paren
@@ -8116,6 +8122,10 @@ c_func
 (paren
 id|lock
 )paren
+suffix:semicolon
+id|errno
+op_assign
+id|save_errno
 suffix:semicolon
 r_return
 l_int|NULL
@@ -8158,6 +8168,10 @@ c_func
 (paren
 id|lock
 )paren
+suffix:semicolon
+id|errno
+op_assign
+id|EBUSY
 suffix:semicolon
 r_return
 l_int|NULL
