@@ -1793,8 +1793,6 @@ id|msg
 comma
 op_amp
 id|err
-comma
-id|UPDATE_REFS_QUIET_ON_ERR
 )paren
 )paren
 id|die
