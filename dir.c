@@ -5833,7 +5833,7 @@ op_star
 id|p2
 suffix:semicolon
 r_return
-id|cache_name_compare
+id|name_compare
 c_func
 (paren
 id|e1-&gt;name
