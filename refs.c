@@ -16136,6 +16136,11 @@ comma
 r_int
 id|n
 comma
+r_struct
+id|strbuf
+op_star
+id|err
+comma
 r_enum
 id|action_on_err
 id|onerr
@@ -16188,6 +16193,26 @@ op_star
 id|str
 op_assign
 l_string|&quot;Multiple updates for ref &squot;%s&squot; not allowed.&quot;
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+)paren
+id|strbuf_addf
+c_func
+(paren
+id|err
+comma
+id|str
+comma
+id|updates
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|refname
+)paren
 suffix:semicolon
 r_switch
 c_cond
@@ -16349,6 +16374,8 @@ c_func
 id|updates
 comma
 id|n
+comma
+id|err
 comma
 id|onerr
 )paren
