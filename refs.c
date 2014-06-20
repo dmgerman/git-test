@@ -9649,6 +9649,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Commit the packed refs changes.&n; * On error we must make sure that errno contains a meaningful value.&n; */
 DECL|function|commit_packed_refs
 r_int
 id|commit_packed_refs
@@ -9671,6 +9672,11 @@ id|ref_cache
 suffix:semicolon
 r_int
 id|error
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|save_errno
 op_assign
 l_int|0
 suffix:semicolon
@@ -9726,10 +9732,16 @@ c_func
 id|packed_ref_cache-&gt;lock
 )paren
 )paren
+(brace
+id|save_errno
+op_assign
+id|errno
+suffix:semicolon
 id|error
 op_assign
 l_int|1
 suffix:semicolon
+)brace
 id|packed_ref_cache-&gt;lock
 op_assign
 l_int|NULL
@@ -9739,6 +9751,10 @@ c_func
 (paren
 id|packed_ref_cache
 )paren
+suffix:semicolon
+id|errno
+op_assign
+id|save_errno
 suffix:semicolon
 r_return
 id|error
