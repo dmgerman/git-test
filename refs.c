@@ -15525,11 +15525,13 @@ r_char
 op_star
 id|refname
 comma
+r_const
 r_int
 r_char
 op_star
 id|new_sha1
 comma
+r_const
 r_int
 r_char
 op_star
@@ -15600,6 +15602,7 @@ r_char
 op_star
 id|refname
 comma
+r_const
 r_int
 r_char
 op_star
@@ -15670,6 +15673,7 @@ r_char
 op_star
 id|refname
 comma
+r_const
 r_int
 r_char
 op_star
