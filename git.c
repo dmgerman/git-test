@@ -2888,6 +2888,14 @@ id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
+l_string|&quot;verify-commit&quot;
+comma
+id|cmd_verify_commit
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;verify-pack&quot;
 comma
 id|cmd_verify_pack
