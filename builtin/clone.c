@@ -3973,7 +3973,7 @@ id|option_branch
 r_if
 c_cond
 (paren
-id|strstr
+id|starts_with
 c_func
 (paren
 id|our_head_points_at-&gt;name
