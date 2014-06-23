@@ -32,6 +32,12 @@ id|sigc
 id|free
 c_func
 (paren
+id|sigc-&gt;payload
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|sigc-&gt;gpg_output
 )paren
 suffix:semicolon
@@ -52,6 +58,10 @@ c_func
 (paren
 id|sigc-&gt;key
 )paren
+suffix:semicolon
+id|sigc-&gt;payload
+op_assign
+l_int|NULL
 suffix:semicolon
 id|sigc-&gt;gpg_output
 op_assign
