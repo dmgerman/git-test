@@ -1110,12 +1110,6 @@ c_func
 l_string|&quot;cat-file reported failure&quot;
 )paren
 suffix:semicolon
-id|close
-c_func
-(paren
-id|fd
-)paren
-suffix:semicolon
 )brace
 multiline_comment|/*&n; * Read a previously-exported (and possibly edited) object back from &quot;filename&quot;,&n; * interpreting it as &quot;type&quot;, and writing the result to the object database.&n; * The sha1 of the written object is returned via sha1.&n; */
 DECL|function|import_object
