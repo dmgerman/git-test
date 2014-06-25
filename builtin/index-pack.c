@@ -2760,7 +2760,7 @@ l_int|1024
 suffix:semicolon
 id|n
 op_assign
-id|pread
+id|xpread
 c_func
 (paren
 id|get_thread_data
