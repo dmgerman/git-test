@@ -7549,11 +7549,33 @@ l_int|1
 )paren
 (brace
 multiline_comment|/* accept -&lt;digit&gt;, like traditional &quot;head&quot; */
-id|revs-&gt;max_count
-op_assign
-id|atoi
+r_if
+c_cond
+(paren
+id|strtol_i
 c_func
 (paren
+id|arg
+op_plus
+l_int|1
+comma
+l_int|10
+comma
+op_amp
+id|revs-&gt;max_count
+)paren
+OL
+l_int|0
+op_logical_or
+id|revs-&gt;max_count
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;&squot;%s&squot;: not a non-negative integer&quot;
+comma
 id|arg
 op_plus
 l_int|1
