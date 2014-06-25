@@ -1410,7 +1410,7 @@ l_int|1
 )paren
 m_exit
 (paren
-l_int|1
+l_int|128
 )paren
 suffix:semicolon
 multiline_comment|/* the callee should have complained already */
