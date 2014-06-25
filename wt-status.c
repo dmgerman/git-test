@@ -2917,12 +2917,6 @@ op_amp
 id|opt
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|s-&gt;ignore_submodule_arg
-)paren
-(brace
 id|DIFF_OPT_SET
 c_func
 (paren
@@ -2932,6 +2926,12 @@ comma
 id|OVERRIDE_SUBMODULE_CONFIG
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|s-&gt;ignore_submodule_arg
+)paren
+(brace
 id|handle_ignore_submodules_arg
 c_func
 (paren
@@ -2939,6 +2939,19 @@ op_amp
 id|rev.diffopt
 comma
 id|s-&gt;ignore_submodule_arg
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/*&n;&t;&t; * Unless the user did explicitly request a submodule ignore&n;&t;&t; * mode by passing a command line option we do not ignore any&n;&t;&t; * changed submodule SHA-1s when comparing index and HEAD, no&n;&t;&t; * matter what is configured. Otherwise the user won&squot;t be&n;&t;&t; * shown any submodules she manually added (and which are&n;&t;&t; * staged to be committed), which would be really confusing.&n;&t;&t; */
+id|handle_ignore_submodules_arg
+c_func
+(paren
+op_amp
+id|rev.diffopt
+comma
+l_string|&quot;dirty&quot;
 )paren
 suffix:semicolon
 )brace
