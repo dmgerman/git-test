@@ -5006,7 +5006,7 @@ l_string|&quot;mailmap.file&quot;
 )paren
 )paren
 r_return
-id|git_config_string
+id|git_config_pathname
 c_func
 (paren
 op_amp
