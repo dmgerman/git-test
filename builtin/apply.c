@@ -1149,7 +1149,33 @@ l_char|&squot;&bslash;n&squot;
 id|last2
 op_decrement
 suffix:semicolon
-multiline_comment|/* skip leading whitespace */
+multiline_comment|/* skip leading whitespaces, if both begin with whitespace */
+r_if
+c_cond
+(paren
+id|s1
+op_le
+id|last1
+op_logical_and
+id|s2
+op_le
+id|last2
+op_logical_and
+id|isspace
+c_func
+(paren
+op_star
+id|s1
+)paren
+op_logical_and
+id|isspace
+c_func
+(paren
+op_star
+id|s2
+)paren
+)paren
+(brace
 r_while
 c_loop
 (paren
@@ -1188,6 +1214,7 @@ id|last2
 id|s2
 op_increment
 suffix:semicolon
+)brace
 multiline_comment|/* early return if both lines are empty */
 r_if
 c_cond
