@@ -839,12 +839,10 @@ op_eq
 id|namelen
 op_logical_and
 op_logical_neg
-id|cache_name_compare
+id|memcmp
 c_func
 (paren
 id|name
-comma
-id|namelen
 comma
 id|ce-&gt;name
 comma
