@@ -2358,9 +2358,12 @@ id|extra-&gt;len
 OG
 id|payload_size
 )paren
+(brace
+multiline_comment|/* could have a good signature */
 r_if
 c_cond
 (paren
+op_logical_neg
 id|verify_signed_buffer
 c_func
 (paren
@@ -2381,7 +2384,12 @@ comma
 l_int|NULL
 )paren
 )paren
-(brace
+id|status
+op_assign
+l_int|0
+suffix:semicolon
+multiline_comment|/* good */
+r_else
 r_if
 c_cond
 (paren
@@ -2398,11 +2406,7 @@ comma
 l_string|&quot;No signature&bslash;n&quot;
 )paren
 suffix:semicolon
-r_else
-id|status
-op_assign
-l_int|0
-suffix:semicolon
+multiline_comment|/* otherwise we couldn&squot;t verify, which is shown as bad */
 )brace
 id|show_sig_lines
 c_func
