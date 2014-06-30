@@ -5523,7 +5523,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|de-&gt;d_name
@@ -5607,7 +5607,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|de-&gt;d_name
@@ -5615,7 +5615,7 @@ comma
 l_string|&quot;.idx&quot;
 )paren
 op_logical_or
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|de-&gt;d_name
@@ -5623,7 +5623,7 @@ comma
 l_string|&quot;.pack&quot;
 )paren
 op_logical_or
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|de-&gt;d_name
@@ -5631,7 +5631,7 @@ comma
 l_string|&quot;.bitmap&quot;
 )paren
 op_logical_or
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|de-&gt;d_name

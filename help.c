@@ -850,7 +850,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|de-&gt;d_name

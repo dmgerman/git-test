@@ -8804,7 +8804,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|pack_name
@@ -8883,7 +8883,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_extension
+id|ends_with
 c_func
 (paren
 id|pack_name
