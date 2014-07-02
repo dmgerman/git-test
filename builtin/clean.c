@@ -191,7 +191,6 @@ DECL|enumerator|CLEAN_COLOR_ERROR
 id|CLEAN_COLOR_ERROR
 op_assign
 l_int|5
-comma
 )brace
 suffix:semicolon
 DECL|macro|MENU_OPTS_SINGLETON
