@@ -349,7 +349,6 @@ DECL|enumerator|CONTAINS_YES
 id|CONTAINS_YES
 op_assign
 l_int|1
-comma
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * Test whether the candidate or one of its parents is contained in the list.&n; * Do not recurse to find out, though, but return -1 if inconclusive.&n; */
