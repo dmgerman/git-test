@@ -4135,6 +4135,11 @@ c_func
 op_star
 id|raw
 )paren
+op_logical_and
+op_star
+id|raw
+op_ne
+l_char|&squot;;&squot;
 )paren
 id|strbuf_addch
 c_func
@@ -4277,6 +4282,11 @@ c_func
 op_star
 id|p
 )paren
+op_logical_or
+op_star
+id|p
+op_eq
+l_char|&squot;;&squot;
 )paren
 id|p
 op_increment
