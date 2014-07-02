@@ -1313,7 +1313,6 @@ id|RFC2047_SUBJECT
 comma
 DECL|enumerator|RFC2047_ADDRESS
 id|RFC2047_ADDRESS
-comma
 )brace
 suffix:semicolon
 DECL|function|is_rfc2047_special
