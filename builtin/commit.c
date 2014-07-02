@@ -9884,8 +9884,9 @@ c_cond
 id|commit_tree_extended
 c_func
 (paren
-op_amp
-id|sb
+id|sb.buf
+comma
+id|sb.len
 comma
 id|active_cache_tree-&gt;sha1
 comma

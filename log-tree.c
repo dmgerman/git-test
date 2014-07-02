@@ -1964,7 +1964,7 @@ c_cond
 id|parse_signed_commit
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit
 comma
 op_amp
 id|payload
@@ -2974,7 +2974,13 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|commit-&gt;buffer
+id|get_cached_commit_buffer
+c_func
+(paren
+id|commit
+comma
+l_int|NULL
+)paren
 )paren
 r_return
 suffix:semicolon

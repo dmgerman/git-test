@@ -5351,8 +5351,9 @@ c_cond
 id|commit_tree
 c_func
 (paren
-op_amp
-id|merge_msg
+id|merge_msg.buf
+comma
+id|merge_msg.len
 comma
 id|result_tree
 comma
@@ -5501,8 +5502,9 @@ c_cond
 id|commit_tree
 c_func
 (paren
-op_amp
-id|merge_msg
+id|merge_msg.buf
+comma
+id|merge_msg.len
 comma
 id|result_tree
 comma
