@@ -707,7 +707,6 @@ id|curl
 comma
 id|CURLOPT_IOCTLDATA
 comma
-op_amp
 id|buffer
 )paren
 suffix:semicolon
