@@ -117,6 +117,7 @@ OL
 l_int|0
 )paren
 (brace
+multiline_comment|/* invalid */
 id|dump_one
 c_func
 (paren
@@ -136,17 +137,6 @@ id|pfx
 comma
 l_string|&quot;#(ref) &quot;
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|it-&gt;subtree_nr
-op_ne
-id|ref-&gt;subtree_nr
-)paren
-id|errs
-op_assign
-l_int|1
 suffix:semicolon
 )brace
 r_else
@@ -181,6 +171,7 @@ op_ne
 id|it-&gt;subtree_nr
 )paren
 (brace
+multiline_comment|/* claims to be valid but is lying */
 id|dump_one
 c_func
 (paren
