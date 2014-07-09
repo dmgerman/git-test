@@ -5186,7 +5186,7 @@ l_int|2
 id|error
 c_func
 (paren
-l_string|&quot;remote needed&quot;
+l_string|&quot;remote-curl: usage: git remote-curl &lt;remote&gt; [&lt;url&gt;]&quot;
 )paren
 suffix:semicolon
 r_return
@@ -5299,7 +5299,7 @@ id|stdin
 id|error
 c_func
 (paren
-l_string|&quot;error reading command stream&quot;
+l_string|&quot;remote-curl: error reading command stream from git&quot;
 )paren
 suffix:semicolon
 r_return
@@ -5335,7 +5335,7 @@ id|nongit
 id|die
 c_func
 (paren
-l_string|&quot;Fetch attempted without a local repo&quot;
+l_string|&quot;remote-curl: fetch attempted without a local repo&quot;
 )paren
 suffix:semicolon
 id|parse_fetch
@@ -5577,7 +5577,7 @@ r_else
 id|error
 c_func
 (paren
-l_string|&quot;unknown command &squot;%s&squot;&quot;
+l_string|&quot;remote-curl: unknown command &squot;%s&squot; from git&quot;
 comma
 id|buf.buf
 )paren
