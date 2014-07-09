@@ -5308,15 +5308,6 @@ comma
 l_string|&quot;Error reading command stream&bslash;n&quot;
 )paren
 suffix:semicolon
-r_else
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Unexpected end of command stream&bslash;n&quot;
-)paren
-suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
