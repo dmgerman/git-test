@@ -4252,30 +4252,27 @@ l_int|0
 suffix:semicolon
 r_do
 (brace
+r_const
+r_char
+op_star
+id|p
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|buf-&gt;buf
 comma
 l_string|&quot;fetch &quot;
+comma
+op_amp
+id|p
 )paren
 )paren
 (brace
-r_char
-op_star
-id|p
-op_assign
-id|buf-&gt;buf
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;fetch &quot;
-)paren
-suffix:semicolon
+r_const
 r_char
 op_star
 id|name
@@ -5308,6 +5305,11 @@ l_int|0
 suffix:semicolon
 r_do
 (brace
+r_const
+r_char
+op_star
+id|arg
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5468,27 +5470,18 @@ r_else
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|buf.buf
 comma
 l_string|&quot;option &quot;
+comma
+op_amp
+id|arg
 )paren
 )paren
 (brace
-r_char
-op_star
-id|name
-op_assign
-id|buf.buf
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;option &quot;
-)paren
-suffix:semicolon
 r_char
 op_star
 id|value
@@ -5496,7 +5489,7 @@ op_assign
 id|strchr
 c_func
 (paren
-id|name
+id|arg
 comma
 l_char|&squot; &squot;
 )paren
@@ -5525,7 +5518,7 @@ op_assign
 id|set_option
 c_func
 (paren
-id|name
+id|arg
 comma
 id|value
 )paren

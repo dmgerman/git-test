@@ -17989,22 +17989,26 @@ r_const
 r_char
 op_star
 id|s
-op_assign
-id|buf
 suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|skip_prefix
+c_func
+(paren
+id|buf
+comma
+l_string|&quot;Subproject commit &quot;
+comma
+op_amp
+id|s
+)paren
+op_logical_or
 id|get_sha1_hex
 c_func
 (paren
 id|s
-op_plus
-id|strlen
-c_func
-(paren
-l_string|&quot;Subproject commit &quot;
-)paren
 comma
 id|ce-&gt;sha1
 )paren
