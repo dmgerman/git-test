@@ -1906,6 +1906,12 @@ suffix:colon
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
+id|graph_show_oneline
+c_func
+(paren
+id|opt-&gt;graph
+)paren
+suffix:semicolon
 id|bol
 op_assign
 (paren
