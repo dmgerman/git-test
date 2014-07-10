@@ -807,6 +807,11 @@ id|component_count
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|orig_flags
+op_assign
+id|flags
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -913,7 +918,7 @@ c_func
 (paren
 id|refname
 comma
-id|flags
+id|orig_flags
 )paren
 suffix:semicolon
 id|tmp
