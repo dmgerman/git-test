@@ -1314,6 +1314,12 @@ id|alt-&gt;next
 r_if
 c_cond
 (paren
+id|pfxlen
+op_eq
+id|alt-&gt;name
+id|alt-&gt;base
+l_int|1
+op_logical_and
 op_logical_neg
 id|memcmp
 c_func
