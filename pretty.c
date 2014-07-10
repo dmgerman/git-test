@@ -6877,12 +6877,13 @@ suffix:colon
 r_break
 suffix:semicolon
 )brace
-id|strbuf_addstr
+id|strbuf_addbuf
 c_func
 (paren
 id|sb
 comma
-id|local_sb.buf
+op_amp
+id|local_sb
 )paren
 suffix:semicolon
 )brace
