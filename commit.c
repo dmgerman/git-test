@@ -6802,6 +6802,17 @@ id|gpg_output.len
 r_goto
 id|out
 suffix:semicolon
+id|sigc-&gt;payload
+op_assign
+id|strbuf_detach
+c_func
+(paren
+op_amp
+id|payload
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|sigc-&gt;gpg_output
 op_assign
 id|strbuf_detach
