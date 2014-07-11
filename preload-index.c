@@ -255,7 +255,7 @@ OG
 l_int|0
 )paren
 suffix:semicolon
-id|cache_def_free
+id|cache_def_clear
 c_func
 (paren
 op_amp
