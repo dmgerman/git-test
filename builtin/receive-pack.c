@@ -2258,7 +2258,8 @@ suffix:semicolon
 id|trace_printf_key
 c_func
 (paren
-l_string|&quot;GIT_TRACE_SHALLOW&quot;
+op_amp
+id|trace_shallow
 comma
 l_string|&quot;shallow: update_shallow_ref %s&bslash;n&quot;
 comma

@@ -16,15 +16,17 @@ id|packet_trace_prefix
 op_assign
 l_string|&quot;git&quot;
 suffix:semicolon
-DECL|variable|trace_key
+DECL|variable|trace_packet
 r_static
-r_const
-r_char
+r_struct
 id|trace_key
-(braket
-)braket
+id|trace_packet
 op_assign
-l_string|&quot;GIT_TRACE_PACKET&quot;
+id|TRACE_KEY_INIT
+c_func
+(paren
+id|PACKET
+)paren
 suffix:semicolon
 DECL|function|packet_trace_identity
 r_void
@@ -79,7 +81,8 @@ op_logical_neg
 id|trace_want
 c_func
 (paren
-id|trace_key
+op_amp
+id|trace_packet
 )paren
 )paren
 r_return
@@ -157,10 +160,11 @@ comma
 l_string|&quot;PACK ...&quot;
 )paren
 suffix:semicolon
-id|unsetenv
+id|trace_disable
 c_func
 (paren
-id|trace_key
+op_amp
+id|trace_packet
 )paren
 suffix:semicolon
 )brace
@@ -253,7 +257,8 @@ suffix:semicolon
 id|trace_strbuf
 c_func
 (paren
-id|trace_key
+op_amp
+id|trace_packet
 comma
 op_amp
 id|out
