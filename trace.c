@@ -312,6 +312,17 @@ op_star
 id|buf
 )paren
 (brace
+r_static
+r_struct
+id|trace_key
+id|trace_bare
+op_assign
+id|TRACE_KEY_INIT
+c_func
+(paren
+id|BARE
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -332,6 +343,20 @@ l_int|NULL
 )paren
 suffix:semicolon
 multiline_comment|/* is never reset */
+multiline_comment|/* unit tests may want to disable additional trace output */
+r_if
+c_cond
+(paren
+id|trace_want
+c_func
+(paren
+op_amp
+id|trace_bare
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
 multiline_comment|/* add line prefix here */
 r_return
 l_int|1
