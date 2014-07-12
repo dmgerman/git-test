@@ -3,6 +3,7 @@ macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;gettext.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
+macro_line|#include &quot;trace.h&quot;
 DECL|macro|TP_IDX_MAX
 mdefine_line|#define TP_IDX_MAX      8
 DECL|struct|throughput
@@ -17,10 +18,9 @@ DECL|member|prev_total
 id|off_t
 id|prev_total
 suffix:semicolon
-DECL|member|prev_tv
-r_struct
-id|timeval
-id|prev_tv
+DECL|member|prev_ns
+r_uint64
+id|prev_ns
 suffix:semicolon
 DECL|member|avg_bytes
 r_int
@@ -550,13 +550,22 @@ id|throughput
 op_star
 id|tp
 suffix:semicolon
-r_struct
-id|timeval
-id|tv
+r_uint64
+id|now_ns
 suffix:semicolon
 r_int
 r_int
 id|misecs
+comma
+id|count
+comma
+id|rate
+suffix:semicolon
+r_struct
+id|strbuf
+id|buf
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_if
 c_cond
@@ -570,13 +579,11 @@ id|tp
 op_assign
 id|progress-&gt;throughput
 suffix:semicolon
-id|gettimeofday
+id|now_ns
+op_assign
+id|getnanotime
 c_func
 (paren
-op_amp
-id|tv
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -614,9 +621,9 @@ id|tp-&gt;curr_total
 op_assign
 id|total
 suffix:semicolon
-id|tp-&gt;prev_tv
+id|tp-&gt;prev_ns
 op_assign
-id|tv
+id|now_ns
 suffix:semicolon
 )brace
 r_return
@@ -626,47 +633,30 @@ id|tp-&gt;curr_total
 op_assign
 id|total
 suffix:semicolon
-multiline_comment|/*&n;&t; * We have x = bytes and y = microsecs.  We want z = KiB/s:&n;&t; *&n;&t; *&t;z = (x / 1024) / (y / 1000000)&n;&t; *&t;z = x / y * 1000000 / 1024&n;&t; *&t;z = x / (y * 1024 / 1000000)&n;&t; *&t;z = x / y&squot;&n;&t; *&n;&t; * To simplify things we&squot;ll keep track of misecs, or 1024th of a sec&n;&t; * obtained with:&n;&t; *&n;&t; *&t;y&squot; = y * 1024 / 1000000&n;&t; *&t;y&squot; = y / (1000000 / 1024)&n;&t; *&t;y&squot; = y / 977&n;&t; */
-id|misecs
-op_assign
-(paren
-id|tv.tv_sec
-id|tp-&gt;prev_tv.tv_sec
-)paren
-op_star
-l_int|1024
-suffix:semicolon
-id|misecs
-op_add_assign
-(paren
-r_int
-)paren
-(paren
-id|tv.tv_usec
-id|tp-&gt;prev_tv.tv_usec
-)paren
-op_div
-l_int|977
-suffix:semicolon
+multiline_comment|/* only update throughput every 0.5 s */
 r_if
 c_cond
 (paren
-id|misecs
-OG
-l_int|512
+id|now_ns
+id|tp-&gt;prev_ns
+op_le
+l_int|500000000
 )paren
-(brace
-r_struct
-id|strbuf
-id|buf
-op_assign
-id|STRBUF_INIT
+r_return
 suffix:semicolon
-r_int
-r_int
-id|count
-comma
-id|rate
+multiline_comment|/*&n;&t; * We have x = bytes and y = nanosecs.  We want z = KiB/s:&n;&t; *&n;&t; *&t;z = (x / 1024) / (y / 1000000000)&n;&t; *&t;z = x / y * 1000000000 / 1024&n;&t; *&t;z = x / (y * 1024 / 1000000000)&n;&t; *&t;z = x / y&squot;&n;&t; *&n;&t; * To simplify things we&squot;ll keep track of misecs, or 1024th of a sec&n;&t; * obtained with:&n;&t; *&n;&t; *&t;y&squot; = y * 1024 / 1000000000&n;&t; *&t;y&squot; = y * (2^10 / 2^42) * (2^42 / 1000000000)&n;&t; *&t;y&squot; = y / 2^32 * 4398&n;&t; *&t;y&squot; = (y * 4398) &gt;&gt; 32&n;&t; */
+id|misecs
+op_assign
+(paren
+(paren
+id|now_ns
+id|tp-&gt;prev_ns
+)paren
+op_star
+l_int|4398
+)paren
+op_rshift
+l_int|32
 suffix:semicolon
 id|count
 op_assign
@@ -677,9 +667,9 @@ id|tp-&gt;prev_total
 op_assign
 id|total
 suffix:semicolon
-id|tp-&gt;prev_tv
+id|tp-&gt;prev_ns
 op_assign
-id|tv
+id|now_ns
 suffix:semicolon
 id|tp-&gt;avg_bytes
 op_add_assign
@@ -783,7 +773,6 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-)brace
 )brace
 DECL|function|display_progress
 r_int
