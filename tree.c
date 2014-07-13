@@ -977,8 +977,6 @@ c_func
 (paren
 id|sha1
 comma
-id|OBJ_TREE
-comma
 id|alloc_tree_node
 c_func
 (paren

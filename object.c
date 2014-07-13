@@ -539,9 +539,6 @@ r_char
 op_star
 id|sha1
 comma
-r_int
-id|type
-comma
 r_void
 op_star
 id|o
@@ -561,10 +558,6 @@ suffix:semicolon
 id|obj-&gt;used
 op_assign
 l_int|0
-suffix:semicolon
-id|obj-&gt;type
-op_assign
-id|type
 suffix:semicolon
 id|obj-&gt;flags
 op_assign
@@ -647,8 +640,6 @@ id|create_object
 c_func
 (paren
 id|sha1
-comma
-id|OBJ_NONE
 comma
 id|alloc_object_node
 c_func
