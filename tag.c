@@ -230,8 +230,6 @@ c_func
 (paren
 id|sha1
 comma
-id|OBJ_TAG
-comma
 id|alloc_tag_node
 c_func
 (paren

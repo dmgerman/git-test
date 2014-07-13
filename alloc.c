@@ -170,6 +170,10 @@ id|blob
 )paren
 )paren
 suffix:semicolon
+id|b-&gt;object.type
+op_assign
+id|OBJ_BLOB
+suffix:semicolon
 r_return
 id|b
 suffix:semicolon
@@ -206,6 +210,10 @@ r_struct
 id|tree
 )paren
 )paren
+suffix:semicolon
+id|t-&gt;object.type
+op_assign
+id|OBJ_TREE
 suffix:semicolon
 r_return
 id|t
@@ -244,6 +252,10 @@ id|tag
 )paren
 )paren
 suffix:semicolon
+id|t-&gt;object.type
+op_assign
+id|OBJ_TAG
+suffix:semicolon
 r_return
 id|t
 suffix:semicolon
@@ -280,6 +292,10 @@ r_union
 id|any_object
 )paren
 )paren
+suffix:semicolon
+id|obj-&gt;type
+op_assign
+id|OBJ_NONE
 suffix:semicolon
 r_return
 id|obj
@@ -321,6 +337,10 @@ r_struct
 id|commit
 )paren
 )paren
+suffix:semicolon
+id|c-&gt;object.type
+op_assign
+id|OBJ_COMMIT
 suffix:semicolon
 id|c-&gt;index
 op_assign

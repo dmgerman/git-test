@@ -45,8 +45,6 @@ c_func
 (paren
 id|sha1
 comma
-id|OBJ_BLOB
-comma
 id|alloc_blob_node
 c_func
 (paren
