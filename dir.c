@@ -3583,7 +3583,7 @@ id|dir-&gt;exclude_list_group
 id|EXC_DIRS
 )braket
 suffix:semicolon
-multiline_comment|/* Pop the exclude lists from the EXCL_DIRS exclude_list_group&n;&t; * which originate from directories not in the prefix of the&n;&t; * path being checked. */
+multiline_comment|/*&n;&t; * Pop the exclude lists from the EXCL_DIRS exclude_list_group&n;&t; * which originate from directories not in the prefix of the&n;&t; * path being checked.&n;&t; */
 r_while
 c_loop
 (paren
