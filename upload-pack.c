@@ -3727,9 +3727,9 @@ c_func
 (paren
 id|refname
 comma
-id|unused
-comma
 l_int|0
+comma
+id|unused
 comma
 op_amp
 id|flag

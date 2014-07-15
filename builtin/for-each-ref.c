@@ -3654,9 +3654,9 @@ c_func
 (paren
 id|ref-&gt;refname
 comma
-id|unused1
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|unused1
 comma
 l_int|NULL
 )paren
@@ -4046,9 +4046,9 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|sha1
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|sha1
 comma
 l_int|NULL
 )paren

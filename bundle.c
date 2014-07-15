@@ -1817,9 +1817,9 @@ c_func
 (paren
 id|e-&gt;name
 comma
-id|sha1
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|sha1
 comma
 op_amp
 id|flag

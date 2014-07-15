@@ -2939,9 +2939,9 @@ c_func
 (paren
 id|o-&gt;local_ref
 comma
-id|local_sha1
-comma
 l_int|0
+comma
+id|local_sha1
 comma
 l_int|NULL
 )paren

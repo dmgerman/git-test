@@ -3224,9 +3224,9 @@ c_func
 (paren
 id|refname
 comma
-id|orig_sha1
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|orig_sha1
 comma
 op_amp
 id|flag
@@ -4179,9 +4179,9 @@ c_func
 (paren
 id|item-&gt;string
 comma
-id|sha1
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|sha1
 comma
 op_amp
 id|flag

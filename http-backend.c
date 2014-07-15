@@ -2262,9 +2262,9 @@ c_func
 (paren
 id|refname
 comma
-id|unused
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|unused
 comma
 l_int|NULL
 )paren

@@ -6809,9 +6809,9 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|head_sha1
-comma
 l_int|0
+comma
+id|head_sha1
 comma
 op_amp
 id|flag

@@ -10200,9 +10200,9 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|head_sha1
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|head_sha1
 comma
 l_int|NULL
 )paren

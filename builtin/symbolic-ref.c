@@ -69,9 +69,9 @@ c_func
 (paren
 id|HEAD
 comma
-id|sha1
-comma
 l_int|0
+comma
+id|sha1
 comma
 op_amp
 id|flag
