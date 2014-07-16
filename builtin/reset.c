@@ -430,6 +430,7 @@ comma
 op_star
 id|body
 suffix:semicolon
+r_const
 r_char
 op_star
 id|msg
@@ -544,12 +545,12 @@ c_func
 l_string|&quot;&bslash;n&quot;
 )paren
 suffix:semicolon
-id|logmsg_free
+id|unuse_commit_buffer
 c_func
 (paren
-id|msg
-comma
 id|commit
+comma
+id|msg
 )paren
 suffix:semicolon
 )brace
