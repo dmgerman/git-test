@@ -6281,6 +6281,11 @@ id|c-&gt;signature_check.key
 suffix:semicolon
 r_break
 suffix:semicolon
+r_default
+suffix:colon
+r_return
+l_int|0
+suffix:semicolon
 )brace
 r_return
 l_int|2
