@@ -995,7 +995,7 @@ id|force
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Write the contents of the object named by &quot;sha1&quot; to the file &quot;filename&quot;,&n; * pretty-printed for human editing based on its type.&n; */
+multiline_comment|/*&n; * Write the contents of the object named by &quot;sha1&quot; to the file &quot;filename&quot;.&n; * If &quot;raw&quot; is true, then the object&squot;s raw contents are printed according to&n; * &quot;type&quot;. Otherwise, we pretty-print the contents for human editing.&n; */
 DECL|function|export_object
 r_static
 r_void
@@ -1007,6 +1007,13 @@ r_int
 r_char
 op_star
 id|sha1
+comma
+r_enum
+id|object_type
+id|type
+comma
+r_int
+id|raw
 comma
 r_const
 r_char
@@ -1074,6 +1081,24 @@ comma
 l_string|&quot;cat-file&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|raw
+)paren
+id|argv_array_push
+c_func
+(paren
+op_amp
+id|cmd.args
+comma
+r_typename
+(paren
+id|type
+)paren
+)paren
+suffix:semicolon
+r_else
 id|argv_array_push
 c_func
 (paren
@@ -1137,6 +1162,9 @@ r_enum
 id|object_type
 id|type
 comma
+r_int
+id|raw
+comma
 r_const
 r_char
 op_star
@@ -1174,6 +1202,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|raw
+op_logical_and
 id|type
 op_eq
 id|OBJ_TREE
@@ -1389,6 +1420,9 @@ id|object_ref
 comma
 r_int
 id|force
+comma
+r_int
+id|raw
 )paren
 (brace
 r_char
@@ -1500,6 +1534,10 @@ c_func
 (paren
 id|old
 comma
+id|type
+comma
+id|raw
+comma
 id|tmpfile
 )paren
 suffix:semicolon
@@ -1530,6 +1568,8 @@ c_func
 r_new
 comma
 id|type
+comma
+id|raw
 comma
 id|tmpfile
 )paren
@@ -1603,6 +1643,11 @@ id|prefix
 (brace
 r_int
 id|force
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+id|raw
 op_assign
 l_int|0
 suffix:semicolon
@@ -1709,6 +1754,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;replace the ref if it exists&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;raw&quot;
+comma
+op_amp
+id|raw
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;do not pretty-print contents for --edit&quot;
 )paren
 )paren
 comma
@@ -1820,6 +1882,25 @@ comma
 id|options
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|raw
+op_logical_and
+id|cmdmode
+op_ne
+id|MODE_EDIT
+)paren
+id|usage_msg_opt
+c_func
+(paren
+l_string|&quot;--raw only makes sense with --edit&quot;
+comma
+id|git_replace_usage
+comma
+id|options
+)paren
+suffix:semicolon
 r_switch
 c_cond
 (paren
@@ -1922,6 +2003,8 @@ l_int|0
 )braket
 comma
 id|force
+comma
+id|raw
 )paren
 suffix:semicolon
 r_case
