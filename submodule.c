@@ -5320,15 +5320,10 @@ suffix:semicolon
 id|setup_revisions
 c_func
 (paren
-r_sizeof
+id|ARRAY_SIZE
+c_func
 (paren
 id|rev_args
-)paren
-op_div
-r_sizeof
-(paren
-r_char
-op_star
 )paren
 op_minus
 l_int|1
