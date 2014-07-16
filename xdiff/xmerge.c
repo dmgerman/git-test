@@ -1300,7 +1300,11 @@ id|m-&gt;i1
 comma
 id|m-&gt;chg1
 comma
-l_int|1
+(paren
+id|m-&gt;mode
+op_amp
+l_int|2
+)paren
 comma
 id|dest
 ques
@@ -1331,7 +1335,7 @@ id|m-&gt;i2
 comma
 id|m-&gt;chg2
 comma
-l_int|1
+l_int|0
 comma
 id|dest
 ques
