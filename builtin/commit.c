@@ -3442,7 +3442,7 @@ c_cond
 (paren
 id|buffer
 )paren
-id|strbuf_add
+id|strbuf_addstr
 c_func
 (paren
 op_amp
@@ -3451,14 +3451,6 @@ comma
 id|buffer
 op_plus
 l_int|2
-comma
-id|strlen
-c_func
-(paren
-id|buffer
-op_plus
-l_int|2
-)paren
 )paren
 suffix:semicolon
 id|hook_arg1
