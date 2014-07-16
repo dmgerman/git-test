@@ -4593,14 +4593,13 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-id|strbuf_add
+id|strbuf_addbuf
 c_func
 (paren
 id|buf
 comma
-id|desc.buf
-comma
-id|desc.len
+op_amp
+id|desc
 )paren
 suffix:semicolon
 id|strbuf_addch

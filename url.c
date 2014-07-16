@@ -653,12 +653,12 @@ l_int|1
 op_ne
 l_char|&squot;/&squot;
 )paren
-id|strbuf_addstr
+id|strbuf_addch
 c_func
 (paren
 id|buf
 comma
-l_string|&quot;/&quot;
+l_char|&squot;/&squot;
 )paren
 suffix:semicolon
 )brace

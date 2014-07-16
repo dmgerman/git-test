@@ -1683,13 +1683,13 @@ c_cond
 (paren
 id|sb.len
 )paren
-id|strbuf_addstr
+id|strbuf_addch
 c_func
 (paren
 op_amp
 id|sb
 comma
-l_string|&quot; &quot;
+l_char|&squot; &squot;
 )paren
 suffix:semicolon
 r_if

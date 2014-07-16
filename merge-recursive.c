@@ -744,15 +744,13 @@ c_func
 id|ap
 )paren
 suffix:semicolon
-id|strbuf_add
+id|strbuf_addch
 c_func
 (paren
 op_amp
 id|o-&gt;obuf
 comma
-l_string|&quot;&bslash;n&quot;
-comma
-l_int|1
+l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 r_if

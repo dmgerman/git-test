@@ -4916,14 +4916,13 @@ c_func
 id|buf
 )paren
 suffix:semicolon
-id|strbuf_add
+id|strbuf_addbuf
 c_func
 (paren
 id|buf
 comma
-id|cb.buf.buf
-comma
-id|cb.buf.len
+op_amp
+id|cb.buf
 )paren
 suffix:semicolon
 id|retval
