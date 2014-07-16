@@ -11112,10 +11112,6 @@ r_if
 c_cond
 (paren
 id|err
-op_logical_and
-id|errno
-op_ne
-id|ENOENT
 )paren
 r_return
 l_int|1
