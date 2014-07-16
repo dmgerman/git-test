@@ -3959,12 +3959,6 @@ comma
 id|addrlen
 )paren
 suffix:semicolon
-id|close
-c_func
-(paren
-id|incoming
-)paren
-suffix:semicolon
 )brace
 DECL|function|child_handler
 r_static
