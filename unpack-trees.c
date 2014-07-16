@@ -9,6 +9,7 @@ macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;progress.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;attr.h&quot;
+macro_line|#include &quot;split-index.h&quot;
 multiline_comment|/*&n; * Error messages expected by scripts out of plumbing commands such as&n; * read-tree.  Non-scripted Porcelain is not required to use these messages&n; * and in fact are encouraged to reword them to better suit their particular&n; * situation better.  See how &quot;git checkout&quot; and &quot;git merge&quot; replaces&n; * them using setup_unpack_trees_porcelain(), for example.&n; */
 DECL|variable|unpack_plumbing_errors
 r_static
@@ -1026,6 +1027,11 @@ id|apply_sparse_checkout
 c_func
 (paren
 r_struct
+id|index_state
+op_star
+id|istate
+comma
+r_struct
 id|cache_entry
 op_star
 id|ce
@@ -1062,6 +1068,27 @@ op_and_assign
 op_complement
 id|CE_SKIP_WORKTREE
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|was_skip_worktree
+op_ne
+id|ce_skip_worktree
+c_func
+(paren
+id|ce
+)paren
+)paren
+(brace
+id|ce-&gt;ce_flags
+op_or_assign
+id|CE_UPDATE_IN_BASE
+suffix:semicolon
+id|istate-&gt;cache_changed
+op_or_assign
+id|CE_ENTRY_CHANGED
+suffix:semicolon
+)brace
 multiline_comment|/*&n;&t; * if (!was_skip_worktree &amp;&amp; !ce_skip_worktree()) {&n;&t; *&t;This is perfectly normal. Move on;&n;&t; * }&n;&t; */
 multiline_comment|/*&n;&t; * Merge strategies may set CE_UPDATE|CE_REMOVE outside checkout&n;&t; * area as a result of ce_skip_worktree() shortcuts in&n;&t; * verify_absent() and verify_uptodate().&n;&t; * Make sure they don&squot;t modify worktree if they are already&n;&t; * outside checkout area&n;&t; */
 r_if
@@ -4493,6 +4520,11 @@ id|state.refresh_cache
 op_assign
 l_int|1
 suffix:semicolon
+id|state.istate
+op_assign
+op_amp
+id|o-&gt;result
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -4591,6 +4623,26 @@ suffix:semicolon
 id|o-&gt;result.version
 op_assign
 id|o-&gt;src_index-&gt;version
+suffix:semicolon
+id|o-&gt;result.split_index
+op_assign
+id|o-&gt;src_index-&gt;split_index
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|o-&gt;result.split_index
+)paren
+id|o-&gt;result.split_index-&gt;refcount
+op_increment
+suffix:semicolon
+id|hashcpy
+c_func
+(paren
+id|o-&gt;result.sha1
+comma
+id|o-&gt;src_index-&gt;sha1
+)paren
 suffix:semicolon
 id|o-&gt;merge_size
 op_assign
@@ -4950,6 +5002,9 @@ c_cond
 id|apply_sparse_checkout
 c_func
 (paren
+op_amp
+id|o-&gt;result
+comma
 id|ce
 comma
 id|o
@@ -5475,7 +5530,7 @@ id|ce
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|o-&gt;src_index-&gt;cache_tree
+id|o-&gt;src_index
 comma
 id|ce-&gt;name
 )paren

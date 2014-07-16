@@ -426,8 +426,6 @@ id|unused_prefix
 r_int
 id|i
 comma
-id|newfd
-comma
 id|stage
 op_assign
 l_int|0
@@ -810,8 +808,6 @@ comma
 l_int|0
 )paren
 suffix:semicolon
-id|newfd
-op_assign
 id|hold_locked_index
 c_func
 (paren
@@ -847,6 +843,7 @@ c_func
 l_string|&quot;Which one? -m, --reset, or --prefix?&quot;
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK&n;&t; *&n;&t; * The old index should be read anyway even if we&squot;re going to&n;&t; * destroy all index entries because we still need to preserve&n;&t; * certain information such as index version or split-index&n;&t; * mode.&n;&t; */
 r_if
 c_cond
 (paren
@@ -1251,7 +1248,7 @@ id|prime_cache_tree
 c_func
 (paren
 op_amp
-id|active_cache_tree
+id|the_index
 comma
 id|trees
 (braket
@@ -1262,21 +1259,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write_cache
-c_func
-(paren
-id|newfd
-comma
-id|active_cache
-comma
-id|active_nr
-)paren
-op_logical_or
-id|commit_locked_index
+id|write_locked_index
 c_func
 (paren
 op_amp
+id|the_index
+comma
+op_amp
 id|lock_file
+comma
+id|COMMIT_LOCK
 )paren
 )paren
 id|die

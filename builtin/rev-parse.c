@@ -7,6 +7,7 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;split-index.h&quot;
 DECL|macro|DO_REVS
 mdefine_line|#define DO_REVS&t;&t;1
 DECL|macro|DO_NOREV
@@ -4220,6 +4221,73 @@ suffix:colon
 l_string|&quot;false&quot;
 )paren
 suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--shared-index-path&quot;
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|read_cache
+c_func
+(paren
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Could not read the index&quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|the_index.split_index
+)paren
+(brace
+r_const
+r_int
+r_char
+op_star
+id|sha1
+op_assign
+id|the_index.split_index-&gt;base_sha1
+suffix:semicolon
+id|puts
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;sharedindex.%s&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|sha1
+)paren
+)paren
+)paren
+suffix:semicolon
+)brace
 r_continue
 suffix:semicolon
 )brace

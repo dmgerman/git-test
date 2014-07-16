@@ -10774,7 +10774,8 @@ multiline_comment|/*&n;&t; * We are not going to write this out, so this does no
 id|cache_tree_invalidate_path
 c_func
 (paren
-id|active_cache_tree
+op_amp
+id|the_index
 comma
 id|path
 )paren
