@@ -6903,9 +6903,8 @@ op_increment
 r_if
 c_cond
 (paren
-l_int|0
-op_eq
-id|strncmp
+op_logical_neg
+id|strncasecmp
 c_func
 (paren
 id|env
