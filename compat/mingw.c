@@ -5163,10 +5163,10 @@ r_return
 id|prog
 suffix:semicolon
 )brace
-DECL|function|env_compare
+DECL|function|compareenv
 r_static
 r_int
-id|env_compare
+id|compareenv
 c_func
 (paren
 r_const
@@ -5706,7 +5706,7 @@ op_star
 id|sorted_env
 )paren
 comma
-id|env_compare
+id|compareenv
 )paren
 suffix:semicolon
 multiline_comment|/* create environment block from temporary environment */
@@ -6861,10 +6861,10 @@ id|env
 )paren
 suffix:semicolon
 )brace
-DECL|function|lookup_env
+DECL|function|lookupenv
 r_static
 r_int
-id|lookup_env
+id|lookupenv
 c_func
 (paren
 r_char
@@ -6937,12 +6937,12 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * If name contains &squot;=&squot;, then sets the variable, otherwise it unsets it&n; */
-DECL|function|env_setenv
+DECL|function|do_putenv
 r_static
 r_char
 op_star
 op_star
-id|env_setenv
+id|do_putenv
 c_func
 (paren
 r_char
@@ -6971,7 +6971,7 @@ suffix:semicolon
 r_int
 id|i
 op_assign
-id|lookup_env
+id|lookupenv
 c_func
 (paren
 id|env
@@ -7158,7 +7158,7 @@ op_increment
 suffix:semicolon
 id|env
 op_assign
-id|env_setenv
+id|do_putenv
 c_func
 (paren
 id|env
@@ -7267,7 +7267,7 @@ id|namevalue
 (brace
 id|environ
 op_assign
-id|env_setenv
+id|do_putenv
 c_func
 (paren
 id|environ
