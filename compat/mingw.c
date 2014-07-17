@@ -11814,6 +11814,27 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* simulate TERM to enable auto-color (see color.c) */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|getenv
+c_func
+(paren
+l_string|&quot;TERM&quot;
+)paren
+)paren
+id|setenv
+c_func
+(paren
+l_string|&quot;TERM&quot;
+comma
+l_string|&quot;cygwin&quot;
+comma
+l_int|1
+)paren
+suffix:semicolon
 multiline_comment|/* initialize critical section for waitpid pinfo_t list */
 id|InitializeCriticalSection
 c_func
