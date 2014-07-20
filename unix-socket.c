@@ -474,6 +474,12 @@ r_struct
 id|unix_sockaddr_context
 id|ctx
 suffix:semicolon
+id|unlink
+c_func
+(paren
+id|path
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -499,12 +505,6 @@ op_assign
 id|unix_stream_socket
 c_func
 (paren
-)paren
-suffix:semicolon
-id|unlink
-c_func
-(paren
-id|path
 )paren
 suffix:semicolon
 r_if
