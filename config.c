@@ -8262,10 +8262,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fchmod
+id|chmod
 c_func
 (paren
-id|fd
+id|lock-&gt;filename
 comma
 id|st.st_mode
 op_amp
@@ -8278,7 +8278,7 @@ l_int|0
 id|error
 c_func
 (paren
-l_string|&quot;fchmod on %s failed: %s&quot;
+l_string|&quot;chmod on %s failed: %s&quot;
 comma
 id|lock-&gt;filename
 comma
@@ -9171,10 +9171,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|fchmod
+id|chmod
 c_func
 (paren
-id|out_fd
+id|lock-&gt;filename
 comma
 id|st.st_mode
 op_amp
@@ -9189,7 +9189,7 @@ op_assign
 id|error
 c_func
 (paren
-l_string|&quot;fchmod on %s failed: %s&quot;
+l_string|&quot;chmod on %s failed: %s&quot;
 comma
 id|lock-&gt;filename
 comma
