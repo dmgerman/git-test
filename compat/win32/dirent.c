@@ -33,13 +33,13 @@ id|dirent
 op_star
 id|ent
 comma
-id|WIN32_FIND_DATAA
+id|WIN32_FIND_DATAW
 op_star
 id|fdata
 )paren
 (brace
-multiline_comment|/* copy file name from WIN32_FIND_DATA to dirent */
-id|memcpy
+multiline_comment|/* convert UTF-16 name to UTF-8 */
+id|xwcstoutf
 c_func
 (paren
 id|ent-&gt;d_name
@@ -82,13 +82,16 @@ op_star
 id|name
 )paren
 (brace
-r_char
+m_wchar_t
 id|pattern
 (braket
 id|MAX_PATH
+op_plus
+l_int|2
 )braket
 suffix:semicolon
-id|WIN32_FIND_DATAA
+multiline_comment|/* + 2 for &squot;/&squot; &squot;*&squot; */
+id|WIN32_FIND_DATAW
 id|fdata
 suffix:semicolon
 id|HANDLE
@@ -101,61 +104,26 @@ id|DIR
 op_star
 id|dir
 suffix:semicolon
-multiline_comment|/* check that name is not NULL */
+multiline_comment|/* convert name to UTF-16 and check length &lt; MAX_PATH */
 r_if
 c_cond
 (paren
-op_logical_neg
-id|name
-)paren
-(brace
-id|errno
-op_assign
-id|EINVAL
-suffix:semicolon
-r_return
-l_int|NULL
-suffix:semicolon
-)brace
-multiline_comment|/* check that the pattern won&squot;t be too long for FindFirstFileA */
-id|len
-op_assign
-id|strlen
-c_func
-(paren
-id|name
-)paren
-suffix:semicolon
-r_if
-c_cond
 (paren
 id|len
-op_plus
-l_int|2
-op_ge
-id|MAX_PATH
-)paren
-(brace
-id|errno
 op_assign
-id|ENAMETOOLONG
-suffix:semicolon
-r_return
-l_int|NULL
-suffix:semicolon
-)brace
-multiline_comment|/* copy name to temp buffer */
-id|memcpy
+id|xutftowcs_path
 c_func
 (paren
 id|pattern
 comma
 id|name
-comma
-id|len
-op_plus
-l_int|1
 )paren
+)paren
+OL
+l_int|0
+)paren
+r_return
+l_int|NULL
 suffix:semicolon
 multiline_comment|/* append optional &squot;/&squot; and wildcard &squot;*&squot; */
 r_if
@@ -200,7 +168,7 @@ suffix:semicolon
 multiline_comment|/* open find handle */
 id|h
 op_assign
-id|FindFirstFileA
+id|FindFirstFileW
 c_func
 (paren
 id|pattern
@@ -316,13 +284,13 @@ id|dir-&gt;dd_stat
 )paren
 (brace
 multiline_comment|/* get next entry and convert from WIN32_FIND_DATA to dirent */
-id|WIN32_FIND_DATAA
+id|WIN32_FIND_DATAW
 id|fdata
 suffix:semicolon
 r_if
 c_cond
 (paren
-id|FindNextFileA
+id|FindNextFileW
 c_func
 (paren
 id|dir-&gt;dd_handle
