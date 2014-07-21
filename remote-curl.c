@@ -2113,12 +2113,10 @@ r_return
 id|CURLIOE_OK
 suffix:semicolon
 )brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Unable to rewind rpc post data - try increasing http.postBuffer&bslash;n&quot;
+l_string|&quot;unable to rewind rpc post data - try increasing http.postBuffer&quot;
 )paren
 suffix:semicolon
 r_return
@@ -3747,7 +3745,7 @@ c_cond
 id|error
 c_func
 (paren
-l_string|&quot;Fetch failed.&quot;
+l_string|&quot;fetch failed.&quot;
 )paren
 suffix:colon
 l_int|0
@@ -5216,12 +5214,10 @@ OL
 l_int|2
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Remote needed&bslash;n&quot;
+l_string|&quot;remote-curl: usage: git remote-curl &lt;remote&gt; [&lt;url&gt;]&quot;
 )paren
 suffix:semicolon
 r_return
@@ -5336,21 +5332,10 @@ c_func
 id|stdin
 )paren
 )paren
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Error reading command stream&bslash;n&quot;
-)paren
-suffix:semicolon
-r_else
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Unexpected end of command stream&bslash;n&quot;
+l_string|&quot;remote-curl: error reading command stream from git&quot;
 )paren
 suffix:semicolon
 r_return
@@ -5386,7 +5371,7 @@ id|nongit
 id|die
 c_func
 (paren
-l_string|&quot;Fetch attempted without a local repo&quot;
+l_string|&quot;remote-curl: fetch attempted without a local repo&quot;
 )paren
 suffix:semicolon
 id|parse_fetch
@@ -5616,12 +5601,10 @@ suffix:semicolon
 )brace
 r_else
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Unknown command &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;remote-curl: unknown command &squot;%s&squot; from git&quot;
 comma
 id|buf.buf
 )paren
