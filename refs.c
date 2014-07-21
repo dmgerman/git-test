@@ -13660,7 +13660,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|is_branch
-r_static
 r_int
 id|is_branch
 c_func
