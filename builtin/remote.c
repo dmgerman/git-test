@@ -4598,6 +4598,8 @@ c_func
 id|branch_names
 comma
 id|branches-&gt;nr
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
@@ -8104,6 +8106,8 @@ c_func
 id|delete_refs
 comma
 id|states.stale.nr
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|free
