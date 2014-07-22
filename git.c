@@ -3754,6 +3754,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|trace_command_performance
+c_func
+(paren
+id|argv
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * &quot;git-xxxx&quot; is the same as &quot;git xxxx&quot;, but we obviously:&n;&t; *&n;&t; *  - cannot take flags in between the &quot;git&quot; and the &quot;xxxx&quot;.&n;&t; *  - cannot execute it externally (since it would just do&n;&t; *    the same thing over again)&n;&t; *&n;&t; * So we just directly call the builtin handler, and die if&n;&t; * that one cannot handle it.&n;&t; */
 r_if
 c_cond

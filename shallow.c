@@ -1605,8 +1605,17 @@ id|sb
 )paren
 suffix:semicolon
 )brace
-DECL|macro|TRACE_KEY
-mdefine_line|#define TRACE_KEY &quot;GIT_TRACE_SHALLOW&quot;
+DECL|variable|trace_shallow
+r_struct
+id|trace_key
+id|trace_shallow
+op_assign
+id|TRACE_KEY_INIT
+c_func
+(paren
+id|SHALLOW
+)paren
+suffix:semicolon
 multiline_comment|/*&n; * Step 1, split sender shallow commits into &quot;ours&quot; and &quot;theirs&quot;&n; * Step 2, clean &quot;ours&quot; based on .git/shallow&n; */
 DECL|function|prepare_shallow_info
 r_void
@@ -1630,7 +1639,8 @@ suffix:semicolon
 id|trace_printf_key
 c_func
 (paren
-id|TRACE_KEY
+op_amp
+id|trace_shallow
 comma
 l_string|&quot;shallow: prepare_shallow_info&bslash;n&quot;
 )paren
@@ -1820,7 +1830,8 @@ suffix:semicolon
 id|trace_printf_key
 c_func
 (paren
-id|TRACE_KEY
+op_amp
+id|trace_shallow
 comma
 l_string|&quot;shallow: remove_nonexistent_theirs_shallow&bslash;n&quot;
 )paren
@@ -2612,7 +2623,8 @@ suffix:semicolon
 id|trace_printf_key
 c_func
 (paren
-id|TRACE_KEY
+op_amp
+id|trace_shallow
 comma
 l_string|&quot;shallow: assign_shallow_commits_to_refs&bslash;n&quot;
 )paren
@@ -3250,7 +3262,8 @@ suffix:semicolon
 id|trace_printf_key
 c_func
 (paren
-id|TRACE_KEY
+op_amp
+id|trace_shallow
 comma
 l_string|&quot;shallow: post_assign_shallow&bslash;n&quot;
 )paren
