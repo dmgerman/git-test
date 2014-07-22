@@ -5776,13 +5776,13 @@ op_assign
 id|xcalloc
 c_func
 (paren
+id|num_head
+comma
 r_sizeof
 (paren
 op_star
 id|array
 )paren
-comma
-id|num_head
 )paren
 suffix:semicolon
 r_for
