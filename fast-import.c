@@ -11885,14 +11885,12 @@ id|mode
 )paren
 op_logical_and
 op_logical_neg
-id|memcmp
+id|hashcmp
 c_func
 (paren
 id|sha1
 comma
 id|EMPTY_TREE_SHA1_BIN
-comma
-l_int|20
 )paren
 op_logical_and
 op_star
