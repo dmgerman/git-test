@@ -10201,10 +10201,6 @@ id|commit-&gt;date
 op_assign
 id|now
 suffix:semicolon
-id|commit-&gt;object.type
-op_assign
-id|OBJ_COMMIT
-suffix:semicolon
 id|parent_tail
 op_assign
 op_amp
