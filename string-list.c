@@ -1,5 +1,38 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+DECL|function|string_list_init
+r_void
+id|string_list_init
+c_func
+(paren
+r_struct
+id|string_list
+op_star
+id|list
+comma
+r_int
+id|strdup_strings
+)paren
+(brace
+id|memset
+c_func
+(paren
+id|list
+comma
+l_int|0
+comma
+r_sizeof
+(paren
+op_star
+id|list
+)paren
+)paren
+suffix:semicolon
+id|list-&gt;strdup_strings
+op_assign
+id|strdup_strings
+suffix:semicolon
+)brace
 multiline_comment|/* if there is no exact match, point to the index where the entry could be&n; * inserted */
 DECL|function|get_entry_index
 r_static
