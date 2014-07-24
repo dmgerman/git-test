@@ -533,6 +533,12 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|full
+)paren
+suffix:semicolon
 )brace
 r_else
 (brace
