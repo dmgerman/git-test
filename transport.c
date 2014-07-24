@@ -7290,8 +7290,8 @@ comma
 l_int|8
 )paren
 )paren
-r_return
-l_int|0
+r_goto
+id|out
 suffix:semicolon
 multiline_comment|/* Is this a git repository with refs? */
 id|memcpy
@@ -7317,8 +7317,8 @@ c_func
 id|other
 )paren
 )paren
-r_return
-l_int|0
+r_goto
+id|out
 suffix:semicolon
 id|other
 (braket
@@ -7379,6 +7379,8 @@ c_func
 id|transport
 )paren
 suffix:semicolon
+id|out
+suffix:colon
 id|free
 c_func
 (paren
