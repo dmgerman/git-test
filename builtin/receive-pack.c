@@ -5896,6 +5896,7 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
+r_const
 r_char
 op_star
 id|dir
@@ -6065,11 +6066,7 @@ id|receive_pack_usage
 suffix:semicolon
 id|dir
 op_assign
-id|xstrdup
-c_func
-(paren
 id|arg
-)paren
 suffix:semicolon
 )brace
 r_if
