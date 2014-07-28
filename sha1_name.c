@@ -2771,9 +2771,17 @@ c_cond
 (paren
 id|errors
 )paren
+(brace
+id|free
+c_func
+(paren
+id|real_ref
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond

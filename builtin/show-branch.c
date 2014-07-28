@@ -4109,6 +4109,12 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|ref
+)paren
+suffix:semicolon
 )brace
 r_else
 r_if

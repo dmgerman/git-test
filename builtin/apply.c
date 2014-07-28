@@ -5427,7 +5427,7 @@ l_char|&squot; &squot;
 suffix:semicolon
 id|eol
 op_assign
-id|strchr
+id|strchrnul
 c_func
 (paren
 id|line
