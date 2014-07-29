@@ -7589,6 +7589,13 @@ op_logical_and
 id|opt-&gt;output_format
 op_ne
 id|DIFF_FORMAT_NO_OUTPUT
+op_logical_and
+op_logical_neg
+id|commit_format_is_empty
+c_func
+(paren
+id|rev-&gt;commit_format
+)paren
 )paren
 id|printf
 c_func
