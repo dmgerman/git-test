@@ -753,10 +753,6 @@ c_cond
 (paren
 op_logical_neg
 id|arg
-op_logical_or
-op_logical_neg
-op_star
-id|arg
 )paren
 (brace
 id|rev-&gt;commit_format
@@ -815,6 +811,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+op_star
+id|arg
+op_logical_or
 id|strchr
 c_func
 (paren
