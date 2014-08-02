@@ -1259,12 +1259,12 @@ c_func
 (paren
 id|line
 comma
+l_char|&squot;&bslash;n&squot;
+comma
 id|buf
 op_plus
 id|size
 id|line
-comma
-l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 id|line
@@ -1273,6 +1273,8 @@ id|memchr
 c_func
 (paren
 id|line
+comma
+l_char|&squot;&gt;&squot;
 comma
 id|lineend
 ques
@@ -1284,8 +1286,6 @@ id|buf
 op_plus
 id|size
 id|line
-comma
-l_char|&squot;&gt;&squot;
 )paren
 suffix:semicolon
 r_if
