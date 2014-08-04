@@ -331,6 +331,9 @@ id|commit_format-&gt;format
 op_assign
 id|CMIT_FMT_USERFORMAT
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|git_config_string
 c_func
 (paren
@@ -341,6 +344,9 @@ id|var
 comma
 id|value
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_if
 c_cond
