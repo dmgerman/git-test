@@ -6398,7 +6398,7 @@ id|ret
 suffix:semicolon
 )brace
 DECL|function|git_config
-r_int
+r_void
 id|git_config
 c_func
 (paren
@@ -6410,7 +6410,9 @@ op_star
 id|data
 )paren
 (brace
-r_return
+r_if
+c_cond
+(paren
 id|git_config_with_options
 c_func
 (paren
@@ -6421,6 +6423,19 @@ comma
 l_int|NULL
 comma
 l_int|1
+)paren
+OL
+l_int|0
+)paren
+multiline_comment|/*&n;&t;&t; * git_config_with_options() normally returns only&n;&t;&t; * positive values, as most errors are fatal, and&n;&t;&t; * non-fatal potential errors are guarded by &quot;if&quot;&n;&t;&t; * statements that are entered only when no error is&n;&t;&t; * possible.&n;&t;&t; *&n;&t;&t; * If we ever encounter a non-fatal error, it means&n;&t;&t; * something went really wrong and we should stop&n;&t;&t; * immediately.&n;&t;&t; */
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;unknown error occured while reading the configuration files&quot;
+)paren
 )paren
 suffix:semicolon
 )brace
