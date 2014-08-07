@@ -2146,7 +2146,11 @@ id|cf-&gt;die_on_error
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad config file line %d in %s&quot;
+)paren
 comma
 id|cf-&gt;linenr
 comma
@@ -2158,7 +2162,11 @@ r_return
 id|error
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad config file line %d in %s&quot;
+)paren
 comma
 id|cf-&gt;linenr
 comma
@@ -2750,7 +2758,11 @@ id|cf-&gt;name
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad numeric config value &squot;%s&squot; for &squot;%s&squot; in %s: %s&quot;
+)paren
 comma
 id|value
 comma
@@ -2764,7 +2776,11 @@ suffix:semicolon
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad numeric config value &squot;%s&squot; for &squot;%s&squot;: %s&quot;
+)paren
 comma
 id|value
 comma
@@ -3271,7 +3287,11 @@ id|dest
 id|die
 c_func
 (paren
-l_string|&quot;Failed to expand user dir in: &squot;%s&squot;&quot;
+id|_
+c_func
+(paren
+l_string|&quot;failed to expand user dir in: &squot;%s&squot;&quot;
+)paren
 comma
 id|value
 )paren
@@ -3727,7 +3747,11 @@ id|Z_BEST_COMPRESSION
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad zlib compression level %d&quot;
+)paren
 comma
 id|level
 )paren
@@ -3790,7 +3814,11 @@ id|Z_BEST_COMPRESSION
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;bad zlib compression level %d&quot;
+)paren
 comma
 id|level
 )paren
@@ -4525,7 +4553,11 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;Invalid mode for object creation: %s&quot;
+id|_
+c_func
+(paren
+l_string|&quot;invalid mode for object creation: %s&quot;
+)paren
 comma
 id|value
 )paren
@@ -6151,7 +6183,11 @@ multiline_comment|/* error */
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unable to parse command-line config&quot;
+)paren
 )paren
 suffix:semicolon
 r_break
@@ -7976,7 +8012,11 @@ l_int|0
 id|warning
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;%s has multiple values&quot;
+)paren
 comma
 id|key
 )paren
