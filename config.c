@@ -1185,6 +1185,9 @@ id|cf-&gt;eof
 op_assign
 l_int|1
 suffix:semicolon
+id|cf-&gt;linenr
+op_increment
+suffix:semicolon
 id|c
 op_assign
 l_char|&squot;&bslash;n&squot;
@@ -1498,6 +1501,9 @@ r_char
 op_star
 id|value
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 multiline_comment|/* Get the full name */
 r_for
 c_loop
@@ -1602,7 +1608,12 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-r_return
+multiline_comment|/*&n;&t; * We already consumed the &bslash;n, but we need linenr to point to&n;&t; * the line we just parsed during the call to fn to get&n;&t; * accurate line number in error messages.&n;&t; */
+id|cf-&gt;linenr
+op_decrement
+suffix:semicolon
+id|ret
+op_assign
 id|fn
 c_func
 (paren
@@ -1612,6 +1623,12 @@ id|value
 comma
 id|data
 )paren
+suffix:semicolon
+id|cf-&gt;linenr
+op_increment
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|get_extended_base_var
