@@ -724,7 +724,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;destination &squot;%s&squot; is not a directory&quot;
+)paren
 comma
 id|dest_path
 (braket
