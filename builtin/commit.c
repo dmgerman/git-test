@@ -4789,11 +4789,24 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|prepare_revision_walk
 c_func
 (paren
 op_amp
 id|revs
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 id|commit
