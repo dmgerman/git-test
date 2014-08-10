@@ -5566,6 +5566,12 @@ id|junk_mode
 op_assign
 id|JUNK_LEAVE_ALL
 suffix:semicolon
+id|free
+c_func
+(paren
+id|refspec
+)paren
+suffix:semicolon
 r_return
 id|err
 suffix:semicolon
