@@ -1633,6 +1633,7 @@ op_logical_neg
 id|ignore_errors
 )paren
 id|die
+c_func
 (paren
 id|_
 c_func
@@ -1849,6 +1850,7 @@ op_logical_neg
 id|ignore_errors
 )paren
 id|die_errno
+c_func
 (paren
 id|_
 c_func
