@@ -1966,11 +1966,7 @@ r_if
 c_cond
 (paren
 id|active_cache_changed
-)paren
-(brace
-r_if
-c_cond
-(paren
+op_logical_and
 id|write_locked_index
 c_func
 (paren
@@ -1993,7 +1989,6 @@ l_string|&quot;Unable to write new index file&quot;
 )paren
 )paren
 suffix:semicolon
-)brace
 r_return
 l_int|0
 suffix:semicolon
