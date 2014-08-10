@@ -11601,7 +11601,11 @@ id|revs
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;revision walk setup failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
