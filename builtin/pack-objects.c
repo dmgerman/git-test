@@ -11676,6 +11676,10 @@ c_func
 id|sha1
 )paren
 suffix:semicolon
+id|use_bitmap_index
+op_assign
+l_int|0
+suffix:semicolon
 r_continue
 suffix:semicolon
 )brace
