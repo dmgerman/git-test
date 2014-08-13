@@ -1391,6 +1391,18 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|result
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;curl_easy_init failed&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|curl_ssl_verify
 )paren
 (brace
@@ -1866,10 +1878,21 @@ c_func
 id|normalized_url
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|curl_global_init
 c_func
 (paren
 id|CURL_GLOBAL_ALL
+)paren
+op_ne
+id|CURLE_OK
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;curl_global_init failed&quot;
 )paren
 suffix:semicolon
 id|http_proactive_auth
