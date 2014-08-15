@@ -1038,6 +1038,12 @@ op_assign
 id|STRBUF_INIT
 suffix:semicolon
 r_struct
+id|strbuf
+id|cap_buf
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
 id|ref
 op_star
 id|ref
@@ -1194,6 +1200,74 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|status_report
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|cap_buf
+comma
+l_string|&quot; report-status&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|use_sideband
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|cap_buf
+comma
+l_string|&quot; side-band-64k&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|quiet_supported
+op_logical_and
+(paren
+id|args-&gt;quiet
+op_logical_or
+op_logical_neg
+id|args-&gt;progress
+)paren
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|cap_buf
+comma
+l_string|&quot; quiet&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|agent_supported
+)paren
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|cap_buf
+comma
+l_string|&quot; agent=%s&quot;
+comma
+id|git_user_agent_sanitized
+c_func
+(paren
+)paren
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * NEEDSWORK: why does delete-refs have to be so specific to&n;&t; * send-pack machinery that set_ref_status_for_push() cannot&n;&t; * set this bit for us???&n;&t; */
 r_for
 c_loop
@@ -1308,18 +1382,6 @@ c_func
 id|ref-&gt;new_sha1
 )paren
 suffix:semicolon
-r_int
-id|quiet
-op_assign
-id|quiet_supported
-op_logical_and
-(paren
-id|args-&gt;quiet
-op_logical_or
-op_logical_neg
-id|args-&gt;progress
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1332,7 +1394,7 @@ c_func
 op_amp
 id|req_buf
 comma
-l_string|&quot;%s %s %s%c%s%s%s%s%s&quot;
+l_string|&quot;%s %s %s%c%s&quot;
 comma
 id|old_hex
 comma
@@ -1342,43 +1404,7 @@ id|ref-&gt;name
 comma
 l_int|0
 comma
-id|status_report
-ques
-c_cond
-l_string|&quot; report-status&quot;
-suffix:colon
-l_string|&quot;&quot;
-comma
-id|use_sideband
-ques
-c_cond
-l_string|&quot; side-band-64k&quot;
-suffix:colon
-l_string|&quot;&quot;
-comma
-id|quiet
-ques
-c_cond
-l_string|&quot; quiet&quot;
-suffix:colon
-l_string|&quot;&quot;
-comma
-id|agent_supported
-ques
-c_cond
-l_string|&quot; agent=&quot;
-suffix:colon
-l_string|&quot;&quot;
-comma
-id|agent_supported
-ques
-c_cond
-id|git_user_agent_sanitized
-c_func
-(paren
-)paren
-suffix:colon
-l_string|&quot;&quot;
+id|cap_buf.buf
 )paren
 suffix:semicolon
 r_else
@@ -1480,6 +1506,13 @@ c_func
 (paren
 op_amp
 id|req_buf
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|cap_buf
 )paren
 suffix:semicolon
 r_if
