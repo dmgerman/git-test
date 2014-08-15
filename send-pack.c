@@ -1049,7 +1049,9 @@ op_star
 id|ref
 suffix:semicolon
 r_int
-id|new_refs
+id|need_pack_data
+op_assign
+l_int|0
 suffix:semicolon
 r_int
 id|allow_deleting_refs
@@ -1308,10 +1310,6 @@ id|req_buf
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Finally, tell the other end!&n;&t; */
-id|new_refs
-op_assign
-l_int|0
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -1346,8 +1344,9 @@ c_cond
 op_logical_neg
 id|ref-&gt;deletion
 )paren
-id|new_refs
-op_increment
+id|need_pack_data
+op_assign
+l_int|1
 suffix:semicolon
 r_if
 c_cond
@@ -1573,7 +1572,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|new_refs
+id|need_pack_data
 op_logical_and
 id|cmds_sent
 )paren
