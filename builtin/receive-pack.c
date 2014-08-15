@@ -4403,6 +4403,13 @@ l_string|&quot;shallow &quot;
 )paren
 )paren
 (brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4413,7 +4420,7 @@ id|line
 op_plus
 l_int|8
 comma
-id|old_sha1
+id|sha1
 )paren
 )paren
 id|die
@@ -4431,7 +4438,7 @@ c_func
 (paren
 id|shallow
 comma
-id|old_sha1
+id|sha1
 )paren
 suffix:semicolon
 r_continue
