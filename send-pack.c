@@ -1325,18 +1325,7 @@ c_cond
 (paren
 op_logical_neg
 id|cmds_sent
-op_logical_and
-(paren
-id|status_report
-op_logical_or
-id|use_sideband
-op_logical_or
-id|quiet
-op_logical_or
-id|agent_supported
 )paren
-)paren
-(brace
 id|packet_buf_write
 c_func
 (paren
@@ -1392,7 +1381,6 @@ suffix:colon
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-)brace
 r_else
 id|packet_buf_write
 c_func
