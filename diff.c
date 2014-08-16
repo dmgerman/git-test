@@ -2119,7 +2119,7 @@ c_func
 (paren
 id|one
 comma
-l_int|1
+id|CHECK_SIZE_ONLY
 )paren
 suffix:semicolon
 r_return
@@ -10231,7 +10231,7 @@ c_func
 (paren
 id|p-&gt;one
 comma
-l_int|1
+id|CHECK_SIZE_ONLY
 )paren
 suffix:semicolon
 id|copied
@@ -10263,7 +10263,7 @@ c_func
 (paren
 id|p-&gt;two
 comma
-l_int|1
+id|CHECK_SIZE_ONLY
 )paren
 suffix:semicolon
 id|copied
@@ -14293,9 +14293,17 @@ op_star
 id|s
 comma
 r_int
-id|size_only
+r_int
+id|flags
 )paren
 (brace
+r_int
+id|size_only
+op_assign
+id|flags
+op_amp
+id|CHECK_SIZE_ONLY
+suffix:semicolon
 r_int
 id|err
 op_assign
@@ -25751,7 +25759,7 @@ c_func
 (paren
 id|p-&gt;one
 comma
-l_int|1
+id|CHECK_SIZE_ONLY
 )paren
 op_logical_or
 id|diff_populate_filespec
@@ -25759,7 +25767,7 @@ c_func
 (paren
 id|p-&gt;two
 comma
-l_int|1
+id|CHECK_SIZE_ONLY
 )paren
 op_logical_or
 (paren
