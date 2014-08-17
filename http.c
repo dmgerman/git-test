@@ -1972,25 +1972,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|curlm
-op_eq
-l_int|NULL
 )paren
-(brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Error creating curl multi handle.&bslash;n&quot;
+l_string|&quot;curl_multi_init failed&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 macro_line|#endif
 r_if
 c_cond
