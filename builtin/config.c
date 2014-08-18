@@ -3513,7 +3513,7 @@ l_int|0
 comma
 id|value
 comma
-l_string|&quot;^$&quot;
+l_string|&quot;a^&quot;
 comma
 l_int|0
 )paren

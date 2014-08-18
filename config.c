@@ -6424,6 +6424,9 @@ op_logical_or
 (paren
 id|store.do_not_match
 op_xor
+(paren
+id|value
+op_logical_and
 op_logical_neg
 id|regexec
 c_func
@@ -6437,6 +6440,7 @@ comma
 l_int|NULL
 comma
 l_int|0
+)paren
 )paren
 )paren
 )paren
