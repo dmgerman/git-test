@@ -1782,6 +1782,8 @@ r_if
 c_cond
 (paren
 id|args-&gt;dry_run
+op_logical_or
+id|args-&gt;push_cert
 )paren
 r_continue
 suffix:semicolon
