@@ -1038,7 +1038,7 @@ suffix:semicolon
 )brace
 DECL|function|generate_push_cert
 r_static
-r_void
+r_int
 id|generate_push_cert
 c_func
 (paren
@@ -1057,6 +1057,11 @@ r_struct
 id|send_pack_args
 op_star
 id|args
+comma
+r_const
+r_char
+op_star
+id|cap_string
 )paren
 (brace
 r_const
@@ -1240,7 +1245,11 @@ c_func
 (paren
 id|req_buf
 comma
-l_string|&quot;push-cert&bslash;n&quot;
+l_string|&quot;push-cert%c%s&quot;
+comma
+l_int|0
+comma
+id|cap_string
 )paren
 suffix:semicolon
 r_for
@@ -1315,6 +1324,9 @@ c_func
 op_amp
 id|cert
 )paren
+suffix:semicolon
+r_return
+id|update_seen
 suffix:semicolon
 )brace
 DECL|function|send_pack
@@ -1672,6 +1684,8 @@ id|args-&gt;dry_run
 op_logical_and
 id|args-&gt;push_cert
 )paren
+id|cmds_sent
+op_assign
 id|generate_push_cert
 c_func
 (paren
@@ -1681,6 +1695,8 @@ comma
 id|remote_refs
 comma
 id|args
+comma
+id|cap_buf.buf
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Clear the status for each ref and see if we need to send&n;&t; * the pack data.&n;&t; */
