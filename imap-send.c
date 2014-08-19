@@ -255,6 +255,11 @@ DECL|member|port
 r_int
 id|port
 suffix:semicolon
+DECL|member|folder
+r_char
+op_star
+id|folder
+suffix:semicolon
 DECL|member|user
 r_char
 op_star
@@ -303,6 +308,9 @@ multiline_comment|/* host */
 l_int|0
 comma
 multiline_comment|/* port */
+l_int|NULL
+comma
+multiline_comment|/* folder */
 l_int|NULL
 comma
 multiline_comment|/* user */
@@ -7069,12 +7077,6 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|variable|imap_folder
-r_static
-r_char
-op_star
-id|imap_folder
-suffix:semicolon
 DECL|function|git_imap_config
 r_static
 r_int
@@ -7187,7 +7189,7 @@ id|key
 )paren
 )paren
 (brace
-id|imap_folder
+id|server.folder
 op_assign
 id|xstrdup
 c_func
@@ -7494,7 +7496,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|imap_folder
+id|server.folder
 )paren
 (brace
 id|fprintf
@@ -7666,7 +7668,7 @@ l_string|&quot;&quot;
 suffix:semicolon
 id|ctx-&gt;name
 op_assign
-id|imap_folder
+id|server.folder
 suffix:semicolon
 r_while
 c_loop
