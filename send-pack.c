@@ -1431,6 +1431,7 @@ c_cond
 op_logical_neg
 id|cmds_sent
 )paren
+(brace
 id|packet_buf_write
 c_func
 (paren
@@ -1450,7 +1451,13 @@ comma
 id|cap_buf.buf
 )paren
 suffix:semicolon
+id|cmds_sent
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_else
+(brace
 id|packet_buf_write
 c_func
 (paren
@@ -1466,9 +1473,7 @@ comma
 id|ref-&gt;name
 )paren
 suffix:semicolon
-id|cmds_sent
-op_increment
-suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
