@@ -6406,8 +6406,9 @@ op_star
 id|value
 )paren
 (brace
-r_return
-op_logical_neg
+r_if
+c_cond
+(paren
 id|strcmp
 c_func
 (paren
@@ -6415,13 +6416,33 @@ id|key
 comma
 id|store.key
 )paren
-op_logical_and
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* not ours */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|store.value_regex
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* always matches */
+r_if
+c_cond
 (paren
 id|store.value_regex
 op_eq
-l_int|NULL
-op_logical_or
-(paren
+id|CONFIG_REGEX_NONE
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* never matches */
+r_return
 id|store.do_not_match
 op_xor
 (paren
@@ -6440,8 +6461,6 @@ comma
 l_int|NULL
 comma
 l_int|0
-)paren
-)paren
 )paren
 )paren
 suffix:semicolon
@@ -7685,7 +7704,7 @@ r_return
 id|CONFIG_INVALID_KEY
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * If value==NULL, unset in (remove from) config,&n; * if value_regex!=NULL, disregard key/value pairs where value does not match.&n; * if multi_replace==0, nothing, or only one matching key/value is replaced,&n; *     else all matching key/values (regardless how many) are removed,&n; *     before the new pair is written.&n; *&n; * Returns 0 on success.&n; *&n; * This function does this:&n; *&n; * - it locks the config file by creating &quot;.git/config.lock&quot;&n; *&n; * - it then parses the config using store_aux() as validator to find&n; *   the position on the key/value pair to replace. If it is to be unset,&n; *   it must be found exactly once.&n; *&n; * - the config file is mmap()ed and the part before the match (if any) is&n; *   written to the lock file, then the changed part and the rest.&n; *&n; * - the config file is removed and the lock file rename()d to it.&n; *&n; */
+multiline_comment|/*&n; * If value==NULL, unset in (remove from) config,&n; * if value_regex!=NULL, disregard key/value pairs where value does not match.&n; * if value_regex==CONFIG_REGEX_NONE, do not match any existing values&n; *     (only add a new one)&n; * if multi_replace==0, nothing, or only one matching key/value is replaced,&n; *     else all matching key/values (regardless how many) are removed,&n; *     before the new pair is written.&n; *&n; * Returns 0 on success.&n; *&n; * This function does this:&n; *&n; * - it locks the config file by creating &quot;.git/config.lock&quot;&n; *&n; * - it then parses the config using store_aux() as validator to find&n; *   the position on the key/value pair to replace. If it is to be unset,&n; *   it must be found exactly once.&n; *&n; * - the config file is mmap()ed and the part before the match (if any) is&n; *   written to the lock file, then the changed part and the rest.&n; *&n; * - the config file is removed and the lock file rename()d to it.&n; *&n; */
 DECL|function|git_config_set_multivar_in_file
 r_int
 id|git_config_set_multivar_in_file
@@ -7989,6 +8008,18 @@ op_assign
 l_int|NULL
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
+id|value_regex
+op_eq
+id|CONFIG_REGEX_NONE
+)paren
+id|store.value_regex
+op_assign
+id|CONFIG_REGEX_NONE
+suffix:semicolon
+r_else
 (brace
 r_if
 c_cond
@@ -8126,6 +8157,10 @@ c_cond
 id|store.value_regex
 op_ne
 l_int|NULL
+op_logical_and
+id|store.value_regex
+op_ne
+id|CONFIG_REGEX_NONE
 )paren
 (brace
 id|regfree
@@ -8161,6 +8196,10 @@ c_cond
 id|store.value_regex
 op_ne
 l_int|NULL
+op_logical_and
+id|store.value_regex
+op_ne
+id|CONFIG_REGEX_NONE
 )paren
 (brace
 id|regfree
