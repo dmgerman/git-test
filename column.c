@@ -1955,6 +1955,8 @@ r_static
 r_struct
 id|child_process
 id|column_process
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 DECL|function|run_column_filter
 r_int

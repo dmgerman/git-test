@@ -5192,9 +5192,7 @@ r_struct
 id|child_process
 id|tunnel
 op_assign
-(brace
-l_int|NULL
-)brace
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 id|imap_info
 c_func

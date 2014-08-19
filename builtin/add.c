@@ -889,6 +889,8 @@ suffix:semicolon
 r_struct
 id|child_process
 id|child
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_struct
 id|rev_info
@@ -1098,20 +1100,6 @@ id|_
 c_func
 (paren
 l_string|&quot;Empty patch. Aborted.&quot;
-)paren
-)paren
-suffix:semicolon
-id|memset
-c_func
-(paren
-op_amp
-id|child
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|child
 )paren
 )paren
 suffix:semicolon

@@ -3238,6 +3238,8 @@ r_static
 r_struct
 id|child_process
 id|no_fork
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 multiline_comment|/*&n; * This returns a dummy child_process if the transport protocol does not&n; * need fork(2), or a struct child_process object if it does.  Once done,&n; * finish the connection with finish_connect() with the value returned from&n; * this function (it is safe to call finish_connect() with NULL to support&n; * the former case).&n; *&n; * If it returns, the connect is successful; it just dies on errors (this&n; * will hopefully be changed in a libification effort, to return NULL when&n; * the connection failed).&n; */
 DECL|function|git_connect

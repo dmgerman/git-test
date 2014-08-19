@@ -47,6 +47,8 @@ r_static
 r_struct
 id|child_process
 id|pager_process
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 DECL|function|wait_for_pager
 r_static
