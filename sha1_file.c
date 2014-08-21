@@ -15305,12 +15305,6 @@ id|would_convert_to_git
 c_func
 (paren
 id|path
-comma
-l_int|NULL
-comma
-l_int|0
-comma
-l_int|0
 )paren
 )paren
 )paren
