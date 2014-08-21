@@ -1050,7 +1050,7 @@ id|commit-&gt;object.flags
 op_or_assign
 id|COMPLETE
 suffix:semicolon
-id|commit_list_insert_by_date
+id|commit_list_insert
 c_func
 (paren
 id|commit
@@ -1482,6 +1482,7 @@ c_cond
 op_logical_neg
 id|walker-&gt;get_recover
 )paren
+(brace
 id|for_each_ref
 c_func
 (paren
@@ -1490,6 +1491,14 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
+id|commit_list_sort_by_date
+c_func
+(paren
+op_amp
+id|complete
+)paren
+suffix:semicolon
+)brace
 r_for
 c_loop
 (paren
