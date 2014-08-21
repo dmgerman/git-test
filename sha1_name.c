@@ -4283,7 +4283,7 @@ id|OBJ_COMMIT
 r_return
 l_int|0
 suffix:semicolon
-id|commit_list_insert_by_date
+id|commit_list_insert
 c_func
 (paren
 (paren
@@ -7057,6 +7057,13 @@ c_func
 (paren
 id|handle_one_ref
 comma
+op_amp
+id|list
+)paren
+suffix:semicolon
+id|commit_list_sort_by_date
+c_func
+(paren
 op_amp
 id|list
 )paren
