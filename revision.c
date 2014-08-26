@@ -1925,12 +1925,9 @@ multiline_comment|/*&n;&t;&t; * If we are simplifying by decoration, then the co
 r_if
 c_cond
 (paren
-id|lookup_decoration
+id|get_name_decoration
 c_func
 (paren
-op_amp
-id|name_decoration
-comma
 op_amp
 id|commit-&gt;object
 )paren

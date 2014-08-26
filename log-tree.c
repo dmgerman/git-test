@@ -12,6 +12,7 @@ macro_line|#include &quot;gpg-interface.h&quot;
 macro_line|#include &quot;sequencer.h&quot;
 macro_line|#include &quot;line-log.h&quot;
 DECL|variable|name_decoration
+r_static
 r_struct
 id|decoration
 id|name_decoration
@@ -327,6 +328,32 @@ comma
 id|obj
 comma
 id|res
+)paren
+suffix:semicolon
+)brace
+DECL|function|get_name_decoration
+r_const
+r_struct
+id|name_decoration
+op_star
+id|get_name_decoration
+c_func
+(paren
+r_const
+r_struct
+id|object
+op_star
+id|obj
+)paren
+(brace
+r_return
+id|lookup_decoration
+c_func
+(paren
+op_amp
+id|name_decoration
+comma
+id|obj
 )paren
 suffix:semicolon
 )brace
@@ -883,6 +910,7 @@ r_char
 op_star
 id|prefix
 suffix:semicolon
+r_const
 r_struct
 id|name_decoration
 op_star
@@ -916,12 +944,9 @@ id|DECORATION_NONE
 suffix:semicolon
 id|decoration
 op_assign
-id|lookup_decoration
+id|get_name_decoration
 c_func
 (paren
-op_amp
-id|name_decoration
-comma
 op_amp
 id|commit-&gt;object
 )paren
