@@ -294,11 +294,13 @@ c_func
 (paren
 r_sizeof
 (paren
-r_struct
-id|name_decoration
+op_star
+id|res
 )paren
 op_plus
 id|nlen
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 id|memcpy
