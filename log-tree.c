@@ -20,35 +20,6 @@ op_assign
 l_string|&quot;object names&quot;
 )brace
 suffix:semicolon
-DECL|enum|decoration_type
-r_enum
-id|decoration_type
-(brace
-DECL|enumerator|DECORATION_NONE
-id|DECORATION_NONE
-op_assign
-l_int|0
-comma
-DECL|enumerator|DECORATION_REF_LOCAL
-id|DECORATION_REF_LOCAL
-comma
-DECL|enumerator|DECORATION_REF_REMOTE
-id|DECORATION_REF_REMOTE
-comma
-DECL|enumerator|DECORATION_REF_TAG
-id|DECORATION_REF_TAG
-comma
-DECL|enumerator|DECORATION_REF_STASH
-id|DECORATION_REF_STASH
-comma
-DECL|enumerator|DECORATION_REF_HEAD
-id|DECORATION_REF_HEAD
-comma
-DECL|enumerator|DECORATION_GRAFTED
-id|DECORATION_GRAFTED
-comma
-)brace
-suffix:semicolon
 DECL|variable|decoration_colors
 r_static
 r_char
@@ -284,7 +255,6 @@ multiline_comment|/*&n; * log-tree.c uses DIFF_OPT_TST for determining whether t
 DECL|macro|decorate_get_color_opt
 mdefine_line|#define decorate_get_color_opt(o, ix) &bslash;&n;&t;decorate_get_color((o)-&gt;use_color, ix)
 DECL|function|add_name_decoration
-r_static
 r_void
 id|add_name_decoration
 c_func
