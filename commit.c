@@ -3235,7 +3235,8 @@ l_int|1
 op_eq
 l_char|&squot;&bslash;n&squot;
 )paren
-r_return
+r_goto
+id|fail_exit
 suffix:semicolon
 multiline_comment|/* end of header */
 r_continue
