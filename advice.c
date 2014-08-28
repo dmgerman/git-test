@@ -481,8 +481,7 @@ id|_
 c_func
 (paren
 l_string|&quot;Fix them up in the work tree, and then use &squot;git add/rm &lt;file&gt;&squot;&bslash;n&quot;
-l_string|&quot;as appropriate to mark resolution and make a commit, or use&bslash;n&quot;
-l_string|&quot;&squot;git commit -a&squot;.&quot;
+l_string|&quot;as appropriate to mark resolution and make a commit.&quot;
 )paren
 )paren
 suffix:semicolon
