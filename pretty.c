@@ -3610,7 +3610,7 @@ suffix:semicolon
 r_case
 l_char|&squot;i&squot;
 suffix:colon
-multiline_comment|/* date, ISO 8601 */
+multiline_comment|/* date, ISO 8601-like */
 id|strbuf_addstr
 c_func
 (paren
@@ -3623,6 +3623,28 @@ op_amp
 id|s
 comma
 id|DATE_ISO8601
+)paren
+)paren
+suffix:semicolon
+r_return
+id|placeholder_len
+suffix:semicolon
+r_case
+l_char|&squot;I&squot;
+suffix:colon
+multiline_comment|/* date, ISO 8601 strict */
+id|strbuf_addstr
+c_func
+(paren
+id|sb
+comma
+id|show_ident_date
+c_func
+(paren
+op_amp
+id|s
+comma
+id|DATE_ISO8601_STRICT
 )paren
 )paren
 suffix:semicolon
