@@ -3634,13 +3634,13 @@ op_assign
 id|xcalloc
 c_func
 (paren
+id|used_atom_cnt
+comma
 r_sizeof
 (paren
 r_struct
 id|atom_value
 )paren
-comma
-id|used_atom_cnt
 )paren
 suffix:semicolon
 r_if
