@@ -271,7 +271,7 @@ l_string|&quot;the following submodule (or one of its nested &quot;
 l_string|&quot;submodules)&bslash;n&quot;
 l_string|&quot;uses a .git directory:&quot;
 comma
-l_string|&quot;the following submodules (or one of its nested &quot;
+l_string|&quot;the following submodules (or one of their nested &quot;
 l_string|&quot;submodules)&bslash;n&quot;
 l_string|&quot;use a .git directory:&quot;
 comma

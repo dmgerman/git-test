@@ -1084,7 +1084,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;The note contents has been left in %s&quot;
+l_string|&quot;The note contents have been left in %s&quot;
 )paren
 comma
 id|path

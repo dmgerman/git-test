@@ -2430,7 +2430,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;show &squot;other&squot; directories&squot; name only&quot;
+l_string|&quot;show &squot;other&squot; directories&squot; names only&quot;
 )paren
 comma
 id|DIR_SHOW_OTHER_DIRECTORIES

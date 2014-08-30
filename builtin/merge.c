@@ -7085,7 +7085,7 @@ id|_
 c_func
 (paren
 l_string|&quot;You have not concluded your merge (MERGE_HEAD exists).&bslash;n&quot;
-l_string|&quot;Please, commit your changes before you can merge.&quot;
+l_string|&quot;Please, commit your changes before you merge.&quot;
 )paren
 )paren
 suffix:semicolon
@@ -7127,7 +7127,7 @@ id|_
 c_func
 (paren
 l_string|&quot;You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).&bslash;n&quot;
-l_string|&quot;Please, commit your changes before you can merge.&quot;
+l_string|&quot;Please, commit your changes before you merge.&quot;
 )paren
 )paren
 suffix:semicolon
