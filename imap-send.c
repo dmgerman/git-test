@@ -2500,14 +2500,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|cmd-&gt;cmd
 comma
 l_string|&quot;LOGIN&quot;
-comma
-l_int|5
 )paren
 )paren
 id|printf
@@ -4410,14 +4409,13 @@ id|stderr
 comma
 l_string|&quot;IMAP command &squot;%s&squot; returned response (%s) - %s&bslash;n&quot;
 comma
-id|memcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|cmdp-&gt;cmd
 comma
 l_string|&quot;LOGIN&quot;
-comma
-l_int|5
 )paren
 ques
 c_cond
