@@ -2928,6 +2928,12 @@ id|one_filesystem
 op_assign
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t; * We may have read an incomplete configuration before&n;&t; * setting-up the git directory. If so, clear the cache so&n;&t; * that the next queries to the configuration reload complete&n;&t; * configuration (including the per-repo config file that we&n;&t; * ignored previously).&n;&t; */
+id|git_config_clear
+c_func
+(paren
+)paren
+suffix:semicolon
 multiline_comment|/*&n;&t; * Let&squot;s assume that we are in a git repository.&n;&t; * If it turns out later that we are somewhere else, the value will be&n;&t; * updated accordingly.&n;&t; */
 r_if
 c_cond
