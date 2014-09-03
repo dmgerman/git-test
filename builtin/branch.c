@@ -1136,6 +1136,8 @@ comma
 id|RESOLVE_REF_READING
 op_or
 id|RESOLVE_REF_NO_RECURSE
+op_or
+id|RESOLVE_REF_ALLOW_BAD_NAME
 comma
 id|sha1
 comma
@@ -1185,7 +1187,11 @@ op_logical_neg
 (paren
 id|flags
 op_amp
+(paren
 id|REF_ISSYMREF
+op_or
+id|REF_ISBROKEN
+)paren
 )paren
 op_logical_and
 id|check_branch_commit
@@ -1281,6 +1287,15 @@ l_string|&quot;Deleted branch %s (was %s).&bslash;n&quot;
 comma
 id|bname.buf
 comma
+(paren
+id|flags
+op_amp
+id|REF_ISBROKEN
+)paren
+ques
+c_cond
+l_string|&quot;broken&quot;
+suffix:colon
 (paren
 id|flags
 op_amp
