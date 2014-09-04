@@ -685,6 +685,7 @@ c_cond
 (paren
 id|sent_capabilities
 )paren
+(brace
 id|packet_write
 c_func
 (paren
@@ -701,13 +702,58 @@ comma
 id|path
 )paren
 suffix:semicolon
+)brace
 r_else
+(brace
+r_struct
+id|strbuf
+id|cap
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|cap
+comma
+l_string|&quot;report-status delete-refs side-band-64k quiet&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|prefer_ofs_delta
+)paren
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|cap
+comma
+l_string|&quot; ofs-delta&quot;
+)paren
+suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|cap
+comma
+l_string|&quot; agent=%s&quot;
+comma
+id|git_user_agent_sanitized
+c_func
+(paren
+)paren
+)paren
+suffix:semicolon
 id|packet_write
 c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s %s%c%s%s agent=%s&bslash;n&quot;
+l_string|&quot;%s %s%c%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -719,25 +765,21 @@ id|path
 comma
 l_int|0
 comma
-l_string|&quot; report-status delete-refs side-band-64k quiet&quot;
-comma
-id|prefer_ofs_delta
-ques
-c_cond
-l_string|&quot; ofs-delta&quot;
-suffix:colon
-l_string|&quot;&quot;
-comma
-id|git_user_agent_sanitized
+id|cap.buf
+)paren
+suffix:semicolon
+id|strbuf_release
 c_func
 (paren
-)paren
+op_amp
+id|cap
 )paren
 suffix:semicolon
 id|sent_capabilities
 op_assign
 l_int|1
 suffix:semicolon
+)brace
 )brace
 DECL|function|show_ref_cb
 r_static
