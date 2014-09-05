@@ -4768,6 +4768,26 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|flag
+op_amp
+id|REF_BAD_NAME
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;ignoring ref with broken name %s&quot;
+comma
+id|refname
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
 op_star
 id|cb-&gt;grab_pattern
 )paren
