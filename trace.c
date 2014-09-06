@@ -1024,8 +1024,8 @@ r_void
 id|trace_strbuf
 c_func
 (paren
-r_const
-r_char
+r_struct
+id|trace_key
 op_star
 id|key
 comma
