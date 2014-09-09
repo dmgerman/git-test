@@ -1715,6 +1715,15 @@ op_add_assign
 id|n
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|src
+op_ge
+id|end
+)paren
+r_break
+suffix:semicolon
 id|old
 op_assign
 id|src
