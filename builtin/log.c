@@ -4611,6 +4611,13 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|desc
+)paren
+suffix:semicolon
 )brace
 DECL|function|find_branch_name
 r_static
