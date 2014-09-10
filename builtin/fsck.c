@@ -1305,6 +1305,10 @@ c_func
 (paren
 id|obj
 comma
+l_int|NULL
+comma
+l_int|0
+comma
 id|check_strict
 comma
 id|fsck_error_func
