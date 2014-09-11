@@ -765,6 +765,13 @@ id|pfd
 comma
 id|pollsize
 comma
+id|keepalive
+OL
+l_int|0
+ques
+c_cond
+l_int|1
+suffix:colon
 l_int|1000
 op_star
 id|keepalive
