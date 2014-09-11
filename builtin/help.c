@@ -392,6 +392,8 @@ suffix:semicolon
 r_struct
 id|child_process
 id|ec_process
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_const
 r_char
@@ -412,20 +414,6 @@ r_int
 id|version
 suffix:semicolon
 multiline_comment|/* emacsclient prints its version number on stderr */
-id|memset
-c_func
-(paren
-op_amp
-id|ec_process
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|ec_process
-)paren
-)paren
-suffix:semicolon
 id|ec_process.argv
 op_assign
 id|argv_ec

@@ -505,6 +505,8 @@ suffix:semicolon
 r_struct
 id|child_process
 id|show
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_struct
 id|strbuf
@@ -519,20 +521,6 @@ op_assign
 id|STRBUF_INIT
 suffix:semicolon
 multiline_comment|/* Invoke &quot;git show --stat --no-notes $object&quot; */
-id|memset
-c_func
-(paren
-op_amp
-id|show
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|show
-)paren
-)paren
-suffix:semicolon
 id|show.argv
 op_assign
 id|show_args

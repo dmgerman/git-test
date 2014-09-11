@@ -1032,9 +1032,7 @@ r_struct
 id|child_process
 id|cmd
 op_assign
-(brace
-l_int|NULL
-)brace
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_int
 id|fd
@@ -1234,9 +1232,7 @@ r_struct
 id|child_process
 id|cmd
 op_assign
-(brace
-id|argv
-)brace
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_struct
 id|strbuf

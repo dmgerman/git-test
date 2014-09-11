@@ -2274,6 +2274,8 @@ suffix:semicolon
 r_struct
 id|child_process
 id|filter
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_const
 r_char
@@ -2323,20 +2325,6 @@ comma
 l_string|&quot; -%d&quot;
 comma
 id|args-&gt;compression_level
-)paren
-suffix:semicolon
-id|memset
-c_func
-(paren
-op_amp
-id|filter
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|filter
-)paren
 )paren
 suffix:semicolon
 id|argv
