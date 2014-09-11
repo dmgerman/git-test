@@ -1391,6 +1391,18 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|result
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;curl_easy_init failed&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|curl_ssl_verify
 )paren
 (brace
@@ -1866,10 +1878,21 @@ c_func
 id|normalized_url
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|curl_global_init
 c_func
 (paren
 id|CURL_GLOBAL_ALL
+)paren
+op_ne
+id|CURLE_OK
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;curl_global_init failed&quot;
 )paren
 suffix:semicolon
 id|http_proactive_auth
@@ -1949,25 +1972,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|curlm
-op_eq
-l_int|NULL
 )paren
-(brace
-id|fprintf
+id|die
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Error creating curl multi handle.&bslash;n&quot;
+l_string|&quot;curl_multi_init failed&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
-l_int|1
-)paren
-suffix:semicolon
-)brace
 macro_line|#endif
 r_if
 c_cond
