@@ -10288,8 +10288,6 @@ id|check_refname_format
 c_func
 (paren
 id|r-&gt;name
-op_plus
-l_int|5
 comma
 l_int|0
 )paren
