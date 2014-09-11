@@ -255,6 +255,11 @@ DECL|member|port
 r_int
 id|port
 suffix:semicolon
+DECL|member|folder
+r_char
+op_star
+id|folder
+suffix:semicolon
 DECL|member|user
 r_char
 op_star
@@ -303,6 +308,9 @@ multiline_comment|/* host */
 l_int|0
 comma
 multiline_comment|/* port */
+l_int|NULL
+comma
+multiline_comment|/* folder */
 l_int|NULL
 comma
 multiline_comment|/* user */
@@ -2481,14 +2489,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|cmd-&gt;cmd
 comma
 l_string|&quot;LOGIN&quot;
-comma
-l_int|5
 )paren
 )paren
 id|printf
@@ -4153,14 +4160,13 @@ id|stderr
 comma
 l_string|&quot;IMAP command &squot;%s&squot; returned response (%s) - %s&bslash;n&quot;
 comma
-id|memcmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|cmdp-&gt;cmd
 comma
 l_string|&quot;LOGIN&quot;
-comma
-l_int|5
 )paren
 ques
 c_cond
@@ -4928,19 +4934,6 @@ c_cond
 id|srvc-&gt;tunnel
 )paren
 (brace
-r_const
-r_char
-op_star
-id|argv
-(braket
-)braket
-op_assign
-(brace
-id|srvc-&gt;tunnel
-comma
-l_int|NULL
-)brace
-suffix:semicolon
 r_struct
 id|child_process
 id|tunnel
@@ -4955,9 +4948,14 @@ comma
 id|srvc-&gt;tunnel
 )paren
 suffix:semicolon
-id|tunnel.argv
-op_assign
-id|argv
+id|argv_array_push
+c_func
+(paren
+op_amp
+id|tunnel.args
+comma
+id|srvc-&gt;tunnel
+)paren
 suffix:semicolon
 id|tunnel.use_shell
 op_assign
@@ -4986,10 +4984,7 @@ c_func
 (paren
 l_string|&quot;cannot start proxy %s&quot;
 comma
-id|argv
-(braket
-l_int|0
-)braket
+id|srvc-&gt;tunnel
 )paren
 suffix:semicolon
 id|imap-&gt;buf.sock.fd
@@ -6915,12 +6910,6 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|variable|imap_folder
-r_static
-r_char
-op_star
-id|imap_folder
-suffix:semicolon
 DECL|function|git_imap_config
 r_static
 r_void
@@ -6961,7 +6950,7 @@ c_func
 l_string|&quot;imap.folder&quot;
 comma
 op_amp
-id|imap_folder
+id|server.folder
 )paren
 suffix:semicolon
 r_if
@@ -7213,7 +7202,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|imap_folder
+id|server.folder
 )paren
 (brace
 id|fprintf
@@ -7342,7 +7331,7 @@ c_func
 op_amp
 id|server
 comma
-id|imap_folder
+id|server.folder
 )paren
 suffix:semicolon
 r_if
