@@ -1133,7 +1133,7 @@ c_func
 (paren
 id|name
 comma
-l_int|0
+id|RESOLVE_REF_NO_RECURSE
 comma
 id|sha1
 comma
