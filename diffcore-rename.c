@@ -676,7 +676,7 @@ c_func
 (paren
 id|src
 comma
-l_int|1
+id|CHECK_SIZE_ONLY
 )paren
 )paren
 r_return
@@ -693,7 +693,7 @@ c_func
 (paren
 id|dst
 comma
-l_int|1
+id|CHECK_SIZE_ONLY
 )paren
 )paren
 r_return
