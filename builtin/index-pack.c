@@ -4027,6 +4027,10 @@ c_func
 (paren
 id|obj
 comma
+id|buf
+comma
+id|size
+comma
 l_int|1
 comma
 id|fsck_error_function
