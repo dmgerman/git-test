@@ -402,6 +402,13 @@ op_amp
 id|progress
 )paren
 suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|pathname
+)paren
+suffix:semicolon
 )brace
 DECL|function|cmd_prune_packed
 r_int
