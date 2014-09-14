@@ -295,7 +295,11 @@ l_int|0
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;invalid --decorate option: %s&quot;
+)paren
 comma
 id|arg
 )paren
@@ -599,7 +603,11 @@ id|line_cb
 comma
 l_string|&quot;n,m:file&quot;
 comma
+id|N_
+c_func
+(paren
 l_string|&quot;Process line range n,m in file, counting from 1&quot;
+)paren
 comma
 id|log_line_range_callback
 )paren
@@ -678,7 +686,11 @@ l_int|1
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;unrecognized argument: %s&quot;
+)paren
 comma
 id|argv
 (braket
@@ -2112,7 +2124,11 @@ id|obj_context
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;Not a valid object name %s&quot;
+)paren
 comma
 id|obj_name
 )paren
@@ -2167,7 +2183,11 @@ id|buf
 id|die
 c_func
 (paren
+id|_
+c_func
+(paren
 l_string|&quot;git show %s: bad file&quot;
+)paren
 comma
 id|obj_name
 )paren
