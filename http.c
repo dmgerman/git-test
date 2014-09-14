@@ -1,3 +1,4 @@
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;http.h&quot;
 macro_line|#include &quot;pack.h&quot;
 macro_line|#include &quot;sideband.h&quot;

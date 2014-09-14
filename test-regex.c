@@ -1,4 +1,4 @@
-macro_line|#include &lt;git-compat-util.h&gt;
+macro_line|#include &quot;git-compat-util.h&quot;
 DECL|function|main
 r_int
 id|main

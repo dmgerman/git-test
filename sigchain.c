@@ -1,5 +1,5 @@
-macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|macro|SIGCHAIN_MAX_SIGNALS
 mdefine_line|#define SIGCHAIN_MAX_SIGNALS 32
 DECL|struct|sigchain_signal

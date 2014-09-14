@@ -1,4 +1,5 @@
 multiline_comment|/*&n; * Copyright (c) 2011, Google Inc.&n; */
+macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;bulk-checkin.h&quot;
 macro_line|#include &quot;csum-file.h&quot;
 macro_line|#include &quot;pack.h&quot;
