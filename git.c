@@ -1810,25 +1810,15 @@ comma
 id|alias_command
 )paren
 suffix:semicolon
-id|new_argv
-op_assign
-id|xrealloc
+id|REALLOC_ARRAY
 c_func
 (paren
 id|new_argv
 comma
-r_sizeof
-(paren
-r_char
-op_star
-)paren
-op_star
-(paren
 id|count
 op_plus
 op_star
 id|argcp
-)paren
 )paren
 suffix:semicolon
 multiline_comment|/* insert after command name */

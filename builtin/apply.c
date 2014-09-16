@@ -12114,20 +12114,12 @@ id|postimage-&gt;nr
 )paren
 (brace
 multiline_comment|/*&n;&t;&t; * NOTE: this knows that we never call remove_first_line()&n;&t;&t; * on anything other than pre/post image.&n;&t;&t; */
-id|img-&gt;line
-op_assign
-id|xrealloc
+id|REALLOC_ARRAY
 c_func
 (paren
 id|img-&gt;line
 comma
 id|nr
-op_star
-r_sizeof
-(paren
-op_star
-id|img-&gt;line
-)paren
 )paren
 suffix:semicolon
 id|img-&gt;line_allocated
