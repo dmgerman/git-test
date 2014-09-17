@@ -1870,6 +1870,7 @@ id|main_cmds.cnt
 comma
 r_sizeof
 (paren
+op_star
 id|main_cmds.names
 )paren
 comma
