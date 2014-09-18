@@ -6024,6 +6024,34 @@ r_return
 l_int|1
 suffix:semicolon
 r_case
+l_char|&squot;D&squot;
+suffix:colon
+id|load_ref_decorations
+c_func
+(paren
+id|DECORATE_SHORT_REFS
+)paren
+suffix:semicolon
+id|format_decorations_extended
+c_func
+(paren
+id|sb
+comma
+id|commit
+comma
+id|c-&gt;auto_color
+comma
+l_string|&quot;&quot;
+comma
+l_string|&quot;, &quot;
+comma
+l_string|&quot;&quot;
+)paren
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+r_case
 l_char|&squot;g&squot;
 suffix:colon
 multiline_comment|/* reflog info */
