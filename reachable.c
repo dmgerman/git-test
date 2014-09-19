@@ -1160,6 +1160,15 @@ comma
 id|revs
 )paren
 suffix:semicolon
+multiline_comment|/* detached HEAD is not included in the list above */
+id|head_ref
+c_func
+(paren
+id|add_one_ref
+comma
+id|revs
+)paren
+suffix:semicolon
 multiline_comment|/* Add all reflog info */
 r_if
 c_cond
