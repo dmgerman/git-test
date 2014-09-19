@@ -10297,7 +10297,7 @@ id|_
 c_func
 (paren
 l_string|&quot;Repository has been updated, but unable to write&bslash;n&quot;
-l_string|&quot;new_index file. Check that disk is not full or quota is&bslash;n&quot;
+l_string|&quot;new_index file. Check that disk is not full and quota is&bslash;n&quot;
 l_string|&quot;not exceeded, and then &bslash;&quot;git reset HEAD&bslash;&quot; to recover.&quot;
 )paren
 )paren
