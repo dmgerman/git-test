@@ -3258,6 +3258,13 @@ r_if
 c_cond
 (paren
 id|opt-&gt;use_terminator
+op_logical_and
+op_logical_neg
+id|commit_format_is_empty
+c_func
+(paren
+id|opt-&gt;commit_format
+)paren
 )paren
 (brace
 r_if
@@ -3378,6 +3385,13 @@ op_logical_and
 id|opt-&gt;commit_format
 op_ne
 id|CMIT_FMT_ONELINE
+op_logical_and
+op_logical_neg
+id|commit_format_is_empty
+c_func
+(paren
+id|opt-&gt;commit_format
+)paren
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * When showing a verbose header (i.e. log message),&n;&t;&t;&t; * and not in --pretty=oneline format, we would want&n;&t;&t;&t; * an extra newline between the end of log and the&n;&t;&t;&t; * diff/diffstat output for readability.&n;&t;&t;&t; */

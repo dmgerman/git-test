@@ -8963,9 +8963,7 @@ suffix:semicolon
 id|get_commit_format
 c_func
 (paren
-id|arg
-op_plus
-l_int|8
+l_int|NULL
 comma
 id|revs
 )paren
