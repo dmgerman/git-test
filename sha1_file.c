@@ -15453,15 +15453,7 @@ id|flags
 r_int
 id|ret
 suffix:semicolon
-r_int
-id|size
-op_assign
-id|xsize_t
-c_func
-(paren
-id|st-&gt;st_size
-)paren
-suffix:semicolon
+multiline_comment|/*&n;&t; * Call xsize_t() only when needed to avoid potentially unnecessary&n;&t; * die() for large files.&n;&t; */
 r_if
 c_cond
 (paren
@@ -15522,7 +15514,7 @@ r_else
 r_if
 c_cond
 (paren
-id|size
+id|st-&gt;st_size
 op_le
 id|big_file_threshold
 op_logical_or
@@ -15549,7 +15541,11 @@ id|sha1
 comma
 id|fd
 comma
-id|size
+id|xsize_t
+c_func
+(paren
+id|st-&gt;st_size
+)paren
 comma
 id|type
 comma
@@ -15568,7 +15564,11 @@ id|sha1
 comma
 id|fd
 comma
-id|size
+id|xsize_t
+c_func
+(paren
+id|st-&gt;st_size
+)paren
 comma
 id|type
 comma
