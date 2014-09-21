@@ -6122,7 +6122,7 @@ id|path
 comma
 id|a.buf
 comma
-id|o.len
+id|a.len
 comma
 op_amp
 id|a
