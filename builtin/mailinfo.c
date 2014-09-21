@@ -1474,8 +1474,6 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-DECL|macro|SAMPLE
-mdefine_line|#define SAMPLE &quot;From e6807f3efca28b30decfecb1732a56c7db1137ee Mon Sep 17 00:00:00 2001&bslash;n&quot;
 DECL|function|is_format_patch_separator
 r_static
 r_int
@@ -1491,6 +1489,15 @@ r_int
 id|len
 )paren
 (brace
+r_static
+r_const
+r_char
+id|SAMPLE
+(braket
+)braket
+op_assign
+l_string|&quot;From e6807f3efca28b30decfecb1732a56c7db1137ee Mon Sep 17 00:00:00 2001&bslash;n&quot;
+suffix:semicolon
 r_const
 r_char
 op_star
