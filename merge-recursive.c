@@ -6190,7 +6190,6 @@ op_star
 id|entry
 )paren
 (brace
-multiline_comment|/*&n;&t;printf(&quot;processing entry, clean cache: %s&bslash;n&quot;, index_only ? &quot;yes&quot;: &quot;no&quot;);&n;&t;print_index_entry(&quot;&bslash;tpath: &quot;, entry);&n;&t;*/
 r_int
 id|clean_merge
 op_assign
