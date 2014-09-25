@@ -1577,10 +1577,8 @@ c_func
 (paren
 r_int
 r_char
+op_star
 id|out
-(braket
-l_int|20
-)braket
 comma
 r_const
 r_char
@@ -1802,10 +1800,7 @@ id|ctx
 comma
 id|out
 comma
-r_sizeof
-(paren
-id|out
-)paren
+l_int|20
 )paren
 suffix:semicolon
 id|git_SHA1_Final
