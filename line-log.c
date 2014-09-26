@@ -2799,20 +2799,12 @@ op_increment
 suffix:semicolon
 )brace
 multiline_comment|/* shrink the array to fit the elements */
-id|ends
-op_assign
-id|xrealloc
+id|REALLOC_ARRAY
 c_func
 (paren
 id|ends
 comma
 id|cur
-op_star
-r_sizeof
-(paren
-op_star
-id|ends
-)paren
 )paren
 suffix:semicolon
 op_star
