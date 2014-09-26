@@ -15,6 +15,7 @@ macro_line|#include &quot;sha1-array.h&quot;
 macro_line|#include &quot;connected.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
 macro_line|#include &quot;version.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|variable|receive_pack_usage
 r_static
 r_const
@@ -1525,6 +1526,14 @@ r_return
 id|code
 suffix:semicolon
 )brace
+id|sigchain_push
+c_func
+(paren
+id|SIGPIPE
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -1590,6 +1599,12 @@ c_func
 (paren
 op_amp
 id|muxer
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGPIPE
 )paren
 suffix:semicolon
 r_return
