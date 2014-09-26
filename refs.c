@@ -410,37 +410,10 @@ l_int|0
 op_eq
 l_char|&squot;.&squot;
 )paren
-(brace
-r_if
-c_cond
-(paren
-op_logical_neg
-(paren
-id|flags
-op_amp
-id|REFNAME_DOT_COMPONENT
-)paren
-)paren
 r_return
 l_int|1
 suffix:semicolon
 multiline_comment|/* Component starts with &squot;.&squot;. */
-multiline_comment|/*&n;&t;&t; * Even if leading dots are allowed, don&squot;t allow &quot;.&quot;&n;&t;&t; * as a component (&quot;..&quot; is prevented by a rule above).&n;&t;&t; */
-r_if
-c_cond
-(paren
-id|refname
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;&bslash;0&squot;
-)paren
-r_return
-l_int|1
-suffix:semicolon
-multiline_comment|/* Component equals &quot;.&quot;. */
-)brace
 r_if
 c_cond
 (paren
@@ -874,8 +847,6 @@ c_func
 id|refname
 comma
 id|REFNAME_ALLOW_ONELEVEL
-op_or
-id|REFNAME_DOT_COMPONENT
 )paren
 )paren
 id|die
