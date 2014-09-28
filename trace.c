@@ -1836,7 +1836,6 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Returns nanoseconds since the epoch (01/01/1970), for performance tracing&n; * (i.e. favoring high precision over wall clock time accuracy).&n; */
 DECL|function|getnanotime
-r_inline
 r_uint64
 id|getnanotime
 c_func
