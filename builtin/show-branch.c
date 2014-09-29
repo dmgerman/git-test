@@ -3780,6 +3780,12 @@ id|base
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+r_int
+id|flags
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3939,6 +3945,8 @@ c_func
 (paren
 id|ref
 comma
+id|flags
+comma
 id|at
 comma
 l_int|1
@@ -3995,6 +4003,8 @@ id|read_ref_at
 c_func
 (paren
 id|ref
+comma
+id|flags
 comma
 l_int|0
 comma
