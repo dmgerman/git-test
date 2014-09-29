@@ -886,10 +886,10 @@ id|abbrev
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * The caller makes sure there is no funny color before&n; * calling. format_decorations makes sure the same after return.&n; */
-DECL|function|format_decorations
+multiline_comment|/*&n; * The caller makes sure there is no funny color before calling.&n; * format_decorations_extended makes sure the same after return.&n; */
+DECL|function|format_decorations_extended
 r_void
-id|format_decorations
+id|format_decorations_extended
 c_func
 (paren
 r_struct
@@ -905,13 +905,23 @@ id|commit
 comma
 r_int
 id|use_color
-)paren
-(brace
+comma
 r_const
 r_char
 op_star
 id|prefix
-suffix:semicolon
+comma
+r_const
+r_char
+op_star
+id|separator
+comma
+r_const
+r_char
+op_star
+id|suffix
+)paren
+(brace
 r_const
 r_struct
 id|name_decoration
@@ -960,10 +970,6 @@ op_logical_neg
 id|decoration
 )paren
 r_return
-suffix:semicolon
-id|prefix
-op_assign
-l_string|&quot; (&quot;
 suffix:semicolon
 r_while
 c_loop
@@ -1034,7 +1040,7 @@ id|color_reset
 suffix:semicolon
 id|prefix
 op_assign
-l_string|&quot;, &quot;
+id|separator
 suffix:semicolon
 id|decoration
 op_assign
@@ -1049,12 +1055,12 @@ comma
 id|color_commit
 )paren
 suffix:semicolon
-id|strbuf_addch
+id|strbuf_addstr
 c_func
 (paren
 id|sb
 comma
-l_char|&squot;)&squot;
+id|suffix
 )paren
 suffix:semicolon
 id|strbuf_addstr
