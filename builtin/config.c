@@ -3434,7 +3434,7 @@ l_int|0
 comma
 id|value
 comma
-l_string|&quot;^$&quot;
+id|CONFIG_REGEX_NONE
 comma
 l_int|0
 )paren
