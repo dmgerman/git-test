@@ -1771,11 +1771,18 @@ id|i
 op_assign
 l_int|NULL
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|fsck_sha1
 c_func
 (paren
 id|sha1
 )paren
+)paren
+id|errors_found
+op_or_assign
+id|ERROR_OBJECT
 suffix:semicolon
 id|free
 c_func
@@ -2330,6 +2337,10 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
+id|errors_found
+op_or_assign
+id|ERROR_REACHABLE
+suffix:semicolon
 multiline_comment|/* We&squot;ll continue with the rest despite the error.. */
 r_return
 l_int|0
@@ -2406,7 +2417,7 @@ comma
 l_int|NULL
 )paren
 suffix:semicolon
-id|for_each_ref
+id|for_each_rawref
 c_func
 (paren
 id|fsck_handle_ref
