@@ -2790,6 +2790,12 @@ c_func
 id|hostname
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|hent
+)paren
+(brace
 id|ap
 op_assign
 id|hent-&gt;h_addr_list
@@ -2874,6 +2880,7 @@ c_func
 id|addrbuf
 )paren
 suffix:semicolon
+)brace
 macro_line|#endif
 )brace
 )brace
