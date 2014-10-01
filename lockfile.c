@@ -908,10 +908,10 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|close
+id|rollback_lock_file
 c_func
 (paren
-id|fd
+id|lk
 )paren
 suffix:semicolon
 r_return
@@ -950,10 +950,10 @@ m_exit
 l_int|128
 )paren
 suffix:semicolon
-id|close
+id|rollback_lock_file
 c_func
 (paren
-id|fd
+id|lk
 )paren
 suffix:semicolon
 r_return
