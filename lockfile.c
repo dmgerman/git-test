@@ -1083,6 +1083,21 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|lk-&gt;filename
+(braket
+l_int|0
+)braket
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: attempt to commit unlocked object&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|close_lock_file
 c_func
 (paren
