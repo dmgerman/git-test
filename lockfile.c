@@ -796,6 +796,11 @@ op_ne
 id|ENOENT
 )paren
 (brace
+r_int
+id|save_errno
+op_assign
+id|errno
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -817,7 +822,6 @@ c_func
 id|lk
 )paren
 suffix:semicolon
-r_return
 id|error
 c_func
 (paren
@@ -825,6 +829,13 @@ l_string|&quot;cannot open &squot;%s&squot; for copying&quot;
 comma
 id|path
 )paren
+suffix:semicolon
+id|errno
+op_assign
+id|save_errno
+suffix:semicolon
+r_return
+l_int|1
 suffix:semicolon
 )brace
 )brace
@@ -841,6 +852,11 @@ id|fd
 )paren
 )paren
 (brace
+r_int
+id|save_errno
+op_assign
+id|errno
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -858,6 +874,10 @@ c_func
 (paren
 id|lk
 )paren
+suffix:semicolon
+id|errno
+op_assign
+id|save_errno
 suffix:semicolon
 r_return
 l_int|1
