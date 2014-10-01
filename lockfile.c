@@ -379,7 +379,7 @@ op_logical_neg
 (paren
 id|flags
 op_amp
-id|LOCK_NODEREF
+id|LOCK_NO_DEREF
 )paren
 )paren
 id|resolve_symlink

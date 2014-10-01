@@ -9288,7 +9288,7 @@ id|orig_refname
 suffix:semicolon
 id|lflags
 op_or_assign
-id|LOCK_NODEREF
+id|LOCK_NO_DEREF
 suffix:semicolon
 )brace
 id|lock-&gt;ref_name
