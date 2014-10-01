@@ -11105,13 +11105,10 @@ r_char
 op_star
 id|loose_filename
 op_assign
-id|xmemdupz
+id|get_locked_file_path
 c_func
 (paren
-id|lock-&gt;lk-&gt;filename.buf
-comma
-id|lock-&gt;lk-&gt;filename.len
-id|LOCK_SUFFIX_LEN
+id|lock-&gt;lk
 )paren
 suffix:semicolon
 r_int
