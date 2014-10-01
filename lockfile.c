@@ -1,7 +1,7 @@
 multiline_comment|/*&n; * Copyright (c) 2005, Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
-multiline_comment|/*&n; * File write-locks as used by Git.&n; *&n; * For an overview of how to use the lockfile API, please see&n; *&n; *     Documentation/technical/api-lockfile.txt&n; *&n; * This module keeps track of all locked files in lock_file_list for&n; * use at cleanup. This list and the lock_file objects that comprise&n; * it must be kept in self-consistent states at all time, because the&n; * program can be interrupted any time by a signal, in which case the&n; * signal handler will walk through the list attempting to clean up&n; * any open lock files.&n; *&n; * A lockfile is owned by the process that created it. The lock_file&n; * object has an &quot;owner&quot; field that records its owner. This field is&n; * used to prevent a forked process from closing a lockfile created by&n; * its parent.&n; *&n; * A lock_file object can be in several states:&n; *&n; * - Uninitialized.  In this state the object&squot;s on_list field must be&n; *   zero but the rest of its contents need not be initialized.  As&n; *   soon as the object is used in any way, it is irrevocably&n; *   registered in the lock_file_list, and on_list is set.&n; *&n; * - Locked, lockfile open (after hold_lock_file_for_update(),&n; *   hold_lock_file_for_append(), or reopen_lock_file()). In this&n; *   state, the lockfile exists, filename holds the filename of the&n; *   lockfile, fd holds a file descriptor open for writing to the&n; *   lockfile, and owner holds the PID of the process that locked the&n; *   file.&n; *&n; * - Locked, lockfile closed (after close_lock_file()).  Same as the&n; *   previous state, except that the lockfile is closed and fd is -1.&n; *&n; * - Unlocked (after commit_lock_file(), rollback_lock_file(), or a&n; *   failed attempt to lock).  In this state, filename[0] == &squot;&bslash;0&squot; and&n; *   fd is -1.  The object is left registered in the lock_file_list,&n; *   and on_list is set.&n; */
+multiline_comment|/*&n; * File write-locks as used by Git.&n; *&n; * For an overview of how to use the lockfile API, please see&n; *&n; *     Documentation/technical/api-lockfile.txt&n; *&n; * This module keeps track of all locked files in lock_file_list for&n; * use at cleanup. This list and the lock_file objects that comprise&n; * it must be kept in self-consistent states at all time, because the&n; * program can be interrupted any time by a signal, in which case the&n; * signal handler will walk through the list attempting to clean up&n; * any open lock files.&n; *&n; * A lockfile is owned by the process that created it. The lock_file&n; * object has an &quot;owner&quot; field that records its owner. This field is&n; * used to prevent a forked process from closing a lockfile created by&n; * its parent.&n; *&n; * A lock_file object can be in several states:&n; *&n; * - Uninitialized.  In this state the object&squot;s on_list field must be&n; *   zero but the rest of its contents need not be initialized.  As&n; *   soon as the object is used in any way, it is irrevocably&n; *   registered in the lock_file_list, and on_list is set.&n; *&n; * - Locked, lockfile open (after hold_lock_file_for_update(),&n; *   hold_lock_file_for_append(), or reopen_lock_file()). In this&n; *   state, the lockfile exists, filename holds the filename of the&n; *   lockfile, fd holds a file descriptor open for writing to the&n; *   lockfile, and owner holds the PID of the process that locked the&n; *   file.&n; *&n; * - Locked, lockfile closed (after successful close_lock_file()).&n; *   Same as the previous state, except that the lockfile is closed&n; *   and fd is -1.&n; *&n; * - Unlocked (after commit_lock_file(), rollback_lock_file(), a&n; *   failed attempt to lock, or a failed close_lock_file()). In this&n; *   state, filename[0] == &squot;&bslash;0&squot; and fd is -1. The object is left&n; *   registered in the lock_file_list, and on_list is set.&n; */
 DECL|variable|lock_file_list
 r_static
 r_struct
@@ -994,12 +994,37 @@ id|lk-&gt;fd
 op_assign
 l_int|1
 suffix:semicolon
-r_return
+r_if
+c_cond
+(paren
 id|close
 c_func
 (paren
 id|fd
 )paren
+)paren
+(brace
+r_int
+id|save_errno
+op_assign
+id|errno
+suffix:semicolon
+id|rollback_lock_file
+c_func
+(paren
+id|lk
+)paren
+suffix:semicolon
+id|errno
+op_assign
+id|save_errno
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|reopen_lock_file
@@ -1209,12 +1234,17 @@ l_int|0
 )paren
 r_return
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
 id|close_lock_file
 c_func
 (paren
 id|lk
 )paren
-suffix:semicolon
+)paren
+(brace
 id|unlink_or_warn
 c_func
 (paren
@@ -1228,5 +1258,6 @@ l_int|0
 op_assign
 l_int|0
 suffix:semicolon
+)brace
 )brace
 eof
