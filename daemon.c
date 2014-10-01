@@ -4823,7 +4823,7 @@ l_int|0
 id|logerror
 c_func
 (paren
-l_string|&quot;Could not listen to %s: %s&quot;
+l_string|&quot;Could not bind to %s: %s&quot;
 comma
 id|ip2str
 c_func
