@@ -9808,6 +9808,10 @@ id|alternate_index_output
 r_return
 l_int|1
 suffix:semicolon
+id|lk-&gt;active
+op_assign
+l_int|0
+suffix:semicolon
 id|lk-&gt;filename
 (braket
 l_int|0
