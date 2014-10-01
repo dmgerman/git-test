@@ -1212,7 +1212,6 @@ c_func
 id|lk-&gt;filename
 )paren
 suffix:semicolon
-)brace
 id|lk-&gt;filename
 (braket
 l_int|0
@@ -1220,5 +1219,6 @@ l_int|0
 op_assign
 l_int|0
 suffix:semicolon
+)brace
 )brace
 eof
