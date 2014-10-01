@@ -9377,18 +9377,6 @@ id|mark_lock
 )paren
 )paren
 (brace
-r_int
-id|saved_errno
-op_assign
-id|errno
-suffix:semicolon
-id|rollback_lock_file
-c_func
-(paren
-op_amp
-id|mark_lock
-)paren
-suffix:semicolon
 id|failure
 op_or_assign
 id|error
@@ -9401,7 +9389,7 @@ comma
 id|strerror
 c_func
 (paren
-id|saved_errno
+id|errno
 )paren
 )paren
 suffix:semicolon
