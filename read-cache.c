@@ -9800,7 +9800,7 @@ c_cond
 id|rename
 c_func
 (paren
-id|lk-&gt;filename
+id|lk-&gt;filename.buf
 comma
 id|alternate_index_output
 )paren
@@ -9812,12 +9812,12 @@ id|lk-&gt;active
 op_assign
 l_int|0
 suffix:semicolon
+id|strbuf_reset
+c_func
+(paren
+op_amp
 id|lk-&gt;filename
-(braket
-l_int|0
-)braket
-op_assign
-l_int|0
+)paren
 suffix:semicolon
 r_return
 l_int|0

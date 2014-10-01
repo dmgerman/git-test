@@ -2009,7 +2009,7 @@ c_func
 (paren
 l_string|&quot;Couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename
+id|lock-&gt;lk-&gt;filename.buf
 )paren
 suffix:semicolon
 id|unlink

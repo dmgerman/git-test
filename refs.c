@@ -11108,13 +11108,9 @@ op_assign
 id|xmemdupz
 c_func
 (paren
-id|lock-&gt;lk-&gt;filename
+id|lock-&gt;lk-&gt;filename.buf
 comma
-id|strlen
-c_func
-(paren
-id|lock-&gt;lk-&gt;filename
-)paren
+id|lock-&gt;lk-&gt;filename.len
 id|LOCK_SUFFIX_LEN
 )paren
 suffix:semicolon
@@ -13082,7 +13078,7 @@ c_func
 (paren
 l_string|&quot;Couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename
+id|lock-&gt;lk-&gt;filename.buf
 )paren
 suffix:semicolon
 id|unlock_ref
