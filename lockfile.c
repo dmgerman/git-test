@@ -555,6 +555,12 @@ comma
 id|lk-&gt;filename
 )paren
 suffix:semicolon
+id|rollback_lock_file
+c_func
+(paren
+id|lk
+)paren
+suffix:semicolon
 id|errno
 op_assign
 id|save_errno
