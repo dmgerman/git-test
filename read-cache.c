@@ -9785,10 +9785,6 @@ id|alternate_index_output
 r_if
 c_cond
 (paren
-id|lk-&gt;fd
-op_ge
-l_int|0
-op_logical_and
 id|close_lock_file
 c_func
 (paren

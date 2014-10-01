@@ -974,6 +974,16 @@ id|fd
 op_assign
 id|lk-&gt;fd
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|fd
+OL
+l_int|0
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|lk-&gt;fd
 op_assign
 l_int|1
@@ -1070,10 +1080,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|lk-&gt;fd
-op_ge
-l_int|0
-op_logical_and
 id|close_lock_file
 c_func
 (paren
