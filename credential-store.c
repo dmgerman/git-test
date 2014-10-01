@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;parse-options.h&quot;

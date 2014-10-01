@@ -2,6 +2,7 @@ multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copy
 DECL|macro|NO_THE_INDEX_COMPATIBILITY_MACROS
 mdefine_line|#define NO_THE_INDEX_COMPATIBILITY_MACROS
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;dir.h&quot;

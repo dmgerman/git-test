@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Builtin &quot;git merge&quot;&n; *&n; * Copyright (c) 
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;refs.h&quot;

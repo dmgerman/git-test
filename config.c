@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; * Copyright (C) Johannes Schindelin, 2005&n; *&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;

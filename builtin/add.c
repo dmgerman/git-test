@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * &quot;git add&quot; builtin command&n; *&n; * Copyright (C) 2006 Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;pathspec.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
