@@ -1080,9 +1080,6 @@ id|result_file
 id|PATH_MAX
 )braket
 suffix:semicolon
-r_int
-id|i
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1103,19 +1100,15 @@ comma
 id|lk-&gt;filename
 )paren
 suffix:semicolon
-id|i
-op_assign
+multiline_comment|/* remove &quot;.lock&quot;: */
+id|result_file
+(braket
 id|strlen
 c_func
 (paren
 id|result_file
 )paren
 id|LOCK_SUFFIX_LEN
-suffix:semicolon
-multiline_comment|/* .lock */
-id|result_file
-(braket
-id|i
 )braket
 op_assign
 l_int|0
