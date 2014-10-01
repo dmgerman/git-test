@@ -1249,6 +1249,7 @@ suffix:semicolon
 )brace
 DECL|function|prepare_index
 r_static
+r_const
 r_char
 op_star
 id|prepare_index
