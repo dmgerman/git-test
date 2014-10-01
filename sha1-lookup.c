@@ -223,19 +223,6 @@ l_string|&quot;BUG: assertion failed in binary search&quot;
 suffix:semicolon
 )brace
 )brace
-r_if
-c_cond
-(paren
-l_int|18
-op_le
-id|ofs
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;cannot happen -- lo and hi are identical&quot;
-)paren
-suffix:semicolon
 )brace
 r_do
 (brace
