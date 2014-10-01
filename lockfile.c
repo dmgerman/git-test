@@ -1187,12 +1187,14 @@ id|lk
 r_if
 c_cond
 (paren
+op_logical_neg
 id|lk-&gt;filename
 (braket
 l_int|0
 )braket
 )paren
-(brace
+r_return
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1219,6 +1221,5 @@ l_int|0
 op_assign
 l_int|0
 suffix:semicolon
-)brace
 )brace
 eof
