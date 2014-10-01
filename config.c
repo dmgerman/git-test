@@ -10607,6 +10607,10 @@ id|ret
 op_assign
 id|CONFIG_NO_WRITE
 suffix:semicolon
+id|lock
+op_assign
+l_int|NULL
+suffix:semicolon
 r_goto
 id|out_free
 suffix:semicolon
