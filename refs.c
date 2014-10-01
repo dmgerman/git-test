@@ -446,18 +446,18 @@ c_cond
 id|cp
 id|refname
 op_ge
-l_int|5
+id|LOCK_SUFFIX_LEN
 op_logical_and
 op_logical_neg
 id|memcmp
 c_func
 (paren
 id|cp
-l_int|5
+id|LOCK_SUFFIX_LEN
 comma
-l_string|&quot;.lock&quot;
+id|LOCK_SUFFIX
 comma
-l_int|5
+id|LOCK_SUFFIX_LEN
 )paren
 )paren
 r_return
@@ -11111,9 +11111,8 @@ c_func
 (paren
 id|lock-&gt;lk-&gt;filename
 )paren
-l_int|5
+id|LOCK_SUFFIX_LEN
 suffix:semicolon
-multiline_comment|/* .lock */
 id|lock-&gt;lk-&gt;filename
 (braket
 id|i
@@ -11134,7 +11133,10 @@ id|lock-&gt;lk-&gt;filename
 id|i
 )braket
 op_assign
-l_char|&squot;.&squot;
+id|LOCK_SUFFIX
+(braket
+l_int|0
+)braket
 suffix:semicolon
 r_if
 c_cond

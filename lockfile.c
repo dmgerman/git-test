@@ -396,7 +396,7 @@ r_int
 id|flags
 )paren
 (brace
-multiline_comment|/*&n;&t; * subtract 5 from size to make sure there&squot;s room for adding&n;&t; * &quot;.lock&quot; for the lock file name&n;&t; */
+multiline_comment|/*&n;&t; * subtract LOCK_SUFFIX_LEN from size to make sure there&squot;s&n;&t; * room for adding &quot;.lock&quot; for the lock file name:&n;&t; */
 r_static
 r_const
 r_int
@@ -406,7 +406,7 @@ r_sizeof
 (paren
 id|lk-&gt;filename
 )paren
-l_int|5
+id|LOCK_SUFFIX_LEN
 suffix:semicolon
 r_if
 c_cond
@@ -516,7 +516,7 @@ c_func
 (paren
 id|lk-&gt;filename
 comma
-l_string|&quot;.lock&quot;
+id|LOCK_SUFFIX
 )paren
 suffix:semicolon
 id|lk-&gt;fd
@@ -1128,7 +1128,7 @@ c_func
 (paren
 id|result_file
 )paren
-l_int|5
+id|LOCK_SUFFIX_LEN
 suffix:semicolon
 multiline_comment|/* .lock */
 id|result_file
