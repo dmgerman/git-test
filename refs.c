@@ -9433,7 +9433,7 @@ r_goto
 id|retry
 suffix:semicolon
 r_else
-id|unable_to_lock_index_die
+id|unable_to_lock_die
 c_func
 (paren
 id|ref_file

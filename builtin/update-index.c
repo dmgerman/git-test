@@ -4832,7 +4832,7 @@ m_exit
 l_int|128
 )paren
 suffix:semicolon
-id|unable_to_lock_index_die
+id|unable_to_lock_die
 c_func
 (paren
 id|get_index_file

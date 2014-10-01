@@ -699,10 +699,10 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|unable_to_lock_index_die
+DECL|function|unable_to_lock_die
 id|NORETURN
 r_void
-id|unable_to_lock_index_die
+id|unable_to_lock_die
 c_func
 (paren
 r_const
@@ -786,7 +786,7 @@ op_amp
 id|LOCK_DIE_ON_ERROR
 )paren
 )paren
-id|unable_to_lock_index_die
+id|unable_to_lock_die
 c_func
 (paren
 id|path
@@ -849,7 +849,7 @@ id|flags
 op_amp
 id|LOCK_DIE_ON_ERROR
 )paren
-id|unable_to_lock_index_die
+id|unable_to_lock_die
 c_func
 (paren
 id|path
