@@ -7,6 +7,7 @@ r_static
 r_struct
 id|lock_file
 op_star
+r_volatile
 id|lock_file_list
 suffix:semicolon
 DECL|function|remove_lock_file
