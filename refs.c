@@ -9004,7 +9004,7 @@ r_return
 id|logs_found
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Locks a &quot;refs/&quot; ref returning the lock on success and NULL on failure.&n; * On failure errno is set to something meaningful.&n; */
+multiline_comment|/*&n; * Locks a ref returning the lock on success and NULL on failure.&n; * On failure errno is set to something meaningful.&n; */
 DECL|function|lock_ref_sha1_basic
 r_static
 r_struct
