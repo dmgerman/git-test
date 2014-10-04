@@ -241,12 +241,6 @@ op_logical_neg
 id|allow_bare
 )paren
 (brace
-id|unlink
-c_func
-(paren
-id|name
-)paren
-suffix:semicolon
 id|fprintf
 c_func
 (paren
