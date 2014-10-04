@@ -53,10 +53,12 @@ id|special
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-id|psoff
+r_const
+r_char
+op_star
+id|service_noprefix
 op_assign
-l_int|0
+id|service
 suffix:semicolon
 r_struct
 id|strbuf
@@ -64,24 +66,16 @@ id|ret
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-multiline_comment|/* Calculate prefix length for &bslash;s and lengths for &bslash;s and &bslash;S */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|strncmp
+id|skip_prefix
 c_func
 (paren
-id|service
+id|service_noprefix
 comma
 l_string|&quot;git-&quot;
 comma
-l_int|4
+op_amp
+id|service_noprefix
 )paren
-)paren
-id|psoff
-op_assign
-l_int|4
 suffix:semicolon
 multiline_comment|/* Pass the service to command. */
 id|setenv
@@ -99,9 +93,7 @@ c_func
 (paren
 l_string|&quot;GIT_EXT_SERVICE_NOPREFIX&quot;
 comma
-id|service
-op_plus
-id|psoff
+id|service_noprefix
 comma
 l_int|1
 )paren
@@ -331,9 +323,7 @@ c_func
 op_amp
 id|ret
 comma
-id|service
-op_plus
-id|psoff
+id|service_noprefix
 )paren
 suffix:semicolon
 r_break
