@@ -324,7 +324,7 @@ l_int|1
 suffix:semicolon
 )brace
 DECL|function|color_parse
-r_void
+r_int
 id|color_parse
 c_func
 (paren
@@ -333,16 +333,12 @@ r_char
 op_star
 id|value
 comma
-r_const
-r_char
-op_star
-id|var
-comma
 r_char
 op_star
 id|dst
 )paren
 (brace
+r_return
 id|color_parse_mem
 c_func
 (paren
@@ -354,14 +350,12 @@ c_func
 id|value
 )paren
 comma
-id|var
-comma
 id|dst
 )paren
 suffix:semicolon
 )brace
 DECL|function|color_parse_mem
-r_void
+r_int
 id|color_parse_mem
 c_func
 (paren
@@ -372,11 +366,6 @@ id|value
 comma
 r_int
 id|value_len
-comma
-r_const
-r_char
-op_star
-id|var
 comma
 r_char
 op_star
@@ -435,6 +424,7 @@ id|GIT_COLOR_RESET
 )paren
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* [fg [bg]] [attr]... */
@@ -820,19 +810,23 @@ op_assign
 l_int|0
 suffix:semicolon
 r_return
+l_int|0
 suffix:semicolon
 id|bad
 suffix:colon
-id|die
+r_return
+id|error
 c_func
 (paren
-l_string|&quot;bad color value &squot;%.*s&squot; for variable &squot;%s&squot;&quot;
+id|_
+c_func
+(paren
+l_string|&quot;invalid color value: %.*s&quot;
+)paren
 comma
 id|value_len
 comma
 id|value
-comma
-id|var
 )paren
 suffix:semicolon
 )brace

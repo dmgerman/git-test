@@ -262,21 +262,17 @@ c_func
 id|var
 )paren
 suffix:semicolon
+r_return
 id|color_parse
 c_func
 (paren
 id|value
-comma
-id|var
 comma
 id|decoration_colors
 (braket
 id|slot
 )braket
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * log-tree.c uses DIFF_OPT_TST for determining whether to use color&n; * for showing the commit sha1, use the same check for --decorate&n; */
