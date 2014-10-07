@@ -194,10 +194,7 @@ c_func
 r_const
 r_char
 op_star
-id|var
-comma
-r_int
-id|ofs
+id|slot
 )paren
 (brace
 r_if
@@ -207,9 +204,7 @@ op_logical_neg
 id|strcasecmp
 c_func
 (paren
-id|var
-op_plus
-id|ofs
+id|slot
 comma
 l_string|&quot;plain&quot;
 )paren
@@ -224,9 +219,7 @@ op_logical_neg
 id|strcasecmp
 c_func
 (paren
-id|var
-op_plus
-id|ofs
+id|slot
 comma
 l_string|&quot;reset&quot;
 )paren
@@ -241,9 +234,7 @@ op_logical_neg
 id|strcasecmp
 c_func
 (paren
-id|var
-op_plus
-id|ofs
+id|slot
 comma
 l_string|&quot;remote&quot;
 )paren
@@ -258,9 +249,7 @@ op_logical_neg
 id|strcasecmp
 c_func
 (paren
-id|var
-op_plus
-id|ofs
+id|slot
 comma
 l_string|&quot;local&quot;
 )paren
@@ -275,9 +264,7 @@ op_logical_neg
 id|strcasecmp
 c_func
 (paren
-id|var
-op_plus
-id|ofs
+id|slot
 comma
 l_string|&quot;current&quot;
 )paren
@@ -292,9 +279,7 @@ op_logical_neg
 id|strcasecmp
 c_func
 (paren
-id|var
-op_plus
-id|ofs
+id|slot
 comma
 l_string|&quot;upstream&quot;
 )paren
@@ -398,7 +383,7 @@ id|parse_branch_color_slot
 c_func
 (paren
 id|var
-comma
+op_plus
 l_int|13
 )paren
 suffix:semicolon

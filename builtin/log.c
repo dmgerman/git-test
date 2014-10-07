@@ -1738,6 +1738,8 @@ c_func
 (paren
 id|var
 comma
+id|var
+op_plus
 l_int|15
 comma
 id|value

@@ -220,8 +220,9 @@ op_star
 id|var
 comma
 r_const
-r_int
-id|ofs
+r_char
+op_star
+id|slot_name
 comma
 r_const
 r_char
@@ -235,9 +236,7 @@ op_assign
 id|parse_decorate_color_slot
 c_func
 (paren
-id|var
-op_plus
-id|ofs
+id|slot_name
 )paren
 suffix:semicolon
 r_if
