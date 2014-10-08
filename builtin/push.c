@@ -2593,6 +2593,25 @@ comma
 id|TRANSPORT_PUSH_FOLLOW_TAGS
 )paren
 comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;signed&quot;
+comma
+op_amp
+id|flags
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;GPG sign the push&quot;
+)paren
+comma
+id|TRANSPORT_PUSH_CERT
+)paren
+comma
 id|OPT_END
 c_func
 (paren
