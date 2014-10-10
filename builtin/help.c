@@ -2428,6 +2428,16 @@ l_string|&quot;Defining attributes per path&quot;
 )brace
 comma
 (brace
+l_string|&quot;everyday&quot;
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;Everyday Git With 20 Commands Or So&quot;
+)paren
+)brace
+comma
+(brace
 l_string|&quot;glossary&quot;
 comma
 id|N_
