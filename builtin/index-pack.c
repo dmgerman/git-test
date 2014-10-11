@@ -684,6 +684,10 @@ DECL|macro|deepest_delta_lock
 mdefine_line|#define deepest_delta_lock()
 DECL|macro|deepest_delta_unlock
 mdefine_line|#define deepest_delta_unlock()
+DECL|macro|type_cas_lock
+mdefine_line|#define type_cas_lock()
+DECL|macro|type_cas_unlock
+mdefine_line|#define type_cas_unlock()
 macro_line|#endif
 DECL|function|mark_link
 r_static
