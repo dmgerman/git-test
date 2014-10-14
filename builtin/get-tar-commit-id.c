@@ -65,6 +65,11 @@ id|buffer
 op_plus
 id|RECORDSIZE
 suffix:semicolon
+r_const
+r_char
+op_star
+id|comment
+suffix:semicolon
 id|ssize_t
 id|n
 suffix:semicolon
@@ -122,14 +127,16 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|memcmp
+op_logical_neg
+id|skip_prefix
 c_func
 (paren
 id|content
 comma
 l_string|&quot;52 comment=&quot;
 comma
-l_int|11
+op_amp
+id|comment
 )paren
 )paren
 r_return
@@ -142,9 +149,7 @@ c_func
 (paren
 l_int|1
 comma
-id|content
-op_plus
-l_int|11
+id|comment
 comma
 l_int|41
 )paren
