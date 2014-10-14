@@ -2650,6 +2650,12 @@ c_func
 id|hostname
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|hent
+)paren
+(brace
 id|ap
 op_assign
 id|hent-&gt;h_addr_list
@@ -2734,6 +2740,7 @@ c_func
 id|addrbuf
 )paren
 suffix:semicolon
+)brace
 macro_line|#endif
 )brace
 )brace
@@ -4081,11 +4088,6 @@ id|socknum
 op_assign
 l_int|0
 suffix:semicolon
-r_int
-id|maxfd
-op_assign
-l_int|1
-suffix:semicolon
 r_char
 id|pbuf
 (braket
@@ -4463,17 +4465,6 @@ suffix:semicolon
 id|socknum
 op_increment
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|maxfd
-OL
-id|sockfd
-)paren
-id|maxfd
-op_assign
-id|sockfd
-suffix:semicolon
 )brace
 id|freeaddrinfo
 c_func
@@ -4657,7 +4648,7 @@ l_int|0
 id|logerror
 c_func
 (paren
-l_string|&quot;Could not listen to %s: %s&quot;
+l_string|&quot;Could not bind to %s: %s&quot;
 comma
 id|ip2str
 c_func
