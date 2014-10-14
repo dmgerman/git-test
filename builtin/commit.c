@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git commit&quot;&n; *&n; * Copyright (c) 2007 Kristian H&oslash;gsberg &lt;krh@redhat.com&gt;&n; * Based on git-commit.sh by Junio C Hamano and Linus Torvalds&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;dir.h&quot;
@@ -1249,6 +1250,7 @@ suffix:semicolon
 )brace
 DECL|function|prepare_index
 r_static
+r_const
 r_char
 op_star
 id|prepare_index
@@ -1402,7 +1404,7 @@ c_func
 (paren
 id|INDEX_ENVIRONMENT
 comma
-id|index_lock.filename
+id|index_lock.filename.buf
 comma
 l_int|1
 )paren
@@ -1467,7 +1469,7 @@ suffix:semicolon
 id|read_cache_from
 c_func
 (paren
-id|index_lock.filename
+id|index_lock.filename.buf
 )paren
 suffix:semicolon
 r_if
@@ -1546,7 +1548,7 @@ op_assign
 id|COMMIT_NORMAL
 suffix:semicolon
 r_return
-id|index_lock.filename
+id|index_lock.filename.buf
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * Non partial, non as-is commit.&n;&t; *&n;&t; * (1) get the real index;&n;&t; * (2) update the_index as necessary;&n;&t; * (3) write the_index out to the real index (still locked);&n;&t; * (4) return the name of the locked index file.&n;&t; *&n;&t; * The caller should run hooks on the locked real index, and&n;&t; * (A) if all goes well, commit the real index;&n;&t; * (B) on failure, rollback the real index.&n;&t; */
@@ -1629,7 +1631,7 @@ op_assign
 id|COMMIT_NORMAL
 suffix:semicolon
 r_return
-id|index_lock.filename
+id|index_lock.filename.buf
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t; * As-is commit.&n;&t; *&n;&t; * (1) return the name of the real index file.&n;&t; *&n;&t; * The caller should run hooks on the real index,&n;&t; * and create commit from the_index.&n;&t; * We still need to refresh the index here.&n;&t; */
@@ -1975,11 +1977,11 @@ suffix:semicolon
 id|read_cache_from
 c_func
 (paren
-id|false_lock.filename
+id|false_lock.filename.buf
 )paren
 suffix:semicolon
 r_return
-id|false_lock.filename
+id|false_lock.filename.buf
 suffix:semicolon
 )brace
 DECL|function|run_status

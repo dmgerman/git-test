@@ -1,6 +1,6 @@
 multiline_comment|/*&n; * Check-out files from the &quot;current cache directory&quot;&n; *&n; * Copyright (C) 2005 Linus Torvalds&n; *&n; */
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;parse-options.h&quot;

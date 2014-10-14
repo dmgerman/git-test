@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * apply.c&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; *&n; * This applies patches on top of some (arbitrary) version of the SCM.&n; *&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;blob.h&quot;

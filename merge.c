@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;

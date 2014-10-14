@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; * Copyright (C) Johannes Schindelin, 2005&n; *&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
@@ -10351,7 +10352,7 @@ c_cond
 id|chmod
 c_func
 (paren
-id|lock-&gt;filename
+id|lock-&gt;filename.buf
 comma
 id|st.st_mode
 op_amp
@@ -10366,7 +10367,7 @@ c_func
 (paren
 l_string|&quot;chmod on %s failed: %s&quot;
 comma
-id|lock-&gt;filename
+id|lock-&gt;filename.buf
 comma
 id|strerror
 c_func
@@ -10663,6 +10664,10 @@ id|ret
 op_assign
 id|CONFIG_NO_WRITE
 suffix:semicolon
+id|lock
+op_assign
+l_int|NULL
+suffix:semicolon
 r_goto
 id|out_free
 suffix:semicolon
@@ -10711,7 +10716,7 @@ op_assign
 id|write_error
 c_func
 (paren
-id|lock-&gt;filename
+id|lock-&gt;filename.buf
 )paren
 suffix:semicolon
 r_goto
@@ -11266,7 +11271,7 @@ c_cond
 id|chmod
 c_func
 (paren
-id|lock-&gt;filename
+id|lock-&gt;filename.buf
 comma
 id|st.st_mode
 op_amp
@@ -11283,7 +11288,7 @@ c_func
 (paren
 l_string|&quot;chmod on %s failed: %s&quot;
 comma
-id|lock-&gt;filename
+id|lock-&gt;filename.buf
 comma
 id|strerror
 c_func
@@ -11430,7 +11435,7 @@ op_assign
 id|write_error
 c_func
 (paren
-id|lock-&gt;filename
+id|lock-&gt;filename.buf
 )paren
 suffix:semicolon
 r_goto
@@ -11511,7 +11516,7 @@ op_assign
 id|write_error
 c_func
 (paren
-id|lock-&gt;filename
+id|lock-&gt;filename.buf
 )paren
 suffix:semicolon
 r_goto

@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tag.h&quot;
@@ -446,18 +447,18 @@ c_cond
 id|cp
 id|refname
 op_ge
-l_int|5
+id|LOCK_SUFFIX_LEN
 op_logical_and
 op_logical_neg
 id|memcmp
 c_func
 (paren
 id|cp
-l_int|5
+id|LOCK_SUFFIX_LEN
 comma
-l_string|&quot;.lock&quot;
+id|LOCK_SUFFIX
 comma
-l_int|5
+id|LOCK_SUFFIX_LEN
 )paren
 )paren
 r_return
@@ -9288,7 +9289,7 @@ id|orig_refname
 suffix:semicolon
 id|lflags
 op_or_assign
-id|LOCK_NODEREF
+id|LOCK_NO_DEREF
 suffix:semicolon
 )brace
 id|lock-&gt;ref_name
@@ -9433,7 +9434,7 @@ r_goto
 id|retry
 suffix:semicolon
 r_else
-id|unable_to_lock_index_die
+id|unable_to_lock_die
 c_func
 (paren
 id|ref_file
@@ -11100,41 +11101,31 @@ op_amp
 id|REF_ISSYMREF
 )paren
 (brace
-multiline_comment|/* loose */
-r_int
-id|err
-comma
-id|i
+multiline_comment|/*&n;&t;&t; * loose.  The loose file name is the same as the&n;&t;&t; * lockfile name, minus &quot;.lock&quot;:&n;&t;&t; */
+r_char
+op_star
+id|loose_filename
 op_assign
-id|strlen
+id|get_locked_file_path
 c_func
 (paren
-id|lock-&gt;lk-&gt;filename
+id|lock-&gt;lk
 )paren
-l_int|5
 suffix:semicolon
-multiline_comment|/* .lock */
-id|lock-&gt;lk-&gt;filename
-(braket
-id|i
-)braket
-op_assign
-l_int|0
-suffix:semicolon
+r_int
 id|err
 op_assign
 id|unlink_or_warn
 c_func
 (paren
-id|lock-&gt;lk-&gt;filename
+id|loose_filename
 )paren
 suffix:semicolon
-id|lock-&gt;lk-&gt;filename
-(braket
-id|i
-)braket
-op_assign
-l_char|&squot;.&squot;
+id|free
+c_func
+(paren
+id|loose_filename
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -13085,7 +13076,7 @@ c_func
 (paren
 l_string|&quot;Couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename
+id|lock-&gt;lk-&gt;filename.buf
 )paren
 suffix:semicolon
 id|unlock_ref

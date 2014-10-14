@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git diff&quot;&n; *&n; * Copyright (c) 2006 Junio C Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;blob.h&quot;

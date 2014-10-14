@@ -1,5 +1,5 @@
-macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;dir.h&quot;
@@ -2009,7 +2009,7 @@ c_func
 (paren
 l_string|&quot;Couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename
+id|lock-&gt;lk-&gt;filename.buf
 )paren
 suffix:semicolon
 id|unlink

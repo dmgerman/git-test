@@ -2,6 +2,7 @@ multiline_comment|/*&n; * Builtin &quot;git merge&quot;&n; *&n; * Copyright (c) 
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;refs.h&quot;
@@ -4020,26 +4021,15 @@ op_star
 id|head_arg
 )paren
 (brace
+r_static
 r_struct
 id|lock_file
-op_star
 id|lock
-op_assign
-id|xcalloc
-c_func
-(paren
-l_int|1
-comma
-r_sizeof
-(paren
-r_struct
-id|lock_file
-)paren
-)paren
 suffix:semicolon
 id|hold_locked_index
 c_func
 (paren
+op_amp
 id|lock
 comma
 l_int|1
@@ -4062,6 +4052,7 @@ c_func
 op_amp
 id|the_index
 comma
+op_amp
 id|lock
 comma
 id|COMMIT_LOCK
@@ -4081,6 +4072,7 @@ suffix:semicolon
 id|rollback_lock_file
 c_func
 (paren
+op_amp
 id|lock
 )paren
 suffix:semicolon
@@ -4115,23 +4107,6 @@ r_struct
 id|commit
 op_star
 id|result
-suffix:semicolon
-r_struct
-id|lock_file
-op_star
-id|lock
-op_assign
-id|xcalloc
-c_func
-(paren
-l_int|1
-comma
-r_sizeof
-(paren
-r_struct
-id|lock_file
-)paren
-)paren
 suffix:semicolon
 r_struct
 id|commit_list
@@ -4294,6 +4269,7 @@ suffix:semicolon
 id|hold_locked_index
 c_func
 (paren
+op_amp
 id|lock
 comma
 l_int|1
@@ -4328,6 +4304,7 @@ c_func
 op_amp
 id|the_index
 comma
+op_amp
 id|lock
 comma
 id|COMMIT_LOCK
@@ -4350,6 +4327,7 @@ suffix:semicolon
 id|rollback_lock_file
 c_func
 (paren
+op_amp
 id|lock
 )paren
 suffix:semicolon

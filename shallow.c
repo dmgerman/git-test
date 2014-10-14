@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
@@ -1346,13 +1347,13 @@ c_func
 (paren
 l_string|&quot;failed to write to %s&quot;
 comma
-id|shallow_lock-&gt;filename
+id|shallow_lock-&gt;filename.buf
 )paren
 suffix:semicolon
 op_star
 id|alternate_shallow_file
 op_assign
-id|shallow_lock-&gt;filename
+id|shallow_lock-&gt;filename.buf
 suffix:semicolon
 )brace
 r_else
@@ -1566,7 +1567,7 @@ c_func
 (paren
 l_string|&quot;failed to write to %s&quot;
 comma
-id|shallow_lock.filename
+id|shallow_lock.filename.buf
 )paren
 suffix:semicolon
 id|commit_lock_file

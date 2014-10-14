@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * GIT - The information manager from hell&n; *&n; * Copyright (C) Linus Torvalds, 2005&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
@@ -4832,7 +4833,7 @@ m_exit
 l_int|128
 )paren
 suffix:semicolon
-id|unable_to_lock_index_die
+id|unable_to_lock_die
 c_func
 (paren
 id|get_index_file

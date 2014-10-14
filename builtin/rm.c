@@ -1,6 +1,6 @@
 multiline_comment|/*&n; * &quot;git rm&quot; builtin command&n; *&n; * Copyright (C) Linus Torvalds 2006&n; */
-macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
