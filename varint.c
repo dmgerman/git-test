@@ -1,3 +1,4 @@
+macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;varint.h&quot;
 DECL|function|decode_varint
 r_uintmax

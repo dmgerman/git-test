@@ -1,5 +1,5 @@
-macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|macro|X
 mdefine_line|#define X(f) &bslash;&n;static void f(int sig) { &bslash;&n;&t;puts(#f); &bslash;&n;&t;fflush(stdout); &bslash;&n;&t;sigchain_pop(sig); &bslash;&n;&t;raise(sig); &bslash;&n;}
 DECL|function|X
