@@ -269,6 +269,11 @@ id|i
 op_increment
 )paren
 (brace
+r_struct
+id|blob
+op_star
+id|blob
+suffix:semicolon
 multiline_comment|/*&n;&t;&t; * The index can contain blobs and GITLINKs, GITLINKs are hashes&n;&t;&t; * that don&squot;t actually point to objects in the repository, it&squot;s&n;&t;&t; * almost guaranteed that they are NOT blobs, so we don&squot;t call&n;&t;&t; * lookup_blob() on them, to avoid populating the hash table&n;&t;&t; * with invalid information&n;&t;&t; */
 r_if
 c_cond
@@ -286,6 +291,8 @@ id|ce_mode
 )paren
 r_continue
 suffix:semicolon
+id|blob
+op_assign
 id|lookup_blob
 c_func
 (paren
@@ -296,6 +303,15 @@ id|i
 op_member_access_from_pointer
 id|sha1
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|blob
+)paren
+id|blob-&gt;object.flags
+op_or_assign
+id|SEEN
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * We could add the blobs to the pending list, but quite&n;&t;&t; * frankly, we don&squot;t care. Once we&squot;ve looked them up, and&n;&t;&t; * added them as objects, we&squot;ve really done everything&n;&t;&t; * there is to do for a blob&n;&t;&t; */
 )brace
