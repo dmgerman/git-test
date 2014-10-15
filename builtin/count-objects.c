@@ -287,14 +287,10 @@ op_star
 id|loose_size
 )paren
 op_add_assign
-id|xsize_t
-c_func
-(paren
 id|on_disk_bytes
 c_func
 (paren
 id|st
-)paren
 )paren
 suffix:semicolon
 )brace
