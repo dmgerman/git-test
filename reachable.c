@@ -762,7 +762,6 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|add_unseen_recent_objects_to_traversal
-r_static
 r_int
 id|add_unseen_recent_objects_to_traversal
 c_func
