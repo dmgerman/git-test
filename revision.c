@@ -5262,10 +5262,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|handle_reflog
-r_static
+DECL|function|add_reflogs_to_pending
 r_void
-id|handle_reflog
+id|add_reflogs_to_pending
 c_func
 (paren
 r_struct
@@ -10829,7 +10828,7 @@ l_string|&quot;--reflog&quot;
 )paren
 )paren
 (brace
-id|handle_reflog
+id|add_reflogs_to_pending
 c_func
 (paren
 id|revs
