@@ -716,6 +716,8 @@ id|revs
 comma
 l_int|1
 comma
+id|expire
+comma
 id|progress
 )paren
 suffix:semicolon
