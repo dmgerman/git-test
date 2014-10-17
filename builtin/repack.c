@@ -1208,6 +1208,15 @@ comma
 l_string|&quot;--reflog&quot;
 )paren
 suffix:semicolon
+id|argv_array_push
+c_func
+(paren
+op_amp
+id|cmd_args
+comma
+l_string|&quot;--indexed-objects&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
