@@ -4726,6 +4726,9 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|color_parse_mem
 c_func
 (paren
@@ -4734,9 +4737,19 @@ comma
 id|end
 id|begin
 comma
-l_string|&quot;--pretty format&quot;
-comma
 id|color
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;unable to parse --pretty format&quot;
+)paren
 )paren
 suffix:semicolon
 id|strbuf_addstr

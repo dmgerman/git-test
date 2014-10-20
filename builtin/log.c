@@ -1759,7 +1759,6 @@ c_func
 id|var
 comma
 id|slot_name
-id|var
 comma
 id|value
 )paren
