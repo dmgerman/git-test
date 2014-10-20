@@ -1002,9 +1002,6 @@ suffix:semicolon
 id|mode
 op_assign
 l_int|0100666
-op_amp
-op_complement
-id|tar_umask
 suffix:semicolon
 id|sprintf
 c_func
@@ -1717,9 +1714,6 @@ suffix:semicolon
 id|mode
 op_assign
 l_int|0100666
-op_amp
-op_complement
-id|tar_umask
 suffix:semicolon
 id|strcpy
 c_func
