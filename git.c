@@ -2615,6 +2615,14 @@ id|NO_SETUP
 )brace
 comma
 (brace
+l_string|&quot;interpret-trailers&quot;
+comma
+id|cmd_interpret_trailers
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;log&quot;
 comma
 id|cmd_log
