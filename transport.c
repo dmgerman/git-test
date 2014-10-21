@@ -4247,6 +4247,12 @@ id|REJECT_NEEDS_FORCE
 suffix:semicolon
 )brace
 )brace
+id|free
+c_func
+(paren
+id|head
+)paren
+suffix:semicolon
 )brace
 DECL|function|transport_verify_remote_names
 r_void
