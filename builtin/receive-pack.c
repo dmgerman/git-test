@@ -4373,6 +4373,8 @@ l_int|0
 comma
 l_int|1
 comma
+l_string|&quot;push&quot;
+comma
 op_amp
 id|err
 )paren
@@ -4381,8 +4383,6 @@ id|ref_transaction_commit
 c_func
 (paren
 id|transaction
-comma
-l_string|&quot;push&quot;
 comma
 op_amp
 id|err
@@ -4742,9 +4742,9 @@ c_func
 (paren
 id|buf.buf
 comma
-id|sha1
-comma
 l_int|0
+comma
+id|sha1
 comma
 op_amp
 id|flag
@@ -5555,9 +5555,9 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|sha1
-comma
 l_int|0
+comma
+id|sha1
 comma
 l_int|NULL
 )paren

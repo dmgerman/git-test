@@ -827,9 +827,9 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|sha1
-comma
 l_int|0
+comma
+id|sha1
 comma
 l_int|NULL
 )paren
@@ -1452,6 +1452,8 @@ comma
 op_logical_neg
 id|forcing
 comma
+id|msg
+comma
 op_amp
 id|err
 )paren
@@ -1460,8 +1462,6 @@ id|ref_transaction_commit
 c_func
 (paren
 id|transaction
-comma
-id|msg
 comma
 op_amp
 id|err

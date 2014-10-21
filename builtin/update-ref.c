@@ -48,6 +48,13 @@ r_static
 r_int
 id|update_flags
 suffix:semicolon
+DECL|variable|msg
+r_static
+r_const
+r_char
+op_star
+id|msg
+suffix:semicolon
 multiline_comment|/*&n; * Parse one whitespace- or NUL-terminated, possibly C-quoted argument&n; * and append the result to arg.  Return a pointer to the terminator.&n; * Die if there is an error in how the argument is C-quoted.  This&n; * function is only used if not -z.&n; */
 DECL|function|parse_arg
 r_static
@@ -762,6 +769,8 @@ id|update_flags
 comma
 id|have_old
 comma
+id|msg
+comma
 op_amp
 id|err
 )paren
@@ -935,6 +944,8 @@ comma
 id|new_sha1
 comma
 id|update_flags
+comma
+id|msg
 comma
 op_amp
 id|err
@@ -1119,6 +1130,8 @@ comma
 id|update_flags
 comma
 id|have_old
+comma
+id|msg
 comma
 op_amp
 id|err
@@ -1309,6 +1322,8 @@ comma
 id|update_flags
 comma
 id|have_old
+comma
+id|msg
 comma
 op_amp
 id|err
@@ -1676,11 +1691,6 @@ id|refname
 comma
 op_star
 id|oldval
-comma
-op_star
-id|msg
-op_assign
-l_int|NULL
 suffix:semicolon
 r_int
 r_char
@@ -1942,8 +1952,6 @@ id|ref_transaction_commit
 c_func
 (paren
 id|transaction
-comma
-id|msg
 comma
 op_amp
 id|err

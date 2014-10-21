@@ -1279,6 +1279,8 @@ l_int|0
 comma
 l_int|1
 comma
+id|sb.buf
+comma
 op_amp
 id|err
 )paren
@@ -1287,8 +1289,6 @@ id|ref_transaction_commit
 c_func
 (paren
 id|transaction
-comma
-id|sb.buf
 comma
 op_amp
 id|err
@@ -1739,9 +1739,9 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|head_sha1
+id|RESOLVE_REF_READING
 comma
-l_int|1
+id|head_sha1
 comma
 l_int|NULL
 )paren
@@ -4771,9 +4771,9 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|head_sha1
-comma
 l_int|0
+comma
+id|head_sha1
 comma
 l_int|NULL
 )paren

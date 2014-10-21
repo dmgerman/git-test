@@ -4138,9 +4138,9 @@ c_func
 (paren
 l_string|&quot;NOTES_MERGE_REF&quot;
 comma
-id|sha1
-comma
 l_int|0
+comma
+id|sha1
 comma
 l_int|NULL
 )paren
