@@ -756,6 +756,10 @@ id|dp-&gt;score
 op_assign
 id|p-&gt;score
 suffix:semicolon
+multiline_comment|/*&n;&t; * We will be one extra user of the same src side of the&n;&t; * broken pair, if it was used as the rename source for other&n;&t; * paths elsewhere.  Increment to mark that the path stays&n;&t; * in the resulting tree.&n;&t; */
+id|d-&gt;one-&gt;rename_used
+op_increment
+suffix:semicolon
 id|diff_free_filespec_data
 c_func
 (paren
