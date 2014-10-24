@@ -1134,10 +1134,6 @@ op_star
 id|extra
 )paren
 (brace
-r_static
-r_int
-id|installed_handler
-suffix:semicolon
 r_struct
 id|strbuf
 id|sb
@@ -1194,13 +1190,6 @@ c_func
 id|temporary_shallow.buf
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|installed_handler
-)paren
-(brace
 id|atexit
 c_func
 (paren
@@ -1213,7 +1202,6 @@ c_func
 id|remove_temporary_shallow_on_signal
 )paren
 suffix:semicolon
-)brace
 r_if
 c_cond
 (paren
