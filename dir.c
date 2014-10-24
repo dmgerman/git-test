@@ -3717,9 +3717,11 @@ OL
 id|baselen
 )paren
 (brace
-r_struct
-id|exclude_stack
+r_const
+r_char
 op_star
+id|cp
+suffix:semicolon
 id|stk
 op_assign
 id|xcalloc
@@ -3733,11 +3735,6 @@ op_star
 id|stk
 )paren
 )paren
-suffix:semicolon
-r_const
-r_char
-op_star
-id|cp
 suffix:semicolon
 r_if
 c_cond
