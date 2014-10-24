@@ -5538,8 +5538,7 @@ r_int
 id|suggest_conflicts
 c_func
 (paren
-r_int
-id|renormalizing
+r_void
 )paren
 (brace
 r_const
@@ -8955,7 +8954,6 @@ op_assign
 id|suggest_conflicts
 c_func
 (paren
-id|option_renormalize
 )paren
 suffix:semicolon
 id|done
