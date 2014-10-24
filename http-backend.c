@@ -1704,12 +1704,6 @@ c_func
 l_string|&quot;REMOTE_ADDR&quot;
 )paren
 suffix:semicolon
-r_struct
-id|argv_array
-id|env
-op_assign
-id|ARGV_ARRAY_INIT
-suffix:semicolon
 r_int
 id|gzipped_request
 op_assign
@@ -1800,7 +1794,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|cld.env_array
 comma
 l_string|&quot;GIT_COMMITTER_NAME=%s&quot;
 comma
@@ -1821,7 +1815,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|cld.env_array
 comma
 l_string|&quot;GIT_COMMITTER_EMAIL=%s@http.%s&quot;
 comma
@@ -1833,10 +1827,6 @@ suffix:semicolon
 id|cld.argv
 op_assign
 id|argv
-suffix:semicolon
-id|cld.env
-op_assign
-id|env.argv
 suffix:semicolon
 r_if
 c_cond
@@ -1908,13 +1898,6 @@ id|cld
 m_exit
 (paren
 l_int|1
-)paren
-suffix:semicolon
-id|argv_array_clear
-c_func
-(paren
-op_amp
-id|env
 )paren
 suffix:semicolon
 )brace

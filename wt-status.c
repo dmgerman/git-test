@@ -3922,12 +3922,6 @@ id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_struct
 id|argv_array
-id|env
-op_assign
-id|ARGV_ARRAY_INIT
-suffix:semicolon
-r_struct
-id|argv_array
 id|argv
 op_assign
 id|ARGV_ARRAY_INIT
@@ -3955,7 +3949,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|sm_summary.env_array
 comma
 l_string|&quot;GIT_INDEX_FILE=%s&quot;
 comma
@@ -4047,10 +4041,6 @@ id|sm_summary.argv
 op_assign
 id|argv.argv
 suffix:semicolon
-id|sm_summary.env
-op_assign
-id|env.argv
-suffix:semicolon
 id|sm_summary.git_cmd
 op_assign
 l_int|1
@@ -4074,13 +4064,6 @@ c_func
 (paren
 op_amp
 id|sm_summary
-)paren
-suffix:semicolon
-id|argv_array_clear
-c_func
-(paren
-op_amp
-id|env
 )paren
 suffix:semicolon
 id|argv_array_clear

@@ -2380,12 +2380,6 @@ r_static
 r_int
 id|already_done
 suffix:semicolon
-r_struct
-id|argv_array
-id|env
-op_assign
-id|ARGV_ARRAY_INIT
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2562,7 +2556,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|proc-&gt;env_array
 comma
 l_string|&quot;GIT_PUSH_CERT=%s&quot;
 comma
@@ -2577,7 +2571,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|proc-&gt;env_array
 comma
 l_string|&quot;GIT_PUSH_CERT_SIGNER=%s&quot;
 comma
@@ -2593,7 +2587,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|proc-&gt;env_array
 comma
 l_string|&quot;GIT_PUSH_CERT_KEY=%s&quot;
 comma
@@ -2609,7 +2603,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|proc-&gt;env_array
 comma
 l_string|&quot;GIT_PUSH_CERT_STATUS=%c&quot;
 comma
@@ -2626,7 +2620,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|proc-&gt;env_array
 comma
 l_string|&quot;GIT_PUSH_CERT_NONCE=%s&quot;
 comma
@@ -2637,7 +2631,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|proc-&gt;env_array
 comma
 l_string|&quot;GIT_PUSH_CERT_NONCE_STATUS=%s&quot;
 comma
@@ -2655,7 +2649,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|env
+id|proc-&gt;env_array
 comma
 l_string|&quot;GIT_PUSH_CERT_NONCE_SLOP=%ld&quot;
 comma
@@ -2663,10 +2657,6 @@ id|nonce_stamp_slop
 )paren
 suffix:semicolon
 )brace
-id|proc-&gt;env
-op_assign
-id|env.argv
-suffix:semicolon
 )brace
 )brace
 DECL|typedef|feed_fn
