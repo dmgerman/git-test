@@ -4004,6 +4004,10 @@ c_func
 id|fd
 )paren
 suffix:semicolon
+id|write_bitmap_index
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 r_if
 c_cond
