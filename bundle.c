@@ -2067,18 +2067,11 @@ l_int|1
 )paren
 suffix:semicolon
 multiline_comment|/* write pack */
-id|memset
+id|child_process_init
 c_func
 (paren
 op_amp
 id|rls
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|rls
-)paren
 )paren
 suffix:semicolon
 id|argv_array_pushl
