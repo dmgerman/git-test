@@ -31,7 +31,7 @@ id|result
 suffix:semicolon
 id|result
 op_assign
-id|get_merge_bases_many
+id|get_merge_bases_many_dirty
 c_func
 (paren
 id|rev
@@ -45,8 +45,6 @@ comma
 id|rev
 op_plus
 l_int|1
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -917,7 +915,7 @@ id|TMP_MARK
 suffix:semicolon
 id|bases
 op_assign
-id|get_merge_bases_many
+id|get_merge_bases_many_dirty
 c_func
 (paren
 id|derived
@@ -925,8 +923,6 @@ comma
 id|revs.nr
 comma
 id|revs.commit
-comma
-l_int|0
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * There should be one and only one merge base, when we found&n;&t; * a common ancestor among reflog entries.&n;&t; */

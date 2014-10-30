@@ -8106,8 +8106,6 @@ c_func
 id|head_commit
 comma
 id|remoteheads-&gt;item
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_else
@@ -8508,8 +8506,6 @@ c_func
 id|head_commit
 comma
 id|j-&gt;item
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_if

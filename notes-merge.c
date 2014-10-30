@@ -3188,8 +3188,6 @@ c_func
 id|local
 comma
 id|remote
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_if

@@ -5882,8 +5882,6 @@ c_func
 id|head
 comma
 id|other
-comma
-l_int|1
 )paren
 suffix:semicolon
 id|add_rev_cmdline_list
@@ -6494,8 +6492,6 @@ c_func
 id|a
 comma
 id|b
-comma
-l_int|1
 )paren
 suffix:semicolon
 id|add_rev_cmdline_list
