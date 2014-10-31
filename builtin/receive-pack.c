@@ -2761,13 +2761,6 @@ id|proc.stdout_to_stderr
 op_assign
 l_int|1
 suffix:semicolon
-id|prepare_push_cert_sha1
-c_func
-(paren
-op_amp
-id|proc
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2818,6 +2811,13 @@ op_assign
 id|muxer.in
 suffix:semicolon
 )brace
+id|prepare_push_cert_sha1
+c_func
+(paren
+op_amp
+id|proc
+)paren
+suffix:semicolon
 id|code
 op_assign
 id|start_command
