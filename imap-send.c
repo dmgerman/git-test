@@ -3,6 +3,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;run-command.h&quot;
+macro_line|#include &quot;parse-options.h&quot;
 macro_line|#ifdef NO_OPENSSL
 DECL|typedef|SSL
 r_typedef
@@ -11,15 +12,48 @@ op_star
 id|SSL
 suffix:semicolon
 macro_line|#endif
+DECL|variable|verbosity
+r_static
+r_int
+id|verbosity
+suffix:semicolon
 DECL|variable|imap_send_usage
 r_static
 r_const
 r_char
+op_star
+r_const
 id|imap_send_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git imap-send &lt; &lt;mbox&gt;&quot;
+(brace
+l_string|&quot;git imap-send [-v] [-q] &lt; &lt;mbox&gt;&quot;
+comma
+l_int|NULL
+)brace
+suffix:semicolon
+DECL|variable|imap_send_options
+r_static
+r_struct
+id|option
+id|imap_send_options
+(braket
+)braket
+op_assign
+(brace
+id|OPT__VERBOSITY
+c_func
+(paren
+op_amp
+id|verbosity
+)paren
+comma
+id|OPT_END
+c_func
+(paren
+)paren
+)brace
 suffix:semicolon
 DECL|macro|DRV_OK
 macro_line|#undef DRV_OK
@@ -31,14 +65,6 @@ DECL|macro|DRV_BOX_BAD
 mdefine_line|#define DRV_BOX_BAD     -2
 DECL|macro|DRV_STORE_BAD
 mdefine_line|#define DRV_STORE_BAD   -3
-DECL|variable|Verbose
-DECL|variable|Quiet
-r_static
-r_int
-id|Verbose
-comma
-id|Quiet
-suffix:semicolon
 id|__attribute__
 c_func
 (paren
@@ -1904,7 +1930,9 @@ multiline_comment|/* next line */
 r_if
 c_cond
 (paren
-id|Verbose
+l_int|0
+OL
+id|verbosity
 )paren
 id|puts
 c_func
@@ -1946,8 +1974,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|Quiet
+l_int|0
+op_le
+id|verbosity
 )paren
 (brace
 id|va_start
@@ -2002,9 +2031,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|Quiet
-OL
 l_int|2
+OL
+id|verbosity
 )paren
 (brace
 id|va_start
@@ -2470,7 +2499,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|Verbose
+l_int|0
+OL
+id|verbosity
 )paren
 (brace
 r_if
@@ -7158,19 +7189,6 @@ c_func
 (paren
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|argc
-op_ne
-l_int|1
-)paren
-id|usage
-c_func
-(paren
-id|imap_send_usage
-)paren
-suffix:semicolon
 id|setup_git_directory_gently
 c_func
 (paren
@@ -7181,6 +7199,43 @@ suffix:semicolon
 id|git_imap_config
 c_func
 (paren
+)paren
+suffix:semicolon
+id|argc
+op_assign
+id|parse_options
+c_func
+(paren
+id|argc
+comma
+(paren
+r_const
+r_char
+op_star
+op_star
+)paren
+id|argv
+comma
+l_string|&quot;&quot;
+comma
+id|imap_send_options
+comma
+id|imap_send_usage
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|argc
+)paren
+id|usage_with_options
+c_func
+(paren
+id|imap_send_usage
+comma
+id|imap_send_options
 )paren
 suffix:semicolon
 r_if
