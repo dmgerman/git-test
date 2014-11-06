@@ -321,7 +321,15 @@ l_int|0
 suffix:semicolon
 )brace
 r_return
-l_int|0
+id|git_default_config
+c_func
+(paren
+id|k
+comma
+id|v
+comma
+id|cb
+)paren
 suffix:semicolon
 )brace
 DECL|function|parse_refmap_arg
