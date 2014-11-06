@@ -2204,18 +2204,10 @@ suffix:semicolon
 r_int
 id|i
 suffix:semicolon
-id|memset
+id|child_process_init
 c_func
 (paren
 id|fastexport
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-op_star
-id|fastexport
-)paren
 )paren
 suffix:semicolon
 multiline_comment|/* we need to duplicate helper-&gt;in because we want to use it after&n;&t; * fastexport is done with it. */
