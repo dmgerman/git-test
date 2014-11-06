@@ -1478,6 +1478,18 @@ l_int|0
 r_return
 id|subcnt
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|subcnt
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;index cache-tree records empty sub-tree&quot;
+)paren
+suffix:semicolon
 id|i
 op_add_assign
 id|subcnt
