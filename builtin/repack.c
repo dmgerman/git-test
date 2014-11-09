@@ -666,12 +666,6 @@ op_star
 id|item
 suffix:semicolon
 r_struct
-id|argv_array
-id|cmd_args
-op_assign
-id|ARGV_ARRAY_INIT
-suffix:semicolon
-r_struct
 id|string_list
 id|names
 op_assign
@@ -1152,7 +1146,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;pack-objects&quot;
 )paren
@@ -1161,7 +1155,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--keep-true-parents&quot;
 )paren
@@ -1176,7 +1170,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--honor-pack-keep&quot;
 )paren
@@ -1185,7 +1179,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--non-empty&quot;
 )paren
@@ -1194,7 +1188,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--all&quot;
 )paren
@@ -1203,7 +1197,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--reflog&quot;
 )paren
@@ -1212,7 +1206,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--indexed-objects&quot;
 )paren
@@ -1226,7 +1220,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--window=%s&quot;
 comma
@@ -1242,7 +1236,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--window-memory=%s&quot;
 comma
@@ -1258,7 +1252,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--depth=%s&quot;
 comma
@@ -1274,7 +1268,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--max-pack-size=%s&quot;
 comma
@@ -1290,7 +1284,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--no-reuse-delta&quot;
 )paren
@@ -1304,7 +1298,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--no-reuse-object&quot;
 )paren
@@ -1318,7 +1312,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--write-bitmap-index&quot;
 )paren
@@ -1355,7 +1349,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--unpack-unreachable=%s&quot;
 comma
@@ -1374,7 +1368,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--unpack-unreachable&quot;
 )paren
@@ -1387,7 +1381,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--unpacked&quot;
 )paren
@@ -1396,7 +1390,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--incremental&quot;
 )paren
@@ -1411,7 +1405,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--local&quot;
 )paren
@@ -1425,7 +1419,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--quiet&quot;
 )paren
@@ -1439,7 +1433,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 l_string|&quot;--delta-base-offset&quot;
 )paren
@@ -1448,14 +1442,10 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|cmd_args
+id|cmd.args
 comma
 id|packtmp
 )paren
-suffix:semicolon
-id|cmd.argv
-op_assign
-id|cmd_args.argv
 suffix:semicolon
 id|cmd.git_cmd
 op_assign
@@ -1558,13 +1548,6 @@ id|ret
 )paren
 r_return
 id|ret
-suffix:semicolon
-id|argv_array_clear
-c_func
-(paren
-op_amp
-id|cmd_args
-)paren
 suffix:semicolon
 r_if
 c_cond
