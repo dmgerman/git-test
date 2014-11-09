@@ -1439,9 +1439,6 @@ op_amp
 id|len
 )paren
 )paren
-op_logical_or
-op_logical_neg
-id|len
 )paren
 (brace
 id|free
