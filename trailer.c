@@ -1205,6 +1205,8 @@ suffix:semicolon
 r_struct
 id|child_process
 id|cp
+op_assign
+id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_const
 r_char
@@ -1255,13 +1257,6 @@ l_int|0
 )braket
 op_assign
 id|cmd.buf
-suffix:semicolon
-id|child_process_init
-c_func
-(paren
-op_amp
-id|cp
-)paren
 suffix:semicolon
 id|cp.argv
 op_assign
