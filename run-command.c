@@ -3230,6 +3230,7 @@ r_void
 id|git_atexit_dispatch
 c_func
 (paren
+r_void
 )paren
 (brace
 r_int
@@ -3263,6 +3264,7 @@ r_void
 id|git_atexit_clear
 c_func
 (paren
+r_void
 )paren
 (brace
 id|free
