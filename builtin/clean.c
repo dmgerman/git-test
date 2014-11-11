@@ -248,6 +248,7 @@ op_star
 id|fn
 )paren
 (paren
+r_void
 )paren
 suffix:semicolon
 )brace
