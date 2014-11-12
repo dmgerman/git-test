@@ -31,7 +31,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] add [-f] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
+l_string|&quot;git notes [--ref &lt;notes_ref&gt;] add [-f] [--allow-empty] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
 )paren
 comma
 id|N_
@@ -43,13 +43,13 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] append [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
+l_string|&quot;git notes [--ref &lt;notes_ref&gt;] append [--allow-empty] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] edit [&lt;object&gt;]&quot;
+l_string|&quot;git notes [--ref &lt;notes_ref&gt;] edit [--allow-empty] [&lt;object&gt;]&quot;
 )paren
 comma
 id|N_
@@ -2119,6 +2119,10 @@ r_int
 id|force
 op_assign
 l_int|0
+comma
+id|allow_empty
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -2276,6 +2280,23 @@ id|PARSE_OPT_NONEG
 comma
 id|parse_reuse_arg
 )brace
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;allow-empty&quot;
+comma
+op_amp
+id|allow_empty
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;allow storing empty note&quot;
+)paren
+)paren
 comma
 id|OPT__FORCE
 c_func
@@ -2502,6 +2523,8 @@ r_if
 c_cond
 (paren
 id|d.buf.len
+op_logical_or
+id|allow_empty
 )paren
 (brace
 id|write_note_data
@@ -3096,6 +3119,11 @@ op_star
 id|prefix
 )paren
 (brace
+r_int
+id|allow_empty
+op_assign
+l_int|0
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -3265,6 +3293,23 @@ id|PARSE_OPT_NONEG
 comma
 id|parse_reuse_arg
 )brace
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;allow-empty&quot;
+comma
+op_amp
+id|allow_empty
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;allow storing empty note&quot;
+)paren
+)paren
 comma
 id|OPT_END
 c_func
@@ -3534,6 +3579,8 @@ r_if
 c_cond
 (paren
 id|d.buf.len
+op_logical_or
+id|allow_empty
 )paren
 (brace
 id|write_note_data
