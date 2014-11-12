@@ -2237,10 +2237,6 @@ id|prefix
 )paren
 (brace
 r_int
-id|retval
-op_assign
-l_int|0
-comma
 id|force
 op_assign
 l_int|0
@@ -2540,21 +2536,18 @@ op_logical_neg
 id|force
 )paren
 (brace
+id|free_notes
+c_func
+(paren
+id|t
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|d.given
 )paren
 (brace
-multiline_comment|/*&n;&t;&t;&t;&t; * Redirect to &quot;edit&quot; subcommand.&n;&t;&t;&t;&t; *&n;&t;&t;&t;&t; * We only end up here if none of -m/-F/-c/-C&n;&t;&t;&t;&t; * or -f are given. The original args are&n;&t;&t;&t;&t; * therefore still in argv[0-1].&n;&t;&t;&t;&t; */
-id|argv
-(braket
-l_int|0
-)braket
-op_assign
-l_string|&quot;edit&quot;
-suffix:semicolon
 id|free_note_data
 c_func
 (paren
@@ -2562,11 +2555,33 @@ op_amp
 id|d
 )paren
 suffix:semicolon
-id|free_notes
+r_return
+id|error
 c_func
 (paren
-id|t
+id|_
+c_func
+(paren
+l_string|&quot;Cannot add notes. &quot;
+l_string|&quot;Found existing notes for object %s. &quot;
+l_string|&quot;Use &squot;-f&squot; to overwrite existing notes&quot;
 )paren
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|object
+)paren
+)paren
+suffix:semicolon
+)brace
+multiline_comment|/*&n;&t;&t;&t; * Redirect to &quot;edit&quot; subcommand.&n;&t;&t;&t; *&n;&t;&t;&t; * We only end up here if none of -m/-F/-c/-C or -f are&n;&t;&t;&t; * given. The original args are therefore still in&n;&t;&t;&t; * argv[0-1].&n;&t;&t;&t; */
+id|argv
+(braket
+l_int|0
+)braket
+op_assign
+l_string|&quot;edit&quot;
 suffix:semicolon
 r_return
 id|append_edit
@@ -2578,30 +2593,6 @@ id|argv
 comma
 id|prefix
 )paren
-suffix:semicolon
-)brace
-id|retval
-op_assign
-id|error
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Cannot add notes. Found existing notes &quot;
-l_string|&quot;for object %s. Use &squot;-f&squot; to overwrite &quot;
-l_string|&quot;existing notes&quot;
-)paren
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|object
-)paren
-)paren
-suffix:semicolon
-r_goto
-id|out
 suffix:semicolon
 )brace
 id|fprintf
@@ -2718,8 +2709,6 @@ comma
 id|logmsg
 )paren
 suffix:semicolon
-id|out
-suffix:colon
 id|free_notes
 c_func
 (paren
@@ -2727,7 +2716,7 @@ id|t
 )paren
 suffix:semicolon
 r_return
-id|retval
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|copy
