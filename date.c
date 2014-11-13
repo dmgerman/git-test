@@ -2539,7 +2539,7 @@ id|num2
 comma
 id|num3
 comma
-id|refuse_future
+l_int|NULL
 comma
 id|now
 comma
@@ -2561,7 +2561,7 @@ id|num3
 comma
 id|num2
 comma
-id|refuse_future
+l_int|NULL
 comma
 id|now
 comma
