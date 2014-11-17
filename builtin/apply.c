@@ -16943,7 +16943,7 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;sha1 information is lacking or useless for submoule %s&quot;
+l_string|&quot;sha1 information is lacking or useless for submodule %s&quot;
 comma
 id|name
 )paren
