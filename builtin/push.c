@@ -2257,11 +2257,7 @@ comma
 op_amp
 id|flags
 comma
-id|N_
-c_func
-(paren
-l_string|&quot;check&quot;
-)paren
+l_string|&quot;check|on-demand&quot;
 comma
 id|N_
 c_func
