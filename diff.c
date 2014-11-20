@@ -1443,21 +1443,17 @@ c_func
 id|var
 )paren
 suffix:semicolon
+r_return
 id|color_parse
 c_func
 (paren
 id|value
-comma
-id|var
 comma
 id|diff_colors
 (braket
 id|slot
 )braket
 )paren
-suffix:semicolon
-r_return
-l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* like GNU diff&squot;s --suppress-blank-empty option  */

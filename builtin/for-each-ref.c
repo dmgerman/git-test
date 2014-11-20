@@ -3896,6 +3896,9 @@ id|COLOR_MAXLEN
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|color_parse
 c_func
 (paren
@@ -3903,9 +3906,19 @@ id|name
 op_plus
 l_int|6
 comma
-l_string|&quot;--format&quot;
-comma
 id|color
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;unable to parse format&quot;
+)paren
 )paren
 suffix:semicolon
 id|v-&gt;s
@@ -5765,14 +5778,23 @@ id|COLOR_MAXLEN
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|color_parse
 c_func
 (paren
 l_string|&quot;reset&quot;
 comma
-l_string|&quot;--format&quot;
-comma
 id|color
+)paren
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: couldn&squot;t parse &squot;reset&squot; as a color&quot;
 )paren
 suffix:semicolon
 id|resetv.s
