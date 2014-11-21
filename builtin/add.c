@@ -1641,15 +1641,9 @@ l_string|&quot;Use -f if you really want to add them.&bslash;n&quot;
 )paren
 )paren
 suffix:semicolon
-id|die
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;no files added&quot;
-)paren
-)paren
+id|exit_status
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 r_for
