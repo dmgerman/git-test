@@ -1886,6 +1886,16 @@ c_func
 l_string|&quot;MANPATH&quot;
 )paren
 suffix:semicolon
+r_char
+op_star
+id|git_man_path
+op_assign
+id|system_path
+c_func
+(paren
+id|GIT_MAN_PATH
+)paren
+suffix:semicolon
 multiline_comment|/* We should always put &squot;:&squot; after our path. If there is no&n;&t; * old_path, the &squot;:&squot; at the end will let &squot;man&squot; to try&n;&t; * system-wide paths after ours to find the manual page. If&n;&t; * there is old_path, we need &squot;:&squot; as delimiter. */
 id|strbuf_addstr
 c_func
@@ -1893,11 +1903,7 @@ c_func
 op_amp
 id|new_path
 comma
-id|system_path
-c_func
-(paren
-id|GIT_MAN_PATH
-)paren
+id|git_man_path
 )paren
 suffix:semicolon
 id|strbuf_addch
@@ -1921,6 +1927,12 @@ op_amp
 id|new_path
 comma
 id|old_path
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|git_man_path
 )paren
 suffix:semicolon
 id|setenv
@@ -2246,6 +2258,12 @@ r_struct
 id|stat
 id|st
 suffix:semicolon
+r_char
+op_star
+id|to_free
+op_assign
+l_int|NULL
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2253,6 +2271,8 @@ op_logical_neg
 id|html_path
 )paren
 id|html_path
+op_assign
+id|to_free
 op_assign
 id|system_path
 c_func
@@ -2326,6 +2346,12 @@ comma
 id|html_path
 comma
 id|page
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|to_free
 )paren
 suffix:semicolon
 )brace
