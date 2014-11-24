@@ -362,7 +362,7 @@ suffix:semicolon
 )brace
 DECL|function|do_add_entry
 r_static
-r_void
+r_int
 id|do_add_entry
 c_func
 (paren
@@ -417,6 +417,7 @@ id|clear
 op_or
 id|set
 suffix:semicolon
+r_return
 id|add_index_entry
 c_func
 (paren
@@ -2894,6 +2895,9 @@ id|i
 op_ne
 id|o-&gt;df_conflict_entry
 )paren
+r_if
+c_cond
+(paren
 id|do_add_entry
 c_func
 (paren
@@ -2908,6 +2912,9 @@ l_int|0
 comma
 l_int|0
 )paren
+)paren
+r_return
+l_int|1
 suffix:semicolon
 r_return
 l_int|0
