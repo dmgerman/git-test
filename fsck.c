@@ -867,7 +867,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|strcasecmp
 c_func
 (paren
 id|name
