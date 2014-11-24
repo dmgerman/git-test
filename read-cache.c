@@ -3593,6 +3593,9 @@ multiline_comment|/*&n;&t; * &quot;.git&quot; followed by  NUL or slash is bad. 
 r_case
 l_char|&squot;g&squot;
 suffix:colon
+r_case
+l_char|&squot;G&squot;
+suffix:colon
 r_if
 c_cond
 (paren
@@ -3602,6 +3605,13 @@ l_int|1
 )braket
 op_ne
 l_char|&squot;i&squot;
+op_logical_and
+id|rest
+(braket
+l_int|1
+)braket
+op_ne
+l_char|&squot;I&squot;
 )paren
 r_break
 suffix:semicolon
@@ -3614,6 +3624,13 @@ l_int|2
 )braket
 op_ne
 l_char|&squot;t&squot;
+op_logical_and
+id|rest
+(braket
+l_int|2
+)braket
+op_ne
+l_char|&squot;T&squot;
 )paren
 r_break
 suffix:semicolon
