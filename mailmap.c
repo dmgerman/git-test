@@ -302,8 +302,10 @@ id|mailmap_entry
 op_star
 id|me
 suffix:semicolon
-r_int
-id|index
+r_struct
+id|string_list_item
+op_star
+id|item
 suffix:semicolon
 r_if
 c_cond
@@ -322,32 +324,22 @@ op_assign
 l_int|NULL
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-(paren
-id|index
+id|item
 op_assign
-id|string_list_find_insert_index
+id|string_list_insert
 c_func
 (paren
 id|map
 comma
 id|old_email
-comma
-l_int|1
 )paren
-)paren
-OL
-l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|item-&gt;util
 )paren
 (brace
-multiline_comment|/* mailmap entry exists, invert index value */
-id|index
-op_assign
-l_int|1
-id|index
-suffix:semicolon
 id|me
 op_assign
 (paren
@@ -355,34 +347,11 @@ r_struct
 id|mailmap_entry
 op_star
 )paren
-id|map-&gt;items
-(braket
-id|index
-)braket
-dot
-id|util
+id|item-&gt;util
 suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* create mailmap entry */
-r_struct
-id|string_list_item
-op_star
-id|item
-suffix:semicolon
-id|item
-op_assign
-id|string_list_insert_at_index
-c_func
-(paren
-id|map
-comma
-id|index
-comma
-id|old_email
-)paren
-suffix:semicolon
 id|me
 op_assign
 id|xcalloc
@@ -421,11 +390,9 @@ l_int|NULL
 id|debug_mm
 c_func
 (paren
-l_string|&quot;mailmap: adding (simple) entry for %s at index %d&bslash;n&quot;
+l_string|&quot;mailmap: adding (simple) entry for &squot;%s&squot;&bslash;n&quot;
 comma
 id|old_email
-comma
-id|index
 )paren
 suffix:semicolon
 multiline_comment|/* Replace current name and new email for simple entry */
@@ -494,11 +461,9 @@ suffix:semicolon
 id|debug_mm
 c_func
 (paren
-l_string|&quot;mailmap: adding (complex) entry for %s at index %d&bslash;n&quot;
+l_string|&quot;mailmap: adding (complex) entry for &squot;%s&squot;&bslash;n&quot;
 comma
 id|old_email
-comma
-id|index
 )paren
 suffix:semicolon
 r_if
