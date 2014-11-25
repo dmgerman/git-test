@@ -8137,7 +8137,7 @@ id|i
 op_assign
 id|refname
 suffix:semicolon
-id|string_list_insert
+id|string_list_append
 c_func
 (paren
 op_amp
@@ -8147,6 +8147,13 @@ id|refname
 )paren
 suffix:semicolon
 )brace
+id|sort_string_list
+c_func
+(paren
+op_amp
+id|delete_refs_list
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
