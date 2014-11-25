@@ -2054,7 +2054,7 @@ c_func
 id|fetch_map
 )paren
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp
@@ -2063,14 +2063,14 @@ op_member_access_from_pointer
 r_new
 )paren
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp
 id|states-&gt;tracked
 )paren
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp
@@ -5449,7 +5449,7 @@ comma
 id|states
 )paren
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp
@@ -6655,7 +6655,7 @@ id|result
 r_int
 id|i
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp
@@ -8049,7 +8049,7 @@ comma
 id|item-&gt;util
 )paren
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp

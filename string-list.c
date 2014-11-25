@@ -1272,7 +1272,7 @@ r_static
 id|compare_strings_fn
 id|compare_for_qsort
 suffix:semicolon
-multiline_comment|/* Only call this from inside sort_string_list! */
+multiline_comment|/* Only call this from inside string_list_sort! */
 DECL|function|cmp_items
 r_static
 r_int
@@ -1316,9 +1316,9 @@ id|two-&gt;string
 )paren
 suffix:semicolon
 )brace
-DECL|function|sort_string_list
+DECL|function|string_list_sort
 r_void
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 r_struct

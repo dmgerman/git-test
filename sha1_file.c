@@ -5432,7 +5432,7 @@ id|report_garbage
 )paren
 r_return
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 id|list

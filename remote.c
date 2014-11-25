@@ -7704,7 +7704,7 @@ comma
 id|TMP_MARK
 )paren
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp
@@ -8014,7 +8014,7 @@ id|util
 op_assign
 id|ref
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 id|ref_index
@@ -11445,7 +11445,7 @@ comma
 id|ref-&gt;name
 )paren
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp

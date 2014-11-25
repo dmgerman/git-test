@@ -2157,7 +2157,7 @@ id|opts
 op_assign
 l_int|0
 suffix:semicolon
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp

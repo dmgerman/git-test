@@ -415,7 +415,7 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
-id|sort_string_list
+id|string_list_sort
 c_func
 (paren
 op_amp
