@@ -7926,7 +7926,7 @@ id|states
 suffix:semicolon
 r_struct
 id|string_list
-id|delete_refs_list
+id|refs_to_prune
 op_assign
 id|STRING_LIST_INIT_NODUP
 suffix:semicolon
@@ -8060,7 +8060,7 @@ id|string_list_append
 c_func
 (paren
 op_amp
-id|delete_refs_list
+id|refs_to_prune
 comma
 id|refname
 )paren
@@ -8070,7 +8070,7 @@ id|sort_string_list
 c_func
 (paren
 op_amp
-id|delete_refs_list
+id|refs_to_prune
 )paren
 suffix:semicolon
 r_if
@@ -8093,7 +8093,7 @@ id|repack_without_refs
 c_func
 (paren
 op_amp
-id|delete_refs_list
+id|refs_to_prune
 comma
 op_amp
 id|err
@@ -8213,14 +8213,14 @@ comma
 id|dangling_msg
 comma
 op_amp
-id|delete_refs_list
+id|refs_to_prune
 )paren
 suffix:semicolon
 id|string_list_clear
 c_func
 (paren
 op_amp
-id|delete_refs_list
+id|refs_to_prune
 comma
 l_int|0
 )paren
