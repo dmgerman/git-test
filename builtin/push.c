@@ -787,6 +787,9 @@ id|branch
 comma
 r_int
 id|triangular
+comma
+r_int
+id|simple
 )paren
 (brace
 r_struct
@@ -888,9 +891,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|push_default
-op_eq
-id|PUSH_DEFAULT_SIMPLE
+id|simple
 )paren
 (brace
 multiline_comment|/* Additional safety */
@@ -1170,6 +1171,8 @@ comma
 id|branch
 comma
 id|triangular
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_break
@@ -1185,6 +1188,8 @@ comma
 id|branch
 comma
 id|triangular
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_break
