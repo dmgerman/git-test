@@ -6131,7 +6131,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;quote placeholders suitably for tcl&quot;
+l_string|&quot;quote placeholders suitably for Tcl&quot;
 )paren
 comma
 id|QUOTE_TCL
