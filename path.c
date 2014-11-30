@@ -557,6 +557,8 @@ l_string|&quot;/refs&quot;
 comma
 l_string|&quot;/remotes&quot;
 comma
+l_string|&quot;/worktrees&quot;
+comma
 l_string|&quot;/rr-cache&quot;
 comma
 l_string|&quot;/svn&quot;
