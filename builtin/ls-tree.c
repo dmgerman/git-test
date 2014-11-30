@@ -894,6 +894,8 @@ comma
 id|PATHSPEC_GLOB
 op_or
 id|PATHSPEC_ICASE
+op_or
+id|PATHSPEC_EXCLUDE
 comma
 id|PATHSPEC_PREFER_CWD
 comma
