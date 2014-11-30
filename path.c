@@ -616,6 +616,16 @@ l_string|&quot;logs&quot;
 comma
 l_string|&quot;HEAD&quot;
 )paren
+op_logical_or
+id|is_dir_file
+c_func
+(paren
+id|base
+comma
+l_string|&quot;info&quot;
+comma
+l_string|&quot;sparse-checkout&quot;
+)paren
 )paren
 r_return
 suffix:semicolon
