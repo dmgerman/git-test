@@ -354,10 +354,17 @@ c_cond
 (paren
 id|verbose
 )paren
+(brace
 id|report_garbage
 op_assign
 id|real_report_garbage
 suffix:semicolon
+id|report_linked_checkout_garbage
+c_func
+(paren
+)paren
+suffix:semicolon
+)brace
 id|for_each_loose_file_in_objdir
 c_func
 (paren
