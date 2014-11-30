@@ -290,10 +290,10 @@ id|buf
 )paren
 suffix:semicolon
 )brace
-DECL|function|vsnpath
+DECL|function|do_git_path
 r_static
 r_void
-id|vsnpath
+id|do_git_path
 c_func
 (paren
 r_struct
@@ -400,7 +400,7 @@ comma
 id|fmt
 )paren
 suffix:semicolon
-id|vsnpath
+id|do_git_path
 c_func
 (paren
 id|sb
@@ -450,7 +450,7 @@ comma
 id|fmt
 )paren
 suffix:semicolon
-id|vsnpath
+id|do_git_path
 c_func
 (paren
 op_amp
@@ -646,7 +646,7 @@ comma
 id|fmt
 )paren
 suffix:semicolon
-id|vsnpath
+id|do_git_path
 c_func
 (paren
 id|pathname
