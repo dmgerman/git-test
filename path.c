@@ -550,8 +550,6 @@ l_string|&quot;!/logs&quot;
 comma
 l_string|&quot;/lost-found&quot;
 comma
-l_string|&quot;/modules&quot;
-comma
 l_string|&quot;/objects&quot;
 comma
 l_string|&quot;/refs&quot;
