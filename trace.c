@@ -1568,6 +1568,24 @@ c_func
 op_amp
 id|key
 comma
+l_string|&quot;setup: git_common_dir: %s&bslash;n&quot;
+comma
+id|quote_crnl
+c_func
+(paren
+id|get_git_common_dir
+c_func
+(paren
+)paren
+)paren
+)paren
+suffix:semicolon
+id|trace_printf_key
+c_func
+(paren
+op_amp
+id|key
+comma
 l_string|&quot;setup: worktree: %s&bslash;n&quot;
 comma
 id|quote_crnl
