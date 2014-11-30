@@ -4502,6 +4502,13 @@ c_func
 (paren
 id|path
 )paren
+op_logical_and
+op_logical_neg
+id|is_empty_dir
+c_func
+(paren
+id|path
+)paren
 )paren
 id|die
 c_func
