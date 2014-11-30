@@ -1550,22 +1550,29 @@ id|ret
 op_assign
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * git_config() can&squot;t be used here because it calls git_pathdup()&n;&t; * to get $GIT_CONFIG/config. That call will make setup_git_env()&n;&t; * set git_dir to &quot;.git&quot;.&n;&t; *&n;&t; * We are in gitdir setup, no git dir has been found useable yet.&n;&t; * Use a gentler version of git_config() to check if this repo&n;&t; * is a good one.&n;&t; */
-id|strbuf_addf
+id|get_common_dir
 c_func
 (paren
 op_amp
 id|sb
 comma
-l_string|&quot;%s/config&quot;
-comma
 id|gitdir
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|sb
+comma
+l_string|&quot;/config&quot;
 )paren
 suffix:semicolon
 id|repo_config
 op_assign
 id|sb.buf
 suffix:semicolon
+multiline_comment|/*&n;&t; * git_config() can&squot;t be used here because it calls git_pathdup()&n;&t; * to get $GIT_CONFIG/config. That call will make setup_git_env()&n;&t; * set git_dir to &quot;.git&quot;.&n;&t; *&n;&t; * We are in gitdir setup, no git dir has been found useable yet.&n;&t; * Use a gentler version of git_config() to check if this repo&n;&t; * is a good one.&n;&t; */
 id|git_config_early
 c_func
 (paren
