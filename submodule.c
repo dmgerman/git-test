@@ -5968,10 +5968,6 @@ id|work_tree
 )paren
 )paren
 suffix:semicolon
-id|FILE
-op_star
-id|fp
-suffix:semicolon
 multiline_comment|/* Update gitfile */
 id|strbuf_addf
 c_func
@@ -5984,38 +5980,12 @@ comma
 id|work_tree
 )paren
 suffix:semicolon
-id|fp
-op_assign
-id|fopen
+id|write_file
 c_func
 (paren
 id|file_name.buf
 comma
-l_string|&quot;w&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|fp
-)paren
-id|die
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Could not create git link %s&quot;
-)paren
-comma
-id|file_name.buf
-)paren
-suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|fp
+l_int|1
 comma
 l_string|&quot;gitdir: %s&bslash;n&quot;
 comma
@@ -6029,12 +5999,6 @@ comma
 op_amp
 id|rel_path
 )paren
-)paren
-suffix:semicolon
-id|fclose
-c_func
-(paren
-id|fp
 )paren
 suffix:semicolon
 multiline_comment|/* Update core.worktree setting */

@@ -1453,10 +1453,6 @@ id|len
 op_assign
 id|buf-&gt;len
 suffix:semicolon
-id|FILE
-op_star
-id|f
-suffix:semicolon
 multiline_comment|/* when called via for_each_ref(), flags is non-zero */
 r_if
 c_cond
@@ -1501,23 +1497,12 @@ c_func
 id|buf-&gt;buf
 )paren
 op_logical_or
-op_logical_neg
-(paren
-id|f
-op_assign
-id|fopen
+id|write_file
 c_func
 (paren
 id|buf-&gt;buf
 comma
-l_string|&quot;w&quot;
-)paren
-)paren
-op_logical_or
-id|fprintf
-c_func
-(paren
-id|f
+l_int|0
 comma
 l_string|&quot;%s&bslash;n&quot;
 comma
@@ -1527,22 +1512,20 @@ c_func
 id|sha1
 )paren
 )paren
-OL
-l_int|0
-op_logical_or
-id|fclose
-c_func
-(paren
-id|f
-)paren
 )paren
 r_return
 id|error
 c_func
 (paren
-l_string|&quot;problems writing temporary file %s&quot;
+l_string|&quot;problems writing temporary file %s: %s&quot;
 comma
 id|buf-&gt;buf
+comma
+id|strerror
+c_func
+(paren
+id|errno
+)paren
 )paren
 suffix:semicolon
 id|strbuf_setlen
