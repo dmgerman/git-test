@@ -7256,6 +7256,17 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|opts.new_worktree
+)paren
+id|setup_work_tree
+c_func
+(paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|conflict_style
 )paren
 (brace

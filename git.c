@@ -2352,8 +2352,6 @@ comma
 id|cmd_checkout
 comma
 id|RUN_SETUP
-op_or
-id|NEED_WORK_TREE
 )brace
 comma
 (brace
