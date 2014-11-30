@@ -3978,6 +3978,7 @@ suffix:semicolon
 macro_line|#endif
 )brace
 DECL|function|find_hook
+r_const
 r_char
 op_star
 id|find_hook
@@ -3989,6 +3990,7 @@ op_star
 id|name
 )paren
 (brace
+r_const
 r_char
 op_star
 id|path

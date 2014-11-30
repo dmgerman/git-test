@@ -1406,7 +1406,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|safe_create_leading_directories
+id|safe_create_leading_directories_const
 c_func
 (paren
 id|git_path
@@ -1488,6 +1488,7 @@ id|size
 r_int
 id|fd
 suffix:semicolon
+r_const
 r_char
 op_star
 id|path
@@ -1508,7 +1509,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|safe_create_leading_directories
+id|safe_create_leading_directories_const
 c_func
 (paren
 id|path

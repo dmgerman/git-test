@@ -597,6 +597,7 @@ l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|mkpath
+r_const
 r_char
 op_star
 id|mkpath
@@ -658,6 +659,7 @@ id|pathname-&gt;buf
 suffix:semicolon
 )brace
 DECL|function|git_path
+r_const
 r_char
 op_star
 id|git_path
@@ -859,6 +861,7 @@ id|to_free
 suffix:semicolon
 )brace
 DECL|function|git_path_submodule
+r_const
 r_char
 op_star
 id|git_path_submodule

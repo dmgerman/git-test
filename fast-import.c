@@ -1216,6 +1216,7 @@ op_star
 id|err
 )paren
 (brace
+r_const
 r_char
 op_star
 id|loc

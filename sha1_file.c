@@ -1806,6 +1806,7 @@ comma
 id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
+r_const
 r_char
 op_star
 id|alt

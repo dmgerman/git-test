@@ -4455,6 +4455,7 @@ id|proc
 op_assign
 id|CHILD_PROCESS_INIT
 suffix:semicolon
+r_const
 r_char
 op_star
 id|hook

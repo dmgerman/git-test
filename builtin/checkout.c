@@ -2964,6 +2964,7 @@ id|log_file
 id|PATH_MAX
 )braket
 suffix:semicolon
+r_const
 r_char
 op_star
 id|ref_name

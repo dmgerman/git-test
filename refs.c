@@ -5171,6 +5171,7 @@ comma
 op_star
 id|p
 suffix:semicolon
+r_const
 r_char
 op_star
 id|path
@@ -9355,6 +9356,7 @@ op_star
 id|type_p
 )paren
 (brace
+r_const
 r_char
 op_star
 id|ref_file
@@ -9712,7 +9714,7 @@ suffix:colon
 r_switch
 c_cond
 (paren
-id|safe_create_leading_directories
+id|safe_create_leading_directories_const
 c_func
 (paren
 id|ref_file
@@ -11603,7 +11605,7 @@ suffix:colon
 r_switch
 c_cond
 (paren
-id|safe_create_leading_directories
+id|safe_create_leading_directories_const
 c_func
 (paren
 id|git_path
