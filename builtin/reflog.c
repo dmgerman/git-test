@@ -1674,12 +1674,12 @@ id|cmd-&gt;dry_run
 (brace
 id|newlog_path
 op_assign
-id|git_pathdup
+id|mkpathdup
 c_func
 (paren
-l_string|&quot;logs/%s.lock&quot;
+l_string|&quot;%s.lock&quot;
 comma
-id|ref
+id|log_file
 )paren
 suffix:semicolon
 id|cb.newlog
