@@ -3921,12 +3921,6 @@ op_assign
 id|CHILD_PROCESS_INIT
 suffix:semicolon
 r_struct
-id|argv_array
-id|argv
-op_assign
-id|ARGV_ARRAY_INIT
-suffix:semicolon
-r_struct
 id|strbuf
 id|cmd_stdout
 op_assign
@@ -3960,7 +3954,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|sm_summary.args
 comma
 l_string|&quot;submodule&quot;
 )paren
@@ -3969,7 +3963,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|sm_summary.args
 comma
 l_string|&quot;summary&quot;
 )paren
@@ -3978,7 +3972,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|sm_summary.args
 comma
 id|uncommitted
 ques
@@ -3992,7 +3986,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|sm_summary.args
 comma
 l_string|&quot;--for-status&quot;
 )paren
@@ -4001,7 +3995,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|sm_summary.args
 comma
 l_string|&quot;--summary-limit&quot;
 )paren
@@ -4010,7 +4004,7 @@ id|argv_array_pushf
 c_func
 (paren
 op_amp
-id|argv
+id|sm_summary.args
 comma
 l_string|&quot;%d&quot;
 comma
@@ -4027,7 +4021,7 @@ id|argv_array_push
 c_func
 (paren
 op_amp
-id|argv
+id|sm_summary.args
 comma
 id|s-&gt;amend
 ques
@@ -4036,10 +4030,6 @@ l_string|&quot;HEAD^&quot;
 suffix:colon
 l_string|&quot;HEAD&quot;
 )paren
-suffix:semicolon
-id|sm_summary.argv
-op_assign
-id|argv.argv
 suffix:semicolon
 id|sm_summary.git_cmd
 op_assign
@@ -4064,13 +4054,6 @@ c_func
 (paren
 op_amp
 id|sm_summary
-)paren
-suffix:semicolon
-id|argv_array_clear
-c_func
-(paren
-op_amp
-id|argv
 )paren
 suffix:semicolon
 id|len
