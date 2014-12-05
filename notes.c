@@ -5973,9 +5973,6 @@ id|msglen
 )paren
 )paren
 op_logical_or
-op_logical_neg
-id|msglen
-op_logical_or
 id|type
 op_ne
 id|OBJ_BLOB
