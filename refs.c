@@ -14431,17 +14431,10 @@ id|ret
 op_logical_and
 id|sb.len
 )paren
-id|ret
-op_assign
-id|show_one_reflog_ent
+id|die
 c_func
 (paren
-op_amp
-id|sb
-comma
-id|fn
-comma
-id|cb_data
+l_string|&quot;BUG: reverse reflog parser had leftover data&quot;
 )paren
 suffix:semicolon
 id|fclose
