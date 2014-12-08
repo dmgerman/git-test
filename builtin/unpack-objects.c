@@ -403,7 +403,7 @@ r_void
 op_star
 id|buf
 op_assign
-id|xmalloc
+id|xmallocz
 c_func
 (paren
 id|size

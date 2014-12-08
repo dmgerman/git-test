@@ -2011,7 +2011,7 @@ suffix:semicolon
 r_else
 id|buf
 op_assign
-id|xmalloc
+id|xmallocz
 c_func
 (paren
 id|size
@@ -2656,7 +2656,7 @@ id|status
 suffix:semicolon
 id|data
 op_assign
-id|xmalloc
+id|xmallocz
 c_func
 (paren
 id|consume
