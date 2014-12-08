@@ -2571,7 +2571,15 @@ id|tag-&gt;object
 comma
 id|FSCK_WARN
 comma
-l_string|&quot;invalid &squot;tag&squot; name: %s&quot;
+l_string|&quot;invalid &squot;tag&squot; name: %.*s&quot;
+comma
+(paren
+r_int
+)paren
+(paren
+id|eol
+id|buffer
+)paren
 comma
 id|buffer
 )paren
