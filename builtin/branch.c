@@ -4326,7 +4326,7 @@ id|rename
 op_assign
 l_int|0
 comma
-id|force_create
+id|force
 op_assign
 l_int|0
 comma
@@ -4766,12 +4766,12 @@ id|OPT__FORCE
 c_func
 (paren
 op_amp
-id|force_create
+id|force
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;force creation (when already exists)&quot;
+l_string|&quot;force creation, move/rename, deletion&quot;
 )paren
 )paren
 comma
@@ -5063,10 +5063,6 @@ id|rename
 op_plus
 op_logical_neg
 op_logical_neg
-id|force_create
-op_plus
-op_logical_neg
-op_logical_neg
 id|new_upstream
 op_plus
 id|list
@@ -5131,6 +5127,21 @@ suffix:semicolon
 id|colopts
 op_assign
 l_int|0
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|force
+)paren
+(brace
+r_delete
+op_mul_assign
+l_int|2
+suffix:semicolon
+id|rename
+op_mul_assign
+l_int|2
 suffix:semicolon
 )brace
 r_if
@@ -5958,7 +5969,7 @@ l_int|1
 suffix:colon
 id|head
 comma
-id|force_create
+id|force
 comma
 id|reflog
 comma
