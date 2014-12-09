@@ -677,10 +677,6 @@ id|dst
 )paren
 suffix:semicolon
 )brace
-DECL|macro|COLOR_FOREGROUND
-mdefine_line|#define COLOR_FOREGROUND &squot;3&squot;
-DECL|macro|COLOR_BACKGROUND
-mdefine_line|#define COLOR_BACKGROUND &squot;4&squot;
 multiline_comment|/*&n; * Write the ANSI color codes for &quot;c&quot; to &quot;out&quot;; the string should&n; * already have the ANSI escape code in it. &quot;out&quot; should have enough&n; * space in it to fit any color.&n; */
 DECL|function|color_output
 r_static
@@ -1171,6 +1167,7 @@ op_increment
 op_assign
 l_char|&squot;;&squot;
 suffix:semicolon
+multiline_comment|/* foreground colors are all in the 3x range */
 id|dst
 op_assign
 id|color_output
@@ -1181,7 +1178,7 @@ comma
 op_amp
 id|fg
 comma
-id|COLOR_FOREGROUND
+l_char|&squot;3&squot;
 )paren
 suffix:semicolon
 )brace
@@ -1209,6 +1206,7 @@ op_increment
 op_assign
 l_char|&squot;;&squot;
 suffix:semicolon
+multiline_comment|/* background colors are all in the 4x range */
 id|dst
 op_assign
 id|color_output
@@ -1219,7 +1217,7 @@ comma
 op_amp
 id|bg
 comma
-id|COLOR_BACKGROUND
+l_char|&squot;4&squot;
 )paren
 suffix:semicolon
 )brace
