@@ -881,6 +881,12 @@ c_func
 (paren
 id|name
 )paren
+op_logical_or
+id|is_ntfs_dotgit
+c_func
+(paren
+id|name
+)paren
 )paren
 id|has_dotgit
 op_assign
