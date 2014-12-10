@@ -3613,7 +3613,8 @@ op_star
 id|parse_ref_line
 c_func
 (paren
-r_char
+r_struct
+id|strbuf
 op_star
 id|line
 comma
@@ -3623,23 +3624,18 @@ op_star
 id|sha1
 )paren
 (brace
-multiline_comment|/*&n;&t; * 42: the answer to everything.&n;&t; *&n;&t; * In this case, it happens to be the answer to&n;&t; *  40 (length of sha1 hex representation)&n;&t; *  +1 (space in between hex and name)&n;&t; *  +1 (newline at the end of the line)&n;&t; */
-r_int
-id|len
-op_assign
-id|strlen
-c_func
-(paren
-id|line
-)paren
-l_int|42
+r_const
+r_char
+op_star
+id|ref
 suffix:semicolon
+multiline_comment|/*&n;&t; * 42: the answer to everything.&n;&t; *&n;&t; * In this case, it happens to be the answer to&n;&t; *  40 (length of sha1 hex representation)&n;&t; *  +1 (space in between hex and name)&n;&t; *  +1 (newline at the end of the line)&n;&t; */
 r_if
 c_cond
 (paren
-id|len
+id|line-&gt;len
 op_le
-l_int|0
+l_int|42
 )paren
 r_return
 l_int|NULL
@@ -3650,7 +3646,7 @@ c_cond
 id|get_sha1_hex
 c_func
 (paren
-id|line
+id|line-&gt;buf
 comma
 id|sha1
 )paren
@@ -3667,7 +3663,7 @@ op_logical_neg
 id|isspace
 c_func
 (paren
-id|line
+id|line-&gt;buf
 (braket
 l_int|40
 )braket
@@ -3676,8 +3672,10 @@ l_int|40
 r_return
 l_int|NULL
 suffix:semicolon
-id|line
-op_add_assign
+id|ref
+op_assign
+id|line-&gt;buf
+op_plus
 l_int|41
 suffix:semicolon
 r_if
@@ -3687,7 +3685,7 @@ id|isspace
 c_func
 (paren
 op_star
-id|line
+id|ref
 )paren
 )paren
 r_return
@@ -3696,9 +3694,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|line
+id|line-&gt;buf
 (braket
-id|len
+id|line-&gt;len
+l_int|1
 )braket
 op_ne
 l_char|&squot;&bslash;n&squot;
@@ -3706,15 +3705,16 @@ l_char|&squot;&bslash;n&squot;
 r_return
 l_int|NULL
 suffix:semicolon
-id|line
+id|line-&gt;buf
 (braket
-id|len
+op_decrement
+id|line-&gt;len
 )braket
 op_assign
 l_int|0
 suffix:semicolon
 r_return
-id|line
+id|ref
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Read f, which is a packed-refs file, into dir.&n; *&n; * A comment line of the form &quot;# pack-refs with: &quot; may contain zero or&n; * more traits. We interpret the traits as follows:&n; *&n; *   No traits:&n; *&n; *      Probably no references are peeled. But if the file contains a&n; *      peeled value for a reference, we will use it.&n; *&n; *   peeled:&n; *&n; *      References under &quot;refs/tags/&quot;, if they *can* be peeled, *are*&n; *      peeled in this file. References outside of &quot;refs/tags/&quot; are&n; *      probably not peeled even if they could have been, but if we find&n; *      a peeled value for such a reference we will use it.&n; *&n; *   fully-peeled:&n; *&n; *      All references in the file that can be peeled are peeled.&n; *      Inversely (and this is more important), any references in the&n; *      file for which no peeled value is recorded is not peelable. This&n; *      trait should typically be written alongside &quot;peeled&quot; for&n; *      compatibility with older clients, but we do not require it&n; *      (i.e., &quot;peeled&quot; is a no-op if &quot;fully-peeled&quot; is set).&n; */
@@ -3870,7 +3870,8 @@ op_assign
 id|parse_ref_line
 c_func
 (paren
-id|line.buf
+op_amp
+id|line
 comma
 id|sha1
 )paren
