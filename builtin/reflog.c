@@ -96,9 +96,9 @@ id|recno
 suffix:semicolon
 )brace
 suffix:semicolon
-DECL|struct|expire_reflog_cb
+DECL|struct|expire_reflog_policy_cb
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 (brace
 DECL|member|newlog
 id|FILE
@@ -908,7 +908,7 @@ id|mark_reachable
 c_func
 (paren
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 op_star
 id|cb
 )paren
@@ -1088,7 +1088,7 @@ id|unreachable
 c_func
 (paren
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 op_star
 id|cb
 comma
@@ -1224,7 +1224,7 @@ id|cb_data
 )paren
 (brace
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 op_star
 id|cb
 op_assign
@@ -1387,7 +1387,7 @@ id|cb_data
 )paren
 (brace
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 op_star
 id|cb
 op_assign
@@ -1645,7 +1645,7 @@ op_star
 id|sha1
 comma
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 op_star
 id|cb
 )paren
@@ -1806,7 +1806,7 @@ id|reflog_expiry_cleanup
 c_func
 (paren
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 op_star
 id|cb
 )paren
@@ -1906,7 +1906,7 @@ id|lock_file
 id|reflog_lock
 suffix:semicolon
 r_struct
-id|expire_reflog_cb
+id|expire_reflog_policy_cb
 id|cb
 suffix:semicolon
 r_struct
