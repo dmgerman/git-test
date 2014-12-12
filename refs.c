@@ -5,6 +5,44 @@ macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+DECL|struct|ref_lock
+r_struct
+id|ref_lock
+(brace
+DECL|member|ref_name
+r_char
+op_star
+id|ref_name
+suffix:semicolon
+DECL|member|orig_ref_name
+r_char
+op_star
+id|orig_ref_name
+suffix:semicolon
+DECL|member|lk
+r_struct
+id|lock_file
+op_star
+id|lk
+suffix:semicolon
+DECL|member|old_sha1
+r_int
+r_char
+id|old_sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+DECL|member|lock_fd
+r_int
+id|lock_fd
+suffix:semicolon
+DECL|member|force_write
+r_int
+id|force_write
+suffix:semicolon
+)brace
+suffix:semicolon
 multiline_comment|/*&n; * How to handle various characters in refnames:&n; * 0: An acceptable character for refs&n; * 1: End-of-component&n; * 2: ., look for a preceding . to reject .. in refs&n; * 3: {, look for a preceding @ to reject @{ in refs&n; * 4: A bad character: ASCII control characters, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP&n; */
 DECL|variable|refname_disposition
 r_static
