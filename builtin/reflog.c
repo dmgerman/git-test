@@ -1542,7 +1542,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_const
 r_int
@@ -1609,7 +1609,7 @@ op_assign
 id|lock_any_ref_for_update
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|sha1
 comma
@@ -1630,7 +1630,7 @@ c_func
 (paren
 l_string|&quot;cannot lock ref &squot;%s&squot;&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 id|log_file
@@ -1640,7 +1640,7 @@ c_func
 (paren
 l_string|&quot;logs/%s&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 r_if
@@ -1650,7 +1650,7 @@ op_logical_neg
 id|reflog_exists
 c_func
 (paren
-id|ref
+id|refname
 )paren
 )paren
 r_goto
@@ -1670,7 +1670,7 @@ c_func
 (paren
 l_string|&quot;logs/%s.lock&quot;
 comma
-id|ref
+id|refname
 )paren
 suffix:semicolon
 id|cb.newlog
@@ -1698,7 +1698,7 @@ op_logical_neg
 id|strcmp
 c_func
 (paren
-id|ref
+id|refname
 comma
 l_string|&quot;HEAD&quot;
 )paren
@@ -1840,7 +1840,7 @@ suffix:semicolon
 id|for_each_reflog_ent
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|expire_reflog_ent
 comma
