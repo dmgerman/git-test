@@ -5111,6 +5111,16 @@ op_assign
 id|o-&gt;result
 suffix:semicolon
 )brace
+r_else
+(brace
+id|discard_index
+c_func
+(paren
+op_amp
+id|o-&gt;result
+)paren
+suffix:semicolon
+)brace
 id|done
 suffix:colon
 id|clear_exclude_list
