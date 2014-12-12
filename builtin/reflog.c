@@ -162,6 +162,11 @@ DECL|struct|expire_reflog_cb
 r_struct
 id|expire_reflog_cb
 (brace
+DECL|member|flags
+r_int
+r_int
+id|flags
+suffix:semicolon
 DECL|member|policy_cb
 r_void
 op_star
@@ -1972,6 +1977,10 @@ r_sizeof
 id|policy_cb
 )paren
 )paren
+suffix:semicolon
+id|cb.flags
+op_assign
+id|flags
 suffix:semicolon
 id|cb.policy_cb
 op_assign
