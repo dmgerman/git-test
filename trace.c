@@ -471,26 +471,10 @@ op_star
 id|buf
 )paren
 (brace
-multiline_comment|/* append newline if missing */
-r_if
-c_cond
-(paren
-id|buf-&gt;len
-op_logical_and
-id|buf-&gt;buf
-(braket
-id|buf-&gt;len
-l_int|1
-)braket
-op_ne
-l_char|&squot;&bslash;n&squot;
-)paren
-id|strbuf_addch
+id|strbuf_complete_line
 c_func
 (paren
 id|buf
-comma
-l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 id|write_or_whine_pipe
