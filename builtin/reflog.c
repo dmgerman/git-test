@@ -1879,6 +1879,10 @@ r_char
 op_star
 id|sha1
 comma
+r_int
+r_int
+id|flags
+comma
 r_struct
 id|cmd_reflog_expire_cb
 op_star
@@ -3104,6 +3108,12 @@ id|explicit_expiry
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+r_int
+id|flags
+op_assign
+l_int|0
+suffix:semicolon
 id|default_reflog_expire_unreachable
 op_assign
 id|now
@@ -3559,6 +3569,8 @@ id|e-&gt;reflog
 comma
 id|e-&gt;sha1
 comma
+id|flags
+comma
 op_amp
 id|cb
 )paren
@@ -3664,6 +3676,8 @@ id|ref
 comma
 id|sha1
 comma
+id|flags
+comma
 op_amp
 id|cb
 )paren
@@ -3764,6 +3778,12 @@ r_int
 id|i
 comma
 id|status
+op_assign
+l_int|0
+suffix:semicolon
+r_int
+r_int
+id|flags
 op_assign
 l_int|0
 suffix:semicolon
@@ -4123,6 +4143,8 @@ c_func
 id|ref
 comma
 id|sha1
+comma
+id|flags
 comma
 op_amp
 id|cb
