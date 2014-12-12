@@ -106,11 +106,6 @@ DECL|struct|expire_reflog_policy_cb
 r_struct
 id|expire_reflog_policy_cb
 (brace
-DECL|member|newlog
-id|FILE
-op_star
-id|newlog
-suffix:semicolon
 r_enum
 (brace
 DECL|enumerator|UE_NORMAL
@@ -142,14 +137,6 @@ id|cmd_reflog_expire_cb
 op_star
 id|cmd
 suffix:semicolon
-DECL|member|last_kept_sha1
-r_int
-r_char
-id|last_kept_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
 DECL|member|tip_commit
 r_struct
 id|commit
@@ -177,6 +164,19 @@ DECL|member|policy_cb
 r_void
 op_star
 id|policy_cb
+suffix:semicolon
+DECL|member|newlog
+id|FILE
+op_star
+id|newlog
+suffix:semicolon
+DECL|member|last_kept_sha1
+r_int
+r_char
+id|last_kept_sha1
+(braket
+l_int|20
+)braket
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -1431,7 +1431,7 @@ id|EXPIRE_REFLOGS_REWRITE
 )paren
 id|osha1
 op_assign
-id|policy_cb-&gt;last_kept_sha1
+id|cb-&gt;last_kept_sha1
 suffix:semicolon
 r_if
 c_cond
@@ -1459,7 +1459,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|policy_cb-&gt;newlog
+id|cb-&gt;newlog
 )paren
 id|printf
 c_func
@@ -1491,7 +1491,7 @@ r_else
 r_if
 c_cond
 (paren
-id|policy_cb-&gt;newlog
+id|cb-&gt;newlog
 )paren
 (brace
 r_char
@@ -1527,7 +1527,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|policy_cb-&gt;newlog
+id|cb-&gt;newlog
 comma
 l_string|&quot;%s %s %s %lu %c%04d&bslash;t%s&quot;
 comma
@@ -1557,7 +1557,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|policy_cb-&gt;last_kept_sha1
+id|cb-&gt;last_kept_sha1
 comma
 id|nsha1
 )paren
@@ -2125,7 +2125,7 @@ r_goto
 id|failure
 suffix:semicolon
 )brace
-id|policy_cb.newlog
+id|cb.newlog
 op_assign
 id|fdopen_lock_file
 c_func
@@ -2140,7 +2140,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|policy_cb.newlog
+id|cb.newlog
 )paren
 (brace
 id|error
@@ -2253,7 +2253,7 @@ comma
 id|sha1_to_hex
 c_func
 (paren
-id|policy_cb.last_kept_sha1
+id|cb.last_kept_sha1
 )paren
 comma
 l_int|40
