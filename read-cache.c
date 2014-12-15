@@ -11,6 +11,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;varint.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 r_static
 r_struct
 id|cache_entry
@@ -3726,6 +3727,20 @@ id|c
 (brace
 id|inside
 suffix:colon
+r_if
+c_cond
+(paren
+id|protect_hfs
+op_logical_and
+id|is_hfs_dotgit
+c_func
+(paren
+id|path
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|c
 op_assign
 op_star
