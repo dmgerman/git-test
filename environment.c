@@ -311,6 +311,16 @@ id|protect_hfs
 op_assign
 id|PROTECT_HFS_DEFAULT
 suffix:semicolon
+macro_line|#ifndef PROTECT_NTFS_DEFAULT
+DECL|macro|PROTECT_NTFS_DEFAULT
+mdefine_line|#define PROTECT_NTFS_DEFAULT 0
+macro_line|#endif
+DECL|variable|protect_ntfs
+r_int
+id|protect_ntfs
+op_assign
+id|PROTECT_NTFS_DEFAULT
+suffix:semicolon
 multiline_comment|/*&n; * The character that begins a commented line in user-editable file&n; * that is subject to stripspace.&n; */
 DECL|variable|comment_line_char
 r_char
