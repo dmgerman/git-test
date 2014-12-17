@@ -3307,4 +3307,214 @@ r_return
 id|chrlen
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Pick the next char from the stream, folding as an HFS+ filename comparison&n; * would. Note that this is _not_ complete by any means. It&squot;s just enough&n; * to make is_hfs_dotgit() work, and should not be used otherwise.&n; */
+DECL|function|next_hfs_char
+r_static
+id|ucs_char_t
+id|next_hfs_char
+c_func
+(paren
+r_const
+r_char
+op_star
+op_star
+id|in
+)paren
+(brace
+r_while
+c_loop
+(paren
+l_int|1
+)paren
+(brace
+id|ucs_char_t
+id|out
+op_assign
+id|pick_one_utf8_char
+c_func
+(paren
+id|in
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+multiline_comment|/*&n;&t;&t; * check for malformed utf8. Technically this&n;&t;&t; * gets converted to a percent-sequence, but&n;&t;&t; * returning 0 is good enough for is_hfs_dotgit&n;&t;&t; * to realize it cannot be .git&n;&t;&t; */
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|in
+)paren
+r_return
+l_int|0
+suffix:semicolon
+multiline_comment|/* these code points are ignored completely */
+r_switch
+c_cond
+(paren
+id|out
+)paren
+(brace
+r_case
+l_int|0x200c
+suffix:colon
+multiline_comment|/* ZERO WIDTH NON-JOINER */
+r_case
+l_int|0x200d
+suffix:colon
+multiline_comment|/* ZERO WIDTH JOINER */
+r_case
+l_int|0x200e
+suffix:colon
+multiline_comment|/* LEFT-TO-RIGHT MARK */
+r_case
+l_int|0x200f
+suffix:colon
+multiline_comment|/* RIGHT-TO-LEFT MARK */
+r_case
+l_int|0x202a
+suffix:colon
+multiline_comment|/* LEFT-TO-RIGHT EMBEDDING */
+r_case
+l_int|0x202b
+suffix:colon
+multiline_comment|/* RIGHT-TO-LEFT EMBEDDING */
+r_case
+l_int|0x202c
+suffix:colon
+multiline_comment|/* POP DIRECTIONAL FORMATTING */
+r_case
+l_int|0x202d
+suffix:colon
+multiline_comment|/* LEFT-TO-RIGHT OVERRIDE */
+r_case
+l_int|0x202e
+suffix:colon
+multiline_comment|/* RIGHT-TO-LEFT OVERRIDE */
+r_case
+l_int|0x206a
+suffix:colon
+multiline_comment|/* INHIBIT SYMMETRIC SWAPPING */
+r_case
+l_int|0x206b
+suffix:colon
+multiline_comment|/* ACTIVATE SYMMETRIC SWAPPING */
+r_case
+l_int|0x206c
+suffix:colon
+multiline_comment|/* INHIBIT ARABIC FORM SHAPING */
+r_case
+l_int|0x206d
+suffix:colon
+multiline_comment|/* ACTIVATE ARABIC FORM SHAPING */
+r_case
+l_int|0x206e
+suffix:colon
+multiline_comment|/* NATIONAL DIGIT SHAPES */
+r_case
+l_int|0x206f
+suffix:colon
+multiline_comment|/* NOMINAL DIGIT SHAPES */
+r_case
+l_int|0xfeff
+suffix:colon
+multiline_comment|/* ZERO WIDTH NO-BREAK SPACE */
+r_continue
+suffix:semicolon
+)brace
+multiline_comment|/*&n;&t;&t; * there&squot;s a great deal of other case-folding that occurs,&n;&t;&t; * but this is enough to catch anything that will convert&n;&t;&t; * to &quot;.git&quot;&n;&t;&t; */
+r_return
+id|tolower
+c_func
+(paren
+id|out
+)paren
+suffix:semicolon
+)brace
+)brace
+DECL|function|is_hfs_dotgit
+r_int
+id|is_hfs_dotgit
+c_func
+(paren
+r_const
+r_char
+op_star
+id|path
+)paren
+(brace
+id|ucs_char_t
+id|c
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|next_hfs_char
+c_func
+(paren
+op_amp
+id|path
+)paren
+op_ne
+l_char|&squot;.&squot;
+op_logical_or
+id|next_hfs_char
+c_func
+(paren
+op_amp
+id|path
+)paren
+op_ne
+l_char|&squot;g&squot;
+op_logical_or
+id|next_hfs_char
+c_func
+(paren
+op_amp
+id|path
+)paren
+op_ne
+l_char|&squot;i&squot;
+op_logical_or
+id|next_hfs_char
+c_func
+(paren
+op_amp
+id|path
+)paren
+op_ne
+l_char|&squot;t&squot;
+)paren
+r_return
+l_int|0
+suffix:semicolon
+id|c
+op_assign
+id|next_hfs_char
+c_func
+(paren
+op_amp
+id|path
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|c
+op_logical_and
+op_logical_neg
+id|is_dir_sep
+c_func
+(paren
+id|c
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_return
+l_int|1
+suffix:semicolon
+)brace
 eof
