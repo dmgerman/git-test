@@ -6,6 +6,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;fsck.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|function|fsck_walk_tree
 r_static
 r_int
@@ -867,12 +868,24 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strcmp
+id|strcasecmp
 c_func
 (paren
 id|name
 comma
 l_string|&quot;.git&quot;
+)paren
+op_logical_or
+id|is_hfs_dotgit
+c_func
+(paren
+id|name
+)paren
+op_logical_or
+id|is_ntfs_dotgit
+c_func
+(paren
+id|name
 )paren
 )paren
 id|has_dotgit
