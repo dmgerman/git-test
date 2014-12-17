@@ -11,6 +11,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;varint.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 r_static
 r_struct
 id|cache_entry
@@ -3571,6 +3572,9 @@ multiline_comment|/*&n;&t; * &quot;.git&quot; followed by  NUL or slash is bad. 
 r_case
 l_char|&squot;g&squot;
 suffix:colon
+r_case
+l_char|&squot;G&squot;
+suffix:colon
 r_if
 c_cond
 (paren
@@ -3580,6 +3584,13 @@ l_int|1
 )braket
 op_ne
 l_char|&squot;i&squot;
+op_logical_and
+id|rest
+(braket
+l_int|1
+)braket
+op_ne
+l_char|&squot;I&squot;
 )paren
 r_break
 suffix:semicolon
@@ -3592,6 +3603,13 @@ l_int|2
 )braket
 op_ne
 l_char|&squot;t&squot;
+op_logical_and
+id|rest
+(braket
+l_int|2
+)braket
+op_ne
+l_char|&squot;T&squot;
 )paren
 r_break
 suffix:semicolon
@@ -3687,6 +3705,34 @@ id|c
 (brace
 id|inside
 suffix:colon
+r_if
+c_cond
+(paren
+id|protect_hfs
+op_logical_and
+id|is_hfs_dotgit
+c_func
+(paren
+id|path
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|protect_ntfs
+op_logical_and
+id|is_ntfs_dotgit
+c_func
+(paren
+id|path
+)paren
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|c
 op_assign
 op_star
