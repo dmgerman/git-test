@@ -2306,7 +2306,7 @@ c_cond
 (paren
 id|nonce_stamp_slop_limit
 op_logical_and
-id|abs
+id|labs
 c_func
 (paren
 id|nonce_stamp_slop
