@@ -2408,13 +2408,10 @@ r_char
 op_star
 id|sha1
 comma
-r_const
-r_char
+r_struct
+id|strbuf
 op_star
 id|base
-comma
-r_int
-id|baselen
 comma
 r_const
 r_char
