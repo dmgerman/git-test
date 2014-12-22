@@ -1369,6 +1369,15 @@ op_logical_and
 id|st1.st_mode
 op_ne
 id|st2.st_mode
+op_logical_and
+op_logical_neg
+id|chmod
+c_func
+(paren
+id|path
+comma
+id|st1.st_mode
+)paren
 )paren
 suffix:semicolon
 )brace
