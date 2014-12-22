@@ -1590,7 +1590,7 @@ suffix:colon
 id|die
 c_func
 (paren
-l_string|&quot;Bad type of menu_staff when print menu&quot;
+l_string|&quot;Bad type of menu_stuff when print menu&quot;
 )paren
 suffix:semicolon
 r_case
