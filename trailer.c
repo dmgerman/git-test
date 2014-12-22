@@ -2,6 +2,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;trailer.h&quot;
 multiline_comment|/*&n; * Copyright (c) 2013, 2014 Christian Couder &lt;chriscool@tuxfamily.org&gt;&n; */
 DECL|enum|action_where
@@ -4149,6 +4150,110 @@ suffix:colon
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/* Get the index of the end of the trailers */
+DECL|function|find_trailer_end
+r_static
+r_int
+id|find_trailer_end
+c_func
+(paren
+r_struct
+id|strbuf
+op_star
+op_star
+id|lines
+comma
+r_int
+id|patch_start
+)paren
+(brace
+r_struct
+id|strbuf
+id|sb
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_int
+id|i
+comma
+id|ignore_bytes
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|patch_start
+suffix:semicolon
+id|i
+op_increment
+)paren
+id|strbuf_addbuf
+c_func
+(paren
+op_amp
+id|sb
+comma
+id|lines
+(braket
+id|i
+)braket
+)paren
+suffix:semicolon
+id|ignore_bytes
+op_assign
+id|ignore_non_trailer
+c_func
+(paren
+op_amp
+id|sb
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|sb
+)paren
+suffix:semicolon
+r_for
+c_loop
+(paren
+id|i
+op_assign
+id|patch_start
+l_int|1
+suffix:semicolon
+id|i
+op_ge
+l_int|0
+op_logical_and
+id|ignore_bytes
+OG
+l_int|0
+suffix:semicolon
+id|i
+op_decrement
+)paren
+id|ignore_bytes
+op_sub_assign
+id|lines
+(braket
+id|i
+)braket
+op_member_access_from_pointer
+id|len
+suffix:semicolon
+r_return
+id|i
+op_plus
+l_int|1
+suffix:semicolon
+)brace
 DECL|function|has_blank_line_before
 r_static
 r_int
@@ -4301,6 +4406,8 @@ id|patch_start
 comma
 id|trailer_start
 comma
+id|trailer_end
+comma
 id|i
 suffix:semicolon
 multiline_comment|/* Get the line count */
@@ -4325,6 +4432,16 @@ comma
 id|count
 )paren
 suffix:semicolon
+id|trailer_end
+op_assign
+id|find_trailer_end
+c_func
+(paren
+id|lines
+comma
+id|patch_start
+)paren
+suffix:semicolon
 id|trailer_start
 op_assign
 id|find_trailer_start
@@ -4332,7 +4449,7 @@ c_func
 (paren
 id|lines
 comma
-id|patch_start
+id|trailer_end
 )paren
 suffix:semicolon
 multiline_comment|/* Print lines before the trailers as is */
@@ -4375,7 +4492,7 @@ id|trailer_start
 suffix:semicolon
 id|i
 OL
-id|patch_start
+id|trailer_end
 suffix:semicolon
 id|i
 op_increment
@@ -4426,7 +4543,7 @@ suffix:semicolon
 )brace
 )brace
 r_return
-id|patch_start
+id|trailer_end
 suffix:semicolon
 )brace
 DECL|function|free_all
@@ -4513,7 +4630,7 @@ op_star
 id|lines
 suffix:semicolon
 r_int
-id|patch_start
+id|trailer_end
 suffix:semicolon
 multiline_comment|/* Default config must be setup first */
 id|git_config
@@ -4541,7 +4658,7 @@ id|file
 )paren
 suffix:semicolon
 multiline_comment|/* Print the lines before the trailers */
-id|patch_start
+id|trailer_end
 op_assign
 id|process_input_file
 c_func
@@ -4597,7 +4714,7 @@ c_func
 (paren
 id|lines
 comma
-id|patch_start
+id|trailer_end
 comma
 id|INT_MAX
 )paren
