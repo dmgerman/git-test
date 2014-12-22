@@ -18,7 +18,6 @@ op_star
 id|argv0_path
 suffix:semicolon
 DECL|function|system_path
-r_const
 r_char
 op_star
 id|system_path
@@ -63,7 +62,11 @@ id|path
 )paren
 )paren
 r_return
+id|xstrdup
+c_func
+(paren
 id|path
+)paren
 suffix:semicolon
 macro_line|#ifdef RUNTIME_PREFIX
 m_assert
@@ -155,8 +158,7 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|path
-op_assign
+r_return
 id|strbuf_detach
 c_func
 (paren
@@ -165,9 +167,6 @@ id|d
 comma
 l_int|NULL
 )paren
-suffix:semicolon
-r_return
-id|path
 suffix:semicolon
 )brace
 DECL|function|git_extract_argv0_path
