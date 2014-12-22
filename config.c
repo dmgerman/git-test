@@ -2365,7 +2365,7 @@ suffix:semicolon
 )brace
 id|uval
 op_assign
-id|abs
+id|labs
 c_func
 (paren
 id|val
@@ -2382,7 +2382,7 @@ id|uval
 OG
 id|max
 op_logical_or
-id|abs
+id|labs
 c_func
 (paren
 id|val
