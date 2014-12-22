@@ -2048,8 +2048,10 @@ op_logical_and
 (paren
 id|oflags
 op_amp
-id|O_CREAT
+id|O_ACCMODE
 )paren
+op_ne
+id|O_RDONLY
 op_logical_and
 id|errno
 op_eq
