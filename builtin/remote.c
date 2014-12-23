@@ -956,6 +956,7 @@ id|remote-&gt;url_nr
 OG
 l_int|1
 op_logical_or
+(paren
 id|strcmp
 c_func
 (paren
@@ -965,6 +966,18 @@ id|remote-&gt;url
 (braket
 l_int|0
 )braket
+)paren
+op_logical_and
+id|strcmp
+c_func
+(paren
+id|url
+comma
+id|remote-&gt;url
+(braket
+l_int|0
+)braket
+)paren
 )paren
 op_logical_or
 id|remote-&gt;fetch_refspec_nr
