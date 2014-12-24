@@ -54,8 +54,10 @@ r_char
 op_star
 id|name
 comma
-r_int
-id|prefix_length
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
@@ -146,12 +148,12 @@ c_func
 l_char|&squot;&bslash;t&squot;
 )paren
 suffix:semicolon
-id|write_name_quoted
+id|write_name_quoted_relative
 c_func
 (paren
 id|name
-op_plus
-id|prefix_length
+comma
+id|prefix
 comma
 id|stdout
 comma
@@ -196,8 +198,10 @@ r_char
 op_star
 id|name
 comma
-r_int
-id|prefix_length
+r_const
+r_char
+op_star
+id|prefix
 )paren
 (brace
 r_int
@@ -373,7 +377,7 @@ c_func
 (paren
 id|name
 comma
-id|prefix_length
+id|prefix
 )paren
 suffix:semicolon
 r_return
@@ -608,7 +612,7 @@ c_func
 (paren
 id|last_ce-&gt;name
 comma
-id|prefix_length
+id|prefix
 )paren
 suffix:semicolon
 )brace
@@ -660,7 +664,7 @@ c_func
 (paren
 id|last_ce-&gt;name
 comma
-id|prefix_length
+id|prefix
 )paren
 suffix:semicolon
 r_if
@@ -1368,7 +1372,7 @@ c_func
 (paren
 id|p
 comma
-id|prefix_length
+id|prefix
 )paren
 suffix:semicolon
 r_if
@@ -1512,7 +1516,7 @@ c_func
 (paren
 id|p
 comma
-id|prefix_length
+id|prefix
 )paren
 suffix:semicolon
 r_if
