@@ -5567,6 +5567,13 @@ comma
 id|fp
 )paren
 suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|msgbuf
+)paren
+suffix:semicolon
 id|fclose
 c_func
 (paren
