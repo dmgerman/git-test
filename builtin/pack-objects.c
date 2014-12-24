@@ -12973,7 +12973,7 @@ c_func
 op_amp
 id|rp
 comma
-l_string|&quot;--objects-edge&quot;
+l_string|&quot;--objects-edge-aggressive&quot;
 )paren
 suffix:semicolon
 )brace

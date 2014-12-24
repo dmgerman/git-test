@@ -655,7 +655,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs-&gt;edge_hint
+id|revs-&gt;edge_hint_aggressive
 op_logical_and
 op_logical_neg
 (paren
@@ -693,7 +693,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|revs-&gt;edge_hint
+id|revs-&gt;edge_hint_aggressive
 )paren
 (brace
 r_for
