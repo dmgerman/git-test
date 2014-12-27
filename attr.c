@@ -66,6 +66,10 @@ DECL|member|attr_nr
 r_int
 id|attr_nr
 suffix:semicolon
+DECL|member|maybe_macro
+r_int
+id|maybe_macro
+suffix:semicolon
 DECL|member|name
 r_char
 id|name
@@ -421,6 +425,10 @@ id|a-&gt;attr_nr
 op_assign
 id|attr_nr
 op_increment
+suffix:semicolon
+id|a-&gt;maybe_macro
+op_assign
+l_int|0
 suffix:semicolon
 id|git_attr_hash
 (braket
@@ -1126,6 +1134,7 @@ c_cond
 (paren
 id|is_macro
 )paren
+(brace
 id|res-&gt;u.attr
 op_assign
 id|git_attr_internal
@@ -1136,6 +1145,11 @@ comma
 id|namelen
 )paren
 suffix:semicolon
+id|res-&gt;u.attr-&gt;maybe_macro
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 r_else
 (brace
 r_char
@@ -3228,6 +3242,14 @@ dot
 id|value
 op_ne
 id|ATTR__TRUE
+op_logical_or
+op_logical_neg
+id|check_all_attr
+(braket
+id|nr
+)braket
+dot
+id|attr-&gt;maybe_macro
 )paren
 r_return
 id|rem
