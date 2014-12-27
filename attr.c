@@ -3196,7 +3196,7 @@ id|macroexpand_one
 c_func
 (paren
 r_int
-id|attr_nr
+id|nr
 comma
 r_int
 id|rem
@@ -3222,7 +3222,7 @@ c_cond
 (paren
 id|check_all_attr
 (braket
-id|attr_nr
+id|nr
 )braket
 dot
 id|value
@@ -3290,7 +3290,7 @@ c_cond
 (paren
 id|ma-&gt;u.attr-&gt;attr_nr
 op_eq
-id|attr_nr
+id|nr
 )paren
 id|a
 op_assign
