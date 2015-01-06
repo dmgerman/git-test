@@ -61,10 +61,12 @@ id|path
 suffix:semicolon
 id|fd
 op_assign
-id|mkstemp
+id|git_mkstemp_mode
 c_func
 (paren
 id|tmp
+comma
+l_int|0666
 )paren
 suffix:semicolon
 r_if
