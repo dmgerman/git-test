@@ -7607,6 +7607,12 @@ c_cond
 l_int|0
 OL
 id|verbosity
+op_logical_or
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_CURL_VERBOSE&quot;
+)paren
 )paren
 id|curl_easy_setopt
 c_func
