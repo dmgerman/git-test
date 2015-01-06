@@ -7546,6 +7546,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|server.use_ssl
 )paren
 id|curl_easy_setopt
@@ -7558,7 +7559,7 @@ comma
 (paren
 r_int
 )paren
-id|CURLUSESSL_ALL
+id|CURLUSESSL_TRY
 )paren
 suffix:semicolon
 id|curl_easy_setopt
