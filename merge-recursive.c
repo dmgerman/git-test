@@ -10002,8 +10002,6 @@ c_func
 id|h1
 comma
 id|h2
-comma
-l_int|1
 )paren
 suffix:semicolon
 id|ca

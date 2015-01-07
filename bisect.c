@@ -3607,8 +3607,6 @@ comma
 id|rev
 op_plus
 l_int|1
-comma
-l_int|0
 )paren
 suffix:semicolon
 r_for

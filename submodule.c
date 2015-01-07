@@ -1619,8 +1619,6 @@ c_func
 id|left
 comma
 id|right
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_if

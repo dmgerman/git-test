@@ -5207,8 +5207,6 @@ c_func
 id|one
 comma
 id|two
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_if

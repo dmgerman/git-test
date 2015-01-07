@@ -1236,8 +1236,6 @@ c_func
 id|a
 comma
 id|b
-comma
-l_int|1
 )paren
 suffix:semicolon
 r_while
