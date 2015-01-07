@@ -2407,11 +2407,11 @@ r_struct
 id|tm
 op_star
 id|tm
-)paren
-(brace
+comma
 id|time_t
 id|now
-suffix:semicolon
+)paren
+(brace
 r_struct
 id|tm
 id|now_tm
@@ -2549,6 +2549,12 @@ suffix:colon
 r_case
 l_char|&squot;.&squot;
 suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|now
+)paren
 id|now
 op_assign
 id|time
@@ -2600,7 +2606,7 @@ id|num2
 comma
 id|num3
 comma
-id|refuse_future
+l_int|NULL
 comma
 id|now
 comma
@@ -2622,7 +2628,7 @@ id|num3
 comma
 id|num2
 comma
-id|refuse_future
+l_int|NULL
 comma
 id|now
 comma
@@ -2890,6 +2896,8 @@ comma
 id|end
 comma
 id|tm
+comma
+l_int|0
 )paren
 suffix:semicolon
 r_if
@@ -5524,6 +5532,9 @@ comma
 r_int
 op_star
 id|num
+comma
+id|time_t
+id|now
 )paren
 (brace
 r_char
@@ -5593,6 +5604,8 @@ comma
 id|end
 comma
 id|tm
+comma
+id|now
 )paren
 suffix:semicolon
 r_if
@@ -5889,6 +5902,8 @@ id|tm
 comma
 op_amp
 id|number
+comma
+id|time_sec
 )paren
 suffix:semicolon
 id|touched
