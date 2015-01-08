@@ -19,7 +19,7 @@ id|send_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git send-pack [--all | --mirror] [--dry-run] [--force] [--receive-pack=&lt;git-receive-pack&gt;] [--verbose] [--thin] [&lt;host&gt;:]&lt;directory&gt; [&lt;ref&gt;...]&bslash;n&quot;
+l_string|&quot;git send-pack [--all | --mirror] [--dry-run] [--force] [--receive-pack=&lt;git-receive-pack&gt;] [--verbose] [--thin] [--atomic] [&lt;host&gt;:]&lt;directory&gt; [&lt;ref&gt;...]&bslash;n&quot;
 l_string|&quot;  --all and explicit &lt;ref&gt; specification are mutually exclusive.&quot;
 suffix:semicolon
 DECL|variable|args
@@ -708,6 +708,26 @@ l_string|&quot;--thin&quot;
 )paren
 (brace
 id|args.use_thin_pack
+op_assign
+l_int|1
+suffix:semicolon
+r_continue
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;--atomic&quot;
+)paren
+)paren
+(brace
+id|args.atomic
 op_assign
 l_int|1
 suffix:semicolon

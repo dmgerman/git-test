@@ -3951,6 +3951,27 @@ suffix:semicolon
 r_break
 suffix:semicolon
 r_case
+id|REF_STATUS_ATOMIC_PUSH_FAILED
+suffix:colon
+id|print_ref_status
+c_func
+(paren
+l_char|&squot;!&squot;
+comma
+l_string|&quot;[rejected]&quot;
+comma
+id|ref
+comma
+id|ref-&gt;peer_ref
+comma
+l_string|&quot;atomic push failed&quot;
+comma
+id|porcelain
+)paren
+suffix:semicolon
+r_break
+suffix:semicolon
+r_case
 id|REF_STATUS_OK
 suffix:colon
 id|print_ok_ref_status
