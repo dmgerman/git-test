@@ -5475,12 +5475,10 @@ c_cond
 op_logical_neg
 id|checked_connectivity
 )paren
-id|error
+id|die
 c_func
 (paren
-l_string|&quot;BUG: run &squot;git fsck&squot; for safety.&bslash;n&quot;
-l_string|&quot;If there are errors, try to remove &quot;
-l_string|&quot;the reported refs above&quot;
+l_string|&quot;BUG: connectivity check skipped???&quot;
 )paren
 suffix:semicolon
 )brace
