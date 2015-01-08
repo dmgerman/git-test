@@ -4561,6 +4561,16 @@ op_amp
 id|TRANSPORT_PUSH_CERT
 )paren
 suffix:semicolon
+id|args.atomic
+op_assign
+op_logical_neg
+op_logical_neg
+(paren
+id|flags
+op_amp
+id|TRANSPORT_PUSH_ATOMIC
+)paren
+suffix:semicolon
 id|args.url
 op_assign
 id|transport-&gt;url
