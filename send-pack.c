@@ -904,10 +904,16 @@ id|sb
 )paren
 suffix:semicolon
 )brace
-DECL|function|ref_update_to_be_sent
+DECL|macro|CHECK_REF_NO_PUSH
+mdefine_line|#define CHECK_REF_NO_PUSH -1
+DECL|macro|CHECK_REF_STATUS_REJECTED
+mdefine_line|#define CHECK_REF_STATUS_REJECTED -2
+DECL|macro|CHECK_REF_UPTODATE
+mdefine_line|#define CHECK_REF_UPTODATE -3
+DECL|function|check_to_send_update
 r_static
 r_int
-id|ref_update_to_be_sent
+id|check_to_send_update
 c_func
 (paren
 r_const
@@ -933,7 +939,7 @@ op_logical_neg
 id|args-&gt;send_mirror
 )paren
 r_return
-l_int|0
+id|CHECK_REF_NO_PUSH
 suffix:semicolon
 multiline_comment|/* Check for statuses set by set_ref_status_for_push() */
 r_switch
@@ -960,16 +966,19 @@ suffix:colon
 r_case
 id|REF_STATUS_REJECT_NODELETE
 suffix:colon
+r_return
+id|CHECK_REF_STATUS_REJECTED
+suffix:semicolon
 r_case
 id|REF_STATUS_UPTODATE
 suffix:colon
 r_return
-l_int|0
+id|CHECK_REF_UPTODATE
 suffix:semicolon
 r_default
 suffix:colon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 )brace
@@ -1213,14 +1222,15 @@ id|ref-&gt;next
 r_if
 c_cond
 (paren
-op_logical_neg
-id|ref_update_to_be_sent
+id|check_to_send_update
 c_func
 (paren
 id|ref
 comma
 id|args
 )paren
+OL
+l_int|0
 )paren
 r_continue
 suffix:semicolon
@@ -1797,14 +1807,15 @@ id|ref-&gt;next
 r_if
 c_cond
 (paren
-op_logical_neg
-id|ref_update_to_be_sent
+id|check_to_send_update
 c_func
 (paren
 id|ref
 comma
 id|args
 )paren
+OL
+l_int|0
 )paren
 r_continue
 suffix:semicolon
@@ -1870,14 +1881,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|ref_update_to_be_sent
+id|check_to_send_update
 c_func
 (paren
 id|ref
 comma
 id|args
 )paren
+OL
+l_int|0
 )paren
 r_continue
 suffix:semicolon
