@@ -1,10 +1,7 @@
 macro_line|#include &quot;builtin.h&quot;
-macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;help.h&quot;
-macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;run-command.h&quot;
-macro_line|#include &quot;commit.h&quot;
 DECL|variable|git_usage_string
 r_const
 r_char
