@@ -7655,6 +7655,14 @@ l_int|0
 )paren
 r_return
 suffix:semicolon
+multiline_comment|/* Cut off trailing newline. */
+id|strbuf_rtrim
+c_func
+(paren
+op_amp
+id|buffer
+)paren
+suffix:semicolon
 multiline_comment|/* If it&squot;s a symref, set the refname; otherwise try for a sha1 */
 r_if
 c_cond
