@@ -229,7 +229,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git verify-pack [-v|--verbose] [-s|--stat-only] &lt;pack&gt;...&quot;
+l_string|&quot;git verify-pack [-v | --verbose] [-s | --stat-only] &lt;pack&gt;...&quot;
 )paren
 comma
 l_int|NULL

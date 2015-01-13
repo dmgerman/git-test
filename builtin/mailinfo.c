@@ -5218,7 +5218,7 @@ id|mailinfo_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git mailinfo [-k|-b] [-m | --message-id] [-u | --encoding=&lt;encoding&gt; | -n] [--scissors | --no-scissors] msg patch &lt; mail &gt;info&quot;
+l_string|&quot;git mailinfo [-k | -b] [-m | --message-id] [-u | --encoding=&lt;encoding&gt; | -n] [--scissors | --no-scissors] &lt;msg&gt; &lt;patch&gt; &lt; mail &gt;info&quot;
 suffix:semicolon
 DECL|function|cmd_mailinfo
 r_int

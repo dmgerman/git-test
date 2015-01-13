@@ -27,7 +27,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--tags|--no-tags] [--mirror=&lt;fetch|push&gt;] &lt;name&gt; &lt;url&gt;&quot;
+l_string|&quot;git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--tags | --no-tags] [--mirror=&lt;fetch|push&gt;] &lt;name&gt; &lt;url&gt;&quot;
 )paren
 comma
 id|N_
@@ -45,7 +45,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git remote set-head &lt;name&gt; (-a | --auto | -d | --delete |&lt;branch&gt;)&quot;
+l_string|&quot;git remote set-head &lt;name&gt; (-a | --auto | -d | --delete | &lt;branch&gt;)&quot;
 )paren
 comma
 id|N_

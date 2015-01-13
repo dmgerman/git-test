@@ -15,7 +15,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git pack-refs [options]&quot;
+l_string|&quot;git pack-refs [&lt;options&gt;]&quot;
 )paren
 comma
 l_int|NULL

@@ -14,7 +14,7 @@ id|git_usage_string
 op_assign
 l_string|&quot;git [--version] [--help] [-C &lt;path&gt;] [-c name=value]&bslash;n&quot;
 l_string|&quot;           [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]&bslash;n&quot;
-l_string|&quot;           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]&bslash;n&quot;
+l_string|&quot;           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]&bslash;n&quot;
 l_string|&quot;           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]&bslash;n&quot;
 l_string|&quot;           &lt;command&gt; [&lt;args&gt;]&quot;
 suffix:semicolon

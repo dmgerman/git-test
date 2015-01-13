@@ -50,7 +50,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git repack [options]&quot;
+l_string|&quot;git repack [&lt;options&gt;]&quot;
 )paren
 comma
 l_int|NULL

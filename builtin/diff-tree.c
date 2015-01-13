@@ -500,7 +500,7 @@ id|diff_tree_usage
 )braket
 op_assign
 l_string|&quot;git diff-tree [--stdin] [-m] [-c] [--cc] [-s] [-v] [--pretty] [-t] [-r] [--root] &quot;
-l_string|&quot;[&lt;common diff options&gt;] &lt;tree-ish&gt; [&lt;tree-ish&gt;] [&lt;path&gt;...]&bslash;n&quot;
+l_string|&quot;[&lt;common-diff-options&gt;] &lt;tree-ish&gt; [&lt;tree-ish&gt;] [&lt;path&gt;...]&bslash;n&quot;
 l_string|&quot;  -r            diff recursively&bslash;n&quot;
 l_string|&quot;  --root        include the initial commit as diff against /dev/null&bslash;n&quot;
 id|COMMON_DIFF_OPTIONS_HELP

@@ -19,7 +19,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git show-ref [-q|--quiet] [--verify] [--head] [-d|--dereference] [-s|--hash[=&lt;n&gt;]] [--abbrev[=&lt;n&gt;]] [--tags] [--heads] [--] [pattern*] &quot;
+l_string|&quot;git show-ref [-q | --quiet] [--verify] [--head] [-d | --dereference] [-s | --hash[=&lt;n&gt;]] [--abbrev[=&lt;n&gt;]] [--tags] [--heads] [--] [&lt;pattern&gt;...]&quot;
 )paren
 comma
 id|N_

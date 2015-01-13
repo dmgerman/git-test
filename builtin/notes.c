@@ -25,43 +25,43 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] [list [&lt;object&gt;]]&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] [list [&lt;object&gt;]]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] add [-f] [--allow-empty] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] add [-f] [--allow-empty] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] copy [-f] &lt;from-object&gt; &lt;to-object&gt;&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] copy [-f] &lt;from-object&gt; &lt;to-object&gt;&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] append [--allow-empty] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] append [--allow-empty] [-m &lt;msg&gt; | -F &lt;file&gt; | (-c | -C) &lt;object&gt;] [&lt;object&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] edit [--allow-empty] [&lt;object&gt;]&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] edit [--allow-empty] [&lt;object&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] show [&lt;object&gt;]&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] show [&lt;object&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] merge [-v | -q] [-s &lt;strategy&gt; ] &lt;notes_ref&gt;&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] merge [-v | -q] [-s &lt;strategy&gt;] &lt;notes-ref&gt;&quot;
 )paren
 comma
 id|N_
@@ -79,19 +79,19 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] remove [&lt;object&gt;...]&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] remove [&lt;object&gt;...]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] prune [-n | -v]&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] prune [-n | -v]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git notes [--ref &lt;notes_ref&gt;] get-ref&quot;
+l_string|&quot;git notes [--ref &lt;notes-ref&gt;] get-ref&quot;
 )paren
 comma
 l_int|NULL
@@ -237,7 +237,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git notes merge [&lt;options&gt;] &lt;notes_ref&gt;&quot;
+l_string|&quot;git notes merge [&lt;options&gt;] &lt;notes-ref&gt;&quot;
 )paren
 comma
 id|N_
@@ -5656,7 +5656,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;use notes from &lt;notes_ref&gt;&quot;
+l_string|&quot;use notes from &lt;notes-ref&gt;&quot;
 )paren
 )paren
 comma

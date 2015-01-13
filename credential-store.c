@@ -596,7 +596,7 @@ id|usage
 )braket
 op_assign
 (brace
-l_string|&quot;git credential-store [options] &lt;action&gt;&quot;
+l_string|&quot;git credential-store [&lt;options&gt;] &lt;action&gt;&quot;
 comma
 l_int|NULL
 )brace

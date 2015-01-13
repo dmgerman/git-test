@@ -18,19 +18,19 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git update-ref [options] -d &lt;refname&gt; [&lt;oldval&gt;]&quot;
+l_string|&quot;git update-ref [&lt;options&gt;] -d &lt;refname&gt; [&lt;old-val&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git update-ref [options]    &lt;refname&gt; &lt;newval&gt; [&lt;oldval&gt;]&quot;
+l_string|&quot;git update-ref [&lt;options&gt;]    &lt;refname&gt; &lt;new-val&gt; [&lt;old-val&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git update-ref [options] --stdin [-z]&quot;
+l_string|&quot;git update-ref [&lt;options&gt;] --stdin [-z]&quot;
 )paren
 comma
 l_int|NULL

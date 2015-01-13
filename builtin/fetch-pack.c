@@ -12,7 +12,7 @@ id|fetch_pack_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git fetch-pack [--all] [--stdin] [--quiet|-q] [--keep|-k] [--thin] &quot;
+l_string|&quot;git fetch-pack [--all] [--stdin] [--quiet | -q] [--keep | -k] [--thin] &quot;
 l_string|&quot;[--include-tag] [--upload-pack=&lt;git-upload-pack&gt;] [--depth=&lt;n&gt;] &quot;
 l_string|&quot;[--no-progress] [--diag-url] [-v] [&lt;host&gt;:]&lt;directory&gt; [&lt;refs&gt;...]&quot;
 suffix:semicolon

@@ -537,7 +537,7 @@ l_string|&quot;changes and commit them, and you can discard any commits you make
 l_string|&quot;state without impacting any branches by performing another checkout.&bslash;n&bslash;n&quot;
 l_string|&quot;If you want to create a new branch to retain commits you create, you may&bslash;n&quot;
 l_string|&quot;do so (now or later) by using -b with the checkout command again. Example:&bslash;n&bslash;n&quot;
-l_string|&quot;  git checkout -b new_branch_name&bslash;n&bslash;n&quot;
+l_string|&quot;  git checkout -b &lt;new-branch-name&gt;&bslash;n&bslash;n&quot;
 suffix:semicolon
 id|fprintf
 c_func

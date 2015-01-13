@@ -20,7 +20,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git mv [options] &lt;source&gt;... &lt;destination&gt;&quot;
+l_string|&quot;git mv [&lt;options&gt;] &lt;source&gt;... &lt;destination&gt;&quot;
 )paren
 comma
 l_int|NULL

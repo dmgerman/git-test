@@ -34,13 +34,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git checkout [options] &lt;branch&gt;&quot;
+l_string|&quot;git checkout [&lt;options&gt;] &lt;branch&gt;&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git checkout [options] [&lt;branch&gt;] -- &lt;file&gt;...&quot;
+l_string|&quot;git checkout [&lt;options&gt;] [&lt;branch&gt;] -- &lt;file&gt;...&quot;
 )paren
 comma
 l_int|NULL
@@ -3826,7 +3826,7 @@ c_func
 (paren
 l_string|&quot;If you want to keep them by creating a new branch, &quot;
 l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
-l_string|&quot; git branch new_branch_name %s&bslash;n&bslash;n&quot;
+l_string|&quot; git branch &lt;new-branch-name&gt; %s&bslash;n&bslash;n&quot;
 )paren
 comma
 id|find_unique_abbrev
@@ -5777,7 +5777,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;second guess &squot;git checkout no-such-branch&squot;&quot;
+l_string|&quot;second guess &squot;git checkout &lt;no-such-branch&gt;&squot;&quot;
 )paren
 )paren
 comma

@@ -17,13 +17,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git show-branch [-a|--all] [-r|--remotes] [--topo-order | --date-order] [--current] [--color[=&lt;when&gt;] | --no-color] [--sparse] [--more=&lt;n&gt; | --list | --independent | --merge-base] [--no-name | --sha1-name] [--topics] [(&lt;rev&gt; | &lt;glob&gt;)...]&quot;
+l_string|&quot;git show-branch [-a | --all] [-r | --remotes] [--topo-order | --date-order] [--current] [--color[=&lt;when&gt;] | --no-color] [--sparse] [--more=&lt;n&gt; | --list | --independent | --merge-base] [--no-name | --sha1-name] [--topics] [(&lt;rev&gt; | &lt;glob&gt;)...]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git show-branch (-g|--reflog)[=&lt;n&gt;[,&lt;base&gt;]] [--list] [&lt;ref&gt;]&quot;
+l_string|&quot;git show-branch (-g | --reflog)[=&lt;n&gt;[,&lt;base&gt;]] [--list] [&lt;ref&gt;]&quot;
 )paren
 comma
 l_int|NULL

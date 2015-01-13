@@ -17,7 +17,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git config [options]&quot;
+l_string|&quot;git config [&lt;options&gt;]&quot;
 )paren
 comma
 l_int|NULL

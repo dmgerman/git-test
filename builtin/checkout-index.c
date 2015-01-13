@@ -693,7 +693,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git checkout-index [options] [--] [&lt;file&gt;...]&quot;
+l_string|&quot;git checkout-index [&lt;options&gt;] [--] [&lt;file&gt;...]&quot;
 )paren
 comma
 l_int|NULL

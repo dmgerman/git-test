@@ -2868,7 +2868,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git fsck [options] [&lt;object&gt;...]&quot;
+l_string|&quot;git fsck [&lt;options&gt;] [&lt;object&gt;...]&quot;
 )paren
 comma
 l_int|NULL

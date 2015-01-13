@@ -11,7 +11,7 @@ id|builtin_check_ref_format_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git check-ref-format [--normalize] [options] &lt;refname&gt;&bslash;n&quot;
+l_string|&quot;git check-ref-format [--normalize] [&lt;options&gt;] &lt;refname&gt;&bslash;n&quot;
 l_string|&quot;   or: git check-ref-format --branch &lt;branchname-shorthand&gt;&quot;
 suffix:semicolon
 multiline_comment|/*&n; * Return a copy of refname but with leading slashes removed and runs&n; * of adjacent slashes replaced with single slashes.&n; *&n; * This function is similar to normalize_path_copy(), but stripped down&n; * to meet check_ref_format&squot;s simpler needs.&n; */

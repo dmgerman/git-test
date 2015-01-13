@@ -61,13 +61,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git merge [options] [&lt;commit&gt;...]&quot;
+l_string|&quot;git merge [&lt;options&gt;] [&lt;commit&gt;...]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git merge [options] &lt;msg&gt; HEAD &lt;commit&gt;&quot;
+l_string|&quot;git merge [&lt;options&gt;] &lt;msg&gt; HEAD &lt;commit&gt;&quot;
 )paren
 comma
 id|N_
