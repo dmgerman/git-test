@@ -1228,16 +1228,11 @@ id|write_ref
 id|targets
 )braket
 op_assign
-id|rf_one
-ques
-c_cond
-id|xstrdup
+id|xstrdup_or_null
 c_func
 (paren
 id|rf_one
 )paren
-suffix:colon
-l_int|NULL
 suffix:semicolon
 id|targets
 op_increment
