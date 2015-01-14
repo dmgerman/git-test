@@ -7546,6 +7546,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|server.use_ssl
 )paren
 id|curl_easy_setopt
@@ -7558,7 +7559,7 @@ comma
 (paren
 r_int
 )paren
-id|CURLUSESSL_ALL
+id|CURLUSESSL_TRY
 )paren
 suffix:semicolon
 id|curl_easy_setopt
@@ -7607,6 +7608,12 @@ c_cond
 l_int|0
 OL
 id|verbosity
+op_logical_or
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_CURL_VERBOSE&quot;
+)paren
 )paren
 id|curl_easy_setopt
 c_func
