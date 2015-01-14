@@ -1221,6 +1221,7 @@ id|diff-&gt;target
 suffix:semicolon
 )brace
 DECL|function|line_log_data_init
+r_static
 r_void
 id|line_log_data_init
 c_func
