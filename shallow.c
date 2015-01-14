@@ -694,6 +694,7 @@ id|result
 suffix:semicolon
 )brace
 DECL|function|check_shallow_file_for_update
+r_static
 r_void
 id|check_shallow_file_for_update
 c_func
