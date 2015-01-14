@@ -11544,6 +11544,7 @@ suffix:semicolon
 )brace
 multiline_comment|/*&n; * Compare-and-swap&n; */
 DECL|function|clear_cas_option
+r_static
 r_void
 id|clear_cas_option
 c_func
