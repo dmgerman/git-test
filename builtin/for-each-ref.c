@@ -4167,6 +4167,9 @@ id|buf
 l_int|40
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|stat_tracking_info
 c_func
 (paren
@@ -4178,6 +4181,10 @@ comma
 op_amp
 id|num_theirs
 )paren
+op_ne
+l_int|1
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
@@ -4299,6 +4306,9 @@ m_assert
 id|branch
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|stat_tracking_info
 c_func
 (paren
@@ -4310,6 +4320,10 @@ comma
 op_amp
 id|num_theirs
 )paren
+op_ne
+l_int|1
+)paren
+r_continue
 suffix:semicolon
 r_if
 c_cond
