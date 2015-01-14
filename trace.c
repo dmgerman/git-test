@@ -1619,7 +1619,7 @@ id|key
 )paren
 suffix:semicolon
 )brace
-macro_line|#ifdef HAVE_CLOCK_GETTIME
+macro_line|#if defined(HAVE_CLOCK_GETTIME) &amp;&amp; defined(HAVE_CLOCK_MONOTONIC)
 DECL|function|highres_nanos
 r_static
 r_inline
