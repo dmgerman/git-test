@@ -10982,7 +10982,7 @@ id|correct_ws_error
 r_return
 l_int|0
 suffix:semicolon
-multiline_comment|/*&n;&t; * The hunk does not apply byte-by-byte, but the hash says&n;&t; * it might with whitespace fuzz. We haven&squot;t been asked to&n;&t; * ignore whitespace, we were asked to correct whitespace&n;&t; * errors, so let&squot;s try matching after whitespace correction.&n;&t; *&n;&t; * The preimage may extend beyond the end of the file,&n;&t; * but in this loop we will only handle the part of the&n;&t; * preimage that falls within the file.&n;&t; */
+multiline_comment|/*&n;&t; * The hunk does not apply byte-by-byte, but the hash says&n;&t; * it might with whitespace fuzz. We weren&squot;t asked to&n;&t; * ignore whitespace, we were asked to correct whitespace&n;&t; * errors, so let&squot;s try matching after whitespace correction.&n;&t; *&n;&t; * The preimage may extend beyond the end of the file,&n;&t; * but in this loop we will only handle the part of the&n;&t; * preimage that falls within the file.&n;&t; */
 id|strbuf_init
 c_func
 (paren
