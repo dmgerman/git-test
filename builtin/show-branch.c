@@ -18,9 +18,9 @@ id|N_
 c_func
 (paren
 l_string|&quot;git show-branch [-a|--all] [-r|--remotes] [--topo-order | --date-order]&bslash;n&quot;
-l_string|&quot;&t;&t;       [--current] [--color[=&lt;when&gt;] | --no-color] [--sparse]&bslash;n&quot;
-l_string|&quot;&t;&t;       [--more=&lt;n&gt; | --list | --independent | --merge-base]&bslash;n&quot;
-l_string|&quot;&t;       [--no-name | --sha1-name] [--topics] [(&lt;rev&gt; | &lt;glob&gt;)...]&quot;
+l_string|&quot;&t;&t;[--current] [--color[=&lt;when&gt;] | --no-color] [--sparse]&bslash;n&quot;
+l_string|&quot;&t;&t;[--more=&lt;n&gt; | --list | --independent | --merge-base]&bslash;n&quot;
+l_string|&quot;&t;&t;[--no-name | --sha1-name] [--topics] [(&lt;rev&gt; | &lt;glob&gt;)...]&quot;
 )paren
 comma
 id|N_
