@@ -481,6 +481,9 @@ id|out-&gt;value
 op_assign
 id|val
 suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
 )brace
 r_else
 r_if
