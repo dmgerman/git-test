@@ -107,7 +107,7 @@ id|ewah_bitmap
 op_star
 id|tags
 suffix:semicolon
-multiline_comment|/* Map from SHA1 -&gt; `stored_bitmap` for all the bitmapped comits */
+multiline_comment|/* Map from SHA1 -&gt; `stored_bitmap` for all the bitmapped commits */
 DECL|member|bitmaps
 id|khash_sha1
 op_star
