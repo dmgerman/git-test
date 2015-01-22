@@ -371,14 +371,6 @@ op_eq
 id|OBJ_TAG
 )paren
 (brace
-r_enum
-id|object_type
-id|type
-suffix:semicolon
-r_int
-r_int
-id|size
-suffix:semicolon
 r_char
 op_star
 id|buffer
