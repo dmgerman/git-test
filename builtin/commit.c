@@ -4868,7 +4868,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;No existing author found with &squot;%s&squot;&quot;
+l_string|&quot;--author &squot;%s&squot; is not &squot;Name &lt;email&gt;&squot; and matches no existing author&quot;
 )paren
 comma
 id|name
