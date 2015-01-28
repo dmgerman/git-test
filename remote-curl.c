@@ -2775,9 +2775,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|ref-&gt;name
-op_logical_or
-op_logical_neg
 op_star
 id|ref-&gt;name
 )paren
