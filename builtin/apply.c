@@ -14316,6 +14316,8 @@ r_if
 c_cond
 (paren
 id|cached
+op_logical_or
+id|check_index
 )paren
 (brace
 r_if
