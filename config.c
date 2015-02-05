@@ -1152,6 +1152,13 @@ op_ne
 l_char|&squot;&bslash;n&squot;
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|c
+op_ne
+id|EOF
+)paren
 id|cf
 op_member_access_from_pointer
 id|do_ungetc
