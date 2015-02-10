@@ -4446,13 +4446,23 @@ c_func
 r_void
 )paren
 (brace
+r_static
+r_int
+id|running
+suffix:semicolon
 r_if
 c_cond
 (paren
+id|running
+op_logical_or
 op_logical_neg
 id|pack_data
 )paren
 r_return
+suffix:semicolon
+id|running
+op_assign
+l_int|1
 suffix:semicolon
 id|clear_delta_base_cache
 c_func
@@ -4738,6 +4748,10 @@ suffix:semicolon
 id|pack_data
 op_assign
 l_int|NULL
+suffix:semicolon
+id|running
+op_assign
+l_int|0
 suffix:semicolon
 multiline_comment|/* We can&squot;t carry a delta across packfiles. */
 id|strbuf_release
