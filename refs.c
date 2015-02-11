@@ -6320,11 +6320,10 @@ op_star
 id|flags
 )paren
 (brace
-r_const
-r_char
-op_star
-id|ret
-op_assign
+r_return
+id|xstrdup_or_null
+c_func
+(paren
 id|resolve_ref_unsafe
 c_func
 (paren
@@ -6336,18 +6335,7 @@ id|sha1
 comma
 id|flags
 )paren
-suffix:semicolon
-r_return
-id|ret
-ques
-c_cond
-id|xstrdup
-c_func
-(paren
-id|ret
 )paren
-suffix:colon
-l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/* The argument to filter_refs */

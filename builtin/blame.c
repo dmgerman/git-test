@@ -10767,7 +10767,6 @@ suffix:semicolon
 )brace
 DECL|function|prepare_final
 r_static
-r_const
 r_char
 op_star
 id|prepare_final
@@ -10912,12 +10911,15 @@ id|name
 suffix:semicolon
 )brace
 r_return
+id|xstrdup_or_null
+c_func
+(paren
 id|final_commit_name
+)paren
 suffix:semicolon
 )brace
 DECL|function|prepare_initial
 r_static
-r_const
 r_char
 op_star
 id|prepare_initial
@@ -11077,7 +11079,11 @@ l_string|&quot;No commit to dig down to?&quot;
 )paren
 suffix:semicolon
 r_return
+id|xstrdup
+c_func
+(paren
 id|final_commit_name
+)paren
 suffix:semicolon
 )brace
 DECL|function|blame_copy_callback
@@ -11257,7 +11263,6 @@ id|dashdash_pos
 comma
 id|lno
 suffix:semicolon
-r_const
 r_char
 op_star
 id|final_commit_name
@@ -13009,6 +13014,12 @@ op_amp
 id|sb
 comma
 id|opt
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|final_commit_name
 )paren
 suffix:semicolon
 r_if
