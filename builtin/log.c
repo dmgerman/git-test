@@ -3644,6 +3644,15 @@ id|var
 comma
 l_string|&quot;color.ui&quot;
 )paren
+op_logical_or
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|var
+comma
+l_string|&quot;diff.submodule&quot;
+)paren
 )paren
 (brace
 r_return
