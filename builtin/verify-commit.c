@@ -20,7 +20,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git verify-commit [-v|--verbose] &lt;commit&gt;...&quot;
+l_string|&quot;git verify-commit [-v | --verbose] &lt;commit&gt;...&quot;
 )paren
 comma
 l_int|NULL

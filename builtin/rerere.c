@@ -21,7 +21,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git rerere [clear | forget path... | status | remaining | diff | gc]&quot;
+l_string|&quot;git rerere [clear | forget &lt;path&gt;... | status | remaining | diff | gc]&quot;
 )paren
 comma
 l_int|NULL

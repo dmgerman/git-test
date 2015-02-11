@@ -93,7 +93,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git show [options] &lt;object&gt;...&quot;
+l_string|&quot;git show [&lt;options&gt;] &lt;object&gt;...&quot;
 )paren
 comma
 l_int|NULL
@@ -5542,7 +5542,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git format-patch [options] [&lt;since&gt; | &lt;revision range&gt;]&quot;
+l_string|&quot;git format-patch [&lt;options&gt;] [&lt;since&gt; | &lt;revision-range&gt;]&quot;
 )paren
 comma
 l_int|NULL

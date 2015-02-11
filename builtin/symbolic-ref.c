@@ -16,13 +16,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git symbolic-ref [options] name [ref]&quot;
+l_string|&quot;git symbolic-ref [&lt;options&gt;] &lt;name&gt; [&lt;ref&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git symbolic-ref -d [-q] name&quot;
+l_string|&quot;git symbolic-ref -d [-q] &lt;name&gt;&quot;
 )paren
 comma
 l_int|NULL

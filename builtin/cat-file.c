@@ -1559,13 +1559,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git cat-file (-t|-s|-e|-p|&lt;type&gt;|--textconv) &lt;object&gt;&quot;
+l_string|&quot;git cat-file (-t | -s | -e | -p | &lt;type&gt; | --textconv) &lt;object&gt;&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git cat-file (--batch|--batch-check) &lt; &lt;list_of_objects&gt;&quot;
+l_string|&quot;git cat-file (--batch | --batch-check) &lt; &lt;list-of-objects&gt;&quot;
 )paren
 comma
 l_int|NULL

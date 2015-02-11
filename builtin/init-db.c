@@ -2476,7 +2476,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git init [-q | --quiet] [--bare] [--template=&lt;template-directory&gt;] [--shared[=&lt;permissions&gt;]] [directory]&quot;
+l_string|&quot;git init [-q | --quiet] [--bare] [--template=&lt;template-directory&gt;] [--shared[=&lt;permissions&gt;]] [&lt;directory&gt;]&quot;
 )paren
 comma
 l_int|NULL

@@ -28,7 +28,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git grep [options] [-e] &lt;pattern&gt; [&lt;rev&gt;...] [[--] &lt;path&gt;...]&quot;
+l_string|&quot;git grep [&lt;options&gt;] [-e] &lt;pattern&gt; [&lt;rev&gt;...] [[--] &lt;path&gt;...]&quot;
 )paren
 comma
 l_int|NULL

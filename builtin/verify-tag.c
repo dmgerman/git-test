@@ -20,7 +20,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git verify-tag [-v|--verbose] &lt;tag&gt;...&quot;
+l_string|&quot;git verify-tag [-v | --verbose] &lt;tag&gt;...&quot;
 )paren
 comma
 l_int|NULL

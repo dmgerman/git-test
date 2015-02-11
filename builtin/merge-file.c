@@ -17,7 +17,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git merge-file [options] [-L name1 [-L orig [-L name2]]] file1 orig_file file2&quot;
+l_string|&quot;git merge-file [&lt;options&gt;] [-L &lt;name1&gt; [-L &lt;orig&gt; [-L &lt;name2&gt;]]] &lt;file1&gt; &lt;orig-file&gt; &lt;file2&gt;&quot;
 )paren
 comma
 l_int|NULL
@@ -321,7 +321,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;set labels for file1/orig_file/file2&quot;
+l_string|&quot;set labels for file1/orig-file/file2&quot;
 )paren
 comma
 op_amp

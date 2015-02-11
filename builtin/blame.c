@@ -30,7 +30,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git blame [options] [rev-opts] [rev] [--] file&quot;
+l_string|&quot;git blame [&lt;options&gt;] [&lt;rev-opts&gt;] [&lt;rev&gt;] [--] file&quot;
 )paren
 suffix:semicolon
 DECL|variable|blame_opt_usage
@@ -50,7 +50,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;[rev-opts] are documented in git-rev-list(1)&quot;
+l_string|&quot;&lt;rev-opts&gt; are documented in git-rev-list(1)&quot;
 )paren
 comma
 l_int|NULL

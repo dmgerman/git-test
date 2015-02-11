@@ -40,7 +40,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git commit [options] [--] &lt;pathspec&gt;...&quot;
+l_string|&quot;git commit [&lt;options&gt;] [--] &lt;pathspec&gt;...&quot;
 )paren
 comma
 l_int|NULL
@@ -60,7 +60,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git status [options] [--] &lt;pathspec&gt;...&quot;
+l_string|&quot;git status [&lt;options&gt;] [--] &lt;pathspec&gt;...&quot;
 )paren
 comma
 l_int|NULL

@@ -6011,7 +6011,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git for-each-ref [options] [&lt;pattern&gt;]&quot;
+l_string|&quot;git for-each-ref [&lt;options&gt;] [&lt;pattern&gt;]&quot;
 )paren
 comma
 l_int|NULL

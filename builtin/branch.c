@@ -27,25 +27,25 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git branch [options] [-r | -a] [--merged | --no-merged]&quot;
+l_string|&quot;git branch [&lt;options&gt;] [-r | -a] [--merged | --no-merged]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git branch [options] [-l] [-f] &lt;branchname&gt; [&lt;start-point&gt;]&quot;
+l_string|&quot;git branch [&lt;options&gt;] [-l] [-f] &lt;branch-name&gt; [&lt;start-point&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git branch [options] [-r] (-d | -D) &lt;branchname&gt;...&quot;
+l_string|&quot;git branch [&lt;options&gt;] [-r] (-d | -D) &lt;branch-name&gt;...&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git branch [options] (-m | -M) [&lt;oldbranch&gt;] &lt;newbranch&gt;&quot;
+l_string|&quot;git branch [&lt;options&gt;] (-m | -M) [&lt;old-branch&gt;] &lt;new-branch&gt;&quot;
 )paren
 comma
 l_int|NULL

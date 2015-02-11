@@ -160,7 +160,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git apply [options] [&lt;patch&gt;...]&quot;
+l_string|&quot;git apply [&lt;options&gt;] [&lt;patch&gt;...]&quot;
 )paren
 comma
 l_int|NULL

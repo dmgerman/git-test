@@ -24,7 +24,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git tag [-a|-s|-u &lt;key-id&gt;] [-f] [-m &lt;msg&gt;|-F &lt;file&gt;] &lt;tagname&gt; [&lt;head&gt;]&quot;
+l_string|&quot;git tag [-a | -s | -u &lt;key-id&gt;] [-f] [-m &lt;msg&gt; | -F &lt;file&gt;] &lt;tagname&gt; [&lt;head&gt;]&quot;
 )paren
 comma
 id|N_
@@ -36,7 +36,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git tag -l [-n[&lt;num&gt;]] [--contains &lt;commit&gt;] [--points-at &lt;object&gt;] &quot;
+l_string|&quot;git tag -l [-n[&lt;num&gt;]] [--contains &lt;commit&gt;] [--points-at &lt;object&gt;]&quot;
 l_string|&quot;&bslash;n&bslash;t&bslash;t[&lt;pattern&gt;...]&quot;
 )paren
 comma

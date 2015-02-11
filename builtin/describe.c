@@ -27,13 +27,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git describe [options] &lt;commit-ish&gt;*&quot;
+l_string|&quot;git describe [&lt;options&gt;] [&lt;commit-ish&gt;...]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git describe [options] --dirty&quot;
+l_string|&quot;git describe [&lt;options&gt;] --dirty&quot;
 )paren
 comma
 l_int|NULL

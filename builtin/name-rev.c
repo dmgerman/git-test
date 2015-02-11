@@ -1301,19 +1301,19 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git name-rev [options] &lt;commit&gt;...&quot;
+l_string|&quot;git name-rev [&lt;options&gt;] &lt;commit&gt;...&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git name-rev [options] --all&quot;
+l_string|&quot;git name-rev [&lt;options&gt;] --all&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git name-rev [options] --stdin&quot;
+l_string|&quot;git name-rev [&lt;options&gt;] --stdin&quot;
 )paren
 comma
 l_int|NULL

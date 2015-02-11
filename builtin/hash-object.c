@@ -468,7 +468,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--path=&lt;file&gt;|--no-filters] [--stdin] [--] &lt;file&gt;...&quot;
+l_string|&quot;git hash-object [-t &lt;type&gt;] [-w] [--path=&lt;file&gt; | --no-filters] [--stdin] [--] &lt;file&gt;...&quot;
 )paren
 comma
 id|N_

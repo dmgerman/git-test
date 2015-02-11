@@ -20,7 +20,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git archive [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
+l_string|&quot;git archive [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 )paren
 comma
 id|N_
@@ -32,7 +32,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [options] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
+l_string|&quot;git archive --remote &lt;repo&gt; [--exec &lt;cmd&gt;] [&lt;options&gt;] &lt;tree-ish&gt; [&lt;path&gt;...]&quot;
 )paren
 comma
 id|N_
