@@ -1741,6 +1741,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|match_urls
+r_static
 r_int
 id|match_urls
 c_func
