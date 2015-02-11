@@ -197,6 +197,16 @@ r_static
 r_int
 id|ssl_cert_password_required
 suffix:semicolon
+macro_line|#ifdef LIBCURL_CAN_HANDLE_AUTH_ANY
+DECL|variable|http_auth_methods
+r_static
+r_int
+r_int
+id|http_auth_methods
+op_assign
+id|CURLAUTH_ANY
+suffix:semicolon
+macro_line|#endif
 DECL|variable|pragma_header
 r_static
 r_struct
@@ -2671,6 +2681,18 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+macro_line|#ifdef LIBCURL_CAN_HANDLE_AUTH_ANY
+id|curl_easy_setopt
+c_func
+(paren
+id|slot-&gt;curl
+comma
+id|CURLOPT_HTTPAUTH
+comma
+id|http_auth_methods
+)paren
+suffix:semicolon
+macro_line|#endif
 r_if
 c_cond
 (paren
@@ -3903,6 +3925,13 @@ suffix:semicolon
 )brace
 r_else
 (brace
+macro_line|#ifdef LIBCURL_CAN_HANDLE_AUTH_ANY
+id|http_auth_methods
+op_and_assign
+op_complement
+id|CURLAUTH_GSSNEGOTIATE
+suffix:semicolon
+macro_line|#endif
 r_return
 id|HTTP_REAUTH
 suffix:semicolon
