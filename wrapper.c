@@ -689,9 +689,18 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Limit size of IO chunks, because huge chunks only cause pain.  OS X&n; * 64-bit is buggy, returning EINVAL if len &gt;= INT_MAX; and even in&n; * the absense of bugs, large chunks can result in bad latencies when&n; * you decide to kill the process.&n; */
+multiline_comment|/*&n; * Limit size of IO chunks, because huge chunks only cause pain.  OS X&n; * 64-bit is buggy, returning EINVAL if len &gt;= INT_MAX; and even in&n; * the absense of bugs, large chunks can result in bad latencies when&n; * you decide to kill the process.&n; *&n; * We pick 8 MiB as our default, but if the platform defines SSIZE_MAX&n; * that is smaller than that, clip it to SSIZE_MAX, as a call to&n; * read(2) or write(2) larger than that is allowed to fail.  As the last&n; * resort, we allow a port to pass via CFLAGS e.g. &quot;-DMAX_IO_SIZE=value&quot;&n; * to override this, if the definition of SSIZE_MAX given by the platform&n; * is broken.&n; */
+macro_line|#ifndef MAX_IO_SIZE
+DECL|macro|MAX_IO_SIZE_DEFAULT
+macro_line|# define MAX_IO_SIZE_DEFAULT (8*1024*1024)
+macro_line|# if defined(SSIZE_MAX) &amp;&amp; (SSIZE_MAX &lt; MAX_IO_SIZE_DEFAULT)
 DECL|macro|MAX_IO_SIZE
-mdefine_line|#define MAX_IO_SIZE (8*1024*1024)
+macro_line|#  define MAX_IO_SIZE SSIZE_MAX
+macro_line|# else
+DECL|macro|MAX_IO_SIZE
+macro_line|#  define MAX_IO_SIZE MAX_IO_SIZE_DEFAULT
+macro_line|# endif
+macro_line|#endif
 multiline_comment|/*&n; * xread() is the same a read(), but it automatically restarts read()&n; * operations with a recoverable error (EAGAIN and EINTR). xread()&n; * DOES NOT GUARANTEE that &quot;len&quot; bytes is read even if the data is available.&n; */
 DECL|function|xread
 id|ssize_t
