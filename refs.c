@@ -311,6 +311,9 @@ comma
 l_int|4
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * Flag passed to lock_ref_sha1_basic() telling it to tolerate broken&n; * refs (i.e., because the reference is about to be deleted anyway).&n; */
+DECL|macro|REF_DELETING
+mdefine_line|#define REF_DELETING&t;0x02
 multiline_comment|/*&n; * Used as a flag to ref_transaction_delete when a loose ref is being&n; * pruned.&n; */
 DECL|macro|REF_ISPRUNING
 mdefine_line|#define REF_ISPRUNING&t;0x0100
