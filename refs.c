@@ -316,7 +316,7 @@ DECL|macro|REF_DELETING
 mdefine_line|#define REF_DELETING&t;0x02
 multiline_comment|/*&n; * Used as a flag to ref_transaction_delete when a loose ref is being&n; * pruned.&n; */
 DECL|macro|REF_ISPRUNING
-mdefine_line|#define REF_ISPRUNING&t;0x0100
+mdefine_line|#define REF_ISPRUNING&t;0x04
 multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
 DECL|function|check_refname_component
 r_static
