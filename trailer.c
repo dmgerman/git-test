@@ -1,7 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;run-command.h&quot;
-macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;trailer.h&quot;
 multiline_comment|/*&n; * Copyright (c) 2013, 2014 Christian Couder &lt;chriscool@tuxfamily.org&gt;&n; */
