@@ -460,6 +460,17 @@ id|data
 )paren
 suffix:semicolon
 )brace
+r_static
+r_void
+id|standard_options
+c_func
+(paren
+r_struct
+id|transport
+op_star
+id|t
+)paren
+suffix:semicolon
 DECL|function|get_helper
 r_static
 r_struct
@@ -1165,6 +1176,12 @@ comma
 l_string|&quot;Debug: Capabilities complete.&bslash;n&quot;
 )paren
 suffix:semicolon
+id|standard_options
+c_func
+(paren
+id|transport
+)paren
+suffix:semicolon
 r_return
 id|data-&gt;helper
 suffix:semicolon
@@ -1799,12 +1816,6 @@ id|strbuf
 id|buf
 op_assign
 id|STRBUF_INIT
-suffix:semicolon
-id|standard_options
-c_func
-(paren
-id|transport
-)paren
 suffix:semicolon
 r_if
 c_cond
@@ -4145,12 +4156,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-id|standard_options
-c_func
-(paren
-id|transport
-)paren
-suffix:semicolon
 id|for_each_string_list_item
 c_func
 (paren
