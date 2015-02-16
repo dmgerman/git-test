@@ -2705,7 +2705,8 @@ c_func
 (paren
 id|git_push_config
 comma
-l_int|NULL
+op_amp
+id|flags
 )paren
 suffix:semicolon
 id|argc
