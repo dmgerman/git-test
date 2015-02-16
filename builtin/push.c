@@ -2206,13 +2206,6 @@ op_star
 id|cb
 )paren
 (brace
-r_struct
-id|wt_status
-op_star
-id|s
-op_assign
-id|cb
-suffix:semicolon
 r_int
 id|status
 suffix:semicolon
@@ -2244,7 +2237,7 @@ id|k
 comma
 id|v
 comma
-id|s
+l_int|NULL
 )paren
 suffix:semicolon
 )brace
