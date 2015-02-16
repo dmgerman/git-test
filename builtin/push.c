@@ -2274,11 +2274,6 @@ suffix:semicolon
 r_int
 id|rc
 suffix:semicolon
-r_int
-id|atomic
-op_assign
-l_int|0
-suffix:semicolon
 r_const
 r_char
 op_star
@@ -2674,7 +2669,7 @@ comma
 id|TRANSPORT_PUSH_CERT
 )paren
 comma
-id|OPT_BOOL
+id|OPT_BIT
 c_func
 (paren
 l_int|0
@@ -2682,13 +2677,15 @@ comma
 l_string|&quot;atomic&quot;
 comma
 op_amp
-id|atomic
+id|flags
 comma
 id|N_
 c_func
 (paren
 l_string|&quot;request atomic transaction on remote side&quot;
 )paren
+comma
+id|TRANSPORT_PUSH_ATOMIC
 )paren
 comma
 id|OPT_END
@@ -2787,15 +2784,6 @@ c_func
 (paren
 l_string|&quot;refs/tags/*&quot;
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|atomic
-)paren
-id|flags
-op_or_assign
-id|TRANSPORT_PUSH_ATOMIC
 suffix:semicolon
 r_if
 c_cond
