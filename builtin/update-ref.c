@@ -1128,11 +1128,14 @@ id|transaction
 comma
 id|refname
 comma
+id|have_old
+ques
+c_cond
 id|old_sha1
+suffix:colon
+l_int|NULL
 comma
 id|update_flags
-comma
-id|have_old
 comma
 id|msg
 comma
