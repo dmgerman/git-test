@@ -5541,7 +5541,11 @@ c_func
 (paren
 id|sha1
 comma
-l_int|NULL
+id|sha1_pack_index_name
+c_func
+(paren
+id|sha1
+)paren
 )paren
 suffix:semicolon
 r_if
