@@ -9402,6 +9402,7 @@ op_star
 id|skip
 comma
 r_int
+r_int
 id|flags
 comma
 r_int
@@ -11504,7 +11505,8 @@ op_star
 id|sha1
 comma
 r_int
-id|delopt
+r_int
+id|flags
 )paren
 (brace
 r_struct
@@ -11542,7 +11544,7 @@ id|refname
 comma
 id|sha1
 comma
-id|delopt
+id|flags
 comma
 id|sha1
 op_logical_and
@@ -15949,6 +15951,7 @@ l_int|20
 suffix:semicolon
 DECL|member|flags
 r_int
+r_int
 id|flags
 suffix:semicolon
 multiline_comment|/* REF_NODEREF? */
@@ -16241,6 +16244,7 @@ op_star
 id|old_sha1
 comma
 r_int
+r_int
 id|flags
 comma
 r_int
@@ -16405,6 +16409,7 @@ op_star
 id|new_sha1
 comma
 r_int
+r_int
 id|flags
 comma
 r_const
@@ -16461,6 +16466,7 @@ r_char
 op_star
 id|old_sha1
 comma
+r_int
 r_int
 id|flags
 comma
@@ -16527,6 +16533,7 @@ r_char
 op_star
 id|oldval
 comma
+r_int
 r_int
 id|flags
 comma
@@ -16969,6 +16976,7 @@ id|updates
 id|i
 )braket
 suffix:semicolon
+r_int
 r_int
 id|flags
 op_assign
