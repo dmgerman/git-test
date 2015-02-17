@@ -314,9 +314,12 @@ suffix:semicolon
 multiline_comment|/*&n; * Flag passed to lock_ref_sha1_basic() telling it to tolerate broken&n; * refs (i.e., because the reference is about to be deleted anyway).&n; */
 DECL|macro|REF_DELETING
 mdefine_line|#define REF_DELETING&t;0x02
-multiline_comment|/*&n; * Used as a flag to ref_transaction_delete when a loose ref is being&n; * pruned.&n; */
+multiline_comment|/*&n; * Used as a flag in ref_update::flags when a loose ref is being&n; * pruned.&n; */
 DECL|macro|REF_ISPRUNING
 mdefine_line|#define REF_ISPRUNING&t;0x04
+multiline_comment|/*&n; * Used as a flag in ref_update::flags when old_sha1 should be&n; * checked.&n; */
+DECL|macro|REF_HAVE_OLD
+mdefine_line|#define REF_HAVE_OLD&t;0x08
 multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
 DECL|function|check_refname_component
 r_static
@@ -15928,7 +15931,7 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-multiline_comment|/**&n; * Information needed for a single ref update.  Set new_sha1 to the&n; * new value or to zero to delete the ref.  To check the old value&n; * while locking the ref, set have_old to 1 and set old_sha1 to the&n; * value or to zero to ensure the ref does not exist before update.&n; */
+multiline_comment|/**&n; * Information needed for a single ref update. Set new_sha1 to the new&n; * value or to null_sha1 to delete the ref. To check the old value&n; * while the ref is locked, set (flags &amp; REF_HAVE_OLD) and set&n; * old_sha1 to the old value, or to null_sha1 to ensure the ref does&n; * not exist before update.&n; */
 DECL|struct|ref_update
 r_struct
 id|ref_update
@@ -15949,17 +15952,12 @@ id|old_sha1
 l_int|20
 )braket
 suffix:semicolon
+multiline_comment|/*&n;&t; * One or more of REF_HAVE_OLD, REF_NODEREF,&n;&t; * REF_DELETING, and REF_ISPRUNING:&n;&t; */
 DECL|member|flags
 r_int
 r_int
 id|flags
 suffix:semicolon
-multiline_comment|/* REF_NODEREF? */
-DECL|member|have_old
-r_int
-id|have_old
-suffix:semicolon
-multiline_comment|/* 1 if old_sha1 is valid, 0 otherwise */
 DECL|member|lock
 r_struct
 id|ref_lock
@@ -16349,19 +16347,12 @@ comma
 id|new_sha1
 )paren
 suffix:semicolon
-id|update-&gt;flags
-op_assign
-id|flags
-suffix:semicolon
-id|update-&gt;have_old
-op_assign
-id|have_old
-suffix:semicolon
 r_if
 c_cond
 (paren
 id|have_old
 )paren
+(brace
 id|hashcpy
 c_func
 (paren
@@ -16369,6 +16360,15 @@ id|update-&gt;old_sha1
 comma
 id|old_sha1
 )paren
+suffix:semicolon
+id|flags
+op_or_assign
+id|REF_HAVE_OLD
+suffix:semicolon
+)brace
+id|update-&gt;flags
+op_assign
+id|flags
 suffix:semicolon
 r_if
 c_cond
@@ -17003,7 +17003,11 @@ c_func
 id|update-&gt;refname
 comma
 (paren
-id|update-&gt;have_old
+(paren
+id|update-&gt;flags
+op_amp
+id|REF_HAVE_OLD
+)paren
 ques
 c_cond
 id|update-&gt;old_sha1
