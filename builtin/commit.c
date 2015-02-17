@@ -9956,7 +9956,7 @@ ques
 c_cond
 id|current_head-&gt;object.sha1
 suffix:colon
-l_int|NULL
+id|null_sha1
 comma
 l_int|0
 comma
