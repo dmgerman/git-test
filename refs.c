@@ -317,9 +317,12 @@ mdefine_line|#define REF_DELETING&t;0x02
 multiline_comment|/*&n; * Used as a flag in ref_update::flags when a loose ref is being&n; * pruned.&n; */
 DECL|macro|REF_ISPRUNING
 mdefine_line|#define REF_ISPRUNING&t;0x04
+multiline_comment|/*&n; * Used as a flag in ref_update::flags when the reference should be&n; * updated to new_sha1.&n; */
+DECL|macro|REF_HAVE_NEW
+mdefine_line|#define REF_HAVE_NEW&t;0x08
 multiline_comment|/*&n; * Used as a flag in ref_update::flags when old_sha1 should be&n; * checked.&n; */
 DECL|macro|REF_HAVE_OLD
-mdefine_line|#define REF_HAVE_OLD&t;0x08
+mdefine_line|#define REF_HAVE_OLD&t;0x10
 multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
 DECL|function|check_refname_component
 r_static
@@ -15939,6 +15942,7 @@ DECL|struct|ref_update
 r_struct
 id|ref_update
 (brace
+multiline_comment|/*&n;&t; * If (flags &amp; REF_HAVE_NEW), set the reference to this value:&n;&t; */
 DECL|member|new_sha1
 r_int
 r_char
@@ -15947,6 +15951,7 @@ id|new_sha1
 l_int|20
 )braket
 suffix:semicolon
+multiline_comment|/*&n;&t; * If (flags &amp; REF_HAVE_OLD), check that the reference&n;&t; * previously had this value:&n;&t; */
 DECL|member|old_sha1
 r_int
 r_char
@@ -15955,7 +15960,7 @@ id|old_sha1
 l_int|20
 )braket
 suffix:semicolon
-multiline_comment|/*&n;&t; * One or more of REF_HAVE_OLD, REF_NODEREF,&n;&t; * REF_DELETING, and REF_ISPRUNING:&n;&t; */
+multiline_comment|/*&n;&t; * One or more of REF_HAVE_NEW, REF_HAVE_OLD, REF_NODEREF,&n;&t; * REF_DELETING, and REF_ISPRUNING:&n;&t; */
 DECL|member|flags
 r_int
 r_int
@@ -16285,6 +16290,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|new_sha1
+op_logical_and
 op_logical_neg
 id|is_null_sha1
 c_func
@@ -16325,6 +16332,12 @@ comma
 id|refname
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|new_sha1
+)paren
+(brace
 id|hashcpy
 c_func
 (paren
@@ -16333,6 +16346,11 @@ comma
 id|new_sha1
 )paren
 suffix:semicolon
+id|flags
+op_or_assign
+id|REF_HAVE_NEW
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -16515,6 +16533,69 @@ comma
 id|flags
 comma
 id|msg
+comma
+id|err
+)paren
+suffix:semicolon
+)brace
+DECL|function|ref_transaction_verify
+r_int
+id|ref_transaction_verify
+c_func
+(paren
+r_struct
+id|ref_transaction
+op_star
+id|transaction
+comma
+r_const
+r_char
+op_star
+id|refname
+comma
+r_const
+r_int
+r_char
+op_star
+id|old_sha1
+comma
+r_int
+r_int
+id|flags
+comma
+r_struct
+id|strbuf
+op_star
+id|err
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|old_sha1
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: verify called with old_sha1 set to NULL&quot;
+)paren
+suffix:semicolon
+r_return
+id|ref_transaction_update
+c_func
+(paren
+id|transaction
+comma
+id|refname
+comma
+l_int|NULL
+comma
+id|old_sha1
+comma
+id|flags
+comma
+l_int|NULL
 comma
 id|err
 )paren
@@ -16995,6 +17076,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|flags
+op_amp
+id|REF_HAVE_NEW
+)paren
+op_logical_and
 id|is_null_sha1
 c_func
 (paren
@@ -17094,9 +17181,20 @@ id|updates
 id|i
 )braket
 suffix:semicolon
+r_int
+id|flags
+op_assign
+id|update-&gt;flags
+suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|flags
+op_amp
+id|REF_HAVE_NEW
+)paren
+op_logical_and
 op_logical_neg
 id|is_null_sha1
 c_func
@@ -17175,10 +17273,25 @@ id|updates
 id|i
 )braket
 suffix:semicolon
+r_int
+id|flags
+op_assign
+id|update-&gt;flags
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|update-&gt;lock
+(paren
+id|flags
+op_amp
+id|REF_HAVE_NEW
+)paren
+op_logical_and
+id|is_null_sha1
+c_func
+(paren
+id|update-&gt;new_sha1
+)paren
 )paren
 (brace
 r_if
@@ -17208,7 +17321,7 @@ c_cond
 (paren
 op_logical_neg
 (paren
-id|update-&gt;flags
+id|flags
 op_amp
 id|REF_ISPRUNING
 )paren
