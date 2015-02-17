@@ -6247,7 +6247,6 @@ suffix:semicolon
 r_while
 c_loop
 (paren
-op_amp
 id|sb.len
 op_logical_and
 id|sb.buf
