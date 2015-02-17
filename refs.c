@@ -16409,6 +16409,24 @@ op_star
 id|err
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|new_sha1
+op_logical_or
+id|is_null_sha1
+c_func
+(paren
+id|new_sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: create called without valid new_sha1&quot;
+)paren
+suffix:semicolon
 r_return
 id|ref_transaction_update
 c_func
