@@ -763,11 +763,14 @@ id|refname
 comma
 id|new_sha1
 comma
+id|have_old
+ques
+c_cond
 id|old_sha1
+suffix:colon
+l_int|NULL
 comma
 id|update_flags
-comma
-id|have_old
 comma
 id|msg
 comma
@@ -1304,8 +1307,6 @@ comma
 id|old_sha1
 comma
 id|update_flags
-comma
-l_int|1
 comma
 id|msg
 comma

@@ -9960,10 +9960,6 @@ l_int|NULL
 comma
 l_int|0
 comma
-op_logical_neg
-op_logical_neg
-id|current_head
-comma
 id|sb.buf
 comma
 op_amp

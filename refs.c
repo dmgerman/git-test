@@ -16245,9 +16245,6 @@ r_int
 r_int
 id|flags
 comma
-r_int
-id|have_old
-comma
 r_const
 r_char
 op_star
@@ -16280,20 +16277,6 @@ id|die
 c_func
 (paren
 l_string|&quot;BUG: update called for transaction that is not open&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|have_old
-op_logical_and
-op_logical_neg
-id|old_sha1
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;BUG: have_old is true but old_sha1 is NULL&quot;
 )paren
 suffix:semicolon
 r_if
@@ -16350,7 +16333,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|have_old
+id|old_sha1
 )paren
 (brace
 id|hashcpy
@@ -16437,8 +16420,6 @@ id|null_sha1
 comma
 id|flags
 comma
-l_int|1
-comma
 id|msg
 comma
 id|err
@@ -16494,11 +16475,14 @@ id|refname
 comma
 id|null_sha1
 comma
+id|have_old
+ques
+c_cond
 id|old_sha1
+suffix:colon
+l_int|NULL
 comma
 id|flags
-comma
-id|have_old
 comma
 id|msg
 comma
@@ -16580,10 +16564,6 @@ comma
 id|oldval
 comma
 id|flags
-comma
-op_logical_neg
-op_logical_neg
-id|oldval
 comma
 id|action
 comma

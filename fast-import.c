@@ -8758,8 +8758,6 @@ id|old_sha1
 comma
 l_int|0
 comma
-l_int|1
-comma
 id|msg
 comma
 op_amp
@@ -8991,8 +8989,6 @@ comma
 id|t-&gt;sha1
 comma
 l_int|NULL
-comma
-l_int|0
 comma
 l_int|0
 comma

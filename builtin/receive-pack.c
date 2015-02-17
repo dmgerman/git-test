@@ -4973,8 +4973,6 @@ id|old_sha1
 comma
 l_int|0
 comma
-l_int|1
-comma
 l_string|&quot;push&quot;
 comma
 op_amp
