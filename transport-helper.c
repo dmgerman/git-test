@@ -4415,7 +4415,7 @@ l_int|0
 id|die
 c_func
 (paren
-l_string|&quot;helper %s does not support dry-run&quot;
+l_string|&quot;helper %s does not support --signed&quot;
 comma
 id|data-&gt;name
 )paren
