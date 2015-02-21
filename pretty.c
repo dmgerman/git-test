@@ -2860,18 +2860,13 @@ multiline_comment|/* guess if there is an encoding header before a &bslash;n&bsl
 r_while
 c_loop
 (paren
-id|strncmp
+op_logical_neg
+id|starts_with
 c_func
 (paren
 id|cp
 comma
 l_string|&quot;encoding &quot;
-comma
-id|strlen
-c_func
-(paren
-l_string|&quot;encoding &quot;
-)paren
 )paren
 )paren
 (brace
