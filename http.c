@@ -1861,6 +1861,7 @@ comma
 id|curl_http_proxy
 )paren
 suffix:semicolon
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x070a07
 id|curl_easy_setopt
 c_func
 (paren
@@ -1871,6 +1872,7 @@ comma
 id|CURLAUTH_ANY
 )paren
 suffix:semicolon
+macro_line|#endif
 )brace
 id|set_curl_keepalive
 c_func
