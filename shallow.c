@@ -74,16 +74,11 @@ id|alternate_shallow_file
 suffix:semicolon
 id|alternate_shallow_file
 op_assign
-id|path
-ques
-c_cond
-id|xstrdup
+id|xstrdup_or_null
 c_func
 (paren
 id|path
 )paren
-suffix:colon
-l_int|NULL
 suffix:semicolon
 )brace
 DECL|function|register_shallow

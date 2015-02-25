@@ -4835,16 +4835,11 @@ l_int|NULL
 suffix:semicolon
 id|t-&gt;ref
 op_assign
-id|notes_ref
-ques
-c_cond
-id|xstrdup
+id|xstrdup_or_null
 c_func
 (paren
 id|notes_ref
 )paren
-suffix:colon
-l_int|NULL
 suffix:semicolon
 id|t-&gt;combine_notes
 op_assign

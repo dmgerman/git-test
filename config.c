@@ -6904,16 +6904,11 @@ c_func
 op_amp
 id|e-&gt;value_list
 comma
-id|value
-ques
-c_cond
-id|xstrdup
+id|xstrdup_or_null
 c_func
 (paren
 id|value
 )paren
-suffix:colon
-l_int|NULL
 )paren
 suffix:semicolon
 id|ALLOC_GROW
