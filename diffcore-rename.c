@@ -2202,12 +2202,31 @@ id|p-&gt;two-&gt;sha1
 r_continue
 suffix:semicolon
 r_else
+r_if
+c_cond
+(paren
 id|add_rename_dst
 c_func
 (paren
 id|p-&gt;two
 )paren
+OL
+l_int|0
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;skipping rename detection, detected&quot;
+l_string|&quot; duplicate destination &squot;%s&squot;&quot;
+comma
+id|p-&gt;two-&gt;path
+)paren
 suffix:semicolon
+r_goto
+id|cleanup
+suffix:semicolon
+)brace
 )brace
 r_else
 r_if
