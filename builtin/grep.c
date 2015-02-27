@@ -3403,7 +3403,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;search also in ignored files&quot;
+l_string|&quot;ignore files specified via &squot;.gitignore&squot;&quot;
 )paren
 comma
 l_int|1
