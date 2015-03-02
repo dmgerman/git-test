@@ -25096,6 +25096,8 @@ c_cond
 id|output_format
 op_amp
 id|DIFF_FORMAT_DIRSTAT
+op_logical_and
+id|dirstat_by_line
 )paren
 id|show_dirstat_by_line
 c_func
