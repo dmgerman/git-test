@@ -9464,11 +9464,6 @@ op_assign
 l_int|0
 suffix:semicolon
 r_int
-id|missing
-op_assign
-l_int|0
-suffix:semicolon
-r_int
 id|attempts_remaining
 op_assign
 l_int|3
@@ -9642,19 +9637,15 @@ r_goto
 id|error_return
 suffix:semicolon
 )brace
-id|missing
-op_assign
+multiline_comment|/*&n;&t; * If the ref did not exist and we are creating it, make sure&n;&t; * there is no existing packed ref whose name begins with our&n;&t; * refname, nor a packed ref whose name is a proper prefix of&n;&t; * our refname.&n;&t; */
+r_if
+c_cond
+(paren
 id|is_null_sha1
 c_func
 (paren
 id|lock-&gt;old_sha1
 )paren
-suffix:semicolon
-multiline_comment|/* When the ref did not exist and we are creating it,&n;&t; * make sure there is no existing ref that is packed&n;&t; * whose name begins with our refname, nor a ref whose&n;&t; * name is a proper prefix of our refname.&n;&t; */
-r_if
-c_cond
-(paren
-id|missing
 op_logical_and
 op_logical_neg
 id|is_refname_available
@@ -9741,15 +9732,6 @@ l_string|&quot;%s&quot;
 comma
 id|refname
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|missing
-)paren
-id|lock-&gt;force_write
-op_assign
-l_int|1
 suffix:semicolon
 r_if
 c_cond
