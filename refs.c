@@ -18393,7 +18393,7 @@ id|EXPIRE_REFLOGS_DRY_RUN
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * It doesn&squot;t make sense to adjust a reference pointed&n;&t;&t; * to by a symbolic ref based on expiring entries in&n;&t;&t; * the symbolic reference&squot;s reflog.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * It doesn&squot;t make sense to adjust a reference pointed&n;&t;&t; * to by a symbolic ref based on expiring entries in&n;&t;&t; * the symbolic reference&squot;s reflog. Nor can we update&n;&t;&t; * a reference if there are no remaining reflog&n;&t;&t; * entries.&n;&t;&t; */
 r_int
 id|update
 op_assign
@@ -18408,6 +18408,13 @@ op_logical_neg
 id|type
 op_amp
 id|REF_ISSYMREF
+)paren
+op_logical_and
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|cb.last_kept_sha1
 )paren
 suffix:semicolon
 r_if
