@@ -1901,6 +1901,11 @@ c_func
 id|posn-&gt;old_sha1
 )paren
 comma
+id|posn-&gt;symref
+ques
+c_cond
+id|posn-&gt;symref
+suffix:colon
 id|posn-&gt;name
 )paren
 suffix:semicolon
@@ -2431,6 +2436,11 @@ id|buf
 comma
 l_string|&quot;import %s&bslash;n&quot;
 comma
+id|posn-&gt;symref
+ques
+c_cond
+id|posn-&gt;symref
+suffix:colon
 id|posn-&gt;name
 )paren
 suffix:semicolon
@@ -2495,6 +2505,9 @@ op_increment
 r_char
 op_star
 r_private
+comma
+op_star
+id|name
 suffix:semicolon
 id|posn
 op_assign
@@ -2512,6 +2525,15 @@ id|REF_STATUS_UPTODATE
 )paren
 r_continue
 suffix:semicolon
+id|name
+op_assign
+id|posn-&gt;symref
+ques
+c_cond
+id|posn-&gt;symref
+suffix:colon
+id|posn-&gt;name
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2526,7 +2548,7 @@ id|data-&gt;refspecs
 comma
 id|data-&gt;refspec_nr
 comma
-id|posn-&gt;name
+id|name
 )paren
 suffix:semicolon
 r_else
@@ -2535,7 +2557,7 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|posn-&gt;name
+id|name
 )paren
 suffix:semicolon
 r_if
