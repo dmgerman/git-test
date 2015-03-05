@@ -1640,8 +1640,6 @@ l_int|NULL
 comma
 l_int|0
 comma
-l_int|0
-comma
 id|msg
 ques
 c_cond

@@ -1277,8 +1277,6 @@ id|from
 comma
 l_int|0
 comma
-l_int|1
-comma
 id|sb.buf
 comma
 op_amp

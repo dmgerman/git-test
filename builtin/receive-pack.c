@@ -4886,10 +4886,6 @@ id|old_sha1
 comma
 l_int|0
 comma
-id|old_sha1
-op_ne
-l_int|NULL
-comma
 l_string|&quot;push&quot;
 comma
 op_amp
@@ -4972,8 +4968,6 @@ comma
 id|old_sha1
 comma
 l_int|0
-comma
-l_int|1
 comma
 l_string|&quot;push&quot;
 comma

@@ -311,9 +311,18 @@ comma
 l_int|4
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Used as a flag to ref_transaction_delete when a loose ref is being&n; * pruned.&n; */
+multiline_comment|/*&n; * Flag passed to lock_ref_sha1_basic() telling it to tolerate broken&n; * refs (i.e., because the reference is about to be deleted anyway).&n; */
+DECL|macro|REF_DELETING
+mdefine_line|#define REF_DELETING&t;0x02
+multiline_comment|/*&n; * Used as a flag in ref_update::flags when a loose ref is being&n; * pruned.&n; */
 DECL|macro|REF_ISPRUNING
-mdefine_line|#define REF_ISPRUNING&t;0x0100
+mdefine_line|#define REF_ISPRUNING&t;0x04
+multiline_comment|/*&n; * Used as a flag in ref_update::flags when the reference should be&n; * updated to new_sha1.&n; */
+DECL|macro|REF_HAVE_NEW
+mdefine_line|#define REF_HAVE_NEW&t;0x08
+multiline_comment|/*&n; * Used as a flag in ref_update::flags when old_sha1 should be&n; * checked.&n; */
+DECL|macro|REF_HAVE_OLD
+mdefine_line|#define REF_HAVE_OLD&t;0x10
 multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
 DECL|function|check_refname_component
 r_static
@@ -9399,6 +9408,7 @@ op_star
 id|skip
 comma
 r_int
+r_int
 id|flags
 comma
 r_int
@@ -10828,8 +10838,6 @@ id|r-&gt;sha1
 comma
 id|REF_ISPRUNING
 comma
-l_int|1
-comma
 l_int|NULL
 comma
 op_amp
@@ -11501,7 +11509,8 @@ op_star
 id|sha1
 comma
 r_int
-id|delopt
+r_int
+id|flags
 )paren
 (brace
 r_struct
@@ -11537,10 +11546,7 @@ id|transaction
 comma
 id|refname
 comma
-id|sha1
-comma
-id|delopt
-comma
+(paren
 id|sha1
 op_logical_and
 op_logical_neg
@@ -11549,6 +11555,14 @@ c_func
 (paren
 id|sha1
 )paren
+)paren
+ques
+c_cond
+id|sha1
+suffix:colon
+l_int|NULL
+comma
+id|flags
 comma
 l_int|NULL
 comma
@@ -15923,11 +15937,12 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-multiline_comment|/**&n; * Information needed for a single ref update.  Set new_sha1 to the&n; * new value or to zero to delete the ref.  To check the old value&n; * while locking the ref, set have_old to 1 and set old_sha1 to the&n; * value or to zero to ensure the ref does not exist before update.&n; */
+multiline_comment|/**&n; * Information needed for a single ref update. Set new_sha1 to the new&n; * value or to null_sha1 to delete the ref. To check the old value&n; * while the ref is locked, set (flags &amp; REF_HAVE_OLD) and set&n; * old_sha1 to the old value, or to null_sha1 to ensure the ref does&n; * not exist before update.&n; */
 DECL|struct|ref_update
 r_struct
 id|ref_update
 (brace
+multiline_comment|/*&n;&t; * If (flags &amp; REF_HAVE_NEW), set the reference to this value:&n;&t; */
 DECL|member|new_sha1
 r_int
 r_char
@@ -15936,6 +15951,7 @@ id|new_sha1
 l_int|20
 )braket
 suffix:semicolon
+multiline_comment|/*&n;&t; * If (flags &amp; REF_HAVE_OLD), check that the reference&n;&t; * previously had this value:&n;&t; */
 DECL|member|old_sha1
 r_int
 r_char
@@ -15944,16 +15960,12 @@ id|old_sha1
 l_int|20
 )braket
 suffix:semicolon
+multiline_comment|/*&n;&t; * One or more of REF_HAVE_NEW, REF_HAVE_OLD, REF_NODEREF,&n;&t; * REF_DELETING, and REF_ISPRUNING:&n;&t; */
 DECL|member|flags
+r_int
 r_int
 id|flags
 suffix:semicolon
-multiline_comment|/* REF_NODEREF? */
-DECL|member|have_old
-r_int
-id|have_old
-suffix:semicolon
-multiline_comment|/* 1 if old_sha1 is valid, 0 otherwise */
 DECL|member|lock
 r_struct
 id|ref_lock
@@ -16238,10 +16250,8 @@ op_star
 id|old_sha1
 comma
 r_int
-id|flags
-comma
 r_int
-id|have_old
+id|flags
 comma
 r_const
 r_char
@@ -16280,20 +16290,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|have_old
+id|new_sha1
 op_logical_and
-op_logical_neg
-id|old_sha1
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;BUG: have_old is true but old_sha1 is NULL&quot;
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 op_logical_neg
 id|is_null_sha1
 c_func
@@ -16334,6 +16332,12 @@ comma
 id|refname
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|new_sha1
+)paren
+(brace
 id|hashcpy
 c_func
 (paren
@@ -16342,19 +16346,17 @@ comma
 id|new_sha1
 )paren
 suffix:semicolon
-id|update-&gt;flags
-op_assign
 id|flags
+op_or_assign
+id|REF_HAVE_NEW
 suffix:semicolon
-id|update-&gt;have_old
-op_assign
-id|have_old
-suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
-id|have_old
+id|old_sha1
 )paren
+(brace
 id|hashcpy
 c_func
 (paren
@@ -16362,6 +16364,15 @@ id|update-&gt;old_sha1
 comma
 id|old_sha1
 )paren
+suffix:semicolon
+id|flags
+op_or_assign
+id|REF_HAVE_OLD
+suffix:semicolon
+)brace
+id|update-&gt;flags
+op_assign
+id|flags
 suffix:semicolon
 r_if
 c_cond
@@ -16402,6 +16413,7 @@ op_star
 id|new_sha1
 comma
 r_int
+r_int
 id|flags
 comma
 r_const
@@ -16415,6 +16427,24 @@ op_star
 id|err
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|new_sha1
+op_logical_or
+id|is_null_sha1
+c_func
+(paren
+id|new_sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: create called without valid new_sha1&quot;
+)paren
+suffix:semicolon
 r_return
 id|ref_transaction_update
 c_func
@@ -16428,8 +16458,6 @@ comma
 id|null_sha1
 comma
 id|flags
-comma
-l_int|1
 comma
 id|msg
 comma
@@ -16459,10 +16487,8 @@ op_star
 id|old_sha1
 comma
 r_int
-id|flags
-comma
 r_int
-id|have_old
+id|flags
 comma
 r_const
 r_char
@@ -16475,6 +16501,23 @@ op_star
 id|err
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|old_sha1
+op_logical_and
+id|is_null_sha1
+c_func
+(paren
+id|old_sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: delete called with old_sha1 set to zeros&quot;
+)paren
+suffix:semicolon
 r_return
 id|ref_transaction_update
 c_func
@@ -16489,9 +16532,70 @@ id|old_sha1
 comma
 id|flags
 comma
-id|have_old
-comma
 id|msg
+comma
+id|err
+)paren
+suffix:semicolon
+)brace
+DECL|function|ref_transaction_verify
+r_int
+id|ref_transaction_verify
+c_func
+(paren
+r_struct
+id|ref_transaction
+op_star
+id|transaction
+comma
+r_const
+r_char
+op_star
+id|refname
+comma
+r_const
+r_int
+r_char
+op_star
+id|old_sha1
+comma
+r_int
+r_int
+id|flags
+comma
+r_struct
+id|strbuf
+op_star
+id|err
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|old_sha1
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: verify called with old_sha1 set to NULL&quot;
+)paren
+suffix:semicolon
+r_return
+id|ref_transaction_update
+c_func
+(paren
+id|transaction
+comma
+id|refname
+comma
+l_int|NULL
+comma
+id|old_sha1
+comma
+id|flags
+comma
+l_int|NULL
 comma
 id|err
 )paren
@@ -16505,7 +16609,7 @@ c_func
 r_const
 r_char
 op_star
-id|action
+id|msg
 comma
 r_const
 r_char
@@ -16516,14 +16620,15 @@ r_const
 r_int
 r_char
 op_star
-id|sha1
+id|new_sha1
 comma
 r_const
 r_int
 r_char
 op_star
-id|oldval
+id|old_sha1
 comma
+r_int
 r_int
 id|flags
 comma
@@ -16565,17 +16670,13 @@ id|t
 comma
 id|refname
 comma
-id|sha1
+id|new_sha1
 comma
-id|oldval
+id|old_sha1
 comma
 id|flags
 comma
-op_logical_neg
-op_logical_neg
-id|oldval
-comma
-id|action
+id|msg
 comma
 op_amp
 id|err
@@ -16967,6 +17068,7 @@ id|i
 )braket
 suffix:semicolon
 r_int
+r_int
 id|flags
 op_assign
 id|update-&gt;flags
@@ -16974,6 +17076,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|flags
+op_amp
+id|REF_HAVE_NEW
+)paren
+op_logical_and
 id|is_null_sha1
 c_func
 (paren
@@ -16992,7 +17100,11 @@ c_func
 id|update-&gt;refname
 comma
 (paren
-id|update-&gt;have_old
+(paren
+id|update-&gt;flags
+op_amp
+id|REF_HAVE_OLD
+)paren
 ques
 c_cond
 id|update-&gt;old_sha1
@@ -17069,9 +17181,20 @@ id|updates
 id|i
 )braket
 suffix:semicolon
+r_int
+id|flags
+op_assign
+id|update-&gt;flags
+suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|flags
+op_amp
+id|REF_HAVE_NEW
+)paren
+op_logical_and
 op_logical_neg
 id|is_null_sha1
 c_func
@@ -17150,10 +17273,25 @@ id|updates
 id|i
 )braket
 suffix:semicolon
+r_int
+id|flags
+op_assign
+id|update-&gt;flags
+suffix:semicolon
 r_if
 c_cond
 (paren
-id|update-&gt;lock
+(paren
+id|flags
+op_amp
+id|REF_HAVE_NEW
+)paren
+op_logical_and
+id|is_null_sha1
+c_func
+(paren
+id|update-&gt;new_sha1
+)paren
 )paren
 (brace
 r_if
@@ -17183,7 +17321,7 @@ c_cond
 (paren
 op_logical_neg
 (paren
-id|update-&gt;flags
+id|flags
 op_amp
 id|REF_ISPRUNING
 )paren

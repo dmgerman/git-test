@@ -1445,12 +1445,14 @@ id|ref.buf
 comma
 id|sha1
 comma
+id|forcing
+ques
+c_cond
+l_int|NULL
+suffix:colon
 id|null_sha1
 comma
 l_int|0
-comma
-op_logical_neg
-id|forcing
 comma
 id|msg
 comma

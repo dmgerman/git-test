@@ -2134,11 +2134,14 @@ id|ref-&gt;name
 comma
 id|ref-&gt;new_sha1
 comma
+id|check_old
+ques
+c_cond
 id|ref-&gt;old_sha1
+suffix:colon
+l_int|NULL
 comma
 l_int|0
-comma
-id|check_old
 comma
 id|msg
 comma
