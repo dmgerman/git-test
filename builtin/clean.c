@@ -3746,13 +3746,14 @@ op_amp
 id|buf
 )paren
 suffix:semicolon
+multiline_comment|/* TRANSLATORS: Make sure to keep [y/N] as is */
 id|printf
 c_func
 (paren
 id|_
 c_func
 (paren
-l_string|&quot;remove %s? &quot;
+l_string|&quot;Remove %s [y/N]? &quot;
 )paren
 comma
 id|qname
