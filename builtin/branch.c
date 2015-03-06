@@ -3042,6 +3042,13 @@ c_cond
 (paren
 id|state.detached_from
 )paren
+(brace
+multiline_comment|/* TRANSLATORS: make sure these match _(&quot;HEAD detached at &quot;)&n;&t;&t;   and _(&quot;HEAD detached from &quot;) in wt-status.c */
+r_if
+c_cond
+(paren
+id|state.detached_at
+)paren
 id|strbuf_addf
 c_func
 (paren
@@ -3051,12 +3058,29 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;(detached from %s)&quot;
+l_string|&quot;(HEAD detached at %s)&quot;
 )paren
 comma
 id|state.detached_from
 )paren
 suffix:semicolon
+r_else
+id|strbuf_addf
+c_func
+(paren
+op_amp
+id|desc
+comma
+id|_
+c_func
+(paren
+l_string|&quot;(HEAD detached from %s)&quot;
+)paren
+comma
+id|state.detached_from
+)paren
+suffix:semicolon
+)brace
 r_else
 id|strbuf_addstr
 c_func
