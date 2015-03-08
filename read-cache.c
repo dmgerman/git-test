@@ -272,6 +272,14 @@ comma
 id|old-&gt;name
 )paren
 suffix:semicolon
+id|untracked_cache_remove_from_index
+c_func
+(paren
+id|istate
+comma
+id|old-&gt;name
+)paren
+suffix:semicolon
 id|remove_index_entry_at
 c_func
 (paren
@@ -2335,6 +2343,14 @@ op_minus
 l_int|1
 suffix:semicolon
 id|cache_tree_invalidate_path
+c_func
+(paren
+id|istate
+comma
+id|path
+)paren
+suffix:semicolon
+id|untracked_cache_remove_from_index
 c_func
 (paren
 id|istate
@@ -4490,6 +4506,14 @@ op_assign
 id|pos
 op_minus
 l_int|1
+suffix:semicolon
+id|untracked_cache_add_to_index
+c_func
+(paren
+id|istate
+comma
+id|ce-&gt;name
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Inserting a merged entry (&quot;stage 0&quot;) into the index&n;&t; * will always replace all non-merged entries..&n;&t; */
 r_if
