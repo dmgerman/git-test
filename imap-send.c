@@ -15,6 +15,15 @@ macro_line|#endif
 macro_line|#ifdef USE_CURL_FOR_IMAP_SEND
 macro_line|#include &quot;http.h&quot;
 macro_line|#endif
+macro_line|#if defined(USE_CURL_FOR_IMAP_SEND) &amp;&amp; defined(NO_OPENSSL)
+multiline_comment|/* only available option */
+DECL|macro|USE_CURL_DEFAULT
+mdefine_line|#define USE_CURL_DEFAULT 1
+macro_line|#else
+multiline_comment|/* strictly opt in */
+DECL|macro|USE_CURL_DEFAULT
+mdefine_line|#define USE_CURL_DEFAULT 0
+macro_line|#endif
 DECL|variable|verbosity
 r_static
 r_int
@@ -24,8 +33,9 @@ DECL|variable|use_curl
 r_static
 r_int
 id|use_curl
+op_assign
+id|USE_CURL_DEFAULT
 suffix:semicolon
-multiline_comment|/* strictly opt in */
 DECL|variable|imap_send_usage
 r_static
 r_const
@@ -7968,12 +7978,31 @@ id|use_curl
 id|warning
 c_func
 (paren
-l_string|&quot;--use-curl not supported in this build&quot;
+l_string|&quot;--curl not supported in this build&quot;
 )paren
 suffix:semicolon
 id|use_curl
 op_assign
 l_int|0
+suffix:semicolon
+)brace
+macro_line|#elif defined(NO_OPENSSL)
+r_if
+c_cond
+(paren
+op_logical_neg
+id|use_curl
+)paren
+(brace
+id|warning
+c_func
+(paren
+l_string|&quot;--no-curl not supported in this build&quot;
+)paren
+suffix:semicolon
+id|use_curl
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 macro_line|#endif
