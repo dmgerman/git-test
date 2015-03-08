@@ -48,7 +48,7 @@ DECL|macro|CACHE_EXT_UNTRACKED
 mdefine_line|#define CACHE_EXT_UNTRACKED 0x554E5452&t;  /* &quot;UNTR&quot; */
 multiline_comment|/* changes that can be kept in $GIT_DIR/index (basically all extensions) */
 DECL|macro|EXTMASK
-mdefine_line|#define EXTMASK (RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | &bslash;&n;&t;&t; CE_ENTRY_ADDED | CE_ENTRY_REMOVED | CE_ENTRY_CHANGED | &bslash;&n;&t;&t; SPLIT_INDEX_ORDERED)
+mdefine_line|#define EXTMASK (RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | &bslash;&n;&t;&t; CE_ENTRY_ADDED | CE_ENTRY_REMOVED | CE_ENTRY_CHANGED | &bslash;&n;&t;&t; SPLIT_INDEX_ORDERED | UNTRACKED_CHANGED)
 DECL|variable|the_index
 r_struct
 id|index_state
