@@ -7916,6 +7916,12 @@ c_cond
 (paren
 op_logical_neg
 id|dir-&gt;untracked
+op_logical_or
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_DISABLE_UNTRACKED_CACHE&quot;
+)paren
 )paren
 r_return
 l_int|NULL
