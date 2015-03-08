@@ -4699,6 +4699,23 @@ r_if
 c_cond
 (paren
 id|dir-&gt;exclude_per_dir
+op_logical_and
+multiline_comment|/*&n;&t;&t;     * If we know that no files have been added in&n;&t;&t;     * this directory (i.e. valid_cached_dir() has&n;&t;&t;     * been executed and set untracked-&gt;valid) ..&n;&t;&t;     */
+(paren
+op_logical_neg
+id|untracked
+op_logical_or
+op_logical_neg
+id|untracked-&gt;valid
+op_logical_or
+multiline_comment|/*&n;&t;&t;      * .. and .gitignore does not exist before&n;&t;&t;      * (i.e. null exclude_sha1 and skip_worktree is&n;&t;&t;      * not set). Then we can skip loading .gitignore,&n;&t;&t;      * which would result in ENOENT anyway.&n;&t;&t;      * skip_worktree is taken care in read_directory()&n;&t;&t;      */
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|untracked-&gt;exclude_sha1
+)paren
+)paren
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t; * dir-&gt;basebuf gets reused by the traversal, but we&n;&t;&t;&t; * need fname to remain unchanged to ensure the src&n;&t;&t;&t; * member of each struct exclude correctly&n;&t;&t;&t; * back-references its source file.  Other invocations&n;&t;&t;&t; * of add_exclude_list provide stable strings, so we&n;&t;&t;&t; * strbuf_detach() and free() here in the caller.&n;&t;&t;&t; */
@@ -7883,6 +7900,9 @@ id|untracked_cache_dir
 op_star
 id|root
 suffix:semicolon
+r_int
+id|i
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -7977,6 +7997,36 @@ id|EXC_CMDL
 )braket
 dot
 id|nr
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+multiline_comment|/*&n;&t; * An optimization in prep_exclude() does not play well with&n;&t; * CE_SKIP_WORKTREE. It&squot;s a rare case anyway, if a single&n;&t; * entry has that bit set, disable the whole untracked cache.&n;&t; */
+r_for
+c_loop
+(paren
+id|i
+op_assign
+l_int|0
+suffix:semicolon
+id|i
+OL
+id|active_nr
+suffix:semicolon
+id|i
+op_increment
+)paren
+r_if
+c_cond
+(paren
+id|ce_skip_worktree
+c_func
+(paren
+id|active_cache
+(braket
+id|i
+)braket
+)paren
 )paren
 r_return
 l_int|NULL
