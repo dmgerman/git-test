@@ -8323,6 +8323,44 @@ comma
 id|cmp_name
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|dir-&gt;untracked
+)paren
+(brace
+r_static
+r_struct
+id|trace_key
+id|trace_untracked_stats
+op_assign
+id|TRACE_KEY_INIT
+c_func
+(paren
+id|UNTRACKED_STATS
+)paren
+suffix:semicolon
+id|trace_printf_key
+c_func
+(paren
+op_amp
+id|trace_untracked_stats
+comma
+l_string|&quot;node creation: %u&bslash;n&quot;
+l_string|&quot;gitignore invalidation: %u&bslash;n&quot;
+l_string|&quot;directory invalidation: %u&bslash;n&quot;
+l_string|&quot;opendir: %u&bslash;n&quot;
+comma
+id|dir-&gt;untracked-&gt;dir_created
+comma
+id|dir-&gt;untracked-&gt;gitignore_invalidated
+comma
+id|dir-&gt;untracked-&gt;dir_invalidated
+comma
+id|dir-&gt;untracked-&gt;dir_opened
+)paren
+suffix:semicolon
+)brace
 r_return
 id|dir-&gt;nr
 suffix:semicolon
