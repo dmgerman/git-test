@@ -3086,9 +3086,12 @@ c_cond
 id|sha1_stat-&gt;valid
 op_logical_and
 op_logical_neg
-id|match_stat_data
+id|match_stat_data_racy
 c_func
 (paren
+op_amp
+id|the_index
+comma
 op_amp
 id|sha1_stat-&gt;stat
 comma
@@ -6683,9 +6686,12 @@ c_cond
 op_logical_neg
 id|untracked-&gt;valid
 op_logical_or
-id|match_stat_data
+id|match_stat_data_racy
 c_func
 (paren
+op_amp
+id|the_index
+comma
 op_amp
 id|untracked-&gt;stat_data
 comma
