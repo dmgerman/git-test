@@ -2696,7 +2696,6 @@ id|prefix
 r_int
 id|nongit
 suffix:semicolon
-r_const
 r_char
 op_star
 id|alias
@@ -2950,6 +2949,12 @@ id|argv
 l_int|0
 )braket
 comma
+id|alias
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|alias
 )paren
 suffix:semicolon
