@@ -3752,6 +3752,12 @@ c_func
 id|path
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|conn
+)paren
+suffix:semicolon
 r_return
 l_int|NULL
 suffix:semicolon
