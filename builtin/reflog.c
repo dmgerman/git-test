@@ -7,7 +7,7 @@ macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;reachable.h&quot;
-multiline_comment|/*&n; * reflog expire&n; */
+multiline_comment|/* NEEDSWORK: switch to using parse_options */
 DECL|variable|reflog_expire_usage
 r_static
 r_const
@@ -16,7 +16,7 @@ id|reflog_expire_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git reflog expire [--verbose] [--dry-run] [--stale-fix] [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--all] &lt;refs&gt;...&quot;
+l_string|&quot;git reflog expire [--expire=&lt;time&gt;] [--expire-unreachable=&lt;time&gt;] [--rewrite] [--updateref] [--stale-fix] [--dry-run | -n] [--verbose] [--all] &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|reflog_delete_usage
 r_static
@@ -26,7 +26,7 @@ id|reflog_delete_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git reflog delete [--verbose] [--dry-run] [--rewrite] [--updateref] &lt;refs&gt;...&quot;
+l_string|&quot;git reflog delete [--rewrite] [--updateref] [--dry-run | -n] [--verbose] &lt;refs&gt;...&quot;
 suffix:semicolon
 DECL|variable|default_reflog_expire
 r_static
