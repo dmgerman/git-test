@@ -502,10 +502,11 @@ id|path_len
 op_assign
 l_char|&squot;&bslash;0&squot;
 suffix:semicolon
-id|hashclr
+id|oidclr
 c_func
 (paren
-id|dpath-&gt;sha1
+op_amp
+id|dpath-&gt;oid
 )paren
 suffix:semicolon
 id|memset
@@ -654,7 +655,7 @@ op_minus
 l_int|2
 )braket
 dot
-id|sha1
+id|oid.hash
 comma
 id|nce-&gt;sha1
 )paren
@@ -1558,10 +1559,11 @@ id|p-&gt;mode
 op_assign
 id|mode
 suffix:semicolon
-id|hashclr
+id|oidclr
 c_func
 (paren
-id|p-&gt;sha1
+op_amp
+id|p-&gt;oid
 )paren
 suffix:semicolon
 id|memset
@@ -1608,7 +1610,7 @@ id|p-&gt;parent
 l_int|0
 )braket
 dot
-id|sha1
+id|oid.hash
 comma
 r_new
 op_member_access_from_pointer
@@ -1641,7 +1643,7 @@ id|p-&gt;parent
 l_int|1
 )braket
 dot
-id|sha1
+id|oid.hash
 comma
 id|old-&gt;sha1
 )paren
