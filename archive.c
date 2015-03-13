@@ -561,13 +561,10 @@ id|directory
 op_star
 id|up
 suffix:semicolon
-DECL|member|sha1
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
+DECL|member|oid
+r_struct
+id|object_id
+id|oid
 suffix:semicolon
 DECL|member|baselen
 DECL|member|len
@@ -1096,7 +1093,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|d-&gt;sha1
+id|d-&gt;oid.hash
 comma
 id|sha1
 )paren
@@ -1157,7 +1154,7 @@ op_logical_or
 id|write_archive_entry
 c_func
 (paren
-id|d-&gt;sha1
+id|d-&gt;oid.hash
 comma
 id|d-&gt;path
 comma
@@ -2031,12 +2028,9 @@ id|commit
 op_star
 id|commit
 suffix:semicolon
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
+r_struct
+id|object_id
+id|oid
 suffix:semicolon
 multiline_comment|/* Remotes are only allowed to fetch actual refs */
 r_if
@@ -2084,7 +2078,7 @@ id|name
 comma
 id|refnamelen
 comma
-id|sha1
+id|oid.hash
 comma
 op_amp
 id|ref
@@ -2115,7 +2109,7 @@ c_func
 (paren
 id|name
 comma
-id|sha1
+id|oid.hash
 )paren
 )paren
 id|die
@@ -2129,7 +2123,7 @@ op_assign
 id|lookup_commit_reference_gently
 c_func
 (paren
-id|sha1
+id|oid.hash
 comma
 l_int|1
 )paren
@@ -2169,7 +2163,7 @@ op_assign
 id|parse_tree_indirect
 c_func
 (paren
-id|sha1
+id|oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -2191,12 +2185,9 @@ c_cond
 id|prefix
 )paren
 (brace
-r_int
-r_char
-id|tree_sha1
-(braket
-l_int|20
-)braket
+r_struct
+id|object_id
+id|tree_oid
 suffix:semicolon
 r_int
 r_int
@@ -2214,7 +2205,7 @@ id|tree-&gt;object.sha1
 comma
 id|prefix
 comma
-id|tree_sha1
+id|tree_oid.hash
 comma
 op_amp
 id|mode
@@ -2243,7 +2234,7 @@ op_assign
 id|parse_tree_indirect
 c_func
 (paren
-id|tree_sha1
+id|tree_oid.hash
 )paren
 suffix:semicolon
 )brace
