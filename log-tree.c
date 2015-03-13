@@ -683,7 +683,7 @@ op_assign
 id|lookup_commit
 c_func
 (paren
-id|graft-&gt;sha1
+id|graft-&gt;oid.hash
 )paren
 suffix:semicolon
 r_if

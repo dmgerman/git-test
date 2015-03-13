@@ -879,10 +879,11 @@ id|sb
 comma
 l_string|&quot;shallow %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|graft-&gt;sha1
+op_amp
+id|graft-&gt;oid
 )paren
 )paren
 suffix:semicolon
