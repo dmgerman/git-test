@@ -3391,24 +3391,6 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-op_logical_neg
-id|o
-)paren
-id|die
-c_func
-(paren
-l_string|&quot;git upload-pack: cannot find object %s:&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|sha1
-)paren
-)paren
-suffix:semicolon
 id|o-&gt;flags
 op_or_assign
 id|OUR_REF
