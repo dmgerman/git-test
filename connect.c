@@ -3360,9 +3360,31 @@ op_eq
 id|PROTO_GIT
 )paren
 (brace
-multiline_comment|/* These underlying connection commands die() if they&n;&t;&t; * cannot connect.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Set up virtual host information based on where we will&n;&t;&t; * connect, unless the user has overridden us in&n;&t;&t; * the environment.&n;&t;&t; */
 r_char
 op_star
+id|target_host
+op_assign
+id|getenv
+c_func
+(paren
+l_string|&quot;GIT_OVERRIDE_VIRTUAL_HOST&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|target_host
+)paren
+id|target_host
+op_assign
+id|xstrdup
+c_func
+(paren
+id|target_host
+)paren
+suffix:semicolon
+r_else
 id|target_host
 op_assign
 id|xstrdup
@@ -3371,6 +3393,7 @@ c_func
 id|hostandport
 )paren
 suffix:semicolon
+multiline_comment|/* These underlying connection commands die() if they&n;&t;&t; * cannot connect.&n;&t;&t; */
 r_if
 c_cond
 (paren
