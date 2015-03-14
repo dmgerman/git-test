@@ -333,6 +333,7 @@ suffix:semicolon
 multiline_comment|/* For case-insensitive kwset */
 DECL|variable|tolower_trans_tbl
 r_const
+r_int
 r_char
 id|tolower_trans_tbl
 (braket

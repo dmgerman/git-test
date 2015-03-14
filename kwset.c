@@ -172,6 +172,7 @@ id|mind2
 suffix:semicolon
 multiline_comment|/* Used in Boyer-Moore search for one string. */
 DECL|member|trans
+r_int
 r_char
 r_const
 op_star
@@ -185,6 +186,7 @@ id|kwset_t
 DECL|function|kwsalloc
 id|kwsalloc
 (paren
+r_int
 r_char
 r_const
 op_star
@@ -1548,6 +1550,7 @@ op_star
 id|curr
 suffix:semicolon
 r_register
+r_int
 r_char
 r_const
 op_star
@@ -2747,6 +2750,7 @@ op_star
 id|tree
 suffix:semicolon
 r_register
+r_int
 r_char
 r_const
 op_star
