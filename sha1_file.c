@@ -14077,20 +14077,6 @@ id|errno
 suffix:semicolon
 )brace
 multiline_comment|/* Set it up */
-id|memset
-c_func
-(paren
-op_amp
-id|stream
-comma
-l_int|0
-comma
-r_sizeof
-(paren
-id|stream
-)paren
-)paren
-suffix:semicolon
 id|git_deflate_init
 c_func
 (paren
