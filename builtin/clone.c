@@ -4852,7 +4852,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;could not create work tree dir &squot;%s&squot;.&quot;
+l_string|&quot;could not create work tree dir &squot;%s&squot;&quot;
 )paren
 comma
 id|work_tree
