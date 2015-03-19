@@ -11831,6 +11831,23 @@ c_func
 l_string|&quot;cannot use --grep-reflog without --walk-reflogs&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs-&gt;first_parent_only
+op_logical_and
+id|revs-&gt;bisect
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;--first-parent is incompatible with --bisect&quot;
+)paren
+)paren
+suffix:semicolon
 r_return
 id|left
 suffix:semicolon
