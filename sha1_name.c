@@ -3917,14 +3917,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|hexval
+op_logical_neg
+id|isxdigit
 c_func
 (paren
 id|ch
 )paren
-op_amp
-op_complement
-l_int|0377
 )paren
 (brace
 multiline_comment|/* We must be looking at g in &quot;SOMETHING-g&quot;&n;&t;&t;&t; * for it to be describe output.&n;&t;&t;&t; */
