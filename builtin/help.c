@@ -950,9 +950,9 @@ suffix:semicolon
 id|execl
 c_func
 (paren
-l_string|&quot;/bin/sh&quot;
+id|SHELL_PATH
 comma
-l_string|&quot;sh&quot;
+id|SHELL_PATH
 comma
 l_string|&quot;-c&quot;
 comma
