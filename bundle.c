@@ -1888,7 +1888,8 @@ id|ref
 op_ne
 l_int|1
 )paren
-r_continue
+r_goto
+id|skip_write_ref
 suffix:semicolon
 r_if
 c_cond
@@ -1944,7 +1945,8 @@ id|e-&gt;item-&gt;flags
 op_or_assign
 id|UNINTERESTING
 suffix:semicolon
-r_continue
+r_goto
+id|skip_write_ref
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * Make sure the refs we wrote out is correct; --max-count and&n;&t;&t; * other limiting options could have prevented all the tips&n;&t;&t; * from getting output.&n;&t;&t; *&n;&t;&t; * Non commit objects such as tags and blobs do not have&n;&t;&t; * this issue as they are not affected by those extra&n;&t;&t; * constraints.&n;&t;&t; */
@@ -1975,13 +1977,8 @@ comma
 id|e-&gt;name
 )paren
 suffix:semicolon
-id|free
-c_func
-(paren
-id|ref
-)paren
-suffix:semicolon
-r_continue
+r_goto
+id|skip_write_ref
 suffix:semicolon
 )brace
 multiline_comment|/*&n;&t;&t; * If you run &quot;git bundle create bndl v1.0..v2.0&quot;, the&n;&t;&t; * name of the positive ref is &quot;v2.0&quot; but that is the&n;&t;&t; * commit that is referenced by the tag, and not the tag&n;&t;&t; * itself.&n;&t;&t; */
@@ -2051,13 +2048,8 @@ id|e-&gt;name
 )paren
 suffix:semicolon
 )brace
-id|free
-c_func
-(paren
-id|ref
-)paren
-suffix:semicolon
-r_continue
+r_goto
+id|skip_write_ref
 suffix:semicolon
 )brace
 id|ref_count
@@ -2111,6 +2103,8 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|skip_write_ref
+suffix:colon
 id|free
 c_func
 (paren
