@@ -76,6 +76,12 @@ id|warn_on_object_refname_ambiguity
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|ref_paranoia
+r_int
+id|ref_paranoia
+op_assign
+l_int|1
+suffix:semicolon
 DECL|variable|repository_format_version
 r_int
 id|repository_format_version
