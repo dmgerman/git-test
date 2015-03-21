@@ -62,9 +62,17 @@ id|type
 op_ne
 id|OBJ_BLOB
 )paren
+(brace
+id|free
+c_func
+(paren
+id|buf
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
+)brace
 id|f-&gt;ptr
 op_assign
 id|buf
