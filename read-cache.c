@@ -3177,12 +3177,6 @@ id|ce_option
 )paren
 (brace
 multiline_comment|/* Nothing changed, really */
-id|free
-c_func
-(paren
-id|ce
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -3202,6 +3196,12 @@ suffix:semicolon
 id|alias-&gt;ce_flags
 op_or_assign
 id|CE_ADDED
+suffix:semicolon
+id|free
+c_func
+(paren
+id|ce
+)paren
 suffix:semicolon
 r_return
 l_int|0
@@ -3229,6 +3229,13 @@ comma
 id|HASH_WRITE_OBJECT
 )paren
 )paren
+(brace
+id|free
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -3238,6 +3245,7 @@ comma
 id|path
 )paren
 suffix:semicolon
+)brace
 )brace
 r_else
 id|set_object_name_for_intent_to_add_entry
