@@ -2740,6 +2740,12 @@ c_func
 id|path
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|old
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
