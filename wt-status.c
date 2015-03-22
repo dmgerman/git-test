@@ -3936,9 +3936,6 @@ r_char
 op_star
 id|summary_content
 suffix:semicolon
-r_int
-id|len
-suffix:semicolon
 id|argv_array_pushf
 c_func
 (paren
@@ -4050,8 +4047,6 @@ op_amp
 id|sm_summary
 )paren
 suffix:semicolon
-id|len
-op_assign
 id|strbuf_read
 c_func
 (paren
@@ -4067,7 +4062,7 @@ multiline_comment|/* prepend header, only if there&squot;s an actual output */
 r_if
 c_cond
 (paren
-id|len
+id|cmd_stdout.len
 )paren
 (brace
 r_if
@@ -4135,6 +4130,9 @@ c_cond
 id|s-&gt;display_comment_prefix
 )paren
 (brace
+r_int
+id|len
+suffix:semicolon
 id|summary_content
 op_assign
 id|strbuf_detach
