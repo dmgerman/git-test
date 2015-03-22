@@ -4039,12 +4039,6 @@ id|sm_summary.no_stdin
 op_assign
 l_int|1
 suffix:semicolon
-id|fflush
-c_func
-(paren
-id|s-&gt;fp
-)paren
-suffix:semicolon
 id|sm_summary.out
 op_assign
 l_int|1
