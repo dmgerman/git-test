@@ -2814,6 +2814,25 @@ id|cmd
 (brace
 r_int
 id|code
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|cmd-&gt;out
+OL
+l_int|0
+op_logical_or
+id|cmd-&gt;err
+OL
+l_int|0
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: run_command with a pipe can cause deadlock&quot;
+)paren
+suffix:semicolon
+id|code
 op_assign
 id|start_command
 c_func
