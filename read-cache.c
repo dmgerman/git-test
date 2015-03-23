@@ -3317,6 +3317,11 @@ c_cond
 (paren
 id|pretend
 )paren
+id|free
+c_func
+(paren
+id|ce
+)paren
 suffix:semicolon
 r_else
 r_if
@@ -3332,6 +3337,13 @@ comma
 id|add_option
 )paren
 )paren
+(brace
+id|free
+c_func
+(paren
+id|ce
+)paren
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -3341,6 +3353,7 @@ comma
 id|path
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
