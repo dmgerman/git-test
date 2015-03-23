@@ -993,6 +993,14 @@ c_func
 (paren
 id|sb
 comma
+id|color_reset
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+id|sb
+comma
 id|decorate_get_color
 c_func
 (paren
