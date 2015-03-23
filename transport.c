@@ -507,7 +507,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|hexval
+op_logical_neg
+id|isxdigit
 c_func
 (paren
 id|buffer
@@ -515,8 +516,6 @@ id|buffer
 l_int|0
 )braket
 )paren
-OG
-l_int|0xf
 )paren
 r_continue
 suffix:semicolon
