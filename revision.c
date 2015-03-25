@@ -12183,6 +12183,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|revs-&gt;no_walk
+op_logical_and
+id|revs-&gt;graph
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;cannot combine --no-walk with --graph&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|revs-&gt;reflog_info
 op_logical_and
