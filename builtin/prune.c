@@ -572,6 +572,10 @@ id|check_replace_refs
 op_assign
 l_int|0
 suffix:semicolon
+id|ref_paranoia
+op_assign
+l_int|1
+suffix:semicolon
 id|init_revisions
 c_func
 (paren
