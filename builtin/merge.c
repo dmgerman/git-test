@@ -7827,6 +7827,12 @@ id|head_commit-&gt;object.sha1
 )paren
 )paren
 (brace
+id|warning
+c_func
+(paren
+l_string|&quot;old-style &squot;git merge &lt;msg&gt; HEAD &lt;commit&gt;&squot; is deprecated.&quot;
+)paren
+suffix:semicolon
 id|strbuf_addstr
 c_func
 (paren
