@@ -1298,12 +1298,6 @@ op_eq
 l_int|NULL
 )paren
 (brace
-id|release_http_pack_request
-c_func
-(paren
-id|preq
-)paren
-suffix:semicolon
 id|repo-&gt;can_update_info_refs
 op_assign
 l_int|0

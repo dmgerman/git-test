@@ -12857,8 +12857,12 @@ comma
 id|first
 )paren
 suffix:semicolon
-r_return
+id|applied_pos
+op_assign
 l_int|1
+suffix:semicolon
+r_goto
+id|out
 suffix:semicolon
 )brace
 r_if
@@ -13357,6 +13361,8 @@ id|oldlines
 )paren
 suffix:semicolon
 )brace
+id|out
+suffix:colon
 id|free
 c_func
 (paren

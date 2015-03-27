@@ -819,6 +819,8 @@ id|pattern
 (brace
 r_int
 id|i
+comma
+id|ret
 suffix:semicolon
 r_char
 op_star
@@ -960,7 +962,8 @@ id|item
 suffix:semicolon
 multiline_comment|/* better a valid pointer than a fake one */
 )brace
-r_return
+id|ret
+op_assign
 id|report_path_error
 c_func
 (paren
@@ -970,6 +973,15 @@ id|pattern
 comma
 id|prefix
 )paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|m
+)paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|add_remove_files

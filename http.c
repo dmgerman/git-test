@@ -6472,6 +6472,12 @@ c_func
 id|preq-&gt;url
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|preq
+)paren
+suffix:semicolon
 )brace
 DECL|function|finish_http_pack_request
 r_int
