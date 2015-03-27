@@ -3311,6 +3311,16 @@ l_string|&quot;replace the tag if exists&quot;
 )paren
 )paren
 comma
+id|OPT_GROUP
+c_func
+(paren
+id|N_
+c_func
+(paren
+l_string|&quot;Tag listing options&quot;
+)paren
+)paren
+comma
 id|OPT_COLUMN
 c_func
 (paren
@@ -3354,16 +3364,6 @@ id|PARSE_OPT_NONEG
 comma
 id|parse_opt_sort
 )brace
-comma
-id|OPT_GROUP
-c_func
-(paren
-id|N_
-c_func
-(paren
-l_string|&quot;Tag listing options&quot;
-)paren
-)paren
 comma
 (brace
 id|OPTION_CALLBACK
