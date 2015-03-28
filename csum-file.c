@@ -678,8 +678,11 @@ id|sink
 OL
 l_int|0
 )paren
-r_return
-l_int|NULL
+id|die_errno
+c_func
+(paren
+l_string|&quot;unable to open /dev/null&quot;
+)paren
 suffix:semicolon
 id|check
 op_assign
@@ -698,26 +701,14 @@ id|check
 OL
 l_int|0
 )paren
-(brace
-r_int
-id|saved_errno
-op_assign
-id|errno
-suffix:semicolon
-id|close
+id|die_errno
 c_func
 (paren
-id|sink
+l_string|&quot;unable to open &squot;%s&squot;&quot;
+comma
+id|name
 )paren
 suffix:semicolon
-id|errno
-op_assign
-id|saved_errno
-suffix:semicolon
-r_return
-l_int|NULL
-suffix:semicolon
-)brace
 id|f
 op_assign
 id|sha1fd
