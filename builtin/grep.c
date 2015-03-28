@@ -4939,6 +4939,9 @@ c_cond
 (paren
 op_logical_neg
 id|show_in_pager
+op_logical_and
+op_logical_neg
+id|opt.status_only
 )paren
 id|setup_pager
 c_func
