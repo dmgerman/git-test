@@ -4781,6 +4781,18 @@ id|dir
 )paren
 suffix:semicolon
 )brace
+id|atexit
+c_func
+(paren
+id|remove_junk
+)paren
+suffix:semicolon
+id|sigchain_push_common
+c_func
+(paren
+id|remove_junk_on_signal
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4788,10 +4800,6 @@ op_logical_neg
 id|option_bare
 )paren
 (brace
-id|junk_work_tree
-op_assign
-id|work_tree
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4835,11 +4843,15 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;could not create work tree dir &squot;%s&squot;.&quot;
+l_string|&quot;could not create work tree dir &squot;%s&squot;&quot;
 )paren
 comma
 id|work_tree
 )paren
+suffix:semicolon
+id|junk_work_tree
+op_assign
+id|work_tree
 suffix:semicolon
 id|set_git_work_tree
 c_func
@@ -4851,18 +4863,6 @@ suffix:semicolon
 id|junk_git_dir
 op_assign
 id|git_dir
-suffix:semicolon
-id|atexit
-c_func
-(paren
-id|remove_junk
-)paren
-suffix:semicolon
-id|sigchain_push_common
-c_func
-(paren
-id|remove_junk_on_signal
-)paren
 suffix:semicolon
 r_if
 c_cond
