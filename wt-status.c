@@ -8942,6 +8942,16 @@ comma
 id|base
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+(paren
+r_char
+op_star
+)paren
+id|base
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
