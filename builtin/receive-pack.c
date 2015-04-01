@@ -3751,6 +3751,34 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * NEEDSWORK: we should consolidate various implementions of &quot;are we&n; * on an unborn branch?&quot; test into one, and make the unified one more&n; * robust. !get_sha1() based check used here and elsewhere would not&n; * allow us to tell an unborn branch from corrupt ref, for example.&n; * For the purpose of fixing &quot;deploy-to-update does not work when&n; * pushing into an empty repository&quot; issue, this should suffice for&n; * now.&n; */
+DECL|function|head_has_history
+r_static
+r_int
+id|head_has_history
+c_func
+(paren
+r_void
+)paren
+(brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_return
+op_logical_neg
+id|get_sha1
+c_func
+(paren
+l_string|&quot;HEAD&quot;
+comma
+id|sha1
+)paren
+suffix:semicolon
+)brace
 DECL|function|push_to_deploy
 r_static
 r_const
@@ -3829,7 +3857,7 @@ l_string|&quot;--cached&quot;
 comma
 l_string|&quot;--ignore-submodules&quot;
 comma
-l_string|&quot;HEAD&quot;
+l_int|NULL
 comma
 l_string|&quot;--&quot;
 comma
@@ -3942,6 +3970,22 @@ id|child
 )paren
 r_return
 l_string|&quot;Working directory has unstaged changes&quot;
+suffix:semicolon
+multiline_comment|/* diff-index with either HEAD or an empty tree */
+id|diff_index
+(braket
+l_int|4
+)braket
+op_assign
+id|head_has_history
+c_func
+(paren
+)paren
+ques
+c_cond
+l_string|&quot;HEAD&quot;
+suffix:colon
+id|EMPTY_TREE_SHA1_HEX
 suffix:semicolon
 id|child_process_init
 c_func
