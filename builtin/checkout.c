@@ -3821,12 +3821,21 @@ c_func
 (paren
 id|stderr
 comma
-id|_
+id|Q_
 c_func
 (paren
+multiline_comment|/* The singular version */
+l_string|&quot;If you want to keep it by creating a new branch, &quot;
+l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
+l_string|&quot; git branch &lt;new-branch-name&gt; %s&bslash;n&bslash;n&quot;
+comma
+multiline_comment|/* The plural version */
 l_string|&quot;If you want to keep them by creating a new branch, &quot;
 l_string|&quot;this may be a good time&bslash;nto do so with:&bslash;n&bslash;n&quot;
 l_string|&quot; git branch &lt;new-branch-name&gt; %s&bslash;n&bslash;n&quot;
+comma
+multiline_comment|/* Give ngettext() the count */
+id|lost
 )paren
 comma
 id|find_unique_abbrev
