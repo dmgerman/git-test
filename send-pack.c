@@ -1799,7 +1799,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;server does not support --atomic push&quot;
+l_string|&quot;the receiving end does not support --atomic push&quot;
 )paren
 )paren
 suffix:semicolon
