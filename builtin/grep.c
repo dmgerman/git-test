@@ -4240,8 +4240,7 @@ l_int|0
 comma
 l_string|&quot;help-all&quot;
 comma
-op_amp
-id|options
+l_int|NULL
 comma
 l_int|NULL
 comma
