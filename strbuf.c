@@ -2518,7 +2518,7 @@ c_loop
 (paren
 id|ch
 op_assign
-id|fgetc
+id|getc
 c_func
 (paren
 id|fp
