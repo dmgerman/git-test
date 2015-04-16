@@ -33,10 +33,6 @@ id|old_sha1
 l_int|20
 )braket
 suffix:semicolon
-DECL|member|lock_fd
-r_int
-id|lock_fd
-suffix:semicolon
 )brace
 suffix:semicolon
 multiline_comment|/*&n; * How to handle various characters in refnames:&n; * 0: An acceptable character for refs&n; * 1: End-of-component&n; * 2: ., look for a preceding . to reject .. in refs&n; * 3: {, look for a preceding @ to reject @{ in refs&n; * 4: A bad character: ASCII control characters, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP&n; */
@@ -9502,10 +9498,6 @@ id|ref_lock
 )paren
 )paren
 suffix:semicolon
-id|lock-&gt;lock_fd
-op_assign
-l_int|1
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -9804,8 +9796,9 @@ r_goto
 id|error_return
 suffix:semicolon
 )brace
-id|lock-&gt;lock_fd
-op_assign
+r_if
+c_cond
+(paren
 id|hold_lock_file_for_update
 c_func
 (paren
@@ -9815,11 +9808,6 @@ id|ref_file
 comma
 id|lflags
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|lock-&gt;lock_fd
 OL
 l_int|0
 )paren
@@ -12276,10 +12264,6 @@ id|lock-&gt;lk
 r_return
 l_int|1
 suffix:semicolon
-id|lock-&gt;lock_fd
-op_assign
-l_int|1
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -12306,10 +12290,6 @@ id|lock-&gt;lk
 )paren
 )paren
 r_return
-l_int|1
-suffix:semicolon
-id|lock-&gt;lock_fd
-op_assign
 l_int|1
 suffix:semicolon
 r_return
@@ -13207,7 +13187,7 @@ c_cond
 id|write_in_full
 c_func
 (paren
-id|lock-&gt;lock_fd
+id|lock-&gt;lk-&gt;fd
 comma
 id|sha1_to_hex
 c_func
@@ -13223,7 +13203,7 @@ op_logical_or
 id|write_in_full
 c_func
 (paren
-id|lock-&gt;lock_fd
+id|lock-&gt;lk-&gt;fd
 comma
 op_amp
 id|term
@@ -18403,7 +18383,7 @@ op_logical_and
 id|write_in_full
 c_func
 (paren
-id|lock-&gt;lock_fd
+id|lock-&gt;lk-&gt;fd
 comma
 id|sha1_to_hex
 c_func
@@ -18419,7 +18399,7 @@ op_logical_or
 id|write_str_in_full
 c_func
 (paren
-id|lock-&gt;lock_fd
+id|lock-&gt;lk-&gt;fd
 comma
 l_string|&quot;&bslash;n&quot;
 )paren
