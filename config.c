@@ -159,7 +159,7 @@ id|conf
 )paren
 (brace
 r_return
-id|fgetc
+id|getc_unlocked
 c_func
 (paren
 id|conf-&gt;u.file
@@ -5644,6 +5644,12 @@ c_cond
 id|f
 )paren
 (brace
+id|flockfile
+c_func
+(paren
+id|f
+)paren
+suffix:semicolon
 id|ret
 op_assign
 id|do_config_from_file
@@ -5658,6 +5664,12 @@ comma
 id|f
 comma
 id|data
+)paren
+suffix:semicolon
+id|funlockfile
+c_func
+(paren
+id|f
 )paren
 suffix:semicolon
 id|fclose
