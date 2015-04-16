@@ -4,6 +4,7 @@ macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;wildmatch.h&quot;
 macro_line|#include &quot;pathspec.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|struct|path_simplify
 r_struct
 id|path_simplify
@@ -2330,20 +2331,6 @@ id|size
 op_assign
 l_int|0
 suffix:semicolon
-r_static
-r_const
-r_int
-r_char
-op_star
-id|utf8_bom
-op_assign
-(paren
-r_int
-r_char
-op_star
-)paren
-l_string|&quot;&bslash;xef&bslash;xbb&bslash;xbf&quot;
-suffix:semicolon
 r_char
 op_star
 id|buf
@@ -2575,31 +2562,20 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|size
-op_ge
-l_int|3
-op_logical_and
-op_logical_neg
-id|memcmp
+id|skip_utf8_bom
 c_func
 (paren
+op_amp
 id|buf
 comma
-id|utf8_bom
-comma
-l_int|3
+id|size
 )paren
 )paren
-(brace
-id|buf
-op_add_assign
-l_int|3
-suffix:semicolon
 id|size
 op_sub_assign
-l_int|3
+id|buf
+id|el-&gt;filebuf
 suffix:semicolon
-)brace
 id|entry
 op_assign
 id|buf
