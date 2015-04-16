@@ -2534,6 +2534,16 @@ op_ne
 id|EOF
 )paren
 (brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strbuf_avail
+c_func
+(paren
+id|sb
+)paren
+)paren
 id|strbuf_grow
 c_func
 (paren
