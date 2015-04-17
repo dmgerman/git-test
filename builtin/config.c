@@ -2763,9 +2763,9 @@ id|_
 c_func
 (paren
 l_string|&quot;# This is Git&squot;s per-user configuration file.&bslash;n&quot;
-l_string|&quot;[core]&bslash;n&quot;
+l_string|&quot;[user]&bslash;n&quot;
 l_string|&quot;# Please adapt and uncomment the following lines:&bslash;n&quot;
-l_string|&quot;#&t;user = %s&bslash;n&quot;
+l_string|&quot;#&t;name = %s&bslash;n&quot;
 l_string|&quot;#&t;email = %s&bslash;n&quot;
 )paren
 comma
