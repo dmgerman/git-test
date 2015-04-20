@@ -14525,13 +14525,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|freshen_loose_object
+id|freshen_packed_object
 c_func
 (paren
 id|sha1
 )paren
 op_logical_or
-id|freshen_packed_object
+id|freshen_loose_object
 c_func
 (paren
 id|sha1
