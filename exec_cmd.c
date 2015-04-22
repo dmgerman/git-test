@@ -419,15 +419,6 @@ c_func
 )paren
 )paren
 suffix:semicolon
-id|add_path
-c_func
-(paren
-op_amp
-id|new_path
-comma
-id|argv0_path
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
