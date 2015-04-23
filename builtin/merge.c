@@ -7235,24 +7235,6 @@ multiline_comment|/*&n;&t;&t; * If the merged head is a valid one there is no re
 r_if
 c_cond
 (paren
-id|argc
-op_ne
-l_int|1
-)paren
-id|die
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;Can merge only exactly one commit into &quot;
-l_string|&quot;empty head&quot;
-)paren
-)paren
-suffix:semicolon
-r_if
-c_cond
-(paren
 id|squash
 )paren
 id|die
@@ -7321,6 +7303,21 @@ id|argv
 (braket
 l_int|0
 )braket
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|remoteheads-&gt;next
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Can merge only exactly one commit into empty head&quot;
+)paren
 )paren
 suffix:semicolon
 id|read_empty
