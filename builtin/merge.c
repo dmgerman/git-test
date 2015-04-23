@@ -7147,13 +7147,6 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|abort_current_merge
-)paren
-(brace
-r_if
-c_cond
-(paren
-op_logical_neg
 id|argc
 )paren
 (brace
@@ -7203,6 +7196,7 @@ comma
 l_string|&quot;-&quot;
 )paren
 )paren
+(brace
 id|argv
 (braket
 l_int|0
