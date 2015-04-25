@@ -6580,11 +6580,13 @@ op_member_access_from_pointer
 id|next
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * Is the current HEAD reachable from another commit being&n;&t; * merged?  If so we do not want to record it as a parent of&n;&t; * the resulting merge, unless --no-ff is given.  We will flip&n;&t; * this variable to 0 when we find HEAD among the independent&n;&t; * tips being merged.&n;&t; */
 op_star
-id|remotes
+id|head_subsumed
 op_assign
-l_int|NULL
+l_int|1
 suffix:semicolon
+multiline_comment|/* Find what parents to record by checking independent ones. */
 id|parents
 op_assign
 id|reduce_heads
@@ -6593,12 +6595,6 @@ c_func
 id|remoteheads
 )paren
 suffix:semicolon
-op_star
-id|head_subsumed
-op_assign
-l_int|1
-suffix:semicolon
-multiline_comment|/* we will flip this to 0 when we find it */
 r_for
 c_loop
 (paren
@@ -6654,6 +6650,12 @@ id|remotes
 )paren
 op_member_access_from_pointer
 id|next
+suffix:semicolon
+id|free
+c_func
+(paren
+id|parents
+)paren
 suffix:semicolon
 )brace
 r_return
