@@ -3756,8 +3756,6 @@ r_return
 l_int|NULL
 suffix:semicolon
 )brace
-r_else
-(brace
 id|ssh
 op_assign
 id|getenv
@@ -3886,7 +3884,6 @@ comma
 id|ssh_host
 )paren
 suffix:semicolon
-)brace
 )brace
 r_else
 (brace
