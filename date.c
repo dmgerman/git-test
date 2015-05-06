@@ -3802,7 +3802,7 @@ op_add_assign
 id|match
 suffix:semicolon
 )brace
-multiline_comment|/* mktime uses local timezone */
+multiline_comment|/* do not use mktime(), which uses local timezone, here */
 op_star
 id|timestamp
 op_assign
@@ -3817,12 +3817,30 @@ r_if
 c_cond
 (paren
 op_star
+id|timestamp
+op_eq
+l_int|1
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_star
 id|offset
 op_eq
 l_int|1
 )paren
 (brace
 id|time_t
+id|temp_time
+suffix:semicolon
+multiline_comment|/* gmtime_r() in match_digit() may have clobbered it */
+id|tm.tm_isdst
+op_assign
+l_int|1
+suffix:semicolon
 id|temp_time
 op_assign
 id|mktime
@@ -3882,17 +3900,6 @@ l_int|60
 suffix:semicolon
 )brace
 )brace
-r_if
-c_cond
-(paren
-op_star
-id|timestamp
-op_eq
-l_int|1
-)paren
-r_return
-l_int|1
-suffix:semicolon
 r_if
 c_cond
 (paren
