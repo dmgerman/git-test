@@ -880,14 +880,11 @@ comma
 id|file
 )paren
 suffix:semicolon
-id|home_config_paths
+id|file
+op_assign
+id|xdg_config_home
 c_func
 (paren
-l_int|NULL
-comma
-op_amp
-id|file
-comma
 l_string|&quot;credentials&quot;
 )paren
 suffix:semicolon
