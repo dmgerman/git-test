@@ -6,6 +6,7 @@ macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;hashmap.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|struct|config_source
 r_struct
 id|config_source
@@ -1916,22 +1917,7 @@ op_amp
 id|cf-&gt;var
 suffix:semicolon
 multiline_comment|/* U+FEFF Byte Order Mark in UTF8 */
-r_static
 r_const
-r_int
-r_char
-op_star
-id|utf8_bom
-op_assign
-(paren
-r_int
-r_char
-op_star
-)paren
-l_string|&quot;&bslash;xef&bslash;xbb&bslash;xbf&quot;
-suffix:semicolon
-r_const
-r_int
 r_char
 op_star
 id|bomptr
@@ -1966,14 +1952,14 @@ multiline_comment|/* We are at the file beginning; skip UTF8-encoded BOM&n;&t;&t
 r_if
 c_cond
 (paren
-(paren
-r_int
-r_char
-)paren
 id|c
 op_eq
+(paren
 op_star
 id|bomptr
+op_amp
+l_int|0377
+)paren
 )paren
 (brace
 id|bomptr

@@ -5,6 +5,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|variable|git_attr__true
 r_const
 r_char
@@ -1771,12 +1772,38 @@ comma
 id|fp
 )paren
 )paren
+(brace
+r_char
+op_star
+id|bufp
+op_assign
+id|buf
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|lineno
+)paren
+id|skip_utf8_bom
+c_func
+(paren
+op_amp
+id|bufp
+comma
+id|strlen
+c_func
+(paren
+id|bufp
+)paren
+)paren
+suffix:semicolon
 id|handle_attr_line
 c_func
 (paren
 id|res
 comma
-id|buf
+id|bufp
 comma
 id|path
 comma
@@ -1786,6 +1813,7 @@ comma
 id|macro_ok
 )paren
 suffix:semicolon
+)brace
 id|fclose
 c_func
 (paren
