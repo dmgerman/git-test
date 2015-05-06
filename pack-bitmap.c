@@ -4204,6 +4204,12 @@ comma
 l_string|&quot;Mismatch!&bslash;n&quot;
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|result
+)paren
+suffix:semicolon
 )brace
 DECL|function|rebuild_bitmap
 r_static
