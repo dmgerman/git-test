@@ -180,6 +180,16 @@ id|i
 comma
 id|len
 )paren
+op_logical_and
+id|object_type_strings
+(braket
+id|i
+)braket
+(braket
+id|len
+)braket
+op_eq
+l_char|&squot;&bslash;0&squot;
 )paren
 r_return
 id|i
