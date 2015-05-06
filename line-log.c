@@ -5966,6 +5966,12 @@ id|diff_ranges
 )paren
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|pairdiff
+)paren
+suffix:semicolon
 )brace
 r_return
 id|changed
