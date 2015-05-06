@@ -770,14 +770,11 @@ id|next
 suffix:semicolon
 multiline_comment|/* three-way fallback result */
 DECL|member|threeway_stage
-r_int
-r_char
+r_struct
+id|object_id
 id|threeway_stage
 (braket
 l_int|3
-)braket
-(braket
-l_int|20
 )braket
 suffix:semicolon
 )brace
@@ -15783,9 +15780,10 @@ c_cond
 (paren
 id|patch-&gt;is_new
 )paren
-id|hashclr
+id|oidclr
 c_func
 (paren
+op_amp
 id|patch-&gt;threeway_stage
 (braket
 l_int|0
@@ -15800,6 +15798,8 @@ id|patch-&gt;threeway_stage
 (braket
 l_int|0
 )braket
+dot
+id|hash
 comma
 id|pre_sha1
 )paren
@@ -15811,6 +15811,8 @@ id|patch-&gt;threeway_stage
 (braket
 l_int|1
 )braket
+dot
+id|hash
 comma
 id|our_sha1
 )paren
@@ -15822,6 +15824,8 @@ id|patch-&gt;threeway_stage
 (braket
 l_int|2
 )braket
+dot
+id|hash
 comma
 id|post_sha1
 )paren
@@ -19632,9 +19636,10 @@ op_increment
 r_if
 c_cond
 (paren
-id|is_null_sha1
+id|is_null_oid
 c_func
 (paren
+op_amp
 id|patch-&gt;threeway_stage
 (braket
 id|stage
@@ -19694,6 +19699,8 @@ id|patch-&gt;threeway_stage
 id|stage
 l_int|1
 )braket
+dot
+id|hash
 )paren
 suffix:semicolon
 r_if

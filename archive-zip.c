@@ -2505,7 +2505,7 @@ comma
 id|sha1
 ques
 c_cond
-l_int|40
+id|GIT_SHA1_HEXSZ
 suffix:colon
 l_int|0
 )paren
@@ -2547,7 +2547,7 @@ c_func
 id|sha1
 )paren
 comma
-l_int|40
+id|GIT_SHA1_HEXSZ
 )paren
 suffix:semicolon
 )brace

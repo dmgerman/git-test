@@ -215,9 +215,9 @@ id|p0-&gt;mode
 comma
 id|p-&gt;mode
 comma
-id|p0-&gt;sha1
+id|p0-&gt;oid.hash
 comma
-id|p-&gt;sha1
+id|p-&gt;oid.hash
 comma
 l_int|1
 comma
@@ -258,7 +258,7 @@ l_char|&squot;+&squot;
 suffix:semicolon
 id|sha1
 op_assign
-id|p-&gt;sha1
+id|p-&gt;oid.hash
 suffix:semicolon
 id|mode
 op_assign
@@ -273,7 +273,7 @@ l_char|&squot;-&squot;
 suffix:semicolon
 id|sha1
 op_assign
-id|p0-&gt;sha1
+id|p0-&gt;oid.hash
 suffix:semicolon
 id|mode
 op_assign
@@ -484,7 +484,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|p-&gt;sha1
+id|p-&gt;oid.hash
 comma
 id|sha1
 ques
@@ -851,7 +851,7 @@ id|p-&gt;parent
 id|i
 )braket
 dot
-id|sha1
+id|oid.hash
 comma
 id|sha1_i
 ques

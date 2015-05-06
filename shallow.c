@@ -122,7 +122,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|graft-&gt;sha1
+id|graft-&gt;oid.hash
 comma
 id|sha1
 )paren
@@ -791,10 +791,11 @@ r_char
 op_star
 id|hex
 op_assign
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|graft-&gt;sha1
+op_amp
+id|graft-&gt;oid
 )paren
 suffix:semicolon
 r_if
@@ -823,7 +824,7 @@ op_assign
 id|lookup_commit
 c_func
 (paren
-id|graft-&gt;sha1
+id|graft-&gt;oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -1396,10 +1397,11 @@ id|fd
 comma
 l_string|&quot;shallow %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|graft-&gt;sha1
+op_amp
+id|graft-&gt;oid
 )paren
 )paren
 suffix:semicolon
