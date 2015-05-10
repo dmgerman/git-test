@@ -276,6 +276,9 @@ suffix:semicolon
 multiline_comment|/*&n; * Used as a flag to ref_transaction_delete when a loose ref is being&n; * pruned.&n; */
 DECL|macro|REF_ISPRUNING
 mdefine_line|#define REF_ISPRUNING&t;0x0100
+multiline_comment|/*&n; * Used as a flag in ref_update::flags when the lockfile needs to be&n; * committed.&n; */
+DECL|macro|REF_NEEDS_COMMIT
+mdefine_line|#define REF_NEEDS_COMMIT 0x0200
 multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
 DECL|function|check_refname_component
 r_static
@@ -17079,7 +17082,7 @@ r_goto
 id|cleanup
 suffix:semicolon
 )brace
-multiline_comment|/* Acquire all locks while verifying old values */
+multiline_comment|/*&n;&t; * Acquire all locks, verify old values if provided, check&n;&t; * that new values are valid, and write new values to the&n;&t; * lockfiles, ready to be activated. Only keep one lockfile&n;&t; * open at a time to avoid running out of file descriptors.&n;&t; */
 r_for
 c_loop
 (paren
@@ -17176,6 +17179,97 @@ r_goto
 id|cleanup
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|update-&gt;flags
+op_amp
+id|REF_DELETING
+)paren
+op_logical_and
+(paren
+id|update-&gt;lock-&gt;force_write
+op_logical_or
+id|hashcmp
+c_func
+(paren
+id|update-&gt;lock-&gt;old_sha1
+comma
+id|update-&gt;new_sha1
+)paren
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|write_ref_to_lockfile
+c_func
+(paren
+id|update-&gt;lock
+comma
+id|update-&gt;new_sha1
+)paren
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t;&t; * The lock was freed upon failure of&n;&t;&t;&t;&t; * write_ref_to_lockfile():&n;&t;&t;&t;&t; */
+id|update-&gt;lock
+op_assign
+l_int|NULL
+suffix:semicolon
+id|strbuf_addf
+c_func
+(paren
+id|err
+comma
+l_string|&quot;Cannot update the ref &squot;%s&squot;.&quot;
+comma
+id|update-&gt;refname
+)paren
+suffix:semicolon
+id|ret
+op_assign
+id|TRANSACTION_GENERIC_ERROR
+suffix:semicolon
+r_goto
+id|cleanup
+suffix:semicolon
+)brace
+id|update-&gt;flags
+op_or_assign
+id|REF_NEEDS_COMMIT
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/*&n;&t;&t;&t; * We didn&squot;t have to write anything to the lockfile.&n;&t;&t;&t; * Close it to free up the file descriptor:&n;&t;&t;&t; */
+r_if
+c_cond
+(paren
+id|close_ref
+c_func
+(paren
+id|update-&gt;lock
+)paren
+)paren
+(brace
+id|strbuf_addf
+c_func
+(paren
+id|err
+comma
+l_string|&quot;Couldn&squot;t close %s.lock&quot;
+comma
+id|update-&gt;refname
+)paren
+suffix:semicolon
+r_goto
+id|cleanup
+suffix:semicolon
+)brace
+)brace
 )brace
 multiline_comment|/* Perform updates first so live commits remain referenced */
 r_for
@@ -17206,53 +17300,14 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-(paren
 id|update-&gt;flags
 op_amp
-id|REF_DELETING
-)paren
+id|REF_NEEDS_COMMIT
 )paren
 (brace
 r_if
 c_cond
 (paren
-op_logical_neg
-id|update-&gt;lock-&gt;force_write
-op_logical_and
-op_logical_neg
-id|hashcmp
-c_func
-(paren
-id|update-&gt;lock-&gt;old_sha1
-comma
-id|update-&gt;new_sha1
-)paren
-)paren
-(brace
-id|unlock_ref
-c_func
-(paren
-id|update-&gt;lock
-)paren
-suffix:semicolon
-id|update-&gt;lock
-op_assign
-l_int|NULL
-suffix:semicolon
-)brace
-r_else
-r_if
-c_cond
-(paren
-id|write_ref_to_lockfile
-c_func
-(paren
-id|update-&gt;lock
-comma
-id|update-&gt;new_sha1
-)paren
-op_logical_or
 id|commit_ref_update
 c_func
 (paren
@@ -17264,11 +17319,11 @@ id|update-&gt;msg
 )paren
 )paren
 (brace
+multiline_comment|/* The lock was freed by commit_ref_update(): */
 id|update-&gt;lock
 op_assign
 l_int|NULL
 suffix:semicolon
-multiline_comment|/* freed by the above calls */
 id|strbuf_addf
 c_func
 (paren
@@ -17289,7 +17344,7 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* freed by the above calls: */
+multiline_comment|/* freed by the above call: */
 id|update-&gt;lock
 op_assign
 l_int|NULL
@@ -17326,7 +17381,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|update-&gt;lock
+id|update-&gt;flags
+op_amp
+id|REF_DELETING
 )paren
 (brace
 r_if
