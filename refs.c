@@ -17105,11 +17105,6 @@ id|updates
 id|i
 )braket
 suffix:semicolon
-r_int
-id|flags
-op_assign
-id|update-&gt;flags
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -17119,7 +17114,7 @@ c_func
 id|update-&gt;new_sha1
 )paren
 )paren
-id|flags
+id|update-&gt;flags
 op_or_assign
 id|REF_DELETING
 suffix:semicolon
@@ -17141,7 +17136,7 @@ l_int|NULL
 comma
 l_int|NULL
 comma
-id|flags
+id|update-&gt;flags
 comma
 op_amp
 id|update-&gt;type
@@ -17212,10 +17207,10 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|is_null_sha1
-c_func
 (paren
-id|update-&gt;new_sha1
+id|update-&gt;flags
+op_amp
+id|REF_DELETING
 )paren
 )paren
 (brace
