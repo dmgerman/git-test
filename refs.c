@@ -17142,7 +17142,7 @@ c_func
 (paren
 id|err
 comma
-l_string|&quot;Cannot lock the ref &squot;%s&squot;: %s&quot;
+l_string|&quot;Cannot lock ref &squot;%s&squot;: %s&quot;
 comma
 id|update-&gt;refname
 comma
