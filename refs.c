@@ -18454,7 +18454,9 @@ id|lock
 id|error
 c_func
 (paren
-l_string|&quot;%s&quot;
+l_string|&quot;cannot lock ref &squot;%s&squot;: %s&quot;
+comma
+id|refname
 comma
 id|err.buf
 )paren
@@ -18467,13 +18469,7 @@ id|err
 )paren
 suffix:semicolon
 r_return
-id|error
-c_func
-(paren
-l_string|&quot;cannot lock ref &squot;%s&squot;&quot;
-comma
-id|refname
-)paren
+l_int|1
 suffix:semicolon
 )brace
 r_if
