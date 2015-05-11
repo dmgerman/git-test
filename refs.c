@@ -733,7 +733,7 @@ mdefine_line|#define REF_DIR 0x20
 multiline_comment|/*&n; * Entry has not yet been read from disk (used only for REF_DIR&n; * entries representing loose references)&n; */
 DECL|macro|REF_INCOMPLETE
 mdefine_line|#define REF_INCOMPLETE 0x40
-multiline_comment|/*&n; * A ref_entry represents either a reference or a &quot;subdirectory&quot; of&n; * references.&n; *&n; * Each directory in the reference namespace is represented by a&n; * ref_entry with (flags &amp; REF_DIR) set and containing a subdir member&n; * that holds the entries in that directory that have been read so&n; * far.  If (flags &amp; REF_INCOMPLETE) is set, then the directory and&n; * its subdirectories haven&squot;t been read yet.  REF_INCOMPLETE is only&n; * used for loose reference directories.&n; *&n; * References are represented by a ref_entry with (flags &amp; REF_DIR)&n; * unset and a value member that describes the reference&squot;s value.  The&n; * flag member is at the ref_entry level, but it is also needed to&n; * interpret the contents of the value field (in other words, a&n; * ref_value object is not very much use without the enclosing&n; * ref_entry).&n; *&n; * Reference names cannot end with slash and directories&squot; names are&n; * always stored with a trailing slash (except for the top-level&n; * directory, which is always denoted by &quot;&quot;).  This has two nice&n; * consequences: (1) when the entries in each subdir are sorted&n; * lexicographically by name (as they usually are), the references in&n; * a whole tree can be generated in lexicographic order by traversing&n; * the tree in left-to-right, depth-first order; (2) the names of&n; * references and subdirectories cannot conflict, and therefore the&n; * presence of an empty subdirectory does not block the creation of a&n; * similarly-named reference.  (The fact that reference names with the&n; * same leading components can conflict *with each other* is a&n; * separate issue that is regulated by is_refname_available().)&n; *&n; * Please note that the name field contains the fully-qualified&n; * reference (or subdirectory) name.  Space could be saved by only&n; * storing the relative names.  But that would require the full names&n; * to be generated on the fly when iterating in do_for_each_ref(), and&n; * would break callback functions, who have always been able to assume&n; * that the name strings that they are passed will not be freed during&n; * the iteration.&n; */
+multiline_comment|/*&n; * A ref_entry represents either a reference or a &quot;subdirectory&quot; of&n; * references.&n; *&n; * Each directory in the reference namespace is represented by a&n; * ref_entry with (flags &amp; REF_DIR) set and containing a subdir member&n; * that holds the entries in that directory that have been read so&n; * far.  If (flags &amp; REF_INCOMPLETE) is set, then the directory and&n; * its subdirectories haven&squot;t been read yet.  REF_INCOMPLETE is only&n; * used for loose reference directories.&n; *&n; * References are represented by a ref_entry with (flags &amp; REF_DIR)&n; * unset and a value member that describes the reference&squot;s value.  The&n; * flag member is at the ref_entry level, but it is also needed to&n; * interpret the contents of the value field (in other words, a&n; * ref_value object is not very much use without the enclosing&n; * ref_entry).&n; *&n; * Reference names cannot end with slash and directories&squot; names are&n; * always stored with a trailing slash (except for the top-level&n; * directory, which is always denoted by &quot;&quot;).  This has two nice&n; * consequences: (1) when the entries in each subdir are sorted&n; * lexicographically by name (as they usually are), the references in&n; * a whole tree can be generated in lexicographic order by traversing&n; * the tree in left-to-right, depth-first order; (2) the names of&n; * references and subdirectories cannot conflict, and therefore the&n; * presence of an empty subdirectory does not block the creation of a&n; * similarly-named reference.  (The fact that reference names with the&n; * same leading components can conflict *with each other* is a&n; * separate issue that is regulated by verify_refname_available().)&n; *&n; * Please note that the name field contains the fully-qualified&n; * reference (or subdirectory) name.  Space could be saved by only&n; * storing the relative names.  But that would require the full names&n; * to be generated on the fly when iterating in do_for_each_ref(), and&n; * would break callback functions, who have always been able to assume&n; * that the name strings that they are passed will not be freed during&n; * the iteration.&n; */
 DECL|struct|ref_entry
 r_struct
 id|ref_entry
@@ -3188,11 +3188,11 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Return true iff a reference named refname could be created without&n; * conflicting with the name of an existing reference in dir. If&n; * extras is non-NULL, it is a list of additional refnames with which&n; * refname is not allowed to conflict. If skip is non-NULL, ignore&n; * potential conflicts with refs in skip (e.g., because they are&n; * scheduled for deletion in the same operation). Behavior is&n; * undefined if the same name is listed in both extras and skip.&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;refs/foo/bar&quot; conflicts&n; * with both &quot;refs/foo&quot; and with &quot;refs/foo/bar/baz&quot; but not with&n; * &quot;refs/foo/bar&quot; or &quot;refs/foo/barbados&quot;.&n; *&n; * extras and skip must be sorted.&n; */
-DECL|function|is_refname_available
+multiline_comment|/*&n; * Return 0 if a reference named refname could be created without&n; * conflicting with the name of an existing reference in dir.&n; * Otherwise, return a negative value. If extras is non-NULL, it is a&n; * list of additional refnames with which refname is not allowed to&n; * conflict. If skip is non-NULL, ignore potential conflicts with refs&n; * in skip (e.g., because they are scheduled for deletion in the same&n; * operation). Behavior is undefined if the same name is listed in&n; * both extras and skip.&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;refs/foo/bar&quot; conflicts&n; * with both &quot;refs/foo&quot; and with &quot;refs/foo/bar/baz&quot; but not with&n; * &quot;refs/foo/bar&quot; or &quot;refs/foo/barbados&quot;.&n; *&n; * extras and skip must be sorted.&n; */
+DECL|function|verify_refname_available
 r_static
 r_int
-id|is_refname_available
+id|verify_refname_available
 c_func
 (paren
 r_const
@@ -3235,7 +3235,7 @@ suffix:semicolon
 r_int
 id|ret
 op_assign
-l_int|0
+l_int|1
 suffix:semicolon
 multiline_comment|/*&n;&t; * For the sake of comments in this function, suppose that&n;&t; * refname is &quot;refs/foo/bar&quot;.&n;&t; */
 id|strbuf_grow
@@ -3655,7 +3655,7 @@ suffix:semicolon
 multiline_comment|/* No conflicts were found */
 id|ret
 op_assign
-l_int|1
+l_int|0
 suffix:semicolon
 id|cleanup
 suffix:colon
@@ -9806,8 +9806,7 @@ c_func
 id|lock-&gt;old_sha1
 )paren
 op_logical_and
-op_logical_neg
-id|is_refname_available
+id|verify_refname_available
 c_func
 (paren
 id|refname
@@ -11774,7 +11773,8 @@ id|oldname
 suffix:semicolon
 id|ret
 op_assign
-id|is_refname_available
+op_logical_neg
+id|verify_refname_available
 c_func
 (paren
 id|newname
@@ -11792,7 +11792,8 @@ id|ref_cache
 )paren
 )paren
 op_logical_and
-id|is_refname_available
+op_logical_neg
+id|verify_refname_available
 c_func
 (paren
 id|newname
