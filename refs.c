@@ -17110,6 +17110,10 @@ op_logical_neg
 id|update-&gt;lock
 )paren
 (brace
+r_char
+op_star
+id|reason
+suffix:semicolon
 id|ret
 op_assign
 (paren
@@ -17123,18 +17127,14 @@ id|TRANSACTION_NAME_CONFLICT
 suffix:colon
 id|TRANSACTION_GENERIC_ERROR
 suffix:semicolon
-id|error
-c_func
-(paren
-l_string|&quot;%s&quot;
-comma
-id|err-&gt;buf
-)paren
-suffix:semicolon
-id|strbuf_reset
+id|reason
+op_assign
+id|strbuf_detach
 c_func
 (paren
 id|err
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -17142,9 +17142,17 @@ c_func
 (paren
 id|err
 comma
-l_string|&quot;Cannot lock the ref &squot;%s&squot;.&quot;
+l_string|&quot;Cannot lock the ref &squot;%s&squot;: %s&quot;
 comma
 id|update-&gt;refname
+comma
+id|reason
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|reason
 )paren
 suffix:semicolon
 r_goto
