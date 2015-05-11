@@ -3188,7 +3188,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Return 0 if a reference named refname could be created without&n; * conflicting with the name of an existing reference in dir.&n; * Otherwise, return a negative value. If extras is non-NULL, it is a&n; * list of additional refnames with which refname is not allowed to&n; * conflict. If skip is non-NULL, ignore potential conflicts with refs&n; * in skip (e.g., because they are scheduled for deletion in the same&n; * operation). Behavior is undefined if the same name is listed in&n; * both extras and skip.&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;refs/foo/bar&quot; conflicts&n; * with both &quot;refs/foo&quot; and with &quot;refs/foo/bar/baz&quot; but not with&n; * &quot;refs/foo/bar&quot; or &quot;refs/foo/barbados&quot;.&n; *&n; * extras and skip must be sorted.&n; */
+multiline_comment|/*&n; * Return 0 if a reference named refname could be created without&n; * conflicting with the name of an existing reference in dir.&n; * Otherwise, return a negative value and write an explanation to err.&n; * If extras is non-NULL, it is a list of additional refnames with&n; * which refname is not allowed to conflict. If skip is non-NULL,&n; * ignore potential conflicts with refs in skip (e.g., because they&n; * are scheduled for deletion in the same operation). Behavior is&n; * undefined if the same name is listed in both extras and skip.&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;refs/foo/bar&quot; conflicts&n; * with both &quot;refs/foo&quot; and with &quot;refs/foo/bar/baz&quot; but not with&n; * &quot;refs/foo/bar&quot; or &quot;refs/foo/barbados&quot;.&n; *&n; * extras and skip must be sorted.&n; */
 DECL|function|verify_refname_available
 r_static
 r_int
@@ -3216,6 +3216,11 @@ r_struct
 id|ref_dir
 op_star
 id|dir
+comma
+r_struct
+id|strbuf
+op_star
+id|err
 )paren
 (brace
 r_const
@@ -3238,6 +3243,11 @@ op_assign
 l_int|1
 suffix:semicolon
 multiline_comment|/*&n;&t; * For the sake of comments in this function, suppose that&n;&t; * refname is &quot;refs/foo/bar&quot;.&n;&t; */
+m_assert
+(paren
+id|err
+)paren
+suffix:semicolon
 id|strbuf_grow
 c_func
 (paren
@@ -3339,9 +3349,11 @@ id|dirname.buf
 )paren
 (brace
 multiline_comment|/*&n;&t;&t;&t;&t; * We found a reference whose name is&n;&t;&t;&t;&t; * a proper prefix of refname; e.g.,&n;&t;&t;&t;&t; * &quot;refs/foo&quot;, and is not in skip.&n;&t;&t;&t;&t; */
-id|error
+id|strbuf_addf
 c_func
 (paren
+id|err
+comma
 l_string|&quot;&squot;%s&squot; exists; cannot create &squot;%s&squot;&quot;
 comma
 id|dirname.buf
@@ -3382,9 +3394,11 @@ id|dirname.buf
 )paren
 )paren
 (brace
-id|error
+id|strbuf_addf
 c_func
 (paren
+id|err
+comma
 l_string|&quot;cannot process &squot;%s&squot; and &squot;%s&squot; at the same time&quot;
 comma
 id|refname
@@ -3548,9 +3562,11 @@ id|data
 )paren
 )paren
 (brace
-id|error
+id|strbuf_addf
 c_func
 (paren
+id|err
+comma
 l_string|&quot;&squot;%s&squot; exists; cannot create &squot;%s&squot;&quot;
 comma
 id|data.conflicting_refname
@@ -3636,9 +3652,11 @@ id|extra_refname
 )paren
 )paren
 (brace
-id|error
+id|strbuf_addf
 c_func
 (paren
+id|err
+comma
 l_string|&quot;cannot process &squot;%s&squot; and &squot;%s&squot; at the same time&quot;
 comma
 id|refname
@@ -9627,6 +9645,12 @@ id|attempts_remaining
 op_assign
 l_int|3
 suffix:semicolon
+r_struct
+id|strbuf
+id|err
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 id|lock
 op_assign
 id|xcalloc
@@ -9821,9 +9845,20 @@ c_func
 op_amp
 id|ref_cache
 )paren
+comma
+op_amp
+id|err
 )paren
 )paren
 (brace
+id|error
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|err.buf
+)paren
+suffix:semicolon
 id|last_errno
 op_assign
 id|ENOTDIR
@@ -9986,12 +10021,6 @@ id|retry
 suffix:semicolon
 r_else
 (brace
-r_struct
-id|strbuf
-id|err
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
 id|unable_to_lock_message
 c_func
 (paren
@@ -10009,13 +10038,6 @@ c_func
 l_string|&quot;%s&quot;
 comma
 id|err.buf
-)paren
-suffix:semicolon
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|err
 )paren
 suffix:semicolon
 r_goto
@@ -10045,6 +10067,13 @@ id|unlock_ref
 c_func
 (paren
 id|lock
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|err
 )paren
 suffix:semicolon
 id|errno
@@ -11759,6 +11788,12 @@ id|skip
 op_assign
 id|STRING_LIST_INIT_NODUP
 suffix:semicolon
+r_struct
+id|strbuf
+id|err
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 r_int
 id|ret
 suffix:semicolon
@@ -11790,6 +11825,9 @@ c_func
 op_amp
 id|ref_cache
 )paren
+comma
+op_amp
+id|err
 )paren
 op_logical_and
 op_logical_neg
@@ -11809,6 +11847,23 @@ c_func
 op_amp
 id|ref_cache
 )paren
+comma
+op_amp
+id|err
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|ret
+)paren
+id|error
+c_func
+(paren
+l_string|&quot;%s&quot;
+comma
+id|err.buf
 )paren
 suffix:semicolon
 id|string_list_clear
@@ -11818,6 +11873,13 @@ op_amp
 id|skip
 comma
 l_int|0
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|err
 )paren
 suffix:semicolon
 r_return
