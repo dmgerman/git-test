@@ -3188,34 +3188,6 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-DECL|function|report_refname_conflict
-r_static
-r_void
-id|report_refname_conflict
-c_func
-(paren
-r_struct
-id|ref_entry
-op_star
-id|entry
-comma
-r_const
-r_char
-op_star
-id|refname
-)paren
-(brace
-id|error
-c_func
-(paren
-l_string|&quot;&squot;%s&squot; exists; cannot create &squot;%s&squot;&quot;
-comma
-id|entry-&gt;name
-comma
-id|refname
-)paren
-suffix:semicolon
-)brace
 multiline_comment|/*&n; * Return true iff a reference named refname could be created without&n; * conflicting with the name of an existing reference in dir.  If&n; * skip is non-NULL, ignore potential conflicts with refs in skip&n; * (e.g., because they are scheduled for deletion in the same&n; * operation).&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;refs/foo/bar&quot; conflicts&n; * with both &quot;refs/foo&quot; and with &quot;refs/foo/bar/baz&quot; but not with&n; * &quot;refs/foo/bar&quot; or &quot;refs/foo/barbados&quot;.&n; *&n; * skip must be sorted.&n; */
 DECL|function|is_refname_available
 r_static
@@ -3335,10 +3307,12 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-id|report_refname_conflict
+id|error
 c_func
 (paren
-id|entry
+l_string|&quot;&squot;%s&squot; exists; cannot create &squot;%s&squot;&quot;
+comma
+id|entry-&gt;name
 comma
 id|refname
 )paren
@@ -3487,10 +3461,12 @@ id|data
 r_return
 l_int|1
 suffix:semicolon
-id|report_refname_conflict
+id|error
 c_func
 (paren
-id|data.found
+l_string|&quot;&squot;%s&squot; exists; cannot create &squot;%s&squot;&quot;
+comma
+id|data.found-&gt;name
 comma
 id|refname
 )paren
