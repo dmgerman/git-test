@@ -12301,7 +12301,11 @@ id|lock
 id|error
 c_func
 (paren
-l_string|&quot;%s&quot;
+l_string|&quot;unable to rename &squot;%s&squot; to &squot;%s&squot;: %s&quot;
+comma
+id|oldrefname
+comma
+id|newrefname
 comma
 id|err.buf
 )paren
@@ -12311,14 +12315,6 @@ c_func
 (paren
 op_amp
 id|err
-)paren
-suffix:semicolon
-id|error
-c_func
-(paren
-l_string|&quot;unable to lock %s for update&quot;
-comma
-id|newrefname
 )paren
 suffix:semicolon
 r_goto
@@ -12395,7 +12391,9 @@ id|lock
 id|error
 c_func
 (paren
-l_string|&quot;%s&quot;
+l_string|&quot;unable to lock %s for rollback: %s&quot;
+comma
+id|oldrefname
 comma
 id|err.buf
 )paren
@@ -12405,14 +12403,6 @@ c_func
 (paren
 op_amp
 id|err
-)paren
-suffix:semicolon
-id|error
-c_func
-(paren
-l_string|&quot;unable to lock %s for rollback&quot;
-comma
-id|oldrefname
 )paren
 suffix:semicolon
 r_goto
