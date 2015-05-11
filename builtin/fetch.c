@@ -3152,7 +3152,9 @@ suffix:semicolon
 r_char
 op_star
 id|url
-comma
+suffix:semicolon
+r_const
+r_char
 op_star
 id|filename
 op_assign
@@ -4391,6 +4393,7 @@ c_func
 r_void
 )paren
 (brace
+r_const
 r_char
 op_star
 id|filename

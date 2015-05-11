@@ -946,6 +946,7 @@ c_cond
 id|write_lost_and_found
 )paren
 (brace
+r_const
 r_char
 op_star
 id|filename
@@ -978,7 +979,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|safe_create_leading_directories
+id|safe_create_leading_directories_const
 c_func
 (paren
 id|filename

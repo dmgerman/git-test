@@ -1730,11 +1730,6 @@ id|EOF
 r_char
 op_star
 id|abs_path
-comma
-id|abs_buf
-(braket
-id|PATH_MAX
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -1772,7 +1767,7 @@ suffix:semicolon
 )brace
 id|abs_path
 op_assign
-id|mkpath
+id|mkpathdup
 c_func
 (paren
 l_string|&quot;%s/objects/%s&quot;
@@ -1785,7 +1780,7 @@ suffix:semicolon
 id|normalize_path_copy
 c_func
 (paren
-id|abs_buf
+id|abs_path
 comma
 id|abs_path
 )paren
@@ -1793,7 +1788,13 @@ suffix:semicolon
 id|add_to_alternates_file
 c_func
 (paren
-id|abs_buf
+id|abs_path
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|abs_path
 )paren
 suffix:semicolon
 )brace

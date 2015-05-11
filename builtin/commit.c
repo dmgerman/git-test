@@ -598,7 +598,7 @@ c_func
 id|git_path
 c_func
 (paren
-l_string|&quot;sequencer&quot;
+id|SEQ_DIR
 )paren
 )paren
 )paren
