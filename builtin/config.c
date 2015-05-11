@@ -1378,12 +1378,10 @@ id|REG_EXTENDED
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Invalid key pattern: %s&bslash;n&quot;
+l_string|&quot;invalid key pattern: %s&quot;
 comma
 id|key_
 )paren
@@ -1487,12 +1485,10 @@ id|REG_EXTENDED
 )paren
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Invalid pattern: %s&bslash;n&quot;
+l_string|&quot;invalid pattern: %s&quot;
 comma
 id|regex_
 )paren
