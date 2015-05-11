@@ -3244,7 +3244,7 @@ id|refname
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Return true iff a reference named refname could be created without&n; * conflicting with the name of an existing reference in dir.  If&n; * skip is non-NULL, ignore potential conflicts with refs in skip&n; * (e.g., because they are scheduled for deletion in the same&n; * operation).&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;foo/bar&quot; conflicts with&n; * both &quot;foo&quot; and with &quot;foo/bar/baz&quot; but not with &quot;foo/bar&quot; or&n; * &quot;foo/barbados&quot;.&n; *&n; * skip must be sorted.&n; */
+multiline_comment|/*&n; * Return true iff a reference named refname could be created without&n; * conflicting with the name of an existing reference in dir.  If&n; * skip is non-NULL, ignore potential conflicts with refs in skip&n; * (e.g., because they are scheduled for deletion in the same&n; * operation).&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;refs/foo/bar&quot; conflicts&n; * with both &quot;refs/foo&quot; and with &quot;refs/foo/bar/baz&quot; but not with&n; * &quot;refs/foo/bar&quot; or &quot;refs/foo/barbados&quot;.&n; *&n; * skip must be sorted.&n; */
 DECL|function|is_refname_available
 r_static
 r_int
@@ -3283,6 +3283,7 @@ r_char
 op_star
 id|dirname
 suffix:semicolon
+multiline_comment|/*&n;&t; * For the sake of comments in this function, suppose that&n;&t; * refname is &quot;refs/foo/bar&quot;.&n;&t; */
 r_for
 c_loop
 (paren
@@ -3311,7 +3312,7 @@ l_char|&squot;/&squot;
 )paren
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We are still at a leading dir of the refname; we are&n;&t;&t; * looking for a conflict with a leaf entry.&n;&t;&t; *&n;&t;&t; * If we find one, we still must make sure it is&n;&t;&t; * not in &quot;skip&quot;.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are still at a leading dir of the refname (e.g.,&n;&t;&t; * &quot;refs/foo&quot;; if there is a reference with that name,&n;&t;&t; * it is a conflict, *unless* it is in skip.&n;&t;&t; */
 id|pos
 op_assign
 id|search_ref_dir
@@ -3333,6 +3334,7 @@ op_ge
 l_int|0
 )paren
 (brace
+multiline_comment|/*&n;&t;&t;&t; * We found a reference whose name is a proper&n;&t;&t;&t; * prefix of refname; e.g., &quot;refs/foo&quot;.&n;&t;&t;&t; */
 r_struct
 id|ref_entry
 op_star
@@ -3354,9 +3356,12 @@ comma
 id|skip
 )paren
 )paren
+(brace
+multiline_comment|/*&n;&t;&t;&t;&t; * The reference we just found, e.g.,&n;&t;&t;&t;&t; * &quot;refs/foo&quot;, is also in skip, so it&n;&t;&t;&t;&t; * is not considered a conflict.&n;&t;&t;&t;&t; * Moreover, the fact that &quot;refs/foo&quot;&n;&t;&t;&t;&t; * exists means that there cannot be&n;&t;&t;&t;&t; * any references anywhere under the&n;&t;&t;&t;&t; * &quot;refs/foo/&quot; namespace (because they&n;&t;&t;&t;&t; * would have conflicted with&n;&t;&t;&t;&t; * &quot;refs/foo&quot;). So we can stop looking&n;&t;&t;&t;&t; * now and return true.&n;&t;&t;&t;&t; */
 r_return
 l_int|1
 suffix:semicolon
+)brace
 id|report_refname_conflict
 c_func
 (paren
@@ -3369,7 +3374,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t;&t; * Otherwise, we can try to continue our search with&n;&t;&t; * the next component; if we come up empty, we know&n;&t;&t; * there is nothing under this whole prefix.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Otherwise, we can try to continue our search with&n;&t;&t; * the next component. So try to look up the&n;&t;&t; * directory, e.g., &quot;refs/foo/&quot;.&n;&t;&t; */
 id|pos
 op_assign
 id|search_ref_dir
@@ -3392,9 +3397,12 @@ id|pos
 OL
 l_int|0
 )paren
+(brace
+multiline_comment|/*&n;&t;&t;&t; * There was no directory &quot;refs/foo/&quot;, so&n;&t;&t;&t; * there is nothing under this whole prefix,&n;&t;&t;&t; * and we are OK.&n;&t;&t;&t; */
 r_return
 l_int|1
 suffix:semicolon
+)brace
 id|dir
 op_assign
 id|get_ref_dir
@@ -3407,7 +3415,7 @@ id|pos
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * We are at the leaf of our refname; we want to&n;&t; * make sure there are no directories which match it.&n;&t; */
+multiline_comment|/*&n;&t; * We are at the leaf of our refname (e.g., &quot;refs/foo/bar&quot;).&n;&t; * There is no point in searching for a reference with that&n;&t; * name, because a refname isn&squot;t considered to conflict with&n;&t; * itself. But we still need to check for references whose&n;&t; * names are in the &quot;refs/foo/bar/&quot; namespace, because they&n;&t; * *do* conflict.&n;&t; */
 id|len
 op_assign
 id|strlen
@@ -3464,7 +3472,7 @@ op_ge
 l_int|0
 )paren
 (brace
-multiline_comment|/*&n;&t;&t; * We found a directory named &quot;refname&quot;. It is a&n;&t;&t; * problem iff it contains any ref that is not&n;&t;&t; * in &quot;skip&quot;.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We found a directory named &quot;$refname/&quot; (e.g.,&n;&t;&t; * &quot;refs/foo/bar/&quot;). It is a problem iff it contains&n;&t;&t; * any ref that is not in &quot;skip&quot;.&n;&t;&t; */
 r_struct
 id|ref_entry
 op_star
@@ -3532,7 +3540,6 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * There is no point in searching for another leaf&n;&t; * node which matches it; such an entry would be the&n;&t; * ref we are looking for, not a conflict.&n;&t; */
 r_return
 l_int|1
 suffix:semicolon
