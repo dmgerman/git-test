@@ -3474,6 +3474,10 @@ l_int|0
 (brace
 multiline_comment|/*&n;&t;&t; * We found a directory named &quot;$refname/&quot; (e.g.,&n;&t;&t; * &quot;refs/foo/bar/&quot;). It is a problem iff it contains&n;&t;&t; * any ref that is not in &quot;skip&quot;.&n;&t;&t; */
 r_struct
+id|nonmatching_ref_data
+id|data
+suffix:semicolon
+r_struct
 id|ref_entry
 op_star
 id|entry
@@ -3483,9 +3487,6 @@ id|dir-&gt;entries
 id|pos
 )braket
 suffix:semicolon
-r_struct
-id|ref_dir
-op_star
 id|dir
 op_assign
 id|get_ref_dir
@@ -3493,10 +3494,6 @@ c_func
 (paren
 id|entry
 )paren
-suffix:semicolon
-r_struct
-id|nonmatching_ref_data
-id|data
 suffix:semicolon
 id|data.skip
 op_assign
