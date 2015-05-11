@@ -3133,11 +3133,11 @@ id|string_list
 op_star
 id|skip
 suffix:semicolon
-DECL|member|found
-r_struct
-id|ref_entry
+DECL|member|conflicting_refname
+r_const
+r_char
 op_star
-id|found
+id|conflicting_refname
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -3180,9 +3180,9 @@ id|entry-&gt;name
 r_return
 l_int|0
 suffix:semicolon
-id|data-&gt;found
+id|data-&gt;conflicting_refname
 op_assign
-id|entry
+id|entry-&gt;name
 suffix:semicolon
 r_return
 l_int|1
@@ -3466,7 +3466,7 @@ c_func
 (paren
 l_string|&quot;&squot;%s&squot; exists; cannot create &squot;%s&squot;&quot;
 comma
-id|data.found-&gt;name
+id|data.conflicting_refname
 comma
 id|refname
 )paren
