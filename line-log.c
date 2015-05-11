@@ -3034,7 +3034,7 @@ l_int|1
 id|die
 c_func
 (paren
-l_string|&quot;-L argument &squot;%s&squot; not of the form start,end:file&quot;
+l_string|&quot;-L argument not &squot;start,end:file&squot; or &squot;:funcname:file&squot;: %s&quot;
 comma
 id|item-&gt;string
 )paren
