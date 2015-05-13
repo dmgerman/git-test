@@ -596,6 +596,8 @@ id|add_recent_loose
 comma
 op_amp
 id|data
+comma
+id|FOR_EACH_OBJECT_LOCAL_ONLY
 )paren
 suffix:semicolon
 r_if
@@ -614,6 +616,8 @@ id|add_recent_packed
 comma
 op_amp
 id|data
+comma
+id|FOR_EACH_OBJECT_LOCAL_ONLY
 )paren
 suffix:semicolon
 )brace
