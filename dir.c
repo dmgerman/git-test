@@ -4,6 +4,7 @@ macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;wildmatch.h&quot;
 macro_line|#include &quot;pathspec.h&quot;
+macro_line|#include &quot;utf8.h&quot;
 DECL|struct|path_simplify
 r_struct
 id|path_simplify
@@ -2722,6 +2723,23 @@ suffix:semicolon
 id|el-&gt;filebuf
 op_assign
 id|buf
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|skip_utf8_bom
+c_func
+(paren
+op_amp
+id|buf
+comma
+id|size
+)paren
+)paren
+id|size
+op_sub_assign
+id|buf
+id|el-&gt;filebuf
 suffix:semicolon
 id|entry
 op_assign
