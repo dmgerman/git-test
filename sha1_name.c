@@ -6,6 +6,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;dir.h&quot;
 r_static
 r_int
 id|get_sha1_oneline
@@ -6349,10 +6350,6 @@ r_int
 id|object_name_len
 )paren
 (brace
-r_struct
-id|stat
-id|st
-suffix:semicolon
 r_int
 r_char
 id|sha1
@@ -6376,14 +6373,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|lstat
+id|file_exists
 c_func
 (paren
 id|filename
-comma
-op_amp
-id|st
 )paren
 )paren
 id|die
@@ -6501,10 +6494,6 @@ op_star
 id|filename
 )paren
 (brace
-r_struct
-id|stat
-id|st
-suffix:semicolon
 r_const
 r_struct
 id|cache_entry
@@ -6747,14 +6736,10 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
-id|lstat
+id|file_exists
 c_func
 (paren
 id|filename
-comma
-op_amp
-id|st
 )paren
 )paren
 id|die
