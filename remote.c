@@ -4239,6 +4239,11 @@ id|name_given
 op_assign
 l_int|0
 suffix:semicolon
+id|read_config
+c_func
+(paren
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4383,11 +4388,6 @@ op_star
 id|name
 )paren
 (brace
-id|read_config
-c_func
-(paren
-)paren
-suffix:semicolon
 r_return
 id|remote_get_1
 c_func
@@ -4411,11 +4411,6 @@ op_star
 id|name
 )paren
 (brace
-id|read_config
-c_func
-(paren
-)paren
-suffix:semicolon
 r_return
 id|remote_get_1
 c_func
