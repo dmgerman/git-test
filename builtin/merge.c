@@ -5844,7 +5844,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|branch-&gt;remote
+id|branch-&gt;remote_name
 )paren
 id|die
 c_func
