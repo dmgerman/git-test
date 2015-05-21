@@ -3791,17 +3791,25 @@ l_string|&quot;upstream&quot;
 )paren
 )paren
 (brace
+r_const
+r_char
+op_star
+id|branch_name
+suffix:semicolon
 multiline_comment|/* only local branches may have an upstream */
 r_if
 c_cond
 (paren
 op_logical_neg
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|ref-&gt;refname
 comma
 l_string|&quot;refs/heads/&quot;
+comma
+op_amp
+id|branch_name
 )paren
 )paren
 r_continue
@@ -3811,9 +3819,7 @@ op_assign
 id|branch_get
 c_func
 (paren
-id|ref-&gt;refname
-op_plus
-l_int|11
+id|branch_name
 )paren
 suffix:semicolon
 id|refname
