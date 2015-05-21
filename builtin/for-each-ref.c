@@ -3822,6 +3822,8 @@ id|branch_get_upstream
 c_func
 (paren
 id|branch
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
