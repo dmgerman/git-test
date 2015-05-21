@@ -78,10 +78,14 @@ id|no_progress
 comma
 id|daemon_mode
 suffix:semicolon
-DECL|variable|allow_tip_sha1_in_want
+multiline_comment|/* Allow specifying sha1 if it is a ref tip. */
+DECL|macro|ALLOW_TIP_SHA1
+mdefine_line|#define ALLOW_TIP_SHA1&t;01
+DECL|variable|allow_unadvertised_object_request
 r_static
 r_int
-id|allow_tip_sha1_in_want
+r_int
+id|allow_unadvertised_object_request
 suffix:semicolon
 DECL|variable|shallow_nr
 r_static
@@ -2089,12 +2093,21 @@ op_star
 id|o
 )paren
 (brace
+r_int
+id|allow_hidden_ref
+op_assign
+(paren
+id|allow_unadvertised_object_request
+op_amp
+id|ALLOW_TIP_SHA1
+)paren
+suffix:semicolon
 r_return
 id|o-&gt;flags
 op_amp
 (paren
 (paren
-id|allow_tip_sha1_in_want
+id|allow_hidden_ref
 ques
 c_cond
 id|HIDDEN_REF
@@ -3600,7 +3613,11 @@ l_int|0
 comma
 id|capabilities
 comma
-id|allow_tip_sha1_in_want
+(paren
+id|allow_unadvertised_object_request
+op_amp
+id|ALLOW_TIP_SHA1
+)paren
 ques
 c_cond
 l_string|&quot; allow-tip-sha1-in-want&quot;
@@ -3960,8 +3977,10 @@ comma
 id|var
 )paren
 )paren
-id|allow_tip_sha1_in_want
-op_assign
+(brace
+r_if
+c_cond
+(paren
 id|git_config_bool
 c_func
 (paren
@@ -3969,7 +3988,18 @@ id|var
 comma
 id|value
 )paren
+)paren
+id|allow_unadvertised_object_request
+op_or_assign
+id|ALLOW_TIP_SHA1
 suffix:semicolon
+r_else
+id|allow_unadvertised_object_request
+op_and_assign
+op_complement
+id|ALLOW_TIP_SHA1
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond

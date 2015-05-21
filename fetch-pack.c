@@ -112,7 +112,6 @@ suffix:semicolon
 DECL|variable|non_common_revs
 DECL|variable|multi_ack
 DECL|variable|use_sideband
-DECL|variable|allow_tip_sha1_in_want
 r_static
 r_int
 id|non_common_revs
@@ -120,8 +119,15 @@ comma
 id|multi_ack
 comma
 id|use_sideband
-comma
-id|allow_tip_sha1_in_want
+suffix:semicolon
+multiline_comment|/* Allow specifying sha1 if it is a ref tip. */
+DECL|macro|ALLOW_TIP_SHA1
+mdefine_line|#define ALLOW_TIP_SHA1&t;01
+DECL|variable|allow_unadvertised_object_request
+r_static
+r_int
+r_int
+id|allow_unadvertised_object_request
 suffix:semicolon
 DECL|function|rev_list_push
 r_static
@@ -2746,7 +2752,11 @@ multiline_comment|/* Append unmatched requests to the list */
 r_if
 c_cond
 (paren
-id|allow_tip_sha1_in_want
+(paren
+id|allow_unadvertised_object_request
+op_amp
+id|ALLOW_TIP_SHA1
+)paren
 )paren
 (brace
 r_for
@@ -4238,9 +4248,9 @@ comma
 l_string|&quot;Server supports allow-tip-sha1-in-want&bslash;n&quot;
 )paren
 suffix:semicolon
-id|allow_tip_sha1_in_want
-op_assign
-l_int|1
+id|allow_unadvertised_object_request
+op_or_assign
+id|ALLOW_TIP_SHA1
 suffix:semicolon
 )brace
 r_if
