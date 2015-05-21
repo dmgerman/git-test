@@ -370,6 +370,23 @@ l_string|&quot;reference repository&quot;
 )paren
 )paren
 comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;dissociate&quot;
+comma
+op_amp
+id|option_dissociate
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;use --reference only while cloning&quot;
+)paren
+)paren
+comma
 id|OPT_STRING
 c_func
 (paren
@@ -476,23 +493,6 @@ id|N_
 c_func
 (paren
 l_string|&quot;clone only one branch, HEAD or --branch&quot;
-)paren
-)paren
-comma
-id|OPT_BOOL
-c_func
-(paren
-l_int|0
-comma
-l_string|&quot;dissociate&quot;
-comma
-op_amp
-id|option_dissociate
-comma
-id|N_
-c_func
-(paren
-l_string|&quot;use --reference only while cloning&quot;
 )paren
 )paren
 comma
