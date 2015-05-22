@@ -9359,16 +9359,9 @@ id|branch-&gt;merge
 (braket
 l_int|0
 )braket
-op_logical_or
-op_logical_neg
-id|branch-&gt;merge
-(braket
-l_int|0
-)braket
-op_member_access_from_pointer
-id|dst
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * no merge config; is it because the user didn&squot;t define any,&n;&t;&t; * or because it is not a real branch, and get_branch&n;&t;&t; * auto-vivified it?&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -9394,12 +9387,6 @@ comma
 id|branch-&gt;name
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|branch-&gt;merge
-)paren
 r_return
 id|error_buf
 c_func
@@ -9415,6 +9402,18 @@ comma
 id|branch-&gt;name
 )paren
 suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+op_logical_neg
+id|branch-&gt;merge
+(braket
+l_int|0
+)braket
+op_member_access_from_pointer
+id|dst
+)paren
 r_return
 id|error_buf
 c_func
@@ -9435,7 +9434,6 @@ op_member_access_from_pointer
 id|src
 )paren
 suffix:semicolon
-)brace
 r_return
 id|branch-&gt;merge
 (braket
