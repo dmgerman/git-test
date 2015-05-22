@@ -8921,7 +8921,7 @@ id|lock
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Verify that the reference locked by lock has the value old_sha1.&n; * Fail if the reference doesn&squot;t exist and mustexist is set. Return 0&n; * on success or a negative value on error. This function should make&n; * sure errno is meaningful on error.&n; */
+multiline_comment|/*&n; * Verify that the reference locked by lock has the value old_sha1.&n; * Fail if the reference doesn&squot;t exist and mustexist is set. Return 0&n; * on success. On error, write an error message to err, set errno, and&n; * return a negative value.&n; */
 DECL|function|verify_lock
 r_static
 r_int
@@ -8941,8 +8941,18 @@ id|old_sha1
 comma
 r_int
 id|mustexist
+comma
+r_struct
+id|strbuf
+op_star
+id|err
 )paren
 (brace
+m_assert
+(paren
+id|err
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -8969,9 +8979,11 @@ id|save_errno
 op_assign
 id|errno
 suffix:semicolon
-id|error
+id|strbuf_addf
 c_func
 (paren
+id|err
+comma
 l_string|&quot;Can&squot;t verify ref %s&quot;
 comma
 id|lock-&gt;ref_name
@@ -8997,9 +9009,11 @@ id|old_sha1
 )paren
 )paren
 (brace
-id|error
+id|strbuf_addf
 c_func
 (paren
+id|err
+comma
 l_string|&quot;Ref %s is at %s but expected %s&quot;
 comma
 id|lock-&gt;ref_name
@@ -10166,6 +10180,8 @@ comma
 id|old_sha1
 comma
 id|mustexist
+comma
+id|err
 )paren
 )paren
 (brace
