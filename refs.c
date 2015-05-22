@@ -8921,12 +8921,10 @@ id|lock
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* This function should make sure errno is meaningful on error */
+multiline_comment|/*&n; * Verify that the reference locked by lock has the value old_sha1.&n; * Fail if the reference doesn&squot;t exist and mustexist is set. Return 0&n; * on success or a negative value on error. This function should make&n; * sure errno is meaningful on error.&n; */
 DECL|function|verify_lock
 r_static
-r_struct
-id|ref_lock
-op_star
+r_int
 id|verify_lock
 c_func
 (paren
@@ -8990,7 +8988,7 @@ op_assign
 id|save_errno
 suffix:semicolon
 r_return
-l_int|NULL
+l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -9036,11 +9034,11 @@ op_assign
 id|EBUSY
 suffix:semicolon
 r_return
-l_int|NULL
+l_int|1
 suffix:semicolon
 )brace
 r_return
-id|lock
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|remove_empty_directories
@@ -10167,10 +10165,11 @@ id|error_return
 suffix:semicolon
 )brace
 )brace
-r_return
-id|old_sha1
-ques
+r_if
 c_cond
+(paren
+id|old_sha1
+op_logical_and
 id|verify_lock
 c_func
 (paren
@@ -10180,7 +10179,11 @@ id|old_sha1
 comma
 id|mustexist
 )paren
-suffix:colon
+)paren
+r_return
+l_int|NULL
+suffix:semicolon
+r_return
 id|lock
 suffix:semicolon
 id|error_return
