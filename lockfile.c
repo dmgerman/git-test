@@ -1171,9 +1171,12 @@ id|flags
 op_amp
 id|LOCK_DIE_ON_ERROR
 )paren
-m_exit
+id|die
+c_func
 (paren
-l_int|128
+l_string|&quot;failed to prepare &squot;%s&squot; for appending&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 id|close
