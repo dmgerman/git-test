@@ -8874,7 +8874,7 @@ comma
 id|branch_name
 )paren
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
 id|stat_tracking_info
@@ -8887,13 +8887,21 @@ id|num_ours
 comma
 op_amp
 id|num_theirs
+comma
+op_amp
+id|base
 )paren
+OL
+l_int|0
 )paren
 (brace
-r_case
-l_int|0
-suffix:colon
-multiline_comment|/* no base */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|base
+)paren
+(brace
 id|fputc
 c_func
 (paren
@@ -8909,31 +8917,12 @@ id|s-&gt;fp
 suffix:semicolon
 r_return
 suffix:semicolon
-r_case
-l_int|1
-suffix:colon
-multiline_comment|/* with &quot;gone&quot; base */
+)brace
 id|upstream_is_gone
 op_assign
 l_int|1
 suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
-multiline_comment|/* with base */
-r_break
-suffix:semicolon
 )brace
-id|base
-op_assign
-id|branch-&gt;merge
-(braket
-l_int|0
-)braket
-op_member_access_from_pointer
-id|dst
-suffix:semicolon
 id|base
 op_assign
 id|shorten_unambiguous_ref

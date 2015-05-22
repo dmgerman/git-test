@@ -10459,7 +10459,7 @@ r_return
 id|found
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Compare a branch with its upstream, and save their differences (number&n; * of commits) in *num_ours and *num_theirs.&n; *&n; * Return 0 if branch has no upstream (no base), -1 if upstream is missing&n; * (with &quot;gone&quot; base), otherwise 1 (with base).&n; */
+multiline_comment|/*&n; * Compare a branch with its upstream, and save their differences (number&n; * of commits) in *num_ours and *num_theirs. The name of the upstream branch&n; * (or NULL if no upstream is defined) is returned via *upstream_name, if it&n; * is not itself NULL.&n; *&n; * Returns -1 if num_ours and num_theirs could not be filled in (e.g., no&n; * upstream defined, or ref does not exist), 0 otherwise.&n; */
 DECL|function|stat_tracking_info
 r_int
 id|stat_tracking_info
@@ -10477,6 +10477,12 @@ comma
 r_int
 op_star
 id|num_theirs
+comma
+r_const
+r_char
+op_star
+op_star
+id|upstream_name
 )paren
 (brace
 r_int
@@ -10532,11 +10538,21 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|upstream_name
+)paren
+op_star
+id|upstream_name
+op_assign
+id|base
+suffix:semicolon
+r_if
+c_cond
+(paren
 op_logical_neg
 id|base
 )paren
 r_return
-l_int|0
+l_int|1
 suffix:semicolon
 multiline_comment|/* Cannot stat if what we used to build on no longer exists */
 r_if
@@ -10619,7 +10635,7 @@ op_assign
 l_int|0
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/* Run &quot;rev-list --left-right ours...theirs&quot; internally... */
@@ -10816,7 +10832,7 @@ id|ALL_REV_FLAGS
 )paren
 suffix:semicolon
 r_return
-l_int|1
+l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Return true when there is anything to report, otherwise false.&n; */
@@ -10841,6 +10857,11 @@ id|ours
 comma
 id|theirs
 suffix:semicolon
+r_const
+r_char
+op_star
+id|full_base
+suffix:semicolon
 r_char
 op_star
 id|base
@@ -10850,7 +10871,7 @@ id|upstream_is_gone
 op_assign
 l_int|0
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
 id|stat_tracking_info
@@ -10863,30 +10884,26 @@ id|ours
 comma
 op_amp
 id|theirs
+comma
+op_amp
+id|full_base
 )paren
+OL
+l_int|0
 )paren
 (brace
-r_case
-l_int|0
-suffix:colon
-multiline_comment|/* no base */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|full_base
+)paren
 r_return
 l_int|0
 suffix:semicolon
-r_case
-l_int|1
-suffix:colon
-multiline_comment|/* with &quot;gone&quot; base */
 id|upstream_is_gone
 op_assign
 l_int|1
-suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
-multiline_comment|/* with base */
-r_break
 suffix:semicolon
 )brace
 id|base
@@ -10894,12 +10911,7 @@ op_assign
 id|shorten_unambiguous_ref
 c_func
 (paren
-id|branch-&gt;merge
-(braket
-l_int|0
-)braket
-op_member_access_from_pointer
-id|dst
+id|full_base
 comma
 l_int|0
 )paren

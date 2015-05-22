@@ -2112,6 +2112,11 @@ c_func
 id|branch_name
 )paren
 suffix:semicolon
+r_const
+r_char
+op_star
+id|upstream
+suffix:semicolon
 r_struct
 id|strbuf
 id|fancy
@@ -2128,7 +2133,7 @@ id|added_decoration
 op_assign
 l_int|1
 suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
 id|stat_tracking_info
@@ -2141,29 +2146,25 @@ id|ours
 comma
 op_amp
 id|theirs
+comma
+op_amp
+id|upstream
 )paren
+OL
+l_int|0
 )paren
 (brace
-r_case
-l_int|0
-suffix:colon
-multiline_comment|/* no base */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|upstream
+)paren
 r_return
 suffix:semicolon
-r_case
-l_int|1
-suffix:colon
-multiline_comment|/* with &quot;gone&quot; base */
 id|upstream_is_gone
 op_assign
 l_int|1
-suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
-multiline_comment|/* with base */
-r_break
 suffix:semicolon
 )brace
 r_if
@@ -2177,12 +2178,7 @@ op_assign
 id|shorten_unambiguous_ref
 c_func
 (paren
-id|branch-&gt;merge
-(braket
-l_int|0
-)braket
-op_member_access_from_pointer
-id|dst
+id|upstream
 comma
 l_int|0
 )paren

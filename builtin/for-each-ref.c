@@ -4158,9 +4158,9 @@ id|num_ours
 comma
 op_amp
 id|num_theirs
+comma
+l_int|NULL
 )paren
-op_ne
-l_int|1
 )paren
 r_continue
 suffix:semicolon
@@ -4297,9 +4297,9 @@ id|num_ours
 comma
 op_amp
 id|num_theirs
+comma
+l_int|NULL
 )paren
-op_ne
-l_int|1
 )paren
 r_continue
 suffix:semicolon
