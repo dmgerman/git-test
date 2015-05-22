@@ -8984,7 +8984,7 @@ c_func
 (paren
 id|err
 comma
-l_string|&quot;Can&squot;t verify ref %s&quot;
+l_string|&quot;can&squot;t verify ref %s&quot;
 comma
 id|lock-&gt;ref_name
 )paren
@@ -9014,7 +9014,7 @@ c_func
 (paren
 id|err
 comma
-l_string|&quot;Ref %s is at %s but expected %s&quot;
+l_string|&quot;ref %s is at %s but expected %s&quot;
 comma
 id|lock-&gt;ref_name
 comma
