@@ -1139,7 +1139,7 @@ c_cond
 id|_
 c_func
 (paren
-l_string|&quot;remote branch &squot;%s&squot; not found.&quot;
+l_string|&quot;remote-tracking branch &squot;%s&squot; not found.&quot;
 )paren
 suffix:colon
 id|_
@@ -1219,7 +1219,7 @@ c_cond
 id|_
 c_func
 (paren
-l_string|&quot;Error deleting remote branch &squot;%s&squot;&quot;
+l_string|&quot;Error deleting remote-tracking branch &squot;%s&squot;&quot;
 )paren
 suffix:colon
 id|_
@@ -1254,7 +1254,7 @@ c_cond
 id|_
 c_func
 (paren
-l_string|&quot;Deleted remote branch %s (was %s).&bslash;n&quot;
+l_string|&quot;Deleted remote-tracking branch %s (was %s).&bslash;n&quot;
 )paren
 suffix:colon
 id|_
