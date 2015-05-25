@@ -25,13 +25,10 @@ id|lock_file
 op_star
 id|lk
 suffix:semicolon
-DECL|member|old_sha1
-r_int
-r_char
-id|old_sha1
-(braket
-l_int|20
-)braket
+DECL|member|old_oid
+r_struct
+id|object_id
+id|old_oid
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -8954,7 +8951,7 @@ id|RESOLVE_REF_READING
 suffix:colon
 l_int|0
 comma
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 l_int|NULL
 )paren
@@ -8993,7 +8990,7 @@ c_cond
 id|hashcmp
 c_func
 (paren
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 id|old_sha1
 )paren
@@ -9006,10 +9003,11 @@ l_string|&quot;Ref %s is at %s but expected %s&quot;
 comma
 id|lock-&gt;ref_name
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|lock-&gt;old_sha1
+op_amp
+id|lock-&gt;old_oid
 )paren
 comma
 id|sha1_to_hex
@@ -9793,7 +9791,7 @@ id|refname
 comma
 id|resolve_flags
 comma
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 op_amp
 id|type
@@ -9881,7 +9879,7 @@ id|orig_refname
 comma
 id|resolve_flags
 comma
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 op_amp
 id|type
@@ -9960,10 +9958,11 @@ multiline_comment|/*&n;&t; * If the ref did not exist and we are creating it, ma
 r_if
 c_cond
 (paren
-id|is_null_sha1
+id|is_null_oid
 c_func
 (paren
-id|lock-&gt;old_sha1
+op_amp
+id|lock-&gt;old_oid
 )paren
 op_logical_and
 id|verify_refname_available
@@ -12455,7 +12454,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 id|orig_sha1
 )paren
@@ -13805,7 +13804,7 @@ c_func
 (paren
 id|lock-&gt;ref_name
 comma
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 id|sha1
 comma
@@ -13828,7 +13827,7 @@ c_func
 (paren
 id|lock-&gt;orig_ref_name
 comma
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 id|sha1
 comma
@@ -13919,7 +13918,7 @@ c_func
 (paren
 l_string|&quot;HEAD&quot;
 comma
-id|lock-&gt;old_sha1
+id|lock-&gt;old_oid.hash
 comma
 id|sha1
 comma
@@ -17437,7 +17436,7 @@ op_logical_neg
 id|hashcmp
 c_func
 (paren
-id|update-&gt;lock-&gt;old_sha1
+id|update-&gt;lock-&gt;old_oid.hash
 comma
 id|update-&gt;new_sha1
 )paren
