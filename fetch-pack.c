@@ -204,13 +204,6 @@ r_int
 r_char
 op_star
 id|sha1
-comma
-r_int
-id|flag
-comma
-r_void
-op_star
-id|cb_data
 )paren
 (brace
 r_struct
@@ -290,10 +283,6 @@ c_func
 id|refname
 comma
 id|oid-&gt;hash
-comma
-id|flag
-comma
-id|cb_data
 )paren
 suffix:semicolon
 )brace
@@ -1047,10 +1036,6 @@ c_func
 l_int|NULL
 comma
 id|ref-&gt;old_sha1
-comma
-l_int|0
-comma
-l_int|NULL
 )paren
 suffix:semicolon
 )brace
