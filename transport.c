@@ -1578,12 +1578,9 @@ id|i
 op_increment
 )paren
 (brace
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
+r_struct
+id|object_id
+id|oid
 suffix:semicolon
 r_char
 op_star
@@ -1609,7 +1606,7 @@ id|i
 )braket
 )paren
 comma
-id|sha1
+id|oid.hash
 comma
 op_amp
 id|ref
@@ -1637,7 +1634,7 @@ c_func
 (paren
 id|ref
 comma
-id|sha1
+id|oid.hash
 comma
 l_int|0
 comma
