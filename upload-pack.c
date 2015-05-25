@@ -3721,12 +3721,9 @@ id|string_list_item
 op_star
 id|item
 suffix:semicolon
-r_int
-r_char
+r_struct
+id|object_id
 id|unused
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -3751,7 +3748,7 @@ id|refname
 comma
 l_int|0
 comma
-id|unused
+id|unused.hash
 comma
 op_amp
 id|flag
