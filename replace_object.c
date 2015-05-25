@@ -241,10 +241,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -341,7 +341,7 @@ c_func
 (paren
 id|repl_obj-&gt;replacement
 comma
-id|sha1
+id|oid-&gt;hash
 )paren
 suffix:semicolon
 multiline_comment|/* Register new object */
@@ -381,16 +381,6 @@ r_static
 r_int
 id|replace_object_prepared
 suffix:semicolon
-r_struct
-id|each_ref_fn_sha1_adapter
-id|wrapped_register_replace_ref
-op_assign
-(brace
-id|register_replace_ref
-comma
-l_int|NULL
-)brace
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -401,10 +391,9 @@ suffix:semicolon
 id|for_each_replace_ref
 c_func
 (paren
-id|each_ref_fn_adapter
+id|register_replace_ref
 comma
-op_amp
-id|wrapped_register_replace_ref
+l_int|NULL
 )paren
 suffix:semicolon
 id|replace_object_prepared
