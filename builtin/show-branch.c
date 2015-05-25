@@ -4415,7 +4415,12 @@ id|ref_name
 id|num_rev
 )braket
 comma
-id|revkey.hash
+id|oid_to_hex
+c_func
+(paren
+op_amp
+id|revkey
+)paren
 )paren
 suffix:semicolon
 id|parse_commit
