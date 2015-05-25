@@ -164,12 +164,9 @@ r_char
 op_star
 id|hex
 suffix:semicolon
-r_int
-r_char
+r_struct
+id|object_id
 id|peeled
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -411,7 +408,7 @@ c_func
 (paren
 id|refname
 comma
-id|peeled
+id|peeled.hash
 )paren
 )paren
 (brace
@@ -420,7 +417,7 @@ op_assign
 id|find_unique_abbrev
 c_func
 (paren
-id|peeled
+id|peeled.hash
 comma
 id|abbrev
 )paren
