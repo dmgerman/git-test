@@ -73,10 +73,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -94,7 +94,7 @@ op_assign
 id|parse_object_or_die
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 id|path
 )paren
@@ -648,16 +648,6 @@ r_struct
 id|connectivity_progress
 id|cp
 suffix:semicolon
-r_struct
-id|each_ref_fn_sha1_adapter
-id|wrapped_add_one_ref
-op_assign
-(brace
-id|add_one_ref
-comma
-id|revs
-)brace
-suffix:semicolon
 multiline_comment|/*&n;&t; * Set up revision parsing, and mark us as being interested&n;&t; * in all object types, not just commits.&n;&t; */
 id|revs-&gt;tag_objects
 op_assign
@@ -684,20 +674,18 @@ multiline_comment|/* Add all external refs */
 id|for_each_ref
 c_func
 (paren
-id|each_ref_fn_adapter
+id|add_one_ref
 comma
-op_amp
-id|wrapped_add_one_ref
+id|revs
 )paren
 suffix:semicolon
 multiline_comment|/* detached HEAD is not included in the list above */
 id|head_ref
 c_func
 (paren
-id|each_ref_fn_adapter
+id|add_one_ref
 comma
-op_amp
-id|wrapped_add_one_ref
+id|revs
 )paren
 suffix:semicolon
 multiline_comment|/* Add all reflog info */
