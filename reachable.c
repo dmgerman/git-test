@@ -648,6 +648,16 @@ r_struct
 id|connectivity_progress
 id|cp
 suffix:semicolon
+r_struct
+id|each_ref_fn_sha1_adapter
+id|wrapped_add_one_ref
+op_assign
+(brace
+id|add_one_ref
+comma
+id|revs
+)brace
+suffix:semicolon
 multiline_comment|/*&n;&t; * Set up revision parsing, and mark us as being interested&n;&t; * in all object types, not just commits.&n;&t; */
 id|revs-&gt;tag_objects
 op_assign
@@ -674,18 +684,20 @@ multiline_comment|/* Add all external refs */
 id|for_each_ref
 c_func
 (paren
-id|add_one_ref
+id|each_ref_fn_adapter
 comma
-id|revs
+op_amp
+id|wrapped_add_one_ref
 )paren
 suffix:semicolon
 multiline_comment|/* detached HEAD is not included in the list above */
 id|head_ref
 c_func
 (paren
-id|add_one_ref
+id|each_ref_fn_adapter
 comma
-id|revs
+op_amp
+id|wrapped_add_one_ref
 )paren
 suffix:semicolon
 multiline_comment|/* Add all reflog info */
