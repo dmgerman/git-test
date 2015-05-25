@@ -7302,12 +7302,9 @@ r_char
 op_star
 id|resolves_to
 suffix:semicolon
-r_int
-r_char
+r_struct
+id|object_id
 id|junk
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -7331,7 +7328,7 @@ id|refname
 comma
 l_int|0
 comma
-id|junk
+id|junk.hash
 comma
 l_int|NULL
 )paren
