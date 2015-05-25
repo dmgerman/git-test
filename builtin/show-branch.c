@@ -2630,12 +2630,9 @@ op_star
 id|av
 )paren
 (brace
-r_int
-r_char
+r_struct
+id|object_id
 id|revkey
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -2646,7 +2643,7 @@ c_func
 (paren
 id|av
 comma
-id|revkey
+id|revkey.hash
 )paren
 )paren
 (brace
@@ -2655,7 +2652,7 @@ c_func
 (paren
 id|av
 comma
-id|revkey
+id|revkey.hash
 comma
 l_int|0
 )paren
