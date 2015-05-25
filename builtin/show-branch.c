@@ -1661,10 +1661,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|allow_dups
@@ -1678,7 +1678,7 @@ op_assign
 id|lookup_commit_reference_gently
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 l_int|1
 )paren
@@ -1865,7 +1865,7 @@ id|refname
 op_plus
 id|ofs
 comma
-id|oid-&gt;hash
+id|oid
 comma
 l_int|0
 )paren
@@ -1955,7 +1955,7 @@ id|refname
 op_plus
 id|ofs
 comma
-id|oid-&gt;hash
+id|oid
 comma
 l_int|0
 )paren
@@ -2009,7 +2009,7 @@ id|refname
 op_plus
 l_int|5
 comma
-id|oid-&gt;hash
+id|oid
 comma
 l_int|0
 )paren
@@ -2219,7 +2219,7 @@ c_func
 (paren
 id|refname
 comma
-id|oid-&gt;hash
+id|oid
 comma
 l_int|0
 )paren
@@ -2652,7 +2652,8 @@ c_func
 (paren
 id|av
 comma
-id|revkey.hash
+op_amp
+id|revkey
 comma
 l_int|0
 )paren
@@ -3267,12 +3268,9 @@ suffix:semicolon
 r_int
 id|head_len
 suffix:semicolon
-r_int
-r_char
-id|head_sha1
-(braket
-l_int|20
-)braket
+r_struct
+id|object_id
+id|head_oid
 suffix:semicolon
 r_int
 id|merge_base
@@ -3756,12 +3754,9 @@ c_cond
 id|reflog
 )paren
 (brace
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
+r_struct
+id|object_id
+id|oid
 suffix:semicolon
 r_char
 id|nth_desc
@@ -3813,7 +3808,7 @@ l_string|&quot;HEAD&quot;
 comma
 id|RESOLVE_REF_READING
 comma
-id|sha1
+id|oid.hash
 comma
 l_int|NULL
 )paren
@@ -3879,7 +3874,7 @@ op_star
 id|av
 )paren
 comma
-id|sha1
+id|oid.hash
 comma
 op_amp
 id|ref
@@ -3949,7 +3944,7 @@ id|at
 comma
 l_int|1
 comma
-id|sha1
+id|oid.hash
 comma
 l_int|NULL
 comma
@@ -4010,7 +4005,7 @@ id|base
 op_plus
 id|i
 comma
-id|sha1
+id|oid.hash
 comma
 op_amp
 id|logmsg
@@ -4105,7 +4100,8 @@ c_func
 (paren
 id|nth_desc
 comma
-id|sha1
+op_amp
+id|oid
 comma
 l_int|1
 )paren
@@ -4167,7 +4163,7 @@ l_string|&quot;HEAD&quot;
 comma
 id|RESOLVE_REF_READING
 comma
-id|head_sha1
+id|head_oid.hash
 comma
 l_int|NULL
 )paren
@@ -4260,7 +4256,7 @@ id|ref_name
 id|i
 )braket
 comma
-id|head_sha1
+id|head_oid.hash
 comma
 l_int|NULL
 )paren
@@ -4339,12 +4335,9 @@ id|num_rev
 op_increment
 )paren
 (brace
-r_int
-r_char
+r_struct
+id|object_id
 id|revkey
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_int
 r_int
@@ -4384,7 +4377,7 @@ id|ref_name
 id|num_rev
 )braket
 comma
-id|revkey
+id|revkey.hash
 )paren
 )paren
 id|die
@@ -4403,7 +4396,7 @@ op_assign
 id|lookup_commit_reference
 c_func
 (paren
-id|revkey
+id|revkey.hash
 )paren
 suffix:semicolon
 r_if
@@ -4422,7 +4415,7 @@ id|ref_name
 id|num_rev
 )braket
 comma
-id|revkey
+id|revkey.hash
 )paren
 suffix:semicolon
 id|parse_commit
@@ -4601,7 +4594,7 @@ id|ref_name
 id|i
 )braket
 comma
-id|head_sha1
+id|head_oid.hash
 comma
 id|rev
 (braket
