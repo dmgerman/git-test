@@ -3540,12 +3540,9 @@ c_func
 id|refname
 )paren
 suffix:semicolon
-r_int
-r_char
+r_struct
+id|object_id
 id|peeled
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -3663,7 +3660,7 @@ c_func
 (paren
 id|refname
 comma
-id|peeled
+id|peeled.hash
 )paren
 )paren
 id|packet_write
@@ -3673,9 +3670,10 @@ l_int|1
 comma
 l_string|&quot;%s %s^{}&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
+op_amp
 id|peeled
 )paren
 comma
