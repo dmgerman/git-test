@@ -2228,12 +2228,9 @@ op_amp
 id|REF_ISSYMREF
 )paren
 (brace
-r_int
-r_char
+r_struct
+id|object_id
 id|unused
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_const
 r_char
@@ -2247,7 +2244,7 @@ id|refname
 comma
 id|RESOLVE_REF_READING
 comma
-id|unused
+id|unused.hash
 comma
 l_int|NULL
 )paren
