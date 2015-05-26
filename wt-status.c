@@ -3226,6 +3226,11 @@ id|dir.flags
 op_or_assign
 id|DIR_SHOW_IGNORED_TOO
 suffix:semicolon
+r_else
+id|dir.untracked
+op_assign
+id|the_index.untracked
+suffix:semicolon
 id|setup_standard_excludes
 c_func
 (paren
