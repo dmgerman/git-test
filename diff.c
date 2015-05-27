@@ -173,6 +173,15 @@ c_func
 (paren
 id|var
 comma
+l_string|&quot;context&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+comma
 l_string|&quot;plain&quot;
 )paren
 )paren
