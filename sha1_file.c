@@ -3440,7 +3440,7 @@ id|MAP_FAILED
 id|die_errno
 c_func
 (paren
-l_string|&quot;Out of memory? mmap failed&quot;
+l_string|&quot;mmap failed&quot;
 )paren
 suffix:semicolon
 r_return
