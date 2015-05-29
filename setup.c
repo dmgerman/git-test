@@ -15,6 +15,11 @@ id|inside_work_tree
 op_assign
 l_int|1
 suffix:semicolon
+DECL|variable|work_tree_config_is_bogus
+r_static
+r_int
+id|work_tree_config_is_bogus
+suffix:semicolon
 multiline_comment|/*&n; * The input parameter must contain an absolute path, and it must already be&n; * normalized.&n; *&n; * Find the part of an absolute path that lies inside the work tree by&n; * dereferencing symlinks outside the work tree, for example:&n; * /dir1/repo/dir2/file   (work tree is /dir1/repo)      -&gt; dir2/file&n; * /dir/file              (work tree is /)               -&gt; dir/file&n; * /dir/symlink1/symlink2 (symlink1 points to work tree) -&gt; symlink2&n; * /dir/repolink/file     (repolink points to /dir/repo) -&gt; file&n; * /dir/repo              (exactly equal to work tree)   -&gt; (empty string)&n; */
 DECL|function|abspath_part_inside_repo
 r_static
@@ -1194,6 +1199,17 @@ id|initialized
 )paren
 r_return
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|work_tree_config_is_bogus
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to set up work tree using invalid config&quot;
+)paren
+suffix:semicolon
 id|work_tree
 op_assign
 id|get_git_work_tree
@@ -1907,13 +1923,19 @@ c_cond
 (paren
 id|git_work_tree_cfg
 )paren
+(brace
 multiline_comment|/* #22.2, #30 */
-id|die
+id|warning
 c_func
 (paren
 l_string|&quot;core.bare and core.worktree do not make sense&quot;
 )paren
 suffix:semicolon
+id|work_tree_config_is_bogus
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 multiline_comment|/* #18, #26 */
 id|set_git_dir
 c_func
