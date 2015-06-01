@@ -30,7 +30,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git blame [&lt;options&gt;] [&lt;rev-opts&gt;] [&lt;rev&gt;] [--] file&quot;
+l_string|&quot;git blame [&lt;options&gt;] [&lt;rev-opts&gt;] [&lt;rev&gt;] [--] &lt;file&gt;&quot;
 )paren
 suffix:semicolon
 DECL|variable|blame_opt_usage

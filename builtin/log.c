@@ -87,7 +87,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git log [&lt;options&gt;] [&lt;revision range&gt;] [[--] &lt;path&gt;...]&quot;
+l_string|&quot;git log [&lt;options&gt;] [&lt;revision-range&gt;] [[--] &lt;path&gt;...]&quot;
 )paren
 comma
 id|N_
