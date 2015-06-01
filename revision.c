@@ -3210,10 +3210,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|parse_commit
+id|parse_commit_gently
 c_func
 (paren
 id|p
+comma
+l_int|1
 )paren
 OL
 l_int|0
