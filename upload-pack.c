@@ -78,10 +78,17 @@ id|no_progress
 comma
 id|daemon_mode
 suffix:semicolon
-DECL|variable|allow_tip_sha1_in_want
+multiline_comment|/* Allow specifying sha1 if it is a ref tip. */
+DECL|macro|ALLOW_TIP_SHA1
+mdefine_line|#define ALLOW_TIP_SHA1&t;01
+multiline_comment|/* Allow request of a sha1 if it is reachable from a ref (possibly hidden ref). */
+DECL|macro|ALLOW_REACHABLE_SHA1
+mdefine_line|#define ALLOW_REACHABLE_SHA1&t;02
+DECL|variable|allow_unadvertised_object_request
 r_static
 r_int
-id|allow_tip_sha1_in_want
+r_int
+id|allow_unadvertised_object_request
 suffix:semicolon
 DECL|variable|shallow_nr
 r_static
@@ -2090,12 +2097,25 @@ op_star
 id|o
 )paren
 (brace
+r_int
+id|allow_hidden_ref
+op_assign
+(paren
+id|allow_unadvertised_object_request
+op_amp
+(paren
+id|ALLOW_TIP_SHA1
+op_or
+id|ALLOW_REACHABLE_SHA1
+)paren
+)paren
+suffix:semicolon
 r_return
 id|o-&gt;flags
 op_amp
 (paren
 (paren
-id|allow_tip_sha1_in_want
+id|allow_hidden_ref
 ques
 c_cond
 id|HIDDEN_REF
@@ -2155,12 +2175,19 @@ multiline_comment|/* ^ + SHA-1 + LF */
 r_int
 id|i
 suffix:semicolon
-multiline_comment|/* In the normal in-process case non-tip request can never happen */
+multiline_comment|/*&n;&t; * In the normal in-process case without&n;&t; * uploadpack.allowReachableSHA1InWant,&n;&t; * non-tip requests can never happen.&n;&t; */
 r_if
 c_cond
 (paren
 op_logical_neg
 id|stateless_rpc
+op_logical_and
+op_logical_neg
+(paren
+id|allow_unadvertised_object_request
+op_amp
+id|ALLOW_REACHABLE_SHA1
+)paren
 )paren
 r_goto
 id|error
@@ -3587,7 +3614,7 @@ c_func
 (paren
 l_int|1
 comma
-l_string|&quot;%s %s%c%s%s%s%s agent=%s&bslash;n&quot;
+l_string|&quot;%s %s%c%s%s%s%s%s agent=%s&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -3601,10 +3628,25 @@ l_int|0
 comma
 id|capabilities
 comma
-id|allow_tip_sha1_in_want
+(paren
+id|allow_unadvertised_object_request
+op_amp
+id|ALLOW_TIP_SHA1
+)paren
 ques
 c_cond
 l_string|&quot; allow-tip-sha1-in-want&quot;
+suffix:colon
+l_string|&quot;&quot;
+comma
+(paren
+id|allow_unadvertised_object_request
+op_amp
+id|ALLOW_REACHABLE_SHA1
+)paren
+ques
+c_cond
+l_string|&quot; allow-reachable-sha1-in-want&quot;
 suffix:colon
 l_string|&quot;&quot;
 comma
@@ -3961,8 +4003,10 @@ comma
 id|var
 )paren
 )paren
-id|allow_tip_sha1_in_want
-op_assign
+(brace
+r_if
+c_cond
+(paren
 id|git_config_bool
 c_func
 (paren
@@ -3970,7 +4014,54 @@ id|var
 comma
 id|value
 )paren
+)paren
+id|allow_unadvertised_object_request
+op_or_assign
+id|ALLOW_TIP_SHA1
 suffix:semicolon
+r_else
+id|allow_unadvertised_object_request
+op_and_assign
+op_complement
+id|ALLOW_TIP_SHA1
+suffix:semicolon
+)brace
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+l_string|&quot;uploadpack.allowreachablesha1inwant&quot;
+comma
+id|var
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|git_config_bool
+c_func
+(paren
+id|var
+comma
+id|value
+)paren
+)paren
+id|allow_unadvertised_object_request
+op_or_assign
+id|ALLOW_REACHABLE_SHA1
+suffix:semicolon
+r_else
+id|allow_unadvertised_object_request
+op_and_assign
+op_complement
+id|ALLOW_REACHABLE_SHA1
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
