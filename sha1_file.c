@@ -16050,7 +16050,7 @@ c_func
 (paren
 id|sha1
 comma
-l_int|NULL
+l_string|&quot;&quot;
 comma
 id|size
 comma
