@@ -4191,7 +4191,7 @@ comma
 l_string|&quot;Mismatch!&bslash;n&quot;
 )paren
 suffix:semicolon
-id|free
+id|bitmap_free
 c_func
 (paren
 id|result
