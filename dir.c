@@ -1627,12 +1627,6 @@ id|prefix
 )paren
 (brace
 multiline_comment|/*&n;&t; * Make sure all pathspec matched; otherwise it is an error.&n;&t; */
-r_struct
-id|strbuf
-id|sb
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
 r_int
 id|num
 comma
@@ -1758,13 +1752,6 @@ id|errors
 op_increment
 suffix:semicolon
 )brace
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|sb
-)paren
-suffix:semicolon
 r_return
 id|errors
 suffix:semicolon

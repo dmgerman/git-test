@@ -1561,12 +1561,6 @@ op_assign
 id|STRBUF_INIT
 suffix:semicolon
 r_struct
-id|strbuf
-id|buf
-op_assign
-id|STRBUF_INIT
-suffix:semicolon
-r_struct
 id|menu_item
 op_star
 id|menu_item
@@ -1894,13 +1888,6 @@ c_func
 (paren
 op_amp
 id|menu
-)paren
-suffix:semicolon
-id|strbuf_release
-c_func
-(paren
-op_amp
-id|buf
 )paren
 suffix:semicolon
 id|string_list_clear
