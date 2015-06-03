@@ -2,9 +2,9 @@ multiline_comment|/**&n; * Copyright 2013, GitHub, Inc&n; * Copyright 2009-2013,
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;ewok.h&quot;
 DECL|macro|EWAH_MASK
-mdefine_line|#define EWAH_MASK(x) ((eword_t)1 &lt;&lt; (x % BITS_IN_WORD))
+mdefine_line|#define EWAH_MASK(x) ((eword_t)1 &lt;&lt; (x % BITS_IN_EWORD))
 DECL|macro|EWAH_BLOCK
-mdefine_line|#define EWAH_BLOCK(x) (x / BITS_IN_WORD)
+mdefine_line|#define EWAH_BLOCK(x) (x / BITS_IN_EWORD)
 DECL|function|bitmap_new
 r_struct
 id|bitmap
@@ -543,7 +543,7 @@ op_assign
 (paren
 id|other-&gt;bit_size
 op_div
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 )paren
 op_plus
 l_int|1
@@ -711,7 +711,7 @@ l_int|0
 suffix:semicolon
 id|offset
 OL
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 op_increment
 id|offset
@@ -737,7 +737,7 @@ l_int|0
 suffix:semicolon
 id|offset
 OL
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 op_increment
 id|offset
@@ -779,7 +779,7 @@ suffix:semicolon
 )brace
 id|pos
 op_add_assign
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 )brace
 )brace

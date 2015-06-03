@@ -458,7 +458,7 @@ id|self-&gt;bit_size
 op_add_assign
 id|number
 op_star
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 r_return
 id|add_empty_words
@@ -719,7 +719,7 @@ id|self-&gt;bit_size
 op_add_assign
 id|can_add
 op_star
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 r_if
 c_cond
@@ -974,7 +974,7 @@ id|word
 (brace
 id|self-&gt;bit_size
 op_add_assign
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 r_if
 c_cond
@@ -1045,18 +1045,18 @@ op_assign
 (paren
 id|i
 op_plus
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 )paren
 op_div
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 (paren
 id|self-&gt;bit_size
 op_plus
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 l_int|1
 )paren
 op_div
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 m_assert
 (paren
@@ -1110,7 +1110,7 @@ op_lshift
 (paren
 id|i
 op_mod
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 )paren
 )paren
 suffix:semicolon
@@ -1155,7 +1155,7 @@ op_lshift
 (paren
 id|i
 op_mod
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 )paren
 )paren
 suffix:semicolon
@@ -1177,7 +1177,7 @@ op_lshift
 (paren
 id|i
 op_mod
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 )paren
 )paren
 suffix:semicolon
@@ -1308,7 +1308,7 @@ c_func
 id|word
 )paren
 op_star
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 r_for
 c_loop
@@ -1346,7 +1346,7 @@ c_func
 id|word
 )paren
 op_star
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 )brace
 op_increment
@@ -1384,7 +1384,7 @@ l_int|0
 suffix:semicolon
 id|c
 OL
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 op_increment
 id|c
