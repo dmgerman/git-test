@@ -4899,6 +4899,23 @@ op_or_assign
 id|REF_ISBROKEN
 suffix:semicolon
 )brace
+r_else
+r_if
+c_cond
+(paren
+id|is_null_sha1
+c_func
+(paren
+id|sha1
+)paren
+)paren
+(brace
+multiline_comment|/*&n;&t;&t;&t;&t; * It is so astronomically unlikely&n;&t;&t;&t;&t; * that NULL_SHA1 is the SHA-1 of an&n;&t;&t;&t;&t; * actual object that we consider its&n;&t;&t;&t;&t; * appearance in a loose reference&n;&t;&t;&t;&t; * file to be repo corruption&n;&t;&t;&t;&t; * (probably due to a software bug).&n;&t;&t;&t;&t; */
+id|flag
+op_or_assign
+id|REF_ISBROKEN
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
