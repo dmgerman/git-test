@@ -3085,7 +3085,13 @@ id|cmp
 suffix:semicolon
 r_return
 id|offset1
+template_param
 id|offset2
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|find_ofs_delta
@@ -5346,7 +5352,13 @@ id|b
 suffix:semicolon
 r_return
 id|delta_a-&gt;offset
+template_param
 id|delta_b-&gt;offset
+ques
+c_cond
+l_int|1
+suffix:colon
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|compare_ref_delta_entry
