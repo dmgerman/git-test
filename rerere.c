@@ -3897,6 +3897,16 @@ comma
 id|RERERE_NOAUTOUPDATE
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|fd
+OL
+l_int|0
+)paren
+r_return
+l_int|0
+suffix:semicolon
 id|unmerge_cache
 c_func
 (paren
