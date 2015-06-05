@@ -11767,19 +11767,9 @@ c_func
 id|p
 )paren
 )paren
-(brace
-id|warning
-c_func
-(paren
-l_string|&quot;packfile %s cannot be accessed&quot;
-comma
-id|p-&gt;pack_name
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
-)brace
 id|e-&gt;offset
 op_assign
 id|offset
