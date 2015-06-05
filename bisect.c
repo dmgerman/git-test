@@ -1796,10 +1796,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flags
@@ -1834,12 +1834,12 @@ id|current_bad_oid
 )paren
 )paren
 suffix:semicolon
-id|hashcpy
+id|oidcpy
 c_func
 (paren
-id|current_bad_oid-&gt;hash
+id|current_bad_oid
 comma
-id|sha1
+id|oid
 )paren
 suffix:semicolon
 )brace
@@ -1862,7 +1862,7 @@ c_func
 op_amp
 id|good_revs
 comma
-id|sha1
+id|oid-&gt;hash
 )paren
 suffix:semicolon
 )brace
@@ -1885,7 +1885,7 @@ c_func
 op_amp
 id|skipped_revs
 comma
-id|sha1
+id|oid-&gt;hash
 )paren
 suffix:semicolon
 )brace

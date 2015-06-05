@@ -1569,10 +1569,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flags
@@ -1781,7 +1781,7 @@ op_assign
 id|lookup_commit_reference_gently
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 l_int|1
 )paren

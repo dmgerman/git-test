@@ -686,10 +686,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flags
@@ -707,7 +707,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 )paren
 suffix:semicolon
 r_struct
@@ -791,7 +791,7 @@ suffix:semicolon
 id|add_to_tip_table
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 id|path
 comma

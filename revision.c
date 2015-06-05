@@ -4892,10 +4892,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -4940,7 +4940,7 @@ id|cb-&gt;all_revs
 comma
 id|path
 comma
-id|sha1
+id|oid-&gt;hash
 comma
 id|cb-&gt;all_flags
 )paren
@@ -4966,7 +4966,7 @@ id|cb-&gt;all_revs
 comma
 id|path
 comma
-id|sha1
+id|oid-&gt;hash
 comma
 id|cb-&gt;all_flags
 )paren
@@ -5330,10 +5330,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag

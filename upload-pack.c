@@ -3387,10 +3387,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 )paren
 (brace
 r_struct
@@ -3401,7 +3401,7 @@ op_assign
 id|lookup_unknown_object
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 )paren
 suffix:semicolon
 r_if
@@ -3442,10 +3442,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -3460,7 +3460,7 @@ c_func
 (paren
 id|refname
 comma
-id|sha1
+id|oid
 )paren
 suffix:semicolon
 r_return
@@ -3533,10 +3533,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -3567,12 +3567,9 @@ c_func
 id|refname
 )paren
 suffix:semicolon
-r_int
-r_char
+r_struct
+id|object_id
 id|peeled
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -3582,7 +3579,7 @@ c_func
 (paren
 id|refname
 comma
-id|sha1
+id|oid
 )paren
 )paren
 r_return
@@ -3616,10 +3613,10 @@ l_int|1
 comma
 l_string|&quot;%s %s%c%s%s%s%s%s agent=%s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 comma
 id|refname_nons
@@ -3682,10 +3679,10 @@ l_int|1
 comma
 l_string|&quot;%s %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 comma
 id|refname_nons
@@ -3705,7 +3702,7 @@ c_func
 (paren
 id|refname
 comma
-id|peeled
+id|peeled.hash
 )paren
 )paren
 id|packet_write
@@ -3715,9 +3712,10 @@ l_int|1
 comma
 l_string|&quot;%s %s^{}&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
+op_amp
 id|peeled
 )paren
 comma
@@ -3740,10 +3738,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -3763,12 +3761,9 @@ id|string_list_item
 op_star
 id|item
 suffix:semicolon
-r_int
-r_char
+r_struct
+id|object_id
 id|unused
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -3793,7 +3788,7 @@ id|refname
 comma
 l_int|0
 comma
-id|unused
+id|unused.hash
 comma
 op_amp
 id|flag

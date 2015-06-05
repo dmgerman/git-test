@@ -706,10 +706,10 @@ id|show_tag_lines
 c_func
 (paren
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|lines
@@ -744,7 +744,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 op_amp
 id|type
@@ -764,10 +764,10 @@ c_func
 (paren
 l_string|&quot;unable to read object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 )paren
 suffix:semicolon
@@ -801,10 +801,10 @@ r_typename
 id|type
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 )paren
 suffix:semicolon
@@ -960,10 +960,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -1008,7 +1008,7 @@ op_assign
 id|lookup_commit_reference_gently
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 l_int|1
 )paren
@@ -1049,7 +1049,7 @@ c_func
 (paren
 id|refname
 comma
-id|sha1
+id|oid-&gt;hash
 )paren
 )paren
 r_return
@@ -1100,7 +1100,7 @@ suffix:semicolon
 id|show_tag_lines
 c_func
 (paren
-id|sha1
+id|oid
 comma
 id|filter-&gt;lines
 )paren

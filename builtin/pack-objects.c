@@ -2709,10 +2709,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -2740,7 +2740,7 @@ c_func
 op_amp
 id|to_pack
 comma
-id|sha1
+id|oid-&gt;hash
 comma
 l_int|NULL
 )paren
@@ -9592,10 +9592,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -9605,12 +9605,9 @@ op_star
 id|cb_data
 )paren
 (brace
-r_int
-r_char
+r_struct
+id|object_id
 id|peeled
-(braket
-l_int|20
-)braket
 suffix:semicolon
 r_if
 c_cond
@@ -9630,7 +9627,7 @@ c_func
 (paren
 id|path
 comma
-id|peeled
+id|peeled.hash
 )paren
 op_logical_and
 multiline_comment|/* peelable? */
@@ -9640,7 +9637,7 @@ c_func
 op_amp
 id|to_pack
 comma
-id|peeled
+id|peeled.hash
 comma
 l_int|NULL
 )paren
@@ -9649,7 +9646,7 @@ multiline_comment|/* object packed? */
 id|add_object_entry
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 id|OBJ_TAG
 comma

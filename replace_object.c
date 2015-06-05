@@ -241,10 +241,10 @@ op_star
 id|refname
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -341,7 +341,7 @@ c_func
 (paren
 id|repl_obj-&gt;replacement
 comma
-id|sha1
+id|oid-&gt;hash
 )paren
 suffix:semicolon
 multiline_comment|/* Register new object */

@@ -73,10 +73,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -94,7 +94,7 @@ op_assign
 id|parse_object_or_die
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 id|path
 )paren

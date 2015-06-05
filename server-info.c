@@ -236,10 +236,10 @@ op_star
 id|path
 comma
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 comma
 r_int
 id|flag
@@ -263,7 +263,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 )paren
 suffix:semicolon
 r_if
@@ -285,10 +285,10 @@ id|fp
 comma
 l_string|&quot;%s&t;%s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 comma
 id|path
