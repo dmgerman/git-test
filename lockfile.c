@@ -631,7 +631,7 @@ op_assign
 l_int|1
 suffix:semicolon
 r_int
-id|remaining_us
+id|remaining_ms
 op_assign
 l_int|0
 suffix:semicolon
@@ -691,29 +691,10 @@ id|timeout_ms
 OG
 l_int|0
 )paren
-(brace
-multiline_comment|/* avoid overflow */
-r_if
-c_cond
-(paren
-id|timeout_ms
-op_le
-id|LONG_MAX
-op_div
-l_int|1000
-)paren
-id|remaining_us
+id|remaining_ms
 op_assign
 id|timeout_ms
-op_star
-l_int|1000
 suffix:semicolon
-r_else
-id|remaining_us
-op_assign
-id|LONG_MAX
-suffix:semicolon
-)brace
 r_while
 c_loop
 (paren
@@ -723,7 +704,7 @@ l_int|1
 r_int
 id|backoff_ms
 comma
-id|wait_us
+id|wait_ms
 suffix:semicolon
 r_int
 id|fd
@@ -771,7 +752,7 @@ id|timeout_ms
 OG
 l_int|0
 op_logical_and
-id|remaining_us
+id|remaining_ms
 op_le
 l_int|0
 )paren
@@ -786,7 +767,7 @@ op_star
 id|INITIAL_BACKOFF_MS
 suffix:semicolon
 multiline_comment|/* back off for between 0.75*backoff_ms and 1.25*backoff_ms */
-id|wait_us
+id|wait_ms
 op_assign
 (paren
 l_int|750
@@ -800,16 +781,20 @@ l_int|500
 )paren
 op_star
 id|backoff_ms
+op_div
+l_int|1000
 suffix:semicolon
 id|sleep_microseconds
 c_func
 (paren
-id|wait_us
+id|wait_ms
+op_star
+l_int|1000
 )paren
 suffix:semicolon
-id|remaining_us
+id|remaining_ms
 op_sub_assign
-id|wait_us
+id|wait_ms
 suffix:semicolon
 multiline_comment|/* Recursion: (n+1)^2 = n^2 + 2n + 1 */
 id|multiplier
