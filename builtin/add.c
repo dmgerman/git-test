@@ -1054,6 +1054,9 @@ l_string|&quot;Could not write patch&quot;
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|launch_editor
 c_func
 (paren
@@ -1062,6 +1065,16 @@ comma
 l_int|NULL
 comma
 l_int|NULL
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;editing patch failed&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
