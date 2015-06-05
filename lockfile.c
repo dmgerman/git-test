@@ -666,7 +666,7 @@ op_logical_neg
 id|random_initialized
 )paren
 (brace
-id|srandom
+id|srand
 c_func
 (paren
 (paren
@@ -791,7 +791,7 @@ op_assign
 (paren
 l_int|750
 op_plus
-id|random
+id|rand
 c_func
 (paren
 )paren
