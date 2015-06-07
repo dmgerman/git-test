@@ -4586,6 +4586,16 @@ id|pos
 op_minus
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+id|option
+op_amp
+id|ADD_CACHE_KEEP_CACHE_TREE
+)paren
+)paren
 id|untracked_cache_add_to_index
 c_func
 (paren
