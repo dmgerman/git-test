@@ -503,7 +503,9 @@ r_sizeof
 id|ref
 )paren
 comma
-l_string|&quot;refs/replace/%s&quot;
+l_string|&quot;%s%s&quot;
+comma
+id|git_replace_ref_base
 comma
 id|full_hex
 )paren
@@ -516,7 +518,7 @@ op_plus
 id|strlen
 c_func
 (paren
-l_string|&quot;refs/replace/&quot;
+id|git_replace_ref_base
 )paren
 suffix:semicolon
 r_if
@@ -660,7 +662,9 @@ id|ref
 comma
 id|ref_size
 comma
-l_string|&quot;refs/replace/%s&quot;
+l_string|&quot;%s%s&quot;
+comma
+id|git_replace_ref_base
 comma
 id|sha1_to_hex
 c_func

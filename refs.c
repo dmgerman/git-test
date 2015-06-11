@@ -8329,11 +8329,15 @@ c_func
 op_amp
 id|ref_cache
 comma
-l_string|&quot;refs/replace/&quot;
+id|git_replace_ref_base
 comma
 id|fn
 comma
-l_int|13
+id|strlen
+c_func
+(paren
+id|git_replace_ref_base
+)paren
 comma
 l_int|0
 comma
