@@ -4842,14 +4842,14 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|c_plain
+id|c_context
 op_assign
 id|diff_get_color
 c_func
 (paren
 id|opt-&gt;use_color
 comma
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 )paren
 suffix:semicolon
 r_if
@@ -5248,7 +5248,7 @@ id|t_ends
 comma
 id|pair-&gt;two-&gt;data
 comma
-id|c_plain
+id|c_context
 comma
 id|c_reset
 )paren
@@ -5361,7 +5361,7 @@ id|t_ends
 comma
 id|pair-&gt;two-&gt;data
 comma
-id|c_plain
+id|c_context
 comma
 id|c_reset
 )paren

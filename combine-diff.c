@@ -3825,14 +3825,14 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|c_plain
+id|c_context
 op_assign
 id|diff_get_color
 c_func
 (paren
 id|use_color
 comma
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 )paren
 suffix:semicolon
 r_const
@@ -4209,7 +4209,7 @@ l_string|&quot;%s%s %s%s&quot;
 comma
 id|c_reset
 comma
-id|c_plain
+id|c_context
 comma
 id|c_reset
 comma
@@ -4412,7 +4412,7 @@ suffix:semicolon
 id|fputs
 c_func
 (paren
-id|c_plain
+id|c_context
 comma
 id|stdout
 )paren
