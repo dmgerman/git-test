@@ -8912,12 +8912,10 @@ id|lock
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* This function should make sure errno is meaningful on error */
+multiline_comment|/*&n; * Verify that the reference locked by lock has the value old_sha1.&n; * Fail if the reference doesn&squot;t exist and mustexist is set. Return 0&n; * on success. On error, write an error message to err, set errno, and&n; * return a negative value.&n; */
 DECL|function|verify_lock
 r_static
-r_struct
-id|ref_lock
-op_star
+r_int
 id|verify_lock
 c_func
 (paren
@@ -8934,8 +8932,18 @@ id|old_sha1
 comma
 r_int
 id|mustexist
+comma
+r_struct
+id|strbuf
+op_star
+id|err
 )paren
 (brace
+m_assert
+(paren
+id|err
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -8962,18 +8970,14 @@ id|save_errno
 op_assign
 id|errno
 suffix:semicolon
-id|error
+id|strbuf_addf
 c_func
 (paren
-l_string|&quot;Can&squot;t verify ref %s&quot;
+id|err
+comma
+l_string|&quot;can&squot;t verify ref %s&quot;
 comma
 id|lock-&gt;ref_name
-)paren
-suffix:semicolon
-id|unlock_ref
-c_func
-(paren
-id|lock
 )paren
 suffix:semicolon
 id|errno
@@ -8981,7 +8985,7 @@ op_assign
 id|save_errno
 suffix:semicolon
 r_return
-l_int|NULL
+l_int|1
 suffix:semicolon
 )brace
 r_if
@@ -8996,18 +9000,19 @@ id|old_sha1
 )paren
 )paren
 (brace
-id|error
+id|strbuf_addf
 c_func
 (paren
-l_string|&quot;Ref %s is at %s but expected %s&quot;
+id|err
+comma
+l_string|&quot;ref %s is at %s but expected %s&quot;
 comma
 id|lock-&gt;ref_name
 comma
-id|oid_to_hex
+id|sha1_to_hex
 c_func
 (paren
-op_amp
-id|lock-&gt;old_oid
+id|lock-&gt;old_oid.hash
 )paren
 comma
 id|sha1_to_hex
@@ -9017,22 +9022,16 @@ id|old_sha1
 )paren
 )paren
 suffix:semicolon
-id|unlock_ref
-c_func
-(paren
-id|lock
-)paren
-suffix:semicolon
 id|errno
 op_assign
 id|EBUSY
 suffix:semicolon
 r_return
-l_int|NULL
+l_int|1
 suffix:semicolon
 )brace
 r_return
-id|lock
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|remove_empty_directories
@@ -10160,10 +10159,11 @@ id|error_return
 suffix:semicolon
 )brace
 )brace
-r_return
-id|old_sha1
-ques
+r_if
 c_cond
+(paren
+id|old_sha1
+op_logical_and
 id|verify_lock
 c_func
 (paren
@@ -10172,8 +10172,20 @@ comma
 id|old_sha1
 comma
 id|mustexist
+comma
+id|err
 )paren
-suffix:colon
+)paren
+(brace
+id|last_errno
+op_assign
+id|errno
+suffix:semicolon
+r_goto
+id|error_return
+suffix:semicolon
+)brace
+r_return
 id|lock
 suffix:semicolon
 id|error_return
@@ -17375,7 +17387,7 @@ c_func
 (paren
 id|err
 comma
-l_string|&quot;Cannot lock ref &squot;%s&squot;: %s&quot;
+l_string|&quot;cannot lock ref &squot;%s&squot;: %s&quot;
 comma
 id|update-&gt;refname
 comma
@@ -17467,7 +17479,7 @@ c_func
 (paren
 id|err
 comma
-l_string|&quot;Cannot update the ref &squot;%s&squot;.&quot;
+l_string|&quot;cannot update the ref &squot;%s&squot;.&quot;
 comma
 id|update-&gt;refname
 )paren
