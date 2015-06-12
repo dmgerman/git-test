@@ -120,11 +120,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-(paren
-id|len
-op_ge
-l_int|4
-op_logical_and
 id|starts_with
 c_func
 (paren
@@ -132,13 +127,7 @@ id|buf
 comma
 l_string|&quot;PACK&quot;
 )paren
-)paren
 op_logical_or
-(paren
-id|len
-op_ge
-l_int|5
-op_logical_and
 id|starts_with
 c_func
 (paren
@@ -147,7 +136,6 @@ op_plus
 l_int|1
 comma
 l_string|&quot;PACK&quot;
-)paren
 )paren
 )paren
 (brace
