@@ -132,10 +132,8 @@ id|starts_with
 c_func
 (paren
 id|buf
-op_plus
-l_int|1
 comma
-l_string|&quot;PACK&quot;
+l_string|&quot;&bslash;1PACK&quot;
 )paren
 )paren
 (brace
