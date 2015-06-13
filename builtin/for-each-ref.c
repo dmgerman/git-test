@@ -77,15 +77,10 @@ l_int|1
 suffix:semicolon
 )brace
 suffix:semicolon
-DECL|struct|refinfo
+DECL|struct|ref_array_item
 r_struct
-id|refinfo
+id|ref_array_item
 (brace
-DECL|member|refname
-r_char
-op_star
-id|refname
-suffix:semicolon
 DECL|member|objectname
 r_int
 r_char
@@ -109,6 +104,11 @@ r_struct
 id|atom_value
 op_star
 id|value
+suffix:semicolon
+DECL|member|refname
+r_char
+op_star
+id|refname
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -290,7 +290,7 @@ l_string|&quot;color&quot;
 comma
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * An atom is a valid field atom listed above, possibly prefixed with&n; * a &quot;*&quot; to denote deref_tag().&n; *&n; * We parse given format string and sort specifiers, and make a list&n; * of properties that we need to extract out of objects.  refinfo&n; * structure will hold an array of values extracted that can be&n; * indexed with the &quot;atom number&quot;, which is an index into this&n; * array.&n; */
+multiline_comment|/*&n; * An atom is a valid field atom listed above, possibly prefixed with&n; * a &quot;*&quot; to denote deref_tag().&n; *&n; * We parse given format string and sort specifiers, and make a list&n; * of properties that we need to extract out of objects.  ref_array_item&n; * structure will hold an array of values extracted that can be&n; * indexed with the &quot;atom number&quot;, which is an index into this&n; * array.&n; */
 DECL|variable|used_atom
 r_static
 r_const
@@ -3580,7 +3580,7 @@ id|populate_value
 c_func
 (paren
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|ref
 )paren
@@ -4753,7 +4753,7 @@ id|get_value
 c_func
 (paren
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|ref
 comma
@@ -4803,7 +4803,7 @@ id|grab_ref_cbdata
 (brace
 DECL|member|grab_array
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 op_star
 id|grab_array
@@ -4949,13 +4949,13 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* Allocate space for a new refinfo and copy the objectname and flag to it */
-DECL|function|new_refinfo
+multiline_comment|/* Allocate space for a new ref_array_item and copy the objectname and flag to it */
+DECL|function|new_ref_array_item
 r_static
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
-id|new_refinfo
+id|new_ref_array_item
 c_func
 (paren
 r_const
@@ -4974,7 +4974,7 @@ id|flag
 )paren
 (brace
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|ref
 op_assign
@@ -4986,7 +4986,7 @@ comma
 r_sizeof
 (paren
 r_struct
-id|refinfo
+id|ref_array_item
 )paren
 )paren
 suffix:semicolon
@@ -5048,7 +5048,7 @@ op_assign
 id|cb_data
 suffix:semicolon
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|ref
 suffix:semicolon
@@ -5093,7 +5093,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * We do not open the object yet; sort may only need refname&n;&t; * to do its job and the resulting list may yet to be pruned&n;&t; * by maxcount logic.&n;&t; */
 id|ref
 op_assign
-id|new_refinfo
+id|new_ref_array_item
 c_func
 (paren
 id|refname
@@ -5137,12 +5137,12 @@ op_star
 id|s
 comma
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|a
 comma
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|b
 )paren
@@ -5280,7 +5280,7 @@ id|b_
 )paren
 (brace
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|a
 op_assign
@@ -5288,7 +5288,7 @@ op_star
 (paren
 (paren
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 op_star
 )paren
@@ -5296,7 +5296,7 @@ id|a_
 )paren
 suffix:semicolon
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|b
 op_assign
@@ -5304,7 +5304,7 @@ op_star
 (paren
 (paren
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 op_star
 )paren
@@ -5368,7 +5368,7 @@ op_star
 id|sort
 comma
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 op_star
 id|refs
@@ -5391,7 +5391,7 @@ comma
 r_sizeof
 (paren
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 )paren
 comma
@@ -5749,7 +5749,7 @@ id|show_ref
 c_func
 (paren
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 id|info
 comma
@@ -6191,7 +6191,7 @@ op_assign
 l_int|0
 suffix:semicolon
 r_struct
-id|refinfo
+id|ref_array_item
 op_star
 op_star
 id|refs
