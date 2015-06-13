@@ -371,10 +371,9 @@ r_int
 id|need_color_reset_at_eol
 suffix:semicolon
 multiline_comment|/*&n; * Used to parse format string and sort specifiers&n; */
-DECL|function|parse_atom
-r_static
+DECL|function|parse_ref_filter_atom
 r_int
-id|parse_atom
+id|parse_ref_filter_atom
 c_func
 (paren
 r_const
@@ -769,10 +768,9 @@ l_int|NULL
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Make sure the format string is well formed, and parse out&n; * the used atoms.&n; */
-DECL|function|verify_format
-r_static
+DECL|function|verify_ref_format
 r_int
-id|verify_format
+id|verify_ref_format
 c_func
 (paren
 r_const
@@ -852,7 +850,7 @@ suffix:semicolon
 multiline_comment|/* sp points at &quot;%(&quot; and ep points at the closing &quot;)&quot; */
 id|at
 op_assign
-id|parse_atom
+id|parse_ref_filter_atom
 c_func
 (paren
 id|sp
@@ -2168,7 +2166,7 @@ r_char
 op_star
 id|formatp
 suffix:semicolon
-multiline_comment|/*&n;&t; * We got here because atomname ends in &quot;date&quot; or &quot;date&lt;something&gt;&quot;;&n;&t; * it&squot;s not possible that &lt;something&gt; is not &quot;:&lt;format&gt;&quot; because&n;&t; * parse_atom() wouldn&squot;t have allowed it, so we can assume that no&n;&t; * &quot;:&quot; means no format is specified, and use the default.&n;&t; */
+multiline_comment|/*&n;&t; * We got here because atomname ends in &quot;date&quot; or &quot;date&lt;something&gt;&quot;;&n;&t; * it&squot;s not possible that &lt;something&gt; is not &quot;:&lt;format&gt;&quot; because&n;&t; * parse_ref_filter_atom() wouldn&squot;t have allowed it, so we can assume that no&n;&t; * &quot;:&quot; means no format is specified, and use the default.&n;&t; */
 id|formatp
 op_assign
 id|strchr
@@ -4795,10 +4793,10 @@ id|buf
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Given a ref, return the value for the atom.  This lazily gets value&n; * out of the object by calling populate value.&n; */
-DECL|function|get_value
+DECL|function|get_ref_atom_value
 r_static
 r_void
-id|get_value
+id|get_ref_atom_value
 c_func
 (paren
 r_struct
@@ -5040,10 +5038,9 @@ id|ref
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * A call-back given to for_each_ref().  Filter refs and keep them for&n; * later object processing.&n; */
-DECL|function|grab_single_ref
-r_static
+DECL|function|ref_filter_handler
 r_int
-id|grab_single_ref
+id|ref_filter_handler
 c_func
 (paren
 r_const
@@ -5249,14 +5246,14 @@ op_assign
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|cmp_ref_sort
+DECL|function|cmp_ref_sorting
 r_static
 r_int
-id|cmp_ref_sort
+id|cmp_ref_sorting
 c_func
 (paren
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
 id|s
 comma
@@ -5290,7 +5287,7 @@ id|used_atom_type
 id|s-&gt;atom
 )braket
 suffix:semicolon
-id|get_value
+id|get_ref_atom_value
 c_func
 (paren
 id|a
@@ -5301,7 +5298,7 @@ op_amp
 id|va
 )paren
 suffix:semicolon
-id|get_value
+id|get_ref_atom_value
 c_func
 (paren
 id|b
@@ -5379,12 +5376,12 @@ suffix:colon
 id|cmp
 suffix:semicolon
 )brace
-DECL|variable|ref_sort
+DECL|variable|ref_sorting
 r_static
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
-id|ref_sort
+id|ref_sorting
 suffix:semicolon
 DECL|function|compare_refs
 r_static
@@ -5436,7 +5433,7 @@ id|b_
 )paren
 suffix:semicolon
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
 id|s
 suffix:semicolon
@@ -5445,7 +5442,7 @@ c_loop
 (paren
 id|s
 op_assign
-id|ref_sort
+id|ref_sorting
 suffix:semicolon
 id|s
 suffix:semicolon
@@ -5457,7 +5454,7 @@ id|s-&gt;next
 r_int
 id|cmp
 op_assign
-id|cmp_ref_sort
+id|cmp_ref_sorting
 c_func
 (paren
 id|s
@@ -5480,14 +5477,13 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|sort_refs
-r_static
+DECL|function|ref_array_sort
 r_void
-id|sort_refs
+id|ref_array_sort
 c_func
 (paren
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
 id|sort
 comma
@@ -5497,7 +5493,7 @@ op_star
 id|array
 )paren
 (brace
-id|ref_sort
+id|ref_sorting
 op_assign
 id|sort
 suffix:semicolon
@@ -5862,10 +5858,9 @@ op_increment
 suffix:semicolon
 )brace
 )brace
-DECL|function|show_ref
-r_static
+DECL|function|show_ref_array_item
 r_void
-id|show_ref
+id|show_ref_array_item
 c_func
 (paren
 r_struct
@@ -5950,12 +5945,12 @@ comma
 id|sp
 )paren
 suffix:semicolon
-id|get_value
+id|get_ref_atom_value
 c_func
 (paren
 id|info
 comma
-id|parse_atom
+id|parse_ref_filter_atom
 c_func
 (paren
 id|sp
@@ -6062,12 +6057,12 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
-DECL|function|default_sort
-r_static
+multiline_comment|/*  If no sorting option is given, use refname to sort as default */
+DECL|function|ref_default_sorting
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
-id|default_sort
+id|ref_default_sorting
 c_func
 (paren
 r_void
@@ -6083,7 +6078,7 @@ op_assign
 l_string|&quot;refname&quot;
 suffix:semicolon
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
 id|sort
 op_assign
@@ -6105,7 +6100,7 @@ l_int|NULL
 suffix:semicolon
 id|sort-&gt;atom
 op_assign
-id|parse_atom
+id|parse_ref_filter_atom
 c_func
 (paren
 id|cstr_name
@@ -6123,10 +6118,9 @@ r_return
 id|sort
 suffix:semicolon
 )brace
-DECL|function|opt_parse_sort
-r_static
+DECL|function|parse_opt_ref_sorting
 r_int
-id|opt_parse_sort
+id|parse_opt_ref_sorting
 c_func
 (paren
 r_const
@@ -6145,7 +6139,7 @@ id|unset
 )paren
 (brace
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
 op_star
 id|sort_tail
@@ -6153,7 +6147,7 @@ op_assign
 id|opt-&gt;value
 suffix:semicolon
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
 id|s
 suffix:semicolon
@@ -6221,7 +6215,7 @@ id|arg
 suffix:semicolon
 id|s-&gt;atom
 op_assign
-id|parse_atom
+id|parse_ref_filter_atom
 c_func
 (paren
 id|arg
@@ -6286,7 +6280,7 @@ op_assign
 l_string|&quot;%(objectname) %(objecttype)&bslash;t%(refname)&quot;
 suffix:semicolon
 r_struct
-id|ref_sort
+id|ref_sorting
 op_star
 id|sort
 op_assign
@@ -6463,7 +6457,7 @@ l_string|&quot;field name to sort on&quot;
 )paren
 comma
 op_amp
-id|opt_parse_sort
+id|parse_opt_ref_sorting
 )paren
 comma
 id|OPT_END
@@ -6542,7 +6536,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|verify_format
+id|verify_ref_format
 c_func
 (paren
 id|format
@@ -6564,7 +6558,7 @@ id|sort
 )paren
 id|sort
 op_assign
-id|default_sort
+id|ref_default_sorting
 c_func
 (paren
 )paren
@@ -6599,13 +6593,13 @@ suffix:semicolon
 id|for_each_rawref
 c_func
 (paren
-id|grab_single_ref
+id|ref_filter_handler
 comma
 op_amp
 id|ref_cbdata
 )paren
 suffix:semicolon
-id|sort_refs
+id|ref_array_sort
 c_func
 (paren
 id|sort
@@ -6642,7 +6636,7 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-id|show_ref
+id|show_ref_array_item
 c_func
 (paren
 id|ref_cbdata.array.items
