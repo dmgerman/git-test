@@ -2864,6 +2864,16 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;pull&quot;
+comma
+id|cmd_pull
+comma
+id|RUN_SETUP
+op_or
+id|NEED_WORK_TREE
+)brace
+comma
+(brace
 l_string|&quot;push&quot;
 comma
 id|cmd_push
