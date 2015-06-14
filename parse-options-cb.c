@@ -4,6 +4,7 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;string-list.h&quot;
+macro_line|#include &quot;argv-array.h&quot;
 multiline_comment|/*----- some often used options -----*/
 DECL|function|parse_opt_abbrev_cb
 r_int
@@ -917,6 +918,74 @@ op_amp
 id|sb
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
+multiline_comment|/**&n; * For an option opt, recreate the command-line option, appending it to&n; * opt-&gt;value which must be a argv_array. This is useful when we need to pass&n; * the command-line option, which can be specified multiple times, to another&n; * command.&n; */
+DECL|function|parse_opt_passthru_argv
+r_int
+id|parse_opt_passthru_argv
+c_func
+(paren
+r_const
+r_struct
+id|option
+op_star
+id|opt
+comma
+r_const
+r_char
+op_star
+id|arg
+comma
+r_int
+id|unset
+)paren
+(brace
+r_static
+r_struct
+id|strbuf
+id|sb
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|argv_array
+op_star
+id|opt_value
+op_assign
+id|opt-&gt;value
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|recreate_opt
+c_func
+(paren
+op_amp
+id|sb
+comma
+id|opt
+comma
+id|arg
+comma
+id|unset
+)paren
+OL
+l_int|0
+)paren
+r_return
+l_int|1
+suffix:semicolon
+id|argv_array_push
+c_func
+(paren
+id|opt_value
+comma
+id|sb.buf
 )paren
 suffix:semicolon
 r_return
