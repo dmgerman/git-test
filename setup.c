@@ -1856,6 +1856,15 @@ op_star
 id|return_error_code
 )paren
 (brace
+r_const
+r_int
+id|max_file_size
+op_assign
+l_int|1
+op_lshift
+l_int|20
+suffix:semicolon
+multiline_comment|/* 1MB */
 r_int
 id|error_code
 op_assign
@@ -1923,6 +1932,22 @@ id|st.st_mode
 id|error_code
 op_assign
 id|READ_GITFILE_ERR_NOT_A_FILE
+suffix:semicolon
+r_goto
+id|cleanup_return
+suffix:semicolon
+)brace
+r_if
+c_cond
+(paren
+id|st.st_size
+OG
+id|max_file_size
+)paren
+(brace
+id|error_code
+op_assign
+id|READ_GITFILE_ERR_TOO_LARGE
 suffix:semicolon
 r_goto
 id|cleanup_return
@@ -2258,6 +2283,17 @@ id|die_errno
 c_func
 (paren
 l_string|&quot;Error opening &squot;%s&squot;&quot;
+comma
+id|path
+)paren
+suffix:semicolon
+r_case
+id|READ_GITFILE_ERR_TOO_LARGE
+suffix:colon
+id|die
+c_func
+(paren
+l_string|&quot;Too large to be a .git file: &squot;%s&squot;&quot;
 comma
 id|path
 )paren
