@@ -20,6 +20,7 @@ macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;line-range.h&quot;
 macro_line|#include &quot;line-log.h&quot;
+macro_line|#include &quot;dir.h&quot;
 DECL|variable|blame_usage
 r_static
 r_char
@@ -9480,35 +9481,6 @@ id|baa
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n; * Used for the command line parsing; check if the path exists&n; * in the working tree.&n; */
-DECL|function|has_string_in_work_tree
-r_static
-r_int
-id|has_string_in_work_tree
-c_func
-(paren
-r_const
-r_char
-op_star
-id|path
-)paren
-(brace
-r_struct
-id|stat
-id|st
-suffix:semicolon
-r_return
-op_logical_neg
-id|lstat
-c_func
-(paren
-id|path
-comma
-op_amp
-id|st
-)paren
-suffix:semicolon
-)brace
 DECL|function|parse_score
 r_static
 r_int
@@ -12332,7 +12304,7 @@ op_eq
 l_int|3
 op_logical_and
 op_logical_neg
-id|has_string_in_work_tree
+id|file_exists
 c_func
 (paren
 id|path
@@ -12381,7 +12353,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_string_in_work_tree
+id|file_exists
 c_func
 (paren
 id|path
