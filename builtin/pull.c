@@ -6,6 +6,7 @@ macro_line|#include &quot;exec_cmd.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
 macro_line|#include &quot;remote.h&quot;
+macro_line|#include &quot;dir.h&quot;
 DECL|variable|pull_usage
 r_static
 r_const
@@ -2211,6 +2212,46 @@ id|config_get_ff
 c_func
 (paren
 )paren
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_default_config
+comma
+l_int|NULL
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|read_cache_unmerged
+c_func
+(paren
+)paren
+)paren
+id|die_resolve_conflict
+c_func
+(paren
+l_string|&quot;Pull&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|file_exists
+c_func
+(paren
+id|git_path
+c_func
+(paren
+l_string|&quot;MERGE_HEAD&quot;
+)paren
+)paren
+)paren
+id|die_conclude_merge
+c_func
+(paren
 )paren
 suffix:semicolon
 r_if
