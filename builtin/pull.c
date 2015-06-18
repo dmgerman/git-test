@@ -7,6 +7,7 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
 macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;dir.h&quot;
+macro_line|#include &quot;refs.h&quot;
 DECL|variable|pull_usage
 r_static
 r_const
@@ -1863,6 +1864,69 @@ r_return
 id|ret
 suffix:semicolon
 )brace
+multiline_comment|/**&n; * &quot;Pulls into void&quot; by branching off merge_head.&n; */
+DECL|function|pull_into_void
+r_static
+r_int
+id|pull_into_void
+c_func
+(paren
+r_const
+r_int
+r_char
+op_star
+id|merge_head
+comma
+r_const
+r_int
+r_char
+op_star
+id|curr_head
+)paren
+(brace
+multiline_comment|/*&n;&t; * Two-way merge: we treat the index as based on an empty tree,&n;&t; * and try to fast-forward to HEAD. This ensures we will not lose&n;&t; * index/worktree changes that the user already made on the unborn&n;&t; * branch.&n;&t; */
+r_if
+c_cond
+(paren
+id|checkout_fast_forward
+c_func
+(paren
+id|EMPTY_TREE_SHA1_BIN
+comma
+id|merge_head
+comma
+l_int|0
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|update_ref
+c_func
+(paren
+l_string|&quot;initial pull&quot;
+comma
+l_string|&quot;HEAD&quot;
+comma
+id|merge_head
+comma
+id|curr_head
+comma
+l_int|0
+comma
+id|UPDATE_REFS_DIE_ON_ERR
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
+r_return
+l_int|0
+suffix:semicolon
+)brace
 multiline_comment|/**&n; * Runs git-merge, returning its exit status.&n; */
 DECL|function|run_merge
 r_static
@@ -2423,6 +2487,45 @@ comma
 id|refspecs
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_null_sha1
+c_func
+(paren
+id|orig_head
+)paren
+)paren
+(brace
+r_if
+c_cond
+(paren
+id|merge_heads.nr
+OG
+l_int|1
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;Cannot merge multiple branches into empty head.&quot;
+)paren
+)paren
+suffix:semicolon
+r_return
+id|pull_into_void
+c_func
+(paren
+op_star
+id|merge_heads.sha1
+comma
+id|curr_head
+)paren
+suffix:semicolon
+)brace
+r_else
 r_return
 id|run_merge
 c_func
