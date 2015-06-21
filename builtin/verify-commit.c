@@ -48,7 +48,7 @@ r_int
 id|size
 comma
 r_int
-id|verbose
+id|flags
 )paren
 (brace
 r_struct
@@ -93,12 +93,7 @@ c_func
 op_amp
 id|signature_check
 comma
-id|verbose
-ques
-c_cond
-id|GPG_VERIFY_VERBOSE
-suffix:colon
-l_int|0
+id|flags
 )paren
 suffix:semicolon
 id|signature_check_clear
@@ -124,7 +119,7 @@ op_star
 id|name
 comma
 r_int
-id|verbose
+id|flags
 )paren
 (brace
 r_enum
@@ -230,7 +225,7 @@ id|buf
 comma
 id|size
 comma
-id|verbose
+id|flags
 )paren
 suffix:semicolon
 id|free
@@ -330,6 +325,11 @@ id|had_error
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|flags
+op_assign
+l_int|0
+suffix:semicolon
 r_const
 r_struct
 id|option
@@ -349,6 +349,25 @@ c_func
 (paren
 l_string|&quot;print commit contents&quot;
 )paren
+)paren
+comma
+id|OPT_BIT
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;raw&quot;
+comma
+op_amp
+id|flags
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print raw gpg status output&quot;
+)paren
+comma
+id|GPG_VERIFY_RAW
 )paren
 comma
 id|OPT_END
@@ -398,6 +417,15 @@ comma
 id|verify_commit_options
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|verbose
+)paren
+id|flags
+op_or_assign
+id|GPG_VERIFY_VERBOSE
+suffix:semicolon
 multiline_comment|/* sometimes the program was terminated because this signal&n;&t; * was received in the process of writing the gpg input: */
 id|signal
 c_func
@@ -426,7 +454,7 @@ id|i
 op_increment
 )braket
 comma
-id|verbose
+id|flags
 )paren
 )paren
 id|had_error
