@@ -659,7 +659,7 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;integer: %u&bslash;n&quot;
+l_string|&quot;integer: %d&bslash;n&quot;
 comma
 id|integer
 )paren
