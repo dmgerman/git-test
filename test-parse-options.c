@@ -15,6 +15,14 @@ id|integer
 op_assign
 l_int|0
 suffix:semicolon
+DECL|variable|magnitude
+r_static
+r_int
+r_int
+id|magnitude
+op_assign
+l_int|0
+suffix:semicolon
 DECL|variable|timestamp
 r_static
 r_int
@@ -343,6 +351,19 @@ comma
 l_string|&quot;get a integer, too&quot;
 )paren
 comma
+id|OPT_MAGNITUDE
+c_func
+(paren
+l_char|&squot;m&squot;
+comma
+l_string|&quot;magnitude&quot;
+comma
+op_amp
+id|magnitude
+comma
+l_string|&quot;get a magnitude&quot;
+)paren
+comma
 id|OPT_SET_INT
 c_func
 (paren
@@ -662,6 +683,14 @@ c_func
 l_string|&quot;integer: %d&bslash;n&quot;
 comma
 id|integer
+)paren
+suffix:semicolon
+id|printf
+c_func
+(paren
+l_string|&quot;magnitude: %lu&bslash;n&quot;
+comma
+id|magnitude
 )paren
 suffix:semicolon
 id|printf
