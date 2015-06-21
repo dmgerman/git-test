@@ -55,6 +55,9 @@ r_struct
 id|signature_check
 id|signature_check
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -69,6 +72,8 @@ id|signature_check
 )paren
 )paren
 suffix:semicolon
+id|ret
+op_assign
 id|check_commit_signature
 c_func
 (paren
@@ -118,9 +123,7 @@ id|signature_check
 )paren
 suffix:semicolon
 r_return
-id|signature_check.result
-op_ne
-l_char|&squot;G&squot;
+id|ret
 suffix:semicolon
 )brace
 DECL|function|verify_commit

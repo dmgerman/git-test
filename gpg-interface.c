@@ -296,7 +296,7 @@ suffix:semicolon
 )brace
 )brace
 DECL|function|check_signature
-r_void
+r_int
 id|check_signature
 c_func
 (paren
@@ -425,6 +425,15 @@ c_func
 op_amp
 id|gpg_output
 )paren
+suffix:semicolon
+r_return
+id|sigc-&gt;result
+op_ne
+l_char|&squot;G&squot;
+op_logical_and
+id|sigc-&gt;result
+op_ne
+l_char|&squot;U&squot;
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Look at GPG signed content (e.g. a signed tag object), whose&n; * payload is followed by a detached signature on it.  Return the&n; * offset where the embedded detached signature begins, or the end of&n; * the data when there is no such signature.&n; */

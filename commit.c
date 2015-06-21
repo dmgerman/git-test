@@ -6567,7 +6567,7 @@ id|buf
 suffix:semicolon
 )brace
 DECL|function|check_commit_signature
-r_void
+r_int
 id|check_commit_signature
 c_func
 (paren
@@ -6595,6 +6595,11 @@ id|signature
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_int
+id|ret
+op_assign
+l_int|1
+suffix:semicolon
 id|sigc-&gt;result
 op_assign
 l_char|&squot;N&squot;
@@ -6619,6 +6624,8 @@ l_int|0
 r_goto
 id|out
 suffix:semicolon
+id|ret
+op_assign
 id|check_signature
 c_func
 (paren
@@ -6648,6 +6655,9 @@ c_func
 op_amp
 id|signature
 )paren
+suffix:semicolon
+r_return
+id|ret
 suffix:semicolon
 )brace
 DECL|function|append_merge_tag_headers

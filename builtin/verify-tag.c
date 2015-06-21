@@ -52,6 +52,9 @@ suffix:semicolon
 r_int
 id|len
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 id|memset
 c_func
 (paren
@@ -105,6 +108,8 @@ c_func
 l_string|&quot;no signature found&quot;
 )paren
 suffix:semicolon
+id|ret
+op_assign
 id|check_signature
 c_func
 (paren
@@ -139,13 +144,7 @@ id|sigc
 )paren
 suffix:semicolon
 r_return
-id|sigc.result
-op_ne
-l_char|&squot;G&squot;
-op_logical_and
-id|sigc.result
-op_ne
-l_char|&squot;U&squot;
+id|ret
 suffix:semicolon
 )brace
 DECL|function|verify_tag
