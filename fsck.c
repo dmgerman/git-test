@@ -3461,6 +3461,11 @@ comma
 l_string|&quot;invalid &squot;object&squot; line format - bad sha1&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+)paren
 r_goto
 id|done
 suffix:semicolon
