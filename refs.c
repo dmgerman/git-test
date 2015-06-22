@@ -4678,7 +4678,9 @@ id|refs
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Add a reference to the in-memory packed reference cache.  This may&n; * only be called while the packed-refs file is locked (see&n; * lock_packed_refs()).  To actually write the packed-refs file, call&n; * commit_packed_refs().&n; */
 DECL|function|add_packed_ref
+r_static
 r_void
 id|add_packed_ref
 c_func
@@ -10337,8 +10339,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/* This should return a meaningful errno on failure */
+multiline_comment|/*&n; * Lock the packed-refs file for writing. Flags is passed to&n; * hold_lock_file_for_update(). Return 0 on success. On errors, set&n; * errno appropriately and return a nonzero value.&n; */
 DECL|function|lock_packed_refs
+r_static
 r_int
 id|lock_packed_refs
 c_func
@@ -10436,8 +10439,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Commit the packed refs changes.&n; * On error we must make sure that errno contains a meaningful value.&n; */
+multiline_comment|/*&n; * Write the current version of the packed refs cache from memory to&n; * disk. The packed-refs file must already be locked for writing (see&n; * lock_packed_refs()). Return zero on success. On errors, set errno&n; * and return a nonzero value&n; */
 DECL|function|commit_packed_refs
+r_static
 r_int
 id|commit_packed_refs
 c_func
@@ -10568,7 +10572,9 @@ r_return
 id|error
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Rollback the lockfile for the packed-refs file, and discard the&n; * in-memory packed reference cache.  (The packed-refs file will be&n; * read anew if it is needed again after this function is called.)&n; */
 DECL|function|rollback_packed_refs
+r_static
 r_void
 id|rollback_packed_refs
 c_func
