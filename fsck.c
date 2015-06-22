@@ -10,8 +10,10 @@ macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 DECL|macro|FSCK_FATAL
 mdefine_line|#define FSCK_FATAL -1
+DECL|macro|FSCK_INFO
+mdefine_line|#define FSCK_INFO -2
 DECL|macro|FOREACH_MSG_ID
-mdefine_line|#define FOREACH_MSG_ID(FUNC) &bslash;&n;&t;/* fatal errors */ &bslash;&n;&t;FUNC(NUL_IN_HEADER, FATAL) &bslash;&n;&t;FUNC(UNTERMINATED_HEADER, FATAL) &bslash;&n;&t;/* errors */ &bslash;&n;&t;FUNC(BAD_DATE, ERROR) &bslash;&n;&t;FUNC(BAD_DATE_OVERFLOW, ERROR) &bslash;&n;&t;FUNC(BAD_EMAIL, ERROR) &bslash;&n;&t;FUNC(BAD_NAME, ERROR) &bslash;&n;&t;FUNC(BAD_OBJECT_SHA1, ERROR) &bslash;&n;&t;FUNC(BAD_PARENT_SHA1, ERROR) &bslash;&n;&t;FUNC(BAD_TAG_OBJECT, ERROR) &bslash;&n;&t;FUNC(BAD_TIMEZONE, ERROR) &bslash;&n;&t;FUNC(BAD_TREE, ERROR) &bslash;&n;&t;FUNC(BAD_TREE_SHA1, ERROR) &bslash;&n;&t;FUNC(BAD_TYPE, ERROR) &bslash;&n;&t;FUNC(DUPLICATE_ENTRIES, ERROR) &bslash;&n;&t;FUNC(MISSING_AUTHOR, ERROR) &bslash;&n;&t;FUNC(MISSING_COMMITTER, ERROR) &bslash;&n;&t;FUNC(MISSING_EMAIL, ERROR) &bslash;&n;&t;FUNC(MISSING_GRAFT, ERROR) &bslash;&n;&t;FUNC(MISSING_NAME_BEFORE_EMAIL, ERROR) &bslash;&n;&t;FUNC(MISSING_OBJECT, ERROR) &bslash;&n;&t;FUNC(MISSING_PARENT, ERROR) &bslash;&n;&t;FUNC(MISSING_SPACE_BEFORE_DATE, ERROR) &bslash;&n;&t;FUNC(MISSING_SPACE_BEFORE_EMAIL, ERROR) &bslash;&n;&t;FUNC(MISSING_TAG, ERROR) &bslash;&n;&t;FUNC(MISSING_TAG_ENTRY, ERROR) &bslash;&n;&t;FUNC(MISSING_TAG_OBJECT, ERROR) &bslash;&n;&t;FUNC(MISSING_TREE, ERROR) &bslash;&n;&t;FUNC(MISSING_TYPE, ERROR) &bslash;&n;&t;FUNC(MISSING_TYPE_ENTRY, ERROR) &bslash;&n;&t;FUNC(MULTIPLE_AUTHORS, ERROR) &bslash;&n;&t;FUNC(TAG_OBJECT_NOT_TAG, ERROR) &bslash;&n;&t;FUNC(TREE_NOT_SORTED, ERROR) &bslash;&n;&t;FUNC(UNKNOWN_TYPE, ERROR) &bslash;&n;&t;FUNC(ZERO_PADDED_DATE, ERROR) &bslash;&n;&t;/* warnings */ &bslash;&n;&t;FUNC(BAD_FILEMODE, WARN) &bslash;&n;&t;FUNC(BAD_TAG_NAME, WARN) &bslash;&n;&t;FUNC(EMPTY_NAME, WARN) &bslash;&n;&t;FUNC(FULL_PATHNAME, WARN) &bslash;&n;&t;FUNC(HAS_DOT, WARN) &bslash;&n;&t;FUNC(HAS_DOTDOT, WARN) &bslash;&n;&t;FUNC(HAS_DOTGIT, WARN) &bslash;&n;&t;FUNC(MISSING_TAGGER_ENTRY, WARN) &bslash;&n;&t;FUNC(NULL_SHA1, WARN) &bslash;&n;&t;FUNC(ZERO_PADDED_FILEMODE, WARN)
+mdefine_line|#define FOREACH_MSG_ID(FUNC) &bslash;&n;&t;/* fatal errors */ &bslash;&n;&t;FUNC(NUL_IN_HEADER, FATAL) &bslash;&n;&t;FUNC(UNTERMINATED_HEADER, FATAL) &bslash;&n;&t;/* errors */ &bslash;&n;&t;FUNC(BAD_DATE, ERROR) &bslash;&n;&t;FUNC(BAD_DATE_OVERFLOW, ERROR) &bslash;&n;&t;FUNC(BAD_EMAIL, ERROR) &bslash;&n;&t;FUNC(BAD_NAME, ERROR) &bslash;&n;&t;FUNC(BAD_OBJECT_SHA1, ERROR) &bslash;&n;&t;FUNC(BAD_PARENT_SHA1, ERROR) &bslash;&n;&t;FUNC(BAD_TAG_OBJECT, ERROR) &bslash;&n;&t;FUNC(BAD_TIMEZONE, ERROR) &bslash;&n;&t;FUNC(BAD_TREE, ERROR) &bslash;&n;&t;FUNC(BAD_TREE_SHA1, ERROR) &bslash;&n;&t;FUNC(BAD_TYPE, ERROR) &bslash;&n;&t;FUNC(DUPLICATE_ENTRIES, ERROR) &bslash;&n;&t;FUNC(MISSING_AUTHOR, ERROR) &bslash;&n;&t;FUNC(MISSING_COMMITTER, ERROR) &bslash;&n;&t;FUNC(MISSING_EMAIL, ERROR) &bslash;&n;&t;FUNC(MISSING_GRAFT, ERROR) &bslash;&n;&t;FUNC(MISSING_NAME_BEFORE_EMAIL, ERROR) &bslash;&n;&t;FUNC(MISSING_OBJECT, ERROR) &bslash;&n;&t;FUNC(MISSING_PARENT, ERROR) &bslash;&n;&t;FUNC(MISSING_SPACE_BEFORE_DATE, ERROR) &bslash;&n;&t;FUNC(MISSING_SPACE_BEFORE_EMAIL, ERROR) &bslash;&n;&t;FUNC(MISSING_TAG, ERROR) &bslash;&n;&t;FUNC(MISSING_TAG_ENTRY, ERROR) &bslash;&n;&t;FUNC(MISSING_TAG_OBJECT, ERROR) &bslash;&n;&t;FUNC(MISSING_TREE, ERROR) &bslash;&n;&t;FUNC(MISSING_TYPE, ERROR) &bslash;&n;&t;FUNC(MISSING_TYPE_ENTRY, ERROR) &bslash;&n;&t;FUNC(MULTIPLE_AUTHORS, ERROR) &bslash;&n;&t;FUNC(TAG_OBJECT_NOT_TAG, ERROR) &bslash;&n;&t;FUNC(TREE_NOT_SORTED, ERROR) &bslash;&n;&t;FUNC(UNKNOWN_TYPE, ERROR) &bslash;&n;&t;FUNC(ZERO_PADDED_DATE, ERROR) &bslash;&n;&t;/* warnings */ &bslash;&n;&t;FUNC(BAD_FILEMODE, WARN) &bslash;&n;&t;FUNC(EMPTY_NAME, WARN) &bslash;&n;&t;FUNC(FULL_PATHNAME, WARN) &bslash;&n;&t;FUNC(HAS_DOT, WARN) &bslash;&n;&t;FUNC(HAS_DOTDOT, WARN) &bslash;&n;&t;FUNC(HAS_DOTGIT, WARN) &bslash;&n;&t;FUNC(NULL_SHA1, WARN) &bslash;&n;&t;FUNC(ZERO_PADDED_FILEMODE, WARN) &bslash;&n;&t;/* infos (reported as warnings, but ignored by default) */ &bslash;&n;&t;FUNC(BAD_TAG_NAME, INFO) &bslash;&n;&t;FUNC(MISSING_TAGGER_ENTRY, INFO)
 DECL|macro|MSG_ID
 mdefine_line|#define MSG_ID(id, msg_type) FSCK_MSG_##id,
 DECL|enum|fsck_msg_id
@@ -919,6 +921,18 @@ id|FSCK_FATAL
 id|msg_type
 op_assign
 id|FSCK_ERROR
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|msg_type
+op_eq
+id|FSCK_INFO
+)paren
+id|msg_type
+op_assign
+id|FSCK_WARN
 suffix:semicolon
 id|append_msg_id
 c_func
@@ -3756,6 +3770,9 @@ comma
 l_int|0
 )paren
 )paren
+(brace
+id|ret
+op_assign
 id|report
 c_func
 (paren
@@ -3779,6 +3796,15 @@ comma
 id|buffer
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+)paren
+r_goto
+id|done
+suffix:semicolon
+)brace
 id|buffer
 op_assign
 id|eol
@@ -3800,7 +3826,10 @@ op_amp
 id|buffer
 )paren
 )paren
+(brace
 multiline_comment|/* early tags do not contain &squot;tagger&squot; lines; warn only */
+id|ret
+op_assign
 id|report
 c_func
 (paren
@@ -3814,6 +3843,15 @@ comma
 l_string|&quot;invalid format - expected &squot;tagger&squot; line&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
+)paren
+r_goto
+id|done
+suffix:semicolon
+)brace
 r_else
 id|ret
 op_assign
