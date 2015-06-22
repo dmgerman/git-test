@@ -11331,7 +11331,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Rewrite the packed-refs file, omitting any refs listed in&n; * &squot;refnames&squot;. On error, leave packed-refs unchanged, write an error&n; * message to &squot;err&squot;, and return a nonzero value.&n; *&n; * The refs in &squot;refnames&squot; needn&squot;t be sorted. `err` must not be NULL.&n; */
 DECL|function|repack_without_refs
+r_static
 r_int
 id|repack_without_refs
 c_func
