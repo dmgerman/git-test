@@ -6583,7 +6583,7 @@ c_func
 r_const
 r_char
 op_star
-id|ref
+id|refname
 comma
 r_int
 id|resolve_flags
@@ -6605,7 +6605,7 @@ c_func
 id|resolve_ref_unsafe
 c_func
 (paren
-id|ref
+id|refname
 comma
 id|resolve_flags
 comma

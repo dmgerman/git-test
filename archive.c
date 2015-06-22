@@ -1,4 +1,5 @@
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;tree-walk.h&quot;
 macro_line|#include &quot;attr.h&quot;

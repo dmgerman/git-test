@@ -1,6 +1,7 @@
 multiline_comment|/*&n; * &quot;git fast-export&quot; builtin command&n; *&n; * Copyright (C) 2007 Johannes E. Schindelin&n; */
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tag.h&quot;
