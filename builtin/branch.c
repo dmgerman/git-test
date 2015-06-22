@@ -699,6 +699,7 @@ r_char
 op_star
 id|refname
 comma
+r_const
 r_int
 r_char
 op_star
