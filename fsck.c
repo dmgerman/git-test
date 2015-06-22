@@ -19,12 +19,14 @@ id|tree
 op_star
 id|tree
 comma
-id|fsck_walk_func
-id|walk
-comma
 r_void
 op_star
 id|data
+comma
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_struct
@@ -102,6 +104,8 @@ id|entry.mode
 )paren
 id|result
 op_assign
+id|options
+op_member_access_from_pointer
 id|walk
 c_func
 (paren
@@ -117,6 +121,8 @@ comma
 id|OBJ_TREE
 comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 r_else
@@ -137,6 +143,8 @@ id|entry.mode
 )paren
 id|result
 op_assign
+id|options
+op_member_access_from_pointer
 id|walk
 c_func
 (paren
@@ -152,6 +160,8 @@ comma
 id|OBJ_BLOB
 comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 r_else
@@ -211,12 +221,14 @@ id|commit
 op_star
 id|commit
 comma
-id|fsck_walk_func
-id|walk
-comma
 r_void
 op_star
 id|data
+comma
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_struct
@@ -244,6 +256,8 @@ l_int|1
 suffix:semicolon
 id|result
 op_assign
+id|options
+op_member_access_from_pointer
 id|walk
 c_func
 (paren
@@ -257,6 +271,8 @@ comma
 id|OBJ_TREE
 comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -285,6 +301,8 @@ id|parents
 (brace
 id|result
 op_assign
+id|options
+op_member_access_from_pointer
 id|walk
 c_func
 (paren
@@ -298,6 +316,8 @@ comma
 id|OBJ_COMMIT
 comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -340,12 +360,14 @@ id|tag
 op_star
 id|tag
 comma
-id|fsck_walk_func
-id|walk
-comma
 r_void
 op_star
 id|data
+comma
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_if
@@ -361,6 +383,8 @@ r_return
 l_int|1
 suffix:semicolon
 r_return
+id|options
+op_member_access_from_pointer
 id|walk
 c_func
 (paren
@@ -369,6 +393,8 @@ comma
 id|OBJ_ANY
 comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 )brace
@@ -382,12 +408,14 @@ id|object
 op_star
 id|obj
 comma
-id|fsck_walk_func
-id|walk
-comma
 r_void
 op_star
 id|data
+comma
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_if
@@ -425,9 +453,9 @@ op_star
 )paren
 id|obj
 comma
-id|walk
-comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 r_case
@@ -444,9 +472,9 @@ op_star
 )paren
 id|obj
 comma
-id|walk
-comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 r_case
@@ -463,9 +491,9 @@ op_star
 )paren
 id|obj
 comma
-id|walk
-comma
 id|data
+comma
+id|options
 )paren
 suffix:semicolon
 r_default
@@ -668,11 +696,10 @@ id|tree
 op_star
 id|item
 comma
-r_int
-id|strict
-comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_int
@@ -923,7 +950,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|strict
+id|options-&gt;strict
 )paren
 r_break
 suffix:semicolon
@@ -1000,6 +1027,8 @@ id|has_null_sha1
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1018,6 +1047,8 @@ id|has_full_path
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1036,6 +1067,8 @@ id|has_empty_name
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1054,6 +1087,8 @@ id|has_dot
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1072,6 +1107,8 @@ id|has_dotdot
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1090,6 +1127,8 @@ id|has_dotgit
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1108,6 +1147,8 @@ id|has_zero_pad
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1126,6 +1167,8 @@ id|has_bad_modes
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1144,6 +1187,8 @@ id|has_dup_entries
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1162,6 +1207,8 @@ id|not_properly_sorted
 )paren
 id|retval
 op_add_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1197,8 +1244,10 @@ id|object
 op_star
 id|obj
 comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_const
@@ -1245,6 +1294,8 @@ r_case
 l_char|&squot;&bslash;0&squot;
 suffix:colon
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1284,6 +1335,8 @@ suffix:semicolon
 )brace
 )brace
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1312,8 +1365,10 @@ id|object
 op_star
 id|obj
 comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_char
@@ -1330,6 +1385,8 @@ op_eq
 l_char|&squot;&lt;&squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1362,6 +1419,8 @@ op_eq
 l_char|&squot;&gt;&squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1382,6 +1441,8 @@ op_ne
 l_char|&squot;&lt;&squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1406,6 +1467,8 @@ op_ne
 l_char|&squot; &squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1444,6 +1507,8 @@ op_ne
 l_char|&squot;&gt;&squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1470,6 +1535,8 @@ op_ne
 l_char|&squot; &squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1506,6 +1573,8 @@ op_ne
 l_char|&squot; &squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1536,6 +1605,8 @@ l_int|10
 )paren
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1560,6 +1631,8 @@ op_ne
 l_char|&squot; &squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1659,6 +1732,8 @@ l_char|&squot;&bslash;n&squot;
 )paren
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1700,8 +1775,10 @@ r_int
 r_int
 id|size
 comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_int
@@ -1744,7 +1821,7 @@ comma
 op_amp
 id|commit-&gt;object
 comma
-id|error_func
+id|options
 )paren
 )paren
 r_return
@@ -1766,6 +1843,8 @@ id|buffer
 )paren
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1796,6 +1875,8 @@ op_ne
 l_char|&squot;&bslash;n&squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1845,6 +1926,8 @@ op_ne
 l_char|&squot;&bslash;n&squot;
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1907,6 +1990,8 @@ op_ne
 id|parent_count
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1929,6 +2014,8 @@ op_ne
 id|parent_line_count
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1957,6 +2044,8 @@ id|buffer
 )paren
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -1979,7 +2068,7 @@ comma
 op_amp
 id|commit-&gt;object
 comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -2006,6 +2095,8 @@ id|buffer
 )paren
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2028,7 +2119,7 @@ comma
 op_amp
 id|commit-&gt;object
 comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -2046,6 +2137,8 @@ op_logical_neg
 id|commit-&gt;tree
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2087,8 +2180,10 @@ r_int
 r_int
 id|size
 comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_const
@@ -2122,7 +2217,7 @@ id|buffer
 comma
 id|size
 comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -2163,8 +2258,10 @@ r_int
 r_int
 id|size
 comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_int
@@ -2237,6 +2334,8 @@ op_logical_neg
 id|buffer
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2258,6 +2357,8 @@ id|OBJ_TAG
 (brace
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2292,7 +2393,7 @@ comma
 op_amp
 id|tag-&gt;object
 comma
-id|error_func
+id|options
 )paren
 )paren
 r_goto
@@ -2316,6 +2417,8 @@ id|buffer
 (brace
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2352,6 +2455,8 @@ l_char|&squot;&bslash;n&squot;
 (brace
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2389,6 +2494,8 @@ id|buffer
 (brace
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2423,6 +2530,8 @@ id|eol
 (brace
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2456,6 +2565,8 @@ l_int|0
 )paren
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2499,6 +2610,8 @@ id|buffer
 (brace
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2533,6 +2646,8 @@ id|eol
 (brace
 id|ret
 op_assign
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2578,6 +2693,8 @@ comma
 l_int|0
 )paren
 )paren
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2621,6 +2738,8 @@ id|buffer
 )paren
 )paren
 multiline_comment|/* early tags do not contain &squot;tagger&squot; lines; warn only */
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2644,7 +2763,7 @@ comma
 op_amp
 id|tag-&gt;object
 comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 id|done
@@ -2686,8 +2805,10 @@ r_int
 r_int
 id|size
 comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_struct
@@ -2704,6 +2825,8 @@ op_logical_neg
 id|tagged
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2725,7 +2848,7 @@ id|data
 comma
 id|size
 comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 )brace
@@ -2747,11 +2870,10 @@ r_int
 r_int
 id|size
 comma
-r_int
-id|strict
-comma
-id|fsck_error
-id|error_func
+r_struct
+id|fsck_options
+op_star
+id|options
 )paren
 (brace
 r_if
@@ -2761,6 +2883,8 @@ op_logical_neg
 id|obj
 )paren
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
@@ -2799,9 +2923,7 @@ op_star
 )paren
 id|obj
 comma
-id|strict
-comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -2831,7 +2953,7 @@ id|data
 comma
 id|size
 comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 r_if
@@ -2861,10 +2983,12 @@ id|data
 comma
 id|size
 comma
-id|error_func
+id|options
 )paren
 suffix:semicolon
 r_return
+id|options
+op_member_access_from_pointer
 id|error_func
 c_func
 (paren
