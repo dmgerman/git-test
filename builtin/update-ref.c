@@ -2120,13 +2120,23 @@ c_cond
 (paren
 r_delete
 )paren
+multiline_comment|/*&n;&t;&t; * For purposes of backwards compatibility, we treat&n;&t;&t; * NULL_SHA1 as &quot;don&squot;t care&quot; here:&n;&t;&t; */
 r_return
 id|delete_ref
 c_func
 (paren
 id|refname
 comma
+(paren
 id|oldval
+op_logical_and
+op_logical_neg
+id|is_null_sha1
+c_func
+(paren
+id|oldsha1
+)paren
+)paren
 ques
 c_cond
 id|oldsha1

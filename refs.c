@@ -11642,22 +11642,6 @@ id|err
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-multiline_comment|/*&n;&t; * Treat NULL_SHA1 and NULL alike, to mean &quot;we don&squot;t care what&n;&t; * the old value of the reference was (or even if it didn&squot;t&n;&t; * exist)&quot;:&n;&t; */
-r_if
-c_cond
-(paren
-id|old_sha1
-op_logical_and
-id|is_null_sha1
-c_func
-(paren
-id|old_sha1
-)paren
-)paren
-id|old_sha1
-op_assign
-l_int|NULL
-suffix:semicolon
 id|transaction
 op_assign
 id|ref_transaction_begin
