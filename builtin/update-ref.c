@@ -2065,21 +2065,30 @@ id|value
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|oldval
+)paren
+(brace
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|oldval
+)paren
+multiline_comment|/*&n;&t;&t;&t; * The empty string implies that the reference&n;&t;&t;&t; * must not already exist:&n;&t;&t;&t; */
 id|hashclr
 c_func
 (paren
 id|oldsha1
 )paren
 suffix:semicolon
-multiline_comment|/* all-zero hash in case oldval is the empty string */
+r_else
 r_if
 c_cond
 (paren
-id|oldval
-op_logical_and
-op_star
-id|oldval
-op_logical_and
 id|get_sha1
 c_func
 (paren
@@ -2096,6 +2105,7 @@ comma
 id|oldval
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
