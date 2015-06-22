@@ -2774,7 +2774,9 @@ l_int|40
 op_ne
 l_char|&squot;&bslash;n&squot;
 )paren
-r_return
+(brace
+id|err
+op_assign
 id|report
 c_func
 (paren
@@ -2788,6 +2790,15 @@ comma
 l_string|&quot;invalid &squot;tree&squot; line format - bad sha1&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+)paren
+r_return
+id|err
+suffix:semicolon
+)brace
 id|buffer
 op_add_assign
 l_int|41
@@ -2825,7 +2836,9 @@ l_int|40
 op_ne
 l_char|&squot;&bslash;n&squot;
 )paren
-r_return
+(brace
+id|err
+op_assign
 id|report
 c_func
 (paren
@@ -2839,6 +2852,15 @@ comma
 l_string|&quot;invalid &squot;parent&squot; line format - bad sha1&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+)paren
+r_return
+id|err
+suffix:semicolon
+)brace
 id|buffer
 op_add_assign
 l_int|41
@@ -2889,7 +2911,9 @@ id|graft-&gt;nr_parent
 op_ne
 id|parent_count
 )paren
-r_return
+(brace
+id|err
+op_assign
 id|report
 c_func
 (paren
@@ -2903,6 +2927,15 @@ comma
 l_string|&quot;graft objects missing&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+)paren
+r_return
+id|err
+suffix:semicolon
+)brace
 )brace
 r_else
 (brace
@@ -2913,7 +2946,9 @@ id|parent_count
 op_ne
 id|parent_line_count
 )paren
-r_return
+(brace
+id|err
+op_assign
 id|report
 c_func
 (paren
@@ -2927,6 +2962,15 @@ comma
 l_string|&quot;parent objects missing&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|err
+)paren
+r_return
+id|err
+suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
