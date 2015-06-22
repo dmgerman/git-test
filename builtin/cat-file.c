@@ -1316,7 +1316,7 @@ suffix:semicolon
 )brace
 DECL|function|batch_one_object
 r_static
-r_int
+r_void
 id|batch_one_object
 c_func
 (paren
@@ -1359,15 +1359,6 @@ suffix:semicolon
 r_enum
 id|follow_symlinks_result
 id|result
-suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|obj_name
-)paren
-r_return
-l_int|1
 suffix:semicolon
 id|result
 op_assign
@@ -1503,7 +1494,6 @@ id|stdout
 )paren
 suffix:semicolon
 r_return
-l_int|0
 suffix:semicolon
 )brace
 r_if
@@ -1536,7 +1526,6 @@ id|stdout
 )paren
 suffix:semicolon
 r_return
-l_int|0
 suffix:semicolon
 )brace
 r_if
@@ -1571,7 +1560,6 @@ id|stdout
 )paren
 suffix:semicolon
 r_return
-l_int|0
 suffix:semicolon
 )brace
 id|strbuf_expand
@@ -1638,9 +1626,6 @@ l_int|1
 )paren
 suffix:semicolon
 )brace
-r_return
-l_int|0
-suffix:semicolon
 )brace
 DECL|function|batch_objects
 r_static
@@ -1808,8 +1793,6 @@ op_assign
 id|p
 suffix:semicolon
 )brace
-id|retval
-op_assign
 id|batch_one_object
 c_func
 (paren
@@ -1820,13 +1803,6 @@ comma
 op_amp
 id|data
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|retval
-)paren
-r_break
 suffix:semicolon
 )brace
 id|strbuf_release
