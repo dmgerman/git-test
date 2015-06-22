@@ -11835,7 +11835,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Could not remove branch %s&quot;
+l_string|&quot;could not remove reference %s&quot;
 )paren
 comma
 id|refname
