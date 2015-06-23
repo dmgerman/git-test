@@ -3483,7 +3483,7 @@ id|stderr
 comma
 l_string|&quot;Some good revs are not ancestor of the bad rev.&bslash;n&quot;
 l_string|&quot;git bisect cannot work properly in this case.&bslash;n&quot;
-l_string|&quot;Maybe you mistake good and bad revs?&bslash;n&quot;
+l_string|&quot;Maybe you mistook good and bad revs?&bslash;n&quot;
 )paren
 suffix:semicolon
 m_exit
