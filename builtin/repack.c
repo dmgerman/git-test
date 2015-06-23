@@ -1097,6 +1097,23 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|delete_redundant
+op_logical_and
+id|repository_format_precious_objects
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;cannot delete packs in a precious-objects repo&quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|pack_kept_objects
 OL
 l_int|0

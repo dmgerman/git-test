@@ -1754,6 +1754,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|repository_format_precious_objects
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|run_command_v_opt
 c_func
 (paren
@@ -1826,6 +1833,7 @@ l_int|0
 )braket
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond

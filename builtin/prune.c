@@ -1253,6 +1253,21 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|repository_format_precious_objects
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;cannot prune in a precious-objects repo&quot;
+)paren
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
