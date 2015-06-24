@@ -2584,7 +2584,7 @@ l_int|0
 suffix:semicolon
 id|offset
 OL
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 op_increment
 id|offset
@@ -2695,7 +2695,7 @@ suffix:semicolon
 )brace
 id|pos
 op_add_assign
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 id|i
 op_increment
@@ -3216,7 +3216,7 @@ suffix:semicolon
 )brace
 id|reuse_objects
 op_add_assign
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 )brace
 macro_line|#ifdef GIT_BITMAP_DEBUG
@@ -4268,7 +4268,7 @@ l_int|0
 suffix:semicolon
 id|offset
 OL
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 op_increment
 id|offset
@@ -4330,7 +4330,7 @@ suffix:semicolon
 )brace
 id|pos
 op_add_assign
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 )brace
 r_return

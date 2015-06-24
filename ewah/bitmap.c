@@ -1,10 +1,10 @@
 multiline_comment|/**&n; * Copyright 2013, GitHub, Inc&n; * Copyright 2009-2013, Daniel Lemire, Cliff Moon,&n; *&t;David McIntosh, Robert Becho, Google Inc. and Veronika Zenz&n; *&n; * This program is free software; you can redistribute it and/or&n; * modify it under the terms of the GNU General Public License&n; * as published by the Free Software Foundation; either version 2&n; * of the License, or (at your option) any later version.&n; *&n; * This program is distributed in the hope that it will be useful,&n; * but WITHOUT ANY WARRANTY; without even the implied warranty of&n; * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&n; * GNU General Public License for more details.&n; *&n; * You should have received a copy of the GNU General Public License&n; * along with this program; if not, write to the Free Software&n; * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.&n; */
 macro_line|#include &quot;git-compat-util.h&quot;
 macro_line|#include &quot;ewok.h&quot;
-DECL|macro|MASK
-mdefine_line|#define MASK(x) ((eword_t)1 &lt;&lt; (x % BITS_IN_WORD))
-DECL|macro|BLOCK
-mdefine_line|#define BLOCK(x) (x / BITS_IN_WORD)
+DECL|macro|EWAH_MASK
+mdefine_line|#define EWAH_MASK(x) ((eword_t)1 &lt;&lt; (x % BITS_IN_EWORD))
+DECL|macro|EWAH_BLOCK
+mdefine_line|#define EWAH_BLOCK(x) (x / BITS_IN_EWORD)
 DECL|function|bitmap_new
 r_struct
 id|bitmap
@@ -68,7 +68,7 @@ id|pos
 r_int
 id|block
 op_assign
-id|BLOCK
+id|EWAH_BLOCK
 c_func
 (paren
 id|pos
@@ -134,7 +134,7 @@ id|self-&gt;words
 id|block
 )braket
 op_or_assign
-id|MASK
+id|EWAH_MASK
 c_func
 (paren
 id|pos
@@ -158,7 +158,7 @@ id|pos
 r_int
 id|block
 op_assign
-id|BLOCK
+id|EWAH_BLOCK
 c_func
 (paren
 id|pos
@@ -177,7 +177,7 @@ id|block
 )braket
 op_and_assign
 op_complement
-id|MASK
+id|EWAH_MASK
 c_func
 (paren
 id|pos
@@ -201,7 +201,7 @@ id|pos
 r_int
 id|block
 op_assign
-id|BLOCK
+id|EWAH_BLOCK
 c_func
 (paren
 id|pos
@@ -218,7 +218,7 @@ id|self-&gt;words
 id|block
 )braket
 op_amp
-id|MASK
+id|EWAH_MASK
 c_func
 (paren
 id|pos
@@ -543,7 +543,7 @@ op_assign
 (paren
 id|other-&gt;bit_size
 op_div
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 )paren
 op_plus
 l_int|1
@@ -711,7 +711,7 @@ l_int|0
 suffix:semicolon
 id|offset
 OL
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 op_increment
 id|offset
@@ -737,7 +737,7 @@ l_int|0
 suffix:semicolon
 id|offset
 OL
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 op_increment
 id|offset
@@ -779,7 +779,7 @@ suffix:semicolon
 )brace
 id|pos
 op_add_assign
-id|BITS_IN_WORD
+id|BITS_IN_EWORD
 suffix:semicolon
 )brace
 )brace
