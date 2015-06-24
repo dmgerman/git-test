@@ -4000,10 +4000,12 @@ c_func
 suffix:semicolon
 id|collision_test_needed
 op_assign
-id|has_sha1_file
+id|has_sha1_file_with_flags
 c_func
 (paren
 id|sha1
+comma
+id|HAS_SHA1_QUICK
 )paren
 suffix:semicolon
 id|read_unlock
