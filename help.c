@@ -2317,13 +2317,9 @@ op_div
 l_float|10.0
 )paren
 suffix:semicolon
-id|poll
+id|sleep_millisec
 c_func
 (paren
-l_int|NULL
-comma
-l_int|0
-comma
 id|autocorrect
 op_star
 l_int|100
