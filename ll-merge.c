@@ -4,6 +4,7 @@ macro_line|#include &quot;attr.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
+macro_line|#include &quot;quote.h&quot;
 r_struct
 id|ll_merge_driver
 suffix:semicolon
@@ -738,8 +739,14 @@ r_struct
 id|strbuf_expand_dict_entry
 id|dict
 (braket
-l_int|5
+l_int|6
 )braket
+suffix:semicolon
+r_struct
+id|strbuf
+id|path_sq
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -768,6 +775,15 @@ suffix:semicolon
 m_assert
 (paren
 id|opts
+)paren
+suffix:semicolon
+id|sq_quote_buf
+c_func
+(paren
+op_amp
+id|path_sq
+comma
+id|path
 )paren
 suffix:semicolon
 id|dict
@@ -861,11 +877,29 @@ l_int|4
 dot
 id|placeholder
 op_assign
-l_int|NULL
+l_string|&quot;P&quot;
 suffix:semicolon
 id|dict
 (braket
 l_int|4
+)braket
+dot
+id|value
+op_assign
+id|path_sq.buf
+suffix:semicolon
+id|dict
+(braket
+l_int|5
+)braket
+dot
+id|placeholder
+op_assign
+l_int|NULL
+suffix:semicolon
+id|dict
+(braket
+l_int|5
 )braket
 dot
 id|value
@@ -1093,6 +1127,13 @@ c_func
 (paren
 op_amp
 id|cmd
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|path_sq
 )paren
 suffix:semicolon
 r_return
@@ -1345,7 +1386,7 @@ comma
 id|var
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * merge.&lt;name&gt;.driver specifies the command line:&n;&t;&t; *&n;&t;&t; *&t;command-line&n;&t;&t; *&n;&t;&t; * The command-line will be interpolated with the following&n;&t;&t; * tokens and is given to the shell:&n;&t;&t; *&n;&t;&t; *    %O - temporary file name for the merge base.&n;&t;&t; *    %A - temporary file name for our version.&n;&t;&t; *    %B - temporary file name for the other branches&squot; version.&n;&t;&t; *    %L - conflict marker length&n;&t;&t; *&n;&t;&t; * The external merge driver should write the results in the&n;&t;&t; * file named by %A, and signal that it has done with zero exit&n;&t;&t; * status.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * merge.&lt;name&gt;.driver specifies the command line:&n;&t;&t; *&n;&t;&t; *&t;command-line&n;&t;&t; *&n;&t;&t; * The command-line will be interpolated with the following&n;&t;&t; * tokens and is given to the shell:&n;&t;&t; *&n;&t;&t; *    %O - temporary file name for the merge base.&n;&t;&t; *    %A - temporary file name for our version.&n;&t;&t; *    %B - temporary file name for the other branches&squot; version.&n;&t;&t; *    %L - conflict marker length&n;&t;&t; *    %P - the original path (safely quoted for the shell)&n;&t;&t; *&n;&t;&t; * The external merge driver should write the results in the&n;&t;&t; * file named by %A, and signal that it has done with zero exit&n;&t;&t; * status.&n;&t;&t; */
 id|fn-&gt;cmdline
 op_assign
 id|xstrdup
