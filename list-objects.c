@@ -250,10 +250,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|parse_tree
+id|parse_tree_gently
 c_func
 (paren
 id|tree
+comma
+id|revs-&gt;ignore_missing_links
 )paren
 OL
 l_int|0
