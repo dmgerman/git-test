@@ -508,7 +508,11 @@ id|when
 comma
 l_int|0
 comma
-id|DATE_RFC2822
+id|DATE_MODE
+c_func
+(paren
+id|RFC2822
+)paren
 )paren
 suffix:semicolon
 id|hdr_str

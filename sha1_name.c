@@ -3003,7 +3003,11 @@ id|co_time
 comma
 id|co_tz
 comma
-id|DATE_RFC2822
+id|DATE_MODE
+c_func
+(paren
+id|RFC2822
+)paren
 )paren
 )paren
 suffix:semicolon

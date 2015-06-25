@@ -121,11 +121,13 @@ id|no_whole_file_rename
 suffix:semicolon
 DECL|variable|blame_date_mode
 r_static
-r_enum
+r_struct
 id|date_mode
 id|blame_date_mode
 op_assign
+(brace
 id|DATE_ISO8601
+)brace
 suffix:semicolon
 DECL|variable|blame_date_width
 r_static
@@ -7857,6 +7859,7 @@ id|time
 comma
 id|tz
 comma
+op_amp
 id|blame_date_mode
 )paren
 suffix:semicolon
@@ -9712,12 +9715,13 @@ c_func
 id|var
 )paren
 suffix:semicolon
-id|blame_date_mode
-op_assign
 id|parse_date_format
 c_func
 (paren
 id|value
+comma
+op_amp
+id|blame_date_mode
 )paren
 suffix:semicolon
 r_return
@@ -12047,7 +12051,7 @@ id|output_option
 op_or_assign
 id|OUTPUT_ANNOTATE_COMPAT
 suffix:semicolon
-id|blame_date_mode
+id|blame_date_mode.type
 op_assign
 id|DATE_ISO8601
 suffix:semicolon
@@ -12063,7 +12067,7 @@ multiline_comment|/* The maximum width used to show the dates */
 r_switch
 c_cond
 (paren
-id|blame_date_mode
+id|blame_date_mode.type
 )paren
 (brace
 r_case

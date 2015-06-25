@@ -829,7 +829,7 @@ id|ctx.after_subject
 op_assign
 l_string|&quot;&quot;
 suffix:semicolon
-id|ctx.date_mode
+id|ctx.date_mode.type
 op_assign
 id|DATE_NORMAL
 suffix:semicolon

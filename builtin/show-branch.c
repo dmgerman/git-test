@@ -4068,7 +4068,11 @@ id|timestamp
 comma
 id|tz
 comma
-id|DATE_RELATIVE
+id|DATE_MODE
+c_func
+(paren
+id|RELATIVE
+)paren
 )paren
 comma
 id|msg

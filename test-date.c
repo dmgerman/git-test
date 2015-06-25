@@ -180,7 +180,11 @@ id|t
 comma
 id|tz
 comma
-id|DATE_ISO8601
+id|DATE_MODE
+c_func
+(paren
+id|ISO8601
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -260,7 +264,11 @@ id|t
 comma
 l_int|0
 comma
-id|DATE_ISO8601
+id|DATE_MODE
+c_func
+(paren
+id|ISO8601
+)paren
 )paren
 )paren
 suffix:semicolon

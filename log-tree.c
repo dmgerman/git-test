@@ -3199,6 +3199,7 @@ id|opt-&gt;commit_format
 op_eq
 id|CMIT_FMT_ONELINE
 comma
+op_amp
 id|opt-&gt;date_mode
 comma
 id|opt-&gt;date_mode_explicit
