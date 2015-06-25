@@ -4068,7 +4068,7 @@ id|timestamp
 comma
 id|tz
 comma
-l_int|1
+id|DATE_RELATIVE
 )paren
 comma
 id|msg
