@@ -203,9 +203,6 @@ id|p-&gt;status
 )paren
 suffix:semicolon
 r_case
-id|DIFF_STATUS_ADDED
-suffix:colon
-r_case
 id|DIFF_STATUS_MODIFIED
 suffix:colon
 r_case
