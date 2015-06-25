@@ -128,7 +128,7 @@ id|GIT_COLOR_RESET
 comma
 id|GIT_COLOR_NORMAL
 comma
-multiline_comment|/* PLAIN */
+multiline_comment|/* CONTEXT */
 id|GIT_COLOR_BOLD
 comma
 multiline_comment|/* METAINFO */
@@ -173,11 +173,20 @@ c_func
 (paren
 id|var
 comma
+l_string|&quot;context&quot;
+)paren
+op_logical_or
+op_logical_neg
+id|strcasecmp
+c_func
+(paren
+id|var
+comma
 l_string|&quot;plain&quot;
 )paren
 )paren
 r_return
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 suffix:semicolon
 r_if
 c_cond
@@ -2871,14 +2880,14 @@ id|len
 r_const
 r_char
 op_star
-id|plain
+id|context
 op_assign
 id|diff_get_color
 c_func
 (paren
 id|ecbdata-&gt;color_diff
 comma
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 )paren
 suffix:semicolon
 r_const
@@ -3002,7 +3011,7 @@ c_func
 (paren
 id|ecbdata-&gt;opt
 comma
-id|plain
+id|context
 comma
 id|reset
 comma
@@ -3129,7 +3138,7 @@ c_func
 op_amp
 id|msgbuf
 comma
-id|plain
+id|context
 )paren
 suffix:semicolon
 id|strbuf_add
@@ -3619,14 +3628,14 @@ id|endp
 r_const
 r_char
 op_star
-id|plain
+id|context
 op_assign
 id|diff_get_color
 c_func
 (paren
 id|ecb-&gt;color_diff
 comma
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 )paren
 suffix:semicolon
 id|putc
@@ -3642,7 +3651,7 @@ c_func
 (paren
 id|ecb-&gt;opt
 comma
-id|plain
+id|context
 comma
 id|reset
 comma
@@ -6110,7 +6119,7 @@ c_func
 (paren
 id|o
 comma
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 )paren
 suffix:semicolon
 )brace
@@ -6506,14 +6515,14 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|plain
+id|context
 op_assign
 id|diff_get_color
 c_func
 (paren
 id|ecbdata-&gt;color_diff
 comma
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 )paren
 suffix:semicolon
 r_const
@@ -6935,7 +6944,7 @@ c_func
 (paren
 id|ecbdata-&gt;opt
 comma
-id|plain
+id|context
 comma
 id|reset
 comma
@@ -6979,7 +6988,7 @@ c_func
 (paren
 id|ecbdata-&gt;opt
 comma
-id|plain
+id|context
 comma
 id|reset
 comma
@@ -7023,7 +7032,7 @@ ques
 c_cond
 id|DIFF_FILE_OLD
 suffix:colon
-id|DIFF_PLAIN
+id|DIFF_CONTEXT
 )paren
 suffix:semicolon
 id|ecbdata-&gt;lno_in_preimage
