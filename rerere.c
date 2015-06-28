@@ -2239,21 +2239,9 @@ id|e
 op_eq
 l_int|1
 )paren
-(brace
-r_if
-c_cond
-(paren
-id|active_nr
-op_le
+id|i
 op_increment
-id|i
-)paren
-r_return
-id|i
-op_plus
-l_int|1
 suffix:semicolon
-)brace
 multiline_comment|/* Only handle regular files with both stages #2 and #3 */
 r_if
 c_cond
