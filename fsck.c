@@ -1162,10 +1162,10 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-DECL|function|require_end_of_header
+DECL|function|verify_headers
 r_static
 r_int
-id|require_end_of_header
+id|verify_headers
 c_func
 (paren
 r_const
@@ -1268,6 +1268,23 @@ l_int|0
 suffix:semicolon
 )brace
 )brace
+multiline_comment|/*&n;&t; * We did not find double-LF that separates the header&n;&t; * and the body.  Not having a body is not a crime but&n;&t; * we do want to see the terminating LF for the last header&n;&t; * line.&n;&t; */
+r_if
+c_cond
+(paren
+id|size
+op_logical_and
+id|buffer
+(braket
+id|size
+l_int|1
+)braket
+op_eq
+l_char|&squot;&bslash;n&squot;
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_return
 id|error_func
 c_func
@@ -1719,7 +1736,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|require_end_of_header
+id|verify_headers
 c_func
 (paren
 id|buffer
@@ -2267,7 +2284,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|require_end_of_header
+id|verify_headers
 c_func
 (paren
 id|buffer
