@@ -1453,9 +1453,9 @@ c_func
 op_amp
 id|prune_worktrees
 comma
-l_string|&quot;prune&quot;
+l_string|&quot;worktree&quot;
 comma
-l_string|&quot;--worktrees&quot;
+l_string|&quot;prune&quot;
 comma
 l_string|&quot;--expire&quot;
 comma
