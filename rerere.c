@@ -792,6 +792,7 @@ l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Require the exact number of conflict marker letters, no more, no&n; * less, followed by SP or any whitespace&n; * (including LF).&n; */
 DECL|function|is_cmarker
 r_static
 r_int
@@ -807,11 +808,26 @@ id|marker_char
 comma
 r_int
 id|marker_size
-comma
-r_int
-id|want_sp
 )paren
 (brace
+r_int
+id|want_sp
+suffix:semicolon
+multiline_comment|/*&n;&t; * The beginning of our version and the end of their version&n;&t; * always are labeled like &quot;&lt;&lt;&lt;&lt;&lt; ours&quot; or &quot;&gt;&gt;&gt;&gt;&gt; theirs&quot;,&n;&t; * hence we set want_sp for them.  Note that the version from&n;&t; * the common ancestor in diff3-style output is not always&n;&t; * labelled (e.g. &quot;||||| common&quot; is often seen but &quot;|||||&quot;&n;&t; * alone is also valid), so we do not set want_sp.&n;&t; */
+id|want_sp
+op_assign
+(paren
+id|marker_char
+op_eq
+l_char|&squot;&lt;&squot;
+)paren
+op_logical_or
+(paren
+id|marker_char
+op_eq
+l_char|&squot;&gt;&squot;
+)paren
+suffix:semicolon
 r_while
 c_loop
 (paren
@@ -951,8 +967,6 @@ comma
 l_char|&squot;&lt;&squot;
 comma
 id|marker_size
-comma
-l_int|1
 )paren
 )paren
 (brace
@@ -983,8 +997,6 @@ comma
 l_char|&squot;|&squot;
 comma
 id|marker_size
-comma
-l_int|0
 )paren
 )paren
 (brace
@@ -1015,8 +1027,6 @@ comma
 l_char|&squot;=&squot;
 comma
 id|marker_size
-comma
-l_int|0
 )paren
 )paren
 (brace
@@ -1051,8 +1061,6 @@ comma
 l_char|&squot;&gt;&squot;
 comma
 id|marker_size
-comma
-l_int|1
 )paren
 )paren
 (brace
