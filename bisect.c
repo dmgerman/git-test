@@ -3541,6 +3541,46 @@ id|good_hex
 suffix:semicolon
 )brace
 r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|term_bad
+comma
+l_string|&quot;new&quot;
+)paren
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|term_good
+comma
+l_string|&quot;old&quot;
+)paren
+)paren
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;The merge base %s is new.&bslash;n&quot;
+l_string|&quot;The property has changed &quot;
+l_string|&quot;between %s and [%s].&bslash;n&quot;
+comma
+id|bad_hex
+comma
+id|bad_hex
+comma
+id|good_hex
+)paren
+suffix:semicolon
+)brace
+r_else
 (brace
 id|fprintf
 c_func
@@ -3666,7 +3706,7 @@ id|good_hex
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * &quot;check_merge_bases&quot; checks that merge bases are not &quot;bad&quot;.&n; *&n; * - If one is &quot;bad&quot;, it means the user assumed something wrong&n; * and we must exit with a non 0 error code.&n; * - If one is &quot;good&quot;, that&squot;s good, we have nothing to do.&n; * - If one is &quot;skipped&quot;, we can&squot;t know but we should warn.&n; * - If we don&squot;t know, we should check it out and ask the user to test.&n; */
+multiline_comment|/*&n; * &quot;check_merge_bases&quot; checks that merge bases are not &quot;bad&quot; (or &quot;new&quot;).&n; *&n; * - If one is &quot;bad&quot; (or &quot;new&quot;), it means the user assumed something wrong&n; * and we must exit with a non 0 error code.&n; * - If one is &quot;good&quot; (or &quot;old&quot;), that&squot;s good, we have nothing to do.&n; * - If one is &quot;skipped&quot;, we can&squot;t know but we should warn.&n; * - If we don&squot;t know, we should check it out and ask the user to test.&n; */
 DECL|function|check_merge_bases
 r_static
 r_void
