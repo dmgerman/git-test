@@ -2926,6 +2926,16 @@ m_exit
 l_int|128
 )paren
 suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Staged &squot;%s&squot; using previous resolution.&bslash;n&quot;
+comma
+id|item-&gt;string
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond
@@ -3207,7 +3217,6 @@ id|name
 r_if
 c_cond
 (paren
-op_logical_neg
 id|merge
 c_func
 (paren
@@ -3216,18 +3225,13 @@ comma
 id|path
 )paren
 )paren
-(brace
-r_const
-r_char
-op_star
-id|msg
+r_continue
 suffix:semicolon
 r_if
 c_cond
 (paren
 id|rerere_autoupdate
 )paren
-(brace
 id|string_list_insert
 c_func
 (paren
@@ -3237,22 +3241,13 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|msg
-op_assign
-l_string|&quot;Staged &squot;%s&squot; using previous resolution.&bslash;n&quot;
-suffix:semicolon
-)brace
 r_else
-id|msg
-op_assign
-l_string|&quot;Resolved &squot;%s&squot; using previous resolution.&bslash;n&quot;
-suffix:semicolon
 id|fprintf
 c_func
 (paren
 id|stderr
 comma
-id|msg
+l_string|&quot;Resolved &squot;%s&squot; using previous resolution.&bslash;n&quot;
 comma
 id|path
 )paren
@@ -3260,7 +3255,6 @@ suffix:semicolon
 r_goto
 id|mark_resolved
 suffix:semicolon
-)brace
 )brace
 multiline_comment|/* Let&squot;s see if we have resolved it. */
 id|ret
