@@ -89,6 +89,20 @@ comma
 l_int|NULL
 )brace
 suffix:semicolon
+DECL|variable|term_bad
+r_static
+r_const
+r_char
+op_star
+id|term_bad
+suffix:semicolon
+DECL|variable|term_good
+r_static
+r_const
+r_char
+op_star
+id|term_good
+suffix:semicolon
 multiline_comment|/* Remember to update object flag allocation in object.h */
 DECL|macro|COUNTED
 mdefine_line|#define COUNTED&t;&t;(1u&lt;&lt;16)
@@ -1809,6 +1823,30 @@ op_star
 id|cb_data
 )paren
 (brace
+r_struct
+id|strbuf
+id|good_prefix
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|good_prefix
+comma
+id|term_good
+)paren
+suffix:semicolon
+id|strbuf_addstr
+c_func
+(paren
+op_amp
+id|good_prefix
+comma
+l_string|&quot;-&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1818,7 +1856,7 @@ c_func
 (paren
 id|refname
 comma
-l_string|&quot;bad&quot;
+id|term_bad
 )paren
 )paren
 (brace
@@ -1852,7 +1890,7 @@ c_func
 (paren
 id|refname
 comma
-l_string|&quot;good-&quot;
+id|good_prefix.buf
 )paren
 )paren
 (brace
@@ -1889,6 +1927,13 @@ id|oid-&gt;hash
 )paren
 suffix:semicolon
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|good_prefix
+)paren
+suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
@@ -2876,7 +2921,9 @@ id|printf
 c_func
 (paren
 l_string|&quot;There are only &squot;skip&squot;ped commits left to test.&bslash;n&quot;
-l_string|&quot;The first bad commit could be any of:&bslash;n&quot;
+l_string|&quot;The first %s commit could be any of:&bslash;n&quot;
+comma
+id|term_bad
 )paren
 suffix:semicolon
 id|print_commit_list
@@ -3454,6 +3501,28 @@ comma
 l_char|&squot; &squot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|term_bad
+comma
+l_string|&quot;bad&quot;
+)paren
+op_logical_and
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|term_good
+comma
+l_string|&quot;good&quot;
+)paren
+)paren
+(brace
 id|fprintf
 c_func
 (paren
@@ -3470,6 +3539,30 @@ comma
 id|good_hex
 )paren
 suffix:semicolon
+)brace
+r_else
+(brace
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;The merge base %s is %s.&bslash;n&quot;
+l_string|&quot;This means the first &squot;%s&squot; commit is &quot;
+l_string|&quot;between %s and [%s].&bslash;n&quot;
+comma
+id|bad_hex
+comma
+id|term_bad
+comma
+id|term_good
+comma
+id|bad_hex
+comma
+id|good_hex
+)paren
+suffix:semicolon
+)brace
 m_exit
 (paren
 l_int|3
@@ -3481,9 +3574,17 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Some good revs are not ancestor of the bad rev.&bslash;n&quot;
+l_string|&quot;Some %s revs are not ancestor of the %s rev.&bslash;n&quot;
 l_string|&quot;git bisect cannot work properly in this case.&bslash;n&quot;
-l_string|&quot;Maybe you mistook good and bad revs?&bslash;n&quot;
+l_string|&quot;Maybe you mistook %s and %s revs?&bslash;n&quot;
+comma
+id|term_good
+comma
+id|term_bad
+comma
+id|term_good
+comma
+id|term_bad
 )paren
 suffix:semicolon
 m_exit
@@ -3543,13 +3644,15 @@ c_func
 (paren
 l_string|&quot;the merge base between %s and [%s] &quot;
 l_string|&quot;must be skipped.&bslash;n&quot;
-l_string|&quot;So we cannot be sure the first bad commit is &quot;
+l_string|&quot;So we cannot be sure the first %s commit is &quot;
 l_string|&quot;between %s and %s.&bslash;n&quot;
 l_string|&quot;We continue anyway.&quot;
 comma
 id|bad_hex
 comma
 id|good_hex
+comma
+id|term_bad
 comma
 id|mb_hex
 comma
@@ -3856,7 +3959,9 @@ id|current_bad_oid
 id|die
 c_func
 (paren
-l_string|&quot;a bad revision is needed&quot;
+l_string|&quot;a %s revision is needed&quot;
+comma
+id|term_bad
 )paren
 suffix:semicolon
 multiline_comment|/* Check if file BISECT_ANCESTORS_OK exists. */
@@ -4097,6 +4202,14 @@ op_plus
 l_int|1
 )braket
 suffix:semicolon
+id|term_bad
+op_assign
+l_string|&quot;bad&quot;
+suffix:semicolon
+id|term_good
+op_assign
+l_string|&quot;good&quot;
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -4193,13 +4306,17 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s was both good and bad&bslash;n&quot;
+l_string|&quot;%s was both %s and %s&bslash;n&quot;
 comma
 id|oid_to_hex
 c_func
 (paren
 id|current_bad_oid
 )paren
+comma
+id|term_good
+comma
+id|term_bad
 )paren
 suffix:semicolon
 m_exit
@@ -4274,9 +4391,11 @@ suffix:semicolon
 id|printf
 c_func
 (paren
-l_string|&quot;%s is the first bad commit&bslash;n&quot;
+l_string|&quot;%s is the first %s commit&bslash;n&quot;
 comma
 id|bisect_rev_hex
+comma
+id|term_bad
 )paren
 suffix:semicolon
 id|show_diff_tree
