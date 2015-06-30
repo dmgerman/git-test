@@ -1806,19 +1806,12 @@ op_assign
 id|pos
 l_int|1
 suffix:semicolon
-r_for
+r_while
 c_loop
 (paren
-id|i
-op_assign
-l_int|0
-suffix:semicolon
-id|i
+id|pos
 OL
-l_int|3
-suffix:semicolon
-id|i
-op_increment
+id|active_nr
 )paren
 (brace
 r_enum
@@ -1828,18 +1821,6 @@ suffix:semicolon
 r_int
 r_int
 id|size
-suffix:semicolon
-r_int
-id|j
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|active_nr
-op_le
-id|pos
-)paren
-r_break
 suffix:semicolon
 id|ce
 op_assign
@@ -1870,9 +1851,9 @@ comma
 id|len
 )paren
 )paren
-r_continue
+r_break
 suffix:semicolon
-id|j
+id|i
 op_assign
 id|ce_stage
 c_func
@@ -1883,7 +1864,7 @@ l_int|1
 suffix:semicolon
 id|mmfile
 (braket
-id|j
+id|i
 )braket
 dot
 id|ptr
@@ -1902,7 +1883,7 @@ id|size
 suffix:semicolon
 id|mmfile
 (braket
-id|j
+id|i
 )braket
 dot
 id|size
@@ -1924,7 +1905,6 @@ suffix:semicolon
 id|i
 op_increment
 )paren
-(brace
 r_if
 c_cond
 (paren
@@ -1957,7 +1937,6 @@ c_func
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-)brace
 multiline_comment|/*&n;&t; * NEEDSWORK: handle conflicts from merges with&n;&t; * merge.renormalize set, too&n;&t; */
 id|ll_merge
 c_func
