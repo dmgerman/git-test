@@ -7535,6 +7535,20 @@ op_logical_or
 id|state.rebase_interactive_in_progress
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|state.rebase_interactive_in_progress
+)paren
+id|on_what
+op_assign
+id|_
+c_func
+(paren
+l_string|&quot;interactive rebase in progress; onto &quot;
+)paren
+suffix:semicolon
+r_else
 id|on_what
 op_assign
 id|_
