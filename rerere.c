@@ -403,6 +403,39 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * &quot;rerere&quot; interacts with conflicted file contents using this I/O&n; * abstraction.  It reads a conflicted contents from one place via&n; * &quot;getline()&quot; method, and optionally can write it out after&n; * normalizing the conflicted hunks to the &quot;output&quot;.  Subclasses of&n; * rerere_io embed this structure at the beginning of their own&n; * rerere_io object.&n; */
+DECL|struct|rerere_io
+r_struct
+id|rerere_io
+(brace
+DECL|member|getline
+r_int
+(paren
+op_star
+id|getline
+)paren
+(paren
+r_struct
+id|strbuf
+op_star
+comma
+r_struct
+id|rerere_io
+op_star
+)paren
+suffix:semicolon
+DECL|member|output
+id|FILE
+op_star
+id|output
+suffix:semicolon
+DECL|member|wrerror
+r_int
+id|wrerror
+suffix:semicolon
+multiline_comment|/* some more stuff */
+)brace
+suffix:semicolon
 DECL|function|ferr_write
 r_static
 r_void
@@ -498,38 +531,6 @@ id|err
 )paren
 suffix:semicolon
 )brace
-DECL|struct|rerere_io
-r_struct
-id|rerere_io
-(brace
-DECL|member|getline
-r_int
-(paren
-op_star
-id|getline
-)paren
-(paren
-r_struct
-id|strbuf
-op_star
-comma
-r_struct
-id|rerere_io
-op_star
-)paren
-suffix:semicolon
-DECL|member|output
-id|FILE
-op_star
-id|output
-suffix:semicolon
-DECL|member|wrerror
-r_int
-id|wrerror
-suffix:semicolon
-multiline_comment|/* some more stuff */
-)brace
-suffix:semicolon
 DECL|function|rerere_io_putstr
 r_static
 r_void
@@ -564,6 +565,7 @@ id|io-&gt;wrerror
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Write a conflict marker to io-&gt;output (if defined).&n; */
 DECL|function|rerere_io_putconflict
 r_static
 r_void
@@ -735,6 +737,7 @@ id|io-&gt;wrerror
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Subclass of rerere_io that reads from an on-disk file&n; */
 DECL|struct|rerere_io_file
 r_struct
 id|rerere_io_file
@@ -751,6 +754,7 @@ id|input
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * ... and its getline() method implementation&n; */
 DECL|function|rerere_file_getline
 r_static
 r_int
@@ -1568,6 +1572,7 @@ r_return
 id|hunk_no
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Subclass of rerere_io that reads from an in-core buffer that is a&n; * strbuf&n; */
 DECL|struct|rerere_io_mem
 r_struct
 id|rerere_io_mem
@@ -1584,6 +1589,7 @@ id|input
 suffix:semicolon
 )brace
 suffix:semicolon
+multiline_comment|/*&n; * ... and its getline() method implementation&n; */
 DECL|function|rerere_mem_getline
 r_static
 r_int
