@@ -106,6 +106,7 @@ id|st
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * $GIT_DIR/MERGE_RR file is a collection of records, each of which is&n; * &quot;conflict ID&quot;, a HT and pathname, terminated with a NUL, and is&n; * used to keep track of the set of paths that &quot;rerere&quot; may need to&n; * work on (i.e. what is left by the previous invocation of &quot;git&n; * rerere&quot; during the current conflict resolution session).&n; */
 DECL|function|read_rr
 r_static
 r_void
@@ -2118,6 +2119,7 @@ r_return
 id|hunk_no
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Look at a cache entry at &quot;i&quot; and see if it is not conflicting,&n; * conflicting and we are willing to handle, or conflicting and&n; * we are unable to handle, and return the determination in *type.&n; * Return the cache index to be looked at next, by skipping the&n; * stages we have already looked at in this invocation of this&n; * function.&n; */
 DECL|function|check_one_conflict
 r_static
 r_int
@@ -2293,6 +2295,7 @@ r_return
 id|i
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Scan the index and find paths that have conflicts that rerere can&n; * handle, i.e. the ones that has both stages #2 and #3.&n; *&n; * NEEDSWORK: we do not record or replay a previous &quot;resolve by&n; * deletion&quot; for a delete-modify conflict, as that is inherently risky&n; * without knowing what modification is being discarded.  The only&n; * safe case, i.e. both side doing the deletion and modification that&n; * are identical to the previous round, might want to be handled,&n; * though.&n; */
 DECL|function|find_conflict
 r_static
 r_int
@@ -2388,6 +2391,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The merge_rr list is meant to hold outstanding conflicted paths&n; * that rerere could handle.  Abuse the list by adding other types of&n; * entries to allow the caller to show &quot;rerere remaining&quot;.&n; *&n; * - Conflicted paths that rerere does not handle are added&n; * - Conflicted paths that have been resolved are marked as such&n; *   by storing RERERE_RESOLVED to .util field (where conflict ID&n; *   is expected to be stored).&n; *&n; * Do *not* write MERGE_RR file out after calling this function.&n; *&n; * NEEDSWORK: we may want to fix the caller that implements &quot;rerere&n; * remaining&quot; to do this without abusing merge_rr.&n; */
 DECL|function|rerere_remaining
 r_int
 id|rerere_remaining
