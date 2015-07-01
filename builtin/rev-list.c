@@ -48,6 +48,7 @@ l_string|&quot;    --header | --pretty&bslash;n&quot;
 l_string|&quot;    --abbrev=&lt;n&gt; | --no-abbrev&bslash;n&quot;
 l_string|&quot;    --abbrev-commit&bslash;n&quot;
 l_string|&quot;    --left-right&bslash;n&quot;
+l_string|&quot;    --count&bslash;n&quot;
 l_string|&quot;  special purpose:&bslash;n&quot;
 l_string|&quot;    --bisect&bslash;n&quot;
 l_string|&quot;    --bisect-vars&bslash;n&quot;
