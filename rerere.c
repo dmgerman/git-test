@@ -3956,6 +3956,7 @@ id|fd
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Garbage collection support&n; */
 DECL|function|rerere_created_at
 r_static
 id|time_t
@@ -4038,6 +4039,7 @@ suffix:colon
 id|st.st_mtime
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Remove the recorded resolution for a given conflict ID&n; */
 DECL|function|unlink_rr_item
 r_static
 r_void
@@ -4086,6 +4088,7 @@ l_string|&quot;postimage&quot;
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * NEEDSWORK: what if this rmdir() fails?  Wouldn&squot;t we then&n;&t; * assume that we already have preimage recorded in&n;&t; * do_plain_rerere()?&n;&t; */
 id|rmdir
 c_func
 (paren
@@ -4201,6 +4204,7 @@ c_func
 l_string|&quot;unable to open rr-cache directory&quot;
 )paren
 suffix:semicolon
+multiline_comment|/* Collect stale conflict IDs ... */
 r_while
 c_loop
 (paren
@@ -4294,6 +4298,7 @@ c_func
 id|dir
 )paren
 suffix:semicolon
+multiline_comment|/* ... and then remove them one-by-one */
 r_for
 c_loop
 (paren
@@ -4329,6 +4334,7 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * During a conflict resolution, after &quot;rerere&quot; recorded the&n; * preimages, abandon them if the user did not resolve them or&n; * record their resolutions.  And drop $GIT_DIR/MERGE_RR.&n; *&n; * NEEDSWORK: shouldn&squot;t we be calling this from &quot;reset --hard&quot;?&n; */
 DECL|function|rerere_clear
 r_void
 id|rerere_clear
