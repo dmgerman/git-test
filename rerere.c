@@ -874,6 +874,7 @@ id|buf
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Read contents a file with conflicts, normalize the conflicts&n; * by (1) discarding the common ancestor version in diff3-style,&n; * (2) reordering our side and their side so that whichever sorts&n; * alphabetically earlier comes before the other one, while&n; * computing the &quot;conflict ID&quot;, which is just an SHA-1 hash of&n; * one side of the conflict, NUL, the other side of the conflict,&n; * and NUL concatenated together.&n; *&n; * Return the number of conflict hunks found.&n; *&n; * NEEDSWORK: the logic and theory of operation behind this conflict&n; * normalization may deserve to be documented somewhere, perhaps in&n; * Documentation/technical/rerere.txt.&n; */
 DECL|function|handle_path
 r_static
 r_int
@@ -1336,6 +1337,7 @@ r_return
 id|hunk_no
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Scan the path for conflicts, do the &quot;handle_path()&quot; thing above, and&n; * return the number of conflict hunks found.&n; */
 DECL|function|handle_file
 r_static
 r_int
@@ -2535,6 +2537,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Find the conflict identified by &quot;name&quot;; the change between its&n; * &quot;preimage&quot; (i.e. a previous contents with conflict markers) and its&n; * &quot;postimage&quot; (i.e. the corresponding contents with conflicts&n; * resolved) may apply cleanly to the contents stored in &quot;path&quot;, i.e.&n; * the conflict this time around.&n; *&n; * Returns 0 for successful replay of recorded resolution, or non-zero&n; * for failure.&n; */
 DECL|function|merge
 r_static
 r_int
@@ -2589,6 +2592,7 @@ comma
 l_int|0
 )brace
 suffix:semicolon
+multiline_comment|/*&n;&t; * Normalize the conflicts in path and write it out to&n;&t; * &quot;thisimage&quot; temporary file.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2670,6 +2674,7 @@ r_goto
 id|out
 suffix:semicolon
 )brace
+multiline_comment|/*&n;&t; * A three-way merge. Note that this honors user-customizable&n;&t; * low-level merge driver settings.&n;&t; */
 id|ret
 op_assign
 id|ll_merge
@@ -2709,6 +2714,7 @@ id|FILE
 op_star
 id|f
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * A successful replay of recorded resolution.&n;&t;&t; * Mark that &quot;postimage&quot; was used to help gc.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -2748,6 +2754,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/* Update &quot;path&quot; with the resolution */
 id|f
 op_assign
 id|fopen
@@ -3022,7 +3029,7 @@ op_amp
 id|conflict
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * MERGE_RR records paths with conflicts immediately after merge&n;&t; * failed.  Some of the conflicted paths might have been hand resolved&n;&t; * in the working tree since then, but the initial run would catch all&n;&t; * and register their preimages.&n;&t; */
+multiline_comment|/*&n;&t; * MERGE_RR records paths with conflicts immediately after&n;&t; * merge failed.  Some of the conflicted paths might have been&n;&t; * hand resolved in the working tree since then, but the&n;&t; * initial run would catch all and register their preimages.&n;&t; */
 r_for
 c_loop
 (paren
@@ -3077,6 +3084,7 @@ suffix:semicolon
 r_int
 id|ret
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Ask handle_file() to scan and assign a&n;&t;&t;&t; * conflict ID.  No need to write anything out&n;&t;&t;&t; * yet.&n;&t;&t;&t; */
 id|ret
 op_assign
 id|handle_file
@@ -3122,6 +3130,7 @@ id|util
 op_assign
 id|hex
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * If the directory does not exist, create&n;&t;&t;&t; * it.  mkdir_in_gitdir() will fail with&n;&t;&t;&t; * EEXIST if there already is one.&n;&t;&t;&t; *&n;&t;&t;&t; * NEEDSWORK: make sure &quot;gc&quot; does not remove&n;&t;&t;&t; * preimage without removing the directory.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
@@ -3139,6 +3148,7 @@ id|hex
 )paren
 r_continue
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * We are the first to encounter this&n;&t;&t;&t; * conflict.  Ask handle_file() to write the&n;&t;&t;&t; * normalized contents to the &quot;preimage&quot; file.&n;&t;&t;&t; */
 id|handle_file
 c_func
 (paren
@@ -3167,7 +3177,7 @@ id|path
 suffix:semicolon
 )brace
 )brace
-multiline_comment|/*&n;&t; * Now some of the paths that had conflicts earlier might have been&n;&t; * hand resolved.  Others may be similar to a conflict already that&n;&t; * was resolved before.&n;&t; */
+multiline_comment|/*&n;&t; * Some of the paths that had conflicts earlier might have&n;&t; * been resolved by the user.  Others may be similar to a&n;&t; * conflict already that was resolved before.&n;&t; */
 r_for
 c_loop
 (paren
@@ -3215,6 +3225,7 @@ id|i
 dot
 id|util
 suffix:semicolon
+multiline_comment|/* Is there a recorded resolution we could attempt to apply? */
 r_if
 c_cond
 (paren
@@ -3267,7 +3278,7 @@ r_goto
 id|mark_resolved
 suffix:semicolon
 )brace
-multiline_comment|/* Let&squot;s see if we have resolved it. */
+multiline_comment|/* Let&squot;s see if the user has resolved it. */
 id|ret
 op_assign
 id|handle_file
@@ -3287,16 +3298,6 @@ id|ret
 )paren
 r_continue
 suffix:semicolon
-id|fprintf
-c_func
-(paren
-id|stderr
-comma
-l_string|&quot;Recorded resolution for &squot;%s&squot;.&bslash;n&quot;
-comma
-id|path
-)paren
-suffix:semicolon
 id|copy_file
 c_func
 (paren
@@ -3311,6 +3312,16 @@ comma
 id|path
 comma
 l_int|0666
+)paren
+suffix:semicolon
+id|fprintf
+c_func
+(paren
+id|stderr
+comma
+l_string|&quot;Recorded resolution for &squot;%s&squot;.&bslash;n&quot;
+comma
+id|path
 )paren
 suffix:semicolon
 id|mark_resolved
@@ -3556,6 +3567,7 @@ r_return
 id|fd
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The main entry point that is called internally from codepaths that&n; * perform mergy operations, possibly leaving conflicted index entries&n; * and working tree files.&n; */
 DECL|function|rerere
 r_int
 id|rerere
