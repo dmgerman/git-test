@@ -1519,6 +1519,9 @@ r_if
 c_cond
 (paren
 id|use_bitmap_index
+op_logical_and
+op_logical_neg
+id|revs.prune
 )paren
 (brace
 r_if
