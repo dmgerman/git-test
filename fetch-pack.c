@@ -4106,9 +4106,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+(paren
+id|args-&gt;depth
+OG
+l_int|0
+op_logical_or
 id|is_repository_shallow
 c_func
 (paren
+)paren
 )paren
 op_logical_and
 op_logical_neg
