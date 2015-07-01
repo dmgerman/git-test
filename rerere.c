@@ -2081,6 +2081,7 @@ comma
 id|result.size
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Grab the conflict ID and optionally write the original&n;&t; * contents with conflict markers out.&n;&t; */
 id|hunk_no
 op_assign
 id|handle_path
@@ -3659,6 +3660,7 @@ id|string_list_item
 op_star
 id|item
 suffix:semicolon
+multiline_comment|/*&n;&t; * Recreate the original conflict from the stages in the&n;&t; * index and compute the conflict ID&n;&t; */
 id|ret
 op_assign
 id|handle_cache
@@ -3687,6 +3689,7 @@ comma
 id|path
 )paren
 suffix:semicolon
+multiline_comment|/* Nuke the recorded resolution for the conflict */
 id|hex
 op_assign
 id|xstrdup
@@ -3748,6 +3751,7 @@ id|errno
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * Update the preimage so that the user can resolve the&n;&t; * conflict in the working tree, run us again to record&n;&t; * the postimage.&n;&t; */
 id|handle_cache
 c_func
 (paren
@@ -3774,6 +3778,7 @@ comma
 id|path
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * And remember that we can record resolution for this&n;&t; * conflict when the user is done.&n;&t; */
 id|item
 op_assign
 id|string_list_insert
@@ -3864,6 +3869,7 @@ comma
 id|RERERE_NOAUTOUPDATE
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * The paths may have been resolved (incorrectly);&n;&t; * recover the original conflicted state and then&n;&t; * find the conflicted paths.&n;&t; */
 id|unmerge_cache
 c_func
 (paren
