@@ -6223,9 +6223,6 @@ r_struct
 id|sha1file
 op_star
 id|f
-comma
-r_int
-id|nr_unresolved
 )paren
 suffix:semicolon
 DECL|function|conclude_pack
@@ -6379,8 +6376,6 @@ id|fix_unresolved_deltas
 c_func
 (paren
 id|f
-comma
-id|nr_unresolved
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -6948,9 +6943,6 @@ r_struct
 id|sha1file
 op_star
 id|f
-comma
-r_int
-id|nr_unresolved
 )paren
 (brace
 r_struct
@@ -6961,10 +6953,6 @@ id|sorted_by_pos
 suffix:semicolon
 r_int
 id|i
-comma
-id|n
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * Since many unresolved deltas may well be themselves base objects&n;&t; * for more unresolved deltas, we really want to include the&n;&t; * smallest number of base objects that would cover as much delta&n;&t; * as possible by picking the&n;&t; * trunc deltas first, allowing for other deltas to resolve without&n;&t; * additional base objects.  Since most base objects are to be found&n;&t; * before deltas depending on them, a good heuristic is to start&n;&t; * resolving deltas in the same order as their position in the pack.&n;&t; */
 id|sorted_by_pos
@@ -6972,7 +6960,7 @@ op_assign
 id|xmalloc
 c_func
 (paren
-id|nr_unresolved
+id|nr_ref_deltas
 op_star
 r_sizeof
 (paren
@@ -6997,8 +6985,7 @@ op_increment
 )paren
 id|sorted_by_pos
 (braket
-id|n
-op_increment
+id|i
 )braket
 op_assign
 op_amp
@@ -7012,7 +6999,7 @@ c_func
 (paren
 id|sorted_by_pos
 comma
-id|n
+id|nr_ref_deltas
 comma
 r_sizeof
 (paren
@@ -7032,7 +7019,7 @@ l_int|0
 suffix:semicolon
 id|i
 OL
-id|n
+id|nr_ref_deltas
 suffix:semicolon
 id|i
 op_increment
