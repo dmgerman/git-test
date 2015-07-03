@@ -2718,7 +2718,7 @@ l_int|0
 suffix:semicolon
 )brace
 DECL|function|strbuf_read_file
-r_int
+id|ssize_t
 id|strbuf_read_file
 c_func
 (paren
@@ -2738,7 +2738,8 @@ id|hint
 (brace
 r_int
 id|fd
-comma
+suffix:semicolon
+id|ssize_t
 id|len
 suffix:semicolon
 id|fd
