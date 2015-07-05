@@ -3192,6 +3192,20 @@ id|i
 op_increment
 )paren
 (brace
+r_int
+r_char
+id|sha1
+(braket
+l_int|20
+)braket
+suffix:semicolon
+r_char
+op_star
+id|hex
+suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -3207,7 +3221,6 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|string_list_has_string
 c_func
 (paren
@@ -3216,22 +3229,9 @@ comma
 id|path
 )paren
 )paren
-(brace
-r_int
-r_char
-id|sha1
-(braket
-l_int|20
-)braket
+r_continue
 suffix:semicolon
-r_char
-op_star
-id|hex
-suffix:semicolon
-r_int
-id|ret
-suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * Ask handle_file() to scan and assign a&n;&t;&t;&t; * conflict ID.  No need to write anything out&n;&t;&t;&t; * yet.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t; * Ask handle_file() to scan and assign a&n;&t;&t; * conflict ID.  No need to write anything out&n;&t;&t; * yet.&n;&t;&t; */
 id|ret
 op_assign
 id|handle_file
@@ -3277,7 +3277,7 @@ id|util
 op_assign
 id|hex
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * If the directory does not exist, create&n;&t;&t;&t; * it.  mkdir_in_gitdir() will fail with&n;&t;&t;&t; * EEXIST if there already is one.&n;&t;&t;&t; *&n;&t;&t;&t; * NEEDSWORK: make sure &quot;gc&quot; does not remove&n;&t;&t;&t; * preimage without removing the directory.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t; * If the directory does not exist, create&n;&t;&t; * it.  mkdir_in_gitdir() will fail with&n;&t;&t; * EEXIST if there already is one.&n;&t;&t; *&n;&t;&t; * NEEDSWORK: make sure &quot;gc&quot; does not remove&n;&t;&t; * preimage without removing the directory.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -3295,7 +3295,7 @@ id|hex
 )paren
 r_continue
 suffix:semicolon
-multiline_comment|/*&n;&t;&t;&t; * We are the first to encounter this&n;&t;&t;&t; * conflict.  Ask handle_file() to write the&n;&t;&t;&t; * normalized contents to the &quot;preimage&quot; file.&n;&t;&t;&t; */
+multiline_comment|/*&n;&t;&t; * We are the first to encounter this&n;&t;&t; * conflict.  Ask handle_file() to write the&n;&t;&t; * normalized contents to the &quot;preimage&quot; file.&n;&t;&t; */
 id|handle_file
 c_func
 (paren
@@ -3322,7 +3322,6 @@ comma
 id|path
 )paren
 suffix:semicolon
-)brace
 )brace
 r_for
 c_loop
