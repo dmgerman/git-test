@@ -52,7 +52,7 @@ c_func
 r_const
 r_char
 op_star
-id|hex
+id|id
 comma
 r_const
 r_char
@@ -66,7 +66,7 @@ c_func
 (paren
 l_string|&quot;rr-cache/%s/%s&quot;
 comma
-id|hex
+id|id
 comma
 id|file
 )paren
@@ -81,7 +81,7 @@ c_func
 r_const
 r_char
 op_star
-id|hex
+id|id
 )paren
 (brace
 r_struct
@@ -96,7 +96,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|hex
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -2538,7 +2538,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Find the conflict identified by &quot;name&quot;; the change between its&n; * &quot;preimage&quot; (i.e. a previous contents with conflict markers) and its&n; * &quot;postimage&quot; (i.e. the corresponding contents with conflicts&n; * resolved) may apply cleanly to the contents stored in &quot;path&quot;, i.e.&n; * the conflict this time around.&n; *&n; * Returns 0 for successful replay of recorded resolution, or non-zero&n; * for failure.&n; */
+multiline_comment|/*&n; * Find the conflict identified by &quot;id&quot;; the change between its&n; * &quot;preimage&quot; (i.e. a previous contents with conflict markers) and its&n; * &quot;postimage&quot; (i.e. the corresponding contents with conflicts&n; * resolved) may apply cleanly to the contents stored in &quot;path&quot;, i.e.&n; * the conflict this time around.&n; *&n; * Returns 0 for successful replay of recorded resolution, or non-zero&n; * for failure.&n; */
 DECL|function|merge
 r_static
 r_int
@@ -2548,7 +2548,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|id
 comma
 r_const
 r_char
@@ -2607,7 +2607,7 @@ comma
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;thisimage&quot;
 )paren
@@ -2630,7 +2630,7 @@ comma
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;thisimage&quot;
 )paren
@@ -2645,7 +2645,7 @@ comma
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;preimage&quot;
 )paren
@@ -2660,7 +2660,7 @@ comma
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -2725,7 +2725,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -2743,7 +2743,7 @@ comma
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -3021,7 +3021,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|name
+id|id
 op_assign
 (paren
 r_const
@@ -3037,7 +3037,7 @@ c_cond
 id|has_rerere_resolution
 c_func
 (paren
-id|name
+id|id
 )paren
 )paren
 (brace
@@ -3047,7 +3047,7 @@ c_cond
 id|merge
 c_func
 (paren
-id|name
+id|id
 comma
 id|path
 )paren
@@ -3103,7 +3103,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -3202,7 +3202,7 @@ l_int|20
 suffix:semicolon
 r_char
 op_star
-id|hex
+id|id
 suffix:semicolon
 r_int
 id|ret
@@ -3254,7 +3254,7 @@ l_int|1
 )paren
 r_continue
 suffix:semicolon
-id|hex
+id|id
 op_assign
 id|xstrdup
 c_func
@@ -3276,7 +3276,7 @@ id|path
 op_member_access_from_pointer
 id|util
 op_assign
-id|hex
+id|id
 suffix:semicolon
 multiline_comment|/*&n;&t;&t; * If the directory does not exist, create&n;&t;&t; * it.  mkdir_in_gitdir() will fail with&n;&t;&t; * EEXIST if there already is one.&n;&t;&t; *&n;&t;&t; * NEEDSWORK: make sure &quot;gc&quot; does not remove&n;&t;&t; * preimage without removing the directory.&n;&t;&t; */
 r_if
@@ -3290,7 +3290,7 @@ c_func
 (paren
 l_string|&quot;rr-cache/%s&quot;
 comma
-id|hex
+id|id
 )paren
 )paren
 )paren
@@ -3307,7 +3307,7 @@ comma
 id|rerere_path
 c_func
 (paren
-id|hex
+id|id
 comma
 l_string|&quot;preimage&quot;
 )paren
@@ -3646,7 +3646,7 @@ id|filename
 suffix:semicolon
 r_char
 op_star
-id|hex
+id|id
 suffix:semicolon
 r_int
 r_char
@@ -3693,7 +3693,7 @@ id|path
 )paren
 suffix:semicolon
 multiline_comment|/* Nuke the recorded resolution for the conflict */
-id|hex
+id|id
 op_assign
 id|xstrdup
 c_func
@@ -3710,7 +3710,7 @@ op_assign
 id|rerere_path
 c_func
 (paren
-id|hex
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -3765,7 +3765,7 @@ comma
 id|rerere_path
 c_func
 (paren
-id|hex
+id|id
 comma
 l_string|&quot;preimage&quot;
 )paren
@@ -3800,7 +3800,7 @@ id|item-&gt;util
 suffix:semicolon
 id|item-&gt;util
 op_assign
-id|hex
+id|id
 suffix:semicolon
 id|fprintf
 c_func
@@ -3969,7 +3969,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|id
 )paren
 (brace
 r_struct
@@ -3983,7 +3983,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;preimage&quot;
 )paren
@@ -4010,7 +4010,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|id
 )paren
 (brace
 r_struct
@@ -4024,7 +4024,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -4052,7 +4052,7 @@ c_func
 r_const
 r_char
 op_star
-id|name
+id|id
 )paren
 (brace
 id|unlink
@@ -4061,7 +4061,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;thisimage&quot;
 )paren
@@ -4073,7 +4073,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;preimage&quot;
 )paren
@@ -4085,7 +4085,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;postimage&quot;
 )paren
@@ -4100,7 +4100,7 @@ c_func
 (paren
 l_string|&quot;rr-cache/%s&quot;
 comma
-id|name
+id|id
 )paren
 )paren
 suffix:semicolon
@@ -4370,7 +4370,7 @@ op_increment
 r_const
 r_char
 op_star
-id|name
+id|id
 op_assign
 (paren
 r_const
@@ -4391,13 +4391,13 @@ op_logical_neg
 id|has_rerere_resolution
 c_func
 (paren
-id|name
+id|id
 )paren
 )paren
 id|unlink_rr_item
 c_func
 (paren
-id|name
+id|id
 )paren
 suffix:semicolon
 )brace

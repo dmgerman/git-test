@@ -683,7 +683,7 @@ suffix:semicolon
 r_const
 r_char
 op_star
-id|name
+id|id
 op_assign
 (paren
 r_const
@@ -703,7 +703,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;preimage&quot;
 )paren
