@@ -2699,6 +2699,10 @@ op_star
 id|path
 )paren
 (brace
+id|FILE
+op_star
+id|f
+suffix:semicolon
 r_int
 id|ret
 suffix:semicolon
@@ -2758,9 +2762,15 @@ l_string|&quot;thisimage&quot;
 OL
 l_int|0
 )paren
-r_return
+(brace
+id|ret
+op_assign
 l_int|1
 suffix:semicolon
+r_goto
+id|out
+suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2850,15 +2860,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-op_logical_neg
 id|ret
 )paren
-(brace
-id|FILE
-op_star
-id|f
+r_goto
+id|out
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * A successful replay of recorded resolution.&n;&t;&t; * Mark that &quot;postimage&quot; was used to help gc.&n;&t;&t; */
+multiline_comment|/*&n;&t; * A successful replay of recorded resolution.&n;&t; * Mark that &quot;postimage&quot; was used to help gc.&n;&t; */
 r_if
 c_cond
 (paren
@@ -2985,7 +2992,6 @@ id|errno
 )paren
 )paren
 suffix:semicolon
-)brace
 id|out
 suffix:colon
 id|free
