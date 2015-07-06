@@ -4430,11 +4430,6 @@ r_struct
 id|checkout_opts
 op_star
 id|opts
-comma
-r_struct
-id|branch_info
-op_star
-r_new
 )paren
 (brace
 r_struct
@@ -6738,8 +6733,6 @@ id|prepare_linked_checkout
 c_func
 (paren
 id|opts
-comma
-r_new
 )paren
 suffix:semicolon
 )brace
