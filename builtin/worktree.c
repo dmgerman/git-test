@@ -18,7 +18,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git worktree add &lt;path&gt; &lt;branch&gt;&quot;
+l_string|&quot;git worktree add [&lt;options&gt;] &lt;path&gt; &lt;branch&gt;&quot;
 )paren
 comma
 id|N_
@@ -790,6 +790,11 @@ r_struct
 id|child_process
 id|c
 suffix:semicolon
+r_int
+id|force
+op_assign
+l_int|0
+suffix:semicolon
 r_const
 r_char
 op_star
@@ -811,6 +816,19 @@ id|options
 )braket
 op_assign
 (brace
+id|OPT__FORCE
+c_func
+(paren
+op_amp
+id|force
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;checkout &lt;branch&gt; even if already checked out in other worktree&quot;
+)paren
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -904,6 +922,20 @@ comma
 id|path
 comma
 l_int|NULL
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|force
+)paren
+id|argv_array_push
+c_func
+(paren
+op_amp
+id|cmd
+comma
+l_string|&quot;--ignore-other-worktrees&quot;
 )paren
 suffix:semicolon
 id|argv_array_push
