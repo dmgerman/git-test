@@ -4930,12 +4930,6 @@ comma
 l_string|&quot;../..&bslash;n&quot;
 )paren
 suffix:semicolon
-r_if
-c_cond
-(paren
-op_logical_neg
-id|opts-&gt;quiet
-)paren
 id|fprintf_ln
 c_func
 (paren
