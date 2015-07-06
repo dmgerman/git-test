@@ -6366,11 +6366,6 @@ l_string|&quot;GIT_CHECKOUT_NEW_WORKTREE&quot;
 op_ne
 l_int|NULL
 suffix:semicolon
-id|setup_work_tree
-c_func
-(paren
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
