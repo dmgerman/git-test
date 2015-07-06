@@ -794,6 +794,10 @@ r_int
 id|force
 op_assign
 l_int|0
+comma
+id|detach
+op_assign
+l_int|0
 suffix:semicolon
 r_const
 r_char
@@ -826,6 +830,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;checkout &lt;branch&gt; even if already checked out in other worktree&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;detach&quot;
+comma
+op_amp
+id|detach
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;detach HEAD at named commit&quot;
 )paren
 )paren
 comma
@@ -936,6 +957,20 @@ op_amp
 id|cmd
 comma
 l_string|&quot;--ignore-other-worktrees&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|detach
+)paren
+id|argv_array_push
+c_func
+(paren
+op_amp
+id|cmd
+comma
+l_string|&quot;--detach&quot;
 )paren
 suffix:semicolon
 id|argv_array_push
