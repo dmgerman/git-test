@@ -3079,14 +3079,12 @@ comma
 id|path
 )paren
 suffix:semicolon
-r_goto
-id|mark_resolved
-suffix:semicolon
 )brace
-multiline_comment|/* Let&squot;s see if the user has resolved it. */
+r_else
 r_if
 c_cond
 (paren
+op_logical_neg
 id|handle_file
 c_func
 (paren
@@ -3097,9 +3095,8 @@ comma
 l_int|NULL
 )paren
 )paren
-r_return
-suffix:semicolon
-multiline_comment|/* not yet resolved */
+(brace
+multiline_comment|/* The user has resolved it. */
 id|copy_file
 c_func
 (paren
@@ -3126,8 +3123,12 @@ comma
 id|path
 )paren
 suffix:semicolon
-id|mark_resolved
-suffix:colon
+)brace
+r_else
+(brace
+r_return
+suffix:semicolon
+)brace
 id|free
 c_func
 (paren
