@@ -27,6 +27,12 @@ c_func
 l_string|&quot;git for-each-ref [--points-at &lt;object&gt;]&quot;
 )paren
 comma
+id|N_
+c_func
+(paren
+l_string|&quot;git for-each-ref [(--merged | --no-merged) [&lt;object&gt;]]&quot;
+)paren
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -268,6 +274,32 @@ l_string|&quot;print only refs which points at the given object&quot;
 )paren
 comma
 id|parse_opt_object_name
+)paren
+comma
+id|OPT_MERGED
+c_func
+(paren
+op_amp
+id|filter
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print only refs that are merged&quot;
+)paren
+)paren
+comma
+id|OPT_NO_MERGED
+c_func
+(paren
+op_amp
+id|filter
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print only refs that are not merged&quot;
+)paren
 )paren
 comma
 id|OPT_END
