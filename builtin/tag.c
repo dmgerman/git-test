@@ -169,6 +169,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * This is currently duplicated in ref-filter.c, and will eventually be&n; * removed as we port tag.c to use the ref-filter APIs.&n; */
 DECL|function|match_points_at
 r_static
 r_const
