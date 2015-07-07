@@ -33,6 +33,12 @@ c_func
 l_string|&quot;git for-each-ref [(--merged | --no-merged) [&lt;object&gt;]]&quot;
 )paren
 comma
+id|N_
+c_func
+(paren
+l_string|&quot;git for-each-ref [--contains [&lt;object&gt;]]&quot;
+)paren
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -299,6 +305,19 @@ id|N_
 c_func
 (paren
 l_string|&quot;print only refs that are not merged&quot;
+)paren
+)paren
+comma
+id|OPT_CONTAINS
+c_func
+(paren
+op_amp
+id|filter.with_commit
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print only refs which contain the commit&quot;
 )paren
 )paren
 comma
