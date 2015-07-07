@@ -377,9 +377,9 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|parse_opt_with_commit
+DECL|function|parse_opt_commits
 r_int
-id|parse_opt_with_commit
+id|parse_opt_commits
 c_func
 (paren
 r_const

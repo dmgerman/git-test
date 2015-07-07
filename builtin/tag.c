@@ -3284,7 +3284,7 @@ l_string|&quot;print only tags that contain the commit&quot;
 comma
 id|PARSE_OPT_LASTARG_DEFAULT
 comma
-id|parse_opt_with_commit
+id|parse_opt_commits
 comma
 (paren
 r_intptr
@@ -3319,7 +3319,7 @@ id|PARSE_OPT_HIDDEN
 op_or
 id|PARSE_OPT_LASTARG_DEFAULT
 comma
-id|parse_opt_with_commit
+id|parse_opt_commits
 comma
 (paren
 r_intptr
