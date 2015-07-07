@@ -337,6 +337,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * The entire code segment for supporting the --contains option has been&n; * copied over to ref-filter.{c,h}. This will be deleted evetually when&n; * we port tag.c to use ref-filter APIs.&n; */
 DECL|enum|contains_result
 r_enum
 id|contains_result
