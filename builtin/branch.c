@@ -3333,6 +3333,7 @@ op_amp
 id|cb
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t; * The following implementation is currently duplicated in ref-filter. It&n;&t; * will eventually be removed when we port branch.c to use ref-filter APIs.&n;&t; */
 r_if
 c_cond
 (paren
