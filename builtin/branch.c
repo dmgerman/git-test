@@ -4009,6 +4009,7 @@ id|newsection
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * This function is duplicated in ref-filter. It will eventually be removed&n; * when we port branch.c to use ref-filter APIs.&n; */
 DECL|function|opt_parse_merge_filter
 r_static
 r_int
