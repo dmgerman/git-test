@@ -2007,6 +2007,7 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* Returns 1 if we have successfully freshened the file, 0 otherwise. */
 DECL|function|freshen_file
 r_static
 r_int
@@ -2045,6 +2046,7 @@ id|t
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * All of the check_and_freshen functions return 1 if the file exists and was&n; * freshened (if freshening was requested), 0 otherwise. If they return&n; * 0, you should not assume that it is safe to skip a write of the object (it&n; * either does not exist on disk, or has a stale mtime and may be subject to&n; * pruning).&n; */
 DECL|function|check_and_freshen_file
 r_static
 r_int
@@ -2079,6 +2081,7 @@ c_cond
 (paren
 id|freshen
 op_logical_and
+op_logical_neg
 id|freshen_file
 c_func
 (paren
