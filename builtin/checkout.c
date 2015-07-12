@@ -82,6 +82,10 @@ DECL|member|ignore_skipworktree
 r_int
 id|ignore_skipworktree
 suffix:semicolon
+DECL|member|ignore_other_worktrees
+r_int
+id|ignore_other_worktrees
+suffix:semicolon
 DECL|member|new_branch
 r_const
 r_char
@@ -4790,7 +4794,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;&squot;%s&squot; is already checked out at &squot;%s&squot;; use --force to override&quot;
+l_string|&quot;&squot;%s&squot; is already checked out at &squot;%s&squot;&quot;
 )paren
 comma
 r_new
@@ -5833,7 +5837,7 @@ id|path
 )paren
 op_logical_and
 op_logical_neg
-id|opts-&gt;force
+id|opts-&gt;ignore_other_worktrees
 )paren
 id|check_linked_checkouts
 c_func
@@ -6253,6 +6257,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;second guess &squot;git checkout no-such-branch&squot;&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ignore-other-worktrees&quot;
+comma
+op_amp
+id|opts.ignore_other_worktrees
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;do not check if another worktree is holding the given ref&quot;
 )paren
 )paren
 comma

@@ -1924,7 +1924,7 @@ c_func
 op_amp
 id|cmd
 comma
-l_string|&quot;--force&quot;
+l_string|&quot;--ignore-other-worktrees&quot;
 )paren
 suffix:semicolon
 r_if
