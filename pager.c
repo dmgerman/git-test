@@ -314,6 +314,15 @@ comma
 l_string|&quot;LV=-c&quot;
 )paren
 suffix:semicolon
+id|argv_array_push
+c_func
+(paren
+op_amp
+id|pager_process.env_array
+comma
+l_string|&quot;GIT_PAGER_IN_USE&quot;
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
