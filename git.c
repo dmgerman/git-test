@@ -3158,6 +3158,14 @@ id|RUN_SETUP
 )brace
 comma
 (brace
+l_string|&quot;worktree&quot;
+comma
+id|cmd_worktree
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;write-tree&quot;
 comma
 id|cmd_write_tree
