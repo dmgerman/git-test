@@ -11872,12 +11872,23 @@ id|actual_old_sha1
 l_int|20
 )braket
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|read_ref
 c_func
 (paren
 id|pseudoref
 comma
 id|actual_old_sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;could not read ref &squot;%s&squot;&quot;
+comma
+id|pseudoref
 )paren
 suffix:semicolon
 r_if
@@ -12068,12 +12079,23 @@ comma
 id|filename
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|read_ref
 c_func
 (paren
 id|pseudoref
 comma
 id|actual_old_sha1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;could not read ref &squot;%s&squot;&quot;
+comma
+id|pseudoref
 )paren
 suffix:semicolon
 r_if
