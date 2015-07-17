@@ -1112,13 +1112,6 @@ id|commit
 op_assign
 l_int|NULL
 suffix:semicolon
-r_int
-r_char
-id|rev
-(braket
-l_int|20
-)braket
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1505,33 +1498,7 @@ comma
 id|name
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t; * This is to keep resolve_ref() happy. We need a valid HEAD&n;&t; * or is_git_directory() will reject the directory. Moreover, HEAD&n;&t; * in the new worktree must resolve to the same value as HEAD in&n;&t; * the current tree since the command invoked to populate the new&n;&t; * worktree will be handed the branch/ref specified by the user.&n;&t; * For instance, if the user asks for the new worktree to be based&n;&t; * at HEAD~5, then the resolved HEAD~5 in the new worktree must&n;&t; * match the resolved HEAD~5 in the current tree in order to match&n;&t; * the user&squot;s expectation.&n;&t; */
-r_if
-c_cond
-(paren
-op_logical_neg
-id|resolve_ref_unsafe
-c_func
-(paren
-l_string|&quot;HEAD&quot;
-comma
-l_int|0
-comma
-id|rev
-comma
-l_int|NULL
-)paren
-)paren
-id|die
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;unable to resolve HEAD&quot;
-)paren
-)paren
-suffix:semicolon
+multiline_comment|/*&n;&t; * This is to keep resolve_ref() happy. We need a valid HEAD&n;&t; * or is_git_directory() will reject the directory. Any value which&n;&t; * looks like an object ID will do since it will be immediately&n;&t; * replaced by the symbolic-ref or update-ref invocation in the new&n;&t; * worktree.&n;&t; */
 id|strbuf_reset
 c_func
 (paren
@@ -1557,13 +1524,7 @@ id|sb.buf
 comma
 l_int|1
 comma
-l_string|&quot;%s&bslash;n&quot;
-comma
-id|sha1_to_hex
-c_func
-(paren
-id|rev
-)paren
+l_string|&quot;0000000000000000000000000000000000000000&bslash;n&quot;
 )paren
 suffix:semicolon
 id|strbuf_reset
