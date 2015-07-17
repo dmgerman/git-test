@@ -1659,11 +1659,6 @@ id|UNINTERESTING
 )paren
 r_continue
 suffix:semicolon
-r_if
-c_cond
-(paren
-id|interesting_cache
-)paren
 op_star
 id|interesting_cache
 op_assign
