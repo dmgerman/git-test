@@ -1930,6 +1930,9 @@ l_int|2
 op_logical_and
 op_logical_neg
 id|opts.new_branch
+op_logical_and
+op_logical_neg
+id|opts.detach
 )paren
 (brace
 r_int
