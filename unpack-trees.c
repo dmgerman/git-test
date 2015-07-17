@@ -1023,6 +1023,21 @@ op_amp
 id|CE_UPDATE
 )paren
 (brace
+r_if
+c_cond
+(paren
+id|ce-&gt;ce_flags
+op_amp
+id|CE_WT_REMOVE
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;BUG: both update and delete flags are set on %s&quot;
+comma
+id|ce-&gt;name
+)paren
+suffix:semicolon
 id|display_progress
 c_func
 (paren
@@ -1239,6 +1254,11 @@ suffix:semicolon
 id|ce-&gt;ce_flags
 op_or_assign
 id|CE_WT_REMOVE
+suffix:semicolon
+id|ce-&gt;ce_flags
+op_and_assign
+op_complement
+id|CE_UPDATE
 suffix:semicolon
 )brace
 r_if
