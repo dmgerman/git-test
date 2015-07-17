@@ -4796,6 +4796,15 @@ op_amp
 id|branch
 )paren
 suffix:semicolon
+id|strbuf_strip_suffix
+c_func
+(paren
+op_amp
+id|gitdir
+comma
+l_string|&quot;.git&quot;
+)paren
+suffix:semicolon
 id|die
 c_func
 (paren
