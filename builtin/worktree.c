@@ -1826,9 +1826,19 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+op_logical_neg
+id|opts.detach
+op_plus
+op_logical_neg
+op_logical_neg
 id|opts.new_branch
-op_logical_and
+op_plus
+op_logical_neg
+op_logical_neg
 id|new_branch_force
+OG
+l_int|1
 )paren
 id|die
 c_func
@@ -1836,7 +1846,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;-b and -B are mutually exclusive&quot;
+l_string|&quot;-b, -B, and --detach are mutually exclusive&quot;
 )paren
 )paren
 suffix:semicolon
