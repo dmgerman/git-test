@@ -3,6 +3,8 @@ macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
+macro_line|#include &quot;branch.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
 DECL|variable|worktree_usage
@@ -1097,6 +1099,19 @@ id|len
 comma
 id|ret
 suffix:semicolon
+r_struct
+id|strbuf
+id|symref
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|commit
+op_star
+id|commit
+op_assign
+l_int|NULL
+suffix:semicolon
 r_int
 r_char
 id|rev
@@ -1132,6 +1147,82 @@ comma
 id|path
 )paren
 suffix:semicolon
+multiline_comment|/* is &squot;refname&squot; a branch or commit? */
+r_if
+c_cond
+(paren
+id|opts-&gt;force_new_branch
+)paren
+multiline_comment|/* definitely a branch */
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts-&gt;detach
+op_logical_and
+op_logical_neg
+id|strbuf_check_branch_ref
+c_func
+(paren
+op_amp
+id|symref
+comma
+id|refname
+)paren
+op_logical_and
+id|ref_exists
+c_func
+(paren
+id|symref.buf
+)paren
+)paren
+(brace
+multiline_comment|/* it&squot;s a branch */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|opts-&gt;force
+)paren
+id|die_if_checked_out
+c_func
+(paren
+id|symref.buf
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+multiline_comment|/* must be a commit */
+id|commit
+op_assign
+id|lookup_commit_reference_by_name
+c_func
+(paren
+id|refname
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|commit
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;invalid reference: %s&quot;
+)paren
+comma
+id|refname
+)paren
+suffix:semicolon
+)brace
 id|name
 op_assign
 id|worktree_basename
@@ -1700,6 +1791,13 @@ c_func
 (paren
 op_amp
 id|sb
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|symref
 )paren
 suffix:semicolon
 id|strbuf_release
