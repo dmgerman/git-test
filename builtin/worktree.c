@@ -1476,7 +1476,7 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;Enter %s (identifier %s)&quot;
+l_string|&quot;Preparing %s (identifier %s)&quot;
 )paren
 comma
 id|path
