@@ -5783,6 +5783,9 @@ id|opts-&gt;force_detach
 op_logical_and
 op_logical_neg
 id|opts-&gt;new_branch
+op_logical_and
+op_logical_neg
+id|opts-&gt;ignore_other_worktrees
 )paren
 (brace
 r_int
@@ -5835,9 +5838,6 @@ op_member_access_from_pointer
 id|path
 )paren
 )paren
-op_logical_and
-op_logical_neg
-id|opts-&gt;ignore_other_worktrees
 )paren
 id|check_linked_checkouts
 c_func
