@@ -139,10 +139,6 @@ id|tree
 op_star
 id|source_tree
 suffix:semicolon
-DECL|member|new_worktree_mode
-r_int
-id|new_worktree_mode
-suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|post_checkout_hook
@@ -2550,9 +2546,6 @@ id|parse_tree_indirect
 c_func
 (paren
 id|old-&gt;commit
-op_logical_and
-op_logical_neg
-id|opts-&gt;new_worktree_mode
 ques
 c_cond
 id|old-&gt;commit-&gt;object.sha1
@@ -4191,9 +4184,6 @@ op_member_access_from_pointer
 id|commit
 op_ne
 id|old.commit
-op_logical_and
-op_logical_neg
-id|opts-&gt;new_worktree_mode
 )paren
 id|orphaned_commit_warning
 c_func
@@ -5937,16 +5927,6 @@ id|checkout_usage
 comma
 id|PARSE_OPT_KEEP_DASHDASH
 )paren
-suffix:semicolon
-id|opts.new_worktree_mode
-op_assign
-id|getenv
-c_func
-(paren
-l_string|&quot;GIT_CHECKOUT_NEW_WORKTREE&quot;
-)paren
-op_ne
-l_int|NULL
 suffix:semicolon
 r_if
 c_cond
