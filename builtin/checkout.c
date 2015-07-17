@@ -4589,6 +4589,7 @@ comma
 op_star
 id|end
 suffix:semicolon
+multiline_comment|/*&n;&t; * $GIT_COMMON_DIR/HEAD is practically outside&n;&t; * $GIT_DIR so resolve_ref_unsafe() won&squot;t work (it&n;&t; * uses git_path). Parse the ref ourselves.&n;&t; */
 r_if
 c_cond
 (paren
@@ -4855,6 +4856,14 @@ id|dirent
 op_star
 id|d
 suffix:semicolon
+id|check_linked_checkout
+c_func
+(paren
+r_new
+comma
+l_int|NULL
+)paren
+suffix:semicolon
 id|strbuf_addf
 c_func
 (paren
@@ -4895,15 +4904,6 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
-multiline_comment|/*&n;&t; * $GIT_COMMON_DIR/HEAD is practically outside&n;&t; * $GIT_DIR so resolve_ref_unsafe() won&squot;t work (it&n;&t; * uses git_path). Parse the ref ourselves.&n;&t; */
-id|check_linked_checkout
-c_func
-(paren
-r_new
-comma
-l_int|NULL
-)paren
-suffix:semicolon
 r_while
 c_loop
 (paren
