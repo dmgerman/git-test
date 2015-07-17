@@ -4828,10 +4828,10 @@ id|gitdir
 )paren
 suffix:semicolon
 )brace
-DECL|function|check_linked_checkouts
+DECL|function|die_if_checked_out
 r_static
 r_void
-id|check_linked_checkouts
+id|die_if_checked_out
 c_func
 (paren
 r_struct
@@ -5839,7 +5839,7 @@ id|path
 )paren
 )paren
 )paren
-id|check_linked_checkouts
+id|die_if_checked_out
 c_func
 (paren
 r_new
