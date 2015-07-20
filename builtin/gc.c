@@ -398,7 +398,7 @@ suffix:semicolon
 id|git_config_date_string
 c_func
 (paren
-l_string|&quot;gc.pruneworktreesexpire&quot;
+l_string|&quot;gc.worktreepruneexpire&quot;
 comma
 op_amp
 id|prune_worktrees_expire
