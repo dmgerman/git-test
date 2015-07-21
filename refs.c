@@ -315,6 +315,7 @@ mdefine_line|#define REF_HAVE_OLD&t;0x10
 multiline_comment|/*&n; * Used as a flag in ref_update::flags when the lockfile needs to be&n; * committed.&n; */
 DECL|macro|REF_NEEDS_COMMIT
 mdefine_line|#define REF_NEEDS_COMMIT 0x20
+multiline_comment|/*&n; * 0x40 is REF_FORCE_CREATE_REFLOG, so skip it if you&squot;re adding a&n; * value to ref_update::flags&n; */
 multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
 DECL|function|check_refname_component
 r_static
@@ -12103,6 +12104,9 @@ r_char
 op_star
 id|logmsg
 comma
+r_int
+id|flags
+comma
 r_struct
 id|strbuf
 op_star
@@ -12518,6 +12522,8 @@ id|orig_sha1
 comma
 id|logmsg
 comma
+l_int|0
+comma
 op_amp
 id|err
 )paren
@@ -12628,6 +12634,8 @@ comma
 id|orig_sha1
 comma
 l_int|NULL
+comma
+l_int|0
 comma
 op_amp
 id|err
@@ -13463,6 +13471,9 @@ id|strbuf
 op_star
 id|sb_log_file
 comma
+r_int
+id|flags
+comma
 r_struct
 id|strbuf
 op_star
@@ -13510,7 +13521,9 @@ id|sb_log_file
 comma
 id|err
 comma
-l_int|0
+id|flags
+op_amp
+id|REF_FORCE_CREATE_REFLOG
 )paren
 suffix:semicolon
 r_if
@@ -13664,6 +13677,9 @@ r_char
 op_star
 id|msg
 comma
+r_int
+id|flags
+comma
 r_struct
 id|strbuf
 op_star
@@ -13692,6 +13708,8 @@ id|msg
 comma
 op_amp
 id|sb
+comma
+id|flags
 comma
 id|err
 )paren
@@ -13941,6 +13959,9 @@ r_char
 op_star
 id|logmsg
 comma
+r_int
+id|flags
+comma
 r_struct
 id|strbuf
 op_star
@@ -13968,6 +13989,8 @@ id|sha1
 comma
 id|logmsg
 comma
+id|flags
+comma
 id|err
 )paren
 OL
@@ -13992,6 +14015,8 @@ comma
 id|sha1
 comma
 id|logmsg
+comma
+id|flags
 comma
 id|err
 )paren
@@ -14125,6 +14150,8 @@ comma
 id|sha1
 comma
 id|logmsg
+comma
+l_int|0
 comma
 op_amp
 id|log_err
@@ -14551,6 +14578,8 @@ comma
 id|new_sha1
 comma
 id|logmsg
+comma
+l_int|0
 comma
 op_amp
 id|err
@@ -17842,6 +17871,8 @@ comma
 id|update-&gt;new_sha1
 comma
 id|update-&gt;msg
+comma
+id|update-&gt;flags
 comma
 id|err
 )paren
