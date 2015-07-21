@@ -65,6 +65,16 @@ l_string|&quot;|[-+]?[0-9.]+([AaIiDdEeFfLlTtXx][Ss]?[-+]?[0-9.]*)?(_[a-zA-Z0-9][
 l_string|&quot;|//|&bslash;&bslash;*&bslash;&bslash;*|::|[/&lt;&gt;=]=&quot;
 )paren
 comma
+id|IPATTERN
+c_func
+(paren
+l_string|&quot;fountain&quot;
+comma
+l_string|&quot;^((&bslash;&bslash;.[^.]|(int|ext|est|int&bslash;&bslash;.?/ext|i/e)[. ]).*)$&quot;
+comma
+l_string|&quot;[^ &bslash;t-]+&quot;
+)paren
+comma
 id|PATTERNS
 c_func
 (paren
