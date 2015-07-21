@@ -3081,6 +3081,12 @@ r_char
 op_star
 id|ref_name
 suffix:semicolon
+r_struct
+id|strbuf
+id|err
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 id|ref_name
 op_assign
 id|mkpath
@@ -3108,6 +3114,9 @@ id|ref_name
 comma
 op_amp
 id|log_file
+comma
+op_amp
+id|err
 )paren
 suffix:semicolon
 id|log_all_ref_updates
@@ -3135,10 +3144,19 @@ comma
 id|_
 c_func
 (paren
-l_string|&quot;Can not do reflog for &squot;%s&squot;&bslash;n&quot;
+l_string|&quot;Can not do reflog for &squot;%s&squot;: %s&bslash;n&quot;
 )paren
 comma
 id|opts-&gt;new_orphan_branch
+comma
+id|err.buf
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|err
 )paren
 suffix:semicolon
 r_return
