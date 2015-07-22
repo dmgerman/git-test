@@ -39,7 +39,7 @@ id|lock_fd
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * How to handle various characters in refnames:&n; * 0: An acceptable character for refs&n; * 1: End-of-component&n; * 2: ., look for a preceding . to reject .. in refs&n; * 3: {, look for a preceding @ to reject @{ in refs&n; * 4: A bad character: ASCII control characters, and&n; *    &quot;*&quot;, &quot;:&quot;, &quot;?&quot;, &quot;[&quot;, &quot;&bslash;&quot;, &quot;^&quot;, &quot;~&quot;, SP, or TAB&n; */
+multiline_comment|/*&n; * How to handle various characters in refnames:&n; * 0: An acceptable character for refs&n; * 1: End-of-component&n; * 2: ., look for a preceding . to reject .. in refs&n; * 3: {, look for a preceding @ to reject @{ in refs&n; * 4: A bad character: ASCII control characters, and&n; *    &quot;:&quot;, &quot;?&quot;, &quot;[&quot;, &quot;&bslash;&quot;, &quot;^&quot;, &quot;~&quot;, SP, or TAB&n; * 5: *, reject unless REFNAME_REFSPEC_PATTERN is set&n; */
 DECL|variable|refname_disposition
 r_static
 r_int
@@ -134,7 +134,7 @@ l_int|0
 comma
 l_int|0
 comma
-l_int|4
+l_int|5
 comma
 l_int|0
 comma
@@ -322,7 +322,7 @@ mdefine_line|#define REF_HAVE_OLD&t;0x10
 multiline_comment|/*&n; * Used as a flag in ref_update::flags when the lockfile needs to be&n; * committed.&n; */
 DECL|macro|REF_NEEDS_COMMIT
 mdefine_line|#define REF_NEEDS_COMMIT 0x20
-multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control characters, or&n; * - it has &quot;*&quot;, &quot;:&quot;, &quot;?&quot;, &quot;[&quot;, &quot;&bslash;&quot;, &quot;^&quot;, &quot;~&quot;, SP, or TAB anywhere, or&n; * - it ends with a &quot;/&quot;, or&n; * - it ends with &quot;.lock&quot;, or&n; * - it contains a &quot;@{&quot; portion&n; */
+multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control characters, or&n; * - it has &quot;:&quot;, &quot;?&quot;, &quot;[&quot;, &quot;&bslash;&quot;, &quot;^&quot;, &quot;~&quot;, SP, or TAB anywhere, or&n; * - it has &quot;*&quot; anywhere unless REFNAME_REFSPEC_PATTERN is set, or&n; * - it ends with a &quot;/&quot;, or&n; * - it ends with &quot;.lock&quot;, or&n; * - it contains a &quot;@{&quot; portion&n; */
 DECL|function|check_refname_component
 r_static
 r_int
@@ -335,6 +335,7 @@ op_star
 id|refname
 comma
 r_int
+op_star
 id|flags
 )paren
 (brace
@@ -426,6 +427,33 @@ l_int|4
 suffix:colon
 r_return
 l_int|1
+suffix:semicolon
+r_case
+l_int|5
+suffix:colon
+r_if
+c_cond
+(paren
+op_logical_neg
+(paren
+op_star
+id|flags
+op_amp
+id|REFNAME_REFSPEC_PATTERN
+)paren
+)paren
+r_return
+l_int|1
+suffix:semicolon
+multiline_comment|/* refspec can&squot;t be a pattern */
+multiline_comment|/*&n;&t;&t;&t; * Unset the pattern flag so that we only accept&n;&t;&t;&t; * a single asterisk for one side of refspec.&n;&t;&t;&t; */
+op_star
+id|flags
+op_and_assign
+op_complement
+id|REFNAME_REFSPEC_PATTERN
+suffix:semicolon
+r_break
 suffix:semicolon
 )brace
 id|last
@@ -540,6 +568,7 @@ c_func
 (paren
 id|refname
 comma
+op_amp
 id|flags
 )paren
 suffix:semicolon
@@ -550,58 +579,9 @@ id|component_len
 op_le
 l_int|0
 )paren
-(brace
-r_if
-c_cond
-(paren
-(paren
-id|flags
-op_amp
-id|REFNAME_REFSPEC_PATTERN
-)paren
-op_logical_and
-id|refname
-(braket
-l_int|0
-)braket
-op_eq
-l_char|&squot;*&squot;
-op_logical_and
-(paren
-id|refname
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;&bslash;0&squot;
-op_logical_or
-id|refname
-(braket
-l_int|1
-)braket
-op_eq
-l_char|&squot;/&squot;
-)paren
-)paren
-(brace
-multiline_comment|/* Accept one wildcard as a full refname component. */
-id|flags
-op_and_assign
-op_complement
-id|REFNAME_REFSPEC_PATTERN
-suffix:semicolon
-id|component_len
-op_assign
-l_int|1
-suffix:semicolon
-)brace
-r_else
-(brace
 r_return
 l_int|1
 suffix:semicolon
-)brace
-)brace
 id|component_count
 op_increment
 suffix:semicolon
