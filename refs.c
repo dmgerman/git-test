@@ -39,7 +39,7 @@ id|lock_fd
 suffix:semicolon
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * How to handle various characters in refnames:&n; * 0: An acceptable character for refs&n; * 1: End-of-component&n; * 2: ., look for a preceding . to reject .. in refs&n; * 3: {, look for a preceding @ to reject @{ in refs&n; * 4: A bad character: ASCII control characters, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP&n; */
+multiline_comment|/*&n; * How to handle various characters in refnames:&n; * 0: An acceptable character for refs&n; * 1: End-of-component&n; * 2: ., look for a preceding . to reject .. in refs&n; * 3: {, look for a preceding @ to reject @{ in refs&n; * 4: A bad character: ASCII control characters, and&n; *    &quot;*&quot;, &quot;:&quot;, &quot;?&quot;, &quot;[&quot;, &quot;&bslash;&quot;, &quot;^&quot;, &quot;~&quot;, SP, or TAB&n; */
 DECL|variable|refname_disposition
 r_static
 r_int
@@ -322,7 +322,7 @@ mdefine_line|#define REF_HAVE_OLD&t;0x10
 multiline_comment|/*&n; * Used as a flag in ref_update::flags when the lockfile needs to be&n; * committed.&n; */
 DECL|macro|REF_NEEDS_COMMIT
 mdefine_line|#define REF_NEEDS_COMMIT 0x20
-multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control character, &quot;~&quot;, &quot;^&quot;, &quot;:&quot; or SP, anywhere, or&n; * - it ends with a &quot;/&quot;.&n; * - it ends with &quot;.lock&quot;&n; * - it contains a &quot;&bslash;&quot; (backslash)&n; */
+multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control characters, or&n; * - it has &quot;*&quot;, &quot;:&quot;, &quot;?&quot;, &quot;[&quot;, &quot;&bslash;&quot;, &quot;^&quot;, &quot;~&quot;, SP, or TAB anywhere, or&n; * - it ends with a &quot;/&quot;, or&n; * - it ends with &quot;.lock&quot;, or&n; * - it contains a &quot;@{&quot; portion&n; */
 DECL|function|check_refname_component
 r_static
 r_int
