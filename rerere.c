@@ -600,7 +600,7 @@ r_if
 c_cond
 (paren
 id|size
-OL
+op_le
 r_sizeof
 (paren
 id|buf
@@ -650,6 +650,7 @@ id|buf
 )paren
 l_int|1
 suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t; * Make sure we will not write everything out&n;&t;&t;&t; * in this round by leaving at least 1 byte&n;&t;&t;&t; * for the next round, giving the next round&n;&t;&t;&t; * a chance to add the terminating LF.  Yuck.&n;&t;&t;&t; */
 r_if
 c_cond
 (paren
