@@ -1862,6 +1862,18 @@ id|ce
 )paren
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|mmfile
+(braket
+id|i
+)braket
+dot
+id|ptr
+)paren
+(brace
 id|mmfile
 (braket
 id|i
@@ -1890,6 +1902,7 @@ id|size
 op_assign
 id|size
 suffix:semicolon
+)brace
 )brace
 r_for
 c_loop
