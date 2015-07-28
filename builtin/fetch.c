@@ -5202,7 +5202,7 @@ id|g-&gt;name
 (brace
 multiline_comment|/* split list by white space */
 r_int
-id|space
+id|wordlen
 op_assign
 id|strcspn
 c_func
@@ -5222,7 +5222,7 @@ id|value
 r_if
 c_cond
 (paren
-id|space
+id|wordlen
 op_ge
 l_int|1
 )paren
@@ -5236,24 +5236,24 @@ c_func
 (paren
 id|value
 comma
-id|space
+id|wordlen
 )paren
 )paren
 suffix:semicolon
 id|value
 op_add_assign
-id|space
+id|wordlen
 op_plus
 (paren
 id|value
 (braket
-id|space
+id|wordlen
 )braket
 op_ne
 l_char|&squot;&bslash;0&squot;
 )paren
 suffix:semicolon
-id|space
+id|wordlen
 op_assign
 id|strcspn
 c_func
