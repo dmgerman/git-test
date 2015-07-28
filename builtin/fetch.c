@@ -5223,10 +5223,9 @@ r_if
 c_cond
 (paren
 id|space
-OG
+op_ge
 l_int|1
 )paren
-(brace
 id|string_list_append
 c_func
 (paren
@@ -5241,7 +5240,6 @@ id|space
 )paren
 )paren
 suffix:semicolon
-)brace
 id|value
 op_add_assign
 id|space
