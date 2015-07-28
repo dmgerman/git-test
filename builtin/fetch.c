@@ -5180,12 +5180,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|starts_with
+id|skip_prefix
 c_func
 (paren
 id|key
 comma
 l_string|&quot;remotes.&quot;
+comma
+op_amp
+id|key
 )paren
 op_logical_and
 op_logical_neg
@@ -5193,8 +5196,6 @@ id|strcmp
 c_func
 (paren
 id|key
-op_plus
-l_int|8
 comma
 id|g-&gt;name
 )paren
