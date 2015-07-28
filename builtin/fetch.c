@@ -5201,6 +5201,13 @@ id|g-&gt;name
 )paren
 (brace
 multiline_comment|/* split list by white space */
+r_while
+c_loop
+(paren
+op_star
+id|value
+)paren
+(brace
 r_int
 id|wordlen
 op_assign
@@ -5212,13 +5219,6 @@ comma
 l_string|&quot; &bslash;t&bslash;n&quot;
 )paren
 suffix:semicolon
-r_while
-c_loop
-(paren
-op_star
-id|value
-)paren
-(brace
 r_if
 c_cond
 (paren
@@ -5251,16 +5251,6 @@ id|wordlen
 )braket
 op_ne
 l_char|&squot;&bslash;0&squot;
-)paren
-suffix:semicolon
-id|wordlen
-op_assign
-id|strcspn
-c_func
-(paren
-id|value
-comma
-l_string|&quot; &bslash;t&bslash;n&quot;
 )paren
 suffix:semicolon
 )brace
