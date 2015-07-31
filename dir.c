@@ -4883,7 +4883,7 @@ op_logical_or
 op_logical_neg
 id|untracked-&gt;valid
 op_logical_or
-multiline_comment|/*&n;&t;&t;      * .. and .gitignore does not exist before&n;&t;&t;      * (i.e. null exclude_sha1 and skip_worktree is&n;&t;&t;      * not set). Then we can skip loading .gitignore,&n;&t;&t;      * which would result in ENOENT anyway.&n;&t;&t;      * skip_worktree is taken care in read_directory()&n;&t;&t;      */
+multiline_comment|/*&n;&t;&t;      * .. and .gitignore does not exist before&n;&t;&t;      * (i.e. null exclude_sha1). Then we can skip&n;&t;&t;      * loading .gitignore, which would result in&n;&t;&t;      * ENOENT anyway.&n;&t;&t;      */
 op_logical_neg
 id|is_null_sha1
 c_func
@@ -8269,9 +8269,6 @@ id|untracked_cache_dir
 op_star
 id|root
 suffix:semicolon
-r_int
-id|i
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -8372,36 +8369,6 @@ id|EXC_CMDL
 )braket
 dot
 id|nr
-)paren
-r_return
-l_int|NULL
-suffix:semicolon
-multiline_comment|/*&n;&t; * An optimization in prep_exclude() does not play well with&n;&t; * CE_SKIP_WORKTREE. It&squot;s a rare case anyway, if a single&n;&t; * entry has that bit set, disable the whole untracked cache.&n;&t; */
-r_for
-c_loop
-(paren
-id|i
-op_assign
-l_int|0
-suffix:semicolon
-id|i
-OL
-id|active_nr
-suffix:semicolon
-id|i
-op_increment
-)paren
-r_if
-c_cond
-(paren
-id|ce_skip_worktree
-c_func
-(paren
-id|active_cache
-(braket
-id|i
-)braket
-)paren
 )paren
 r_return
 l_int|NULL
