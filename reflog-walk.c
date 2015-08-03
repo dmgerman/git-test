@@ -1321,8 +1321,10 @@ id|reflog_walk_info
 op_star
 id|reflog_info
 comma
-r_enum
+r_const
+r_struct
 id|date_mode
+op_star
 id|dmode
 comma
 r_int
@@ -1608,8 +1610,10 @@ comma
 r_int
 id|oneline
 comma
-r_enum
+r_const
+r_struct
 id|date_mode
+op_star
 id|dmode
 comma
 r_int

@@ -309,6 +309,14 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
+id|setlocale
+c_func
+(paren
+id|LC_TIME
+comma
+l_string|&quot;&quot;
+)paren
+suffix:semicolon
 id|init_gettext_charset
 c_func
 (paren

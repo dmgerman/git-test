@@ -1369,7 +1369,11 @@ l_int|NULL
 comma
 l_int|0
 comma
-id|DATE_LOCAL
+id|DATE_MODE
+c_func
+(paren
+id|LOCAL
+)paren
 )paren
 )paren
 suffix:semicolon

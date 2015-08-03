@@ -14760,7 +14760,11 @@ id|cb-&gt;date
 comma
 id|cb-&gt;tz
 comma
-id|DATE_RFC2822
+id|DATE_MODE
+c_func
+(paren
+id|RFC2822
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -14807,7 +14811,11 @@ id|cb-&gt;date
 comma
 id|cb-&gt;tz
 comma
-id|DATE_RFC2822
+id|DATE_MODE
+c_func
+(paren
+id|RFC2822
+)paren
 )paren
 )paren
 suffix:semicolon

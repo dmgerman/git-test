@@ -4138,7 +4138,11 @@ c_func
 op_amp
 id|ai
 comma
-id|DATE_NORMAL
+id|DATE_MODE
+c_func
+(paren
+id|NORMAL
+)paren
 )paren
 )paren
 suffix:semicolon
@@ -5094,7 +5098,7 @@ op_assign
 l_int|0
 )brace
 suffix:semicolon
-id|ctx.date_mode
+id|ctx.date_mode.type
 op_assign
 id|DATE_NORMAL
 suffix:semicolon

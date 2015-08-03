@@ -461,12 +461,13 @@ c_cond
 (paren
 id|default_date_mode
 )paren
-id|rev-&gt;date_mode
-op_assign
 id|parse_date_format
 c_func
 (paren
 id|default_date_mode
+comma
+op_amp
+id|rev-&gt;date_mode
 )paren
 suffix:semicolon
 id|rev-&gt;diffopt.touched_flags
@@ -5190,7 +5191,7 @@ id|pp.fmt
 op_assign
 id|CMIT_FMT_EMAIL
 suffix:semicolon
-id|pp.date_mode
+id|pp.date_mode.type
 op_assign
 id|DATE_RFC2822
 suffix:semicolon

@@ -10020,7 +10020,7 @@ l_string|&quot;--relative-date&quot;
 )paren
 )paren
 (brace
-id|revs-&gt;date_mode
+id|revs-&gt;date_mode.type
 op_assign
 id|DATE_RELATIVE
 suffix:semicolon
@@ -10049,12 +10049,13 @@ id|optarg
 )paren
 )paren
 (brace
-id|revs-&gt;date_mode
-op_assign
 id|parse_date_format
 c_func
 (paren
 id|optarg
+comma
+op_amp
+id|revs-&gt;date_mode
 )paren
 suffix:semicolon
 id|revs-&gt;date_mode_explicit

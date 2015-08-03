@@ -147,7 +147,7 @@ op_assign
 l_int|0
 )brace
 suffix:semicolon
-id|ctx.date_mode
+id|ctx.date_mode.type
 op_assign
 id|DATE_NORMAL
 suffix:semicolon
