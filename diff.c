@@ -20958,6 +20958,7 @@ comma
 l_string|&quot;--no-follow&quot;
 )paren
 )paren
+(brace
 id|DIFF_OPT_CLR
 c_func
 (paren
@@ -20966,6 +20967,15 @@ comma
 id|FOLLOW_RENAMES
 )paren
 suffix:semicolon
+id|DIFF_OPT_CLR
+c_func
+(paren
+id|options
+comma
+id|DEFAULT_FOLLOW_RENAMES
+)paren
+suffix:semicolon
+)brace
 r_else
 r_if
 c_cond
