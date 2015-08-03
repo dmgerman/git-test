@@ -1129,6 +1129,27 @@ id|new_work_tree
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|setenv
+c_func
+(paren
+id|GIT_WORK_TREE_ENVIRONMENT
+comma
+id|work_tree
+comma
+l_int|1
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;could not set GIT_WORK_TREE to &squot;%s&squot;&quot;
+comma
+id|work_tree
+)paren
+suffix:semicolon
 )brace
 DECL|function|get_git_work_tree
 r_const
