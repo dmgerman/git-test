@@ -415,7 +415,7 @@ c_func
 (paren
 id|refname
 comma
-l_string|&quot;refs/replace/&quot;
+id|git_replace_ref_base
 )paren
 )paren
 (brace
@@ -440,7 +440,11 @@ c_func
 (paren
 id|refname
 op_plus
-l_int|13
+id|strlen
+c_func
+(paren
+id|git_replace_ref_base
+)paren
 comma
 op_amp
 id|original_oid
