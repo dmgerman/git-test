@@ -3029,6 +3029,11 @@ op_assign
 l_int|1
 suffix:semicolon
 r_int
+id|create_reflog
+op_assign
+l_int|0
+suffix:semicolon
+r_int
 id|cmdmode
 op_assign
 l_int|0
@@ -3308,6 +3313,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;replace the tag if exists&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;create-reflog&quot;
+comma
+op_amp
+id|create_reflog
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;create_reflog&quot;
 )paren
 )paren
 comma
@@ -4172,6 +4194,11 @@ id|object
 comma
 id|prev
 comma
+id|create_reflog
+ques
+c_cond
+id|REF_FORCE_CREATE_REFLOG
+suffix:colon
 l_int|0
 comma
 l_int|NULL
