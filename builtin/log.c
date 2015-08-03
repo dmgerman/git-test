@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * Builtin &quot;git log&quot; and related commands (show, whatchanged)&n; *&n; * (C) Copyright 2006 Linus Torvalds&n; *&t;&t; 2006 Junio Hamano&n; */
 macro_line|#include &quot;cache.h&quot;
+macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;color.h&quot;
 macro_line|#include &quot;commit.h&quot;
 macro_line|#include &quot;diff.h&quot;

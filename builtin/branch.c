@@ -699,6 +699,7 @@ r_char
 op_star
 id|refname
 comma
+r_const
 r_int
 r_char
 op_star
@@ -1198,6 +1199,15 @@ c_func
 (paren
 id|name
 comma
+id|is_null_sha1
+c_func
+(paren
+id|sha1
+)paren
+ques
+c_cond
+l_int|NULL
+suffix:colon
 id|sha1
 comma
 id|REF_NODEREF
