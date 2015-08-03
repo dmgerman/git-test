@@ -8089,6 +8089,8 @@ c_func
 op_amp
 id|uts
 )paren
+OL
+l_int|0
 )paren
 id|die_errno
 c_func
