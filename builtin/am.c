@@ -10943,6 +10943,13 @@ l_string|&quot;it will be removed. Please do not use it anymore.&quot;
 )paren
 )paren
 suffix:semicolon
+multiline_comment|/* Ensure a valid committer ident can be constructed */
+id|git_committer_info
+c_func
+(paren
+id|IDENT_STRICT
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
