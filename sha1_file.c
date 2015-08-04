@@ -6770,6 +6770,12 @@ suffix:semicolon
 (brace
 r_int
 id|fd
+suffix:semicolon
+id|errno
+op_assign
+l_int|0
+suffix:semicolon
+id|fd
 op_assign
 id|open
 c_func
