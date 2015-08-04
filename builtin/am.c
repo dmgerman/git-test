@@ -470,6 +470,15 @@ id|state-&gt;prec
 op_assign
 l_int|4
 suffix:semicolon
+id|git_config_get_bool
+c_func
+(paren
+l_string|&quot;am.threeway&quot;
+comma
+op_amp
+id|state-&gt;threeway
+)paren
+suffix:semicolon
 id|state-&gt;utf8
 op_assign
 l_int|1
