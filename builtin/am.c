@@ -10104,6 +10104,11 @@ id|am_state
 id|state
 suffix:semicolon
 r_int
+id|binary
+op_assign
+l_int|1
+suffix:semicolon
+r_int
 id|keep_cr
 op_assign
 l_int|1
@@ -10164,6 +10169,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;run interactively&quot;
+)paren
+)paren
+comma
+id|OPT_HIDDEN_BOOL
+c_func
+(paren
+l_char|&squot;b&squot;
+comma
+l_string|&quot;binary&quot;
+comma
+op_amp
+id|binary
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;(historical option -- no-op&quot;
 )paren
 )paren
 comma
@@ -10899,6 +10921,26 @@ comma
 id|usage
 comma
 l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|binary
+op_ge
+l_int|0
+)paren
+id|fprintf_ln
+c_func
+(paren
+id|stderr
+comma
+id|_
+c_func
+(paren
+l_string|&quot;The -b/--binary option has been a no-op for long time, and&bslash;n&quot;
+l_string|&quot;it will be removed. Please do not use it anymore.&quot;
+)paren
 )paren
 suffix:semicolon
 r_if
