@@ -328,6 +328,10 @@ r_char
 op_star
 id|resolvemsg
 suffix:semicolon
+DECL|member|ignore_date
+r_int
+id|ignore_date
+suffix:semicolon
 DECL|member|rebasing
 r_int
 id|rebasing
@@ -5647,6 +5651,11 @@ id|state-&gt;author_name
 comma
 id|state-&gt;author_email
 comma
+id|state-&gt;ignore_date
+ques
+c_cond
+l_int|NULL
+suffix:colon
 id|state-&gt;author_date
 comma
 id|IDENT_STRICT
@@ -7948,6 +7957,23 @@ l_string|&quot;restore the original branch and abort the patching operation.&quo
 )paren
 comma
 id|RESUME_ABORT
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;ignore-date&quot;
+comma
+op_amp
+id|state.ignore_date
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;use current timestamp for author date&quot;
+)paren
 )paren
 comma
 id|OPT_HIDDEN_BOOL
