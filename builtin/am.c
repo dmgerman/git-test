@@ -5273,6 +5273,37 @@ id|state
 )paren
 )paren
 (brace
+multiline_comment|/*&n;&t;&t; * Catch user error to feed us patches when there is a session&n;&t;&t; * in progress:&n;&t;&t; *&n;&t;&t; * 1. mbox path(s) are provided on the command-line.&n;&t;&t; * 2. stdin is not a tty: the user is trying to feed us a patch&n;&t;&t; *    from standard input. This is somewhat unreliable -- stdin&n;&t;&t; *    could be /dev/null for example and the caller did not&n;&t;&t; *    intend to feed us a patch but wanted to continue&n;&t;&t; *    unattended.&n;&t;&t; */
+r_if
+c_cond
+(paren
+id|argc
+op_logical_or
+(paren
+id|resume
+op_eq
+id|RESUME_FALSE
+op_logical_and
+op_logical_neg
+id|isatty
+c_func
+(paren
+l_int|0
+)paren
+)paren
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;previous rebase directory %s still exists but mbox given.&quot;
+)paren
+comma
+id|state.dir
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
