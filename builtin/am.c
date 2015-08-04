@@ -20,6 +20,7 @@ macro_line|#include &quot;merge-recursive.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;log-tree.h&quot;
 macro_line|#include &quot;notes-utils.h&quot;
+macro_line|#include &quot;rerere.h&quot;
 multiline_comment|/**&n; * Returns 1 if the file is empty or does not exist, 0 otherwise.&n; */
 DECL|function|is_empty_file
 r_static
@@ -345,6 +346,10 @@ suffix:semicolon
 DECL|member|ignore_date
 r_int
 id|ignore_date
+suffix:semicolon
+DECL|member|allow_rerere_autoupdate
+r_int
+id|allow_rerere_autoupdate
 suffix:semicolon
 DECL|member|sign_commit
 r_const
@@ -6113,6 +6118,12 @@ id|result
 )paren
 )paren
 (brace
+id|rerere
+c_func
+(paren
+id|state-&gt;allow_rerere_autoupdate
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
@@ -7154,6 +7165,12 @@ id|state
 )paren
 suffix:semicolon
 )brace
+id|rerere
+c_func
+(paren
+l_int|0
+)paren
+suffix:semicolon
 id|do_commit
 c_func
 (paren
@@ -7670,6 +7687,60 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
+multiline_comment|/**&n; * Resets rerere&squot;s merge resolution metadata.&n; */
+DECL|function|am_rerere_clear
+r_static
+r_void
+id|am_rerere_clear
+c_func
+(paren
+r_void
+)paren
+(brace
+r_struct
+id|string_list
+id|merge_rr
+op_assign
+id|STRING_LIST_INIT_DUP
+suffix:semicolon
+r_int
+id|fd
+op_assign
+id|setup_rerere
+c_func
+(paren
+op_amp
+id|merge_rr
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|fd
+OL
+l_int|0
+)paren
+r_return
+suffix:semicolon
+id|rerere_clear
+c_func
+(paren
+op_amp
+id|merge_rr
+)paren
+suffix:semicolon
+id|string_list_clear
+c_func
+(paren
+op_amp
+id|merge_rr
+comma
+l_int|1
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/**&n; * Resume the current am session by skipping the current patch.&n; */
 DECL|function|am_skip
 r_static
@@ -7689,6 +7760,11 @@ id|head
 (braket
 id|GIT_SHA1_RAWSZ
 )braket
+suffix:semicolon
+id|am_rerere_clear
+c_func
+(paren
+)paren
 suffix:semicolon
 r_if
 c_cond
@@ -7952,6 +8028,11 @@ suffix:semicolon
 r_return
 suffix:semicolon
 )brace
+id|am_rerere_clear
+c_func
+(paren
+)paren
+suffix:semicolon
 id|curr_branch
 op_assign
 id|resolve_refdup
@@ -8788,6 +8869,13 @@ c_func
 (paren
 l_string|&quot;use current timestamp for author date&quot;
 )paren
+)paren
+comma
+id|OPT_RERERE_AUTOUPDATE
+c_func
+(paren
+op_amp
+id|state.allow_rerere_autoupdate
 )paren
 comma
 (brace
