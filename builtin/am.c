@@ -14,6 +14,7 @@ macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;diffcore.h&quot;
 macro_line|#include &quot;unpack-trees.h&quot;
 macro_line|#include &quot;branch.h&quot;
+macro_line|#include &quot;sequencer.h&quot;
 multiline_comment|/**&n; * Returns 1 if the file is empty or does not exist, 0 otherwise.&n; */
 DECL|function|is_empty_file
 r_static
@@ -247,6 +248,10 @@ multiline_comment|/* various operating modes and command line options */
 DECL|member|quiet
 r_int
 id|quiet
+suffix:semicolon
+DECL|member|signoff
+r_int
+id|signoff
 suffix:semicolon
 DECL|member|resolvemsg
 r_const
@@ -1409,6 +1414,30 @@ comma
 l_string|&quot;t&quot;
 )paren
 suffix:semicolon
+id|read_state_file
+c_func
+(paren
+op_amp
+id|sb
+comma
+id|state
+comma
+l_string|&quot;sign&quot;
+comma
+l_int|1
+)paren
+suffix:semicolon
+id|state-&gt;signoff
+op_assign
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|sb.buf
+comma
+l_string|&quot;t&quot;
+)paren
+suffix:semicolon
 id|strbuf_release
 c_func
 (paren
@@ -2120,6 +2149,27 @@ comma
 l_int|1
 comma
 id|state-&gt;quiet
+ques
+c_cond
+l_string|&quot;t&quot;
+suffix:colon
+l_string|&quot;f&quot;
+)paren
+suffix:semicolon
+id|write_file
+c_func
+(paren
+id|am_path
+c_func
+(paren
+id|state
+comma
+l_string|&quot;sign&quot;
+)paren
+comma
+l_int|1
+comma
+id|state-&gt;signoff
 ques
 c_cond
 l_string|&quot;t&quot;
@@ -3243,6 +3293,22 @@ c_func
 (paren
 op_amp
 id|msg
+comma
+l_int|0
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|state-&gt;signoff
+)paren
+id|append_signoff
+c_func
+(paren
+op_amp
+id|msg
+comma
+l_int|0
 comma
 l_int|0
 )paren
@@ -5249,6 +5315,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;be quiet&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_char|&squot;s&squot;
+comma
+l_string|&quot;signoff&quot;
+comma
+op_amp
+id|state.signoff
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;add a Signed-off-by line to the commit message&quot;
 )paren
 )paren
 comma
