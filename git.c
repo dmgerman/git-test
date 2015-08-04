@@ -2265,6 +2265,13 @@ op_or
 id|NEED_WORK_TREE
 )brace
 comma
+multiline_comment|/*&n;&t; * NEEDSWORK: Once the redirection to git-am.sh in builtin/am.c has&n;&t; * been removed, this entry should be changed to&n;&t; * RUN_SETUP | NEED_WORK_TREE&n;&t; */
+(brace
+l_string|&quot;am&quot;
+comma
+id|cmd_am
+)brace
+comma
 (brace
 l_string|&quot;annotate&quot;
 comma
