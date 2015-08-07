@@ -4803,7 +4803,7 @@ id|ret
 op_eq
 id|HTTP_OK
 op_logical_and
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|tmpfile.buf
@@ -5273,7 +5273,7 @@ id|new_pack
 suffix:semicolon
 id|ret
 op_assign
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|tmp_idx
@@ -5841,7 +5841,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|preq-&gt;tmpfile
@@ -5853,7 +5853,7 @@ id|p-&gt;sha1
 )paren
 )paren
 op_logical_or
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|tmp_idx
@@ -7143,7 +7143,7 @@ suffix:semicolon
 )brace
 id|freq-&gt;rename
 op_assign
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|freq-&gt;tmpfile

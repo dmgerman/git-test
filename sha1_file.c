@@ -13297,10 +13297,10 @@ id|c
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Move the just written object into its final resting place.&n; * NEEDSWORK: this should be renamed to finalize_temp_file() as&n; * &quot;moving&quot; is only a part of what it does, when no patch between&n; * master to pu changes the call sites of this function.&n; */
-DECL|function|move_temp_to_file
+multiline_comment|/*&n; * Move the just written object into its final resting place.&n; */
+DECL|function|finalize_object_file
 r_int
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 r_const
@@ -14241,7 +14241,7 @@ id|errno
 suffix:semicolon
 )brace
 r_return
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|tmp_file
