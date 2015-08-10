@@ -10176,7 +10176,11 @@ c_func
 (paren
 id|istate
 comma
-id|lock-&gt;fd
+id|get_lock_file_fd
+c_func
+(paren
+id|lock
+)paren
 comma
 l_int|0
 )paren
