@@ -1242,6 +1242,30 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|len
+op_logical_or
+(paren
+id|len
+op_eq
+l_int|1
+op_logical_and
+op_star
+id|start
+op_eq
+l_char|&squot;/&squot;
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;No directory name could be guessed.&bslash;n&quot;
+l_string|&quot;Please specify a directory on the command line&quot;
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
 id|is_bare
 )paren
 id|dir
