@@ -1,5 +1,6 @@
 multiline_comment|/*&n; * git gc builtin command&n; *&n; * Cleanup unreachable files and optimize the repository.&n; *&n; * Copyright (c) 2007 James Bowes&n; *&n; * Based on git-gc.sh, which is&n; *&n; * Copyright (c) 2006 Shawn O. Pearce&n; */
 macro_line|#include &quot;builtin.h&quot;
+macro_line|#include &quot;tempfile.h&quot;
 macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;run-command.h&quot;
@@ -145,59 +146,10 @@ id|ARGV_ARRAY_INIT
 suffix:semicolon
 DECL|variable|pidfile
 r_static
-r_char
-op_star
+r_struct
+id|tempfile
 id|pidfile
 suffix:semicolon
-DECL|function|remove_pidfile
-r_static
-r_void
-id|remove_pidfile
-c_func
-(paren
-r_void
-)paren
-(brace
-r_if
-c_cond
-(paren
-id|pidfile
-)paren
-id|unlink
-c_func
-(paren
-id|pidfile
-)paren
-suffix:semicolon
-)brace
-DECL|function|remove_pidfile_on_signal
-r_static
-r_void
-id|remove_pidfile_on_signal
-c_func
-(paren
-r_int
-id|signo
-)paren
-(brace
-id|remove_pidfile
-c_func
-(paren
-)paren
-suffix:semicolon
-id|sigchain_pop
-c_func
-(paren
-id|signo
-)paren
-suffix:semicolon
-id|raise
-c_func
-(paren
-id|signo
-)paren
-suffix:semicolon
-)brace
 DECL|function|git_config_date_string
 r_static
 r_void
@@ -864,7 +816,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|is_tempfile_active
+c_func
+(paren
+op_amp
 id|pidfile
+)paren
 )paren
 multiline_comment|/* already locked */
 r_return
@@ -1120,20 +1077,19 @@ op_amp
 id|lock
 )paren
 suffix:semicolon
-id|pidfile
-op_assign
-id|pidfile_path
-suffix:semicolon
-id|sigchain_push_common
+id|register_tempfile
 c_func
 (paren
-id|remove_pidfile_on_signal
+op_amp
+id|pidfile
+comma
+id|pidfile_path
 )paren
 suffix:semicolon
-id|atexit
+id|free
 c_func
 (paren
-id|remove_pidfile
+id|pidfile_path
 )paren
 suffix:semicolon
 r_return
