@@ -9704,10 +9704,17 @@ op_star
 id|err
 )paren
 (brace
-r_const
-r_char
-op_star
+r_struct
+id|strbuf
 id|ref_file
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
+r_struct
+id|strbuf
+id|orig_ref_file
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 r_const
 r_char
@@ -9833,12 +9840,13 @@ op_eq
 id|EISDIR
 )paren
 (brace
-multiline_comment|/* we are trying to lock foo but we used to&n;&t;&t; * have foo/bar which now does not exist;&n;&t;&t; * it is normal for the empty directory &squot;foo&squot;&n;&t;&t; * to remain.&n;&t;&t; */
-id|ref_file
-op_assign
-id|git_path
+multiline_comment|/*&n;&t;&t; * we are trying to lock foo but we used to&n;&t;&t; * have foo/bar which now does not exist;&n;&t;&t; * it is normal for the empty directory &squot;foo&squot;&n;&t;&t; * to remain.&n;&t;&t; */
+id|strbuf_git_path
 c_func
 (paren
+op_amp
+id|orig_ref_file
+comma
 l_string|&quot;%s&quot;
 comma
 id|orig_refname
@@ -9850,7 +9858,7 @@ c_cond
 id|remove_empty_directories
 c_func
 (paren
-id|ref_file
+id|orig_ref_file.buf
 )paren
 )paren
 (brace
@@ -10069,11 +10077,12 @@ c_func
 id|orig_refname
 )paren
 suffix:semicolon
-id|ref_file
-op_assign
-id|git_path
+id|strbuf_git_path
 c_func
 (paren
+op_amp
+id|ref_file
+comma
 l_string|&quot;%s&quot;
 comma
 id|refname
@@ -10087,7 +10096,7 @@ c_cond
 id|safe_create_leading_directories_const
 c_func
 (paren
-id|ref_file
+id|ref_file.buf
 )paren
 )paren
 (brace
@@ -10125,7 +10134,7 @@ id|err
 comma
 l_string|&quot;unable to create directory for %s&quot;
 comma
-id|ref_file
+id|ref_file.buf
 )paren
 suffix:semicolon
 r_goto
@@ -10140,7 +10149,7 @@ c_func
 (paren
 id|lock-&gt;lk
 comma
-id|ref_file
+id|ref_file.buf
 comma
 id|lflags
 )paren
@@ -10173,7 +10182,7 @@ r_else
 id|unable_to_lock_message
 c_func
 (paren
-id|ref_file
+id|ref_file.buf
 comma
 id|errno
 comma
@@ -10211,8 +10220,8 @@ r_goto
 id|error_return
 suffix:semicolon
 )brace
-r_return
-id|lock
+r_goto
+id|out
 suffix:semicolon
 id|error_return
 suffix:colon
@@ -10222,12 +10231,32 @@ c_func
 id|lock
 )paren
 suffix:semicolon
+id|lock
+op_assign
+l_int|NULL
+suffix:semicolon
+id|out
+suffix:colon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|ref_file
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|orig_ref_file
+)paren
+suffix:semicolon
 id|errno
 op_assign
 id|last_errno
 suffix:semicolon
 r_return
-l_int|NULL
+id|lock
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * Write an entry to the packed-refs file for the specified refname.&n; * If peeled is non-NULL, write it as the entry&squot;s peeled value.&n; */
