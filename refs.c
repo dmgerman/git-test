@@ -13161,7 +13161,7 @@ comma
 r_struct
 id|strbuf
 op_star
-id|sb_logfile
+id|logfile
 comma
 r_struct
 id|strbuf
@@ -13181,28 +13181,15 @@ id|O_APPEND
 op_or
 id|O_WRONLY
 suffix:semicolon
-r_char
-op_star
-id|logfile
-suffix:semicolon
 id|strbuf_git_path
 c_func
 (paren
-id|sb_logfile
+id|logfile
 comma
 l_string|&quot;logs/%s&quot;
 comma
 id|refname
 )paren
-suffix:semicolon
-id|logfile
-op_assign
-id|sb_logfile-&gt;buf
-suffix:semicolon
-multiline_comment|/* make sure the rest of the function can&squot;t change &quot;logfile&quot; */
-id|sb_logfile
-op_assign
-l_int|NULL
 suffix:semicolon
 r_if
 c_cond
@@ -13222,7 +13209,7 @@ c_cond
 id|safe_create_leading_directories
 c_func
 (paren
-id|logfile
+id|logfile-&gt;buf
 )paren
 OL
 l_int|0
@@ -13236,7 +13223,7 @@ comma
 l_string|&quot;unable to create directory for %s: &quot;
 l_string|&quot;%s&quot;
 comma
-id|logfile
+id|logfile-&gt;buf
 comma
 id|strerror
 c_func
@@ -13259,7 +13246,7 @@ op_assign
 id|open
 c_func
 (paren
-id|logfile
+id|logfile-&gt;buf
 comma
 id|oflags
 comma
@@ -13311,7 +13298,7 @@ c_cond
 id|remove_empty_directories
 c_func
 (paren
-id|logfile
+id|logfile-&gt;buf
 )paren
 )paren
 (brace
@@ -13323,7 +13310,7 @@ comma
 l_string|&quot;There are still logs under &quot;
 l_string|&quot;&squot;%s&squot;&quot;
 comma
-id|logfile
+id|logfile-&gt;buf
 )paren
 suffix:semicolon
 r_return
@@ -13335,7 +13322,7 @@ op_assign
 id|open
 c_func
 (paren
-id|logfile
+id|logfile-&gt;buf
 comma
 id|oflags
 comma
@@ -13358,7 +13345,7 @@ id|err
 comma
 l_string|&quot;unable to append to %s: %s&quot;
 comma
-id|logfile
+id|logfile-&gt;buf
 comma
 id|strerror
 c_func
@@ -13375,7 +13362,7 @@ suffix:semicolon
 id|adjust_shared_perm
 c_func
 (paren
-id|logfile
+id|logfile-&gt;buf
 )paren
 suffix:semicolon
 id|close
@@ -13634,7 +13621,7 @@ comma
 r_struct
 id|strbuf
 op_star
-id|sb_log_file
+id|logfile
 comma
 r_int
 id|flags
@@ -13655,10 +13642,6 @@ op_assign
 id|O_APPEND
 op_or
 id|O_WRONLY
-suffix:semicolon
-r_char
-op_star
-id|log_file
 suffix:semicolon
 r_if
 c_cond
@@ -13682,7 +13665,7 @@ c_func
 (paren
 id|refname
 comma
-id|sb_log_file
+id|logfile
 comma
 id|err
 comma
@@ -13699,21 +13682,12 @@ id|result
 r_return
 id|result
 suffix:semicolon
-id|log_file
-op_assign
-id|sb_log_file-&gt;buf
-suffix:semicolon
-multiline_comment|/* make sure the rest of the function can&squot;t change &quot;log_file&quot; */
-id|sb_log_file
-op_assign
-l_int|NULL
-suffix:semicolon
 id|logfd
 op_assign
 id|open
 c_func
 (paren
-id|log_file
+id|logfile-&gt;buf
 comma
 id|oflags
 )paren
@@ -13761,7 +13735,7 @@ id|err
 comma
 l_string|&quot;unable to append to %s: %s&quot;
 comma
-id|log_file
+id|logfile-&gt;buf
 comma
 id|strerror
 c_func
@@ -13797,7 +13771,7 @@ id|err
 comma
 l_string|&quot;unable to append to %s: %s&quot;
 comma
-id|log_file
+id|logfile-&gt;buf
 comma
 id|strerror
 c_func
