@@ -14385,10 +14385,11 @@ op_star
 id|logmsg
 )paren
 (brace
-r_const
 r_char
 op_star
 id|lockpath
+op_assign
+l_int|NULL
 suffix:semicolon
 r_char
 id|ref
@@ -14552,7 +14553,7 @@ suffix:semicolon
 )brace
 id|lockpath
 op_assign
-id|mkpath
+id|mkpathdup
 c_func
 (paren
 l_string|&quot;%s.lock&quot;
@@ -14693,6 +14694,12 @@ suffix:colon
 id|free
 c_func
 (paren
+id|lockpath
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|git_HEAD
 )paren
 suffix:semicolon
@@ -14700,6 +14707,12 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|free
+c_func
+(paren
+id|lockpath
+)paren
+suffix:semicolon
 macro_line|#ifndef NO_SYMLINK_HEAD
 id|done
 suffix:colon
