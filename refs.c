@@ -4462,7 +4462,6 @@ op_star
 id|refs
 )paren
 (brace
-r_const
 r_char
 op_star
 id|packed_refs_file
@@ -4475,7 +4474,7 @@ id|refs-&gt;name
 )paren
 id|packed_refs_file
 op_assign
-id|git_path_submodule
+id|git_pathdup_submodule
 c_func
 (paren
 id|refs-&gt;name
@@ -4486,7 +4485,7 @@ suffix:semicolon
 r_else
 id|packed_refs_file
 op_assign
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;packed-refs&quot;
@@ -4607,6 +4606,12 @@ id|f
 suffix:semicolon
 )brace
 )brace
+id|free
+c_func
+(paren
+id|packed_refs_file
+)paren
+suffix:semicolon
 r_return
 id|refs-&gt;packed
 suffix:semicolon
@@ -5353,7 +5358,6 @@ comma
 op_star
 id|p
 suffix:semicolon
-r_const
 r_char
 op_star
 id|path
@@ -5382,7 +5386,7 @@ op_star
 id|refs-&gt;name
 ques
 c_cond
-id|git_path_submodule
+id|git_pathdup_submodule
 c_func
 (paren
 id|refs-&gt;name
@@ -5392,7 +5396,7 @@ comma
 id|refname
 )paren
 suffix:colon
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;%s&quot;
@@ -5408,6 +5412,12 @@ c_func
 id|path
 comma
 id|O_RDONLY
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|path
 )paren
 suffix:semicolon
 r_if

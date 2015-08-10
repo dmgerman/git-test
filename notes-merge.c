@@ -1488,12 +1488,11 @@ id|size
 r_int
 id|fd
 suffix:semicolon
-r_const
 r_char
 op_star
 id|path
 op_assign
-id|git_path
+id|git_pathdup
 c_func
 (paren
 id|NOTES_MERGE_WORKTREE
@@ -1645,6 +1644,12 @@ id|close
 c_func
 (paren
 id|fd
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|path
 )paren
 suffix:semicolon
 )brace
