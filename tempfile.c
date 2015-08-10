@@ -110,32 +110,19 @@ id|signo
 )paren
 suffix:semicolon
 )brace
-multiline_comment|/* Make sure errno contains a meaningful value on error */
-DECL|function|create_tempfile
-r_int
-id|create_tempfile
+multiline_comment|/*&n; * Initialize *tempfile if necessary and add it to tempfile_list.&n; */
+DECL|function|prepare_tempfile_object
+r_static
+r_void
+id|prepare_tempfile_object
 c_func
 (paren
 r_struct
 id|tempfile
 op_star
 id|tempfile
-comma
-r_const
-r_char
-op_star
-id|path
 )paren
 (brace
-r_int
-id|pathlen
-op_assign
-id|strlen
-c_func
-(paren
-id|path
-)paren
-suffix:semicolon
 r_if
 c_cond
 (paren
@@ -165,7 +152,7 @@ id|tempfile-&gt;active
 id|die
 c_func
 (paren
-l_string|&quot;BUG: create_tempfile called for active object&quot;
+l_string|&quot;BUG: prepare_tempfile_object called for active object&quot;
 )paren
 suffix:semicolon
 r_if
@@ -198,7 +185,7 @@ c_func
 op_amp
 id|tempfile-&gt;filename
 comma
-id|pathlen
+l_int|0
 )paren
 suffix:semicolon
 id|tempfile-&gt;next
@@ -225,10 +212,34 @@ multiline_comment|/* This shouldn&squot;t happen, but better safe than sorry. */
 id|die
 c_func
 (paren
-l_string|&quot;BUG: create_tempfile called for improperly-reset object&quot;
+l_string|&quot;BUG: prepare_tempfile_object called for improperly-reset object&quot;
 )paren
 suffix:semicolon
 )brace
+)brace
+multiline_comment|/* Make sure errno contains a meaningful value on error */
+DECL|function|create_tempfile
+r_int
+id|create_tempfile
+c_func
+(paren
+r_struct
+id|tempfile
+op_star
+id|tempfile
+comma
+r_const
+r_char
+op_star
+id|path
+)paren
+(brace
+id|prepare_tempfile_object
+c_func
+(paren
+id|tempfile
+)paren
+suffix:semicolon
 id|strbuf_add_absolute_path
 c_func
 (paren
