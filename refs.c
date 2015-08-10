@@ -13755,7 +13755,11 @@ c_func
 (paren
 l_string|&quot;Couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock-&gt;lk
+)paren
 )paren
 suffix:semicolon
 id|unlock_ref
@@ -18895,7 +18899,12 @@ c_func
 (paren
 l_string|&quot;cannot fdopen %s (%s)&quot;
 comma
-id|reflog_lock.filename.buf
+id|get_lock_file_path
+c_func
+(paren
+op_amp
+id|reflog_lock
+)paren
 comma
 id|strerror
 c_func
@@ -19061,7 +19070,11 @@ c_func
 (paren
 l_string|&quot;couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock-&gt;lk
+)paren
 )paren
 suffix:semicolon
 id|rollback_lock_file

@@ -1332,13 +1332,21 @@ c_func
 (paren
 l_string|&quot;failed to write to %s&quot;
 comma
-id|shallow_lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|shallow_lock
+)paren
 )paren
 suffix:semicolon
 op_star
 id|alternate_shallow_file
 op_assign
-id|shallow_lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|shallow_lock
+)paren
 suffix:semicolon
 )brace
 r_else
@@ -1553,7 +1561,12 @@ c_func
 (paren
 l_string|&quot;failed to write to %s&quot;
 comma
-id|shallow_lock.filename.buf
+id|get_lock_file_path
+c_func
+(paren
+op_amp
+id|shallow_lock
+)paren
 )paren
 suffix:semicolon
 id|commit_lock_file
