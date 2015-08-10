@@ -9513,6 +9513,14 @@ l_int|NULL
 )paren
 suffix:semicolon
 )brace
+r_static
+id|GIT_PATH_FUNC
+c_func
+(paren
+id|git_path_info_exclude
+comma
+l_string|&quot;info/exclude&quot;
+)paren
 DECL|function|setup_standard_excludes
 r_void
 id|setup_standard_excludes
@@ -9583,10 +9591,9 @@ suffix:semicolon
 multiline_comment|/* per repository user preference */
 id|path
 op_assign
-id|git_path
+id|git_path_info_exclude
 c_func
 (paren
-l_string|&quot;info/exclude&quot;
 )paren
 suffix:semicolon
 r_if

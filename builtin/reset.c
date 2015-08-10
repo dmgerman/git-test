@@ -126,10 +126,9 @@ op_logical_neg
 id|access
 c_func
 (paren
-id|git_path
+id|git_path_merge_head
 c_func
 (paren
-l_string|&quot;MERGE_HEAD&quot;
 )paren
 comma
 id|F_OK

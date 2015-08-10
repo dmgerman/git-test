@@ -195,10 +195,9 @@ id|path
 )paren
 id|path
 op_assign
-id|git_path
+id|git_path_shallow
 c_func
 (paren
-l_string|&quot;shallow&quot;
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * fetch-pack sets &squot;--shallow-file &quot;&quot;&squot; as an indicator that no&n;&t; * shallow file should be used. We could just open it and it&n;&t; * will likely fail. But let&squot;s do an explicit check instead.&n;&t; */
@@ -720,10 +719,9 @@ c_func
 op_amp
 id|shallow_stat
 comma
-id|git_path
+id|git_path_shallow
 c_func
 (paren
-l_string|&quot;shallow&quot;
 )paren
 )paren
 )paren
@@ -1283,10 +1281,9 @@ c_func
 (paren
 id|shallow_lock
 comma
-id|git_path
+id|git_path_shallow
 c_func
 (paren
-l_string|&quot;shallow&quot;
 )paren
 comma
 id|LOCK_DIE_ON_ERROR
@@ -1502,10 +1499,9 @@ c_func
 op_amp
 id|shallow_lock
 comma
-id|git_path
+id|git_path_shallow
 c_func
 (paren
-l_string|&quot;shallow&quot;
 )paren
 comma
 id|LOCK_DIE_ON_ERROR
@@ -1569,10 +1565,9 @@ r_else
 id|unlink
 c_func
 (paren
-id|git_path
+id|git_path_shallow
 c_func
 (paren
-l_string|&quot;shallow&quot;
 )paren
 )paren
 suffix:semicolon

@@ -2345,6 +2345,14 @@ l_int|0
 )paren
 suffix:semicolon
 )brace
+r_static
+id|GIT_PATH_FUNC
+c_func
+(paren
+id|git_path_info_attributes
+comma
+id|INFOATTRIBUTES_FILE
+)paren
 DECL|function|bootstrap_attr_stack
 r_static
 r_void
@@ -2534,10 +2542,9 @@ op_assign
 id|read_attr_from_file
 c_func
 (paren
-id|git_path
+id|git_path_info_attributes
 c_func
 (paren
-id|INFOATTRIBUTES_FILE
 )paren
 comma
 l_int|1
