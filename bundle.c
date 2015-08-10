@@ -1325,6 +1325,7 @@ r_return
 id|result
 suffix:semicolon
 )brace
+multiline_comment|/* Write the pack data to bundle_fd, then close it if it is &gt; 1. */
 DECL|function|write_pack_data
 r_static
 r_int
@@ -1333,11 +1334,6 @@ c_func
 (paren
 r_int
 id|bundle_fd
-comma
-r_struct
-id|lock_file
-op_star
-id|lock
 comma
 r_struct
 id|rev_info
@@ -1405,11 +1401,6 @@ c_func
 l_string|&quot;Could not spawn pack-objects&quot;
 )paren
 )paren
-suffix:semicolon
-multiline_comment|/*&n;&t; * start_command closed bundle_fd if it was &gt; 1&n;&t; * so set the lock fd to -1 so commit_lock_file()&n;&t; * won&squot;t fail trying to close it.&n;&t; */
-id|lock-&gt;fd
-op_assign
-l_int|1
 suffix:semicolon
 r_for
 c_loop
@@ -2195,6 +2186,7 @@ op_assign
 l_int|1
 suffix:semicolon
 r_else
+(brace
 id|bundle_fd
 op_assign
 id|hold_lock_file_for_update
@@ -2208,6 +2200,29 @@ comma
 id|LOCK_DIE_ON_ERROR
 )paren
 suffix:semicolon
+multiline_comment|/*&n;&t;&t; * write_pack_data() will close the fd passed to it,&n;&t;&t; * but commit_lock_file() will also try to close the&n;&t;&t; * lockfile&squot;s fd. So make a copy of the file&n;&t;&t; * descriptor to avoid trying to close it twice.&n;&t;&t; */
+id|bundle_fd
+op_assign
+id|dup
+c_func
+(paren
+id|bundle_fd
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|bundle_fd
+OL
+l_int|0
+)paren
+id|die_errno
+c_func
+(paren
+l_string|&quot;unable to dup file descriptor&quot;
+)paren
+suffix:semicolon
+)brace
 multiline_comment|/* write signature */
 id|write_or_die
 c_func
@@ -2348,9 +2363,6 @@ id|write_pack_data
 c_func
 (paren
 id|bundle_fd
-comma
-op_amp
-id|lock
 comma
 op_amp
 id|revs
