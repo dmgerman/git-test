@@ -1152,12 +1152,6 @@ c_func
 id|fd
 )paren
 suffix:semicolon
-id|unlink
-c_func
-(paren
-id|socket_path
-)paren
-suffix:semicolon
 )brace
 DECL|variable|permissions_advice
 r_static
@@ -1422,6 +1416,12 @@ c_func
 id|socket_path
 comma
 id|debug
+)paren
+suffix:semicolon
+id|unlink
+c_func
+(paren
+id|socket_path
 )paren
 suffix:semicolon
 r_return
