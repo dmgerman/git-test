@@ -1955,6 +1955,7 @@ l_string|&quot;on-demand&quot;
 r_return
 id|RECURSE_SUBMODULES_ON_DEMAND
 suffix:semicolon
+multiline_comment|/* TODO: remove the die for history parsing here */
 id|die
 c_func
 (paren
