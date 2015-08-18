@@ -9,6 +9,7 @@ macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#include &quot;submodule-config.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 macro_line|#include &quot;connected.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
