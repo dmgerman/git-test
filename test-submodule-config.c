@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;submodule-config.h&quot;
+macro_line|#include &quot;submodule.h&quot;
 DECL|function|die_usage
 r_static
 r_void
@@ -46,6 +47,37 @@ suffix:semicolon
 m_exit
 (paren
 l_int|1
+)paren
+suffix:semicolon
+)brace
+DECL|function|git_test_config
+r_static
+r_int
+id|git_test_config
+c_func
+(paren
+r_const
+r_char
+op_star
+id|var
+comma
+r_const
+r_char
+op_star
+id|value
+comma
+r_void
+op_star
+id|cb
+)paren
+(brace
+r_return
+id|parse_submodule_config_option
+c_func
+(paren
+id|var
+comma
+id|value
 )paren
 suffix:semicolon
 )brace
@@ -168,6 +200,24 @@ comma
 id|argv
 comma
 l_string|&quot;Wrong number of arguments.&quot;
+)paren
+suffix:semicolon
+id|setup_git_directory
+c_func
+(paren
+)paren
+suffix:semicolon
+id|gitmodules_config
+c_func
+(paren
+)paren
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_test_config
+comma
+l_int|NULL
 )paren
 suffix:semicolon
 r_while
