@@ -4299,7 +4299,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|pack_data-&gt;pack_name
@@ -4340,7 +4340,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|move_temp_to_file
+id|finalize_object_file
 c_func
 (paren
 id|curr_index_name
