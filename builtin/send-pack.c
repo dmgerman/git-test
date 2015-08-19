@@ -612,9 +612,9 @@ l_string|&quot;force updates&quot;
 )paren
 )paren
 comma
-id|OPT_BOOL
-c_func
-(paren
+(brace
+id|OPTION_CALLBACK
+comma
 l_int|0
 comma
 l_string|&quot;signed&quot;
@@ -622,12 +622,18 @@ comma
 op_amp
 id|push_cert
 comma
+l_string|&quot;yes|no|if-asked&quot;
+comma
 id|N_
 c_func
 (paren
 l_string|&quot;GPG sign the push&quot;
 )paren
-)paren
+comma
+id|PARSE_OPT_OPTARG
+comma
+id|option_parse_push_signed
+)brace
 comma
 id|OPT_BOOL
 c_func
