@@ -4625,6 +4625,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|head_name
+op_logical_and
 op_logical_neg
 id|strcmp
 c_func
