@@ -1064,10 +1064,18 @@ id|start
 op_decrement
 suffix:semicolon
 multiline_comment|/*&n;&t; * Strip .{bundle,git}.&n;&t; */
-id|strip_suffix
+id|len
+op_assign
+id|end
+id|start
+suffix:semicolon
+id|strip_suffix_mem
 c_func
 (paren
 id|start
+comma
+op_amp
+id|len
 comma
 id|is_bundle
 ques
@@ -1075,9 +1083,6 @@ c_cond
 l_string|&quot;.bundle&quot;
 suffix:colon
 l_string|&quot;.git&quot;
-comma
-op_amp
-id|len
 )paren
 suffix:semicolon
 r_if
