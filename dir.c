@@ -5614,6 +5614,9 @@ r_int
 id|len
 comma
 r_int
+id|baselen
+comma
+r_int
 id|exclude
 comma
 r_const
@@ -5732,8 +5735,11 @@ comma
 id|untracked
 comma
 id|dirname
+op_plus
+id|baselen
 comma
 id|len
+id|baselen
 )paren
 suffix:semicolon
 r_return
@@ -6262,6 +6268,9 @@ id|strbuf
 op_star
 id|path
 comma
+r_int
+id|baselen
+comma
 r_const
 r_struct
 id|path_simplify
@@ -6427,6 +6436,8 @@ comma
 id|path-&gt;buf
 comma
 id|path-&gt;len
+comma
+id|baselen
 comma
 id|exclude
 comma
@@ -6709,6 +6720,8 @@ comma
 id|untracked
 comma
 id|path
+comma
+id|baselen
 comma
 id|simplify
 comma
@@ -8005,6 +8018,8 @@ l_int|NULL
 comma
 op_amp
 id|sb
+comma
+id|baselen
 comma
 id|simplify
 comma
