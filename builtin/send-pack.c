@@ -11,6 +11,7 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;transport.h&quot;
 macro_line|#include &quot;version.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
+macro_line|#include &quot;gpg-interface.h&quot;
 DECL|variable|send_pack_usage
 r_static
 r_const
@@ -412,6 +413,14 @@ op_assign
 (brace
 l_int|0
 )brace
+suffix:semicolon
+id|git_config
+c_func
+(paren
+id|git_gpg_config
+comma
+l_int|NULL
+)paren
 suffix:semicolon
 id|argv
 op_increment
