@@ -3174,10 +3174,9 @@ ques
 c_cond
 l_string|&quot;/dev/null&quot;
 suffix:colon
-id|git_path
+id|git_path_fetch_head
 c_func
 (paren
-l_string|&quot;FETCH_HEAD&quot;
 )paren
 suffix:semicolon
 r_int
@@ -4441,10 +4440,9 @@ r_char
 op_star
 id|filename
 op_assign
-id|git_path
+id|git_path_fetch_head
 c_func
 (paren
-l_string|&quot;FETCH_HEAD&quot;
 )paren
 suffix:semicolon
 id|FILE

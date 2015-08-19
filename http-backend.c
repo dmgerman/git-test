@@ -892,12 +892,11 @@ op_star
 id|name
 )paren
 (brace
-r_const
 r_char
 op_star
 id|p
 op_assign
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;%s&quot;
@@ -1073,6 +1072,12 @@ id|free
 c_func
 (paren
 id|buf
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|p
 )paren
 suffix:semicolon
 )brace

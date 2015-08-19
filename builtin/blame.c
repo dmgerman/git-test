@@ -9932,17 +9932,6 @@ id|tail
 r_int
 id|merge_head
 suffix:semicolon
-r_const
-r_char
-op_star
-id|merge_head_file
-op_assign
-id|git_path
-c_func
-(paren
-l_string|&quot;MERGE_HEAD&quot;
-)paren
-suffix:semicolon
 r_struct
 id|strbuf
 id|line
@@ -9954,7 +9943,10 @@ op_assign
 id|open
 c_func
 (paren
-id|merge_head_file
+id|git_path_merge_head
+c_func
+(paren
+)paren
 comma
 id|O_RDONLY
 )paren
@@ -9981,7 +9973,10 @@ c_func
 (paren
 l_string|&quot;cannot open &squot;%s&squot; for reading&quot;
 comma
-id|merge_head_file
+id|git_path_merge_head
+c_func
+(paren
+)paren
 )paren
 suffix:semicolon
 )brace
@@ -10028,7 +10023,10 @@ c_func
 (paren
 l_string|&quot;unknown line in &squot;%s&squot;: %s&quot;
 comma
-id|merge_head_file
+id|git_path_merge_head
+c_func
+(paren
+)paren
 comma
 id|line.buf
 )paren
