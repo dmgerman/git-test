@@ -2818,9 +2818,9 @@ op_assign
 id|xcalloc
 c_func
 (paren
-l_int|1
-comma
 id|pathspec.nr
+comma
+l_int|1
 )paren
 suffix:semicolon
 r_if
