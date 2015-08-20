@@ -3224,6 +3224,16 @@ id|rev-&gt;diffopt.output_format
 op_assign
 id|DIFF_FORMAT_PATCH
 suffix:semicolon
+multiline_comment|/* Turn -m on when --cc/-c was given */
+r_if
+c_cond
+(paren
+id|rev-&gt;combine_merges
+)paren
+id|rev-&gt;ignore_merges
+op_assign
+l_int|0
+suffix:semicolon
 )brace
 DECL|function|cmd_log
 r_int
