@@ -3211,6 +3211,19 @@ comma
 id|FOLLOW_RENAMES
 )paren
 suffix:semicolon
+multiline_comment|/* Turn --cc/-c into -p --cc/-c when -p was not given */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev-&gt;diffopt.output_format
+op_logical_and
+id|rev-&gt;combine_merges
+)paren
+id|rev-&gt;diffopt.output_format
+op_assign
+id|DIFF_FORMAT_PATCH
+suffix:semicolon
 )brace
 DECL|function|cmd_log
 r_int
