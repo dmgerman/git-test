@@ -203,6 +203,24 @@ l_string|&quot;color&quot;
 comma
 )brace
 suffix:semicolon
+DECL|struct|atom_value
+r_struct
+id|atom_value
+(brace
+DECL|member|s
+r_const
+r_char
+op_star
+id|s
+suffix:semicolon
+DECL|member|ul
+r_int
+r_int
+id|ul
+suffix:semicolon
+multiline_comment|/* used for sorting when not FIELD_STR */
+)brace
+suffix:semicolon
 multiline_comment|/*&n; * An atom is a valid field atom listed above, possibly prefixed with&n; * a &quot;*&quot; to denote deref_tag().&n; *&n; * We parse given format string and sort specifiers, and make a list&n; * of properties that we need to extract out of objects.  ref_array_item&n; * structure will hold an array of values extracted that can be&n; * indexed with the &quot;atom number&quot;, which is an index into this&n; * array.&n; */
 DECL|variable|used_atom
 r_static
