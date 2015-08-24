@@ -2061,8 +2061,6 @@ c_func
 (paren
 id|git_link
 comma
-l_int|1
-comma
 l_string|&quot;gitdir: %s&bslash;n&quot;
 comma
 id|git_dir

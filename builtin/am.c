@@ -699,8 +699,6 @@ comma
 id|name
 )paren
 comma
-l_int|1
-comma
 id|fmt
 comma
 id|string
@@ -739,8 +737,6 @@ id|state
 comma
 id|name
 )paren
-comma
-l_int|1
 comma
 l_string|&quot;%d&bslash;n&quot;
 comma

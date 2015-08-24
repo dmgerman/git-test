@@ -1280,8 +1280,6 @@ c_func
 (paren
 id|sb.buf
 comma
-l_int|1
-comma
 l_string|&quot;initializing&bslash;n&quot;
 )paren
 suffix:semicolon
@@ -1348,8 +1346,6 @@ c_func
 (paren
 id|sb.buf
 comma
-l_int|1
-comma
 l_string|&quot;%s&bslash;n&quot;
 comma
 id|real_path
@@ -1363,8 +1359,6 @@ id|write_file
 c_func
 (paren
 id|sb_git.buf
-comma
-l_int|1
 comma
 l_string|&quot;gitdir: %s/worktrees/%s&bslash;n&quot;
 comma
@@ -1430,8 +1424,6 @@ c_func
 (paren
 id|sb.buf
 comma
-l_int|1
-comma
 l_string|&quot;%s&bslash;n&quot;
 comma
 id|sha1_to_hex
@@ -1463,8 +1455,6 @@ id|write_file
 c_func
 (paren
 id|sb.buf
-comma
-l_int|1
 comma
 l_string|&quot;../..&bslash;n&quot;
 )paren

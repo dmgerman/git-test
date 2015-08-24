@@ -4193,7 +4193,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|write_file
+id|write_file_gently
 c_func
 (paren
 id|git_path
@@ -4201,8 +4201,6 @@ c_func
 (paren
 id|edit_description
 )paren
-comma
-l_int|0
 comma
 l_string|&quot;%s&quot;
 comma

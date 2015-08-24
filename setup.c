@@ -1834,12 +1834,10 @@ c_func
 l_int|NULL
 )paren
 )paren
-id|write_file
+id|write_file_gently
 c_func
 (paren
 id|path.buf
-comma
-l_int|0
 comma
 l_string|&quot;%s&bslash;n&quot;
 comma
