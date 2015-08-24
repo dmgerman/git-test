@@ -3070,6 +3070,13 @@ comma
 id|params
 )paren
 suffix:semicolon
+id|strbuf_complete_line
+c_func
+(paren
+op_amp
+id|sb
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
