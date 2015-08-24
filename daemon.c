@@ -6915,7 +6915,6 @@ id|pid_file
 comma
 l_string|&quot;%&quot;
 id|PRIuMAX
-l_string|&quot;&bslash;n&quot;
 comma
 (paren
 r_uintmax

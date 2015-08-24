@@ -1839,7 +1839,7 @@ c_func
 (paren
 id|path.buf
 comma
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s&quot;
 comma
 id|gitfile
 )paren

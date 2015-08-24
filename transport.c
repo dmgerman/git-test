@@ -1501,7 +1501,7 @@ c_func
 (paren
 id|buf-&gt;buf
 comma
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s&quot;
 comma
 id|oid_to_hex
 c_func

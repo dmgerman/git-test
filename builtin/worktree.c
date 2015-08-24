@@ -1280,7 +1280,7 @@ c_func
 (paren
 id|sb.buf
 comma
-l_string|&quot;initializing&bslash;n&quot;
+l_string|&quot;initializing&quot;
 )paren
 suffix:semicolon
 id|strbuf_addf
@@ -1346,7 +1346,7 @@ c_func
 (paren
 id|sb.buf
 comma
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s&quot;
 comma
 id|real_path
 c_func
@@ -1360,7 +1360,7 @@ c_func
 (paren
 id|sb_git.buf
 comma
-l_string|&quot;gitdir: %s/worktrees/%s&bslash;n&quot;
+l_string|&quot;gitdir: %s/worktrees/%s&quot;
 comma
 id|real_path
 c_func
@@ -1424,7 +1424,7 @@ c_func
 (paren
 id|sb.buf
 comma
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -1456,7 +1456,7 @@ c_func
 (paren
 id|sb.buf
 comma
-l_string|&quot;../..&bslash;n&quot;
+l_string|&quot;../..&quot;
 )paren
 suffix:semicolon
 id|fprintf_ln
