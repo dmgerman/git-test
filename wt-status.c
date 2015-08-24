@@ -6458,10 +6458,9 @@ op_logical_neg
 id|stat
 c_func
 (paren
-id|git_path
+id|git_path_merge_msg
 c_func
 (paren
-l_string|&quot;MERGE_MSG&quot;
 )paren
 comma
 op_amp
@@ -7618,10 +7617,9 @@ op_logical_neg
 id|stat
 c_func
 (paren
-id|git_path
+id|git_path_merge_head
 c_func
 (paren
-l_string|&quot;MERGE_HEAD&quot;
 )paren
 comma
 op_amp
@@ -7794,10 +7792,9 @@ op_logical_neg
 id|stat
 c_func
 (paren
-id|git_path
+id|git_path_cherry_pick_head
 c_func
 (paren
-l_string|&quot;CHERRY_PICK_HEAD&quot;
 )paren
 comma
 op_amp
@@ -7865,10 +7862,9 @@ op_logical_neg
 id|stat
 c_func
 (paren
-id|git_path
+id|git_path_revert_head
 c_func
 (paren
-l_string|&quot;REVERT_HEAD&quot;
 )paren
 comma
 op_amp

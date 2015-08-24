@@ -2971,10 +2971,9 @@ l_string|&quot;append-fetch-head takes 6 args&quot;
 suffix:semicolon
 id|filename
 op_assign
-id|git_path
+id|git_path_fetch_head
 c_func
 (paren
-l_string|&quot;FETCH_HEAD&quot;
 )paren
 suffix:semicolon
 id|fp
@@ -3108,10 +3107,9 @@ l_string|&quot;fetch-native-store takes 3 args&quot;
 suffix:semicolon
 id|filename
 op_assign
-id|git_path
+id|git_path_fetch_head
 c_func
 (paren
-l_string|&quot;FETCH_HEAD&quot;
 )paren
 suffix:semicolon
 id|fp

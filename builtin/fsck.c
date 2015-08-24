@@ -1043,12 +1043,11 @@ c_cond
 id|write_lost_and_found
 )paren
 (brace
-r_const
 r_char
 op_star
 id|filename
 op_assign
-id|git_path
+id|git_pathdup
 c_func
 (paren
 l_string|&quot;lost-found/%s/%s&quot;
@@ -1087,6 +1086,12 @@ id|error
 c_func
 (paren
 l_string|&quot;Could not create lost-found&quot;
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
+id|filename
 )paren
 suffix:semicolon
 r_return
@@ -1181,6 +1186,12 @@ c_func
 (paren
 l_string|&quot;Could not finish &squot;%s&squot;&quot;
 comma
+id|filename
+)paren
+suffix:semicolon
+id|free
+c_func
+(paren
 id|filename
 )paren
 suffix:semicolon

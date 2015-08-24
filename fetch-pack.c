@@ -4897,10 +4897,9 @@ multiline_comment|/* --unshallow */
 id|unlink_or_warn
 c_func
 (paren
-id|git_path
+id|git_path_shallow
 c_func
 (paren
-l_string|&quot;shallow&quot;
 )paren
 )paren
 suffix:semicolon
