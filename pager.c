@@ -588,6 +588,12 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|git_config_key_is_valid
+c_func
+(paren
+id|key.buf
+)paren
+op_logical_and
 op_logical_neg
 id|git_config_get_value
 c_func
