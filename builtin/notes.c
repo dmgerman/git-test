@@ -11,6 +11,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;notes-merge.h&quot;
 macro_line|#include &quot;notes-utils.h&quot;
+macro_line|#include &quot;branch.h&quot;
 DECL|variable|git_notes_usage
 r_static
 r_const
@@ -4900,6 +4901,10 @@ suffix:semicolon
 r_else
 (brace
 multiline_comment|/* Merge has unresolved conflicts */
+r_char
+op_star
+id|existing
+suffix:semicolon
 multiline_comment|/* Update .git/NOTES_MERGE_PARTIAL with partial merge result */
 id|update_ref
 c_func
@@ -4918,6 +4923,41 @@ id|UPDATE_REFS_DIE_ON_ERR
 )paren
 suffix:semicolon
 multiline_comment|/* Store ref-to-be-updated into .git/NOTES_MERGE_REF */
+id|existing
+op_assign
+id|find_shared_symref
+c_func
+(paren
+l_string|&quot;NOTES_MERGE_REF&quot;
+comma
+id|default_notes_ref
+c_func
+(paren
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|existing
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;A notes merge into %s is already in-progress at %s&quot;
+)paren
+comma
+id|default_notes_ref
+c_func
+(paren
+)paren
+comma
+id|existing
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
