@@ -14522,6 +14522,9 @@ id|object
 op_star
 id|o
 suffix:semicolon
+r_int
+id|fd
+suffix:semicolon
 id|o
 op_assign
 id|parse_object
@@ -14603,13 +14606,21 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|fd
+op_assign
+id|get_lock_file_fd
+c_func
+(paren
+id|lock-&gt;lk
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren
 id|write_in_full
 c_func
 (paren
-id|lock-&gt;lk-&gt;fd
+id|fd
 comma
 id|sha1_to_hex
 c_func
@@ -14625,7 +14636,7 @@ op_logical_or
 id|write_in_full
 c_func
 (paren
-id|lock-&gt;lk-&gt;fd
+id|fd
 comma
 op_amp
 id|term
@@ -14651,7 +14662,11 @@ id|err
 comma
 l_string|&quot;Couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock-&gt;lk
+)paren
 )paren
 suffix:semicolon
 id|unlock_ref
@@ -20450,7 +20465,12 @@ c_func
 (paren
 l_string|&quot;cannot fdopen %s (%s)&quot;
 comma
-id|reflog_lock.filename.buf
+id|get_lock_file_path
+c_func
+(paren
+op_amp
+id|reflog_lock
+)paren
 comma
 id|strerror
 c_func
@@ -20568,7 +20588,11 @@ op_logical_and
 id|write_in_full
 c_func
 (paren
-id|lock-&gt;lk-&gt;fd
+id|get_lock_file_fd
+c_func
+(paren
+id|lock-&gt;lk
+)paren
 comma
 id|sha1_to_hex
 c_func
@@ -20584,7 +20608,11 @@ op_logical_or
 id|write_str_in_full
 c_func
 (paren
-id|lock-&gt;lk-&gt;fd
+id|get_lock_file_fd
+c_func
+(paren
+id|lock-&gt;lk
+)paren
 comma
 l_string|&quot;&bslash;n&quot;
 )paren
@@ -20608,7 +20636,11 @@ c_func
 (paren
 l_string|&quot;couldn&squot;t write %s&quot;
 comma
-id|lock-&gt;lk-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock-&gt;lk
+)paren
 )paren
 suffix:semicolon
 id|rollback_lock_file

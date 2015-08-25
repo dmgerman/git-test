@@ -263,7 +263,12 @@ suffix:semicolon
 id|write_or_die
 c_func
 (paren
-id|credential_lock.fd
+id|get_lock_file_fd
+c_func
+(paren
+op_amp
+id|credential_lock
+)paren
 comma
 id|buf-&gt;buf
 comma

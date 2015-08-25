@@ -10473,7 +10473,11 @@ c_cond
 id|chmod
 c_func
 (paren
-id|lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock
+)paren
 comma
 id|st.st_mode
 op_amp
@@ -10488,7 +10492,11 @@ c_func
 (paren
 l_string|&quot;chmod on %s failed: %s&quot;
 comma
-id|lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock
+)paren
 comma
 id|strerror
 c_func
@@ -10854,7 +10862,11 @@ op_assign
 id|write_error
 c_func
 (paren
-id|lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock
+)paren
 )paren
 suffix:semicolon
 r_goto
@@ -11409,7 +11421,11 @@ c_cond
 id|chmod
 c_func
 (paren
-id|lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock
+)paren
 comma
 id|st.st_mode
 op_amp
@@ -11426,7 +11442,11 @@ c_func
 (paren
 l_string|&quot;chmod on %s failed: %s&quot;
 comma
-id|lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock
+)paren
 comma
 id|strerror
 c_func
@@ -11573,7 +11593,11 @@ op_assign
 id|write_error
 c_func
 (paren
-id|lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock
+)paren
 )paren
 suffix:semicolon
 r_goto
@@ -11654,7 +11678,11 @@ op_assign
 id|write_error
 c_func
 (paren
-id|lock-&gt;filename.buf
+id|get_lock_file_path
+c_func
+(paren
+id|lock
+)paren
 )paren
 suffix:semicolon
 r_goto

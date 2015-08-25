@@ -6,6 +6,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;quote.h&quot;
+macro_line|#include &quot;tempfile.h&quot;
 macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;cache-tree.h&quot;
 macro_line|#include &quot;refs.h&quot;

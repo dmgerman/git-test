@@ -9,6 +9,7 @@ macro_line|#include &quot;remote.h&quot;
 macro_line|#include &quot;dir.h&quot;
 macro_line|#include &quot;refs.h&quot;
 macro_line|#include &quot;revision.h&quot;
+macro_line|#include &quot;tempfile.h&quot;
 macro_line|#include &quot;lockfile.h&quot;
 DECL|enum|rebase_type
 r_enum
