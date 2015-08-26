@@ -10194,7 +10194,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;(historical option -- no-op&quot;
+l_string|&quot;historical option -- no-op&quot;
 )paren
 )paren
 comma
