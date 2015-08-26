@@ -1456,9 +1456,9 @@ op_assign
 id|xcalloc
 c_func
 (paren
-l_int|1
-comma
 id|opts-&gt;pathspec.nr
+comma
+l_int|1
 )paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * Make sure all pathspecs participated in locating the paths&n;&t; * to be checked out.&n;&t; */
