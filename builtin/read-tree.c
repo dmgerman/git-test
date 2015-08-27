@@ -104,7 +104,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git read-tree [[-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;] [-u [--exclude-per-directory=&lt;gitignore&gt;] | -i]] [--no-sparse-checkout] [--index-output=&lt;file&gt;] (--empty | &lt;tree-ish1&gt; [&lt;tree-ish2&gt; [&lt;tree-ish3&gt;]])&quot;
+l_string|&quot;git read-tree [(-m [--trivial] [--aggressive] | --reset | --prefix=&lt;prefix&gt;) [-u [--exclude-per-directory=&lt;gitignore&gt;] | -i]] [--no-sparse-checkout] [--index-output=&lt;file&gt;] (--empty | &lt;tree-ish1&gt; [&lt;tree-ish2&gt; [&lt;tree-ish3&gt;]])&quot;
 )paren
 comma
 l_int|NULL
