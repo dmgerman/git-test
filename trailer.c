@@ -3978,7 +3978,7 @@ id|only_spaces
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/*&n;&t; * Get the start of the trailers by looking starting from the end&n;&t; * for a line with only spaces before lines with one separator.&n;&t; */
+multiline_comment|/*&n;&t; * Get the start of the trailers by looking starting from the end&n;&t; * for a line with only spaces before lines with one separator.&n;&t; * The first line must not be analyzed as the others as it&n;&t; * should be either the message title or a blank line.&n;&t; */
 r_for
 c_loop
 (paren
@@ -3989,7 +3989,7 @@ l_int|1
 suffix:semicolon
 id|start
 op_ge
-l_int|0
+l_int|1
 suffix:semicolon
 id|start
 op_decrement
