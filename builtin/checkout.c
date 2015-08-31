@@ -18,6 +18,7 @@ macro_line|#include &quot;blob.h&quot;
 macro_line|#include &quot;xdiff-interface.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;resolve-undo.h&quot;
+macro_line|#include &quot;submodule-config.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 DECL|variable|checkout_usage
 r_static

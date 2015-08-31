@@ -12,6 +12,7 @@ macro_line|#include &quot;run-command.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;userdiff.h&quot;
 macro_line|#include &quot;sigchain.h&quot;
+macro_line|#include &quot;submodule-config.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 macro_line|#include &quot;ll-merge.h&quot;
 macro_line|#include &quot;string-list.h&quot;
