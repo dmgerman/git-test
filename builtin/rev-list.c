@@ -1497,6 +1497,21 @@ c_func
 id|rev_list_usage
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|revs.show_notes
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;rev-list does not support display of notes&quot;
+)paren
+)paren
+suffix:semicolon
 id|save_commit_buffer
 op_assign
 (paren
