@@ -2501,10 +2501,10 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-DECL|function|show_rev_tweak_rev
+DECL|function|show_setup_revisions_tweak
 r_static
 r_void
-id|show_rev_tweak_rev
+id|show_setup_revisions_tweak
 c_func
 (paren
 r_struct
@@ -2680,7 +2680,7 @@ l_string|&quot;HEAD&quot;
 suffix:semicolon
 id|opt.tweak
 op_assign
-id|show_rev_tweak_rev
+id|show_setup_revisions_tweak
 suffix:semicolon
 id|cmd_log_init
 c_func
@@ -3169,10 +3169,10 @@ id|rev
 )paren
 suffix:semicolon
 )brace
-DECL|function|default_follow_tweak
+DECL|function|log_setup_revisions_tweak
 r_static
 r_void
-id|default_follow_tweak
+id|log_setup_revisions_tweak
 c_func
 (paren
 r_struct
@@ -3210,6 +3210,29 @@ id|rev-&gt;diffopt
 comma
 id|FOLLOW_RENAMES
 )paren
+suffix:semicolon
+multiline_comment|/* Turn --cc/-c into -p --cc/-c when -p was not given */
+r_if
+c_cond
+(paren
+op_logical_neg
+id|rev-&gt;diffopt.output_format
+op_logical_and
+id|rev-&gt;combine_merges
+)paren
+id|rev-&gt;diffopt.output_format
+op_assign
+id|DIFF_FORMAT_PATCH
+suffix:semicolon
+multiline_comment|/* Turn -m on when --cc/-c was given */
+r_if
+c_cond
+(paren
+id|rev-&gt;combine_merges
+)paren
+id|rev-&gt;ignore_merges
+op_assign
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|cmd_log
@@ -3290,7 +3313,7 @@ id|REVARG_COMMITTISH
 suffix:semicolon
 id|opt.tweak
 op_assign
-id|default_follow_tweak
+id|log_setup_revisions_tweak
 suffix:semicolon
 id|cmd_log_init
 c_func
