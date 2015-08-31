@@ -5486,9 +5486,7 @@ c_func
 (paren
 id|file_name.buf
 comma
-l_int|1
-comma
-l_string|&quot;gitdir: %s&bslash;n&quot;
+l_string|&quot;gitdir: %s&quot;
 comma
 id|relative_path
 c_func

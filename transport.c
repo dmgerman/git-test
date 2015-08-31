@@ -1496,14 +1496,12 @@ c_func
 id|buf-&gt;buf
 )paren
 op_logical_or
-id|write_file
+id|write_file_gently
 c_func
 (paren
 id|buf-&gt;buf
 comma
-l_int|0
-comma
-l_string|&quot;%s&bslash;n&quot;
+l_string|&quot;%s&quot;
 comma
 id|oid_to_hex
 c_func

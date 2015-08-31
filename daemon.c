@@ -6913,11 +6913,8 @@ c_func
 (paren
 id|pid_file
 comma
-l_int|1
-comma
 l_string|&quot;%&quot;
 id|PRIuMAX
-l_string|&quot;&bslash;n&quot;
 comma
 (paren
 r_uintmax
