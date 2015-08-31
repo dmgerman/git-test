@@ -11,6 +11,7 @@ macro_line|#include &quot;sideband.h&quot;
 macro_line|#include &quot;argv-array.h&quot;
 macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
+macro_line|#include &quot;send-pack.h&quot;
 DECL|variable|remote
 r_static
 r_struct
@@ -76,10 +77,11 @@ id|thin
 suffix:colon
 l_int|1
 comma
+multiline_comment|/* One of the SEND_PACK_PUSH_CERT_* constants. */
 DECL|member|push_cert
 id|push_cert
 suffix:colon
-l_int|1
+l_int|2
 suffix:semicolon
 )brace
 suffix:semicolon
@@ -631,7 +633,7 @@ l_string|&quot;true&quot;
 )paren
 id|options.push_cert
 op_assign
-l_int|1
+id|SEND_PACK_PUSH_CERT_ALWAYS
 suffix:semicolon
 r_else
 r_if
@@ -648,7 +650,24 @@ l_string|&quot;false&quot;
 )paren
 id|options.push_cert
 op_assign
-l_int|0
+id|SEND_PACK_PUSH_CERT_NEVER
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+op_logical_neg
+id|strcmp
+c_func
+(paren
+id|value
+comma
+l_string|&quot;if-asked&quot;
+)paren
+)paren
+id|options.push_cert
+op_assign
+id|SEND_PACK_PUSH_CERT_IF_ASKED
 suffix:semicolon
 r_else
 r_return
@@ -4786,6 +4805,8 @@ r_if
 c_cond
 (paren
 id|options.push_cert
+op_eq
+id|SEND_PACK_PUSH_CERT_ALWAYS
 )paren
 id|argv_array_push
 c_func
@@ -4793,7 +4814,24 @@ c_func
 op_amp
 id|args
 comma
-l_string|&quot;--signed&quot;
+l_string|&quot;--signed=yes&quot;
+)paren
+suffix:semicolon
+r_else
+r_if
+c_cond
+(paren
+id|options.push_cert
+op_eq
+id|SEND_PACK_PUSH_CERT_IF_ASKED
+)paren
+id|argv_array_push
+c_func
+(paren
+op_amp
+id|args
+comma
+l_string|&quot;--signed=if-asked&quot;
 )paren
 suffix:semicolon
 r_if
