@@ -34,6 +34,15 @@ comma
 id|alias
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|git_config_key_is_valid
+c_func
+(paren
+id|key.buf
+)paren
+)paren
 id|git_config_get_string
 c_func
 (paren
