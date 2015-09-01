@@ -1805,7 +1805,7 @@ c_func
 op_amp
 id|path
 comma
-l_string|&quot;%s/gitfile&quot;
+l_string|&quot;%s/gitdir&quot;
 comma
 id|gitdir
 )paren
@@ -1834,7 +1834,7 @@ c_func
 l_int|NULL
 )paren
 )paren
-id|write_file_gently
+id|write_file
 c_func
 (paren
 id|path.buf
