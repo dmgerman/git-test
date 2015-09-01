@@ -162,6 +162,11 @@ c_func
 l_string|&quot;replacements:&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|si-&gt;replace_bitmap
+)paren
 id|ewah_each_bit
 c_func
 (paren
@@ -178,6 +183,11 @@ c_func
 l_string|&quot;&bslash;ndeletions:&quot;
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+id|si-&gt;delete_bitmap
+)paren
 id|ewah_each_bit
 c_func
 (paren
