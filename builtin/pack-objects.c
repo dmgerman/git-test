@@ -36,13 +36,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git pack-objects --stdout [options...] [&lt; ref-list | &lt; object-list]&quot;
+l_string|&quot;git pack-objects --stdout [&lt;options&gt;...] [&lt; &lt;ref-list&gt; | &lt; &lt;object-list&gt;]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git pack-objects [options...] base-name [&lt; ref-list | &lt; object-list]&quot;
+l_string|&quot;git pack-objects [&lt;options&gt;...] &lt;base-name&gt; [&lt; &lt;ref-list&gt; | &lt; &lt;object-list&gt;]&quot;
 )paren
 comma
 l_int|NULL
