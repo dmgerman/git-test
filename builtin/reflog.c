@@ -1970,7 +1970,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;%s&squot; for &squot;%s&squot; is not a valid timestamp&quot;
+l_string|&quot;&squot;%s&squot; for &squot;%s&squot; is not a valid timestamp&quot;
 )paren
 comma
 id|value
