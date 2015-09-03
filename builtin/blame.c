@@ -12152,9 +12152,6 @@ multiline_comment|/* add the null */
 r_break
 suffix:semicolon
 r_case
-id|DATE_LOCAL
-suffix:colon
-r_case
 id|DATE_NORMAL
 suffix:colon
 id|blame_date_width
