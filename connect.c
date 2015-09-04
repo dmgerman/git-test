@@ -3626,6 +3626,11 @@ comma
 id|path
 )paren
 suffix:semicolon
+multiline_comment|/* remove repo-local variables from the environment */
+id|conn-&gt;env
+op_assign
+id|local_repo_env
+suffix:semicolon
 id|conn-&gt;in
 op_assign
 id|conn-&gt;out
@@ -3966,11 +3971,6 @@ suffix:semicolon
 )brace
 r_else
 (brace
-multiline_comment|/* remove repo-local variables from the environment */
-id|conn-&gt;env
-op_assign
-id|local_repo_env
-suffix:semicolon
 id|conn-&gt;use_shell
 op_assign
 l_int|1
