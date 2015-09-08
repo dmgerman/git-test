@@ -3631,6 +3631,10 @@ id|conn-&gt;env
 op_assign
 id|local_repo_env
 suffix:semicolon
+id|conn-&gt;use_shell
+op_assign
+l_int|1
+suffix:semicolon
 id|conn-&gt;in
 op_assign
 id|conn-&gt;out
@@ -3652,6 +3656,8 @@ id|ssh
 suffix:semicolon
 r_int
 id|putty
+op_assign
+l_int|0
 comma
 id|tortoiseplink
 op_assign
@@ -3799,19 +3805,9 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
 id|ssh
 )paren
-(brace
-id|conn-&gt;use_shell
-op_assign
-l_int|1
-suffix:semicolon
-id|putty
-op_assign
-l_int|0
-suffix:semicolon
-)brace
-r_else
 (brace
 r_const
 r_char
@@ -3821,6 +3817,11 @@ suffix:semicolon
 r_char
 op_star
 id|ssh_dup
+suffix:semicolon
+multiline_comment|/*&n;&t;&t;&t;&t; * GIT_SSH is the no-shell version of&n;&t;&t;&t;&t; * GIT_SSH_COMMAND (and must remain so for&n;&t;&t;&t;&t; * historical compatibility).&n;&t;&t;&t;&t; */
+id|conn-&gt;use_shell
+op_assign
+l_int|0
 suffix:semicolon
 id|ssh
 op_assign
@@ -3878,6 +3879,8 @@ l_string|&quot;tortoiseplink.exe&quot;
 suffix:semicolon
 id|putty
 op_assign
+id|tortoiseplink
+op_logical_or
 op_logical_neg
 id|strcasecmp
 c_func
@@ -3895,8 +3898,6 @@ id|base
 comma
 l_string|&quot;plink.exe&quot;
 )paren
-op_logical_or
-id|tortoiseplink
 suffix:semicolon
 id|free
 c_func
@@ -3967,13 +3968,6 @@ id|conn-&gt;args
 comma
 id|ssh_host
 )paren
-suffix:semicolon
-)brace
-r_else
-(brace
-id|conn-&gt;use_shell
-op_assign
-l_int|1
 suffix:semicolon
 )brace
 id|argv_array_push
