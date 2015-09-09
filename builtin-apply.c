@@ -1986,7 +1986,7 @@ r_return
 id|val
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Does the ---/+++ line has the POSIX timestamp after the last HT?&n; * GNU diff puts epoch there to signal a creation/deletion event.  Is&n; * this such a timestamp?&n; */
+multiline_comment|/*&n; * Does the ---/+++ line have the POSIX timestamp after the last HT?&n; * GNU diff puts epoch there to signal a creation/deletion event.  Is&n; * this such a timestamp?&n; */
 DECL|function|has_epoch_timestamp
 r_static
 r_int
