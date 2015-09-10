@@ -11,6 +11,8 @@ macro_line|#include &quot;quote.h&quot;
 macro_line|#include &quot;ref-filter.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;utf8.h&quot;
+macro_line|#include &quot;git-compat-util.h&quot;
+macro_line|#include &quot;version.h&quot;
 DECL|enumerator|FIELD_STR
 DECL|enumerator|FIELD_ULONG
 DECL|enumerator|FIELD_TIME
@@ -7731,15 +7733,29 @@ op_amp
 id|vb
 )paren
 suffix:semicolon
-r_switch
+r_if
+c_cond
+(paren
+id|s-&gt;version
+)paren
+id|cmp
+op_assign
+id|versioncmp
+c_func
+(paren
+id|va-&gt;s
+comma
+id|vb-&gt;s
+)paren
+suffix:semicolon
+r_else
+r_if
 c_cond
 (paren
 id|cmp_type
-)paren
-(brace
-r_case
+op_eq
 id|FIELD_STR
-suffix:colon
+)paren
 id|cmp
 op_assign
 id|strcmp
@@ -7750,12 +7766,8 @@ comma
 id|vb-&gt;s
 )paren
 suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
+r_else
 (brace
-)brace
 r_if
 c_cond
 (paren
@@ -7783,8 +7795,6 @@ r_else
 id|cmp
 op_assign
 l_int|1
-suffix:semicolon
-r_break
 suffix:semicolon
 )brace
 r_return
@@ -8593,6 +8603,35 @@ id|arg
 op_increment
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|skip_prefix
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;version:&quot;
+comma
+op_amp
+id|arg
+)paren
+op_logical_or
+id|skip_prefix
+c_func
+(paren
+id|arg
+comma
+l_string|&quot;v:&quot;
+comma
+op_amp
+id|arg
+)paren
+)paren
+id|s-&gt;version
+op_assign
+l_int|1
+suffix:semicolon
 id|len
 op_assign
 id|strlen
