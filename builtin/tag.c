@@ -38,7 +38,7 @@ id|N_
 c_func
 (paren
 l_string|&quot;git tag -l [-n[&lt;num&gt;]] [--contains &lt;commit&gt;] [--points-at &lt;object&gt;]&quot;
-l_string|&quot;&bslash;n&bslash;t&bslash;t[--format=&lt;format&gt;] [&lt;pattern&gt;...]&quot;
+l_string|&quot;&bslash;n&bslash;t&bslash;t[--format=&lt;format&gt;] [--[no-]merged [&lt;commit&gt;]] [&lt;pattern&gt;...]&quot;
 )paren
 comma
 id|N_
@@ -2115,6 +2115,32 @@ l_string|&quot;print only tags that contain the commit&quot;
 )paren
 )paren
 comma
+id|OPT_MERGED
+c_func
+(paren
+op_amp
+id|filter
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print only tags that are merged&quot;
+)paren
+)paren
+comma
+id|OPT_NO_MERGED
+c_func
+(paren
+op_amp
+id|filter
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print only tags that are not merged&quot;
+)paren
+)paren
+comma
 id|OPT_CALLBACK
 c_func
 (paren
@@ -2511,6 +2537,21 @@ id|_
 c_func
 (paren
 l_string|&quot;--points-at option is only allowed with -l.&quot;
+)paren
+)paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|filter.merge_commit
+)paren
+id|die
+c_func
+(paren
+id|_
+c_func
+(paren
+l_string|&quot;--merged and --no-merged option are only allowed with -l&quot;
 )paren
 )paren
 suffix:semicolon
