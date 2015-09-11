@@ -38,7 +38,7 @@ id|N_
 c_func
 (paren
 l_string|&quot;git tag -l [-n[&lt;num&gt;]] [--contains &lt;commit&gt;] [--points-at &lt;object&gt;]&quot;
-l_string|&quot;&bslash;n&bslash;t&bslash;t[&lt;pattern&gt;...]&quot;
+l_string|&quot;&bslash;n&bslash;t&bslash;t[--format=&lt;format&gt;] [&lt;pattern&gt;...]&quot;
 )paren
 comma
 id|N_
@@ -71,6 +71,11 @@ r_struct
 id|ref_sorting
 op_star
 id|sorting
+comma
+r_const
+r_char
+op_star
+id|format
 )paren
 (brace
 r_struct
@@ -78,9 +83,6 @@ id|ref_array
 id|array
 suffix:semicolon
 r_char
-op_star
-id|format
-comma
 op_star
 id|to_free
 op_assign
@@ -117,6 +119,13 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+op_logical_neg
+id|format
+)paren
+(brace
+r_if
+c_cond
+(paren
 id|filter-&gt;lines
 )paren
 (brace
@@ -142,6 +151,7 @@ id|format
 op_assign
 l_string|&quot;%(refname:short)&quot;
 suffix:semicolon
+)brace
 id|verify_ref_format
 c_func
 (paren
@@ -1790,6 +1800,13 @@ op_assign
 op_amp
 id|sorting
 suffix:semicolon
+r_const
+r_char
+op_star
+id|format
+op_assign
+l_int|NULL
+suffix:semicolon
 r_struct
 id|option
 id|options
@@ -2150,6 +2167,29 @@ comma
 id|parse_opt_object_name
 )brace
 comma
+id|OPT_STRING
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;format&quot;
+comma
+op_amp
+id|format
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;format&quot;
+)paren
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;format to use for the output&quot;
+)paren
+)paren
+comma
 id|OPT_END
 c_func
 (paren
@@ -2405,6 +2445,8 @@ op_amp
 id|filter
 comma
 id|sorting
+comma
+id|format
 )paren
 suffix:semicolon
 r_if
