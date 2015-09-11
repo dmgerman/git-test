@@ -701,6 +701,7 @@ id|want
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/*&n; * Currently modified and used in ref-filter as append_lines(), will&n; * eventually be removed as we port tag.c to use ref-filter APIs.&n; */
 DECL|function|show_tag_lines
 r_static
 r_void
