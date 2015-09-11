@@ -3329,7 +3329,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;create_reflog&quot;
+l_string|&quot;create a reflog&quot;
 )paren
 )paren
 comma
