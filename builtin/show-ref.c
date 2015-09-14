@@ -25,7 +25,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git show-ref --exclude-existing[=pattern] &lt; ref-list&quot;
+l_string|&quot;git show-ref --exclude-existing[=&lt;pattern&gt;] &lt; &lt;ref-list&gt;&quot;
 )paren
 comma
 l_int|NULL
