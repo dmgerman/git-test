@@ -450,11 +450,7 @@ comma
 op_amp
 id|opt_rebase
 comma
-id|N_
-c_func
-(paren
 l_string|&quot;false|true|preserve&quot;
-)paren
 comma
 id|N_
 c_func
