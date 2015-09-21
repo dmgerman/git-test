@@ -3329,6 +3329,14 @@ op_star
 id|el
 )paren
 (brace
+r_struct
+id|exclude
+op_star
+id|exc
+op_assign
+l_int|NULL
+suffix:semicolon
+multiline_comment|/* undecided */
 r_int
 id|i
 suffix:semicolon
@@ -3451,9 +3459,14 @@ comma
 id|x-&gt;flags
 )paren
 )paren
-r_return
+(brace
+id|exc
+op_assign
 id|x
 suffix:semicolon
+r_break
+suffix:semicolon
+)brace
 r_continue
 suffix:semicolon
 )brace
@@ -3501,14 +3514,18 @@ comma
 id|x-&gt;flags
 )paren
 )paren
-r_return
+(brace
+id|exc
+op_assign
 id|x
 suffix:semicolon
+r_break
+suffix:semicolon
+)brace
 )brace
 r_return
-l_int|NULL
+id|exc
 suffix:semicolon
-multiline_comment|/* undecided */
 )brace
 multiline_comment|/*&n; * Scan the list and let the last match determine the fate.&n; * Return 1 for exclude, 0 for include and -1 for undecided.&n; */
 DECL|function|is_excluded_from_list
