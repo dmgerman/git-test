@@ -1637,6 +1637,16 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_MAXREDIRS
+comma
+l_int|20
+)paren
+suffix:semicolon
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071301
 id|curl_easy_setopt
 c_func
