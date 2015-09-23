@@ -49,6 +49,12 @@ c_func
 l_string|&quot;git branch [&lt;options&gt;] (-m | -M) [&lt;old-branch&gt;] &lt;new-branch&gt;&quot;
 )paren
 comma
+id|N_
+c_func
+(paren
+l_string|&quot;git branch [&lt;options&gt;] [-r | -a] [--points-at]&quot;
+)paren
+comma
 l_int|NULL
 )brace
 suffix:semicolon
@@ -3659,6 +3665,33 @@ op_amp
 id|parse_opt_ref_sorting
 )paren
 comma
+(brace
+id|OPTION_CALLBACK
+comma
+l_int|0
+comma
+l_string|&quot;points-at&quot;
+comma
+op_amp
+id|filter.points_at
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;object&quot;
+)paren
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;print only branches of the object&quot;
+)paren
+comma
+l_int|0
+comma
+id|parse_opt_object_name
+)brace
+comma
 id|OPT_END
 c_func
 (paren
@@ -3851,6 +3884,8 @@ op_logical_or
 id|filter.merge
 op_ne
 id|REF_FILTER_MERGED_NONE
+op_logical_or
+id|filter.points_at.nr
 )paren
 id|list
 op_assign
