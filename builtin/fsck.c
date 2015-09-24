@@ -3378,6 +3378,7 @@ c_cond
 op_logical_neg
 id|connectivity_only
 )paren
+(brace
 id|fsck_object_dir
 c_func
 (paren
@@ -3442,6 +3443,7 @@ c_func
 id|namebuf
 )paren
 suffix:semicolon
+)brace
 )brace
 r_if
 c_cond
