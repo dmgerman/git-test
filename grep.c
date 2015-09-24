@@ -1595,10 +1595,15 @@ c_cond
 (paren
 id|p-&gt;no
 )paren
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|where
+comma
+r_sizeof
+(paren
+id|where
+)paren
 comma
 l_string|&quot;In &squot;%s&squot; at %d, &quot;
 comma
@@ -1613,10 +1618,15 @@ c_cond
 (paren
 id|p-&gt;origin
 )paren
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|where
+comma
+r_sizeof
+(paren
+id|where
+)paren
 comma
 l_string|&quot;%s, &quot;
 comma
