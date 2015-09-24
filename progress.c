@@ -1148,10 +1148,14 @@ id|progress_update
 op_assign
 l_int|1
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|bufp
+comma
+id|len
+op_plus
+l_int|1
 comma
 l_string|&quot;, %s.&bslash;n&quot;
 comma
