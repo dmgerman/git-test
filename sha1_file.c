@@ -6799,10 +6799,15 @@ suffix:semicolon
 multiline_comment|/* Generate the header */
 id|hdrlen
 op_assign
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|hdr
+comma
+r_sizeof
+(paren
+id|hdr
+)paren
 comma
 l_string|&quot;%s %lu&quot;
 comma
@@ -14049,10 +14054,13 @@ multiline_comment|/* Generate the header */
 op_star
 id|hdrlen
 op_assign
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|hdr
+comma
+op_star
+id|hdrlen
 comma
 l_string|&quot;%s %lu&quot;
 comma
@@ -14330,6 +14338,11 @@ l_int|32
 suffix:semicolon
 r_int
 id|hdrlen
+op_assign
+r_sizeof
+(paren
+id|hdr
+)paren
 suffix:semicolon
 id|write_sha1_file_prepare
 c_func
@@ -15161,6 +15174,11 @@ l_int|32
 suffix:semicolon
 r_int
 id|hdrlen
+op_assign
+r_sizeof
+(paren
+id|hdr
+)paren
 suffix:semicolon
 multiline_comment|/* Normally if we have it in the pack then we do not bother writing&n;&t; * it out into .git/objects/??/?{38} file.&n;&t; */
 id|write_sha1_file_prepare
@@ -15256,11 +15274,8 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* type string, SP, %lu of the length plus NUL must fit this */
-id|header
+id|hdrlen
 op_assign
-id|xmalloc
-c_func
-(paren
 id|strlen
 c_func
 (paren
@@ -15268,6 +15283,13 @@ id|type
 )paren
 op_plus
 l_int|32
+suffix:semicolon
+id|header
+op_assign
+id|xmalloc
+c_func
+(paren
+id|hdrlen
 )paren
 suffix:semicolon
 id|write_sha1_file_prepare
@@ -15434,10 +15456,15 @@ id|sha1
 suffix:semicolon
 id|hdrlen
 op_assign
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|hdr
+comma
+r_sizeof
+(paren
+id|hdr
+)paren
 comma
 l_string|&quot;%s %lu&quot;
 comma

@@ -880,7 +880,7 @@ l_string|&quot;cannot find the current offset&quot;
 suffix:semicolon
 id|header_len
 op_assign
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 (paren
@@ -888,6 +888,11 @@ r_char
 op_star
 )paren
 id|obuf
+comma
+r_sizeof
+(paren
+id|obuf
+)paren
 comma
 l_string|&quot;%s %&quot;
 id|PRIuMAX
