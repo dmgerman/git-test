@@ -1493,10 +1493,6 @@ op_star
 op_star
 id|pattern
 suffix:semicolon
-DECL|member|ret
-r_int
-id|ret
-suffix:semicolon
 )brace
 suffix:semicolon
 DECL|function|match_patterns
@@ -1817,25 +1813,9 @@ c_cond
 op_logical_neg
 id|commit
 )paren
-(brace
-id|cb-&gt;ret
-op_assign
-id|error
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;branch &squot;%s&squot; does not point at a commit&quot;
-)paren
-comma
-id|refname
-)paren
-suffix:semicolon
 r_return
 l_int|0
 suffix:semicolon
-)brace
 multiline_comment|/* Filter with with_commit if specified */
 r_if
 c_cond
@@ -3201,7 +3181,7 @@ suffix:semicolon
 )brace
 DECL|function|print_ref_list
 r_static
-r_int
+r_void
 id|print_ref_list
 c_func
 (paren
@@ -3318,10 +3298,6 @@ suffix:semicolon
 id|cb.pattern
 op_assign
 id|pattern
-suffix:semicolon
-id|cb.ret
-op_assign
-l_int|0
 suffix:semicolon
 multiline_comment|/*&n;&t; * First we obtain all regular branch refs and if the HEAD is&n;&t; * detached then we insert that ref to the end of the ref_fist&n;&t; * so that it can be printed and removed first.&n;&t; */
 id|for_each_rawref
@@ -3612,24 +3588,6 @@ c_func
 op_amp
 id|ref_list
 )paren
-suffix:semicolon
-r_if
-c_cond
-(paren
-id|cb.ret
-)paren
-id|error
-c_func
-(paren
-id|_
-c_func
-(paren
-l_string|&quot;some refs could not be read&quot;
-)paren
-)paren
-suffix:semicolon
-r_return
-id|cb.ret
 suffix:semicolon
 )brace
 DECL|function|rename_branch
@@ -5095,9 +5053,6 @@ c_cond
 id|list
 )paren
 (brace
-r_int
-id|ret
-suffix:semicolon
 multiline_comment|/*  git branch --local also shows HEAD when it is detached */
 r_if
 c_cond
@@ -5110,8 +5065,6 @@ id|kinds
 op_or_assign
 id|REF_DETACHED_HEAD
 suffix:semicolon
-id|ret
-op_assign
 id|print_ref_list
 c_func
 (paren
@@ -5149,7 +5102,7 @@ l_int|0
 )paren
 suffix:semicolon
 r_return
-id|ret
+l_int|0
 suffix:semicolon
 )brace
 r_else
