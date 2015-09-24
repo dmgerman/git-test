@@ -1242,7 +1242,7 @@ suffix:semicolon
 r_default
 suffix:colon
 r_return
-l_string|&quot;unkown protocol&quot;
+l_string|&quot;unknown protocol&quot;
 suffix:semicolon
 )brace
 )brace
