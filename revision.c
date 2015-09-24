@@ -130,12 +130,16 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|strcpy
+id|memcpy
 c_func
 (paren
 id|m
 comma
 id|name
+comma
+id|nlen
+op_plus
+l_int|1
 )paren
 suffix:semicolon
 r_for
