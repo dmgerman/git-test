@@ -1021,7 +1021,7 @@ l_int|1
 )paren
 )paren
 suffix:semicolon
-id|strncpy
+id|memcpy
 c_func
 (paren
 (paren
@@ -1036,6 +1036,7 @@ comma
 id|len
 )paren
 suffix:semicolon
+multiline_comment|/* NUL-terminated by xcalloc */
 )brace
 DECL|function|supported_man_viewer
 r_static
@@ -1130,7 +1131,7 @@ op_plus
 l_int|1
 )paren
 suffix:semicolon
-id|strncpy
+id|memcpy
 c_func
 (paren
 r_new
@@ -1142,6 +1143,7 @@ comma
 id|len
 )paren
 suffix:semicolon
+multiline_comment|/* NUL-terminated by xcalloc */
 r_new
 op_member_access_from_pointer
 id|info

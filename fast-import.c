@@ -2969,7 +2969,7 @@ id|c-&gt;str_len
 op_assign
 id|len
 suffix:semicolon
-id|strncpy
+id|memcpy
 c_func
 (paren
 id|c-&gt;str_dat
