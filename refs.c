@@ -8607,18 +8607,7 @@ id|pattern
 )paren
 (brace
 multiline_comment|/* Append implied &squot;/&squot; &squot;*&squot; if not present. */
-r_if
-c_cond
-(paren
-id|real_pattern.buf
-(braket
-id|real_pattern.len
-l_int|1
-)braket
-op_ne
-l_char|&squot;/&squot;
-)paren
-id|strbuf_addch
+id|strbuf_complete
 c_func
 (paren
 op_amp
