@@ -237,17 +237,14 @@ dot
 dot
 )paren
 (brace
-r_char
+r_struct
+id|strbuf
 id|buf
-(braket
-l_int|1024
-)braket
+op_assign
+id|STRBUF_INIT
 suffix:semicolon
 id|va_list
 id|params
-suffix:semicolon
-r_int
-id|len
 suffix:semicolon
 id|va_start
 c_func
@@ -257,11 +254,10 @@ comma
 id|fmt
 )paren
 suffix:semicolon
-id|len
-op_assign
-id|vsprintf
+id|strbuf_vaddf
 c_func
 (paren
+op_amp
 id|buf
 comma
 id|fmt
@@ -282,9 +278,9 @@ l_int|1
 comma
 l_int|3
 comma
-id|buf
+id|buf.buf
 comma
-id|len
+id|buf.len
 comma
 id|LARGE_PACKET_MAX
 )paren
@@ -294,7 +290,7 @@ c_func
 (paren
 l_string|&quot;sent error to the client: %s&quot;
 comma
-id|buf
+id|buf.buf
 )paren
 suffix:semicolon
 )brace
