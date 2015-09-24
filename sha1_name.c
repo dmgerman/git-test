@@ -394,10 +394,15 @@ id|fakeent-&gt;next
 op_assign
 id|alt_odb_list
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|hex
+comma
+r_sizeof
+(paren
+id|hex
+)paren
 comma
 l_string|&quot;%.2s&quot;
 comma
@@ -430,10 +435,13 @@ id|DIR
 op_star
 id|dir
 suffix:semicolon
-id|sprintf
+multiline_comment|/*&n;&t;&t; * every alt_odb struct has 42 extra bytes after the base&n;&t;&t; * for exactly this purpose&n;&t;&t; */
+id|xsnprintf
 c_func
 (paren
 id|alt-&gt;name
+comma
+l_int|42
 comma
 l_string|&quot;%.2s/&quot;
 comma
