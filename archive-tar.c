@@ -1715,10 +1715,15 @@ id|mode
 op_assign
 l_int|0100666
 suffix:semicolon
-id|strcpy
+id|xsnprintf
 c_func
 (paren
 id|header.name
+comma
+r_sizeof
+(paren
+id|header.name
+)paren
 comma
 l_string|&quot;pax_global_header&quot;
 )paren

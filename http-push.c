@@ -4019,10 +4019,15 @@ c_func
 id|escaped
 )paren
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|timeout_header
+comma
+r_sizeof
+(paren
+id|timeout_header
+)paren
 comma
 l_string|&quot;Timeout: Second-%ld&quot;
 comma

@@ -370,10 +370,15 @@ id|buf
 l_int|24
 )braket
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|buf
+comma
+r_sizeof
+(paren
+id|buf
+)paren
 comma
 l_string|&quot;ent#%d&quot;
 comma

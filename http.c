@@ -4933,10 +4933,15 @@ op_mul_assign
 l_int|10
 )paren
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|q_format
+comma
+r_sizeof
+(paren
+id|q_format
+)paren
 comma
 l_string|&quot;;q=0.%%0%dd&quot;
 comma
@@ -7236,10 +7241,15 @@ comma
 id|prev_posn
 )paren
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|range
+comma
+r_sizeof
+(paren
+id|range
+)paren
 comma
 l_string|&quot;Range: bytes=%ld-&quot;
 comma
@@ -8032,10 +8042,15 @@ comma
 id|prev_posn
 )paren
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|range
+comma
+r_sizeof
+(paren
+id|range
+)paren
 comma
 l_string|&quot;Range: bytes=%ld-&quot;
 comma

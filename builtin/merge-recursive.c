@@ -56,10 +56,15 @@ l_int|40
 r_return
 id|branch
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|githead_env
+comma
+r_sizeof
+(paren
+id|githead_env
+)paren
 comma
 l_string|&quot;GITHEAD_%s&quot;
 comma

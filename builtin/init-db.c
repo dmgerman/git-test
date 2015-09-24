@@ -1377,10 +1377,15 @@ l_int|1
 suffix:semicolon
 )brace
 multiline_comment|/* This forces creation of new config file */
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|repo_version_string
+comma
+r_sizeof
+(paren
+id|repo_version_string
+)paren
 comma
 l_string|&quot;%d&quot;
 comma
@@ -2161,10 +2166,15 @@ OL
 l_int|0
 )paren
 multiline_comment|/* force to the mode value */
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|buf
+comma
+r_sizeof
+(paren
+id|buf
+)paren
 comma
 l_string|&quot;0%o&quot;
 comma
@@ -2179,10 +2189,15 @@ id|shared_repository
 op_eq
 id|PERM_GROUP
 )paren
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|buf
+comma
+r_sizeof
+(paren
+id|buf
+)paren
 comma
 l_string|&quot;%d&quot;
 comma
@@ -2197,10 +2212,15 @@ id|shared_repository
 op_eq
 id|PERM_EVERYBODY
 )paren
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|buf
+comma
+r_sizeof
+(paren
+id|buf
+)paren
 comma
 l_string|&quot;%d&quot;
 comma
@@ -2211,7 +2231,7 @@ r_else
 id|die
 c_func
 (paren
-l_string|&quot;oops&quot;
+l_string|&quot;BUG: invalid value for shared_repository&quot;
 )paren
 suffix:semicolon
 id|git_config_set

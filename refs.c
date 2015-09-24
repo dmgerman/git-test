@@ -14103,10 +14103,12 @@ id|maxlen
 suffix:semicolon
 id|len
 op_assign
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|logrec
+comma
+id|maxlen
 comma
 l_string|&quot;%s %s %s&bslash;n&quot;
 comma

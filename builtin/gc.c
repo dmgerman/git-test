@@ -841,10 +841,15 @@ id|my_host
 )paren
 )paren
 )paren
-id|strcpy
+id|xsnprintf
 c_func
 (paren
 id|my_host
+comma
+r_sizeof
+(paren
+id|my_host
+)paren
 comma
 l_string|&quot;unknown&quot;
 )paren
