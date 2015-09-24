@@ -10922,14 +10922,17 @@ comma
 id|entry-&gt;u.value.oid.hash
 )paren
 suffix:semicolon
-id|strcpy
+id|memcpy
 c_func
 (paren
 id|n-&gt;name
 comma
 id|entry-&gt;name
+comma
+id|namelen
 )paren
 suffix:semicolon
+multiline_comment|/* includes NUL */
 id|n-&gt;next
 op_assign
 id|cb-&gt;ref_to_prune
@@ -17459,6 +17462,8 @@ c_func
 (paren
 id|refname
 )paren
+op_plus
+l_int|1
 suffix:semicolon
 r_struct
 id|ref_update
@@ -17477,11 +17482,9 @@ id|update
 )paren
 op_plus
 id|len
-op_plus
-l_int|1
 )paren
 suffix:semicolon
-id|strcpy
+id|memcpy
 c_func
 (paren
 (paren
@@ -17491,8 +17494,11 @@ op_star
 id|update-&gt;refname
 comma
 id|refname
+comma
+id|len
 )paren
 suffix:semicolon
+multiline_comment|/* includes NUL */
 id|ALLOC_GROW
 c_func
 (paren
