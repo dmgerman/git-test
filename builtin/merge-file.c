@@ -526,6 +526,15 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|mmfs
+(braket
+id|i
+)braket
+dot
+id|size
+OG
+id|MAX_XDIFF_SIZE
+op_logical_or
 id|buffer_is_binary
 c_func
 (paren
