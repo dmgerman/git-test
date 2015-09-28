@@ -8,6 +8,7 @@ macro_line|#include &quot;urlmatch.h&quot;
 macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;version.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
+macro_line|#include &quot;transport.h&quot;
 DECL|variable|active_requests
 r_int
 id|active_requests
@@ -1398,6 +1399,11 @@ c_func
 (paren
 )paren
 suffix:semicolon
+r_int
+id|allowed_protocols
+op_assign
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -1631,6 +1637,16 @@ comma
 l_int|1
 )paren
 suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_MAXREDIRS
+comma
+l_int|20
+)paren
+suffix:semicolon
 macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071301
 id|curl_easy_setopt
 c_func
@@ -1651,6 +1667,86 @@ comma
 id|CURLOPT_POST301
 comma
 l_int|1
+)paren
+suffix:semicolon
+macro_line|#endif
+macro_line|#if LIBCURL_VERSION_NUM &gt;= 0x071304
+r_if
+c_cond
+(paren
+id|is_transport_allowed
+c_func
+(paren
+l_string|&quot;http&quot;
+)paren
+)paren
+id|allowed_protocols
+op_or_assign
+id|CURLPROTO_HTTP
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_transport_allowed
+c_func
+(paren
+l_string|&quot;https&quot;
+)paren
+)paren
+id|allowed_protocols
+op_or_assign
+id|CURLPROTO_HTTPS
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_transport_allowed
+c_func
+(paren
+l_string|&quot;ftp&quot;
+)paren
+)paren
+id|allowed_protocols
+op_or_assign
+id|CURLPROTO_FTP
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|is_transport_allowed
+c_func
+(paren
+l_string|&quot;ftps&quot;
+)paren
+)paren
+id|allowed_protocols
+op_or_assign
+id|CURLPROTO_FTPS
+suffix:semicolon
+id|curl_easy_setopt
+c_func
+(paren
+id|result
+comma
+id|CURLOPT_REDIR_PROTOCOLS
+comma
+id|allowed_protocols
+)paren
+suffix:semicolon
+macro_line|#else
+r_if
+c_cond
+(paren
+id|transport_restrict_protocols
+c_func
+(paren
+)paren
+)paren
+id|warning
+c_func
+(paren
+l_string|&quot;protocol restrictions not applied to curl redirects because&bslash;n&quot;
+l_string|&quot;your curl version is too old (&gt;= 7.19.4)&quot;
 )paren
 suffix:semicolon
 macro_line|#endif
