@@ -2357,6 +2357,9 @@ id|state.n
 op_assign
 id|n
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff_outf
 c_func
 (paren
@@ -2375,6 +2378,18 @@ id|xpp
 comma
 op_amp
 id|xecfg
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate combined diff for %s&quot;
+comma
+id|oid_to_hex
+c_func
+(paren
+id|parent
+)paren
 )paren
 suffix:semicolon
 id|free
