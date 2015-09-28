@@ -5425,6 +5425,12 @@ id|data-&gt;name
 op_assign
 id|name
 suffix:semicolon
+id|transport_check_allowed
+c_func
+(paren
+id|name
+)paren
+suffix:semicolon
 r_if
 c_cond
 (paren

@@ -1639,7 +1639,7 @@ suffix:semicolon
 )brace
 DECL|function|collect_diff
 r_static
-r_void
+r_int
 id|collect_diff
 c_func
 (paren
@@ -1735,6 +1735,7 @@ op_assign
 op_amp
 id|cbdata
 suffix:semicolon
+r_return
 id|xdi_diff
 c_func
 (paren
@@ -5594,6 +5595,9 @@ op_amp
 id|diff
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|collect_diff
 c_func
 (paren
@@ -5605,6 +5609,14 @@ id|file_target
 comma
 op_amp
 id|diff
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate diff for %s&quot;
+comma
+id|pair-&gt;one-&gt;path
 )paren
 suffix:semicolon
 multiline_comment|/* NEEDSWORK should apply some heuristics to prevent mismatches */
