@@ -5793,6 +5793,9 @@ id|xecfg.ctxlen
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff_outf
 c_func
 (paren
@@ -5811,6 +5814,12 @@ id|xpp
 comma
 op_amp
 id|xecfg
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate word diff&quot;
 )paren
 suffix:semicolon
 id|free
@@ -13290,6 +13299,9 @@ comma
 id|two
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff_outf
 c_func
 (paren
@@ -13309,6 +13321,14 @@ id|xpp
 comma
 op_amp
 id|xecfg
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate diff for %s&quot;
+comma
+id|one-&gt;path
 )paren
 suffix:semicolon
 r_if
@@ -13705,6 +13725,9 @@ id|xecfg.interhunkctxlen
 op_assign
 id|o-&gt;interhunkcontext
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff_outf
 c_func
 (paren
@@ -13723,6 +13746,14 @@ id|xpp
 comma
 op_amp
 id|xecfg
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate diffstat for %s&quot;
+comma
+id|one-&gt;path
 )paren
 suffix:semicolon
 )brace
@@ -13930,6 +13961,9 @@ id|xpp.flags
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff_outf
 c_func
 (paren
@@ -13949,6 +13983,14 @@ id|xpp
 comma
 op_amp
 id|xecfg
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate checkdiff for %s&quot;
+comma
+id|one-&gt;path
 )paren
 suffix:semicolon
 r_if
@@ -24949,6 +24991,9 @@ id|xecfg.flags
 op_assign
 l_int|0
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff_outf
 c_func
 (paren
@@ -24968,6 +25013,15 @@ id|xpp
 comma
 op_amp
 id|xecfg
+)paren
+)paren
+r_return
+id|error
+c_func
+(paren
+l_string|&quot;unable to generate patch-id diff for %s&quot;
+comma
+id|p-&gt;one-&gt;path
 )paren
 suffix:semicolon
 )brace
