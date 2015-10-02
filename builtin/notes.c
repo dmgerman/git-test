@@ -11,7 +11,7 @@ macro_line|#include &quot;parse-options.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;notes-merge.h&quot;
 macro_line|#include &quot;notes-utils.h&quot;
-macro_line|#include &quot;branch.h&quot;
+macro_line|#include &quot;worktree.h&quot;
 DECL|variable|git_notes_usage
 r_static
 r_const
