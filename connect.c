@@ -9,6 +9,7 @@ macro_line|#include &quot;connect.h&quot;
 macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
+macro_line|#include &quot;transport.h&quot;
 DECL|variable|server_capabilities
 r_static
 r_char
@@ -3519,6 +3520,12 @@ c_func
 id|hostandport
 )paren
 suffix:semicolon
+id|transport_check_allowed
+c_func
+(paren
+l_string|&quot;git&quot;
+)paren
+suffix:semicolon
 multiline_comment|/* These underlying connection commands die() if they&n;&t;&t; * cannot connect.&n;&t;&t; */
 r_if
 c_cond
@@ -3675,6 +3682,12 @@ op_star
 id|port
 op_assign
 l_int|NULL
+suffix:semicolon
+id|transport_check_allowed
+c_func
+(paren
+l_string|&quot;ssh&quot;
+)paren
 suffix:semicolon
 id|get_host_and_port
 c_func
@@ -3967,6 +3980,15 @@ op_amp
 id|conn-&gt;args
 comma
 id|ssh_host
+)paren
+suffix:semicolon
+)brace
+r_else
+(brace
+id|transport_check_allowed
+c_func
+(paren
+l_string|&quot;file&quot;
 )paren
 suffix:semicolon
 )brace

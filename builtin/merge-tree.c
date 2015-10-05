@@ -555,6 +555,9 @@ id|dst.size
 op_assign
 id|size
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff
 c_func
 (paren
@@ -572,6 +575,12 @@ id|xecfg
 comma
 op_amp
 id|ecb
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate diff&quot;
 )paren
 suffix:semicolon
 id|free

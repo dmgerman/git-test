@@ -141,6 +141,9 @@ id|minus
 comma
 id|plus
 suffix:semicolon
+r_int
+id|ret
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -221,6 +224,8 @@ id|ecb.outf
 op_assign
 id|outf
 suffix:semicolon
+id|ret
+op_assign
 id|xdi_diff
 c_func
 (paren
@@ -253,7 +258,7 @@ id|plus.ptr
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|ret
 suffix:semicolon
 )brace
 DECL|function|cmd_rerere
@@ -711,6 +716,9 @@ id|i
 dot
 id|util
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|diff_two
 c_func
 (paren
@@ -727,6 +735,20 @@ comma
 id|path
 comma
 id|path
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate diff for %s&quot;
+comma
+id|rerere_path
+c_func
+(paren
+id|id
+comma
+l_int|NULL
+)paren
 )paren
 suffix:semicolon
 )brace

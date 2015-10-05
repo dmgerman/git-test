@@ -281,6 +281,9 @@ id|xecfg.interhunkctxlen
 op_assign
 id|o-&gt;interhunkcontext
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|xdi_diff_outf
 c_func
 (paren
@@ -299,6 +302,9 @@ comma
 op_amp
 id|xecfg
 )paren
+)paren
+r_return
+l_int|0
 suffix:semicolon
 r_return
 id|ecbdata.hit

@@ -3744,6 +3744,9 @@ suffix:semicolon
 id|num_get_patch
 op_increment
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|diff_hunks
 c_func
 (paren
@@ -3759,6 +3762,24 @@ id|blame_chunk_cb
 comma
 op_amp
 id|d
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate diff (%s -&gt; %s)&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|parent-&gt;commit-&gt;object.sha1
+)paren
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|target-&gt;commit-&gt;object.sha1
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* The rest are the same as the parent */
@@ -4364,6 +4385,9 @@ l_int|3
 )paren
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
 id|diff_hunks
 c_func
 (paren
@@ -4378,6 +4402,18 @@ id|handle_split_cb
 comma
 op_amp
 id|d
+)paren
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;unable to generate diff (%s)&quot;
+comma
+id|sha1_to_hex
+c_func
+(paren
+id|parent-&gt;commit-&gt;object.sha1
+)paren
 )paren
 suffix:semicolon
 multiline_comment|/* remainder, if any, all match the preimage */
