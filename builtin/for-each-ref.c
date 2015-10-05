@@ -465,6 +465,10 @@ id|filter.name_patterns
 op_assign
 id|argv
 suffix:semicolon
+id|filter.match_as_path
+op_assign
+l_int|1
+suffix:semicolon
 id|filter_refs
 c_func
 (paren
