@@ -699,15 +699,11 @@ dot
 id|string
 suffix:semicolon
 r_const
-r_char
+r_struct
+id|rerere_id
 op_star
-id|name
+id|id
 op_assign
-(paren
-r_const
-r_char
-op_star
-)paren
 id|merge_rr.items
 (braket
 id|i
@@ -721,7 +717,7 @@ c_func
 id|rerere_path
 c_func
 (paren
-id|name
+id|id
 comma
 l_string|&quot;preimage&quot;
 )paren
