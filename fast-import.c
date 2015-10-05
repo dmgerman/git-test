@@ -1377,7 +1377,7 @@ comma
 id|DATE_MODE
 c_func
 (paren
-id|LOCAL
+id|ISO8601
 )paren
 )paren
 )paren
