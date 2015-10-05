@@ -1,5 +1,6 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;pkt-line.h&quot;
+macro_line|#include &quot;run-command.h&quot;
 DECL|variable|packet_buffer
 r_char
 id|packet_buffer
@@ -58,6 +59,29 @@ c_func
 (paren
 id|prog
 )paren
+suffix:semicolon
+)brace
+DECL|function|get_trace_prefix
+r_static
+r_const
+r_char
+op_star
+id|get_trace_prefix
+c_func
+(paren
+r_void
+)paren
+(brace
+r_return
+id|in_async
+c_func
+(paren
+)paren
+ques
+c_cond
+l_string|&quot;sideband&quot;
+suffix:colon
+id|packet_trace_prefix
 suffix:semicolon
 )brace
 DECL|function|packet_trace_pack
@@ -303,7 +327,10 @@ id|out
 comma
 l_string|&quot;packet: %12s%c &quot;
 comma
-id|packet_trace_prefix
+id|get_trace_prefix
+c_func
+(paren
+)paren
 comma
 id|write
 ques
