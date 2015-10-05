@@ -3068,6 +3068,14 @@ id|cmd_stripspace
 )brace
 comma
 (brace
+l_string|&quot;submodule--helper&quot;
+comma
+id|cmd_submodule__helper
+comma
+id|RUN_SETUP
+)brace
+comma
+(brace
 l_string|&quot;symbolic-ref&quot;
 comma
 id|cmd_symbolic_ref
