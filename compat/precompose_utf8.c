@@ -696,15 +696,10 @@ id|outsz
 op_assign
 id|prec_dir-&gt;dirent_nfc-&gt;max_name_len
 suffix:semicolon
-r_int
-id|cnt
-suffix:semicolon
 id|errno
 op_assign
 l_int|0
 suffix:semicolon
-id|cnt
-op_assign
 id|iconv
 c_func
 (paren
