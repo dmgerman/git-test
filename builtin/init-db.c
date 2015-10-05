@@ -1712,9 +1712,6 @@ suffix:semicolon
 id|probe_utf8_pathname_composition
 c_func
 (paren
-id|path
-comma
-id|len
 )paren
 suffix:semicolon
 )brace
