@@ -79,6 +79,9 @@ c_func
 (paren
 r_int
 id|sig
+comma
+r_int
+id|in_signal
 )paren
 (brace
 r_while
@@ -106,6 +109,12 @@ comma
 id|sig
 )paren
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+id|in_signal
+)paren
 id|free
 c_func
 (paren
@@ -128,6 +137,8 @@ id|cleanup_children
 c_func
 (paren
 id|sig
+comma
+l_int|1
 )paren
 suffix:semicolon
 id|sigchain_pop
@@ -156,6 +167,8 @@ id|cleanup_children
 c_func
 (paren
 id|SIGTERM
+comma
+l_int|0
 )paren
 suffix:semicolon
 )brace
@@ -1051,6 +1064,9 @@ r_const
 r_char
 op_star
 id|argv0
+comma
+r_int
+id|in_signal
 )paren
 (brace
 r_int
@@ -1094,6 +1110,14 @@ id|EINTR
 )paren
 suffix:semicolon
 multiline_comment|/* nothing */
+r_if
+c_cond
+(paren
+id|in_signal
+)paren
+r_return
+l_int|0
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -2142,6 +2166,8 @@ id|cmd-&gt;argv
 (braket
 l_int|0
 )braket
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|failed_errno
@@ -2709,6 +2735,8 @@ id|cmd-&gt;argv
 (braket
 l_int|0
 )braket
+comma
+l_int|0
 )paren
 suffix:semicolon
 id|argv_array_clear
@@ -2727,6 +2755,32 @@ id|cmd-&gt;env_array
 suffix:semicolon
 r_return
 id|ret
+suffix:semicolon
+)brace
+DECL|function|finish_command_in_signal
+r_int
+id|finish_command_in_signal
+c_func
+(paren
+r_struct
+id|child_process
+op_star
+id|cmd
+)paren
+(brace
+r_return
+id|wait_or_whine
+c_func
+(paren
+id|cmd-&gt;pid
+comma
+id|cmd-&gt;argv
+(braket
+l_int|0
+)braket
+comma
+l_int|1
+)paren
 suffix:semicolon
 )brace
 DECL|function|run_command
@@ -3923,6 +3977,8 @@ c_func
 id|async-&gt;pid
 comma
 l_string|&quot;child process&quot;
+comma
+l_int|0
 )paren
 suffix:semicolon
 macro_line|#else
