@@ -544,7 +544,7 @@ c_func
 id|_
 c_func
 (paren
-l_string|&quot;Please, commit your changes before you can merge.&quot;
+l_string|&quot;Please, commit your changes before merging.&quot;
 )paren
 )paren
 suffix:semicolon
