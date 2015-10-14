@@ -5075,6 +5075,12 @@ c_func
 (paren
 )paren
 suffix:semicolon
+id|fclose
+c_func
+(paren
+id|patchfile
+)paren
+suffix:semicolon
 id|handle_info
 c_func
 (paren
