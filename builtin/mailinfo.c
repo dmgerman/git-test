@@ -3507,14 +3507,11 @@ op_star
 id|line
 )paren
 (brace
-r_if
-c_cond
+m_assert
 (paren
 op_logical_neg
-id|mi-&gt;cmitmsg
+id|mi-&gt;filter_stage
 )paren
-r_return
-l_int|0
 suffix:semicolon
 r_if
 c_cond
