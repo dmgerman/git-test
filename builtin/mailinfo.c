@@ -904,7 +904,7 @@ c_cond
 (paren
 op_increment
 id|content_top
-OG
+op_ge
 op_amp
 id|content
 (braket
