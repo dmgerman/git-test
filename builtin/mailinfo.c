@@ -5,8 +5,6 @@ macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 DECL|variable|cmitmsg
 DECL|variable|patchfile
-DECL|variable|fin
-DECL|variable|fout
 r_static
 id|FILE
 op_star
@@ -14,12 +12,6 @@ id|cmitmsg
 comma
 op_star
 id|patchfile
-comma
-op_star
-id|fin
-comma
-op_star
-id|fout
 suffix:semicolon
 DECL|variable|metainfo_charset
 r_static
@@ -32,6 +24,16 @@ DECL|struct|mailinfo
 r_struct
 id|mailinfo
 (brace
+DECL|member|input
+id|FILE
+op_star
+id|input
+suffix:semicolon
+DECL|member|output
+id|FILE
+op_star
+id|output
+suffix:semicolon
 DECL|member|name
 r_struct
 id|strbuf
@@ -4070,6 +4072,11 @@ id|find_boundary
 c_func
 (paren
 r_struct
+id|mailinfo
+op_star
+id|mi
+comma
+r_struct
 id|strbuf
 op_star
 id|line
@@ -4084,7 +4091,7 @@ c_func
 (paren
 id|line
 comma
-id|fin
+id|mi-&gt;input
 comma
 l_char|&squot;&bslash;n&squot;
 )paren
@@ -4116,6 +4123,11 @@ r_int
 id|handle_boundary
 c_func
 (paren
+r_struct
+id|mailinfo
+op_star
+id|mi
+comma
 r_struct
 id|strbuf
 op_star
@@ -4252,6 +4264,8 @@ op_logical_neg
 id|find_boundary
 c_func
 (paren
+id|mi
+comma
 id|line
 )paren
 )paren
@@ -4283,7 +4297,7 @@ c_func
 (paren
 id|line
 comma
-id|fin
+id|mi-&gt;input
 )paren
 )paren
 id|check_header
@@ -4312,7 +4326,7 @@ c_func
 (paren
 id|line
 comma
-id|fin
+id|mi-&gt;input
 comma
 l_char|&squot;&bslash;n&squot;
 )paren
@@ -4338,6 +4352,11 @@ r_void
 id|handle_body
 c_func
 (paren
+r_struct
+id|mailinfo
+op_star
+id|mi
+comma
 r_struct
 id|strbuf
 op_star
@@ -4375,6 +4394,8 @@ op_logical_neg
 id|find_boundary
 c_func
 (paren
+id|mi
+comma
 id|line
 )paren
 )paren
@@ -4433,6 +4454,8 @@ op_logical_neg
 id|handle_boundary
 c_func
 (paren
+id|mi
+comma
 id|line
 comma
 op_amp
@@ -4614,7 +4637,7 @@ c_func
 (paren
 id|line
 comma
-id|fin
+id|mi-&gt;input
 comma
 l_char|&squot;&bslash;n&squot;
 )paren
@@ -4844,7 +4867,7 @@ suffix:semicolon
 id|output_header_lines
 c_func
 (paren
-id|fout
+id|mi-&gt;output
 comma
 l_string|&quot;Subject&quot;
 comma
@@ -4886,7 +4909,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|fout
+id|mi-&gt;output
 comma
 l_string|&quot;Author: %s&bslash;n&quot;
 comma
@@ -4896,7 +4919,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|fout
+id|mi-&gt;output
 comma
 l_string|&quot;Email: %s&bslash;n&quot;
 comma
@@ -4915,7 +4938,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|fout
+id|mi-&gt;output
 comma
 l_string|&quot;%s: %s&bslash;n&quot;
 comma
@@ -4932,7 +4955,7 @@ suffix:semicolon
 id|fprintf
 c_func
 (paren
-id|fout
+id|mi-&gt;output
 comma
 l_string|&quot;&bslash;n&quot;
 )paren
@@ -4948,14 +4971,6 @@ r_struct
 id|mailinfo
 op_star
 id|mi
-comma
-id|FILE
-op_star
-id|in
-comma
-id|FILE
-op_star
-id|out
 comma
 r_const
 r_char
@@ -4976,14 +4991,6 @@ id|strbuf
 id|line
 op_assign
 id|STRBUF_INIT
-suffix:semicolon
-id|fin
-op_assign
-id|in
-suffix:semicolon
-id|fout
-op_assign
-id|out
 suffix:semicolon
 id|cmitmsg
 op_assign
@@ -5080,7 +5087,7 @@ op_assign
 id|fgetc
 c_func
 (paren
-id|in
+id|mi-&gt;input
 )paren
 suffix:semicolon
 )brace
@@ -5099,7 +5106,7 @@ c_func
 (paren
 id|peek
 comma
-id|in
+id|mi-&gt;input
 )paren
 suffix:semicolon
 multiline_comment|/* process the email header */
@@ -5112,7 +5119,7 @@ c_func
 op_amp
 id|line
 comma
-id|fin
+id|mi-&gt;input
 )paren
 )paren
 id|check_header
@@ -5129,6 +5136,8 @@ suffix:semicolon
 id|handle_body
 c_func
 (paren
+id|mi
+comma
 op_amp
 id|line
 )paren
@@ -5614,6 +5623,14 @@ c_func
 id|mailinfo_usage
 )paren
 suffix:semicolon
+id|mi.input
+op_assign
+id|stdin
+suffix:semicolon
+id|mi.output
+op_assign
+id|stdout
+suffix:semicolon
 id|status
 op_assign
 op_logical_neg
@@ -5623,10 +5640,6 @@ c_func
 (paren
 op_amp
 id|mi
-comma
-id|stdin
-comma
-id|stdout
 comma
 id|argv
 (braket
