@@ -3260,20 +3260,6 @@ id|it
 )paren
 r_return
 suffix:semicolon
-multiline_comment|/* otherwise &quot;it&quot; is a straight copy of the input.&n;&t; * This can be binary guck but there is no charset specified.&n;&t; */
-r_if
-c_cond
-(paren
-id|metainfo_charset
-)paren
-id|convert_to_utf8
-c_func
-(paren
-id|it
-comma
-l_string|&quot;&quot;
-)paren
-suffix:semicolon
 )brace
 DECL|function|decode_transfer_encoding
 r_static
