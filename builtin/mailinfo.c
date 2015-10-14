@@ -56,6 +56,14 @@ DECL|member|add_message_id
 r_int
 id|add_message_id
 suffix:semicolon
+DECL|member|use_scissors
+r_int
+id|use_scissors
+suffix:semicolon
+DECL|member|use_inbody_headers
+r_int
+id|use_inbody_headers
+suffix:semicolon
 DECL|member|message_id
 r_char
 op_star
@@ -112,18 +120,6 @@ comma
 op_star
 op_star
 id|s_hdr_data
-suffix:semicolon
-DECL|variable|use_scissors
-r_static
-r_int
-id|use_scissors
-suffix:semicolon
-DECL|variable|use_inbody_headers
-r_static
-r_int
-id|use_inbody_headers
-op_assign
-l_int|1
 suffix:semicolon
 DECL|macro|MAX_BOUNDARIES
 mdefine_line|#define MAX_BOUNDARIES 5
@@ -3521,7 +3517,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|use_inbody_headers
+id|mi-&gt;use_inbody_headers
 op_logical_and
 id|mi-&gt;header_stage
 )paren
@@ -3572,7 +3568,7 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|use_scissors
+id|mi-&gt;use_scissors
 op_logical_and
 id|is_scissors_line
 c_func
@@ -5165,9 +5161,16 @@ id|value
 comma
 r_void
 op_star
-id|unused
+id|mi_
 )paren
 (brace
+r_struct
+id|mailinfo
+op_star
+id|mi
+op_assign
+id|mi_
+suffix:semicolon
 r_if
 c_cond
 (paren
@@ -5188,7 +5191,7 @@ id|var
 comma
 id|value
 comma
-id|unused
+l_int|NULL
 )paren
 suffix:semicolon
 r_if
@@ -5204,7 +5207,7 @@ l_string|&quot;mailinfo.scissors&quot;
 )paren
 )paren
 (brace
-id|use_scissors
+id|mi-&gt;use_scissors
 op_assign
 id|git_config_bool
 c_func
@@ -5268,6 +5271,10 @@ l_int|0
 )paren
 suffix:semicolon
 id|mi-&gt;header_stage
+op_assign
+l_int|1
+suffix:semicolon
+id|mi-&gt;use_inbody_headers
 op_assign
 l_int|1
 suffix:semicolon
@@ -5544,7 +5551,7 @@ comma
 l_string|&quot;--scissors&quot;
 )paren
 )paren
-id|use_scissors
+id|mi.use_scissors
 op_assign
 l_int|1
 suffix:semicolon
@@ -5564,7 +5571,7 @@ comma
 l_string|&quot;--no-scissors&quot;
 )paren
 )paren
-id|use_scissors
+id|mi.use_scissors
 op_assign
 l_int|0
 suffix:semicolon
@@ -5584,7 +5591,7 @@ comma
 l_string|&quot;--no-inbody-headers&quot;
 )paren
 )paren
-id|use_inbody_headers
+id|mi.use_inbody_headers
 op_assign
 l_int|0
 suffix:semicolon
