@@ -3,16 +3,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;builtin.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
-DECL|variable|cmitmsg
-DECL|variable|patchfile
-r_static
-id|FILE
-op_star
-id|cmitmsg
-comma
-op_star
-id|patchfile
-suffix:semicolon
 DECL|struct|mailinfo
 r_struct
 id|mailinfo
@@ -26,6 +16,16 @@ DECL|member|output
 id|FILE
 op_star
 id|output
+suffix:semicolon
+DECL|member|cmitmsg
+id|FILE
+op_star
+id|cmitmsg
+suffix:semicolon
+DECL|member|patchfile
+id|FILE
+op_star
+id|patchfile
 suffix:semicolon
 DECL|member|name
 r_struct
@@ -3512,7 +3512,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|cmitmsg
+id|mi-&gt;cmitmsg
 )paren
 r_return
 l_int|0
@@ -3615,7 +3615,7 @@ c_cond
 id|fseek
 c_func
 (paren
-id|cmitmsg
+id|mi-&gt;cmitmsg
 comma
 l_int|0L
 comma
@@ -3637,7 +3637,7 @@ c_func
 id|fileno
 c_func
 (paren
-id|cmitmsg
+id|mi-&gt;cmitmsg
 )paren
 comma
 l_int|0
@@ -3717,7 +3717,7 @@ id|mi-&gt;message_id
 id|fprintf
 c_func
 (paren
-id|cmitmsg
+id|mi-&gt;cmitmsg
 comma
 l_string|&quot;Message-Id: %s&bslash;n&quot;
 comma
@@ -3727,10 +3727,10 @@ suffix:semicolon
 id|fclose
 c_func
 (paren
-id|cmitmsg
+id|mi-&gt;cmitmsg
 )paren
 suffix:semicolon
-id|cmitmsg
+id|mi-&gt;cmitmsg
 op_assign
 l_int|NULL
 suffix:semicolon
@@ -3743,7 +3743,7 @@ c_func
 (paren
 id|line-&gt;buf
 comma
-id|cmitmsg
+id|mi-&gt;cmitmsg
 )paren
 suffix:semicolon
 r_return
@@ -3777,7 +3777,7 @@ l_int|1
 comma
 id|line-&gt;len
 comma
-id|patchfile
+id|mi-&gt;patchfile
 )paren
 suffix:semicolon
 id|mi-&gt;patch_lines
@@ -4999,7 +4999,7 @@ id|line
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
-id|cmitmsg
+id|mi-&gt;cmitmsg
 op_assign
 id|fopen
 c_func
@@ -5013,7 +5013,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|cmitmsg
+id|mi-&gt;cmitmsg
 )paren
 (brace
 id|perror
@@ -5026,7 +5026,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-id|patchfile
+id|mi-&gt;patchfile
 op_assign
 id|fopen
 c_func
@@ -5040,7 +5040,7 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|patchfile
+id|mi-&gt;patchfile
 )paren
 (brace
 id|perror
@@ -5052,7 +5052,7 @@ suffix:semicolon
 id|fclose
 c_func
 (paren
-id|cmitmsg
+id|mi-&gt;cmitmsg
 )paren
 suffix:semicolon
 r_return
@@ -5154,7 +5154,7 @@ suffix:semicolon
 id|fclose
 c_func
 (paren
-id|patchfile
+id|mi-&gt;patchfile
 )paren
 suffix:semicolon
 id|handle_info
