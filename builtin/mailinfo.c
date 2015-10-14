@@ -52,6 +52,10 @@ DECL|member|keep_non_patch_brackets_in_subject
 r_int
 id|keep_non_patch_brackets_in_subject
 suffix:semicolon
+DECL|member|patch_lines
+r_int
+id|patch_lines
+suffix:semicolon
 DECL|member|filter_stage
 r_int
 id|filter_stage
@@ -92,11 +96,6 @@ id|strbuf
 id|charset
 op_assign
 id|STRBUF_INIT
-suffix:semicolon
-DECL|variable|patch_lines
-r_static
-r_int
-id|patch_lines
 suffix:semicolon
 DECL|variable|p_hdr_data
 DECL|variable|s_hdr_data
@@ -3720,6 +3719,11 @@ r_void
 id|handle_patch
 c_func
 (paren
+r_struct
+id|mailinfo
+op_star
+id|mi
+comma
 r_const
 r_struct
 id|strbuf
@@ -3739,7 +3743,7 @@ comma
 id|patchfile
 )paren
 suffix:semicolon
-id|patch_lines
+id|mi-&gt;patch_lines
 op_increment
 suffix:semicolon
 )brace
@@ -3792,6 +3796,8 @@ suffix:colon
 id|handle_patch
 c_func
 (paren
+id|mi
+comma
 id|line
 )paren
 suffix:semicolon
@@ -4753,7 +4759,7 @@ multiline_comment|/* only print inbody headers if we output a patch file */
 r_if
 c_cond
 (paren
-id|patch_lines
+id|mi-&gt;patch_lines
 op_logical_and
 id|s_hdr_data
 (braket
