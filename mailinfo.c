@@ -1893,7 +1893,7 @@ suffix:semicolon
 )brace
 DECL|function|convert_to_utf8
 r_static
-r_void
+r_int
 id|convert_to_utf8
 c_func
 (paren
@@ -1931,6 +1931,7 @@ op_star
 id|charset
 )paren
 r_return
+l_int|0
 suffix:semicolon
 r_if
 c_cond
@@ -1944,6 +1945,7 @@ id|charset
 )paren
 )paren
 r_return
+l_int|0
 suffix:semicolon
 id|out
 op_assign
@@ -1963,7 +1965,8 @@ c_cond
 op_logical_neg
 id|out
 )paren
-id|die
+r_return
+id|error
 c_func
 (paren
 l_string|&quot;cannot convert from %s to %s&quot;
@@ -1992,6 +1995,9 @@ c_func
 id|out
 )paren
 )paren
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 DECL|function|decode_header
@@ -2310,6 +2316,9 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
 id|convert_to_utf8
 c_func
 (paren
@@ -2319,6 +2328,9 @@ id|dec
 comma
 id|charset_q.buf
 )paren
+)paren
+r_goto
+id|release_return
 suffix:semicolon
 id|strbuf_addbuf
 c_func
@@ -3447,6 +3459,9 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* normalize the log message to UTF-8. */
+r_if
+c_cond
+(paren
 id|convert_to_utf8
 c_func
 (paren
@@ -3455,6 +3470,11 @@ comma
 id|line
 comma
 id|mi-&gt;charset.buf
+)paren
+)paren
+m_exit
+(paren
+l_int|128
 )paren
 suffix:semicolon
 r_if
