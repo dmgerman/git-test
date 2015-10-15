@@ -126,8 +126,6 @@ id|use_inbody_headers
 op_assign
 l_int|1
 suffix:semicolon
-DECL|macro|MAX_HDR_PARSED
-mdefine_line|#define MAX_HDR_PARSED 10
 DECL|macro|MAX_BOUNDARIES
 mdefine_line|#define MAX_BOUNDARIES 5
 DECL|function|cleanup_space
@@ -1408,6 +1406,8 @@ id|subject
 )paren
 suffix:semicolon
 )brace
+DECL|macro|MAX_HDR_PARSED
+mdefine_line|#define MAX_HDR_PARSED 10
 DECL|variable|header
 r_static
 r_const
