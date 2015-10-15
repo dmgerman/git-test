@@ -861,18 +861,26 @@ id|MAX_BOUNDARIES
 )braket
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Too many boundaries to handle&bslash;n&quot;
+l_string|&quot;Too many boundaries to handle&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
+id|mi-&gt;input_error
+op_assign
 l_int|1
-)paren
+suffix:semicolon
+id|mi-&gt;content_top
+op_assign
+op_amp
+id|mi-&gt;content
+(braket
+id|MAX_BOUNDARIES
+)braket
+l_int|1
+suffix:semicolon
+r_return
 suffix:semicolon
 )brace
 op_star
@@ -1965,6 +1973,11 @@ c_cond
 op_logical_neg
 id|out
 )paren
+(brace
+id|mi-&gt;input_error
+op_assign
+l_int|1
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -1976,6 +1989,7 @@ comma
 id|mi-&gt;metainfo_charset
 )paren
 suffix:semicolon
+)brace
 id|strbuf_attach
 c_func
 (paren
@@ -2046,6 +2060,12 @@ id|piecebuf
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+r_int
+id|found_error
+op_assign
+l_int|1
+suffix:semicolon
+multiline_comment|/* pessimism */
 id|in
 op_assign
 id|it-&gt;buf
@@ -2384,6 +2404,10 @@ op_amp
 id|outbuf
 )paren
 suffix:semicolon
+id|found_error
+op_assign
+l_int|0
+suffix:semicolon
 id|release_return
 suffix:colon
 id|strbuf_release
@@ -2406,6 +2430,15 @@ c_func
 op_amp
 id|piecebuf
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|found_error
+)paren
+id|mi-&gt;input_error
+op_assign
+l_int|1
 suffix:semicolon
 )brace
 DECL|function|check_header
@@ -3472,11 +3505,10 @@ comma
 id|mi-&gt;charset.buf
 )paren
 )paren
-m_exit
-(paren
-l_int|128
-)paren
+r_return
+l_int|0
 suffix:semicolon
+multiline_comment|/* mi-&gt;input_error already set */
 r_if
 c_cond
 (paren
@@ -4114,19 +4146,22 @@ OL
 id|mi-&gt;content
 )paren
 (brace
-id|fprintf
+id|error
 c_func
 (paren
-id|stderr
-comma
-l_string|&quot;Detected mismatched boundaries, &quot;
-l_string|&quot;can&squot;t recover&bslash;n&quot;
+l_string|&quot;Detected mismatched boundaries, can&squot;t recover&quot;
 )paren
 suffix:semicolon
-m_exit
-(paren
+id|mi-&gt;input_error
+op_assign
 l_int|1
-)paren
+suffix:semicolon
+id|mi-&gt;content_top
+op_assign
+id|mi-&gt;content
+suffix:semicolon
+r_return
+l_int|0
 suffix:semicolon
 )brace
 id|handle_filter
@@ -4144,6 +4179,14 @@ c_func
 op_amp
 id|newline
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|mi-&gt;input_error
+)paren
+r_return
+l_int|0
 suffix:semicolon
 multiline_comment|/* skip to the next boundary */
 r_if
@@ -4498,6 +4541,13 @@ id|line
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|mi-&gt;input_error
+)paren
+r_break
+suffix:semicolon
 )brace
 r_while
 c_loop
@@ -5060,7 +5110,7 @@ id|line
 )paren
 suffix:semicolon
 r_return
-l_int|0
+id|mi-&gt;input_error
 suffix:semicolon
 )brace
 DECL|function|git_mailinfo_config
