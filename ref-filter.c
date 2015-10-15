@@ -7181,6 +7181,8 @@ c_cond
 id|filter-&gt;merge_commit
 op_logical_or
 id|filter-&gt;with_commit
+op_logical_or
+id|filter-&gt;verbose
 )paren
 (brace
 id|commit
