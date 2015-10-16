@@ -8,7 +8,7 @@ id|show_index_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git show-index &lt; &lt;packed archive index&gt;&quot;
+l_string|&quot;git show-index&quot;
 suffix:semicolon
 DECL|function|main
 r_int

@@ -949,7 +949,7 @@ id|patch_id_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git patch-id [--stable | --unstable] &lt; patch&quot;
+l_string|&quot;git patch-id [--stable | --unstable]&quot;
 suffix:semicolon
 DECL|function|git_patch_id_config
 r_static

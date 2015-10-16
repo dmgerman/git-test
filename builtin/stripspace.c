@@ -307,8 +307,8 @@ op_star
 id|usage_msg
 op_assign
 l_string|&quot;&bslash;n&quot;
-l_string|&quot;  git stripspace [-s | --strip-comments] &lt; input&bslash;n&quot;
-l_string|&quot;  git stripspace [-c | --comment-lines] &lt; input&quot;
+l_string|&quot;  git stripspace [-s | --strip-comments]&bslash;n&quot;
+l_string|&quot;  git stripspace [-c | --comment-lines]&quot;
 suffix:semicolon
 DECL|function|cmd_stripspace
 r_int
