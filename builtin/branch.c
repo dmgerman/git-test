@@ -4270,7 +4270,7 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp

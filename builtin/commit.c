@@ -3778,7 +3778,7 @@ c_cond
 (paren
 id|clean_message_contents
 )paren
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp
@@ -4903,7 +4903,7 @@ l_int|0
 r_return
 l_int|0
 suffix:semicolon
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp
@@ -9694,7 +9694,7 @@ id|cleanup_mode
 op_ne
 id|CLEANUP_NONE
 )paren
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp

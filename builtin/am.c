@@ -6186,7 +6186,7 @@ l_string|&quot;msg&quot;
 )paren
 )paren
 suffix:semicolon
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp
