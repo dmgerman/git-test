@@ -127,6 +127,8 @@ DECL|macro|ERROR_REACHABLE
 mdefine_line|#define ERROR_REACHABLE 02
 DECL|macro|ERROR_PACK
 mdefine_line|#define ERROR_PACK 04
+DECL|macro|ERROR_REFS
+mdefine_line|#define ERROR_REFS 010
 macro_line|#ifdef NO_D_INO_IN_DIRENT
 DECL|macro|SORT_DIRENT
 mdefine_line|#define SORT_DIRENT 0
@@ -2513,6 +2515,7 @@ c_func
 id|refname
 )paren
 )paren
+(brace
 id|error
 c_func
 (paren
@@ -2521,6 +2524,11 @@ comma
 id|refname
 )paren
 suffix:semicolon
+id|errors_found
+op_or_assign
+id|ERROR_REFS
+suffix:semicolon
+)brace
 id|default_refs
 op_increment
 suffix:semicolon
@@ -2787,6 +2795,11 @@ c_cond
 op_logical_neg
 id|head_points_at
 )paren
+(brace
+id|errors_found
+op_or_assign
+id|ERROR_REFS
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -2794,6 +2807,7 @@ c_func
 l_string|&quot;Invalid HEAD&quot;
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2824,6 +2838,11 @@ comma
 l_string|&quot;refs/heads/&quot;
 )paren
 )paren
+(brace
+id|errors_found
+op_or_assign
+id|ERROR_REFS
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -2833,6 +2852,7 @@ comma
 id|head_points_at
 )paren
 suffix:semicolon
+)brace
 r_if
 c_cond
 (paren
@@ -2849,6 +2869,11 @@ c_cond
 (paren
 id|null_is_error
 )paren
+(brace
+id|errors_found
+op_or_assign
+id|ERROR_REFS
+suffix:semicolon
 r_return
 id|error
 c_func
@@ -2856,6 +2881,7 @@ c_func
 l_string|&quot;HEAD: detached HEAD points at nothing&quot;
 )paren
 suffix:semicolon
+)brace
 id|fprintf
 c_func
 (paren
@@ -2943,6 +2969,10 @@ c_func
 id|it-&gt;sha1
 )paren
 )paren
+suffix:semicolon
+id|errors_found
+op_or_assign
+id|ERROR_REFS
 suffix:semicolon
 r_return
 l_int|1
