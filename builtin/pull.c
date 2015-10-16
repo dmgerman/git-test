@@ -223,7 +223,7 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git pull [options] [&lt;repository&gt; [&lt;refspec&gt;...]]&quot;
+l_string|&quot;git pull [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]&quot;
 )paren
 comma
 l_int|NULL
