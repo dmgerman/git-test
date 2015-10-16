@@ -7,7 +7,6 @@ id|quote_path_fully
 op_assign
 l_int|1
 suffix:semicolon
-multiline_comment|/* Help to copy the thing properly quoted for the shell safety.&n; * any single quote is replaced with &squot;&bslash;&squot;&squot;, any exclamation point&n; * is replaced with &squot;&bslash;!&squot;, and the whole thing is enclosed in a&n; *&n; * E.g.&n; *  original     sq_quote     result&n; *  name     ==&gt; name      ==&gt; &squot;name&squot;&n; *  a b      ==&gt; a b       ==&gt; &squot;a b&squot;&n; *  a&squot;b      ==&gt; a&squot;&bslash;&squot;&squot;b    ==&gt; &squot;a&squot;&bslash;&squot;&squot;b&squot;&n; *  a!b      ==&gt; a&squot;&bslash;!&squot;b    ==&gt; &squot;a&squot;&bslash;!&squot;b&squot;&n; */
 DECL|function|need_bs_quote
 r_static
 r_inline
@@ -31,6 +30,7 @@ l_char|&squot;!&squot;
 )paren
 suffix:semicolon
 )brace
+multiline_comment|/* Help to copy the thing properly quoted for the shell safety.&n; * any single quote is replaced with &squot;&bslash;&squot;&squot;, any exclamation point&n; * is replaced with &squot;&bslash;!&squot;, and the whole thing is enclosed in a&n; * single quote pair.&n; *&n; * E.g.&n; *  original     sq_quote     result&n; *  name     ==&gt; name      ==&gt; &squot;name&squot;&n; *  a b      ==&gt; a b       ==&gt; &squot;a b&squot;&n; *  a&squot;b      ==&gt; a&squot;&bslash;&squot;&squot;b    ==&gt; &squot;a&squot;&bslash;&squot;&squot;b&squot;&n; *  a!b      ==&gt; a&squot;&bslash;!&squot;b    ==&gt; &squot;a&squot;&bslash;!&squot;b&squot;&n; */
 DECL|function|sq_quote_buf
 r_void
 id|sq_quote_buf
