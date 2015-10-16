@@ -494,7 +494,7 @@ id|usage
 )braket
 op_assign
 (brace
-l_string|&quot;git credential-cache [options] &lt;action&gt;&quot;
+l_string|&quot;git credential-cache [&lt;options&gt;] &lt;action&gt;&quot;
 comma
 l_int|NULL
 )brace

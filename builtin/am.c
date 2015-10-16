@@ -10399,13 +10399,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git am [options] [(&lt;mbox&gt;|&lt;Maildir&gt;)...]&quot;
+l_string|&quot;git am [&lt;options&gt;] [(&lt;mbox&gt;|&lt;Maildir&gt;)...]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git am [options] (--continue | --skip | --abort)&quot;
+l_string|&quot;git am [&lt;options&gt;] (--continue | --skip | --abort)&quot;
 )paren
 comma
 l_int|NULL
