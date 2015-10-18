@@ -4062,7 +4062,10 @@ r_int
 id|find_boundary
 c_func
 (paren
-r_void
+r_struct
+id|strbuf
+op_star
+id|line
 )paren
 (brace
 r_while
@@ -4072,7 +4075,6 @@ op_logical_neg
 id|strbuf_getline
 c_func
 (paren
-op_amp
 id|line
 comma
 id|fin
@@ -4090,7 +4092,6 @@ op_logical_and
 id|is_multipart_boundary
 c_func
 (paren
-op_amp
 id|line
 )paren
 )paren
@@ -4244,6 +4245,7 @@ op_logical_neg
 id|find_boundary
 c_func
 (paren
+id|line
 )paren
 )paren
 r_return
@@ -4366,6 +4368,7 @@ op_logical_neg
 id|find_boundary
 c_func
 (paren
+id|line
 )paren
 )paren
 r_goto
