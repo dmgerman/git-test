@@ -2049,6 +2049,9 @@ r_if
 c_cond
 (paren
 op_logical_neg
+id|mi-&gt;metainfo_charset
+op_logical_or
+op_logical_neg
 id|charset
 op_logical_or
 op_logical_neg
@@ -2435,11 +2438,6 @@ suffix:semicolon
 r_break
 suffix:semicolon
 )brace
-r_if
-c_cond
-(paren
-id|mi-&gt;metainfo_charset
-)paren
 id|convert_to_utf8
 c_func
 (paren
@@ -3571,11 +3569,6 @@ op_assign
 l_int|0
 suffix:semicolon
 multiline_comment|/* normalize the log message to UTF-8. */
-r_if
-c_cond
-(paren
-id|mi-&gt;metainfo_charset
-)paren
 id|convert_to_utf8
 c_func
 (paren
