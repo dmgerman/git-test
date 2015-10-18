@@ -4328,7 +4328,10 @@ r_void
 id|handle_body
 c_func
 (paren
-r_void
+r_struct
+id|strbuf
+op_star
+id|line
 )paren
 (brace
 r_struct
@@ -4380,7 +4383,6 @@ op_logical_and
 id|is_multipart_boundary
 c_func
 (paren
-op_amp
 id|line
 )paren
 )paren
@@ -4435,7 +4437,6 @@ multiline_comment|/* Unwrap transfer encoding */
 id|decode_transfer_encoding
 c_func
 (paren
-op_amp
 id|line
 )paren
 suffix:semicolon
@@ -4469,7 +4470,6 @@ multiline_comment|/* Prepend any previous partial lines */
 id|strbuf_insert
 c_func
 (paren
-op_amp
 id|line
 comma
 l_int|0
@@ -4492,7 +4492,6 @@ op_assign
 id|strbuf_split
 c_func
 (paren
-op_amp
 id|line
 comma
 l_char|&squot;&bslash;n&squot;
@@ -4582,7 +4581,6 @@ suffix:colon
 id|handle_filter
 c_func
 (paren
-op_amp
 id|line
 comma
 op_amp
@@ -4601,7 +4599,6 @@ op_logical_neg
 id|strbuf_getwholeline
 c_func
 (paren
-op_amp
 id|line
 comma
 id|fin
@@ -5101,6 +5098,8 @@ suffix:semicolon
 id|handle_body
 c_func
 (paren
+op_amp
+id|line
 )paren
 suffix:semicolon
 id|fclose
