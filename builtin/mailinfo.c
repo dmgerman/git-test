@@ -4108,6 +4108,11 @@ r_int
 id|handle_boundary
 c_func
 (paren
+r_struct
+id|strbuf
+op_star
+id|line
+comma
 r_int
 op_star
 id|filter_stage
@@ -4137,7 +4142,7 @@ suffix:colon
 r_if
 c_cond
 (paren
-id|line.len
+id|line-&gt;len
 op_ge
 (paren
 op_star
@@ -4152,7 +4157,7 @@ op_logical_neg
 id|memcmp
 c_func
 (paren
-id|line.buf
+id|line-&gt;buf
 op_plus
 (paren
 op_star
@@ -4267,7 +4272,6 @@ c_loop
 id|read_one_header_line
 c_func
 (paren
-op_amp
 id|line
 comma
 id|fin
@@ -4276,7 +4280,6 @@ id|fin
 id|check_header
 c_func
 (paren
-op_amp
 id|line
 comma
 id|p_hdr_data
@@ -4298,7 +4301,6 @@ c_cond
 id|strbuf_getline
 c_func
 (paren
-op_amp
 id|line
 comma
 id|fin
@@ -4312,7 +4314,6 @@ suffix:semicolon
 id|strbuf_addch
 c_func
 (paren
-op_amp
 id|line
 comma
 l_char|&squot;&bslash;n&squot;
@@ -4422,6 +4423,8 @@ op_logical_neg
 id|handle_boundary
 c_func
 (paren
+id|line
+comma
 op_amp
 id|filter_stage
 comma
