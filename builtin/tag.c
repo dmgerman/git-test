@@ -158,6 +158,10 @@ c_func
 id|format
 )paren
 suffix:semicolon
+id|filter-&gt;with_commit_tag_algo
+op_assign
+l_int|1
+suffix:semicolon
 id|filter_refs
 c_func
 (paren
