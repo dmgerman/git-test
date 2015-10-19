@@ -63,6 +63,11 @@ r_char
 op_star
 id|metainfo_charset
 suffix:semicolon
+DECL|member|charset
+r_struct
+id|strbuf
+id|charset
+suffix:semicolon
 DECL|member|message_id
 r_char
 op_star
@@ -97,14 +102,6 @@ id|header_stage
 suffix:semicolon
 multiline_comment|/* still checking in-body headers? */
 )brace
-suffix:semicolon
-DECL|variable|charset
-r_static
-r_struct
-id|strbuf
-id|charset
-op_assign
-id|STRBUF_INIT
 suffix:semicolon
 DECL|variable|p_hdr_data
 DECL|variable|s_hdr_data
@@ -928,6 +925,11 @@ id|handle_content_type
 c_func
 (paren
 r_struct
+id|mailinfo
+op_star
+id|mi
+comma
+r_struct
 id|strbuf
 op_star
 id|line
@@ -1027,7 +1029,7 @@ comma
 l_string|&quot;charset=&quot;
 comma
 op_amp
-id|charset
+id|mi-&gt;charset
 )paren
 suffix:semicolon
 r_if
@@ -2734,6 +2736,8 @@ suffix:semicolon
 id|handle_content_type
 c_func
 (paren
+id|mi
+comma
 op_amp
 id|sb
 )paren
@@ -3587,7 +3591,7 @@ id|mi
 comma
 id|line
 comma
-id|charset.buf
+id|mi-&gt;charset.buf
 )paren
 suffix:semicolon
 r_if
@@ -4312,7 +4316,7 @@ id|strbuf_reset
 c_func
 (paren
 op_amp
-id|charset
+id|mi-&gt;charset
 )paren
 suffix:semicolon
 multiline_comment|/* slurp in this section&squot;s info */
@@ -5297,6 +5301,15 @@ comma
 l_int|0
 )paren
 suffix:semicolon
+id|strbuf_init
+c_func
+(paren
+op_amp
+id|mi-&gt;charset
+comma
+l_int|0
+)paren
+suffix:semicolon
 id|mi-&gt;header_stage
 op_assign
 l_int|1
@@ -5339,6 +5352,13 @@ c_func
 (paren
 op_amp
 id|mi-&gt;email
+)paren
+suffix:semicolon
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|mi-&gt;charset
 )paren
 suffix:semicolon
 id|free
