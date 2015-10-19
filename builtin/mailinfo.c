@@ -52,6 +52,15 @@ DECL|member|keep_non_patch_brackets_in_subject
 r_int
 id|keep_non_patch_brackets_in_subject
 suffix:semicolon
+DECL|member|add_message_id
+r_int
+id|add_message_id
+suffix:semicolon
+DECL|member|message_id
+r_char
+op_star
+id|message_id
+suffix:semicolon
 DECL|member|patch_lines
 r_int
 id|patch_lines
@@ -67,12 +76,6 @@ id|header_stage
 suffix:semicolon
 multiline_comment|/* still checking in-body headers? */
 )brace
-suffix:semicolon
-DECL|variable|message_id
-r_static
-r_char
-op_star
-id|message_id
 suffix:semicolon
 r_static
 r_enum
@@ -114,11 +117,6 @@ DECL|variable|use_scissors
 r_static
 r_int
 id|use_scissors
-suffix:semicolon
-DECL|variable|add_message_id
-r_static
-r_int
-id|add_message_id
 suffix:semicolon
 DECL|variable|use_inbody_headers
 r_static
@@ -1064,6 +1062,11 @@ r_void
 id|handle_message_id
 c_func
 (paren
+r_struct
+id|mailinfo
+op_star
+id|mi
+comma
 r_const
 r_struct
 id|strbuf
@@ -1074,9 +1077,9 @@ id|line
 r_if
 c_cond
 (paren
-id|add_message_id
+id|mi-&gt;add_message_id
 )paren
-id|message_id
+id|mi-&gt;message_id
 op_assign
 id|strdup
 c_func
@@ -2522,6 +2525,11 @@ r_int
 id|check_header
 c_func
 (paren
+r_struct
+id|mailinfo
+op_star
+id|mi
+comma
 r_const
 r_struct
 id|strbuf
@@ -2825,6 +2833,8 @@ suffix:semicolon
 id|handle_message_id
 c_func
 (paren
+id|mi
+comma
 op_amp
 id|sb
 )paren
@@ -3521,6 +3531,8 @@ op_assign
 id|check_header
 c_func
 (paren
+id|mi
+comma
 id|line
 comma
 id|s_hdr_data
@@ -3675,7 +3687,7 @@ id|line
 r_if
 c_cond
 (paren
-id|message_id
+id|mi-&gt;message_id
 )paren
 id|fprintf
 c_func
@@ -3684,7 +3696,7 @@ id|cmitmsg
 comma
 l_string|&quot;Message-Id: %s&bslash;n&quot;
 comma
-id|message_id
+id|mi-&gt;message_id
 )paren
 suffix:semicolon
 id|fclose
@@ -4297,6 +4309,8 @@ id|mi-&gt;input
 id|check_header
 c_func
 (paren
+id|mi
+comma
 id|line
 comma
 id|p_hdr_data
@@ -5091,6 +5105,8 @@ id|mi-&gt;input
 id|check_header
 c_func
 (paren
+id|mi
+comma
 op_amp
 id|line
 comma
@@ -5291,6 +5307,12 @@ op_amp
 id|mi-&gt;email
 )paren
 suffix:semicolon
+id|free
+c_func
+(paren
+id|mi-&gt;message_id
+)paren
+suffix:semicolon
 )brace
 DECL|variable|mailinfo_usage
 r_static
@@ -5438,7 +5460,7 @@ comma
 l_string|&quot;--message-id&quot;
 )paren
 )paren
-id|add_message_id
+id|mi.add_message_id
 op_assign
 l_int|1
 suffix:semicolon
