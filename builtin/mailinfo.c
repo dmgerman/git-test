@@ -2183,6 +2183,12 @@ op_star
 id|in
 )paren
 (brace
+r_struct
+id|strbuf
+id|continuation
+op_assign
+id|STRBUF_INIT
+suffix:semicolon
 multiline_comment|/* Get the first part of the line. */
 r_if
 c_cond
@@ -2244,12 +2250,6 @@ suffix:semicolon
 (brace
 r_int
 id|peek
-suffix:semicolon
-r_struct
-id|strbuf
-id|continuation
-op_assign
-id|STRBUF_INIT
 suffix:semicolon
 id|peek
 op_assign
@@ -2320,6 +2320,13 @@ id|continuation
 )paren
 suffix:semicolon
 )brace
+id|strbuf_release
+c_func
+(paren
+op_amp
+id|continuation
+)paren
+suffix:semicolon
 r_return
 l_int|1
 suffix:semicolon
