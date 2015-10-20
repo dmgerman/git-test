@@ -50,10 +50,15 @@ r_return
 l_string|&quot;Non-authoritative &bslash;&quot;host not found&bslash;&quot;, or SERVERFAIL&quot;
 suffix:semicolon
 )brace
-id|sprintf
+id|snprintf
 c_func
 (paren
 id|buffer
+comma
+r_sizeof
+(paren
+id|buffer
+)paren
 comma
 l_string|&quot;Name resolution error %d&quot;
 comma

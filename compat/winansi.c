@@ -2076,10 +2076,15 @@ id|con2
 r_return
 suffix:semicolon
 multiline_comment|/* create a named pipe to communicate with the console thread */
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|name
+comma
+r_sizeof
+(paren
+id|name
+)paren
 comma
 l_string|&quot;&bslash;&bslash;&bslash;&bslash;.&bslash;&bslash;pipe&bslash;&bslash;winansi%lu&quot;
 comma

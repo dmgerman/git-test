@@ -495,10 +495,14 @@ c_cond
 id|to_tempfile
 )paren
 (brace
-id|strcpy
+id|xsnprintf
 c_func
 (paren
 id|path
+comma
+id|TEMPORARY_FILENAME_LENGTH
+comma
+l_string|&quot;%s&quot;
 comma
 id|symlink
 ques

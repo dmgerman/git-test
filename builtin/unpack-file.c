@@ -70,10 +70,15 @@ id|sha1
 )paren
 )paren
 suffix:semicolon
-id|strcpy
+id|xsnprintf
 c_func
 (paren
 id|path
+comma
+r_sizeof
+(paren
+id|path
+)paren
 comma
 l_string|&quot;.merge_file_XXXXXX&quot;
 )paren

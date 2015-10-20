@@ -234,10 +234,15 @@ comma
 id|down-&gt;name
 )paren
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|path
+comma
+r_sizeof
+(paren
+id|path
+)paren
 comma
 l_string|&quot;%s%.*s/&quot;
 comma

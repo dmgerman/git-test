@@ -5844,10 +5844,15 @@ id|ident
 )paren
 )paren
 suffix:semicolon
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|ident-&gt;ident
+comma
+r_sizeof
+(paren
+id|ident-&gt;ident
+)paren
 comma
 l_string|&quot;: %s $&quot;
 comma

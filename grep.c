@@ -101,7 +101,7 @@ id|opt-&gt;extended_regexp_option
 op_assign
 l_int|0
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_context
@@ -109,7 +109,7 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_filename
@@ -117,7 +117,7 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_function
@@ -125,7 +125,7 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_lineno
@@ -133,7 +133,7 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_match_context
@@ -141,7 +141,7 @@ comma
 id|GIT_COLOR_BOLD_RED
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_match_selected
@@ -149,7 +149,7 @@ comma
 id|GIT_COLOR_BOLD_RED
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_selected
@@ -157,7 +157,7 @@ comma
 l_string|&quot;&quot;
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_sep
@@ -797,7 +797,7 @@ id|opt-&gt;relative
 op_assign
 id|def-&gt;relative
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_context
@@ -805,7 +805,7 @@ comma
 id|def-&gt;color_context
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_filename
@@ -813,7 +813,7 @@ comma
 id|def-&gt;color_filename
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_function
@@ -821,7 +821,7 @@ comma
 id|def-&gt;color_function
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_lineno
@@ -829,7 +829,7 @@ comma
 id|def-&gt;color_lineno
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_match_context
@@ -837,7 +837,7 @@ comma
 id|def-&gt;color_match_context
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_match_selected
@@ -845,7 +845,7 @@ comma
 id|def-&gt;color_match_selected
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_selected
@@ -853,7 +853,7 @@ comma
 id|def-&gt;color_selected
 )paren
 suffix:semicolon
-id|strcpy
+id|color_set
 c_func
 (paren
 id|opt-&gt;color_sep
@@ -1595,10 +1595,15 @@ c_cond
 (paren
 id|p-&gt;no
 )paren
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|where
+comma
+r_sizeof
+(paren
+id|where
+)paren
 comma
 l_string|&quot;In &squot;%s&squot; at %d, &quot;
 comma
@@ -1613,10 +1618,15 @@ c_cond
 (paren
 id|p-&gt;origin
 )paren
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|where
+comma
+r_sizeof
+(paren
+id|where
+)paren
 comma
 l_string|&quot;%s, &quot;
 comma

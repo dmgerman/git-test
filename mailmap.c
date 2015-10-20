@@ -868,15 +868,6 @@ op_star
 id|repo_abbrev
 )paren
 suffix:semicolon
-op_star
-id|repo_abbrev
-op_assign
-id|xmalloc
-c_func
-(paren
-id|len
-)paren
-suffix:semicolon
 r_for
 c_loop
 (paren
@@ -898,12 +889,12 @@ op_increment
 )paren
 suffix:semicolon
 multiline_comment|/* nothing */
-id|strcpy
-c_func
-(paren
 op_star
 id|repo_abbrev
-comma
+op_assign
+id|xstrdup
+c_func
+(paren
 id|cp
 )paren
 suffix:semicolon

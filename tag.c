@@ -499,7 +499,7 @@ id|bufptr
 r_return
 l_int|1
 suffix:semicolon
-id|strncpy
+id|memcpy
 c_func
 (paren
 id|type

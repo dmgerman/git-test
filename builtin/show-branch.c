@@ -3822,6 +3822,19 @@ id|ac
 op_assign
 l_int|1
 suffix:semicolon
+r_if
+c_cond
+(paren
+op_logical_neg
+op_star
+id|av
+)paren
+id|die
+c_func
+(paren
+l_string|&quot;no branches given, and HEAD is not valid&quot;
+)paren
+suffix:semicolon
 )brace
 r_if
 c_cond

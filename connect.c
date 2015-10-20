@@ -1698,10 +1698,15 @@ id|NI_NUMERICHOST
 op_ne
 l_int|0
 )paren
-id|strcpy
+id|xsnprintf
 c_func
 (paren
 id|addr
+comma
+r_sizeof
+(paren
+id|addr
+)paren
 comma
 l_string|&quot;(unknown)&quot;
 )paren

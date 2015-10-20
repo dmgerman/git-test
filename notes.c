@@ -2365,6 +2365,9 @@ op_plus
 l_int|1
 suffix:semicolon
 )brace
+multiline_comment|/* hex SHA1 + 19 * &squot;/&squot; + NUL */
+DECL|macro|FANOUT_PATH_MAX
+mdefine_line|#define FANOUT_PATH_MAX 40 + 19 + 1
 DECL|function|construct_path_with_fanout
 r_static
 r_void
@@ -2456,12 +2459,17 @@ id|fanout
 op_decrement
 suffix:semicolon
 )brace
-id|strcpy
+id|xsnprintf
 c_func
 (paren
 id|path
 op_plus
 id|i
+comma
+id|FANOUT_PATH_MAX
+id|i
+comma
+l_string|&quot;%s&quot;
 comma
 id|hex_sha1
 op_plus
@@ -2526,14 +2534,9 @@ r_static
 r_char
 id|path
 (braket
-l_int|40
-op_plus
-l_int|19
-op_plus
-l_int|1
+id|FANOUT_PATH_MAX
 )braket
 suffix:semicolon
-multiline_comment|/* hex SHA1 + 19 * &squot;/&squot; + NUL */
 id|fanout
 op_assign
 id|determine_fanout
@@ -2661,9 +2664,8 @@ m_assert
 (paren
 id|path_len
 OL
-l_int|40
-op_plus
-l_int|19
+id|FANOUT_PATH_MAX
+l_int|1
 )paren
 suffix:semicolon
 id|construct_path_with_fanout

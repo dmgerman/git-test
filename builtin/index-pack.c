@@ -2020,10 +2020,15 @@ id|type
 (brace
 id|hdrlen
 op_assign
-id|sprintf
+id|xsnprintf
 c_func
 (paren
 id|hdr
+comma
+r_sizeof
+(paren
+id|hdr
+)paren
 comma
 l_string|&quot;%s %lu&quot;
 comma
