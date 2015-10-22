@@ -14,7 +14,6 @@ macro_line|#include &quot;resolve-undo.h&quot;
 macro_line|#include &quot;strbuf.h&quot;
 macro_line|#include &quot;varint.h&quot;
 macro_line|#include &quot;split-index.h&quot;
-macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;utf8.h&quot;
 r_static
 r_struct
