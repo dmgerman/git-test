@@ -10,7 +10,6 @@ macro_line|#include &quot;sha1-array.h&quot;
 macro_line|#include &quot;diff.h&quot;
 macro_line|#include &quot;revision.h&quot;
 macro_line|#include &quot;commit-slab.h&quot;
-macro_line|#include &quot;sigchain.h&quot;
 DECL|variable|is_shallow
 r_static
 r_int
