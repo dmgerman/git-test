@@ -11896,9 +11896,12 @@ op_star
 id|buf
 )paren
 (brace
-id|DWORD
+r_int
 id|v
 op_assign
+(paren
+r_int
+)paren
 id|GetVersion
 c_func
 (paren
