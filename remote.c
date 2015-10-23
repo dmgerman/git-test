@@ -1625,6 +1625,12 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
+id|fclose
+c_func
+(paren
+id|f
+)paren
+suffix:semicolon
 id|strbuf_trim
 c_func
 (paren
