@@ -2171,7 +2171,12 @@ id|commit
 op_star
 id|c
 op_assign
-id|head-&gt;item
+id|pop_commit
+c_func
+(paren
+op_amp
+id|head
+)paren
 suffix:semicolon
 r_uint32
 op_star
@@ -2185,20 +2190,6 @@ op_amp
 id|info-&gt;ref_bitmap
 comma
 id|c
-)paren
-suffix:semicolon
-id|p
-op_assign
-id|head
-suffix:semicolon
-id|head
-op_assign
-id|head-&gt;next
-suffix:semicolon
-id|free
-c_func
-(paren
-id|p
 )paren
 suffix:semicolon
 multiline_comment|/* XXX check &quot;UNINTERESTING&quot; from pack bitmaps if available */
