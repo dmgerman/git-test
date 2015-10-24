@@ -3927,6 +3927,13 @@ suffix:semicolon
 id|live_children
 op_decrement
 suffix:semicolon
+id|child_process_clear
+c_func
+(paren
+op_amp
+id|blanket-&gt;cld
+)paren
+suffix:semicolon
 id|free
 c_func
 (paren
