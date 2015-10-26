@@ -932,7 +932,7 @@ c_func
 id|fp
 comma
 l_string|&quot;%&quot;
-id|PRIuMAX
+id|SCNuMAX
 l_string|&quot; %127c&quot;
 comma
 op_amp
