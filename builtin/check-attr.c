@@ -38,7 +38,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git check-attr --stdin [-z] [-a | --all | &lt;attr&gt;...] &lt; &lt;list-of-paths&gt;&quot;
+l_string|&quot;git check-attr --stdin [-z] [-a | --all | &lt;attr&gt;...]&quot;
 )paren
 comma
 l_int|NULL

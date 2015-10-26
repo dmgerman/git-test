@@ -12,7 +12,7 @@ id|builtin_get_tar_commit_id_usage
 (braket
 )braket
 op_assign
-l_string|&quot;git get-tar-commit-id &lt; &lt;tarfile&gt;&quot;
+l_string|&quot;git get-tar-commit-id&quot;
 suffix:semicolon
 multiline_comment|/* ustar header + extended global header content */
 DECL|macro|RECORDSIZE

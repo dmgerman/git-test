@@ -2091,7 +2091,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git cat-file (--batch | --batch-check) [--follow-symlinks] &lt; &lt;list-of-objects&gt;&quot;
+l_string|&quot;git cat-file (--batch | --batch-check) [--follow-symlinks]&quot;
 )paren
 comma
 l_int|NULL

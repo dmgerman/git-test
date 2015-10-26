@@ -829,7 +829,7 @@ l_int|1
 id|usage
 c_func
 (paren
-l_string|&quot;git mktag &lt; signaturefile&quot;
+l_string|&quot;git mktag&quot;
 )paren
 suffix:semicolon
 r_if

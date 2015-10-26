@@ -34,7 +34,7 @@ op_assign
 (brace
 l_string|&quot;git check-ignore [&lt;options&gt;] &lt;pathname&gt;...&quot;
 comma
-l_string|&quot;git check-ignore [&lt;options&gt;] --stdin &lt; &lt;list-of-paths&gt;&quot;
+l_string|&quot;git check-ignore [&lt;options&gt;] --stdin&quot;
 comma
 l_int|NULL
 )brace
