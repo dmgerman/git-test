@@ -1422,7 +1422,7 @@ id|opt-&gt;cleanup_mode
 op_ne
 id|CLEANUP_NONE
 )paren
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 id|buf

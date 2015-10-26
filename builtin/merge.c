@@ -4978,7 +4978,7 @@ op_amp
 id|msg
 )paren
 suffix:semicolon
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp
