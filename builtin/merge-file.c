@@ -735,6 +735,17 @@ id|result.ptr
 )paren
 suffix:semicolon
 )brace
+r_if
+c_cond
+(paren
+id|ret
+OG
+l_int|127
+)paren
+id|ret
+op_assign
+l_int|127
+suffix:semicolon
 r_return
 id|ret
 suffix:semicolon
