@@ -2,7 +2,6 @@ macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;tempfile.h&quot;
 macro_line|#include &quot;credential.h&quot;
 macro_line|#include &quot;unix-socket.h&quot;
-macro_line|#include &quot;sigchain.h&quot;
 macro_line|#include &quot;parse-options.h&quot;
 DECL|variable|socket_file
 r_static
