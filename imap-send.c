@@ -7495,6 +7495,14 @@ c_cond
 id|server.auth_method
 )paren
 (brace
+macro_line|#if LIBCURL_VERSION_NUM &lt; 0x072200
+id|warning
+c_func
+(paren
+l_string|&quot;No LOGIN_OPTIONS support in this cURL version&quot;
+)paren
+suffix:semicolon
+macro_line|#else
 r_struct
 id|strbuf
 id|auth
@@ -7536,6 +7544,7 @@ op_amp
 id|auth
 )paren
 suffix:semicolon
+macro_line|#endif
 )brace
 r_if
 c_cond
