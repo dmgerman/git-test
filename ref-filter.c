@@ -7946,7 +7946,13 @@ id|vb-&gt;ul
 )paren
 id|cmp
 op_assign
-l_int|0
+id|strcmp
+c_func
+(paren
+id|a-&gt;refname
+comma
+id|b-&gt;refname
+)paren
 suffix:semicolon
 r_else
 id|cmp
