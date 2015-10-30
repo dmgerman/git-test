@@ -9949,6 +9949,9 @@ op_assign
 r_int
 r_int
 )paren
+(paren
+r_intptr
+)paren
 id|p
 op_plus
 (paren
