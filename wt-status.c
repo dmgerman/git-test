@@ -8878,9 +8878,7 @@ op_assign
 id|branch_get
 c_func
 (paren
-id|s-&gt;branch
-op_plus
-l_int|11
+id|branch_name
 )paren
 suffix:semicolon
 id|color_fprintf
