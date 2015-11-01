@@ -5274,7 +5274,6 @@ c_func
 (paren
 id|git_mailinfo_config
 comma
-op_amp
 id|mi
 )paren
 suffix:semicolon
