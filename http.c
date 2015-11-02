@@ -5411,10 +5411,10 @@ op_eq
 id|HTTP_REQUEST_FILE
 )paren
 (brace
-r_int
+id|off_t
 id|posn
 op_assign
-id|ftell
+id|ftello
 c_func
 (paren
 id|result
@@ -7159,7 +7159,7 @@ op_star
 id|base_url
 )paren
 (brace
-r_int
+id|off_t
 id|prev_posn
 op_assign
 l_int|0
@@ -7326,7 +7326,7 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * If there is data present from a previous transfer attempt,&n;&t; * resume where it left off&n;&t; */
 id|prev_posn
 op_assign
-id|ftell
+id|ftello
 c_func
 (paren
 id|preq-&gt;packfile
@@ -7608,7 +7608,7 @@ id|prev_read
 op_assign
 l_int|0
 suffix:semicolon
-r_int
+id|off_t
 id|prev_posn
 op_assign
 l_int|0
