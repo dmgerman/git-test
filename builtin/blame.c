@@ -12568,7 +12568,7 @@ id|contents_from
 id|die
 c_func
 (paren
-l_string|&quot;--contents and --children do not blend well.&quot;
+l_string|&quot;--contents and --reverse do not blend well.&quot;
 )paren
 suffix:semicolon
 r_else
