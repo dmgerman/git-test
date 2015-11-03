@@ -86,6 +86,10 @@ DECL|variable|repository_format_version
 r_int
 id|repository_format_version
 suffix:semicolon
+DECL|variable|repository_format_precious_objects
+r_int
+id|repository_format_precious_objects
+suffix:semicolon
 DECL|variable|git_commit_encoding
 r_const
 r_char
