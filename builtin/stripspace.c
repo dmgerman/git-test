@@ -63,13 +63,13 @@ op_assign
 id|N_
 c_func
 (paren
-l_string|&quot;git stripspace [-s | --strip-comments] &lt; input&quot;
+l_string|&quot;git stripspace [-s | --strip-comments]&quot;
 )paren
 comma
 id|N_
 c_func
 (paren
-l_string|&quot;git stripspace [-c | --comment-lines] &lt; input&quot;
+l_string|&quot;git stripspace [-c | --comment-lines]&quot;
 )paren
 comma
 l_int|NULL

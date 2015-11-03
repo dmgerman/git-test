@@ -454,7 +454,7 @@ comma
 id|N_
 c_func
 (paren
-l_string|&quot;git hash-object  --stdin-paths &lt; &lt;list-of-paths&gt;&quot;
+l_string|&quot;git hash-object  --stdin-paths&quot;
 )paren
 comma
 l_int|NULL
