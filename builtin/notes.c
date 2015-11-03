@@ -912,7 +912,7 @@ l_string|&quot;Please supply the note contents using either -m or -F option&quot
 )paren
 suffix:semicolon
 )brace
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp
@@ -1056,7 +1056,7 @@ comma
 id|arg
 )paren
 suffix:semicolon
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp
@@ -1186,7 +1186,7 @@ comma
 id|arg
 )paren
 suffix:semicolon
-id|stripspace
+id|strbuf_stripspace
 c_func
 (paren
 op_amp
