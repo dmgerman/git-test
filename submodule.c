@@ -486,6 +486,11 @@ id|done
 suffix:semicolon
 )brace
 multiline_comment|/* avoid adding it twice */
+id|prepare_alt_odb
+c_func
+(paren
+)paren
+suffix:semicolon
 r_for
 c_loop
 (paren
@@ -587,11 +592,6 @@ c_func
 id|objects_directory.buf
 comma
 l_int|0
-)paren
-suffix:semicolon
-id|prepare_alt_odb
-c_func
-(paren
 )paren
 suffix:semicolon
 id|done
