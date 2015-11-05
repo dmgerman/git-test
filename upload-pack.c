@@ -3400,6 +3400,8 @@ suffix:semicolon
 r_if
 c_cond
 (paren
+id|refname
+op_logical_and
 id|ref_is_hidden
 c_func
 (paren
@@ -3451,7 +3453,11 @@ id|cb_data
 id|mark_our_ref
 c_func
 (paren
+id|strip_namespace
+c_func
+(paren
 id|refname
+)paren
 comma
 id|oid
 )paren
@@ -3570,7 +3576,7 @@ c_cond
 id|mark_our_ref
 c_func
 (paren
-id|refname
+id|refname_nons
 comma
 id|oid
 )paren
