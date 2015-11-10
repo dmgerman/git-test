@@ -37,7 +37,11 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|obj-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|obj-&gt;object
+)paren
 comma
 op_amp
 id|type
@@ -470,7 +474,11 @@ r_return
 id|read_sha1_file
 c_func
 (paren
-id|our-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|our-&gt;object
+)paren
 comma
 op_amp
 id|type

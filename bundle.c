@@ -1191,7 +1191,12 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|tag-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|tag
+)paren
 comma
 op_amp
 id|type

@@ -905,7 +905,12 @@ c_cond
 id|has_sha1_pack
 c_func
 (paren
-id|obj-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|obj
+)paren
 )paren
 )paren
 r_return
@@ -1132,7 +1137,12 @@ c_func
 id|f
 )paren
 comma
-id|obj-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|obj
+)paren
 comma
 l_int|NULL
 comma

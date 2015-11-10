@@ -1770,7 +1770,12 @@ c_func
 (paren
 id|name
 comma
-id|obj-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|obj
+)paren
 comma
 id|v
 )paren
@@ -5619,6 +5624,10 @@ suffix:semicolon
 multiline_comment|/*&n;&t; * If it is a tag object, see if we use a value that derefs&n;&t; * the object, and if we do grab the object it refers to.&n;&t; */
 id|tagged
 op_assign
+id|get_object_hash
+c_func
+(paren
+op_star
 (paren
 (paren
 r_struct
@@ -5628,7 +5637,8 @@ op_star
 id|obj
 )paren
 op_member_access_from_pointer
-id|tagged-&gt;sha1
+id|tagged
+)paren
 suffix:semicolon
 multiline_comment|/*&n;&t; * NEEDSWORK: This derefs tag only once, which&n;&t; * is good to deal with chains of trust, but&n;&t; * is not consistent with what deref_tag() does&n;&t; * which peels the onion to the core.&n;&t; */
 id|buf
@@ -6592,6 +6602,10 @@ id|OBJ_TAG
 )paren
 id|tagged_sha1
 op_assign
+id|get_object_hash
+c_func
+(paren
+op_star
 (paren
 (paren
 r_struct
@@ -6601,7 +6615,8 @@ op_star
 id|obj
 )paren
 op_member_access_from_pointer
-id|tagged-&gt;sha1
+id|tagged
+)paren
 suffix:semicolon
 r_if
 c_cond

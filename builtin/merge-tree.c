@@ -246,7 +246,11 @@ r_return
 id|read_sha1_file
 c_func
 (paren
-id|entry-&gt;blob-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|entry-&gt;blob-&gt;object
+)paren
 comma
 op_amp
 id|type
@@ -366,7 +370,11 @@ r_return
 id|read_sha1_file
 c_func
 (paren
-id|entry-&gt;blob-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|entry-&gt;blob-&gt;object
+)paren
 comma
 op_amp
 id|type

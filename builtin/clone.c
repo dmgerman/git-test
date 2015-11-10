@@ -3670,7 +3670,11 @@ id|msg
 comma
 l_string|&quot;HEAD&quot;
 comma
-id|c-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|c-&gt;object
+)paren
 comma
 l_int|NULL
 comma

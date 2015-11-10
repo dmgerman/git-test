@@ -8247,7 +8247,11 @@ c_func
 op_amp
 id|parents
 comma
-id|parent-&gt;item-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|parent-&gt;item-&gt;object
+)paren
 )paren
 suffix:semicolon
 id|parent
@@ -8258,7 +8262,11 @@ suffix:semicolon
 id|diff_tree_combined
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|commit-&gt;object
+)paren
 comma
 op_amp
 id|parents

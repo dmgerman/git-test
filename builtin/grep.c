@@ -2238,7 +2238,12 @@ c_func
 (paren
 id|opt
 comma
-id|obj-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|obj
+)paren
 comma
 id|name
 comma

@@ -874,7 +874,12 @@ op_assign
 id|sha1_object_info
 c_func
 (paren
-id|obj-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|obj
+)paren
 comma
 op_amp
 id|size

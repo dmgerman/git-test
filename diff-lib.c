@@ -2245,7 +2245,12 @@ c_func
 (paren
 id|revs
 comma
-id|ent-&gt;item-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|ent-&gt;item
+)paren
 comma
 id|ent-&gt;name
 comma

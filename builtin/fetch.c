@@ -2765,7 +2765,11 @@ c_func
 op_amp
 id|quickref
 comma
-id|current-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|current-&gt;object
+)paren
 comma
 id|DEFAULT_ABBREV
 )paren
@@ -2894,7 +2898,11 @@ c_func
 op_amp
 id|quickref
 comma
-id|current-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|current-&gt;object
+)paren
 comma
 id|DEFAULT_ABBREV
 )paren

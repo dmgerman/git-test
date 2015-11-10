@@ -60,6 +60,10 @@ op_assign
 id|parse_object
 c_func
 (paren
+id|get_object_hash
+c_func
+(paren
+op_star
 (paren
 (paren
 r_struct
@@ -69,7 +73,8 @@ op_star
 id|o
 )paren
 op_member_access_from_pointer
-id|tagged-&gt;sha1
+id|tagged
+)paren
 )paren
 suffix:semicolon
 r_else
@@ -143,7 +148,12 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|o-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|o
+)paren
 )paren
 suffix:semicolon
 r_if
@@ -783,7 +793,11 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|item-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|item-&gt;object
+)paren
 comma
 op_amp
 id|type

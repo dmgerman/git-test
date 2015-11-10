@@ -1354,7 +1354,11 @@ c_func
 (paren
 id|sha1
 comma
-id|commit-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|commit-&gt;object
+)paren
 )paren
 suffix:semicolon
 r_if

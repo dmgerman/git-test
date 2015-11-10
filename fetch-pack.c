@@ -690,7 +690,11 @@ suffix:semicolon
 )brace
 )brace
 r_return
-id|commit-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|commit-&gt;object
+)paren
 suffix:semicolon
 )brace
 DECL|enum|ack_type
@@ -2426,7 +2430,12 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|t-&gt;tagged-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|t-&gt;tagged
+)paren
 )paren
 suffix:semicolon
 )brace

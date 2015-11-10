@@ -540,7 +540,11 @@ op_assign
 id|lookup_commit_graft
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|commit-&gt;object
+)paren
 )paren
 )paren
 op_ne

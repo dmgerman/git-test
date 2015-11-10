@@ -7107,7 +7107,12 @@ c_func
 (paren
 id|sha1
 comma
-id|o-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|o
+)paren
 )paren
 suffix:semicolon
 r_return

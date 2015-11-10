@@ -225,7 +225,11 @@ c_func
 id|find_unique_abbrev
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|get_object_hash
+c_func
+(paren
+id|commit-&gt;object
+)paren
 comma
 id|revs-&gt;abbrev
 )paren
@@ -705,7 +709,12 @@ id|OBJ_COMMIT
 id|parse_object
 c_func
 (paren
-id|obj-&gt;sha1
+id|get_object_hash
+c_func
+(paren
+op_star
+id|obj
+)paren
 )paren
 suffix:semicolon
 )brace
