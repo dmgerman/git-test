@@ -948,7 +948,7 @@ r_return
 id|dir
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Check if a refname is safe.&n; * For refs that start with &quot;refs/&quot; we consider it safe as long they do&n; * not try to resolve to outside of refs/.&n; *&n; * For all other refs we only consider them safe iff they only contain&n; * upper case characters and &squot;_&squot; (like &quot;HEAD&quot; AND &quot;MERGE_HEAD&quot;, and not like&n; * &quot;config&quot;).&n; */
+multiline_comment|/*&n; * Return true iff refname is minimally safe. &quot;Safe&quot; here means that&n; * deleting a loose reference by this name will not do any damage, for&n; * example by causing a file that is not a reference to be deleted.&n; * This function does not check that the reference name is legal; for&n; * that, use check_refname_format().&n; *&n; * We consider a refname that starts with &quot;refs/&quot; to be safe as long&n; * as any &quot;..&quot; components that it might contain do not escape &quot;refs/&quot;.&n; * Names that do not start with &quot;refs/&quot; are considered safe iff they&n; * consist entirely of upper case characters and &squot;_&squot; (like &quot;HEAD&quot; and&n; * &quot;MERGE_HEAD&quot; but not &quot;config&quot; or &quot;FOO/BAR&quot;).&n; */
 DECL|function|refname_is_safe
 r_static
 r_int
