@@ -9145,9 +9145,11 @@ op_logical_neg
 id|ref_newer
 c_func
 (paren
-id|ref-&gt;peer_ref-&gt;new_oid.hash
+op_amp
+id|ref-&gt;peer_ref-&gt;new_oid
 comma
-id|ref-&gt;old_oid.hash
+op_amp
+id|ref-&gt;old_oid
 )paren
 )paren
 (brace

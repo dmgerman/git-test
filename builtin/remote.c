@@ -2393,9 +2393,11 @@ op_logical_and
 id|ref_newer
 c_func
 (paren
-id|ref-&gt;new_oid.hash
+op_amp
+id|ref-&gt;new_oid
 comma
-id|ref-&gt;old_oid.hash
+op_amp
+id|ref-&gt;old_oid
 )paren
 )paren
 id|info-&gt;status
