@@ -715,10 +715,11 @@ c_func
 (paren
 l_string|&quot;%s&t;%s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|ref-&gt;old_sha1
+op_amp
+id|ref-&gt;old_oid
 )paren
 comma
 id|ref-&gt;name

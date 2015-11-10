@@ -837,7 +837,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 comma
 id|old_sha1
 )paren

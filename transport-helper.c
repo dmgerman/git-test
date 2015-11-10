@@ -1858,10 +1858,11 @@ id|buf
 comma
 l_string|&quot;fetch %s %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|posn-&gt;old_sha1
+op_amp
+id|posn-&gt;old_oid
 )paren
 comma
 id|posn-&gt;symref
@@ -2537,7 +2538,7 @@ c_func
 (paren
 r_private
 comma
-id|posn-&gt;old_sha1
+id|posn-&gt;old_oid.hash
 )paren
 OL
 l_int|0
@@ -3869,7 +3870,7 @@ l_string|&quot;update by helper&quot;
 comma
 r_private
 comma
-id|ref-&gt;new_sha1
+id|ref-&gt;new_oid.hash
 comma
 l_int|NULL
 comma
@@ -4204,10 +4205,11 @@ c_func
 op_amp
 id|buf
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|ref-&gt;new_sha1
+op_amp
+id|ref-&gt;new_oid
 )paren
 )paren
 suffix:semicolon
@@ -4239,7 +4241,7 @@ comma
 l_char|&squot;&bslash;n&squot;
 )paren
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * The &quot;--force-with-lease&quot; options without explicit&n;&t;&t; * values to expect have already been expanded into&n;&t;&t; * the ref-&gt;old_sha1_expect[] field; we can ignore&n;&t;&t; * transport-&gt;smart_options-&gt;cas altogether and instead&n;&t;&t; * can enumerate them from the refs.&n;&t;&t; */
+multiline_comment|/*&n;&t;&t; * The &quot;--force-with-lease&quot; options without explicit&n;&t;&t; * values to expect have already been expanded into&n;&t;&t; * the ref-&gt;old_oid_expect[] field; we can ignore&n;&t;&t; * transport-&gt;smart_options-&gt;cas altogether and instead&n;&t;&t; * can enumerate them from the refs.&n;&t;&t; */
 r_if
 c_cond
 (paren
@@ -4262,10 +4264,11 @@ l_string|&quot;%s:%s&quot;
 comma
 id|ref-&gt;name
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|ref-&gt;old_sha1_expect
+op_amp
+id|ref-&gt;old_oid_expect
 )paren
 )paren
 suffix:semicolon
@@ -4576,7 +4579,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 comma
 id|sha1
 )paren
@@ -5289,17 +5292,18 @@ l_int|0
 op_ne
 l_char|&squot;?&squot;
 )paren
-id|get_sha1_hex
+id|get_oid_hex
 c_func
 (paren
 id|buf.buf
 comma
+op_amp
 (paren
 op_star
 id|tail
 )paren
 op_member_access_from_pointer
-id|old_sha1
+id|old_oid
 )paren
 suffix:semicolon
 r_if
@@ -5349,7 +5353,7 @@ op_star
 id|tail
 )paren
 op_member_access_from_pointer
-id|old_sha1
+id|old_oid.hash
 )paren
 OL
 l_int|0

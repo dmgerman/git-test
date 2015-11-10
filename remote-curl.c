@@ -944,12 +944,13 @@ c_func
 id|ref_name
 )paren
 suffix:semicolon
-id|get_sha1_hex
+id|get_oid_hex
 c_func
 (paren
 id|start
 comma
-id|ref-&gt;old_sha1
+op_amp
+id|ref-&gt;old_oid
 )paren
 suffix:semicolon
 r_if
@@ -1879,10 +1880,11 @@ c_func
 (paren
 l_string|&quot;%s %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|posn-&gt;old_sha1
+op_amp
+id|posn-&gt;old_oid
 )paren
 comma
 id|posn-&gt;name
@@ -3664,15 +3666,16 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
+op_amp
 id|to_fetch
 (braket
 id|i
 )braket
 op_member_access_from_pointer
-id|old_sha1
+id|old_oid
 )paren
 )paren
 suffix:semicolon
@@ -4065,10 +4068,11 @@ id|preamble
 comma
 l_string|&quot;%s %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|ref-&gt;old_sha1
+op_amp
+id|ref-&gt;old_oid
 )paren
 comma
 id|ref-&gt;name
@@ -4380,7 +4384,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 comma
 id|old_sha1
 )paren

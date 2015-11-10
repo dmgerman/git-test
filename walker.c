@@ -965,7 +965,7 @@ c_func
 (paren
 id|sha1
 comma
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 suffix:semicolon
 id|free
