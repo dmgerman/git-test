@@ -10861,17 +10861,6 @@ id|ref_to_prune
 suffix:semicolon
 )brace
 suffix:semicolon
-r_static
-r_int
-id|is_per_worktree_ref
-c_func
-(paren
-r_const
-r_char
-op_star
-id|refname
-)paren
-suffix:semicolon
 multiline_comment|/*&n; * An each_ref_entry_fn that is run over loose references only.  If&n; * the loose reference can be packed, add an entry in the packed ref&n; * cache.  If the reference should be pruned, also add it to&n; * ref_to_prune in the pack_refs_cb_data.&n; */
 DECL|function|pack_if_possible_fn
 r_static
@@ -10920,11 +10909,13 @@ multiline_comment|/* Do not pack per-worktree refs: */
 r_if
 c_cond
 (paren
-id|is_per_worktree_ref
+id|ref_type
 c_func
 (paren
 id|entry-&gt;name
 )paren
+op_ne
+id|REF_TYPE_NORMAL
 )paren
 r_return
 l_int|0
