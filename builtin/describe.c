@@ -1391,10 +1391,11 @@ c_func
 l_string|&quot;no tag exactly matches &squot;%s&squot;&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|cmit-&gt;object.sha1
+op_amp
+id|cmit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1692,10 +1693,11 @@ c_func
 l_string|&quot;finished search at %s&bslash;n&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|c-&gt;object.sha1
+op_amp
+id|c-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1764,13 +1766,13 @@ op_logical_neg
 id|match_cnt
 )paren
 (brace
-r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 op_assign
-id|cmit-&gt;object.sha1
+op_amp
+id|cmit-&gt;object.oid
 suffix:semicolon
 r_if
 c_cond
@@ -1786,7 +1788,7 @@ comma
 id|find_unique_abbrev
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 id|abbrev
 )paren
@@ -1829,10 +1831,10 @@ l_string|&quot;No annotated tags can describe &squot;%s&squot;.&bslash;n&quot;
 l_string|&quot;However, there were unannotated tags: try --tags.&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 )paren
 suffix:semicolon
@@ -1847,10 +1849,10 @@ l_string|&quot;No tags can describe &squot;%s&squot;.&bslash;n&quot;
 l_string|&quot;Try --always, or create some tags.&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 )paren
 suffix:semicolon
@@ -1999,10 +2001,11 @@ id|max_candidates
 comma
 id|max_candidates
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|gave_up_on-&gt;object.sha1
+op_amp
+id|gave_up_on-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

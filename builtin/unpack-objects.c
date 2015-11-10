@@ -189,10 +189,11 @@ c_func
 (paren
 l_string|&quot;object %s tried to add buffer twice!&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|object-&gt;sha1
+op_amp
+id|object-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -775,10 +776,11 @@ c_func
 (paren
 l_string|&quot;failed to write object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -929,10 +931,11 @@ c_func
 (paren
 l_string|&quot;Whoops! Cannot find object &squot;%s&squot;&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -981,10 +984,11 @@ c_func
 (paren
 l_string|&quot;Error on reachable objects of %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon

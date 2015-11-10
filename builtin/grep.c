@@ -2295,7 +2295,7 @@ op_assign
 id|read_object_with_reference
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 comma
 id|tree_type
 comma
@@ -2325,10 +2325,11 @@ c_func
 l_string|&quot;unable to read tree (%s)&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon

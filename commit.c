@@ -1474,10 +1474,11 @@ c_func
 (paren
 l_string|&quot;cannot read commit object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1493,10 +1494,11 @@ c_func
 (paren
 l_string|&quot;expected commit for %s, got %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 comma
 r_typename
@@ -1819,10 +1821,11 @@ c_func
 (paren
 l_string|&quot;bogus commit object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1847,10 +1850,11 @@ c_func
 (paren
 l_string|&quot;bad tree pointer in commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1946,10 +1950,11 @@ c_func
 (paren
 l_string|&quot;bad parents in commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2162,10 +2167,11 @@ c_func
 (paren
 l_string|&quot;Could not read %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2189,10 +2195,11 @@ c_func
 (paren
 l_string|&quot;Object %s not a commit&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2270,10 +2277,11 @@ comma
 id|item
 ques
 c_cond
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 suffix:colon
 l_string|&quot;(null)&quot;
@@ -8192,10 +8200,11 @@ id|buffer
 comma
 l_string|&quot;parent %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|parent-&gt;object.sha1
+op_amp
+id|parent-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -8587,10 +8596,11 @@ c_func
 (paren
 id|format
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|list-&gt;item-&gt;object.sha1
+op_amp
+id|list-&gt;item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

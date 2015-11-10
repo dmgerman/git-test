@@ -3322,16 +3322,18 @@ c_func
 l_string|&quot;Merging remote commit %.7s into local commit %.7s with &quot;
 l_string|&quot;merge-base %.7s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|remote-&gt;object.sha1
+op_amp
+id|remote-&gt;object.oid
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|local-&gt;object.sha1
+op_amp
+id|local-&gt;object.oid
 )paren
 comma
 id|sha1_to_hex

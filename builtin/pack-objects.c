@@ -10821,12 +10821,14 @@ l_int|1
 suffix:semicolon
 r_else
 r_return
-id|hashcmp
+id|oidcmp
 c_func
 (paren
-id|a-&gt;object-&gt;sha1
+op_amp
+id|a-&gt;object-&gt;oid
 comma
-id|b-&gt;object-&gt;sha1
+op_amp
+id|b-&gt;object-&gt;oid
 )paren
 suffix:semicolon
 )brace

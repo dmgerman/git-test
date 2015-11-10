@@ -1103,10 +1103,11 @@ c_func
 (paren
 l_string|&quot;Could not read %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1130,10 +1131,11 @@ c_func
 (paren
 l_string|&quot;Object %s not a tree&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1289,7 +1291,7 @@ id|obj-&gt;parsed
 id|parse_object
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 suffix:semicolon
 )brace

@@ -1349,10 +1349,11 @@ c_func
 (paren
 l_string|&quot;Duplicate entry when writing index: %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|object-&gt;sha1
+op_amp
+id|object-&gt;oid
 )paren
 )paren
 suffix:semicolon

@@ -776,10 +776,11 @@ c_func
 l_string|&quot;object type mismatch at %s&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -874,10 +875,11 @@ c_func
 l_string|&quot;did not receive expected object %s&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -897,10 +899,11 @@ c_func
 l_string|&quot;object %s: expected type %s, found %s&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 r_typename
@@ -4408,10 +4411,11 @@ c_func
 l_string|&quot;Not all child objects of %s are reachable&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon

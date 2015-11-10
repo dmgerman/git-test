@@ -273,10 +273,11 @@ c_func
 (paren
 l_string|&quot;bad tree object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -1061,10 +1062,11 @@ c_func
 (paren
 l_string|&quot;unknown pending object %s (%s)&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 id|name

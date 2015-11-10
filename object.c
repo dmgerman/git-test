@@ -725,10 +725,11 @@ c_func
 (paren
 l_string|&quot;object %s is a %s, not a %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 r_typename

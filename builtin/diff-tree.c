@@ -297,16 +297,18 @@ c_func
 (paren
 l_string|&quot;%s %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tree1-&gt;object.sha1
+op_amp
+id|tree1-&gt;object.oid
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tree2-&gt;object.sha1
+op_amp
+id|tree2-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

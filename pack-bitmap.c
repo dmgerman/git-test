@@ -3833,10 +3833,11 @@ c_func
 (paren
 l_string|&quot;Object not in bitmap: %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|object-&gt;sha1
+op_amp
+id|object-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -3908,10 +3909,11 @@ c_func
 (paren
 l_string|&quot;Object not in bitmap: %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -4072,10 +4074,11 @@ id|stderr
 comma
 l_string|&quot;Found bitmap for %s. %d bits / %08x checksum&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|root-&gt;sha1
+op_amp
+id|root-&gt;oid
 )paren
 comma
 (paren
@@ -4111,10 +4114,11 @@ c_func
 (paren
 l_string|&quot;Commit %s doesn&squot;t have an indexed bitmap&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|root-&gt;sha1
+op_amp
+id|root-&gt;oid
 )paren
 )paren
 suffix:semicolon

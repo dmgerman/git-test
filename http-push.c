@@ -1089,10 +1089,11 @@ r_char
 op_star
 id|hex
 op_assign
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 suffix:semicolon
 r_struct
@@ -1243,10 +1244,11 @@ id|stderr
 comma
 l_string|&quot;Unable to fetch %s, will not be able to update server info refs&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -1284,10 +1286,11 @@ id|stderr
 comma
 l_string|&quot; which contains %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -1439,10 +1442,11 @@ r_char
 op_star
 id|hex
 op_assign
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 suffix:semicolon
 r_struct
@@ -2327,10 +2331,11 @@ id|stderr
 comma
 l_string|&quot;MKCOL %s failed, aborting (%d/%ld)&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 comma
 id|request-&gt;curl_result
@@ -2381,10 +2386,11 @@ id|stderr
 comma
 l_string|&quot;PUT %s failed, aborting (%d/%ld)&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 comma
 id|request-&gt;curl_result
@@ -2431,10 +2437,11 @@ id|stderr
 comma
 l_string|&quot;    sent %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -2458,10 +2465,11 @@ id|stderr
 comma
 l_string|&quot;MOVE %s failed, aborting (%d/%ld)&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|request-&gt;obj-&gt;sha1
+op_amp
+id|request-&gt;obj-&gt;oid
 )paren
 comma
 id|request-&gt;curl_result
@@ -6309,10 +6317,11 @@ c_func
 (paren
 l_string|&quot;bad tree object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -6688,10 +6697,11 @@ c_func
 (paren
 l_string|&quot;unknown pending object %s (%s)&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 id|name
@@ -7248,10 +7258,11 @@ id|buf
 comma
 l_string|&quot;%s&bslash;t%s^{}&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|o-&gt;sha1
+op_amp
+id|o-&gt;oid
 )paren
 comma
 id|ls-&gt;dentry_name

@@ -2763,10 +2763,11 @@ id|die
 (paren
 l_string|&quot;Could not find author in commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2803,10 +2804,11 @@ id|die
 (paren
 l_string|&quot;Could not find committer in commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3446,10 +3448,11 @@ c_func
 (paren
 l_string|&quot;Omitting tag %s,&bslash;nsince tags of trees (or tags of tags of trees, etc.) are not supported.&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3484,10 +3487,11 @@ id|die
 (paren
 l_string|&quot;Could not read tag %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3690,10 +3694,11 @@ id|die
 l_string|&quot;Encountered signed tag %s; use &quot;
 l_string|&quot;--signed-tags=&lt;mode&gt; to handle it.&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3704,10 +3709,11 @@ id|warning
 (paren
 l_string|&quot;Exporting signed tag %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3724,10 +3730,11 @@ id|warning
 (paren
 l_string|&quot;Stripping signature from tag %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3780,10 +3787,11 @@ id|die
 l_string|&quot;Tag %s tags unexported object; use &quot;
 l_string|&quot;--tag-of-filtered-object=&lt;mode&gt; to handle it.&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3808,10 +3816,11 @@ id|die
 (paren
 l_string|&quot;Tag %s tags unexported %s!&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 comma
 r_typename
@@ -3877,10 +3886,11 @@ id|die
 (paren
 l_string|&quot;Can&squot;t find replacement commit for tag %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;object.sha1
+op_amp
+id|tag-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -4565,10 +4575,11 @@ l_string|&quot; %s&bslash;n&quot;
 comma
 id|mark
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|deco-&gt;base-&gt;sha1
+op_amp
+id|deco-&gt;base-&gt;oid
 )paren
 )paren
 OL

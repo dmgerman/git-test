@@ -180,7 +180,7 @@ c_func
 id|old
 ques
 c_cond
-id|old-&gt;object.sha1
+id|old-&gt;object.oid.hash
 suffix:colon
 id|null_sha1
 )paren
@@ -193,7 +193,7 @@ ques
 c_cond
 r_new
 op_member_access_from_pointer
-id|object.sha1
+id|object.oid.hash
 suffix:colon
 id|null_sha1
 )paren
@@ -2634,7 +2634,7 @@ c_func
 (paren
 r_new
 op_member_access_from_pointer
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 id|init_tree_desc
@@ -3167,10 +3167,11 @@ id|old-&gt;commit
 )paren
 id|old_desc
 op_assign
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|old-&gt;commit-&gt;object.sha1
+op_amp
+id|old-&gt;commit-&gt;object.oid
 )paren
 suffix:semicolon
 id|reflog_msg
@@ -3947,10 +3948,11 @@ id|revs
 comma
 id|object
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|object-&gt;sha1
+op_amp
+id|object-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -3973,7 +3975,7 @@ l_string|&quot;HEAD&quot;
 comma
 r_new
 op_member_access_from_pointer
-id|object.sha1
+id|object.oid.hash
 comma
 id|UNINTERESTING
 )paren

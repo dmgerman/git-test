@@ -2562,10 +2562,11 @@ id|stderr
 comma
 l_string|&quot;Marking %s as complete&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|complete-&gt;item-&gt;object.sha1
+op_amp
+id|complete-&gt;item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

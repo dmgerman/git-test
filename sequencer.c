@@ -622,7 +622,7 @@ op_assign
 id|find_unique_abbrev
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 id|DEFAULT_ABBREV
 )paren
@@ -1975,10 +1975,11 @@ c_func
 l_string|&quot;Could not parse commit %s&bslash;n&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2014,10 +2015,11 @@ c_func
 l_string|&quot;Could not parse parent commit %s&bslash;n&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|parent-&gt;object.sha1
+op_amp
+id|parent-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2354,10 +2356,11 @@ c_func
 l_string|&quot;Commit %s is a merge but no -m option was given.&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2405,10 +2408,11 @@ c_func
 l_string|&quot;Commit %s does not have parent %d&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 comma
 id|opts-&gt;mainline
@@ -2437,10 +2441,11 @@ c_func
 l_string|&quot;Mainline was specified but commit %s is not a merge.&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2527,10 +2532,11 @@ c_func
 id|opts
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|parent-&gt;object.sha1
+op_amp
+id|parent-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2558,10 +2564,11 @@ c_func
 l_string|&quot;Cannot get commit message for %s&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2623,10 +2630,11 @@ c_func
 op_amp
 id|msgbuf
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2653,10 +2661,11 @@ c_func
 op_amp
 id|msgbuf
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|parent-&gt;object.sha1
+op_amp
+id|parent-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2770,10 +2779,11 @@ c_func
 op_amp
 id|msgbuf
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

@@ -241,10 +241,11 @@ r_else
 id|fputs
 c_func
 (paren
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 comma
 id|stdout
@@ -274,10 +275,11 @@ c_func
 (paren
 l_string|&quot; %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|parents-&gt;item-&gt;object.sha1
+op_amp
+id|parents-&gt;item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -321,10 +323,11 @@ c_func
 (paren
 l_string|&quot; %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|children-&gt;item-&gt;object.sha1
+op_amp
+id|children-&gt;item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -676,10 +679,11 @@ op_eq
 id|OBJ_BLOB
 op_logical_and
 op_logical_neg
-id|has_sha1_file
+id|has_object_file
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 id|die
@@ -687,10 +691,11 @@ c_func
 (paren
 l_string|&quot;missing blob object &squot;%s&squot;&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -803,10 +808,11 @@ c_func
 (paren
 l_string|&quot;-%s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -967,7 +973,7 @@ c_func
 (paren
 id|hex
 comma
-id|revs-&gt;commits-&gt;item-&gt;object.sha1
+id|revs-&gt;commits-&gt;item-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_if

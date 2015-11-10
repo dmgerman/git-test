@@ -26,10 +26,11 @@ c_cond
 id|commit
 )paren
 r_return
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 suffix:semicolon
 r_else

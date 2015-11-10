@@ -1449,10 +1449,11 @@ c_func
 (paren
 l_string|&quot;in tree %s: entry %s has bad mode %.6o&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tree-&gt;object.sha1
+op_amp
+id|tree-&gt;object.oid
 )paren
 comma
 id|entry.path
@@ -1779,10 +1780,11 @@ c_func
 (paren
 l_string|&quot;Unknown object type for %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -4446,10 +4448,11 @@ c_func
 (paren
 l_string|&quot;object %s: %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 id|message
@@ -4464,10 +4467,11 @@ c_func
 (paren
 l_string|&quot;object %s: %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 id|message

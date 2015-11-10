@@ -3877,7 +3877,7 @@ c_func
 (paren
 id|sha1
 comma
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 )paren
 suffix:semicolon
 r_return
@@ -5403,7 +5403,7 @@ c_func
 (paren
 id|sha1
 comma
-id|mbs-&gt;item-&gt;object.sha1
+id|mbs-&gt;item-&gt;object.oid.hash
 )paren
 suffix:semicolon
 )brace
