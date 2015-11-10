@@ -13838,10 +13838,10 @@ l_int|0
 suffix:semicolon
 )brace
 multiline_comment|/*&n; * copy the reflog message msg to buf, which has been allocated sufficiently&n; * large, while cleaning up the whitespaces.  Especially, convert LF to space,&n; * because reflog file is one line per entry.&n; */
-DECL|function|copy_msg
+DECL|function|copy_reflog_msg
 r_static
 r_int
-id|copy_msg
+id|copy_reflog_msg
 c_func
 (paren
 r_char
@@ -14404,7 +14404,7 @@ id|msglen
 )paren
 id|len
 op_add_assign
-id|copy_msg
+id|copy_reflog_msg
 c_func
 (paren
 id|logrec
