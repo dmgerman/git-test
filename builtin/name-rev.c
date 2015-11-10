@@ -800,12 +800,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|get_object_hash
-c_func
-(paren
-op_star
-id|t-&gt;tagged
-)paren
+id|t-&gt;tagged-&gt;oid.hash
 )paren
 suffix:semicolon
 id|deref
@@ -964,12 +959,7 @@ op_assign
 id|sha1_pos
 c_func
 (paren
-id|get_object_hash
-c_func
-(paren
-op_star
-id|o
-)paren
+id|o-&gt;oid.hash
 comma
 id|tip_table.table
 comma

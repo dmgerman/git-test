@@ -2238,12 +2238,7 @@ c_func
 (paren
 id|opt
 comma
-id|get_object_hash
-c_func
-(paren
-op_star
-id|obj
-)paren
+id|obj-&gt;oid.hash
 comma
 id|name
 comma

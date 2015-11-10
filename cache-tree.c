@@ -3204,11 +3204,7 @@ c_func
 (paren
 id|it-&gt;sha1
 comma
-id|get_object_hash
-c_func
-(paren
-id|tree-&gt;object
-)paren
+id|tree-&gt;object.oid.hash
 )paren
 suffix:semicolon
 id|init_tree_desc

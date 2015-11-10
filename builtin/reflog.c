@@ -527,11 +527,7 @@ op_logical_neg
 id|parse_object
 c_func
 (paren
-id|get_object_hash
-c_func
-(paren
-id|c-&gt;object
-)paren
+id|c-&gt;object.oid.hash
 )paren
 )paren
 id|c-&gt;object.flags
@@ -670,11 +666,7 @@ op_logical_neg
 id|tree_is_complete
 c_func
 (paren
-id|get_object_hash
-c_func
-(paren
-id|c-&gt;tree-&gt;object
-)paren
+id|c-&gt;tree-&gt;object.oid.hash
 )paren
 )paren
 (brace

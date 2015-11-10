@@ -7503,11 +7503,7 @@ c_func
 (paren
 id|cb.nsha1
 comma
-id|get_object_hash
-c_func
-(paren
-id|commit-&gt;object
-)paren
+id|commit-&gt;object.oid.hash
 )paren
 )paren
 )paren

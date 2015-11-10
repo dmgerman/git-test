@@ -542,11 +542,7 @@ c_func
 (paren
 id|sha1
 comma
-id|get_object_hash
-c_func
-(paren
-id|commit-&gt;tree-&gt;object
-)paren
+id|commit-&gt;tree-&gt;object.oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -1073,11 +1069,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|get_object_hash
-c_func
-(paren
-id|item-&gt;object
-)paren
+id|item-&gt;object.oid.hash
 comma
 op_amp
 id|type

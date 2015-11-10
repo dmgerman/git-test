@@ -440,11 +440,7 @@ op_assign
 id|find_unique_abbrev
 c_func
 (paren
-id|get_object_hash
-c_func
-(paren
-id|commit-&gt;object
-)paren
+id|commit-&gt;object.oid.hash
 comma
 id|DEFAULT_ABBREV
 )paren

@@ -3545,11 +3545,7 @@ c_func
 (paren
 id|merge_base
 comma
-id|get_object_hash
-c_func
-(paren
-id|result-&gt;item-&gt;object
-)paren
+id|result-&gt;item-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_return

@@ -3670,11 +3670,7 @@ id|msg
 comma
 l_string|&quot;HEAD&quot;
 comma
-id|get_object_hash
-c_func
-(paren
-id|c-&gt;object
-)paren
+id|c-&gt;object.oid.hash
 comma
 l_int|NULL
 comma

@@ -2245,12 +2245,7 @@ c_func
 (paren
 id|revs
 comma
-id|get_object_hash
-c_func
-(paren
-op_star
-id|ent-&gt;item
-)paren
+id|ent-&gt;item-&gt;oid.hash
 comma
 id|ent-&gt;name
 comma
