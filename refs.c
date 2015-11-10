@@ -1,6 +1,7 @@
 macro_line|#include &quot;cache.h&quot;
 macro_line|#include &quot;lockfile.h&quot;
 macro_line|#include &quot;refs.h&quot;
+macro_line|#include &quot;refs/refs-internal.h&quot;
 macro_line|#include &quot;object.h&quot;
 macro_line|#include &quot;tag.h&quot;
 macro_line|#include &quot;dir.h&quot;
@@ -300,22 +301,6 @@ comma
 l_int|4
 )brace
 suffix:semicolon
-multiline_comment|/*&n; * Flag passed to lock_ref_sha1_basic() telling it to tolerate broken&n; * refs (i.e., because the reference is about to be deleted anyway).&n; */
-DECL|macro|REF_DELETING
-mdefine_line|#define REF_DELETING&t;0x02
-multiline_comment|/*&n; * Used as a flag in ref_update::flags when a loose ref is being&n; * pruned.&n; */
-DECL|macro|REF_ISPRUNING
-mdefine_line|#define REF_ISPRUNING&t;0x04
-multiline_comment|/*&n; * Used as a flag in ref_update::flags when the reference should be&n; * updated to new_sha1.&n; */
-DECL|macro|REF_HAVE_NEW
-mdefine_line|#define REF_HAVE_NEW&t;0x08
-multiline_comment|/*&n; * Used as a flag in ref_update::flags when old_sha1 should be&n; * checked.&n; */
-DECL|macro|REF_HAVE_OLD
-mdefine_line|#define REF_HAVE_OLD&t;0x10
-multiline_comment|/*&n; * Used as a flag in ref_update::flags when the lockfile needs to be&n; * committed.&n; */
-DECL|macro|REF_NEEDS_COMMIT
-mdefine_line|#define REF_NEEDS_COMMIT 0x20
-multiline_comment|/*&n; * 0x40 is REF_FORCE_CREATE_REFLOG, so skip it if you&squot;re adding a&n; * value to ref_update::flags&n; */
 multiline_comment|/*&n; * Try to read one refname component from the front of refname.&n; * Return the length of the component found, or -1 if the component is&n; * not legal.  It is legal if it is something reasonable to have under&n; * &quot;.git/refs/&quot;; We do not like it if:&n; *&n; * - any path component of it begins with &quot;.&quot;, or&n; * - it has double dots &quot;..&quot;, or&n; * - it has ASCII control characters, or&n; * - it has &quot;:&quot;, &quot;?&quot;, &quot;[&quot;, &quot;&bslash;&quot;, &quot;^&quot;, &quot;~&quot;, SP, or TAB anywhere, or&n; * - it has &quot;*&quot; anywhere unless REFNAME_REFSPEC_PATTERN is set, or&n; * - it ends with a &quot;/&quot;, or&n; * - it ends with &quot;.lock&quot;, or&n; * - it contains a &quot;@{&quot; portion&n; */
 DECL|function|check_refname_component
 r_static
@@ -948,9 +933,7 @@ r_return
 id|dir
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Return true iff refname is minimally safe. &quot;Safe&quot; here means that&n; * deleting a loose reference by this name will not do any damage, for&n; * example by causing a file that is not a reference to be deleted.&n; * This function does not check that the reference name is legal; for&n; * that, use check_refname_format().&n; *&n; * We consider a refname that starts with &quot;refs/&quot; to be safe as long&n; * as any &quot;..&quot; components that it might contain do not escape &quot;refs/&quot;.&n; * Names that do not start with &quot;refs/&quot; are considered safe iff they&n; * consist entirely of upper case characters and &squot;_&squot; (like &quot;HEAD&quot; and&n; * &quot;MERGE_HEAD&quot; but not &quot;config&quot; or &quot;FOO/BAR&quot;).&n; */
 DECL|function|refname_is_safe
-r_static
 r_int
 id|refname_is_safe
 c_func
@@ -6968,44 +6951,7 @@ id|filter-&gt;cb_data
 )paren
 suffix:semicolon
 )brace
-DECL|enum|peel_status
-r_enum
-id|peel_status
-(brace
-multiline_comment|/* object was peeled successfully: */
-DECL|enumerator|PEEL_PEELED
-id|PEEL_PEELED
-op_assign
-l_int|0
-comma
-multiline_comment|/*&n;&t; * object cannot be peeled because the named object (or an&n;&t; * object referred to by a tag in the peel chain), does not&n;&t; * exist.&n;&t; */
-DECL|enumerator|PEEL_INVALID
-id|PEEL_INVALID
-op_assign
-l_int|1
-comma
-multiline_comment|/* object cannot be peeled because it is not a tag: */
-DECL|enumerator|PEEL_NON_TAG
-id|PEEL_NON_TAG
-op_assign
-l_int|2
-comma
-multiline_comment|/* ref_entry contains no peeled value because it is a symref: */
-DECL|enumerator|PEEL_IS_SYMREF
-id|PEEL_IS_SYMREF
-op_assign
-l_int|3
-comma
-multiline_comment|/*&n;&t; * ref_entry cannot be peeled because it is broken (i.e., the&n;&t; * symbolic reference cannot even be resolved to an object&n;&t; * name):&n;&t; */
-DECL|enumerator|PEEL_BROKEN
-id|PEEL_BROKEN
-op_assign
-l_int|4
-)brace
-suffix:semicolon
-multiline_comment|/*&n; * Peel the named object; i.e., if the object is a tag, resolve the&n; * tag recursively until a non-tag is found.  If successful, store the&n; * result to sha1 and return PEEL_PEELED.  If the object is not a tag&n; * or is not valid, return PEEL_NON_TAG or PEEL_INVALID, respectively,&n; * and leave sha1 unchanged.&n; */
 DECL|function|peel_object
-r_static
 r_enum
 id|peel_status
 id|peel_object
@@ -12872,9 +12818,7 @@ r_return
 id|ret
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * Return 0 if a reference named refname could be created without&n; * conflicting with the name of an existing reference. Otherwise,&n; * return a negative value and write an explanation to err. If extras&n; * is non-NULL, it is a list of additional refnames with which refname&n; * is not allowed to conflict. If skip is non-NULL, ignore potential&n; * conflicts with refs in skip (e.g., because they are scheduled for&n; * deletion in the same operation). Behavior is undefined if the same&n; * name is listed in both extras and skip.&n; *&n; * Two reference names conflict if one of them exactly matches the&n; * leading components of the other; e.g., &quot;foo/bar&quot; conflicts with&n; * both &quot;foo&quot; and with &quot;foo/bar/baz&quot; but not with &quot;foo/bar&quot; or&n; * &quot;foo/barbados&quot;.&n; *&n; * extras and skip must be sorted.&n; */
 DECL|function|verify_refname_available
-r_static
 r_int
 id|verify_refname_available
 c_func
@@ -13828,9 +13772,7 @@ r_return
 l_int|0
 suffix:semicolon
 )brace
-multiline_comment|/*&n; * copy the reflog message msg to buf, which has been allocated sufficiently&n; * large, while cleaning up the whitespaces.  Especially, convert LF to space,&n; * because reflog file is one line per entry.&n; */
 DECL|function|copy_reflog_msg
-r_static
 r_int
 id|copy_reflog_msg
 c_func
@@ -13945,7 +13887,6 @@ id|buf
 suffix:semicolon
 )brace
 DECL|function|should_autocreate_reflog
-r_static
 r_int
 id|should_autocreate_reflog
 c_func
@@ -17496,103 +17437,6 @@ r_return
 id|retval
 suffix:semicolon
 )brace
-multiline_comment|/**&n; * Information needed for a single ref update. Set new_sha1 to the new&n; * value or to null_sha1 to delete the ref. To check the old value&n; * while the ref is locked, set (flags &amp; REF_HAVE_OLD) and set&n; * old_sha1 to the old value, or to null_sha1 to ensure the ref does&n; * not exist before update.&n; */
-DECL|struct|ref_update
-r_struct
-id|ref_update
-(brace
-multiline_comment|/*&n;&t; * If (flags &amp; REF_HAVE_NEW), set the reference to this value:&n;&t; */
-DECL|member|new_sha1
-r_int
-r_char
-id|new_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
-multiline_comment|/*&n;&t; * If (flags &amp; REF_HAVE_OLD), check that the reference&n;&t; * previously had this value:&n;&t; */
-DECL|member|old_sha1
-r_int
-r_char
-id|old_sha1
-(braket
-l_int|20
-)braket
-suffix:semicolon
-multiline_comment|/*&n;&t; * One or more of REF_HAVE_NEW, REF_HAVE_OLD, REF_NODEREF,&n;&t; * REF_DELETING, and REF_ISPRUNING:&n;&t; */
-DECL|member|flags
-r_int
-r_int
-id|flags
-suffix:semicolon
-DECL|member|lock
-r_struct
-id|ref_lock
-op_star
-id|lock
-suffix:semicolon
-DECL|member|type
-r_int
-id|type
-suffix:semicolon
-DECL|member|msg
-r_char
-op_star
-id|msg
-suffix:semicolon
-DECL|member|refname
-r_const
-r_char
-id|refname
-(braket
-id|FLEX_ARRAY
-)braket
-suffix:semicolon
-)brace
-suffix:semicolon
-multiline_comment|/*&n; * Transaction states.&n; * OPEN:   The transaction is in a valid state and can accept new updates.&n; *         An OPEN transaction can be committed.&n; * CLOSED: A closed transaction is no longer active and no other operations&n; *         than free can be used on it in this state.&n; *         A transaction can either become closed by successfully committing&n; *         an active transaction or if there is a failure while building&n; *         the transaction thus rendering it failed/inactive.&n; */
-DECL|enum|ref_transaction_state
-r_enum
-id|ref_transaction_state
-(brace
-DECL|enumerator|REF_TRANSACTION_OPEN
-id|REF_TRANSACTION_OPEN
-op_assign
-l_int|0
-comma
-DECL|enumerator|REF_TRANSACTION_CLOSED
-id|REF_TRANSACTION_CLOSED
-op_assign
-l_int|1
-)brace
-suffix:semicolon
-multiline_comment|/*&n; * Data structure for holding a reference transaction, which can&n; * consist of checks and updates to multiple references, carried out&n; * as atomically as possible.  This structure is opaque to callers.&n; */
-DECL|struct|ref_transaction
-r_struct
-id|ref_transaction
-(brace
-DECL|member|updates
-r_struct
-id|ref_update
-op_star
-op_star
-id|updates
-suffix:semicolon
-DECL|member|alloc
-r_int
-id|alloc
-suffix:semicolon
-DECL|member|nr
-r_int
-id|nr
-suffix:semicolon
-DECL|member|state
-r_enum
-id|ref_transaction_state
-id|state
-suffix:semicolon
-)brace
-suffix:semicolon
 DECL|function|ref_transaction_begin
 r_struct
 id|ref_transaction
