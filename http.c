@@ -7350,7 +7350,9 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Resuming fetch of pack %s at byte %ld&bslash;n&quot;
+l_string|&quot;Resuming fetch of pack %s at byte %&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
 comma
 id|sha1_to_hex
 c_func
@@ -7358,6 +7360,9 @@ c_func
 id|target-&gt;sha1
 )paren
 comma
+(paren
+r_uintmax
+)paren
 id|prev_posn
 )paren
 suffix:semicolon
@@ -8115,10 +8120,15 @@ c_func
 (paren
 id|stderr
 comma
-l_string|&quot;Resuming fetch of object %s at byte %ld&bslash;n&quot;
+l_string|&quot;Resuming fetch of object %s at byte %&quot;
+id|PRIuMAX
+l_string|&quot;&bslash;n&quot;
 comma
 id|hex
 comma
+(paren
+r_uintmax
+)paren
 id|prev_posn
 )paren
 suffix:semicolon
