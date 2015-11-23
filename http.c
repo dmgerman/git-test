@@ -922,7 +922,7 @@ id|var
 )paren
 )paren
 r_return
-id|git_config_string
+id|git_config_pathname
 c_func
 (paren
 op_amp
@@ -947,7 +947,7 @@ id|var
 )paren
 )paren
 r_return
-id|git_config_string
+id|git_config_pathname
 c_func
 (paren
 op_amp
