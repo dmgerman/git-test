@@ -9320,7 +9320,7 @@ op_or_assign
 id|error
 c_func
 (paren
-l_string|&quot;Unable to commit marks file %s: %s&quot;
+l_string|&quot;Unable to write file %s: %s&quot;
 comma
 id|export_marks_file
 comma
