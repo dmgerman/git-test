@@ -3750,9 +3750,8 @@ id|done
 suffix:semicolon
 )brace
 )brace
-r_if
-c_cond
-(paren
+id|ret
+op_assign
 id|verify_headers
 c_func
 (paren
@@ -3765,6 +3764,11 @@ id|tag-&gt;object
 comma
 id|options
 )paren
+suffix:semicolon
+r_if
+c_cond
+(paren
+id|ret
 )paren
 r_goto
 id|done
