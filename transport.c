@@ -15,6 +15,7 @@ macro_line|#include &quot;url.h&quot;
 macro_line|#include &quot;submodule.h&quot;
 macro_line|#include &quot;string-list.h&quot;
 macro_line|#include &quot;sha1-array.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 multiline_comment|/* rsync support */
 multiline_comment|/*&n; * We copy packed-refs and refs/ into a temporary file, then read the&n; * loose refs recursively (sorting whenever possible), and then inserting&n; * those packed refs that are not yet in the list (not validating, but&n; * assuming that the file is sorted).&n; *&n; * Appears refactoring this from refs.c is too cumbersome.&n; */
 DECL|function|str_cmp
@@ -5952,6 +5953,14 @@ r_return
 l_int|1
 suffix:semicolon
 )brace
+id|sigchain_push
+c_func
+(paren
+id|SIGPIPE
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
 id|strbuf_init
 c_func
 (paren
@@ -6054,10 +6063,18 @@ id|buf.buf
 comma
 id|buf.len
 )paren
-op_ne
-id|buf.len
+OL
+l_int|0
 )paren
 (brace
+multiline_comment|/* We do not mind if a hook does not read all refs. */
+r_if
+c_cond
+(paren
+id|errno
+op_ne
+id|EPIPE
+)paren
 id|ret
 op_assign
 l_int|1
@@ -6090,6 +6107,12 @@ id|ret
 id|ret
 op_assign
 id|x
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGPIPE
+)paren
 suffix:semicolon
 id|x
 op_assign

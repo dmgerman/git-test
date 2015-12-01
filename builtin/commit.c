@@ -26,6 +26,7 @@ macro_line|#include &quot;column.h&quot;
 macro_line|#include &quot;sequencer.h&quot;
 macro_line|#include &quot;notes-utils.h&quot;
 macro_line|#include &quot;mailmap.h&quot;
+macro_line|#include &quot;sigchain.h&quot;
 DECL|variable|builtin_commit_usage
 r_static
 r_const
@@ -8159,6 +8160,14 @@ id|newsha1
 )paren
 )paren
 suffix:semicolon
+id|sigchain_push
+c_func
+(paren
+id|SIGPIPE
+comma
+id|SIG_IGN
+)paren
+suffix:semicolon
 id|write_in_full
 c_func
 (paren
@@ -8173,6 +8182,12 @@ id|close
 c_func
 (paren
 id|proc.in
+)paren
+suffix:semicolon
+id|sigchain_pop
+c_func
+(paren
+id|SIGPIPE
 )paren
 suffix:semicolon
 r_return
