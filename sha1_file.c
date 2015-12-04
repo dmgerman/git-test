@@ -5541,10 +5541,8 @@ op_star
 id|report_garbage
 )paren
 (paren
-r_const
-r_char
-op_star
-id|desc
+r_int
+id|seen_bits
 comma
 r_const
 r_char
@@ -5574,49 +5572,19 @@ r_int
 id|last
 )paren
 (brace
-r_const
-r_char
-op_star
-id|msg
-suffix:semicolon
-r_switch
+r_if
 c_cond
 (paren
 id|seen_bits
+op_eq
+(paren
+id|PACKDIR_FILE_PACK
+op_or
+id|PACKDIR_FILE_IDX
 )paren
-(brace
-r_case
-l_int|0
-suffix:colon
-id|msg
-op_assign
-l_string|&quot;no corresponding .idx or .pack&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-l_int|1
-suffix:colon
-id|msg
-op_assign
-l_string|&quot;no corresponding .idx&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_case
-l_int|2
-suffix:colon
-id|msg
-op_assign
-l_string|&quot;no corresponding .pack&quot;
-suffix:semicolon
-r_break
-suffix:semicolon
-r_default
-suffix:colon
+)paren
 r_return
 suffix:semicolon
-)brace
 r_for
 c_loop
 (paren
@@ -5631,7 +5599,7 @@ op_increment
 id|report_garbage
 c_func
 (paren
-id|msg
+id|seen_bits
 comma
 id|list-&gt;items
 (braket
@@ -5785,7 +5753,7 @@ id|dot
 id|report_garbage
 c_func
 (paren
-l_string|&quot;garbage found&quot;
+id|PACKDIR_FILE_GARBAGE
 comma
 id|path
 )paren
@@ -6180,7 +6148,7 @@ r_else
 id|report_garbage
 c_func
 (paren
-l_string|&quot;garbage found&quot;
+id|PACKDIR_FILE_GARBAGE
 comma
 id|path.buf
 )paren

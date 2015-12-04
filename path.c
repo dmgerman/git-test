@@ -870,7 +870,7 @@ id|sb.buf
 id|report_garbage
 c_func
 (paren
-l_string|&quot;unused in linked checkout&quot;
+id|PACKDIR_FILE_GARBAGE
 comma
 id|sb.buf
 )paren
