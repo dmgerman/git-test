@@ -610,9 +610,6 @@ r_struct
 id|object
 op_star
 id|obj
-op_assign
-op_amp
-id|tree-&gt;object
 suffix:semicolon
 r_if
 c_cond
@@ -621,6 +618,11 @@ op_logical_neg
 id|tree
 )paren
 r_return
+suffix:semicolon
+id|obj
+op_assign
+op_amp
+id|tree-&gt;object
 suffix:semicolon
 r_if
 c_cond
