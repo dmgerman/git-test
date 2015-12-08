@@ -2642,7 +2642,7 @@ l_string|&quot;interpret-trailers&quot;
 comma
 id|cmd_interpret_trailers
 comma
-id|RUN_SETUP
+id|RUN_SETUP_GENTLY
 )brace
 comma
 (brace
