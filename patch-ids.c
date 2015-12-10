@@ -33,9 +33,9 @@ id|commit-&gt;parents
 id|diff_tree_sha1
 c_func
 (paren
-id|commit-&gt;parents-&gt;item-&gt;object.sha1
+id|commit-&gt;parents-&gt;item-&gt;object.oid.hash
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 l_string|&quot;&quot;
 comma
@@ -46,7 +46,7 @@ r_else
 id|diff_root_tree_sha1
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 l_string|&quot;&quot;
 comma

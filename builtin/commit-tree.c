@@ -40,12 +40,13 @@ op_star
 id|parents_p
 )paren
 (brace
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 op_assign
-id|parent-&gt;object.sha1
+op_amp
+id|parent-&gt;object.oid
 suffix:semicolon
 r_struct
 id|commit_list
@@ -80,10 +81,10 @@ c_func
 (paren
 l_string|&quot;duplicate parent %s ignored&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 )paren
 suffix:semicolon

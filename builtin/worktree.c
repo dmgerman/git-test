@@ -1629,10 +1629,11 @@ l_string|&quot;update-ref&quot;
 comma
 l_string|&quot;HEAD&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 comma
 l_int|NULL

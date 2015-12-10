@@ -1172,7 +1172,7 @@ op_assign
 id|parse_tree_indirect
 c_func
 (paren
-id|current_head-&gt;object.sha1
+id|current_head-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -9997,7 +9997,7 @@ comma
 id|current_head
 ques
 c_cond
-id|current_head-&gt;object.sha1
+id|current_head-&gt;object.oid.hash
 suffix:colon
 id|null_sha1
 comma
@@ -10167,7 +10167,7 @@ c_func
 (paren
 id|cfg
 comma
-id|current_head-&gt;object.sha1
+id|current_head-&gt;object.oid.hash
 comma
 id|sha1
 )paren
@@ -10184,7 +10184,7 @@ suffix:semicolon
 id|run_rewrite_hook
 c_func
 (paren
-id|current_head-&gt;object.sha1
+id|current_head-&gt;object.oid.hash
 comma
 id|sha1
 )paren

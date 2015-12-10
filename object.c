@@ -273,7 +273,7 @@ op_assign
 id|hash_obj
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 comma
 id|size
 )paren
@@ -381,7 +381,7 @@ c_func
 (paren
 id|sha1
 comma
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 )paren
 r_break
@@ -591,7 +591,7 @@ suffix:semicolon
 id|hashcpy
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 comma
 id|sha1
 )paren
@@ -710,10 +710,11 @@ c_func
 (paren
 l_string|&quot;object %s is a %s, not a %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 r_typename

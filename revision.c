@@ -412,10 +412,11 @@ id|out
 comma
 l_string|&quot;%s &quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -503,10 +504,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_sha1_file
+id|has_object_file
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 r_return
@@ -527,10 +529,11 @@ c_func
 (paren
 l_string|&quot;bad tree %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -733,10 +736,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_sha1_file
+id|has_object_file
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 id|commit-&gt;object.parsed
@@ -1338,7 +1342,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|tag-&gt;tagged-&gt;sha1
+id|tag-&gt;tagged-&gt;oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -1363,10 +1367,11 @@ c_func
 (paren
 l_string|&quot;bad object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;tagged-&gt;sha1
+op_amp
+id|tag-&gt;tagged-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -2051,9 +2056,9 @@ c_cond
 id|diff_tree_sha1
 c_func
 (paren
-id|t1-&gt;object.sha1
+id|t1-&gt;object.oid.hash
 comma
-id|t2-&gt;object.sha1
+id|t2-&gt;object.oid.hash
 comma
 l_string|&quot;&quot;
 comma
@@ -2126,7 +2131,7 @@ c_func
 (paren
 l_int|NULL
 comma
-id|t1-&gt;object.sha1
+id|t1-&gt;object.oid.hash
 comma
 l_string|&quot;&quot;
 comma
@@ -2505,10 +2510,11 @@ c_func
 (paren
 l_string|&quot;update_treesame %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2861,16 +2867,18 @@ c_func
 (paren
 l_string|&quot;cannot simplify commit %s (because of %s)&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|p-&gt;object.sha1
+op_amp
+id|p-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2969,16 +2977,18 @@ c_func
 (paren
 l_string|&quot;cannot simplify commit %s (invalid %s)&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|p-&gt;object.sha1
+op_amp
+id|p-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3020,10 +3030,11 @@ c_func
 (paren
 l_string|&quot;bad tree compare for commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -4772,10 +4783,11 @@ id|revs
 comma
 id|object
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|object-&gt;sha1
+op_amp
+id|object-&gt;oid
 )paren
 comma
 id|whence
@@ -5817,7 +5829,7 @@ op_star
 id|it
 )paren
 op_member_access_from_pointer
-id|tagged-&gt;sha1
+id|tagged-&gt;oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -6098,10 +6110,11 @@ id|revs
 comma
 id|object
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|object-&gt;sha1
+op_amp
+id|object-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -6799,7 +6812,7 @@ suffix:colon
 id|lookup_commit_reference
 c_func
 (paren
-id|a_obj-&gt;sha1
+id|a_obj-&gt;oid.hash
 )paren
 )paren
 suffix:semicolon
@@ -6821,7 +6834,7 @@ suffix:colon
 id|lookup_commit_reference
 c_func
 (paren
-id|b_obj-&gt;sha1
+id|b_obj-&gt;oid.hash
 )paren
 )paren
 suffix:semicolon
@@ -14777,7 +14790,7 @@ suffix:semicolon
 id|format_display_notes
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 op_amp
 id|buf
@@ -14911,7 +14924,7 @@ op_logical_and
 id|has_sha1_pack
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 )paren
 r_return
@@ -15432,12 +15445,14 @@ l_int|NULL
 op_logical_or
 multiline_comment|/* first commit */
 op_logical_neg
-id|hashcmp
+id|oidcmp
 c_func
 (paren
-id|p-&gt;item-&gt;object.sha1
+op_amp
+id|p-&gt;item-&gt;object.oid
 comma
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 r_break
@@ -15604,10 +15619,11 @@ c_func
 (paren
 l_string|&quot;Failed to traverse parents of commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -15638,10 +15654,11 @@ c_func
 (paren
 l_string|&quot;Failed to simplify parents of commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

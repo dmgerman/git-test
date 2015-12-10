@@ -853,12 +853,14 @@ id|a-&gt;distance
 suffix:semicolon
 multiline_comment|/* desc sort */
 r_return
-id|hashcmp
+id|oidcmp
 c_func
 (paren
-id|a-&gt;commit-&gt;object.sha1
+op_amp
+id|a-&gt;commit-&gt;object.oid
 comma
-id|b-&gt;commit-&gt;object.sha1
+op_amp
+id|b-&gt;commit-&gt;object.oid
 )paren
 suffix:semicolon
 )brace
@@ -2261,7 +2263,7 @@ c_func
 op_amp
 id|skipped_revs
 comma
-id|list-&gt;item-&gt;object.sha1
+id|list-&gt;item-&gt;object.oid.hash
 )paren
 )paren
 (brace
@@ -2589,12 +2591,13 @@ id|index
 r_if
 c_cond
 (paren
-id|hashcmp
+id|oidcmp
 c_func
 (paren
-id|cur-&gt;item-&gt;object.sha1
+op_amp
+id|cur-&gt;item-&gt;object.oid
 comma
-id|current_bad_oid-&gt;hash
+id|current_bad_oid
 )paren
 )paren
 r_return
@@ -3677,7 +3680,7 @@ r_char
 op_star
 id|mb
 op_assign
-id|result-&gt;item-&gt;object.sha1
+id|result-&gt;item-&gt;object.oid.hash
 suffix:semicolon
 r_if
 c_cond
@@ -4440,7 +4443,7 @@ suffix:semicolon
 )brace
 id|bisect_rev
 op_assign
-id|revs.commits-&gt;item-&gt;object.sha1
+id|revs.commits-&gt;item-&gt;object.oid.hash
 suffix:semicolon
 r_if
 c_cond

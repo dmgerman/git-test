@@ -621,7 +621,7 @@ comma
 id|find_object_pos
 c_func
 (paren
-id|object-&gt;sha1
+id|object-&gt;oid.hash
 )paren
 )paren
 suffix:semicolon
@@ -686,7 +686,7 @@ op_assign
 id|find_object_pos
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -710,7 +710,7 @@ c_func
 (paren
 id|writer.bitmaps
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -1313,7 +1313,7 @@ c_func
 (paren
 id|writer.bitmaps
 comma
-id|object-&gt;sha1
+id|object-&gt;oid.hash
 comma
 op_amp
 id|hash_ret
@@ -1331,10 +1331,11 @@ c_func
 (paren
 l_string|&quot;Duplicate entry when writing index: %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|object-&gt;sha1
+op_amp
+id|object-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -1831,7 +1832,7 @@ op_assign
 id|find_reused_bitmap
 c_func
 (paren
-id|chosen-&gt;object.sha1
+id|chosen-&gt;object.oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -1878,7 +1879,7 @@ op_assign
 id|find_reused_bitmap
 c_func
 (paren
-id|cm-&gt;object.sha1
+id|cm-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -2111,7 +2112,7 @@ op_assign
 id|sha1_pos
 c_func
 (paren
-id|stored-&gt;commit-&gt;object.sha1
+id|stored-&gt;commit-&gt;object.oid.hash
 comma
 id|index
 comma

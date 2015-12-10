@@ -69,7 +69,7 @@ op_star
 id|o
 )paren
 op_member_access_from_pointer
-id|tagged-&gt;sha1
+id|tagged-&gt;oid.hash
 )paren
 suffix:semicolon
 r_else
@@ -143,7 +143,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -783,7 +783,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|item-&gt;object.sha1
+id|item-&gt;object.oid.hash
 comma
 op_amp
 id|type
@@ -804,10 +804,11 @@ c_func
 (paren
 l_string|&quot;Could not read %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -831,10 +832,11 @@ c_func
 (paren
 l_string|&quot;Object %s not a tag&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

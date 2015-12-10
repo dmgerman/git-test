@@ -1437,7 +1437,7 @@ c_func
 (paren
 id|args
 comma
-id|args-&gt;tree-&gt;object.sha1
+id|args-&gt;tree-&gt;object.oid.hash
 comma
 id|args-&gt;base
 comma
@@ -2146,7 +2146,7 @@ id|commit
 (brace
 id|commit_sha1
 op_assign
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 suffix:semicolon
 id|archive_time
 op_assign
@@ -2211,7 +2211,7 @@ op_assign
 id|get_tree_entry
 c_func
 (paren
-id|tree-&gt;object.sha1
+id|tree-&gt;object.oid.hash
 comma
 id|prefix
 comma

@@ -183,7 +183,7 @@ c_func
 (paren
 id|sha1
 comma
-id|c-&gt;object.sha1
+id|c-&gt;object.oid.hash
 )paren
 )paren
 (brace
@@ -1446,7 +1446,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 op_amp
 id|type
@@ -1466,10 +1466,11 @@ c_func
 (paren
 l_string|&quot;cannot read commit object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1485,10 +1486,11 @@ c_func
 (paren
 l_string|&quot;expected commit for %s, got %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 comma
 r_typename
@@ -1811,10 +1813,11 @@ c_func
 (paren
 l_string|&quot;bogus commit object %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1839,10 +1842,11 @@ c_func
 (paren
 l_string|&quot;bad tree pointer in commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -1871,7 +1875,7 @@ op_assign
 id|lookup_commit_graft
 c_func
 (paren
-id|item-&gt;object.sha1
+id|item-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_while
@@ -1934,10 +1938,11 @@ c_func
 (paren
 l_string|&quot;bad parents in commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2120,7 +2125,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|item-&gt;object.sha1
+id|item-&gt;object.oid.hash
 comma
 op_amp
 id|type
@@ -2146,10 +2151,11 @@ c_func
 (paren
 l_string|&quot;Could not read %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2173,10 +2179,11 @@ c_func
 (paren
 l_string|&quot;Object %s not a commit&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2254,10 +2261,11 @@ comma
 id|item
 ques
 c_cond
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|item-&gt;object.sha1
+op_amp
+id|item-&gt;object.oid
 )paren
 suffix:colon
 l_string|&quot;(null)&quot;
@@ -3084,7 +3092,7 @@ op_assign
 id|lookup_commit_reference_gently
 c_func
 (paren
-id|object-&gt;sha1
+id|object-&gt;oid.hash
 comma
 l_int|1
 )paren
@@ -6521,7 +6529,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|desc-&gt;obj-&gt;sha1
+id|desc-&gt;obj-&gt;oid.hash
 comma
 op_amp
 id|type
@@ -8166,10 +8174,11 @@ id|buffer
 comma
 l_string|&quot;parent %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|parent-&gt;object.sha1
+op_amp
+id|parent-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -8561,10 +8570,11 @@ c_func
 (paren
 id|format
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|list-&gt;item-&gt;object.sha1
+op_amp
+id|list-&gt;item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

@@ -7495,7 +7495,7 @@ c_func
 (paren
 id|cb.nsha1
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 )paren
 )paren

@@ -1184,7 +1184,7 @@ c_func
 (paren
 id|options-&gt;skiplist
 comma
-id|object-&gt;sha1
+id|object-&gt;oid.hash
 )paren
 op_ge
 l_int|0
@@ -1444,10 +1444,11 @@ c_func
 (paren
 l_string|&quot;in tree %s: entry %s has bad mode %.6o&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tree-&gt;object.sha1
+op_amp
+id|tree-&gt;object.oid
 )paren
 comma
 id|entry.path
@@ -1774,10 +1775,11 @@ c_func
 (paren
 l_string|&quot;Unknown object type for %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -3253,7 +3255,7 @@ op_assign
 id|lookup_commit_graft
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 id|parent_count
@@ -3688,7 +3690,7 @@ op_assign
 id|read_sha1_file
 c_func
 (paren
-id|tag-&gt;object.sha1
+id|tag-&gt;object.oid.hash
 comma
 op_amp
 id|type
@@ -4437,10 +4439,11 @@ c_func
 (paren
 l_string|&quot;object %s: %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 id|message
@@ -4455,10 +4458,11 @@ c_func
 (paren
 l_string|&quot;object %s: %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 comma
 id|message

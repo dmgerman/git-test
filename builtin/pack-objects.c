@@ -10535,7 +10535,7 @@ id|data
 id|add_object_entry
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 id|OBJ_COMMIT
 comma
@@ -10608,7 +10608,7 @@ suffix:semicolon
 id|add_object_entry
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 comma
 id|obj-&gt;type
 comma
@@ -10648,7 +10648,7 @@ id|commit
 id|add_preferred_base
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -10720,7 +10720,7 @@ op_assign
 id|find_pack_entry_one
 c_func
 (paren
-id|object-&gt;sha1
+id|object-&gt;oid.hash
 comma
 id|p
 )paren
@@ -10803,12 +10803,14 @@ l_int|1
 suffix:semicolon
 r_else
 r_return
-id|hashcmp
+id|oidcmp
 c_func
 (paren
-id|a-&gt;object-&gt;sha1
+op_amp
+id|a-&gt;object-&gt;oid
 comma
-id|b-&gt;object-&gt;sha1
+op_amp
+id|b-&gt;object-&gt;oid
 )paren
 suffix:semicolon
 )brace
@@ -11026,7 +11028,7 @@ suffix:semicolon
 id|add_object_entry
 c_func
 (paren
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 comma
 id|o-&gt;type
 comma
@@ -11486,7 +11488,7 @@ c_func
 op_amp
 id|recent_objects
 comma
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -11512,7 +11514,7 @@ c_func
 op_amp
 id|recent_objects
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 )brace

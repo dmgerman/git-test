@@ -690,7 +690,7 @@ suffix:semicolon
 )brace
 )brace
 r_return
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 suffix:semicolon
 )brace
 DECL|enum|ack_type
@@ -1044,7 +1044,7 @@ c_func
 (paren
 l_int|NULL
 comma
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -1245,7 +1245,7 @@ r_char
 op_star
 id|remote
 op_assign
-id|refs-&gt;old_sha1
+id|refs-&gt;old_oid.hash
 suffix:semicolon
 r_const
 r_char
@@ -2426,7 +2426,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|t-&gt;tagged-&gt;sha1
+id|t-&gt;tagged-&gt;oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -2553,10 +2553,11 @@ id|stderr
 comma
 l_string|&quot;Marking %s as complete&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|complete-&gt;item-&gt;object.sha1
+op_amp
+id|complete-&gt;item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2870,7 +2871,7 @@ c_func
 (paren
 id|sha1
 comma
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 )paren
 r_continue
@@ -2926,7 +2927,7 @@ id|unused
 id|mark_complete
 c_func
 (paren
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -2999,10 +3000,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_sha1_file
+id|has_object_file
 c_func
 (paren
-id|ref-&gt;old_sha1
+op_amp
+id|ref-&gt;old_oid
 )paren
 )paren
 r_continue
@@ -3012,7 +3014,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -3131,7 +3133,7 @@ c_func
 id|lookup_object
 c_func
 (paren
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 comma
 l_int|NULL
@@ -3238,7 +3240,7 @@ r_char
 op_star
 id|remote
 op_assign
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 suffix:semicolon
 r_struct
 id|object
@@ -5075,7 +5077,7 @@ id|sought
 id|i
 )braket
 op_member_access_from_pointer
-id|old_sha1
+id|old_oid.hash
 )paren
 suffix:semicolon
 id|si-&gt;ref

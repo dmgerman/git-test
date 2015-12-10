@@ -4125,7 +4125,7 @@ c_func
 (paren
 id|parent_sha1
 comma
-id|partial-&gt;parents-&gt;item-&gt;object.sha1
+id|partial-&gt;parents-&gt;item-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_else

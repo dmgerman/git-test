@@ -6240,12 +6240,13 @@ l_int|40
 )paren
 id|ret
 op_assign
-id|get_sha1_hex
+id|get_oid_hex
 c_func
 (paren
 id|buffer.buf
 comma
-id|ref-&gt;old_sha1
+op_amp
+id|ref-&gt;old_oid
 )paren
 suffix:semicolon
 r_else

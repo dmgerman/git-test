@@ -2373,10 +2373,11 @@ id|buf
 comma
 l_string|&quot;%s&bslash;t%s^{}&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|o-&gt;sha1
+op_amp
+id|o-&gt;oid
 )paren
 comma
 id|name_nons

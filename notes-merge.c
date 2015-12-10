@@ -3235,11 +3235,11 @@ id|bases-&gt;next
 (brace
 id|base_sha1
 op_assign
-id|bases-&gt;item-&gt;object.sha1
+id|bases-&gt;item-&gt;object.oid.hash
 suffix:semicolon
 id|base_tree_sha1
 op_assign
-id|bases-&gt;item-&gt;tree-&gt;object.sha1
+id|bases-&gt;item-&gt;tree-&gt;object.oid.hash
 suffix:semicolon
 r_if
 c_cond
@@ -3266,11 +3266,11 @@ r_else
 multiline_comment|/* TODO: How to handle multiple merge-bases? */
 id|base_sha1
 op_assign
-id|bases-&gt;item-&gt;object.sha1
+id|bases-&gt;item-&gt;object.oid.hash
 suffix:semicolon
 id|base_tree_sha1
 op_assign
-id|bases-&gt;item-&gt;tree-&gt;object.sha1
+id|bases-&gt;item-&gt;tree-&gt;object.oid.hash
 suffix:semicolon
 r_if
 c_cond
@@ -3306,16 +3306,18 @@ c_func
 l_string|&quot;Merging remote commit %.7s into local commit %.7s with &quot;
 l_string|&quot;merge-base %.7s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|remote-&gt;object.sha1
+op_amp
+id|remote-&gt;object.oid
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|local-&gt;object.sha1
+op_amp
+id|local-&gt;object.oid
 )paren
 comma
 id|sha1_to_hex
@@ -3332,7 +3334,7 @@ op_logical_neg
 id|hashcmp
 c_func
 (paren
-id|remote-&gt;object.sha1
+id|remote-&gt;object.oid.hash
 comma
 id|base_sha1
 )paren
@@ -3357,7 +3359,7 @@ c_func
 (paren
 id|result_sha1
 comma
-id|local-&gt;object.sha1
+id|local-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_goto
@@ -3371,7 +3373,7 @@ op_logical_neg
 id|hashcmp
 c_func
 (paren
-id|local-&gt;object.sha1
+id|local-&gt;object.oid.hash
 comma
 id|base_sha1
 )paren
@@ -3396,7 +3398,7 @@ c_func
 (paren
 id|result_sha1
 comma
-id|remote-&gt;object.sha1
+id|remote-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_goto
@@ -3412,9 +3414,9 @@ id|o
 comma
 id|base_tree_sha1
 comma
-id|local-&gt;tree-&gt;object.sha1
+id|local-&gt;tree-&gt;object.oid.hash
 comma
-id|remote-&gt;tree-&gt;object.sha1
+id|remote-&gt;tree-&gt;object.oid.hash
 comma
 id|local_tree
 )paren

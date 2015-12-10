@@ -1261,7 +1261,7 @@ c_func
 (paren
 id|REVERSED
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 l_int|NULL
 )paren
@@ -1448,7 +1448,7 @@ id|NORMAL
 suffix:colon
 id|REVERSED
 comma
-id|parents-&gt;item-&gt;object.sha1
+id|parents-&gt;item-&gt;object.oid.hash
 comma
 id|arg
 )paren

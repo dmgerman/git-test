@@ -1770,7 +1770,7 @@ c_func
 (paren
 id|name
 comma
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 comma
 id|v
 )paren
@@ -1939,10 +1939,11 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|tag-&gt;tagged-&gt;sha1
+op_amp
+id|tag-&gt;tagged-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -2070,10 +2071,11 @@ op_assign
 id|xstrdup
 c_func
 (paren
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;tree-&gt;object.sha1
+op_amp
+id|commit-&gt;tree-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2179,10 +2181,11 @@ c_func
 op_amp
 id|s
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|parent-&gt;object.sha1
+op_amp
+id|parent-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -5628,7 +5631,7 @@ op_star
 id|obj
 )paren
 op_member_access_from_pointer
-id|tagged-&gt;sha1
+id|tagged-&gt;oid.hash
 suffix:semicolon
 multiline_comment|/*&n;&t; * NEEDSWORK: This derefs tag only once, which&n;&t; * is good to deal with chains of trust, but&n;&t; * is not consistent with what deref_tag() does&n;&t; * which peels the onion to the core.&n;&t; */
 id|buf
@@ -5854,12 +5857,14 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|hashcmp
+id|oidcmp
 c_func
 (paren
-id|want-&gt;item-&gt;object.sha1
+op_amp
+id|want-&gt;item-&gt;object.oid
 comma
-id|c-&gt;object.sha1
+op_amp
+id|c-&gt;object.oid
 )paren
 )paren
 r_return
@@ -6601,7 +6606,7 @@ op_star
 id|obj
 )paren
 op_member_access_from_pointer
-id|tagged-&gt;sha1
+id|tagged-&gt;oid.hash
 suffix:semicolon
 r_if
 c_cond

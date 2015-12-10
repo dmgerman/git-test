@@ -2245,7 +2245,7 @@ c_func
 (paren
 id|revs
 comma
-id|ent-&gt;item-&gt;sha1
+id|ent-&gt;item-&gt;oid.hash
 comma
 id|ent-&gt;name
 comma

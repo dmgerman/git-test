@@ -3138,7 +3138,7 @@ id|t
 comma
 id|r-&gt;peer_ref-&gt;name
 comma
-id|r-&gt;old_sha1
+id|r-&gt;old_oid.hash
 comma
 l_int|0
 comma
@@ -3260,10 +3260,11 @@ r_if
 c_cond
 (paren
 op_logical_neg
-id|has_sha1_file
+id|has_object_file
 c_func
 (paren
-id|ref-&gt;old_sha1
+op_amp
+id|ref-&gt;old_oid
 )paren
 )paren
 r_continue
@@ -3275,7 +3276,7 @@ id|msg
 comma
 id|ref-&gt;name
 comma
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 comma
 l_int|NULL
 comma
@@ -3348,7 +3349,7 @@ c_func
 (paren
 id|sha1
 comma
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 suffix:semicolon
 op_star
@@ -3620,7 +3621,7 @@ id|msg
 comma
 l_string|&quot;HEAD&quot;
 comma
-id|our-&gt;old_sha1
+id|our-&gt;old_oid.hash
 comma
 l_int|NULL
 comma
@@ -3658,7 +3659,7 @@ op_assign
 id|lookup_commit_reference
 c_func
 (paren
-id|our-&gt;old_sha1
+id|our-&gt;old_oid.hash
 )paren
 suffix:semicolon
 multiline_comment|/* --branch specifies a non-branch (i.e. tags), detach HEAD */
@@ -3669,7 +3670,7 @@ id|msg
 comma
 l_string|&quot;HEAD&quot;
 comma
-id|c-&gt;object.sha1
+id|c-&gt;object.oid.hash
 comma
 l_int|NULL
 comma
@@ -3694,7 +3695,7 @@ id|msg
 comma
 l_string|&quot;HEAD&quot;
 comma
-id|remote-&gt;old_sha1
+id|remote-&gt;old_oid.hash
 comma
 l_int|NULL
 comma
@@ -5646,10 +5647,11 @@ id|ref-&gt;next
 r_if
 c_cond
 (paren
-id|is_null_sha1
+id|is_null_oid
 c_func
 (paren
-id|ref-&gt;old_sha1
+op_amp
+id|ref-&gt;old_oid
 )paren
 )paren
 (brace

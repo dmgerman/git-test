@@ -2618,7 +2618,7 @@ c_cond
 id|get_tree_entry
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 id|spec-&gt;path
 comma
@@ -4384,11 +4384,11 @@ c_func
 id|parent
 ques
 c_cond
-id|parent-&gt;tree-&gt;object.sha1
+id|parent-&gt;tree-&gt;object.oid.hash
 suffix:colon
 l_int|NULL
 comma
-id|commit-&gt;tree-&gt;object.sha1
+id|commit-&gt;tree-&gt;object.oid.hash
 comma
 l_string|&quot;&quot;
 comma

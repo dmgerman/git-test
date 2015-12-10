@@ -636,7 +636,7 @@ id|obj-&gt;parsed
 id|parse_object
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 suffix:semicolon
 id|add_name_decoration
@@ -805,7 +805,7 @@ comma
 id|find_unique_abbrev
 c_func
 (paren
-id|parent-&gt;object.sha1
+id|parent-&gt;object.oid.hash
 comma
 id|abbrev
 )paren
@@ -867,7 +867,7 @@ comma
 id|find_unique_abbrev
 c_func
 (paren
-id|p-&gt;item-&gt;object.sha1
+id|p-&gt;item-&gt;object.oid.hash
 comma
 id|abbrev
 )paren
@@ -1716,10 +1716,11 @@ r_char
 op_star
 id|name
 op_assign
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 suffix:semicolon
 op_star
@@ -2411,7 +2412,7 @@ op_logical_neg
 id|hashcmp
 c_func
 (paren
-id|parent-&gt;item-&gt;object.sha1
+id|parent-&gt;item-&gt;object.oid.hash
 comma
 id|sha1
 )paren
@@ -2584,12 +2585,14 @@ id|commit
 )paren
 op_logical_and
 op_logical_neg
-id|hashcmp
+id|oidcmp
 c_func
 (paren
-id|tag-&gt;tagged-&gt;sha1
+op_amp
+id|tag-&gt;tagged-&gt;oid
 comma
-id|commit-&gt;parents-&gt;next-&gt;item-&gt;object.sha1
+op_amp
+id|commit-&gt;parents-&gt;next-&gt;item-&gt;object.oid
 )paren
 )paren
 id|strbuf_addf
@@ -2613,7 +2616,7 @@ op_assign
 id|which_parent
 c_func
 (paren
-id|tag-&gt;tagged-&gt;sha1
+id|tag-&gt;tagged-&gt;oid.hash
 comma
 id|commit
 )paren
@@ -2631,7 +2634,7 @@ l_string|&quot;tag %s names a non-parent %s&bslash;n&quot;
 comma
 id|tag-&gt;tag
 comma
-id|tag-&gt;tagged-&gt;sha1
+id|tag-&gt;tagged-&gt;oid.hash
 )paren
 suffix:semicolon
 r_else
@@ -2869,7 +2872,7 @@ c_func
 id|find_unique_abbrev
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 id|abbrev_commit
 )paren
@@ -3079,7 +3082,7 @@ c_func
 id|find_unique_abbrev
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 id|abbrev_commit
 )paren
@@ -3128,7 +3131,7 @@ comma
 id|find_unique_abbrev
 c_func
 (paren
-id|parent-&gt;object.sha1
+id|parent-&gt;object.oid.hash
 comma
 id|abbrev_commit
 )paren
@@ -3283,7 +3286,7 @@ suffix:semicolon
 id|format_display_notes
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 op_amp
 id|notebuf
@@ -3849,11 +3852,10 @@ id|commit_list
 op_star
 id|parents
 suffix:semicolon
-r_int
-r_const
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 suffix:semicolon
 r_if
 c_cond
@@ -3880,9 +3882,10 @@ c_func
 id|commit
 )paren
 suffix:semicolon
-id|sha1
+id|oid
 op_assign
-id|commit-&gt;tree-&gt;object.sha1
+op_amp
+id|commit-&gt;tree-&gt;object.oid
 suffix:semicolon
 multiline_comment|/* Root commit? */
 id|parents
@@ -3911,7 +3914,7 @@ id|opt-&gt;show_root_diff
 id|diff_root_tree_sha1
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 l_string|&quot;&quot;
 comma
@@ -3980,9 +3983,9 @@ suffix:semicolon
 id|diff_tree_sha1
 c_func
 (paren
-id|parents-&gt;item-&gt;tree-&gt;object.sha1
+id|parents-&gt;item-&gt;tree-&gt;object.oid.hash
 comma
-id|sha1
+id|oid-&gt;hash
 comma
 l_string|&quot;&quot;
 comma
@@ -4034,9 +4037,9 @@ suffix:semicolon
 id|diff_tree_sha1
 c_func
 (paren
-id|parent-&gt;tree-&gt;object.sha1
+id|parent-&gt;tree-&gt;object.oid.hash
 comma
-id|sha1
+id|oid-&gt;hash
 comma
 l_string|&quot;&quot;
 comma

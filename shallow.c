@@ -540,7 +540,7 @@ op_assign
 id|lookup_commit_graft
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 )paren
 op_ne
@@ -851,10 +851,11 @@ c_func
 (paren
 l_string|&quot;Removing %s from .git/shallow&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|c-&gt;object.sha1
+op_amp
+id|c-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2256,10 +2257,11 @@ c_func
 (paren
 l_string|&quot;unable to parse commit %s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|c-&gt;object.sha1
+op_amp
+id|c-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

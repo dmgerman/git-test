@@ -1249,7 +1249,7 @@ comma
 id|find_unique_abbrev
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 id|DEFAULT_ABBREV
 )paren
@@ -2450,10 +2450,11 @@ id|all_revs
 id|puts
 c_func
 (paren
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -2544,10 +2545,11 @@ id|flag
 id|puts
 c_func
 (paren
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -4510,7 +4512,7 @@ id|rev
 id|i
 )braket
 op_member_access_from_pointer
-id|object.sha1
+id|object.oid.hash
 )paren
 suffix:semicolon
 r_if

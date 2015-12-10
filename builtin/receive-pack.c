@@ -1300,7 +1300,7 @@ c_func
 (paren
 id|sa
 comma
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 suffix:semicolon
 )brace

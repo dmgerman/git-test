@@ -913,7 +913,7 @@ id|sha1
 id|swap
 )braket
 op_assign
-id|ent0-&gt;item-&gt;sha1
+id|ent0-&gt;item-&gt;oid.hash
 suffix:semicolon
 id|sha1
 (braket
@@ -921,7 +921,7 @@ l_int|1
 id|swap
 )braket
 op_assign
-id|ent1-&gt;item-&gt;sha1
+id|ent1-&gt;item-&gt;oid.hash
 suffix:semicolon
 id|diff_tree_sha1
 c_func
@@ -1043,7 +1043,7 @@ id|ent
 id|i
 )braket
 dot
-id|item-&gt;sha1
+id|item-&gt;oid.hash
 )paren
 suffix:semicolon
 id|diff_tree_combined
@@ -1054,7 +1054,7 @@ id|ent
 l_int|0
 )braket
 dot
-id|item-&gt;sha1
+id|item-&gt;oid.hash
 comma
 op_amp
 id|parents
@@ -1964,7 +1964,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 suffix:semicolon
 id|obj
@@ -2080,7 +2080,7 @@ id|blobs
 dot
 id|sha1
 comma
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 suffix:semicolon
 id|blob

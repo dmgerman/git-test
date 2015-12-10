@@ -246,7 +246,7 @@ r_return
 id|read_sha1_file
 c_func
 (paren
-id|entry-&gt;blob-&gt;object.sha1
+id|entry-&gt;blob-&gt;object.oid.hash
 comma
 op_amp
 id|type
@@ -366,7 +366,7 @@ r_return
 id|read_sha1_file
 c_func
 (paren
-id|entry-&gt;blob-&gt;object.sha1
+id|entry-&gt;blob-&gt;object.oid.hash
 comma
 op_amp
 id|type
@@ -660,10 +660,11 @@ id|entry-&gt;stage
 comma
 id|entry-&gt;mode
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|entry-&gt;blob-&gt;object.sha1
+op_amp
+id|entry-&gt;blob-&gt;object.oid
 )paren
 comma
 id|entry-&gt;path

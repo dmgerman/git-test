@@ -3186,7 +3186,7 @@ c_func
 (paren
 id|result
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_return
@@ -3216,7 +3216,7 @@ c_func
 (paren
 id|result
 comma
-id|p-&gt;item-&gt;object.sha1
+id|p-&gt;item-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_return
@@ -3341,7 +3341,7 @@ c_func
 (paren
 id|result
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 r_return
@@ -3409,7 +3409,7 @@ op_logical_neg
 id|parse_object
 c_func
 (paren
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 )paren
 )paren
 )paren
@@ -3843,7 +3843,7 @@ op_logical_neg
 id|parse_object
 c_func
 (paren
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 )paren
 )paren
 )paren
@@ -3855,7 +3855,7 @@ c_func
 (paren
 id|sha1
 comma
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 )paren
 suffix:semicolon
 r_return
@@ -3891,7 +3891,7 @@ c_func
 (paren
 id|sha1
 comma
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -4650,7 +4650,7 @@ op_logical_neg
 id|parse_object
 c_func
 (paren
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 )paren
 r_continue
@@ -4716,7 +4716,7 @@ c_func
 (paren
 id|sha1
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 id|found
@@ -5368,7 +5368,7 @@ c_func
 (paren
 id|sha1
 comma
-id|mbs-&gt;item-&gt;object.sha1
+id|mbs-&gt;item-&gt;object.oid.hash
 )paren
 suffix:semicolon
 )brace

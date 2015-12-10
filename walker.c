@@ -82,10 +82,11 @@ id|obj-&gt;type
 suffix:colon
 l_string|&quot;object&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -375,7 +376,7 @@ c_func
 (paren
 id|current_commit_sha1
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 )paren
 suffix:semicolon
 id|walker_say
@@ -385,10 +386,11 @@ id|walker
 comma
 l_string|&quot;walk %s&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -662,10 +664,11 @@ r_typename
 id|obj-&gt;type
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 suffix:semicolon
@@ -704,10 +707,11 @@ suffix:semicolon
 r_if
 c_cond
 (paren
-id|has_sha1_file
+id|has_object_file
 c_func
 (paren
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 )paren
 )paren
 (brace
@@ -736,7 +740,7 @@ c_func
 (paren
 id|walker
 comma
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -839,7 +843,7 @@ c_func
 (paren
 id|walker
 comma
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 )paren
 (brace
@@ -863,7 +867,7 @@ id|obj-&gt;type
 id|parse_object
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 suffix:semicolon
 r_if
@@ -965,7 +969,7 @@ c_func
 (paren
 id|sha1
 comma
-id|ref-&gt;old_sha1
+id|ref-&gt;old_oid.hash
 )paren
 suffix:semicolon
 id|free

@@ -24,7 +24,7 @@ r_return
 id|sha1hash
 c_func
 (paren
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 )paren
 op_mod
 id|n

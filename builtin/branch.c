@@ -1784,7 +1784,7 @@ comma
 id|find_unique_abbrev
 c_func
 (paren
-id|item-&gt;commit-&gt;object.sha1
+id|item-&gt;commit-&gt;object.oid.hash
 comma
 id|filter-&gt;abbrev
 )paren

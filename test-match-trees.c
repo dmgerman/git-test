@@ -142,9 +142,9 @@ suffix:semicolon
 id|shift_tree
 c_func
 (paren
-id|one-&gt;object.sha1
+id|one-&gt;object.oid.hash
 comma
-id|two-&gt;object.sha1
+id|two-&gt;object.oid.hash
 comma
 id|shifted
 comma

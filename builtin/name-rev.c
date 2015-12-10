@@ -800,7 +800,7 @@ op_assign
 id|parse_object
 c_func
 (paren
-id|t-&gt;tagged-&gt;sha1
+id|t-&gt;tagged-&gt;oid.hash
 )paren
 suffix:semicolon
 id|deref
@@ -959,7 +959,7 @@ op_assign
 id|sha1_pos
 c_func
 (paren
-id|o-&gt;sha1
+id|o-&gt;oid.hash
 comma
 id|tip_table.table
 comma
@@ -1156,12 +1156,13 @@ op_star
 id|name
 suffix:semicolon
 r_const
-r_int
-r_char
+r_struct
+id|object_id
 op_star
-id|sha1
+id|oid
 op_assign
-id|obj-&gt;sha1
+op_amp
+id|obj-&gt;oid
 suffix:semicolon
 r_if
 c_cond
@@ -1179,10 +1180,10 @@ ques
 c_cond
 id|caller_name
 suffix:colon
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 )paren
 suffix:semicolon
@@ -1233,7 +1234,7 @@ comma
 id|find_unique_abbrev
 c_func
 (paren
-id|sha1
+id|oid-&gt;hash
 comma
 id|DEFAULT_ABBREV
 )paren
@@ -1245,10 +1246,10 @@ c_func
 (paren
 l_string|&quot;cannot describe &squot;%s&squot;&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|sha1
+id|oid
 )paren
 )paren
 suffix:semicolon

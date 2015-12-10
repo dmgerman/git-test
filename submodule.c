@@ -1256,10 +1256,11 @@ comma
 op_amp
 id|list-&gt;item-&gt;object
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|list-&gt;item-&gt;object.sha1
+op_amp
+id|list-&gt;item-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3270,9 +3271,9 @@ suffix:semicolon
 id|diff_tree_sha1
 c_func
 (paren
-id|parent-&gt;item-&gt;object.sha1
+id|parent-&gt;item-&gt;object.oid.hash
 comma
-id|commit-&gt;object.sha1
+id|commit-&gt;object.oid.hash
 comma
 l_string|&quot;&quot;
 comma
@@ -4664,10 +4665,11 @@ id|merged_revision
 comma
 l_string|&quot;^%s&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|a-&gt;object.sha1
+op_amp
+id|a-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -5325,15 +5327,16 @@ l_string|&quot;by using:&bslash;n&bslash;n&quot;
 l_string|&quot;  git update-index --cacheinfo 160000 %s &bslash;&quot;%s&bslash;&quot;&bslash;n&bslash;n&quot;
 l_string|&quot;which will accept this suggestion.&bslash;n&quot;
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
+op_amp
 id|merges.objects
 (braket
 l_int|0
 )braket
 dot
-id|item-&gt;sha1
+id|item-&gt;oid
 )paren
 comma
 id|path

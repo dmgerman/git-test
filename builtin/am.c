@@ -6652,10 +6652,11 @@ c_func
 l_string|&quot;unable to parse commit %s&quot;
 )paren
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon

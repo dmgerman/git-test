@@ -2213,10 +2213,11 @@ c_func
 op_amp
 id|subjects
 comma
-id|sha1_to_hex
+id|oid_to_hex
 c_func
 (paren
-id|commit-&gt;object.sha1
+op_amp
+id|commit-&gt;object.oid
 )paren
 )paren
 suffix:semicolon
@@ -3371,9 +3372,9 @@ c_func
 (paren
 id|result
 comma
-id|obj-&gt;sha1
+id|obj-&gt;oid.hash
 comma
-id|parent-&gt;object.sha1
+id|parent-&gt;object.oid.hash
 )paren
 suffix:semicolon
 )brace
@@ -3453,7 +3454,7 @@ id|i
 dot
 id|commit
 comma
-id|cmit-&gt;object.sha1
+id|cmit-&gt;object.oid.hash
 )paren
 )paren
 id|result-&gt;item
