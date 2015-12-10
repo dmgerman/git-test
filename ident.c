@@ -24,6 +24,11 @@ id|git_default_date
 op_assign
 id|STRBUF_INIT
 suffix:semicolon
+DECL|variable|default_email_is_bogus
+r_static
+r_int
+id|default_email_is_bogus
+suffix:semicolon
 DECL|macro|IDENT_NAME_GIVEN
 mdefine_line|#define IDENT_NAME_GIVEN 01
 DECL|macro|IDENT_MAIL_GIVEN
@@ -363,6 +368,10 @@ r_struct
 id|strbuf
 op_star
 id|out
+comma
+r_int
+op_star
+id|is_bogus
 )paren
 (brace
 r_char
@@ -410,6 +419,11 @@ id|out
 comma
 l_string|&quot;(none)&quot;
 )paren
+suffix:semicolon
+op_star
+id|is_bogus
+op_assign
+l_int|1
 suffix:semicolon
 r_return
 suffix:semicolon
@@ -464,6 +478,7 @@ id|he-&gt;h_name
 )paren
 suffix:semicolon
 r_else
+(brace
 id|strbuf_addf
 c_func
 (paren
@@ -474,6 +489,12 @@ comma
 id|buf
 )paren
 suffix:semicolon
+op_star
+id|is_bogus
+op_assign
+l_int|1
+suffix:semicolon
+)brace
 )brace
 DECL|function|copy_email
 r_static
@@ -491,6 +512,10 @@ r_struct
 id|strbuf
 op_star
 id|email
+comma
+r_int
+op_star
+id|is_bogus
 )paren
 (brace
 multiline_comment|/*&n;&t; * Make up a fake email address&n;&t; * (name + &squot;@&squot; + hostname [+ &squot;.&squot; + domainname])&n;&t; */
@@ -527,6 +552,8 @@ id|add_domainname
 c_func
 (paren
 id|email
+comma
+id|is_bogus
 )paren
 suffix:semicolon
 )brace
@@ -639,6 +666,9 @@ c_func
 comma
 op_amp
 id|git_default_email
+comma
+op_amp
+id|default_email_is_bogus
 )paren
 suffix:semicolon
 id|strbuf_trim
@@ -1453,13 +1483,7 @@ id|email
 op_eq
 id|git_default_email.buf
 op_logical_and
-id|strstr
-c_func
-(paren
-id|email
-comma
-l_string|&quot;(none)&quot;
-)paren
+id|default_email_is_bogus
 )paren
 (brace
 id|fputs
