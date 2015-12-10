@@ -810,6 +810,8 @@ id|eaten
 op_assign
 l_int|0
 suffix:semicolon
+id|err
+op_or_assign
 id|fn
 c_func
 (paren
