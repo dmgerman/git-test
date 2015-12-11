@@ -20668,7 +20668,7 @@ op_or_assign
 id|error
 c_func
 (paren
-l_string|&quot;unable to commit reflog &squot;%s&squot; (%s)&quot;
+l_string|&quot;unable to write reflog %s: %s&quot;
 comma
 id|log_file
 comma
