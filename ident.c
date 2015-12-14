@@ -396,7 +396,7 @@ op_assign
 id|gethostbyname
 c_func
 (paren
-id|buf
+id|host
 )paren
 suffix:semicolon
 r_if
