@@ -17261,6 +17261,12 @@ r_break
 suffix:semicolon
 )brace
 )brace
+id|closedir
+c_func
+(paren
+id|dir
+)paren
+suffix:semicolon
 id|strbuf_setlen
 c_func
 (paren
@@ -17287,12 +17293,6 @@ comma
 id|path-&gt;buf
 comma
 id|data
-)paren
-suffix:semicolon
-id|closedir
-c_func
-(paren
-id|dir
 )paren
 suffix:semicolon
 r_return
