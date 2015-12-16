@@ -358,13 +358,7 @@ l_int|0
 id|die_errno
 c_func
 (paren
-l_string|&quot;unable to write credential store: %s&quot;
-comma
-id|strerror
-c_func
-(paren
-id|errno
-)paren
+l_string|&quot;unable to write credential store&quot;
 )paren
 suffix:semicolon
 )brace
