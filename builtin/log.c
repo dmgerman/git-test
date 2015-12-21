@@ -6467,6 +6467,11 @@ id|no_binary_diff
 op_assign
 l_int|0
 suffix:semicolon
+r_int
+id|zero_commit
+op_assign
+l_int|0
+suffix:semicolon
 r_struct
 id|commit
 op_star
@@ -6790,6 +6795,23 @@ id|N_
 c_func
 (paren
 l_string|&quot;don&squot;t output binary diffs&quot;
+)paren
+)paren
+comma
+id|OPT_BOOL
+c_func
+(paren
+l_int|0
+comma
+l_string|&quot;zero-commit&quot;
+comma
+op_amp
+id|zero_commit
+comma
+id|N_
+c_func
+(paren
+l_string|&quot;output all-zero hash in From header&quot;
 )paren
 )paren
 comma
@@ -7715,6 +7737,10 @@ multiline_comment|/* Always generate a patch */
 id|rev.diffopt.output_format
 op_or_assign
 id|DIFF_FORMAT_PATCH
+suffix:semicolon
+id|rev.zero_commit
+op_assign
+id|zero_commit
 suffix:semicolon
 r_if
 c_cond

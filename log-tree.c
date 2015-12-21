@@ -1719,6 +1719,12 @@ op_assign
 id|oid_to_hex
 c_func
 (paren
+id|opt-&gt;zero_commit
+ques
+c_cond
+op_amp
+id|null_oid
+suffix:colon
 op_amp
 id|commit-&gt;object.oid
 )paren

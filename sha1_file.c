@@ -51,6 +51,12 @@ id|null_sha1
 l_int|20
 )braket
 suffix:semicolon
+DECL|variable|null_oid
+r_const
+r_struct
+id|object_id
+id|null_oid
+suffix:semicolon
 multiline_comment|/*&n; * This is meant to hold a *small* number of objects that you would&n; * want read_sha1_file() to be able to return, but yet you do not want&n; * to write them into the object store (e.g. a browse-only&n; * application).&n; */
 DECL|struct|cached_object
 r_static
