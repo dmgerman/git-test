@@ -2725,11 +2725,7 @@ comma
 op_amp
 id|recurse_submodules
 comma
-id|N_
-c_func
-(paren
 l_string|&quot;check|on-demand|no&quot;
-)paren
 comma
 id|N_
 c_func
