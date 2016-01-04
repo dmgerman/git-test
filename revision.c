@@ -1373,11 +1373,7 @@ id|object-&gt;flags
 op_or_assign
 id|flags
 suffix:semicolon
-multiline_comment|/*&n;&t;&t; * We&squot;ll handle the tagged object by looping or dropping&n;&t;&t; * through to the non-tag handlers below. Do not&n;&t;&t; * propagate data from the tag&squot;s pending entry.&n;&t;&t; */
-id|name
-op_assign
-l_string|&quot;&quot;
-suffix:semicolon
+multiline_comment|/*&n;&t;&t; * We&squot;ll handle the tagged object by looping or dropping&n;&t;&t; * through to the non-tag handlers below. Do not&n;&t;&t; * propagate path data from the tag&squot;s pending entry.&n;&t;&t; */
 id|path
 op_assign
 l_int|NULL
