@@ -456,6 +456,10 @@ c_func
 l_string|&quot;Refusing to point HEAD outside of refs/&quot;
 )paren
 suffix:semicolon
+id|ret
+op_assign
+op_logical_neg
+op_logical_neg
 id|create_symref
 c_func
 (paren
